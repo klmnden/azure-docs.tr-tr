@@ -1,25 +1,25 @@
 ---
-title: "Azure Kubernetes küme web kullanıcı Arabirimi ile yönetme"
-description: "Azure kapsayıcı Hizmeti'nde Kubernetes web kullanıcı Arabirimi kullanma"
+title: Azure Kubernetes küme web kullanıcı Arabirimi ile yönetme
+description: Azure kapsayıcı Hizmeti'nde Kubernetes web kullanıcı Arabirimi kullanma
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: d5a3906e5e26c9ed0a6cf356000c3d81f00de72c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Azure kapsayıcı hizmeti ile Kubernetes web kullanıcı arabirimini kullanma
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu kılavuz, sahibi olduğunuzu varsayar [Azure kapsayıcı hizmeti kullanarak Kubernetes küme oluşturulan](container-service-kubernetes-walkthrough.md).
 
 

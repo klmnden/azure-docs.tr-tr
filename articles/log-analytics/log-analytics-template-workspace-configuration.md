@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: e51dab1543c9c5c1c762134b3e73d608bcd523ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Günlük analizi Azure Resource Manager şablonları kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve günlük analizi çalışma alanları yapılandırmak için. Şablonları ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -124,7 +124,7 @@ Aşağıdaki parametreler varsayılan bir değer ayarlayın:
 
 Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonucu içeren aşağıdakine benzer bir ileti görürsünüz:<br><br> ![Dağıtım tamamlandığında, örnek sonuç](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Oluşturma ve yapılandırma günlük analizi çalışma alanı
+## <a name="configure-a-log-analytics-workspace"></a>Günlük analizi çalışma alanı yapılandırın
 Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 
 1. Çalışma Alanı'na çözümleri Ekle
@@ -230,7 +230,7 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ Azure hızlı başlangıç Şablon Galerisi dahil olmak üzere günlük analizi 
 * [Günlük analizi VM uzantısı ile Linux çalıştıran bir sanal makine dağıtma](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Azure Site Recovery varolan bir günlük analizi çalışma alanını kullanarak izleme](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Varolan bir günlük analizi çalışma alanını kullanarak Azure Web uygulamaları İzle](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [SQL Azure varolan bir günlük analizi çalışma alanını kullanarak izleme](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Service Fabric kümesi dağıtma ve var olan bir günlük analizi çalışma ile izleme](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Service Fabric kümesi dağıtmak ve izlemek için günlük analizi çalışma alanı oluşturma](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Varolan bir depolama hesabı için OMS ekleme](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Resource Manager şablonları kullanarak VM'ler aracılar dağıtma](log-analytics-azure-vm-extension.md)
+* [Windows Aracısı Azure Resource Manager şablonu kullanarak sanal makineleri dağıtmak](../virtual-machines/windows/extensions-oms.md).
+* [Azure Resource Manager şablonu kullanarak sanal makineleri Linux aracı dağıtım](../virtual-machines/linux/extensions-oms.md).
 

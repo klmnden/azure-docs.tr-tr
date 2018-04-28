@@ -1,8 +1,8 @@
 ---
-title: "Geliştirme ve sınama için Azure storage öykünücüsünü kullanma | Microsoft Docs"
-description: "Azure storage öykünücüsü geliştirmek ve Azure Storage uygulamalarınızı test etme için boş yerel geliştirme ortamı sağlar. İstekleri nasıl doğrulanır, uygulamanızdan öykünücüsünü bağlanma ve komut satırı aracının nasıl kullanılacağını öğrenin."
+title: Geliştirme ve sınama için Azure storage öykünücüsünü kullanma | Microsoft Docs
+description: Azure storage öykünücüsü geliştirmek ve Azure Storage uygulamalarınızı test etme için boş yerel geliştirme ortamı sağlar. İstekleri nasıl doğrulanır, uygulamanızdan öykünücüsünü bağlanma ve komut satırı aracının nasıl kullanılacağını öğrenin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve sınama için Azure storage öykünücüsünü kullanma
 
@@ -27,7 +27,7 @@ Microsoft Azure storage öykünücüsü geliştirme amacıyla Azure Blob, kuyruk
 ## <a name="get-the-storage-emulator"></a>Depolama öykünücüsü Al
 Depolama öykünücüsü olarak kullanılabilir parçası [Microsoft Azure SDK'sı](https://azure.microsoft.com/downloads/). Depolama öykünücüsü kullanarak da yükleyebilirsiniz [tek başına yükleyici](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (doğrudan indirme). Depolama öykünücüsü yüklemek için bilgisayarınızda yönetici ayrıcalıkları olmalıdır.
 
-Depolama öykünücüsü şu anda yalnızca Windows üzerinde çalışır. Olanlar için Linux için depolama öykünücüsü dikkate alarak, bir seçenek tutulan, açık kaynaklı depolama öykünücüsü topluluktur [Azurite](https://github.com/arafato/azurite).
+Depolama öykünücüsü şu anda yalnızca Windows üzerinde çalışır. Olanlar için Linux için depolama öykünücüsü dikkate alarak, bir seçenek tutulan, açık kaynaklı depolama öykünücüsü topluluktur [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Depolama öykünücüsü bir sürümünde oluşturulan veri farklı bir sürümünü kullanırken erişilebilir olması garanti edilmez. Verileriniz için uzun vadeli kalıcı olması gerekiyorsa, bu verileri Azure depolama hesabı yerine depolama öykünücüsünü depolamak önerilir.

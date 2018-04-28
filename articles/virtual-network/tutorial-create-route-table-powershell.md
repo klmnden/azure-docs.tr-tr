@@ -17,31 +17,31 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell kullanarak bir yol tablosu ile ağ trafiği yönlendirme
 
-Azure otomatik olarak yollar varsayılan olarak bir sanal ağ içindeki tüm alt ağlar arasında trafiği. Azure'nın geçersiz kılmak için kendi Rota oluşturabilmeniz için varsayılan yönlendirme. Örneğin, bir ağ sanal gereç (NVA) aracılığıyla alt ağlar arasında trafiği yönlendirmek istiyorsanız, özel yollar oluşturma olanağı yararlıdır. Bu makalede, bilgi nasıl yapılır:
+Azure varsayılan olarak bir sanal ağ içindeki tüm alt ağlar arasında gerçekleşen trafiği otomatik olarak yönlendirir. Azure’ın varsayılan yönlendirmesini geçersiz kılmak için kendi yönlendirmelerinizi oluşturabilirsiniz. Örneğin, bir ağ sanal gereci üzerinden alt ağlar arasındaki trafiği yönlendirmek isteyebilirsiniz. Bu makalede şunları öğreneceksiniz:
 
-* Rota tablosu oluşturma
-* Bir yol oluşturma
-* Birden çok alt ağı ile bir sanal ağ oluşturma
-* Bir alt ağ için bir yol tablosu ilişkilendirme
-* Trafiğini yönlendiren bir NVA oluşturma
-* Sanal makineler (VM) farklı alt dağıtma
-* Bir NVA aracılığıyla başka bir yolu trafiğini bir alt ağdan
+* Yönlendirme tablosu oluşturma
+* Yönlendirme oluşturma
+* Birden fazla alt ağa sahip bir sanal ağ oluşturma
+* Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
+* Trafiği yönlendiren bir NVA oluşturma
+* Sanal makineleri (VM) farklı alt ağlara dağıtma
+* NVA aracılığıyla trafiği bir alt ağdan başka birine yönlendirme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu makale Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu makale Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
 
-## <a name="create-a-route-table"></a>Rota tablosu oluşturma
+## <a name="create-a-route-table"></a>Yönlendirme tablosu oluşturma
 
 Bir yol tablosu oluşturmadan önce bir kaynak grubuyla oluşturmanız [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* bu makalede oluşturulan tüm kaynaklar için. 
 
@@ -58,7 +58,7 @@ $routeTablePublic = New-AzureRmRouteTable `
   -location EastUS
 ```
 
-## <a name="create-a-route"></a>Bir yol oluşturma
+## <a name="create-a-route"></a>Yönlendirme oluşturma
 
 Rota tablosu nesnesiyle alarak bir yol oluşturma [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable), bir rota oluşturmak [Ekle AzureRmRouteConfig](/powershell/module/azurerm.network/add-azurermrouteconfig), ileyoltablosunayolyapılandırmasıyazma[Kümesi AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable). 
 
@@ -74,7 +74,7 @@ Get-AzureRmRouteTable `
  | Set-AzureRmRouteTable
 ```
 
-## <a name="associate-a-route-table-to-a-subnet"></a>Bir alt ağ için bir yol tablosu ilişkilendirme
+## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 
 Bir alt ağ için bir yol tablosu ilişkilendirmeden önce bir sanal ağ ve alt ağ oluşturmanız gerekir. [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVirtualNetwork* adres ön ekine sahip *10.0.0.0/16*.
 
@@ -122,9 +122,9 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 Set-AzureRmVirtualNetwork
 ```
 
-## <a name="create-an-nva"></a>Bir NVA oluşturma
+## <a name="create-an-nva"></a>NVA oluşturma
 
-Bir NVA yönlendirme, saldırısından veya WAN iyileştirmesi gibi bir ağ işlevi gerçekleştiren bir VM'dir.
+NVA; yönlendirme, güvenlik duvarı oluşturma veya WAN iyileştirmesi gibi ağ işlevlerini gerçekleştiren bir VM'dir.
 
 Bir VM oluşturmadan önce bir ağ arabirimi oluşturur.
 
@@ -216,9 +216,9 @@ New-AzureRmVm `
   -Name "myVmPrivate"
 ```
 
-VM oluşturmak için birkaç dakika sürer. Sonraki adıma VM oluşturulur ve Azure PowerShell çıkış döndürür kadar devam yok.
+Sanal makinenin oluşturulması birkaç dakika sürer. Sonraki adıma VM oluşturulur ve Azure PowerShell çıkış döndürür kadar devam yok.
 
-## <a name="route-traffic-through-an-nva"></a>Bir NVA arasında trafiği yönlendirme
+## <a name="route-traffic-through-an-nva"></a>Trafiği NVA üzerinden yönlendirme
 
 Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) genel IP adresi döndürülecek *myVmPrivate* VM. Aşağıdaki örnek genel IP adresi döndürür *myVmPrivate* VM:
 
@@ -229,17 +229,17 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVmPrivate* yerel bilgisayarınızdan VM. Değiştir `<publicIpAddress>` IP adresi ile döndürülen önceki komutu.
+İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVmPrivate* yerel bilgisayarınızdan VM. `<publicIpAddress>` değerini önceki komutta döndürülen IP adresi ile değiştirin.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-İndirilen RDP dosyasını açın. İstenirse, seçin **Bağlan**.
+İndirilen RDP dosyasını açın. İstendiğinde **Bağlan**’ı seçin.
 
-Kullanıcı adını ve VM oluştururken belirttiğiniz parolayı girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için), ardından **Tamam**. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** bağlantı ile devam etmek için. 
+Sanal makineyi oluştururken belirttiğiniz kullanıcı adını ve parolayı girin (sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan**’ı seçmeniz gerekebilir), ardından **Tamam**’ı seçin. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet**’i seçin. 
 
-Bir sonraki adımda tracert.exe komut yönlendirme test etmek için kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedildi Internet Denetim İletisi Protokolü (ICMP) kullanır. ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı üzerinden etkinleştirme *myVmPrivate* VM:
+Bir sonraki adımda tracert.exe komut yönlendirme test etmek için kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedildi Internet Denetim İletisi Protokolü (ICMP) kullanır. PowerShell’den *myVmPrivate* sanal makinesinde aşağıdaki komutu girerek Windows güvenlik duvarı üzerinden ICMP’yi etkinleştirin:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -247,7 +247,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 İzleme yolu, bu makaledeki yönlendirme test etmek için kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
 
-VM'nin ağ arabirimi için IP iletimini Azure içindeki etkin [etkinleştirmek IP fowarding](#enable-ip-forwarding). VM dahilinde işletim sistemi ya da VM içinde çalışan bir uygulama aynı zamanda ağ trafiğini iletebilir olması gerekir. İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva*.
+[IP iletmeyi etkinleştirme](#enable-ip-forwarding) bölümünde, VM'nin ağ arabirimi için Azure’da IP iletimini etkinleştirdiniz. VM içindeki işletim sistemi veya VM içinde çalışan bir uygulama da ağ trafiğini iletebilmelidir. İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva*.
 
 Bir komut isteminden *myVmPrivate* VM, Uzak Masaüstü ' *myVmNva*:
 
@@ -255,27 +255,27 @@ Bir komut isteminden *myVmPrivate* VM, Uzak Masaüstü ' *myVmNva*:
 mstsc /v:myvmnva
 ```
     
-İşletim sistemi içinde IP iletimini etkinleştirmek için Powershell'den aşağıdaki komutu girin. *myVmNva* VM:
+İşletim sistemi içinde IP iletmeyi etkinleştirmek için *myVmNva* sanal makinesinden PowerShell’de aşağıdaki komutu girin:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Yeniden *myVmNva* de Uzak Masaüstü oturumu bağlantısını keser VM.
+*myVmNva* sanal makinesini yeniden başlatarak uzak masaüstü oturumunun bağlantısını da kesin.
 
-Halen bağlı sırasında *myVmPrivate* VM, bir Uzak Masaüstü oturumu oluşturmak *myVmPublic* VM, sonra *myVmNva* VM'yi yeniden başlatır:
+*myVmPrivate* VM bağlantısı devam ederken, *myVmNva* VM yeniden başlatıldıktan sonra *myVmPublic* VM ile bir uzak masaüstü oturumu oluşturun:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı üzerinden etkinleştirme *myVmPublic* VM:
+PowerShell’den *myVmPublic* sanal makinesinde aşağıdaki komutu girerek Windows güvenlik duvarı üzerinden ICMP’yi etkinleştirin:
 
 ```powershell
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Ağ trafiği yönlendirmesini test etmek için *myVmPrivate* VM'den *myVmPublic* VM Powershell'den aşağıdaki komutu girin *myVmPublic* VM:
+Ağ trafiğinin *myVmPrivate* sanal makinesinden *myVmPublic* sanal makinesine yönlendirilmesini test etmek için *myVmPublic* sanal makinesinde PowerShell’den aşağıdaki komutu girin:
 
 ```
 tracert myVmPrivate
@@ -293,11 +293,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-İlk atlama NVA'ın özel IP adresi 10.0.2.4 olduğunu görebilirsiniz. İkinci atlama 10.0.1.4, özel IP adresi olan *myVmPrivate* VM. Eklenen rota *myRouteTablePublic* rota tablosu ve ilişkili *ortak* alt neden NVA aracılığıyla yerine doğrudan trafiği yönlendirmek Azure *özel* alt ağ.
+İlk atlamanın, NVA özel IP adresi olan 10.0.2.4 olduğunu görebilirsiniz. İkinci atlama ise *myVmPrivate* sanal makinesinin özel IP adresi olan 10.0.1.4’tür. *myRouteTablePublic* yönlendirme tablosuna eklenip *Genel* alt ağ ile ilişkilendirilen yönlendirme, Azure’un trafiği doğrudan *Özel* alt ağına yönlendirmek yerine NVA aracılığıyla yönlendirmesine neden olmuştur.
 
-Uzak Masaüstü oturumu kapatmak *myVmPublic* , hala bağlı bırakır VM *myVmPrivate* VM.
+*myVmPublic* VM ile uzak masaüstü oturumunu kapatın. *myVmPrivate* VM bağlantınız hala açıktır.
 
-Ağ trafiği yönlendirmesini test etmek için *myVmPublic* VM'den *myVmPrivate* VM, bir komut isteminden aşağıdaki komutu girin *myVmPrivate* VM:
+Ağ trafiğinin *myVmPublic* sanal makinesinden *myVmPrivate* sanal makinesine yönlendirilmesini test etmek için *myVmPrivate* sanal makinesinde bir komut isteminden aşağıdaki komutu girin:
 
 ```
 tracert myVmPublic
@@ -314,9 +314,9 @@ over a maximum of 30 hops:
 Trace complete.
 ```
 
-Trafik, doğrudan yönlendirilir görebilirsiniz *myVmPrivate* VM *myVmPublic* VM. Varsayılan olarak, Azure yollar doğrudan alt ağlar arasında trafiği.
+Trafiğin *myVmPrivate* sanal makinesinden *myVmPublic* sanal makinesine doğrudan yönlendirildiğini görebilirsiniz. Varsayılan olarak Azure, trafiği doğrudan alt ağlar arasında yönlendirir.
 
-Uzak Masaüstü oturumu kapatmak *myVmPrivate* VM.
+*myVmPrivate* VM ile uzak masaüstü oturumunu kapatın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -328,6 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş bir basit ağ sanal gereç oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış ağ sanal Gereçleri çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) ve [bir yol tablosu yönetmek](manage-route-table.md).
+Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş bir basit ağ sanal gereç oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış ağ sanal Gereçleri çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme hakkında daha fazla bilgi için bkz. [Yönlendirmeye genel bakış](virtual-networks-udr-overview.md) ve [Yönlendirme tablosunu yönetme](manage-route-table.md).
 
-Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Bilgi edinmek için bkz [PaaS kaynaklarına ağ erişimini kısıtlayabilir](tutorial-restrict-network-access-to-resources-powershell.md).
+Bir sanal ağ içinde çok sayıda Azure kaynağına dağıtabilmenize karşın, bazı Azure PaaS hizmetlerinin kaynakları bir sanal ağa dağıtılamaz. Yine de, bazı Azure PaaS hizmetlerinin kaynaklarına erişimi yalnızca bir sanal ağ alt ağından gelecek trafikle kısıtlayabilirsiniz. Bilgi edinmek için bkz [PaaS kaynaklarına ağ erişimini kısıtlayabilir](tutorial-restrict-network-access-to-resources-powershell.md).

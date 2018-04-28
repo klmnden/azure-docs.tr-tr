@@ -1,12 +1,12 @@
 ---
-title: "Azure yedekleme: Azure portalını kullanarak sanal makineleri geri yükleme | Microsoft Docs"
-description: "Bir Azure sanal makinesi, Azure portalını kullanarak bir kurtarma noktasından geri yükleme"
+title: 'Azure yedekleme: Azure portalını kullanarak sanal makineleri geri yükleme | Microsoft Docs'
+description: Bir Azure sanal makinesi, Azure portalını kullanarak bir kurtarma noktasından geri yükleme
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "yedeklemeyi geri; geri yükleme; kurtarma noktası;"
+editor: ''
+keywords: yedeklemeyi geri; geri yükleme; kurtarma noktası;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineler geri yüklemek için Azure portalını kullanın
 Verilerinizin anlık görüntüleri tanımlanan aralıklarla gerçekleştirerek verilerinizi koruyun. Bu anlık görüntüleri kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarının depolandıkları. Onarmak veya bir sanal makine (VM) yeniden oluşturmak gerekliyse, kaydedilmiş kurtarma noktaları hiçbirini VM geri yükleyebilirsiniz. Bir kurtarma noktası geri yüklediğinizde, şunları yapabilirsiniz:
@@ -109,7 +109,7 @@ Portal sağlayan bir **hızlı Oluştur** geri yüklenen VM için seçeneği. VM
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Bir geri yükleme noktasından yeni bir VM oluşturun
 1. Zaten orada değilseniz [bir geri yükleme noktası seçin](#restore-a vm-with-special-network-configurations) bir geri yükleme noktasından yeni bir VM oluşturmaya başlamadan önce. Bir geri yükleme noktası seçtikten sonra **geri yükleme yapılandırmasını** dikey penceresinde girin veya seçin değerleri aşağıdaki alanların her biri için:
 
-    a. **Türü geri**. Bir sanal makine oluşturun.
+    a. **Türü geri**. Sanal makine oluşturur.
 
     b. **Sanal makine adı**. VM için bir ad sağlayın. Adı kaynak grubu (bir Azure Resource Manager tarafından dağıtılan VM) veya (için Klasik VM) bulut hizmeti için benzersiz olmalıdır. Abonelikte zaten mevcut değilse VM değiştirilemiyor.
 
@@ -211,7 +211,7 @@ Azure yedekleme, yedeklenen VM'ler eşleştirilmiş datacenter VM'ler çalışt�
 ## <a name="restore-domain-controller-vms"></a>Etki alanı denetleyicisi sanal makineleri geri yükleme
 Etki alanı denetleyicisi (DC) yedekleme VM'ler yedekleme desteklenen bir senaryo değil. Ancak, geri yükleme işlemi sırasında dikkatli olmanız gerekir. Doğru geri yükleme işlemi, etki alanı yapısına bağlıdır. En basit durumda, tek bir etki alanında tek bir DC sahip. Daha sık üretim yükleri, tek bir etki alanı birden çok DC'ler, belki de bazı DC'leri ile şirket içi sahip. Son olarak, birden çok etki alanı içeren bir ormanda olabilir. 
 
-Bir Active Directory açısından bakıldığında, başka bir VM modern desteklenen bir hiper yöneticide Azure VM gibidir. Şirket içi hiper ile en önemli fark, hiçbir VM konsolu ile Azure kullanılabilir olduğunu ' dir. Bir konsol tam kurtarma (BMR) kullanarak kurtarma gibi belirli senaryolar için gerekli değildir-türü yedekleme. Ancak, VM geri yükleme yedekleme kasasından tam bir BMR yerini alır. Dizin Hizmetleri Geri Yükleme Modu'nda (DSRM), ayrıca tüm Active Directory Kurtarma senaryolarına uygun şekilde kullanılabilir. Daha fazla bilgi için bkz: [sanallaştırılmış etki alanı denetleyicileri için yedekleme ve geri yükleme hakkında önemli noktalar](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) ve [Active Directory orman kurtarma planlama](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+Bir Active Directory açısından bakıldığında, başka bir VM modern desteklenen bir hiper yöneticide Azure VM gibidir. Şirket içi hiper ile en önemli fark, hiçbir VM konsolu ile Azure kullanılabilir olduğunu ' dir. Bir konsol tam kurtarma (BMR) kullanarak kurtarma gibi belirli senaryolar için gerekli değildir-türü yedekleme. Ancak, VM geri yükleme yedekleme kasasından tam bir BMR yerini alır. Dizin Hizmetleri Geri Yükleme Modu'nda (DSRM), ayrıca tüm Active Directory Kurtarma senaryolarına uygun şekilde kullanılabilir. Daha fazla bilgi için bkz: [sanallaştırılmış etki alanı denetleyicileri için yedekleme ve geri yükleme hakkında önemli noktalar](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) ve [Active Directory orman kurtarma planlama](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
 ### <a name="single-dc-in-a-single-domain"></a>Tek bir etki alanındaki tek DC
 VM (tüm diğer VM gibi) Azure portalından veya PowerShell'i kullanarak geri yüklenebilir.
@@ -242,7 +242,7 @@ Tam olarak VM'ler diske geri yükledikten sonra yeniden oluşturmak için aşağ
 
    a. Bulut hizmeti ile bir VM oluşturma bir [iç yük dengeleyici](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Bağlanmak için bir VM oluşturma bir [internet'e yönelik Yük Dengeleyici](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Bağlanmak için bir VM oluşturma bir [internet'e yönelik Yük Dengeleyici](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Bir VM ile oluşturma [birden çok NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 

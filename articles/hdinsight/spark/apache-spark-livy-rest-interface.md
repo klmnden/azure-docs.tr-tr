@@ -1,9 +1,9 @@
 ---
-title: "Azure Hdınsight'ta Spark işlerini küme göndermek için Livy Spark kullanın | Microsoft Docs"
-description: "Apache Spark REST API uzaktan Azure Hdınsight kümesi için Spark iş göndermek için nasıl kullanılacağını öğrenin."
+title: Azure Hdınsight'ta Spark işlerini küme göndermek için Livy Spark kullanın | Microsoft Docs
+description: Apache Spark REST API uzaktan Azure Hdınsight kümesi için Spark iş göndermek için nasıl kullanılacağını öğrenin.
 keywords: Apache spark rest API, livy spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,21 +11,19 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Hdınsight Spark kümesinde işleri uzaktan göndermek için Apache Spark REST API kullanın
 
-Livy, Azure Hdınsight Spark kümesinde işleri uzaktan göndermek için kullanılan Apache Spark REST API kullanmayı öğrenin. Ayrıntılı belgeler için bkz: [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Livy, Azure Hdınsight Spark kümesinde işleri uzaktan göndermek için kullanılan Apache Spark REST API kullanmayı öğrenin. Ayrıntılı belgeler için bkz: [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
 
 Livy etkileşimli Spark Kabukları çalıştırmak veya Spark çalıştırılmak üzere toplu iş göndermek için kullanabilirsiniz. Bu makalede, toplu iş göndermek Livy kullanarak alınmaktadır. Bu makalede parçacıkları cURL Livy Spark uç REST API çağrıları yapmak için kullanın.
 

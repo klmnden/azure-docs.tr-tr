@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup sunucusu sorunlarını giderme | Microsoft Docs"
-description: "Yükleme, kayıt Azure yedekleme sunucusu ve yedekleme ve geri yükleme uygulama iş yüklerinin sorunlarını giderin."
+title: Azure Backup sunucusu sorunlarını giderme | Microsoft Docs
+description: Yükleme, kayıt Azure yedekleme sunucusu ve yedekleme ve geri yükleme uygulama iş yüklerinin sorunlarını giderin.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,17 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
-<<<<<<< HEAD
-ms.openlocfilehash: 696f86f616575364bb65021260daf0c8458fc4e9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
-=======
-ms.openlocfilehash: e9517672138a4ea7577af1295dea13771733983e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: db0d3d9ff2b27ac0be86b73926563d226d0e5d59
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Sunucusu sorunlarını giderme
 
@@ -94,4 +88,4 @@ Bu sorunu çözümlemek için izlediği [aşağıdaki sorun giderme adımların�
 ## <a name="configure-email-notifications"></a>E-posta bildirimleri yapılandırma
 | İşlem | Hata ayrıntıları | Geçici çözüm |
 | --- | --- | --- |
-| Bir Office 365 hesabınızı kullanarak e-posta bildirimlerini ayarlama |Hata Kimliği: 2013| **Neden:**<br> Office 365 hesabı kullanmaya çalışıyor <br>**Önerilen eylem:**<ol><li> Emin olmak için ilk şey, Exchange'de "İzin anonim geçiş üzerinde bir alma bağlayıcısında" DPM sunucunuz için ayarlandığını ' dir. Bu yapılandırma hakkında daha fazla bilgi için bkz: [alma bağlayıcısında anonim geçişte izin](http://technet.microsoft.com/en-us/library/bb232021.aspx) TechNet'te.</li> <li> Bir iç SMTP geçişi kullanın ve Office 365 sunucunuz kullanarak ayarlamanız gerekir, bir geçiş olması için IIS ayarlayabilirsiniz. DPM sunucusuna yapılandırma [IIS kullanarak SMTP o365'e geçiş](https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx).<br><br> **Önemli:** kullandığınızdan emin olun user@domain.com biçimi ve *değil* etkialanı\kullanıcı.<br><br><li>SMTP sunucusu olarak yerel sunucu adını kullanacak şekilde noktası DPM 587 bağlantı noktası. Ardından e-postaları alınması gereken kullanıcı e-posta üzerine gelin.<li> Kullanıcı adı ve parola DPM SMTP Kurulum sayfasında DPM açıktır etki alanındaki etki alanı hesabı olması gerekir. </li><br> **Not**: SMTP sunucu adresleri değiştirirken, yeni ayarları değişiklik, ayarlar kutusunu kapatın ve yeni değer gösterdiğinden emin olmak için yeniden açın.  Her zaman sadece değiştirmek ve test bu şekilde test en iyi uygulamadır şekilde etkili olabilmesi yeni ayarları neden.<br><br>Bu işlem sırasında herhangi bir zamanda bu ayarları DPM Konsolu kapatmak ve aşağıdaki kayıt defteri anahtarlarını düzenleyerek temizleyebilirsiniz: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword silin ve SMTPUserName anahtarları**. Yeniden başlattığınızda, kullanıcı Arabirimi yeniden ekleyebilirsiniz.
+| Bir Office 365 hesabınızı kullanarak e-posta bildirimlerini ayarlama |Hata Kimliği: 2013| **Neden:**<br> Office 365 hesabı kullanmaya çalışıyor <br>**Önerilen eylem:**<ol><li> Emin olmak için ilk şey, Exchange'de "İzin anonim geçiş üzerinde bir alma bağlayıcısında" DPM sunucunuz için ayarlandığını ' dir. Bu yapılandırma hakkında daha fazla bilgi için bkz: [alma bağlayıcısında anonim geçişte izin](http://technet.microsoft.com/library/bb232021.aspx) TechNet'te.</li> <li> Bir iç SMTP geçişi kullanın ve Office 365 sunucunuz kullanarak ayarlamanız gerekir, bir geçiş olması için IIS ayarlayabilirsiniz. DPM sunucusuna yapılandırma [IIS kullanarak SMTP o365'e geçiş](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **Önemli:** kullandığınızdan emin olun user@domain.com biçimi ve *değil* etkialanı\kullanıcı.<br><br><li>SMTP sunucusu olarak yerel sunucu adını kullanacak şekilde noktası DPM 587 bağlantı noktası. Ardından e-postaları alınması gereken kullanıcı e-posta üzerine gelin.<li> Kullanıcı adı ve parola DPM SMTP Kurulum sayfasında DPM açıktır etki alanındaki etki alanı hesabı olması gerekir. </li><br> **Not**: SMTP sunucu adresleri değiştirirken, yeni ayarları değişiklik, ayarlar kutusunu kapatın ve yeni değer gösterdiğinden emin olmak için yeniden açın.  Her zaman sadece değiştirmek ve test bu şekilde test en iyi uygulamadır şekilde etkili olabilmesi yeni ayarları neden.<br><br>Bu işlem sırasında herhangi bir zamanda bu ayarları DPM Konsolu kapatmak ve aşağıdaki kayıt defteri anahtarlarını düzenleyerek temizleyebilirsiniz: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword silin ve SMTPUserName anahtarları**. Yeniden başlattığınızda, kullanıcı Arabirimi yeniden ekleyebilirsiniz.

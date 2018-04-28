@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 8d984c17ab373428b13ed59a598ca8ae4e88136a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Stream Analytics çıkışları: depolama ve analiz için Seçenekler
 Akış analizi işi yazarken sonuç verileri nasıl göz önünde bulundurun. Stream Analytics işi sonuçlarını nasıl görüntüleyebileceğiniz ve burada depolayabilir miyim?
@@ -290,6 +290,8 @@ Aşağıdaki tablo özellik adları ve sıra çıktı oluşturmak için bunları
 | Sınırlayıcı |Yalnızca, CSV serileştirme için de geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Virgül, noktalı virgül, boşluk, sekmesini ve dikey çubuk değerleri desteklenir. |
 | Biçimlendir |Yalnızca JSON türü için geçerlidir. Yeni bir çizgiyle ayrılmış her bir JSON nesnesi sağlayarak çıktı biçimlendirilir ayrılmış satırını belirtir. Çıkış JSON nesnelerinin bir dizisi biçimlendirilir dizisini belirtir. |
 
+Bölüm sayısı [Service Bus SKU ve boyutuna göre](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.
+
 ## <a name="service-bus-topics"></a>Service Bus Konuları
 Hizmet veri yolu kuyrukları gönderenden alıcıya, bire bir iletişim yöntemi sunarken [Service Bus konu başlıklarına](https://msdn.microsoft.com/library/azure/hh367516.aspx) bir-çok form iletişim sağlar.
 
@@ -305,6 +307,8 @@ Hizmet veri yolu kuyrukları gönderenden alıcıya, bire bir iletişim yöntemi
 | Olay Serileştirme Biçimi |Çıkış verileri seri hale getirme biçimi.  JSON, CSV ve Avro desteklenir. |
  | Encoding |Bir kodlama, CSV veya JSON biçimi kullanıyorsanız, belirtilmiş olması gerekir. Şu anda desteklenen tek kodlama biçimi UTF-8 durumda |
 | Sınırlayıcı |Yalnızca, CSV serileştirme için de geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Virgül, noktalı virgül, boşluk, sekmesini ve dikey çubuk değerleri desteklenir. |
+
+Bölüm sayısı [Service Bus SKU ve boyutuna göre](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) hizmet teklifleri sınırsız esnek ölçek dünya zengin sorgu ve şema belirsiz veri modelleri otomatik dizin oluşturma işlemi geçici düşük gecikme süresi garanti ve endüstri lideri Genel dağıtılmış, birden çok model bir veri tabanıdır kapsamlı SLA. Stream Analytics Cosmos DB koleksiyonu seçenekleri hakkında bilgi edinmek için bkz [Stream Analytics çıkış olarak Cosmos DB ile](stream-analytics-documentdb-output.md) makalesi.
@@ -326,7 +330,7 @@ Aşağıdaki tabloda Azure Cosmos DB çıktı oluşturmak için özellikleri aç
 | Bölüm Anahtarı | İsteğe bağlı. Bu, yalnızca, koleksiyon adı deseni {partition} belirteci kullanıyorsanız gereklidir.<br/> Bölüm anahtarı çıkışın koleksiyonlar üzerinde bölümlenmesine yönelik anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adıdır.<br/> Tek koleksiyon çıktı için herhangi bir rastgele çıkış sütunu PartitionID örnek için kullanılabilir. |
 | Belge Kimliği |İsteğe bağlı. Hangi ekleme veya güncelleştirme işlemleri dayalı birincil anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adı.  
 
-## <a name="azure-functions-in-preview"></a>Azure işlevlerinde (Önizleme)
+## <a name="azure-functions"></a>Azure İşlevleri
 Azure İşlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan kodu isteğe bağlı çalıştırmanıza olanak sağlayan bir sunucusuz işlem hizmetidir. Azure veya üçüncü taraf hizmetleri gerçekleşen olaylar tarafından tetiklenen kodları uygulama olanak sağlar.  Tetikleyiciler için yanıt Özelliği Azure işlevlerinin bir Azure akış analizi için doğal bir çıktı kolaylaştırır. Bu çıkış bağdaştırıcısı Stream Analytics Azure işlevleri bağlanmak ve yanıt olayları çeşitli olarak bir komut dosyası veya kod parçası çalıştırmak kullanıcıların sağlar.
 
 Azure Stream Analytics Azure işlevleri HTTP Tetikleyicileri çağırır. Aşağıdaki yapılandırılabilir özelliklere sahip yeni Azure işlevi çıkış bağdaştırıcısı kullanılabilir:
@@ -342,6 +346,23 @@ Azure Stream Analytics Azure işlevleri HTTP Tetikleyicileri çağırır. Aşağ
 Azure Stream Analytics Azure işlevinden 413 (http istek varlığı çok büyük) özel durum aldığında, bunu Azure işlevleri gönderir toplu boyutunu azaltır unutmayın. Azure işlevi kodunuzda bu özel durumun Azure akış analizi büyük boyutlu toplu göndermez emin olmak için kullanın. Ayrıca, işlevde kullanılan Maksimum toplu iş sayısı ve boyutu değerleri Stream Analytics portalda girdiğiniz değerleri ile tutarlı olduğundan emin olun. 
 
 Ayrıca, bir durumda bir zaman penceresi için giriş olay olduğunda, çıktı oluşturulur. Sonuç olarak, computeResult işlev çağrılmaz. Bu davranış, yerleşik pencereli toplama işlevleri tutarlıdır.
+
+## <a name="partitioning"></a>Bölümleme
+
+Bölüm destek ve her bir çıkış türü için çıktı yazıcılarının sayısı aşağıdaki tabloda özetlenmiştir:
+
+| Çıkış türü | Bölümleme desteği | Bölüm anahtarı  | Çıktı yazıcılarının sayısı | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | Evet | Kullanım {date} ve {time} belirteçleri yol önek deseni. Gibi YYYY/AA/GG, GG/AA/YYYY-AA-GG-YYYY tarih biçimini seçin. SS saat biçimi için kullanılır. | Giriş ile aynıdır. | 
+| Azure SQL Database | Hayır | None | Geçerli değil. | 
+| Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri yol deseni. Gibi YYYY/AA/GG, GG/AA/YYYY-AA-GG-YYYY tarih biçimini seçin. SS saat biçimi için kullanılır. | Giriş ile aynıdır. | 
+| Azure Event hub'ı | Evet | Evet | Aynı olay hub'ı bölümleri çıktı. |
+| Power BI | Hayır | None | Geçerli değil. | 
+| Azure Tablo depolama | Evet | Herhangi bir çıktı sütun.  | Giriş veya önceki adımı ile aynıdır. | 
+| Azure hizmet veri yolu konusu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.| Çıktı ile aynı.  |
+| Azure hizmet veri yolu kuyruğu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.| Çıktı ile aynı. |
+| Azure Cosmos DB | Evet | {Partition} belirteci koleksiyon adı deseni kullanın. {partition} değer sorgusunda PARTITION BY yan tümcesi temel alır. | Giriş ile aynıdır. |
+| Azure İşlevleri | Hayır | None | Geçerli değil. | 
 
 
 ## <a name="get-help"></a>Yardım alın

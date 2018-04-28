@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -32,10 +32,10 @@ Kullandığınız sanal makine (VM) uzantıları için güncelleştirmeler oldu�
 |  | Öğe adı | Açıklama | Yayımcı | İşletim Sistemi Türü |
 | --- | --- | --- | --- | --- |
 |![SQL Iaas uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL Iaas uzantısı ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Herhangi bir SQL sunucusu Windows Market öğesi üzerinde dağıtmak için bu uzantıyı yükle - Bu uzantısı gereklidir.</b> | Microsoft | Windows |
-|![Özel Betik Uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ Özel betik uzantısı ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Bu güncelleştirme için özel betik uzantısı Windows ın-box sürümünü indirin.</b> | Microsoft | Windows |
+|![Özel Betik Uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ Özel betik uzantısı ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Bu güncelleştirme için özel betik uzantısı Windows ın-box sürümünü indirin.</b> | Microsoft | Windows |
 |![PowerShell DSC uzantısı](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC uzantısı ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Bu güncelleştirme PowerShell DSC uzantısı yerleşik sürümünü indirin. TLS 1.2 sürümü destekleyecek şekilde güncelleştirilmiştir.</b> | Microsoft | Windows |
-| ![Microsoft kötü amaçlı yazılımdan koruma uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft kötü amaçlı yazılımdan koruma uzantısı ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure için Microsoft Antimalware, uygulamaları ve İnsan aracılığı olmadan arka planda çalışması için tasarlanmış Kiracı ortamları için bir tek Aracısı çözümüdür. | Microsoft | Windows |
-|![Özel Betik Uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ Özel betik uzantısı ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Bu güncelleştirme için Linux özel betik uzantısının yerleşik sürümünü indirin. Bu uzantı birden fazla sürümü vardır ve 1.5.2.1 ve 2.0.x indirmelisiniz. </b> | Microsoft | Linux |
+| ![Microsoft kötü amaçlı yazılımdan koruma uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft kötü amaçlı yazılımdan koruma uzantısı ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure için Microsoft Antimalware, uygulamaları ve İnsan aracılığı olmadan arka planda çalışması için tasarlanmış Kiracı ortamları için bir tek Aracısı çözümüdür. | Microsoft | Windows |
+|![Özel Betik Uzantısı](media/azure-stack-marketplace-azure-items/cse.png) | [ Özel betik uzantısı ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Bu güncelleştirme için Linux özel betik uzantısının yerleşik sürümünü indirin. Bu uzantı birden fazla sürümü vardır ve 1.5.2.1 ve 2.0.x indirmelisiniz. </b> | Microsoft | Linux |
 | ![Docker uzantısı](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Linux sanal makineleri için docker uzantısı. | Microsoft | Linux |
 | ![Linux VM erişim](media/azure-stack-marketplace-azure-items/cse.png) | [ Linux VM erişim ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Bu güncelleştirme için Linux uzantısı VMAccess yerleşik sürümünü indirin. Bu güncelleştirme, Debian Linux VM'ler kullanmayı planlıyorsanız, önemlidir.</b> | Microsoft | Linux |
 | ![Linux için Acronis yedekleme uzantısı](media/azure-stack-marketplace-azure-items/acronis.png) | [ Linux için Acronis yedekleme uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis uluslararası GmbH. | Linux |

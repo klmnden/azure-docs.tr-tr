@@ -1,11 +1,11 @@
 ---
-title: "PowerShell kullanarak Azure günlük analizi ile Service Fabric uygulamaları değerlendirmek | Microsoft Docs"
-description: "Service Fabric çözüm günlük risk ve Service Fabric uygulamaları, mikro hizmet, düğümleri ve kümelerini durumunu değerlendirmek için PowerShell kullanma analizi kullanabilirsiniz."
+title: PowerShell kullanarak Azure günlük analizi ile Service Fabric uygulamaları değerlendirmek | Microsoft Docs
+description: Service Fabric çözüm günlük risk ve Service Fabric uygulamaları, mikro hizmet, düğümleri ve kümelerini durumunu değerlendirmek için PowerShell kullanma analizi kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 2047b3fa-96b1-4230-af5d-a4c331d973ce
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 15c2d882a121df48c94d457719287cd510d0c093
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Azure Service Fabric uygulamaları ve mikro hizmetler PowerShell ile değerlendirin
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $validTables = "WADServiceFabric*EventTable", "WADETWEventTable"
@@ -609,7 +609,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $allResources = Get-AzureRmResource

@@ -1,11 +1,11 @@
 ---
-title: "Karma kimlik tasarımı - benimseme stratejinizi Azure | Microsoft Docs"
-description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni."
-documentationcenter: 
+title: Karma kimlik tasarımı - benimseme stratejinizi Azure | Microsoft Docs
+description: Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Bir karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, ele alınan iş gereksinimlerini karşılamak karma kimlik çözümünü karma kimlik benimseme stratejinizi tanımlayın:
@@ -90,7 +90,7 @@ Ayrıca hangi özellikleri kullanılamaz olarak haberdar olmanız gerekir:
 * Office geçiş pasif kimlik doğrulama için bunları saf SAML 2.0 IdPs desteklemek verir, ancak bir istemci istemci temelinde desteği devam edebilir
 
 > [!NOTE]
-> En güncel listesi için makale https://aka.ms/ssoproviders okuyun.
+> Makaleyi en güncel listesi okumak için https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -196,7 +196,7 @@ Stratejinizi için bir çözüm üzerinde kapatılan, ancak hala kullanıcılar�
 | Şirket içi AD |Multi-Factor Authentication Sunucusu |
 
 > [!NOTE]
-> Ayrıca, seçtiğiniz çok faktörlü kimlik doğrulaması tasarım seçeneği tasarımınız için gerekli olan özellikleri desteklediğini de emin olmalısınız.  Daha fazla bilgi için okuma [multi-Factor güvenlik çözümünü seçtiğiniz](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> Ayrıca, seçtiğiniz çok faktörlü kimlik doğrulaması tasarım seçeneği tasarımınız için gerekli olan özellikleri desteklediğini de emin olmalısınız.  Daha fazla bilgi için okuma [multi-Factor güvenlik çözümünü seçtiğiniz](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

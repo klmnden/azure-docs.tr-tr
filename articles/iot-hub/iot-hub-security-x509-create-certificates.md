@@ -1,11 +1,11 @@
 ---
-title: "X.509 sertifikaları oluşturmak için PowerShell kullanma | Microsoft Docs"
-description: "X.509 sertifikaları yerel olarak oluşturup X.509 etkinleştirmek için PowerShell kullanma sanal bir ortamda Azure IOT hub'ınızdaki güvenlik temel."
+title: X.509 sertifikaları oluşturmak için PowerShell kullanma | Microsoft Docs
+description: X.509 sertifikaları yerel olarak oluşturup X.509 etkinleştirmek için PowerShell kullanma sanal bir ortamda Azure IOT hub'ınızdaki güvenlik temel.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e58096d4bde9c947f199b4696c0b5c28291956d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>CA tarafından imzalanmış X.509 sertifikalarını yönetmek için PowerShell komut dosyaları
 
@@ -33,7 +33,9 @@ Bu öğretici, OpenSSL ikili dosyaları edindiğiniz varsayar. Ya da olabilir
 ## <a name="create-x509-certificates"></a>X.509 sertifikaları oluşturma
 Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nasıl bir örneği gösterir. 
 
-1. Farklı bir PowerShell penceresi açın bir *yönetici*. 
+1. Farklı bir PowerShell penceresi açın bir *yönetici*.  
+   **Not:** , bu PowerShell içinde kendisi değil PowerShell ISE, Visual Studio Code veya temel alınan PowerShell konsolunu sarmalamak diğer araçları açmanız gerekir.  Konsol olmayan kullanarak tabanlı PowerShell neden olur `openssl` asılı aşağıdaki komutları.
+
 2. Çalışma dizinine gidin. Genel değişkenler ayarlamak için aşağıdaki betiği çalıştırın. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"

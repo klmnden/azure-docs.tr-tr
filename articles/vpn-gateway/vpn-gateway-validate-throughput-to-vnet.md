@@ -1,13 +1,13 @@
 ---
-title: "Bir Microsoft Azure sanal ağı için VPN verimlilik doğrulama | Microsoft Docs"
-description: "Bu belgenin amacı, bir kullanıcı, şirket içi kaynakları ağ akışından bir Azure sanal makinesi için doğrulama yardımcı olmaktır."
+title: Bir Microsoft Azure sanal ağı için VPN verimlilik doğrulama | Microsoft Docs
+description: Bu belgenin amacı, bir kullanıcı, şirket içi kaynakları ağ akışından bir Azure sanal makinesi için doğrulama yardımcı olmaktır.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Nasıl bir sanal ağ VPN verimlilik doğrulamak için
 
@@ -121,7 +121,7 @@ Karşıdan [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). A
 ## <a name="address-slow-file-copy-issues"></a>Yavaş dosya kopyalama sorunlarını gidermek
 Windows Gezgini'ni kullanarak veya sürükleyip bir RDP oturumu aracılığıyla zaman kopyalamayı yavaş dosya karşılaşabilirsiniz. Bu sorun, normalde birini veya her ikisini aşağıdaki etmenlere nedeniyle oluşur:
 
-- Dosya kopyalama uygulamaları, Windows Gezgini ve RDP, gibi birden çok iş parçacığı dosya kopyalarken kullanmayın. Çok iş parçacıklı dosya kopyalama uygulaması gibi daha iyi performans için kullandığınız [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) 16 veya 32 iş parçacığı kullanarak dosyaları kopyalamak için. Dosya kopyalama Richcopy içindeki iş parçacığı sayısını değiştirmek için tıklatın **eylem** > **kopyalama seçenekleri** > **dosya kopyalama**.<br><br>
+- Dosya kopyalama uygulamaları, Windows Gezgini ve RDP, gibi birden çok iş parçacığı dosya kopyalarken kullanmayın. Çok iş parçacıklı dosya kopyalama uygulaması gibi daha iyi performans için kullandığınız [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) 16 veya 32 iş parçacığı kullanarak dosyaları kopyalamak için. Dosya kopyalama Richcopy içindeki iş parçacığı sayısını değiştirmek için tıklatın **eylem** > **kopyalama seçenekleri** > **dosya kopyalama**.<br><br>
 ![Yavaş dosya kopyalama sorunları](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Yetersiz VM disk okuma/yazma hızı. Daha fazla bilgi için bkz: [Azure Storage sorunlarını giderme](../storage/common/storage-e2e-troubleshooting.md).
 

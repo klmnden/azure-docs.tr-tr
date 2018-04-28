@@ -1,11 +1,11 @@
 ---
-title: "Azure Portalı'nı kullanarak bir Azure VM'deki MSI yapılandırma"
-description: "Tarafından yönetilen hizmet kimliği (MSI) Azure Azure portalını kullanarak bir VM, yapılandırma için adım yönergeler adım."
+title: Azure Portalı'nı kullanarak bir Azure VM'deki MSI yapılandırma
+description: Tarafından yönetilen hizmet kimliği (MSI) Azure Azure portalını kullanarak bir VM, yapılandırma için adım yönergeler adım.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 2e28688fed5a361e3d94c3dc27faea81bfe1a276
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 91b4d50bb72e438c677b8b83e292998cce26415c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma
 
@@ -25,51 +25,60 @@ ms.lasthandoff: 03/08/2018
 
 Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgileri, kodunuzda gerek kalmadan destekleyen herhangi bir hizmeti için kimlik doğrulaması yapmak için kullanabilirsiniz. 
 
-Bu makalede, Azure Azure portalını kullanarak VM için MSI kaldırma etkinleştirip öğreneceksiniz.
+Bu makalede, etkinleştirme ve devre dışı kimlik Azure Azure portalını kullanarak VM için atanan sistem öğreneceksiniz. Şu anda atama ve kullanıcı kimlikleri Azure VM'lerin atanan kaldırma Azure Portal desteklenmiyor.
+
+> [!NOTE]
+> Şu anda kimlik işlemleri atanan kullanıcı desteklenmez Azure portalı yoluyla. Geri güncelleştirmeleri denetleyin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Yönetilen hizmet kimliği ile emin değilseniz, kullanıma [genel bakış bölümünde](overview.md).
+- Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
 
-## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Bir Azure VM oluşturma sırasında MSI etkinleştir
+## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Bir Azure VM oluşturulması sırasında yönetilen hizmet kimliği
 
-Bu yazma tarihinde Azure portalında bir VM oluşturulması sırasında MSI etkinleştirme desteklenmiyor. Bunun yerine, Lütfen ilk olarak bir VM oluşturmak için aşağıdaki VM oluşturma Hızlı Başlangıç makaleleri birine bakın:
+Şu anda, VM oluşturma Azure Portalı aracılığıyla yönetilen hizmet kimliği işlemlerini desteklemiyor. Bunun yerine, Lütfen ilk olarak bir VM oluşturmak için aşağıdaki VM oluşturma Hızlı Başlangıç makaleleri birine bakın:
 
 - [Azure portalı ile Windows sanal makine oluşturma](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Azure portalıyla Linux sanal makine oluşturma](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
 
-Ardından VM'de MSI etkinleştirme ile ilgili ayrıntılar için sonraki bölüme geçin.
+Sonra yönetilen hizmet kimliği VM'de etkinleştirme ile ilgili ayrıntılar için sonraki bölüme geçin.
 
-## <a name="enable-msi-on-an-existing-azure-vm"></a>Var olan Azure VM'de MSI etkinleştir
+## <a name="enable-managed-service-identity-on-an-existing-azure-vm"></a>Yönetilen hizmet kimliği mevcut bir Azure VM'de etkinleştir
 
-İlk olarak bir MSI sağlanan bir VM varsa:
+Kimliği olmadan ilk olarak sağlanan bir VM üzerinde atanan sistem etkinleştirmek için:
 
 1. Oturum [Azure portal](https://portal.azure.com) VM içeren Azure aboneliği ile ilişkili bir hesabı kullanarak. Ayrıca hesabınızın sağlayan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi VM üzerinde yazma izinleri.
 
-2. İstenen sanal makineye gidin.
+2. İstenen sanal makineye gidin ve "Yapılandırma" sayfasını seçin.
 
-2. "Yapılandırma" sayfasında, VM'de MSI "Yönetilen hizmet kimliği altında" "Evet"'i seçerek etkinleştirin, ardından tıklatın **kaydetmek**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+3. VM atanan sistem kimliğini "Yönetilen hizmet kimliği altında" "Evet"'ı seçerek etkinleştirin ve ardından **kaydetmek**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+
+    > [!NOTE]
+    > Bir VM'ye atanan kullanıcı kimliğini ekleme Azure Portal şu anda desteklenmiyor.
 
    ![Yapılandırma sayfası ekran görüntüsü](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
-## <a name="remove-msi-from-an-azure-vm"></a>MSI bir Azure sanal makineden kaldırın
+## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Yönetilen hizmet kimliği bir Azure sanal makineden kaldırın
 
-Bir sanal makine varsa, artık bir MSI gerekir:
+Bir sanal makine varsa, artık atanan sistem kimliği gerekir:
 
 1. Oturum [Azure portal](https://portal.azure.com) VM içeren Azure aboneliği ile ilişkili bir hesabı kullanarak. Ayrıca hesabınızın sağlayan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi VM üzerinde yazma izinleri.
 
-2. İstenen sanal makineye gidin.
+2. İstenen sanal makineye gidin ve "Yapılandırma" sayfasını seçin.
 
-3. "Yapılandırma" sayfasında, "Yönetilen hizmet kimliği" altında "Hayır" seçerek MSI sanal makineden kaldırın, ardından tıklatın **kaydetmek**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+3. "Yönetilen hizmet kimliği" altında "Hayır" seçerek VM'de kimliği atanır sisteminizi devre dışı sonra Kaydet'e tıklayın. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+
+    > [!NOTE]
+    > Bir VM'ye atanan kullanıcı kimliğini ekleme Azure Portal şu anda desteklenmiyor.
 
    ![Yapılandırma sayfası ekran görüntüsü](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>İlgili içerik
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
+- Yönetilen hizmet kimliği genel bakış için bkz: [genel bakış](overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Azure portal kullanarak bir Azure VM'in MSI verin [erişim için başka bir Azure kaynağı](howto-assign-access-portal.md).
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.

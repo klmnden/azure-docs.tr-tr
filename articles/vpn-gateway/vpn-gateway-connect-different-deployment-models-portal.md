@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Farklı dağıtım modelinden Portalı'nı kullanarak sanal ağlara bağlanabilir
 
@@ -57,7 +57,7 @@ Konum Batı ABD = <br>
 GatewaySubnet 10.0.0.32/28 = <br>
 Yerel site RMVNetLocal = <br>
 
-**Resource Manager VNet**
+**Resource Manager Vnet'i**
 
 Sanal ağ adı RMVNet = <br>
 Adres alanı 192.168.0.0/16 = <br>
@@ -65,11 +65,11 @@ Kaynak grubu RG1 = <br>
 Konum Doğu ABD = <br>
 Alt ağ adı Subnet-1 = <br>
 Adres aralığı 192.168.1.0/24 = <br>
-GatewaySubnet = 192.168.0.0/26 <br>
+GatewaySubnet 192.168.0.0/26 = <br>
 Sanal ağ geçidi adı RMGateway = <br>
 Ağ geçidi türü VPN = <br>
 VPN türü = rota tabanlı <br>
-SKU = VpnGw1 <br>
+SKU VpnGw1 = <br>
 Konum Doğu ABD = <br>
 Sanal ağ RMVNet = <br> (Bu sanal ağa VPN ağ geçidi ilişkilendirmek) İlk IP yapılandırması rmgwpip = <br> (ağ geçidi genel IP adresi) Yerel ağ geçidi ClassicVNetLocal = <br>
 Bağlantı adı RMtoClassic =
@@ -168,7 +168,7 @@ Bir sanal ağ geçidi oluşturmadan önce ilk ağ geçidi alt ağı oluşturman�
 * Sanal ağ geçidi adı RMGateway = <br>
 * Ağ geçidi türü VPN = <br>
 * VPN türü = rota tabanlı <br>
-* SKU = VpnGw1 <br>
+* SKU VpnGw1 = <br>
 * Konum Doğu ABD = <br>
 * Sanal ağ RMVNet = <br>
 * İlk IP yapılandırması rmgwpip = <br>
@@ -232,7 +232,7 @@ Bu adımlarda, Resource Manager Vnet'i Klasik VNet arasında bağlantı yapılan
 Yükseltilmiş haklarla PowerShell konsolu açın ve Azure hesabınızda oturum açın. Oturum açtıktan sonra Azure PowerShell kullanılabilir olacak şekilde, hesap ayarlarınızı karşıdan yüklenir. Aşağıdaki cmdlet'i Azure hesabınız Resource Manager dağıtım modeli için oturum açma kimlik bilgilerini ister:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Azure aboneliklerinizin bir listesini alın.

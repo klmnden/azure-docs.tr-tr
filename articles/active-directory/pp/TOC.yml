@@ -1,35 +1,4 @@
-- name: Yönetilen Hizmet Kimliği (Kullanıcı tarafından atanan)
-  href: msi-overview.md
+- name: Azure Depolama’ya erişmek için VM MSI kullanma
   items:
-    - name: Azure VM için MSI yapılandırma
-      items:
-        - name: Azure CLI’yı kullanma
-          href: msi-qs-configure-cli-windows-vm.md
-        - name: Azure SDK’sını kullanma
-          href: msi-qs-configure-sdk-windows-vm.md
-    - name: Resource Manager’a MSI erişimi verme
-      items:
-        - name: Azure CLI’yı kullanma
-          href: msi-howto-assign-access-cli.md
-    - name: VM MSI kullanma
-      items:
-        - name: Erişim belirteci alma
-          href: msi-how-to-use-vm-msi-token.md
-        - name: Azure CLI'da oturum açma
-          href: msi-how-to-use-vm-msi-sign-in.md
-        - name: Azure SDK'leriyle birlikte kullanma
-          href: msi-how-to-use-vm-msi-sdk.md
-    - name: Azure Resource Manager’a erişmek için VM MSI kullanma
-      items:
-        - name: Linux sanal makinesinden
-          href: msi-tutorial-linux-vm-access-arm.md
-    - name: Azure Cosmos DB’ye erişmek için VM MSI kullanma
-      items:
-        - name: Linux sanal makinesinden
-          href: msi-tutorial-linux-vm-access-cosmosdb.md
-    - name: Azure Depolama’ya erişmek için VM MSI kullanma
-      items:
-        - name: Erişim anahtarı kullanarak bir Linux sanal makinesinden
-          href: msi-tutorial-linux-vm-access-storage.md
-    - name: SSS ve bilinen sorunlar
-      href: msi-known-issues.md
+    - name: Erişim anahtarı kullanarak bir Linux sanal makinesinden
+      href: msi-tutorial-linux-vm-access-storage.md

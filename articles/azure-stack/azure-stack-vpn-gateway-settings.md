@@ -1,11 +1,11 @@
 ---
-title: "VPN ağ geçidi ayarlarını Azure yığınının | Microsoft Docs"
-description: "VPN ağ geçitleri Azure yığın ile kullanmak için ayarları hakkında bilgi edinin."
+title: VPN ağ geçidi ayarlarını Azure yığınının | Microsoft Docs
+description: VPN ağ geçitleri Azure yığın ile kullanmak için ayarları hakkında bilgi edinin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure yığını için VPN ağ geçidi yapılandırma ayarları
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>Ağ geçidi SKU'ları
 Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU'ları seçin.
 
->[!NOTE]
-> Klasik sanal ağlarda eski SKU'ların kullanılmasına devam edilmesi gerekir. Eski ağ geçidi SKU'ları hakkında daha fazla bilgi için bkz. [Sanal ağ geçidi SKU'ları (eski) ile çalışma](/azure/vpn-gateway/vpn-gateway-about-skus-legacy).
-
 Aşağıdaki VPN ağ geçidi SKU'ları Azure yığın sunar:
 
 |   | VPN Gateway işlemesi |VPN Gateway maks. IPSec tünelleri |
 |-------|-------|-------|
 |**Temel SKU**  | 100 Mbps  | 10    |
 |**Standart SKU**           | 100 Mbps  | 10    |
-|**Yüksek performanslı SKU** | 200 Mbps    | 30    |
+|**Yüksek performanslı SKU** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>Ağ geçidi SKU'ları yeniden boyutlandırma
 Azure yığın SKU desteklenen eski SKU'ları arasında bir yeniden boyutlandırma desteklemez.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 VPN ağ geçidi yapılandırması için sanal ağ geçidi oluşturduğunuzda, bir VPN türü belirtmeniz gerekir. Seçtiğiniz VPN türü oluşturmak istediğiniz bağlantı topolojisine bağlıdır.  Bir VPN türü ayrıca kullandığınız donanımda bağlı olabilir. S2S yapılandırmaları bir VPN cihazı gerektirir. Bazı VPN cihazlarının yalnızca belirli bir VPN türü destekler.
 
 > [!IMPORTANT]  
-> Şu anda Azure yığını yalnızca rota tabanlı VPN türü destekler. Cihazınız yalnızca ilke tabanlı VPN'leri destekliyorsa, Azure yığın gelen bağlantıları bu cihazlar için desteklenmez.
+> Şu anda Azure yığını yalnızca rota tabanlı VPN türü destekler. Cihazınız yalnızca ilke tabanlı VPN'leri destekliyorsa, Azure yığın gelen bağlantıları bu cihazlar için desteklenmez.  Ayrıca, Azure yığın özel IPSec/IKE İlkesi yapılandırmalarını olmadığından ilke tabanlı trafik Seçici rota tabanlı ağ geçitleri için şu anda kullanmayı desteklemez henüz desteklenmiyor.
 
 - **PolicyBased**: *(Azure, ancak Azure yığını tarafından desteklenir)* ilke temelli VPN'ler şifreler ve yönlendirirler adres öneklerinin birleşimleriyle yapılandırılmış IPSec ilkeleri temelindeki IPSec tüneller üzerinden paketleri Şirket içi ağınız ve Azure yığın VNet arasında. İlke (veya trafik seçici) çoğunlukla VPN cihazı yapılandırmasında bir erişim listesi olarak tanımlanır.
 
-- **RouteBased**: RouteBased VPN IP iletme veya yönlendirme tablosunu paketleri kendi ilgili arabirimlerine yönlendirmek "yolları" kullanın. Bundan sonra tünel arabirimleri, paketleri tünellerin içinde veya dışında şifreler veya şifrelerini çözer. İlke (veya trafik Seçici) RouteBased VPN için yapılandırılmış olan herhangi herhangi olarak (veya joker karakterler). RouteBased RouteBased VPN türüyle ilgili değer.
+- **RouteBased**: RouteBased VPN IP iletme veya yönlendirme tablosunu paketleri kendi ilgili arabirimlerine yönlendirmek "yolları" kullanın. Bundan sonra tünel arabirimleri, paketleri tünellerin içinde veya dışında şifreler veya şifrelerini çözer. İlke (veya trafik Seçici) RouteBased VPN için yapılandırılmış olan herhangi herhangi olarak (veya joker karakterler) tarafından varsayılan ve değiştirilemez. RouteBased RouteBased VPN türüyle ilgili değer.
 
 Aşağıdaki PowerShell örnek RouteBased - VpnType belirtir. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir.
 
@@ -110,7 +107,7 @@ Aşağıdaki tabloda, VPN ağ geçitleri için gereksinimleri listelenmiştir.
 |--|--|--|--|--|
 | **Siteden siteye bağlantı (S2S bağlantısı)** | Desteklenmiyor | RouteBased VPN yapılandırması | RouteBased VPN yapılandırması | RouteBased VPN yapılandırması |
 | **Kimlik doğrulama yöntemi**  | Desteklenmiyor | S2S bağlantısı için önceden paylaşılan anahtar  | S2S bağlantısı için önceden paylaşılan anahtar  | S2S bağlantısı için önceden paylaşılan anahtar  |   
-| **S2S bağlantısı sayısı**  | Desteklenmiyor | 10 | 10| 30|
+| **S2S bağlantısı sayısı**  | Desteklenmiyor | 10 | 10| 5|
 |**Etkin yönlendirme desteği (BGP)** | Desteklenmiyor | Desteklenmiyor | Desteklenen | Desteklenen |
 
 ### <a name="gateway-subnet"></a>Ağ geçidi alt ağı
@@ -160,7 +157,7 @@ Birden çok teklifleri hem Başlatıcı hem de bir Yanıtlayıcı olarak destekl
 |IKE Sürümü |IKEv2 |
 |Şifreleme ve karma algoritmalar (şifreleme)     | GCMAES256|
 |Şifreleme ve karma algoritmalar (kimlik doğrulaması) | GCMAES256|
-|SA Yaşam Süresi (Zaman)  | 14,400 saniye |
+|SA Yaşam Süresi (Zaman)  | 27.000 saniye |
 |SA Yaşam Süresi (Bayt) | 819,200       |
 |Kusursuz İletme Gizliliği (PFS) |PFS2048 |
 |Kullanılmayan Eş Algılama | Desteklenen|  

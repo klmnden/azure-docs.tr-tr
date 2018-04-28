@@ -1,25 +1,25 @@
 ---
-title: "Güvenli Azure VPN ağ geçidi için RADIUS kimlik doğrulaması NPS sunucusu ile çok faktörlü kimlik doğrulaması | Microsoft Docs"
-description: "Açıklar Azure ağ geçidi RADIUS kimlik doğrulaması, çok faktörlü kimlik doğrulaması için NPS sunucusu ile tümleştirme."
+title: Güvenli Azure VPN ağ geçidi için RADIUS kimlik doğrulaması NPS sunucusu ile çok faktörlü kimlik doğrulaması | Microsoft Docs
+description: Açıklar Azure ağ geçidi RADIUS kimlik doğrulaması, çok faktörlü kimlik doğrulaması için NPS sunucusu ile tümleştirme.
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin
 manager: willchen
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: f0d95cc0dabb253a72afdbc1bc518df882c4d861
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 665e1914f44d7c5e650a1b632d8b11c6d8a5931a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN ağ geçidi RADIUS kimlik doğrulaması, çok faktörlü kimlik doğrulaması için NPS sunucusu ile tümleştirme 
 
@@ -50,7 +50,7 @@ MFA'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket içi 
  
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>2. adım, Azure MFA için NPS yapılandırma
 
-1. NPS sunucusunda [Azure MFA için NPS uzantıyı yüklemek](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
+1. NPS sunucusunda [Azure MFA için NPS uzantıyı yüklemek](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. NSP konsolunu açın, sağ **RADUIS istemcileri**ve ardından **yeni**. Aşağıdaki ayarları belirterek RADUIS istemci oluşturun:
 
     - **Kolay ad**: herhangi bir ad yazın.
@@ -80,5 +80,5 @@ MFA'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket içi 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
-- [Mevcut NPS altyapınızı Azure Multi-Factor Authentication ile tümleştirme](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md)
+- [Mevcut NPS altyapınızı Azure Multi-Factor Authentication ile tümleştirme](../active-directory/authentication/howto-mfa-nps-extension.md)

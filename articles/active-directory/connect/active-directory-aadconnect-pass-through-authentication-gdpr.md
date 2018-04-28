@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect - doğrudan kimlik doğrulama - GDPR uyumluluk | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama ve GDPR uyumluluk ile ilgilidir."
+title: Kullanıcı gizliliği ve Azure Active Directory doğrudan kimlik doğrulaması | Microsoft Docs
+description: Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama ve GDPR uyumluluk ile ilgilidir.
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, GDPR, gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, GDPR, gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Azure Active Directory doğrudan kimlik doğrulaması: GDPR uyumluluk
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Kullanıcı gizliliği ve Azure Active Directory doğrudan kimlik doğrulaması
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Genel Bakış
-
-Mayıs 2018, Avrupa gizlilik yasalarına içinde [genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), etkili olması son. GDPR şirketler, devlet dairesi, kar kaybı olmayan ve diğer kuruluşlardan teklif mal ve hizmet Avrupa Birliği (AB) ya da, kişilere toplamak ve analiz etmek için AB Satışlar bağlı veri yeni kuralları uygular. Bulunduğunuz olsun GDPR geçerlidir. 
-
-Microsoft Ürün ve hizmetlerini bugün GDPR gereksinimlerini karşılamanıza yardımcı olmak kullanılabilir. Microsoft Privacy İlkesi hakkında daha fazla bilgiyi [Güven Merkezi](https://www.microsoft.com/trustcenter).
 
 Azure AD doğrudan kimlik doğrulama EUII içerebilir aşağıdaki günlük türlerini oluşturur:
 
@@ -35,7 +34,7 @@ Azure AD doğrudan kimlik doğrulama EUII içerebilir aşağıdaki günlük tür
 - Kimlik Doğrulama Aracısı izleme günlüğü dosyalarının.
 - Windows olay günlüğü dosyaları.
 
-GDPR uyumluluk geçişli kimlik doğrulaması için iki yolla erişilebilir:
+Doğrudan kimlik doğrulama için kullanıcı gizliliğini iki yolla erişilebilir:
 
 1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın.
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.
@@ -104,4 +103,5 @@ Bu komut dosyasının çalışmasını zamanlamak için her 48 saat şu adımlar
 Denetim günlüğü etkinleştirilirse, bu ürün, etki alanı denetleyicileri için güvenlik günlüklerini oluşturabilir. Denetim ilkeleri yapılandırma hakkında daha fazla bilgi için bu okuma [makale](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [Güven Merkezi Microsoft Privacy ilkeyi gözden geçirin](https://www.microsoft.com/trustcenter)
 - [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -özelliği ile ilgili genel sorunları çözmeyi öğrenin.

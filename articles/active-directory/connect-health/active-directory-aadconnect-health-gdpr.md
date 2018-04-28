@@ -1,36 +1,32 @@
 ---
-title: "Azure AD Connect sistem durumunu ve genel veri koruma düzenleme | Microsoft Docs"
-description: "Bu belge, Azure AD Connect ile GDPR uyumluluğunu elde açıklar."
+title: Azure AD Connect sistem durumu ve kullanıcı gizliliğini | Microsoft Docs
+description: Bu belgede Azure AD Connect Health ile kullanıcı gizliliği açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bf26e91308cfec0dc8ede20e683919b5764a4868
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect-health"></a>GDPR uyumluluk ve Azure AD Connect Health 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>Kullanıcı gizliliği ve Azure AD Connect Health 
 
-[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR şirketler yeni kuralları uygular, devlet dairesi, kar kaybı olmayan ve AB veya kişilere mal ve hizmet sunmak diğer kuruluşların toplamak ve AB Satışlar bağlı verileri analiz etmek. 
-
-Microsoft Ürün ve hizmetlerini bugün GDPR gereksinimlerini karşılamanıza yardımcı olmak kullanılabilir. Microsoft Privacy İlkesi hakkında daha fazla bilgiyi [Güven Merkezi](https://www.microsoft.com/trustcenter).
-
-Azure AD Connect Health, şirket içi kimlik altyapınızı ve eşitleme hizmeti izler. Ayrıca, Öngörüler ve yüzeyleri uyarıları sağlar. Microsoft GDPR-uyumluluk için zorlama May 2018 başladığında bulut hizmetleri arasında ve GDPR ilgili çıkışların sözleşme taahhüt içinde sağlamak için taahhüt eder. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> Bu makalede, Azure AD Connect Health GDPR uyumlu özetlenmektedir. Azure AD CONNECT'te GDPR uyumluluğu hakkında daha fazla bilgi için bkz: [GDPR uyumluluk ve Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>Bu makalede, Azure AD Connect Health ve kullanıcı gizlilik ile ilgilidir.  Azure AD Connect ve kullanıcı gizlilik hakkında bilgi için bkz: [burada](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
-## <a name="gdpr-classification"></a>GDPR sınıflandırma
+## <a name="user-privacy-classification"></a>Kullanıcı gizlilik sınıflandırma
 Azure AD Connect Health döner içine **veri işlemcisi** GDPR sınıflandırma kategorisi. Veri işlemcisi ardışık hizmeti anahtar iş ortakları ve son tüketicileri veri işleme hizmetleri sağlar. Azure AD Connect Health kullanıcı verilerini oluşturmaz ve kişisel verileri toplanır ve nasıl kullanıldığı bağımsız denetimi yoktur. Veri alma, toplama, çözümleme ve Azure AD Connect Health raporlama mevcut şirket içi verilere dayanır. 
 
 ## <a name="data-retention-policy"></a>Veri saklama ilkesi
@@ -67,5 +63,5 @@ Azure AD Connect Health daha önce silinmiş izlenen hizmete ilişkin izleme yen
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güven Merkezi Microsoft Privacy ilkeyi gözden geçirin](https://www.microsoft.com/trustcenter)
-* [Azure AD Connect ve GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Azure AD Connect Health işlemleri](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect ve kullanıcı gizliliği](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+

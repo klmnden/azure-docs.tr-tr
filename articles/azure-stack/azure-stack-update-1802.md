@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -47,7 +47,7 @@ Azure yığın 1802 güncelleştirme yapı numarası **20180302.1**.
   Düzeltmeyi yüklemek için normal yordamları izleyin [Azure yığını için güncelleştirmeleri yükleme](azure-stack-apply-updates.md). Güncelleştirme adı olarak görünür **AzS düzeltmesi – 1.0.180312.1**ve aşağıdaki dosyaları içerir: 
     - PUPackageHotFix_20180222.2-1.exe
     - PUPackageHotFix_20180222.2-1.bin
-    - Metadata.xml
+    - Metadata.XML
 
   Bu dosyaları bir depolama hesabı ve kapsayıcı dosyalarını karşıya yükledikten sonra Yönetim Portalı'nda güncelleştirme döşeme yükleme çalıştırın. 
   
@@ -56,9 +56,10 @@ Azure yığın 1802 güncelleştirme yapı numarası **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
-1802 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
-- [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/help/4103348)
+1802 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md). 
+- Azure yığın düzeltme **1.0.180302.4**. [KB 4131152 - var olan sanal makine ölçek kümeleri kullanılamaz hale gelebilir]( https://support.microsoft.com/help/4131152) 
 
+  Bu düzeltmeyi de ayrıntılı sorunlarını giderir [KB 4103348 - bir Azure yığın güncelleştirme yüklemeye çalıştığınızda, Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Yeni özellikler ve düzeltmeler

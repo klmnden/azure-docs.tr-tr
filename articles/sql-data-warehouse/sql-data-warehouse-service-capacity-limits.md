@@ -1,38 +1,33 @@
 ---
-title: SQL Data Warehouse kapasite limitlerini | Microsoft Docs
-description: Bağlantılar, veritabanları, tablolar ve SQL Data Warehouse için sorguları için en yüksek değerleri.
+title: Kapasite sınırlamaları - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değer.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
+author: antvgski
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 03/27/2018
-ms.author: kevin;barbkess
-ms.openlocfilehash: 4c49fa082547dc0de76126df17a888c6c32f03e4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: anvang
+ms.reviewer: igorstan
+ms.openlocfilehash: a0646bad9f440fc1e7d0bbdfae5bd2a23156c52f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
-Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için izin verilen en yüksek değerleri içerir.
+Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değer.
 
 ## <a name="workload-management"></a>İş yükü yönetimi
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Tek bir SQL Data Warehouse için en fazla DWU | Esneklik için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>İşlem için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
-| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Sunucu başına DTU varsayılan |54,000<br></br>Varsayılan olarak, her bir SQL server (örneğin, myserver.database.windows.net) kadar DW6000c sağlayan bir DTU kota olarak 54.000, sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotayı artırabilir [bir destek bileti oluşturma] [ creating a support ticket] ve seçerek *kota* istek türü olarak.  DTU hesaplamak için 7.5 DWU gerektiği ve toplam çarpın veya gerekli toplam cDWU tarafından 9.0 Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu'lar<br></br>9.0 = olarak 54.000 x DW600c Dtu'lar.<br></br>SQL server seçeneği, geçerli DTU tüketimi Portalı'nda görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
+| [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Tek bir SQL Data Warehouse için en fazla DWU | Esneklik için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>İşlem için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
+| [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Sunucu başına DTU varsayılan |54,000<br></br>Varsayılan olarak, her bir SQL server (örneğin, myserver.database.windows.net) kadar DW6000c sağlayan bir DTU kota olarak 54.000, sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotayı artırabilir [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md) ve seçerek *kota* istek türü olarak.  DTU hesaplamak için 7.5 DWU gerektiği ve toplam çarpın veya gerekli toplam cDWU tarafından 9.0 Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu'lar<br></br>9.0 = olarak 54.000 x DW600c Dtu'lar.<br></br>SQL server seçeneği, geçerli DTU tüketimi Portalı'nda görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
 | Veritabanı bağlantısı |Eşzamanlı açık oturum |1024<br/><br/>Her 1024 etkin oturumlar aynı anda SQL veri ambarı veritabanına istekleri gönderebilirsiniz. Not, aynı anda yürütebilir sorgu sayısı sınırlamaları vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç sıra burada işlenmeyi bekleyen gider. |
 | Veritabanı bağlantısı |Hazırlanmış deyimleri için en fazla belleği |20 MB |
 | [İş yükü yönetimi](resource-classes-for-workload-management.md) |En fazla eş zamanlı sorgular |32<br/><br/> Varsayılan olarak, SQL Data Warehouse en fazla 32 eş zamanlı sorgular ve sorguları kalan sıraları yürütebilir.<br/><br/>Kullanıcılar için daha yüksek kaynak sınıfları veya SQL Data Warehouse düşük olduğunda atandığında eşzamanlı olan sorgu sayısını azaltabilirsiniz [veri ambarı birimi](memory-and-concurrency-limits.md) ayarı. DMV sorgu gibi bazı sorgular çalıştırmak için her zaman izin verilir. |
-| [tempdb][Tempdb] |En çok GB |DW100 başına 399 GB. Bu nedenle DWU1000 tempdb 3,99 TB boyuta sahip olmadığından |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |En çok GB |DW100 başına 399 GB. Bu nedenle DWU1000 3,99 TB tempdb boyutlandırılır. |
 
 ## <a name="database-objects"></a>Veritabanı nesneleri
 | Kategori | Açıklama | Maksimum |
@@ -41,8 +36,8 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 | Tablo |Maksimum boyut |60 disk üzerinde sıkıştırılmış TB |
 | Tablo |Her bir veritabanı tabloları |10,000 |
 | Tablo |Tablo başına sütun |1024 sütunları |
-| Tablo |Sütun başına bayt sayısı |Sütun bağımlı [veri türü][data type].  Karakter veri türleri için 8000 nvarchar 4000 ya da en büyük veri türleri için 2 GB sınırıdır. |
-| Tablo |Satır, tanımlanmış boyut başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>Satır başına bayt sayısı, sayfa sıkıştırması ile SQL Server için olduğu gibi aynı şekilde hesaplanır. SQL Server gibi SQL veri ambarı etkinleştirir satır taşma depolama destekleyen **değişken uzunluğu sütununa** satır dışı edilmesini. Değişken uzunlukta satır satır dışı basıldığında yalnızca 24-bayt kök ana kayıtta depolanır. Daha fazla bilgi için bkz: [veri satırı taşma aşan 8 KB'lik][Row-Overflow Data Exceeding 8 KB]. |
+| Tablo |Sütun başına bayt sayısı |Sütun bağımlı [veri türü](sql-data-warehouse-tables-data-types.md). Karakter veri türleri için 8000 nvarchar 4000 ya da en büyük veri türleri için 2 GB sınırıdır. |
+| Tablo |Satır, tanımlanmış boyut başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>Satır başına bayt sayısı, sayfa sıkıştırması ile SQL Server için olduğu gibi aynı şekilde hesaplanır. SQL Server gibi SQL veri ambarı etkinleştirir satır taşma depolama destekleyen **değişken uzunluğu sütununa** satır dışı edilmesini. Değişken uzunlukta satır satır dışı basıldığında yalnızca 24-bayt kök ana kayıtta depolanır. Daha fazla bilgi için bkz: [veri satırı taşma aşan 8 KB'lik](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tablo |Tablo başına bölüm |15,000<br/><br/>Yüksek performans, sayısını en aza indirmenizi öneririz bölümlerini hala iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, ek yükü veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için büyür ve performans neden olur. |
 | Tablo |Karakter başına bölüm sınır değeri. |4000 |
 | Dizin |Tablo başına olmayan Kümelenmiş dizinler. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
@@ -73,8 +68,8 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 | SEÇ |BİRLEŞİM başına sütun |1024 sütunları<br/><br/>Bu gibi durumlarda, 1024'ten fazla sütun hiçbir zaman birleştirme olabilir. 1024 her zaman olabilir garantisi yoktur. BİRLEŞİM planı birleştirme sonucunu çok sütun içeren geçici bir tablo gerektiriyorsa, 1024 sınırı geçici tabloya uygulanır. |
 | SEÇ |GROUP BY sütun başına bayt sayısı. |8060<br/><br/>GROUP BY yan tümcesinde sütun en fazla Açıklama 8060 baytlık olabilir. |
 | SEÇ |ORDER BY sütun başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>ORDER BY yan tümcesinde sütun en fazla Açıklama 8060 baytlık olabilir |
-| Deyimi başına tanımlayıcıları |Başvurulan tanımlayıcıları sayısı |65,535<br/><br/>SQL veri ambarı tek bir sorgu ifadesinde bulunan tanımlayıcıları sayısını sınırlar. SQL Server hatası 8632 numara bu sonuçlarında aşıyor. Daha fazla bilgi için bkz: [iç hata: deyim Hizmetleri sınırına ulaşıldı][Internal error: An expression services limit has been reached]. |
-| Dize değişmez değerleri | Dize değişmez değerleri bir deyimde sayısı | 20,000 <br/><br/>SQL veri ambarı limites tek bir sorgu ifadesinde bulunan dize sabitleri sayısı. SQL Server hatası 8632 numara bu sonuçlarında aşıyor. Daha fazla bilgi için bkz: [iç hata: deyim Hizmetleri sınırına ulaşıldı][Internal error: An expression services limit has been reached]. |
+| Deyimi başına tanımlayıcıları |Başvurulan tanımlayıcıları sayısı |65,535<br/><br/>SQL veri ambarı tek bir sorgu ifadesinde bulunan tanımlayıcıları sayısını sınırlar. SQL Server hatası 8632 numara bu sonuçlarında aşıyor. Daha fazla bilgi için [iç hata: deyim Hizmetleri sınırına ulaşıldı] [iç hata: deyim Hizmetleri sınırına ulaşıldı]. |
+| Dize değişmez değerleri | Dize değişmez değerleri bir deyimde sayısı | 20,000 <br/><br/>SQL veri ambarı dize sabitleri sorgu tek bir ifadede sayısını sınırlar. SQL Server hatası 8632 numara bu sonuçlarında aşıyor.|
 
 ## <a name="metadata"></a>Meta Veriler
 | Sistem Görünümü | En fazla satır |
@@ -90,18 +85,4 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 | sys.dm_pdw_sql_requests |En son 1000 SQL sys.dm_pdw_exec_requests içinde depolanan ister. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla başvuru bilgileri için bkz: [SQL Data Warehouse başvuru genel bakış][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
-[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./resource-classes-for-workload-management.md
-[Tempdb]: ./sql-data-warehouse-tables-temporary.md
-[data type]: ./sql-data-warehouse-tables-data-types.md
-[creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
-
-<!--MSDN references-->
-[Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
-[Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
+SQL veri ambarı kullanma hakkında daha fazla önerileri için bkz: [kopya sayfası](cheat-sheet.md).

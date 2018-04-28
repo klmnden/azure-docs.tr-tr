@@ -1,12 +1,12 @@
 ---
-title: "Önceden yapılandırılmış Azure IoT Paketi çözümlerine genel bakış | Microsoft Docs"
-description: "Önceden yapılandırılmış Azure IoT Paketi çözümlerinin ve mimarisinin ek kaynak bağlantılarıyla birlikte açıklaması."
-services: 
+title: Önceden yapılandırılmış Azure IoT Paketi çözümlerine genel bakış | Microsoft Docs
+description: Önceden yapılandırılmış Azure IoT Paketi çözümlerinin ve mimarisinin ek kaynak bağlantılarıyla birlikte açıklaması.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Paketi nedir?
 
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 * [Azure Time Series Insights](../time-series-insights/index.yml). Önceden yapılandırılmış çözümler, cihazlarınızın telemetri verilerini görüntülemek için bu hizmeti kullanır.
 * [Azure Container Service](../container-service/index.yml). Bu hizmet, önceden yapılandırılmış çözümlerde mikro hizmetleri barındırır ve yönetir.
 * Veri depolama için [Azure Cosmos DB](../cosmos-db/index.yml) ve [Azure Depolama](../storage/index.yml).
-* [Azure Stream Analytics](../stream-analytics/index.md). Tahmin dayalı bakım önceden yapılandırılmış çözümü, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış bu çözüm, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır.
+* [Azure Stream Analytics](../stream-analytics/index.yml). Tahmin dayalı bakım önceden yapılandırılmış çözümü, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış bu çözüm, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır.
 * [Azure Web Apps](../app-service/index.yml) önceden yapılandırılmış çözümlerde özel uygulama kodunu barındırır.
 
 Tipik bir IoT çözüm mimarisine genel bakış için [Microsoft Azure ve Nesnelerin İnterneti (IoT)](iot-suite-what-is-azure-iot.md) konusunu inceleyin.

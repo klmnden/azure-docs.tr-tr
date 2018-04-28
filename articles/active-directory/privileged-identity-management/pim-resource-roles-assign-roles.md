@@ -1,5 +1,5 @@
 ---
-title: Azure Kaynakları - Ata rolleri Privileged Identity Management | Microsoft Docs
+title: Privileged Identity Management'ı kullanarak Azure kaynakları için rolleri Ata | Microsoft Docs
 description: PIM rolleri atamak açıklar.
 services: active-directory
 documentationcenter: ''
@@ -13,64 +13,64 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 9a9046afe2ee1e578333ff9d29f6fb21e95a0f22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 501f063992d2f5c7769a5c9059b346aa2b5c2bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---assign"></a>Privileged Identity Management - kaynak rolleri - atama
+# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için rolleri Ata
 
 ## <a name="assign-roles"></a>Rolleri Ata
 
-Bir kullanıcı veya grup için bir rol atamak için (rolleri görüntülerken) rolünü seçin, 
+Görüntülediğiniz zaman bir kullanıcı veya grup için bir rol atamasını **rolleri** bölmesinde rolü seçin ve ardından **Kullanıcı Ekle**. 
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+!["Rol" bölmesi "Kullanıcı Ekle" düğmesi](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
 
-veya Ekle Eylem çubuğu'ndan (üyeleri görünümü varsa) tıklayın.
+Öğesini de seçebilirsiniz **Kullanıcı Ekle** gelen **üyeleri** bölmesi.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+!["Kullanıcı Ekle" düğmesi "Üye" bölmesi](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
 
 
-Bir kullanıcı veya grup üyeleri sekmesinden eklemek için gerekir: 
+Kullanıcı ekliyoruz ya da Gruplandır **üyeleri** bölmesinde gerekir: 
 
-1. Bir kullanıcı veya grup seçebilmeniz için önce Rol Ekle menüsünden seçin.
+1. Bir rol seçin **bir rol seçin** bir kullanıcı veya grup seçebilmeniz için önce bölmesi.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+   !["Bir rol seçin" bölmesi](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
 
 2. Bir kullanıcı veya grup dizinden seçin.
 
-3. Uygun atama açılır menüsünden seçin. 
+3. Aşağı açılan menüsünden uygun atama türünü seçin: 
 
-    - **Yalnızca zaman ataması içinde:** kullanıcı veya grup üyeleri rolüne uygun ancak kalıcı değil erişimi olan belirli bir dönem için zaman veya süresiz olarak sağladığı (Rol ayarlarında yapılandırılmışsa). 
-    - **Doğrudan atama:** (sürekli erişim olarak da bilinir) rol ataması etkinleştirmek kullanıcının veya grubun üyeleri gerektirmez. Microsoft görev tamamlandığında, burada erişim gerekli olmayacak çağrısı kaydırmalar veya zaman hassas etkinlikleri gibi kısa süreli kullanım için doğrudan atanmasına kullanılmasını önerir.
+   - **Tam zamanında**: kullanıcı veya grup üyeleri rol süresiz olarak veya belirli bir süre için uygun ancak kalıcı değil erişmenizi sağlar (Rol ayarlarında yapılandırılmışsa). 
+   - **Doğrudan**: (sürekli erişim olarak da bilinir) rol ataması etkinleştirmek kullanıcının veya grubun üyeleri gerektirmez. Görev tamamlandığında, burada erişim gerekli olmayacak kısa süreli kullanım için doğrudan atanmasına kullanmanızı öneririz. Çağrısı kaydırmalar ve zamana duyarlı etkinlikleri örnektir.
 
-Atama türü açılır altında bir onay kutusu atama kalıcı olup olmayacağını belirtin (saat atama/kalıcı olarak etkin, sadece doğrudan ataması için etkinleştirmek kalıcı olarak uygun) sağlar.
+4. Atama gerekiyorsa kalıcı (yalnızca zaman atama için uygun kalıcı olarak veya doğrudan bir atama için kalıcı olarak etkin), aşağıdaki onay kutusunu seçin **atama türü** kutusu.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+   !["Atama türü" kutusu ve ilgili onay kutusu "Üyeliği ayarları" bölmesi](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
 
->[!NOTE]
->Onay kutusu başka bir yöneticinin her atama türü yüksek atama süresince rol ayarlarında belirtilen, değiştirilemeyen olabilir.
+   >[!NOTE]
+   >Onay kutusu başka bir yöneticinin her atama türü yüksek atama süresince rol ayarlarında belirtilen, değiştirilemeyen olabilir.
 
- Belirli atama süresini belirtmek için onay kutusunun seçimini kaldırın ve başlangıç değiştirmek ve/veya tarih ve saat alanları bitmelidir.
+   Belirli atama süresi belirtmek için onay kutusunu temizleyin ve başlangıç ve/veya son tarih ve saat kutularını değiştirin.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+   ![Başlangıç tarihi, başlangıç zamanı, bitiş tarihi ve bitiş zamanı kutularının "Üyeliği ayarları" bölmesi](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
 
 
 ## <a name="manage-role-assignments"></a>Rol atamalarını yönetme
 
-Yöneticiler, sol gezinti bölmesinden rol ya da üyeleri seçerek rol atamalarını yönetebilir. Rolleri seçme üyeleri gösterirken, kaynak için tüm kullanıcı ve Grup rol atamalarını yönetim görevlerini belirli bir rol için kapsamı yöneticilerinin olanak tanır.
+Yöneticiler, rol atamaları ya da seçerek yönetebilir **rolleri** veya **üyeleri** sol bölmeden. Seçme **rolleri** yönetim görevlerini belirli bir rol için kapsamı sağlar. Seçme **üyeleri** kaynak için tüm kullanıcı ve Grup rol atamalarını görüntüler.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+!["Rol" bölmesi](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+!["Üye" bölmesi](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
 
 >[!NOTE]
-Bir rol etkinleştirme bekleyen varsa, sayfanın en üstünde üyelik görüntülerken bir bildirim başlığı görüntülenir.
+Rol etkinleştirme bekleyen varsa, üyelik görüntülerken bölmenin en üstünde bir bildirim başlığı görüntülenir.
 
 
 ## <a name="modify-existing-assignments"></a>Varolan atamalarını değiştirin
 
-Kullanıcı/Grup ayrıntı görünümünden varolan atamalarını değiştirmek için sayfanın üst kısmındaki eylem çubuğunda değişiklik ayarlarını seçin. Atama türü yalnızca zaman atama içinde veya doğrudan atama olarak değiştirin.
+Kullanıcı/Grup ayrıntı görünümünden varolan atamalarını değiştirmek için seçin **Ayarları Değiştir** eylem çubuğunda. Atama türü değiştirme **zaman sadece** veya **doğrudan**.
 
-![](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+!["Kullanıcı" Ayrıntılar "Ayarlarını değiştir" düğmesi](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)

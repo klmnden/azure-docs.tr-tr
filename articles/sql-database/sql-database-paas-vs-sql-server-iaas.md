@@ -10,23 +10,23 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: c42bdaf932c29d9e4505266099960dafb48be937
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 Azure, SQL Server iş yüklerini Microsoft Azure’da barındırmaya yönelik iki seçenek içerir:
 
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Hizmet olarak yazılım (SaaS) uygulama geliştirme işlemi için iyileştirilmiş olan, hizmet olarak platform (PaaS) veritabanı veya hizmet olarak veritabanı (DBaaS) olarak da bilinen, bulut için yerel olan bir SQL database. SQL Server özelliklerinin çoğunluğu ile uyumluluk sağlar. PaaS hakkında daha fazla bilgi için bkz. [PaaS nedir](https://azure.microsoft.com/overview/what-is-paas/).
 * [Azure Virtual Machines'de SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/): Azure üzerinde çalışan Windows Server Virtual Machines'deki (VM'ler) bulutta yüklü olan ve barındırılan, aynı zamanda hizmet olarak altyapı (IaaS) olarak da bilinen SQL Server.
-  Azure sanal makinelerinde SQL Server, var olan SQL Server uygulamalarını geçirme için optimize edilmiştir. SQL Server’ın tüm sürümleri kullanılabilir durumdadır. Gereken sayıda veritabanını barındırmanıza ve veritabanları arası işlemleri yürütmenize olanak sağlayarak SQL Server ile % 100 uyumluluk sunar. SQL Server ve Windows üzerinde tam denetim sağlar.
+  Azure virtual machines'de SQL Server, şirket içi sunucunuza yüklemek - tek fark bu sunucu artık Azure içinde barındırılan bir VM'nin değil, aynı SQL Server yazılımdır. Azure SQL sunucusunda var olan SQL Server uygulamalarını geçirme için optimize edilmiştir ve tüm sürümleri ve SQL Server sürümlerinde kullanılabilir. Gerektiği gibi birçok veritabanlarını destekler olarak yürütülen veritabanları arası işlemleri barındırmanıza olanak sağlar ve SQL Server örneğini ve Windows işletim sistemi üzerinde tam denetim sunar.
 
 Her bir seçeneğin Microsoft veri platformuna nasıl uyduğunu öğrenin ve iş gereksinimleriniz için doğru seçeneği bulma konusunda yardım alın. Sizin için maliyet tasarrufu ve minimum yönetim tüm diğer unsurlardan önce geliyorsa bu makale, hangi yaklaşımın en fazla önem verdiğiniz iş gereksinimleri açısından en iyi sonucu verdiği konusunda karar vermenize yardımcı olabilir.
 
 ## <a name="microsofts-data-platform"></a>Microsoft'un veri platformu
-Azure ile şirket içi SQL Server veritabanlarının karşılaştırmasına yönelik herhangi bir tartışmada anlaşılması gereken ilk unsur, bunların tümünü kullanabileceğinizdir. Microsoft'un veri platformu, SQL Server teknolojisini kullanır ve fiziksel şirket içi makineler, özel bulut ortamları, üçüncü taraflarca barındırılan özel bulut ortamları ve genel bulutta kullanılabilir kılar. Azure sanal makineleri üzerinde SQL Server, söz konusu ortamlar genelinde aynı sunucu ürünleri, geliştirme araçları ve uzmanlık kümesin kullanırken, şirket içi ve bulut üzerinde barındırılan dağıtımların bir birleşimi yoluyla benzersiz ve çeşitli iş gereksinimlerini karşılamanıza olanak sağlar.
+Azure ile şirket içi SQL Server veritabanlarının karşılaştırmasına yönelik herhangi bir tartışmada anlaşılması gereken ilk unsur, bunların tümünü kullanabileceğinizdir. Microsoft'un veri platformu SQL Server teknolojisini kullanır ve fiziksel şirket içi makineler, özel bulut ortamları, üçüncü taraf barındırılan özel bulut ortamları ve Microsoft'un genel bulut sağlar. Azure sanal makineleri üzerinde SQL Server, söz konusu ortamlar genelinde aynı sunucu ürünleri, geliştirme araçları ve uzmanlık kümesin kullanırken, şirket içi ve bulut üzerinde barındırılan dağıtımların bir birleşimi yoluyla benzersiz ve çeşitli iş gereksinimlerini karşılamanıza olanak sağlar.
 
    ![Bulut SQL Server seçenekleri: IaaS üzerinde SQL sunucusu veya bulutta SaaS veritabanı.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -56,7 +56,7 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 | **En iyi kullanım alanı:** | **Azure SQL Veritabanı** | **Azure Sanal Makine'de SQL Server** |
 | --- | --- | --- |
 |  |Geliştirme ve pazarlama alanında zaman kısıtlamaları olan yeni bulut tasarımlı uygulamalar. |Minimum değişiklikle buluta hızlı geçiş gerektiren var olan uygulamalar. Şirket içi üretim dışı SQL Server donanımı satın almak istemediğinizde hızlı geliştirme ve test senaryoları. |
-|  | Veritabanı için yerleşik yüksek kullanılabilirlik, olağanüstü durum kurtarma ve yükseltme mekanizmalarına gereksinim duyan ekipler. |SQL Server için yüksek kullanılabilirlik, olağanüstü durum kurtarma ve düzeltme eki uygulamayı yapılandırıp yönetebilen ekipler. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. | |
+|  | Kendi veritabanı yükseltme, yüksek kullanılabilirlik ve olağanüstü durum kurtarma yönetmek için Microsoft istediğiniz ekipler. |SQL Server için yüksek kullanılabilirlik, olağanüstü durum kurtarma ve düzeltme eki uygulamayı yapılandırıp yönetebilen ekipler. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. | |
 |  | Altta yatan işletim sistemi ve yapılandırma ayarlarını yönetmek istemeyen ekipler. |Tam yönetici haklarına sahip bir özelleştirilmiş ortamı gerekir. | |
 |  | En fazla 4 TB'lık veritabanları veya olabilir büyük veritabanları [yatay veya dikey olarak bölümlenmiş](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) genişleme desenini kullanarak. |64 TB’ye varan depolama alanına sahip SQL Server örnekleri. Örnek gereken sayıda veritabanını destekleyebilir. | |
 |  | | |
@@ -81,7 +81,7 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 
 **SQL Database** ile, veritabanı yazılımına Microsoft tarafından otomatik olarak yapılandırma, düzeltme eki ve yükseltme uygulanır; bu da yönetim maliyetlerinizi azaltır. Ayrıca, [yerleşik yedekleme](sql-database-automated-backups.md) özellikleri, özellikle çok sayıda veritabanınız olduğunda önemli maliyet tasarrufları sağlamanıza yardımcı olur.
 
-**Azure VM’lerde SQL Server** ile platform tarafından sağlanan SQL Server görüntülerinin herhangi birini (lisans içerir) kullanabilir veya kendi SQL Server lisansınızı getirebilirsiniz. Desteklenen tüm SQL Server sürümleri (2008R2, 2012, 2014, 2016) (Developer, Express, Web, Standard, Enterprise) kullanılabilir. Ayrıca, görüntülerin Kendi Lisansını Getir sürümleri (KLG) mevcuttur. Azure tarafından sağlanan görüntüler kullanıldığında, işletim maliyeti, VM boyutunun yanı sıra seçtiğiniz SQL Server sürümüne bağlıdır. VM boyutundan veya SQL Server sürümünden bağımsız olarak, VM diskleri için Azure Storage maliyetinin yanı sıra, SQL Server ve Windows Server için dakika başına lisanslama ücreti ödersiniz. Dakika başına faturalandırma seçeneği, SQL Server'ı ek SQL Server lisansları satın almadan istediğiniz süreyle kullanmanıza olanak sağlar. Azure'a kendi SQL Server lisansınızı getirirseniz yalnızca Windows Server ve depolama maliyetleri için sizden ücret tahsil edilir. Kendi lisansını getir seçeneği hakkında daha fazla bilgi için bkz. [Azure'da Yazılım Güvencesi ile Lisans Mobilitesi](https://azure.microsoft.com/pricing/license-mobility/).
+**Azure VM’lerde SQL Server** ile platform tarafından sağlanan SQL Server görüntülerinin herhangi birini (lisans içerir) kullanabilir veya kendi SQL Server lisansınızı getirebilirsiniz. Tüm desteklenen SQL Server sürümleri (2008R2, 2012, 2014, 2016, 2017) ve sürümleri (Geliştirici, Express, Web, Standard, Enterprise) kullanılabilir. Ayrıca, görüntülerin Kendi Lisansını Getir sürümleri (KLG) mevcuttur. Azure tarafından sağlanan görüntüler kullanıldığında, işletim maliyeti, VM boyutunun yanı sıra seçtiğiniz SQL Server sürümüne bağlıdır. VM boyutundan veya SQL Server sürümünden bağımsız olarak, VM diskleri için Azure Storage maliyetinin yanı sıra, SQL Server ve Windows Server için dakika başına lisanslama ücreti ödersiniz. Dakika başına faturalandırma seçeneği, SQL Server'ı ek SQL Server lisansları satın almadan istediğiniz süreyle kullanmanıza olanak sağlar. Azure'a kendi SQL Server lisansınızı getirirseniz yalnızca Windows Server ve depolama maliyetleri için sizden ücret tahsil edilir. Kendi lisansını getir seçeneği hakkında daha fazla bilgi için bkz. [Azure'da Yazılım Güvencesi ile Lisans Mobilitesi](https://azure.microsoft.com/pricing/license-mobility/).
 
 #### <a name="calculating-the-total-application-cost"></a>Toplam uygulama maliyetini hesaplama
 Bir bulut platformunu kullanmaya başladığınızda, uygulamanızı çalıştırmanın maliyeti geliştirme ve yönetim maliyetlerinin yanı sıra genel bulut platformu hizmet maliyetlerini içerir.

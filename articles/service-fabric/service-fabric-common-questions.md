@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a112951409fc6177240b9eddc9fcd7f6c0c932cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan soruları Service Fabric
 
 Service Fabric neler yapabileceğinizi ve nasıl kullanılacağını hakkında çok sık sorulan sorular bulunmaktadır. Bu belgede bu ortak sorularını ve yanıtlarını çoğunu kapsar.
 
 ## <a name="cluster-setup-and-management"></a>Küme kurulumu ve Yönetimi
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Nasıl yedeklerim geri alma my Service Fabric kümesi sertifika?
+
+Geri alma uygulamanıza yükseltme, Service Fabric Küme çekirdeğini değişikliği gerçekleştirmeden önce sistem durumu hatası algılama gerektirir; yapılan değişiklikleri yalnızca ileri alınabilir. Yükseltme mühendisi ait Müşteri Destek Hizmetleri ile kümeyi kurtarmak için gerekli bir izlenmeyen önemli sertifika değişiklik sunulan durumunda olabilir.  [Service Fabric'ın uygulama yükseltme](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) geçerlidir [uygulama yükseltme parametreleri](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), ve sıfır kapalı kalma süresi yükseltme promise sunar.  İzlenen modu önerilen uygulamamız yükseltme, otomatik güncelleştirme etki alanları ilerlemeyi otomatik olarak varsayılan hizmet güncelleştirmek geçen, çalışırken geri başarısız durumu denetimleri sırasında dayanır.
+ 
+Kümenizi hala önerilir, Resource Manager şablonu Klasik sertifika parmak izi özelliğinde yararlanarak varsa, [sertifika parmak izi değişiklik kümeden ortak adı için](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), modern gizli yararlanmak için Yönetim Özellikleri.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Birden çok Azure bölgeleri veya kendi veri merkezlerini yayılan bir küme oluşturabilir miyim?
 
@@ -89,7 +95,7 @@ Gelişmiş bir deneyim üzerinde bugün çalışıyoruz ancak yükseltme için s
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Bir küme düğümü türü (sanal makine ölçek kümesi) bağlı veri diskleri şifreleyebilir mi?
 Evet.  Daha fazla bilgi için bkz: [eklenen veri disklerini ile küme oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [şifrelemek diskler (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), ve [şifrelemek diskleri (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>Dizinleri ve virüs koruma programı my kümede çalışırken hariç gereken işlemleri nelerdir?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Dizinleri ve virüs koruma programı my kümede çalışırken hariç gereken işlemleri nelerdir?
 
 | **Virüsten koruma dışlanan dizinler** |
 | --- |

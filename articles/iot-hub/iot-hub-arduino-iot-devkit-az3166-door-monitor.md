@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ed0718f2d9d5093442001005e43551e7e9749eef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
 
@@ -44,7 +44,7 @@ Son [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) için:
 
 Etkin bir Azure aboneliği. Bir yoksa, aşağıdaki yöntemlerden birini kaydedebilirsiniz:
 
-* Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesap](https://azure.microsoft.com/en-us/free/).
+* Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesap](https://azure.microsoft.com/free/).
 * Talep, [Azure kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) bir MSDN veya Visual Studio abone olması durumunda.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Azure'da SendGrid hizmet dağıtma
@@ -69,7 +69,7 @@ Ardından aşağıdaki sayfayı görürsünüz.
 
 Kayıt formunu tamamlayın:
 
-  * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Ad**: SendGrid hizmetiniz için ad. Yaptığınız diğer hizmetlerinden farklı benzersiz bir ad seçin.
 
@@ -111,7 +111,7 @@ Ardından aşağıdaki sayfayı görürsünüz.
 
 Kayıt formunu tamamlayın:
 
-  * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **IOT hub'ı adı**: IOT hub'ınız için ad. Yaptığınız diğer hizmetlerinden farklı benzersiz bir ad seçin.
 
@@ -132,10 +132,6 @@ Kayıt formunu tamamlayın:
 - VS Code'u başlatın.
 - DevKit bilgisayarınıza bağlayın.
 
-VS Code otomatik olarak, DevKit algılar ve giriş sayfasını açın:
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > VS Code'u başlatın, onu Arduino IDE veya ilgili Panosu paketi bulamıyor belirten bir hata iletisi alabilirsiniz. Bu hatayı alırsanız Kapat VS Code, Arduino IDE yeniden başlatma ve VS Code Arduino IDE yolu doğru bulun.
 
@@ -145,12 +141,13 @@ Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örne
 
 ![Mini solution örnekleri](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-Bölmesini kapatmak için görülüyorsa yeniden açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+> [!NOTE]
+> Örnek komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
 
 ### <a name="provision-azure-services"></a>Azure hizmetlerini hazırlamanız
 
 Çözüm penceresinde görev sağlama bulut çalıştırın:
-- Type `Ctrl+P` (macOS: `Cmd+P`).
+- Tür `Ctrl+P` (macOS: `Cmd+P`).
 - Girin `task cloud-provision` sağlanan metin kutusuna.
 
 VS Code terminal etkileşimli bir komut satırı, gerekli Azure hizmetleri sağlama aracılığıyla size yol gösterir. Daha önce derlemenizde istendiğinde listesinden aynı öğelerin tümünü seçin [Azure IOT Hub'ı Dağıtma](#deploy-iot-hub-in-azure).
@@ -171,7 +168,7 @@ Bu yordamı hizmetinden alınan bağlantı dizesini ayarlar [sağlama Azure Hizm
 
 VS Code'da sonra doğrulama ve Arduino karşıya yükleme başlar DevKit tasarlayın:
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![cihaz karşıya yükleme](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 DevKit yeniden başlatır ve kod çalışmaya başlar.
 
@@ -187,7 +184,7 @@ Bu yordamı hizmetinden alınan bağlantı dizesini ayarlar [sağlama Azure Hizm
 
 VS Code'da sonra doğrulama ve Arduino karşıya yükleme başlar DevKit tasarlayın:
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![cihaz karşıya yükleme](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 DevKit yeniden başlatır ve kod çalışmaya başlar.
 
@@ -216,4 +213,4 @@ Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/az
 Azure IOT paketi DevKit aygıt bağlanmak ve bir e-posta göndermek için SendGrid hizmetini kullanmak nasıl öğrendiniz. Önerilen sonraki adımlar şunlardır:
 
 * [Azure IOT Paketi'ne Genel Bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

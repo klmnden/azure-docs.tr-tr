@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: cd76f475f330c49dec737d2c4a25aa75a18b41a7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı, uygulama performansını artırmak için kullanım bellek içi OLTP
-[Bellek içi OLTP](sql-database-in-memory.md) içinde hareket işleme, veri alımı ve geçici veri senaryoları performansını artırmak için kullanılan [Premium ve iş kritik katmanı](sql-database-service-tiers.md) fiyatlandırma katmanı artırma olmadan veritabanları. 
+[Bellek içi OLTP](sql-database-in-memory.md) içinde hareket işleme, veri alımı ve geçici veri senaryoları performansını artırmak için kullanılan [Premium ve iş kritik katmanı](sql-database-service-tiers-vcore.md) fiyatlandırma katmanı artırma olmadan veritabanları. 
 
 > [!NOTE] 
 > Bilgi nasıl [çekirdek % 70'sql Database tarafından DTU düşürürken anahtar veritabanının iş yükü Katlar](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)

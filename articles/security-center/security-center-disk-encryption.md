@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure Sanal Makinesi'ni şifreleme | Microsoft Docs"
-description: "Bu belge, Azure Güvenlik Merkezi'nden uyarı aldıktan sonra Azure Sanal Makine'yi şifrelemenize yardımcı olur."
+title: Bir Azure Sanal Makinesi'ni şifreleme | Microsoft Docs
+description: Bu belge, Azure Güvenlik Merkezi'nden uyarı aldıktan sonra Azure Sanal Makine'yi şifrelemenize yardımcı olur.
 services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a376eb63e7ba054a125666f95c05d5e7dfb5470
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure Sanal Makine'yi şifreleme
 Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
@@ -92,8 +92,8 @@ Bir Azure Sanal Makinesini şifrelemek için aşağıdaki adımları gerçekleş
 1. PowerShell ISE'yi kapattıysanız yükseltilmiş bir PowerShell ISE örneği açın. PowerShell ISE zaten açık değilse bu makalede önceden geçen yönergeleri izleyin. Betiği kapattıysanız **Dosya**'ya ve ardından **Aç**'a tıklayarak ve **c:\AzureADEScript** klasöründen betiği seçerek **ADEPrereqScript.ps1**'i açın. Makaleyi baştan beri izlediyseniz sonraki adıma geçmeniz yeterlidir.
 2. PowerShell ISE konsolunda (PowerShell ISE'nin en alt bölmesi) **cd c:\AzureADEScript** yazıp **ENTER**'a basarak betiğin odağını yerel olarak değiştirin.
 3. Makinenizdeki yürütme ilkesini, betiği çalıştırabilecek şekilde ayarlayın. Konsolda **Set-ExecutionPolicy Unrestricted** yazın ve ardından ENTER'a basın. Yürütme ilkesindeki değişikliğin etkilerini anlatan bir iletişim kutusu görürseniz **Tümüne evet** veya **Evet**'e tıklayın (**Tümüne evet**'i görürseniz bu seçeneği belirleyin; **Tümüne evet**'i görmezseniz **Evet**'e tıklayın).
-4. Azure hesabınızda oturum açın. Konsolda **Login-AzureRmAccount** yazın ve **ENTER**'a basın. Kimlik bilgilerinizi gireceğiniz bir iletişim kutusu görünür (sanal makineleri değiştirme haklarına sahip olduğunuzdan emin olun; bu haklara sahip değilseniz şifreleme yapamazsınız. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. **SubscriptionId**'yi Not Defteri'ne kopyalayın. Bunu 6. adımda kullanmanız gerekir.
-5. Sanal makinenizin hangi aboneliğe ait olduğunu ve konumunu bulun. [https://portal.azure.com](ttps://portal.azure.com)'a gidin ve oturum açın.  Sayfanın sol tarafında **Virtual Machines**'e tıklayın. Sanal makinelerinizi ve ait oldukları aboneliklerin listesini görürsünüz.
+4. Azure hesabınızda oturum açın. Konsolda **Connect-AzureRmAccount** yazın ve **ENTER**'a basın. Kimlik bilgilerinizi gireceğiniz bir iletişim kutusu görünür (sanal makineleri değiştirme haklarına sahip olduğunuzdan emin olun; bu haklara sahip değilseniz şifreleme yapamazsınız. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. **SubscriptionId**'yi Not Defteri'ne kopyalayın. Bunu 6. adımda kullanmanız gerekir.
+5. Sanal makinenizin hangi aboneliğe ait olduğunu ve konumunu bulun. [https://portal.azure.com](ttps://portal.azure.com) adresine gidin ve oturum açın.  Sayfanın sol tarafında **Virtual Machines**'e tıklayın. Sanal makinelerinizi ve ait oldukları aboneliklerin listesini görürsünüz.
 
    ![Virtual Machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. PowerShell ISE'ye dönün. Betiğin çalıştırılacağı abonelik bağlamını ayarlayın. Konsolda **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** yazın (**< your_subscription_Id >** öğesini gerçek Abonelik Kimliğinizle değiştirin) ve **ENTER**'a basın. Environment, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount** hakkında bilgiler görürsünüz.
@@ -122,7 +122,7 @@ Doğru Kaynak Grubu adının girildiğini onaylamak için PowerShell ISE konsolu
 
 **$resourceGroupName**
 
-**ENTER**'a basın. Sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adını görmeniz gerekir. Örneğin:
+**ENTER**'a basın. Sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adını görmeniz gerekir. Örnek:
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 

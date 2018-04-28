@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşlemesi - oluşturma, farklı Aboneliklerde Kaynak Yöneticisi'ni 
 
@@ -55,11 +55,11 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     - **Konum**: *Doğu ABD*
 4. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde. 
 5. Seçin **erişim denetimi (IAM)** seçenekleri sol taraftaki dikey listesinden.
-6. Altında **myVnetA - erişim denetimi (IAM)**seçin **+ Ekle**.
+6. Altında **myVnetA - erişim denetimi (IAM)** seçin **+ Ekle**.
 7. Seçin **ağ Katılımcısı** içinde **rol** kutusu.
 8. İçinde **seçin** kutusunda, seçin *UserB*, veya aramak için Kullanıcıb'in e-posta adresini yazın. Gösterilen kullanıcılar için eşlemeyi ayarlama ayarladığınız sanal ağ aynı Azure Active Directory kiracısındaki listesidir. Kullanıcıb görmüyorsanız, UserB Kullanıcıa'den farklı bir Active Directory kiracısı içinde olduğundan olası değildir. Farklı Active Directory kiracılar sanal ağlara bağlanmak isterseniz bağlanabilir bir [Azure VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), bir sanal ağ eşlemesi yerine.
 9. **Kaydet**’i seçin.
-10. Altında **myVnetA - erişim denetimi (IAM)**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Altında **myVnetA - erişim denetimi (IAM)** seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. UserA olarak portal dışında oturum sonra UserB oturum açın.
 12. 2-3 girmek veya 3. adımda aşağıdaki değerleri seçerek, adımları tamamlayın:
 
@@ -80,7 +80,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 19. Altında **ayarları**seçin **eşlemeler**.
 20. Altında **myVnetA - eşlemeler**seçin **+ Ekle**
 21. Altında **Ekle eşliği**, girin veya, aşağıdaki seçenekleri belirleyin ve ardından seçin **Tamam**:
-     - **Name**: *myVnetAToMyVnetB*
+     - **Ad**: *myVnetAToMyVnetB*
      - **Sanal ağ dağıtım modeli**: seçin **Resource Manager**.
      - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
      - **Kaynak Kimliği**: 14. adımdan kaynak kimliği girin.
@@ -179,7 +179,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 
 1. PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modülünün en son sürümünü yükleyin. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
 2. Bir PowerShell oturumu başlatın.
-3. PowerShell'de, Azure'da UserA girerek oturum açma `login-azurermaccount` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
+3. PowerShell'de, Azure'da UserA girerek oturum açma `Connect-AzureRmAccount` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
 4. Bir kaynak grubu ve sanal ağ A. kopyalama bir metin düzenleyicisi için aşağıdaki betiği bilgisayarınıza oluşturun. Değiştir `<SubscriptionA-Id>` SubscriptionA kimliği. Aboneliğinizi kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıkış, abonelik kimliği. Betik yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
 
     ```powershell

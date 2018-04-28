@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/26/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlantısı kesilmiş dağıtım sistemleri tümleşik
 Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-connection-models.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
@@ -47,7 +47,7 @@ Azure yığın bazı özellikleri ve işlevleri engelli ya da bağlantısı kesi
 |Uyarı düzeltme/çevrimiçi düzeltme kılavuzda başvuran azaltma|Kullanılamaz – bir Internet URL'si çalışmaz kullanan herhangi bir uyarı düzeltme bağlar.|
 |Market dağıtım – seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleme olanağı|Engelli – bağlantısız modda (olmadan, herhangi bir internet bağlantısı) Azure yığın dağıttığınızda, Azure yığın portalını kullanarak Market öğesi yükleyemiyor. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) Market öğeleri Internet bağlantısına sahip bir makineye yüklemek ve ardından bunları Azure yığın ortamınıza aktarmak için.|
 |Bir Azure yığın dağıtımını yönetmek için Azure Active Directory Federasyon hesaplarını kullanma|Kullanılamıyor – bu özellik Azure bağlantısı gerektirir. AD FS yerel Active Directory örneği ile bunun yerine kullanılmalıdır.|
-|WebApps ve SQL gibi kaynak sağlayıcıları|Kullanılamıyor - kaynak sağlayıcıları WebApps ve SQL gibi içerik için Internet erişimi gerektirir.|
+|Uygulama Hizmetleri|Engelli - WebApps güncelleştirilmiş içerik için Internet erişimi gerekebilir.|
 |Komut Satırı Arabirimi (CLI)|Engelli – CLI kimlik doğrulaması ve hizmet ilkeleri sağlama açısından işlevselliği düşürdü.|
 |Visual Studio – bulut bulma|Engelli – Cloud Discovery ya da farklı Bulutlar keşfeder veya hiç çalışmaz.|
 |Visual Studio – AD FS|Visual Studio Enterprise AD FS'nin desteklediği yalnızca – engelli.

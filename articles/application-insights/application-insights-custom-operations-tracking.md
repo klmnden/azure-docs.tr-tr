@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights .NET SDK ile özel işlemler izlemek | Microsoft Docs"
-description: "Azure Application Insights .NET SDK ile özel işlemler izleme"
+title: Azure Application Insights .NET SDK ile özel işlemler izlemek | Microsoft Docs
+description: Azure Application Insights .NET SDK ile özel işlemler izleme
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK ile özel işlemler izleme
 
@@ -413,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-Bu örnekte, `telemetryClient.StartOperation` oluşturur `RequestTelemetry` ve bağıntı bağlam doldurur. İşlemi zamanlanan gelen istekler tarafından oluşturulan bir üst işlemi sahip varsayalım. Sürece `BackgroundTask` başlatır aynı zaman uyumsuz olarak gelen bir istek akışı denetle, o üst işlemi ile ilişkilendirilir. `BackgroundTask`ve tüm iç içe geçmiş telemetri öğeler otomatik olarak bile isteği sona erdikten sonra neden isteği ile ilişkili.
+Bu örnekte, `telemetryClient.StartOperation` oluşturur `RequestTelemetry` ve bağıntı bağlam doldurur. İşlemi zamanlanan gelen istekler tarafından oluşturulan bir üst işlemi sahip varsayalım. Sürece `BackgroundTask` başlatır aynı zaman uyumsuz olarak gelen bir istek akışı denetle, o üst işlemi ile ilişkilendirilir. `BackgroundTask` ve tüm iç içe geçmiş telemetri öğeler otomatik olarak bile isteği sona erdikten sonra neden isteği ile ilişkili.
 
 Görev, herhangi bir işlem yok arka plan iş parçacığından başladığında (`Activity`) ile ilişkili `BackgroundTask` herhangi bir üst sahip değil. Ancak, bu işlemleri iç içe. Görevden bildirilen tüm telemetri öğeleri bağıntılı olan `RequestTelemetry` oluşturulan `BackgroundTask`.
 
@@ -450,11 +450,11 @@ public async Task RunMyTaskAsync()
 
 İşlemi atma neden durdurulacak işlemi yerine arama yapabilirsiniz şekilde `StopOperation`.
 
-*Uyarı*: Bazı durumlarda unhanded özel durum olabilir [engellemek](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` operations izlenmez şekilde çağrılabilir.
+*Uyarı*: Bazı durumlarda unhanded özel durum olabilir [engellemek](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` operations izlenmez şekilde çağrılabilir.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Paralel işlemler işleme ve izleme
 
-`StopOperation`yalnızca başlatıldığından işlemi durdurur. Geçerli çalışan işlemin durdurmak istediğiniz bir eşleşmiyorsa `StopOperation` hiçbir şey yapmaz. Paralel aynı yürütme bağlamı olarak birden çok işlemi başlatırsanız bu durum gerçekleşebilir:
+`StopOperation` yalnızca başlatıldığından işlemi durdurur. Geçerli çalışan işlemin durdurmak istediğiniz bir eşleşmiyorsa `StopOperation` hiçbir şey yapmaz. Paralel aynı yürütme bağlamı olarak birden çok işlemi başlatırsanız bu durum gerçekleşebilir:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");

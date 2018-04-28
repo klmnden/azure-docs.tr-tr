@@ -1,24 +1,19 @@
 ---
 title: Azure Search'te dizin oluşturucular üzerinde alan eşlemeleri
 description: Alan adları ve veri Beyanları farklılıklar hesaba Azure Search dizin oluşturucu alan eşlemelerini yapılandırın
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search'te dizin oluşturucular üzerinde alan eşlemeleri
 Azure Search'te dizin oluşturucular kullanırken, kendiniz bazen burada giriş verilerinizi, hedef dizin şeması oldukça eşleşmediği durumlarda bulabilirsiniz. Bu durumda, kullandığınız **alan eşlemelerini** istenen şekle verilerinizi dönüştürecek.
@@ -151,7 +146,7 @@ Aşağıdaki tabloda farklı base64 kodlaması dizesinin karşılaştırır `00>
 | Base64 ile doldurma | `MDA+MDA/MDA=` | URL için güvenli karakterler kullanmak ve doldurma kaldırın | Standart base64 karakterler ve doldurma ekleyin |
 | Base64 doldurma olmadan | `MDA+MDA/MDA` | URL için güvenli karakterler kullanın | Standart base64 karakterler kullanın |
 | URL için güvenli base64 ile doldurma | `MDA-MDA_MDA=` | Doldurma Kaldır | Doldurma ekleme |
-| URL için güvenli base64 doldurma olmadan | `MDA-MDA_MDA` | Hiçbiri | None |
+| URL için güvenli base64 doldurma olmadan | `MDA-MDA_MDA` | None | None |
 
 <a name="extractTokenAtPositionFunction"></a>
 

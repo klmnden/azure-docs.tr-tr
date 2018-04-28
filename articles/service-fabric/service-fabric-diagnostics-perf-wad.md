@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9e8ef7243fcef990dae6ddc6509cd31b3f36e3d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics uzantısıyla performans izleme
 
@@ -44,7 +44,9 @@ Performans sayaçları WAD toplamak için kümenin Resource Manager şablonu yap
 
     `scheduledTransferPeriod` Nasıl toplanır sayaçların değerleri, Azure depolama tabloya ve herhangi bir aktarılır frquently havuz yapılandırılmış tanımlar. 
 
-3. İçin toplamak istediğiniz performans sayaçlarını Ekle `PerformanceCounterConfiguration` önceki adımda bildirilen. Toplamak istediğiniz her sayaç ile tanımlanmış bir `counterSpecifier`, `sampleRate`, `unit`, `annotation`ve tüm ilgili `sinks`. Sayaç için bir yapılandırma örneği *toplam işlemci zamanı* (CPU işlemleri yürütmek için kullanılan saat miktarı) ve *Service Fabric aktör yöntem çağrılarınasaniyede*, Service Fabric özel performans sayaçları biri. Başvurmak [güvenilir aktör performans sayaçları](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) ve [güvenilir hizmeti performans sayaçları](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) Service Fabric özel performans sayaçlarının tam listesi için.
+3. İçin toplamak istediğiniz performans sayaçlarını Ekle `PerformanceCounterConfiguration` önceki adımda bildirilen. Toplamak istediğiniz her sayaç ile tanımlanmış bir `counterSpecifier`, `sampleRate`, `unit`, `annotation`ve tüm ilgili `sinks`.
+
+Sayaç için bir yapılandırma örneği *toplam işlemci zamanı* (CPU işlemleri yürütmek için kullanılan saat miktarı) ve *Service Fabric aktör yöntem çağrılarınasaniyede*, Service Fabric özel performans sayaçları biri. Başvurmak [güvenilir aktör performans sayaçları](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) ve [güvenilir hizmeti performans sayaçları](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) Service Fabric özel performans sayaçlarının tam listesi için.
 
  ```json
  "WadCfg": {
@@ -112,9 +114,8 @@ Performans sayaçları WAD toplamak için kümenin Resource Manager şablonu yap
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Yükseltme tamamlandıktan sonra WAD (alır 15-45 dakika arasında), alma performans sayaçlarını toplama olması ve depolama hesabında WADPerformanceCountersTable adlı tabloya göndererek kümenizle ilişkilendirilmiş.
+5. Yükseltme tamamlandıktan sonra WAD (alır 15-45 dakika arasında), alma performans sayaçlarını toplama olması ve depolama hesabında WADPerformanceCountersTable adlı tabloya göndererek kümenizle ilişkilendirilmiş. Application Insights tarafından performans sayaçları bkz [AI havuz için Resource Manager şablonu ekleme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Application Insights tarafından performans sayaçları bkz [Resource Manager şablonu AI havuz ekleme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
 * Kümeniz için daha fazla performans sayaçlarını toplar. Bkz: [performans ölçümleri](service-fabric-diagnostics-event-generation-perf.md) toplama sayaçları listesi.
 * [Kullanımı izleme ve tanılama Windows VM ve Azure Resource Manager şablonları ile](../virtual-machines/windows/extensions-diagnostics-template.md) başka değişiklikler yapmak için `WadCfg`, Tanılama verileri göndermek için ek depolama hesapları yapılandırma dahil olmak üzere.

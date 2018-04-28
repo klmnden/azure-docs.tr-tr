@@ -1,38 +1,36 @@
 ---
-title: "Bir Azure Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme | Microsoft Docs"
-description: "HDInsight’ta bir Apache Spark kümesi oluşturmaya yönelik HDInsight Spark hızlı başlangıcı."
-keywords: "spark hızlı başlangıç,etkileşimli spark,etkileşimli sorgu,hdinsight spark,azure spark"
+title: Bir Azure Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme | Microsoft Docs
+description: HDInsight’ta bir Apache Spark kümesi oluşturmaya yönelik HDInsight Spark hızlı başlangıcı.
+keywords: spark hızlı başlangıç,etkileşimli spark,etkileşimli sorgu,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Hdınsight'ta Spark kümeleri üzerinde etkileşimli sorgular gerçekleştirme
 
 Jupyter not defteri karşı bir Spark kümesi etkileşimli Spark SQL sorguları çalıştırmak için nasıl kullanılacağını öğrenin. 
 
-[Jupyter not defteri](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) Web Konsolu tabanlı etkileşimli deneyiminin genişleterek tarayıcı tabanlı bir uygulama. Hdınsight'ta Spark de içeren [Zeppelin not defteri](apache-spark-zeppelin-notebook.md). Jupyter Not Defteri, bu öğreticide kullanılır.
+[Jupyter not defteri](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) Web Konsolu tabanlı etkileşimli deneyiminin genişleterek tarayıcı tabanlı bir uygulama. HDInsight'ta Spark, ayrıca [Zeppelin Not Defteri](apache-spark-zeppelin-notebook.md)’ni içerir. Jupyter Not Defteri, bu öğreticide kullanılır.
 
-Hdınsight kümeleri Jupyter not defterlerini destekleyen üç tekrar - **PySpark**, **PySpark3**, ve **Spark**. **PySpark** çekirdek, bu öğreticide kullanılır. Tekrar ve kullanmanın avantajları hakkında daha fazla bilgi için **PySpark**, bkz: [Hdınsight'ta Apache Spark kullanım Jupyter not defterlerinde çekirdekler kümeleri](apache-spark-jupyter-notebook-kernels.md). Zeppelin not defteri kullanmak için bkz: [Azure Hdınsight'ta Apache Spark kullanmak Zeppelin not defterlerini küme](./apache-spark-zeppelin-notebook.md).
+HDInsight kümelerindeki Jupyter not defterleri üç çekirdek destekliyor - **PySpark**, **PySpark3**, ve **Spark**. **PySpark** çekirdeği bu öğreticide kullanılır. Çekirdekler ve **PySpark** kullanmanın avantajları hakkında daha fazla bilgi için bkz. [HDInsight’ta Apache Spark kümeleri ile Jupyter not defterleri kullanma](apache-spark-jupyter-notebook-kernels.md). Zeppelin not defteri kullanmak için bkz: [Azure Hdınsight'ta Apache Spark kullanmak Zeppelin not defterlerini küme](./apache-spark-zeppelin-notebook.md).
 
 Bu öğreticide, bir csv dosyasındaki verileri sorgulayın. İlk bir dataframe Spark verileri da yüklemeniz gerekir. Ardından, Jupyter Not Defteri kullanarak dataframe üzerinde sorguları çalıştırabilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Azure Hdınsight Spark kümesinde**. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md).
 * **PySpark kullanarak bir Jupyter not defteri**. Yönergeler için bkz: [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Takım veri bilimi işlemi kullanarak word eklerinin ile twitter düşüncelerini tahmin etme
 
-Bu makalede etkili bir şekilde kullanarak işbirliği yapmak gösterilmiştir _Word2Vec_ algoritmayla ekleme word ve _düşünceleri özgü Word katıştırma (SSWE)_ algoritması ile Twitter düşüncelerini tahmin etmek için [Azure Machine Learning](../preview/index.yml). Twitter düşünceleri polarite tahmin etmeye daha fazla bilgi için bkz: [MachineLearningSamples TwitterSentimentPrediction deposu](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) github'da. Veri bilimi projelerde etkili takım işbirliği kolaylaştırmanın için yerleşik veri bilimi yaşam döngüsü projelerle belgelerine ve yapısı standart hale getirmek için anahtardır. [Takım veri bilimi işlem (TDSP)](overview.md) bu tür sağlayan yapılandırılmış [yaşam döngüsü](lifecycle.md). 
+Bu makalede etkili bir şekilde kullanarak işbirliği yapmak gösterilmiştir _Word2Vec_ algoritmayla ekleme word ve _düşünceleri özgü Word katıştırma (SSWE)_ algoritması ile Twitter düşüncelerini tahmin etmek için [Azure Machine Learning](../service/index.yml). Twitter düşünceleri polarite tahmin etmeye daha fazla bilgi için bkz: [MachineLearningSamples TwitterSentimentPrediction deposu](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) github'da. Veri bilimi projelerde etkili takım işbirliği kolaylaştırmanın için yerleşik veri bilimi yaşam döngüsü projelerle belgelerine ve yapısı standart hale getirmek için anahtardır. [Takım veri bilimi işlem (TDSP)](overview.md) bu tür sağlayan yapılandırılmış [yaşam döngüsü](lifecycle.md). 
 
-Veri bilimi projelerle oluşturma _TDSP şablonu_ Azure Machine Learning projeleri için standartlaştırılmış bir çerçeve sağlar. Daha önce TDSP takım yayımlanan bir [TDSP proje yapısını ve şablonları için GitHub depo](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Şimdi ile örneği Machine Learning projeleri [TDSP şablonları Azure Machine Learning için](https://github.com/amlsamples/tdsp) etkinleştirilir. Nasıl kullanılacağı hakkında yönergeler için bkz [TDSP yapısı projeleri TDSP şablonuyla](../preview/how-to-use-tdsp-in-azure-ml.md) Azure Machine learning'de. 
+Veri bilimi projelerle oluşturma _TDSP şablonu_ Azure Machine Learning projeleri için standartlaştırılmış bir çerçeve sağlar. Daha önce TDSP takım yayımlanan bir [TDSP proje yapısını ve şablonları için GitHub depo](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Şimdi ile örneği Machine Learning projeleri [TDSP şablonları Azure Machine Learning için](https://github.com/amlsamples/tdsp) etkinleştirilir. Nasıl kullanılacağı hakkında yönergeler için bkz [TDSP yapısı projeleri TDSP şablonuyla](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) Azure Machine learning'de. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Twitter düşünceleri polarite örnek
@@ -131,7 +131,7 @@ Son adım, bir web hizmetine Azure kapsayıcı hizmeti kümesinde eğitilen dü�
 
 ![Kubernetes panosu](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Operationalization işlemi hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma](../preview/model-management-service-deploy.md).
+Operationalization işlemi hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Sonuç
 
@@ -143,8 +143,8 @@ Bu makalede, Word2Vec ve Word düşünceleri özgü katıştırma algoritmaları
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Azure Machine Learning ekibi veri bilimi işlem (TDSP) kullanma](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning için TDSP proje şablonları](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [UCI ML depodan ABD gelir veri kümesi](https://archive.ics.uci.edu/ml/datasets/adult)
-* [TDSP şablonları kullanarak biomedical varlık tanıma](../preview/scenario-tdsp-biomedical-recognition.md)
+* [TDSP şablonları kullanarak biomedical varlık tanıma](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. "Sözcükler ve tümcecikleri ve bunların Compositionality gösterimlerini dağıtılmış. İşleme sistemlerinin sinir bilgilerinde ilerletir." 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Twitter düşünceleri sınıflandırma için düşünceleri özgü Word katıştırma öğrenme." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e6440bfd3297ee68cd4ff79c8654b5f97cba077e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f4de97ef2df5351ac7e8574717ee1439b54a90e8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Salesforce veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -236,7 +236,7 @@ Salesforce veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. *
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopya etkinliği havuz tür özelliği ayarlamak **SalesforceSink**. | Evet |
-| writeBehavior | İşlem için yazma davranışı.<br/>İzin verilen değerler **Ekle** ve **Upsert**. | Hayır (varsayılan değer Ekle) |
+| WriteBehavior | İşlem için yazma davranışı.<br/>İzin verilen değerler **Ekle** ve **Upsert**. | Hayır (varsayılan değer Ekle) |
 | externalIdFieldName | Dış kimliği alan adını upsert işlemi için. Belirtilen alan "Dış kimlik alanı olarak" Salesforce nesnesinde tanımlanması gerekir. İlgili girdi verileri NULL değerlere sahip olamaz. | "Upsert" için Evet |
 | writeBatchSize | Salesforce her toplu işlemde yazılan veriler satır sayısı. | Hayır (varsayılan değer 5000) |
 | ignoreNullValues | Giriş verilerinden NULL değerler yazma işlemi sırasında yoksay gösterir.<br/>İzin verilen değerler **true** ve **false**.<br>- **Doğru**: hedef nesnedeki verileri bir upsert veya güncelleştirme işlemi yaptığınızda değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda tanımlanan varsayılan bir değer ekleyin.<br/>- **Yanlış**: upsert veya güncelleştirme işlemi yaptığınızda, hedef nesnenin verileri NULL olarak güncelleştirir. Bir ekleme işlemi yaptığınızda NULL bir değer ekleyin. | Hayır (varsayılan değer false) |
@@ -294,7 +294,7 @@ Salesforce dönüşüm geçici silinen kayıtlarını sorgulamak için belirleye
 SOQL veya SQL sorgusu belirttiğinizde, DateTime biçimi fark dikkat edin. Örneğin:
 
 * **SOQL örnek**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL örneği**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **SQL örneği**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Salesforce için eşleme veri türü
 
@@ -307,7 +307,7 @@ Salesforce verileri kopyaladığınızda, aşağıdaki eşlemelerini Salesforce 
 | Para birimi |Çift |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
-| E-posta |Dize |
+| Email |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |
 | Çoklu seçim seçim listesi |Dize |

@@ -8,7 +8,7 @@ Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kiml
 1. Aşağıdaki komutu kullanarak Azure aboneliğinizde oturum açın:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgileriyle ilişkili tüm Azure abonelikleri için size erişim verir. Azure aboneliklerini kullanabilmeniz için kullanılabilir listelemek için aşağıdaki komutu kullanın:
@@ -17,7 +17,7 @@ Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kiml
     Get-AzureRMSubscription
     ```
 
-    IOT hub'ınızı yönetmek için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komut çıktısı abonelik adı veya kimliği kullanabilirsiniz:
+    IOT hub'ınızı yönetmek için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
 
     ```powershell
     Select-AzureRMSubscription `

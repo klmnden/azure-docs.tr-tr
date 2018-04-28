@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus - Event Grid tümleştirmesine Genel Bakış
 
@@ -47,9 +47,9 @@ Service Bus şu anda iki senaryo için olaylar gönderir:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Ayrıca Service Bus, standart Event Grid güvenliğini ve [kimlik doğrulaması mekanizmalarını](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) da kullanır.
+Ayrıca Service Bus, standart Event Grid güvenliğini ve [kimlik doğrulaması mekanizmalarını](https://docs.microsoft.com/azure/event-grid/security-authentication) da kullanır.
 
-Daha fazla bilgi için bkz. [Azure Event Grid olay şemaları](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
+Daha fazla bilgi için bkz. [Azure Event Grid olay şemaları](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Etkin İletiler Kullanılabilir olayı
 
@@ -138,7 +138,7 @@ Yeni Event Grid aboneliği oluşturmak için aşağıdakileri yapın:
 
 ## <a name="azure-cli-instructions"></a>Azure CLI yönergeleri
 
-İlk olarak, Azure CLI sürüm 2.0 veya üzerinin yüklü olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). **Windows + X** tuşlarına basın ve yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
+İlk olarak, Azure CLI sürüm 2.0 veya üzerinin yüklü olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). **Windows + X** tuşlarına basın ve yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
 
 Şu kodu yürütün:
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell yönergeleri
 
-Azure PowerShell’in yüklenmiş olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). **Windows + X** tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
+Azure PowerShell’in yüklenmiş olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). **Windows + X** tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ Buradan diğer kurulum seçeneklerini keşfedebilir veya [olayların akışa al�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Service Bus ve Event Grid [örnekleri](service-bus-to-event-grid-integration-example.md) alın.
-* [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
-* [Azure İşlevleri](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
-* [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/) hakkında daha fazla bilgi edinin.
-* [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Event Grid](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) hakkında daha fazla bilgi edinin.
+* [Service Bus](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

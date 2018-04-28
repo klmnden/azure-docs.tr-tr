@@ -1,11 +1,11 @@
 ---
-title: "Çok faktörlü kimlik doğrulama gerektirecek şekilde nasıl | Microsoft Docs"
-description: "Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için çok faktörlü kimlik doğrulaması (MFA) zorunlu kılma öğrenin."
+title: Çok faktörlü kimlik doğrulama gerektirecek şekilde nasıl | Microsoft Docs
+description: Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için çok faktörlü kimlik doğrulaması (MFA) zorunlu kılma öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 42552b4b8a7b2704a94786518f411f922dbd6a81
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management MFA nasıl gerektirilir
 Çok faktörlü kimlik doğrulaması (MFA) tüm yöneticilerinizi için ihtiyaç duyduğunuz öneririz. Bu, güvenliği aşılmış bir parola nedeniyle bir saldırı riskini azaltır.
@@ -41,9 +41,9 @@ Ayrıca, belirli bir rol için MFA gereksinimi PIM Pano roller bölümünde tık
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Azure AD PIM MFA nasıl doğrular
 Bir kullanıcı bir rolünü etkinleştirirken MFA doğrulamak için iki seçenek vardır.
 
-Basit bir ayrıcalıklı rolü etkinleştirme kullanıcılar için Azure MFA yararlanmayı seçenektir. Bunu yapmak için önce bu kullanıcıların gerekirse lisanslanır ve Azure MFA için kayıtlı denetleyin. Bunun nasıl yapılacağı hakkında daha fazla bilgi yer [bulutta Azure multi-Factor Authentication kullanmaya Başlarken](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md). Bu önerilir, ancak gerekli değildir, bunlar oturum açtığında bu kullanıcılar için MFA zorlamak için Azure AD yapılandırın. Azure AD PIM tarafından kendisini MFA denetimleri yapılacağından budur.
+Basit bir ayrıcalıklı rolü etkinleştirme kullanıcılar için Azure MFA yararlanmayı seçenektir. Bunu yapmak için önce bu kullanıcıların gerekirse lisanslanır ve Azure MFA için kayıtlı denetleyin. Bunun nasıl yapılacağı hakkında daha fazla bilgi yer [bulutta Azure multi-Factor Authentication kullanmaya Başlarken](authentication/howto-mfa-getstarted.md). Bu önerilir, ancak gerekli değildir, bunlar oturum açtığında bu kullanıcılar için MFA zorlamak için Azure AD yapılandırın. Azure AD PIM tarafından kendisini MFA denetimleri yapılacağından budur.
 
-Alternatif olarak, kullanıcıların şirket içi kimlik doğrulaması, MFA için sorumlu kimlik sağlayıcınız olabilir. Örneğin, AD Federasyon Hizmetleri Azure AD erişmeden önce akıllı kart tabanlı kimlik doğrulama gerektirecek şekilde yapılandırılmışsa [güvenliğini sağlama bulut kaynakları Azure multi-Factor Authentication ve AD FS ile](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md) yönergeleri içerir Azure ad talepleri göndermek için AD FS yapılandırma. Bir kullanıcı bir rolünü etkinleştirmek çalıştığında Azure AD PIM uygun talep aldıktan sonra MFA zaten kullanıcıdan doğrulandı olduğunu kabul eder.
+Alternatif olarak, kullanıcıların şirket içi kimlik doğrulaması, MFA için sorumlu kimlik sağlayıcınız olabilir. Örneğin, AD Federasyon Hizmetleri Azure AD erişmeden önce akıllı kart tabanlı kimlik doğrulama gerektirecek şekilde yapılandırılmışsa [güvenliğini sağlama bulut kaynakları Azure multi-Factor Authentication ve AD FS ile](authentication/howto-mfa-adfs.md) yönergeleri içerir Azure ad talepleri göndermek için AD FS yapılandırma. Bir kullanıcı bir rolünü etkinleştirmek çalıştığında Azure AD PIM uygun talep aldıktan sonra MFA zaten kullanıcıdan doğrulandı olduğunu kabul eder.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar

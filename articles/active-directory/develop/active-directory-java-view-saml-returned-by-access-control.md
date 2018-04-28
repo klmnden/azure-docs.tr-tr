@@ -1,25 +1,24 @@
 ---
-title: "Görünüm erişim denetimi hizmeti (Java) tarafından döndürülen SAML"
-description: "Azure üzerinde barındırılan Java uygulamalarını erişim denetim Hizmeti'nde tarafından döndürülen SAML görüntülemeyi öğrenin."
+title: Görünüm erişim denetimi hizmeti (Java) tarafından döndürülen SAML
+description: Azure üzerinde barındırılan Java uygulamalarını erişim denetim Hizmeti'nde tarafından döndürülen SAML görüntülemeyi öğrenin.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c43b27d58d78036dd832fb4f95f2bc9958441c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure erişim denetimi hizmeti tarafından döndürülen SAML görüntüleme
 Bu kılavuz temel güvenlik onaylama işlemi biçimlendirme dili (uygulamanızı Azure erişim denetimi Hizmeti'nden (ACS) tarafından döndürülen SAML) görüntülemek nasıl yapacağınızı gösterir. Kılavuzu derlemeler [kimlik doğrulaması Web kullanıcıları Azure erişim denetimi hizmeti kullanılarak Eclipse ile nasıl](active-directory-java-authenticate-users-access-control-eclipse.md) SAML bilgilerini görüntüler kod sağlayarak konu. Tamamlanan uygulama aşağıdakine benzer görünecektir.
@@ -33,7 +32,7 @@ ACS hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next_steps) bölü
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu Kılavuzu'ndaki görevleri tamamlamak için örnek: tamamlamak [kimlik doğrulaması Web kullanıcıları Azure erişim denetimi hizmeti kullanılarak Eclipse ile nasıl](active-directory-java-authenticate-users-access-control-eclipse.md) ve Bu öğretici için başlangıç noktası olarak kullanın.
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Derleme yolu ve dağıtım derlemesi için JspWriter kitaplığı Ekle

@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure zaman serisi Öngörüler ortamınızı planlama
 
@@ -87,14 +87,14 @@ Son 24 saatten az, veri giriş bir depo varsa, zaman serisinin Öngörüler "nı
 Gecikme süresi azaltma ve engelleme hakkında daha fazla bilgi için bkz: [azaltmak gecikme süresi ve azaltma](time-series-insights-environment-mitigate-latency.md). 
 
 ## <a name="shaping-your-events"></a>Olaylarınızı şekillendirme
-TSI için olayları göndermek yolu sağlama ortamı boyutunu desteklediğinden emin olmak önemlidir (buna karşılık, kaç tane olayları TSI okur ortama boyutunu ve her olay boyutu eşleyebilirsiniz).  Benzer şekilde, dilim ve verilerinizi sorgulanırken filtre ölçütü isteyebilirsiniz öznitelikler hakkında düşünmek önemlidir.  Bu aklınızda bölümünü şekillendirme JSON gözden geçirme önerdiğimiz bizim *Gönder olayları* belgeleri [belgeleri] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Bu sayfanın en doğru olur.  
+TSI için olayları göndermek yolu sağlama ortamı boyutunu desteklediğinden emin olmak önemlidir (buna karşılık, kaç tane olayları TSI okur ortama boyutunu ve her olay boyutu eşleyebilirsiniz).  Benzer şekilde, dilim ve verilerinizi sorgulanırken filtre ölçütü isteyebilirsiniz öznitelikler hakkında düşünmek önemlidir.  Bu aklınızda bölümünü şekillendirme JSON gözden geçirme önerdiğimiz bizim *Gönder olayları* belgeleri [belgeleri] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Bu sayfanın en doğru olur.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Yerinde başvuru verilere sahip olma
 Bir başvuru veri kümesi, olay kaynağı olayların büyütmek öğelerin koleksiyonudur. Zaman serisi Öngörüler giriş altyapısı başvuru Veri kümenizi her olay Olay kaynağınızdan karşılık gelen veri satırı ile birleştirir. Bu genişletilmiş olay daha sonra sorgu için kullanılabilir. Bu katılımı başvuru veri kümesinde tanımlanan birincil anahtar sütunları temel alır.
 
 Başvuru verileri firmalarda geriye dönük katılmamış unutmayın. Bu, yalnızca geçerli ve gelecekteki giriş verileri eşleşen ve yapılandırılmış ve karşıya sonra başvuru tarih kümesine birleşik anlamına gelir.  TSI için çok fazla geçmiş veri göndermek ve verme karşıya yükleme veya başvuru verileri TSI içinde ilk olarak, oluşturmak planlıyorsanız zorunda kalabilirsiniz daha sonra yeniden çalışmanıza (ipucu, eğlenceli değil).  
 
-Oluşturma, karşıya yükleme ve başvuru verilerinizi TSI yönetme hakkında daha fazla bilgi edinmek için head bizim *başvuru verileri* belgeleri [belgeleri] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Oluşturma, karşıya yükleme ve başvuru verilerinizi TSI yönetme hakkında daha fazla bilgi edinmek için head bizim *başvuru verileri* belgeleri [belgeleri] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

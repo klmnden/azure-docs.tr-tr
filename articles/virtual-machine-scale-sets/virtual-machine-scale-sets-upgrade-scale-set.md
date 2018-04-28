@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesini değiştirme
 Uygulamalarınızı yaşam döngüsü boyunca değiştirmeniz veya sanal makine ölçek kümesi güncelleştirmeniz gerekebilir. Bu güncelleştirmeler ölçek kümesi yapılandırmasını güncelleştirmek veya uygulama yapılandırmasını değiştirmek nasıl içerebilir. Bu makalede, varolan bir ölçeği REST API'leri, Azure PowerShell veya Azure CLI 2.0 ayarla değiştirmek açıklar.
@@ -373,12 +373,12 @@ Bir uygulama ölçeği uzantıları Ayarla dağıtılırsa, uzantı yapılandır
 Ayrıca özel bir görüntü dağıtılacak uygulamalar yaygındır. Bu senaryo aşağıdaki bölümde ele alınmıştır.
 
 ### <a name="os-updates"></a>İşletim sistemi güncelleştirmeleri
-Azure platformu görüntüleri kullanırsanız değiştirerek görüntü güncelleştirebilirsiniz *Imagereference* (daha fazla bilgi için bkz: [REST API belgeleri](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Azure platformu görüntüleri kullanırsanız değiştirerek görüntü güncelleştirebilirsiniz *Imagereference* (daha fazla bilgi için bkz: [REST API belgeleri](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Platform görüntülerle "son" için resim başvurusu sürümünü belirtmek için yaygın bir sorundur. Oluşturduğunuzda, ölçeğini ve yeniden görüntü oluşturma, VM'ler ile en son sürüm oluşturulur. Ancak, bu **yok** yeni görüntü sürümleri yayımlanan gibi işletim sistemi görüntüsü zaman içinde otomatik olarak güncelleştirilen anlamına gelir. Ayrı bir özellik şu anda otomatik işletim sistemi yükseltme sağlar önizlemede değil. Daha fazla bilgi için bkz: [otomatik işletim sistemi yükseltme belgelerine](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Özel resimler kullanırsanız, görüntüyü güncelleştirerek güncelleştirebilirsiniz *Imagereference* kimliği (daha fazla bilgi için bkz: [REST API belgeleri](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Özel resimler kullanırsanız, görüntüyü güncelleştirerek güncelleştirebilirsiniz *Imagereference* kimliği (daha fazla bilgi için bkz: [REST API belgeleri](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Örnekler
 

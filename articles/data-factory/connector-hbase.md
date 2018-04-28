@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba2317e588b570acc1a4f24c89e892729f29b54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Azure Data Factory kullanarak HBase verilerini 
 
@@ -46,7 +46,7 @@ Aşağıdaki özellikler HBase bağlantılı hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **HBase** | Evet |
 | konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (yani 192.168.222.160, [clustername] .azurehdinsight .net)  | Evet |
-| port | İstemci bağlantılarını dinlemek için HBase örneğinin kullandığı TCP bağlantı noktası. Varsayılan değer 9090 ' dir.  | Hayır |
+| port | İstemci bağlantılarını dinlemek için HBase örneğinin kullandığı TCP bağlantı noktası. Varsayılan değer 9090 ' dir. Azure Hdınsights bağlanıyorsanız, bağlantı noktası 443'tür belirtin. | Hayır |
 | httpPath | HBase sunucuya karşılık gelen kısmi URL'si. (yani /gateway/sandbox/hbase/version)  | Hayır |
 | authenticationType | HBase sunucuya bağlanmak için kullanılacak kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **temel** | Evet |
 | kullanıcı adı | HBase örneğine bağlanmak için kullanılan kullanıcı adı.  | Hayır |

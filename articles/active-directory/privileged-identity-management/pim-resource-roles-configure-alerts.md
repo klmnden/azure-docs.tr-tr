@@ -1,5 +1,5 @@
 ---
-title: Azure kaynakları - güvenlik uyarılarını Privileged Identity Management | Microsoft Docs
+title: Privileged Identity Management'ı kullanarak Azure kaynakları için güvenlik uyarılarını yönetme | Microsoft Docs
 description: PIM güvenlik uyarıları açıklar.
 services: active-directory
 documentationcenter: ''
@@ -13,37 +13,38 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 86c9a0f12b2598ffbd02810a11622b13b0363a1f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---alerts"></a>Privileged Identity Management - kaynak rolleri - uyarıları
-Ortamınızda kuşkulu veya güvenli olmayan bir etkinlik olduğunda PIM Azure kaynakları için uyarılar oluşturur. Bir uyarı tetiklendiğinde, uyarılar sayfasında görüntülenir. 
+# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için güvenlik uyarılarını yönetme
+Ortamınızda kuşkulu veya güvenli olmayan bir etkinlik olduğunda ayrıcalıklı Kimlik Yönetimi (PIM) Azure kaynakları için uyarılar oluşturur. Bir uyarı tetiklendiğinde, uyarılar sayfasında görüntülenir. 
 
-![](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Uyarılar sayfası](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>Uyarıları gözden geçirin
-Kullanıcıların veya uyarının rollerin listeleyen bir rapor görmek için bir uyarı seçin düzeltme önerileri yanı sıra.
-![](media/azure-pim-resource-rbac/rbac-alert-info.png)
+Kullanıcılar ya da düzeltme önerileri yanı sıra uyarıyı tetikleyen roller listeleyen bir rapor görmek için bir uyarı seçin.
+
+![Uyarı raporu](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Uyarılar
 | Uyarı | Önem Derecesi | Tetikleyici | Öneri |
 | --- | --- | --- | --- |
 | **Bir kaynağa atanan çok fazla sahipleri** |Orta |Çok sayıda kullanıcı sahibi rolüne sahip. |Listedeki kullanıcılar gözden geçirin ve bazı daha az ayrıcalıklı rollere yeniden atayın. |
 | **Bir kaynağa atanan çok fazla kalıcı sahipleri** |Orta |Çok sayıda kullanıcı, bir rol kalıcı olarak atanır. |Listedeki kullanıcılar gözden geçirin ve bazı rol kullanması için etkinleştirme için yeniden atayın. |
-| **Oluşturulan yinelenen rol** |Orta |Birden çok rol aynı ölçütlerine sahiptirler. |Yalnızca bu rollerden birinin kullanın. |
+| **Oluşturulan yinelenen rol** |Orta |Birden çok rol aynı ölçütlerine sahiptirler. |Bu rolleri yalnızca birini kullanın. |
 
 
 ### <a name="severity"></a>Önem Derecesi
 * **Yüksek**: bir ilke ihlali nedeniyle Acil eylem gerektirir. 
 * **Orta**: Acil eylem gerekli değildir ancak olası ilke ihlalinin işaret eder.
-* **Düşük**: Acil eylem gerekli değildir ancak preferrable ilke değişikliğini önerir.
+* **Düşük**: Acil eylem gerekli değildir ancak tercih edilen ilke değişikliğini önerir.
 
 ## <a name="configure-security-alert-settings"></a>Güvenlik uyarı ayarlarını yapılandırma
-Uyarıları sayfasından ayarlarına gidin.
-![](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+Uyarıları sayfasından Git **ayarları**.
+![Ayarlar](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
 Ortam ve Güvenlik amaçları ile çalışmak için farklı uyarıların ayarlarını özelleştirin.
-![](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Ayarları özelleştirme](media/azure-pim-resource-rbac/rbac-alert-settings.png)

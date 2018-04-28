@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Salesforce yapılandırma | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Salesforce arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Salesforce yapılandırma | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Salesforce arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Öğretici: Salesforce otomatik kullanıcı sağlamayı yapılandırın
 
@@ -27,9 +27,13 @@ Bu öğreticinin amacı otomatik olarak sağlamak için Salesforce ve Azure AD i
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
-*   Bir Azure Active directory kiracısı.
-*   İş veya eğitim için Salesforce Salesforce için geçerli bir kiracı olması gerekir. Ücretsiz bir deneme hesabı ya da hizmet için kullanabilir.
-*   Salesforce takım yönetici izinlerine sahip bir kullanıcı hesabının.
+*   Bir Azure Active directory kiracısı
+*   Bir Salesforce.com Kiracı
+
+>[!IMPORTANT] 
+>Ardından bir Salesforce.com deneme hesabı kullanıyorsanız, otomatik kullanıcı sağlamayı Yapılandır mümkün olmayacaktır. Deneme hesapları satın alınan kadar etkin gerekli API erişimi yoktur. Bu sınırlamaya geçici bir ücretsiz kullanarak alabileceğiniz [Geliştirici hesabını](https://developer.salesforce.com/signup) Bu öğreticiyi tamamlamak için.
+
+Salesforce korumalı ortam kullanıyorsanız, lütfen bkz [Salesforce korumalı alan tümleştirme Öğreticisi](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Salesforce kullanıcılar atama
 
@@ -89,7 +93,7 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kul
 
 10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **gizli belirteci** alan.
 
-11. **Kiracı URL** Salesforce örneği üzerinde Salesforce Bulutu ise girilmesi gerekir. Aksi takdirde isteğe bağlıdır. Örnek bilgisayarınızı Salesforce örneğinizi adıyla değiştirerek https://your-instance.my.salesforce.com, biçimini kullanarak Kiracı URL'sini girin.
+11. **Kiracı URL** Salesforce örneği üzerinde Salesforce Bulutu ise girilmesi gerekir. Aksi takdirde isteğe bağlıdır. Kiracı URL biçimi kullanarak girin https://your-instance.my.salesforce.com, örnek bilgisayarınızı Salesforce örneğinizi adıyla değiştirerek.
 
 12. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce uygulamanıza bağlanabilir.
 

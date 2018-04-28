@@ -1,8 +1,8 @@
 ---
-title: "Azure uygulama Öngörüler Profil Oluşturucu ile canlı web uygulamalarında profil | Microsoft Docs"
-description: "Web sunucu kodunuzdaki etkin yolunuzda ayak izini düşük Profil Oluşturucu ile tanımlayın."
+title: Azure uygulama Öngörüler Profil Oluşturucu ile canlı web uygulamalarında profil | Microsoft Docs
+description: Web sunucu kodunuzdaki etkin yolunuzda ayak izini düşük Profil Oluşturucu ile tanımlayın.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile profil Canlı Azure web uygulamaları
 
@@ -63,7 +63,7 @@ Bilgi için bkz: [Azure işlem kaynakları için profil oluşturucu önizleme s�
 
 ## <a name="view-profiler-data"></a>Profil Oluşturucu verilerini görüntüleme
 
-Uygulamanızı trafiği aldığından emin olun. Bir deneme yapıyorsanız, web app kullanarak için istekleri oluşturabilir [uygulama Öngörüler performans testi](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Profil Oluşturucu yeni etkinleştirdiyseniz, yaklaşık 15 profil oluşturucu izlemeleri oluşturan dakika boyunca kısa yük testi çalıştırabilirsiniz. Profil Oluşturucu zaten bir süredir etkin olsaydı, Canlı Profil Oluşturucu iki kez saatte rastgele çalıştırır unutmayın ve her zaman, iki dakikalık bir süre için çalışır. İlk örnek profil oluşturucu izlemelerini almak emin olmak bir saat için yük testi çalıştırma öneririz.
+Uygulamanızı trafiği aldığından emin olun. Bir deneme yapıyorsanız, web app kullanarak için istekleri oluşturabilir [uygulama Öngörüler performans testi](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Profil Oluşturucu yeni etkinleştirdiyseniz, yaklaşık 15 profil oluşturucu izlemeleri oluşturan dakika boyunca kısa yük testi çalıştırabilirsiniz. Profil Oluşturucu zaten bir süredir etkin olsaydı, Canlı Profil Oluşturucu iki kez saatte rastgele çalıştırır unutmayın ve her zaman, iki dakikalık bir süre için çalışır. İlk örnek profil oluşturucu izlemelerini almak emin olmak bir saat için yük testi çalıştırma öneririz.
 
 Uygulamanızı bir miktar trafik aldıktan sonra Git **performans** bölmesinde, **eylemleri** profil oluşturucu izlemeleri görüntülemek ve daha sonra seçmek için **profil oluşturucu izlemeleri** düğmesi.
 
@@ -187,7 +187,7 @@ Paralel iş parçacıkları, izlemeleri gördüğünüzde, istek için kritik yo
 Kontrol edebilirsiniz bazı noktalar şunlardır:
 
 * Görüntülemeye çalıştığınız veri birkaç haftalık eski ise, zaman filtresi görüntülemeyi deneyin ve yeniden deneyin.
-* Olun proxy'leri veya bir güvenlik duvarı sahip olmadığını https://gateway.azureserviceprofiler.net erişimi engelledi.
+* Olun proxy'leri veya bir güvenlik duvarı sahip olmadığını erişimi engelledi https://gateway.azureserviceprofiler.net.
 * Uygulamanızı kullanarak Application Insights izleme anahtarı etkinleştirilmiş profil oluşturma için kullanılan Application Insights kaynağı ile aynı olduğundan emin olun. Applicationınsights.config dosyasında anahtarıdır genellikle, ancak web.config veya app.config dosyasında olabilir.
 
 ### <a name="error-report-in-the-profiling-viewer"></a>Profil oluşturma Görüntüleyicisi'nde hata raporu
@@ -311,7 +311,7 @@ Bu yöntem görece basit olmasına rağmen aşağıdakileri göz önünde bulund
 
 * Web işleri, Web uygulamaları benzersiz özelliğidir. Web işi çalıştığında, işleminizi aynı ortam değişkenleri ve Web sitenizi olan uygulama ayarlarını sahip olmasını sağlar. Başka bir deyişle, geçiş için profil oluşturucu komut satırı aracılığıyla izleme anahtarı gerekmez. Profil Oluşturucu izleme anahtarı ortamından seçmeniz gerekir. Ancak, profil oluşturucu geliştirme kutunuzda veya Web Apps dışında bir makinede çalıştırmak istiyorsanız, bir izleme anahtarı sağlamanız gerekir. Bir bağımsız değişken geçirerek yapabilirsiniz `--ikey <instrumentation-key>`. Bu değer, uygulamanızı kullanarak izleme anahtarını eşleşmelidir. Profil Oluşturucu günlük çıktısı profil oluşturucu kullanmaya hangi ikey ve profil sırada olup, izleme anahtarını etkinliğinden algıladık söyler.
 
-* El ile Tetiklenmiş web işleri Web kancası tetiklenebilir. Web işi Panoda sağ tıklayarak ve özelliklerini görüntüleyerek bu URL'yi elde edebilirsiniz. Veya, araç çubuğunda, seçtiğiniz **özellikleri** tabloda web işi seçtikten sonra. Bu yaklaşım, CI/CD hattınızı (gibi VSTS) veya Microsoft Flow (https://flow.microsoft.com/en-us/) gibi bir şey profil oluşturucu tetikleme gibi sınırsız olasılıklar yukarı açar. Sonuç olarak, tercih ettiğiniz nasıl karmaşık, yapmak isteyip istememenize bağlıdır, *run.cmd* dosyası (da olabilen bir *run.ps1* dosyası), ancak esneklik yok.
+* El ile Tetiklenmiş web işleri Web kancası tetiklenebilir. Web işi Panoda sağ tıklayarak ve özelliklerini görüntüleyerek bu URL'yi elde edebilirsiniz. Veya, araç çubuğunda, seçtiğiniz **özellikleri** tabloda web işi seçtikten sonra. Bu yaklaşım CI/CD hattınızı (gibi VSTS) veya Microsoft Flow şöyle profil oluşturucu tetikleme gibi sınırsız olasılıklar yukarı açar (https://flow.microsoft.com/en-us/). Sonuç olarak, tercih ettiğiniz nasıl karmaşık, yapmak isteyip istememenize bağlıdır, *run.cmd* dosyası (da olabilen bir *run.ps1* dosyası), ancak esneklik yok.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,11 +1,11 @@
 ---
-title: "Uygulama Hizmetleri - Azure yığın çalışan rollerinde genişletme | Microsoft Docs"
-description: "Azure yığın uygulama hizmetleri ölçeklendirme için ayrıntılı kılavuz"
+title: Uygulama Hizmetleri - Azure yığın çalışan rollerinde genişletme | Microsoft Docs
+description: Azure yığın uygulama hizmetleri ölçeklendirme için ayrıntılı kılavuz
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
 ms.workload: app-service
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: f22b16979638d3ef53a6978f95b921aef7688276
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure yığın uygulama hizmeti: daha fazla altyapı veya çalışan rolleri Ekle
 
@@ -51,7 +51,7 @@ Azure uygulama hizmeti Azure yığında sanal makine ölçekleme kümeleri kulla
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+    Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"

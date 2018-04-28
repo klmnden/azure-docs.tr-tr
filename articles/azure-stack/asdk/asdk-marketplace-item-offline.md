@@ -1,12 +1,12 @@
 ---
-title: "Yerel bir kaynaktan Azure yığın Market öğe ekleme | Microsoft Docs"
-description: "Yerel işletim sistemi görüntüsü Azure yığın Marketinde eklemeyi açıklar."
+title: Yerel bir kaynaktan Azure yığın Market öğe ekleme | Microsoft Docs
+description: Yerel işletim sistemi görüntüsü Azure yığın Marketinde eklemeyi açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 296719ddd23fb9ee717455420906e9a634a71a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 815dc055e19a38a61cbb3e927c3d7e92393b17dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>Öğretici: Azure yığın Market öğesi yerel bir kaynaktan ekleyin.
 
@@ -84,7 +84,7 @@ Azure yığın bağlantısı kesilmiş bir senaryo veya senaryoları ile sınır
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -112,7 +112,7 @@ Azure yığın bağlantısı kesilmiş bir senaryo veya senaryoları ile sınır
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -152,7 +152,7 @@ Bir Azure yığın operatör olarak kullanabileceğiniz [Yönetici portalı](htt
   - **Kullanıcı adı**: AdminTestUser
   - **Parola**: AzS TestVM01
   - **Abonelik**: varsayılan sağlayıcı abonelik kabul et
-  - **Resource group**: test-vm-rg
+  - **Kaynak grubu**: test vm rg
   - **Konum**: yerel
 
 4. İçinde **bir boyutu seçin** dikey penceresinde tıklatın **A1 standart**ve ardından **seçin**.  

@@ -1,32 +1,27 @@
 ---
-title: "Azure Search'te arama sonuçları sayfası nasıl | Microsoft Docs"
-description: "Sayfa numaralandırma Azure Search'te, Microsoft Azure üzerinde barındırılan bulut arama hizmeti."
-services: search
-documentationcenter: 
+title: Azure Search'te arama sonuçları sayfası nasıl | Microsoft Docs
+description: Sayfa numaralandırma Azure Search'te, Microsoft Azure üzerinde barındırılan bulut arama hizmeti.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure Arama'da arama sonuçlarını sayfalandırma
 Bu makale, toplam sayıları, belge alma, sıralamalar ve gezinti gibi bir arama sonuçları sayfasının standart öğeleri uygulamak için Azure Search Hizmeti REST API kullanma hakkında yönergeler sağlar.
 
-Aşağıda belirtilen her durumda, verileri veya arama sonuçları sayfasını bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [arama belge](http://msdn.microsoft.com/library/azure/dn798927.aspx) Azure arama hizmetinize gönderilen istekleri. İstekleri GET komutu, yol ve ne istenen hizmet bildirmek sorgu parametreleri ile nasıl yanıt formüle içerir.
+Aşağıda belirtilen her durumda, verileri veya arama sonuçları sayfasını bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [arama belge](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekleri. İstekleri GET komutu, yol ve ne istenen hizmet bildirmek sorgu parametreleri ile nasıl yanıt formüle içerir.
 
 > [!NOTE]
-> Geçerli bir istek bir hizmet URL'si ve yol, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, yalnızca sayfa numaralandırma için uygun olan söz dizimini vurgulamak için örnekler kırpılır. Lütfen bakın [Azure Search Hizmeti REST API'si](http://msdn.microsoft.com/library/azure/dn798935.aspx) isteği sözdizimi hakkında ayrıntılar için belgelere.
+> Geçerli bir istek bir hizmet URL'si ve yol, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, yalnızca sayfa numaralandırma için uygun olan söz dizimini vurgulamak için örnekler kırpılır. Lütfen bakın [Azure Search Hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice) isteği sözdizimi hakkında ayrıntılar için belgelere.
 > 
 > 
 
@@ -64,7 +59,7 @@ Alanların döşeli düzeni için bir alt döndürmek için:
 
 Görüntüleri ve medya dosyalarını doğrudan aranabilir değildir ve maliyetleri azaltmak için Azure Blob Depolama alanı gibi başka bir depolama Platform depolanması gerekir. Dizin ve belgeleri dış içeriği URL adresini depolayan bir alan tanımlayın. Daha sonra alan bir görüntü başvuru olarak kullanabilirsiniz. Resim URL'si belgede olmalıdır.
 
-Bir ürün açıklama sayfasına almak için bir **onClick** olay, kullanım [arama belge](http://msdn.microsoft.com/library/azure/dn798929.aspx) almak için belge anahtarında geçirmek için. Anahtarın veri türü `Edm.String`. Bu örnek, *246810*. 
+Bir ürün açıklama sayfasına almak için bir **onClick** olay, kullanım [arama belge](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) almak için belge anahtarında geçirmek için. Anahtarın veri türü `Edm.String`. Bu örnek, *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -73,7 +68,7 @@ Genellikle ilgi için varsayılan sıralama siparişleri ancak böylece müşter
 
  ![][3]
 
-Azure Search'te sıralama dayanır `$orderby` olarak dizin oluşturulmuş tüm alanlar için ifade`"Sortable": true.`
+Azure Search'te sıralama dayanır `$orderby` olarak dizin oluşturulmuş tüm alanlar için ifade `"Sortable": true.`
 
 İlgi kesinlikle profilleri Puanlama ile ilişkilidir. Puanlama varsayılan metin analizi ve İstatistikler kullanır daha fazla veya daha güçlü eşleşme belgelerle bir arama terimi giderek daha yüksek puanları ile tüm sonuçları, sipariş derecelendirmek için kullanabilirsiniz.
 
@@ -86,7 +81,7 @@ Seçili sıralama seçeneği giriş olarak kabul eder ve sıralı bir listesi i�
  ![][5]
 
 > [!NOTE]
-> Varsayılan Puanlama birçok senaryo için yeterli olmakla birlikte, bunun yerine özel bir Puanlama profili ilgi alma öneririz. Özel bir Puanlama profili işinize daha faydalı artırma öğeleri için bir yol sağlar. Bkz: [Puanlama profili Ekle](http://msdn.microsoft.com/library/azure/dn798928.aspx) daha fazla bilgi için. 
+> Varsayılan Puanlama birçok senaryo için yeterli olmakla birlikte, bunun yerine özel bir Puanlama profili ilgi alma öneririz. Özel bir Puanlama profili işinize daha faydalı artırma öğeleri için bir yol sağlar. Bkz: [Puanlama profili Ekle](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) daha fazla bilgi için. 
 > 
 > 
 
@@ -100,12 +95,12 @@ Bir filtre ile veya olmadan arama ifadesi gönderebilirsiniz. Örneğin, aşağ�
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Bkz: [Search belgeleri (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) hakkında daha fazla bilgi için `$filter` ifadeler.
+Bkz: [Search belgeleri (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) hakkında daha fazla bilgi için `$filter` ifadeler.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Azure Search Hizmeti REST API'si](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Dizin işlemleri](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Belge işlemleri](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [Azure Search Hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice)
+* [Dizin işlemleri](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Belge işlemleri](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Video ve Azure Search öğreticileri](search-video-demo-tutorial-list.md)
 * [Azure Search'te modellenmiş bir gezinmede](search-faceted-navigation.md)
 

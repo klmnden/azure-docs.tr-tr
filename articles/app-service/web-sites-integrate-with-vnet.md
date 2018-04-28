@@ -1,8 +1,8 @@
 ---
-title: "Bir Azure sanal ağı ile bir uygulamayı tümleştirin"
-description: "Bir uygulamayı Azure App Service'te bir yeni veya var olan Azure sanal ağa bağlanmak nasıl gösterir"
+title: Bir Azure sanal ağı ile bir uygulamayı tümleştirin
+description: Bir uygulamayı Azure App Service'te bir yeni veya var olan Azure sanal ağa bağlanmak nasıl gösterir
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı Azure sanal ağı ile tümleştirme
 Bu belgede Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlanması gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağlar (Vnet'ler) ile bilginiz yoksa, bu Azure kaynaklarınızı çoğunu erişimi denetlemek Internet olmayan routeable ağ yerleştirmek izin veren bir yetenektir. Bu ağlar sonra VPN teknolojileri çeşitli kullanarak, şirket içi ağlara bağlanabilir. Azure sanal ağlar hakkında daha fazla bilgi edinmek için burada bilgilerle Başlat: [Azure Virtual Network'e genel bakış][VNETOverview]. 
@@ -57,7 +57,8 @@ Web uygulamanızı bir sanal ağa bağlanmadan önce göz önünde bulundurmanı
 
 * VNet tümleştirme yalnızca çalışır uygulamaları ile bir **standart**, **Premium**, veya **Isolated** planı fiyatlandırma. Özelliği etkinleştirmek ve uygulama hizmet planınızdaki uygulamalarınızı kullanmakta olduğunuz sanal ağlara bağlantıları kesilir desteklenmeyen fiyatlandırma planı ölçeklendirmek istiyorsanız. 
 * Hedef sanal ağınız zaten varsa, noktadan siteye VPN ile dinamik yönlendirme ağ geçidi etkin bir uygulama için bağlı önce olmalıdır. Ağ geçidi, statik yönlendirme ile yapılandırılmışsa, noktadan siteye sanal özel ağ (VPN) etkinleştiremezsiniz.
-* Sanal ağ, App Service Plan(ASP) ile aynı abonelikte olması gerekir. 
+* Sanal ağ, App Service Plan(ASP) ile aynı abonelikte olması gerekir.
+* Ağ geçidiniz noktası etkin siteye ile zaten var ve temel SKU'da değil, IKEv2 noktası site yapılandırmanızda devre dışı bırakılmalıdır.
 * Bir VNet ile tümleştirmek uygulamalar, bu sanal ağ için belirtilen DNS kullanır.
 * Varsayılan olarak tümleştirme uygulamalarınızı trafiği, sanal ağınızda tanımlanan rotaları göre sanal ağınızı içine yalnızca rota. 
 

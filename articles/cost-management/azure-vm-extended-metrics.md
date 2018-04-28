@@ -1,20 +1,20 @@
 ---
-title: "Azure sanal makineleri için genişletilmiş ölçüm Ekle | Microsoft Docs"
-description: "Bu makalede etkinleştirmek ve Azure Vm'leriniz için genişletilmiş tanılama ölçümleri yapılandırmanıza yardımcı olur."
+title: Azure sanal makineleri için genişletilmiş ölçüm Ekle | Microsoft Docs
+description: Bu makalede etkinleştirmek ve Azure Vm'leriniz için genişletilmiş tanılama ölçümleri yapılandırmanıza yardımcı olur.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 91797aaab1dca96e78643f57776eb16d336e894b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure sanal makineleri için genişletilmiş ölçüm Ekle
 
@@ -31,7 +31,7 @@ Maliyet Yönetimi yazılımını Azure Vm'leriniz Azure ölçüm verileri kaynak
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Ölçümleri VM'ler üzerinde etkinleştirildiğini doğrulayın
 
-1. http://portal.azure.com sayfasından Azure portalda oturum açın.
+1. http://portal.azure.com adresinden Azure portalında oturum açın.
 2. Altında **sanal makineleri**, bir VM seçin ve ardından **izleme**seçin **ölçümleri**. Kullanılabilir ölçümler listesi gösterilir.
 3. Bazı ölçümleri seçin ve veri için bir grafik görüntüler.  
     ![Örnek ölçüm – konak Yüzde CPU](./media/azure-vm-extended-metrics/metric01.png)

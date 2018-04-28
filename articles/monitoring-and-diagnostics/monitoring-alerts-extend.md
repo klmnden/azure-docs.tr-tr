@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Azure'da OMS Portalı'ndan (kopya) uyarıları genişletme
 Operations Management Suite (OMS) portal yalnızca günlük analizi uyarıları gösterir.  Yeni uyarılar deneyimi çeşitli Hizmetleri ve Microsoft Azure bölümleri arasında uyarı deneyimi şimdi tümleşiktir. Kullanılabilir olarak yeni deneyime **uyarıları** altında Azure İzleyicisi Azure portal etkinlik günlüğü uyarıları, ölçüm uyarıları ve günlük uyarıları günlük analizi ve Application Insights için içerir. 
@@ -43,7 +43,7 @@ Azure'da genişletmek için günlük analizi çalışma alanındaki uyarılar za
  ![Zamanlanmış süresi boyunca, kullanıcı eylemi Azure'a yeniden yönlendirilen uyarılar hakkında](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Uyarılar için Azure OMS Portalı'ndan genişletme ücret ve kullanım Azure günlük analizi uyarılar değil faturalandırılacaksınız, belirtilen koşullar ve sınırları içinde kullanıldığında için sorgu tabanlı uyarılar [Azure fiyatlandırma ilkesi İzleyicisi](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Uyarılar için Azure OMS Portalı'ndan genişletme ücret ve kullanım Azure günlük analizi uyarılar değil faturalandırılacaksınız, belirtilen koşullar ve sınırları içinde kullanıldığında için sorgu tabanlı uyarılar [Azure fiyatlandırma ilkesi İzleyicisi](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Kullanıcılar bu tarihten önce uyarıları genişletmenin avantajlarından; Gönüllü uyarılarını Azure yönetilebilir hale getirmek amacıyla kullanmama tarafından.
 

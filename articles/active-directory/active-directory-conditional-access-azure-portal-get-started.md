@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory'de koşullu erişimi kullanmaya başlama | Microsoft Docs"
-description: "Koşullu erişim konumu koşulu kullanarak test edin."
+title: Azure Active Directory'de koşullu erişimi kullanmaya başlama | Microsoft Docs
+description: Koşullu erişim konumu koşulu kullanarak test edin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişimi kullanmaya başlama
 
@@ -30,7 +30,7 @@ Bu konu, ortamınızdaki bir konum koşula göre koşullu bir erişim test etmek
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Yalnızca Kurumsal intranet bağlantısı gerçekleştirilmez erişim uygulamalar için çok faktörlü kimlik doğrulaması gerektirmek için birçok kuruluşta bir ortak gerekli değildir. Azure Active Directory ile konum temelli koşullu erişim ilkesini yapılandırarak bu amacı kolayca gerçekleştirebilirsiniz. Bu konu, ilgili ilke yapılandırmaya ilişkin ayrıntılı yönergeler sağlar. İlke yararlanır [güvenilen IP'leri](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) şirkete yapılan erişim denemesi ayırt etmek için intranet ve diğer tüm konumlara kullanıcının.
+Yalnızca Kurumsal intranet bağlantısı gerçekleştirilmez erişim uygulamalar için çok faktörlü kimlik doğrulaması gerektirmek için birçok kuruluşta bir ortak gerekli değildir. Azure Active Directory ile konum temelli koşullu erişim ilkesini yapılandırarak bu amacı kolayca gerçekleştirebilirsiniz. Bu konu, ilgili ilke yapılandırmaya ilişkin ayrıntılı yönergeler sağlar. İlke yararlanır [güvenilen IP'leri](authentication/howto-mfa-mfasettings.md#trusted-ips) şirkete yapılan erişim denemesi ayırt etmek için intranet ve diğer tüm konumlara kullanıcının.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -47,7 +47,7 @@ Bu senaryoyu test etmek için gerekir:
 
 - Güvenilen IP'leri yapılandırmak
 
-Güvenilen IP'ler hakkında daha fazla ayrıntı gerekirse bkz [güvenilen IP'ler](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+Güvenilen IP'ler hakkında daha fazla ayrıntı gerekirse bkz [güvenilen IP'ler](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## <a name="policy-configuration-steps"></a>İlke yapılandırma adımları

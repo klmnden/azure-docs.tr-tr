@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3e59395b7066169b8a7863f45a446051b830a71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>PowerShell Azure bulut Kabuğu (Önizleme) için hızlı başlangıç
 
@@ -274,13 +274,13 @@ Sunucular veya VM'ler SSH kullanarak kimlik doğrulaması için bulut Kabuğu'nd
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>GIT ve SSH ayarlarını sürdürmek için özel bir profil kullanma
 
-Oturumları bağlı kalmaz beri oturum kapatma, kaydetme, `$env:USERPROFILE\.ssh` dizininden `CloudDrive` veya Bulut Kabuk başlatıldığında bir simgesel oluşturun.
-Aşağıdaki kod parçacığında simgesel CloudDrive için oluşturmak için profile.ps1 ekleyin.
+Oturumları bağlı kalmaz beri oturum kapatma, kaydetme, `$env:USERPROFILE\.ssh` dizininden `clouddrive` veya Bulut Kabuk başlatıldığında bir simgesel oluşturun.
+Aşağıdaki kod parçacığında bir simgesel oluşturmak için profile.ps1 ekleyin `clouddrive`.
 
 ``` PowerShell
 # Check if the .ssh directory exists
-if( -not (Test-Path $home\CloudDrive\.ssh)){
-    mkdir $home\CloudDrive\.ssh
+if( -not (Test-Path $home\clouddrive\.ssh)){
+    mkdir $home\clouddrive\.ssh
 }
 
 # .ssh path relative to this script
@@ -347,21 +347,21 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-files-to-store-your-data"></a>Azure dosyaları verilerinizi depolamak için kullanın
 
-Bir komut dosyası deyin oluşturabilirsiniz `helloworld.ps1`ve kaydetmesi, `CloudDrive` Kabuk oturumlarında kullanmak için.
+Bir komut dosyası deyin oluşturabilirsiniz `helloworld.ps1`ve kaydetmesi, `clouddrive` Kabuk oturumlarında kullanmak için.
 
 ``` PowerShell
-cd C:\users\ContainerAdministrator\CloudDrive
-PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+cd C:\users\ContainerAdministrator\clouddrive
+PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
 Hello World!
 ```
 
-Bulut Kabuğu'nda PowerShell kullandığınızda, sonraki sefer `helloworld.ps1` dosya var altında `CloudDrive` , Azure dosya paylaşımı bağladığı dizin.
+Bulut Kabuğu'nda PowerShell kullandığınızda, sonraki sefer `helloworld.ps1` dosya var altında `clouddrive` , Azure dosya paylaşımı bağladığı dizin.
 
 ## <a name="use-custom-profile"></a>Özel profil kullan
 
-PowerShell oluşturarak PowerShell ortamınızın özelleştirebilirsiniz profillerini - `profile.ps1` veya `Microsoft.PowerShell_profile.ps1`. Altında kaydetmek `CloudDrive` böylece bulut Kabuğu'nu başlatın zaman her PowerShell oturumunda yüklenebilir.
+PowerShell oluşturarak PowerShell ortamınızın özelleştirebilirsiniz profillerini - `profile.ps1` veya `Microsoft.PowerShell_profile.ps1`. Altında kaydetmek `clouddrive` böylece bulut Kabuğu'nu başlatın zaman her PowerShell oturumunda yüklenebilir.
 
 Profil oluşturma, başvurmak için [hakkında profilleri][profile].
 
@@ -373,7 +373,7 @@ Oluşturmanıza gerek bulut Kabuğu'nda bir Git deposuna kopyalamak için bir [k
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Bulut Kabuk oturumlarında oturumu veya oturum zaman aşımına uğramadan devam etmeyen olduğundan, Git yapılandırma dosyası sonraki oturum açma sırasında mevcut olmaz. Kalıcı, Git config sağlamak için .gitconfig kaydedin, `CloudDrive` ve kopyalama veya Bulut Kabuk başlatıldığında bir simgesel oluşturun. Aşağıdaki kod parçacığında, profile.ps1 içinde bir simgesel oluşturulacağı `CloudDrive`.
+Bulut Kabuk oturumlarında oturumu veya oturum zaman aşımına uğramadan devam etmeyen olduğundan, Git yapılandırma dosyası sonraki oturum açma sırasında mevcut olmaz. Kalıcı, Git config sağlamak için .gitconfig kaydedin, `clouddrive` ve kopyalama veya Bulut Kabuk başlatıldığında bir simgesel oluşturun. Aşağıdaki kod parçacığında, profile.ps1 içinde bir simgesel oluşturulacağı `clouddrive`.
 
  ``` PowerShell
  

@@ -2,23 +2,20 @@
 title: Yapılandırma ve Visual Studio ile depolama öykünücüsünü kullanma | Microsoft Docs
 description: Yapılandırma ve Visual Studio ile depolama öykünücüsünü kullanma
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: c8e7996f-6027-4762-806e-614b93131867
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: c8e7996f-6027-4762-806e-614b93131867
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: ecf9df0d94f34df69750a8baa7f5502764cf9b06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c502d5e0869d35ded5c3ba7e790da0558d219e0e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Yapılandırma ve Visual Studio ile depolama öykünücüsünü kullanma
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -54,5 +51,5 @@ Bir rolü içindeki kodundan depolama öykünücüsünü erişmek için bir Azur
 Depolama öykünücüsü yerel depolama hizmetlerinin durumunu görüntüleyin ve başlatmak için durdurmak ve bunları sıfırlamak için bir kullanıcı arabirimi sağlar. Depolama öykünücüsü Hizmet başladıktan sonra kullanıcı arabirimi görüntüler veya başlatabilir veya Microsoft Azure öykünücüsü Windows görev çubuğundaki bildirim alanı simgesine sağ tıklayarak hizmetini durdurun.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Server Explorer'da depolama öykünücüsü verileri görüntüleme
-Sunucu Gezgininde Azure depolama, veri görüntülemek ve depolama öykünücüsü de dahil olmak üzere, depolama hesapları blob ve tablo verilerinizi ayarlarını değiştirmek sağlar. Bkz: [Depolama Gezgini (Önizleme) ile Azure Blob Storage'ı yönetme kaynaklarını](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) daha fazla bilgi için.
+Sunucu Gezgininde Azure depolama, veri görüntülemek ve depolama öykünücüsü de dahil olmak üzere, depolama hesapları blob ve tablo verilerinizi ayarlarını değiştirmek sağlar. Bkz: [Depolama Gezgini ile Azure Blob Storage'ı yönetme kaynaklarını](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) daha fazla bilgi için.
 

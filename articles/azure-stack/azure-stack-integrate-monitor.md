@@ -1,11 +1,11 @@
 ---
-title: "Dış izleme çözümü Azure yığın ile tümleştirme | Microsoft Docs"
-description: "Dış bir izleme çözümü, veri merkezinizdeki Azure yığın tümleştirileceğini öğrenin."
+title: Dış izleme çözümü Azure yığın ile tümleştirme | Microsoft Docs
+description: Dış bir izleme çözümü, veri merkezinizdeki Azure yığın tümleştirileceğini öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4188d114aa86086821b2c640d7f2d98a78bcbf4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü Azure yığın ile tümleştirme
 
@@ -82,8 +82,8 @@ Eklenti dosyası "Azurestack_plugin.py" aşağıdaki parametrelerle yapılandır
 | *Tenant_id* | Yönetici abonelik kimliği | Yönetici portalı veya PowerShell aracılığıyla Al |
 | *User_name* | İşleç abonelik kullanıcı adı | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | İşleç abonelik parola | İstanbul |
-| *Client_id* | İstemci | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Azure yığın bölge adı | yerel |
+| *client_id* | İstemci | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *Bölge* |  Azure yığın bölge adı | yerel |
 |  |  |
 
 * PowerShell sağlanan Evrensel GUID'dir. Her dağıtım için kullanabilirsiniz.
@@ -92,14 +92,14 @@ Eklenti dosyası "Azurestack_plugin.py" aşağıdaki parametrelerle yapılandır
 
 Operations Manager, Nagios veya Nagios tabanlı bir çözümü kullanmıyorsanız, Azure yığın ile tümleştirmek için çözümlerini izleme geniş etkinleştirmek için PowerShell kullanabilirsiniz.
  
-1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure yığın işleci ortamı için. PowerShell Kaynak Yöneticisi (Yönetici) uç noktası ulaşabilir yerel bir bilgisayara yükleme (https://adminmanagement.[Bölge].[External_FQDN]).
+1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure yığın işleci ortamı için. PowerShell Kaynak Yöneticisi (Yönetici) uç noktası ulaşabilir yerel bir bilgisayara yükleme (https://adminmanagement. [ Bölge]. [External_FQDN]).
 
 2. Bir Azure yığın işleç olarak Azure yığın ortama bağlanmak için aşağıdaki komutları çalıştırın:
 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Değiştirme yüklediğiniz dizine [Azure yığın Araçları](https://github.com/Azure/AzureStack-Tools) PowerShell yükleme, örneğin, c:\azurestack-tools-master bir parçası olarak. Ardından, altyapı dizinine değiştirin ve altyapı modülü içeri aktarmak için aşağıdaki komutu çalıştırın:
 
@@ -138,14 +138,14 @@ REST API çağrıları, uyarıları alma, uyarıları kapatın ve kaynak sağlay
 
 |Yöntem  |İstek URI'si  |
 |---------|---------|
-|AL     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|GET     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
 |     |         |
 
 **Bağımsız değişkenler**
 
 |Bağımsız değişken  |Açıklama  |
 |---------|---------|
-|armendpoint     |  Azure Resource Manager uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  Azure Resource Manager uç nokta biçimde Azure yığın ortamınızın https://adminmanagement.{RegionName}.{External FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.       |
 |subid     |   Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.      |
 |RegionName     |    Azure yığın dağıtımına bölge adı.     |
 |API sürümü     |  Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.      |
@@ -204,31 +204,31 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |  Bağımsız değişken  |Açıklama  |
 |---------|---------|
-|*id*     |      Uyarı benzersiz kimliği.   |
+|*Kimliği*     |      Uyarı benzersiz kimliği.   |
 |*Adı*     |     Uyarı iç adı.   |
-|*Türü*     |     Kaynak tanımı.    |
+|*type*     |     Kaynak tanımı.    |
 |*konum*     |       Bölge adı.     |
 |*etiketler*     |   Kaynak etiketleri.     |
 |*closedtimestamp*    |  UTC saati ne zaman uyarı kapatıldı.    |
 |*createdtimestamp*     |     Uyarının oluşturulduğu UTC saati.   |
 |*Açıklama*     |    Uyarı açıklaması.     |
 |*faultid*     | Etkilenen bileşeni.        |
-|*alertid*     |  Uyarı benzersiz kimliği.       |
+|*alertıd*     |  Uyarı benzersiz kimliği.       |
 |*faulttypeid*     |  Hatalı bileşen benzersiz türü.       |
 |*lastupdatedtimestamp*     |   Uyarı bilgileri en son güncelleştirildiği UTC saati.    |
 |*healthstate*     | Genel sistem durumu.        |
 |*Adı*     |   Belirli uyarı adı.      |
 |*fabricname*     |    Hatalı bileşen kayıtlı doku adı.   |
 |*Açıklama*     |  Kayıtlı fabric bileşeni açıklaması.   |
-|*servicetype*     |   Kayıtlı doku hizmetin türü.   |
-|*remediation*     |   Düzeltme adımları önerilir.    |
-|*Türü*     |   Uyarı türü.    |
+|*ServiceType*     |   Kayıtlı doku hizmetin türü.   |
+|*Düzeltme*     |   Düzeltme adımları önerilir.    |
+|*type*     |   Uyarı türü.    |
 |*resourceRegistrationid*    |     Etkilenen kayıtlı kaynak kimliği.    |
 |*resourceProviderRegistrationID*   |    Etkilenen bileşeninin kayıtlı kaynak sağlayıcısı kimliği.  |
 |*serviceregistrationid*     |    Kayıtlı hizmet kimliği.   |
 |*Önem derecesi*     |     Uyarı önem derecesi.  |
 |*Durumu*     |    Uyarı durumu.   |
-|*title*     |    Uyarı başlığı.   |
+|*Başlık*     |    Uyarı başlığı.   |
 |*impactedresourceid*     |     Etkilenen kaynak kimliği.    |
 |*ImpactedresourceDisplayName*     |     Etkilenen kaynağın adı.  |
 |*closedByUserAlias*     |   Uyarı kapatan kullanıcı.      |
@@ -241,18 +241,18 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Yöntem    |İstek URI'si  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+|PUT     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
 
 **Bağımsız değişkenler**
 
 
 |Bağımsız değişken  |Açıklama  |
 |---------|---------|
-|*armendpoint*     |   Kaynak Yöneticisi uç noktası biçimi içinde Azure yığın ortamınızın https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Kaynak Yöneticisi uç noktası biçimde Azure yığın ortamınızın https://adminmanagement.{RegionName}.{External FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.     |
 |*RegionName*     |   Azure yığın dağıtımına bölge adı.      |
-|*api-version*     |    Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.     |
-|*alertid*     |    Uyarı benzersiz kimliği.     |
+|*API sürümü*     |    Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.     |
+|*alertıd*     |    Uyarı benzersiz kimliği.     |
 
 **Gövde**
 
@@ -347,31 +347,31 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |  Bağımsız değişken  |Açıklama  |
 |---------|---------|
-|*id*     |      Uyarı benzersiz kimliği.   |
+|*Kimliği*     |      Uyarı benzersiz kimliği.   |
 |*Adı*     |     Uyarı iç adı.   |
-|*Türü*     |     Kaynak tanımı.    |
+|*type*     |     Kaynak tanımı.    |
 |*konum*     |       Bölge adı.     |
 |*etiketler*     |   Kaynak etiketleri.     |
 |*closedtimestamp*    |  UTC saati ne zaman uyarı kapatıldı.    |
 |*createdtimestamp*     |     Uyarının oluşturulduğu UTC saati.   |
 |*Açıklama*     |    Uyarı açıklaması.     |
 |*faultid*     | Etkilenen bileşeni.        |
-|*alertid*     |  Uyarı benzersiz kimliği.       |
+|*alertıd*     |  Uyarı benzersiz kimliği.       |
 |*faulttypeid*     |  Hatalı bileşen benzersiz türü.       |
 |*lastupdatedtimestamp*     |   Uyarı bilgileri en son güncelleştirildiği UTC saati.    |
 |*healthstate*     | Genel sistem durumu.        |
 |*Adı*     |   Belirli uyarı adı.      |
 |*fabricname*     |    Hatalı bileşen kayıtlı doku adı.   |
 |*Açıklama*     |  Kayıtlı fabric bileşeni açıklaması.   |
-|*servicetype*     |   Kayıtlı doku hizmetin türü.   |
-|*remediation*     |   Düzeltme adımları önerilir.    |
-|*Türü*     |   Uyarı türü.    |
+|*ServiceType*     |   Kayıtlı doku hizmetin türü.   |
+|*Düzeltme*     |   Düzeltme adımları önerilir.    |
+|*type*     |   Uyarı türü.    |
 |*resourceRegistrationid*    |     Etkilenen kayıtlı kaynak kimliği.    |
 |*resourceProviderRegistrationID*   |    Etkilenen bileşeninin kayıtlı kaynak sağlayıcısı kimliği.  |
 |*serviceregistrationid*     |    Kayıtlı hizmet kimliği.   |
 |*Önem derecesi*     |     Uyarı önem derecesi.  |
 |*Durumu*     |    Uyarı durumu.   |
-|*title*     |    Uyarı başlığı.   |
+|*Başlık*     |    Uyarı başlığı.   |
 |*impactedresourceid*     |     Etkilenen kaynak kimliği.    |
 |*ImpactedresourceDisplayName*     |     Etkilenen kaynağın adı.  |
 |*closedByUserAlias*     |   Uyarı kapatan kullanıcı.      |
@@ -385,7 +385,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |Yöntem  |İstek URI'si  |
 |---------|---------|
-|AL    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
+|GET    |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 "   |
 
 
 **Bağımsız değişkenler**
@@ -393,10 +393,10 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |Bağımsız Değişkenler  |Açıklama  |
 |---------|---------|
-|*armendpoint*     |    Kaynak Yöneticisi uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Kaynak Yöneticisi uç noktası biçimde Azure yığın ortamınızın https://adminmanagement.{RegionName}.{External FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.    |
 |*RegionName*     |     Azure yığın dağıtımına bölge adı.    |
-|*api-version*     |   Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.      |
+|*API sürümü*     |   Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.      |
 
 
 **Yanıt**
@@ -435,17 +435,17 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |---------|---------|
 |*Kimlik*     |   Uyarı benzersiz kimliği.      |
 |*Adı*     |  Uyarı iç adı.       |
-|*Türü*     |  Kaynak tanımı.       |
+|*type*     |  Kaynak tanımı.       |
 |*konum*     |  Bölge adı.       |
 |*etiketler*     |     Kaynak etiketleri.    |
 |*registrationId*     |   Benzersiz kayıt kaynak sağlayıcısı için.      |
-|*displayName*     |Kaynak sağlayıcının görünen adı.        |
+|*Görünen adı*     |Kaynak sağlayıcının görünen adı.        |
 |*Namespace*     |   API ad alanı kaynak sağlayıcısını uygular.       |
 |*routePrefix*     |    Kaynak sağlayıcısı ile etkileşim kurmak için URI.     |
 |*serviceLocation*     |   Bu kaynak sağlayıcısı kayıtlı bölgesi.      |
 |*infraURI*     |   Bir altyapı rolü olarak listelendiğini kaynak sağlayıcısı URI'si.      |
 |*alertSummary*     |   Kaynak sağlayıcı ile ilişkili kritik ve uyarı uyarı özeti.      |
-|*healthState*     |    Kaynak sağlayıcısı sistem durumu.     |
+|*HealthState*     |    Kaynak sağlayıcısı sistem durumu.     |
 
 
 ### <a name="get-resource-health"></a>Kaynak durumu Al
@@ -456,17 +456,17 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Yöntem  |İstek URI'si  |
 |---------|---------|
-|AL     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+|GET     |     https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 "    |
 
 **Bağımsız değişkenler**
 
 |Bağımsız Değişkenler  |Açıklama  |
 |---------|---------|
-|*armendpoint*     |    Kaynak Yöneticisi uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Kaynak Yöneticisi uç noktası biçimde Azure yığın ortamınızın https://adminmanagement.{RegionName}.{External FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.         |
 |*RegionName*     |  Azure yığın dağıtımına bölge adı.       |
-|*api-version*     |  Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.       |
-|*RegistrationID* |Belirli kaynak sağlayıcısı için kayıt kimliği. |
+|*API sürümü*     |  Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.       |
+|*RegistrationId* |Belirli kaynak sağlayıcısı için kayıt kimliği. |
 
 **Yanıt**
 
@@ -503,7 +503,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |---------|---------|
 |*Kimlik*     |   Uyarı benzersiz kimliği.      |
 |*Adı*     |  Uyarı iç adı.       |
-|*Türü*     |  Kaynak tanımı.       |
+|*type*     |  Kaynak tanımı.       |
 |*konum*     |  Bölge adı.       |
 |*etiketler*     |     Kaynak etiketleri.    |
 |*registrationId*     |   Benzersiz kayıt kaynak sağlayıcısı için.      |

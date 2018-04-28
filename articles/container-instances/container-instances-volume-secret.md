@@ -1,18 +1,18 @@
 ---
-title: "Azure kapsayıcı durumlarda gizli bir birim"
-description: "Kapsayıcı örnekleri tarafından erişim için hassas bilgileri depolamak için gizli bir birim öğrenin"
+title: Azure kapsayıcı durumlarda gizli bir birim
+description: Kapsayıcı örnekleri tarafından erişim için hassas bilgileri depolamak için gizli bir birim öğrenin
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 6f8e1b6faac11b668a143f8013a198831a428c51
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 47abb4c305b1997fa3f44c07aa85dd01e5a94f1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure kapsayıcı durumlarda gizli bir birim
 
@@ -35,6 +35,7 @@ Bağlanacak bir *gizli* bir kapsayıcı örnek bir birimde dağıtmanız gerekir
 
 Örneğin, aşağıdaki Resource Manager şablonu tek bir kapsayıcının oluşan bir kapsayıcı grubu oluşturur. Kapsayıcı başlatmalar bir *gizli* iki Base64 ile kodlanmış gizlilikleri oluşan birim.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Örnek bir Azure Resource Manager şablonu ile kapsayıcı örnek dağıtım görmek için bkz: [çok kapsayıcı grupları Azure kapsayıcı durumlarda dağıtmak](container-instances-multi-container-group.md).

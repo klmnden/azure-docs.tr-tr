@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>.NET 2.9 için Azure SDK sürüm notları
 
@@ -41,7 +41,7 @@ Bu sürümde hiçbir önemli değişiklikler için Azure SDK 2.9 tanıtılmışt
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 sanal makineler
 
-- Visual Studio artık işletim sistemi ailesi 5 (Windows Server 2016) sanal makineler için bulut Hizmetleri dağıtma destekler. Mevcut bulut hizmetlerini yeni işletim sistemi ailesi hedeflemek için ayarlarınızı değiştirebilirsiniz. .Net 4.6 ya da daha yüksek kullanarak hizmet oluşturmayı seçerseniz yeni bulut Hizmetleri, oluştururken, varsayılan olarak işletim sistemi ailesi 5 kullanmak için hizmet alır.  Daha fazla bilgi için gözden geçirebilirsiniz [konuk işletim sistemi ailesi destek tablo](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio artık işletim sistemi ailesi 5 (Windows Server 2016) sanal makineler için bulut Hizmetleri dağıtma destekler. Mevcut bulut hizmetlerini yeni işletim sistemi ailesi hedeflemek için ayarlarınızı değiştirebilirsiniz. .Net 4.6 ya da daha yüksek kullanarak hizmet oluşturmayı seçerseniz yeni bulut Hizmetleri, oluştururken, varsayılan olarak işletim sistemi ailesi 5 kullanmak için hizmet alır.  Daha fazla bilgi için gözden geçirebilirsiniz [konuk işletim sistemi ailesi destek tablo](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### <a name="known-issues"></a>Bilinen sorunlar
 
@@ -50,7 +50,7 @@ Bu sürümde hiçbir önemli değişiklikler için Azure SDK 2.9 tanıtılmışt
  
 ### <a name="azure-in-role-cache"></a>Azure rol içi önbellek 
 
-- Azure rol içi önbelleği uçları 30 Kasım 2016 desteği. Daha fazla ayrıntı için tıklatın [burada](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- Azure rol içi önbelleği uçları 30 Kasım 2016 desteği. Daha fazla ayrıntı için tıklatın [burada](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>Azure yığını için Azure Resource Manager şablonları
 

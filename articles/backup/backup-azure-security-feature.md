@@ -1,11 +1,11 @@
 ---
-title: "Azure Yedekleme'yi karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri | Microsoft Docs"
-description: "Güvenlik özellikleri yedeklemeleri daha güvenli hale getirmek için Azure Backup ile kullanmayı öğrenin"
+title: Azure Yedekleme'yi karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri | Microsoft Docs
+description: Güvenlik özellikleri yedeklemeleri daha güvenli hale getirmek için Azure Backup ile kullanmayı öğrenin
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Yedekleme'yi karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri
 Kötü amaçlı yazılım, yazılımı ve yetkisiz erişim, gibi güvenlik sorunları hakkında endişeleriniz artmaktadır. Bu güvenlik sorunları para ve veri açısından pahalı olabilir. Bu tür saldırılara karşı koruma sağlamak için Azure yedekleme karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri sağlar. Bu makalede, etkinleştirme ve Azure kurtarma Hizmetleri aracısını ve Azure yedekleme Sunucusu'nu kullanarak bu özellikleri kullanan alınmaktadır. Bu özellikler şunlardır:
@@ -55,7 +55,7 @@ Kurtarma Hizmetleri kasası oluşturuyorsanız, tüm güvenlik özelliklerini ku
     ![Ekran görüntüsü, Kurtarma Hizmetleri kasası özellikleri](./media/backup-azure-security-feature/security-settings-update.png)
 
     Güncelleştirme bağlantı açar **güvenlik ayarları** özelliklerinin bir özetini sağlar ve bunları sağlamanıza olanak tanır, dikey.
-5. Aşağı açılan listeden **Azure multi-Factor Authentication yapılandırdığınız?**, etkinleştirdiyseniz, onaylamak için bir değer seçin [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md). Etkinleştirilirse, Azure portalında oturum açma sırasında başka bir CİHAZDAN (örneğin, cep telefonu) kimlik doğrulaması için istenir.
+5. Aşağı açılan listeden **Azure multi-Factor Authentication yapılandırdığınız?**, etkinleştirdiyseniz, onaylamak için bir değer seçin [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md). Etkinleştirilirse, Azure portalında oturum açma sırasında başka bir CİHAZDAN (örneğin, cep telefonu) kimlik doğrulaması için istenir.
 
    Yedekleme kritik işlemler gerçekleştirdiğinizde, PIN, Azure portalında kullanılabilir güvenlik girmeniz gerekir. Azure multi-Factor Authentication etkinleştirilmesi bir güvenlik katmanı ekler. Yalnızca yetkili kullanıcıların geçerli Azure kimlik bilgileriyle ve ikinci bir CİHAZDAN kimlik doğrulaması, Azure portalına erişebilir.
 6. Güvenlik ayarları kaydetmek için seçin **etkinleştirmek** tıklatıp **kaydetmek**. Seçebileceğiniz **etkinleştirmek** yalnızca arasında bir değer seçtikten sonra **Azure multi-Factor Authentication yapılandırdığınız?** önceki adımda listesi.
@@ -106,7 +106,7 @@ Genellikle, kritik bir işlem gerçekleştirilirken Abonelik Yöneticisi işlemi
 
 Bu makalede açıklanan güvenlik özellikleri hedeflenen saldırılara karşı savunma mekanizmaları sağlar. Daha da önemlisi, saldırının olursa, bu özellikler, verilerinizi kurtarmak için kabiliyeti sağlar.
 
-## <a name="troubleshooting-errors"></a>Sorun giderme
+## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
 | İşlem | Hata ayrıntıları | Çözüm |
 | --- | --- | --- |
 | İlke değişikliği |Yedekleme İlkesi değiştirilemedi. Hata: Bir iç hata nedeniyle [0x29834] geçerli işlem başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft desteğine başvurun. |**Neden:**<br/>Güvenlik ayarları etkin, desteklenmeyen bir sürümünde olan ve, yukarıda belirtilen minimum değerler aşağıda saklama aralığını çalıştığınızda bu hatayı gelir (desteklenen sürümleri, bu makalenin ilk notta belirtilir). <br/>**Önerilen eylem:**<br/> Bu durumda, yukarıda belirtilen minimum bekletme (günlük, haftalık, üç hafta aylık veya yıllık yedekleme için bir yıl için dört hafta için yedi gün) saklama dönemi ayarlamalısınız İlkesi ile devam etmek için güncelleştirmeleri ilgili. İsteğe bağlı olarak, tercih edilen yaklaşım Azure yedekleme sunucusu ve/veya DPM UR tüm güvenlik güncelleştirmelerini yararlanmak için yedekleme aracısını güncelleştirmek olur. |

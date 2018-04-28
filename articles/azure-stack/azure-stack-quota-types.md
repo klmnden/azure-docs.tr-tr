@@ -1,25 +1,25 @@
 ---
-title: "Kota türleri Azure yığınında | Microsoft Docs"
-description: "Kullanılabilir hizmet ve kaynakları Azure yığınındaki farklı kota türlerini gözden geçirin."
+title: Kota türleri Azure yığınında | Microsoft Docs
+description: Kullanılabilir hizmet ve kaynakları Azure yığınındaki farklı kota türlerini gözden geçirin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure yığınında kota türleri
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | Kullanılabilirlik kümesi sayısı maks. | 10 | Bu konumda oluşturulan kullanılabilirlik kümesi maksimum sayısı. |
 | Sanal makine ölçek maksimum sayısını ayarlar | 20 | Bu konumda oluşturulan sanal makine ölçek kümeleri maksimum sayısı. |
 
-> [!NOTE]
-> Kotalar bu teknik önizlemede zorlanmaz işlem.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Depolama kotası türleri
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
 | Maksimum Kapasite (GB) |500 |Bu konumda bulunan abonelik tarafından kullanılan toplam depolama kapasitesi. |
 | Depolama hesaplarının toplam sayısına |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesapları maksimum sayısı. |
+
+> [!NOTE]  
+> İki yeni bir depolama kotası uygulanmadan önce saate kadar sürebilir. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Ağ kota türleri
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |

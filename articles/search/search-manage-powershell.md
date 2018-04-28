@@ -1,25 +1,20 @@
 ---
-title: "Powershell komut dosyalarıyla Azure Search yönetme | Microsoft Docs"
-description: "PowerShell komut dosyalarıyla Azure Search hizmetinizi yönetme. Oluşturma veya güncelleştirme bir Azure Search hizmeti ve Azure Search yönetici anahtarları Yönet"
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+title: Powershell komut dosyalarıyla Azure Search yönetme | Microsoft Docs
+description: PowerShell komut dosyalarıyla Azure Search hizmetinizi yönetme. Oluşturma veya güncelleştirme bir Azure Search hizmeti ve Azure Search yönetici anahtarları Yönet
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell ile Azure Search hizmetinizi yönetme
 > [!div class="op_single_selector"]
@@ -29,7 +24,7 @@ ms.lasthandoff: 12/21/2017
 > 
 
 Bu konu Azure arama hizmetleri için yönetim görevlerinin çoğunu gerçekleştirmek için PowerShell komutlarını açıklar. Bir arama hizmeti oluşturma, ölçeklendirme ve API anahtarını yönetme size yol gösterir.
-Bu komutlar kullanılabilir yönetim seçenekleri paralel [Azure Search Yönetimi REST API'si](http://msdn.microsoft.com/library/dn832684.aspx).
+Bu komutlar kullanılabilir yönetim seçenekleri paralel [Azure Search Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure PowerShell 1.0 veya daha büyük olmalıdır. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
@@ -37,7 +32,7 @@ Bu komutlar kullanılabilir yönetim seçenekleri paralel [Azure Search Yönetim
 
 İlk olarak, şunları yapmalısınız bu komutla Azure oturum açma:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Microsoft Azure oturum açma iletişim kutusunda Azure hesabınızı ve kendi parolasını e-posta adresini belirtin.
 
@@ -135,6 +130,6 @@ Hizmetiniz oluşturulur, sonraki adımlar alabilir: derleme bir [dizin](search-w
 * [Azure portalda Azure Search dizini oluşturma](search-create-index-portal.md)
 * [Azure Portalı'nda arama Gezgini kullanarak Azure Search dizini sorgulama](search-explorer.md)
 * [Veri hizmetlerinden yüklemek için bir dizin oluşturucu ayarlayın](search-indexer-overview.md)
-* [Azure Search .NET ile kullanma](search-howto-dotnet-sdk.md)
+* [.NET’te Azure Search kullanma](search-howto-dotnet-sdk.md)
 * [Azure Search trafiğini analiz](search-traffic-analytics.md)
 

@@ -51,7 +51,7 @@
 ### [Sorun giderme kılavuzu](dns-troubleshoot.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)

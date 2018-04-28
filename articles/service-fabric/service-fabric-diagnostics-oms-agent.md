@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric - OMS Aracısı ile izleme ayarlama | Microsoft Docs
+title: Azure Service Fabric - performans günlük analizi ile izleme | Microsoft Docs
 description: Kapsayıcılar ve Azure Service Fabric kümeleri için performans sayaçları izleme için OMS aracısının ayarlanacağını öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2018
-ms.author: dekapur
-ms.openlocfilehash: 613e5a2a746d480f020af652e7bbaf5e80ed059d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 6e1c870458f43bcc5d6d40f0e40e2b2a95bee2af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="add-the-oms-agent-to-a-cluster"></a>OMS Aracısı bir kümeye ekleme
+# <a name="performance-monitoring-with-log-analytics"></a>Performans günlük analizi ile izleme
 
-Bu makalede kümenize uzantısı bir sanal makine ölçek kümesi gibi OMS Aracısı ekleyin ve, mevcut Azure günlük analizi çalışma alanına bağlayın adımları yer almaktadır. Bu kapsayıcı, uygulamaları ve performans izleme hakkında tanılama veri toplama sağlar. Bu uzantı olarak ekleyerek, Azure Resource Manager her düğümde yüklü bile küme ne zaman ölçeklendirme sağlar.
+Bu makalede kümenize uzantısı bir sanal makine ölçek kümesi gibi günlük analizi, olarak da bilinen OMS Aracısı ekleyin ve, mevcut Azure günlük analizi çalışma alanına bağlayın adımları yer almaktadır. Bu kapsayıcı, uygulamaları ve performans izleme hakkında tanılama veri toplama sağlar. Bu uzantı olarak sanal makine ölçek kümesi kaynağı ekleyerek, Azure Resource Manager her düğümde yüklü bile küme ne zaman ölçeklendirme sağlar.
 
 > [!NOTE]
 > Bu makalede daha önce ayarlamış bir Azure günlük analizi çalışma alanı sahibi olduğunuzu varsayar. Bunu yapmazsanız, üzerinden için head [Azure günlük analizi ayarlayın](service-fabric-diagnostics-oms-setup.md)
@@ -33,39 +33,31 @@ OMS Aracısı, kümeye eklemek için en iyi yolu, Azure CLI ile API sanal makine
 
 1. Bulut Kabuk istenen sonra kaynağınız ile aynı abonelikte çalıştığından emin olun. Bu kontrol `az account show` ve "name" değeri, kümenizin abonelik eşleştiğinden emin olun.
 
-2. Portalda, günlük analizi çalışma alanınız bulunduğu kaynak grubuna gidin. (Kaynak türü günlük analizi olacaktır) günlük analizi kaynakta, sağdaki Gezinti içine tıklayın, aşağı kaydırın ve tıklayın **özellikleri**.
+2. Portalda, günlük analizi çalışma alanınız bulunduğu kaynak grubuna gidin. Günlük analizi kaynağını (kaynak türü günlük analizi olacaktır) tıklayın. Kaynak Genel Bakış sayfasına olduktan sonra tıklayın **Gelişmiş ayarları** sol menüde ayarları bölümünde.
 
-    ![Günlük analizi Özellikler sayfası](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
-
-    Not alın, `workspaceId`. 
-
-3. Ayrıca gerekir, `workspaceKey` aracı dağıtmak için. Anahtarını almak için tıklayın **Gelişmiş ayarları**altında *ayarları* sol gezinti bölümü. Tıklayın **Windows sunucuları** Windows Küme, duran varsa ve **Linux sunucuları** Linux kümesi oluşturuyorsanız. İhtiyacınız vardır *birincil anahtar* , görüntülenir, aracıları olarak dağıtmak için `workspaceKey`.
+    ![Günlük analizi Özellikler sayfası](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+ 
+3. Tıklayın **Windows sunucuları** Windows Küme, duran varsa ve **Linux sunucuları** Linux kümesi oluşturuyorsanız. Bu sayfada, gösterilir, `workspace ID` ve `workspace key` (birincil anahtar olarak portalda listelenen). Sonraki adım için her ikisini de gerekir.
 
 4. Kümenizde üzerine OMS Aracısı'nı yüklemek için komutu çalıştırmak kullanarak `vmss extension set` API bulut Kabuğu'nda:
 
     Windows Küme için:
     
     ```sh
-    az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<LogAnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<LogAnalyticsworkspaceKey>'}"
+    az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
     ```
 
     Linux kümesi için:
 
     ```sh
-    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<LogAnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<LogAnalyticsworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
     ```
 
     Bir Windows kümeye eklenen OMS Aracısı bir örneği burada verilmiştir.
 
     ![OMS Aracısı CLI komutu](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
-5. Bu yapılandırma VM örneklerinizi zaten uygulamak için komutu çalıştırın:  
-
-    ```sh
-    az vmss update-instances
-    ```
-
-    Bu aracı, düğümlere başarıyla eklemek için küçüktür 15 dakika sürer. Aracıları kullanarak eklendiğini doğrulayabilirsiniz `az vmss extension list` API'si:
+5. Bu aracı, düğümlere başarıyla eklemek için küçüktür 15 dakika sürer. Aracıları kullanarak eklendiğini doğrulayabilirsiniz `az vmss extension list` API'si:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
@@ -77,7 +69,26 @@ Bir Azure günlük analizi çalışma alanı dağıtma ve düğümlerin her biri
 
 Karşıdan yükle ve en iyi sonucu gereksinimlerinize uyan bir küme dağıtmak için bu şablonu değiştirin.
 
+## <a name="view-performance-counters-in-the-log-analytics-portal"></a>Günlük analizi portalında performans sayaçları görüntüleyin
+
+OMS Aracısı, head eklediğiniz göre hangi performans sayaçlarını seçmek için günlük analizi portal üzerinden toplamak istediğiniz. 
+
+1. Azure portalında Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin. En üstte OMS Portalı'na gitmek için bağlantıyı tıklatın.
+
+2. Portalda olduğunuzda, her biri için Service Fabric dahil olmak üzere etkin çözümleri için bir grafik biçiminde bir kutucuk görürsünüz. Service Fabric analiz çözümü devam etmek için burayı tıklatın. 
+
+3. Şimdi işletimsel kanal ve güvenilir hizmetler olayları grafikleri birkaç kutucuk göreceksiniz. Sağ taraftaki ayarları sayfasına gitmek için dişli simgesine tıklayın.
+
+    ![OMS ayarları](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+
+4. Ayarlar sayfasında veri tıklatın ve Windows veya Linux performans sayaçlarını seçin. Varsayılan değerleri etkinleştirmeyi seçebilirsiniz listesi vardır ve koleksiyon için bir aralığı çok ayarlayabilirsiniz. Ayrıca ekleyebileceğiniz [ek performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) toplanacak. Bu doğru biçimde başvurulan [makale](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+
+Sayaçlarınızın yapılandırılmış sonra head yedekleme çözümleri sayfasına ve veri giriş ve altında grafiklerde görüntülenen akan yakında görürsünüz **düğümü ölçümleri**. Performans sayacı verileri kümesi olayları ve düğümler, performans sayaç adı ve Kusto sorgu dili kullanarak değerlere filtre benzer şekilde sorgulayabilirsiniz. 
+
+![OMS performans sayacı sorgu](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Toplama ilgili [performans sayaçları](service-fabric-diagnostics-event-generation-perf.md). Belirli bir performans sayaçları toplamak için OMS aracısının yapılandırmak için gözden [veri kaynaklarını yapılandırma](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Ayarlamak için günlük analizi yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için
+* Alternatif olarak, performans sayaçları aracılığıyla toplayabilirsiniz [Azure tanılama uzantısını ve Application Insights'a gönderme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)

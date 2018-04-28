@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -75,8 +75,8 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
-- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- Red Hat Enterprise Linux 6.7, 6,8 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6,8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7 [ (çekirdek sürümleri desteklenir)](#supported-debian-kernel-versions-for-azure-virtual-machines)
@@ -115,7 +115,7 @@ Debian 8 | 9.14 | 3.16.0-5-amd64, 4.9.0-0.bpo.5-amd64 4.9.0-0.bpo.4-amd64 3.16.0
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Desteklenen dosya sistemleri ve Linux işletim sistemi çalıştıran Azure sanal makinelerinde Konuk depolama yapılandırmaları
 
 * Dosya sistemleri: ext3, ext4, ReiserFS (Suse Linux Enterprise Server yalnızca), XFS
-* Volume manager: LVM2
+* Birim Yöneticisi: LVM2
 * Çok yollu yazılım: cihaz Eşleyici
 
 ## <a name="region-support"></a>Bölge desteği
@@ -168,6 +168,8 @@ Bekleyen (SSE) şifreleme | Desteklenen | Önbellek ve hedef depolama hesapları
 Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
 Sık kullanılan Ekle/Kaldır disk | Desteklenmiyor | Veri diski VM'de ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal makine için çoğaltmayı etkinleştirmek gerekir.
 Diski hariç tutma | Desteklenmiyor|   Geçici disk varsayılan olarak çıkarılır.
+Doğrudan depolama alanları  | Desteklenmiyor|
+Genişleme dosya sunucusu  | Desteklenmiyor|
 LRS | Desteklenen |
 GRS | Desteklenen |
 RA-GRS | Desteklenen |
@@ -190,7 +192,7 @@ NSG üzerinde NIC'ye (Resource Manager)| Desteklenen | NSG'yi bir kurtarma plan�
 NSG alt (Resource Manager ve klasik)| Desteklenen | Bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak alt ağı için NSG ilişkilendirmeniz gerekir.
 NSG VM'ye (Klasik)| Desteklenen | NSG'yi bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC ilişkilendirmeniz gerekir.
 Ayrılmış IP (statik IP) / kaynak IP koru | Desteklenen | Statik IP yapılandırması NIC kaynak VM üzerinde varsa ve aynı IP kullanılabilir hedef alt ağa sahip, yük devretme VM atanır. Hedef alt aynı IP yoksa kullanılabilir IP alt ağda biri bu VM için ayrılmıştır. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
-Dynamic IP| Desteklenen | NIC kaynak VM üzerinde dinamik IP yapılandırması varsa, yük devretme NIC'nin VM de varsayılan olarak dinamik bir işlemdir. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
+Dinamik IP| Desteklenen | NIC kaynak VM üzerinde dinamik IP yapılandırması varsa, yük devretme NIC'nin VM de varsayılan olarak dinamik bir işlemdir. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
 Traffic Manager tümleştirmesi | Desteklenen | Önceden, trafik Yöneticisi trafiği düzenli olarak kaynak bölgede uç noktasına ve yük devretme durumunda hedef bölgesi uç yönlendirilir şekilde yapılandırabilirsiniz.
 Azure DNS yönetilen | Desteklenen |
 Özel DNS  | Desteklenen |    

@@ -1,24 +1,18 @@
 ---
-title: "Azure arama için arama trafiği analizi | Microsoft Docs"
-description: "Azure Search, kullanıcılarınız ve verilerinizi hakkında Öngörüler kilidini açmak için Microsoft Azure üzerinde barındırılan bulut arama hizmeti için arama trafiği analytics etkinleştirin."
+title: Azure arama için arama trafiği analizi | Microsoft Docs
+description: Azure Search, kullanıcılarınız ve verilerinizi hakkında Öngörüler kilidini açmak için Microsoft Azure üzerinde barındırılan bulut arama hizmeti için arama trafiği analytics etkinleştirin.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>Arama trafiği analytics nedir
 Arama trafiği analytics arama hizmetiniz için bir geri döngü uygulamak için bir desen ' dir. Bu deseni gerekli veri ve Application Insights, birden çok platform hizmetlerinde izleme için bir endüstri lideri kullanarak Topla açıklar.
@@ -139,7 +133,7 @@ Bir arama isteğine bir kullanıcı tarafından verilen her zaman, olarak arama 
 
 Arama analiz amacıyla günlüğe bir sinyal belgesinde, bir kullanıcı, her zaman. Bu olaylar aşağıdaki şema ile oturum için Application Insights özel olaylar kullanın:
 
-**ServiceName**: (dize) arama hizmeti adı **SearchId**: ilgili arama sorgusunun benzersiz tanıtıcısı (GUID) **DocId**: (dize) belge tanımlayıcısı **konumu** : (int) derecesini belgenin arama sonuçları sayfası
+**ServiceName**: (dize) arama hizmeti adı **SearchId**: ilgili arama sorgusunun benzersiz tanıtıcısı (GUID) **DocId**: (dize) belge tanımlayıcısı **konumu**: (int) derecesini belgenin arama sonuçları sayfası
 
 > [!NOTE]
 > Konum, uygulamanızın Kardinal sırayla ifade eder. Bu her zaman aynı karşılaştırma için izin vermek için olduğu sürece bu numarayı ayarlayabilirler.

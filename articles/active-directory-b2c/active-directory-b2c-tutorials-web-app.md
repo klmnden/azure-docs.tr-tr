@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C’yi bir ASP.NET Web Uygulamasında Kullanıcı Kimlik Doğrulaması için kullanma öğreticisi
+title: 'Öğretici: Bir web uygulamasının Azure Active Directory B2C kullanarak hesaplarla kimlik doğrulaması yapmasını sağlama | Microsoft Docs'
 description: Bir ASP.NET web uygulamasında kullanıcının oturum açmasını sağlamak için Azure Active Directory B2C’nin nasıl kullanılacağını gösteren öğretici.
 services: active-directory-b2c
 author: davidmu1
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Öğretici: Bir ASP.NET web uygulamasında Azure Active Directory B2C ile kullanıcıların kimliğini doğrulama
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Öğretici: Bir web uygulamasının Azure Active Directory B2C kullanarak hesaplarla kimlik doğrulaması yapmasını sağlama
 
 Bu öğreticide, bir ASP.NET web uygulamasında kullanıcı oturumu açmak ve kullanıcı kaydetmek için Azure Active Directory (Azure AD) B2C’nin nasıl kullanılacağı açıklanmaktadır. Azure AD B2C, uygulamalarınızın sosyal ağ hesaplarda, kurumsal hesaplarda ve Azure Active Directory hesaplarında açık standart protokoller kullanarak kimlik doğrulaması yapmasına izin verir.
 
@@ -40,22 +40,22 @@ Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Azure Portalı'ndaki Hizmetler listesinden **Azure AD B2C**’yi seçin.
+1. Azure Portalı'ndaki Hizmetler listesinden **Azure AD B2C**’yi seçin. 
 
-2. B2C ayarlarında **Uygulamalar**’a ve ardından  **Ekle**’ye tıklayın.
+2. B2C ayarlarında **Uygulamalar**’a ve ardından  **Ekle**’ye tıklayın. 
 
     Örnek web uygulamasını kiracınıza kaydetmek için aşağıdaki ayaları kullanın:
 
     ![Yeni uygulama ekle](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Ad** | Örnek Web Uygulamam | Uygulamanızı müşterilere açıklayan bir **Ad** girin. | 
     | **Web uygulamasını / web API'sini dahil etme** | Yes | Web uygulaması için **Evet**’i seçin. |
     | **Örtük akışa izin verme** | Yes | Uygulama [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
     | **Yanıt URL'si** | `https://localhost:44316` | Yanıt URL'leri, Azure AD B2C'nin, uygulamanız tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek yerel olarak (localhost) çalışır ve 44316 numaralı bağlantı noktasını dinler. |
-    | **Yerel istemci** | Hayır | Bu, bir web uygulaması olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |
-
+    | **Yerel istemci ekle** | Hayır | Bu, bir web uygulaması olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |
+    
 3. Uygulamanızı kaydetmek için **Oluştur**’a seçeneğine tıklayın.
 
 Kayıtlı uygulamalar Azure AD B2C kiracısı için uygulamalar listesinde görüntülenir. Listeden web uygulamanızı seçin. Web uygulamasının özellik bölmesi görüntülenir.
@@ -70,7 +70,7 @@ Azure AD B2C, [istemci uygulamaları](../active-directory/develop/active-directo
 
 1. Kayıtlı web uygulaması için Anahtarlar sayfasını seçin ve **Anahtar oluştur**’a tıklayın.
 
-2. Anahtarı görüntülemek için **Kaydet**’e tıklayın.
+2. Uygulama anahtarını görüntülemek için **Kaydet**’e tıklayın.
 
     ![uygulama genel anahtarları sayfası](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -112,7 +112,7 @@ Kullanıcıların, kullanıcı profili bilgilerini kendi kendine sıfırlamasın
     | **Ad** | SiPe | İlke için bir **Ad** girin. İlke adı, **b2c_1_** önekine sahip olur. Örnek kodda, **b2c_1_SiPe** olan tam ilke adını kullanın. | 
     | **Kimlik sağlayıcı** | Yerel Hesap Oturum Açma Bilgileri | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
     | **Profil öznitelikleri** | Görünen Ad ve Posta Kodu | Profil düzenleme işlemi sırasında kullanıcıların değiştirebileceği öznitelikleri seçin. |
-    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının yeni olma durumu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
+    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
 
 2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
 
@@ -134,7 +134,7 @@ Uygulamanızda parola sıfırlama özelliği sunmak için bir **parola sıfırla
 
 ## <a name="update-web-app-code"></a>Web uygulaması kodunu güncelleştirme
 
-Artık web uygulamasını kaydettiğinize ve ilkeleri oluşturduğunuza göre, uygulamanızı Azure AD B2C kiracınızı kullanacak şekilde yapılandırmanız gerekir. Bu öğretici örnek bir web uygulamasını yapılandıracaksınız. 
+Artık web uygulamasını kaydettiğinize ve ilkeleri oluşturduğunuza göre, uygulamanızı Azure AD B2C kiracınızı kullanacak şekilde yapılandırmanız gerekir. Bu öğreticide, GitHub’dan indirebileceğiniz örnek bir web uygulaması yapılandırırsınız. 
 
 GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) veya örnek web uygulamasını kopyalayın.
 
@@ -142,7 +142,7 @@ GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-d
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Örnek ASP.NET web uygulaması, yapılacak işler listesi oluşturmak ve güncelleştirmek için kullanılan basit bir görev listesi uygulamasıdır. Kullanıcıların uygulamayı Azure AD B2C kiracınızda kullanmasına izin vermek için [Microsoft OWIN ara yazılım bileşenleri](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) kullanılır. Azure AD B2C ilkesi oluşturduğunuzda kullanıcılar uygulamaya erişmek için kimlik olarak kullanmak üzere bir sosyal ağ hesabı kullanabilir veya hesap oluşturabilir. 
+Örnek ASP.NET web uygulaması, yapılacak işler listesi oluşturmak ve güncelleştirmek için kullanılan basit bir görev listesi uygulamasıdır. Kullanıcıların uygulamayı Azure AD B2C kiracınızda kullanmasına izin vermek için [Microsoft OWIN ara yazılım bileşenleri](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) kullanılır. Azure AD B2C ilkesi oluşturduğunuzda kullanıcılar uygulamaya erişmek için kimlik olarak kullanmak üzere bir sosyal ağ hesabı kullanabilir veya hesap oluşturabilir. 
 
 Örnek çözümde iki proje vardır:
 
@@ -154,7 +154,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 1. **B2C-WebAPI-DotNet** çözümünü Visual Studio’da açın.
 
-2. **TaskWebApp** web uygulaması projesinde **Web.config** dosyasını açın ve aşağıdaki güncelleştirmeleri gerçekleştirin:
+2. **TaskWebApp** web uygulaması projesinde **Web.config** dosyasını açın ve mevcut anahtarlar üzerinde aşağıdaki güncelleştirmeleri gerçekleştirin:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. İlke ayarlarını, ilkelerinizi oluştururken oluşturulan ad ile güncelleştirin.
+3. Mevcut anahtarları, önceki bir adımda oluşturduğunuz ilke adlarının değerleriyle güncelleştirin. *b2c_1_* ön ekini kullanmayı unutmayın.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

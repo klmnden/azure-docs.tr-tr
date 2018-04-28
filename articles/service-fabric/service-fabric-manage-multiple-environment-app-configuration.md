@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Birden çok ortam için uygulamaları yönetme
 
@@ -48,8 +48,8 @@ Sağladığınız yapılandırma içinde iki kategoriye ayrılabilir:
 
 Adlandırılmış uygulama örnekleri Service Fabric oluştururken, parametreleri geçirin seçeneğiniz vardır. Bunu yolu, Uygulama örneğinin nasıl oluşturacağınız bağlıdır.
 
-  - PowerShell'de, [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet karma tablosu olarak uygulama parametreleri alır.
-  - Sfctl, kullanarak [ `sfctl application create` ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) komut parametreleri JSON dize olarak alır. İnstall.sh komut dosyası sfctl kullanır.
+  - PowerShell'de, [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet karma tablosu olarak uygulama parametreleri alır.
+  - Sfctl, kullanarak [ `sfctl application create` ](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) komut parametreleri JSON dize olarak alır. İnstall.sh komut dosyası sfctl kullanır.
   - Visual Studio uygulama projesi parametreleri klasöründe parametre dosyaları kümesini sağlar. Bu parametre dosyaları Visual Visual Studio Team hizmeti veya Team Foundation Server kullanarak Studio'dan yayımlama sırasında kullanılır. Visual Studio'da parametre dosyaları dağıtma FabricApplication.ps1 komut dosyasına geçirilen.
 
 ## <a name="next-steps"></a>Sonraki adımlar

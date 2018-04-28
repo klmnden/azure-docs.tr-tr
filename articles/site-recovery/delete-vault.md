@@ -1,6 +1,6 @@
 ---
-title: "Site Recovery kasası Sil"
-description: "Site Recovery senaryoyu temel bir Azure Site Recovery kasası silme hakkında bilgi edinin."
+title: Site Recovery kasası Sil
+description: Site Recovery senaryoyu temel bir Azure Site Recovery kasası silme hakkında bilgi edinin.
 service: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 62792747b4efe2de4c22af6f0886503d7d63ed44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery kasası Sil
 Bağımlılıklar, bir Azure Site Recovery kasası silmesini engelleyebilirsiniz. Size gereken eylemleri Site kurtarma senaryosunda göre farklılık gösterir: VMware azure'a, Hyper-V (ile arama ve Sistem Merkezi Sanal Makine Yöneticisi olmadan) Azure ve Azure yedekleme için. Azure Backup ile kullanılan bir kasa silmek için bkz: [Azure yedekleme kasasına silme](../backup/backup-azure-delete-vault.md).
@@ -65,7 +65,7 @@ Kasayı silmek için senaryonuz için önerilen adımları izleyin.
 
 Korunan öğelerin olsa bile Site Recovery kasası silmek için aşağıdaki komutları kullanın:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 

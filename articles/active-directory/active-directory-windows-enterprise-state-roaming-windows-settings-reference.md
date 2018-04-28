@@ -1,9 +1,9 @@
 ---
-title: "Windows 10 Dolaşım ayarları başvurusu | Microsoft Docs"
-description: "Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi."
+title: Windows 10 Dolaşım ayarları başvurusu | Microsoft Docs
+description: Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi.
 services: active-directory
-keywords: "Kurumsal durumda dolaşımı, windows bulut"
-documentationcenter: 
+keywords: Kurumsal durumda dolaşımı, windows bulut
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
 Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi verilmiştir. 
@@ -47,11 +47,15 @@ Aşağıdaki ayarları grupları, Windows 10 cihazlarında ayarları eşitleme e
 * Erişim Kolaylığı: Ekran Okuyucusu, ekran klavyesi, Büyüteç 
 * Diğer Windows ayarları: Windows ayarları ayrıntıları bakın
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Edge tarayıcı ayar grubu (Sık Kullanılanlar, okuma listesi) eşitleniyor etkinleştirilebilir veya Edge tarayıcısı ayarları menü seçeneği aracılığıyla son kullanıcılar tarafından devre dışı bırakıldı.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Windows 10 sürüm 1803 ya da daha sonra Internet Explorer ayar grubu için (Sık Kullanılanlar, yazılan URL'leri) eşitleniyor etkinleştirilebilir veya Internet Explorer ayarlarını menü seçeneği aracılığıyla son kullanıcılar tarafından devre dışı bırakıldı. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Windows ayarları ayrıntıları
 Aşağıdaki tabloda, ayarları Grup sütunu diğer girdiler ayarlarına giderek devre dışı bırakılabilir ayarları başvurduğu > hesapları > ayarlarınızı eşitleyin > diğer Windows ayarları. 

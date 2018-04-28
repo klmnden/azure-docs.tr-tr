@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 58b4c6769f6eb441e9ccaf041f3d56f4af9a0831
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IOT kenar modülleri nasıl kullanılabileceğini, yapılandırılmış, anlamak ve yeniden - önizleme
 
@@ -168,7 +168,7 @@ Dağıtım bildirimi IOT kenar cihaza dağıtılan her modülün modül çifti i
 
 Dağıtım bildiriminde bir modül twin'ın istenen özellikleri belirtmezseniz, IOT hub'ı herhangi bir şekilde modülü twin değiştirmez ve istenen özellikleri programlı olarak ayarlamak mümkün olacaktır.
 
-Cihaz çiftlerini değiştirmenize izin mekanizmalarının aynısını modülü çiftlerini değiştirmek için kullanılır. Başvurmak [cihaz çifti Geliştirici Kılavuzu](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) daha fazla bilgi için.   
+Cihaz çiftlerini değiştirmenize izin mekanizmalarının aynısını modülü çiftlerini değiştirmek için kullanılır. Başvurmak [cihaz çifti Geliştirici Kılavuzu](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) daha fazla bilgi için.   
 
 ## <a name="deployment-manifest-example"></a>Dağıtım bildirim örneği
 

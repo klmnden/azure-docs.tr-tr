@@ -1,22 +1,91 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines-windows, azure-resource-manager
+author: genlin
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 04/14/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: 6377b79d986d32fba8f84c670d6b69d5eda98b8a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/18/2018
+---
+Bir sanal makine (VM) oluşturmak, durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın veya bir VM'yi yeniden boyutlandırın, Microsoft Azure aboneliğinize işlem kaynakları ayırır. Biz sürekli olarak ek altyapı ve her zaman müşteri taleplerini desteklemek kullanılabilir tüm VM türler sahibiz emin olmak için özellikler yatırım yapıyor. Ancak, belirli bölgelerdeki Azure Hizmetleri için isteğe bağlı eşi görülmemiş büyüme nedeniyle bazen kaynak ayırma hatalarıyla karşılaşabilirsiniz. Oluşturun veya sanal makineleri şu hata kodu ve iletiyi görüntülemek sırasında sanal makineleri bir bölgede başlatmak çalıştığınızda bu sorun oluşabilir:
 
-Bu makalede Azure sorunu ele alınmamışsa ziyaret [MSDN ve yığın taşması Azure forumları](https://azure.microsoft.com/support/forums/). Bu forumları veya çok sorununuzu nakledebilirsiniz @AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği seçerek dosya **alma desteği** üzerinde [Azure Destek](https://azure.microsoft.com/support/options/) site.
+**Hata kodu**: AllocationFailed veya ZonalAllocationFailed
 
-## <a name="general-troubleshooting-steps"></a>Genel sorun giderme adımları
-### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Klasik dağıtım modelinde ortak ayırma hatalarını giderme
-Bu adımlar, sanal makinelerde birçok ayırma hatalarını gidermek yardımcı olabilir:
+**Hata iletisi**: "ayırma başarısız oldu. Biz yeterli kapasitesi istenen VM boyutu bu bölgede gerekmez. Ayırma başarı olasılığını artırma hakkında daha fazla okuma http://aka.ms/allocation-guidance"
 
-* Farklı bir VM boyutu VM'i yeniden boyutlandırın.<br>
-    Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **ayarları** > **boyutu**. Ayrıntılı adımlar için bkz: [sanal makine yeniden boyutlandırma](https://msdn.microsoft.com/library/dn168976.aspx).
-* Bulut hizmetinden tüm sanal makineleri silin ve sanal makineleri yeniden oluşturun.<br>
-    Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **silmek**. Ardından **kaynak oluşturma** > **işlem** > [sanal makine görüntüsü].
+Bu makalede, bazı ortak ayırma hatalarının nedenlerini açıklar ve olası çözümler önerir.
 
-### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelinde ortak ayırma hatalarını giderme
-Bu adımlar, sanal makinelerde birçok ayırma hatalarını gidermek yardımcı olabilir:
+Bu makalede Azure sorunu ele alınmamışsa ziyaret [MSDN ve yığın taşması Azure forumları](https://azure.microsoft.com/support/forums/). Bu forumları veya çok sorununuzu nakledebilirsiniz @AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği üzerinde Get destek seçerek dosya [Azure Destek](https://azure.microsoft.com/support/options/) site.
 
-* Durdur (deallocate) tüm sanal makineleri aynı kullanılabilirlik ayarlayın, sonra her birini yeniden başlatın.<br>
-    Durdurmak için: tıklatın **kaynak grupları** > kaynak grubunuz > **kaynakları** > kullanılabilirlik kümesi > **sanal makineleri** > sanal makineniz >  **Durdur**.
-  
-    Tüm sanal makineleri sonra durdurmak, ilk VM seçin ve tıklatın **Başlat**.
+Tercih edilen VM türünüz tercih edilen Bölgenizde kullanılabilir oluncaya kadar biz aşağıdaki tabloda yer alan yönergeleri geçici bir çözüm olarak dikkate alınması gereken dağıtım sorunlarla müşteriler öneriyoruz. 
+
+Durumunuza en iyi şekilde eşleşen senaryo tanımlamak ve ayırma başarı olasılığını artırmak için karşılık gelen önerilen geçici çözüm kullanılarak ayırma isteği yeniden deneyin. Alternatif olarak, her zaman daha sonra yeniden deneyebilirsiniz. Yeterli kaynaklar, küme, bölge veya isteğiniz uyum sağlayacak şekilde bölge boşaltılmış olmasıdır. 
+
+
+## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Bir VM'yi yeniden boyutlandırın veya VM'ler var olan bir kullanılabilirlik kümesine ekleme
+
+### <a name="cause"></a>Nedeni
+
+Bir VM'yi yeniden boyutlandırın veya mevcut bir kullanılabilirlik kümesi için bir VM varolan kullanılabilirlik barındıran özgün kümesine denenecek eklemek için bir istek ayarlayın. İstenen VM boyutu küme tarafından desteklenir, ancak küme şu anda yeterli kapasiteye sahip olmayabilir. 
+
+### <a name="workaround"></a>Geçici çözüm
+
+VM farklı bir kullanılabilirlik kümesinin bir parçası olabilir, farklı bir kullanılabilirlik (aynı bölgede) kümesindeki bir VM oluşturun. Bu yeni VM sonra aynı sanal ağa eklenebilir.
+
+Durdur (deallocate) tüm sanal makineleri aynı kullanılabilirlik ayarlayın, sonra her birini yeniden başlatın.
+Durdurmak için: tıklatın Kaynak grupları > [kaynak grubunuz] > Kaynakları > [kullanılabilirlik kümesi] > sanal makineleri > [sanal makinenize] > durdurun.
+Tüm sanal makineleri durdurduktan sonra ilk VM seçin ve ardından Başlat'ı tıklatın.
+Bu adım, yeni bir ayırma girişimi çalıştırılır ve yeni bir küme yeterli kapasiteye sahip seçilebilir emin emin olur.
+
+## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
+
+### <a name="cause"></a>Nedeni
+
+Kısmi ayırmayı kaldırma (serbest bırakıldığında) bir veya daha fazla durduruldu ancak tümü, sanal makineleri bir kullanılabilirlik kümesi anlamına gelir. Bir VM serbest bırakma, ilişkili kaynakları serbest bırakılır. Kısmen deallocated kullanılabilirlik kümesindeki sanal makineleri yeniden başlatmayı VM'ler var olan bir kullanılabilirlik kümesine ekleme aynıdır. Bu nedenle, ayırma isteğini özgün kümesine varolan kullanılabilirlik kümesi konakları yeterli kapasiteye sahip olmayabilir çalıştı gerekir.
+
+### <a name="workaround"></a>Geçici çözüm
+
+Durdur (deallocate) tüm sanal makineleri aynı kullanılabilirlik ayarlayın, sonra her birini yeniden başlatın.
+Durdurmak için: tıklatın Kaynak grupları > [kaynak grubunuz] > Kaynakları > [kullanılabilirlik kümesi] > sanal makineleri > [sanal makinenize] > durdurun.
+Tüm sanal makineleri durdurduktan sonra ilk VM seçin ve ardından Başlat'ı tıklatın.
+Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme yeterli kapasitesine sahip seçilebilir olduğundan emin olmanızı sağlar.
+
+## <a name="restart-fully-stopped-deallocated-vms"></a>Tam olarak durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
+
+### <a name="cause"></a>Nedeni
+
+Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineleri bir kullanılabilirlik kümesinde serbest). Bu sanal makineleri yeniden başlatmayı ayırma isteği bölge ve bölge içinde istenen boyuta destekleyen tüm kümeleri hedefleyecektir. Bu makaledeki öneriler başına ayırma isteğinizi değiştirin ve ayırma başarı olasılığını artırmak için isteği yeniden deneyin. 
+
+### <a name="workaround"></a>Geçici çözüm
+
+Eski VM dizisi ya da Dv1, DSv1, Av1, D15v2 veya DS15v2, gibi boyutları kullanırsanız, daha yeni sürümleri için taşımayı düşünün. Bu önerileri belirli VM boyutları için bkz.
+Farklı bir VM boyutu kullanma seçeneğiniz yoksa, aynı coğrafi içinde farklı bir bölgeye dağıtmayı deneyin. Her bir bölge içinde kullanılabilir VM boyutları hakkında daha fazla bilgi için https://aka.ms/azure-regions
+
+Kullanılabilirlik bölgeleri kullanıyorsanız, istenen VM boyutu için kullanılabilir kapasiteye sahip olmayabilir ve bölge içindeki başka bir bölgeye deneyin.
+
+Ayırma isteği büyükse (500'den fazla çekirdek), daha küçük dağıtımlar içine isteği bölmeniz aşağıdaki bölümlerde yer alan yönergeleri bakın.
+
+## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Eski VM boyutları (Av1, Dv1, DSv1, D15v2, DS15v2, vb.) için ayırma hataları
+
+Biz Azure altyapı genişletin gibi biz son sanal makine türlerini desteklemek üzere tasarlanmış yeni nesil donanım dağıtın. Bazı eski serisi VM'ler bizim son nesil altyapısı üzerinde çalıştırmayın. Bu nedenle, müşteriler bu eski SKU'ları için ayırma hatalarını bazen karşılaşabilirsiniz. Bu sorunu önlemek için aşağıdaki önerileri başına eşdeğer yeni sanal makineleri taşımak dikkate alınması gereken eski serisi sanal makineler kullanan müşteriler şu önerilir: Bu VM'ler için en son donanım en iyi duruma getirilir ve daha iyi yararlanmak sağlar Fiyatlandırma ve performans. 
+
+|Eski VM-serisi/boyutu|Önerilen yeni VM-serisi/boyutu|Daha fazla bilgi|
+|----------------------|----------------------------|--------------------|
+|Av1-serisi|[Av2-serisi](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 veya DSv1 seri (D1 D5 için)|[Dv3 veya DSv3-serisi](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 veya DSv1 seri (D11 D14 için)|[Ev3 veya ESv3-serisi](../articles/virtual-machines/windows/sizes-memory.md#esv3-series-sup1sup)|
+|D15v2 veya DS15v2|Daha büyük VM boyutları yararlanmak için theResource Manager dağıtım modeli kullanarak, D16v3/DS16v3 veya D32v3/DS32v3 taşımayı düşünün. Bu son nesil donanımda çalışmak üzere tasarlanmıştır. VM örneği için tek bir müşteriye ayrılmış donanım için ayrılmış olduğundan emin olmak için Resource Manager dağıtım modeli kullanıyorsanız en son nesil donanımda çalıştırmak için tasarlanmış yeni yalıtılmış VM boyutları, E64i_v3 veya E64is_v3, taşımayı düşünün. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+
+## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Ayırma hatalarının büyük dağıtımlar (500'den fazla çekirdek)
+
+İstenen VM boyutu örneklerinin sayısını azaltın ve dağıtım işlemi yeniden deneyin. Ayrıca, büyük ölçekli dağıtımlarda, değerlendirmek istediğiniz [Azure sanal makine ölçek kümeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). VM örneği sayısını otomatik olarak artırabilir veya azaltabilirsiniz isteğe bağlı veya tanımlı bir zamanlamayı yanıt olarak ve dağıtımlar arasında birden fazla küme yayılabilir çünkü ayırma başarı büyük şansına sahip olabilirsiniz. 
 
 ## <a name="background-information"></a>Arka plan bilgileri
 ### <a name="how-allocation-works"></a>Ayırma nasıl çalışır?
@@ -24,187 +93,8 @@ Azure veri merkezlerindeki sunucular kümelere bölünmüştür. Normalde, birde
 ![Ayırma diyagramı](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>Ayırma hatalarının neden olması
-Ayırma isteği bir kümeye sabitlenmiş, kullanılabilir kaynak havuzu daha küçük olduğundan boş kaynakları bulmak başarısız olan, daha yüksek bir fırsat yok. Küme kaynakları serbest bırakmak olsa bile Ayrıca, bir kümeye ayırma isteği sabitlenmiş ancak, istenen kaynak türü, küme tarafından desteklenmiyor, isteğiniz başarısız olur. Aşağıdaki diyagram 3 yalnızca adayı küme kaynakları serbest bırakmak olmadığından burada Sabitlenmiş ayırma başarısız durumda gösterir. Diyagram 4 yalnızca adayı küme istenen VM boyutu desteklemediği için küme kaynakları serbest bırakmak sahip olsa bile burada Sabitlenmiş ayırma başarısız durumda gösterir.
+Ayırma isteği bir kümeye sabitlenmiş, kullanılabilir kaynak havuzu daha küçük olduğundan boş kaynakları bulmak başarısız olan, daha yüksek bir fırsat yok. Küme kaynakları serbest bırakmak olsa bile Ayrıca, bir kümeye ayırma isteği sabitlenmiş ancak, istenen kaynak türü, küme tarafından desteklenmiyor, isteğiniz başarısız olur. Aşağıdaki diyagram 3 yalnızca adayı küme kaynakları serbest bırakmak olmadığından burada Sabitlenmiş ayırma başarısız durumu gösterir. Diyagram 4 yalnızca adayı küme istenen VM boyutu desteklemediği için küme kaynakları serbest bırakmak sahip olsa bile burada Sabitlenmiş ayırma başarısız durumda gösterir.
 
 ![Sabitlenmiş ayırma hatası](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Ayrıntılı adımları belirli ayırma hatası senaryoları Klasik dağıtım modelinde sorun giderme
-Sabitlenmelidir ayırma isteği neden ortak ayırma senaryolar verilmiştir. Her senaryo bu makalenin sonraki bölümlerinde içine dalın.
-
-* Bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
-* Kısmen durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
-* Tam olarak durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
-* Hazırlama/üretim dağıtımları (yalnızca bir hizmet olarak platform)
-* Benzeşim grubu (VM/hizmet yakınlık)
-* Benzeşim grubu tabanlı sanal ağ
-
-Ayırma hatası aldığınızda, açıklanan senaryoların herhangi biri, hata geçerli değilse bakın. Azure platformu tarafından döndürülen ayırma hatası ilgili senaryoyu tanımlamak için kullanın. İsteğiniz sabitlenmiş, daha fazla kümeler, böylece ayırma Başarı şansı artırma isteğinizi açmak için sabitleme kısıtlamaları bazılarını kaldırın.
-
-Hata "istenen VM boyutu desteklenmiyor" bildirmediği sürece, yeterli kaynak isteğiniz uyum sağlayacak şekilde kümede serbest bırakılmış olabilir gibi genel olarak, size her zaman daha sonraki bir zamanda yeniden deneyebilir. İstenen VM boyutu desteklenmiyor sorunsa, farklı bir VM boyutu deneyin. Aksi durumda, tek seçenek sabitleme kısıtlaması kaldırmaktır.
-
-İki ortak hatası senaryoları için benzeşim grupları ilişkilidir. Geçmişte, yakınında VM'ler/hizmet örneklerine sağlamak için kullanılan bir benzeşim grubu veya bir sanal ağ oluşturulmasını sağlamak üzere kullanıldı. Bölgesel sanal ağlar başlanmasıyla, benzeşim grupları artık bir sanal ağ oluşturmak için gerekli değildir. Azure altyapı içindeki ağ gecikme süresi azaltma ile VM/hizmet yakınlık için benzeşim grupları kullanmak için öneri değişti.
-
-Aşağıdaki çizime 5 (sabitlenmiş) ayırma senaryoları sınıflandırma gösterir.
-![Sabitlenmiş ayırma sınıflandırma](./media/virtual-machines-common-allocation-failure/Allocation3.png)
-
-> [!NOTE]
-> Her bir ayırma senaryo listelenen hata kısa bir biçimidir. Başvurmak [hata dizesi arama](#Error string lookup) ayrıntılı hata dizeleri.
-> 
-> 
-
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Ayırma senaryo: bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
-**Hata**
-
-Upgrade_VMSizeNotSupported veya GeneralError
-
-**Küme sabitleme nedeni**
-
-Mevcut bulut hizmetini barındıran özgün kümesine denenmesi bir VM'yi yeniden boyutlandırın veya bir VM veya rol örneği var olan bir bulut hizmetine eklemek için bir istek aldı. Yeni bir bulut hizmeti oluşturulması, istenen VM boyutu destekler veya kaynakları serbest bırakmak sahip başka bir küme bulmak Azure platformu sağlar.
-
-**Geçici çözüm**
-
-Hata Upgrade_VMSizeNotSupported * varsa, farklı bir VM boyutu deneyin. Farklı bir VM boyutu kullanarak bir seçenek değilse, ancak farklı bir sanal IP adresi (VIP) kullanmak için kabul edilebilir ise, yeni VM barındırmak ve var olan VM'ler çalıştırdığı bölgesel sanal ağ için yeni bulut hizmeti eklemek için yeni bir bulut hizmeti oluşturun. Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanmıyorsa, hala yeni bulut hizmeti için yeni bir sanal ağ oluşturduğunuzda ve ardından bağlanmak, [yeni bir sanal ağ mevcut sanal ağa](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-Hata GeneralError * varsa, (örneğin, belirli bir VM boyutu) kaynak türü küme tarafından desteklenir, ancak küme şu anda kaynakları serbest bırakmak yok olasıdır. Yukarıdaki senaryosu benzer yeni bir bulut hizmeti (yeni bulut hizmeti farklı bir VIP kullanmak olduğunu unutmayın) oluşturma aracılığıyla istenen işlem kaynak ekleyin ve bulut hizmetlerinizi bağlanmak için bir bölgesel sanal ağ kullanın.
-
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma kısmen durduruldu (serbest bırakıldığında) VM'ler
-**Hata**
-
-GeneralError *
-
-**Küme sabitleme nedeni**
-
-Kısmi ayırmayı kaldırma (serbest bırakıldığında) bir veya daha fazlasını ancak değil tüm VM'lerin bir bulut hizmetinde durduruldu anlamına gelir. Ne zaman durdurup (deallocate) VM, bir ilişkili kaynakları serbest bırakılır. Bu durduruldu (serbest bırakıldığında) VM'yi yeniden başlatırken bu nedenle yeni ayırma isteğidir. VM'ler kısmen deallocated bulut hizmetinde yeniden başlatma var olan bir bulut hizmetini VM'ler ekleme ile eşdeğerdir. Mevcut bulut hizmetini barındıran özgün kümesine denenmesi ayırma isteğini sahiptir. Farklı bir bulut hizmeti oluşturulması, istenen VM boyutu destekler veya ücretsiz kaynağa sahip başka bir küme bulmak Azure platformu sağlar.
-
-**Geçici çözüm**
-
-Farklı bir VIP kullanın, durduruldu (serbest bırakıldığında) sanal makineleri silin (ancak ilişkili diskler tutmak için) kabul edilebilir ve eklerseniz farklı bir bulut hizmeti sanal makineleri yedekleyin. Bulut hizmetlerinizi bağlanmak için bir bölgesel sanal ağ kullanın:
-
-* Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanıyorsa, yeni bulut hizmeti aynı sanal ağa eklemeniz yeterlidir.
-* Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanmıyorsa, yeni bulut hizmeti için yeni bir sanal ağ oluşturun ve ardından [yeni bir sanal ağa varolan sanal ağınıza bağlamak](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma tam olarak durduruldu (serbest bırakıldığında) VM'ler
-**Hata**
-
-GeneralError *
-
-**Küme sabitleme nedeni**
-
-Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineler bir bulut hizmetinden serbest). Bu sanal makineleri yeniden başlatmayı ayırma isteklerini bulut hizmetini barındıran özgün kümesine denenmesi gerekir. Yeni bir bulut hizmeti oluşturulması, istenen VM boyutu destekler veya kaynakları serbest bırakmak sahip başka bir küme bulmak Azure platformu sağlar.
-
-**Geçici çözüm**
-
-Farklı bir VIP kullanın, özgün durduruldu (serbest bırakıldığında) sanal makineleri silin (ancak ilişkili diskler tutmak için) kabul edilebilir ise ve karşılık gelen bulut hizmetini silin ((serbest bırakıldığında) durduğunda ilişkili işlem kaynaklarını zaten yayımlanan VM'ler). Sanal makineleri geri eklemek için yeni bir bulut hizmeti oluşturun.
-
-## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Ayırma senaryo: hazırlama/üretim dağıtımları (yalnızca bir hizmet olarak platform)
-**Hata**
-
-New_General * veya New_VMSizeNotSupported *
-
-**Küme sabitleme nedeni**
-
-Hazırlama dağıtımı ve bir bulut hizmeti Üretim dağıtımı aynı küme içinde barındırılır. İkinci dağıtımı eklediğinizde, ilk dağıtım barındıran aynı küme içinde karşılık gelen ayırma isteğini denenir.
-
-**Geçici çözüm**
-
-İlk dağıtımı silin ve özgün bulut hizmeti ve bulut hizmeti yeniden dağıtın. Bu eylem, her iki dağıtım sığması için ücretsiz yeterli kaynaklara sahip bir küme veya istediğiniz VM boyutları destekleyen bir küme ilk dağıtım güden.
-
-## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Ayırma senaryo: benzeşim grubu (VM/hizmet yakınlık)
-**Hata**
-
-New_General * veya New_VMSizeNotSupported *
-
-**Küme sabitleme nedeni**
-
-Herhangi bir benzeşim grubuna atanan kaynak bir kümeye bağlanır işlem. Benzeşim grubu çalıştı varolan kaynakları barındırıldığı kümede, yeni işlem kaynağı ister. Yeni kaynaklar var olan bir bulut hizmetini veya yeni bir bulut hizmeti aracılığıyla oluşturulan bu geçerlidir.
-
-**Geçici çözüm**
-
-Bir benzeşim grubu gerekli değilse, olmayan bir benzeşim grubu kullanın veya işlem kaynaklarınızı birden çok benzeşim gruplar halinde gruplandırabilirsiniz.
-
-## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Ayırma senaryo: benzeşim grubuna bağlı sanal ağ
-**Hata**
-
-New_General * veya New_VMSizeNotSupported *
-
-**Küme sabitleme nedeni**
-
-Bölgesel sanal ağlar sunulmadan önce bir sanal ağ bir benzeşim grubu ile ilişkilendirmek için gerekli olmuştur. Sonuç olarak, bir benzeşim grubu yerleştirilen kaynakları açıklandığı gibi aynı kısıtlamalar tarafından bağlı işlem "ayırma senaryo: benzeşim grubu (VM/hizmet yakınlık)" Yukarıdaki bölümde. İşlem kaynaklarını kümeye bağlıdır.
-
-**Geçici çözüm**
-
-Bir benzeşim grubu gerekmiyorsa ekleyeceğiniz, yeni kaynaklar için yeni bir bölgesel sanal ağ oluşturun ve ardından [yeni bir sanal ağa varolan sanal ağınıza bağlamak](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-Alternatif olarak, [benzeşim grubu tabanlı sanal ağınızı bölgesel bir sanal ağa geçirmeniz](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)ve ardından istenen kaynakları yeniden ekleyin.
-
-## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Ayrıntılı adımları belirli ayırma hatası senaryoları Azure Resource Manager dağıtım modelinde sorun giderme
-Sabitlenmelidir ayırma isteği neden ortak ayırma senaryolar verilmiştir. Her senaryo bu makalenin sonraki bölümlerinde içine dalın.
-
-* Bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
-* Kısmen durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
-* Tam olarak durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
-
-Ayırma hatası aldığınızda, açıklanan senaryoların herhangi biri, hata geçerli değilse bakın. Azure platformu tarafından döndürülen ayırma hatası ilgili senaryoyu tanımlamak için kullanın. İsteğiniz varolan bir kümeye sabitlenmiş, daha fazla kümeler, böylece ayırma Başarı şansı artırma isteğinizi açmak için sabitleme kısıtlamaları bazılarını kaldırın.
-
-Hata "istenen VM boyutu desteklenmiyor" bildirmediği sürece, yeterli kaynak isteğiniz uyum sağlayacak şekilde kümede serbest bırakılmış olabilir gibi genel olarak, size her zaman daha sonraki bir zamanda yeniden deneyebilir. Aşağıda sorun istenen VM boyutu desteklenmiyor ise, geçici çözümler için bkz.
-
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Ayırma senaryo: bir VM'yi yeniden boyutlandırın veya VM'ler var olan bir kullanılabilirlik kümesine ekleme
-**Hata**
-
-Upgrade_VMSizeNotSupported * veya GeneralError *
-
-**Küme sabitleme nedeni**
-
-Varolan bir kullanılabilirlik kümesini barındıran özgün kümesine denenmesi bir VM'yi yeniden boyutlandırın veya VM var olan bir kullanılabilirlik kümesine eklemek için bir istek aldı. Yeni bir kullanılabilirlik kümesi oluşturmak istediğiniz VM boyutu destekler veya kaynakları serbest bırakmak sahip başka bir küme bulmak Azure platformu sağlar.
-
-**Geçici çözüm**
-
-Hata Upgrade_VMSizeNotSupported * varsa, farklı bir VM boyutu deneyin. Farklı bir VM boyutu kullanarak bir seçenek değilse, tüm sanal makineleri kullanılabilirlik kümesinde durdurun. İstenen VM boyutu destekleyen bir kümeye VM ayırır sanal makine boyutunu daha sonra değiştirebilirsiniz.
-
-Hata GeneralError * varsa, (örneğin, belirli bir VM boyutu) kaynak türü küme tarafından desteklenir, ancak küme şu anda kaynakları serbest bırakmak yok olasıdır. VM farklı bir kullanılabilirlik kümesinin bir parçası olabilir, farklı bir kullanılabilirlik (aynı bölgede) kümesinde yeni bir VM oluşturun. Bu yeni VM sonra aynı sanal ağa eklenebilir.  
-
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma kısmen durduruldu (serbest bırakıldığında) VM'ler
-**Hata**
-
-GeneralError *
-
-**Küme sabitleme nedeni**
-
-Kısmi ayırmayı kaldırma (serbest bırakıldığında) bir veya daha fazla durduruldu ancak tümü, sanal makineleri bir kullanılabilirlik kümesi anlamına gelir. Ne zaman durdurup (deallocate) VM, bir ilişkili kaynakları serbest bırakılır. Bu durduruldu (serbest bırakıldığında) VM'yi yeniden başlatırken bu nedenle yeni ayırma isteğidir. Kısmen deallocated kullanılabilirlik kümesindeki sanal makineleri yeniden başlatmayı VM'ler var olan bir kullanılabilirlik kümesine ekleme ile eşdeğerdir. Varolan bir kullanılabilirlik kümesini barındıran özgün kümesine denenmesi ayırma isteğini sahiptir.
-
-**Geçici çözüm**
-
-Kullanılabilirlik kümesindeki ilk yeniden başlatmadan önce tüm sanal makineleri durdurun. Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme kullanılabilir kapasiteye sahip seçilebilir emin olun.
-
-## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Ayırma senaryo: yeniden başlatma tam olarak durduruldu (serbest bırakıldığında)
-**Hata**
-
-GeneralError *
-
-**Küme sabitleme nedeni**
-
-Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineleri bir kullanılabilirlik kümesinde serbest). Bu sanal makineleri yeniden başlatmayı ayırma isteği istenen boyut destekleyen tüm kümeleri hedefleyecektir.
-
-**Geçici çözüm**
-
-Ayırmak için yeni bir VM boyutunu seçin. Bu işe yaramazsa, lütfen daha sonra yeniden deneyin.
-
-<a name="Error string lookup"></a>
-
-## <a name="error-string-lookup"></a>Hata dizesi arama
-**New_VMSizeNotSupported***
-
-"VM boyutu (veya VM boyutları birleşimi) bu dağıtımın gerektirdiği dağıtım isteği kısıtlamaları nedeniyle sağlanamıyor. Mümkünse, başka bir dağıtım içindeki ve farklı bir benzeşim grubuna ya da hiçbir benzeşim grubuna barındırılan bir hizmete sanal ağ bağlamaları gibi kısıtlamaları gevşetme deneyin veya farklı bir bölgeye dağıtmayı deneyin."
-
-**New_General***
-
-"Ayırma başarısız oldu; İstekteki kısıtlamalar karşılamak kurulamıyor. İstenen yeni hizmet dağıtımı bir benzeşim grubuna bağlı veya bir sanal ağ hedefler ya da bu barındırılan hizmet altında varolan bir dağıtım yok. Bu koşulların herhangi biri yeni dağıtımı belirli Azure kaynaklarına kısıtlar. Lütfen daha sonra yeniden deneyin veya VM boyutunu veya rol örneklerinin sayısını azaltmayı deneyin. Alternatif olarak, mümkünse, daha önce bahsedilen kısıtlamaları kaldırın veya farklı bir bölgeye dağıtmayı deneyin."
-
-**Upgrade_VMSizeNotSupported***
-
-"Dağıtım yükseltme yapılamıyor. İstenen VM boyutu XXX mevcut dağıtımını destekleyen kaynaklarda kullanılamayabilir. Lütfen daha sonra yeniden deneyin, farklı bir VM boyutu veya daha az sayıda rol örneği ile deneyin veya yeni bir benzeşim grubu ya da benzeşim grubu bağlaması olmadan boş bir barındırılan hizmet altında dağıtım oluşturun."
-
-**GeneralError***
-
-"Sunucu bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin." Veya "hizmeti için bir ayırma üretmek başarısız oldu."
 

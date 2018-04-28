@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
@@ -42,7 +42,7 @@ Giriş hakkında bilgi sağlayan NSG akış günlükleri, Azure sanal ağı vars
 - **Ağ güvenlik grubu (NSG) akış günlükleri**: giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntülemek sağlar. NSG akış günlükleri json biçiminde yazılır ve giden Göster ve gelen akış kuralı başına temelinde akış NIC uygulanır, 5-tanımlama grubu bilgileri (kaynak/hedef IP adresi, kaynak/hedef bağlantı noktası ve protokol) akışı hakkında ve trafiğe izin verildiği veya engellendi. NSG akış günlükleri hakkında daha fazla bilgi için bkz: [NSG akış günlükleri](network-watcher-nsg-flow-logging-overview.md).
 - **Günlük analizi**: izleme verilerini toplayan ve merkezi bir depoya veri depolayan bir Azure hizmeti. Bu veriler, olayları, performans verileri ya da Azure API aracılığıyla sağlanan özel veri içerebilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Günlük analizi temel olarak kullanarak ağ Performans İzleyicisi'ni ve trafik analytics yerleşik olanlar gibi uygulamaları izleme. Daha fazla bilgi için bkz: [oturum analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Günlük analizi çalışma alanı**: bir Azure hesabı için ilgili verilerin depolandığı günlük analizi örneği. Günlük analizi çalışma alanları hakkında daha fazla bilgi için bkz: [günlük analizi çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Ağ İzleyicisi**: izleme ve Azure ağ senaryo düzeyinde koşullar tanılama sağlar bölgesel bir hizmet. NSG akış günlükleri açma ve kapatma Ağ İzleyicisi'ni kapatabilirsiniz. Daha fazla bilgi için bkz: [Ağ İzleyicisi](network-watcher-monitoring-overview.md#network-watcher).
+- **Ağ İzleyicisi**: izleme ve Azure ağ senaryo düzeyinde koşullar tanılama sağlar bölgesel bir hizmet. NSG akış günlükleri açma ve kapatma Ağ İzleyicisi'ni kapatabilirsiniz. Daha fazla bilgi için bkz: [Ağ İzleyicisi](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Trafik analytics nasıl çalışır? 
 

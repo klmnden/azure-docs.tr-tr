@@ -11,23 +11,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/21/2016
+ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0b78ed6cdb1209d70cf0d561f74cfcddc09b2391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Uygulamanızı AD kiracınıza kaydetme
-İlk olarak, uygulamanızı Azure Active Directory (Azure AD) kiracısına kaydetmeniz gerekir. Bu, uygulamanıza bir Uygulama Kimliği verir ve uygulamanızın belirteçleri alabilmesini sağlar.
+İlk olarak, uygulamanızı Azure Active Directory (Azure AD) kiracınıza kaydetmeniz gerekir. Bu, uygulamanıza bir Uygulama Kimliği verir ve uygulamanızın belirteçleri alabilmesini sağlar.
 
-* [Azure Portal](https://portal.azure.com)’da oturum açın.
+* [Azure Portal](https://portal.azure.com) oturum açın.
 * Sayfanın sağ üst köşesinde hesabınıza tıklayarak Azure AD kiracınızı seçin.
-* Sol taraftaki gezinti bölmesinde, **Azure Active Directory**’ye tıklayın.
-* **Uygulama Kayıtları**’na ve **Ekle**’ye tıklayın.
+* Sol Gezinti Bölmesi'nde tıklayın **Azure Active Directory**.
+* Tıklayın **uygulama kayıtlar** ve tıklayın **yeni uygulama kaydı**.
 * Komut istemlerini izleyin ve yeni bir uygulama oluşturun. Bu öğretici için oluşturduğunuz uygulamanın web uygulaması veya yerel uygulama olması önemli değildir, ancak web uygulamaları veya yerel uygulamalar için belirli örnekler görmek istiyorsanız [hızlı başlangıç](../articles/active-directory/develop/active-directory-developers-guide.md) bölümümüze bakabilirsiniz.
-  * Web Uygulamaları için, kullanıcıların oturum açabileceği temel uygulama URL’si olan **Oturum Açma URL’sini** sağlayın (örn. `http://localhost:12345`).
+  * Web uygulamaları için sağlamak **oturum açma URL'si**, kullanıcılar, örneğin,'burada oturum açabilir, uygulamanızın temel URL olduğu `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
-  * Yerel Uygulamalar için, Azure AD’nin belirteç yanıtlarını döndürmek için kullanacağı bir **Yeniden Yönlendirme URI’si** sağlayın. Uygulamanıza özgü bir değer girin, örn. `http://MyFirstAADApp`
-* Kayıt tamamlandıktan sonra Azure AD, uygulamanıza benzersiz bir istemci tanımlayıcısı olan Uygulama Kimliği’ni atar. Bu değeri sonraki bölümlerde kullanacağınız için, uygulama sayfasından kopyalayın.
+  * Yerel uygulamaları sağlamak için bir **yeniden yönlendirme URI'si**, Azure AD belirteci yanıtları döndürmek için kullanacağı. Uygulamanıza özgü bir değer girin, örn. `http://MyFirstAADApp`
+* Kayıt tamamladıktan sonra Azure AD benzersiz istemci tanımlayıcısı uygulamanızı atamak **uygulama kimliği**. Bu değer gereken sonraki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
+* Uygulamanızı Azure Portalı'nda bulmak için tıklatın **uygulama kayıtlar**ve ardından **tüm uygulamaları görüntülemek**.

@@ -1,9 +1,9 @@
 ---
-title: "Spark Azure Hdınsight'ta veri görselleştirme araçları kullanarak BI | Microsoft Docs"
-description: "Hdınsight kümelerinde Apache Spark BI'ı kullanarak analiz için verileri görselleştirme araçlarını kullanın"
-keywords: "Apache spark BI, spark BI, spark veri görselleştirme, spark iş zekası"
+title: Spark Azure Hdınsight'ta veri görselleştirme araçları kullanarak BI | Microsoft Docs
+description: Hdınsight kümelerinde Apache Spark BI'ı kullanarak analiz için verileri görselleştirme araçlarını kullanın
+keywords: Apache spark BI, spark BI, spark veri görselleştirme, spark iş zekası
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark Azure Hdınsight ile verileri görselleştirme araçlarını kullanarak BI
 
@@ -44,7 +42,7 @@ Oluşturduğunuz Jupyter not defteri [önceki öğretici](apache-spark-load-data
     SHOW TABLES
     ```
 
-    Çıktı şuna benzer:
+    Çıkış aşağıdakine benzer olacaktır:
 
     ![Tabloları Spark Göster](./media/apache-spark-use-bi-tools/show-tables.png)
 
@@ -58,7 +56,7 @@ Oluşturduğunuz Jupyter not defteri [önceki öğretici](apache-spark-load-data
     SELECT * FROM hvac LIMIT 10
     ```
 
-    Çıktı şuna benzer:
+    Çıkış aşağıdakine benzer olacaktır:
 
     ![Spark hvac tablodaki Göster](./media/apache-spark-use-bi-tools/select-limit.png)
 
@@ -94,7 +92,7 @@ Power BI Desktop'ta kümeye bağlanmak, kümeden veri yüklemek ve verilere daya
     ![Power BI Desktop'a Hdınsight Apache Spark'tan Veri Al](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "veri alma Power BI'a Apache Spark BI'dan")
 
 
-2. Girin `Spark` arama kutusunda **Azure Hdınsight Spark (Beta)**ve ardından **Bağlan**.
+2. Girin `Spark` arama kutusunda **Azure Hdınsight Spark (Beta)** ve ardından **Bağlan**.
 
     ![Apache Spark BI'dan Power BI Veri Al](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "veri alma Power BI'a Apache Spark BI'dan")
 
@@ -137,7 +135,7 @@ Power BI Desktop'ta kümeye bağlanmak, kümeden veri yüklemek ve verilere daya
 
 Power BI hizmetinde raporlar ve panolar, kuruluşunuzda paylaşmanıza olanak tanır. Bu bölümde, ilk veri kümesini ve raporu yayımlayın. Ardından, bir Pano rapora sabitleyin. Panolar, genellikle bir rapordaki verilerin bir alt kümesini odaklanmak için kullanılır; Raporunuzda yalnızca bir görselleştirme sahip ancak adımları gitmek hala faydalıdır.
 
-1. Open Power BI Desktop.
+1. Power BI Desktop açın.
 2. Gelen **giriş** sekmesini tıklatın, **Yayımla**.
 
     ![Power BI masaüstünden yayımlama](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Power BI masaüstünden yayımlama")

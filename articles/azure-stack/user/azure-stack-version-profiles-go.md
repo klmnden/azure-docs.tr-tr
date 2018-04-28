@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure yığınında Git ile API sürümü profilleri kullanma
 
@@ -82,7 +80,7 @@ Azure yığında Git kod örneği çalıştırmak için:
   ```
 
   3. Yoksa, bir abonelik oluşturun ve daha sonra kullanılmak üzere abonelik kimliği kaydedin. Bir abonelik oluşturma hakkında daha fazla bilgi için bkz: [Azure yığınında teklifleri için abonelikleri oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Bir hizmet sorumlusu "Abonelik" kapsamlı bir grup oluşturun ve **sahibi** rol. Hizmet sorumlusunun Kimliğini ve parolasını kaydedin. Azure yığını için bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz: [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Azure yığın ortamınızı ayarlayın.
+  4. Bir hizmet sorumlusu "Abonelik" kapsamlı bir grup oluşturun ve **sahibi** rol. Hizmet sorumluları Kimliğini ve parolasını kaydedin. Azure yığını için bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz: [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Azure yığın ortamınızı ayarlayın.
   5. Kodunuzda Git SDK profilinden hizmet modülünü alın. Azure yığın profili geçerli sürümü **2017-03-09**. Örneğin, ağ modülünden içe aktarmak için **2017-03-09** profil türü: 
 
   ````go
@@ -129,7 +127,7 @@ Yetkilendiricisi kaynak istemci Yetkilendiricisi olarak ayarlamanız gerekir. Bi
 
 Bu bölümde, istemci kimlik bilgilerini kullanarak Azure yığında Yetkilendiricisi belirteçleri almak için ortak bir yol sunar:
 
-  1. Bir hizmet sorumlusu abonelik sahibi rolü varsa, bu adımı atlayın. Aksi takdirde bir hizmet sorumlusu oluşturun [yönergeleri]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) ve aboneliğiniz için kapsamlı bir "sahip" rolü atayın [yönergeleri]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Hizmet Asıl uygulama Kimliğini ve parolasını kaydedin. 
+  1. Bir hizmet sorumlusu abonelik sahibi rolü varsa, bu adımı atlayın. Aksi takdirde bir hizmet sorumlusu oluşturun [yönergeleri]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) ve aboneliğiniz için kapsamlı bir "sahip" rolü atayın [yönergeleri]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Hizmet Asıl uygulama Kimliğini ve parolasını kaydedin. 
 
   2. İçeri aktarma **adal** Git AutoRest paketinden kodunuzda. 
   

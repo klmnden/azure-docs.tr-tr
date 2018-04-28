@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 04/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c2a7e723d21f79f21e92da31fbc4fd49d64fd37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -119,6 +119,16 @@ Bir VM erişim istemek için:
 
 4. Altında **erişim isteği**, her VM için bağlantı noktası için açılmış kaynak IP ve bağlantı noktası açıldığı zaman penceresi birlikte açmak için bağlantı noktalarını yapılandırın. Yalnızca içinde yapılandırılmış olan bağlantı noktalarına erişim isteğinde bulunabileceği zaman ilkesi. Her bağlantı noktası yalnızca türetilen süresi izin verilen maksimum olan zaman ilkesi.
 5. Seçin **bağlantı noktalarını açmak**.
+
+> [!NOTE]
+> Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinler. Yazma izinlerine sahipseniz, isteğini onayladı.
+>
+>
+
+> [!NOTE]
+> Erişim isteyen bir kullanıcı bir proxy'nin arkasında ise, "My IP" seçeneği çalışmayabilir. Kuruluş tam aralığını tanımlamak için bir gereksinimi olabilir.
+>
+>
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Yalnızca bir düzenleme zaman erişim ilkesinde
 

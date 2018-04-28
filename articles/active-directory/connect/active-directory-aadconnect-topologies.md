@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: destekli topolojileri | Microsoft Docs'
-description: "Bu konuda, Azure AD Connect için desteklenen ve desteklenmeyen topolojileri ayrıntıları"
+description: Bu konuda, Azure AD Connect için desteklenen ve desteklenmeyen topolojileri ayrıntıları
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: MT
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makalede, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -35,6 +35,11 @@ Makaleyi resimleri için gösterge şöyledir:
 | Ayrıntılı azure AD Connect eşitleme sunucusu |![Ayrıntılı azure AD Connect eşitleme sunucusu](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Desteklenmeyen senaryo |![Desteklenmeyen senaryo](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Microsoft, değiştirme veya Azure AD Connect eşitleme yapılandırmaları veya resmi olarak belgelenen Eylemler dışında işletim desteklemiyor. Bu yapılandırmalar veya Eylemler herhangi birinde bir Azure AD Connect eşitleme tutarsız veya desteklenmeyen durumda neden olabilir. Sonuç olarak Microsoft, bu tür dağıtımlar için teknik destek sağlayamaz.
+
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Tek bir orman, tek bir Azure AD kiracısı
 ![Tek bir ormana ve tek bir kiracı için topoloji](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

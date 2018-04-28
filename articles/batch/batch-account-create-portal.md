@@ -1,11 +1,11 @@
 ---
-title: "Azure portalını kullanarak Batch hesabı oluşturma | Microsoft Docs"
-description: "Büyük ölçekli paralel iş yükleri bulutta çalıştırmak için Azure portalda bir Azure Batch hesabı oluşturmayı öğrenin"
+title: Azure portalını kullanarak Batch hesabı oluşturma | Microsoft Docs
+description: Büyük ölçekli paralel iş yükleri bulutta çalıştırmak için Azure portalda bir Azure Batch hesabı oluşturmayı öğrenin
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Yönetimi .NET](batch-management-dotnet.md)
 >
 >
@@ -58,7 +58,7 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 
     d. **Konum**: Batch hesabının oluşturulacağı bir Azure bölgesi. Yalnızca aboneliğiniz ve kaynak grubunuz tarafından desteklenen bölgeler seçenek olarak görüntülenir.
 
-    e. **Depolama hesabı** (isteğe bağlı): Batch hesabınızla ilişkilendireceğiniz genel amaçlı depolama hesabı. Çoğu Batch hesabı için önerilen seçenek budur. Ayrıntılar için bu makalenin sonraki bölümlerinde [Bağlı Azure Depolama hesabı](#linked-azure-storage-account) konusuna bakın.
+    e. **Depolama hesabı** (isteğe bağlı): Batch hesabınızla ilişkilendireceğiniz bir Azure Depolama hesabı. Çoğu Batch hesabı için önerilen seçenek budur. Ayrıntılar için bu makalenin sonraki bölümlerinde [Bağlı Azure Depolama hesabı](#linked-azure-storage-account) konusuna bakın.
 
 4. Hesabı oluşturmak için **Oluştur**’a tıklayın.
 
@@ -85,11 +85,11 @@ Hesap oluşturulduktan sonra üzerine tıklayarak ayarlarına ve özelliklerine 
 
 ## <a name="linked-azure-storage-account"></a>Bağlı Azure Storage hesabı
 
-Genel amaçlı bir Azure Depolama hesabını Batch hesabınıza bağlayabilirsiniz. Bu seçenek birçok senaryoda yardımcı olacaktır. Batch'in [uygulama paketleri](batch-application-packages.md) özelliği, [Batch Dosya Kuralları .NET](batch-task-output.md) kitaplığının yaptığı gibi Azure Blob depolama kullanır. Bu isteğe bağlı özellikler Batch görevlerinizin çalıştırdığı uygulamaları dağıtmanıza ve oluşturduğu verileri kalıcı hale getirmeniz yardımcı olur.
+Bir Azure Depolama hesabını Batch hesabınıza bağlayabilirsiniz. Bu seçenek birçok senaryoda yardımcı olacaktır. Batch'in [uygulama paketleri](batch-application-packages.md) özelliği, [Batch Dosya Kuralları .NET](batch-task-output.md) kitaplığının yaptığı gibi Azure Blob depolama kullanır. Bu isteğe bağlı özellikler Batch görevlerinizin çalıştırdığı uygulamaları dağıtmanıza ve oluşturduğu verileri kalıcı hale getirmeniz yardımcı olur.
 
-Yalnızca Batch hesabınız tarafından kullanılacak yeni bir Depolama hesabı oluşturmanız önerilir. Azure Batch şu anda Depolama hesabı türünün yalnızca genel amaçlı kullanımını desteklemektedir. Bu hesap türü [Azure depolama hesapları hakkında](../storage/common/storage-create-storage-account.md) bölümünün [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) başlıklı 5. adımında anlatılmıştır.
+Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account).
 
-![Genel amaçlı depolama hesabı oluşturma][storage_account]
+![Depolama hesabı oluşturma][storage_account]
 
 > [!NOTE]
 > Bağlantılı bir Depolama hesabının erişim anahtarlarını yeniden oluştururken dikkatli olun. Yalnızca bir Storage hesap anahtarını yeniden oluşturun ve bağlı Storage hesabı sayfasında **Anahtarları Eşitle**’ye tıklayın. Anahtarların havuzlarınızdaki işlem düğümlerine yayılması için beş dakika bekleyin, ardından gerekirse diğer anahtarı yeniden oluşturup eşitleyin. İki anahtarı da aynı anda oluşturursanız işlem düğümleriniz iki anahtarı da eşitleyemez ve anahtarlar Storage hesabına erişimi kaybederler.

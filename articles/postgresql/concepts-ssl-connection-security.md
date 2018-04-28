@@ -1,20 +1,20 @@
 ---
-title: "SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırın."
-description: "Yönergeleri ve bilgileri Azure veritabanı PostgreSQL ve düzgün şekilde SSL bağlantılarını kullanmak için ilişkili uygulamalar için yapılandırılır."
+title: SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırın.
+description: Yönergeleri ve bilgileri Azure veritabanı PostgreSQL ve düzgün şekilde SSL bağlantılarını kullanmak için ilişkili uygulamalar için yapılandırılır.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
 ms.service: postgresql
-ms.custom: 
+ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırın.
 Azure veritabanı PostgreSQL için istemci uygulamalarınızı Güvenli Yuva Katmanı (SSL) kullanarak PostgreSQL hizmetine bağlanma tercih eder. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
@@ -98,7 +98,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Windows için
 Bir Windows Bilgisayarına OpenSSL yükleme aşağıdaki şekillerde yapılabilir:
-1. **(Önerilen)**  Penceresi 10'daki yerleşik Windows için Bash işlevini kullanarak ve yukarıdaki OpenSSL varsayılan olarak yüklenir. Windows 10 için Windows Bash işlevselliğini etkinleştirmek yönergeler bulunabilir [burada](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Önerilen)**  Penceresi 10'daki yerleşik Windows için Bash işlevini kullanarak ve yukarıdaki OpenSSL varsayılan olarak yüklenir. Windows 10 için Windows Bash işlevselliğini etkinleştirmek yönergeler bulunabilir [burada](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Topluluk tarafından sağlanan bir Win32/64 uygulama indiriliyor aracılığıyla. OpenSSL yazılım Foundation sağlamaz veya herhangi belirli Windows Installer'lar onaylamaz olsa da, kullanılabilir yükleyicileri listesini sağladıkları [burada](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Sertifika dosyanızın kod çözme

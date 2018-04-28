@@ -22,7 +22,7 @@ Powershell ISE veya Powershell pencerenizi yönetim modunda açın ve aşağıda
 1. Aşağıdakileri yaparak Microsoft Azure hesabınızda kaynak yönetimi modunda oturum açın ve aboneliğinizi seçin:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Aşağıdakileri yaparak kaynak grubunuzun adını ve VM adını ayarlayın:
@@ -65,7 +65,7 @@ Powershell ISE veya Powershell pencerenizi yönetim modunda açın ve aşağıda
 1. Aşağıdakileri yaparak Microsoft Azure hesabınızda kaynak yönetimi modunda oturum açın ve aboneliğinizi seçin:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Aşağıdakileri yaparak kaynak grubunuzun adını ve VM adını ayarlayın:
@@ -109,7 +109,7 @@ Bu makalede, PowerShell’in Azure Resource Manager modüllerini kullanarak bir 
 Unamanged diskler:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Yönetilen Diskler:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

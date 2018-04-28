@@ -1,13 +1,13 @@
 ---
-title: "Azure sanal makine ölçek kümeleri şifrelemek diskleri | Microsoft Docs"
-description: "Sanal makine ölçek kümeleri bağlı disklerin şifrelemek öğrenin."
+title: Azure sanal makine ölçek kümeleri şifrelemek diskleri | Microsoft Docs
+description: Sanal makine ölçek kümeleri bağlı disklerin şifrelemek öğrenin.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>İşletim sistemi ve sanal makine ölçek kümesindeki eklenen veri disklerini şifrele
 Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/) Azure disk şifrelemesi (ADE) destekler.  Windows için Azure disk şifrelemesi etkinleştirilebilir ve endüstri standart şifreleme teknolojisi kullanılarak bekleme sırasında verileri korumak ve ölçek korumak için sanal makine ölçek ayarlar Linux ayarlar. Daha fazla bilgi için Azure Disk şifrelemesi Windows ve Linux sanal makineleri okuyun.
@@ -42,7 +42,7 @@ En son sürümlerini yüklemek [Azure Powershell](https://github.com/Azure/azure
 Sanal makine ölçek kümeleri Önizleme için Azure disk şifrelemesi aşağıdaki PowerShell komutlarını kullanarak aboneliğinizi otomatik olarak kaydetmek gerektirir: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 550fe16c5997947b528d284b7afdce9af0b7a56b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00b0635d894ff8a41c810345cfa94363029e78e8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı silme
 
@@ -31,14 +31,14 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 ## <a name="add-a-subnet"></a>Bir alt ağ Ekle
 
 1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
 2. Sanal ağlar listesinden bir alt ağa eklemek istediğiniz sanal ağı seçin.
-3. Altında **ayarları**seçin **alt ağlar**.
+3. **AYARLAR** altında **Alt ağlar**’ı seçin.
 4. Seçin **+ alt**.
 5. Aşağıdaki parametreler için değerler girin:
     - **Ad**: ad sanal ağ içinde benzersiz olmalıdır.
@@ -57,7 +57,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
 2. Sanal ağlar listesinden ayarlarını değiştirmek için istediğiniz alt ağ içeren sanal ağı seçin.
-3. Altında **ayarları**seçin **alt ağlar**.
+3. **AYARLAR** altında **Alt ağlar**’ı seçin.
 4. Alt ağlar listesinde ayarlarını değiştirmek için istediğiniz alt ağ seçin. Aşağıdaki ayarları değiştirebilirsiniz:
 
     - **Adres aralığı:** hiçbir kaynak alt ağ içinde dağıtılırsa, adres aralığını değiştirebilirsiniz. Herhangi bir kaynağa alt ağda varsa, başka bir alt ağa kaynakları taşımak gerekir veya önce alt ağdan silin. Taşımak veya bir kaynak silmek için uygulayacağınız adımlar kaynak bağlı olarak değişir. Taşımak veya alt kaynaklarını silmek öğrenmek için taşımak veya silmek istediğiniz her bir kaynak türü için belgeleri okuyun. Kısıtlamalarını bkz **adres aralığı** adım 5 [bir alt ağ Ekle](#add-a-subnet).
@@ -76,7 +76,7 @@ Alt ağ içindeki kaynak varsa, bir alt ağ silebilirsiniz. Alt ağ içindeki ka
 
 1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
 2. Sanal ağlar listesinden silmek istediğiniz alt ağ içeren sanal ağı seçin.
-3. Altında **ayarları**seçin **alt ağlar**.
+3. **AYARLAR** altında **Alt ağlar**’ı seçin.
 4. Alt ağlar listesinde seçin **...** , sağ, alt ağ için silmek istediğiniz
 5. Seçin **silmek**ve ardından **Evet**.
 

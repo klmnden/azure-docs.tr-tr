@@ -1,4 +1,4 @@
-Uygulamanızda profili düzenlemeyi etkinleştirmek için bir ilke düzenleme profili oluşturmanız gerekir. Bu ilke, tüketicilerin profil düzenleme sırasında karşılaşacağı deneyimleri ve işlem başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini açıklar.
+Uygulamanızda profil düzenleme etkinleştirmek istiyorsanız, kullandığınız bir **profil düzenleme** ilkesi. Bu ilke müşteriler profil düzenleme ve uygulama başarılı tamamlanma alacak belirteçleri içeriğini sırasında gidecek deneyimleri açıklanmaktadır.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -8,11 +8,11 @@ Ayarların ilkeler bölümünde **Profil düzenleme ilkeleri**’ni seçip **+ E
 
 Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SiPe` girin.
 
-**Kimlik sağlayıcıları**’nı seçin ve **Yerel Hesapla Oturum Aç**’ı işaretleyin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
+**Kimlik sağlayıcıları**’nı seçin ve **Yerel Hesapla Oturum Aç**’ı işaretleyin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam**’a tıklayın.
 
 ![Kimlik sağlayıcısı olarak Yerel Hesapla Oturum Aç’ı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
 
-**Profil öznitelikleri**’ni seçin. Tüketicinin profilinde görüntüleyebileceği ve düzenleyebileceği öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin. **Tamam** düğmesine tıklayın.
+**Profil öznitelikleri**’ni seçin. Tüketicinin profilinde görüntüleyebileceği ve düzenleyebileceği öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin. **Tamam**’a tıklayın.
 
 ![Bazı öznitelikleri seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
 

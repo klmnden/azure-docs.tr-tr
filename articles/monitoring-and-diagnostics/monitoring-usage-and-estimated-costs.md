@@ -13,77 +13,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve tahmini maliyetleri izleme
 
-Azure portal'ın İzleyici hub **kullanım ve tahmini maliyetleri** sayfa çekirdek özellikler gibi izleme kullanımdan anlamanıza yardımcı olması için tasarlanmıştır [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [Oturum Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 önce kullanılabilir fiyatlandırma planları müşteriler için Analytics sunar ve bu da Öngörüler satın alınan günlük analizi kullanım içerir.
+Azure portal'ın İzleyici hub **kullanım ve tahmini maliyetleri** sayfa çekirdek özellikler gibi izleme kullanımını açıklar [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [Azure günlük analizi ](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 önce kullanılabilir fiyatlandırma planları müşteriler için Analytics sunar ve bu da Öngörüler satın alınan günlük analizi kullanım içerir.
 
-Bu sayfada, kullanıcıların bu kaynakların kullanımı son 31 gün için bu dönemi boyunca kullanım eğilimi görmek için detaya bileşenleri ile abonelik başına toplanan görüntüleyebilirsiniz. Çok sayıda birlikte çekmek ve bu tahmin yapmak için gereken veri yoktur şekilde sayfa yüklerken lütfen bekleyin.
-İzleme kullanımı ve sonuçta elde edilen maliyet tahmini gösteren bir örnek aşağıda verilmiştir:
+Bu sayfada, kullanıcılar kendi kaynak kullanımı son 31 gün için abonelik başına toplanan görüntüleyebilir. Detaylandırma bileşenler 31 gün süresi içinde kullanım eğilimlerini gösterir. Çok miktarda veri birlikte bu tahmin, bu nedenle alınması gerekip sayfa yüklerken lütfen bekleyin.
+
+Bu örnek, izleme kullanımı ve sonuçta elde edilen maliyet tahmini gösterir:
 
 ![Kullanım ve tahmini maliyetleri portalı ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/001.png)
 
-Aylık kullanım sütun bağlantıya tıklandığında son 31 gün süresi içinde kullanım eğilimleri gösteren bir grafik açılır:
+Son 31 gün süresi içinde kullanım eğilimleri gösteren bir grafik açmak için aylık kullanım sütununda bağlantıyı seçin:
 
-![Düğüm ekran dahil 671.47 GB](./media/monitoring-usage-and-estimated-costs/002.png)
+![Çubuk grafik ekran düğüm başına dahil](./media/monitoring-usage-and-estimated-costs/002.png)
 
-Başka bir benzer kullanım işte ve bu durumda yeni Nisan 2018 tüketim tabanlı fiyatlandırma modeli bir abonelik için Özet, maliyet. Tüm düğüm tabanlı faturalama ve bu veri alımı ve saklama olmaması için günlük analizi inceleyin ve Application Insights artık yeni bir ortak ölçerde bildirilir.
+Başka bir benzer kullanım işte ve maliyet özeti. Bu örnek, bir abonelik yeni Nisan 2018 tüketim tabanlı fiyatlandırma modelde gösterir. Tüm düğüm tabanlı faturalama eksikliği unutmayın. Şimdi yeni bir ortak ölçerde veri alımı ve günlük analizi ve Application Insights için bekletme raporlanır.
 
-![Kullanım ve tahmini maliyetleri portalı ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/003.png)
+![Kullanım ve tahmini maliyetleri portalı ekran görüntüsü - Nisan 2018 fiyatlandırma](./media/monitoring-usage-and-estimated-costs/003.png)
 
 ## <a name="new-pricing-model"></a>Yeni bir fiyatlandırma modeli
 
-Nisan 2018 içinde yeni bir izleme fiyatlandırma modeli yayımlanmıştır.  Bu, bulut kolay, tüketim tabanlı fiyatlandırma özellikleri. Yalnızca ne, düğüm tabanlı taahhüt kullandığınız için ödeme yaparsınız. Yeni fiyatlandırma modeli ayrıntılarını kullanılabilir [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [günlük analizi](https://azure.microsoft.com/pricing/details/log-analytics/) ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+Nisan 2018 içinde yeni bir izleme fiyatlandırma modeli yayımlanmıştır. Bu, bulut kolay, tüketim tabanlı fiyatlandırma özellikleri. Yalnızca ne, düğüm tabanlı taahhüt kullandığınız için ödeme yaparsınız. Yeni fiyatlandırma modeli ayrıntılarını kullanılabilir [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [günlük analizi](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-Günlük analizi veya Application Insights 2 Nisan 2018 sonra müşteriler eklenmesi için yeni bir fiyatlandırma modelini tek seçenektir. Zaten bu hizmetleri kullanan müşteriler için yeni fiyatlandırma modeli taşıma isteğe bağlıdır.
+Günlük analizi veya Application Insights 2 Nisan 2018 sonra kullanmaya başlamak müşteriler yeni fiyatlandırma modelini tek seçenektir. Bu hizmetler zaten kullanan müşteriler için yeni fiyatlandırma modeli taşıma isteğe bağlıdır.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Yeni fiyatlandırma modeli etkisini değerlendirme
 
-Yeni fiyatlandırma modeli, kendi izleme kullanım düzenlerini esas alarak her müşteri için farklı etkileri sahip olur. Günlük analizi veya Application Insights 2 Nisan 2018 önce zaten kullanan müşteriler için **kullanım ve tahmini maliyet** sayfa Azure İzleyicisi'nde yeni fiyatlandırma modeli taşırsanız herhangi bir değişikliği maliyetlerini tahmin etmek için bir yöntem sunar ve sağlar Yeni modele bir aboneliği taşımak için yol. Çoğu müşteri için yeni fiyatlandırma modeli yararlı olacaktır, ancak özellikle yüksek veri kullanım desenlerini veya daha yüksek maliyet bölgelerdeki müşteriler için bu durumda olmayabilir.
+Yeni fiyatlandırma modeli, kendi izleme kullanım düzenlerini esas alarak her müşteri farklı etkileri sahip olur. Günlük analizi veya Application Insights 2 Nisan 2018 önce kullanmakta olduğunuz müşteriler **kullanım ve tahmini maliyet** sayfa Azure İzleyicisi'nde yeni fiyatlandırma modeli taşırsanız maliyetleri herhangi bir değişikliği tahmin eder. Bir abonelik yeni modeline taşıma olanağı sağlar. Çoğu müşteri için yeni fiyatlandırma modeli yararlı olacaktır. Özellikle yüksek veri kullanım desenlerini veya daha yüksek maliyet bölgelerdeki müşteriler için bu durumda geçerli olmayabilir.
 
-Maliyetlerinizi seçili abonelikler için tahmini görmek için **kullanım ve tahmini maliyetleri** sayfasında, sayfanın üstüne yakın mavi başlığını tıklatın. Bu, her seferinde bir abonelik, en yeni fiyatlandırma modeli benimsenmesi düzeyi olduğundan yapmak en iyisidir.
+Üzerinde seçtiğiniz maliyetleriniz abonelikler için tahmini görmek için **kullanım ve tahmini maliyetleri** sayfasında, sayfanın üstüne yakın mavi başlığını seçin. En yeni fiyatlandırma modeli benimsenmesi düzeyi olduğu için her seferinde bir Bu abonelik yapmak en iyisidir.
 
-![Fiyatlandırma modeli seçme ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/004.png)
+![Kullanımını izleme ve tahmini maliyetleri yeni fiyatlandırma modeli ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/004.png)
 
-Şimdi bu sayfanın yeşil bir başlık ile benzer bir sürümünü görürsünüz:
+Yeni sayfa, önceki sayfanın yeşil bir başlık ile benzer bir sürümünü gösterir:
 
-![Fiyatlandırma modeli seçme ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/005.png)
+![Kullanımını izleme ve tahmini maliyetleri geçerli fiyatlandırma modeli ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/005.png)
 
-Burada ölçümler – yeni fiyatlandırma modeli karşılık gelen ölçümler farklı bir dizi görürsünüz. Örneğin, veri alım ölçümler gibi
+Sayfa ayrıca yeni fiyatlandırma modeli karşılık ölçümler farklı bir kümesini gösterir. Bu liste bir örnek verilmiştir:
 
-1. Insight ve düğüm başına Analytics\Overage
-2. Insight ve düğüm başına Analytics\Included
-3. Uygulama Insights\Basic fazla kullanım verileri
-4. Uygulama Insights\Included verileri
+- Insight ve düğüm başına Analytics\Overage
+- Insight ve düğüm başına Analytics\Included
+- Uygulama Insights\Basic fazla kullanım verileri
+- Uygulama Insights\Included verileri
 
-adlı bir yeni ortak veri alım ölçer birleştirilir **paylaşılan Services\Data alım** yeni fiyatlandırma modeli düğüm başına dahil edilen veri yetkilendirmeler olmadığından.
+Yeni fiyatlandırma modeli düğümü tabanlı dahil edilen veri ayırma sahip değil. Bu nedenle, bu veri alım ölçümler adlı bir yeni ortak veri alım ölçer birleştirilir **paylaşılan Services\Data alım**. 
 
-Günlük analizi alınan verilerin görürsünüz: başka bir değişiklik olduğunu veya Application Insights daha yüksek maliyetleri bölgelerde düzgün Bu, örneğin yansıtacak şekilde yeni bölgesel ölçümler ile gösterilecek **"veri alımı (ABD Batı Orta)**.
+Günlük analizi ya da daha yüksek maliyetleri bölgelerdeki Application Insights alınan verileri başka bir değişiklik yoktur. Bu yüksek maliyetli bölgeler için veri Yeni bölgesel ölçümler ile gösterilir. Örnek **veri alımı (BİZE Batı Merkezi)**.
 
 > [!NOTE]
-> Abonelik başına tahmini maliyetleri Operations Management Suite (OMS) abonelik hesabı düzey düğüm başına yetkilendirmeler öğeli değil. Lütfen bu durumda yeni fiyatlandırma modeli daha ayrıntılı bir tartışma için hesabı temsilcinize başvurun.
+> Abonelik başına maliyetleri değil düğümü yetkilendirmeler Operations Management Suite (OMS) abonelik başına hesap düzeyinde içine faktörü tahmini. Hesabı temsilcinize için daha ayrıntılı bir tartışma yeni fiyatlandırma modeli Bu durumda başvurun.
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Yeni fiyatlandırma modeli ve Operations Management Suite aboneliği yetkilendirmeler
 
-Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm başına veri alım yetkilendirmeleri uygun [günlük analizi](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Günlük analizi için bu yetkilendirmeleri almak için çalışma alanları veya Application Insights kaynaklar abonelik fiyatlandırma modeli belirli bir aboneliğe gerekir kalır öncesi Nisan 2018 fiyatlandırma where günlük analizi "fiyatlandırma katmanı düğüm başına (OMS)" model ve Plan fiyatlandırması application Insights "Kurumsal" kullanılabilir. Kuruluşunuzun satın aldığı, paketi düğümlerinin sayısına bağlı olarak bazı taşımayı yeni fiyatlandırma modeli abonelikleri hala yararlı olabilir, ancak bu dikkat gerektirir. 
+Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm veri alım yetkilendirmeleri başına için uygun [günlük analizi](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Günlük analizi çalışma alanları veya Application Insights için bu yetkilendirmeleri almak için kaynaklar abonelik fiyatlandırma modeli belirli bir aboneliğe öncesi Nisan 2018 fiyatlandırma modeli kalmalıdır. Günlük analizi "Fiyatlandırma katmanı ve uygulama fiyatlandırma planı Öngörüler"Kurumsal"düğüm başına (OMS)" kullanılabildiği olmasıdır. Düğümler, kuruluşunuzun satın aldığı paket sayısına bağlı olarak, bazı abonelikler yeni fiyatlandırma modeli için hala yararlı olabilir taşıma. Ancak bu dikkat gerektirir.
 
-## <a name="changes-when-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşırken değişiklikleri
+## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşırken değişiklikleri
 
-Bir abonelik yeni fiyatlandırma modeline taşıma yeni GB başına katmana fiyatlandırma katmanı her günlük analizi için değiştirir ve tüm (çağrılan "pergb2018" Azure Kaynak Yöneticisi'nde) taşır. Bu taşıma da herhangi bir Application Insights kaynağı kurumsal planda temel plana değiştirir. Yukarıda açıklanan maliyetini tahmin üzerinde bu etkilerini gösterilmektedir. 
+Bir abonelik yeni fiyatlandırma modeline taşıma yeni GB başına katmana fiyatlandırma katmanı her günlük analizi için değiştirir ve tüm (çağrılan "pergb2018" Azure Kaynak Yöneticisi'nde) taşır. Bu taşıma da herhangi bir Application Insights kaynağı kurumsal planda temel plana değiştirir. Maliyet tahmini bu değişikliklerin etkisini gösterir.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline taşıma
 
-Bir abonelik için yeni fiyatlandırma modeli benimsemeye karar verdiyseniz, tıklatın **model seçimi fiyatlandırma** seçeneği en üstündeki **kullanım ve tahmini maliyetleri** sayfa:
+Bir abonelik için yeni fiyatlandırma modeli benimsemeye karar verdiyseniz, seçin **model seçimi fiyatlandırma** seçeneği en üstündeki **kullanım ve tahmini maliyetleri** sayfa:
 
-![Yeni fiyatlandırma modeli ekran görüntüsü bir tahmini maliyetleri kullanımını izleme](./media/monitoring-usage-and-estimated-costs/006.png)
+![Kullanımını izleme ve tahmini maliyetleri yeni fiyatlandırma modeli ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/006.png)
 
-Bu açılır **model seçimi fiyatlandırma** sayfasında, her biri önceki sayfada görüntülemekte olduğunuz abonelik listesi:
+**Model seçimi fiyatlandırma** sayfası açılır. Her önceki sayfada görüntülenen Aboneliklerin listesini gösterir:
 
 ![Fiyatlandırma modeli seçimi ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/007.png)
 
-Yeni fiyatlandırma modeli bir aboneliği taşımak için yalnızca onay kutusunu işaretleyin ve tıklatın **kaydetmek**.  Bu gibi durumlarda, eski fiyatlandırma modeli geri aynı şekilde taşıyabilirsiniz. Abonelik sahibi veya katkıda bulunan izinleri fiyatlandırma modeli değiştirmek için gerekli olduğunu göz önünde bulundurun.
+Yeni fiyatlandırma modeli bir aboneliği taşımak için yalnızca kutusunu seçin ve ardından **kaydetmek**. Bu gibi durumlarda, eski fiyatlandırma modeli geri aynı şekilde taşıyabilirsiniz. Bu abonelik sahibi göz önünde bulundurun veya katkıda bulunan izinleri fiyatlandırma modeli değiştirmek için gereklidir.

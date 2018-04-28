@@ -9,11 +9,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Toplu işleme SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını
 Azure SQL veritabanı işlemleri önemli ölçüde toplu işleme, uygulamalarınızın ölçeklenebilirliğini ve performansı artırır. Avantajları anlamak için bir SQL veritabanına sıralı ve toplu istekleri karşılaştırmak bazı örnek test sonuçlarını ilk bölümü, bu makalenin ele alınmaktadır. Makalenin kalanında teknikleri, senaryoları ve başarıyla Azure uygulamalarınızda toplu işleme kullanmanıza yardımcı olması için dikkat edilecek noktalar gösterir.
@@ -32,9 +32,9 @@ SQL veritabanı kullanmanın yararları veritabanını barındıracak sunucular�
 Kağıt ilk bölümü SQL veritabanını kullan .NET uygulamaları için çeşitli toplu teknikleri inceler. Son iki bölüm toplu kılavuzları ve senaryoları kapsar.
 
 ## <a name="batching-strategies"></a>Toplu işleme stratejileri
-### <a name="note-about-timing-results-in-this-topic"></a>Bu konudaki zamanlama sonuçlarıyla ilgili unutmayın
+### <a name="note-about-timing-results-in-this-article"></a>Bu makalede zamanlama sonuçlarıyla ilgili unutmayın
 > [!NOTE]
-> Sonuçları kıyaslamaları değildir ancak göstermeye yöneliktir **göreli performans**. Zamanlamaları, en az 10 test çalışmaları ortalama üzerinde temel alır. Boş bir tablo ekler işlemleridir. Bu testler ölçülen öncesi V12 olan ve bunlar mutlaka kullanarak yeni bir V12 veritabanında karşılaşabileceğiniz işleme karşılık değil [hizmet katmanları](sql-database-service-tiers.md). Toplu işleme tekniği göreli yararı benzer olmalıdır.
+> Sonuçları kıyaslamaları değildir ancak göstermeye yöneliktir **göreli performans**. Zamanlamaları, en az 10 test çalışmaları ortalama üzerinde temel alır. Boş bir tablo ekler işlemleridir. Bu testler ölçülen öncesi V12 olan ve bunlar mutlaka kullanarak yeni bir V12 veritabanında karşılaşabileceğiniz işleme karşılık değil [DTU hizmet katmanları](sql-database-service-tiers-dtu.md) veya [vCore hizmet katmanları](sql-database-service-tiers-vcore.md). Toplu işleme tekniği göreli yararı benzer olmalıdır.
 > 
 > 
 
@@ -209,7 +209,7 @@ SQL toplu kopyalama büyük miktarlarda verinin bir hedef veritabanına eklemek 
         }
     }
 
-Toplu kopyalama tablo değerli parametre tercih edilen olduğu bazı durumlar vardır. Tablo değerli parametreleri karşılık toplu ekleme işlemleri konusunda karşılaştırma tablosuna bakın [tablo değerli parametreleri](https://msdn.microsoft.com/library/bb510489.aspx).
+Toplu kopyalama tablo değerli parametre tercih edilen olduğu bazı durumlar vardır. Tablo değerli parametreleri karşılık toplu ekleme işlemleri makalede karşılaştırma tablosuna bakın [tablo değerli parametreleri](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Aşağıdaki geçici test sonuçları ile toplu işleme performansını gösterir **SqlBulkCopy** milisaniye cinsinden.
 
@@ -592,7 +592,7 @@ Ardından, bir saklı yordam oluşturma veya güncelleştirme gerçekleştirmek 
 Daha fazla bilgi için belgeler ve örnekler MERGE deyimi için bkz. Aynı iş bir çok-depolanan adımda gerçekleştirilebilir rağmen yordam çağrısı ile ayrı ekleme ve güncelleştirme işlemleri, MERGE deyiminin daha verimli. Veritabanı kod iki veritabanı çağrılarını ekleme ve güncelleştirme için gerek kalmadan doğrudan MERGE deyiminin kullanan Transact-SQL çağrıları de oluşturabilirsiniz.
 
 ## <a name="recommendation-summary"></a>Öneri özeti
-Aşağıdaki listede, bu konuda tartışılan toplu önerilerin bir özeti verilmiştir:
+Aşağıdaki listede, bu makalede açıklanan toplu önerilerin bir özeti verilmiştir:
 
 * Arabelleğe alma ve toplu işleme SQL veritabanı uygulamaları ölçeklenebilirliğini ve performansı artırmak için kullanır.
 * Toplu işleme/arabelleğe alma ve dayanıklılık arasındaki dengelemeden anlayın. Bir rol hata sırasında işlenmemiş bir toplu iş açısından kritik verilerin kaybı riski toplu işleme performans avantajı üstün olabilir.

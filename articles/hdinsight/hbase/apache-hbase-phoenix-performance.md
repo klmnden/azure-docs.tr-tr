@@ -1,28 +1,26 @@
 ---
-title: "Azure hdınsight'ta Phoenix performans | Microsoft Docs"
-description: "Phoenix performansını iyileştirmek için en iyi yöntemler."
+title: Azure hdınsight'ta Phoenix performans | Microsoft Docs
+description: Phoenix performansını iyileştirmek için en iyi yöntemler.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 42b95d6b67f3449a2de2619f0a25b3b8f798950d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 58ecf22fa0f9349a767455fe3ab08fca058d02da
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="phoenix-performance-best-practices"></a>Phoenix performansı en iyi uygulamalar
+# <a name="phoenix-performance-best-practices"></a>Phoenix performansı için en iyi yöntemler
 
 En önemli Phoenix performans temel HBase en iyi duruma getirme yönüdür. Phoenix taramaları gibi HBase işlemleri SQL sorguları dönüştürür HBase üzerinde ilişkisel veri modeli oluşturur. Tablo şemasını, seçim ve birincil anahtarınızı ve tüm dizinleri kullanımınız alanlara sıralamasını tasarımını Phoenix performansı etkiler.
 
@@ -38,34 +36,34 @@ Phoenix tablosunda tanımlı birincil anahtarı temel HBase tablo rowkey içinde
 
 Örneğin, kişiler için bir tablo adı, son adı, telefon numarasını ve adresi, hepsinin aynı sütun ailesi sahiptir. Artan bir sıra numarasına dayanan bir birincil anahtar tanımlayabilirsiniz:
 
-|rowkey|       Adres|   telefon| firstName| Soyadı|
+|rowkey|       Adres|   Telefon| FirstName| Soyadı|
 |------|--------------------|--------------|-------------|--------------|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
-|  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
+|  1000|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole|
+|  8396|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji|
 
 Soyadı tarafından sık Query her sorgu her lastName değerini okumaya tam tablo taraması gerektirdiğinden ancak, bu birincil anahtar da çalışmayabilir. Bunun yerine, birincil anahtar lastName, firstName ve sosyal güvenlik numarası sütunları tanımlayabilirsiniz. Bu son aynı adresinde bir öğe ve son gibi aynı ada sahip iki Satışlar belirsizliğini ortadan kaldırmak için bir sütundur.
 
-|rowkey|       Adres|   telefon| firstName| Soyadı| socialSecurityNum |
+|rowkey|       Adres|   Telefon| FirstName| Soyadı| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
-|  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
+|  1000|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole| 111 |
+|  8396|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Bu yeni birincil anahtar satır ile Phoenix tarafından üretilen anahtarlar olacaktır:
 
-|rowkey|       Adres|   telefon| firstName| Soyadı| socialSecurityNum |
+|rowkey|       Adres|   Telefon| FirstName| Soyadı| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
-|  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
+|  Dole John 111|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Raji Calvin 222|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 İlk satırının yukarıdaki rowkey verileri gösterildiği gibi gösterilir:
 
 |rowkey|       anahtar|   değer| 
 |------|--------------------|---|
-|  Dole-John-111|Adres |1111 San Gabriel Dr.|  
-|  Dole-John-111|telefon |1-425-000-0002|  
-|  Dole-John-111|firstName |John|  
-|  Dole-John-111|Soyadı |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole John 111|Adres |1111 San GABRIEL Dr.|  
+|  Dole John 111|Telefon |1-425-000-0002|  
+|  Dole John 111|FirstName |John|  
+|  Dole John 111|Soyadı |Dole|  
+|  Dole John 111|socialSecurityNum |111| 
 
 Bu rowkey şimdi bir kopyasını verileri depolar. Bu değer temel HBase tablodaki her hücre birlikte olduğundan birincil anahtarınızı içeren sütun sayısı ve boyutu göz önünde bulundurun.
 
@@ -120,10 +118,10 @@ Kapsanan dizinleri satırın dizini değerleri ek verileri dahil dizinler ' dir.
 
 Örneğin, örnekte yalnızca socialSecurityNum sütunu ikincil bir dizin oluşturabilirsiniz tablo başvurun. Bu ikincil dizini socialSecurityNum değerlerine göre filtre sorguları hızlandırmak, ancak diğer alan değerlerini alma başka bir ana tablo karşı okuma gerektirir.
 
-|rowkey|       Adres|   telefon| firstName| Soyadı| socialSecurityNum |
+|rowkey|       Adres|   Telefon| FirstName| Soyadı| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
-|  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
+|  Dole John 111|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Raji Calvin 222|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Ancak, genellikle firstName ve lastName socialSecurityNum verilen aramak istiyorsanız, dizin tablosunda gerçek veri olarak firstName ve lastName içerir kapsanan bir dizin oluşturabilirsiniz:
 

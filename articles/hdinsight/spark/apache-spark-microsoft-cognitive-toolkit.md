@@ -1,25 +1,23 @@
 ---
-title: "Microsoft Azure Hdınsight Spark derin öğrenme için ile Bilişsel Araç Seti | Microsoft Docs"
-description: "Bir Azure Hdınsight Spark kümesinde Spark Python API kullanarak bir veri kümesi Microsoft Bilişsel Araç Seti derin learning modeli nasıl uygulanabilir öğrenin."
+title: Microsoft Azure Hdınsight Spark derin öğrenme için ile Bilişsel Araç Seti | Microsoft Docs
+description: Bir Azure Hdınsight Spark kümesinde Spark Python API kullanarak bir veri kümesi Microsoft Bilişsel Araç Seti derin learning modeli nasıl uygulanabilir öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: ebbbcd7a1d61ba0eac13a184aa48cacb800524e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7afb891642e3e53da5eb1e17ee654fb5fb42c313
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Azure Hdınsight Spark küme modeliyle öğrenme derin bir Bilişsel araç kullanma
 
@@ -75,9 +73,9 @@ Betik eylemi çalıştırmak için Azure Portalı'nı kullanma hakkında daha fa
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Azure Hdınsight Spark kümesinde Jupyter not defteri karşıya yükle
 
-Microsoft Bilişsel araç seti ile Azure Hdınsight Spark kümesi kullanmak üzere Jupyter not defteri yük **CNTK_model_scoring_on_Spark_walkthrough.ipynb** Azure Hdınsight Spark küme. Bu not defteri github'da kullanılabilir [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+Microsoft Bilişsel araç seti ile Azure Hdınsight Spark kümesi kullanmak üzere Jupyter not defteri yük **CNTK_model_scoring_on_Spark_walkthrough.ipynb** Azure Hdınsight Spark küme. Bu not defteri github'da kullanılabilir [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. GitHub deposunu kopyalayın [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Kopyalamak yönergeler için bkz: [depo kopyalama](https://help.github.com/articles/cloning-a-repository/).
+1. GitHub deposunu kopyalayın [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Kopyalamak yönergeler için bkz: [depo kopyalama](https://help.github.com/articles/cloning-a-repository/).
 
 2. Azure Portalı'ndan zaten sağlanmış tıklatın Spark kümesi dikey penceresini açmak **küme Panosu**ve ardından **Jupyter not defteri**.
 

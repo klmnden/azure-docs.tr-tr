@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: b0d268937300abd105349d340f7bf1dae398fa8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Öğretici 2: Iris Sınıflandırma: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik bir veri bilimi ve gelişmiş bir analiz çözümüdür.
@@ -280,7 +280,7 @@ Azure Machine Learning Workbench'te yürütülen her betik çalıştırma geçmi
    >[!IMPORTANT]
    >Sonraki adımları gerçekleştirmek için bu CLI penceresini kullanmanız gerekir.
 
-1. CLI penceresinde Azure oturumunu açın. [az login hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. CLI penceresinde Azure oturumunu açın. [az login hakkında daha fazla bilgi edinin](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    Zaten oturum açmış olabilirsiniz. Bu durumda bu adımı atlayabilirsiniz.
 

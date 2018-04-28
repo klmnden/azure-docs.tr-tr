@@ -1,11 +1,11 @@
 ---
-title: "VPN ağ geçitleri için etkin-etkin S2S VPN bağlantılarını yapılandırma: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Bu makalede Azure Resource Manager ve PowerShell kullanarak Azure VPN Gateway'ler ile etkin-etkin bağlantıları nasıl yapılandıracağınız anlatılmaktadır."
+title: 'VPN ağ geçitleri için etkin-etkin S2S VPN bağlantılarını yapılandırma: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Bu makalede Azure Resource Manager ve PowerShell kullanarak Azure VPN Gateway'ler ile etkin-etkin bağlantıları nasıl yapılandıracağınız anlatılmaktadır.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c09abe97d34b7220d76481a403165f1b7e07fcaa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN ağ geçitleri ile etkin-etkin S2S VPN bağlantılarını yapılandırma
 
@@ -94,7 +94,7 @@ Resource Manager cmdlet’lerini kullanmak için PowerShell moduna geçtiğinizd
 PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -229,7 +229,7 @@ Aşağıdaki örnekte bu alıştırmada, şirket içi VPN aygıtınızın üzeri
 
 Birkaç dakika sonra bağlantı kurulmalıdır ve BGP eşliği oturumu IPSec bağlantısı kurulduktan sonra başlar. Bu örnek, o ana kadarki aşağıda gösterildiği diyagram bunun sonucunda, yalnızca bir şirket içi VPN cihazı yapılandırmış:
 
-![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![etkin etkin crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>3. adım - iki şirket içi VPN aygıtları etkin-etkin VPN ağ geçidine bağlanmak
 İki VPN aygıtları aynı şirket içi ağ varsa, ikinci VPN cihazı Azure VPN ağ geçidi bağlanarak çift artıklık elde edebilirsiniz.
@@ -276,7 +276,7 @@ Benzer şekilde, listelerde parametreleri, ikinci bir VPN cihaz girer:
 
 Bir kez (tüneller) bağlantı kuran sonra çift yedekli VPN cihazları ve şirket içi ağınız ve Azure bağlanma tüneller gerekir:
 
-![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![çift artıklık crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Bölüm 3 - bir aktif-aktif VNet-VNet bağlantı kuramadı
 Bu bölüm BGP özellikli bir aktif-aktif VNet-VNet bağlantısı oluşturur. 
@@ -416,7 +416,7 @@ Bu adımda, etkin-etkin modunu etkinleştirmek ve ağ geçidini güncelleştirin
 
 * Bu adımı kullanarak yeni SKU'ları birine eski bir SKU değiştirilemiyor. Yalnızca desteklenen başka bir eski SKU eski SKU'ya yeniden boyutlandırabilirsiniz. (VpnGw1 etkin-etkin için desteklenen olsa bile) Örneğin, SKU standart VpnGw1 için standart bir eski SKU ve VpnGw1 geçerli bir SKU olduğundan değiştirilemiyor. Yeniden boyutlandırma ve geçirme SKU'ları hakkında daha fazla bilgi için bkz: [ağ geçidi SKU'ları](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Örneğin VpnGw1 VpnGw3 için geçerli bir SKU yeniden boyutlandırmak isterseniz SKU'ları aynı SKU ailesi olduğundan bu adımı kullanarak bunu yapabilirsiniz. Bunu yapmak için değeri kullanırsınız:```-GatewaySku VpnGw3```
+* Örneğin VpnGw1 VpnGw3 için geçerli bir SKU yeniden boyutlandırmak isterseniz SKU'ları aynı SKU ailesi olduğundan bu adımı kullanarak bunu yapabilirsiniz. Bunu yapmak için değeri kullanırsınız: ```-GatewaySku VpnGw3```
 
 Ağ geçidi yeniden boyutlandırmak gerekmiyorsa, bu, ortamınızda kullanırken, - GatewaySku belirtmeniz gerekmez. Bu adımda, ağ geçidi nesnesi gerçek güncelleştirmesini tetiklemek için PowerShell'de ayarlamanız gerekir, dikkat edin. Ağ geçidiniz yeniden boyutlandırma değil olsa bile bu güncelleştirme 30-45 dakika sürebilir.
 

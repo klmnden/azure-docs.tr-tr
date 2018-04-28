@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama (Önizleme)
 
@@ -30,7 +27,7 @@ Bu öğreticide Azure VM’leri için ikincil Azure bölgesine olağanüstü dur
 > * VM’ler için giden erişim ayarlama
 > * VM için çoğaltmayı etkinleştirme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -77,7 +74,7 @@ Giden bağlantıyı denetlemek için URL tabanlı bir güvenli duvarı kullanıy
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP adresi aralıkları için giden bağlantı
 
-Giden bağlantıyı denetlemek için IP tabanlı güvenlik duvarı, proxy veya NSG kuralları kullanıldığında aşağıdaki IP adresi aralıkları beyaz listeye eklenmelidir. Aralıkların listesini şu bağlantılardan indirebilirsiniz:
+URL’ler yerine IP adreslerini kullanarak giden bağlantıyı denetlemek istiyorsanız, IP tabanlı güvenlik duvarları, ara sunucu veya NSG kuralları için uygun veri merkezi aralıklarını, Office 365 adreslerini ve hizmet uç noktası adreslerini beyaz listeye ekleyin.
 
   - [Microsoft Azure Veri Merkezi IP Aralıkları](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Almanya’daki Windows Azure Veri Merkezi IP Aralıkları](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ Giden bağlantıyı denetlemek için IP tabanlı güvenlik duvarı, proxy veya N
   - [Office 365 URL’leri ve IP adresi aralıkları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery hizmeti uç nokta IP adresleri](https://aka.ms/site-recovery-public-ips)
 
-Ağınızda, ağ erişimi denetimlerini yapılandırmak için bu listeleri kullanın. Gerekli NSG kurallarını oluşturmak için bu [betiği](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) kullanabilirsiniz.
+Gerekli NSG kurallarını oluşturmak için bu [betiği](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) kullanabilirsiniz.
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM sertifikalarını doğrulama
 
@@ -105,7 +102,7 @@ Azure Site Recovery, Site Recovery yönetim işlemlerini denetlemek için üç y
 
 - **Site Recovery Okuyucusu** - Bu rol tüm Site Recovery yönetim işlemlerini görüntüleme iznine sahiptir. Bu rol, mevcut koruma durumunu izleyebilen ve destek biletleri oluşturabilen BT izleme yöneticisi için idealdir.
 
-[Azure RBAC yerleşik rolleri](../active-directory/role-based-access-built-in-roles.md) hakkında daha fazla bilgi edinin
+[Azure RBAC yerleşik rolleri](../role-based-access-control/built-in-roles.md) hakkında daha fazla bilgi edinin
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
@@ -144,9 +141,9 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 
 - **Önbellek depolama hesapları**: Site Recovery, kaynak bölgede bir depolama hesabı kullanır. Kaynak VM’lere yönelik değişiklikler, hedef konuma çoğaltılmadan önce bu hesaba gönderilir.
 
-- **(VM kullanmayan kaynak diskleri yönetiliyorsa) depolama hesapları hedef**: varsayılan olarak, Site Recovery VM depolama hesabı kaynak yansıtmak üzere hedef bölgede yeni bir depolama hesabı oluşturur.
+- **Hedef depolama hesapları (Kaynak sanal makine yönetilen diskleri kullanmıyorsa)**: Site Recovery varsayılan olarak kaynak sanal makine depolama hesabını yansıtmak için hedef bölgede yeni bir depolama hesabı oluşturur.
 
-- **Çoğaltma yönetilen diskleri (kaynak VM yönetilen diskleri kullanıyorsa)**: varsayılan olarak, Site Recovery çoğaltma yönetilen diskleri kaynağının VM yönetilen olarak kaynak VM'ın yönetilen diskleri aynı depolama türünü (standart veya premium) ile yansıtmak üzere hedef bölgede oluşturur disk.
+- **Yönetilen çoğaltma diskleri (Kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Site Recovery varsayılan olarak kaynak sanal makinenin yönetilen diskiyle aynı depolama türüne (Standart veya premium) sahip kaynak sanal makinenin yönetilen disklerini yansıtmak için hedef bölgede yönetilen çoğaltma diskleri oluşturur.
 
 - **Hedef kullanılabilirlik kümeleri**: Site Recovery varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir kullanılabilirlik kümesi oluşturur. Kullanılabilirlik kümelerini yalnızca VM’ler kaynak bölgedeki bir kümenin içindeyse ekleyebilirsiniz.
 

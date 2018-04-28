@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence çözüm değerlendirme aracı
 ## <a name="overview"></a>Genel Bakış
@@ -195,7 +195,7 @@ Yeniden eğitme web Hizmetleri içinde AzureML oluşturma hakkında daha fazla b
 Azure Data Factory kullanarak model Eğitim işlemini otomatikleştirme hakkında daha fazla bilgi için bkz: [kaynak güncelleştirme etkinliği kullanarak güncelleştirme Azure Machine Learning modellerini](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Var olan belgeler
-[Microsoft Azure bulut işletmenizi büyütmek için sertifikalıdır.](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure bulut işletmenizi büyütmek için sertifikalıdır.](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure Cortana Intellignece için sertifikalı](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure Cortana Intellignece için sertifikalı](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

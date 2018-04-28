@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: 79e807a1ee52c4b6b18671e25785ed14bd79624a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a8f272403a0c6903521acc7cc45935c4e5bc419c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Yönetim .NET SDK'sı v1.x: ayarlamak ayarlama ve .NET için Azure Stream Analytics API'sini kullanarak analytics işleri çalıştırma
 Ayarlamak ve yönetim .NET SDK kullanarak .NET için Stream Analytics API kullanarak analytics işleri çalıştırma hakkında bilgi edinin. Bir projesi ayarlayın, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturun ve işleri durdurur. Analytics işleriniz için Blob depolama biriminden veya event hub'ındaki veri akışını sağlayabilirsiniz.
@@ -45,7 +45,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Kullanmak için bir giriş kaynağı ve Çıkış hedefini ayarlayın. Daha ayrıntılı yönergeler için bkz [eklemek girişleri](stream-analytics-add-inputs.md) örnek giriş ayarlamak için ve [eklemek çıkışları](stream-analytics-add-outputs.md) örnek bir çıktı ayarlamak için.
+* Bir giriş ve çıkış hedefi bağlanmak iş için ayarlayın.
 
 ## <a name="set-up-a-project"></a>Bir projesi ayarlayın
 Bir analiz işi oluşturmak için .NET, ilk projenizi ayarlamak için Stream Analytics API kullanın.

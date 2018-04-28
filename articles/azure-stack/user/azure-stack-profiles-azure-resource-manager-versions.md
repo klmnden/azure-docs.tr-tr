@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure yığınında profilleri tarafından desteklenen kaynak sağlayıcısı API sürümleri
 
@@ -55,7 +53,7 @@ Rol tabanlı erişim denetimi, kuruluşunuzdaki kullanıcılar üzerindeki kayna
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Azure işlem API'leri sanal makineleri ve destekleyici kaynaklarına programlı erişim verin. Daha fazla bilgi için bkz: [Azure işlem](https://docs.microsoft.com/en-us/rest/api/compute/).
+Azure işlem API'leri sanal makineleri ve destekleyici kaynaklarına programlı erişim verin. Daha fazla bilgi için bkz: [Azure işlem](https://docs.microsoft.com/rest/api/compute/).
 
 | Kaynak Türü | API sürümü |
 |---------------------------------------------------------------|-------------|
@@ -64,7 +62,7 @@ Azure işlem API'leri sanal makineleri ve destekleyici kaynaklarına programlı 
 | Konumları/işlemleri | 2016-03-30 |
 | Konumları/Yayımcılar | 2016-03-30 |
 | Konumları/kullanımları | 2016-03-30 |
-| Locations/vmSizes | 2016-03-30 |
+| Konumları/vmSizes | 2016-03-30 |
 | İşlemler | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
 | Sanal makineler/uzantıları | 2016-03-30 |
@@ -104,7 +102,7 @@ Anahtarınızı yönetme anahtarları, gizli ve sertifikaları, anahtar kasalar�
 | Kaynak Türleri | API sürümü |
 |-------------------------|--------------|
 | İşlemler | 2016-10-01 |
-| Vaults | 2016-10-01 |
+| kasaları | 2016-10-01 |
 | Kasaları / erişim ilkeleri | 2016-10-01 |
 | Kasalar/parolalar | 2016-10-01 |
 
@@ -149,7 +147,7 @@ Azure Resource Manager, dağıtma ve yönetme Azure çözümleriniz için altyap
 | Kaynak Adını Denetle | 2015-012016-09-01 |
 | Temsilci sağlayıcıları | 2015-01-01 |
 | Temsilci sağlayıcıları/teklifleri | 2015-01-01 |
-| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
+| Teklifler/DelegatedProviders/estimatePrice | 2015-01-01 |
 | Dağıtımlar | 2016-0209-01 |
 | Dağıtımları/işlemleri | 2016-0209-01 |
 | Uzantıları meta verileri | 2015-01-01 |
@@ -167,8 +165,8 @@ Azure Resource Manager, dağıtma ve yönetme Azure çözümleriniz için altyap
 | Abonelik/kaynak grupları | 2015-012016-09-01 |
 | ResourceGroups/abonelikleri/kaynakları | 2015-012016-09-01 |
 | Abonelikleri/kaynakları | 2015-012016-09-01 |
-| Abonelikleri/tagNames | 2016-0609-01 |
-| TagNames/abonelikleri/tagValues | 2016-0609-01 |
+| Abonelikleri/tagNames | 2016 0609 01 |
+| TagNames/abonelikleri/tagValues | 2016 0609 01 |
 | Kiracılar | 2015-012017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 

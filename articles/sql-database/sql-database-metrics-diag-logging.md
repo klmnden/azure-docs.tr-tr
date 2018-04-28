@@ -10,18 +10,18 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
 
 * **Azure depolama**: telemetri küçük bir fiyat için çok büyük miktarda arşivlemek için kullanılır.
 * **Azure Event Hubs**: SQL veritabanı telemetri özel izleme çözümü veya etkin işlem hatları ile tümleştirmek için kullanılır.
-* **Azure günlük analizi**: Giden kutusu izleme çözümünü raporlama, uyarı ve yetenekleri Azaltıcı için kullanılır.
+* **Azure günlük analizi**: Giden kutusu izleme çözümünü raporlama, uyarı ve yetenekleri Azaltıcı için kullanılır. Bu, özelliğidir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Mimari](./media/sql-database-metrics-diag-logging/architecture.png)
 

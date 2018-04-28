@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f0df9b02e7672faec3a1d94997c9b27ffca275e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Sık sorulan sorular Azure yığın kullanımı API
 Bu makalede Azure yığın kullanım API'si hakkında sık sorulan bazı sorular yanıtlanmaktadır.
@@ -44,7 +44,7 @@ Kullanım aşağıdaki kaynak sağlayıcıları için bildirdi:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |000's 10'da isteklerinin sayısı |Sıra hizmeti isteklerini (10.000 s). |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Giriş verileri GB |Kuyruk hizmeti veri giriş GB. |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Çıkış GB |Kuyruk hizmeti veri çıkışı GB |
-| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*saatleri   | Toplam DB kapasitede oluşturma. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla MB döndürür. |
+| **SQL RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*saatleri   | Toplam DB kapasitede oluşturma. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla MB döndürür. |
 | **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*saatleri    | Toplam DB kapasitede oluşturma. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla MB döndürür. |
 | **İşlem** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Temel VM boyutu saatleri |Sanal çekirdek saatleri | Sanal çekirdek sayısı VM çalıştıran saatleri tarafından çarpılmasıyla hesaplanır. |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM boyutu saatleri |Sanal çekirdek saatleri | Sanal çekirdek sayısı olarak VM çalıştıran saatte çarpılmasıyla hesaplanır. |
@@ -59,8 +59,8 @@ Kullanım aşağıdaki kaynak sağlayıcıları için bildirdi:
 |  | 88039D51-A206-3A89-E9DE-C5117E2D10A6 | Standart kısa uygulama hizmeti saatleri | 1 saat | Boyutu ve örnek sayısı göre hesaplanır. |
 |  | 83A2A13E-4788-78DD-5D55-2831B68ED825 | Standart Orta uygulama hizmeti saatleri | 1 saat | Boyutu ve örnek sayısı göre hesaplanır. |
 |  | 1083B9DB-E9BB-24BE-A5E9-D6FDD0DDEFE6 | Standart uzun uygulama hizmeti saatleri | 1 saat | Boyutu ve örnek sayısı göre hesaplanır. |
-|  | *Özel çalışan katmanı* | Custom Worker Tiers | Saat | Belirleyici ölçer kimliği SKU ve özel çalışan katmanı adı göre oluşturulur. Bu ölçüm kimliği her özel çalışan katmanı için benzersizdir. |
-|  | 264ACB47-AD38-47F8-ADD3-47F01DC4F473 | SNI SSL | Per SNI SSL Binding | Uygulama hizmeti, iki tür SSL bağlantılarını destekler: sunucu adı göstergesi (SNI) SSL bağlantılarını ve IP adresi SSL bağlantısı. SNI tabanlı SSL modern tarayıcılarda çalışırken IP tabanlı SSL tüm tarayıcılarda çalışır. |
+|  | *Özel çalışan katmanı* | Özel çalışan katmanı | Saat | Belirleyici ölçer kimliği SKU ve özel çalışan katmanı adı göre oluşturulur. Bu ölçüm kimliği her özel çalışan katmanı için benzersizdir. |
+|  | 264ACB47-AD38-47F8-ADD3-47F01DC4F473 | SNI SSL | SNI SSL bağlaması başına | Uygulama hizmeti, iki tür SSL bağlantılarını destekler: sunucu adı göstergesi (SNI) SSL bağlantılarını ve IP adresi SSL bağlantısı. SNI tabanlı SSL modern tarayıcılarda çalışırken IP tabanlı SSL tüm tarayıcılarda çalışır. |
 |  | 60B42D72-DC1C-472C-9895-6C516277EDB4 | IP SSL | IP temelli SSL bağlaması | Uygulama hizmeti, iki tür SSL bağlantılarını destekler: sunucu adı göstergesi (SNI) SSL bağlantılarını ve IP adresi SSL bağlantısı. SNI tabanlı SSL modern tarayıcılarda çalışırken IP tabanlı SSL tüm tarayıcılarda çalışır. |
 |  | 73215A6C-FA54-4284-B9C1-7E8EC871CC5B | Web İşlemi |  | Saat başına etkin site başına hesaplanır. |
 |  | 5887D39B-0253-4E12-83C7-03E1A93DFFD9 | Dış Çıkış bant genişliği | GB | İstek yanıtı bayt sayısı, toplam gelen istek yanıtı bayt sayısı + isteği bayt + toplam gelen FTP yanıt bayt + toplam gelen web toplam giden istek dağıtın. |
@@ -68,7 +68,7 @@ Kullanım aşağıdaki kaynak sağlayıcıları için bildirdi:
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>API karşılaştırmak için Azure yığın kullanımı nasıl yapılacağı [Azure kullanım API'si](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (şu anda önizlemede ortak)?
 * Bir özel durum ile Azure API ile Kiracı kullanım API tutarlıdır: *showDetails* bayrağı şu anda desteklenmiyor Azure yığını.
 * Sağlayıcı kullanım API'si yalnızca Azure yığını için geçerlidir.
-* Şu anda [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) diğer bir deyişle Azure'nın Azure yığınında kullanılabilir değil.
+* Şu anda [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) diğer bir deyişle Azure'nın Azure yığınında kullanılabilir değil.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Kullanım süresi ve bildirilen süresi arasındaki fark nedir?
 Kullanım verileri raporları iki ana saat değerleri vardır:

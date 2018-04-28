@@ -10,10 +10,10 @@ ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Bir C# modül Azure IOT Edge geliştirmek için Visual Studio Code kullanma
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) geliştirmek ve Azure IOT kenar modüllerinizi dağıtmak için ana geliştirme aracı olarak. 
@@ -31,7 +31,7 @@ Bu kılavuza başlamadan önce aşağıdaki öğreticiler tamamlayın:
 - [Visual Studio Code için Azure IOT kenar uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 - [C# Visual Studio Code (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 - [Docker](https://docs.docker.com/engine/installation/)
-- [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd) 
+- [.NET core 2.0 SDK'sı](https://www.microsoft.com/net/core#windowscmd) 
 - [Python 2.7](https://www.python.org/downloads/)
 - [IOT kenar denetim komut dosyası](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 - AzureIoTEdgeModule şablonu (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
@@ -251,7 +251,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT kenar uzantısını kullan
 
     ![VS Code Gezgini'nin ekran görüntüsü](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
-### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntü oluşturma ve kayıt defterine yayımlama
+### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntüsü oluşturma ve bunu kayıt defterinize yayımlama
 
 1. VS Code Explorer'da genişletin **Docker** klasör. Ardından kapsayıcı platformunuzun klasörünü (**linux-x64** veya **windows-nano**) genişletin.
 2. Sağ **Dockerfile** dosyasını bulun ve seçin **yapı IOT kenar modülü Docker görüntü**. 

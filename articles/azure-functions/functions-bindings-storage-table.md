@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: e6d2891a8ea531bf5c7cc7e1c74b890e01f2b56b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cdfde0d888c8434443dcd05109f646eca8c0df19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -354,12 +354,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**Yönü** | yok | ayarlanmalıdır `in`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**type** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**direction** | yok | ayarlanmalıdır `in`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | Tablo veya işlev kodu varlığı temsil eden değişken adı. | 
-|**tableName** | **TableName** | Tablonun adı.| 
-|**partitionKey** | **PartitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
-|**rowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
+|**TableName** | **TableName** | Tablonun adı.| 
+|**PartitionKey** | **PartitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
+|**RowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
 |**Al** |**Al** | İsteğe bağlı. JavaScript'te okumak için varlıklar maksimum sayısı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
 |**Filtre** |**Filtre** | İsteğe bağlı. Bir OData filtre ifadesi JavaScript'te giriş tablosu. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
 |**Bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
@@ -390,14 +390,14 @@ Tablo depolama giriş bağlama aşağıdaki senaryoları destekler:
 Bir Azure depolama hesabındaki bir tablo varlıkları yazılacak bağlama Azure Table depolama çıktı kullanın.
 
 > [!NOTE]
-> Bu çıktı bağlama varolan varlıkları güncelleştirme desteklemez. Kullanım `TableOperation.Replace` işlemi [Azure depolama SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) var olan bir varlığı güncelleştirmek için.   
+> Bu çıktı bağlama varolan varlıkları güncelleştirme desteklemez. Kullanım `TableOperation.Replace` işlemi [Azure depolama SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) var olan bir varlığı güncelleştirmek için.   
 
 ## <a name="output---example"></a>Çıktı - örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
@@ -614,12 +614,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**Yönü** | yok | ayarlanmalıdır `out`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**type** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**direction** | yok | ayarlanmalıdır `out`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | Tablo veya varlığı temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
-|**tableName** |**TableName** | Tablonun adı.| 
-|**partitionKey** |**PartitionKey** | Yazılacak tablo varlığın bölüm anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
-|**rowKey** |**RowKey** | Yazılacak tablo varlığın satır anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
+|**TableName** |**TableName** | Tablonun adı.| 
+|**PartitionKey** |**PartitionKey** | Yazılacak tablo varlığın bölüm anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
+|**RowKey** |**RowKey** | Yazılacak tablo varlığın satır anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
 |**Bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

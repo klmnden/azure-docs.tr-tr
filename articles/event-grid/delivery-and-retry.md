@@ -1,24 +1,26 @@
 ---
-title: "Azure olay kılavuz teslim ve yeniden deneyin"
-description: "Azure olay kılavuz olayları nasıl sunar ve teslim edilmeyen iletilerini nasıl işlediğini açıklar."
+title: Azure olay kılavuz teslim ve yeniden deneyin
+description: Azure olay kılavuz olayları nasıl sunar ve teslim edilmeyen iletilerini nasıl işlediğini açıklar.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Olay kılavuz ileti teslimi ve yeniden deneyin 
 
 Bu makalede, Azure olay kılavuz teslim edilmedi olduğunda olayları nasıl işlediğini açıklar.
 
-Olay kılavuz dayanıklı teslim sağlar. Her ileti en az bir kez her abonelik için sunar. Olayları hemen her abonelik kayıtlı Web kancası için gönderilir. Bir Web kancası ilk teslim girişiminin 60 saniye içinde bir olay alınmasını kabul değil, olay kılavuz olay teslimini yeniden dener.
+Olay kılavuz dayanıklı teslim sağlar. Her ileti en az bir kez her abonelik için sunar. Olayları hemen her abonelik kayıtlı Web kancası için gönderilir. Bir Web kancası ilk teslim girişiminin 60 saniye içinde bir olay alınmasını kabul değil, olay kılavuz olay teslimini yeniden dener. 
+
+Şu anda, olay kılavuz her olay abonelere ayrı ayrı gönderir. Abone olan tek bir olay bir dizi alır.
 
 ## <a name="message-delivery-status"></a>İleti teslimat durumu
 
@@ -40,9 +42,9 @@ Aşağıdaki HTTP yanıt kodları, bir olay teslim girişimi başarısız olduğ
 - 404 Bulunamadı
 - 408 isteği zaman aşımı
 - 414 URI çok uzun
-- 500 İç sunucu hatası
-- 503 Hizmet kullanılamıyor
-- 504 ağ geçidi zaman aşımı
+- 500 İç Sunucu Hatası
+- 503 Hizmet Kullanılamıyor
+- 504 Ağ Geçidi Zaman Aşımı
 
 Diğer bir yanıt kodu veya bir yanıt eksikliği hata gösterir. Olay kılavuz teslim yeniden dener. 
 

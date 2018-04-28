@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -142,7 +142,7 @@ Kurumsal güvenlik duvarı düzeyinde şu etki alanlarına ve giden bağlantı n
 | Etki alanı adları | Bağlantı Noktaları | Açıklama |
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Veri Taşıma hizmeti arka uç ile iletişim için kullanılan |
-| *.core.windows.net |443 |Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopyalama için kullanılan|
+| *. core.windows.net |443 |Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopyalama için kullanılan|
 | *.frontend.clouddatahub.net |443 |Veri Taşıma hizmeti arka uç ile iletişim için kullanılan |
 | *.servicebus.windows.net |9350-9354, 5671 |İsteğe bağlı hizmet veri yolu geçişi Kopyalama Sihirbazı tarafından kullanılan TCP üzerinden |
 
@@ -484,7 +484,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
 2. Aşağıdaki komutu çalıştırarak ve Azure kimlik bilgilerinizi girme Azure hesabınızda oturum açın.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Kullanım **yeni AzureRmDataFactoryGateway** cmdlet'ini mantıksal bir ağ geçidi gibi oluşturun:
 

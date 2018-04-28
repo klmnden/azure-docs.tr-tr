@@ -1,20 +1,20 @@
 ---
-title: Azure Analysis Services'a bağlanın | Microsoft Docs
+title: Azure Analysis Services sunucularına bağlanma | Microsoft Docs
 description: Bağlanmak ve Azure Analysis Services sunucusundan veri alma hakkında bilgi edinin.
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8493ff1e2b9be48fc8eec1e727684fe09f6af72c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="connect-to-an-azure-analysis-services-server"></a>Bir Azure Analysis Services sunucusuna bağlan
+# <a name="connecting-to-servers"></a>Sunuculara bağlanma
 
 Bu makalede, veri modellemesi ve SQL Server Management Studio (SSMS) veya SQL Server veri Araçları (SSDT) gibi yönetim uygulamaları kullanarak bir sunucuya bağlanma açıklanır. Veya Microsoft Excel, Power BI Desktop veya özel uygulamalar gibi uygulamalar istemcisiyle raporlama. Azure Analysis Services bağlantı HTTPS kullanın.
 

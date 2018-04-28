@@ -1,24 +1,19 @@
 ---
 title: Dizin oluşturucular kullanarak Azure Search'te Azure SQL veritabanına bağlanma | Microsoft Docs
 description: Dizin oluşturucular kullanarak Azure Search dizini için Azure SQL veritabanından veri çekme öğrenin.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: a5198cc6e3b019fc6fd241f22c4da088f0839066
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: aa24c3197af28101b2f3a0acda6d0ae81b9e96d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma
 
@@ -66,7 +61,7 @@ Verilerinizde ilgili çeşitli etkenlere bağlı olarak Azure SQL dizin oluştur
 1. Veri kaynağı oluşturun:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
+    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -85,7 +80,7 @@ Verilerinizde ilgili çeşitli etkenlere bağlı olarak Azure SQL dizin oluştur
 3. Dizin Oluşturucu, bir ad verip ve veri kaynak ve hedef dizini başvuran oluşturun:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -98,7 +93,7 @@ Verilerinizde ilgili çeşitli etkenlere bağlı olarak Azure SQL dizin oluştur
 
 Bu yolla oluşturulan bir dizin oluşturucu bir zamanlama yok. Ne zaman oluşturulduktan sonra otomatik olarak çalıştırılır. Yeniden miktar adresindeki kullanarak istediğiniz zaman çalıştırabilirsiniz bir **dizin** isteği:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
     api-key: admin-key
 
 Dizin Oluşturucu davranışı, toplu iş boyutu ve bir dizinleyici yürütme başarısız olmadan önce kaç tane belgeleri atlanabilir gibi çeşitli yönlerini özelleştirebilirsiniz. Daha fazla bilgi için bkz: [dizin oluşturucu API oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -107,7 +102,7 @@ Azure hizmetlerinin veritabanınıza bağlanmasına izin ver gerekebilir. Bkz: [
 
 Dizin Oluşturucu durumu ve yürütme geçmişi (dizine öğeleri, hataları, vb. sayısı) izlemek için kullanın bir **dizin oluşturucu durumu** isteği:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2016-09-01
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
     api-key: admin-key
 
 Yanıtı şuna benzer görünmelidir:
@@ -149,7 +144,7 @@ Yanıt hakkında ek bilgiler bulunabilir [dizin oluşturucu durumunu Al](http://
 ## <a name="run-indexers-on-a-schedule"></a>Dizin oluşturucular bir zamanlamaya göre Çalıştır
 Düzenli bir zamanlamaya göre çalıştırmak için dizin oluşturucu de düzenleyebilirsiniz. Bunu yapmak için ekleyin **zamanlama** oluştururken veya güncelleştirirken dizin oluşturucu özelliği. Aşağıdaki örnek, dizin oluşturucusunu güncelleştirmek için bir PUT İsteği gösterir:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2016-09-01
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -289,8 +284,8 @@ Soft-delete teknik kullanırken, geçici silme ilkesi şu şekilde oluşturulurk
 | SQL veri türü | Hedef dizini izin alan türleri | Notlar |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
-| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.String | |
+| int, smallint, tinyint |EDM.Int32, EDM.Int64, Edm.String | |
+| bigint |EDM.Int64, Edm.String | |
 | Gerçek, kayan nokta |Edm.Double, Edm.String | |
 | küçük para, para ondalık sayısal |Edm.String |Azure arama Bu duyarlık kaybeder çünkü Edm.Double ondalık türlerini dönüştürmeyi desteklemez |
 | karakter, n karakter, değişken karakter, n değişken karakter |Edm.String<br/>Collection(Edm.String) |Bir SQL dizesi dize bir JSON dizisini temsil ediyorsa Collection(Edm.String) alanını doldurmak için kullanılabilir: `["red", "white", "blue"]` |

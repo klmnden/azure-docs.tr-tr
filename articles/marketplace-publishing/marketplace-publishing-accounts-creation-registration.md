@@ -1,11 +1,11 @@
 ---
-title: "Oluşturma ve yayımcı hesap kaydetme | Microsoft Docs"
-description: "Azure Market türlerinde onay sonrasında, çeşitli satabilir miyim şekilde Microsoft Developer hesabı oluşturma için yönergeler sunar."
+title: Oluşturma ve yayımcı hesap kaydetme | Microsoft Docs
+description: Azure Market türlerinde onay sonrasında, çeşitli satabilir miyim şekilde Microsoft Developer hesabı oluşturma için yönergeler sunar.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 Bu makalede, kayıt işlemi için Azure Marketi onaylanmış bir Microsoft Developer olmasını ve gerekli hesap oluşturma açıklanmaktadır.
@@ -37,7 +37,7 @@ Kullanıcı adı forms adresi etki alanınızda olmalıdır ve BT ekibi tarafın
 Hesap açılan Microsoft hesabı oturum açarak hesabınıza erişmek birden çok kişi gerekecekse bir şirket hesabı oluştururken bu yönergeleri izleyin.
 
 > [!Important]
-> Önemli olanak Geliştirici Merkezi hesabınızda erişmek birden fazla kullanıcı, Azure Active Directory hesabı oturum bireysel oturum açarak erişebilir tek tek kullanıcılar rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için bkz: [hesap kullanıcılar yönetmek](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Önemli olanak Geliştirici Merkezi hesabınızda erişmek birden fazla kullanıcı, Azure Active Directory hesabı oturum bireysel oturum açarak erişebilir tek tek kullanıcılar rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için bkz: [hesap kullanıcılar yönetmek](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak Microsoft hesabınızı oluşturma — Örneğin, windowsapps@fabrikam.com.
 * Bu Microsoft hesabını geliştiricileri en küçük olası sayısına erişimi sınırlayın.
@@ -49,7 +49,7 @@ Hesap açılan Microsoft hesabı oturum açarak hesabınıza erişmek birden ço
 
 Geliştirici hesabınızda öncelikle Güvenilen bilgisayarlarından erişilmesi. Hesap hafta başına oluşturulan kodlarını sayısına bir sınır olduğundan bu önemlidir. Ayrıca, en sorunsuz oturum açma deneyimi sağlar.
 
-Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi için tıklatın [burada](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi için tıklatın [burada](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Yönergeler
 1. Yeni bir Chrome Incognito veya Internet Explorer gözatma oturumu InPrivate, var olan bir hesapla oturum emin olmak için açın.

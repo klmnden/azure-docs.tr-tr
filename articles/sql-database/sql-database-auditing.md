@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -165,8 +165,18 @@ Birincil veritabanında denetim etkinleştirdiğinizde, coğrafi olarak çoğalt
 3. Birincil ikincil depolama erişim anahtarı yeniden denetim yapılandırma dikey penceresine, anahtar ve ardından Git **Tamam**. Ardından **kaydetmek** denetim yapılandırma dikey pencerenin üstündeki.
 4. Depolama yapılandırma dikey penceresine geri dönün ve (için Hazırlanmakta sonraki anahtarın yenileme döngüsü) ikincil erişim anahtarını yeniden oluşturma.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Azure PowerShell kullanarak SQL veritabanı denetimi yönetme
+## <a name="additional-information"></a>Ek Bilgi
 
+* Günlük hakkındaki ayrıntılar için biçimi, depolama klasör hiyerarşisini ve adlandırma kuralları, bkz: [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Azure SQL veritabanı ve denetim 4000 karakter veri karakter alanlar için bir denetim kaydı depolar. Zaman **deyimi** veya **data_sensitivity_information** denetlenebilir bir eylemin getirdiği değerler içeren en çok 4000 karakter, ilk 4000 karakterden ötesinde herhangi bir veriyi olacaktır  **kesilmiş ve değil denetlenen**.
+
+* Denetim günlükleri için yazılır **ek Bloblarını** , Azure aboneliğinizin üzerinde bir Azure Blob storage'da.
+   * **Premium depolama** şu anda **desteklenmiyor** ek Bloblarını tarafından.
+   * **VNet içinde depolama** şu anda **desteklenmiyor**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Azure PowerShell kullanarak SQL veritabanı denetimi yönetme
 
 * **PowerShell cmdlet'leri**:
 

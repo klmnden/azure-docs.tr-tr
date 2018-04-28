@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Dayanıklı işlevleri - hava durumu İzleyicisi örnek senaryoda izleme
 
@@ -38,7 +38,7 @@ Bu örnek bir konumun geçerli hava koşulları izler ve bir kullanıcı SMS tar
 * Bazı koşul karşılanır veya başka bir işlem tarafından sona erdirilecek izleyiciler sonlandırabilir.
 * İzleyiciler parametre alabilir. Örnek, tüm istenen konumu ve telefon numarası aynı işlem hava durumu izleme nasıl uygulanabilir gösterir.
 * İzleyiciler ölçeklenebilir. Her bir izleyici orchestration örneği olduğundan, birden çok monitör yeni işlevler oluşturmak veya daha fazla kod tanımlamak zorunda kalmadan oluşturulabilir.
-* İzleyiciler kolayca büyük iş akışlarıyla birleştirilerek tümleştirin. Bir izleyici daha karmaşık bir orchestration işlevinin bir bölümü olabilir veya bir [alt orchestration](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* İzleyiciler kolayca büyük iş akışlarıyla birleştirilerek tümleştirin. Bir izleyici daha karmaşık bir orchestration işlevinin bir bölümü olabilir veya bir [alt orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesini yapılandırma
 

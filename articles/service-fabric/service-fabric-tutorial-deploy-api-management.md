@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric'i API Management ile tümleştirme | Microsoft Docs"
-description: "Bu öğreticide, Azure API Management ve Service Fabric ile çalışmaya hızla nasıl başlayabileceğinizi öğrenirsiniz."
+title: Azure Service Fabric'i API Management ile tümleştirme | Microsoft Docs
+description: Bu öğreticide, Azure API Management ve Service Fabric ile çalışmaya hızla nasıl başlayabileceğinizi öğrenirsiniz.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Öğretici: API Management’ı Service Fabric ile dağıtma
 Bu öğretici, bir serinin dördüncü bölümüdür.  Azure API Management'ı Service Fabric'le dağıtmak ileri düzey bir senaryodur.  Arka uç Service Fabric hizmetleriniz için zengin bir yönlendirme kuralları kümesiyle API'ler yayımlamanız gerektiğinde, API Management yararlı olur. Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric'te, trafik girişi için tasarlanmış durum bilgisi olmayan ASP.NET Core uygulaması, Event Hubs, IoT Hub veya Azure API Management gibi herhangi bir hizmet ağ geçidi olabilir. 
@@ -59,7 +59,7 @@ Artık Azure üzerinde güvenli bir [Windows kümeniz](service-fabric-tutorial-c
 Azure komutlarını yürütmeden önce Azure hesabınızda oturum açıp aboneliğinizi seçin.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ Bu öğretici için, iletileri kullanıcıya geri yansıtan temel bir web sunucu
 
    Artık durum bilgisi olmayan `fabric:/EchoServerApplication/EchoServerService` adlı bir Java hizmeti Azure'da Service Fabric kümenizde çalıştırılıyor olmalıdır.
 
-5. Tarayıcıyı açın ve http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage yazın; "[sürüm 1.0]Merhaba Dünya!!!" ifadesini görmelisiniz.
+5. Bir tarayıcı açıp http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage yazdığınızda "[sürüm 1.0] Hello World!!!" ifadesini görürsünüz görmelisiniz.
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Resource Manager şablonlarını indirme ve anlama
 Şu Resource Manager şablon ve parametre dosyalarını indirin ve kaydedin:

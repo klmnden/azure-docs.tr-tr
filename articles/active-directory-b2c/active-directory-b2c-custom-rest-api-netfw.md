@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişi doğrulama Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine tümleştirme
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Kimlik deneyimi çerçevesiyle hangi altını çizen Azure Active Directory B2C (Azure AD B2C) tümleştirebileceğiniz kullanıcı gezisine bir RESTful API'si ile. Bu kılavuzda, Azure AD B2C .NET Framework RESTful Hizmetleri (web API) ile nasıl etkileşim girer öğreneceksiniz.
 
 ## <a name="introduction"></a>Giriş
@@ -251,7 +254,7 @@ Aşağıdaki XML parçacığını bir talep sağlayıcı düğümü iki teknik p
 
    Bu örnekte, talep içeriğini `givenName` REST hizmeti olarak gönderir `firstName`, talep içeriğini `surname` REST hizmeti olarak gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi RESTful hizmetinden Azure AD B2C geri alınır talepleri tanımlar.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). Kaydolma seyahat sırasında doğrulama teknik profili önceki teknik profili çağırır. RESTful hizmeti 409 (çakışma hatası) HTTP hata verirse, kullanıcıya hata iletisi görüntülenir. 
+* **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"**: varolan bir teknik profilini (temel ilkede tanımlanan) bir doğrulama teknik profili ekler. Kaydolma seyahat sırasında doğrulama teknik profili önceki teknik profili çağırır. RESTful hizmeti 409 (çakışma hatası) HTTP hata verirse, kullanıcıya hata iletisi görüntülenir. 
 
 Bulun `<ClaimsProviders>` düğümü altında aşağıdaki XML parçacığını ekleyin `<ClaimsProviders>` düğümü:
 

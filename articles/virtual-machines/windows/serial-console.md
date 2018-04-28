@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makine seri konsol (Önizleme) 
 
@@ -109,7 +109,7 @@ Windows önyükleme yükleyicisi etkinleştirmeniz gerekirse göstermek için se
 
 Bu bölümde örnek komutları burada SAC RDP bağlantı hatalarını giderme gerektiğinde gibi VM erişmek için kullanmanız gerekebilir senaryolarda ortak görevleri gerçekleştirmek için içerir.
 
-SAC tüm Windows sürümlerinde bu yana Windows Server 2003 dahil ancak varsayılan olarak devre dışıdır. SAC kullanır `sacdrv.sys` çekirdek sürücüsü `Special Administration Console Helper` hizmet (`sacsvr`) ve `sacsess.exe` işlemi. Daha fazla bilgi için bkz: [Acil Durum Yönetimi Hizmetleri Araçları ve ayarları](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC tüm Windows sürümlerinde bu yana Windows Server 2003 dahil ancak varsayılan olarak devre dışıdır. SAC kullanır `sacdrv.sys` çekirdek sürücüsü `Special Administration Console Helper` hizmet (`sacsvr`) ve `sacsess.exe` işlemi. Daha fazla bilgi için bkz: [Acil Durum Yönetimi Hizmetleri Araçları ve ayarları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC seri bağlantı noktası üzerinden çalışan işletim sisteminizi bağlanmanıza olanak sağlar. SAC, CMD'den başlattığında `sacsess.exe` başlatır `cmd.exe` çalışan işletim sisteminizi içinde. Görev Yöneticisi'ni, aynı VM için RDP süresi bağlandığını SAC için seri Konsolu özelliği görebilirsiniz. SAC erişim CMD aynıdır `cmd.exe` RDP aracılığıyla bağlandığında kullanın. Hepsi aynı komutları ve araçları PowerShell Bu CMD örnekten başlatma olanağı dahil olmak üzere kullanılabilir. SAC arasındaki temel farklardan ve Windows Kurtarma Ortamı (WinRE) bu SAC'burada WinRE farklı, en düşük işletim sistemi önyükleniyor, çalışan işletim sistemini yönetmenize imkan. Azure VM'ler WinRE, seri konsol özelliğiyle erişme olanağını desteklemez ancak Azure VM'ler SAC yönetilebilir.
 
@@ -266,11 +266,11 @@ Bu örnek netvsc.sys, netvsc63.sys ya da Windows sürümüne bağlı olarak netv
 #### <a name="scan-for-system-file-corruption"></a>Sistem dosyasının Bozulması tara
 `sfc /scannow`
 
-Ayrıca bkz. [Windows görüntüyü onarmak](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Ayrıca bkz. [Windows görüntüyü onarmak](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="scan-for-system-file-corruption"></a>Sistem dosyasının Bozulması tara
 `dism /online /cleanup-image /scanhealth`
 
-Ayrıca bkz. [Windows görüntüyü onarmak](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Ayrıca bkz. [Windows görüntüyü onarmak](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="export-file-permissions-to-text-file"></a>Dosya izinleri metin dosyasına dışarı aktarma
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Dosya izinleri ACL dosyaya kaydet
@@ -516,7 +516,7 @@ OsType, konum, vmSize, bunun nedeni, ad, resourceGroupName, Subscriptionıd, pri
 
 Azure ana bilgisayar örneği meta veri hizmeti için bir REST çağrısı yaptığından örneği meta verileri Sorgulama sağlıklı Konuk ağ bağlantısı gerektirir. Örnek meta verileri sorgulayabilir varsa, bu nedenle, konuk bir Azure barındırılan hizmet için ağ üzerinden iletişim kuramıyor olduğunu bildirir.
 
-Daha fazla bilgi için bkz: [Azure örneği meta veri hizmeti](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Daha fazla bilgi için bkz: [Azure örneği meta veri hizmeti](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Örnek meta verileri
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

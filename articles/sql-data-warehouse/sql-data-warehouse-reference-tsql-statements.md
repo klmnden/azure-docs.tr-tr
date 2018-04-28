@@ -1,27 +1,24 @@
 ---
-title: SQL veri ambarı Transact-SQL Başvurusu | Microsoft Docs
-description: SQL veri ambarı tarafından kullanılan Transact-SQL konular için referans içerik bağlantıları.
+title: T-SQL deyimlerini - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlantılar.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 03/22/2018
-ms.author: kevin;barbkess
-ms.openlocfilehash: 4f2148f6087a43f9cec252df4ef2b97b4a7afcb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: ec708f30b59bbd6af878720c65f9a464224c57a5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="transact-sql-topics"></a>Transact-SQL konuları
+# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri
+Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlantılar.
+
 ## <a name="data-definition-language-ddl-statements"></a>Veri tanımlama dili (DDL) deyimleri
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
@@ -51,7 +48,7 @@ ms.lasthandoff: 03/28/2018
 * [TABLO BIRAKMA](https://msdn.microsoft.com/library/ms173790.aspx)
 * [ŞEMAYI](https://msdn.microsoft.com/library/ms186751.aspx)
 * [GÖRÜNÜMÜ](https://msdn.microsoft.com/library/ms173492.aspx)
-* [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [YENİDEN ADLANDIR](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -73,7 +70,7 @@ ms.lasthandoff: 03/28/2018
 * [SEÇİN](https://msdn.microsoft.com/library/ms189499.aspx)
 * [Common_table_expression ile](https://msdn.microsoft.com/library/ms175972.aspx)
 * [DIŞINDA ve KESİŞTİĞİ](https://msdn.microsoft.com/library/ms188055.aspx)
-* [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
+* [AÇIKLANMAKTADIR](https://msdn.microsoft.com/library/mt631615.aspx)
 * [KAYNAK](https://msdn.microsoft.com/library/ms177634.aspx)
 * [Özet ve UNPIVOT kullanma](https://msdn.microsoft.com/library/ms177410.aspx)
 * [GRUPLANDIRMA ÖLÇÜTÜ](https://msdn.microsoft.com/library/ms177673.aspx)
@@ -82,7 +79,7 @@ ms.lasthandoff: 03/28/2018
 * [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
 * [BİRLEŞİM](https://msdn.microsoft.com/library/ms180026.aspx)
 * [BURADA](https://msdn.microsoft.com/library/ms188047.aspx)
-* [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
+* [SAYFANIN ÜSTÜ](https://msdn.microsoft.com/library/ms189463.aspx)
 * [Diğer ad](https://msdn.microsoft.com/library/mt631614.aspx)
 * [Arama koşulu](https://msdn.microsoft.com/library/ms173545.aspx)
 * [Alt sorgular](https://msdn.microsoft.com/library/mt631613.aspx)
@@ -113,14 +110,4 @@ ms.lasthandoff: 03/28/2018
 * [ANA ANAHTARI AÇILAMIYOR](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla TSQL başvuru için bkz: [SQL veri ambarı T-SQL dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md).
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+Daha fazla başvuru bilgileri için bkz: [T-SQL dil öğeleri Azure SQL Data warehouse'da](sql-data-warehouse-reference-tsql-language-elements.md), ve [Azure SQL veri ambarı sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md).

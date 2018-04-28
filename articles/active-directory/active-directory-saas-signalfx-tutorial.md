@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile SignalFx | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile SignalFx arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile SignalFx | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile SignalFx arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Öğretici: Azure Active Directory Tümleştirme SignalFx ile
 
@@ -121,10 +121,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |    
-    | User.FirstName          | user.givenname |
-    | User.email          | user.mail |
-    | PersonImmutableID       | user.userprincipalname    |
-    | User.LastName       | user.surname    |
+    | User.FirstName          | User.givenName |
+    | User.email          | User.Mail |
+    | PersonImmutableID       | User.userPrincipalName    |
+    | User.LastName       | User.surname    |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -140,49 +140,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     e. **Tamam**’a tıklayın.
  
-6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+6. Üzerinde **SAML imzalama sertifikası** bölümünde, aşağıdaki adımları gerçekleştirin: 
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
+
+    b. Tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
 7. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Oluşturulacak **meta veri URL'sini**, aşağıdaki adımları gerçekleştirin:
-
-    a. Tıklatın **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Şimdi özellik sayfasına gidin **SignalFx** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Üzerinde **SignalFx yapılandırma** 'yi tıklatın **yapılandırma SignalFx** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
+8. Üzerinde **SignalFx yapılandırma** 'yi tıklatın **yapılandırma SignalFx** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
 
     ![SignalFx yapılandırma](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. SignalFx şirket sitenize yönetici olarak oturum.
+9. SignalFx şirket sitenize yönetici olarak oturum.
 
-11. Üst tıklatıldığında SignalFx içinde **tümleştirmeler** tümleştirmeler sayfasını açın.
+10. Üst tıklatıldığında SignalFx içinde **tümleştirmeler** tümleştirmeler sayfasını açın.
 
     ![SignalFx tümleştirme](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Tıklayın **Azure Active Directory** altında döşeme **oturum açma hizmetleri** bölümü.
+11. Tıklayın **Azure Active Directory** altında döşeme **oturum açma hizmetleri** bölümü.
  
     ![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Tıklayın **yeni tümleştirme** ve altında **yükleme** sekmesinde, aşağıdaki adımları gerçekleştirin:
+12. Tıklayın **yeni tümleştirme** ve altında **yükleme** sekmesinde, aşağıdaki adımları gerçekleştirin:
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. İçinde **veren URL'si** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan.
 
-    e. İçinde **meta veri URL'sini** metin kutusuna, Yapıştır **meta veri URL'sini** Azure portalından oluşturulan düzeni.
+    e. İçinde **meta veri URL'sini** metin kutusuna, Yapıştır **uygulama Federasyon meta veri URL'sini** Azure portalından kopyalanan.
 
     f. **Kaydet**’e tıklayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

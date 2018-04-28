@@ -1,25 +1,20 @@
 ---
-title: "Kullanım ve Azure Search Hizmeti istatistiklerine izleme | Microsoft Docs"
-description: "Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti için kaynak kullanım ve dizin boyutu izler."
-services: search
-documentationcenter: 
+title: Kullanım ve Azure Search Hizmeti istatistiklerine izleme | Microsoft Docs
+description: Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti için kaynak kullanım ve dizin boyutu izler.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Azure Search Hizmeti izleme
 
@@ -89,7 +84,7 @@ Bir depolama hesabına veriler kopyalandığında, verileri JSON ve onun yerine 
 
 Kapsayıcı başına saat başına bir blob yok.
 
-Örnek yolu:`resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Örnek yolu: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 #### <a name="log-schema"></a>Günlüğü şeması
 Günlükleri BLOB'ları arama hizmeti trafik günlüklerinizi içerir.
@@ -98,36 +93,36 @@ Her bir blob kayıtları aynı saat boyunca gerçekleşen tüm işlemi üzerinde
 
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
-| time |Tarih saat |"2015-12-07T00:00:43.6872559Z" |İşlemin zaman damgası |
-| resourceId |Dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
-| operationName |Dize |"Query.Search" |İşlem adı |
-| operationVersion |Dize |"2015-02-28" |Kullanılan API sürümü |
-| category |Dize |"OperationLogs" |sabiti |
-| resultType |Dize |"Başarılı" |Olası değerler: başarı veya başarısızlık |
+| time |datetime |"2015-12-07T00:00:43.6872559Z" |İşlemin zaman damgası |
+| resourceId |string |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| operationName |string |"Query.Search" |İşlem adı |
+| operationVersion |string |"2015-02-28" |Kullanılan API sürümü |
+| category |string |"OperationLogs" |sabiti |
+| resultType |string |"Başarılı" |Olası değerler: başarı veya başarısızlık |
 | resultSignature |Int |200 |HTTP Sonuç kodu |
 | durationMS |Int |50 |Milisaniye cinsinden işlem süresi |
-| properties |Nesne |aşağıdaki tabloya bakın |İşlemi özgü verileri içeren nesnesi |
+| properties |object |aşağıdaki tabloya bakın |İşlemi özgü verileri içeren nesnesi |
 
 **Özellik şeması**
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
-| Açıklama |Dize |"/İndexes('content')/docs Al" |İşlem uç noktası |
-| Sorgu |Dize |"? arama = AzureSearch & $count = true & api-version = 2015-02-28" |Sorgu parametreleri |
+| Açıklama |string |"/İndexes('content')/docs Al" |İşlem uç noktası |
+| Sorgu |string |"? arama = AzureSearch & $count = true & api-version = 2015-02-28" |Sorgu parametreleri |
 | Belgeler |Int |42 |İşlenen belge sayısı |
-| indexName |Dize |"testindex" |İşlemle ilişkili dizinin adı |
+| indexName |string |"testindex" |İşlemle ilişkili dizinin adı |
 
 #### <a name="metrics-schema"></a>Ölçümleri şeması
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
-| resourceId |Dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/>MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |Kaynak Kimliği |
-| metricName |Dize |"Gecikme" |Ölçüm adı |
-| time |Tarih saat |"2015-12-07T00:00:43.6872559Z" |işlem zaman damgası |
-| Ortalama |Int |64 |Ortalama değer ölçüm zaman aralığında ham örnekleri |
+| resourceId |string |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/>MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |Kaynak Kimliği |
+| metricName |string |"Gecikme" |Ölçüm adı |
+| time |datetime |"2015-12-07T00:00:43.6872559Z" |işlem zaman damgası |
+| ortalama |Int |64 |Ortalama değer ölçüm zaman aralığında ham örnekleri |
 | en az |Int |37 |En düşük değer ölçüm zaman aralığında ham örnekleri |
-| Maksimum |Int |78 |En büyük değer ölçüm zaman aralığında ham örnekleri |
-| Toplam |Int |258 |Toplam değer ölçüm zaman aralığında ham örnekleri |
-| Sayısı |Int |4 |Ölçüm oluşturmak için kullanılan ham örnek sayısı |
-| timegrain |Dize |"PT1M" |ISO 8601 ölçümün zaman birimi |
+| en fazla |Int |78 |En büyük değer ölçüm zaman aralığında ham örnekleri |
+| toplam |Int |258 |Toplam değer ölçüm zaman aralığında ham örnekleri |
+| sayı |Int |4 |Ölçüm oluşturmak için kullanılan ham örnek sayısı |
+| timegrain |string |"PT1M" |ISO 8601 ölçümün zaman birimi |
 
 Tüm ölçümlerini bir dakikalık aralıklarla raporlanır. Her ölçüm dakikada en az, en fazla ve ortalama değerleri gösterir.
 

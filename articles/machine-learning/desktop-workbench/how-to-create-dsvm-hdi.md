@@ -1,6 +1,6 @@
 ---
-title: "DSVM ve hedefler için Azure ML işlem olarak HDI oluşturma"
-description: "Azure ML deneme hedefleri işlem olarak DSVM ve HDI Spark kümesi oluşturun."
+title: DSVM ve hedefler için Azure ML işlem olarak HDI oluşturma
+description: Azure ML deneme hedefleri işlem olarak DSVM ve HDI Spark kümesi oluşturun.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Hedefleri işlem olarak DSVM ve HDI Spark kümesi oluşturma
 
@@ -27,7 +27,7 @@ Kolayca artırın veya Azure Hdınsight kümesi için ek işlem hedefleri Ubuntu
 
 Azure portalından bir DSVM oluşturabilirsiniz. 
 
-1. Https://portal.azure.com Azure portalında oturum açın
+1. Azure Portal'da oturum açın https://portal.azure.com
 2. Tıklayın **+ yeni** bağlantı ve "veri bilimi için sanal makine Linux" arayın.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
 4. Seçin **Linux (Ubuntu) için veri bilimi sanal makine** listesi ve izleme ekran DSVM oluşturmaya ilişkin yönergeler.
@@ -148,13 +148,13 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>DSVM işletim sistemi diski Genişlet
-Azure Linux VM'de genellikle 30 GB işletim sistemi diski ile birlikte gelir. Hedef için Azure ML işlem olarak kullanıldığında, hızlı bir şekilde Docker görüntüleri çekmek ve onu üstünde conda Katmanlar oluşturma Docker altyapısı tarafından eaten. İşletim sistemi diski (örneğin, 200 GB) daha büyük boyutta bir yürütme ortasında çalışırken "tam disk" hatasını önlemek için genişletmek için iyi bir fikirdir. Başvuru [bir Linux VM Azure CLI ile sanal sabit disklerde genişletmek nasıl](../../virtual-machines/linux/expand-disks.md) azure-cli bunu kolayca öğrenin. 
+Ubuntu DSVM 50 GB işletim sistemi diski ve 100 GB veri diski ile birlikte gelir. Daha fazla alan kullanılabilir olduğu docker kendi görüntüleri veri diskte depolar. Hedef için Azure ML işlem olarak kullanıldığında, bu diski Docker görüntüleri çekmek ve onu üstünde conda Katmanlar oluşturma Docker altyapısı tarafından kullanılabilir. Bir yürütme ortasında çalışırken "tam disk" hatasını önlemek için daha büyük bir boyuta (örneğin, 200 GB) disk disk genişletmeniz gerekebilir. Başvuru [bir Linux VM Azure CLI ile sanal sabit disklerde genişletmek nasıl](../../virtual-machines/linux/expand-disks.md) azure-cli bunu kolayca öğrenin. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Azure portalında bir Apache Spark Azure Hdınsight kümesi için oluşturma
 
 Genişleme Spark işlerini çalıştırmak için Azure portalında Azure Hdınsight kümesi için bir Apache Spark oluşturmanız gerekir.
 
-1. Https://portal.azure.com Azure portalında oturum açın
+1. Azure Portal'da oturum açın https://portal.azure.com
 2. Tıklayın **+ yeni** bağlantı ve "Hdınsight" arayın.
 
     ![hdı Bul](media/how-to-create-dsvm-hdi/hdi.png)

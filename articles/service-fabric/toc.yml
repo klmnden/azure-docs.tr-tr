@@ -27,9 +27,11 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2- Uygulamayı dağıtma
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3 - CI/CD'yi yapılandırma
+        - name: 3- HTTPS'yi etkinleştirme
+          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+        - name: 4- CI/CD'yi yapılandırma
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 4- İzleme ve Tanılama
+        - name: 5- İzleme ve Tanılama
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Java uygulaması dağıtma
       items:
@@ -553,36 +555,40 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: İzleme ve tanılama
       items:
-        - name: OMS ile analiz
+        - name: Uygulamaları izleme
           items:
-            - name: OMS Log Analytics’i ayarlama
-              href: service-fabric-diagnostics-oms-setup.md
-            - name: OMS Aracısı'nı ekleme
-              href: service-fabric-diagnostics-oms-agent.md
-            - name: OMS ile izleme
-              href: service-fabric-diagnostics-event-analysis-oms.md
+            - name: Application Insights ile analiz
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Uygulamanıza günlük bilgileri ekleme
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: EventFlow ile olayları toplama
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
             - name: Kapsayıcıları izleme
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Application Insights ile analiz
-          href: service-fabric-diagnostics-event-analysis-appinsights.md
-        - name: Olayları toplama - EventFlow
-          href: service-fabric-diagnostics-event-aggregation-eventflow.md
-        - name: Olayları toplama - Azure Tanılama
+        - name: Kümeleri izleme
           items:
-            - name: Windows
+            - name: Windows Azure Tanılama
               href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux
+            - name: Linux Azure Tanılama
               href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: WAD ile performans izleme
-          href: service-fabric-diagnostics-perf-wad.md
-        - name: Sistem durumunu raporlama ve denetleme
-          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-        - name: Hizmetinize günlük ekleme
-          href: service-fabric-how-to-diagnostics-log.md
-        - name: Sistem durum raporlarıyla ilgili sorunları giderme
-          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-        - name: Sistem durumu raporlarını görüntüleme
-          href: service-fabric-view-entities-aggregated-health.md
+            - name: OMS Log Analytics’i ayarlama
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: OMS ile izleme
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: Altyapıyı izleme
+          items:
+            - name: WAD ile performans izleme
+              href: service-fabric-diagnostics-perf-wad.md
+            - name: OMS Aracısı ile performans izleme
+              href: service-fabric-diagnostics-oms-agent.md
+        - name: Sistem durumunu izleme
+          items:
+            - name: Sistem durumunu raporlama ve denetleme
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Sistem durum raporlarıyla ilgili sorunları giderme
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Sistem durumu raporlarını görüntüleme
+              href: service-fabric-view-entities-aggregated-health.md
         - name: Yerel kümenizde sorun giderme
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Başvuru

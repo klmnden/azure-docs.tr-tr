@@ -1,24 +1,19 @@
 ---
-title: "Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu"
-description: "Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu"
-services: search
-documentationcenter: 
+title: Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu
+description: Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2dac2c5980970946a6b9c26ee6ee8ac0f0344144
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: MT
+ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu
 Bu makalede, JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için bir Azure Search blob dizin oluşturucu yapılandırma gösterilmektedir.
@@ -221,4 +216,4 @@ Aşağıdaki örnek, alan eşlemelerini içeren bir tam olarak belirtilen dizin 
 + [Azure Search'te dizin oluşturucular](search-indexer-overview.md)
 + [Azure Blob Depolama Azure Search dizini oluşturma](search-howto-index-json-blobs.md)
 + [Dizin oluşturma CSV BLOB'lar ile Azure Search blob dizin oluşturucu](search-howto-index-csv-blobs.md)
-+ [Öğretici: Azure Blob depolama biriminden yarı yapılandırılmış veri arama](search-semi-structured-data.md)
++ [Öğretici: Azure Blob depolama biriminden yarı yapılandırılmış veri arama ](search-semi-structured-data.md)

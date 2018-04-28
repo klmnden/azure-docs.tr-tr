@@ -3,17 +3,17 @@ title: Azure Container Registry öğreticisi - Güncelleştirilmiş bir görünt
 description: Değiştirilmiş bir Docker görüntüsünü, coğrafi olarak çoğaltılmış Azure Container Registry’nize gönderin, böylece birden çok bölgede çalıştırılan web uygulamalarına değişikliklerin otomatik olarak dağıtıldığını görürsünüz. Üç bölümden oluşan bir serinin üçüncü bölümü.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2e9a46f2a99bc9b530ac5859068bde58bf5b5098
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Öğretici: Güncelleştirilmiş bir görüntüyü bölgesel dağıtımlara gönderme
 

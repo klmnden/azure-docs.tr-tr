@@ -1,6 +1,6 @@
 ---
-title: "Azure bulut Kabuğu'nda Bash ile Ansible çalıştırın"
-description: "Azure bulut Kabuğu'nda Bash çeşitli Ansible görevleri gerçekleştirmek öğrenin"
+title: Azure bulut Kabuğu'nda Bash ile Ansible çalıştırın
+description: Azure bulut Kabuğu'nda Bash çeşitli Ansible görevleri gerçekleştirmek öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Azure bulut Kabuğu'nda Bash ile Ansible çalıştırın
 
@@ -24,7 +24,7 @@ Bu öğretici kapsamında, bulut Kabuk Bash'te çeşitli Ansible görevleri ger�
 
 - **Azure kimlik** - [oluşturma Azure kimlik bilgilerini ve Ansible yapılandırın](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Azure bulut Kabuk yapılandırma** - Azure bulut Kabuk, makaleyi yeniyseniz [Bash Azure bulut kabuğu için Hızlı Başlangıç](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) başlatmak ve bulut Kabuk yapılandırmak nasıl gösterir. Ayrılmış bir Web sitesi bulut kabuğu için burada başlatın:
+- **Azure bulut Kabuk yapılandırma** - Azure bulut Kabuk, makaleyi yeniyseniz [Bash Azure bulut kabuğu için Hızlı Başlangıç](https://docs.microsoft.com/azure/cloud-shell/quickstart) başlatmak ve bulut Kabuk yapılandırmak nasıl gösterir. Ayrılmış bir Web sitesi bulut kabuğu için burada başlatın:
 
 [![Bulut Kabuk başlatma](https://shell.azure.com/images/launchcloudshell.png "bulut Kabuğu'nu başlatın")](https://shell.azure.com)
 

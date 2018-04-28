@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 928ff9b2519f6e92b091d9fd6b4ea0a7bca94d2b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: a677e6eb583e293f83df824804aa4cd6f8f5d778
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="recover-a-multi-tenant-saas-application-using-geo-restore-from-database-backups"></a>Coğrafi geri yükleme veritabanı yedeklerden kullanarak çok kiracılı SaaS uygulamasına Kurtar
 
@@ -68,7 +68,7 @@ Bu öğreticide, Azure SQL Database ve Azure platformu özelliklerini kullanarak
 
 ## <a name="get-the-disaster-recovery--scripts"></a>Olağanüstü durum kurtarma komut dosyalarını almak 
 
-Bu öğreticide kullanılan DR komut kullanılabilir [Wingtip biletleri SaaS veritabanı GitHub deposunu Kiracı başına](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/feature-DR-georestore). Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri yönetim komut dosyaları engellemesini kaldırmak.
+Bu öğreticide kullanılan DR komut kullanılabilir [Wingtip biletleri SaaS veritabanı GitHub deposunu Kiracı başına](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri yönetim komut dosyaları engellemesini kaldırmak.
 > [!IMPORTANT]
 > Tüm Wingtip biletleri yönetim komut dosyaları gibi DR betikleri örnek kalite ve üretimde kullanılmayacak.   
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Veri bilimi görevleri yürütün: keşfi, model ve dağıtım
 
 Genel veri bilimi görevler veri keşfi, model oluşturma ve dağıtımını içerir. Bu makalede nasıl kullanılacağını gösterir **etkileşimli veri keşfi, analiz ve Raporlama (IDEAR)** ve **otomatik modelleme ve Raporlama (AMAR)** birçok ortak veri bilimi görevleri tamamlamak için yardımcı programlar Etkileşimli veri keşfi, veri analizi, raporlama ve model oluşturma gibi. Ayrıca, bir model çeşitli platformlardan araç takımları ve verileri, aşağıdaki gibi kullanarak bir üretim ortamında dağıtmak için seçenekleri özetlenmektedir:
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [ML Hizmetleri ile SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ Genel veri bilimi görevler veri keşfi, model oluşturma ve dağıtımını iç
 
 Bir veri Bilimcisi araştırması ve çeşitli şekillerde raporlama görevlerini gerçekleştirebilir: Python (örneğin matplotlib) için kitaplıkları ve paketleri kullanılabilir kullanarak veya r (ggplot veya örneğin kafes). Veri bilimcilerine kodun belirli senaryolar için veri keşfi gereksinimlerine uyacak şekilde özelleştirebilirsiniz. Yapılandırılmış verileri postalarla gereksinimlerini farklı metin veya görüntüler gibi yapılandırılmamış veriler için. 
 
-Azure Machine Learning çalışma ekranı gibi ürünler de sağlar [veri hazırlığı Gelişmiş](../preview/tutorial-bikeshare-dataprep.md) wrangling verileri ve özellik oluşturma dahil araştırması için. Kullanıcı araçlarını, kitaplıklarını ve paketi en iyi paketleri gereksinimlerine karar vermeniz gerekir. 
+Azure Machine Learning çalışma ekranı gibi ürünler de sağlar [veri hazırlığı Gelişmiş](../desktop-workbench/tutorial-bikeshare-dataprep.md) wrangling verileri ve özellik oluşturma dahil araştırması için. Kullanıcı araçlarını, kitaplıklarını ve paketi en iyi paketleri gereksinimlerine karar vermeniz gerekir. 
 
 Bu aşama, sonunda teslim edilebilir veri araştırması rapor eder. Rapor model için kullanılacak veri oldukça kapsamlı bir görünüm ve verilerin modelleme adıma devam etmek uygun olup'in bir değerlendirme sağlaması gerekir. Yarı otomatik araştırması için aşağıdaki bölümlerde ele alınan takım veri bilimi işlem (TDSP) yardımcı programları modelleme ve raporlama ayrıca standartlaştırılmış veri keşfi ve raporları modelleme sağlar. 
 
@@ -63,7 +63,7 @@ YAML dosyası belirtmek için kullanılır:
 - verilerin hangi kısmını eğitim ve test etmek için ne bölümü için kullanılır
 - çalıştırmak için hangi algoritmaları 
 - model iyileştirme denetim parametrelerini Seçimi:
-    - cross-validation 
+    - Çapraz doğrulama 
     - önyükleme eklemesi
     - Çapraz doğrulama Katlama
 - hyper-parametresi için her algoritmasını ayarlar. 
@@ -75,7 +75,7 @@ Daha fazla bilgi için bkz: [otomatik modelleme ve raporlama yardımcı program�
 ### <a name="model-management"></a>Model yönetimi
 Birden fazla modeli oluşturduktan sonra genellikle kaydetme ve modelleri yönetmek için bir sisteme sahip olmanız gerekir. Genellikle, komut dosyaları veya API'ler ve arka uç veritabanı veya sürüm oluşturma sistemi bileşimini gerekir. Bu yönetim görevleri için göz önünde bulundurabilirsiniz birkaç seçenek vardır:
 
-1. [Azure Machine Learning - model yönetim hizmeti](../preview/index.yml)
+1. [Azure Machine Learning - model yönetim hizmeti](../service/index.yml)
 2. [ModelDB MIT gelen](https://mitdbg.github.io/modeldb/) 
 3. [Bir model yönetim sistemi olarak SQL seerver](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ Birden fazla modeli oluşturduktan sonra genellikle kaydetme ve modelleri yönet
 Çeşitli yaklaşımlar ve platformları, modelleri üretime sokmak için vardır. Bazı seçenekler şunlardır:
 
 
-- [Azure Machine Learning modeli dağıtımında](../preview/model-management-overview.md)
+- [Azure Machine Learning modeli dağıtımında](../desktop-workbench/model-management-overview.md)
 - [SQL Server'daki bir model dağıtımı](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

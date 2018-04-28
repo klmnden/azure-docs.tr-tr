@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights Docker uygulamalarında izleme | Microsoft Docs"
-description: "Docker performans sayaçları, olaylar ve özel durumları Application Insights üzerinde kapsayıcılı uygulamalardan telemetri ile birlikte görüntülenebilir."
+title: Azure Application Insights Docker uygulamalarında izleme | Microsoft Docs
+description: Docker performans sayaçları, olaylar ve özel durumları Application Insights üzerinde kapsayıcılı uygulamalardan telemetri ile birlikte görüntülenebilir.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Application ınsights'ta Docker uygulama izleme
-Yaşam döngüsü olayları ve performans sayaçları [Docker](https://www.docker.com/) kapsayıcıları Application Insights grafiğinin. Yükleme [Application Insights](app-insights-overview.md) ana bilgisayarınız ve kapsayıcısında görüntü diğer görüntüleri yanı sıra, ana bilgisayar için performans sayaçlarını görüntüler.
+Yaşam döngüsü olayları ve performans sayaçları [Docker](https://www.docker.com/) kapsayıcıları Application Insights grafiğinin. Yükleme [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) ana bilgisayarınız ve kapsayıcısında görüntü diğer görüntüleri yanı sıra, ana bilgisayar için performans sayaçlarını görüntüler.
 
 Docker ile uygulamalarınızı basit kapsayıcılarında tüm bağımlılıkları ile tam dağıtın. Bunlar, Docker altyapısına çalıştıran herhangi bir ana makinede çalıştıracaksınız.
 
@@ -43,6 +43,10 @@ Docker ile uygulamalarınızı basit kapsayıcılarında tüm bağımlılıklar�
 2. Docker kutucuğu ekleyin: seçin **eklemek döşeme**, Docker döşeme Galeriden sürükleyin ve ardından **Bitti**. 
    
     ![Örnek](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> Application Insights genel bakış bölmesinde artık kilitli ve döşeme Galeriden ekleme izin vermez. Yukarıda Azure Pano arabirimi açıklanan Docker kutucuk eklemeye devam edebilirsiniz.
+
 3. Tıklatın **Essentials** açılır ve izleme anahtarını kopyalayın. Bu SDK, telemetri gönderileceği yeri bildirmek için kullanın.
 
     ![Örnek](./media/app-insights-docker/02-props.png)

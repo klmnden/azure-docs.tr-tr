@@ -1,51 +1,54 @@
 ---
-title: "Azure Search .NET uygulamasından kullanma | Microsoft Docs"
-description: "Azure Search bir .NET uygulamasında kullanma"
-services: search
-documentationcenter: 
+title: Azure Search .NET uygulamasından kullanma | Microsoft Docs
+description: Azure Search bir .NET uygulamasında kullanma
 author: brjohnstmsft
 manager: jlembicz
-editor: 
-ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 05/22/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e8a492a0786281bdc1d7c2123a7188c32a124e13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Azure Search bir .NET uygulamasında kullanma
 Bu makale ile çalışır almak için bir kılavuz olan [Azure Search .NET SDK'sı](https://aka.ms/search-sdk). .NET SDK kullanarak Azure Search uygulamanızda zengin arama deneyimi uygulamak için kullanabilirsiniz.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Azure nedir arama SDK
-Bir istemci Kitaplığı'nın SDK oluşur `Microsoft.Azure.Search`. Dizinleri, veri kaynakları ve dizin oluşturucular, yönetmek yanı sıra karşıya yükleme ve belgeleri yönetmek ve tüm HTTP ve JSON ayrıntıları ile mücadele etmek zorunda kalmadan sorgularını yürütmek sağlar.
+Dizinlerinizi yönetmenizi sağlayan birkaç istemci kitaplıkları SDK oluşur, veri kaynakları, dizin oluşturucular ve eş, karşıya yükleme yanı sıra eşler ve belgeleri yönetmek ve tüm HTTP ve JSON ayrıntıları ile mücadele etmek zorunda kalmadan sorgular yürütün. Bu istemci kitaplıkları tüm NuGet paket olarak dağıtılır.
 
-İstemci Kitaplığı gibi sınıflarını tanımlayan `Index`, `Field`, ve `Document`, yanı sıra operations ister `Indexes.Create` ve `Documents.Search` üzerinde `SearchServiceClient` ve `SearchIndexClient` sınıfları. Bu sınıfların şu ad alanlarından düzenlenmiştir:
+Ana NuGet paketi `Microsoft.Azure.Search`, diğer paketler bağımlılık olarak içeren bir meta-paket olduğu. Bu paket, yalnızca başlıyorsanız veya uygulamanızın Azure Search'ün tüm özellikleri gerekir biliyorsanız kullanın.
+
+SDK'sındaki diğer NuGet paketleri şunlardır:
+ 
+  - `Microsoft.Azure.Search.Data`: Bu paket Azure arama'yı kullanarak bir .NET Uygulama geliştirirken ve sorgu veya dizinleri belgelerde güncelleştirmek yalnızca ihtiyacınız varsa kullanın. Ayrıca oluşturmak veya dizinleri güncelleştirmek gerekirse, eş anlamlı eşlemeleri ya da hizmet düzeyi kaynaklar kullanın `Microsoft.Azure.Search` bunun yerine paket.
+  - `Microsoft.Azure.Search.Service`: Bu paket Azure Search dizinlerini, eş anlamlı eşlemeleri, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için .NET otomasyon geliştiriyorsanız kullanın. Dizinlerinizi içinde yalnızca sorgu veya güncelleştirme belgelere gerekiyorsa kullanın `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search tüm işlevselliğini gerekiyorsa kullanın `Microsoft.Azure.Search` bunun yerine paket.
+  - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gerekli genel türleri. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
+
+Sınıflar gibi çeşitli istemci kitaplıkları tanımlamak `Index`, `Field`, ve `Document`, yanı sıra operations ister `Indexes.Create` ve `Documents.Search` üzerinde `SearchServiceClient` ve `SearchIndexClient` sınıfları. Bu sınıfların şu ad alanlarından düzenlenmiştir:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 Geçerli sürümü Azure Search .NET SDK'sı, genellikle kullanıma sunulmuştur. Ziyaret için bir sonraki sürümde birleştirmek için bize geri bildirim sağlamak istiyorsanız, lütfen bizim [görüş sayfası](https://feedback.azure.com/forums/263029-azure-search/).
 
-.NET SDK'sı sürüm destekler `2016-09-01` , [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/). Bu sürümü artık özel Çözümleyicileri ve Azure Blob ve Azure Table dizin oluşturucu desteği içerir. Önizleme özellikleri *değil* JSON ve CSV dosyalarını dizin oluşturma için destek gibi bu sürümü bir parçası olan [Önizleme](search-api-2016-09-01-preview.md) ve aracılığıyla kullanılabilen [.NET SDK'sı4.0.1-previewsürümü](https://aka.ms/search-sdk-preview).
+.NET SDK'sı sürüm destekler `2017-11-11` , [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/). Bu sürümü artık dizin oluşturucular için artımlı geliştirmelerin yanı sıra eş anlamlıları için destek içerir. Önizleme özellikleri *değil* JSON dizileri ve CSV dosyası dizin oluşturma için destek gibi bu sürümü bir parçası olan [Önizleme](search-api-2016-09-01-preview.md) ve aracılığıyla kullanılabilen [.NET SDK'sı4.0Önizlemesürümü](https://aka.ms/search-sdk-preview).
 
 Bu SDK desteklemediği [yönetim işlemlerini](https://docs.microsoft.com/rest/api/searchmanagement/) oluşturma ve arama hizmetleri ölçekleme ve API anahtarlarını yönetme gibi. Bir .NET uygulamasından arama kaynaklarınızı yönetmek gerekiyorsa, kullanabileceğiniz [Azure Search .NET Yönetim SDK](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>SDK'ın en son sürüme yükseltme
-Azure Search .NET SDK'sı daha eski bir sürümü zaten kullanmakta olduğunuz ve genel olarak kullanılabilir yeni sürüme yükseltmek istiyorsanız [bu makalede](search-dotnet-sdk-migration.md) açıklar nasıl.
+Azure Search .NET SDK'sı daha eski bir sürümü zaten kullanmakta olduğunuz ve genel olarak kullanılabilir yeni sürüme yükseltmek istiyorsanız [bu makalede](search-dotnet-sdk-migration-version-5.md) açıklar nasıl.
 
 ## <a name="requirements-for-the-sdk"></a>SDK'sı gereksinimleri
 1. Visual Studio 2017.
 2. Kendi Azure Search hizmeti. SDK'yı kullanmak için adını hizmetiniz ve bir veya daha fazla API anahtarı gerekir. [Portalda bir hizmet oluşturma](search-create-service-portal.md) bu adımları uygularken size yardımcı olur.
-3. Azure Search .NET SDK'sını indirin [NuGet paketi](http://www.nuget.org/packages/Microsoft.Azure.Search) "NuGet paketlerini Yönet" Visual Studio kullanarak. Paket adı için yalnızca arama `Microsoft.Azure.Search` NuGet.org üzerinde.
+3. Azure Search .NET SDK'sını indirin [NuGet paketi](http://www.nuget.org/packages/Microsoft.Azure.Search) "NuGet paketlerini Yönet" Visual Studio kullanarak. Paket adı için yalnızca arama `Microsoft.Azure.Search` üzerinde NuGet.org (veya biri diğer işlevlerinin bir alt kümesini yalnızca gerekiyorsa Yukarıdaki adları paketini).
 
-Azure Search .NET SDK'sı .NET Framework 4.6 ve .NET Core hedefleme uygulamaları destekler.
+Azure Search .NET SDK'sı .NET Framework 4.5.2'deki hedefleme uygulamaları destekler ve üzeri, .NET Core yanı sıra.
 
 ## <a name="core-scenarios"></a>Temel senaryolar
 Arama uygulamanızda yapmanız gerekir birkaç şey vardır. Bu öğreticide, bu temel senaryolar şu konulara değineceğiz:

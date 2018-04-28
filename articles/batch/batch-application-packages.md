@@ -12,26 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>İşlem düğümleri Batch uygulama paketleri ile uygulamaları dağıtma
 
 Azure Batch uygulama paketleri özelliği kolay yönetim görev uygulamaları ve bunların dağıtımı havuzunuzdaki işlem düğümlerine sağlar. Uygulama paketleri ile karşıya yükleyin ve bunların destekleyici dosyaları dahil olmak üzere, görevlerinizin çalışan uygulamaların birden fazla sürümünü yönetin. Ardından otomatik olarak bir veya daha fazla işlem düğümlerine bu uygulamaları havuzunuzdaki dağıtabilirsiniz.
 
-Bu makalede, karşıya yükleme ve uygulama paketleri Azure portalında yönetmek öğreneceksiniz. Ardından bunları bir havuzun işlem düğümleri ile yüklemek hakkında bilgi edineceksiniz [Batch .NET] [ api_net] kitaplığı.
+Bu makalede, karşıya yükleme ve uygulama paketleri Azure portalında yönetmek öğrenin. Daha sonra bunları bir havuzun işlem düğümleri ile yüklemek nasıl öğrenin [Batch .NET] [ api_net] kitaplığı.
 
 > [!NOTE]
 > 
 > Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez.
 >
-> API'ları oluşturma ve uygulama paketlerini Yönetme [Batch yönetimi .NET] parçası olan [[api_net_mgmt]] kitaplık. Bir işlem düğümünde uygulama paketleri yüklemek için API'ler parçası olan [Batch .NET] [ api_net] kitaplığı.  
+> API'ları oluşturma ve uygulama paketlerini yönetme parçası olan [Batch yönetimi .NET] [ api_net_mgmt] kitaplığı. Bir işlem düğümünde uygulama paketleri yüklemek için API'ler parçası olan [Batch .NET] [ api_net] kitaplığı. Diğer diller için kullanılabilir Batch API'lerini karşılaştırılabilir özellikler alır. 
 >
 > Burada açıklanan uygulama paketleri özelliği, ' service'nın önceki sürümlerinde kullanılabilir toplu işlem uygulamaları özelliği yerini alır.
 > 
@@ -39,13 +39,6 @@ Bu makalede, karşıya yükleme ve uygulama paketleri Azure portalında yönetme
 
 ## <a name="application-package-requirements"></a>Uygulama paketi gereksinimleri
 Uygulama paketlerini kullanmak için gerek [bir Azure depolama hesabı bağlantı](#link-a-storage-account) Batch hesabınıza.
-
-Bu özellik sunulmuştur [Batch REST API'si] [ api_rest] sürüm 2015 12 01.2.2 ve karşılık gelen [Batch .NET] [ api_net] kitaplığı sürüm 3.1.0. Her zaman son API sürümü Batch ile çalışırken kullanmanızı öneririz.
-
-> [!NOTE]
-> Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez.
->
->
 
 ## <a name="about-applications-and-application-packages"></a>Uygulamalar ve uygulama paketleri hakkında
 Azure Batch içindeki bir *uygulama* havuzunuzdaki işlem düğümlerine otomatik olarak indirilebilir sürümü tutulan ikili dosyaları kümesine başvuruyor. Bir *uygulama paketi* başvurduğu bir *belirli* bu ikili dosyaları ve temsil bir verilen *sürüm* uygulamanın.
@@ -85,50 +78,50 @@ Uygulama paketleri ile uzun düğümlerine yüklemek için tek kaynak dosyaları
 >
 
 ## <a name="upload-and-manage-applications"></a>Karşıya yükleme ve uygulamalarını yönetme
-Kullanabileceğiniz [Azure portal] [ portal] veya [Batch yönetimi .NET](batch-management-dotnet.md) Batch hesabınızdaki uygulama paketlerini yönetmek için kitaplık. Sonraki birkaç bölümlerde, biz öncelikle bir depolama hesabı bağlantı sonra ekleme uygulamaları ve paketleri ve portal ile yönetme ele gösterilmektedir.
+Kullanabileceğiniz [Azure portal] [ portal] ya da Batch hesabınızdaki uygulama paketlerini yönetmek için Batch Yönetimi API'leri. Sonraki birkaç bölümlerde, biz öncelikle bir depolama hesabı bağlantı sonra ekleme uygulamaları ve paketleri ve portal ile yönetme ele gösterilmektedir.
 
 ### <a name="link-a-storage-account"></a>Bir depolama hesabı bağlantı
-Uygulama paketlerini kullanmak için bir Azure depolama hesabı toplu işlem hesabınıza bağlamanız gerekir. Henüz bir depolama hesabı yapılandırmadıysanız, Azure portal'ı ilk kez bir uyarı görüntüler **uygulamaları** parçasında **Batch hesabı** dikey.
+Uygulama paketlerini kullanmak için öncelikle bağlamanız gerekir bir [Azure depolama hesabı](batch-api-basics.md#azure-storage-account) Batch hesabınıza. Henüz bir depolama hesabı yapılandırmadıysanız, Azure portal'ı ilk kez bir uyarı görüntüler **uygulamaları** Batch hesabınızdaki.
 
-> [!IMPORTANT]
-> Batch şu anda destekler *yalnızca* **genel amaçlı** 5. adımda açıklandığı gibi depolama hesabı türü [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account), [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md). Batch hesabınıza bir Azure Storage hesabı bağladığınızda, bağlantı *yalnızca* bir **genel amaçlı** depolama hesabı.
-> 
-> 
+
 
 ![Azure portalında 'depolama hesabı yapılandırıldı' uyarısı][9]
 
-Batch hizmeti, uygulama paketlerinizi depolamak için ilişkili depolama hesabı kullanır. İki hesap bağladığınız sonra toplu işlem düğümleriniz bağlantılı depolama hesabına depolanan paketleri otomatik olarak dağıtabilirsiniz. Bir depolama hesabı toplu işlem hesabınıza bağlamak için tıklatın **depolama hesabı ayarlarını** üzerinde **uyarı** dikey ve ardından **depolama hesabı** üzerinde **depolama hesabı** dikey.
+Batch hizmeti, uygulama paketlerinizi depolamak için ilişkili depolama hesabı kullanır. İki hesap bağladığınız sonra toplu işlem düğümleriniz bağlantılı depolama hesabına depolanan paketleri otomatik olarak dağıtabilirsiniz. Bir depolama hesabı toplu işlem hesabınıza bağlamak için tıklatın **depolama hesabı** üzerinde **uyarı** penceresi ve ardından **depolama hesabı** yeniden.
 
 ![Azure Portal'da depolama hesabı dikey seçin][10]
 
-Bir depolama hesabı oluşturmanızı öneririz *özellikle* , toplu işlem hesabı ile kullanmak için ve burada seçin. Bir depolama hesabının nasıl oluşturulacağı hakkında daha fazla ayrıntı için "Bir depolama hesabı oluşturma" görmek [hakkında Azure depolama hesapları](../storage/common/storage-create-storage-account.md). Bir depolama hesabı oluşturduktan sonra daha sonra bu toplu işlem hesabınızı kullanarak bağlayabilirsiniz **depolama hesabı** dikey.
+Bir depolama hesabı oluşturmanızı öneririz *özellikle* , toplu işlem hesabı ile kullanmak için ve burada seçin. Bir depolama hesabı oluşturduktan sonra daha sonra bu toplu işlem hesabınızı kullanarak bağlayabilirsiniz **depolama hesabı** penceresi.
 
-> [!WARNING]
-> Batch hizmeti Azure Storage blok blobları, uygulama paketlerinizi depolamak için kullanır. Olduğunuz [normal olarak ücretlendirilir] [ storage_pricing] blok blobu veri. Uygulama paketlerinizi sayısı ve boyutu göz önünde bulundurun ve düzenli aralıklarla maliyetleri en aza indirmek için kullanım dışı paketleri kaldırmak emin olun.
+> [!NOTE] 
+> Uygulama paketleri ile yapılandırılmış bir Azure depolama hesabı ile şu anda kullanamazsınız [güvenlik duvarı kuralları](../storage/common/storage-network-security.md).
+> 
+
+Batch hizmeti Azure Storage blok blobları, uygulama paketlerinizi depolamak için kullanır. Olduğunuz [normal olarak ücretlendirilir] [ storage_pricing] blok blobu veri. Uygulama paketlerinizi sayısı ve boyutu göz önünde bulundurun ve düzenli aralıklarla maliyetleri en aza indirmek için kullanım dışı paketleri kaldırmak emin olun.
 > 
 > 
 
 ### <a name="view-current-applications"></a>Geçerli uygulamaları görüntüle
-Batch hesabınızda uygulamaları görüntülemek için **uygulamaları** görüntüleme çalışırken soldaki menüde menü öğesi **Batch hesabı** dikey.
+Batch hesabınızda uygulamaları görüntülemek için **uygulamaları** görüntüleme çalışırken soldaki menüde menü öğesi, **Batch hesabı**.
 
 ![Uygulamaları döşeme][2]
 
-Bu menü seçeneğini seçerek açılır **uygulamaları** dikey penceresinde:
+Bu menü seçeneğini seçerek açılır **uygulamaları** penceresi:
 
 ![Uygulamaları listeleme][3]
 
-**Uygulamaları** dikey hesabınızı ve aşağıdaki özellikleri her uygulama Kimliğini görüntüler:
+Bu pencere her uygulama Kimliğini hesabınızı ve aşağıdaki özellikleri görüntüler:
 
 * **Paketleri**: Bu uygulama ile ilişkili sürüm sayısı.
 * **Varsayılan sürüm**: uygulama havuzu için belirttiğinizde bir sürüm belirtmezseniz yüklü uygulama sürümü. Bu ayar isteğe bağlıdır.
 * **Güncelleştirmelere izin**: olup paketini güncelleştirir, silme ve eklemeleri belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirme ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**’tir.
 
 ### <a name="view-application-details"></a>Uygulama Ayrıntıları görüntüle
-Bir uygulama ayrıntılarını içeren dikey penceresini açmak için uygulamada seçin **uygulamaları** dikey.
+Bir uygulama ayrıntılarını görmek için uygulamayı seçin **uygulamaları** penceresi.
 
 ![Uygulama Ayrıntıları][4]
 
-Uygulama Ayrıntıları dikey penceresinde, uygulamanız için aşağıdaki ayarları yapılandırabilirsiniz.
+Uygulama ayrıntıları, uygulamanız için aşağıdaki ayarları yapılandırabilirsiniz.
 
 * **Güncelleştirmelere izin**: uygulama paketlerinin güncelleştirilmiş veya silinebilir olup olmadığını belirtin. Bu makalenin sonraki bölümlerinde "Güncelleştirmek veya bir uygulama paketini silmeniz" bakın.
 * **Varsayılan sürüm**: işlem düğümleri dağıtmak için bir varsayılan uygulama paketi belirleyin.
@@ -137,11 +130,11 @@ Uygulama Ayrıntıları dikey penceresinde, uygulamanız için aşağıdaki ayar
 ### <a name="add-a-new-application"></a>Yeni bir uygulama Ekle
 Yeni bir uygulama oluşturmak için bir uygulama paketi eklemek ve yeni ve benzersiz uygulama kimliği belirtin. Yeni uygulama kimliği ile eklediğiniz ilk uygulama paketi, yeni uygulama da oluşturur.
 
-Tıklatın **Ekle** üzerinde **uygulamaları** açmak için dikey **yeni uygulama** dikey.
+**Uygulamalar** > **Ekle**’ye tıklayın.
 
 ![Azure portalında yeni uygulama dikey penceresi][5]
 
-**Yeni uygulama** dikey yeni uygulama ve uygulama paketi ayarlarını belirlemek için aşağıdaki alanları sağlar.
+**Yeni uygulama** pencere, yeni uygulama ve uygulama paketi ayarlarını belirlemek için aşağıdaki alanları sağlar.
 
 **Uygulama Kimliği**
 
@@ -165,28 +158,28 @@ Bu alan karşıya yüklemekte olduğunuz uygulama paketi sürümünü belirtir. 
 
 Bu alan, uygulama yürütmek için gerekli destek dosyaları ve uygulama ikili dosyaları içeren .zip dosyasını belirtir. Tıklatın **bir dosya seçin** kutusu veya göz atın ve uygulama dosyalarını içeren bir .zip dosyası seçmek için klasör simgesine.
 
-Bir dosyayı seçtikten sonra tıklayın **Tamam** Azure Storage yüklenecek başlamak için. Karşıya yükleme işlemi tamamlandığında, portal bir bildirim görüntüler ve dikey penceresi kapanır. Karşıya yüklemekte olduğunuz dosya boyutu ve ağ bağlantınızın hızına bağlı olarak, bu işlem biraz zaman alabilir.
+Bir dosyayı seçtikten sonra tıklayın **Tamam** Azure Storage yüklenecek başlamak için. Karşıya yükleme işlemi tamamlandığında, portal bir bildirim görüntüler. Karşıya yüklemekte olduğunuz dosya boyutu ve ağ bağlantınızın hızına bağlı olarak, bu işlem biraz zaman alabilir.
 
 > [!WARNING]
-> Kapatmayın **yeni uygulama** karşıya yükleme işlemi tamamlanmadan önce dikey. Bunun yapılması, karşıya yükleme işlemi durdurur.
+> Kapatmayın **yeni uygulama** karşıya yükleme işlemi tamamlanmadan önce penceresi. Bunun yapılması, karşıya yükleme işlemi durdurur.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Yeni bir uygulama paketi ekleme
-Olan bir uygulamanın yeni bir uygulama Paket sürümü eklemek için bir uygulama seçin **uygulamaları** dikey penceresinde'ı tıklatın **paketleri**, ardından **Ekle** açmak için **Ekle paket** dikey.
+Bir uygulama paketi sürümü olan bir uygulamanın eklemek için bir uygulama seçin **uygulamaları** windows ve tıklatın **paketleri** > **Ekle**.
 
 ![Azure portalında uygulama paketi dikey ekleme][8]
 
-Gördüğünüz gibi alanların eşleşen **yeni uygulama** dikey penceresinde, ancak **uygulama kimliği** kutusu devre dışıdır. Yeni uygulama için yaptığınız gibi belirtin **sürüm** yeni paketiniz için göz atın, **uygulama paketi** .zip dosyası ve ardından **Tamam** paketini karşıya yüklemek için.
+Gördüğünüz gibi alanların eşleşen **yeni uygulama** penceresinde, ancak **uygulama kimliği** kutusu devre dışıdır. Yeni uygulama için yaptığınız gibi belirtin **sürüm** yeni paketiniz için göz atın, **uygulama paketi** .zip dosyası ve ardından **Tamam** paketini karşıya yüklemek için.
 
 ### <a name="update-or-delete-an-application-package"></a>Güncelleştirme veya uygulama paketi silme
-Güncelleştirmek veya var olan uygulama paketini silmek için uygulama ayrıntıları dikey penceresini açmak, **paketleri** açmak için **paketleri** dikey penceresinde tıklatın **üç nokta** gerçekleştirmek istediğiniz eylemi seçin ve değiştirmek için istediğiniz uygulama paketi satırında.
+Güncelleştirme veya var olan uygulama paketini silmek için uygulamanın ayrıntılarını açın, **paketleri**, tıklatın **üç nokta** seçin ve değiştirmek için istediğiniz uygulama paketi satırında gerçekleştirmek istediğiniz eylemi.
 
 ![Güncelleştirme veya Azure portalında paketi silme][7]
 
 **Güncelleştirme**
 
-Tıkladığınızda **güncelleştirme**, *güncelleştirme paketini* dikey penceresi görüntülenir. Bu dikey benzer *yeni uygulama paketi* dikey penceresinde, ancak yalnızca karşıya yüklemek için yeni bir ZIP dosyası belirtmenize olanak sağlayan paket seçimi alan etkinleştirilir.
+Tıkladığınızda **güncelleştirme**, **güncelleştirme paketini** windows görüntülenir. Bu pencere benzer **yeni uygulama paketi** penceresinde, ancak yalnızca karşıya yüklemek için yeni bir ZIP dosyası belirtmenize olanak sağlayan paket seçimi alan etkinleştirilir.
 
 ![Güncelleştirme paketi dikey Azure portalında][11]
 
@@ -262,7 +255,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux düğümleri üzerinde biçimi biraz farklıdır. Nokta (.), kısa çizgi (-) ve numara işareti (#) düzleştirilmiş ortam değişkeninde alt çizgi için. Ayrıca, uygulama kimliği durumunun korunduğundan unutmayın. Örneğin:
+Linux düğümleri üzerinde biçimi biraz farklıdır. Nokta (.), tire (-) ve alt çizgi ortam değişkeninde için numara işareti (#) düzleştirilmiş. Ayrıca, uygulama kimliği durumunun korunduğundan unutmayın. Örneğin:
 
 ```
 Linux:
@@ -276,14 +269,14 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Linux düğümleri üzerinde ortam değişkeni bu biçiminde belirtin. Nokta (.), kısa çizgi (-) düzleştirmek ve alt çizgileri sayı işareti (#) ve uygulama kimliği harfleri doğru:
+Linux düğümleri üzerinde ortam değişkeni bu biçiminde belirtin. Nokta (.), tire (-) düzleştirmek ve alt çizgileri sayı işareti (#) ve uygulama kimliği harfleri doğru:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
-Bir uygulama paketi yüklediğinizde, hesaplama düğümlerini dağıtmak için bir varsayılan sürümü belirtebilirsiniz. Bir uygulama için varsayılan bir sürümünün belirtilirse, uygulama başvurduğunuzda Sürüm soneki atlayabilirsiniz. Varsayılan Uygulama sürümü Azure portalında uygulamalar dikey penceresinde gösterildiği gibi belirleyebilirsiniz [karşıya yükleyin ve uygulamalarını yönetin](#upload-and-manage-applications).
+Bir uygulama paketi yüklediğinizde, hesaplama düğümlerini dağıtmak için bir varsayılan sürümü belirtebilirsiniz. Bir uygulama için varsayılan bir sürümünün belirtilirse, uygulama başvurduğunuzda Sürüm soneki atlayabilirsiniz. Azure portalında varsayılan uygulama sürümü belirleyebilirsiniz **uygulamaları** penceresinde gösterildiği gibi [karşıya yükleyin ve uygulamalarını yönetin](#upload-and-manage-applications).
 
 Örneğin, "2.7" uygulaması için varsayılan sürüm olarak ayarlarsanız *blender*ve görevlerinizi aşağıdaki ortam değişkeni başvurusu, sonra Windows düğümleriniz sürüm 2.7 çalıştırır:
 
@@ -348,7 +341,7 @@ Uygulama paketleri ile işlerini istediğiniz uygulamaları seçin ve Batch öze
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Batch REST API'si] [ api_rest] uygulama paketleri ile çalışmak için destek de sağlar. Örneğin, [applicationPackageReferences] [ rest_add_pool_with_packages] öğesinde [bir havuz için bir hesap eklemek] [ rest_add_pool] REST API kullanarak yüklemek için paketler belirtme hakkında bilgi için. Bkz: [uygulamaları] [ rest_applications] Batch REST API'sini kullanarak uygulama bilgilerini elde etme hakkında ayrıntılar için.
-* Bilgi edinmek için nasıl programlı olarak [Azure Batch hesaplarını ve kotalarını Batch yönetimi .NET ile yönetme](batch-management-dotnet.md). [Batch yönetimi .NET][api_net_mgmt] kitaplığı, toplu uygulama veya hizmet hesabı oluşturma ve silme özellikleri etkinleştirebilir.
+* Bilgi edinmek için nasıl programlı olarak [Azure Batch hesaplarını ve kotalarını Batch yönetimi .NET ile yönetme](batch-management-dotnet.md). [Batch yönetimi .NET] [ api_net_mgmt] kitaplığı, toplu uygulama veya hizmet hesabı oluşturma ve silme özellikleri etkinleştirebilir.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet

@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ve Azure Resource Manager ile Hyper-V Vm'lerini çoğaltma | Microsoft Docs"
-description: "Hyper-V sanal makineleri PowerShell ve Azure Resource Manager kullanarak Azure Site Recovery ile azure'a çoğaltma otomatikleştirin."
+title: PowerShell ve Azure Resource Manager ile Hyper-V Vm'lerini çoğaltma | Microsoft Docs
+description: Hyper-V sanal makineleri PowerShell ve Azure Resource Manager kullanarak Azure Site Recovery ile azure'a çoğaltma otomatikleştirin.
 services: site-recovery
 author: bsiva
 manager: abhiag
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Hyper-V PowerShell ve Azure Resource Manager kullanarak VM'ler için olağanüstü durum kurtarma Azure ayarlama
 
@@ -45,9 +45,9 @@ Ayrıca, bu makalede açıklanan belirli örnek aşağıdaki önkoşullar vardı
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1. adım: Azure hesabınızda oturum açın
 
-1. Bir PowerShell konsolu açın ve Azure hesabınızda oturum açmak için bu komutu çalıştırın. Cmdlet getirir bir web sayfası için hesap kimlik bilgilerinizi ister: **Login-AzureRmAccount**.
-    - Alternatif olarak, bir parametresi olarak hesabı kimlik bilgilerinizi içerebilir **Login-AzureRmAccount** cmdlet'ini kullanarak **-kimlik bilgisi** parametresi.
-    - Kiracı adına çalışma CSP ortağı varsa, müşteri, Tenantıd veya Kiracı birincil etki alanı adlarını kullanarak bir kiracı olarak belirtin. Örneğin: **Login-AzureRmAccount-Kiracı "fabrikam.com"**
+1. Bir PowerShell konsolu açın ve Azure hesabınızda oturum açmak için bu komutu çalıştırın. Cmdlet getirir bir web sayfası için hesap kimlik bilgilerinizi ister: **Connect-AzureRmAccount**.
+    - Alternatif olarak, bir parametresi olarak hesabı kimlik bilgilerinizi içerebilir **Connect-AzureRmAccount** cmdlet'ini kullanarak **-kimlik bilgisi** parametresi.
+    - Kiracı adına çalışma CSP ortağı varsa, müşteri, Tenantıd veya Kiracı birincil etki alanı adlarını kullanarak bir kiracı olarak belirtin. Örneğin: **Connect-AzureRmAccount-Kiracı "fabrikam.com"**
 2. Bir hesap birkaç abonelikleri olabileceği için hesap ile kullanmak istediğiniz aboneliği ilişkilendirin:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -132,7 +132,7 @@ Başlamadan önce belirtilen depolama hesabı kasa ile aynı Azure bölgesinde o
         $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer
 3. Koruma kapsayıcısı gibi çoğaltma ilkesiyle ilişkilendirin:
 
-     $Policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $PolicyName   $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy $Policy -PrimaryProtectionContainer $protectionContainer
+     $Policy get-AzureRmSiteRecoveryPolicy - FriendlyName $PolicyName $associationJob = başlangıç AzureRmSiteRecoveryPolicyAssociationJob =-ilke $Policy - PrimaryProtectionContainer $protectionContainer
 
 4. İlişkilendirme işi başarıyla tamamlanmasını bekleyin.
 

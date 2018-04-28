@@ -1,29 +1,29 @@
 ---
-title: "Azure Market SaaS uygulamaları teknik Kılavuzu yayımlama"
-description: "Adım adım kılavuz ve SaaS uygulamaları Azure Marketi'nde yayımlama için yayımlama denetim listeleri"
+title: Azure Market SaaS uygulamaları teknik Kılavuzu yayımlama
+description: Adım adım kılavuz ve SaaS uygulamaları Azure Marketi'nde yayımlama için yayımlama denetim listeleri
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: 
+documentationcenter: ''
 author: BrentL-Collabera
-manager: 
+manager: ''
 editor: BrentL-Collabera
-ms.assetid: 
+ms.assetid: ''
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS uygulamaları teknik yayımlama Kılavuzu
 
 Azure Market SaaS uygulamaları teknik Kılavuzu yayımlama için Hoş Geldiniz. Bu kılavuz, aday ve varolan yayımcılar uygulamaları ve hizmetleri sunan SaaS uygulamaları kullanarak Azure markette listelemek için yardımcı olmak için tasarlanmıştır.  
-SaaS uygulamaları teklif çözümünüzü kendi Azure aboneliğinizde dağıtılır ve müşteriler tasarım ve uygulama test etmek yöneten bir arabirim ile oturum açın, kullanmak istediğiniz. Bunu kullanarak yapar [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) mevcut deneme ortamınızın yararlanmak için. Diğer bir deyişle, müşteri neden, iş ortağı tarafından barındırılan bir ücretsiz deneme olduğunu. Çözümünüzü bulut alıcılar, çözümünüzün bağımsız olarak herhangi bir ücret veya ücret deneyimi fırsatı verir şekilde kullanıma sunmak için kritik öneme sahiptir ve bu teklif tür bir deneme sürümü deneyimi sağlar, böylece müşteriler için bulut çözümleri nasıl arama verirsiniz.  
+SaaS uygulamaları teklif çözümünüzü kendi Azure aboneliğinizde dağıtılır ve müşteriler tasarım ve uygulama test etmek yöneten bir arabirim ile oturum açın, kullanmak istediğiniz. Bunu kullanarak yapar [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) mevcut deneme ortamınızın yararlanmak için. Diğer bir deyişle, müşteri neden, iş ortağı tarafından barındırılan bir ücretsiz deneme olduğunu. Çözümünüzü bulut alıcılar, çözümünüzün bağımsız olarak herhangi bir ücret veya ücret deneyimi fırsatı verir şekilde kullanıma sunmak için kritik öneme sahiptir ve bu teklif tür bir deneme sürümü deneyimi sağlar, böylece müşteriler için bulut çözümleri nasıl arama verirsiniz.  
 
 Diğer tüm Market tekliflerini genel bakış için lütfen [Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ Diğer tüm Market tekliflerini genel bakış için lütfen [Market yayımcı K�
 SaaS uygulamaları için teknik gereksinimleri basittir. Yayımcılar yalnızca yayımlanmasını Azure AD ile tümleşik gerekir.  Azure AD tümleştirme uygulamalarla belgelendiğinden ve birden çok SDK'ları ve kaynakları bunu gerçekleştirmek için Microsoft sağlar.  
 
 Başlatmak için diğer girişimleri işten yalıtmak sağlayarak, Azure Marketi'nde yayımlama için adanmış bir aboneliğinizin olması önerilir. Ayrıca, aksi takdirde zaten yüklü, geliştirme ortamınızı bir parçası olarak aşağıdaki araçları sahip olmasını öneririz: 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure powerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Azure Geliştirici Araçları (inceleyin. kullanılabilir)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ Aşağıdaki listeler, başlamanıza yardımcı olmak için en iyi Azure AD kayn
 
 **Belgeleri**
 
-- [Azure Active Directory Geliştirici Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Azure Active Directory Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Azure Active Directory ile tümleştirme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Azure yol haritası - güvenlik ve kimlik](https://azure.microsoft.com/roadmap/?category=security-identity)
 

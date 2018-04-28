@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute Microsoft eşliği için rota filtrelerini yapılandırın: PowerShell | Microsoft Docs"
-description: "Bu makalede, Microsoft PowerShell kullanarak Peering için yol filtrelerini yapılandırmak açıklar"
+title: 'Azure ExpressRoute Microsoft eşliği için rota filtrelerini yapılandırın: PowerShell | Microsoft Docs'
+description: Bu makalede, Microsoft PowerShell kullanarak Peering için yol filtrelerini yapılandırmak açıklar
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 6e767166ecf248aa0e7fc16dc21361394e03107d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşliği için rota filtrelerini yapılandırın: PowerShell
 > [!div class="op_single_selector"]
-> * [Azure portalındaki](how-to-routefilter-portal.md)
+> * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
@@ -84,14 +84,14 @@ Yapılandırmaya başlamadan önce aşağıdaki ölçütlere uyan emin olun:
 
  - Etkin bir Microsoft eşlemesi olması gerekir. Bölümündeki yönergeleri izleyin [oluşturma ve eşleme yapılandırmasını değiştirme](expressroute-circuit-peerings.md)
 
-### <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açın
+### <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
 Bu yapılandırmaya başlamadan önce Azure hesabınızda oturum açmalısınız. Bu cmdlet, Azure hesabınıza ilişkin oturum açma kimlik bilgilerinizi girmenizi ister. Oturum açtıktan sonra, Azure PowerShell'de kullanabilmeniz için hesap ayarlarınızı indirir.
 
 PowerShell konsolunuzu yükseltilmiş ayrıcalıklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.

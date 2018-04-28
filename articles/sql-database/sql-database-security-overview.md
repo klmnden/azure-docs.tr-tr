@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: b45e1434d648096a67c2f12046960926d2c7640d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-your-sql-database"></a>SQL Veritabanınızı güvenli hale getirme
 
@@ -39,7 +39,7 @@ Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır
 Veri bulma & sınıflandırma (şu anda önizlemede) bulma, Sınıflandırma, etiketleme ve veritabanınızdaki hassas verileri korumak için Azure SQL veritabanına yerleşik gelişmiş özelliklerini sağlar. Keşfetmek ve utmost önemli verilerinizi sınıflandırmak (iş/Finans, sağlık, PII, vb.), kurumsal bilgi koruma stature bir bileşendirler rol oynayabilir. Altyapı olarak hizmet verebilir:
 
 - (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimin uyarma.
-- Erişimi denetleme ve güvenlik çok hassas veri içeren veritabanlarının sağlamlaştırma.
+- Çok hassas verileri içeren veritabanları erişimini denetleme ve güvenlik, sağlamlaştırma.
 - Veri gizliliği standartlarını ve düzenleyici uyumluluk gereksinimleri karşılayan yardımcı olur.
 
 Daha fazla bilgi için bkz: [SQL DB veri bulma & sınıflandırma ile çalışmaya başlama](sql-database-data-discovery-and-classification.md). 
@@ -66,7 +66,7 @@ Yetkilendirme, bir kullanıcının bir Azure SQL Veritabanında gerçekleştireb
 Satır Düzeyi Güvenlik, müşterilerin bir veritabanı tablosundaki satırlara erişimi, sorguyu yürüten kullanıcının özelliklerine göre (grup üyeliği veya yürütme bağlamı) denetlemesini sağlar. Daha fazla bilgi için bkz. [Satır düzeyi güvenlik](https://msdn.microsoft.com/library/dn765131).
 
 ### <a name="dynamic-data-masking"></a>Dinamik veri maskeleme 
-SQL veritabanı dinamik veri maskeleme ayrıcalıklı olmayan kullanıcılara maskeleyerek gizli verilerin açığa sınırlar. Dinamik veri maskeleme otomatik olarak Azure SQL veritabanındaki olası hassas verileri bulur ve bu alanlar, uygulama katmanı üzerinde en az etkiyle maskelemek için uygulanabilir öneriler sağlar. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde karartır ancak veritabanındaki veriler değişmez. Daha fazla bilgi için bkz: [SQL veritabanını dinamik veri maskeleme ile çalışmaya başlama](sql-database-dynamic-data-masking-get-started.md) gizli verilerin açığa sınırlamak için kullanılabilir.
+SQL veritabanı dinamik veri maskeleme ayrıcalıklı olmayan kullanıcılara maskeleyerek gizli verilerin açığa sınırlar. Dinamik veri maskeleme otomatik olarak Azure SQL veritabanındaki olası hassas verileri bulur ve bu alanlar, uygulama katmanı üzerinde en az etkiyle maskelemek için uygulanabilir öneriler sağlar. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde karartır ancak veritabanındaki veriler değişmez. Daha fazla bilgi için bkz: [SQL veritabanını dinamik veri maskeleme ile çalışmaya başlama](sql-database-dynamic-data-masking-get-started.md).
 
 ## <a name="proactive-monitoring"></a>Öngörülebilir izleme
 SQL Veritabanı, denetim ve tehdit algılama özellikleriyle verilerinizi korur. 

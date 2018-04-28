@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik tanıtım yazıları
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 |[Azure ağ güvenliği](azure-network-security.md)|Ağ denetimleri Azure'da dağıtmak çözümleri güvenliğini artırmak için yapılandırabileceğiniz çeşitli tanıtır. Müşteri'e dönük ağ güvenlik denetimleri odak noktasıdır.|
 |[Azure işlem güvenliği](azure-operational-security.md)|Azure ile müşteri dönük işletimsel güvenlik teknolojileri ve Hizmetleri kullanılabilir hakkında ayrıntılı bilgi sağlar.|
 |[Azure güvenlik Teknik Özellikleri](azure-security-technical-capabilities.md)|Tüm yönetmesi odaklanır güvenlik özellikleri ve işlevleri Azure Storage, Azure SQL veritabanları, Azure sanal makinesi modeli ve araçları ve altyapı destekleme.|
-|[Azure Depolama güvenlik kılavuzu](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Azure Storage ile kullanılan güvenlik özelliklerin her biri bir bakış sağlar. Yönetim düzlemi güvenlik, veri düzlemi güvenliği, bekleyen şifreleme, şifreleme uçuş ve depolama çözümlemeleri kapsar.|
+|[Azure Depolama güvenlik kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Azure Storage ile kullanılan güvenlik özelliklerin her biri bir bakış sağlar. Yönetim düzlemi güvenlik, veri düzlemi güvenliği, bekleyen şifreleme, şifreleme uçuş ve depolama çözümlemeleri kapsar.|
 |[Bulut hazırlığı için veri sınıflandırması](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Veri sınıflandırması ve değerini bulut bağlamında temelleri bu indirilebilir kağıt tanıtır bilgi işlem. Bulut değerlendiriliyor kuruluşlar gelecekte kullanmak veya kuruluşlar için şu anda bilgi işlem bulut hizmetlerini kullanan ve veri yönetimi en iyi duruma getirmek için yollar aramayı en fazla bu kağıt yararlanır.|
 |[Azure’da idare](governance-in-azure.md)|Azure'da yerleşik güvenlik ve idare özelliklerini açıklar. Ele alınan ana idare sorunlardır: ilkeler, süreçler ve kuruluş hedeflerinize için; yordamlar uygulama Güvenlik ve kuruluş standartlarıyla sürekli uyumluluk; Uyarı verme ve izleme.
 |[Azure genel bulutunda yalıtımı](azure-isolation.md)|Azure yalıtım kötü amaçlı ve kötü amaçlı olmayan kullanıcılara karşı nasıl sağladığını açıklar. Mimarlar için çeşitli yalıtım seçenekleri sunarak bulut çözümleri mimarisi oluşturma için bir kılavuz olarak görevi görür. Birincil odağı müşteri dönük güvenlik denetimleri ve fiyatlandırma modelleri ve DevOps yöntem değerlendirmeleri adresi SLA için çalışmaz.|

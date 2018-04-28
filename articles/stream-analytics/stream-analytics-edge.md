@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics olarak IOT kenarında (Önizleme)
 
@@ -60,11 +60,10 @@ ASA kenar işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında da
 
 
 #### <a name="create-an-asa-edge-job"></a>Bir ASA kenar işi oluşturma
-1. Azure Portal'dan yeni "Stream Analytics işi" oluşturun. [Burada yeni bir ASA işi oluşturmak için doğrudan bağlantı](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> ASA tarafından desteklenen tüm bölgelerde kenar işleri oluşturabilirsiniz **dışındaki "Batı ABD 2" bölgede**.
-> Bu sınırlama kısa bir süre sonra kaldırılacaktır.
+> Bu öğreticide Azure portalını kullanarak ASA iş oluşturma odaklanır. Ayrıca [ASA kenar işi oluşturmak için Visual Studio eklentisi kullanma](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
+1. Azure Portal'dan yeni "Stream Analytics işi" oluşturun. [Burada yeni bir ASA işi oluşturmak için doğrudan bağlantı](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. Oluşturma ekranında şunları seçin **kenar** olarak **barındırma ortamı** (aşağıdaki resme bakın) ![proje oluşturma](media/stream-analytics-edge/ASAEdge_create.png)
 3. İş tanımı
@@ -147,7 +146,6 @@ Ancak aşağıdaki özellikleri kenar işleri henüz desteklenmez:
 * Azure ML işlevleri.
 * Birden fazla 14 toplamalar tek bir adımda kullanma.
 * Giriş/Çıkış AVRO biçimi. Şu anda yalnızca CSV ve JSON desteklenir.
-* Giriş JSON sıkıştırması.
 * Aşağıdaki SQL işleçleri:
     * AnomalyDetection
     * Jeo-uzamsal işleçler:
@@ -210,6 +208,7 @@ Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://soc
 * [Azure IOT kenar hakkında daha fazla bilgi](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA IOT kenar öğretici hakkında](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Bu Anketi kullanılarak ekibine geri bildirim gönderin](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Visual Studio Araçları'nı kullanarak Stream Analytics kenar işleri geliştirin](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

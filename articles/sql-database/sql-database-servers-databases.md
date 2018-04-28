@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
 
@@ -52,7 +52,7 @@ Azure SQL Veritabanı mantıksal sunucusu:
 - Veritabanı erişimi için bağlantı uç noktası sağlar (<serverName>.database.windows.net)
 - Bir ana veritabanına bağlanarak DMV’ler aracılığıyla içerdiği kaynaklarla ilgili meta verilere erişim sağlar 
 - Kendi veritabanlarına - oturumları uygulanır, güvenlik duvarı, Denetim, tehdit algılama, vb. yönetim ilkeleri için kapsam sağlar. 
-- Üst abonelik içindeki bir kota tarafından kısıtlanmış (varsayılan - abonelik başına altı sunucu [abonelik sınırlar buraya bakın](../azure-subscription-service-limits.md))
+- Üst abonelik içindeki bir kota tarafından kısıtlanmış (varsayılan - abonelik başına yirmi sunucuları [abonelik sınırlar buraya bakın](../azure-subscription-service-limits.md))
 - Veritabanı kotasına ve DTU veya vCore kota kapsamın (45000 DTU gibi) içerdiği kaynakların sağlar
 - Kapsanan kaynaklardaki etkinleştirilen özellikleri için sürüm oluşturma kapsamı 
 - Sunucu düzeyinde asıl kullanıcı bilgileri bir sunucudaki tüm veritabanlarını yönetebilir
@@ -65,11 +65,11 @@ Verilerinizi korumaya yardımcı olmak için bir [SQL veritabanı Güvenlik Duva
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları Azure Portalı'nı kullanarak yönetme
 
-Azure SQL Database'in kaynak grubu vaktinden veya sunucu oluştururken oluşturabilirsiniz. İçin yeni bir SQL server form, yeni bir SQL server oluşturarak veya yeni bir veritabanı oluşturmak bir parçası olarak almak için birden çok yöntem bulunmaktadır. 
+Azure SQL Database'in kaynak grubu vaktinden veya sunucu oluştururken oluşturabilirsiniz. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Boş bir SQL server (mantıksal sunucu) oluşturun
 
-Bir Azure SQL veritabanı sunucusu (olmadan bir veritabanı) kullanarak oluşturmak için [Azure portal](https://portal.azure.com), boş bir SQL server (mantıksal sunucu) form gidin.  
+Bir Azure SQL veritabanı sunucusu (olmadan bir veritabanı) kullanarak oluşturmak için [Azure portal](https://portal.azure.com), boş bir SQL server (mantıksal) form gidin.  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Boş veya örnek bir SQL veritabanı oluşturma
 
@@ -95,7 +95,7 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
 >
 
 > [!TIP]
-> Bir Azure portalı hızlı başlangıç öğreticisi için bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md).
+> Bir Azure portalı Hızlı Başlangıç için bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları PowerShell kullanarak yönetme
@@ -120,7 +120,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Azure PowerShell ile ol
 | New-AzureRmSqlServerVirtualNetworkRule | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı bir sanal ağ hizmeti uç noktası olan bir alt ağ olarak. |
 
 > [!TIP]
-> Bir PowerShell hızlı başlangıç öğreticisi için bkz: [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md). PowerShell örnek komut dosyaları için bkz: [kullanım tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanı PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> PowerShell Hızlı Başlangıç için bkz: [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md). PowerShell örnek komut dosyaları için bkz: [kullanım tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanı PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları Azure CLI kullanarak yönetme
@@ -150,7 +150,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları ile oluşturmak ve yön
 |[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Bir güvenlik duvarı kuralını siler|
 
 > [!TIP]
-> Bir Azure CLI hızlı başlangıç öğreticisi için bkz: [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-cli.md). Azure CLI örnek komut dosyaları için bkz: [kullanım tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralı yapılandırmak için CLI](scripts/sql-database-create-and-configure-database-cli.md) ve [kullanımı izlemek ve tek bir SQL veritabanı ölçeklendirmek için CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Azure CLI Hızlı Başlangıç için bkz: [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-cli.md). Azure CLI örnek komut dosyaları için bkz: [kullanım tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralı yapılandırmak için CLI](scripts/sql-database-create-and-configure-database-cli.md) ve [kullanımı izlemek ve tek bir SQL veritabanı ölçeklendirmek için CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları Transact-SQL kullanarak yönetme
@@ -181,7 +181,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Transact-SQL ile oluşt
 
 
 > [!TIP]
-> Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak hızlı başlangıç öğreticisi için bkz: [Azure SQL Database: bağlanmak ve verileri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md). Visual Studio Code macOS, Linux veya Windows kullanarak bir hızlı başlangıç öğreticisi için bkz: [Azure SQL Database: kullanım Visual Studio Code bağlanmak ve verileri sorgulamak için](sql-database-connect-query-vscode.md).
+> Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak hızlı başlangıç için bkz: [Azure SQL Database: bağlanmak ve verileri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md). Visual Studio Code macOS, Linux veya Windows kullanarak bir hızlı başlangıç için bkz: [Azure SQL Database: kullanım Visual Studio Code bağlanmak ve verileri sorgulamak için](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları REST API kullanarak yönetme
 

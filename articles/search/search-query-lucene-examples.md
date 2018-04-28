@@ -1,25 +1,19 @@
 ---
-title: "Lucene sorgu örnekler Azure arama için | Microsoft Docs"
-description: "Lucene sorgu söz dizimi belirsiz arama, yakınlık araması, terim artırma, normal ifade araması ve joker karakterle arama için."
-services: search
-documentationcenter: 
+title: Lucene sorgu örnekler Azure arama için | Microsoft Docs
+description: Lucene sorgu söz dizimi belirsiz arama, yakınlık araması, terim artırma, normal ifade araması ve joker karakterle arama için.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene sorgu söz dizimi örnekler Azure arama sorguları oluşturmak için
 Azure arama sorguları oluşturmak, her iki varsayılan kullanabilirsiniz [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) veya diğer [Lucene sorgu ayrıştırıcı Azure Search'te](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Lucene sorgu ayrıştırıcı alan kapsamlı sorgular, benzer arama, yakınlık araması, terim artırma ve normal ifade araması gibi daha karmaşık sorgu yapıları destekler.
@@ -117,7 +111,7 @@ Normal ifade araması eğik arasında "/", içinde belgelenen olarak içeriğine
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-Bu örnek için URL sayfanın düzgün çalışmaz. Geçici bir çözüm olarak aşağıdaki URL'yi kopyalayın ve tarayıcı URL adresine yapıştırın:`http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+Bu örnek için URL sayfanın düzgün çalışmaz. Geçici bir çözüm olarak aşağıdaki URL'yi kopyalayın ve tarayıcı URL adresine yapıştırın: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Joker karakter arama örneği
 Birden çok için genellikle tanınan söz dizimini kullanabilirsiniz (\*) ya da tek (?) karakteri joker aramalar. Lucene sorgu ayrıştırıcı tek bir terim ve bir deyimi bu simgeleri kullanımını desteklediğini unutmayın.

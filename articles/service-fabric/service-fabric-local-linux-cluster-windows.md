@@ -1,11 +1,11 @@
 ---
-title: "Windows Azure Service Fabric Linux kümesi ayarlama | Microsoft Docs"
-description: "Bu makalede, Windows geliştirme makinelerde çalışan Service Fabric Linux kümeleri ayarlama alınmaktadır. Bu platformlar geliştirme için yararlıdır."
+title: Windows Azure Service Fabric Linux kümesi ayarlama | Microsoft Docs
+description: Bu makalede, Windows geliştirme makinelerde çalışan Service Fabric Linux kümeleri ayarlama alınmaktadır. Bu platformlar geliştirme için yararlıdır.
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 89c1cf36c3b92376dedb1cb29d190c4c6d8f619b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows Geliştirici makinenizde Linux Service Fabric kümesi ayarlayın
 
@@ -36,7 +36,7 @@ Linux tabanlı Service Fabric kümeleri Windows üzerinde yerel olarak çalışt
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Yerel bir kapsayıcı oluşturma ve Service Fabric’i ayarlama
-Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir service fabric kümesi çalıştırmak aşağıdaki adımları uygulayın:
+Yerel bir Docker kapsayıcısı ayarlama ayarlamak ve üzerini çalıştıran bir service fabric kümesi sağlamak için PowerShell içinde aşağıdaki adımları gerçekleştirin:
 
 1. Docker merkez deposundan görüntü çekme:
 

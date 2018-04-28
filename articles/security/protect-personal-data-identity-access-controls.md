@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory ve çok faktörlü kimlik doğrulaması: kimlik ve erişim denetimleri ile kişisel verileri koruma
 
@@ -125,7 +125,7 @@ Kullanıcılarınızın Azure çok faktörlü kimlik doğrulamasını içeren li
 
 ![MFA etkin kullanıcılar](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Lisansları şu anda yoksa senaryonuz için en uygun dağıtım türünü belirleme işlemi gitmesi gerekir. Başlıklı makalenin bakarak başlatabilirsiniz [Azure çok faktörlü Autehntication çözüm seçtiğiniz](../multi-factor-authentication/multi-factor-authentication-get-started.md). Bir multi-Factor Authentication sunucusu oluşturmak gerektiğine karar verirseniz. Aşağıdaki adımları izleyerek başlatabilirsiniz:
+Lisansları şu anda yoksa senaryonuz için en uygun dağıtım türünü belirleme işlemi gitmesi gerekir. Başlıklı makalenin bakarak başlatabilirsiniz [Azure çok faktörlü Autehntication çözüm seçtiğiniz](../active-directory/authentication/concept-mfa-whichversion.md). Bir multi-Factor Authentication sunucusu oluşturmak gerektiğine karar verirseniz. Aşağıdaki adımları izleyerek başlatabilirsiniz:
 
 1. Seçin **Active Directory** (yönetici olarak oturum açmış) Azure portalında.
 
@@ -137,7 +137,7 @@ Lisansları şu anda yoksa senaryonuz için en uygun dağıtım türünü belirl
 
 4. **Kaydet**’e tıklayın
 
-Bu pencerede MFA sunucusu yükleme seçeneği de vardır. Boyut ve makaleyi gözden geçirerek dağıtımınızı planlama hakkında ek ayrıntılar elde edebilirsiniz [Azure multi-Factor Authentication Sunucusu'nu kullanmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+Bu pencerede MFA sunucusu yükleme seçeneği de vardır. Boyut ve makaleyi gözden geçirerek dağıtımınızı planlama hakkında ek ayrıntılar elde edebilirsiniz [Azure multi-Factor Authentication Sunucusu'nu kullanmaya başlama](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 Çok faktörlü kimlik doğrulama sağlayıcısının nasıl yönetileceği hakkında daha fazla yönerge için bkz: [Azure multi-Factor Auth sağlayıcısı ile çalışmaya başlama.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 

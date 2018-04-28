@@ -3,17 +3,17 @@ title: Azure kapsayıcı örnekleri sorunlarını giderme
 description: Azure kapsayıcı örnekleri ile ilgili sorunları giderme hakkında bilgi edinin
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Azure kapsayıcı örnekleri de kapsayıcı ve dağıtım sorunlarını giderme
 
@@ -23,7 +23,7 @@ Bu makalede kapsayıcıları Azure kapsayıcı örnekleri dağıtırken ilgili s
 
 Hatalı davranan bir kapsayıcıya sahip, kendi günlükleri ile görüntüleyerek başlattığınızda [az kapsayıcı günlükleri][az-container-logs]ve kendi standart çıkış ve standart hata akışı [az kapsayıcı ekleme] [az-container-attach].
 
-### <a name="view-logs"></a>Günlükleri görüntüle
+### <a name="view-logs"></a>Günlükleri görüntüleme
 
 Bir kapsayıcı içindeki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlükleri] [ az-container-logs] komutu.
 

@@ -6,19 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
@@ -60,7 +59,7 @@ Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapı
 * HTTP protokolü ihlallerine karşı koruma
 * Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
 * Robotlar, gezginler ve tarayıcıları önleme
-* Yaygın yanlış uygulama yapılandırmalarını (i.e. Apache, IIS vb.) algılama
+* Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache, IIS vb.) algılama
 
 Kurallar ve korumalarını içeren daha ayrıntılı bir liste için aşağıdaki [Çekirdek kural kümeleri](#core-rule-sets) bölümüne bakın.
 
@@ -74,9 +73,7 @@ Sağlanan 3.0 çekirdek kural kümesi, aşağıdaki tabloda gösterilen 13 kural
 
 |RuleGroup|Açıklama|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Bilinen istenmeyen posta gönderenlere veya kötü amaçlı etkinliklere karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Yöntemleri kilitlemeye yönelik kurallar içerir (PUT, PATCH< ..)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Hizmet Reddi (DoS) saldırılarına karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Bağlantı noktası ve ortam tarayıcılara karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protokol ve kodlama sorunlarına karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Üst bilgi ekleme, istek kaçakçılığı ve yanıt bölmeye karşı korumaya yönelik kurallar içerir|
@@ -166,7 +163,6 @@ Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar s
 
 Web uygulaması güvenlik duvarı yeni bir WAF SKU altında bulunur. Bu SKU yalnızca Azure Resource Manager sağlama modelinde mevcuttur ve klasik dağıtım modelinde bulunmaz. Ayrıca WAF SKU sadece orta ve büyük uygulama ağ geçidi örnek boyutlarında gelir. Uygulama ağ geçidine ilişkin tüm sınırlar WAF SKU için de geçerlidir. Fiyatlandırma, saatlik ağ geçidi örneği ücretine ve veri işleme ücretine bağlıdır. WAF SKU’su için saatlik ağ geçidi fiyatlandırması, Standart SKU ücretlerinden farklıdır ve [Application Gateway fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/application-gateway/) bölümünde bulunabilir. Veri işleme ücretleri aynı kalır. Kural başına veya kural grubu başına ücret yoktur. Aynı web uygulaması güvenlik duvarının arkasındaki birden fazla web uygulamasını koruyabilirsiniz ve birden fazla uygulamayı desteklemek için ek ücret alınmaz. 
 
-WAF için faturalama 5/5/2017’den itibaren başlar; bu tarihe kadar WAF SKU ağ geçitleri standart fiyatlardan ücretlendirilmeye devam edecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

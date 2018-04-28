@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 5d68df424fbedbb9f0d17b87ceb243b079b3da14
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 412098ad6b8a6620b165b6cecaa0d0b3ee05f63e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple için rol tabanlı erişim denetimi
 
@@ -45,7 +45,7 @@ Aşağıdaki örnekte, biz yerleşik rolüyle Başlat **okuyucu** tüm kaynak ka
 
 2. Azure'da oturum açın.
 
-    `Login-AzureRMAccount`
+    `Connect-AzureRmAccount`
 
 3. Okuyucu rolü, bilgisayarınızdaki JSON şablon olarak dışarı aktarın.
 
@@ -113,7 +113,7 @@ Daha fazla bilgi için Git [PowerShell kullanarak özel bir RBAC rolü oluşturm
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Örnek çıktı PowerShell aracılığıyla özel rol oluşturma
 
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
+PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : john.doe@contoso.com

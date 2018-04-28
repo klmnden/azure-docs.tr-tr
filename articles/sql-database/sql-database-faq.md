@@ -9,11 +9,11 @@ ms.custom: reference
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: f98337044bdad788d2a4c9eac0c67a2031810430
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -23,32 +23,32 @@ Geçerli SQL veritabanı V12 sürümüdür. Sürüm V11 devre dışı bırakılm
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL veritabanı için SLA nedir?
 Süre en az % 99,99 garanti ediyoruz, bağlantı, Microsoft Azure SQL veritabanı ve bizim Internet ağ geçidi arasında bağımsız olarak, hizmet katmanı gerekir. Daha fazla bilgi için bkz: [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL veritabanı için yeni vCore tabanlı satın alma modeli Whatis?
+## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Yeni vCore tabanlı satın alma modeli (Önizleme) Azure SQL veritabanı için Whatis?
 
-Yeni satın alma modeli varolan DTU tabanlı yanı sıra modelidir. VCore tabanlı modeli müşteriler esneklik, Denetim, saydamlık ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlamak için tasarlanmıştır. Bilgi işlem ve depolama birimine iş yükü gereksinimlerine göre müşterileri de sağlar. Tek veritabanı ve esnek havuz seçenekleri vCore modelini kullanarak da ile yüzde 30 tasarrufları uygun için yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [hizmet katmanları](sql-database-service-tiers.md) DTU tabanlı satın alma modeli ve vCore tabanlı satın alma modeli hakkında ayrıntılar için.
+Yeni satın alma modeli varolan DTU tabanlı yanı sıra modelidir. VCore tabanlı modeli müşteriler esneklik, Denetim, saydamlık sunmak üzere tasarlanmıştır ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini. Bilgi işlem ve depolama birimine iş yükü gereksinimlerine göre müşterileri de sağlar. Tek veritabanı ve esnek havuz seçenekleri vCore modelini kullanarak da ile yüzde 30 tasarrufları uygun için yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) daha fazla bilgi için. 
 
 ## <a name="what-is-a-vcore"></a>Sanal çekirdek nedir? 
-Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci ve Gen 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemci.
+Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. 4 mantıksal CPU dayalı gen üzerinde Intel E5-2673 v3 (Haswell) 2.4 GHz işlemci ve Gen 5 mantıksal CPU üzerinde Intel E5-2673 v4 temel alır (Broadwell) 2.3 GHz işlemci.
 
-## <a name="is-moving-to-the-vcore-based-model-required"></a>Gerekli vCore tabanlı modeli taşıma?
+## <a name="is-moving-to-the-vcore-based-model-required"></a>Sanal çekirdek tabanlı modele geçiş yapmak zorunlu mudur?
 Hayır, giriş vCore tabanlı modelinin tek veritabanı dağıtım seçenekleri ve esnek havuz müşteri seçeneğini ve esnekliğini müşterilerimize taahhütler yansıtır. Müşteriler DTU tabanlı modeli kullanmaya devam etmek istiyorsanız, bu duyuru ve deneyimlerini ile herhangi bir eylemde bulunmanız gerekmez ve faturalama değişmeden kalır. 
 
 Çoğu durumda, önceden yapılandırılmış bir paket kaynakların Basitlik uygulamalar yararlı olabilir. Bu nedenle, sunar ve bu DTU tabanlı seçenekler müşterilerimiz için destek devam ediyoruz. Bunları kullanmakta olduğunuz ve iş gereksinimlerinizi karşılayan, bunu yapmak devam etmelidir.
 
-DTU ve vCore tabanlı modelleri mevcut yan yana devam eder. Biz, daha fazla saydamlık veritabanı kaynaklarını ve işlem ve depolama ayrı olarak ölçeklendirebilmeniz çözmek için müşteri isteklerine yanıt vCore tabanlı modelinde başlatma. VCore tabanlı modeli ayrıca ek tasarruf Azure karma avantajı ile etkin Yazılım Güvencesi sahip müşteriler için SQL Server sağlar.
+DTU ve sanal çekirdek tabanlı modeller birlikte sunulmaya devam edecektir. Veritabanı kaynakları için daha fazla şeffaflığın yanı sıra bilgi işlemi ve depolamayı ayrı olarak ölçeklendirebilme olanağına yönelik müşteri isteklerine yanıt olarak sanal çekirdek tabanlı modeli kullanıma sunuyoruz. VCore tabanlı modeli ayrıca ek tasarruf Azure karma avantajı ile etkin Yazılım Güvencesi sahip müşteriler için SQL Server sağlar.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>VCore tabanlı satın alma modeli nasıl satın alma modeli DTU tabanlı vs arasında seçmem gerekir? 
-Veritabanı işlem birimi (DTU), CPU karışık bir ölçüyü temel alır, bellek, okur ve yazar. DTU tabanlı performans düzeyleri sürücü farklı düzeylerde uygulama performansı için önceden yapılandırılmış paketleri kaynakların temsil eder. Temel alınan kaynaklar hakkında endişelenmeniz ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin Basitlik tercih etmek istiyor musunuz müşteriler DTU tabanlı modeli gereksinimlerine için daha uygun bulabilirsiniz. Ancak, temel alınan kaynaklara konusunda daha fazla bilgi gerekiyor ya da bunları bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için vCore tabanlı modeli en iyi seçenek olacaktır.  Ayrıca, bir müşteri SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar kendi varolan yatırımdan yararlanmanızı ve % 30 ile Kaydet [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli içinde tam olarak yönetilen bir hizmet otomatik yedeklemeler, yazılım güncelleştirmelerini ve düzeltme ekleri gibi yararları sağlar. 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>VCore tabanlı satın alma modeli (Önizleme) nasıl satın alma modeli DTU tabanlı vs arasında seçmem gerekir? 
+Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma bir ölçümüne dayalıdır. DTU tabanlı performans düzeyleri, farklı uygulama performansı düzenleri elde etmek için önceden yapılandırılmış kaynak paketlerini temsil eder. Temel alınan kaynaklar hakkında endişelenmeniz ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin Basitlik tercih etmek istiyor musunuz müşteriler DTU tabanlı modeli gereksinimlerine için daha uygun bulabilirsiniz. Ancak, temel alınan kaynaklara konusunda daha fazla bilgi gerekiyor ya da bunları bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için vCore tabanlı modeli en iyi seçenek olacaktır.  Ayrıca, bir müşteri SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar kendi varolan yatırımdan yararlanmanızı ve % 30 ile Kaydet [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli içinde tam olarak yönetilen bir hizmet otomatik yedeklemeler, yazılım güncelleştirmelerini ve düzeltme ekleri gibi yararları sağlar. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure karma avantajı nedir? 
-[SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md) geçerli lisans yatırımlarınızı değerinden en üst düzeye çıkarmak ve kendi geçiş buluta artırmanıza yardımcı olur. Azure karma yararlanmak için SQL Server, SQL Server lisanslarınızı ödeme SQL veritabanındaki bir azaltılmış oranı ("temel hızı") için Yazılım Güvencesi ile kullanmanıza olanak sağlayan bir Azure tabanlı avantajdır. SQL Server için Azure karma avantajı, SQL veritabanı tek veritabanları ve esnek havuzlar için vCore tabanlı satın alma modeli genel önizlemesini mevcuttur. SKU etkin olsa bile bu avantajı uygulamak edebilirsiniz, ancak Azure portalında seçin zamandan taban fiyat uygulanır unutmayın. Kredi firmalarda geriye dönük verilir.
+[SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md) geçerli lisans yatırımlarınızı değerinden en üst düzeye çıkarmak ve kendi geçiş buluta artırmanıza yardımcı olur. Azure karma yararlanmak için SQL Server, SQL Server lisanslarınızı ödeme SQL veritabanındaki bir azaltılmış oranı ("temel hızı") için Yazılım Güvencesi ile kullanmanıza olanak sağlayan bir Azure tabanlı avantajdır. SQL Server için Azure karma avantajı vCore tabanlı satın alma modeli (Önizleme) SQL veritabanı tek veritabanları ve esnek havuzlar için genel önizlemesini mevcuttur. SKU etkin olsa bile bu avantajı uygulamak edebilirsiniz, ancak Azure portalında seçin zamandan taban fiyat uygulanır unutmayın. Geriye dönük olarak herhangi bir kredi düzenlenmez.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure karma avantajı ile çift kullanım hakları vardır?
 180 gün geçişler sorunsuz bir şekilde çalıştığından emin olmak için çift kullanım haklarının lisans var. Bu 180 günlük süre sonra SQL Server Lisans yalnızca SQL veritabanında bulutta kullanılabilir ve çift kullanım hakları şirket içi yok ve bulutta.
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>SQL Server için Azure karma avantajı lisans taşınabilirliği nasıl farkı nedir?
-Bugün, Yazılım Güvencesi Lisansı olan SQL Server müşterileri paylaşılan üçüncü taraf sunucularına lisansları kullanımlarını yeniden atama sağlayan mobility avantajları sunuyoruz. Bu avantajı Azure Iaas ve AWS EC2 kullanılabilir.
+Bugün, Yazılım Güvencesi Lisansı olan SQL Server müşterileri üçüncü taraf paylaşılan sunucularına lisansları kullanımlarını yeniden atama sağlayan mobility avantajları sunuyoruz. Bu avantajı Azure Iaas ve AWS EC2 kullanılabilir.
 SQL Server için Azure karma avantajı lisans taşınabilirliği iki anahtar alanlarda farklıdır:
 - Bu, yüksek oranda sanallaştırılmış iş yüklerini Azure'a taşımak için ekonomik avantaj sağlar. SQL EE müşteriler, 4 çekirdek alabilirsiniz şirket içi yüksek oranda sanallaştırılmış uygulamaları oldukları her çekirdek için genel amaçlı SKU azure'da. Lisans taşınabilirliği sanallaştırılmış iş yükleri buluta taşımak için hiçbir özel maliyet avantajlarını izin vermiyor.
 - SQL Server ile şirket içi – SQL veritabanı yönetilen örneği çok uyumlu Azure üzerinde bir PaaS hedef sağlar.
@@ -86,13 +86,13 @@ Yeni hizmet katmanları geçerli DTU tabanlı teklifleri ile kullanılabilen öz
 Evet, bağımsız olarak uygulamanız gerekir ve değişmeden depolama tutmak işlem düzeyini seçebilirsiniz. Depolama 32 GB düşük olarak ayarlanabilir. 
 
 ## <a name="will-the-new-vcore-based-tiers-support-point-in-time-restore-pitr-for-35-days-as-today"></a>Yeni Katmanlar vCore tabanlı geri yükleme (PITR) Bugün olarak 35 gün noktası destekleyecek mi? 
-Yedekleme bekletme 7 ile 35 gün arasında PITR için yapılandırabilirsiniz. Yedekleme depolama maksimum veri boyutuna eşit depolama miktarını aşarsa, ayrı ayrı depolamanın tüketime dayanarak ücretlendirilir. Önizleme'de, varsayılan olarak PITR Bekletme dönemi 7 gün olarak ayarlanır. Çoğu durumda maksimum veri boyutu 7 gün yedeklemelerini depolamak için yeterli olur.
+Yedekleme bekletme 7 ile 35 gün arasında PITR için yapılandırabilirsiniz. Yedekleme depolama maksimum veri boyutuna eşit depolama miktarını aşarsa, ayrı ayrı depolamanın tüketime dayanarak ücretlendirilir. Önizleme'de, varsayılan olarak PITR Bekletme dönemi 7 gün olarak ayarlanır. Çoğu durumda, maksimum veri boyutu 7 gün yedeklemelerini depolamak için yeterli olur.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>İşlem için donanım nesil seçimi neden verilsin mi?
 Amacımız uygulama ihtiyaçlarını yakından eşleşen bir performans yapılandırması seçebilmeleri maksimum esneklik sağlamaktır. Yukarıdaki tabloda Gen4 ve Gen5 arasındaki farklar gösterilmektedir. Özellikle, Gen4 donanım vCore başına önemli ölçüde daha fazla bellek sunar. Ancak, Gen5 donanım işlem çok daha yüksek ölçeklendirmenizi sağlar. Böylece, uygulamanız için en iyi fiyat/performans oranı elde edebilirsiniz Bu farklılıklar saydam olmak istiyoruz.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU tabanlı bir veritabanından bir vCore tabanlı hizmet katmanına dönüştürmek için Uygulamam çevrimdışı olması gerekiyor mu? 
-Yeni hizmet katmanları Premium Hizmet katmanını ve tersi yönde veritabanları standart yükseltme varolan işlemi için benzer bir basit çevrimiçi dönüştürme yöntem sunar. Bu dönüştürme, Portal, ARM, PowerShell, Azure CLI veya T-SQL kullanarak başlatılabilir. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-resources.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
+Yeni hizmet katmanları, Standard hizmet katmanından Premium hizmet katmanına ve tam tersi yönde veritabanı yükseltmesi için kullanılan mevcut işleme benzeyen basit bir çevrimiçi dönüştürme yöntemi sunar. Bu dönüştürme Portal, ARM, PowerShell, Azure CLI veya T-SQL kullanılarak başlatılabilir. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-resources.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>I bir veritabanı vCore tabanlı hizmet katmanından bir DTU tabanlı bir dönüştürebilir miyim? 
 Evet, tüm desteklenen performans hedefi portalı veya program aracılığıyla Portal, ARM, PowerShell, Azure CLI veya T-SQL kullanarak veritabanınızı kolayca dönüştürebilirsiniz. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-resources.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
@@ -109,13 +109,13 @@ VCore modeli sağlanan işlem ve depolama miktarını bağımsız denetime izin 
 Sıklıkta istiyor. Bkz: [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Ne kadar tek bir veritabanının Hizmet katmanını veya performans düzeyini değiştirmek veya bir veritabanını bir esnek havuz ve bu moddan taşımak için sürer?
-Bir veritabanının Hizmet katmanını değiştirmeyi ve bir havuz ve bu moddan taşıma arka plan işlemi olarak platformunda kopyalanacak veritabanı gerektirir. Hizmet katmanını değiştirmeyi birkaç dakika arasında veritabanlarını boyutuna bağlı olarak birkaç saat sürebilir. Her iki durumda da veritabanları taşıma işlemi sırasında çevrimiçi ve kullanılabilir olmaya devam eder. Tek veritabanları değiştirme hakkında daha fazla bilgi için bkz [bir veritabanının Hizmet katmanını değiştirme](sql-database-service-tiers.md). 
+Bir veritabanının Hizmet katmanını değiştirmeyi ve bir havuz ve bu moddan taşıma arka plan işlemi olarak platformunda kopyalanacak veritabanı gerektirir. Hizmet katmanını değiştirmeyi birkaç dakika arasında veritabanlarını boyutuna bağlı olarak birkaç saat sürebilir. Her iki durumda da veritabanları taşıma işlemi sırasında çevrimiçi ve kullanılabilir olmaya devam eder. Tek veritabanları değiştirme hakkında daha fazla bilgi için bkz [bir veritabanının Hizmet katmanını değiştirme](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Tek bir veritabanının esnek veritabanları ve ne zaman kullanmalıyım?
 Genel olarak, esnek havuzlar için tipik bir tasarlanmış [hizmet olarak yazılım (SaaS) uygulama düzeni](sql-database-design-patterns-multi-tenancy-saas-applications.md), müşteri veya Kiracı başına tek bir veritabanı olduğu. Veritabanlarına göre değişen maksimum gereksinimleri karşılamak için ayrı ayrı veritabanları satın alıp bu veritabanlarını tekrar tekrar sağlamak, ekonomik açıdan çok verimli bir yöntem değildir. Havuzlarıyla, havuzun toplu performansı yönetme ve veritabanlarını yukarı ve aşağı otomatik olarak ölçeklendirin. Kullanım deseniyle garanti eder, azure'nın akıllı altyapısı veritabanları için bir havuz önerir. Ayrıntılar için bkz [esnek havuz Kılavuzu](sql-database-elastic-pool.md).
 
 ## <a name="how-does-the-usage-of-sql-database-using-the-dtu-based-purchasing-model-show-up-on-my-bill"></a>Nasıl DTU tabanlı satın alma modeli kullanarak SQL veritabanı'nın kullanımını faturamı üzerinde görünmesini?
-SQL veritabanı faturaları tahmin edilebilir bir saatlik hızı üzerinde temel alarak [satın alma modeli](sql-database-service-tiers.md). Gerçek kullanım hesaplanan ve saatlik, faturanızı bir saat kesirlerini gösterebilir. böylece Faturalaması. Örneğin, 12 saat içindeki bir ay için bir veritabanı zaten varsa, faturanıza 0,5 gün kullanımını gösterir. 
+SQL veritabanı faturaları tahmin edilebilir bir saatlik hızı üzerinde temel alarak [satın alma modeli](sql-database-service-tiers-dtu.md). Gerçek kullanım hesaplanan ve saatlik, faturanızı bir saat kesirlerini gösterebilir. böylece Faturalaması. Örneğin, 12 saat içindeki bir ay için bir veritabanı zaten varsa, faturanıza 0,5 gün kullanımını gösterir. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Ne tek bir veritabanı değerinden bir saat için etkin veya daha az bir saatten daha yüksek bir hizmet katmanı kullanır?
 Faturalandırılır her bir veritabanı yüksek hizmet katmanı kullanarak mevcut saat + kullanım veya veritabanı değerinden bir saat için etkin olup olmadığını bağımsız olarak bu saatte uygulanan performans düzeyi için. Örneğin, tek bir veritabanı oluşturun ve daha sonra beş dakika silerseniz faturanızı bir veritabanı saat için bir ücret yansıtır. 
@@ -143,7 +143,7 @@ Esnek havuzları aşağıdaki özelliklere faturalandırılır:
 * Bir esnek havuz boyutlandırılır, yeniden boyutlandırma işlemi tamamlanana kadar ardından havuzu yeni miktarda kaynak göre faturalandırılır değil. Bu, tek veritabanları performans düzeyini değiştirme olarak aynı düzeni izler.
 * Bir esnek havuz fiyat havuzu kaynaklardaki temel alır. Bir esnek havuz fiyat sayısına ve esnek veritabanları içindeki kullanımını bağımsızdır.
 
-Ayrıntılar için bkz [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/) ve [hizmet katmanları](sql-database-service-tiers.md).
+Ayrıntılar için bkz [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/), [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md).
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>Nasıl vCore tabanlı kullanım faturamı içinde görünmesini? 
 VCore tabanlı modelinde, hizmet Hizmet katmanını temel alan bir öngörülebilir, saatlik oranı faturalandırılır vCores içinde sağlanan işlem sağlanan GB/ay içinde depolama ve yedekleme depolama tüketilen. Yedeklemeler için depolama toplam veritabanı boyutu (diğer bir deyişle, veritabanı boyutu %100) aşarsa, ek ücretlere vardır. açıkça vCore saatleri, yapılandırılmış veritabanı depolama, tüketilen GÇ ve yedekleme depolama fatura içinde kullanılan kaynakları ayrıntılarını görmek kolaylaştırma listelenmektedir. Depolama en fazla yedekleme en fazla veritabanı boyutunun % 100'dür dahil, hangi, içinde faturalandırılır ötesinde GB/ay ay içinde tüketilen.
@@ -151,7 +151,7 @@ VCore tabanlı modelinde, hizmet Hizmet katmanını temel alan bir öngörülebi
 Örneğin:
 - 12 saat içindeki bir ay için SQL veritabanı zaten varsa, fatura 12 saatlik vCore kullanımını gösterir. Ek 100 GB depolama SQL veritabanı sağlanan, fatura depolama kullanımı GB/ay birimlerinde eşit olarak bölünmüş saatlik ve bir ay içinde tüketilen IOs sayısı gösterir.
 - SQL veritabanı bir saatten kısa bir süre için etkin ise, veritabanı var. her bir saat seçili, en yüksek hizmet katmanı kullanarak depolama ve kullanım veya veritabanı için etkin daha az daha olmasına bakılmaksızın bu saatte uygulanan GÇ sağlanan için faturalandırılır bir saat.
-- Yönetilen bir örneği oluşturun ve daha sonra beş dakika silerseniz bir veritabanı saat için sizden ücret.
+- Bir Yönetilen Örnek oluşturup beş dakika sonra silerseniz, bir veritabanı saati ücreti ödersiniz.
 - Genel Amaçlı katmanında 8 sanal çekirdekli bir Yönetilen Örnek oluşturup bunu hemen 16 sanal çekirdekli yapılandırmaya yükseltirseniz, ilk saat için 16 sanal çekirdek fiyatı üzerinden ücretlendirilirsiniz.
 
 > [!NOTE]

@@ -1,12 +1,12 @@
 ---
-title: "Döngüler - işlem dizileri veya yineleme Eylemler - Azure Logic Apps | Microsoft Docs"
-description: "İşlem \"için her\" dizilerle döngüler veya logic apps içinde belirli koşulların kadar yineleme eylemleri"
+title: Döngüler - işlem dizileri veya yineleme Eylemler - Azure Logic Apps | Microsoft Docs
+description: İşlem "için her" dizilerle döngüler veya logic apps içinde belirli koşulların kadar yineleme eylemleri
 services: logic-apps
-keywords: "her döngü için"
-documentationcenter: 
+keywords: her döngü için
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Döngüler: diziler işlem veya Eylemler bir koşul yerine getirilene kadar yineleme
 
@@ -153,9 +153,6 @@ Bir koşula uyulup uyulmadığını veya bazı durumu değişti kadar Eylemler y
 
 * İstediğiniz yanıt elde edene kadar bir uç nokta çağırın.
 * Bir veritabanında bir kayıt oluşturmak, kayıt Onaylandı, belirli bir alana kadar bekleyin ve işleme devam. 
-
-> [!NOTE]
-> "Döngüler"Foreach"döngüler veya diğer döngü"Kadar"içeremez kadar".
 
 Örneğin, değişkenin değeri eşittir 10 kadar 8: 00'de her gün, bu mantıksal uygulama bir değişken artırır. Ardından, mantıksal uygulama geçerli değeri soran bir e-posta gönderir. Bu örnekte Office 365 Outlook kullansa da, Logic Apps tarafından desteklenen herhangi bir e-posta sağlayıcıyı kullanabilirsiniz ([bağlayıcılar listesi burada gözden](https://docs.microsoft.com/connectors/)). Başka bir e-posta hesabı kullanıyorsanız genel adımlar aynıdır, ancak kullanıcı arabirimi biraz farklı olabilir. 
 

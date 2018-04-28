@@ -1,6 +1,6 @@
 ---
-title: "Azure Hızlı Başlangıç - Batch işi çalıştırma - CLI"
-description: "Azure CLI ile bir Batch işi çalıştırmayı hızlı bir şekilde öğrenin."
+title: Azure Hızlı Başlangıç - Batch işi çalıştırma - CLI
+description: Azure CLI ile bir Batch işi çalıştırmayı hızlı bir şekilde öğrenin.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Hızlı başlangıç: Azure CLI ile ilk Batch işinizi çalıştırma
 
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Azure genel amaçlı depolama hesabını Batch hesabınıza bağlayabilirsiniz. Bu hızlı başlangıç için gerekli olmamasına karşın, depolama hesabı uygulamaları dağıtmak ve çoğu gerçek yaşam iş yükleri için giriş ve çıkış verilerini depolamak üzere yararlıdır. Kaynak grubunuzda [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutuyla bir depolama hesabı oluşturun.
+Azure Depolama hesabını Batch hesabınıza bağlayabilirsiniz. Bu hızlı başlangıç için gerekli olmamasına karşın, depolama hesabı uygulamaları dağıtmak ve çoğu gerçek yaşam iş yükleri için giriş ve çıkış verilerini depolamak üzere yararlıdır. Kaynak grubunuzda [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutuyla bir depolama hesabı oluşturun.
 
 ```azurecli-interactive
 az storage account create \

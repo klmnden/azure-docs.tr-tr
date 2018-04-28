@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: f13ac366a1c382e955db23f3bcefb8f31c89fcb9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c8a8561c6241968419c5014bf2a37cca05723e81
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı genişletilmiş olaylar için olay dosya hedef kodu
 
@@ -37,7 +37,7 @@ Bu konuda iki aşamalı kod örneği gösterir:
 * Herhangi bir veritabanı, bir tablodaki oluşturabilirsiniz.
   
   * İsteğe bağlı olarak yapabileceğiniz [oluşturma bir **AdventureWorksLT** demo veritabanı](sql-database-get-started.md) dakika.
-* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
+* SQL Server Management Studio (ssms.exe), ideal olarak en son aylık güncelleştirme sürümü. 
   En son ssms.exe öğesinden yükleyebilirsiniz:
   
   * Başlıklı konuda [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -74,8 +74,8 @@ cls;
 #--------------- 1 -----------------------
 
 'Script assumes you have already logged your PowerShell session into Azure.
-But if not, run  Add-AzureRmAccount (or  Login-AzureRmAccount), just one time.';
-#Add-AzureRmAccount;   # Same as  Login-AzureRmAccount.
+But if not, run  Connect-AzureRmAccount (or  Connect-AzureRmAccount), just one time.';
+#Connect-AzureRmAccount;   # Same as  Connect-AzureRmAccount.
 
 #-------------- 2 ------------------------
 
@@ -235,7 +235,7 @@ Komut dosyası önceki olası çalıştırın ve rerunnable sonra temizlemek iç
 
 PowerShell Betiği birkaç adlandırılmış değerler yazdırıldığında bunu sona erdi. Bu değerleri kullanmak için Transact-SQL komut dosyasını düzenlemeniz gerekir. Bul **Yapılacaklar** düzenleme noktaları bulmak için Transact-SQL komut.
 
-1. Open SQL Server Management Studio (ssms.exe).
+1. SQL Server Management Studio'yu (ssms.exe) açın.
 2. Azure SQL veritabanı veritabanınızla bağlantı kurun.
 3. Yeni bir sorgu bölmesini açmak için tıklatın.
 4. Aşağıdaki Transact-SQL betiği sorgu bölmesine yapıştırın.

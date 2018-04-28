@@ -1,11 +1,11 @@
 ---
-title: "Günlük analizi için Azure Hizmeti günlüklerini ve ölçümleri toplamak | Microsoft Docs"
-description: "Tanılama günlüklerini ve ölçümleri için günlük analizi yazmak için Azure kaynaklarını yapılandırın."
+title: Günlük analizi için Azure Hizmeti günlüklerini ve ölçümleri toplamak | Microsoft Docs
+description: Tanılama günlüklerini ve ölçümleri için günlük analizi yazmak için Azure kaynaklarını yapılandırın.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmeti günlüklerini ve günlük analizi kullanımda ölçümlerini Topla
 
@@ -34,22 +34,22 @@ Günlükleri ve Azure Hizmetleri için ölçümleri toplama dört farklı yolu v
 | Hizmet                 | Kaynak Türü                           | Günlükler        | Ölçümler     | Çözüm |
 | --- | --- | --- | --- | --- |
 | Uygulama ağ geçitleri    | Microsoft.Network/applicationGateways   | Tanılama | Tanılama | [Azure uygulama ağ geçidi analizi](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Application ınsights    |                                         | Bağlayıcı   | Bağlayıcı   | [Uygulama Öngörüler Bağlayıcısı](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Önizleme) |
+| Application Insights    |                                         | Bağlayıcı   | Bağlayıcı   | [Uygulama Öngörüler Bağlayıcısı](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Önizleme) |
 | Automation hesapları     | Microsoft.Automation/AutomationAccounts | Tanılama |             | [Daha fazla bilgi](../automation/automation-manage-send-joblogs-log-analytics.md)|
-| Toplu hesaplar          | Microsoft.Batch/batchAccounts           | Tanılama | Tanılama | |
+| Batch hesapları          | Microsoft.Batch/batchAccounts           | Tanılama | Tanılama | |
 | Klasik bulut Hizmetleri  |                                         | Depolama     |             | [Daha fazla bilgi](log-analytics-azure-storage-iis-table.md) |
-| Bilişsel Hizmetler      | Microsoft.CognitiveServices/accounts    |             | Tanılama | |
+| Bilişsel hizmetler      | Microsoft.CognitiveServices/accounts    |             | Tanılama | |
 | Data Lake analizi     | Microsoft.DataLakeAnalytics/accounts    | Tanılama |             | |
 | Veri Gölü deposu         | Microsoft.DataLakeStore/accounts        | Tanılama |             | |
-| Olay Hub'ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
-| IOT hub'ları                | Microsoft.Devices/IotHubs               |             | Tanılama | |
+| Olay Hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
+| IoT Hub                | Microsoft.Devices/IotHubs               |             | Tanılama | |
 | Anahtar Kasası               | Microsoft.KeyVault/vaults               | Tanılama |             | [KeyVault analizi](log-analytics-azure-key-vault.md) |
-| Yük Dengeleyici          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
+| Yük Dengeleyiciler          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Tanılama | Tanılama | |
 | Ağ Güvenlik Grupları | Microsoft.Network/networksecuritygroups | Tanılama |             | [Azure ağ güvenlik grubu analizi](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Kurtarma kasaları         | Microsoft.RecoveryServices/vaults       |             |             | [Analytics (Önizleme) Azure kurtarma Hizmetleri](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Hizmet ara         | Microsoft.Search/searchServices         | Tanılama | Tanılama | |
-| Hizmet veri yolu ad alanı   | Microsoft.ServiceBus/namespaces         | Tanılama | Tanılama | [Hizmet veri yolu Analytics (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Bus ad alanı   | Microsoft.ServiceBus/namespaces         | Tanılama | Tanılama | [Hizmet veri yolu Analytics (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Depolama     |             | [Service Fabric Analytics (Önizleme)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Tanılama | [Azure SQL analizi (Önizleme)](log-analytics-azure-sql.md) |
 | Depolama                 |                                         |             | Betik      | [Azure depolama çözümlemeleri (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
@@ -68,6 +68,13 @@ Günlükleri ve Azure Hizmetleri için ölçümleri toplama dört farklı yolu v
 Birçok Azure kaynaklarını tanılama günlüklerini yazabilmesi ve ölçümlere doğrudan günlük analizi ve bu analiz için veri toplamanın tercih edilen yöntemdir. Azure tanılama kullanırken, veriler için günlük analizi hemen yazılır ve ilk veri depolama alanına yazmak için gerek yoktur.
 
 Destek azure kaynaklarını [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) kendi günlüklerini ve ölçümleri doğrudan günlük analizi gönderebilirsiniz.
+
+> [!NOTE]
+> Çok boyutlu ölçümleri günlük analizi için tanılama ayarları gönderme şu anda desteklenmiyor. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
+>
+> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, ölçüm gelen tüm iletilerin tüm temsil edilen tanılama ayarları aracılığıyla dışarı aktardığınızda olay hub'ı sıralar.
+>
+>
 
 * Kullanılabilir ölçümler ayrıntılarını başvurmak [ölçümleri Azure İzleyicisi ile desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Kullanılabilir günlüklerini ayrıntılarını başvurmak [desteklenen Hizmetleri ve şema için tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,7 +152,7 @@ Daha fazla bilgi edinmek [Application Insights Bağlayıcısı](https://blogs.te
 
 Günlük analizi günlüklerini ve ölçümleri göndermek için doğrudan bir yol sağlamaz Azure Hizmetleri için günlük ve ölçümleri toplamak için bir Azure Otomasyonu komut dosyası kullanabilirsiniz. Komut dosyası sonra verileri günlük analizi kullanarak gönderebileceğini [veri toplayıcı API](log-analytics-data-collector-api.md)
 
-Azure Şablon Galerisi sahip [Azure otomasyon kullanma örnekleri](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) Hizmetleri ve günlük analizi için gönderme veri toplamak için.
+Azure Şablon Galerisi sahip [Azure otomasyon kullanma örnekleri](https://azure.microsoft.com/resources/templates/?term=OMS) Hizmetleri ve günlük analizi için gönderme veri toplamak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

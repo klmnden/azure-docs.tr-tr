@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 04/27/2018
+ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics içinde sorgu paralelleştirme yararlanın
 Bu makalede Azure akış analizi paralelleştirme yararlanmak nasıl gösterir. Giriş bölümlerini yapılandırma ve analizi sorgu tanımı ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
@@ -29,21 +29,13 @@ Akış analizi işi ölçeklendirme giriş veya çıkış bölüm yararlanır. B
 
 ### <a name="inputs"></a>Girişler
 Tüm Azure Stream Analytics giriş bölümleme yararlanabilirsiniz:
--   EventHub (bölüm anahtarı açıkça ayarlamak için gereklidir)
--   IOT hub'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
+-   EventHub (açıkça PARTITION BY anahtar sözcüğüyle bölüm anahtarını ayarlamak için gereklidir)
+-   IOT hub'ı (açıkça PARTITION BY anahtar sözcüğüyle bölüm anahtarını ayarlamak için gereklidir)
 -   Blob depolama
 
 ### <a name="outputs"></a>Çıkışlar
 
-Akış Analizi ile çalışırken, çıktılarında bölümleme yararlanabilirsiniz:
--   Azure Data Lake Storage
--   Azure İşlevleri
--   Azure Tablosu
--   Blob depolama
--   CosmosDB (bölüm anahtarı açıkça ayarlamak için gereklidir)
--   EventHub (bölüm anahtarı açıkça ayarlamak için gereklidir)
--   IOT hub'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
--   Service Bus
+Akış Analizi ile çalışırken, çoğu çıktı havuzlarını için bölümlendirme, yararlanabilirsiniz. Çıktı bölümleme hakkında daha fazla bilgi edinilebilir [çıkış sayfasının bölümünde bölümleme](stream-analytics-define-outputs.md#partitioning).
 
 Powerbı, SQL ve SQL veri ambarı çıkışları bölümleme desteklemez. Ancak, yine giriş bölümünde açıklandığı gibi bölüm [Bu bölümde](#multi-step-query-with-different-partition-by-values) 
 
@@ -56,7 +48,7 @@ Bölümleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 ## <a name="embarrassingly-parallel-jobs"></a>Utandırıcı derecede paralel işi
 Bir *utandırıcı derecede paralel* iş Azure akış analizi sahibiz en ölçeklenebilir senaryo. Bu giriş sorgu bir örneği için bir bölüm için çıktının bir bölüm bağlanır. Bu paralellik aşağıdaki gereksinimlere sahiptir:
 
-1. Sorgu mantığınızı aynı sorgu örneği tarafından işlenen aynı anahtara bağlıysa, olayları girişinizi aynı bölüme gidin emin olmanız gerekir. Olay hub'ları için bu olay verileri olmalıdır anlamına gelir **PartitionKey** değerinin ayarlanmış. Alternatif olarak, bölümlenmiş Gönderenler kullanabilirsiniz. BLOB Depolama için bu olayları aynı bölüm klasöre gönderilir anlamına gelir. Sorgu mantığınızı aynı sorgu örneği tarafından işlenmek üzere aynı anahtarı gerektirmiyorsa, bu gereksinim yoksayabilirsiniz. Bu mantık örneği basit bir select proje filtresi sorgu olacaktır.  
+1. Sorgu mantığınızı aynı sorgu örneği tarafından işlenen aynı anahtara bağlıysa, olayları girişinizi aynı bölüme gidin emin olmanız gerekir. Olay hub'ları veya IOT hub'ı için bu olay verileri olmalıdır gelir **PartitionKey** değerinin ayarlanmış. Alternatif olarak, bölümlenmiş Gönderenler kullanabilirsiniz. BLOB Depolama için bu olayları aynı bölüm klasöre gönderilir anlamına gelir. Sorgu mantığınızı aynı sorgu örneği tarafından işlenmek üzere aynı anahtarı gerektirmiyorsa, bu gereksinim yoksayabilirsiniz. Bu mantık örneği basit bir select proje filtresi sorgu olacaktır.  
 
 2. Veriler giriş tarafında düzenlendiğini sonra sorgunuzu bölümlenen emin olmanız gerekir. Bu kullanmanızı gerektirir **bölüm tarafından** tüm adımda. Birden çok adımı izin verilir, ancak bunların tümü aynı anahtar ile bölümlenmiş olması gerekir. Bölümleme anahtarı şu anda ayarlanmalıdır **PartitionID** tam olarak paralel olarak iş için sırayla.  
 
@@ -66,6 +58,7 @@ Bir *utandırıcı derecede paralel* iş Azure akış analizi sahibiz en ölçek
 
    * 8 olay hub'ı giriş bölümleri ve 8 olay hub'ı bölümleri çıkış
    * 8 olay hub'ı giriş bölümleri ve blob depolama çıktı  
+   * 8 IOT hub giriş bölümleri ve 8 olay hub'ı çıkış bölümleri
    * 8 blob depolama giriş bölümleri ve blob depolama çıkış  
    * Depolama giriş bölümleri ve 8 olay hub'ı çıkış bölümleri 8 blob  
 

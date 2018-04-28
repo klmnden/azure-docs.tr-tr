@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure üzerinde sanal makine öğrenme derin sağlama 
 
@@ -44,9 +44,9 @@ DLVM AI Microsoft Bilişsel araç seti, TensorFlow, Keras, Caffe2, bağlayıcı 
       6. **Konum**: en uygun olan veri merkezi seçin. Genellikle verilerinizden en iyi veya en yakın fiziksel konumunuza en hızlı ağ erişimi için veri merkezi olur. 
       
 > [!NOTE]
-> DLVM Azure NC-serisi GPU VM örneklerinde sağlandıktan sonra Gpu'lara sahip Azure konumlardan birini seçmeniz gerekir. Şu anda GPU VM'ye sahip konumlardır: **Doğu ABD, Kuzey Orta ABD, Orta Güney ABD, Batı ABD 2, Kuzey Avrupa, Batı Avrupa**. En son listesi için denetleme [Azure ürünleri bölge sayfası tarafından](https://azure.microsoft.com/en-us/regions/services/) ve Ara **NC-serisi** altında **işlem**. 
+> DLVM tüm NC ve ND serisi GPU VM örnekleri destekler. DLVM sağlamada Gpu'lara sahip Azure konumlardan birini seçmeniz gerekir. Denetleyin [Azure ürünleri bölge sayfası tarafından](https://azure.microsoft.com/regions/services/) sayfasında kullanılabilir konumlarını ve Ara **NC-serisi**, **NCv2-serisi**, **NCv3-serisi** , veya **ND-serisi** altında **işlem**. 
 
-   2. **Ayarları**: işlev gereksinimi ve maliyet kısıtlamaları karşılayan NC-serisi GPU sanal makine boyutu birini seçin. VM için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Ayarları**: NC serisi (NC, NCv2, NCv3) veya işlev gereksinimi ve maliyet kısıtlamaları karşılayan, ND serisi GPU sanal makine boyutlarını birini seçin. VM için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Özet**: girdiğiniz tüm bilgiler doğru olduğundan emin olun.
    5. **Satın**: tıklatın **satın** sağlama başlatmak için. Bağlantı işlem koşullarını sağlanır. VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 

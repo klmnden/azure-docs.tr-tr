@@ -1,11 +1,11 @@
 ---
-title: "Günlük analizi VMware izleme çözümünde | Microsoft Docs"
-description: "Nasıl VMware izlemesi çözümü günlüklerini yönetmek ve ESXi konakları izlemenize yardımcı olabilir hakkında bilgi edinin."
+title: Günlük analizi VMware izleme çözümünde | Microsoft Docs
+description: Nasıl VMware izlemesi çözümü günlüklerini yönetmek ve ESXi konakları izlemenize yardımcı olabilir hakkında bilgi edinin.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Günlük analizi çözümüne VMware izleme (Önizleme)
 
 ![VMware simgesi](./media/log-analytics-vmware/vmware-symbol.png)
+
+> [!NOTE]
+> VMware izlemesi çözümü kullanım dışı bırakıldı.  Çözüm'i zaten yüklemiş olan müşterilerin kullanmaya devam edebilirsiniz, ancak VMware izleme için yeni bir çalışma alanı eklenemez.
 
 Günlük analizi VMware izleme çözümde, Merkezi günlük kaydı ve büyük VMware günlükleri için izleme yaklaşımı oluşturmanıza yardımcı olan bir çözümdür. Bu makalede nasıl sorun giderme, yakalama ve çözümü kullanarak tek bir konumda ESXi konaklarının açıklanmaktadır. Çözümü ile tek bir konumda tüm ESXi konakları için ayrıntılı veriler görebilirsiniz. Üst olay sayısı, durumu ve eğilimleri ESXi ana günlükleri ile sağlanan VM ve ESXi konakları görebilirsiniz. Görüntüleme ve merkezi ESXi ana günlüklerini arama giderebilirsiniz. Ve günlük arama sorgularına dayalı uyarılar oluşturabilirsiniz.
 

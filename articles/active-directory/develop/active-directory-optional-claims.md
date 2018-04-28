@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
+ms.date: 04/24/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f87487c4ee56ae90eb5825b0e77610fac73bd3fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı Taleplerde Azure AD (Önizleme)
 
@@ -53,7 +53,7 @@ Hedeflerinden biri [Azure AD v2.0 uç](active-directory-appmodel-v2-overview.md)
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `auth_time`                | Zaman zaman son kullanıcı için kimlik doğrulaması.  Bkz: Openıd Connect belirtimi.                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `signin_state`             | Oturum durumu talep                                                                                                                                                                             | JWT        |           | dönüş değerleri bayrak olarak 6:<br> "dvc_mngd": Device is managed<br> "dvc_cmp": cihaz uyumlu<br> "dvc_dmjd": cihaz, etki alanına katılmış<br> "dvc_mngd_app": cihaz MDM ile yönetilen<br> "inknownntwk": içinde bilinen bir ağda aygıttır.<br> "kmsi": Koru bana imzalı içinde kullanıldı. <br> |
+| `signin_state`             | Oturum durumu talep                                                                                                                                                                             | JWT        |           | dönüş değerleri bayrak olarak 6:<br> "dvc_mngd": cihaz yönetilir<br> "dvc_cmp": cihaz uyumlu<br> "dvc_dmjd": cihaz, etki alanına katılmış<br> "dvc_mngd_app": cihaz MDM ile yönetilen<br> "inknownntwk": içinde bilinen bir ağda aygıttır.<br> "kmsi": Koru bana imzalı içinde kullanıldı. <br> |
 | `controls`                 | Birden çok değerli talep koşullu erişim ilkeleri tarafından zorlanan oturum denetimleri içeren.                                                                                                       | JWT        |           | 3 değerler:<br> "app_res": uygulamanın daha ayrıntılı sınırlamalar zorlamak için gerekir. <br> "ca_enf": koşullu erişim zorlama ertelendi ve yine de gereklidir. <br> "no_cookie": Bu belirteç exchange tarayıcıda tanımlama bilgisi için yeterli değil. <br>                              |
 | `home_oid`                 | Konuk kullanıcılar için kullanıcının ev Kiracı Kullanıcı nesne kimliği.                                                                                                                           | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `sid`                      | Oturum başına kullanıcı signout için kullanılan oturum kimliği.                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
@@ -65,7 +65,9 @@ Hedeflerinden biri [Azure AD v2.0 uç](active-directory-appmodel-v2-overview.md)
 | `fwd`                      | IP adresi.  İstekte bulunan istemci (içinde olduğunda VNET) özgün IPv4 adresini ekler                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Kullanıcının ülke                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Kaynak kiracının ülke                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | Kiracı kullanıcılar hesap durumu.  Kullanıcı Kiracı üyesi ise, değer `0`.  Bir konuk olmaları durumunda değerdir `1`.  | JWT, SAML | | |
 | `upn`                      | UserPrincipalName talep.  Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. | JWT, SAML  |           | Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>V2.0 isteğe bağlı talepleri
 Bu talepler her zaman v1.0 belirteçleri dahil, ancak v2.0 belirteçlerinden istenen sürece kaldırılır.  Bu talep yalnızca (kimliği belirteçleri ve erişim belirteçleri) Jwt'ler için geçerlidir.  
 
@@ -79,8 +81,8 @@ Bu talepler her zaman v1.0 belirteçleri dahil, ancak v2.0 belirteçlerinden ist
 | `pwd_url`     | Parola URL'yi Değiştir             | Kullanıcı parolasını değiştirmek için ziyaret edebileceği bir URL.                                                                        |       |
 | `in_corp`     | İç şirket ağı        | İstemcinin kurumsal ağ üzerinden oturum açmayı olmadığını bildirir. Değilse, talep dahil değildir                     |       |
 | `nickname`    | Takma adı                        | Kullanıcı için ek bir ad veya Soyadı adından ayırın.                                                             |       |                                                                                                                |       |
-| `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adını Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name":"Miller" |       |
-| `given_name`  | Ad                      | İlk sağlar ya da "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Frank"                   |       |
+| `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adını Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" |       |
+| `given_name`  | Ad                      | İlk sağlar ya da "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı talepler ek özellikler
 

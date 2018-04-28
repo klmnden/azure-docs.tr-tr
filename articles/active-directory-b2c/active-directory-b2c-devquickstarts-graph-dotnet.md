@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API kullanın
 
@@ -29,16 +29,16 @@ B2C kiracılar için grafik API'si ile iletişim iki birincil modu mevcuttur.
 * Görevleri gerçekleştirdiğinizde etkileşimli, bir kez çalıştır görevler için bir yönetici hesabı B2C Kiracı olarak işlem yapmalıdır. Bu modu yönetici, yönetici grafik API'si yapılan her çağrı gerçekleştirmeden önce kimlik bilgileriyle oturum gerektirir.
 * Otomatik, sürekli görevleri için bazı yönetim görevlerini gerçekleştirmek için gerekli ayrıcalıklara sağladığınız hizmet hesabı türünü kullanmanız gerekir. Azure AD'de uygulama kaydetme ve Azure AD ile kimlik doğrulaması tarafından bunu yapabilirsiniz. Bu kullanılarak yapılır bir **uygulama kimliği** kullanan [OAuth 2.0 istemci kimlik bilgileri vermenizi](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Bu durumda, uygulama grafik API'sini çağırmak için bir kullanıcı değil, olarak kendisini olarak görev yapar.
 
-Bu makalede, biz otomatik kullanım örneğini gerçekleştirmek nasıl ele alacağız. Göstermek için size bir .NET 4.5 yapı `B2CGraphClient` gerçekleştiren kullanıcı oluşturma, okuma, güncelleştirme ve Sil (CRUD) işlemleridir. İstemci, bir Windows komut satırı çeşitli yöntemlerini çağırmasına izin veren arabirimi (CLI) sahip olacaktır. Bununla birlikte, kod etkileşimsiz, otomatik bir şekilde davranmasına yazılır.
+Bu makalede, otomatik kullanım örneğini gerçekleştirmek öğrenin. .NET 4.5 oluşturacağınız `B2CGraphClient` gerçekleştiren kullanıcı oluşturma, okuma, güncelleştirme ve Sil (CRUD) işlemleridir. İstemci, bir Windows komut satırı çeşitli yöntemlerini çağırmasına izin veren arabirimi (CLI) sahip olacaktır. Bununla birlikte, kod etkileşimsiz, otomatik bir şekilde davranmasına yazılır.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Bir Azure AD B2C kiracısı edinme
-Uygulama veya kullanıcıların oluşturabilir veya Azure AD ile etkileşimde önce Azure AD B2C Kiracı ve Kiracı genel Yönetici hesabında gerekir. Zaten bir kiracı yoksa [Azure AD B2C ile çalışmaya başlama](active-directory-b2c-get-started.md).
+Uygulama veya kullanıcıların oluşturabilmeniz için önce Azure AD B2C kiracısı gerekir. Zaten bir kiracı yoksa [Azure AD B2C ile çalışmaya başlama](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Kiracınızda uygulamanızı kaydetme
-B2C Kiracı aldıktan sonra aracılığıyla uygulamanızı kaydetmeniz gerekir [Azure Portal](https://portal.azure.com).
+B2C Kiracı aldıktan sonra kullanarak uygulamanızı kaydetmeniz gerekir [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Grafik API'si B2C kiracınızın kullanmak için genel kullanarak özel bir uygulamayı kaydetme gerekecektir *uygulama kayıtlar* Azure Portal menüsünde **değil** Azure AD B2C'in  *Uygulamaları* menüsü. Azure AD B2C'de 's kayıtlı zaten varolan B2C uygulamaları tekrar kullanamazsınız *uygulamaları* menüsü.
+> Grafik API'si B2C kiracınızın kullanmak için bir uygulama kullanarak kaydetmeniz gerekir *uygulama kayıtlar* Azure portalında, hizmet **değil** Azure AD B2C'in *uygulamaları*menüsü. Aşağıdaki yönergeler appropropriate menüsüne yol açar. Azure AD B2C'de 's kayıtlı B2C uygulamalarınız tekrar kullanamazsınız *uygulamaları* menüsü.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sayfanın sağ üst köşesinde hesabınızı seçerek Azure AD B2C kiracınızın seçin.
@@ -47,7 +47,8 @@ B2C Kiracı aldıktan sonra aracılığıyla uygulamanızı kaydetmeniz gerekir 
     1. Seçin **Web uygulaması / API** uygulama türü olarak.    
     2. Sağlamak **tüm oturum açma URL'si** (örneğin https://B2CGraphAPI) Bu örnek için uygun değil olarak.  
 5. Uygulama şimdi yukarı uygulamalar listesinde göster elde etmek için **uygulama kimliği** (istemci kimliği olarak da bilinir). Bir sonraki bölümde gereksinim duyacağınız kopyalayın.
-6. Ayarlar menüsünde tıklatın **anahtarları** ve yeni bir anahtar (istemci gizli anahtarı olarak da bilinir) ekleyin. Ayrıca daha sonraki bir bölüme kullanmak için kopyalayın.
+6. Ayarlar menüsünde tıklatın **anahtarları**.
+7. İçinde **parolaları** bölümünde, anahtar açıklama girin ve bir süre seçin ve ardından **kaydetmek**. Daha sonraki bir bölüme kullanmak için anahtar değeri (istemci gizli anahtarı olarak da bilinir) kopyalayın.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Yapılandırma oluşturmak, okumak ve güncelleştirmek, uygulamanız için izinler
 Şimdi oluşturma, okuma, güncelleştirme ve kullanıcıları silmek için gerekli tüm izinleri almak için uygulamanızı yapılandırmanız gerekir.

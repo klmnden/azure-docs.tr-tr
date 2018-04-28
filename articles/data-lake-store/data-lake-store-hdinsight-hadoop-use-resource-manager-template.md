@@ -1,8 +1,8 @@
 ---
-title: "Hdınsight ve Data Lake Store oluşturmak için Azure şablonlarını kullanma | Microsoft Docs"
-description: "Azure Resource Manager şablonları oluşturmak ve Hdınsight kümeleri Azure Data Lake Store ile kullanmak için kullanın"
+title: Hdınsight ve Data Lake Store oluşturmak için Azure şablonlarını kullanma | Microsoft Docs
+description: Azure Resource Manager şablonları oluşturmak ve Hdınsight kümeleri Azure Data Lake Store ile kullanmak için kullanın
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bc20504865fa59cafc199305f9810fb4c3d99524
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak Data Lake Store ile Hdınsight kümesi oluşturma
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Yukarıda belirtilen bağlantı yönergeleri PowerShell gerektirir. Bu yönergel
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription
@@ -80,7 +80,7 @@ Karşıya yüklediğiniz örnek veriler Hdınsight kümeden erişilebilir olduğ
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Data Lake Store kullanacak şekilde Hdınsight kümesinde test işleri çalıştırma
 Hdınsight kümesi yapılandırdıktan sonra Hdınsight kümesi Data Lake Store erişebilmesini test etmek için kümede test işleri çalıştırabilirsiniz. Bunu yapmak için Data Lake Store için daha önce yüklenen örnek verileri kullanarak bir tablo oluşturur bir örnek Hive işi çalışır.
 
-Bu bölümde, SSH Hdınsight Linux kümesi ve Çalıştır halinde olacak örnek Hive sorgusu. Windows istemcisi kullanıyorsanız, kullanmanızı öneririz **PuTTY**, hangi adresinden yüklenebilir [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Bu bölümde, SSH Hdınsight Linux kümesi ve Çalıştır halinde olacak örnek Hive sorgusu. Windows istemcisi kullanıyorsanız, kullanmanızı öneririz **PuTTY**, hangi adresinden yüklenebilir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 PuTTY kullanma hakkında daha fazla bilgi için bkz: [Windows'dan hdınsight'ta Linux tabanlı Hadoop ile SSH kullanma ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -116,7 +116,7 @@ PuTTY kullanma hakkında daha fazla bilgi için bkz: [Windows'dan hdınsight'ta 
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>HDFS komutları kullanarak erişim Data Lake Store
 Hdınsight kümesi Data Lake Store kullanacak şekilde yapılandırdıktan sonra deposuna erişim için HDFS kabuk komutlarını kullanabilirsiniz.
 
-Bu bölümde bir Hdınsight Linux SSH olacak küme ve HDFS komutları çalıştırın. Windows istemcisi kullanıyorsanız, kullanmanızı öneririz **PuTTY**, hangi adresinden yüklenebilir [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Bu bölümde bir Hdınsight Linux SSH olacak küme ve HDFS komutları çalıştırın. Windows istemcisi kullanıyorsanız, kullanmanızı öneririz **PuTTY**, hangi adresinden yüklenebilir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 PuTTY kullanma hakkında daha fazla bilgi için bkz: [Windows'dan hdınsight'ta Linux tabanlı Hadoop ile SSH kullanma ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

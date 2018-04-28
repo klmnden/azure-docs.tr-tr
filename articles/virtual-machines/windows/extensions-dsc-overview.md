@@ -7,7 +7,7 @@ author: mgreenegit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-keywords: dsc
+keywords: DSC
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure istenen durum yapılandırması uzantısı işleyici giriş
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 Azure VM aracısı ve ilişkili uzantıları Microsoft Azure altyapı hizmetleri parçasıdır. VM uzantıları, VM işlevselliğini genişleten ve çeşitli VM yönetim işlemlerini basitleştirmek yazılım bileşenleridir.
 
-Azure istenen durum yapılandırması (DSC) uzantısı için bir VM bootstrap için birincil kullanım örneği [Azure Otomasyonu DSC hizmet](../../automation/automation-dsc-overview.md). Bir VM önyükleme sağlar [avantajları](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service) VM yapılandırması ve Azure Monitoring gibi işletimsel diğer araçları ile tümleştirme devam eden Yönetimi içerir.
+Azure istenen durum yapılandırması (DSC) uzantısı için bir VM bootstrap için birincil kullanım örneği [Azure Otomasyonu DSC hizmet](../../automation/automation-dsc-overview.md). Bir VM önyükleme sağlar [avantajları](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service) VM yapılandırması ve Azure Monitoring gibi işletimsel diğer araçları ile tümleştirme devam eden Yönetimi içerir.
 
 DSC uzantı Automation DSC hizmet bağımsız olarak kullanabilirsiniz. Ancak, bu dağıtımı sırasında oluşan bir tekil eylemi içerir. Devam eden raporlama veya yapılandırma yönetimi VM yerel olarak dışında kullanılabilir.
 
@@ -49,7 +49,7 @@ Bu kılavuz aşağıdaki kavramlar bilindiğini varsayar:
 
 ## <a name="architecture"></a>Mimari
 
-Azure DSC uzantısı Azure VM Aracısı framework teslim etmek, yürürlüğe ve DSC yapılandırmaları Azure Vm'lerinde çalıştırılan raporlamak için kullanır. DSC uzantısı yapılandırma belge ve parametreleri kümesini kabul eder. Hiçbir dosya sağlanırsa, bir [varsayılan yapılandırma komut dosyası](#default-configuration-script) uzantısıyla katıştırılır. Varsayılan yapılandırma komut dosyası yalnızca meta veri kümesi için kullanılan [yerel Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
+Azure DSC uzantısı Azure VM Aracısı framework teslim etmek, yürürlüğe ve DSC yapılandırmaları Azure Vm'lerinde çalıştırılan raporlamak için kullanır. DSC uzantısı yapılandırma belge ve parametreleri kümesini kabul eder. Hiçbir dosya sağlanırsa, bir [varsayılan yapılandırma komut dosyası](#default-configuration-script) uzantısıyla katıştırılır. Varsayılan yapılandırma komut dosyası yalnızca meta veri kümesi için kullanılan [yerel Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig).
 
 Uzantı ilk kez çağrıldığında, aşağıdaki mantık kullanarak WMF sürümünü yükler:
 
@@ -61,7 +61,7 @@ WMF yüklemek için yeniden başlatma gerekir. Yeniden başlattıktan sonra beli
 
 ### <a name="default-configuration-script"></a>Varsayılan yapılandırma betiği
 
-Azure DSC uzantısı olmaya yönelik bir varsayılan yapılandırma betiğini içerir kullanılır, yerleşik bir Azure Otomasyonu DSC hizmet VM. Betik parametrelerini yapılandırılabilir özellikleriyle hizalanır [yerel Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). Komut parametreleri için bkz: [varsayılan yapılandırma komut dosyası](extensions-dsc-template.md#default-configuration-script) içinde [istenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile](extensions-dsc-template.md). Tam komut dosyası için bkz: [github'da Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+Azure DSC uzantısı olmaya yönelik bir varsayılan yapılandırma betiğini içerir kullanılır, yerleşik bir Azure Otomasyonu DSC hizmet VM. Betik parametrelerini yapılandırılabilir özellikleriyle hizalanır [yerel Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig). Komut parametreleri için bkz: [varsayılan yapılandırma komut dosyası](extensions-dsc-template.md#default-configuration-script) içinde [istenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile](extensions-dsc-template.md). Tam komut dosyası için bkz: [github'da Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC uzantı Resource Manager şablonları
 

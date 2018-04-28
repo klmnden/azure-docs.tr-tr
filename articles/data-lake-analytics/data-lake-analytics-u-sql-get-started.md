@@ -1,8 +1,8 @@
 ---
-title: "U-SQL dili ile çalışmaya başlama | Microsoft Docs"
-description: "U-SQL dili temellerini öğrenin."
+title: U-SQL dili ile çalışmaya başlama | Microsoft Docs
+description: U-SQL dili temellerini öğrenin.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>U-SQL ile çalışmaya başlama
 Bildirim temelli SQL kesinlik temelli izin için C# ile birleştiren bir dil olan U-SQL işlem herhangi ölçeğinde veri. U-SQL'nin ölçeklenebilir, dağıtılmış sorgu özelliği, Azure SQL veritabanı gibi ilişkisel depoları arasında veri verimli bir şekilde çözümleyebilirsiniz. U-SQL ile yapılandırılmamış veriler üzerinde okuma şema uygulama ve Özel mantık ve UDF'ler ekleme işleyebilir. Ayrıca, U-SQL ölçekte yürütmek nasıl üzerinde ayrıntılı denetim sağlar genişletilebilirlik içerir. 
@@ -29,7 +29,7 @@ Bildirim temelli SQL kesinlik temelli izin için C# ile birleştiren bir dil ola
 * Hakkında ayrıntılı bilgi için **U-SQL dili sözdizimi**, bkz: [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Anlamak için **U-SQL tasarımı felsefesi**, Visual Studio blog gönderisine bakın [Tanıtımı U-SQL – büyük veri işleme kolaylaştırır bir dil](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu belgedeki U-SQL örnekleri üzerinden geçmeden önce okuyun ve tamamlamak [öğretici: Visual Studio için Data Lake Araçları'nı kullanarak geliştirme U-SQL betikleri](data-lake-analytics-data-lake-tools-get-started.md). Bu öğretici, U-SQL Visual Studio için Azure Data Lake araçları ile kullanarak mekanizması açıklanmaktadır.
 
@@ -60,8 +60,8 @@ Soru işareti yazın veri yanındaki fark `Duration` alan. Bu anlamına gelir `D
 
 ### <a name="key-concepts"></a>Önemli kavramlar
 * **Satır kümesi değişkenleri**: satır üreten her sorgu deyimi bir değişkene atanabilir. U-SQL T-SQL değişken adlandırma deseni izler (`@searchlog`, örneğin) komut dosyası.
-* **AYIKLAMAK** anahtar sözcüğü bir dosyadan veri okuyan ve şema üzerinde okuma tanımlar. `Extractors.Tsv`Sekme ayrılmış değer dosyaları için yerleşik bir U-SQL Ayıklayıcısı ' dir. Özel ayıklayıcıları geliştirebilirsiniz.
-* **Çıkış** verileri bir satır kümesinden bir dosyaya yazar. `Outputters.Csv()`bir virgülle ayrılmış değer dosyası oluşturmak için yerleşik bir U-SQL outputter olur. Özel outputters geliştirebilirsiniz.
+* **AYIKLAMAK** anahtar sözcüğü bir dosyadan veri okuyan ve şema üzerinde okuma tanımlar. `Extractors.Tsv` Sekme ayrılmış değer dosyaları için yerleşik bir U-SQL Ayıklayıcısı ' dir. Özel ayıklayıcıları geliştirebilirsiniz.
+* **Çıkış** verileri bir satır kümesinden bir dosyaya yazar. `Outputters.Csv()` bir virgülle ayrılmış değer dosyası oluşturmak için yerleşik bir U-SQL outputter olur. Özel outputters geliştirebilirsiniz.
 
 ### <a name="file-paths"></a>Dosya yolları
 
@@ -226,7 +226,7 @@ U-SQL sahip yan tümcesi, çıkış HAVING koşulu karşılıyor gruplarına kı
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Gelişmiş toplama senaryoları için U-SQL başvuru belgelerine bakın [toplama, çözümleme ve başvuru işlevleri](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+Gelişmiş toplama senaryoları için U-SQL başvuru belgelerine bakın [toplama, çözümleme ve başvuru işlevleri](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)

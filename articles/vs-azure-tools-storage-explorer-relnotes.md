@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure Storage Gezgini (Önizleme) sürüm notları"
-description: "Microsoft Azure Storage Gezgini (Önizleme) için sürüm notları"
+title: Microsoft Azure Storage Gezgini sürüm notları
+description: Microsoft Azure Storage Gezgini için sürüm notları
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: MT
+ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage Gezgini (Önizleme) sürüm notları
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Gezgini sürüm notları
 
 Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
 
-[Microsoft Azure Storage Gezgini (Önizleme)](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
+[Microsoft Azure Storage Gezgini](./vs-azure-tools-storage-manage-with-storage-explorer.md) , Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
 ## <a name="version-096"></a>Sürüm 0.9.6
-02/28/2018
+28/02/2018
 
 ### <a name="download-azure-storage-explorer-096-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.6 indirin
 - [Windows için Azure Storage Gezgini 0.9.6 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
@@ -92,7 +92,7 @@ Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler i�
 * [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Sürüm 0.9.5
-02/06/2018
+06/02/2018
 
 ### <a name="download-azure-storage-explorer-095-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.5 indirin
 - [Windows için Azure Storage Gezgini 0.9.5 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
@@ -146,7 +146,7 @@ Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler i�
     ```
 
 ## <a name="version-094-and-093"></a>Sürüm 0.9.4 ve 0.9.3
-01/21/2018
+21/01/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.4 indirin
 * [Windows Azure Depolama Gezgini (Önizleme) 0.9.4 indirin](https://go.microsoft.com/fwlink/?LinkId=809306)
@@ -198,7 +198,7 @@ Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler i�
 ## <a name="version-092"></a>Sürüm 0.9.2
 11/01/2017
 
-### <a name="hotfixes"></a>Hotfixes
+### <a name="hotfixes"></a>Düzeltmeleri
 * Beklenmeyen veri değişikliklerini Edm.DateTime değerlerini yerel saat dilimine bağlı olarak tablo varlıklar için düzenlerken mümkün. Düzenleyici bir düz metin kutusu Edm.DateTime değerleri üzerinde kesin, tutarlı denetim vermiş olarak kullanır.
 * Bir grup adı ve anahtarı eklendiğinde BLOB karşıya yükleme/indirme başlatılmayacaktır. Bu düzeltilmiştir.
 * Daha önce Depolama Gezgini yalnızca eski hesabı varsa kimlik doğrulamaya ister veya daha fazla hesabın abonelikleri seçilmedi. Hesabı tamamen filtrelenmelidir olsa bile artık Depolama Gezgini ister.

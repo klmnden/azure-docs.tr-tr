@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı | Microsoft Docs"
-description: "SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı"
+title: SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı | Microsoft Docs
+description: SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8e8f1bc6f43c78e500e198a222fd29051138505
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -237,7 +237,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -290,7 +290,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -793,7 +793,7 @@ Bir etki alanı mümkün değilse, bir sertifika uç noktalar burada açıkland�
 
 Veritabanı yansıtma Azure ayarlamak için bir öğretici şurada bulunabilir: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
-#### <a name="sql-server-always-on"></a>SQL Server Always On
+#### <a name="sql-server-always-on"></a>SQL Server her zaman açık
 SAP şirket içi için her zaman açık desteklendiğinden (SAP nota bakın [1772688]), SAP Azure ile birlikte kullanılacak desteklenir. Paylaşılan diskler oluşturmak mümkün olmadığını olgu biri farklı VM'ler arasında bir her zaman üzerinde Windows Server Yük devretme kümesi (WSFC) yapılandırması oluşturulamıyor anlamına gelmez. Bu, yalnızca paylaşılan disk küme yapılandırmasında bir çekirdek olarak kullanma olasılığını olmadığını anlamına gelir. Bu nedenle Azure üzerinde her zaman WSFC yapılandırmasında oluşturun ve paylaşılan disk yararlanan çekirdek türü seçin. Azure ortamı bu VM'lerin Çöz ada göre VM'ler ve sanal makineleri aynı etki alanında olmalıdır dağıtılır. Bu seçenek, yalnızca Azure ve şirket içi dağıtımları için geçerlidir. SQL Server kullanılabilirlik grubu dinleyicisini (Azure kullanılabilirlik kümesi ile kafası olarak değil) dağıtma geçici bazı özel durumlar vardır bu yana Azure bu anda içi mümkün olduğu gibi bir AD/DNS nesnesi oluşturmak için izin vermez. Bu nedenle, bazı farklı yükleme adımlarını Azure belirli davranışını üstesinden gelmek gereklidir.
 
 Bir kullanılabilirlik grubu dinleyicisi kullanarak bazı noktalar şunlardır:
@@ -810,18 +810,18 @@ Bir kullanılabilirlik grubu dinleyicisi kullanarak bazı noktalar şunlardır:
 
 [comment]: <> (Yapılacaklar eski blogu)
 [comment]: <> (Ayrıntılı adımlar ve Azure üzerinde bir AlwaysOn yapılandırmasını yükleme necessities öğreticide kullanılabilir [here][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups] taramasını olduğunda en iyi karşılaştı)
-[comment]: <> (AlwaysOn kurulumuna Azure galerisinde üzerinden önceden yapılandırılmış < https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (AlwaysOn kurulumuna Azure galerisinde üzerinden önceden yapılandırılmış <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (Bir kullanılabilirlik grubu dinleyicisi oluşturma [this][virtual-machines-windows-classic-ps-sql-int-listener] öğreticide en iyi açıklanan)
 [comment]: <> (Güvenliğini sağlama ağ uç nokta ACL'leri ile en iyi burada açıklanmıştır:)
-[comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comment]: <> (* < https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
-[comment]: <> (* < https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
-[comment]: <> (* < https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
+[comment]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
 Farklı Azure bölgeleri de bir SQL Server her zaman üzerinde kullanılabilirlik grubu dağıtmak mümkündür. Bu işlev Azure VNet-Vnet bağlantısı yararlanır ([daha fazla ayrıntı][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (Yapılacaklar eski blogu)
-[comment]: <> (SQL Server AlwaysOn Kullanılabilirlik grupları Kurulum böyle bir senaryoda burada açıklanan: < https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (SQL Server AlwaysOn Kullanılabilirlik grupları Kurulum böyle bir senaryoda burada açıklanan: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>SQL Server yüksek kullanılabilirlik Azure özeti
 Azure Storage içeriği koruduğu gerçeği göz önüne alındığında, etkin bekleme görüntüde ısrar için daha az bir neden yoktur. Başka bir deyişle, yalnızca aşağıdaki durumlarda karşı korumak yüksek kullanılabilirlik senaryonuz gerekir:
@@ -923,9 +923,9 @@ Olarak şirket içi sistemlerle birkaç adım DBACockpit Webdynpro uygulaması t
 
 ve işlem içinde oluşturulan bağlantılar DBACockpit şuna benzer:
 
-> https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https://`<fullyqualifiedhostname`>: sap/44300/bc/sap/webdynpro/dba_cockpit
 > 
-> http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http://`<fullyqualifiedhostname`>: sap/8000/bc/sap/webdynpro/dba_cockpit
 > 
 > 
 
@@ -1076,9 +1076,9 @@ Olarak şirket içi sistemlerle birkaç adım DBACockpit Webdynpro uygulaması t
 
 ve işlem içinde oluşturulan bağlantılar DBACockpit için şuna benzer:
 
-> https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https://`<fullyqualifiedhostname`>: sap/44300/bc/sap/webdynpro/dba_cockpit
 > 
-> http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http://`<fullyqualifiedhostname`>: sap/8000/bc/sap/webdynpro/dba_cockpit
 > 
 > 
 
@@ -1365,7 +1365,7 @@ SAP MaxDB veritabanında dosyaları depolamak için SAP içerik sunucusu yapıla
 
 Dosya sistemindeki dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, adanmış bir mantıksal sürücü kullanmak için önerilir. Windows depolama alanları'nı kullanarak sağlar, ayrıca mantıksal disk boyutu ve IOPS verimliliği artırmak bölümde açıklandığı gibi [yazılım RAID][dbms-guide-2.2]. 
 
-#### <a name="sap-content-server-location"></a>SAP Content Server Location
+#### <a name="sap-content-server-location"></a>SAP içerik sunucusu konumu
 SAP içerik sunucusu aynı Azure bölgesinde ve Azure SAP sisteminin dağıtıldığı sanal dağıtılması gerekir. SAP içerik sunucusu bileşenlerini adanmış bir Azure VM veya SAP sistem çalıştığı aynı VM dağıtmak isteyip istemediğinize karar vermek boş. 
 
 ![Azure VM SAP içerik sunucusu için ayrılmış][dbms-guide-figure-800]

@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell kullanarak bir VM için bağlantı noktalarını açmak | Microsoft Docs"
-description: "Bir bağlantı noktasını açmak bir uç noktası, Windows Azure PowerShell ve Azure resource manager dağıtım modunu kullanarak VM oluşturma hakkında bilgi edinin"
+title: Azure PowerShell kullanarak bir VM için bağlantı noktalarını açmak | Microsoft Docs
+description: Bir bağlantı noktasını açmak bir uç noktası, Windows Azure PowerShell ve Azure resource manager dağıtım modunu kullanarak VM oluşturma hakkında bilgi edinin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d9918992ef1ac46b3b000480b6be7e984f0858e1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b8eb36e4abad12cb46493846a024da00f9146d40
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Bağlantı noktaları ve uç noktaları bir VM için Azure PowerShell kullanarak nasıl açılacağı
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -29,7 +29,7 @@ Bir ağ güvenlik grubu oluşturup ACL kuralları ihtiyacınız [Azure PowerShel
 Azure hesabınızda oturum açın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *myNetworkSecurityGroup*, ve *myVnet*.

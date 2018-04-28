@@ -1,6 +1,6 @@
 ---
-title: "Azure, dinamik envanterleri yönetmek için Ansible kullanın"
-description: "Azure, dinamik envanterleri yönetmek için Ansible kullanmayı öğrenin"
+title: Azure, dinamik envanterleri yönetmek için Ansible kullanın
+description: Azure, dinamik envanterleri yönetmek için Ansible kullanmayı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, dinamik stok
 author: tomarcher
@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f29f4ec64b79738cae2ad684610f4817739825a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible kullanın
 Ansible (bulut kaynakları Azure gibi dahil) çeşitli kaynaklardan Envanter bilgilerine pull için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure bulut Kabuk](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makineleri birini etiketi ve Nginx etiketli sanal makineye yükleyin.
@@ -27,7 +27,7 @@ Ansible (bulut kaynakları Azure gibi dahil) çeşitli kaynaklardan Envanter bil
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. Açık [bulut Kabuk](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+1. Açık [bulut Kabuk](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Bu öğretici için sanal makineleri tutmak için bir Azure kaynak grubu oluşturun.
 

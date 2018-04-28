@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 642b27405c703aa7a30d9fc544009d70b5d1b2df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve uyarı kurallarında günlük analizi REST API ile yönetme
 Günlük analizi uyarı REST API, uyarıları Operations Management Suite (OMS) oluşturma ve yönetme olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve çeşitli örnekler ayrıntıları sağlar.
@@ -101,7 +101,7 @@ Tüm eylemler aşağıdaki tabloda özelliklere sahip.  Farklı türde bir uyar�
 ### <a name="retrieving-actions"></a>Eylemler Alınıyor
 
 > [!NOTE]
-> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Tüm eylemler için bir zamanlama almak için Get yöntemini kullanın.
 
@@ -124,7 +124,7 @@ Aşağıdaki bölümlerde bu örnekler verilmiştir için yeni bir eylem oluştu
 ### <a name="deleting-actions"></a>Eylemler siliniyor
 
 > [!NOTE]
-> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Delete yöntemi eylem Kimlikli bir eylem silmek için kullanın.
 
@@ -216,7 +216,7 @@ Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir önem der
 #### <a name="action-groups"></a>Eylem Grupları
 Azure, içindeki tüm uyarılar Eylemler işlemek için varsayılan bir mekanizma olarak eylem grubu kullanın. Eylem grubuyla eylemlerinizi bir kez belirtin ve sonra Azure arasında birden çok uyarı - eylem grubuna ilişkilendirebilirsiniz. Sürekli olarak aynı eylemleri tekrar tekrar bildirme gerek olmadan. Eylem grupları birden çok eylem - e-posta, SMS, sesli arama, ITSM bağlantı, Otomasyon Runbook'u, Web kancası URI ve benzeri destekler. 
 
-Kimin uyarılarını Azure'da - genişletilmiş kullanıcının için bir zamanlama artık bir uyarı oluşturmak için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon Ayrıntılar ve diğer eylemleri olması gereken taraftaki ilk önce bir uyarı; oluşturma bir eylem grubu tanımlanmış bir oluşturabilir [eylem Azure İzleyicisi grubundan](../monitoring-and-diagnostics/monitoring-action-groups.md) portalında veya kullanım [eylem Grup API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+Kimin uyarılarını Azure'da - genişletilmiş kullanıcının için bir zamanlama artık bir uyarı oluşturmak için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon Ayrıntılar ve diğer eylemleri olması gereken taraftaki ilk önce bir uyarı; oluşturma bir eylem grubu tanımlanmış bir oluşturabilir [eylem Azure İzleyicisi grubundan](../monitoring-and-diagnostics/monitoring-action-groups.md) portalında veya kullanım [eylem Grup API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Bir uyarı eylem grubu ilişkisini eklemek için uyarı tanımında eylem grubunu benzersiz Azure Resource Manager Kimliğini belirtin. Bir örnek gösterim aşağıda verilmiştir:
 
@@ -322,7 +322,7 @@ Put yöntemini var olan bir eylem kimliği ile bir zamanlama için ilişkili bir
 E-posta bildirimleri bir veya daha fazla alıcıya posta gönderin.  Aşağıdaki tabloda özellikleri içerirler.
 
 > [!NOTE]
-> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için e-posta bildirimi gibi eylemleri artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için e-posta bildirimi gibi eylemleri artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Özellik | Açıklama |
@@ -366,7 +366,7 @@ Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir e-posta e
 Düzeltmeler, Azure automation'da uyarı tarafından tanımlanan sorunu düzeltmeye çalışır bir runbook başlatın.  Bir düzeltme eylemi kullanılan runbook için bir Web kancası oluşturun ve ardından URI WebhookUri özelliğinde belirtmeniz gerekir.  OMS konsolunu kullanarak bu eylemi oluşturduğunuzda, yeni bir Web kancası runbook için otomatik olarak oluşturulur.
 
 > [!NOTE]
-> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için runbook kullanarak düzeltme gibi eylemleri artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için runbook kullanarak düzeltme gibi eylemleri artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Düzeltmeler aşağıdaki tabloda özellikleri içerir.
 
@@ -425,7 +425,7 @@ Yeni bir e-posta Uyarı oluşturmak için tam bir örnek verilmiştir.  Bu eşik
 Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilecek bir yükü sağlayarak bir işlem başlatın.  Azure Otomasyon çalışma kitabı dışındaki işlemler çağırabilir Web kancası için amacı dışında düzeltme eylemleri benzerdir.  Uzak işlem teslim edilecek bir yükü sağlama ek seçeneği de sağlar.
 
 > [!NOTE]
-> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Web kancası gibi eylemleri artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Web kancası gibi eylemleri artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Web kancası eylemleri bir eşik gerekmez ancak bunun yerine bir uyarı eylem bir eşik ile sahip bir zamanlama eklenmelidir.  

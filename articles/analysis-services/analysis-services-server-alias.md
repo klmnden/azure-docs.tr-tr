@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: edd13e9372643769060f43e952737154d812292d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>Diğer sunucu adları
 
@@ -25,7 +25,7 @@ Diğer sunucu adları için iyi şunlardır:
 - Günün farklı zamanlarda farklı sunuculara doğrudan kullanıcılara. 
 - Doğrudan kullanıcılar de farklı bölgelerdeki Azure trafik Yöneticisi kullanırken gibi coğrafi olarak yakın, örnekleri. 
 
-Geçerli bir Azure Analysis Services server adı döndürür herhangi bir HTTP uç nokta bir diğer ad olarak hizmet verebilir.
+Geçerli bir Azure Analysis Services server adı döndürür herhangi bir HTTPS uç nokta bir diğer ad olarak hizmet verebilir. Uç nokta bağlantı noktası 443 üzerinden HTTPS desteklemelidir ve bağlantı noktası URI'de belirtilmemelidir.
 
 ![Bağlantı biçimi kullanarak diğer adı](media/analysis-services-alias/aas-alias-browser.png)
 

@@ -1,13 +1,13 @@
 ---
-title: "SAP çoklu SID yapılandırma oluşturma | Microsoft Docs"
-description: "Yüksek kullanılabilirlik SAP NetWeaver çoklu SID yapılandırma için Windows sanal makineleri Kılavuzu"
+title: SAP çoklu SID yapılandırma oluşturma | Microsoft Docs
+description: Yüksek kullanılabilirlik SAP NetWeaver çoklu SID yapılandırma için Windows sanal makineleri Kılavuzu
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8c49f06719b68c2b3ca6aee4dfb0b90bdbf0afc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 513f10b29e761a191903c4b38c42f10eb6230404
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver çoklu SID yapılandırması oluştur
 
@@ -366,7 +366,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -423,7 +423,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -490,7 +490,7 @@ Altyapınızı hazırlamak için aşağıdaki parametrelerle ek SAP ASCS/SCS ör
 | --- | --- |
 | SAP ASCS/SCS SID |pr1 lb ascs |
 | SAP DBMS iç yük dengeleyici | PR5 |
-| SAP sanal ana bilgisayar adı | pr5-sap-cl |
+| SAP sanal ana bilgisayar adı | pr5 sap cl |
 | SAP ASCS/SCS sanal ana bilgisayar IP adresi (ek Azure yük dengeleyici IP adresi) | 10.0.0.50 |
 | SAP ASCS/SCS örnek sayısı | 50 |
 | Ek SAP ASCS/SCS örnek için ILB araştırmasını bağlantı noktası | 62350 |
@@ -513,7 +513,7 @@ Aşağıdaki parametreleri kullanarak ASCS/SCS örneğinin sanal ana bilgisayar 
 
 | Yeni SAP ASCS/SCS sanal ana bilgisayar adı | İlişkili IP adresi |
 | --- | --- | --- |
-|pr5-sap-cl |10.0.0.50 |
+|pr5 sap cl |10.0.0.50 |
 
 Yeni ana bilgisayar adı ve IP adresi DNS Yöneticisi'nde, aşağıdaki ekran görüntüsünde gösterildiği gibi görüntülenir:
 

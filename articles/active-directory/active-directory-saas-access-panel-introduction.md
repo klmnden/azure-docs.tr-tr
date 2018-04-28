@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory'ye erişim panelinde nedir? | Microsoft Docs"
-description: "(Web tarayıcısı, Android uygulaması, iPhone ve iPad uygulama) SaaS uygulamalara erişmek için erişim paneli varyasyonları kullanmayı öğrenin."
+title: Azure Active Directory'ye erişim panelinde nedir? | Microsoft Docs
+description: (Web tarayıcısı, Android uygulaması, iPhone ve iPad uygulama) SaaS uygulamalara erişmek için erişim paneli varyasyonları kullanmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3c8ea85a0906071d6b30f176de7509e5f346b513
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -50,9 +50,7 @@ Erişim paneli sayfasına giderek erişebilirsiniz `http://myapps.microsoft.com`
 
 Oturum açma sayfanız için yapılandırılan özel marka varsa, URL'sini kuruluşunuzun etki alanı ekleyerek markalama yükleyebilirsiniz (örneğin, `http://myapps.microsoft.com/<your domain>.com`).
 
-Aşağıda gösterildiği gibi Azure portalında yapılandırılmış herhangi bir etkin ya da doğrulanmış etki alanı adını kullanarak şunları yapabilirsiniz:
-
-![Wingtip Toys etki alanı adı][2]  
+Aşağıda gösterildiği gibi Azure portalında yapılandırılmış herhangi bir etkin ya da doğrulanmış etki alanı adını kullanabilirsiniz: ![Wingtip Toys etki alanı adı][2]  
 
 URL Azure AD ile tümleşik uygulamalar için oturum açın, tüm kullanıcılara dağıtın.
 
@@ -75,7 +73,7 @@ Erişim paneli uzantısı için şu anda kullanılabilir:
 - **Kenar**: Windows 10 Anniversary Edition veya sonraki sürümlerde. 
 - **Chrome**: Windows 7 veya daha sonra ve MacOS x veya sonraki sürümlerde.
 - **Firefox 26,0 veya üzeri**: Windows XP SP2 veya daha sonra ve Mac OS X 10.6 veya sonraki sürümlerde.
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 veya üzeri (sınırlı destek).
+- **Internet Explorer 11**: Windows 7 veya üzeri (sınırlı destek).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>My Apps Güvenli Oturum Açma Uzantısı
 Parola tabanlı çoklu oturum açma için oturum açmak için uzantı kullanmanız gerekir. Uzantısı yüklendikten sonra kendisine ek özellikleri seçerek etkinleştirmek oturum açarak **başlamak oturum**. 

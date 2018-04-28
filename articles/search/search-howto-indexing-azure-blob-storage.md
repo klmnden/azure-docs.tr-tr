@@ -1,24 +1,19 @@
 ---
 title: Azure Blob Depolama Azure Search dizini oluşturma
 description: Azure Blob Storage dizin ve Azure Search belgeleri metin Al hakkında bilgi edinin
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 77fac23286d536903e32140b554304e72c16097f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Storage belgelerde dizin oluşturma
 Bu makalede Azure Search dizini belgeler için kullanma gösterilmektedir (PDF gibi Microsoft Office belgelerini ve diğer birçok ortak biçimleri) Azure Blob depolama alanına depolanır. İlk olarak, ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, derin keşif davranışı sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -139,10 +134,10 @@ Bağlı olarak [dizin oluşturucu yapılandırma](#PartsOfBlobToIndex), blob diz
 
   * **meta veri\_depolama\_adı** (Edm.String) - blob dosya adı. Örneğin, bir blob /my-container/my-folder/subfolder/resume.pdf varsa, bu alanın değeri `resume.pdf`.
   * **meta veri\_depolama\_yolu** (Edm.String) - BLOB Depolama hesabı dahil olmak üzere, tam URI. Örneğin, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. Örneğin, `application/octet-stream`.
+  * **meta veri\_depolama\_içerik\_türü** (Edm.String) - içerik blob karşıya yüklemek için kullanılan kod tarafından belirtilen türü. Örneğin, `application/octet-stream`.
   * **meta veri\_depolama\_son\_değiştiren** (Edm.DateTimeOffset) - blob için zaman damgası son değiştirilme tarihi. Azure arama bu zaman damgası her şeyi ilk dizin oluşturma sonrasında yeniden dizin oluşturmaya önlemek için değiştirilmiş BLOB'lar tanımlamak için kullanır.
-  * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
-  * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+  * **meta veri\_depolama\_boyutu** (EDM.Int64) - blob bayt cinsinden boyutu.
+  * **meta veri\_depolama\_içerik\_md5** (Edm.String) - MD5 karma değeri blob içeriğinin varsa.
 * Her belge biçimine özgü meta veriler özellikleri listelenen alanlarına ayıklanan [burada](#ContentSpecificMetadata).
 
 Search dizininizi yukarıdaki tüm özellikler için alanları tanımla - yalnızca uygulamanız için gereksinim duyduğunuz özellikleri yakalama gerekmez.
@@ -372,14 +367,14 @@ Aşağıdaki tabloda her belge biçimi için yapılan işleme özetler ve Azure 
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | DOC (uygulama/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
-| XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
+| XLS (uygulama/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | PPT (uygulama/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | MSG (uygulama/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Metni ekler dahil olmak üzere, ayıklayın |
 | ZIP (uygulama/posta) |`metadata_content_type` |Arşiv tüm belgelerde metin Al |
 | XML (uygulama/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Şerit XML biçimlendirme ve ayıklama metni |
 | JSON (uygulama/json) |`metadata_content_type`</br>`metadata_content_encoding` |Metni ayıklayın<br/>Not: JSON blob üzerinden birden çok belge alanlarını ayıklamak gerekiyorsa, bkz. [dizin JSON BLOB'ların](search-howto-index-json-blobs.md) Ayrıntılar için |
-| EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Metni ekler dahil olmak üzere, ayıklayın |
+| EML (ileti/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Metni ekler dahil olmak üzere, ayıklayın |
 | RTF (uygulama/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Metni ayıklayın|
 | Düz metin (metin/düz) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Metni ayıklayın|
 

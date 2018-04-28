@@ -1,24 +1,22 @@
 ---
-title: "Azure sanal ağlarda HBase kümesi çoğaltma ayarlama | Microsoft Docs"
-description: "HBase çoğaltmadan bir Hdınsight sürüm başka bir Yük Dengeleme, yüksek kullanılabilirlik, sıfır kapalı kalma süresi geçiş ve güncelleştirmeleri ve olağanüstü durum kurtarma için ayarlanacağını öğrenin."
+title: Azure sanal ağlarda HBase kümesi çoğaltma ayarlama | Microsoft Docs
+description: HBase çoğaltmadan bir Hdınsight sürüm başka bir Yük Dengeleme, yüksek kullanılabilirlik, sıfır kapalı kalma süresi geçiş ve güncelleştirmeleri ve olağanüstü durum kurtarma için ayarlanacağını öğrenin.
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda HBase kümesi çoğaltmayı ayarlama
 
@@ -114,7 +112,7 @@ Bazı şablonu sabit kodlanmış değerler:
 | Alt ağ (ağ geçidi) adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ öneki | 10.1.255.0/27 |
 | Ağ geçidi adı | vnet1gw |
-| Ağ geçidi türü | VPN |
+| Geçit türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | ağ geçidi IP | vnet1gwip |
@@ -136,7 +134,7 @@ Bazı şablonu sabit kodlanmış değerler:
 | Alt ağ (ağ geçidi) adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ öneki | 10.2.255.0/27 |
 | Ağ geçidi adı | vnet2gw |
-| Ağ geçidi türü | VPN |
+| Geçit türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | ağ geçidi IP | vnet1gwip |
@@ -255,7 +253,7 @@ Açıklanan aynı yordamı izleyin [çoğaltmasını etkinleştir](#enable-repli
         -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
 
 
-## <a name="disable-replication"></a>Çoğaltma devre dışı bırak
+## <a name="disable-replication"></a>Çoğaltmayı devre dışı bırakma
 
 Çoğaltma devre dışı bırakmak için başka bir komut dosyası eylemi betikten kullanmak [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Açıklanan aynı yordamı izleyin [çoğaltmasını etkinleştir](#enable-replication) betik eylemi çağırmak için. Aşağıdaki parametreleri kullanın:
 

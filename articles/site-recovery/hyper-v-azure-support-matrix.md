@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V çoğaltma Azure için destek matrisi | Microsoft Docs"
-description: "Hyper-V çoğaltma Azure Site Recovery ile azure'a için gereksinimleri ve desteklenen bileşenlerin özetler"
+title: Hyper-V çoğaltma Azure için destek matrisi | Microsoft Docs
+description: Hyper-V çoğaltma Azure Site Recovery ile azure'a için gereksinimleri ve desteklenen bileşenlerin özetler
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V çoğaltma Azure için destek matrisi
 
@@ -87,7 +87,7 @@ Azure sanal ağ hizmet uç noktaları<br/><br/> (Azure depolama güvenlik duvarl
 --- | --- | --- | ---
 NFS | NA | NA
 SMB 3.0 | Evet | Evet
-SAN (ISCSI) | Evet | Evet
+SAN (İSCSI) | Evet | Evet
 Çok yollu (MPIO). İle test edilmiştir:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM CLARiiON için | Evet | Evet
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM Konuk depolama
@@ -97,7 +97,7 @@ SAN (ISCSI) | Evet | Evet
 VMDK | NA | NA
 VHD/VHDX | Evet | Evet
 2. nesil VM | Evet | Evet
-EFI/UEFI| Evet | Evet
+EFI/UEFI'YE| Evet | Evet
 Küme diskini paylaşılan | Hayır | Hayır
 Şifrelenmiş disk | Hayır | Hayır
 NFS | NA | NA
@@ -117,7 +117,7 @@ Diski hariç tutma | Evet | Evet
 **Bileşen** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
 --- | --- | ---
 Yerel olarak yedekli depolama | Evet | Evet
-Coğrafi Olarak Yedekli Depolama | Evet | Evet
+Coğrafi olarak yedekli depolama | Evet | Evet
 Coğrafi olarak yedekli depolamaya okuma erişimi | Evet | Evet
 Seyrek erişimli depolama | Hayır | Hayır
 Sık erişimli depolama| Hayır | Hayır
@@ -170,7 +170,7 @@ Dağıtımınızın bu makaledeki ayarlarla uyumlu olduğundan emin olmak için 
 
 **Ad** | **Açıklama** | **Ayrıntılar**
 --- | --- | --- | --- | ---
-Azure Site kurtarma sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V sanal makine Yöneticisi ile: Sanal Makine Yöneticisi sunucularda yüklü<br/><br/> Hyper-V olmadan Sanal Makine Yöneticisi: Hyper-V ana bilgisayarına yüklü| En son sürümü: 5.1.2700.1 (Azure portalından kullanılabilir)<br/><br/> [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
+Azure Site kurtarma sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V sanal makine Yöneticisi ile: Sanal Makine Yöneticisi sunucularda yüklü<br/><br/> Hyper-V olmadan Sanal Makine Yöneticisi: Hyper-V ana bilgisayarına yüklü| En son sürümü: 5.1.2700.1 (Azure portalından kullanılabilir)<br/><br/> [En son özellikleri ve düzeltmeleri](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V sanal makineleri ve Azure arasında çoğaltma koordinatları<br/><br/> Şirket içi Hyper-V sunucuları (veya ile olmadan Sanal Makine Yöneticisi) yüklü | En son aracı portaldan kullanılabilir
 
 

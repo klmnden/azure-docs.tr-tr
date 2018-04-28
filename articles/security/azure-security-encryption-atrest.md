@@ -3,7 +3,7 @@ title: Microsoft Azure veri şifreleme çalışmıyorken-| Microsoft Docs
 description: Bu makalede, Microsoft Azure veri şifreleme çalışmıyorken genel bir bakış, genel özellikleri ve genel konular sağlar.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: c0bc3c8774b68b49be95d5df86319a2e0463e6ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme çalışmıyorken-
 Microsoft, şirketinizin güvenlik ve uyumluluk gereksinimlerine göre verilerinizi korumak için Azure içinde birden çok araç vardır. Bu yazı odaklanır:
@@ -246,7 +246,7 @@ Azure Blob ve dosya şifreli müşteri verilerini (istemci tarafı şifreleme) y
 
 SQL Azure şu anda Microsoft tarafından yönetilen hizmet tarafı ve istemci tarafı şifreleme senaryoları için bekleyen şifreleme desteklemektedir.
 
-Desteği sever şifreleme şu anda saydam veri şifreleme adlı SQL özelliği sağlanır. Bir SQL Azure müşterisi etkinleştirir sonra TDE anahtarı otomatik olarak oluşturulur ve bunlar için yönetilir. Bekleyen şifreleme ve veritabanı ve sunucu düzeylerinde etkinleştirilebilir. Haziran 2017'dan sonra [saydam veri şifreleme (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) yeni oluşturulan veritabanı üzerinde varsayılan olarak etkinleştirilir.
+Sunucu şifreleme desteği şu anda saydam veri şifreleme adlı SQL özelliği sağlanır. Bir SQL Azure müşterisi etkinleştirir sonra TDE anahtarı otomatik olarak oluşturulur ve bunlar için yönetilir. Bekleyen şifreleme ve veritabanı ve sunucu düzeylerinde etkinleştirilebilir. Haziran 2017'dan sonra [saydam veri şifreleme (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) yeni oluşturulan veritabanı üzerinde varsayılan olarak etkinleştirilir.
 
 İstemci tarafı şifreleme SQL Azure veri aracılığıyla desteklenir [her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx) özelliği. Her zaman şifreli oluşturulan ve saklanan bir anahtar istemci tarafından kullanır. Müşteriler, Windows sertifika deposu, Azure anahtar kasası veya yerel bir donanım güvenlik modülü ana anahtar depolayabilirsiniz. SQL Server Management Studio'yu kullanarak, hangi sütunun şifrelemek için kullanmak istediğiniz hangi anahtar SQL kullanıcıları seçin.
 
@@ -257,8 +257,8 @@ Desteği sever şifreleme şu anda saydam veri şifreleme adlı SQL özelliği s
 | **Depolama ve veritabanları**            |                |                     |                              |                              |        |
 | Disk (Iaas)                      |                | -                   | Evet                          | Evet*                         | -      |
 | SQL Server (IaaS)                |                | Evet                 | Evet                          | Evet                          | Evet    |
-| SQL Azure (PaaS)                 |                | Evet                 | Önizleme                      | -                            | Evet    |
-| Azure depolama (blok/sayfa Bloblarını) |                | Evet                 | Önizleme                      | -                            | Evet    |
+| SQL Azure (PaaS)                 |                | Evet                 | Evet                          | -                            | Evet    |
+| Azure depolama (blok/sayfa Bloblarını) |                | Evet                 | Evet                          | -                            | Evet    |
 | Azure depolama (dosyaları)            |                | Evet                 | -                            | -                            | -      |
 | Azure depolama (tablolar, kuyruklar)   |                | -                   | -                            | -                            | Evet    |
 | Cosmos DB (belge DB)          |                | Evet                 | -                            | -                            | -      |
@@ -275,7 +275,7 @@ Desteği sever şifreleme şu anda saydam veri şifreleme adlı SQL özelliği s
 | Power BI                         |                | Evet                 | -                            | -                            | -      |
 | **IOT Hizmetleri**                     |                |                     |                              |                              |        |
 | IoT Hub’ı                          |                | -                   | -                            | -                            | Evet    |
-| Service Bus                      |                | Evet (Premium katman)              | -                            | -                            | Evet    |
+| Service Bus                      |                | Evet              | -                            | -                            | Evet    |
 | Event Hubs                       |                | Evet             | -                            | -                            | -      |
 
 

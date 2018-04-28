@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 571c77a0de4bb30f5476f1bc79a7d4bd8d1cd322
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>SAP bulut müşteri (C4C) için Azure Data Factory kullanarak verilerden kopyalama
 
@@ -141,7 +141,7 @@ Belirli bir gün için veri almak için örnek sorgu: `"query": "$filter=Created
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {
@@ -159,7 +159,7 @@ Müşteri için SAP buluta verileri kopyalamak için kopyalama etkinliği Havuz 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapCloudForCustomerSink**  | Evet |
-| writeBehavior | İşlemi yazma davranışını. "Ekle", "Güncelleştir" olabilir. | Hayır. Varsayılan "Ekle". |
+| WriteBehavior | İşlemi yazma davranışını. "Ekle", "Güncelleştir" olabilir. | Hayır. Varsayılan "Ekle". |
 | writeBatchSize | Yazma işlemi toplu iş boyutu. En iyi performansı elde etmek için toplu iş boyutu farklı bir tablo veya sunucu için farklı olabilir. | Hayır. Varsayılan olarak 10. |
 
 **Örnek:**
@@ -213,7 +213,7 @@ Veriler müşteri için SAP Buluttan kopyalarken, aşağıdaki eşlemelerini SAP
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Ondalık |
 | Edm.Double | Çift |
-| Edm.Single | Bekar |
+| Edm.Single | Tek |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Var olan bir Tahmine dayalı web hizmetini yeniden eğitme
 Bu belge aşağıdaki senaryoyu yeniden eğitme işlemini açıklar:
@@ -26,8 +26,8 @@ Bu belge aşağıdaki senaryoyu yeniden eğitme işlemini açıklar:
 * Eğitim denemenizi ve kullanıma hazır hale getirilmiş web hizmeti olarak dağıttığınız bir tahmini deneme var.
 * Yeni veriniz varsa, Puanlama gerçekleştirmek için kullanılacak Tahmine dayalı web hizmetiniz istiyor.
 
-> [!NOTE] 
-> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md). 
+> [!NOTE]
+> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md).
 
 Denemeler ve varolan web hizmeti ile başlayarak, aşağıdaki adımları izlemeniz gerekir:
 
@@ -54,7 +54,7 @@ Eğitim denemenizi güncelleştirmek için:
 
 Denemenizi çalıştırın.
 
-Ardından, eğitim denemenizi eğitilen bir modelin ve model değerlendirme sonuçlarını üreten bir web hizmeti olarak dağıtmanız gerekir.  
+Ardından, eğitim denemenizi eğitilen bir modelin ve model değerlendirme sonuçlarını üreten bir web hizmeti olarak dağıtmanız gerekir.
 
 Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı**ve ardından **Web hizmeti dağıtma [Yeni]**. Azure Machine Learning Web Hizmetleri portalı açılarak **Web hizmeti Dağıt** sayfası. Web hizmetiniz için bir ad yazın, ödeme planı seçin ve ardından **dağıtma**. Eğitilmiş modeller oluşturmak için yalnızca toplu iş yürütme yöntemi kullanabilirsiniz.
 
@@ -84,7 +84,7 @@ Bulun **apikey ile yapılan** bildirimi:
 İçinde **temel tüketim bilgileri** bölümünü **Tüket** sayfasında, birincil anahtarını bulun ve kopyalayın **apikey ile yapılan** bildirimi.
 
 ### <a name="update-the-azure-storage-information"></a>Azure depolama bilgilerini güncelleştir
-BES örnek kod, yerel bir sürücüden (örneğin, "C:\temp\CensusIpnput.csv") bir dosyayı Azure Storage'a yükler, işler ve sonuçları Azure depolama birimine geri yazar.  
+BES örnek kod, yerel bir sürücüden (örneğin, "C:\temp\CensusIpnput.csv") bir dosyayı Azure Storage'a yükler, işler ve sonuçları Azure depolama birimine geri yazar.
 
 Denemenizi çalıştırdıktan sonra sonuçta elde edilen iş akışı aşağıdakine benzer olmalıdır:
 
@@ -126,7 +126,7 @@ Yeniden eğitme çıktısı örneği verilmiştir:
 ## <a name="evaluate-the-retraining-results"></a>Yeniden eğitme sonuçları değerlendirin
 Uygulamayı çalıştırdığınızda, çıktı URL ve değerlendirme sonuçlarını erişmek için gerekli olan paylaşılan erişim imzaları belirteci içerir.
 
-Birleştirerek retrained modeli performans sonuçlarını görebilirsiniz *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* için çıktı sonuçlarından *output2* (yukarıdaki yeniden eğitme çıkış görüntüde gösterildiği gibi) ve tam URL'sini tarayıcınızın adres çubuğuna yapıştırma.  
+Birleştirerek retrained modeli performans sonuçlarını görebilirsiniz *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* için çıktı sonuçlarından *output2* (yukarıdaki yeniden eğitme çıkış görüntüde gösterildiği gibi) ve tam URL'sini tarayıcınızın adres çubuğuna yapıştırma.
 
 Yeni eğitilen model yeterince iyi var olan dosyayla gerçekleştirip gerçekleştirmeyeceğini belirlemek için sonuçlarını inceleyin.
 
@@ -136,7 +136,7 @@ Kopya *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* çıkış sonuçlar�
 Yeni bir web hizmeti yeniden eğitme, yeni eğitilen model başvurmak için Tahmine dayalı web hizmeti tanımının güncelleştirin. Web hizmeti tanımının bir iç web hizmetinin eğitilen modeli gösterimini ve doğrudan değiştirilebilir değil. Tahmine dayalı denemenizi ve değil eğitim denemenizi için web hizmeti tanımının alırsınız emin olun.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Azure kaynak yöneticisi için oturum açın
-Önce Azure hesabınıza PowerShell ortamında kullanarak kaydolmalısınız [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i.
+Önce Azure hesabınıza PowerShell ortamında kullanarak kaydolmalısınız [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i.
 
 ## <a name="get-the-web-service-definition-object"></a>Web hizmeti tanımının nesnesini alın
 Ardından, Web hizmeti tanımının nesne çağırarak alma [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i.

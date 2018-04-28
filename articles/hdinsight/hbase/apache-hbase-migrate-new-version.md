@@ -1,26 +1,24 @@
 ---
-title: "Bir HBase kümesi - Azure Hdınsight gibi yeni bir sürüm olarak geçirme | Microsoft Docs"
-description: "HBase geçirmek nasıl yeni bir sürüme kümeleri."
+title: Bir HBase kümesi - Azure Hdınsight gibi yeni bir sürüm olarak geçirme | Microsoft Docs
+description: HBase geçirmek nasıl yeni bir sürüme kümeleri.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 3ca982e7fc0ce56bee2ee2e193c82a78fac44362
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Yeni bir sürüme bir HBase kümesi geçirme
 
@@ -193,7 +191,7 @@ Hdınsight 3.4 aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile ge
     
 4. Eski HBase kümesi için alım durdurun.
 5. Memstore son tüm verilerde aktarılmadan emin olmak için önceki komut dosyası'nı yeniden çalıştırın.
-6. Eski kümede (https://OLDCLUSTERNAME.azurehdidnsight.net) Ambari için oturum açın ve HBase hizmetlerini durdurun. Hizmetlerini durdurmak istediğiniz onaylamanız istendiğinde, HBase için bakım modunu açmak için onay kutusunu işaretleyin. Bağlanma ve Ambari kullanarak daha fazla bilgi için bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
+6. Oturum açmak için Ambari eski kümede (https://OLDCLUSTERNAME.azurehdidnsight.net) ve HBase hizmetlerini durdurun. Hizmetlerini durdurmak istediğiniz onaylamanız istendiğinde, HBase için bakım modunu açmak için onay kutusunu işaretleyin. Bağlanma ve Ambari kullanarak daha fazla bilgi için bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
 
     ![Ambari, hizmetler, ardından sol menüsünde HBase sekmesini ardından altında hizmet işlemlerini durdur](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 

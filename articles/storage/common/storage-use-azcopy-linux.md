@@ -1,8 +1,8 @@
 ---
-title: "Kopyalama veya Linux'ta Azure Storage ile AzCopy için veri taşıma | Microsoft Docs"
-description: "AzCopy Linux yardımcı taşımak veya için veya blob ve dosya içeriği veri kopyalamak için kullanın. Verileri Azure depolama birimine yerel dosyalarından kopyalamak veya içinde veya depolama hesapları arasında veri kopyalama. Kolayca verilerinizi Azure depolama alanına geçiş."
+title: Kopyalama veya Linux'ta Azure Storage ile AzCopy için veri taşıma | Microsoft Docs
+description: AzCopy Linux yardımcı taşımak veya için veya blob ve dosya içeriği veri kopyalamak için kullanın. Verileri Azure depolama birimine yerel dosyalarından kopyalamak veya içinde veya depolama hesapları arasında veri kopyalama. Kolayca verilerinizi Azure depolama alanına geçiş.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,48 +12,79 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux'ta AzCopy ile veri aktarımı
 
-AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob, dosya ve tablo depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Veri depolama hesapları arasında veya bir dosya sistemi ve depolama hesabı arasında kopyalayabilirsiniz.  
+AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob ve dosya depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
 
-İndirebilirsiniz AzCopy iki sürümü vardır. Linux üzerinde AzCopy .NET Core POSIX stili komut satırı seçenekleri sunan Linux platformlar hedefler Framework ile yerleşik olarak bulunur. [AzCopy Windows](../storage-use-azcopy.md) .NET Framework ile oluşturulan ve Windows stili komut satırı seçenekleri sunar. Bu makalede, AzCopy Linux üzerinde yer almaktadır.
+İndirebilirsiniz AzCopy iki sürümü vardır. Linux üzerinde AzCopy komut satırı seçenekleri POSIX stili sunumu Linux platformlar hedefler. [AzCopy Windows](../storage-use-azcopy.md) Windows stili komut satırı seçenekleri sunar. Bu makalede, AzCopy Linux üzerinde yer almaktadır. 
+
+> [!NOTE]  
+> AzCopy 7.2 sürümünde başlayarak, .NET Core bağımlılıkları AzCopy paketi ile birlikte paketlenmiştir. 7.2 sürümü kullanmak isterseniz daha sonra artık .NET Core bir önkoşul yüklemeniz gerekir.
 
 ## <a name="download-and-install-azcopy"></a>AzCopy yükleyip
+
 ### <a name="installation-on-linux"></a>Linux üzerinde yükleme
 
-Makaleyi Ubuntu çeşitli sürümleri için komutlar içerir.  Kullanım `lsb_release -a` doğrulamak için dağıtım sürümü ve kod adı komutu. 
+> [!NOTE]
+> Bu konuda vurgulanmış .NET Core 2.1 bağımlılıkları yüklemeniz gerekebilir [.NET Core ön koşullar makale](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) dağıtımınız bağlı olarak. Ubuntu 16.04 ve RHEL 7 gibi temel dağıtımları için bu genellikle gerekli değildir.
 
-AzCopy Linux'ta platformunda .NET Core framework (sürüm 2.0) gerektirir. Yükleme yönergelerine bakın [.NET Core](https://www.microsoft.com/net/download/linux) sayfası.
+Linux'ta AzCopy yükleme (v7.2 veya sonrası) tar paketi ayıklanıyor ve yükleme komut dosyası çalıştırma olarak kadar kolaydır. 
 
-Örnek olarak, .NET Core üzerinde Ubuntu 16.04 şimdi yükleyin. En son kurulum kılavuzunu için ziyaret [.NET Core Linux'ta](https://www.microsoft.com/net/download/linux) yükleme sayfası.
-
-
+**RHEL 6 tabanlı dağıtımlar**: [bağlantı indirin](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-.NET Core yüklendiğinde, indirin ve AzCopy yükleyin.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-AzCopy Linux'ta yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak süper kullanıcı ayrıcalıkları yoksa Kabuk betiği 'azcopy' ayıklanan klasöründe kullanarak AzCopy de çalıştırabilirsiniz. 
+**Diğer tüm Linux dağıtımları**: [bağlantı indirin](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
 
+AzCopy Linux'ta yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak, süper kullanıcı ayrıcalıkları yoksa de çalıştırabilirsiniz `azcopy` ayıklanan klasöründe Kabuk komut dosyası azcopy kullanma.
+
+### <a name="alternative-installation-on-ubuntu"></a>Ubuntu alternatif yükleme
+
+**Ubuntu 14.04**
+
+Microsoft Linux ürün depo apt kaynağı ekleyin ve AzCopy yükleyin:
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+Microsoft Linux ürün depo apt kaynağı ekleyin ve AzCopy yükleyin:
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## <a name="writing-your-first-azcopy-command"></a>İlk AzCopy komut yazma
 AzCopy komutları temel sözdizimi aşağıdaki gibidir:
@@ -193,7 +224,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Belirtilen hedef kapsayıcı mevcut değilse, AzCopy oluşturur ve dosyayı içine yükler.
+Belirtilen hedef kapsayıcı mevcut değilse, AzCopy bu kapsayıcıyı oluşturur ve dosyayı kapsayıcıya yükler.
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Sanal dizin için tek dosya karşıya yükleme
 
@@ -205,6 +236,14 @@ azcopy \
 ```
 
 Belirtilen sanal dizin yoksa, AzCopy sanal dizin içinde blob adını içerecek şekilde dosyayı yükler (*örneğin*, `vd/abc.txt` Yukarıdaki örnekteki).
+
+### <a name="redirect-from-stdin"></a>Stdin yeniden yönlendirme
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/mydir/myarchive.tar.gz \
+    --dest-key <key>
+```
 
 ### <a name="upload-all-files"></a>Tüm dosyaları karşıya yükleme
 
@@ -379,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy`zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
+`--sync-copy` zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
 
 ## <a name="file-download"></a>Dosya: karşıdan yükle
 ### <a name="download-single-file"></a>Tek dosya indirme
@@ -601,10 +640,31 @@ Seçenek `--parallel-level` eşzamanlı kopyalama işlemlerinin sayısını beli
 >[!TIP]
 >AzCopy parametreler tam listesini görüntülemek için 'azcopy--Yardım' denetleyin menüsü.
 
-## <a name="known-issues-and-best-practices"></a>Bilinen sorunlar ve en iyi uygulamalar
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Hata: .NET SDK 2.0 sistemde bulunamadı.
-.NET SDK sürüm AzCopy 7.0 başlangıç 2.0 AzCopy bağlıdır. Önce bu sürümü, .NET Core 1.1 AzCopy kullanılır. .NET Core 2.0 sistemde yüklü olmadığını belirten bir hatayla karşılaşırsanız, yükleme veya kullanarak yükseltme gerekebilir [.NET Core yükleme yönergeleri](https://www.microsoft.com/net/learn/get-started/linuxredhat).
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>AzCopy 7.1 ve daha önceki sürümleri için yükleme adımları
 
+Linux üzerinde AzCopy (v7.1 ve daha önce yalnızca) .NET Core framework gerektirir. Yükleme yönergeleri bulunur [.NET Core yüklemesi](https://www.microsoft.com/net/core#linuxubuntu) sayfası.
+
+Örneğin, .NET Core üzerinde Ubuntu 16.10 yükleyerek başlayın. En son kurulum kılavuzunu için ziyaret [.NET Core Linux'ta](https://www.microsoft.com/net/core#linuxubuntu) yükleme sayfası.
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+.NET Core yüklendiğinde, indirin ve AzCopy yükleyin.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+AzCopy Linux'ta yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak süper kullanıcı ayrıcalıkları yoksa de çalıştırabilirsiniz `azcopy` ayıklanan klasöründe Kabuk komut dosyası azcopy kullanma.
+
+## <a name="known-issues-and-best-practices"></a>Bilinen sorunlar ve en iyi uygulamalar
 ### <a name="error-installing-azcopy"></a>AzCopy yükleme hatası
 AzCopy yükleme ile ilgili sorunlarla karşılaşırsanız, AzCopy bash betik ayıklanan kullanarak çalıştırmak çalışabilir `azcopy` klasör.
 
@@ -618,16 +678,34 @@ BLOB veya AzCopy dosyalarıyla kopyaladığınızda, bunu kopyalamaya çalışı
 
 Bunlar kopyalanan sırada BLOB veya dosyalar için yazma diğer uygulamaların önleyemez, ardından işi tamamlanana zamanına göre kopyalanan kaynakların artık kaynak kaynaklarla tam eşlik gerekebileceğini aklınızda bulundurun.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Bir Azcopy'i örnek bir makinede çalıştırın.
-AzCopy veri aktarımını hızlandırmak için makine kaynak kullanımını en üst düzeye çıkarmak için tasarlanmış, yalnızca bir Azcopy'i örnek bir makinede çalıştırın ve seçeneğini belirtin öneririz `--parallel-level` fazla eşzamanlı işlem gerekiyorsa. Daha fazla ayrıntı için yazın `AzCopy --help parallel-level` komut satırında.
+### <a name="running-multiple-azcopy-processes"></a>Çalışan birden çok AzCopy işlemleri
+Birden çok AzCopy işlem, farklı günlük klasörleri kullanmanızı sağlayan tek bir istemcide çalıştırabilirsiniz. Birden çok AzCopy işlemleri için tek günlük klasörü kullanılması desteklenmez.
+
+1 işlem:
+```azcopy
+azcopy \
+    --source /mnt/myfiles1 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles1 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal1"
+```
+
+2 işlemi:
+```azcopy
+azcopy \
+    --source /mnt/myfiles2 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles2 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal2"
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Storage ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ### <a name="azure-storage-documentation"></a>Azure Storage belgeleri:
-* [Azure Storage'a giriş](../storage-introduction.md)
+* [Azure Depolama’ya giriş](../storage-introduction.md)
 * [Depolama hesabı oluşturma](../storage-create-storage-account.md)
-* [BLOB Depolama Gezgini ile yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [Depolama Gezgini ile blobları yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Azure Storage ile Azure CLI 2.0 kullanma](../storage-azure-cli.md)
 * [C++ içinden BLOB storage kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java'da Blob Depolama'yı kullanma](../blobs/storage-java-how-to-use-blob-storage.md)

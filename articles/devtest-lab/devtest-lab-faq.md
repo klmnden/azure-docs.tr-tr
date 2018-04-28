@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 133a2978ce2b359366d3c5d0639b613977a723fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Bazı Azure DevTest Labs ilgili en sık sorulan soruların yanıtlarını alın.
@@ -128,9 +128,9 @@ Evet, Vm'leriniz için birden çok disk ekleyebilirsiniz.
 Windows istemci işletim sistemi görüntülerini (Windows 7 veya sonraki bir sürümünü), geliştirme veya Azure'da sınama kullanmak için aşağıdakilerden birini yapmalısınız:
 
 - [Bir MSDN aboneliği satın](https://www.visualstudio.com/products/how-to-buy-vs).
-- bir Kurumsal Anlaşma varsa, bir Azure aboneliği ile oluşturma [Enterprise geliştirme ve Test teklif](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- bir Kurumsal Anlaşma varsa, bir Azure aboneliği ile oluşturma [Enterprise geliştirme ve Test teklif](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Her bir MSDN teklif için Azure kredisi hakkında daha fazla bilgi için bkz: [Visual Studio aboneleri için aylık Azure kredi](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+Her bir MSDN teklif için Azure kredisi hakkında daha fazla bilgi için bkz: [Visual Studio aboneleri için aylık Azure kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Özel görüntülerinizi oluşturmak için VHD dosyaları karşıya yükleme işleminin nasıl otomatikleştirmek?
 Özel görüntülerinizi oluşturmak için karşıya yükleme VHD dosyalarını otomatikleştirmek için iki seçeneğiniz vardır:
@@ -159,7 +159,7 @@ Laboratuvarınızı Azure portalında VM'ler silebilirsiniz. Ayrıca, bir PowerS
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

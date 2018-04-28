@@ -1,12 +1,12 @@
 ---
-title: "Market öğesi Azure'dan karşıdan | Microsoft Docs"
-description: "My Azure yığın dağıtımına Azure'dan ı Market öğesi indirebilirsiniz."
+title: Market öğesi Azure'dan karşıdan | Microsoft Docs
+description: My Azure yığın dağıtımına Azure'dan ı Market öğesi indirebilirsiniz.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Market öğesi Azure'dan Azure yığınına indirin.
 
@@ -31,7 +31,7 @@ Azure yığın marketi'ndeki eklemek üzere hangi içerik karar gibi Azure Marke
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Market öğesi bağlı senaryosunda (internet bağlantısı ile) yükle
 
 1. Market öğesi indirmek için öncelikle [Azure yığın Azure ile kaydedin](azure-stack-register.md).
-2. Azure yığın Yönetici portalı'na (https://portal.local.azurestack.external) oturum açın.
+2. Azure yığın Yönetici portalında oturum açın (https://portal.local.azurestack.external).
 3. Bazı Market öğesi büyük olabilir. Yeterli alan sisteminizde tıklayarak olduğundan emin olmak için kontrol edin **kaynak sağlayıcıları** > **depolama**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -62,7 +62,7 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
 
 1. Bir yönetici olarak bir PowerShell konsolu açın ve [Azure yığın belirli PowerShell modüllerini yüklemek](azure-stack-powershell-install.md). Yüklediğinizden emin olun **PowerShell sürüm 1.2.11 ya da daha yüksek**.  
 
-2. Azure yığın kaydetmek için kullanılan Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Add-AzureRmAccount** cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
+2. Azure yığın kaydetmek için kullanılan Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Connect-AzureRmAccount** cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
 
 3. Birden çok aboneliğiniz varsa, kayıt için kullanılan birini seçmek için aşağıdaki komutu çalıştırın:  
 

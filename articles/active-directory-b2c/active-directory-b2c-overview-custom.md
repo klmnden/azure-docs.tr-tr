@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Yerleşik ilkeleri ve özel ilkeler karşılaştırma
 
-| | Yerleşik ilkeleri | Özel ilkeler |
+| | Yerleşik ilkeler | Özel ilkeler |
 |-|-------------------|-----------------|
 |Hedef Kullanıcılar | Tüm uygulama geliştiriciler ile veya olmadan kimlik uzmanlığı | Kimlik uzmanları: sistemleri tümleştiricileri, danışmanlarımızı ve şirket içi kimlik ekipler. Openıdconnect akışları ile deneyimliyseniz ve kimlik sağlayıcısı ve talep tabanlı kimlik doğrulaması anlama |
 |Yapılandırma yöntemi | Azure portalıyla kullanıcı dostu bir kullanıcı Arabirimi | Doğrudan, XML dosyalarını düzenlemek ve Azure portalına karşıya yükleme |
@@ -64,9 +64,9 @@ Azure AD B2C, bir kimlik görevi başarmak sırayla kimlik sağlayıcıları, ku
 
 ### <a name="identity-experience-framework"></a>Kimlik Deneyimi Altyapısı
 
-Openıdconnect, OAuth, SAML, WSFed ve birkaç standart olmayan yorumlar (örneğin REST gibi standart protokol varlıkları (geniş çapta talep sağlayıcıları) arasında güven düzenler bir tam olarak yapılandırılabilir, ilke temelli, bulut tabanlı Azure platformu biçimleri API-based sistemi sistemi talep alışverişleri). I2E kullanıcı dostu oluşturur, whitelabelled karşılaştığında HTML, CSS ve javascript destekler.  Bugün, kimlik deneyimi yalnızca Azure AD B2C hizmet bağlamında kullanılabilir ve CIAM için ilgili görevleri için öncelikli çerçevedir.
+Openıdconnect, OAuth, SAML, WSFed ve birkaç standart olmayan yorumlar (örneğin REST gibi standart protokol varlıkları (geniş çapta talep sağlayıcıları) arasında güven düzenler bir tam olarak yapılandırılabilir, ilke temelli, bulut tabanlı Azure platformu biçimleri API-based sistemi sistemi talep alışverişleri). I2E HTML, CSS ve javascript desteği kullanıcı dostu, beyaz etiketli deneyimleri oluşturur.  Bugün, kimlik deneyimi yalnızca Azure AD B2C hizmet bağlamında kullanılabilir ve CIAM için ilgili görevleri için öncelikli çerçevedir.
 
-### <a name="built-in-policies"></a>Yerleşik ilkeleri
+### <a name="built-in-policies"></a>Yerleşik ilkeler
 
 Kullanılan kimlik (örn. kullanıcı kaydı, oturum açma, parola sıfırlama) görevler ve ilişkilerini de Azure AD B2C (için de önceden güvenilir taraflar etkileşimde en yaygın olarak gerçekleştirmek için Azure AD B2C davranışını doğrudan yapılandırma dosyalarını önceden tanımlanmış Örnek Facebook kimlik sağlayıcısı, LinkedIn, Microsoft Account, Google hesapları).  Gelecekte, yerleşik ilkeleri özelleştirmesi genellikle Azure Active Directory Premium, Active Directory/ADFS, Salesforce kimlik sağlayıcısı vb. gibi Kurumsal bölgedeki kimlik sağlayıcıları için de sağlayabilir.
 
@@ -89,7 +89,7 @@ Azure AD B2C kiracınızda kimlik deneyimi Framework davranışını tanımlamak
 
 | İlke dosya türü | Örnek dosya adı | Önerilen kullanın | Öğesinden devralınan |
 |---------------------|--------------------|-----------------|---------------|
-| TEMEL |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Çekirdek talep şeması, talep dönüştürmeleri, talep sağlayıcıları ve Microsoft tarafından yapılandırılan kullanıcı Yolculuklar içerir<br><br>Bu dosyada küçük değişiklikler yapmak | None |
+| TEMEL |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com B2C 1A_BASE1.xml | Çekirdek talep şeması, talep dönüştürmeleri, talep sağlayıcıları ve Microsoft tarafından yapılandırılan kullanıcı Yolculuklar içerir<br><br>Bu dosyada küçük değişiklikler yapmak | None |
 | Uzantı (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | TEMEL dosya burada yaptığınız değişiklikler birleştirin<br><br>Değiştirilen talep sağlayıcıları<br><br>Değiştirilen kullanıcı Yolculuklar<br><br>Kendi özel şema tanımları | TEMEL dosya |
 | Bağlı olan taraf (RP) | B2C_1A_sign_up_sign_in.xml| Belirteci şekli ve oturum burada ayarlarını değiştirme| Extensions(ext) dosyası |
 

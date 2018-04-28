@@ -1,8 +1,8 @@
 ---
-title: "U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirme | Microsoft Docs"
-description: "Kullanıcı tanımlı işleçler kullanılan ve Data Lake Analytics işleri yeniden için geliştirmeyi öğrenin. "
+title: U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirme | Microsoft Docs
+description: 'Kullanıcı tanımlı işleçler kullanılan ve Data Lake Analytics işleri yeniden için geliştirmeyi öğrenin. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: kfile
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirin
 Kullanıcı tanımlı işleçler bir U-SQL işi verileri işlemek için geliştirmeyi öğrenin.
@@ -130,5 +130,5 @@ U-SQL için genel amaçlı derlemeleri geliştirme ile ilgili yönergeler için 
 2. Örnekleri genişletin, çıkışları genişletin ve ardından **sürücüler.csv**.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [U-SQL kullanıcı kodu ifadelerle genişletme](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [U-SQL kullanıcı kodu ifadelerle genişletme](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanın](data-lake-analytics-data-lake-tools-get-started.md)

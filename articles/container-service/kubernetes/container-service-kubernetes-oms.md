@@ -3,17 +3,17 @@ title: Azure Kubernetes küme - Operations Management izleme
 description: Günlük analizi kullanarak Azure kapsayıcı hizmeti kümesinde Kubernetes izleme
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: b91b1f902b2d769823067ea66bf7d00bd17a5160
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Azure kapsayıcı hizmeti kümesi günlük analizi ile izleme
 

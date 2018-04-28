@@ -2,23 +2,20 @@
 title: Visual Studio kullanarak Azure Uygulama Sihirbazı yayımlama | Microsoft Docs
 description: Visual Studio Azure uygulaması Yayımlama Sihirbazı çeşitli ayarları yapılandırma konusunda bilgi edinin
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: 980809bc62f7766971ea4753e1cfb165aa1cffc2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 02d38f49a1bfe490acbcfee95a8a703cf0d7594f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Visual Studio kullanarak yayımla Azure Uygulama Sihirbazı
 
@@ -57,7 +54,7 @@ Sahip olduğunuz Visual Studio projesi türüne bağlı olarak iki yolla Azure u
 
 ![Genel Ayarlar](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-**Bulut hizmeti** -açılan listeyi kullanarak ya da var olan bir bulut hizmeti ya da seçin seçin  **&lt;Yeni Oluştur >**ve bir bulut hizmeti oluşturun. Her bir bulut hizmeti için parantez içinde veri merkezi görüntüler. Veri depolama hesabı (Gelişmiş) için veri merkezi konum olarak aynı olması bulut hizmeti için konum merkezi önerilir.
+**Bulut hizmeti** -açılan listeyi kullanarak ya da var olan bir bulut hizmeti ya da seçin seçin  **&lt;Yeni Oluştur >** ve bir bulut hizmeti oluşturun. Her bir bulut hizmeti için parantez içinde veri merkezi görüntüler. Veri depolama hesabı (Gelişmiş) için veri merkezi konum olarak aynı olması bulut hizmeti için konum merkezi önerilir.
 
 **Ortam** -seçin **üretim** veya **hazırlama**. Uygulamanızı bir sınama ortamında dağıtmak istiyorsanız, hazırlık ortamı seçin. 
 

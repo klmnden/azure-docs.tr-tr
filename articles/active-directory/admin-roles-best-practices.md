@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Ayrıcalıklı erişim karma ve bulut dağıtımları için Azure AD'de güvenliğini sağlama
 
@@ -118,7 +118,7 @@ Atanan veya genel yönetici rolü için uygun hesapları değerlendirin. Yalnız
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Çok faktörlü kimlik doğrulamasını etkinleştirmek ve diğer tüm yüksek ayrıcalıklı tek kullanıcı Federasyon olmayan yönetici hesapları kaydetme 
 
-Oturum açma bir veya daha fazla Azure AD yönetim rolleri kalıcı olarak atanan tüm bireysel kullanıcılar için Azure multi-Factor Authentication (MFA) gerektirir: Genel yönetici, ayrıcalıklı Rol Yöneticisi, Exchange Online yönetici ve SharePoint Çevrimiçi yönetici. Etkinleştirmek için kılavuz kullanın [yönetici hesapları için çok faktörlü kimlik doğrulama (MFA)](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) ve tüm kullanıcılarla kayıtlı olduğundan emin olun [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Adım 2 ve 3. Adım Kılavuzu'nun altında daha fazla bilgi bulunabilir [veri ve Office 365'te hizmetlere erişimi korumaya](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Oturum açma bir veya daha fazla Azure AD yönetim rolleri kalıcı olarak atanan tüm bireysel kullanıcılar için Azure multi-Factor Authentication (MFA) gerektirir: Genel yönetici, ayrıcalıklı Rol Yöneticisi, Exchange Online yönetici ve SharePoint Çevrimiçi yönetici. Etkinleştirmek için kılavuz kullanın [yönetici hesapları için çok faktörlü kimlik doğrulama (MFA)](authentication/howto-mfa-userstates.md) ve tüm kullanıcılarla kayıtlı olduğundan emin olun [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Adım 2 ve 3. Adım Kılavuzu'nun altında daha fazla bilgi bulunabilir [veri ve Office 365'te hizmetlere erişimi korumaya](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2. Aşama: en sık kullanılan saldırı teknikleri azaltmak
 
@@ -164,8 +164,8 @@ Azure AD, yöneticilerin ve kullanıcıların hesaplarını bozulsa önemli bir 
 
 Aç:
 
-* [Yüksek Etkilenme hesapları için MFA](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) executive görevlileri bir kuruluşta hesapları gibi 
-* [MFA her yönetici hesabı için tek bir kullanıcı ile ilişkili](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) diğer bağlı SaaS uygulamaları için 
+* [Yüksek Etkilenme hesapları için MFA](authentication/multi-factor-authentication-security-best-practices.md) executive görevlileri bir kuruluşta hesapları gibi 
+* [MFA her yönetici hesabı için tek bir kullanıcı ile ilişkili](authentication/howto-mfa-userstates.md) diğer bağlı SaaS uygulamaları için 
 * MFA Microsoft SaaS uygulamaları için tüm yöneticileri için roller yöneticiler dahil Exchange Online ve Office portalı yönetilen
 
 Windows Hello işletmeler için kullanırsanız, MFA gereksinimi, Windows Hello oturum açma deneyimi kullanarak karşılanabilir. Daha fazla bilgi için bkz: [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 

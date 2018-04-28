@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Depolama Gezgini’ni kullanarak Azure Data Lake Store kaynaklarını yönetme
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview), büyük miktarlarda metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için bir hizmettir. HTTP veya HTTPS aracılığıyla verilere herhangi bir yerden erişebilirsiniz. Azure Depolama Gezgini’de Data Lake Store, blob ve kuyruk gibi diğer Azure varlıklarının yanı sıra Data Lake Store verileri ve kaynaklarına erişmenize ve bunları yönetmenize olanak sağlar. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview), büyük miktarlarda metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için bir hizmettir. HTTP veya HTTPS aracılığıyla verilere herhangi bir yerden erişebilirsiniz. Azure Depolama Gezgini’de Data Lake Store, blob ve kuyruk gibi diğer Azure varlıklarının yanı sıra Data Lake Store verileri ve kaynaklarına erişmenize ve bunları yönetmenize olanak sağlar. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz.
 
 Başka bir avantajı, Data Lake Store verilerini yönetmek için abonelik iznine sahip olmanızın gerekmemesidir. Depolama Gezgini’nde birisi izin verdiği sürece **Yerel ve Eklenmiş** düğümüne Data Lake Store yolunu ekleyebilirsiniz.
 
@@ -32,7 +32,7 @@ Başka bir avantajı, Data Lake Store verilerini yönetmek için abonelik iznine
 Bu makaledeki adımları tamamlayabilmeniz için şu önkoşullar gereklidir:
 
 *   Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial).
-*   Bir Azure Data Lake Store hesabı. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Bir Azure Data Lake Store hesabı. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Depolama Gezgini’ni yükleme
 
@@ -197,7 +197,7 @@ Bir URL’niz varsa, URL’yi Dosya Gezgini’nde veya tarayıcıda adres yoluna
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [En son Depolama Gezgini yayın notlarını ve videolarını](http://www.storageexplorer.com) görüntüleyin.
-* [Azure Depolama Gezgini’nde Azure Cosmos DB’yi yönetmeyi](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) öğrenin.
-* [Depolama Gezgini ile çalışmaya başlayın](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Azure Data Lake Store ile çalışmaya başlayın](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* [Azure Depolama Gezgini’nde Azure Cosmos DB’yi yönetmeyi](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) öğrenin.
+* [Depolama Gezgini ile çalışmaya başlayın](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Azure Data Lake Store ile çalışmaya başlayın](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * [Azure Depolama Gezgini’nde Azure Cosmos DB’yi kullanma hakkındaki YouTube videosunu](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) izleyin.

@@ -11,14 +11,14 @@ ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd0daae8289839b64e7b54d97c78719587c18e7d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
 
@@ -34,6 +34,8 @@ Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini analiz et
 * **Azure SQL Veritabanı**. Hedef veri deposu olarak Azure SQL veritabanını kullanın. Bir SQL veritabanı yoksa bkz [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. Azure CLI yüklemediyseniz, bkz: [Azure CLI 1.0 yüklemek](../cli-install-nodejs.md) daha fazla adım için.
+
+* **Bir SSH istemcisi**. Daha fazla bilgi için bkz. [SSH kullanarak HDInsight'a (Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Uçuş veri indirin
 
@@ -54,24 +56,21 @@ Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini analiz et
 
 1. Hdınsight küme baş düğümüne .zip dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
 
-    ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```bash
+    scp FILENAME.zip sshuser@clustername-ssh.azurehdinsight.net:
     ```
 
-    Değiştir *FILENAME* .zip dosya adı. Değiştir *kullanıcıadı* SSH oturum açma için Hdınsight kümesine sahip. Değiştir *CLUSTERNAME* Hdınsight kümesi adı.
-
-   > [!NOTE]
-   > SSH oturum açma kimlik doğrulaması için bir parola kullanıyorsanız parolası istenir. Bir ortak anahtarı kullanırsanız kullanmanız gerekebilir `-i` parametre ve eşleşen özel anahtara yolunu belirtin. Örneğin, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+    Değiştir `FILENAME` .zip dosya adı. Değiştir `sshuser` SSH oturum açma için Hdınsight kümesine sahip. Değiştir `clustername` Hdınsight kümesi adı.
 
 2. Karşıya yükleme tamamlandıktan sonra SSH kullanarak kümeye bağlanın:
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-
-    Daha fazla bilgi için bkz. [SSH kullanarak HDInsight'a (Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
 3. .Zip dosyasını sıkıştırmasını açmak için aşağıdaki komutu kullanın:
 
-    ```
+    ```bash
     unzip FILENAME.zip
     ```
 
@@ -79,7 +78,7 @@ Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini analiz et
 
 4. Hdınsight depolama biriminde bir dizin oluşturmak için aşağıdaki komutu kullanın ve ardından dosyayı dizinine kopyalayın:
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
@@ -90,7 +89,7 @@ Adlı bir Hive tabloya .csv dosyasından veri almak için aşağıdaki adımlar�
 
 1. Oluşturma ve düzenleme adlı yeni bir dosya için aşağıdaki komutu kullanın **flightdelays.hql**:
 
-    ```
+    ```bash
     nano flightdelays.hql
     ```
 
@@ -160,13 +159,13 @@ Adlı bir Hive tabloya .csv dosyasından veri almak için aşağıdaki adımlar�
 
 3. Hive başlatmak ve çalıştırmak için **flightdelays.hql** dosya, aşağıdaki komutu kullanın:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. Sonra __flightdelays.hql__ betik çalıştıran bitirdiğinde, etkileşimli Beeline oturum açmak için aşağıdaki komutu kullanın:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -200,13 +199,13 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
 1. Ücretsiz yüklemek için bir SSH bağlantısı küme aşağıdaki komutu kullanın:
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. Yükleme tamamlandıktan sonra SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın. Değiştir **serverName** SQL veritabanı sunucu adı. Değiştir **adminLogin** ve **Admınpassword** SQL veritabanı için oturum açma ile. Değiştir **databaseName** veritabanı adında.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -224,7 +223,7 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
 4. Konumundaki `1>` isteminde, aşağıdaki satırları girin:
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -237,7 +236,7 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
     Tablo oluşturulduğunu doğrulamak için aşağıdaki sorguyu kullanın:
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -255,7 +254,7 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
 1. Sqoop SQL veritabanınız görebildiğini doğrulamak için aşağıdaki komutu kullanın:
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -263,7 +262,7 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
 2. Veri hivesampletable gecikmeler tabloya dışarı aktarmak için aşağıdaki komutu kullanın:
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -271,13 +270,13 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
 3. Sqoop komut bittikten sonra veritabanına bağlanmak için tsql yardımcı programını kullanın:
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Veri gecikmeler tablosuna aktarılmış doğrulamak için aşağıdaki ifadeleri kullanın:
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```

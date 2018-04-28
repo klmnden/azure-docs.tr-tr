@@ -1,22 +1,22 @@
 ---
-title: Bir ASP.NET Web API’sini korumak için Azure Active Directory B2C’yi kullanma öğreticisi
+title: Öğretici - Azure Active Directory B2C kullanarak bir web uygulamasından ASP.NET web API'sine erişim izni verme| Microsoft Docs
 description: Bir ASP.NET web API’sini korumak ve bir ASP.NET web uygulamasından çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 editor: ''
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Öğretici: Bir ASP.NET web API’sini korumak için Azure Active Directory B2C’yi kullanma
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir web uygulamasından ASP.NET web API'sine erişim izni verme
 
 Bu öğreticide bir ASP.NET web uygulamasından bir Azure Active Directory (Azure AD) B2C korumalı web API kaynağını çağırma gösterilmektedir.
 
@@ -45,7 +45,7 @@ Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci
 
 1. Azure Portalı'ndaki Hizmetler listesinden **Azure AD B2C**’yi seçin.
 
-2. B2C ayarlarında **Uygulamalar**’a tıklayın ve ardından **+ Ekle**’ye tıklayın.
+2. B2C ayarlarında **Uygulamalar**’a ve ardından  **Ekle**’ye tıklayın.
 
     Örnek web API’sini kiracınıza kaydetmek için aşağıdaki ayarları kullanın.
     
@@ -89,11 +89,13 @@ API için kapsamları tanımlamak için, aşağıdaki girişleri ekleyin.
 | **Kapsam** | Hello.Read | Hello’ya okuma erişimi |
 | **Kapsam** | Hello.Write | Hello’ya yazma erişimi |
 
+**Kaydet**’e tıklayın.
+
 Yayımlanan kapsamlar web API’sine bir istemci uygulama izni vermek için kullanılabilir.
 
 ### <a name="grant-app-permissions-to-web-api"></a>Web API’sine uygulama izinleri verme
 
-Bir uygulamadan korumalı web API’sini çağırmak için, API’ye uygulama izinleri vermeniz gerekir. 
+Bir uygulamadan korumalı web API’sini çağırmak için, API’ye uygulama izinleri vermeniz gerekir. Bu öğreticide, [Azure Active Directory B2C’yi bir ASP.NET Web Uygulamasında Kullanıcı Kimlik Doğrulaması için kullanma öğreticisinde](active-directory-b2c-tutorials-web-app.md) oluşturulan web uygulamasını kullanın. 
 
 1. Azure portalında, hizmetler listesinden **Azure AD B2C**’yi seçin ve kayıtlı uygulama listesini görmek için **Uygulamalar**’a tıklayın.
 
@@ -109,7 +111,7 @@ Bir uygulamadan korumalı web API’sini çağırmak için, API’ye uygulama iz
 
 **Örnek Web Uygulamam**, korumalı **Örnek Web API’si** öğesini çağırmak için kaydedilir. Kullanıcılar web uygulamasını kullanmak için Azure AD B2C ile [kimlik doğrulaması yapar](../active-directory/develop/active-directory-dev-glossary.md#authentication). Web uygulaması, korumalı web API’sine erişmek için Azure AD B2C’den bir [yetkilendirme izni](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) alır.
 
-## <a name="update-web-api-code"></a>Web API kodunu güncelleştirme
+## <a name="update-code"></a>Kodu güncelleştirme
 
 API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azure AD B2C kiracınızı kullanmak için yapılandırmanız gerekir. Bu öğreticide örnek bir web API’sini yapılandıracaksınız. 
 
@@ -137,11 +139,11 @@ API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azu
 
 3. API’nin URI’sini yapılandırın. Bu, web uygulamasının API isteği göndermek için kullandığı URI’dir. Ayrıca istenen izinleri yapılandırın.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### <a name="configure-the-web-api"></a>Web API’sini yapılandırma
 
@@ -162,7 +164,7 @@ API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azu
 4. İlke ayarını, kaydolma ve oturum açma ilkelerinizi oluştururken oluşturulan ad ile güncelleştirin.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Kapsamlar ayarını portalda oluşturduğunuz değerle eşleşecek şekilde yapılandırın.
@@ -172,7 +174,7 @@ API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azu
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## <a name="run-the-sample-web-app-and-web-api"></a>Örnek web uygulaması ve web API’sini çalıştırma
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
 **TaskWebApp** ve **TaskService** projelerinin ikisini birden çalıştırmanız gerekir. 
 

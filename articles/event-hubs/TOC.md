@@ -47,7 +47,7 @@
 ### [Resource Manager şablonu kullanarak bir Olay Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)

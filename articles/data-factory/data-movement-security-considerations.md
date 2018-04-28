@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı ilgili güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Veri Fabrikası kullanarak veri taşıma için onaylanmıştır:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA YILDIZ](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
 Azure uyumluluk ve Azure kendi altyapısını nasıl korur düşünüyorsanız ziyaret [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
@@ -68,7 +68,7 @@ Rest verileri destek şifrelenmesi bazı verileri depolar. Bu veri depoları iç
 Azure SQL Data warehouse'da saydam veri şifreleme (TDE) gerçek zamanlı şifreleme ve şifre çözme REST verilerinizin gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olur. Bu davranış, istemci için saydamdır. Daha fazla bilgi için bkz: [SQL veri ambarı veritabanında güvenli](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL veritabanı, gerçek zamanlı şifreleme ve şifre çözme veri uygulamasında yapılacak değişiklikler gerek kalmadan gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olan saydam veri şifreleme (TDE) da destekler. Bu davranış, istemci için saydamdır. Daha fazla bilgi için bkz: [saydam veri şifreleme SQL veritabanı ve veri ambarı için](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Azure SQL veritabanı, gerçek zamanlı şifreleme ve şifre çözme veri uygulamasında yapılacak değişiklikler gerek kalmadan gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olan saydam veri şifreleme (TDE) da destekler. Bu davranış, istemci için saydamdır. Daha fazla bilgi için bkz: [saydam veri şifreleme SQL veritabanı ve veri ambarı için](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store ayrıca hesapta depolanan veriler için şifreleme sağlar. Etkinleştirildiğinde, Data Lake Store, otomatik olarak devam ettirmeden önce verileri şifreler ve verilere erişen istemci saydam hale alma önce şifresini çözer. Daha fazla bilgi için bkz: [Azure Data Lake Store'da güvenlik](../data-lake-store/data-lake-store-security-overview.md). 
@@ -86,7 +86,7 @@ Amazon Redshift küme şifreleme bekleyen veri için destekler. Daha fazla bilgi
 Salesforce Shield Platform şifreleme'de, tüm dosyaları, ekler ve özel alanlar şifrelenmesini sağlar destekler. Daha fazla bilgi için bkz: [Web sunucusu OAuth kimlik doğrulama akışı anlama](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Karma senaryolar
-Karma senaryolar kendini barındıran tümleştirmesi çalışma zamanı bir şirket ağındaki bir sanal ağ (Azure) içinde ya da sanal özel bulut (Amazon) içinde yüklü olmasını gerektirir. Kendini barındıran tümleştirmesi çalışma zamanı yerel veri depolarına erişebilmeleri gerekir. Kendini barındıran tümleştirmesi çalışma zamanı hakkında daha fazla bilgi için bkz: [oluşturmak ve yapılandırmak nasıl tümleştirmesi çalışma zamanı kendi kendini barındıran](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
+Karma senaryolar kendini barındıran tümleştirmesi çalışma zamanı bir şirket ağındaki bir sanal ağ (Azure) içinde ya da sanal özel bulut (Amazon) içinde yüklü olmasını gerektirir. Kendini barındıran tümleştirmesi çalışma zamanı yerel veri depolarına erişebilmeleri gerekir. Kendini barındıran tümleştirmesi çalışma zamanı hakkında daha fazla bilgi için bkz: [oluşturmak ve yapılandırmak nasıl tümleştirmesi çalışma zamanı kendi kendini barındıran](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
 ![kendini barındıran tümleştirme çalışma zamanı kanalları](media/data-movement-security-considerations/data-management-gateway-channels.png)
 

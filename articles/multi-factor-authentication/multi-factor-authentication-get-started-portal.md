@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA Sunucusu kullanıcı portalı | Microsoft Belgeleri"
-description: "Bu, nasıl Azure MFA ve kullanıcı portalını kullanmaya başlayacağınızı açıklayan Azure Multi-factor authentication sayfasıdır."
+title: Azure MFA Sunucusu kullanıcı portalı | Microsoft Belgeleri
+description: Bu, nasıl Azure MFA ve kullanıcı portalını kullanmaya başlayacağınızı açıklayan Azure Multi-factor authentication sayfasıdır.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını kullanma
 
@@ -69,7 +69,7 @@ Kullanıcı portalını dağıtmak için aşağıdaki adımları izleyin:
    > [!NOTE]
    > Bu SSL Sertifikası çoğunlukla genel olarak imzalanmış bir SSL sertifikasıdır.
 
-4. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye gidin (örneğin https://mfa.contoso.com/MultiFactorAuth). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+4. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuth)) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 
 ![MFA Sunucusu Kullanıcı Portalını yükleme](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -105,10 +105,10 @@ Azure Multi-Factor Authentication Sunucusu dışında bir sunucuya kullanıcı p
     * **"USE_WEB_SERVICE_SDK"** anahtarını bulun ve **value="false"** değerini **value="true"** değeriyle değiştirin.
     * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** anahtarını bulun ve **value=""** değerini **value="DOMAIN\User"** değeriyle değiştirin. Burada DOMAIN\User, "PhoneFactor Admins" grubunun parçası olan bir Hizmet Hesabıdır.
     * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** anahtarını bulun ve **value=""** değerini **value="Password"** ile değiştirin. Burada Password, önceki satırda girdiğiniz Hizmet Hesabının parolasıdır.
-    * **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** değerini bulun ve yer tutucu URL’yi 2. adımda yüklediğimiz Web Hizmeti SDK’sının URL'siyle değiştirin.
+    * **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** değerini bulun ve bu yer tutucu URL’yi 2. adımda yüklediğimiz Web Hizmeti SDK URL’siyle değiştirin.
     * Web.Config dosyasını kaydedin ve Not Defteri'ni kapatın.
 
-6. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye gidin (örneğin https://mfa.contoso.com/MultiFactorAuth). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+6. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuth)) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 
 IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 

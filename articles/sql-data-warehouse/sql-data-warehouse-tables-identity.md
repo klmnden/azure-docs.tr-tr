@@ -1,41 +1,30 @@
 ---
-title: "KİMLİĞİ kullanarak yedek anahtarları oluşturma | Microsoft Docs"
-description: "KİMLİK tablolarınızı yedek anahtarlar oluşturmak için nasıl kullanılacağını öğrenin."
+title: Yedek anahtarlar - Azure SQL Data Warehouse oluşturmak için kimlik BİLGİLERİNİZ kullanılarak | Microsoft Docs
+description: Öneriler ve Azure SQL Data Warehouse tablolarda yedek anahtarlar oluşturmak için kimlik özelliği kullanımına ilişkin örnekler.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e10b58743fad5f7c2c4f00b51f06d4ec9bcb6768
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-surrogate-keys-by-using-identity"></a>Yedek anahtarları kimliği kullanarak oluşturma
-> [!div class="op_single_selector"]
-> * [Genel bakış][Overview]
-> * [Veri türleri][Data Types]
-> * [Dağıt][Distribute]
-> * [Dizin][Index]
-> * [Bölüm][Partition]
-> * [İstatistikleri][Statistics]
-> * [Geçici][Temporary]
-> * [Kimlik][Identity]
-> 
-> 
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da yedek anahtarlar oluşturmak için kimlik BİLGİLERİNİZ kullanılarak
+Öneriler ve Azure SQL Data Warehouse tablolarda yedek anahtarlar oluşturmak için kimlik özelliği kullanımına ilişkin örnekler.
 
-Veri ambarı modelleri tasarlarken kendi tablolarda yedek anahtarlar oluşturmak çok sayıda veri modelers gibi. IDENTİTY özelliği yükü performansınızı etkilemeden sadece ve etkili bir şekilde bu hedefe ulaşmak için kullanabilirsiniz. 
+## <a name="what-is-a-surrogate-key"></a>Bir yedek anahtar nedir?
+Bir yedek anahtarı bir tablodaki her satır için benzersiz bir tanımlayıcı bir sütundur. Anahtar tablo verileri oluşturulmaz. Veri ambarı modelleri tasarlarken kendi tablolarda yedek anahtarlar oluşturmak veri modelers gibi. IDENTİTY özelliği yükü performansınızı etkilemeden sadece ve etkili bir şekilde bu hedefe ulaşmak için kullanabilirsiniz.  
 
-## <a name="get-started-with-identity"></a>KİMLİĞİ ile çalışmaya başlama
+## <a name="creating-a-table-with-an-identity-column"></a>Tablo bir kimlik sütunu ile oluşturma
+KİMLİK özelliği, veri ambarındaki tüm dağıtımlar arasında yük performanslarını etkilemeden genişletmek için tasarlanmıştır. Bu nedenle, kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır. 
+
 Aşağıdaki deyime benzer sözdizimini kullanarak ilk tablonun oluşturduğunuzda kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:
 
 ```sql
@@ -52,8 +41,7 @@ WITH
 
 Daha sonra kullanabilirsiniz `INSERT..SELECT` tabloyu doldurmak için.
 
-## <a name="behavior"></a>Davranış
-KİMLİK özelliği, veri ambarındaki tüm dağıtımlar arasında yük performanslarını etkilemeden genişletmek için tasarlanmıştır. Bu nedenle, kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır. Bu bölümde daha eksiksiz anlamanıza yardımcı olması için uygulama nüanslarını vurgular.  
+Bu bölümde bu geri kalanı daha eksiksiz anlamanıza yardımcı olması için uygulama nüanslarını vurgular.  
 
 ### <a name="allocation-of-values"></a>Değerlerin ayırma
 KİMLİK özelliği, SQL Server ve Azure SQL veritabanı davranışını yansıtan, yedek değerleri ayrılmış, sipariş garanti etmez. Ancak, Azure SQL veri ambarı'nda bir garanti yokluğu daha belirgin olur. 
@@ -100,7 +88,7 @@ Bu koşulların herhangi biri doğruysa, sütun kimlik özelliğini devralan yer
 ### <a name="create-table-as-select"></a>TABLE AS SELECT OLUŞTURMA
 OLUŞTURMA tablo AS seçin (CTAS) için SELECT belgelenen aynı SQL Server davranışı izleyen... . Ancak, bir kimlik özelliği sütun tanımında belirtemezsiniz `CREATE TABLE` deyim parçası. Ayrıca kimlik işlevinde kullanamazsınız `SELECT` CTAS bir parçası. Bir tabloyu doldurmak için kullanmanız gerekir `CREATE TABLE` arkasından tablosu tanımlamak için `INSERT..SELECT` onu doldurmak için.
 
-## <a name="explicitly-insert-values-into-an-identity-column"></a>Açıkça değerleri bir kimlik sütununa ekleme 
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Açıkça değerleri bir kimlik sütununa ekleme 
 SQL veri ambarı destekleyen `SET IDENTITY_INSERT <your table> ON|OFF` sözdizimi. Açıkça kimlik sütununa değerleri eklemek için şu sözdizimini kullanın.
 
 Birçok veri modelers kendi boyutlarını belirli satırlar için önceden tanımlanmış negatif değerler kullanmak ister. -1 veya "Bilinmeyen bir üyeye" satır örneğidir. 
@@ -124,11 +112,10 @@ FROM    dbo.T1
 ;
 ```    
 
-## <a name="load-data-into-a-table-with-identity"></a>KİMLİĞİNE sahip bir tabloya veri yükleme
+## <a name="loading-data"></a>Veri yükleme
 
 IDENTİTY özelliği varlığını veri yükleme kodunuza bazı etkilere sahiptir. Bu bölüm kimliği kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular. 
 
-### <a name="load-data-with-polybase"></a>PolyBase ile veri yükleyin
 Verileri bir tabloya yüklemek ve bir yedek anahtar kimliği kullanarak oluşturmak, tablo oluştur ve Ekle kullanmak için... Seç veya Ekle... Yükleme gerçekleştirmek için değerler.
 
 Aşağıdaki örnek temel düzeni vurgular:
@@ -160,28 +147,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Kullanmak mümkün değil `CREATE TABLE AS SELECT` şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.
+> Tablo AS Seç oluşturmak kullanmak mümkün değil ' şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.
 > 
 
-Toplu kopyalama programı (BCP) aracını kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
+Veri yükleme ile ilgili daha fazla bilgi için bkz: [tasarlama ayıklayın, yükleme ve dönüştürme (ELT) Azure SQL Data Warehouse için](design-elt-data-loading.md) ve [en iyi uygulamalar yüklenirken](guidance-for-loading-data.md).
 
-- [PolyBase ile yükleme][]
-- [PolyBase en iyi uygulamalar][]
 
-### <a name="load-data-with-bcp"></a>BCP ile veri yükleme
-BCP SQL Data Warehouse'a veri yüklemek için kullanabileceğiniz bir komut satırı aracıdır. Parametrelerinden biri (-E) verileri bir kimlik sütunu olan bir tabloya yüklenirken BCP davranışını denetler. 
+## <a name="system-views"></a>Sistem görünümleri
+Kullanabileceğiniz [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) katalog kimlik özelliğine sahip bir sütunu tanımlamak için görünümü.
 
--E belirtildiğinde, sütun için giriş dosyasındaki KİMLİKLE tutulan değerleri korunur. -E ise *değil* belirtilen sonra da bu sütundaki değerleri yoksayılır. Kimlik sütununun dahil edilmezse, verileri normal olarak yüklenir. Değerleri özelliği artırma ve çekirdek ilkesine göre oluşturulur.
-
-BCP kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
-
-- [BCP ile yükleme][]
-- [BCP MSDN'de][]
-
-## <a name="catalog-views"></a>Katalog görünümleri
-SQL veri ambarı destekleyen `sys.identity_columns` Katalog görünümü. Bu görünüm, kimlik özelliğine sahip bir sütunu tanımlamak için kullanılabilir.
-
-Veritabanı şeması daha iyi anlamanıza yardımcı olması için bu örnek nasıl tümleştirileceği gösterir `sys.identity_columns` diğer sistem Katalog görünümleri ile:
+Veritabanı şeması daha iyi anlamanıza yardımcı olması için bu örnek sys.identity_column tümleştirmek gösterilmektedir ' diğer sistem Katalog görünümleri ile:
 
 ```sql
 SELECT  sm.name
@@ -202,28 +177,27 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Sınırlamalar
-KİMLİK özelliği aşağıdaki senaryolarda kullanılamaz:
-- Burada sütun veri türü tamsayı veya büyük tamsayı değil
-- Sütun dağıtım anahtarı da olduğu
-- Tablo bir dış tablo olduğu 
+IDENTİTY özelliği kullanılamaz:
+- Ne zaman sütununun veri türü tamsayı veya büyük tamsayı değil
+- Sütun ayrıca dağıtım anahtarı olduğunda
+- Tablo bir dış tablo olduğunda 
 
 SQL veri ambarı'nda aşağıdaki ilgili işlevleri desteklenmez:
 
-- [IDENTITY()][]
-- [@@IDENTITY][]
-- [SCOPE_IDENTITY][]
-- [IDENT_CURRENT][]
-- [IDENT_INCR][]
-- [IDENT_SEED][]
-- [DBCC CHECK_IDENT()][]
+- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
+- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)
+- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql)
+- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql)
+- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql)
+- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql)
+- [DBCC CHECK_IDENT()](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)
 
-## <a name="tasks"></a>Görevler
+## <a name="common-tasks"></a>Genel görevler
 
-Bu bölümde kimlik sütunu ile çalışırken ortak görevleri gerçekleştirmek için kullanabileceğiniz bazı örnek kodu sağlıyor.
+Bu bölümde kimlik sütunu ile çalışırken ortak görevleri gerçekleştirmek için kullanabileceğiniz bazı örnek kodu sağlıyor. 
 
-> [!NOTE] 
-> Sütun C1 tüm aşağıdaki görevler kimliğidir.
-> 
+Sütun C1 tüm aşağıdaki görevler kimliğidir.
+ 
  
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>Bir tablo için en yüksek ayrılmış değeri Bul
 Kullanım `MAX()` işlevi dağıtılmış bir tablo için ayrılan en yüksek değeri belirlemek için:
@@ -254,39 +228,5 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Tabloları geliştirme hakkında daha fazla bilgi için bkz: [tablo genel bakış][Overview], [tablo veri türleri][Data Types], [bir tabloDağıt] [ Distribute], [Tablo dizin][Index], [tablo bölüm][Partition], ve [ Geçici tablolara][Temporary]. 
-* En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi yöntemler][SQL Data Warehouse Best Practices].  
+* Tabloları geliştirme hakkında daha fazla bilgi için [tablo] bkz: Genel Bakış [genel bakış].  
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Identity]: ./sql-data-warehouse-tables-identity.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-[BCP ile yükleme]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/
-[PolyBase ile yükleme]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
-[PolyBase en iyi uygulamalar]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
-
-
-<!--MSDN references-->
-[Identity property]: https://msdn.microsoft.com/library/ms186775.aspx
-[sys.identity_columns]: https://msdn.microsoft.com/library/ms187334.aspx
-[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx
-[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx
-[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx
-[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx
-[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx
-[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx
-[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx
-
-[BCP MSDN'de]: https://msdn.microsoft.com/library/ms162802.aspx
-  
-
-<!--Other Web references-->  

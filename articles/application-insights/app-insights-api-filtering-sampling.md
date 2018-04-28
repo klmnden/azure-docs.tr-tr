@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights SDK ön işleme ve filtreleme | Microsoft Docs"
-description: "Telemetri işlemciler ve SDK'sı Telemetri başlatıcıları filtre veya telemetri Application Insights portalına gönderilmeden önce veri özellikleri eklemek için yazın."
+title: Azure Application Insights SDK ön işleme ve filtreleme | Microsoft Docs
+description: Telemetri işlemciler ve SDK'sı Telemetri başlatıcıları filtre veya telemetri Application Insights portalına gönderilmeden önce veri özellikleri eklemek için yazın.
 services: application-insights
-documentationcenter: 
-author: beckylino
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
-ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin; borooji
+ms.openlocfilehash: 06f116fc5096fe4bda9c8433c3a33726acb67eea
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve Application Insights SDK'sı telemetri ön işleme
 
@@ -218,7 +218,7 @@ Tüm telemetri ile gönderilen genel özelliklerini tanımlamak için telemetri 
 
 Örneğin, Web Paketi için Application Insights telemetri HTTP istekleriyle ilgili toplar. Varsayılan olarak, bu yanıt kodu ile herhangi bir istek başarısız olarak işaretler > = 400. Ancak başarılı 400 Muamele etmek istiyorsanız, başarı özelliğini ayarlayan bir telemetri Başlatıcı sağlayabilir.
 
-Bir telemetri Başlatıcı sağladığınız adlı Track*() yöntemlerden herhangi birini zaman çağrılır. Bu, standart telemetri modülleri tarafından adlı yöntemler içerir. Kurala göre bu modülleri başlatıcısı tarafından zaten ayarlanmış herhangi bir özelliği ayarlı değil.
+Bir telemetri Başlatıcı sağlarsanız, herhangi bir Track*() yöntemi çağırmışsa olduğunda çağrılır. Bu, standart telemetri modülleri tarafından adlı yöntemler içerir. Kurala göre bu modülleri başlatıcısı tarafından zaten ayarlanmış herhangi bir özelliği ayarlı değil.
 
 **Başlatıcı tanımlayın**
 
@@ -356,7 +356,7 @@ Telemetri işlemciler ve telemetri başlatıcıları arasındaki fark nedir?
 
 ## <a name="sdk-code"></a>SDK kod
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
-* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET SDK'SI](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK'sı](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Sonraki adımlar

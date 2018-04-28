@@ -2,23 +2,19 @@
 title: Columnstore dizini performansı - Azure SQL Data Warehouse | Microsoft Docs
 description: Bellek gereksinimlerini azaltın veya her satır grubu kimliğinde bir columnstore dizini sıkıştırır satırların sayısı en üst düzeye çıkarmak için kullanılabilir bellek artırın.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kimliğinde kalitesi columnstore için en üst düzeye çıkarma
 
@@ -38,7 +34,7 @@ Bir toplu yükleme veya columnstore dizini yeniden oluşturma sırasında bazen 
 
 Her satır grubu 10. 000'en az satır sıkıştırmak için bellek yetersiz olduğunda, SQL Data Warehouse bir hata oluşturur.
 
-Toplu yükleme hakkında daha fazla bilgi için bkz: [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Toplu yükleme hakkında daha fazla bilgi için bkz: [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Satır grubu kimliğinde kalitesini izleme
 
@@ -153,11 +149,3 @@ Yüksek kaliteli satır grubu kimliğinde boyutları almak için 700 MB bellek g
 
 SQL veri ambarı performansını artırmak için daha fazla yolunu öğrenmek için bkz: [performans genel bakış](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

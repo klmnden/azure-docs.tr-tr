@@ -2,18 +2,19 @@
 title: İş yükü yönetimi - Azure SQL Data Warehouse için kaynak sınıfları | Microsoft Docs
 description: Eşzamanlılık yönetmek ve işlem kaynaklarını Azure SQL Data Warehouse sorguları için kaynak sınıfları kullanmaya yönelik kılavuz.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/11/2018
-ms.author: kevin
-ms.reviewer: jrj
-ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/26/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse kaynak sınıflarda ile iş yükü yönetimi
 Bellek ve Azure SQL veri ambarı sorgularda eşzamanlılık yönetmek için kaynak sınıfları kullanmaya yönelik kılavuz.  
@@ -21,29 +22,31 @@ Bellek ve Azure SQL veri ambarı sorgularda eşzamanlılık yönetmek için kayn
 ## <a name="what-is-workload-management"></a>İş yükü yönetimi nedir?
 İş yükü, tüm sorguları genel performansını en iyi duruma getirme olanağı yönetimidir. İyi bizi iş yükü, sorgular ve işlem yoğunluklu veya g/ç yoğunluklu olup olmadıkları bakılmaksızın verimli bir şekilde yük işlemler çalışır.  SQL veri ambarı çok kullanıcılı ortamlar için iş yükü yönetimi özelliklerini sağlar. Veri ambarı çok Kiracı İş yükleri için tasarlanmamıştır.
 
-Veri ambarı performans kapasitesi tarafından belirlenen [performans katmanı](memory-and-concurrency-limits.md#performance-tiers) ve [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+Veri ambarı performans kapasitesi tarafından belirlenen [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
 
 - Tüm performans profiller için bellek ve eşzamanlılık sınırları görüntülemek için bkz: [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
 - Performans kapasitesi ayarlamak için [yukarı veya aşağı Ölçeklendirmesi](quickstart-scale-compute-portal.md).
 
-Bir sorgu performansı kapasitesini sorgunun kaynak sınıfı tarafından belirlenir. Bu bu makalenin sonraki bölümlerinde kaynak sınıfları nelerdir ve bunları ayarlama konusunda açıklanmaktadır.
-
+Bir sorgu performansı kapasitesini sorgunun kaynak sınıfı tarafından belirlenir. Bu makalenin sonraki bölümlerinde, kaynak sınıfları nelerdir ve bunları ayarlama konusunda açıklanmaktadır.
 
 ## <a name="what-are-resource-classes"></a>Kaynak sınıfları nelerdir?
-Kaynak sınıfları yöneten Azure SQL Data Warehouse kaynak sınırları işlem kaynakları ve sorgu yürütmesi için eşzamanlılık önceden belirlenir. Kaynak sınıflar, İş yükünüzün eşzamanlı olarak çalışan sorguları ve her sorgu için atanan işlem kaynakları sayısı sınırlarını ayarlama yönetmenize yardımcı olabilir. Bellek ve eşzamanlılık arasında kolaylığını yoktur.
+Bir sorgu performansı kapasitesini kullanıcının kaynak sınıfı tarafından belirlenir.  Kaynak sınıfları yöneten Azure SQL Data Warehouse kaynak sınırları işlem kaynakları ve sorgu yürütmesi için eşzamanlılık önceden belirlenir. Kaynak sınıflar, İş yükünüzün eşzamanlı olarak çalışan sorguları ve her sorgu için atanan işlem kaynakları sayısı sınırlarını ayarlama yönetmenize yardımcı olabilir. Bir ticari kapalı bellek ve yoktur eşzamanlılık arasında.
 
 - Daha küçük kaynak sınıfları sorgu başına en fazla bellek miktarını azaltmak ancak eşzamanlılık artırır.
 - Daha büyük kaynak sınıfları sorgu başına en fazla bellek artırır, ancak eşzamanlılık azaltın. 
 
-Bir sorgu performansı kapasitesini kullanıcının kaynak sınıfı tarafından belirlenir.
+İki tür kaynak sınıfı vardır:
 
-- Kaynak sınıfları için kaynak kullanımını görmek için bkz: [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md#concurrency-maximums).
-- Kaynak sınıfı ayarlamak için farklı bir kullanıcı altında sorgu çalıştırabilirsiniz veya [geçerli kullanıcının kaynak sınıfı değiştirmek](#change-a-user-s-resource-class) üyeliği. 
+- Statik kaynaklarla sınıfları, sabit bir veri kümesi boyutu üzerinde artan eşzamanlılık için uygundur.
+- Dinamik kaynak sınıfları, boyutu büyüyen ve hizmet düzeyi ölçeklendirilmiş gibi performansı artırma veri kümesi için uygundur.   
 
 Kaynak sınıflarını eşzamanlılık yuvaları kaynak tüketimini ölçmek için kullanın.  [Eşzamanlılık yuvaları](#concurrency-slots) bu makalenin sonraki bölümlerinde açıklanmıştır. 
 
+- Kaynak sınıfları için kaynak kullanımını görmek için bkz: [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md#concurrency-maximums).
+- Kaynak sınıfı ayarlamak için farklı bir kullanıcı altında sorgu çalıştırabilirsiniz veya [geçerli kullanıcının kaynak sınıfı değiştirmek](#change-a-users-resource-class) üyeliği. 
+
 ### <a name="static-resource-classes"></a>Statik kaynak sınıfları
-Statik kaynak sınıflarını ayırmak bellek ölçülür geçerli performans düzeyi bakılmaksızın aynı miktarda [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). Sorguları performans düzeyi bağımsız olarak aynı bellek ayırma aldığından [veri ambarı ölçeklendirme](quickstart-scale-compute-portal.md) kaynak sınıfı içinde çalıştırmak daha fazla sorguları sağlar.
+Statik kaynak sınıflarını ayırmak bellek ölçülür geçerli performans düzeyi bakılmaksızın aynı miktarda [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). Sorguları performans düzeyi bağımsız olarak aynı bellek ayırma aldığından [veri ambarı ölçeklendirme](quickstart-scale-compute-portal.md) kaynak sınıfı içinde çalıştırmak daha fazla sorguları sağlar.  Statik kaynak veri hacmi biliniyorsa ideal ve sabit sınıflarıdır.
 
 Statik kaynak sınıflar bu önceden tanımlanmış veritabanı rolleri ile uygulanır:
 
@@ -56,19 +59,31 @@ Statik kaynak sınıflar bu önceden tanımlanmış veritabanı rolleri ile uygu
 - staticrc70
 - staticrc80
 
-Bu kaynak sınıfları başka işlem kaynakları almak için kaynak sınıfı artıran çözümleri için uygundur.
-
 ### <a name="dynamic-resource-classes"></a>Dinamik kaynak sınıfları
-Dinamik kaynak sınıflar değişken bir hizmet düzeyine bağlı olarak bellek miktarı ayırın. Daha büyük bir hizmet düzeyine ölçeklendirmek, sorgularınızı daha fazla bellek otomatik olarak alın. 
+Dinamik kaynak sınıflar değişken bir hizmet düzeyine bağlı olarak bellek miktarı ayırın. Statik kaynak sınıfları yüksek eşzamanlılık ve statik veri birimleri için faydalı olsa da, dinamik kaynak sınıfları daha iyi bir büyüyen veya değişken miktarda veriler için uygundur.  Daha büyük bir hizmet düzeyine ölçeklendirmek, sorgularınızı daha fazla bellek otomatik olarak alın.  
 
 Dinamik kaynak sınıflar bu önceden tanımlanmış veritabanı rolleri ile uygulanır:
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
-Bu kaynak sınıfları hangi artış ek kaynaklar almak için ölçek compute çözümleri için uygundur. 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Gen2 dinamik kaynak sınıfları gerçekten dinamik
+Dinamik kaynak Gen1 sınıflarında ayrıntılarını içine digging olduğunda davranışlarını anlamak için ek karmaşıklık eklemek birkaç ayrıntıları:
+
+- Smallrc kaynaklar sınıfı statik kaynak sınıfı gibi bir sabit bellek modeli ile çalışır.  Smallrc sorguları dinamik olarak hizmet düzeyi arttıkça daha fazla bellek almamış.
+- Hizmet düzeylerini değiştirme gibi kullanılabilir sorgu eşzamanlılık yukarı veya aşağı gidebilirsiniz.
+- Hizmetleri düzeyleri ölçeklendirme orantılı değişiklik aynı kaynak sınıfları için ayrılan bellek sağlamaz.
+
+Üzerinde **Gen2 yalnızca**, dinamik kaynak sınıflardır yukarıda belirtilen noktaları adresleme gerçekten dinamik.  3-10-22-70 küçük-Orta-büyük-xlarge kaynak sınıfları için bellek yüzdesi ayırma için yeni kuralıdır **hizmet düzeyi bağımsız olarak**.  Bellek ayırma yüzdeleri ve Çalıştır, bağımsız olarak hizmet düzeyi eş zamanlı sorguları en az sayıda birleştirilmiş ayrıntılarını tabloda sahiptir.
+
+| Kaynak Sınıfı | Yüzde belleği | Min eş zamanlı sorgular |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | % 3                | 32                     |
+| mediumrc       | %10               | 10                     |
+| largerc        | %22               | 4                      |
+| xlargerc       | %70               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
@@ -144,10 +159,11 @@ Yalnızca yönetilen kaynak sorguları eşzamanlılık yuvaları kullanabilir. S
 
 Kaynak sınıf önceden tanımlanmış veritabanı rolleri uygulanır. İki tür kaynak sınıfı vardır: dinamik ve statik. Kaynak sınıflarının bir listesini görüntülemek için aşağıdaki sorguyu kullanın:
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>Bir kullanıcının kaynak sınıfı değiştirme
 
@@ -197,7 +213,7 @@ Performansı ayarlamak için farklı bir kaynak sınıflarını kullanın. Sonra
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>En iyi kaynak sınıfı bulmak için örnek kod
  
-Belirli bir SLO kaynak sınıfı ve bellek yoğun CCI tablosu üzerinde işlem bölümlenmemiş CCI belirtilen kaynak sınıfı en yakın en iyi kaynak sınıfı başına eşzamanlılık ve bellek grant ekleneceğini aşağıdaki depolanan yordamı kullanabilirsiniz:
+Aşağıdaki saklı yordamı kullanabileceğiniz **Gen1 yalnızca** anlayıp eşzamanlılık ve bellek verilen SLO kaynak sınıfı ve bölümlenmemiş CCI yoğun CCI işlemleri tablosu, bellek için en yakın iyi kaynak sınıfı başına atama Belirtilen kaynak sınıfı:
 
 Bu saklı yordam amacı şöyledir:  
 1. Eşzamanlılık ve belirli bir SLO kaynak sınıfı başına vermek bellek görmek için. Kullanıcı Bu örnekte gösterildiği gibi NULL hem şema hem de tablename için sağlaması gerekir.  
@@ -228,6 +244,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> Bu saklı yordamı sürümünde tanımlı değerler yalnızca Gen1 için geçerlidir.
+>
+>
 
 Aşağıdaki deyim, Yukarıdaki örneklerde kullanılan tablo1 oluşturur.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -294,7 +314,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -306,7 +326,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

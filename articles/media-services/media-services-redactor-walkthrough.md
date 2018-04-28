@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d287206d30c05289679c83636ba5f968a5fcbcbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure medya analizi kılavuza yüzeyleri Redaksiyon
 
@@ -30,7 +30,7 @@ Hakkındaki ayrıntılar için **Azure medya Redactor**, bkz: [yüz Redaksiyon g
 
 Bu konu Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak tam Redaksiyon iş akışını çalıştırma hakkında adım adım yönergeler gösterir.
 
-Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blogu.
+Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/redaction-preview-available-globally) blogu.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services Gezgini iş akışı
 
@@ -97,7 +97,7 @@ JSON ek açıklama verilerini ayrıştırma çalışılırken bir geliştirici i
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. Run AzureMediaRedactor.exe. 
+4. AzureMediaRedactor.exe çalıştırın. 
 
 ### <a name="use-the-tool"></a>Aracını kullanma
 

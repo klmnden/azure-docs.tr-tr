@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Öğretici: Azure Active Directory Tümleştirme ile Fluxx Laboratuvarları
 
@@ -114,16 +114,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     |-------------|------------|
     | Üretim | `https://<subdomain>.fluxx.io` |
     | Üretim öncesi | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | Hazırlanıyor    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
 
     | Ortam | URL deseni|
     |-------------|------------|
     | Üretim | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Üretim öncesi | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | Hazırlanıyor    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Fluxx Labs destek ekibi](mailto:travis@fluxxlabs.com) bu değerleri almak için.
 
@@ -141,11 +139,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 7. Farklı web tarayıcısı penceresinde Fluxx Labs şirket sitenize yönetici olarak oturum açma.
 
-8. Sağ üst köşesinde sayfası üzerinde tıklayın **ayarlar simgesine** ve ardından **yönetici**.
+8. Seçin **yönetici** aşağıda **ayarları** bölümü.
 
     ![Fluxx Labs yapılandırma](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. Yönetici panelinde seçin **eklentileri** > **tümleştirmeler** ve ardından **SAML SSO-(Enabled)**
+9. Yönetici panelinde seçin **eklentileri** > **tümleştirmeler** ve ardından **SAML SSO-(Disabled)**
 
     ![Fluxx Labs yapılandırma](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. İçinde **geri çağırma yolu** metin kutusuna, türü **/auth/saml/callback**.
 
-    d. İçinde **onaylama tüketici hizmeti URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    d. İçinde **onaylama tüketici hizmet Url(Single Sign-On URL)** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
 
-    e. İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan.
+    e. İçinde **İzleyici (SP varlık kimliği)** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan.
 
-    f. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP Cert** metin kutusu.
+    f. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısı sertifikası** metin kutusu.
 
-    g.  İçinde **ad tanımlayıcısı biçimi** metin değeri girin `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. İçinde **ad tanımlayıcısı biçimi** metin değeri girin `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
     h. **Kaydet**’e tıklayın.
 
@@ -212,23 +210,21 @@ Fluxx Labs oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar�
 
 1. Fluxx Labs şirket sitenize yönetici olarak oturum açın.
 
-2. Panoda tıklayın açmak için görüntülenen simgesinin altında **yeni bir kişiye** kart.
+2. Tıklayın aşağıda gösterilen **simgesi**.
+
+    ![Fluxx Labs yapılandırma](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. Panoda tıklayın açmak için görüntülenen simgesinin altında **yeni kişiler** kart.
 
     ![Fluxx Labs yapılandırma](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. Üzerinde **yeni bir kişiye** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **yeni kişiler** bölümünde, aşağıdaki adımları gerçekleştirin:
     
     ![Fluxx Labs yapılandırma](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. İçinde **oturum açma** metin kutusu, kullanıcı Azure_Admin gibi e-posta girin.
+    a. Fluxx Labs e-posta SSO oturumları için benzersiz tanımlayıcı olarak kullanın. Doldurmak **SSO UID** alan SSO ile oturum açma olarak kullanarak e-posta adresiyle eşleşen kullanıcının e-posta adresine sahip.
 
-    b. İçinde **parola** metin kutusuna, Azure_Admin hesabın parolasını yazın.
-
-    c. İçinde **parolayı onayla** metin kutusuna, Azure_Admin hesabının parolasını yeniden girin.
-
-    d. Fluxx Labs e-posta SSO oturumları için benzersiz tanımlayıcı olarak kullanın. Doldurmak **SSO UID** alan SSO ile oturum açma olarak kullanarak e-posta adresiyle eşleşen kullanıcının e-posta adresine sahip.
-
-    e. Tıklatın **kişi oluşturma**.
+    b. **Kaydet**’e tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -285,4 +281,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

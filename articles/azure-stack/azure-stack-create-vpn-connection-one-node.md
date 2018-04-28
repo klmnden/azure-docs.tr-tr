@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6520da6b866ebddd66604dd8f27acfc5a9bcef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Farklı Azure yığın Geliştirme Seti ortamlarda iki sanal ağ arasında bir siteden siteye VPN bağlantısı oluşturun
 ## <a name="overview"></a>Genel Bakış
@@ -34,7 +34,7 @@ Aşağıdaki diyagramda, işiniz bittiğinde bağlantı yapılandırması gibi g
 Bağlantı yapılandırmasını tamamlamak için başlamadan önce aşağıdaki öğelerin bulunduğundan emin olun:
 
 * İki sunucu ve açıklandığı gibi Azure yığın Geliştirme Seti donanım gereksinimlerini karşılayan başka bir önkoşul [hızlı başlangıç: Azure yığın Geliştirme Seti değerlendirmek](azure-stack-deploy-overview.md). 
-* [Azure yığın Geliştirme Seti](https://azure.microsoft.com/en-us/overview/azure-stack/try/) dağıtım paketi.
+* [Azure yığın Geliştirme Seti](https://azure.microsoft.com/overview/azure-stack/try/) dağıtım paketi.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Azure yığın Geliştirme Seti ortamları dağıtma
 Bağlantı yapılandırmasını tamamlamak için iki Azure yığın Geliştirme Seti ortamını dağıtmanız gerekir.
@@ -53,7 +53,7 @@ Aşağıdaki tabloda her iki Azure yığın Geliştirme Seti ortamlar için ağ 
 |---------|---------|---------|
 |Sanal ağ adı     |VNET-01|VNET-02 |
 |Sanal ağ adres alanı |10.0.10.0/23|10.0.20.0/23|
-|Alt ağ adı     |Alt ağ-01|Subnet-02|
+|Alt ağ adı     |Alt ağ-01|Alt ağ-02|
 |Alt ağ adres aralığı|10.0.10.0/24 |10.0.20.0/24 |
 |Ağ geçidi alt ağı     |10.0.11.0/24|10.0.21.0/24|
 |Dış BGPNAT adresi     |         |         |

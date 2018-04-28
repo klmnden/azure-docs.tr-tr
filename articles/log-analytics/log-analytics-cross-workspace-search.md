@@ -1,24 +1,24 @@
 ---
-title: "Azure günlük analizi ile kaynakları genelinde arama yapma | Microsoft Docs"
-description: "Bu makalede nasıl birden çok çalışma alanları ve App Insights uygulama kaynaklara karşı aboneliğinizde Sorgulayabileceğiniz açıklanmaktadır."
+title: Azure günlük analizi ile kaynakları genelinde arama yapma | Microsoft Docs
+description: Bu makalede nasıl birden çok çalışma alanları ve App Insights uygulama kaynaklara karşı aboneliğinizde Sorgulayabileceğiniz açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 5485b1634013c73b58932aafa6e17d636558715d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Günlük analizi arası kaynak günlük aramalar gerçekleştirmek  
 
@@ -30,7 +30,7 @@ Artık yalnızca birden çok günlük analizi çalışma alanı, aynı zamanda b
 Sorgunuzdaki başka bir çalışma alanı başvurmak için [ *çalışma* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) tanımlayıcısı ve bir uygulamadan için Application Insights, [ *uygulama* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())tanımlayıcısı.  
 
 ### <a name="identifying-workspace-resources"></a>Çalışma alanı kaynakları tanımlama
-Aşağıdaki örnekler sorguları sınıflandırmalarına hem geçerli çalışma alanından güncelleştirme tablosundan gerekli güncelleştirmeleri özetlenen sayısını döndürmek için günlük analizi çalışma alanları ve adlı başka bir çalışma alanı göstermek  *contosoretail BT*. 
+Aşağıdaki örnekler, güncelleştirmelerinin özetlenen sayıları güncelleştirme tablosundan adlı bir çalışma alanında döndürmek için günlük analizi çalışma alanları arasında sorguları gösterir. *contosoretail BT*. 
 
 Bir çalışma alanı tanımlayan başarılı çeşitli yollardan biri olabilir:
 

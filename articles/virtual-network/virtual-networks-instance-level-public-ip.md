@@ -3,7 +3,7 @@ title: Azure örneği düzeyinde (Klasik) ortak IP adresleri | Microsoft Docs
 description: Örnek düzeyinde ortak IP (ILPIP) yöneliktir ve bunların nasıl yönetileceğini anlamak PowerShell kullanarak.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyinde ortak IP (Klasik) genel bakış
 Bir örnek düzeyinde ortak IP (ILPIP), VM veya Bulut Hizmetleri rol örneği için doğrudan yerine, VM'deki veya rol örneğindeki bulunan bulut hizmetine atayabilirsiniz genel bir IP adresi ' dir. Bir ILPIP, sanal IP (bulut Hizmetinize atanmış VIP) yer almaz. Bunun yerine, doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz ek bir IP adresi değil.

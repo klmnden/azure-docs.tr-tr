@@ -3,144 +3,88 @@ title: Java kullanarak Azure IOT Hub'a sanal bir X.509 cihazı sağlama | Micros
 description: Azure Hızlı Başlangıcı - IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 services: iot-dps
 keywords: ''
-author: msebolt
-ms.author: v-masebo
-ms.date: 12/21/2017
+author: bryanla
+ms.author: v-masebo;bryanla
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6ff10b982579c8c457c632055e654fefc05858a5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 72460e19d202b79369844db6fea24f2914c8bbbe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde X.509 cihazının simülasyonunu yapmayı ve örnek kodlar kullanarak bu sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub’ınızla bağlamayı gösterir. 
 
-Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun.
-
+Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 ## <a name="prepare-the-environment"></a>Ortamı hazırlama 
 
 1. Makinenizde [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) uygulamasının yüklü olduğundan emin olun.
 
-1. [Maven](https://maven.apache.org/install.html)'ı indirip yükleyin.
+2. [Maven](https://maven.apache.org/install.html)'ı indirip yükleyin.
 
-1. `git` uygulamasının makinenizde yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
+3. Makinenizde Git’in yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
 
-1. Bir komut istemi açın. Cihaz benzetim kod örneği için GitHub deposunu kopyalayın:
+4. Bir komut istemi açın. Cihaz benzetim kod örneği için GitHub deposunu kopyalayın:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-1. Kök azure-iot-sdk-java dizinine gidin ve gereken tüm paketleri indirmek için projeyi oluşturun.
+5. Kök `azure-iot-sdk-`java` dizinine gidin ve gereken tüm paketleri indirmek için projeyi oluşturun.
    
    ```cmd/sh
    cd azure-iot-sdk-java
    mvn install -DskipTests=true
    ```
-1. Sertifika oluşturucu projesine gidin ve projeyi derleyin. 
+6. Sertifika oluşturucu projesine gidin ve projeyi derleyin. 
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator
     mvn clean install
     ```
 
-1. Hedef klasöre gidin ve oluşturulan jar dosyasını ayıklayın.
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Otomatik olarak imzalanan X.509 cihazı sertifikası ve bireysel kayıt girişi oluşturma
+
+1. Önceki adımlardan komut istemini kullanarak, `target` klasörüne gidin, daha sonra önceki adımda oluşturulan jar dosyasını yürütün.
 
     ```cmd/sh
     cd target
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-1. Kurulumunuza göre aşağıdaki yöntemlerin birini kullanarak kayıt bilgilerini oluşturun:
+2. _Do you want to input common name_ (Ortak ad girmek istiyor musunuz) istemi için **N** girin. `Client Cert` çıktısının *-----BEGIN CERTIFICATE-----* satırından *-----END CERTIFICATE-----* satırına kadar olan bölümü panoya kopyalayın.
 
-    - **Bireysel kayıt**:
+   ![Bireysel sertifika oluşturucu](./media/java-quick-create-simulated-device-x509/individual.png)
 
-        1. _Do you want to input common name_ (Ortak ad girmek istiyor musunuz) istemi için **N** girin. `Client Cert` çıktısının *-----BEGIN CERTIFICATE-----* satırından *-----END CERTIFICATE-----* satırına kadar olan bölümü panoya kopyalayın.
+3. Windows makinenizde **_X509individual.pem_** adlı bir dosya oluşturun, dosyayı dilediğiniz düzenleyicide ve panonun içeriğini bu dosyaya kopyalayın. Dosyayı kaydedin ve düzenleyicinizi kapatın.
 
-            ![Bireysel sertifika oluşturucu](./media/java-quick-create-simulated-device-x509/individual.png)
+4. Komut isteminde, _Do you want to input Verification Code_ (Doğrulama Kodu girmek istiyor musunuz?) isteminde **N** girin ve Hızlı Başlangıç’ın ilerleyen bölümlerinde kullanmak üzere program çıktısını açık tutun. Daha sonra, sonraki bölümde kullanmak için `Client Cert` ve `Client Cert Private Key` değerlerini kopyalayın.
 
-        1. Windows makinenizde **_X509individual.pem_** adlı bir dosya oluşturun, dosyayı dilediğiniz düzenleyicide ve panonun içeriğini bu dosyaya kopyalayın. Dosyayı kaydedin.
+5. [Azure portalında](https://portal.azure.com) oturum açın, sol taraftaki menüden **Tüm kaynaklar** düğmesine tıklayın ve Cihaz Sağlama Hizmeti örneğinizi açın.
 
-        1. _Do you want to input Verification Code_ (Doğrulama Kodu girmek istiyor musunuz?) isteminde **N** girin ve Hızlı Başlangıcın ilerleyen bölümlerinde kullanmak üzere program çıktısını açık tutun. _Client Cert_ (İstemci Sertifikası) ve _Client Cert Private Key_ (İstemci Sertifikası Özel Anahtarı) değerlerini not edin.
-    
-    - **Kayıt grupları**:
+6. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. 
 
-        1. _Do you want to input common name_ (Ortak ad girmek istiyor musunuz) istemi için **N** girin. `Root Cert` çıktısının *-----BEGIN CERTIFICATE-----* satırından *-----END CERTIFICATE-----* satırına kadar olan bölümü panoya kopyalayın.
+7. **Kayıt ekle** panelinin altına aşağıdaki bilgileri girin:
+    - Kimlik onay *Mekanizması* olarak **X.509**'u seçin.
+    - *Birincil sertifika .pem veya .cer dosyası*'nın altında, önceki adımlarda oluşturulmuş **X509individual.pem** sertifika dosyasını seçmek için *Dosya seçin*’e tıklayın.  
+    - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
+      - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
+      - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının. 
+      - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
+   - Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-            ![Grup sertifikası oluşturucu](./media/java-quick-create-simulated-device-x509/group.png)
+    [![Portalda X.509 kanıtı için tek kayıt ekleme](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
-        1. Windows makinenizde **_X509group.pem_** adlı bir dosya oluşturun, dosyayı dilediğiniz düzenleyicide ve panonun içeriğini bu dosyaya kopyalayın. Dosyayı kaydedin.
+     Kayıt başarıyla tamamlandığında, X.509 cihazınız *Bireysel Kayıtlar* sekmesindeki *Kayıt Kimliği* sütununun altında **microsoftriotcore** olarak gösterilir. 
 
-        1. _Do you want to input Verification Code_ (Doğrulama Kodu girmek istiyor musunuz?) isteminde **Y** girin ve Hızlı Başlangıcın ilerleyen bölümlerinde kullanmak üzere programı açık tutun. _Client Cert_ (İstemci Sertifikası), _Client Cert Private Key_ (İstemci Sertifikası Özel Anahtarı), _Signer Cert_ (İmzalayan Sertifikası) ve _Root Cert_ (Kök Sertifika) değerlerini not edin.
-
-        > [!NOTE]
-        > Yukarıdaki `Root Cert`, yalnızca konsol çıkışında oluşturulan sertifikalar için geçerlidir; ek istemci sertifikalarını imzalamak için kullanılamaz. Daha güçlü bir test sertifikaları kümesine gerek duyuyorsanız, bkz. [CA Sertifikalarını Yönetme Örneği](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
-        >
-
-## <a name="create-a-device-enrollment-entry"></a>Cihaz kaydı girişi oluşturma
-
-1. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve sağlama hizmetinizi açın.
-
-1. Kurulumunuza göre aşağıdaki yöntemlerin birini kullanarak kayıt bilgilerini girin:
-
-    - **Bireysel kayıt**: 
-
-        1. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. 
-
-        1. **Kayıt listesi girişi ekle** bölümüne aşağıdaki bilgileri girin:
-            - Kimlik onay *Mekanizması* olarak **X.509**'u seçin.
-            - *Sertifika .pem veya .cer dosyası*'nın altında, önceki adımlarda *Dosya Gezgini* pencere öğesi kullanılarak oluşturulmuş **_X509individual.pem_** sertifika dosyasını seçin.
-            - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
-                - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-                - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının. 
-                - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
-            - Tamamlandığında **Kaydet** düğmesine tıklayın. 
-
-        ![Portal dikey penceresinde X.509 cihazı kayıt bilgilerini girme](./media/java-quick-create-simulated-device-x509/enter-device-enrollment.png)  
-
-       Kayıt başarıyla tamamlandığında, X.509 cihazınız *Bireysel Kayıtlar* sekmesindeki *Kayıt Kimliği* sütununun altında **microsoftriotcore** olarak gösterilir. 
-
-    - **Kayıt grupları**: 
-
-        1. Cihaz Sağlama Hizmeti özet dikey penceresinde **Sertifikalar**'ı seçip üstteki **Ekle** düğmesine tıklayın.
-
-        1. **Sertifika Ekle** bölümüne aşağıdaki bilgileri girin:
-            - Benzersiz bir sertifika adı girin.
-            - Önceki adımlarda oluşturduğunuz **_X509group.pem_** dosyasını seçin.
-            - Tamamlandığında **Kaydet** düğmesine tıklayın.
-
-        ![Sertifika ekleme](./media/java-quick-create-simulated-device-x509/add-certificate.png)
-
-        1. Yeni oluşturulan sertifikayı seçin:
-            - **Doğrulama Kodu Oluştur**'a tıklayın. Oluşturulan kodu kopyalayın.
-            - Çalışan _provisioning-x509-cert-generator_ pencerenize _doğrulama kodunu_ girin veya sağ tıklayarak yapıştırın.  **Enter**'a basın.
-            - `Verification Cert` çıktısının *-----BEGIN CERTIFICATE-----* satırından *-----END CERTIFICATE-----* satırına kadar olan bölümü panoya kopyalayın.
-            
-                ![Doğrulama oluşturucu](./media/java-quick-create-simulated-device-x509/validation-generator.png)
-
-            - Windows makinenizde **_X509validation.pem_** adlı bir dosya oluşturun, dosyayı dilediğiniz düzenleyicide ve panonun içeriğini bu dosyaya kopyalayın. Dosyayı kaydedin.
-            - Azure portalında **_X509validation.pem_** dosyasını seçin. **Doğrula**'ya tıklayın.
-
-            ![Sertifika doğrulama](./media/java-quick-create-simulated-device-x509/validate-certificate.png)
-
-        1. **Kayıtları yönetme**'yi seçin. **Kayıt Grupları** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın.
-            - Benzersiz bir grup adı girin.
-            - Önceki adımlarda oluşturulan benzersiz sertifika adını seçin
-            - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
-                - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-                - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
-
-        ![Portal dikey penceresinde X.509 grup kaydı bilgilerini girme](./media/java-quick-create-simulated-device-x509/enter-group-enrollment.png)
-
-        Kayıt başarılı olduğunda X.509 cihaz grubunuz *Kayıt Grupları* sekmesinin *Grup Adı* sütununda görünür.
 
 
 ## <a name="simulate-the-device"></a>Cihazı benzetme
@@ -149,77 +93,42 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
     ![Hizmet bilgileri](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-1. Bir komut istemi açın. Örnek proje klasörüne gidin.
+2. Bir komut istemi açın. Java SDK deposunun örnek proje klasörüne gidin.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Kurulumunuza göre aşağıdaki yöntemlerin birini kullanarak kayıt bilgilerini girin:
+3. Kodunuzdaki sağlama hizmetini ve X.509 kimlik bilgilerini girin. Bu otomatik sağlama sırasında, cihaz kaydından önce simülasyon cihazını kanıtlamak için kullanılır:
 
-    - **Bireysel kayıt**: 
+   - `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` dosyasını düzenleyerek önceden not ettiğiniz _Kimlik Kapsamı_ ve _Sağlama Hizmeti Genel Uç Noktası_ değerlerini girin. Ayrıca önceki bölümde not ettiğiniz _Client Cert_ ve _Client Cert Private Key_ değerlerini de dahil edin.
 
-        1. `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` girişini düzenleyerek önceden not ettiğiniz _Kimlik Kapsamı_ ve _Sağlama Hizmeti Genel Uç Noktası_ değerlerini girin. Ayrıca önceden not ettiğiniz _Client Cert_ ve _Client Cert Private Key_ değerlerini de dahil edin.
+      ```java
+      private static final String idScope = "[Your ID scope here]";
+      private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+      private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+      private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+      private static final String leafPrivateKey = "<Your Private PEM Key here>";
+      ```
 
-            ```java
-            private static final String idScope = "[Your ID scope here]";
-            private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-            private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-            private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-            private static final String leafPrivateKey = "<Your Private PEM Key here>";
-            ```
-
-            - Sertifikanızı ve anahtarınızı dahil etmek için aşağıdaki biçimi kullanın:
-            
-                ```java
-                private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "-----END CERTIFICATE-----\n";
-                private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXX\n" +
-                    "-----END PRIVATE KEY-----\n";
-                ```
-
-    - **Kayıt grupları**: 
-
-        1. Yukarıdaki **Bireysel kayıt** talimatlarını uygulayın.
-
-        1. Aşağıdaki kod satırlarını `main` işlevinin başına ekleyin.
+   - Sertifikanız ve özel anahtarınızı kopyalarken/yapıştırırken aşağıdaki biçimi kullanın:
         
-            ```java
-            String intermediatePem = "<Your Signer Certificate here>";          
-            String rootPem = "<Your Root Certificate here>";
-                
-            signerCertificates.add(intermediatePem);
-            signerCertificates.add(rootPem);
-            ```
-    
-            - Sertifikalarınızı dahil etmek için aşağıdaki biçimi kullanın:
-        
-                ```java
-                String intermediatePem = "-----BEGIN CERTIFICATE-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "-----END CERTIFICATE-----\n";
-                String rootPem = "-----BEGIN CERTIFICATE-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "-----END CERTIFICATE-----\n";
-                ```
+      ```java
+      private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+      private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXX\n" +
+            "-----END PRIVATE KEY-----\n";
+      ```
 
-1. Örneği derleyin. Hedef klasöre gidin ve oluşturulan jar dosyasını ayıklayın.
+4. Örneği derleyin. `target` klasörüne gidin ve oluşturulan jar dosyasını çalıştırın.
 
     ```cmd/sh
     mvn clean install
@@ -227,7 +136,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-1. Portalda, sağlama hizmetinize bağlı olan IoT hub'ına gidin ve **Device Explorer** dikey penceresini açın. X.509 sanal cihazının hub'a başarıyla sağlanması durumunda, cihaz kimliği **Device Explorer** dikey penceresinde *DURUM* değeri **etkinleştirildi** olarak gösterilir. Unutmayın;dikey pencereyi, örnek cihaz uygulamasını çalıştırmadan önce açtıysanız en üstteki **Yenile** düğmesine tıklamanız gerekebilir. 
+5. Azure portalda, sağlama hizmetinize bağlı olan IoT hub'ına gidin ve **Device Explorer** dikey penceresini açın. X.509 sanal cihazının hub'a başarıyla sağlanması durumunda, cihaz kimliği **Device Explorer** dikey penceresinde *DURUM* değeri **etkinleştirildi** olarak gösterilir.  Dikey pencereyi, örnek cihaz uygulamasını çalıştırmadan önce açtıysanız en üstteki **Yenile** düğmesine tıklamanız gerekebilir. 
 
     ![Cihaz IOT hub'da kayıtlı](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
 
@@ -241,13 +150,13 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 Cihaz istemci örneği üzerinde çalışmaya ve inceleme yapmaya devam etmeyi planlıyorsanız bu Hızlı Başlangıç’ta oluşturulan kaynakları silmeyin. Devam etmeyi planlamıyorsanız, bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın:
 
 1. Makinenizde cihaz istemci örnek çıktı penceresini kapatın.
-1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından Cihaz Sağlama hizmetini seçin. Hizmetinizin **Kayıtları Yönetme** dikey penceresini açıp **Bireysel Kayıtlar** sekmesine tıklayın. Bu Hızlı Başlangıç adımlarını kullanarak kaydettiğiniz cihazın *KAYIT KİMLİĞİ* değerini seçip en üstte bulunan **Sil** düğmesine tıklayın. 
-1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. Hub'ınızın **IoT Cihazları** dikey penceresini açıp bu Hızlı Başlangıç adımlarını kullanarak kaydettiğiniz cihazın *CİHAZ KİMLİĞİ* değerini seçip en üstte bulunan **Sil** düğmesine tıklayın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından Cihaz Sağlama hizmetini seçin. Hizmetinizin **Kayıtları Yönetme** dikey penceresini açıp **Bireysel Kayıtlar** sekmesine tıklayın. Bu Hızlı Başlangıç adımlarını kullanarak kaydettiğiniz cihazın *KAYIT KİMLİĞİ* değerini seçip en üstte bulunan **Sil** düğmesine tıklayın. 
+3. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. Hub'ınızın **IoT Cihazları** dikey penceresini açıp bu Hızlı Başlangıç adımlarını kullanarak kaydettiğiniz cihazın *CİHAZ KİMLİĞİ* değerini seçip en üstte bulunan **Sil** düğmesine tıklayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Hızlı Başlangıçta, Windows makinenizde bir X.509 sanal cihazı oluşturdunuz ve portaldaki Azure IOT Hub Cihaz Sağlama Hizmeti ile IoT hub'ınıza sağladınız. X.509 cihazınızı programlı bir şekilde kaydetmeyi öğrenmek için X.509 cihazlarının programlı kaydının yer aldığı Hızlı Başlangıç adımlarına gidin. 
+Bu Hızlı Başlangıç’ta, Windows makinenizde bir sanal X.509 cihazı oluşturdunuz. Azure IoT Hub Cihazı Sağlama Hizmetinize kaydını yapılandırdınız, ardından cihazı IoT hub’ınıza otomatik olarak sağladınız. X.509 cihazınızı programlı bir şekilde kaydetmeyi öğrenmek için X.509 cihazlarının programlı kaydının yer aldığı Hızlı Başlangıç adımlarına gidin. 
 
 > [!div class="nextstepaction"]
 > [Azure Hızlı Başlangıcı - X.509 cihazlarını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme](quick-enroll-device-x509-java.md)

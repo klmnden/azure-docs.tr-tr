@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Authenticator uygulama Yardım ve Destek | Microsoft Docs"
-description: "Sık sorulan sorular ve yanıtlar Microsoft Authentication uygulamasını ve Azure multi-Factor Authentication ile ilgili bir listesini sağlar."
+title: Microsoft Authenticator uygulama Yardım ve Destek | Microsoft Docs
+description: Sık sorulan sorular ve yanıtlar Microsoft Authentication uygulamasını ve Azure multi-Factor Authentication ile ilgili bir listesini sağlar.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -15,15 +15,15 @@ ms.date: 03/08/2018
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e9c152fddbfcd603a84caf2c168ec4f12368dcfa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator uygulaması hakkında SSS
 
-Bu makalede Microsoft Authenticator uygulaması hakkında aldığımız sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, Git [Microsoft Authenticator uygulama Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Ayrıca belirli bir özellikle ilgili başka bir SSS uygulama üzerinde sahip olduğumuz [oturum telefonunuz SSS oturum](microsoft-authenticator-app-phone-signin-faq.md).
+Bu makalede, Microsoft Authenticator uygulaması hakkında sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, Git [Microsoft Authenticator uygulama Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Ayrıca, bir uygulamada belirli bir özellikle ilgili başka bir SSS gözden geçirebilirsiniz [oturum telefonunuz SSS oturum](microsoft-authenticator-app-phone-signin-faq.md).
 
 Microsoft Authenticator uygulamasını Azure Authenticator uygulamasını değiştirildi ve Azure çok faktörlü kimlik doğrulaması kullandığınızda önerilen uygulamadır. Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
@@ -33,9 +33,9 @@ Microsoft Authenticator uygulamasını Azure Authenticator uygulamasını deği�
 
 Microsoft Authenticator bir hesap eklediğinizde, oluşturduğunuz hesap bilgileri depolar. Doğrulayıcı kullandığınızda, tanılama günlük hata ayıklama amacıyla oluşturulur ve Microsoft öngörülemeyen sorunları tanılamanıza yardımcı yararlı verileri depolar. Günlük verileri açarak erişebilir **yardımcı** > **günlükleri Gönder** > **görüntülemek günlükleri**.
 
-Hesap kutucuğuna silerek verileri silebilirsiniz. Bu günlükleri de dahil olmak üzere uygulama tarafından kullanılan tüm hesap bilgileri siler. 
+Hesap kutucuğuna silerek verileri silebilirsiniz. Hesabı döşeme silme günlükleri de dahil olmak üzere uygulama tarafından kullanılan tüm hesap bilgileri siler. 
 
-Microsoft, verilerinizin nasıl kullandığı hakkında daha fazla bilgi için lütfen ziyaret edin: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
+Microsoft, verilerinizin nasıl kullandığı hakkında daha fazla bilgi için ziyaret edin: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Uygulama için kodlarında nelerdir? Neden sayım numarası koru?
 
@@ -57,7 +57,7 @@ Bildirimleri hiç alamazsanız, aşağıdaki durumlarda denetleyin:
 - Diğer uygulamalardan bildirimleri alabilir miyim? Aksi durumda, telefonunuza veya Android veya Apple bildirimleri kanaldan ağ bağlantıları ile ilgili bir sorun olabilir. İlk seçenek, telefon ayarlarınızı ele alabilir, ancak ikinci seçeneği ile ilgili Yardım için hizmet sağlayıcınıza konuşun gerekebilir.
 - Uygulama, ancak diğer bazı hesapları için bildirimleri alabilir miyim? Yanıt Evet ise, uygulamanızdan sorunlu hesap kaldırın ve yeniden anında iletme bildirimleri etkinleştirmek için ekleyin.
 
-Bu sorun giderme öneriler denedi ancak hala sorunlarınız varsa, bize tanılama için günlüklerinizi gönderin. Uygulama Ayarları'na gidin ve ardından **Yardım ve geri bildirim** ve **günlüklerini gönderme**. Ardından, Git [Microsoft Authenticator uygulama Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) ve ne görmesini sorun ve hangi adımları şu ana kadar çalıştınız bize bildirin.
+Bu sorun giderme önerileri denedi ancak hala sorunlarınız varsa, tanılama günlüklerini gönderebilirsiniz. Uygulama Ayarları'na gidin ve ardından **Yardım ve geri bildirim** ve **günlüklerini gönderme**. Ardından, Git [Microsoft Authenticator uygulama Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) ve ne görmesini sorun ve hangi adımları şu ana kadar çalıştınız bize bildirin.
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Zaten Microsoft Authenticator uygulama doğrulama kodları için kullanıyorum. Tek tıklamayla anında iletme bildirimleri nasıl geçiş yapabilirim?
 Bir oturum açma anında iletme bildirimi aracılığıyla onaylama yalnızca kişisel Microsoft hesapları için kullanılabilir, veya iş ve Okul Google veya Facebook gibi üçüncü taraf hesapları için değil, Microsoft hesapları. Bir iş veya Okul Microsoft hesabınız varsa, bu seçenek devre dışı bırakmak, kuruluşunuzun seçebilirsiniz.
@@ -69,13 +69,15 @@ Microsoft Authenticator kullanmak için iş veya Okul hesabı varsa, kuruluşunu
 ### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>Tek tıklamayla anında iletme bildirimleri için Microsoft olmayan hesapların çalışıyor mu?
 Hayır, anında iletme bildirimleri yalnızca Microsoft hesapları ve Azure Active Directory hesaplarıyla çalışır. İşiniz veya okulunuz Azure AD hesapları kullanıyorsa, bu özellik devre dışı bırakabilir.  
 
-### <a name="i-restored-my-device-from-a-backup-and-my-account-codes-are-missing-or-not-working-what-happened"></a>I cihazımı bir yedekten geri yüklenmiş ve my hesap kodları eksik veya çalışmıyor. Ne oldu?
-Güvenlik nedeniyle, biz uygulama yedeklemelerden hesapları geri yüklemeyin.  Uygulama geri yükledikten sonra hesaplarınızı silin ve yeniden ekleyin.
+### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>Yeni bir cihaz var, veya cihazımı bir yedekten geri bildirimi. Nasıl my hesaplarında Microsoft Authenticator uygulamasını yeniden ayarlayabilirim?
+İOS cihazı kullanıyorsanız, açık olan **otomatik yedekleme**ve hesaplarınızı yedeğini eski aygıtınızda; oluşturduysanız yeni aygıtınızda hesabı kimlik bilgilerinizi kurtarmak için yedekleme kullanabilirsiniz. Daha fazla bilgi için bkz: [yedekleme ve kurtarma hesap kimlik bilgilerini Microsoft Authenticator uygulamasıyla](microsoft-authenticator-app-backup-and-recovery.md) makalesi. 
 
-### <a name="i-got-a-new-device-how-do-i-remove-the-microsoft-authenticator-app-from-my-old-device-and-move-to-the-new-one"></a>Yeni bir cihaz aldım. Nasıl eski aygıttan Microsoft Authenticator uygulamasını kaldırın ve yeni bir taşıma?
-Microsoft Authenticator uygulaması için yeni bir cihaz ekleme otomatik olarak onu diğer cihazlardan kaldırmaz. Hangi cihazların hesabınız için yapılandırılan yönetmek için iki aşamalı doğrulamayı yönetmek için kullanın ve eski uygulamaları kaldırmak için seçin aynı Web sitesini ziyaret edin.
+### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>I cihazımı kaybolabilir veya yeni bir cihaz taşındı. Bildirimleri eski cihazımı gitmek devam yok nasıl emin?  
+Yeni iOS Cihazınızı Microsoft Authenticator uygulamasını ekleme otomatik olarak uygulamanın eski aygıtınızdan kaldırılması anlamına gelmez. Uygulama eski aygıtınızdan bile silme yeterli değildir. Hem uygulama eski cihazınızdan silin ve Microsoft veya kuruluşunuzun eski aygıt unutursanız ve hesabınızdan kaldırılamadı söyleyin.
+- **Kişisel bir Microsoft hesabı kullanarak bir aygıttan uygulamayı kaldırmak için.** İki aşamalı doğrulama alanına gidin, [hesabı güvenlik](https://account.microsoft.com/security) sayfasında ve eski cihazınız için doğrulama devre dışı bırakmak seçin.  
+- **Microsoft hesabı okul veya iş kullanarak bir aygıttan uygulamayı kaldırmak için.** İki aşamalı doğrulama alanına gidin, [MyApps](https://myapps.microsoft.com/) sayfa veya kuruluşunuzun özel portal ve eski cihazınız için doğrulama devre dışı bırakmak seçin. 
 
-Kişisel Microsoft hesapları için bu Web sitesidir, [hesap güvenliği](https://account.microsoft.com/security) sayfası. İş veya Okul Microsoft hesapları için bu Web sitesi ya da olabilir [MyApps](https://myapps.microsoft.com) veya Kuruluşunuzda ayarlanmış özel bir portal.
+
 
 ### <a name="how-do-i-remove-an-account-from-the-app"></a>Uygulamadan nasıl bir hesap kaldırılsın mı?
 * iOS: ana ekranından sağdan sola bir hesap kutucuğuna. **Sil**’i seçin.
@@ -85,14 +87,14 @@ Kişisel Microsoft hesapları için bu Web sitesidir, [hesap güvenliği](https:
 Kuruluşunuz ile kayıtlı bir cihaz varsa, hesabınızı kaldırmayı fazladan bir adımı tamamlamak gerekebilir. Bu aygıtlar üzerinde Microsoft Authenticator uygulamasını otomatik olarak bir cihaz Yöneticisi olarak kaydedilir. Uygulama tamamen kaldırmak istiyorsanız, önce uygulama ayarları'nda uygulama kaydı gerekir.
 
 ### <a name="why-does-the-app-request-so-many-permissions"></a>Uygulama çok fazla sayıda izinler neden istek mu?
-İşte tam bir listesi için isteyebilir izinleri ve uygulamada nasıl kullanılır. Gördüğünüz özel izinler elinizde telefon türüne bağlıdır.
+İşte tam bir listesi için sorulan izinleri ve uygulamada nasıl kullanılır. Gördüğünüz özel izinler elinizde telefon türüne bağlıdır.
 
-* **Kamera**: bir iş, okul veya Microsoft dışı hesabı eklediğinizde, QR kodlarını tarayabilmek için kameranıza kullanırız.
-* **Kişiler ve telefon**: Kişisel Microsoft hesabınızla oturum açın, biz telefonunuzda kullandığınız var olan hesapları bularak işlemi basitleştirmeye çalışın.
-* **SMS**: ilk olarak kişisel Microsoft hesabınızla oturum açtığınızda, telefon numaranız kaydında sahibiz bir eşleştiğinden emin olmak sahibiz. Size bir SMS mesajı telefon uygulama indirdiğiniz göndereceğiz. İleti 6-8 basamaklı doğrulama kodunu içerir. Bu kod Bul ve uygulamada girin istiyoruz. Bunun yerine, biz, SMS mesajı halinde sizin için bulun.
-* **Çizim diğer uygulamalar**: kimliğinizi doğrulamak için bir bildirim aldığında, biz bu bildirim çalışıyor olabilecek diğer uygulama görüntüler.
+* **Kamera**: bir iş, okul veya Microsoft dışı hesabı eklediğinizde, QR kodlarını tarama için kullanılır.
+* **Kişiler ve telefon**: Kişisel Microsoft hesabınızla oturum açtığınızda telefonunuzda var olan hesapları bulma işlemini basitleştirmek için kullanılır.
+* **SMS**: telefon numaranızı kayıt numarası eşleştiğinden emin olmak için kullanılır. Ne zaman ilk olarak kişisel Microsoft hesabınızla oturum açın.  Size bir SMS mesajı telefonuna 6-8 basamaklı doğrulama kodunu içeren uygulama indirdiğiniz göndereceğiz. Bu kod Bul ve uygulamada girin istiyoruz. Bunun yerine, onu sizin için metin iletisi bulunur.
+* **Çizim diğer uygulamalar**: kimliğinizi doğrular size bildirim üzerinde çalışıyor olabilecek diğer uygulama de görüntülenir.
 * **İnternet'ten veri alma**: Bu izin, bildirim göndermek için gereklidir.
-* **Telefon Uyumasını engellemesine**: Cihazınızı kuruluşunuza kaydedin, bu ilkeyi telefonunuzda değiştirebilirsiniz.
+* **Telefon Uyumasını engellemesine**: Cihazınızı kuruluşunuza kaydedin, kuruluşunuzun bu ilkeyi telefonunuzda değiştirebilirsiniz.
 * **Denetim titreşimi**: kimliğinizi doğrulamak için bir uyarı aldığınızda, bir titreşim isteyip istemediğinizi seçebilirsiniz.
 * **Parmak izi donanım kullanmak**: kimliğinizi doğrulamanız her bazı iş ve Okul hesapları ek bir PIN gerektir. İşlemini kolaylaştırmak için PIN girmek yerine parmak izinizi kullanmanıza izin veriyoruz.
 * **Ağ bağlantılarını görüntülemek**: bir Microsoft hesabı eklediğinizde, uygulama ağ/Internet bağlantısı gerektirir.

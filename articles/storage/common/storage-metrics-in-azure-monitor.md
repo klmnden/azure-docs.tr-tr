@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Azure depolama ölçümlerini Azure İzleyicisi'ni (Önizleme)
 
@@ -28,17 +28,17 @@ Azure İzleyicisi farklı Azure Hizmetleri genelinde izleme için birleştirilmi
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure monitör, erişim ölçümleri için birden çok yollar sağlar. Bunlardan erişebilirsiniz [Azure portal](https://portal.azure.com), Azure İzleyici API'ları (REST ve .net) ve günlük analizi ve olay hub'ı gibi analiz çözümleri. Daha fazla bilgi için bkz: [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure monitör, erişim ölçümleri için birden çok yollar sağlar. Bunlardan erişebilirsiniz [Azure portal](https://portal.azure.com), operasyon Management Suite ve Event Hubs gibi analiz çözümleri ve Azure İzleyici API'leri (REST ve .net). Daha fazla bilgi için bkz: [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Ölçümleri varsayılan olarak etkindir ve en son 30 günlük veri erişebilir. Uzun bir süre için verileri korumak gerekiyorsa, ölçüm verilerini bir Azure depolama hesabı arşivleyebilirsiniz. Bu yapılandırılan [tanılama ayarlarını](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) Azure İzleyicisi'nde.
+Ölçümleri varsayılan olarak etkindir ve son 30 gün veri erişebilir. Uzun bir süre için verileri korumak gerekiyorsa, ölçüm verilerini bir Azure depolama hesabı arşivleyebilirsiniz. Bu yapılandırılan [tanılama ayarlarını](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) Azure İzleyicisi'nde.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Azure portalında erişim ölçümleri
 
-Azure portalında zamanla ölçümleri izleyebilirsiniz. Aşağıdaki nasıl görüntüleneceğini gösteren bir örnektir **UsedCapacity** hesap düzeyinde.
+Azure portalında zamanla ölçümleri izleyebilirsiniz. Aşağıdaki örnekte nasıl görüntüleneceğini gösterir **UsedCapacity** hesap düzeyinde.
 
 ![Azure portalında ölçümleri erişme ekran görüntüsü](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Boyutlar destekleyen ölçümleri için istenen boyut değeriyle filtre gerekir. Aşağıdaki nasıl görüntüleneceğini gösteren bir örnektir **işlemleri** ile hesap düzeyinde **başarı** yanıt türü.
+Boyutlar destekleyen ölçümleri için istenen boyut değeriyle filtre gerekir. Aşağıdaki örnekte nasıl görüntüleneceğini gösterir **işlemleri** ile hesap düzeyinde **başarı** yanıt türü.
 
 ![Azure portalında boyutla ölçümleri erişme ekran görüntüsü](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -139,9 +139,151 @@ Aşağıdaki yanıtı JSON biçiminde ölçüm değerlerini içerir:
 
 ```
 
-## <a name="billing-for-metrics"></a>Ölçümler için fatura
+### <a name="access-metrics-with-the-net-sdk"></a>.Net SDK ile erişim ölçümleri
 
-Azure İzleyicisi'nde ölçümleri kullanarak şu anda ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Veya Gelişmiş analiz için günlük analizi için ölçüm verilerini akış sahipse günlük analizi göre faturalandırılır.
+Azure İzleyicisi'nin sağladığı [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) ölçüm tanımı ve değerleri okunamıyor. [Örnek koduna](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) farklı parametrelerle SDK kullanmayı gösterir. Kullanmanız gereken `0.18.0-preview` veya sonraki sürümü için depolama ölçümleri. Kaynak kimliği .net SDK kullanılır. Daha fazla bilgi için lütfen okuyun [depolama hizmetleri için kaynak kimliği anlama](#understanding-resource-id-for-services-in-storage).
+
+Aşağıdaki örnek, depolama ölçümleri Azure Monitor .net SDK kullanmayı gösterir.
+
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Hesap düzeyinde ölçüm tanımı .net SDK ile listesi
+
+Aşağıdaki örnek, hesap düzeyinde ölçüm tanımı listesinde gösterilmiştir:
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+Blob, tablo, dosya veya sıra ölçüm tanımlarını listesinde istiyorsanız, her hizmet için farklı kaynak kimlikleri API ile belirtmeniz gerekir.
+
+#### <a name="read-metric-values-with-the-net-sdk"></a>.Net SDK ile okuma ölçüm değerleri
+
+Aşağıdaki örnekte nasıl okunacağını gösterir `UsedCapacity` hesabı düzeyindeki veriler:
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+Blob, tablo, dosya veya sıra, ölçüm değerleri okumak istiyorsanız, yukarıdaki örnek, her hizmet için farklı kaynak kimlikleri API ile belirtmeniz gerekir.
+
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Çok boyutlu ölçüm değerleri .net SDK ile okuma
+
+Çok boyutlu ölçümleri için ölçüm verilerini belirli boyut değerini okumaya istiyorsanız meta veri filtresini tanımlamanız gerekir.
+
+Aşağıdaki örnek, birden çok boyut destekleme ölçüm ölçüm verileri okumak gösterilmektedir:
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Azure depolama hizmetleri için kaynak kimliği anlama
 
@@ -187,8 +329,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## <a name="capacity-metrics"></a>Kapasite ölçümleri
-
-Kapasite ölçümleri değerleri Azure İzleyicisi saatte gönderilir. Değer yenilenir günlük. Zaman birimi ölçüm değerleri sunulduğu zaman aralığını tanımlar. Tüm kapasite ölçümlerini için desteklenen zaman çizgisi bir (PT1H) saattir.
+Kapasite ölçümleri değerleri Azure İzleyicisi saatte gönderilir. Değerleri günlük olarak yenilenir. Zaman birimi ölçüm değerleri sunulduğu zaman aralığını tanımlar. Tüm kapasite ölçümlerini için desteklenen zaman çizgisi bir (PT1H) saattir.
 
 Azure depolama Azure İzleyicisi'nde aşağıdaki kapasite ölçümleri sağlar.
 
@@ -196,14 +337,14 @@ Azure depolama Azure İzleyicisi'nde aşağıdaki kapasite ölçümleri sağlar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| UsedCapacity | Depolama hesabı tarafından kullanılan depolama alanı miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitenin toplamıdır. Premium depolama hesapları ve Blob storage hesapları için bu BlobCapacity aynıdır. <br/><br/> Birim: bayt <br/> Toplama türü: ortalama <br/> Değer örneği: 1024 |
+| UsedCapacity | Depolama hesabı tarafından kullanılan depolama alanı miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitenin toplamıdır. Premium depolama hesapları ve Blob storage hesapları için onu BlobCapacity aynıdır. <br/><br/> Birim: bayt <br/> Toplama türü: ortalama <br/> Değer örneği: 1024 |
 
 ### <a name="blob-storage"></a>Blob depolama
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | BlobCapacity | Depolama hesabında kullanılan Blob Depolama toplamı. <br/><br/> Birim: bayt <br/> Toplama türü: ortalama <br/> Değer örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
-| BlobCount    | Depolama hesabında depolanan blob nesnelerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Değer örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
+| BLOB sayısı    | Depolama hesabında depolanan blob nesnelerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Değer örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
 | ContainerCount    | Depolama hesabı kapsayıcı sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Değer örneği: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
@@ -252,16 +393,16 @@ Azure Storage ölçümleri Azure İzleyicisi'nde boyutlarını aşağıdaki dest
 | Boyut Adı | Açıklama |
 | ------------------- | ----------------- |
 | BlobType | Blob ölçümünün yalnızca blob türü. Desteklenen değerler **BlockBlob** ve **PageBlob**. Append Blob BlockBlob içinde bulunur. |
-| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Diğer tüm sunucu tarafı hataları açıklanan olanlar dışındaki </li> <li> ServerBusyError: bir HTTP 503 durum kodunu döndürdü isteğin kimliği. (Henüz desteklenmez) </li> <li> ServerTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. Zaman aşımı nedeniyle bir sunucu hatası oluştu. </li> <li> ThrottlingError: (ServerBusyError ve ClientThrottlingError desteklenen sonra kaldırılır) istemci ve sunucu tarafı azaltma hata toplamı </li> <li> AuthorizationError: veriler veya bir Yetkilendirme hatası yetkisiz erişim nedeniyle başarısız oldu kimliği doğrulanmış isteği. </li> <li> NetworkError: ağ hataları nedeniyle başarısız kimliği doğrulanmış isteği. Bir istemci zamanından önce bir bağlantı zaman aşımı geçerliliği sona ermeden önce kapandığında en yaygın olarak gerçekleşir. </li> <li>  ClientThrottlingError: (henüz desteklenmez) istemci-tarafı azaltma hata </li> <li> ClientTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya isteği zaman aşımı depolama hizmeti tarafından beklenenden daha düşük bir değere ayarlanırsa, beklenen bir zaman aşımı var. Aksi takdirde, ServerTimeoutError bildirilir. </li> <li> ClientOtherError: Diğer tüm istemci-tarafı hataları açıklanan olanlar dışındaki. </li> <li> BAŞARI: Başarılı İstek|
+| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Diğer tüm sunucu tarafı hataları açıklanan olanlar dışındaki </li> <li> ServerBusyError: bir HTTP 503 durum kodunu döndürdü isteğin kimliği. </li> <li> ServerTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. Zaman aşımı nedeniyle bir sunucu hatası oluştu. </li> <li> AuthorizationError: veriler veya bir Yetkilendirme hatası yetkisiz erişim nedeniyle başarısız oldu kimliği doğrulanmış isteği. </li> <li> NetworkError: ağ hataları nedeniyle başarısız kimliği doğrulanmış isteği. Bir istemci zamanından önce bir bağlantı zaman aşımı geçerliliği sona ermeden önce kapandığında en yaygın olarak gerçekleşir. </li> <li>    ClientThrottlingError: İstemci-tarafı azaltma hata oluştu. </li> <li> ClientTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya isteği zaman aşımı depolama hizmeti tarafından beklenenden daha düşük bir değere ayarlanırsa, beklenen bir zaman aşımı var. Aksi takdirde, ServerTimeoutError bildirilir. </li> <li> ClientOtherError: Diğer tüm istemci-tarafı hataları açıklanan olanlar dışındaki. </li> <li> BAŞARI: Başarılı İstek|
 | GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Nesneleri ikincil kiracısı okunurken okuma erişimi coğrafi olarak yedekli Storage(RA-GRS) için geçerlidir. |
 | apiName | İşlemin adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz: [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
-Ölçümleri destekleme boyutları için karşılık gelen ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin, bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri blok blobu için filtre uygulamak gereken **BlobType** ile Boyut **BlockBlob**.
+Ölçümleri destekleyen boyutlar için karşılık gelen ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin, bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri blok blobu için filtre uygulamak gereken **BlobType** ile Boyut **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Hizmet sürekliliğini eski ölçümleri
 
-Eski ölçümleri Azure yönetilen İzleyici ölçümleri ile paralel olarak kullanılabilir. Azure Storage eski ölçümleri hizmette sonlanana kadar destek aynı tutar. Azure yönetilen İzleyici ölçümleri resmi sürüm sonra biz bitiş planı Duyurusu.
+Eski ölçümleri Azure yönetilen İzleyici ölçümleri ile paralel olarak kullanılabilir. Azure Storage eski ölçümleri hizmette sonlanana kadar destek aynı tutar.
 
-## <a name="see-also"></a>Ayrıca Bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure İzleyici](../../monitoring-and-diagnostics/monitoring-overview.md)

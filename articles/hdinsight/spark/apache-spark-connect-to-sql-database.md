@@ -9,16 +9,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Hdınsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 
@@ -87,7 +85,7 @@ Bu bölümde, bir tablodan veri okuma (örneğin, **SalesLT.Address**) Adventure
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
-    Tuşuna **SHIFT + ENTER** kod hücresini çalıştırmak için.  
+    Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.  
 
 2. Aşağıdaki kod parçacığında API'ler oluşturur Spark dataframe geçirebilirsiniz bir JDBC URL derlemeler bir `Properties` parametreleri tutacak nesne. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
 
@@ -132,7 +130,7 @@ Bu bölümde, örnek bir CSV dosyası kullanılabilir küme üzerinde Azure SQL 
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
-    Tuşuna **SHIFT + ENTER** kod hücresini çalıştırmak için.  
+    Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.  
 
 2. Aşağıdaki kod parçacığında API'ler oluşturur Spark dataframe geçirebilirsiniz bir JDBC URL derlemeler bir `Properties` parametreleri tutacak nesne. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell kullanarak sanal makineleri için birden çok IP adresi atayın
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 04/16/2018
 
 Bu makalede PowerShell kullanarak Azure Resource Manager dağıtım modeli sanal makine (VM) oluşturma açıklanmaktadır. Birden çok IP adresi Klasik dağıtım modeli aracılığıyla oluşturulan kaynakları atanamaz. Azure dağıtım modelleri hakkında daha fazla bilgi için okuma [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Birden çok IP adresiyle bir VM oluşturma
 
 Adımları birden çok IP adresleriyle VM örneği oluşturmak senaryosunda açıklandığı şekilde açıklanmaktadır. Değişken değerleri, uygulamanız için gereken şekilde değiştirin.
 
 1. Bir PowerShell komut istemi açın ve tek bir PowerShell oturumunda bu bölümdeki kalan adımları tamamlayın. Zaten yüklü ve yapılandırılmış PowerShell sahip değilseniz, bölümündeki adımları tamamlamanız [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale.
-2. Oturum açma ile hesabınızı `login-azurermaccount` komutu.
+2. Oturum açma ile hesabınızı `Connect-AzureRmAccount` komutu.
 3. Değiştir *myResourceGroup* ve *westus* bir adı ve seçtiğiniz konum. Bir kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
     ```powershell

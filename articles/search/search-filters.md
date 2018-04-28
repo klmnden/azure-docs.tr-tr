@@ -1,24 +1,18 @@
 ---
 title: Azure Search'te filtreleri | Microsoft Docs
-description: "Kullanıcının güvenlik kimliği, dil, coğrafi konuma veya Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti sorgularda arama sonuçları azaltmak için sayısal değerleri göre filtreleyin."
-services: search
-documentationcenter: 
+description: Kullanıcının güvenlik kimliği, dil, coğrafi konuma veya Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti sorgularda arama sonuçları azaltmak için sayısal değerleri göre filtreleyin.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
@@ -52,9 +46,9 @@ Filtreler "modellenmiş bir gezinmede ve güvenlik filtreleri gösteren yalnızc
 
 Filtreler Arama sonuçlarınızda daraltma etkisi istiyorsanız, yalnızca tercih ettiğiniz değildir. Bu alternatifleri hedefiniz bağlı olarak daha iyi bir uyum olabilir:
 
- + `searchFields`sorgu parametresi belirli alan arama pegs. Örneğin, dizininiz için İngilizce ve İspanyolca açıklamalar ayrı alanları sağlıyorsa, hangi alanlar için tam metin araması kullanmak için hedef için searchFields kullanabilirsiniz. 
+ + `searchFields` sorgu parametresi belirli alan arama pegs. Örneğin, dizininiz için İngilizce ve İspanyolca açıklamalar ayrı alanları sağlıyorsa, hangi alanlar için tam metin araması kullanmak için hedef için searchFields kullanabilirsiniz. 
 
-+ `$select`parametre bir sonucunda eklemek için hangi alanları, çağıran uygulama göndermeden önce yanıt etkili bir şekilde kırpma belirlemek için kullanılır. Bu parametre sorgu daraltmayı ya da belge koleksiyonunu azaltmak, ancak ayrıntılı yanıt amacınız ise, bu parametre dikkate alınması gereken bir seçenektir. 
++ `$select` parametre bir sonucunda eklemek için hangi alanları, çağıran uygulama göndermeden önce yanıt etkili bir şekilde kırpma belirlemek için kullanılır. Bu parametre sorgu daraltmayı ya da belge koleksiyonunu azaltmak, ancak ayrıntılı yanıt amacınız ise, bu parametre dikkate alınması gereken bir seçenektir. 
 
 Her iki parametre hakkında daha fazla bilgi için bkz: [Search belgeleri > İstek > sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
@@ -77,10 +71,10 @@ Aşağıdaki örnekler API'leri Prototipik filtresi tanımlarının temsil eder.
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -161,7 +155,7 @@ Metin dizelerini büyük/küçük harfe duyarlıdır. Hiçbir alt-büyük/küç�
 
 | Yaklaşım | Açıklama | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Belirli bir alan için dizelerin virgülle ayrılmış listesi sağlayan işlev. Dizeleri kapsamında sorgu için her alan için uygulanan filtre ölçütünü kapsar. <br/><br/>`search.in(f, ‘a, b, c’)`anlam olarak eşdeğerdir `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, değerler listesinin büyük olduğunda çok daha hızlı yürütür dışında.<br/><br/>Öneririz **search.in** için işlev [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve belirli bir alandaki değerlere eşleştirilmesini ham metni herhangi bir filtre oluşan için. Bu yaklaşım hızı için tasarlanmıştır. Yüz binlerce değerleri için subsecond yanıt süresi bekleyebilirsiniz. İşleve geçirebilirsiniz öğe sayısını sınırlama yoktur açık olsa da, gecikme sağladığınız dizeleri sayısı orantılı olarak artar. | 
+| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Belirli bir alan için dizelerin virgülle ayrılmış listesi sağlayan işlev. Dizeleri kapsamında sorgu için her alan için uygulanan filtre ölçütünü kapsar. <br/><br/>`search.in(f, ‘a, b, c’)` anlam olarak eşdeğerdir `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, değerler listesinin büyük olduğunda çok daha hızlı yürütür dışında.<br/><br/>Öneririz **search.in** için işlev [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve belirli bir alandaki değerlere eşleştirilmesini ham metni herhangi bir filtre oluşan için. Bu yaklaşım hızı için tasarlanmıştır. Yüz binlerce değerleri için subsecond yanıt süresi bekleyebilirsiniz. İşleve geçirebilirsiniz öğe sayısını sınırlama yoktur açık olsa da, gecikme sağladığınız dizeleri sayısı orantılı olarak artar. | 
 | [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Tam metin araması işlemlerini kesinlikle Boole filtresi işlemlerle aynı filtre ifadesindeki karışık olanak sağlayan bir işlev. Bir istek birden çok sorgu filtresi bileşimlerde sağlar. Bunun için de kullanabilirsiniz bir *içeren* büyük bir dizi içinde kısmi dize üzerinde filtrelemek için. |  
 | [$filter = alan işleci dize](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Kullanıcı tanımlı bir ifade alanları, işleçler ve değerler oluşur. | 
 

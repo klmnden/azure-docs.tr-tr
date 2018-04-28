@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonları kullanarak Azure zaman serisi Öngörüler ortamınızı yönetmek nasıl | Microsoft Docs"
-description: "Bu makalede, Azure zaman serisi Öngörüler ortamınızı program aracılığıyla Azure Kaynak Yöneticisi'ni kullanarak yönetmek açıklar."
+title: Azure Resource Manager şablonları kullanarak Azure zaman serisi Öngörüler ortamınızı yönetmek nasıl | Microsoft Docs
+description: Bu makalede, Azure zaman serisi Öngörüler ortamınızı program aracılığıyla Azure Kaynak Yöneticisi'ni kullanarak yönetmek açıklar.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanarak zaman serisi Öngörüler kaynakları oluşturun
 
@@ -153,7 +153,7 @@ Daha fazla bilgi için bkz: [parametreleri](../azure-resource-manager/resource-g
 Bir PowerShell isteminden aşağıdaki komutu çalıştırın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Azure hesabınızda oturum açmak için istenir. Oturum açtıktan sonra kullanılabilir aboneliklerinizi görüntülemek için aşağıdaki komutu çalıştırın:
@@ -266,7 +266,8 @@ Outputs                 :
 
 GitHub hızlı başlangıç şablonun giriş sayfasında da içeren bir **Azure'a Dağıt** düğmesi. Tıklatarak Azure Portalı'nda bir özel dağıtım sayfası açılır. Bu sayfadan girin veya her parametreler için değerler seçin [Gerekli Parametreler](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) veya [isteğe bağlı parametreler](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabloları. Ayarları tıklayarak, doldurduktan sonra **satın alma** düğmesi şablon dağıtımı başlatmak.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Sonraki adımlar

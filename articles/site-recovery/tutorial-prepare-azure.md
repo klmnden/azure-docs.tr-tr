@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery ile kullanılacak kaynaklar oluşturma | Microsoft Docs"
-description: "Azure Site Recovery kullanarak şirket içi makinelerin çoğaltması için Azure’ın nasıl hazırlanacağını öğrenin."
+title: Azure Site Recovery ile kullanılacak kaynaklar oluşturma | Microsoft Docs
+description: Azure Site Recovery kullanarak şirket içi makinelerin çoğaltması için Azure’ın nasıl hazırlanacağını öğrenin.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Şirket içi makinelerin çoğaltması için Azure kaynaklarını hazırlama
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 Bu öğretici, şirket içi sanal makineleri (Hyper-V veya VMware) veya Windows/Linux fiziksel sunucuları Azure'a çoğaltmak istediğinizde Azure bileşenlerini nasıl hazırlayacağını gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Hesabınızın çoğaltma izinlerine sahip olduğunu doğrulayın.
-> * Bir Azure Storage hesabı oluşturun.
+> * Azure hesabınızın çoğaltma izinlerine sahip olduğunu doğrulayın.
+> * Bir Azure Storage hesabı oluşturun. Çoğaltılan veriler bu hesapta depolanır.
+> * Kurtarma Hizmetleri kasası oluşturun.
 > * Bir Azure ağını ayarlama. Yük devretmeden sonra Azure sanal makineleri oluşturulduğunda sanal makineler bu Azure ağına katılır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
@@ -39,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 - Seçilen sanal ağda sanal makine oluşturma.
 - Seçilen depolama hesabına yazma.
 
-Sanal Makine Katılımcısı yerleşik rolü bu izinlere sahiptir. Site Recovery işlemlerini yönetme izni de gerekir. Site Recovery Katkıda Bulunanı rolü, Kurtarma Hizmetleri kasasındaki Site Recovery işlemlerini yönetmek için gereken tüm izinlere sahiptir.
+Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerleşik rolünün atanması gerekir. Ayrıca Site Recovery işlemlerini bir kasada yönetmek için hesabınıza Site Recovery Katkıda Bulunan yerleşik rolünün atanması gerekir.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 

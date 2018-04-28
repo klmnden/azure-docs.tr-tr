@@ -1,11 +1,11 @@
 ---
-title: "Azure yığın kullanıcının PowerShell ortamını yapılandırma | Microsoft Docs"
-description: "Azure yığın kullanıcının PowerShell ortamını yapılandırma"
+title: Azure yığın kullanıcının PowerShell ortamını yapılandırma | Microsoft Docs
+description: Azure yığın kullanıcının PowerShell ortamını yapılandırma
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 44a5030bd9dfb694968a6b0f64ff9198ecccd84a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Azure yığın kullanıcının PowerShell ortamını yapılandırma
 
 Bir Azure yığın kullanıcı olarak, Azure yığın Geliştirme Seti'nın PowerShell ortam yapılandırabilirsiniz. Yapılandırdıktan sonra PowerShell Azure kaynakları gibi teklifleri için abone yığını yönetmek için kullanabileceğiniz sanal makine oluşturma, dağıtma Azure Resource Manager şablonları, vs. Bu konuda ortamlar yalnızca bulut işleci ortamı için PowerShell ayarlamak istiyorsanız başvurmak için kullanıcı ile kullanılacak kapsamlıdır [Azure yığın işlecin PowerShell ortamını yapılandırma](../azure-stack-powershell-configure-admin.md) makalesi. 
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Aşağıdaki Önkoşullar herhangi birinden çalıştırmak [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -64,7 +64,7 @@ Dağıtım PowerShell Azure yığın (AAD tenantName, GraphAudience endpoint ve 
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
    ```
@@ -99,7 +99,7 @@ Dağıtım PowerShell Azure yığın (AAD tenantName, GraphAudience endpoint ve 
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
   ```

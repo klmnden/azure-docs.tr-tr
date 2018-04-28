@@ -1,25 +1,18 @@
 ---
-title: "Azure Search'te verileri içeri aktarma | Microsoft Docs"
-description: "Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
+title: Azure Search'te verileri içeri aktarma | Microsoft Docs
+description: Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: aa8d47c1-4ae6-4209-a8ce-48d5a9474707
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/05/2018
-ms.author: ashmaka
-ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.author: heidist
+ms.openlocfilehash: e54b89d31042d43a14379dea6daffd3e7763a64a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-in-azure-search"></a>Azure Search'te Dizin Oluşturma
 > [!div class="op_single_selector"]

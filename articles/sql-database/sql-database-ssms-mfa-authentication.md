@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 2ea8c3119366d86c3aabf1faa0d71f1ba3610f41
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database ve SQL Data Warehouse (MFA desteği SSMS) ile Evrensel kimlik doğrulaması
 Azure SQL Database ve Azure SQL Data Warehouse desteği SQL Server Management Studio (SSMS) kullanarak bağlantıları *Active Directory Evrensel kimlik doğrulaması*. 
@@ -25,13 +25,13 @@ Azure SQL Database ve Azure SQL Data Warehouse desteği SQL Server Management St
 
 - `Active Directory - Universal with MFA` kimlik doğrulama yöntemidir de destekleyen bir etkileşimli *Azure çok faktörlü kimlik doğrulaması* (MFA). Azure MFA, kullanıcıların oturum açmaya yönelik basit işlem taleplerini karşılarken, verilere ve uygulamalara erişimi korumaya da yardımcı olur. Kolay doğrulama seçeneklerini (telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi) aralıklı güçlü kimlik doğrulaması sunar tercih kullanıcıların yöntemini seçmenize olanak tanır. Azure AD ile etkileşimli MFA doğrulama için bir açılır iletişim kutusu neden olabilir.
 
-Çok faktörlü kimlik doğrulaması açıklaması için bkz: [çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md).
+Çok faktörlü kimlik doğrulaması açıklaması için bkz: [çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md).
 Yapılandırma adımları için bkz: [SQL Server Management Studio Azure SQL veritabanını yapılandırma çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD etki alanı adı veya Kiracı kimliği parametresi   
 
 İle başlayarak [SSMS sürümü 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), diğer Azure Active dizinlerde Konuk kullanıcılar olarak geçerli Active Directory'den içeri aktarılan kullanıcılar Azure AD etki alanı adı sağlayın veya bağlandıklarında kimlik Kiracı. Konuk kullanıcılar diğer Azure reklam, outlook.com, hotmail.com, live.com gibi Microsoft hesapları ya da gmail.com gibi diğer hesapları davet kullanıcıları içerir. Bu bilgiler verir **Active Directory Evrensel MFA kimlik doğrulaması ile** doğru kimlik doğrulama yetkisi tanımlamak için. Bu seçenek ayrıca outlook.com, hotmail.com, live.com veya MSA olmayan hesapları gibi Microsoft hesaplarını (MSA) desteklemek için gereklidir. Evrensel kimlik doğrulama kullanarak kimlik doğrulaması isteyen tüm bu kullanıcıların kendi Azure AD etki alanı adı girin veya Kiracı kimliği Bu parametre temsil geçerli Azure AD etki alanı adı/Kiracı kimliği Azure sunucusu ile bağlanır. Örneğin, Azure sunucusu Azure AD etki alanı ile ilişkili ise `contosotest.onmicrosoft.com` burada kullanıcı `joe@contosodev.onmicrosoft.com` Azure AD etki alanından alınan bir kullanıcı olarak barındırılan `contosodev.onmicrosoft.com`, etki alanı adı bu kullanıcının kimliğini doğrulamak için gerekli olan `contosotest.onmicrosoft.com`. Kullanıcının yerel bir kullanıcı Azure sunucusuna bağlı Azure ad ve bir MSA hesabı değil, etki alanı adı veya Kiracı Kimliği gereklidir. Parametre (SSMS sürümü 17,2 başlayarak), girmek için **veritabanına bağlan** iletişim kutusunda, tam iletişim kutusu seçme **Active Directory - Evrensel MFA ile** kimlik doğrulaması, tıklatın **Seçenekler**tam **kullanıcı adı** kutusuna ve ardından **bağlantı özelliklerini** sekmesi. Denetleme **AD etki alanı adı veya Kiracı kimliği** kutusunda ve etki alanı adı gibi kimlik doğrulama yetkisi sağlayın (**contosotest.onmicrosoft.com**) veya Kiracı kimliğini GUID  
-   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+   ![mfa Kiracı ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD işletmeler için destek   
 Konuk kullanıcı olarak Azure AD B2B senaryolarını desteklenen azure AD kullanıcıları (bkz [Azure B2B işbirliği nedir](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) SQL Database ve SQL Data Warehouse için yalnızca geçerli Azure AD'de oluşturulan ve el ile eşleştirilmiş bir grubun üyeleri bir parçası olarak bağlanabilir Transact-SQL kullanarak `CREATE USER` verilen bir veritabanı deyiminde. Örneğin, varsa `steve@gmail.com` Azure AD ile davet `contosotest` (Azure Ad etki alanı ile `contosotest.onmicrosoft.com`), gibi Azure AD grup `usergroup` içeren Azure AD'de oluşturulan `steve@gmail.com` üyesi. Ardından, bu grubun belirli bir veritabanı (yani Veritabanım) için Azure AD SQL yönetici ya da Azure AD DBO tarafından bir Transact-SQL yürüterek oluşturulmalıdır `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` deyimi. Veritabanı kullanıcısı oluşturduktan sonra daha sonra kullanıcı `steve@gmail.com` oturum açabileceğiniz `MyDatabase` SSMS kimlik doğrulaması seçeneği kullanılarak `Active Directory – Universal with MFA support`. Usergroup varsayılan olarak, yalnızca connect izni ve normal şekilde verilmesi gerekir herhangi başka bir veri erişim vardır. Lütfen bu kullanıcının Not `steve@gmail.com` Konuk kullanıcı kutuyu işaretleyin ve AD etki alanı adı ekleme gibi `contosotest.onmicrosoft.com` SSMS içinde **bağlantı özelliği** iletişim kutusu. **AD etki alanı adı veya Kiracı kimliği** seçeneği MFA bağlantı seçenekleri ile Evrensel için desteklenen yalnızca, aksi takdirde, devre dışı.

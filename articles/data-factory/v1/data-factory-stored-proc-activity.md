@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce Activity](data-factory-map-reduce.md)
+> * [MapReduce etkinliği](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -161,7 +161,7 @@ Aşağıdaki özelliklere dikkat edin:
 
 - **Türü** özelliği ayarlanmış **SqlServerStoredProcedure**. 
 - **StoredProcedureName** türü özellikleri ayarlanmış **sp_sample** (saklı yordam adı).
-- **StoredProcedureParameters** bölüm adlı bir parametre içeren **saniyeyi tarih /**. Ad ve büyük/küçük harf JSON içinde parametresinin adını ve büyük/küçük harf saklı yordam tanımındaki parametre eşleşmesi gerekir. Bir parametre için null başarılı olursa söz dizimini kullanın: `"param1": null` (tüm küçük harf).
+- **StoredProcedureParameters** bölüm adlı bir parametre içeren **DateTime**. Ad ve büyük/küçük harf JSON içinde parametresinin adını ve büyük/küçük harf saklı yordam tanımındaki parametre eşleşmesi gerekir. Bir parametre için null başarılı olursa söz dizimini kullanın: `"param1": null` (tüm küçük harf).
  
 1. Düğmeyi görmüyorsanız araç çubuğunda **... Daha fazla** tıklatın ve komut çubuğunda **yeni işlem hattı**.
 2. Aşağıdaki JSON kod parçacığını kopyalayıp yapıştırın:   

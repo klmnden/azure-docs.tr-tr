@@ -1,11 +1,11 @@
 ---
-title: "Xamarin iOS mobil uygulamalar için kimlik doğrulaması kullanmaya başlama"
-description: "Xamarin iOS uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin."
+title: Xamarin iOS mobil uygulamalar için kimlik doğrulaması kullanmaya başlama
+description: Xamarin iOS uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza kimlik doğrulaması ekleyin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Açık **Info.plist** dosya, gitmek **URL türleri** içinde **Gelişmiş** bölümü. Şimdi yapılandırmak **tanımlayıcısı** ve **URL şemalarını** URL türü ve tıklatın **URL türü Ekle**. **URL şemalarını** , {url_scheme_of_your_app} aynı olmalıdır.
-7. Visual Studio veya Xamarin Studio'da, Xamarin derleme konaktaki bir cihaz veya öykünücü hedefleme istemci projesi çalıştırma Mac'iniz bağlı. Uygulama veri görüntülendiğini doğrulayın.
+7. Visual Studio'da Mac konak ya da Visual Studio Mac, bağlı, cihaz veya öykünücü hedefleme istemci projesi çalıştırın. Uygulama veri görüntülendiğini doğrulayın.
    
     Görüntülenecek oturum açma ekranı neden olacak öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin. Geçerli kimlik bilgileri başarıyla girdikten sonra uygulama Yapılacaklar öğelerini listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
 

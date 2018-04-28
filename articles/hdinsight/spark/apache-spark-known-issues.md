@@ -1,8 +1,8 @@
 ---
-title: "Azure hdınsight'ta Apache Spark kümesi ile ilgili sorunları giderme | Microsoft Docs"
-description: "Azure Hdınsight ve bunlar nasıl Apache Spark kümeleri ile ilgili sorunlar hakkında bilgi edinin."
+title: Azure hdınsight'ta Apache Spark kümesi ile ilgili sorunları giderme | Microsoft Docs
+description: Azure Hdınsight ve bunlar nasıl Apache Spark kümeleri ile ilgili sorunlar hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Hdınsight'ta Apache Spark kümesi için bilinen sorunlar
 
 Bu belge bilinen sorunlar Hdınsight Spark genel Önizleme için izler.  
 
 ## <a name="livy-leaks-interactive-session"></a>Etkileşimli oturum Livy sızdırıyor
-Bir etkileşimli oturum hala canlı Livy (Ambari veya headnode 0 sanal makine yeniden başlatma nedeniyle) yeniden başlatıldığında bir etkileşimli iş oturumu sızmış. Bu nedenle, yeni işleri kabul edilen durumunda kalmış olabilir ve başlatılamıyor.
+Livy bir etkileşimli oturum hala etkin (Ambari veya headnode 0 sanal makine yeniden başlatma nedeniyle) yeniden başlatıldıktan sonra bir etkileşimli iş oturumu sızmış. Sonuç olarak, yeni işleri kabul edilen durumunda kalmış olabilir.
 
 **Risk Azaltma:**
 
@@ -54,7 +52,12 @@ Spark geçmişi sunucu bir küme oluşturulduktan sonra otomatik olarak başlat�
 El ile geçmişi sunucunun Ambari başlatın.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Spark günlük dizini izin sorunu
-Hdiuser spark-submit işlemiyle gönderdiğinde, bir hata java.io.FileNotFoundException yoktur: /var/log/spark/sparkdriver_hdiuser.log (izni reddedildi) ve sürücü günlük yazılmadı. 
+kullanarak bir iş gönderme spark-gönderdiğinizde hdiuser şu hatayı alır:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+Ve sürücü günlüğüne yazılır. 
 
 **Risk Azaltma:**
 
@@ -65,7 +68,7 @@ Hdiuser spark-submit işlemiyle gönderdiğinde, bir hata java.io.FileNotFoundEx
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Spark Phoenix bağlayıcı desteklenmez
 
-Şu anda, Spark Phoenix bağlayıcı Hdınsight Spark kümesinde ile desteklenmez.
+Hdınsight Spark kümeleri Spark Phoenix Bağlayıcısı'nı desteklemez.
 
 **Risk Azaltma:**
 
@@ -75,10 +78,10 @@ Bunun yerine Spark HBase Bağlayıcısı'nı kullanmanız gerekir. Yönergeler i
 Jupyter not defterleri için ilgili bazı bilinen sorunlar aşağıda verilmiştir.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Dizüstü bilgisayarlarla dosya adları ASCII olmayan karakterler
-Spark Hdınsight kümelerinde kullanılan Jupyter not defterleri, ASCII olmayan karakterler adlarında olmalıdır. ASCII olmayan dosya adı varsa, Jupyter UI aracılığıyla bir dosyayı karşıya yüklemeyi denerseniz sessizce başarısız olur (diğer bir deyişle, Jupyter izin vermez, dosyayı karşıya yüklemeyi, ancak görünebilen bir hata ya da oluşturmadığını). 
+ASCII olmayan karakterler Jupyter not defteri adlarında kullanmayın. ASCII olmayan dosya adı varsa, Jupyter UI aracılığıyla bir dosyayı karşıya yüklemeyi denerseniz, herhangi bir hata iletisi başarısız olur. Jupyter dosyayı karşıya yüklemeyi izin vermez ancak onu görünen bir hata ya da durum oluşturmaz.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Daha büyük boyutta not defterlerini yüklenirken hata oluştu
-Bir hata görebilirsiniz  **`Error loading notebook`**  daha büyük boyutta not defterlerini yükleme.  
+Bir hata görebilirsiniz **`Error loading notebook`** daha büyük boyutta not defterlerini yükleme.  
 
 **Risk Azaltma:**
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management Geliştirici Portalı üzerinde sayfa stili özelleştirme | Microsoft Docs"
-description: "Azure API Management Geliştirici Portalı öğelerde stilini özelleştirmek için bu hızlı başlangıç adımları izleyin."
+title: Azure API Management geliştirici portalında sayfa stilini özelleştirme | Microsoft Docs
+description: Azure API Management geliştirici portalının stil öğelerini özelleştirmek için bu hızlı başlangıçtaki adımları izleyin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,63 +14,61 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>Geliştirici portal sayfalarına stil özelleştirme
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Geliştirici portalı sayfalarının stilini özelleştirme
 
-Azure API Management'ta Geliştirici portalını özelleştirmek için en yaygın üç yolu vardır:
+Azure API Management'ta Geliştirici portalını özelleştirmek için kullanılabilecek üç yaygın yöntem vardır:
  
-* [Statik sayfaları ve sayfa düzeni öğelerini içeriğini düzenleme](api-management-modify-content-layout.md)
-* (Bu kılavuzda açıklanan) Geliştirici Portalı üzerinden sayfası öğeleri için kullanılan stillerini güncelleştir
-* [Portal tarafından oluşturulan sayfalar için kullanılan şablonları değiştirmek](api-management-developer-portal-templates.md) (örneğin, API belgeleri, ürünler, kullanıcı kimlik doğrulaması)
+* [Statik sayfaların ve sayfa düzeni öğelerinin içeriğini düzenleme](api-management-modify-content-layout.md)
+* Geliştirici portalının tamamında sayfa öğeleri için kullanılan stilleri güncelleştirme (bu kılavuzda açıklanmıştır)
+* [Portal tarafından oluşturulan sayfalar için kullanılan şablonları değiştirme](api-management-developer-portal-templates.md) (örneğin, API belgeleri, ürünler, kullanıcı kimlik doğrulaması)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Öğeleri sayfalarında stilini özelleştirmek **Geliştirici** portalı
-> * Değişikliğiniz görüntüleyin
+> * **Geliştirici** portalı sayfalarındaki öğelerin stilini özelleştirme
+> * Değişikliğinizi görüntüleme
 
-![Stil özelleştirme](./media/modify-developer-portal-style/developer_portal.png)
+![stili özelleştir](./media/modify-developer-portal-style/developer_portal.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, aşağıdaki öğreticiye: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
++ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
 ## <a name="customize-the-developer-portal"></a>Geliştirici portalını özelleştirme
 
-1. Seçin **genel bakış**.
-2. Tıklatın **Geliştirici Portalı** tepesindeki düğmesini **genel bakış** penceresi. Alternatif olarak, tıklayabilirsiniz **Geliştirici Portalı URL'si** bağlantı.
-3. Ekranın sol üst tarafında iki boyama Fırçalar oluşan bir simge bakın. Portal özelleştirmenin menüsünü açmak için bu simgenin üzerine getirin.
+1. **Genel Bakış**’ı seçin.
+2. **Genel Bakış** penceresinin üzerindeki **Geliştirici portalı** düğmesine tıklayın. Alternatif olarak, **Geliştirici portalı URL’si** bağlantısına tıklayabilirsiniz.
+3. Ekranın sol üst tarafında, iki boya fırçasından oluşan bir simge görürsünüz. Portal özelleştirme menüsünü açmak için bu simgenin üzerine gelin.
 
-    ![Stil özelleştirme](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
-4. Seçin **stilleri** stil özelleştirme bölmesini açmak için menüden.
+    ![stili özelleştir](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. Stil özelleştirme bölmesini açmak için menüden **Stiller**’i seçin.
 
-    Kullanarak özelleştirebileceğiniz tüm öğeleri **stilleri** sayfada görünecek
-5. "Headings-color" girin **Geliştirici Portalı görünümünü özelleştirmek için değişken değerlerini değiştirin:** alan.
+    **Stilleri**’i kullanarak özelleştirebileceğiniz tüm öğeler sayfada görüntülenir
+5. **Geliştirici portalı görünümünü özelleştirmek için değişken değerleri değiştirin:** alanında "headings-color" değerini girin.
 
-     **@headings-color**  Öğe sayfasında görüntülenir. Bu değişken metnin rengini denetler.
+    **@headings-color** öğesi sayfada görüntülenir. Bu değişken metnin rengini denetler.
 
-    ![Stil özelleştirme](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
+    ![stili özelleştir](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. ' I tıklatın alanına  **@headings-color**  değişkeni. 
+6. **@headings-color** değişkeni için alana tıklayın. 
     
-    Renk Seçici açılan açar.
-7. Renk seçiciler açılan yeni bir renk seçin.
+    Renk seçici açılır menüsü açılır.
+7. Renk seçici açılır menüsünden yeni bir renk seçin.
 
     > [!TIP]
-    > Gerçek zamanlı Önizleme tüm değişiklikleri için kullanılabilir. Bir İlerleme göstergesi özelleştirme bölmenin en üstünde görünür. Birkaç saniye sonra yeni seçilen renkte üstbilgi metni değiştirir.
+    > Tüm değişiklikler için gerçek zamanlı önizleme kullanılabilir. Özelleştirme bölmesinin yukarısında bir ilerleme göstergesi görünür. Birkaç saniye sonra üst bilgi metni rengi yeni seçilen renge değişir.
 
-8. Seçin **Yayımla** özelleştirme bölmesi menüsünde alt soldan.
-9. Seçin **özelleştirmeleri yayımlamak** genel kullanıma açık bir değişiklik için.
+8. Özelleştirme bölmesi menüsünde sol alt tarafta **Yayımla**’yı seçin.
+9. Değişiklikleri genel olarak kullanılabilir yapmak için **Özelleştirmeleri yayımla**’yı seçin.
 
-## <a name="view-your-change"></a>Değişikliğiniz görüntüleyin
+## <a name="view-your-change"></a>Değişikliğinizi görüntüleme
 
 1. Geliştirici portalına gidin.
 2. Yaptığınız değişikliği görebilirsiniz.
@@ -80,8 +78,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Öğeleri sayfalarında stilini özelleştirmek **Geliştirici** portalı
-> * Değişikliğiniz görüntüleyin
+> * **Geliştirici** portalı sayfalarındaki öğelerin stilini özelleştirme
+> * Değişikliğinizi görüntüleme
 
 > [!div class="nextstepaction"]
-> [Şablonları kullanarak Azure API Management Geliştirici portalını özelleştirme](api-management-developer-portal-templates.md)
+> [Şablonları kullanarak Azure API Management geliştirici portalını özelleştirme](api-management-developer-portal-templates.md)

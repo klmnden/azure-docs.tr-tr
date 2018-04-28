@@ -1,28 +1,26 @@
 ---
-title: "Azure Hdınsight'ta bir Apache Spark machine learning ardışık düzen - oluşturun | Microsoft Docs"
-description: "Apache Spark machine learning kitaplığı veri ardışık düzen oluşturmak için kullanın."
+title: Azure Hdınsight'ta bir Apache Spark machine learning ardışık düzen - oluşturun | Microsoft Docs
+description: Apache Spark machine learning kitaplığı veri ardışık düzen oluşturmak için kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: maxluk
-ms.openlocfilehash: 238ab5f940fbea836b75e20b015ae16f22eef3e9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 75fdc427be42ff8895cde8add7c7b0623da6a808
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Spark machine learning işlem hattı oluşturma
+# <a name="create-a-spark-machine-learning-pipeline"></a>Spark makine öğrenimi işlem hattı oluşturma
 
 Apache Spark'ın ölçeklenebilir machine learning kitaplığı (Mllib'i) dağıtılmış bir ortama modelleme yetenekleri getirir. Spark paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) DataFrames üzerinde yerleşik yüksek düzey API kümesidir. Bu API'ları oluşturmak ve pratik makine öğrenme ardışık düzen ince ayar yardımcı olur.  *Spark machine learning* bu Mllib'i DataFrame tabanlı API'sine olmayan eski RDD tabanlı ardışık düzen API başvuruyor.
 
@@ -36,7 +34,7 @@ Bir dönüştürücü veya bir tahmin durum bilgisiz her örneğinin Parametrele
 
 ## <a name="pipeline-example"></a>Ardışık Düzen örnek
 
-Bu örnek bir ML ardışık pratik kullanımını göstermek için örnek kullanır `HVAC.csv` Hdınsight kümenizi, Azure Storage veya Data Lake Store için varsayılan depolama önceden yüklenmiş gelen veri dosyası. Dosya içeriğini görüntülemek için gidin `/HdiSamples/HdiSamples/SensorSampleData/hvac` dizin. `HVAC.csv`hem hedef hem de gerçek etme zamanlarında kümesi için HVAC içerir (*ısıtma, havalandırma ve klima*) çeşitli binalar sistemlerinde. Veri modeli eğitmek ve belirli bir yapı için tahmin sıcaklık üretmek için belirtilir.
+Bu örnek bir ML ardışık pratik kullanımını göstermek için örnek kullanır `HVAC.csv` Hdınsight kümenizi, Azure Storage veya Data Lake Store için varsayılan depolama önceden yüklenmiş gelen veri dosyası. Dosya içeriğini görüntülemek için gidin `/HdiSamples/HdiSamples/SensorSampleData/hvac` dizin. `HVAC.csv` hem hedef hem de gerçek etme zamanlarında kümesi için HVAC içerir (*ısıtma, havalandırma ve klima*) çeşitli binalar sistemlerinde. Veri modeli eğitmek ve belirli bir yapı için tahmin sıcaklık üretmek için belirtilir.
 
 Aşağıdaki kod:
 

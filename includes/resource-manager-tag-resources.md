@@ -22,3 +22,10 @@
 7. Bir kaynağı içeren kaynakları görmek için panodan sabitlenmiş etiketi seçebilirsiniz.
 
      ![Etiketleri panoya sabitleme](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Ata toplu olarak birden çok kaynağa etiketler:
+1. Tüm kaynaklar (örneğin tüm kaynakları, kaynak grubu oveview); listesinden
+2. Etiket atamak istediğiniz kaynaklar için onay kutusunu seçin;
+3. Select Ata etiketleri seçeneği;
+4. Adları ve değerleri ekleyin ve ata seçin.

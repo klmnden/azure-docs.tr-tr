@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ba721091c2eb0c67171a6d3106468a05f9be1f8f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -137,7 +137,7 @@ Abonelik kimliğinizi tutmak üzere bir değişkene sahip olduğunuza göre, run
 1. Şeklin altında bir daire görünene kadar **Azure’da Oturum Aç** üzerinde bekleyin. Daireye tıklayın ve oku **Abonelik Kimliği Belirt**’e sürükleyin.
 
 > [!IMPORTANT]
-> **Add-AzureRmAccount** için diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızın arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRMAccount**, ya da Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
+> **Connect-AzureRmAccount** için diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızın arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Connect-AzureRmAccount**, ya da Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
 
 Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

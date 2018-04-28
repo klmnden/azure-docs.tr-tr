@@ -1,19 +1,19 @@
 ---
-title: "Docker kapsayıcı kümesi dağıtma - Azure CLI"
-description: "Bir Kubernetes, DC/OS veya Docker Swarm çözümünü, Azure CLI 2.0 kullanarak Azure Container Service’e dağıtın"
+title: Docker kapsayıcı kümesi dağıtma - Azure CLI
+description: Bir Kubernetes, DC/OS veya Docker Swarm çözümünü, Azure CLI 2.0 kullanarak Azure Container Service’e dağıtın
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 40d5ea0e7abce165659219db8842ab64ac75fda7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 037834fa94a4ef6ecf6ab87055ed1369a3c8f1fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak Docker kapsayıcısı barındırma çözümü dağıtma
 
@@ -28,7 +28,7 @@ Azure CLI 2.0 ile bir Azure Container Service kümesi oluşturmak için şunlar 
 * bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/))
 * [Azure CLI 2.0](/cli/azure/install-az-cli2) aracının yüklü ve ayarlanmış olması
 
-## <a name="get-started"></a>Başlarken 
+## <a name="get-started"></a>başlarken 
 ### <a name="log-in-to-your-account"></a>Hesabınızda oturum açın
 ```azurecli
 az login 
@@ -38,7 +38,7 @@ Etkileşimli olarak oturum açmak için istemleri izleyin. Diğer oturum açma y
 
 ### <a name="set-your-azure-subscription"></a>Azure aboneliğinizi ayarlama
 
-Birden fazla Azure aboneliğiniz varsa varsayılan aboneliği ayarlayın. Örneğin:
+Birden fazla Azure aboneliğiniz varsa varsayılan aboneliği ayarlayın. Örnek:
 
 ```
 az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Her küme için bir kaynak grubu oluşturmanız önerilir. Azure Container Service’in [kullanılabilir](https://azure.microsoft.com/en-us/regions/services/) olduğu bir Azure bölgesi belirtin. Örneğin:
+Her küme için bir kaynak grubu oluşturmanız önerilir. Azure Container Service’in [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir Azure bölgesi belirtin. Örnek:
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

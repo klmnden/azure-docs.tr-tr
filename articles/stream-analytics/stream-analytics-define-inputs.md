@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics olay akışında girişlerinde veri akışı
+title: Azure Stream Analytics giriş olarak veri akışı
 description: Azure Stream Analytics Veri bağlantısında ayarlama bilgi edinin. Giriş olayları veri akışından içerir ve ayrıca veri başvuru.
 services: stream-analytics
 author: jasonwhowell
@@ -8,148 +8,172 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/11/2017
-ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.date: 04/19/2018
+ms.openlocfilehash: 5ebf2d1025c8f9469a83a408cb79e3d944a601bc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Veri bağlantısı: hakkındaki verileri Stream Analytics akış girişleri olaylardan öğrenin
-Veri akış analizi işi, işin adlandırılan bir veri kaynağından alınan olayların bir akış bağlantısıdır *giriş*. Akış analizi dahil olmak üzere Azure veri kaynakları ile veri akışı, birinci sınıf tümleştirme sahip [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/), ve [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/). Bu giriş kaynaklarıyla analytics işiniz aynı Azure aboneliğinden veya farklı bir abonelik olabilir.
+# <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak veri akışı
 
-## <a name="data-input-types-data-stream-and-reference-data"></a>Veri türleri giriş: veri akış ve başvuru verileri
+Akış analizi veri gelen olay kaynakları birkaç tür kabul eder. Bir giriş akış analizi işi iş adlandırılır olarak sağlanan veri bağlantısı *giriş*. 
+
+Akış analizi kaynaklarını üç tür girdi olarak Azure veri akışları ile birinci sınıf tümleştirme vardır:
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) 
+
+Bu giriş kaynakları, aynı abonelikte Azure Stream Analytics işi olarak veya farklı bir abonelik dinamik.
+
+## <a name="compare-stream-and-reference-inputs"></a>Akış ve başvuru girişleri Karşılaştır
 Verileri bir veri kaynağına itildiği gibi bu akış analizi işi tarafından tüketilen ve gerçek zamanlı olarak işlenen. Girişleri iki türlerine bölünen: veri akışı girişleri ve başvuru verileri girdi.
 
-### <a name="data-stream-inputs"></a>Veri akışı girişleri
+### <a name="data-stream-input"></a>Giriş veri akışı
 Veri akışı bir sınırsız olayları zamanla dizisidir. Akış analizi işleri, en az bir veri akış girişi eklemeniz gerekir. Olay hub'ları, IOT Hub ve Blob Depolama veri akışı giriş kaynağı olarak desteklenir. Olay hub'ları, birden çok cihazları ve Hizmetleri olay akışları toplayacak şekilde kullanılır. Bu akışlar, sosyal medya Etkinlik Akışları, hisse senedi ticareti bilgi veya algılayıcı verileri içerebilir. IOT hub'ları, nesnelerin interneti (IOT) senaryolarında bağlı aygıtlardan verileri toplamak için getirilmiştir.  BLOB Depolama günlük dosyaları gibi bir akış olarak toplu veri alma için bir giriş kaynağı kullanılabilir.  
 
-### <a name="reference-data"></a>Başvuru verileri
-Akış analizi, aynı zamanda giriş olarak bilinen destekler *başvuru verileri*. Bu, ya da statik yardımcı verilerdir veya değişen yavaş. Genellikle, bağıntı ve aramalar gerçekleştirmek için kullanılır. Örneğin, statik değerleri aramak için bir SQL birleştirme gerçekleştireceği kadar veri akış girişine başvuru verilerini de verileri birleştirebilirsiniz. Azure Blob Depolama şu anda yalnızca desteklenen giriş başvuru verileri kaynağıdır. Başvuru veri kaynağı BLOB'ları, 100 MB boyutunda sınırlıdır.
+### <a name="reference-data-input"></a>Başvuru veri girişi
+Akış analizi, aynı zamanda giriş olarak bilinen destekler *başvuru verileri*. Bu, ya da statik yardımcı verilerdir veya değişen yavaş. Başvuru verileri, genellikle bağıntı ve aramalar gerçekleştirmek için kullanılır. Örneğin, statik değerleri aramak için bir SQL birleştirme gerçekleştireceği kadar veri akış girişine başvuru verilerini de verileri birleştirebilirsiniz. Azure Blob Depolama şu anda yalnızca desteklenen giriş başvuru verileri kaynağıdır. Başvuru veri kaynağı BLOB'ları, 100 MB boyutunda sınırlıdır.
 
 Başvuru veri girişleri oluşturmayı öğrenmek için bkz: [kullanım başvuru verileri](stream-analytics-use-reference-data.md).  
 
-## <a name="compression"></a>Sıkıştırma
+### <a name="compression"></a>Sıkıştırma
+Akış analizi, tüm veri akışı giriş kaynaklarına arasında sıkıştırma destekler. Şu anda desteklenen başvuru türleri: None, GZip ve sıkıştırma Deflate. Sıkıştırma desteği başvuru verileri için kullanılabilir değil. Giriş biçimi sıkıştırılmış Avro verileri ise, saydam olarak işlenir. Avro serileştirilmesi ile sıkıştırma türünü belirtmeniz gerekmez. 
 
-Azure Stream Analytics sıkıştırma tüm veri akışı giriş kaynakları arasında (olay hub'ları, IOT Hub ve Blob Depolama) destekler. Bu özellik için yeni bir açılır seçeneği ekler **yeni giriş** dikey isteğe bağlı olarak veri akışları sıkıştırılacak seçmenizi sağlayan Azure Portalı'nda. Şu anda desteklenen başvuru türleri are - None, GZip ve sıkıştırma Deflate. Sıkıştırma desteği başvuru verileri için kullanılabilir değil.
+## <a name="create-or-edit-inputs"></a>Oluşturma veya girişleri düzenleme
+Yeni girişleri oluşturmak ve liste veya varolan girişler için iş akışında düzenlemek için Azure portalını kullanabilirsiniz:
+1. Açık [Azure portal](https://portal.azure.com) bulup, akış analizi işi seçin.
+2. Seçin **girişleri** altında seçeneği **ayarları** başlığı. 
+4. **Girişleri** sayfası varolan tüm girişleri listeler. 
+5. Üzerinde **girişleri** sayfasında, **akış giriş Ekle** veya **giriş başvuru ekleme** Ayrıntılar sayfasını açın.
+6. Seçin ve ayrıntıları düzenlemek için varolan bir girişi seçin **kaydetmek** varolan bir girişi düzenlemek için.
+7. Seçin **Test** bağlantı seçenekleri geçerli ve çalışıyor olduğunu doğrulamak için Giriş Ayrıntıları sayfasında. 
+8. Var olan bir giriş adını sağ tıklatın ve seçin **örnek giriş verilerinden** daha fazla test etmek için gerektiği gibi.
 
-Avro serileştirilmesi ile sıkıştırma türünü belirtmeniz gerekmez. Giriş Avro verileri sıkıştırılmışsa saydam olarak işlenir. 
+Aynı zamanda [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input), ve [Visual Studio](stream-analytics-tools-for-visual-studio.md) oluşturmak, düzenlemek ve Stream Analytics işi sınamak için girdi.
 
-## <a name="create-data-stream-input-from-event-hubs"></a>Veri akış girişine olay hub'larından oluşturma
+## <a name="stream-data-from-event-hubs"></a>Event hubs veri akışı
 
-Azure Event Hubs sağlayan yüksek düzeyde ölçeklenebilir olay ingestors yayımlama-abonelik. Böylece işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir event hub saniye başına milyonlarca olayı toplayabilirsiniz. Olay hub'ları ve akış analizi birlikte sağlayın, uçtan uca çözüm ile gerçek zamanlı analiz için — olay hub'ları olayları Azure'da gerçek zamanlı akış olanak tanır ve akış analizi işleri, bu olayları gerçek zamanlı işleyebilir. Örneğin, web tıklama, sensör okumaları veya çevrimiçi günlük olayları Event Hubs'a gönderebilirsiniz. Daha sonra gerçek zamanlı filtreleme, toplama ve bağıntı için giriş veri akışları olarak olay hub'ları kullanmak için akış analizi işleri oluşturabilirsiniz.
+Azure Event Hubs sağlayan yüksek düzeyde ölçeklenebilir olay ingestors yayımlama-abonelik. Böylece işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir event hub saniye başına milyonlarca olayı toplayabilirsiniz. Birlikte olay hub'ları ve akış analizi için gerçek zamanlı analiz ile bir uçtan uca çözümü sağlar. Olay hub'ları, olayları Azure'da gerçek zamanlı akış olanak tanır ve bu olayları gerçek zamanlı akış analizi işleri işleyebilir. Örneğin, web tıklama, sensör okumaları veya çevrimiçi günlük olayları Event Hubs'a gönderebilirsiniz. Daha sonra gerçek zamanlı filtreleme, toplama ve bağıntı için giriş veri akışları olarak olay hub'ları kullanmak için akış analizi işleri oluşturabilirsiniz.
 
 Varsayılan zaman damgası akış analizi, olay hub'ten gelen olayların olay Olay hub'ı, ama olan gelen zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü, kullanmalısınız durumunda bir zaman damgası kullanarak bir akış işlemek için [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
 
 ### <a name="consumer-groups"></a>Tüketici grupları
 Kendi tüketici grubu için giriş her akış analizi olay hub'ı yapılandırmanız gerekir. Bir işi kendi kendine birleşim içerdiğinde ya da birden fazla giriş varsa, bazı giriş aşağı birden fazla okuyucu tarafından okuyabilir. Bu durum, tek bir tüketici grubundaki okuyucu sayısını etkiler. Bölüm başına tüketici grubu başına beş okuyucuların olay hub'ları sınırını aşmamak için her akış analizi işi için bir tüketici grubu atamak için bir en iyi uygulamadır. Olay hub'ı başına 20 tüketici grupları sınırı yoktur. Daha fazla bilgi için bkz: [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md).
 
-### <a name="configure-an-event-hub-as-a-data-stream-input"></a>Bir event hub giriş veri akışı yapılandırın
-Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** giriş olarak bir olay hub'ı yapılandırırken Azure portaldaki dikey.
+### <a name="stream-data-from-event-hubs"></a>Event hubs veri akışı
+Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** bir olay hub'ı Azure portalından akış veri giriş sayfası:
 
 | Özellik | Açıklama |
 | --- | --- |
 | **Giriş diğer adı** |Bu giriş başvurmak için işin sorguda kullanma kolay adı. |
-| **Hizmet veri yolu ad alanı** |Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır bir Azure hizmet veri yolu ad. Yeni bir olay hub'ı oluşturduğunuzda aynı zamanda bir hizmet veri yolu ad alanı oluşturun. |
-| **Olay hub'ı adı** |Giriş olarak kullanmak için olay hub'ın adı. |
-| **Olay hub'ı ilke adı** |Olay hub'ına erişimi sağlayan paylaşılan erişim ilkesi. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. |
-| **Olay hub tüketici grubu** (isteğe bağlı) |Olay hub'ı verilerden alma için kullanılacak tüketici grubu. Stream Analytics işi hiç tüketici grubu belirtilmezse, varsayılan bir tüketici grubu kullanır. Her akış analizi işi için ayrı bir tüketici grubundaki kullanmanızı öneririz. |
-| **Olayı seri hale getirme biçimi** |Seri hale getirme biçimi (JSON, CSV veya Avro) gelen veri akışının. |
-| **Encoding** | UTF-8 anda desteklenen tek kodlama biçimi değil. |
-| **Sıkıştırma** (isteğe bağlı) | Sıkıştırma (None, GZip ve Deflate) gelen veri akışının türü. |
+| **Abonelik** | Olay hub'ı kaynak bulunduğu abonelik seçin. | 
+| **Olay Hub'ad alanı** | Olay hub'ı ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda aynı zamanda ad alanını oluşturun. |
+| **Olay hub'ı adı** | Giriş olarak kullanmak için olay hub'ın adı. |
+| **Olay hub'ı ilke adı** | Olay Hub'ına erişimi sağlayan paylaşılan erişim ilkesi. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay hub'ı ayarlarını sağlama seçeneğine seçmediğiniz sürece bu seçenek, otomatik olarak doldurulur el ile.|
+| **Olay Hub tüketici grubu** (önerilir) | Her akış analizi işi için ayrı bir tüketici grubundaki kullanmak için önerilir. Bu dize, olay hub'ı verilerden alma için kullanılacak bir tüketici grubundaki tanımlar. Herhangi bir tüketici grubu belirtilirse, Stream Analytics işi $Default tüketici grubu kullanır.  |
+| **Olayı seri hale getirme biçimi** | Seri hale getirme biçimi (JSON, CSV veya Avro) gelen veri akışının. |
+| **Kodlama** | UTF-8 anda desteklenen tek kodlama biçimi değil. |
+| **Olay sıkıştırma türü** | Hiçbiri (varsayılan), GZip ve Deflate gibi gelen veri akışını okumak için kullanılan sıkıştırma türü. |
 
-Verilerinizi bir event hub'ından geldiğinde, aşağıdaki meta veri alanları Stream Analytics sorgunuzda erişebilirsiniz:
+Verilerinizi bir olay hub'ı akış girişten geldiğinde, aşağıdaki meta veri alanları Stream Analytics sorgunuzda erişebilirsiniz:
 
 | Özellik | Açıklama |
 | --- | --- |
 | **EventProcessedUtcTime** |Olay akış analizi tarafından işlenen saat ve tarihi. |
 | **EventEnqueuedUtcTime** |Olayın olay hub tarafından alınan saat ve tarihi. |
-| **PartitionId** |Giriş bağdaştırıcısı sıfır tabanlı bölüm kimliği. |
+| **PartitionID** |Giriş bağdaştırıcısı sıfır tabanlı bölüm kimliği. |
 
 Örneğin, bu alanları kullanarak, aşağıdaki örneğe benzer bir sorgu yazabilirsiniz:
 
-````
+```sql
 SELECT
     EventProcessedUtcTime,
     EventEnqueuedUtcTime,
     PartitionId
 FROM Input
-````
+```
 
 > [!NOTE]
 > Olay hub'ı IOT Hub yollar için bir uç nokta kullanırken, IOT hub'ı kullanarak medadata erişebilir [GetMetadataPropertyValue işlevi](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
 > 
 
-## <a name="create-data-stream-input-from-iot-hub"></a>IOT Hub'ından veri akış girişi oluşturun
+## <a name="stream-data-from-iot-hub"></a>IOT hub'dan veri akışı
 Azure IOT Hub, yüksek düzeyde ölçeklenebilir yayımlama-abone olma IOT senaryoları için en iyi duruma getirilmiş olay yutucu ' dir.
 
-Stream Analytics bir IOT hub'ten gelen olayların varsayılan zaman damgası olan IOT hub olayı geldiği zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü, kullanmalısınız durumunda bir zaman damgası kullanarak bir akış işlemek için [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
+Stream Analytics bir IOT Hub'ten gelen olayların varsayılan zaman damgası olan IOT Hub olay geldiği zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü, kullanmalısınız durumunda bir zaman damgası kullanarak bir akış işlemek için [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
 
 > [!NOTE]
 > İle gönderilen iletileri bir `DeviceClient` özelliği işlenebilir.
 > 
-> 
 
 ### <a name="consumer-groups"></a>Tüketici grupları
-Kendi tüketici grubu için giriş her akış analizi IOT hub'ı yapılandırmanız gerekir. Bir işi kendi kendine birleşim içerdiğinde ya da birden fazla giriş varsa, bazı giriş aşağı birden fazla okuyucu tarafından okuyabilir. Bu durum, tek bir tüketici grubundaki okuyucu sayısını etkiler. Her bölüm başına tüketici grubu beş okuyucuların Azure IOT Hub sınırını aşmamak için her akış analizi işi için bir tüketici grubu atamak için bir en iyi uygulamadır.
+Her akış analizi IOT Hub'ı giriş kendi tüketici grubunuz için yapılandırmanız gerekir. Bir işi kendi kendine birleşim içerdiğinde ya da birden fazla giriş varsa, bazı giriş aşağı birden fazla okuyucu tarafından okuyabilir. Bu durum, tek bir tüketici grubundaki okuyucu sayısını etkiler. Her bölüm başına tüketici grubu beş okuyucuların Azure IOT Hub sınırını aşmamak için her akış analizi işi için bir tüketici grubu atamak için bir en iyi uygulamadır.
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Giriş veri akışı IOT hub'ı yapılandırma
-Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** dikey penceresinde IOT hub'ı giriş olarak yapılandırdığınızda, Azure portalında.
+Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** giriş akış olarak IOT hub'ı yapılandırırken Azure portalında sayfası.
 
 | Özellik | Açıklama |
 | --- | --- |
-| **Giriş diğer adı** |Bu giriş başvurmak için işin sorguda kullanma kolay adı.|
-| **IOT hub'ı** |Giriş olarak kullanmak için IOT hub'ın adı. |
-| **Endpoint** |IOT hub'ına yönelik uç noktası.|
-| **Paylaşılan erişim ilkesi adı** |IOT hub'ına erişimi sağlayan paylaşılan erişim ilkesi. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. |
-| **Paylaşılan Erişim İlkesi anahtarı** |IOT hub'ına erişim yetkisi vermek için kullanılan paylaşılan erişim anahtarı. |
-| **Tüketici grubu** (isteğe bağlı) |IOT hub'ından veri alma için kullanılacak tüketici grubu. Herhangi bir tüketici grubu belirtilirse, akış analizi işi varsayılan bir tüketici grubu kullanır. Her akış analizi işi için farklı bir tüketici grubundaki kullanmanızı öneririz. |
-| **Olayı seri hale getirme biçimi** |Seri hale getirme biçimi (JSON, CSV veya Avro) gelen veri akışının. |
-| **Encoding** |UTF-8 anda desteklenen tek kodlama biçimi değil. |
-| **Sıkıştırma** (isteğe bağlı) | Sıkıştırma (None, GZip ve Deflate) gelen veri akışının türü. |
+| **Giriş diğer adı** | Bu giriş başvurmak için işin sorguda kullanma kolay adı.|
+| **Abonelik** | IOT hub'ı kaynak bulunduğu abonelik seçin. | 
+| **IoT Hub’ı** | Giriş olarak kullanmak için IOT Hub'ın adı. |
+| **uç noktası** | IOT hub'ına yönelik uç noktası.|
+| **Paylaşılan erişim ilkesi adı** | IOT Hub'ına erişimi sağlayan paylaşılan erişim ilkesi. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. |
+| **Paylaşılan Erişim İlkesi anahtarı** | IOT hub'ına erişim yetkisi vermek için kullanılan paylaşılan erişim anahtarı.  IOT hub'ı ayarları sağlamak için seçeneği seçmediğiniz sürece bu seçenek, otomatik olarak doldurulur el ile. |
+| **Tüketici grubu** | Farklı bir tüketici grubundaki her akış analizi işi için kullanmanız önerilir. IOT Hub'ından veri alma için tüketici grubu kullanılır. Aksi belirtilmedikçe akış analizi $Default tüketici grubu kullanır.  |
+| **Olayı seri hale getirme biçimi** | Seri hale getirme biçimi (JSON, CSV veya Avro) gelen veri akışının. |
+| **Kodlama** | UTF-8 anda desteklenen tek kodlama biçimi değil. |
+| **Olay sıkıştırma türü** | Hiçbiri (varsayılan), GZip ve Deflate gibi gelen veri akışını okumak için kullanılan sıkıştırma türü. |
 
-Verilerinizi bir IOT hub'ından geldiğinde, aşağıdaki meta veri alanları Stream Analytics sorgunuzda erişebilirsiniz:
+
+Akış verilerinden bir IOT hub'ı kullandığınızda, aşağıdaki meta veri alanları Stream Analytics sorgunuzda erişebilirsiniz:
 
 | Özellik | Açıklama |
 | --- | --- |
-| **EventProcessedUtcTime** |Olay işlendiği saati ve tarihi. |
-| **EventEnqueuedUtcTime** |Olay IOT hub tarafından alınan saat ve tarihi. |
-| **PartitionId** |Giriş bağdaştırıcısı sıfır tabanlı bölüm kimliği. |
+| **EventProcessedUtcTime** | Olay işlendiği saati ve tarihi. |
+| **EventEnqueuedUtcTime** | Olay IOT Hub tarafından alınan saat ve tarihi. |
+| **PartitionID** | Giriş bağdaştırıcısı sıfır tabanlı bölüm kimliği. |
 | **IoTHub.MessageId** | IOT hub'ında iki yönlü iletişim ilişkilendirmek için kullanılan kimliği. |
-| **IoTHub.CorrelationId** |İleti yanıtlarını ve geri bildirim IOT hub'ın kullanılan kimliği. |
-| **IoTHub.ConnectionDeviceId** |Bu ileti göndermek için kullanılan kimlik doğrulama kimliği. Bu değer, IOT hub tarafından servicebound iletileri damgalandı. |
-| **IoTHub.ConnectionDeviceGenerationId** |Bu ileti göndermek için kullanılan kimliği doğrulanmış cihaz oluşturma kimliği. Bu değer, IOT hub tarafından servicebound iletileri damgalandı. |
-| **IoTHub.EnqueuedTime** |İletinin IOT hub tarafından ne zaman alındığı saati. |
-| **IoTHub.StreamId** |Gönderen aygıt tarafından eklenen özel olay özelliği. |
+| **IoTHub.CorrelationId** | İleti yanıtlarını ve geri bildirim IOT hub'ın kullanılan kimliği. |
+| **IoTHub.ConnectionDeviceId** | Bu ileti göndermek için kullanılan kimlik doğrulama kimliği. Bu değer, IOT Hub tarafından servicebound iletileri damgalandı. |
+| **IoTHub.ConnectionDeviceGenerationId** | Bu ileti göndermek için kullanılan kimliği doğrulanmış cihaz oluşturma kimliği. Bu değer, IOT Hub tarafından servicebound iletileri damgalandı. |
+| **IoTHub.EnqueuedTime** | İletinin IOT Hub tarafından ne zaman alındığı saati. |
+| **IoTHub.StreamId** | Gönderen aygıt tarafından eklenen özel olay özelliği. |
 
 
-## <a name="create-data-stream-input-from-blob-storage"></a>Blob depolama alanından veri akış girişi oluşturun
-Çok miktarda bulutta depolamak için yapılandırılmamış veri ile senaryoları için Azure Blob Depolama uygun maliyetli ve ölçeklenebilir bir çözüm sunar. Blob Depolama birimindeki verileri genellikle kalan verileri olarak kabul edilir. Ancak, bu veri akışı akış analizi tarafından işlenebilir. Blob Depolama Stream Analytics girişle tipik bir senaryo günlük işlemesidir. Bu senaryoda, telemetri verilerini bir sisteminden yakalanan ve ayrıştırılması ve anlamlı veri ayıklamak için işlenen gerekiyor.
+## <a name="stream-data-from-blob-storage"></a>Blob depolama biriminden veri akışı
+Çok miktarda bulutta depolamak için yapılandırılmamış veri ile senaryoları için Azure Blob Depolama uygun maliyetli ve ölçeklenebilir bir çözüm sunar. Blob Depolama birimindeki verileri genellikle kalan verileri olarak kabul edilir. Ancak, blob verilerini bir veri akışı akış analizi tarafından işlenebilir. 
+
+Günlük işlem Blob Depolama girişleri akış Analizi ile kullanmak için yaygın olarak kullanılan bir senaryodur. Bu senaryoda, telemetri veri dosyaları bir sisteminden yakalanan ve ayrıştırılması ve anlamlı veri ayıklamak için işlenen gerekiyor.
 
 Stream Analytics içinde Blob Depolama olayların varsayılan zaman damgası olan blob en son değiştirildiği zaman damgası olan `BlobLastModifiedUtcTime`. Veri yükü, kullanmalısınız durumunda bir zaman damgası kullanarak bir akış işlemek için [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
 
-CSV biçimlendirilmiş girişleri *gerektiren* veri kümesi alanlarını tanımlamak için bir başlık satırı. Ayrıca, tüm üstbilgisi satır alanları benzersiz olması gerekir.
+CSV biçimlendirilmiş girişleri *gerektiren* veri kümesi için alanları ve tüm üst bilgi satırı alanları tanımlamak için bir başlık satırı benzersiz olması gerekir.
+
+Akış analizi, olay hub'ı yakalama veya IOT hub'ı Azure depolama kapsayıcısının özel uç noktası tarafından oluşturulan kaldırırken AVRO iletileri şu anda desteklemiyor.
 
 > [!NOTE]
 > Akış analizi, varolan bir blobu dosyaya ekleme içerikleri desteklemez. Akış analizi her dosya yalnızca bir kez görüntüler ve dosyayı iş veri okuma sonra gerçekleşen değişiklikleri işlenmez. En iyi bir blob dosya için tüm verileri aynı anda karşıya yüklemek ve ek yeni olaylar için farklı, yeni blob dosya eklemek için bir uygulamadır.
 > 
 
-### <a name="configure-blob-storage-as-a-data-stream-input"></a>BLOB Depolama giriş veri akışı yapılandırın
+### <a name="configure-blob-storage-as-a-stream-input"></a>Giriş akış olarak BLOB depolamayı yapılandırma 
 
-Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** giriş olarak Blob Depolama Birimi yapılandırırken Azure portaldaki dikey pencere.
+Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** Blob Depolama giriş akış olarak yapılandırdığınızda, Azure portalında sayfası.
 
 | Özellik | Açıklama |
 | --- | --- |
 | **Giriş diğer adı** | Bu giriş başvurmak için işin sorguda kullanma kolay adı. |
+| **Abonelik** | IOT hub'ı kaynak bulunduğu abonelik seçin. | 
 | **Depolama hesabı** | Blob dosyalarının bulunduğu depolama hesabının adı. |
-| **Depolama hesabı anahtarı** | Depolama hesabıyla ilişkili gizli anahtar. |
-| **kapsayıcı** | Giriş blob kapsayıcısı. Kapsayıcılar Microsoft Azure Blob hizmetinde depolanan BLOB'lar için mantıksal bir gruplandırmasını sağlar. Azure Blob Depolama hizmetine bir blob karşıya yüklediğinde, o blob için bir kapsayıcı belirtmeniz gerekir. |
+| **Depolama hesabı anahtarı** | Depolama hesabıyla ilişkili gizli anahtar. Blob Depolama ayarlarını sağlama seçeneğine seçmediğiniz sürece bu seçenek, otomatik olarak doldurulur el ile. |
+| **kapsayıcı** | Giriş blob kapsayıcısı. Kapsayıcılar Microsoft Azure Blob hizmetinde depolanan BLOB'lar için mantıksal bir gruplandırmasını sağlar. Azure Blob Depolama hizmetine bir blob karşıya yüklediğinde, o blob için bir kapsayıcı belirtmeniz gerekir. Ya da seçebilirsiniz **kullanım varolan** kapsayıcı veya **Yeni Oluştur** oluşturulan yeni bir kapsayıcı sağlamak için.|
 | **Yol deseni** (isteğe bağlı) | Belirtilen kapsayıcı içinde BLOB'ları bulmak için kullanılan dosya yolu. Yol içinde şu üç değişkenin bir veya daha fazla örneğini belirtebilirsiniz: `{date}`, `{time}`, veya `{partition}`<br/><br/>Örnek 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Örnek 2: `cluster1/logs/{date}`<br/><br/>`*` Karakter yol öneki için izin verilen bir değer değil. Yalnızca geçerli <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob karakter</a> izin verilir. |
 | **Tarih biçimi** (isteğe bağlı) | Yolu tarih değişken kullanırsanız, tarih biçimi dosyaları düzenlenir. Örnek: `YYYY/MM/DD` |
-| **Saat biçimi** (isteğe bağlı) |  Yolu zaman değişken kullanırsanız, saat biçimi dosyaları düzenlenir. Şu anda desteklenen tek değerdir `HH`. |
+| **Saat biçimi** (isteğe bağlı) |  Yolu zaman değişken kullanırsanız, saat biçimi dosyaları düzenlenir. Şu anda desteklenen tek değerdir `HH` saat. |
 | **Olayı seri hale getirme biçimi** | Seri hale getirme biçimi (JSON, CSV veya Avro) gelen veri akışları için. |
-| **Encoding** | CSV ve JSON, UTF-8 şu anda desteklenen tek kodlama biçimi içindir. |
-| **Sıkıştırma** (isteğe bağlı) | Sıkıştırma (None, GZip ve Deflate) gelen veri akışının türü. |
+| **Kodlama** | CSV ve JSON, UTF-8 şu anda desteklenen tek kodlama biçimi içindir. |
+| **Sıkıştırma** | Hiçbiri (varsayılan), GZip ve Deflate gibi gelen veri akışını okumak için kullanılan sıkıştırma türü. |
 
 Verilerinizi bir Blob Depolama kaynaktan geldiğinde, aşağıdaki meta veri alanları Stream Analytics sorgunuzda erişebilirsiniz:
 
@@ -158,20 +182,17 @@ Verilerinizi bir Blob Depolama kaynaktan geldiğinde, aşağıdaki meta veri ala
 | **BlobName** |Olay geldiği giriş blob adı. |
 | **EventProcessedUtcTime** |Olay akış analizi tarafından işlenen saat ve tarihi. |
 | **BlobLastModifiedUtcTime** |Blob son değiştirilme saati ve tarihi. |
-| **PartitionId** |Giriş bağdaştırıcısı sıfır tabanlı bölüm kimliği. |
+| **PartitionID** |Giriş bağdaştırıcısı sıfır tabanlı bölüm kimliği. |
 
 Örneğin, bu alanları kullanarak, aşağıdaki örneğe benzer bir sorgu yazabilirsiniz:
 
-````
+```sql
 SELECT
     BlobName,
     EventProcessedUtcTime,
     BlobLastModifiedUtcTime
 FROM Input
-````
-
-## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure veri bağlantı seçenekleri hakkında Stream Analytics işleri öğrendiniz. Stream Analytics hakkında daha fazla bilgi için bkz:

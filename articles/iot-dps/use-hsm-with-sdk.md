@@ -1,48 +1,48 @@
 ---
-title: Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı Donanım Güvenlik Modülü kullanma
-description: Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı Donanım Güvenlik Modülü kullanma
+title: Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
+description: Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 services: iot-dps
 keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 03/28/2018
+ms.date: 03/30/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: ''
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0d392f4a8d935cb37b6f4cfcd69826de58b33880
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 14c9bc0dd82575783a5af7293b48f56b36110f9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk-for-c"></a>C için Cihaz Sağlama Hizmeti İstemci SDK’sı ile farklı Donanım Güvenlik Modülleri kullanma
+# <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 
-Bu makalede, C için Cihaz Sağlama Hizmeti İstemci SDK’sı ile farklı [Donanım Güvenlik Modülleri’nin (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) nasıl kullanılacağı gösterilmektedir. Fiziksel bir cihaz veya simülatör kullanabilirsiniz. Sağlama hizmeti, iki tür kanıtlama mekanizması için kimlik doğrulamasını destekler: X**.**509 ve Güvenilir Platform Modülü (TPM).
+Bu makalede, C için Cihaz Sağlama Hizmeti İstemci SDK’sı ile farklı [kanıtlama mekanizmalarının](concepts-security.md#attestation-mechanism) nasıl kullanılacağı gösterilmektedir. Fiziksel bir cihaz veya simülatör kullanabilirsiniz. Sağlama hizmeti, iki tür kanıtlama mekanizması için kimlik doğrulamasını destekler: X **.** 509 ve Güvenilir Platform Modülü (TPM).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Geliştirme ortamınızı [Simülasyon cihazı oluşturma ve sağlama](./quick-create-simulated-device.md) kılavuzundaki "Geliştirme ortamınızı hazırlama" başlıklı bölüme göre hazırlayın.
 
-### <a name="choose-a-hardware-security-module"></a>Donanım Güvenlik Modülü Seçme
+### <a name="choose-an-attestation-mechanism"></a>Kanıtlama mekanizması seçme
 
-Cihaz üreticisi olarak ilk önce desteklenen türlerden birini temel alan Donanım Güvenlik Modüllerini (HSM) seçmeniz gerekir. Şu anda [C için Cihaz Sağlama Hizmeti istemci SDK’sı](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client), aşağıdaki HSM’ler için destek sağlar: 
+Cihaz üreticisi olarak öncelikle desteklenen türlerden birini temel alan bir kanıtlama mekanizması seçmeniz gerekir. Şu anda [C için Cihaz Sağlama Hizmeti istemci SDK’sı](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client), aşağıdaki kanıtlama mekanizmaları için destek sağlar: 
 
-- [Güvenilir Platform Modülü (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM, çoğu Windows tabanlı cihaz platformu ve birkaç Linux/Ubuntu tabanlı cihaz için belirlenmiş bir standarttır. Cihaz üreticisi olarak, cihazlarınızda bu işletim sistemlerinden herhangi biri yüklüyse ve HSM’ler için belirlenmiş bir standart arıyorsanız bu HSM’yi seçebilirsiniz. TPM yongaları ile her bir cihazı ayrı olarak Cihaz Sağlama Hizmetine kaydedebilirsiniz. Geliştirme amacıyla, Windows veya Linux geliştirme makinenizde TPM simülatörünü kullanabilirsiniz.
+- [Güvenilir Platform Modülü (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM, çoğu Windows tabanlı cihaz platformu ve birkaç Linux/Ubuntu tabanlı cihaz için belirlenmiş bir standarttır. Cihaz üreticisi olarak, cihazlarınızda bu işletim sistemlerinden herhangi biri yüklüyse ve belirlenmiş bir standart arıyorsanız bu kanıtlama mekanizmasını seçebilirsiniz. TPM yongaları ile her bir cihazı ayrı olarak Cihaz Sağlama Hizmetine kaydedebilirsiniz. Geliştirme amacıyla, Windows veya Linux geliştirme makinenizde TPM simülatörünü kullanabilirsiniz.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 tabanlı HSM’ler nispeten daha yeni yongalardır. İş aynı zamanda Microsoft bünyesinde, X.509 sertifikalarını uygulayan RIoT veya DICE yongalarında da devam eder. X.509 yongalarıyla, portalda toplu cihaz kaydı gerçekleştirebilirsiniz. Bu, embedOS gibi Windows olmayan belirli işletim sistemlerini de destekler. Geliştirme amacıyla Cihaz Sağlama Hizmeti istemci SDK’sı, X.509 cihaz simülatörünü destekler. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 sertifikaları [Donanım Güvenlik Modülleri (HSM)](concepts-security.md#hardware-security-module) adı verilen, nispeten daha yeni yongalarda depolanabilir. İş aynı zamanda Microsoft bünyesinde, X.509 sertifikalarını uygulayan RIoT veya DICE yongalarında da devam eder. X.509 yongalarıyla, portalda toplu cihaz kaydı gerçekleştirebilirsiniz. Bu, embedOS gibi Windows olmayan belirli işletim sistemlerini de destekler. Geliştirme amacıyla Cihaz Sağlama Hizmeti istemci SDK’sı, X.509 cihaz simülatörünü destekler. 
 
-Daha fazla bilgi için bkz. [IoT Hub Cihazı Sağlama Hizmeti güvenlik kavramları](concepts-security.md). 
+Daha fazla bilgi için IoT Hub Cihazı Sağlama Hizmeti [güvenlik kavramları](concepts-security.md) ve [otomatik sağlama kavramları](/azure/iot-dps/concepts-auto-provisioning) bölümlerine bakın.
 
-## <a name="enable-authentication-for-supported-hsms"></a>Desteklenen HSM’ler için kimlik doğrulamasını etkinleştirme
+## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Desteklenen kanıtlama mekanizmaları için kimlik doğrulamasını etkinleştirme
 
-Fiziksel cihazın veya simülatörün Azure portalına kaydedilebilmesi için kimlik doğrulaması modu (X**.**509 veya TPM) etkinleştirilmelidir. İlk olarak azure-iot-sdk-c kök klasörüne gidin. Ardından, seçtiğiniz kimlik doğrulaması moduna bağlı olarak belirtilen komutu çalıştırın:
+Fiziksel cihazın veya simülatörün Azure portalına kaydedilebilmesi için SDK kimlik doğrulaması modu (X **.** 509 veya TPM) etkinleştirilmelidir. İlk olarak azure-iot-sdk-c kök klasörüne gidin. Ardından, seçtiğiniz kimlik doğrulaması moduna bağlı olarak belirtilen komutu çalıştırın:
 
-### <a name="use-x509-with-simulator"></a>Simülatör ile X**.**509 kullanma
+### <a name="use-x509-with-simulator"></a>Simülatör ile X **.** 509 kullanma
 
-Sağlama hizmeti, cihaz kimliğini doğrulamak için bir X**.**509 sertifikası oluşturan Cihaz Kimliği Bileşim Motoru (DICE) öykünücüsü ile birlikte gelir. X**.**509 kimlik doğrulamasını etkinleştirmek için aşağıdaki komutu çalıştırın: 
+Sağlama hizmeti, cihaz kimliğini doğrulamak için bir X **.** 509 sertifikası oluşturan Cihaz Kimliği Bileşim Motoru (DICE) öykünücüsü ile birlikte gelir. X **.** 509 kimlik doğrulamasını etkinleştirmek için aşağıdaki komutu çalıştırın: 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -50,9 +50,9 @@ cmake -Ddps_auth_type=x509 ..
 
 DICE özellikli donanım hakkında bilgiler [burada](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) bulunabilir.
 
-### <a name="use-x509-with-hardware"></a>Donanım ile X**.**509 kullanma
+### <a name="use-x509-with-hardware"></a>Donanım ile X **.** 509 kullanma
 
-Sağlama hizmeti X**.**509 ile başka donanımlarda kullanılabilir. Bağlantı kurmak için donanım ile SDK arasında bir arabirim bulunması gerekir. Arabirim hakkında bilgi almak için HSM üreticinizle iletişime geçin.
+Sağlama hizmeti X **.** 509 ile başka donanımlarda kullanılabilir. Bağlantı kurmak için donanım ile SDK arasında bir arabirim bulunması gerekir. Arabirim hakkında bilgi almak için HSM üreticinizle iletişime geçin.
 
 ### <a name="use-tpm"></a>TPM kullanma
 
@@ -144,32 +144,32 @@ Cihaz kaydını oluşturmadan önce SDK'yı derleyin.
 ### <a name="tpm"></a>TPM
 TPM kullanıyorsanız [“IoT Hub Cihazı Sağlama Hizmetini kullanarak simülasyon cihazı oluşturma ve sağlama”](./quick-create-simulated-device.md) talimatlarını uygulayarak Cihaz Sağlama Hizmetinizde bir cihaz kaydı girişi oluşturun ve ilk önyüklemeyi simüle edin.
 
-### <a name="x509"></a>X**.**509
-1. Bir cihazı sağlama hizmetine kaydetmek için her cihazın İstemci SDK'sı ile verilen Sağlama Aracı'nda görüntülenen Onay Anahtarı ve Kayıt Kimliği bilgilerini not etmeniz gerekir. Kök CA sertifikasını (kayıt grupları için) ve imzalayan sertifikasını (tek kayıt için) yazdırmak için aşağıdaki komutu çalıştırın:
+### <a name="x509"></a>X **.** 509
+1. Bir cihazı sağlama hizmetine kaydetmek için her cihazın İstemci SDK'sı ile verilen Sağlama Aracı'nda görüntülenen Onay Anahtarı ve Kayıt Kimliği bilgilerini not etmeniz gerekir. Kök CA sertifikasını (kayıt grupları için) ve yaprak sertifikayı (tek kayıt için) yazdırmak için aşağıdaki komutu çalıştırın:
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Azure portalında, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve DPS hizmetinizi açın.
-   - X**.**509 Tek Kayıt: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik onayı *Mekanizması* olarak **X**.**509** seçin ve dikey pencerede istenen imzalayan sertifikasını yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
-   - X**.**509 Grup Kaydı: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Grup Kayıtları** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik onayı *Mekanizması* olarak **X**.**509** seçin, grup adını ve sertifika adını girin ve dikey pencerede istenen kök CA sertifikasını yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - X **.** 509 Tek Kayıt: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin ve dikey pencerede istenen yaprak sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - X **.** 509 Grup Kaydı: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Grup Kayıtları** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin, bir grup adı ve sertifika adı girip dikey pencerede istenen CA sertifikasını/ara sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-## <a name="enable-authentication-for-custom-tpm-and-x509-devices-optional"></a>Özel TPM ve X.509 cihazları için kimlik doğrulamasını etkinleştirme (isteğe bağlı)
+## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Özel bir kanıtlama mekanizması kullanarak cihazlar için kimlik doğrulamasını etkinleştirme (isteğe bağlı)
 
 > [!NOTE]
-> Bu bölüm yalnızca özel platform veya HSM için destek gerektiren, şu anda C için Cihaz Sağlama Hizmeti İstemci SDK’sı tarafından desteklenmeyen cihazlar için geçerlidir.
+> Bu bölüm yalnızca şu anda Cihaz Sağlama Hizmeti İstemci SDK'sı tarafından desteklenmeyen özel bir platforma veya kanıtlama mekanizmalarına yönelik destek gerektiren cihazlar için geçerlidir. Ayrıca SDK’nın “kanıtlama mekanizması” yerine genel bir ifade olarak sıklıkla "HSM" terimini kullandığını da unutmayın.
 
-İlk olarak, özel HSM deponuzu ve kitaplığınızı geliştirmeniz gerekir:
+Özel kanıtlama mekanizmanız için önce bir depo ve kitaplık geliştirmeniz gerekir:
 
-1. HSM’nize erişmek için bir kitaplık geliştirin. Bu projenin, kullanılacak Cihaz Sağlama SDK’sı için statik kitaplık üretmesi gerekir.
+1. Kanıtlama mekanizmanıza erişmek için bir kitaplık geliştirin. Bu projenin, kullanılacak Cihaz Sağlama SDK’sı için statik kitaplık üretmesi gerekir.
 
 2. Kitaplığınızda, aşağıdaki üst bilgi dosyasında tanımlanan işlevleri uygulayın: 
 
-    - Özel TPM için: [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) bölümünde tanımlanan Özel HSM işlevlerini uygulayın.  
-    - Özel X.509 için: [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) bölümünde tanımlanan Özel HSM işlevlerini uygulayın. 
+    - Özel TPM için: [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) bölümünde tanımlanan işlevleri uygulayın.  
+    - Özel X.509 için: [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) bölümünde tanımlanan işlevleri uygulayın. 
 
-Kitaplığınız başarıyla derlendikten sonra, kitaplığınıza karşı bağlantı oluşturarak Cihaz Sağlama Hizmeti İstemci SDK’sı ile bunu tümleştirmeniz gerekir. :
+Kitaplığınız başarıyla oluşturulduktan sonra, kitaplığınıza yönelik bir bağlantı oluşturarak Cihaz Sağlama Hizmeti İstemci SDK’sı ile bunu tümleştirmeniz gerekir. :
 
-1. Aşağıdaki `cmake` komutunda, özel HSM GitHub deposunu, kitaplık yolunu ve adını sağlayın:
+1. Aşağıdaki `cmake` komutunda, özel GitHub deposunu ve kitaplığı sağlayın:
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
@@ -177,13 +177,13 @@ Kitaplığınız başarıyla derlendikten sonra, kitaplığınıza karşı bağl
 2. CMake (`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`) tarafından derlenen Visual Studio çözüm dosyasını açıp derleyin. 
 
     - Derleme işlemi, SDK kitaplığını derler.
-    - SDK, `cmake` komutunda tanımlanan özel HSM’ye karşı bağlantı oluşturmaya çalışır.
+    - SDK, `cmake` komutunda tanımlanan özel kitaplığa yönelik bir bağlantı oluşturmaya çalışır.
 
-3. HSM’nizin düzgün şekilde uygulandığını doğrulamak için, "Provision_Samples" bölümünde (`\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample` bölümünde) "prov_dev_client_ll_sample" örnek uygulamasını çalıştırın.
+3. Özel kanıtlama mekanizmanızın doğru şekilde uygulandığını doğrulamak için "Provision_Samples" bölümünde (`\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample` bölümünde) "prov_dev_client_ll_sample" örnek uygulamasını çalıştırın.
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>Sağlama sonrasında IoT Hub'a bağlanma
 
-Cihaz sağlama hizmetiyle sağlandıktan sonra bu API, HSM kimlik doğrulaması modunu kullanarak IoT Hub ile bağlantı kurar: 
+Cihaz, sağlama hizmetiyle sağlandıktan sonra bu API, IoT Hub ile bağlantı kurmak için belirtilen kimlik doğrulaması modunu (X **.** 509 veya TPM) kullanır: 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```

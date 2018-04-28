@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: f3278c064a01e3dea1d7a629b4a7b2e846a71208
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -31,50 +31,93 @@ Visual Studio C# Geliştirici, Azure işlevleri de olup olmadığını [Visual S
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools’u Yükleme
 
-[Azure işlevleri çekirdek Araçları] yerel geliştirme bilgisayarınızda çalıştırabilirsiniz Azure işlevleri çalışma zamanı, yerel bir sürümüdür. Bir öykünücü veya benzetici değil. Powers Azure işlevleri çalışma zamanı olur. Azure işlevleri çekirdek araçları, bir sürüm için iki sürümü vardır ve çalışma zamanı sürümü için bir 1.x 2.x. Her iki sürümü olarak sağlanan bir [npm paket](https://docs.npmjs.com/getting-started/what-is-npm).
+[Azure işlevleri çekirdek Araçları] yerel geliştirme bilgisayarınızda çalıştırabilirsiniz Azure işlevleri çalışma zamanı, yerel bir sürümüdür. Bir öykünücü veya benzetici değil. Powers Azure işlevleri çalışma zamanı olur. Azure işlevleri çekirdek araçları iki sürümü vardır:
 
->[!NOTE]  
-> Her iki sürümünü yüklemeden önce şunları yapmalısınız [NodeJS yükleme](https://docs.npmjs.com/getting-started/installing-node), npm içerir. Sürümü için Araçlar, yalnızca Node.js 8.5 ve sonraki sürümleri 2.x desteklenir. 
++ [Sürüm 1.x](#v1): sürüm destekler çalışma zamanının 1.x. Bu sürüm yalnızca Windows bilgisayarlarda desteklenir ve gelen yüklü bir [npm paket](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Sürüm 2.x](#v2): sürüm destekler çalışma zamanının 2.x. Bu sürüm destekler [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). Platforma özgü paket yöneticileri veya npm yükleme için kullanır. 
 
-### <a name="version-2x-runtime"></a>Sürüm 2.x çalışma zamanı
+### <a name="v1"></a>Sürüm 1.x
 
-Sürüm 2.x araçları kullanan Azure işlevleri çalışma zamanı .NET Core üzerinde oluşturulmuş 2.x. Tüm platformlarda .NET Core 2.x destekleyen bu sürümü desteklenmiyor. Bu sürüm için platformlar arası geliştirme kullanın ve ne zaman işlevler çalışma zamanı 2.x gereklidir. 
+Araçlar özgün sürümü işlevleri 1.x çalışma zamanı kullanır. Bu sürüm, .NET Framework (4.7.1) kullanır ve yalnızca Windows bilgisayarlarda desteklenir. Sürüm 1.x Araçları yüklemeden önce şunları yapmalısınız [NodeJS yükleme](https://docs.npmjs.com/getting-started/installing-node), npm içerir.
 
->[!IMPORTANT]   
-> Azure işlevleri çekirdek araçları yüklemeden önce [.NET Core 2.0 yükleme](https://www.microsoft.com/net/core).  
->
-> Azure işlevleri çalışma zamanı 2.0 Önizleme aşamasındadır ve Azure işlevlerinin şu anda tüm özellikler desteklenir. Daha fazla bilgi için bkz: [Azure işlevleri çalışma zamanı 2.0 bilinen sorunlar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
-
- Sürüm 2.0 araçlarını yüklemek için aşağıdaki komutu kullanın:
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-Ubuntu kullanımda yüklerken `sudo`aşağıdaki gibi:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-MacOS ve Linux yüklerken eklemeniz gerekebilir `unsafe-perm` bayrak, aşağıdaki gibi ekleyin:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>Sürüm 1.x çalışma zamanı
-
-Araçlar özgün sürümü işlevleri 1.x çalışma zamanı kullanır. Bu sürüm, .NET Framework kullanır ve yalnızca Windows bilgisayarlarda desteklenir. Sürüm 1.x araçlarını yüklemek için aşağıdaki komutu kullanın:
+Sürüm 1.x araçlarını yüklemek için aşağıdaki komutu kullanın:
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
 
+### <a name="v2"></a>Sürüm 2.x
+
+>[!NOTE]
+> Azure işlevleri çalışma zamanı 2.0 Önizleme aşamasındadır ve Azure işlevlerinin şu anda tüm özellikler desteklenir. Daha fazla bilgi için bkz: [Azure işlevleri sürümleri](functions-versions.md) 
+
+Sürüm 2.x araçları kullanan Azure işlevleri çalışma zamanı .NET Core üzerinde oluşturulmuş 2.x. Tüm platformlarda .NET Core 2.x destekler dahil olmak üzere, bu sürümü desteklenmiyor [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux).
+
+#### <a name="windows-npm"></a>Windows
+
+Windows çekirdek araçlarını yüklemek için npm aşağıdaki adımları kullanın. Aynı zamanda [Chocolatey](https://chocolatey.org/). Daha fazla bilgi için bkz: [çekirdek araçları Benioku](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+
+1. Yükleme [Windows için .NET Core 2.0](https://www.microsoft.com/net/download/windows).
+
+2. Yükleme [Node.js], npm içerir. Sürümü için Araçlar, yalnızca Node.js 8.5 ve sonraki sürümleri 2.x desteklenir.
+
+3. Çekirdek araçları paketini yükleyin:
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>MacOS Homebrew ile
+
+Aşağıdaki adımları Homebrew üzerinde macOS çekirdek araçlarını yüklemek için kullanın.
+
+1. Yükleme [macOS .NET Core 2.0](https://www.microsoft.com/net/download/macos).
+
+1. Yükleme [Homebrew](https://brew.sh/), henüz yüklü değilse.
+
+2. Çekirdek araçları paketini yükleyin:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a> Linux (Ubuntu/Debian) APT ile
+
+Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debian Linux dağıtım noktasında çekirdek araçlarını yüklemek için. Diğer Linux dağıtımları için bkz: [çekirdek araçları Benioku](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+
+1. Yükleme [Linux için .NET Core 2.0](https://www.microsoft.com/net/download/linux).
+
+1. Microsoft ürün anahtarı güvenilir olarak kaydedin:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Akış, paketini ayarlayın değiştirme `<version>` tablosundan uygun sürüm adı ile aşağıdaki komutta:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux dağıtım | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Naneli 18    | `xenial`  |
+
+3. Çekirdek araçları paketini yükleyin:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
+
 ## <a name="run-azure-functions-core-tools"></a>Azure işlevleri çekirdek araçlarını çalıştırma
  
 Azure işlevleri çekirdek araçları aşağıdaki komut diğer adları ekler:
-* **func**
+* **FUNC**
 * **azfun**
 * **azurefunctions**
 
@@ -137,15 +180,19 @@ Dosya local.settings.json uygulama ayarları, bağlantı dizeleri ve Azure işle
 | Ayar      | Açıklama                            |
 | ------------ | -------------------------------------- |
 | **Isencrypted** | Ayarlandığında **doğru**, tüm değerleri yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer **false**. |
-| **Değerler** | Uygulama ayarlarını yerel olarak çalıştırırken kullanılan koleksiyonu. **AzureWebJobsStorage** ve **AzureWebJobsDashboard** örnekler; tam bir listesi için bkz: [uygulama ayarları başvurusu](functions-app-settings.md).  |
+| **Değerler** | Uygulama ayarlarını yerel olarak çalıştırırken kullanılan koleksiyonu. **AzureWebJobsStorage** ve **AzureWebJobsDashboard** örnekler; tam bir listesi için bkz: [uygulama ayarları başvurusu](functions-app-settings.md). Birçok Tetikleyicileri ve bağlamaları gibi bir uygulama ayarı için başvuran özelliğine sahip **bağlantı** Blob Depolama tetikleyici için. Tür özellikleri için tanımlanan bir uygulama ayarı gereksinim **değerleri** dizi. Bu değer yüzde işaretleri, örneğin kaydırma tarafından bir uygulama ayarı adı için ayarladığınız herhangi bir bağlama özelliği için de geçerlidir `%AppSettingName%`. |
 | **Ana Bilgisayar** | Bu bölümdeki ayarlarını işlevleri ana bilgisayar işlemi yerel olarak çalıştırırken özelleştirin. | 
 | **LocalHttpPort** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **CORS** | İzin verilen çıkış noktası tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Çıkış boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
 | **ConnectionStrings** | İşlevlerinizi için veritabanı bağlantı dizelerini içerir. Bu nesne bağlantı dizeleri, sağlayıcı türü ortamıyla eklenir **System.Data.SqlClient**.  | 
 
-Çoğu Tetikleyicileri ve bağlamaları sahip bir **bağlantı** bir ortam değişkeni veya uygulama ayarı adı için eşleşen özellik. Her bağlantı özelliği için uygulama ayarı local.settings.json dosyasında tanımlanmış olmalıdır. 
+Bu ayarlar, ortam değişkenleri olarak kodunuzda de okunabilir. Daha fazla bilgi için bu dile özgü başvuru konuları ortam değişkenleri bölümüne bakın:
 
-Bu ayarlar, ortam değişkenleri olarak kodunuzda de okunabilir. C# ' ta kullanmak [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) veya [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). JavaScript'te, kullanmak `process.env`. Sistem ortam değişkeni olarak belirtilen ayarları local.settings.json dosyasındaki değerleri daha önceliklidir. 
++ [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
++ [C# betik (.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 Local.settings.json dosyasındaki ayarları, yalnızca yerel olarak çalıştırırken işlevleri araçları tarafından kullanılır. Projeyi Azure'a yayımlandığında varsayılan olarak, bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, azure'da işlev uygulaması eklenir emin olmak için.
 
@@ -167,7 +214,7 @@ Bağlantı dizeleri için bir değer ayarlamak için aşağıdaki seçeneklerden
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    Her iki komutlar için ilk oturum açma Azure gerektirir.
+    Her iki komutları azure'a ilk oturum açma için gerektirir.
 
 <a name="create-func"></a>
 ## <a name="create-a-function"></a>İşlev oluşturma
@@ -275,7 +322,7 @@ Aşağıdaki örnek, bir POST isteğini geçirme adlı aynı işlevidir _adı_ i
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Sorgu dizesinde veri geçirme bir tarayıcıdan GET istekleri yapabilirsiniz unutmayın. Diğer tüm HTTP yöntemleri için cURL, Fiddler, Postman veya benzer bir HTTP test etme aracını kullanmanız gerekir.  
+Sorgu dizesinde veri geçirme bir tarayıcıdan GET istekleri yapabilirsiniz. Diğer tüm HTTP yöntemleri için cURL, Fiddler, Postman veya benzer bir HTTP test etme aracını kullanmanız gerekir.  
 
 #### <a name="non-http-triggered-functions"></a>HTTP olmayan tetiklenen işlevleri
 İşlevler HTTP tetikleyiciler ve Web kancalarını dışındaki tüm türleri için yerel bir yönetim uç nokta çağırarak işlevlerinizi test edebilirsiniz. Yerel sunucuda bir HTTP POST isteği ile Bu uç noktası çağrılmadan işlevi tetikler. İsteğe bağlı olarak, test verileri POST isteğinin gövdesinde yürütme geçirebilirsiniz. Bu işlev benzer **Test** Azure portalında sekmesi.  
@@ -361,3 +408,4 @@ Bir hata veya özellik isteği dosyasına [GitHub sorunu açmak](https://github.
 
 [Azure işlevleri çekirdek Araçları]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

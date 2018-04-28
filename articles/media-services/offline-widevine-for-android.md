@@ -1,12 +1,12 @@
 ---
-title: "Hesabınızı Widevine korumalı içeriği - Azure çevrimdışı akış için yapılandırma"
-description: "Bu konu Azure Media Services hesabınızı korumalı Widevine çevrimdışı akış için yapılandırma içerik gösterilmektedir."
+title: Hesabınızı Widevine korumalı içeriği - Azure çevrimdışı akış için yapılandırma
+description: Bu konu Azure Media Services hesabınızı korumalı Widevine çevrimdışı akış için yapılandırma içerik gösterilmektedir.
 services: media-services
-keywords: "TİRE, DRM, Widevine çevrimdışı modda, ExoPlayer, Android"
-documentationcenter: 
+keywords: TİRE, DRM, Widevine çevrimdışı modda, ExoPlayer, Android
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine
 
@@ -48,8 +48,8 @@ Makale ayrıca Widevine korumalı içeriği çevrimdışı akış için ilgili b
     - [PlayReady ve/veya Widevine dinamik ortak şifreleme .NET ile kullanma](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/)
     - [.NET ile PlayReady ve/veya Widevine lisansları teslim etmek için Azure Media Services'i kullanma](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
 - Bir açık kaynak video oynatıcı SDK çevrimdışı Widevine DRM kayıttan yürütme destekleme kapasitesine sahip Android için Google ExoPlayer SDK'sı ile Windows'un öğrenin. 
-    - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
-    - [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html)
+    - [ExoPlayer SDK'sı](https://github.com/google/ExoPlayer)
+    - [ExoPlayer Geliştirici Kılavuzu](https://google.github.io/ExoPlayer/guide.html)
     - [EoPlayer Geliştirici blogu](https://medium.com/google-exoplayer)
 
 ## <a name="content-protection-configuration-in-azure-media-services"></a>Azure Media Services içerik koruma yapılandırması
@@ -105,16 +105,16 @@ ExoPlayer sürüm 2.6 ve daha yüksek çevrimdışı Widevine DRM kayıttan yür
 
 Aşağıdaki listesi sınıfları, Android için ExoPlayer SDK'sı çevrimdışı modda kolaylaştırmak:
 
-- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
-- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/OfflineLicenseHelper.Java  
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSession.Java
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSessionManager.Java
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/DrmSession.Java
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/ErrorStateDrmSession.Java
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/ExoMediaDrm.Java
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/Offline/SegmentDownloader.Java
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/Offline/DownloaderConstructorHelper.Java 
+- library/Core/src/Main/Java/com/Google/Android/exoplayer2/Offline/Downloader.Java
+- library/dash/src/Main/Java/com/Google/Android/exoplayer2/Source/dash/Offline/DashDownloader.Java 
 
 Geliştiriciler başvuruda bulunmalıdır [ExoPlayer Geliştirici Kılavuzu](https://google.github.io/ExoPlayer/guide.html) ve karşılık gelen [Geliştirici Blog](https://medium.com/google-exoplayer) bir uygulamanın geliştirilmesi sırasında. Google bilgileri Geliştirici Kılavuzu ve blog sınırlı olacak şekilde şu anda çevrimdışı Widevine destekleyen ExoPlayer uygulama için bir tam olarak belgelenmiş başvuru uygulaması veya örnek kodu yayımlamadı. 
 
@@ -148,7 +148,7 @@ Mobil Chrome tarayıcınızı v62 (veya sonrası) yükseltirseniz, bir Android t
 
 Yukarıdaki açık kaynak PWA uygulama Node.js içinde yazılmıştır. Ubuntu server üzerindeki kendi sürüm barındırmak istiyorsanız, kayıttan yürütme engelleyebilirsiniz aşağıdaki sık karşılaşılan sorunları göz önünde bulundurun:
 
-1. CORS sorunu: örnek uygulamasında video örnek https://storage.googleapis.com/biograf-video-files/videos/ içinde barındırılır. Google, Google bulut depolama demet barındırılan tüm kendi test örnekleri için CORS ayarladı. CORS giriş açıkça belirtilmesi CORS üstbilgilerini ile sunulan: https://biograf-155113.appspot.com (etki alanında hangi google barındıran kendi örnek) diğer siteler tarafından erişimi engelleme. Denerseniz, aşağıdaki HTTP hata iletisiyle karşılaşırsınız: https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd yüklenemedi: İstenen kaynak üzerinde hiçbir 'Access-Control-Allow-Origin' üst bilgisi yok. Kaynak 'https://13.85.80.81:8080' Bu nedenle erişime izin verilmiyor. Donuk bir yanıt ihtiyaçlarınıza hizmet veriyorsa, isteğin modu devre dışı CORS'yi kaynağı getirmek için 'no-cors' olarak ayarlanmış.
+1. CORS sorunu: örnek uygulamasında video örnek içinde barındırılan https://storage.googleapis.com/biograf-video-files/videos/. Google, Google bulut depolama demet barındırılan tüm kendi test örnekleri için CORS ayarladı. CORS giriş açıkça belirtilmesi CORS üstbilgilerini ile sunulan: https://biograf-155113.appspot.com (etki alanında hangi google barındıran kendi örnek) diğer siteler tarafından erişimi engelleme. Denerseniz, aşağıdaki HTTP hata iletisiyle karşılaşırsınız: yüklenemedi https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 'Access-Control-Allow-Origin' üst bilgi istenen kaynak üzerinde yok. Kaynak 'https://13.85.80.81:8080' Bu nedenle erişime izin verilmiyor. Donuk bir yanıt ihtiyaçlarınıza hizmet veriyorsa, isteğin modu devre dışı CORS'yi kaynağı getirmek için 'no-cors' olarak ayarlanmış.
 2. Sertifika sorunu: 58 Chrome v ile başlayarak, Widevine EME HTTPS gerektirir. Bu nedenle, bir X509 ile HTTPS üzerinden örnek uygulamayı barındırmak gereken sertifika. Her zamanki test sertifikanın aşağıdaki gereksinimleri nedeniyle çalışmıyor: aşağıdaki minimum gereksinimleri karşılayan bir sertifika edinmeniz gerekir:
     - Chrome ve Firefox SAN konu alternatif adı ayarı sertifikada bulunmasını gerektirir
     - Güvenilen CA sertifika gerekir ve otomatik olarak imzalanan geliştirme sertifikası çalışmıyor
@@ -172,7 +172,7 @@ Bu, güvenli belirteç hizmeti (STS) belirtece karşılık gelen talep değeri e
 
 ### <a name="question"></a>Soru
 
-Google Widevine güvenlik düzeylerinin [Widevine DRM mimarisine genel bakış belge](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) belgeleri, üç farklı güvenlik düzeylerine tanımlar. Bununla birlikte, [Widevine lisans şablonu Azure Media Services belgelerine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), beş farklı güvenlik düzeylerine ana hatlarıyla. İlişki veya güvenlik düzeyleri iki farklı kümesi arasında eşleme nedir?
+Google Widevine güvenlik düzeylerinin [Widevine DRM mimarisine genel bakış belge](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) belgeleri, üç farklı güvenlik düzeylerine tanımlar. Bununla birlikte, [Widevine lisans şablonu Azure Media Services belgelerine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), beş farklı güvenlik düzeylerine ana hatlarıyla. İlişki veya güvenlik düzeyleri iki farklı kümesi arasında eşleme nedir?
 
 ### <a name="answer"></a>Yanıt
 
@@ -182,7 +182,7 @@ Google içinde [Widevine DRM mimarisine genel bakış](https://storage.googleapi
 2.  Güvenlik düzeyi 2: şifreleme (ancak değil video işleme) içinde t gerçekleştirir: şifresi çözülmüş arabellek uygulama etki alanına döndürülen ve ayrı video donanım veya yazılım işlendi. Düzey 2 olduğunda, ancak şifreleme bilgileri hala yalnızca t içinde işlenir.
 3.  Güvenlik düzeyi 3 bir t cihazda yok. Şifreleme bilgileri ve ana bilgisayar işletim sistemi şifresi çözülmüş içeriği korumak için gerekli önlemleri alınması. Düzey 3 uygulama aynı zamanda bir donanım şifreleme altyapısı içerebilir ancak performans, güvenlik değil, yalnızca geliştirir.
 
-Aynı anda, buna [Widevine lisans şablonu Azure Media Services belgelerine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), content_key_specs security_level özelliğinin aşağıdaki beş farklı değer (kayıttan yürütme için istemci sağlamlık gereksinimleri) sahip olabilir:
+Aynı anda, buna [Widevine lisans şablonu Azure Media Services belgelerine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), content_key_specs security_level özelliğinin aşağıdaki beş farklı değer (kayıttan yürütme için istemci sağlamlık gereksinimleri) sahip olabilir:
 
 1.  Yazılım tabanlı whitebox crypto gereklidir.
 2.  Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir.

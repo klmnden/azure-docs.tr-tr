@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8bcc1b2c76ff1e312d1435997ef6d677656510d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Sallama Tweet için sallama--Azure işlevleri içeren bir Twitter ileti almak!
 
@@ -33,7 +33,7 @@ Son [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-ard
 
 Etkin bir Azure aboneliği. Yoksa, aşağıdaki yöntemlerden birini kaydedebilirsiniz:
 
-* Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesabı](https://azure.microsoft.com/en-us/free/)
+* Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesabı](https://azure.microsoft.com/free/)
 * Talep, [Azure kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) MSDN veya Visual Studio abone olduğunda
 
 ## <a name="open-the-project-folder"></a>Proje klasörünü açın
@@ -44,10 +44,6 @@ Etkin bir Azure aboneliği. Yoksa, aşağıdaki yöntemlerden birini kaydedebili
 - VS Code'u başlatın.
 - DevKit bilgisayarınıza bağlayın.
 
-VS Code otomatik olarak, DevKit bulur ve bir giriş sayfasını görüntüler:
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > VS Code başlatılırken Arduino IDE veya ilgili Panosu paketi olamaz bir hata iletisi alabilirsiniz bulundu. Bu hata oluşursa, VS Code kapatın ve Arduino IDE yeniden başlatın. VS Code şimdi Arduino IDE yolun doğru bulun.
 
@@ -57,7 +53,8 @@ Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örne
 
 ![Mini solution örnekleri](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Bölmesini kapatmak için görülüyorsa yeniden açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+> [!NOTE]
+> Örnek komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
 
 ## <a name="provision-azure-services"></a>Azure hizmetlerini hazırlamanız
 
@@ -68,7 +65,7 @@ VS Code terminal etkileşimli bir komut satırı aracılığıyla gerekli Azure 
 ![Bulut sağlama](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Sayfa yükleme durumu için Azure oturum açmaya çalışırken askıda kalır, bunun için başvurun [SSS adım] ({{"/docs/faq/#page-hangs-when-log-in-azure" | 
+> Sayfa yükleme durumu için Azure oturum açmaya çalışırken askıda kalır, bunun için başvurun [SSS adım](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## <a name="modify-the-hashtag"></a>#Hashtag değiştirme
 
@@ -137,7 +134,7 @@ Uygulama başlatma sonra ve düğmesi A bırakın ve ardından hafifçe DevKit P
 ![Tuşuna B için okuma](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-5.png)
 
 ### <a name="display-a-random-tweet"></a>Rastgele bir tweet görüntüle...
-![Display-a-random-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
+![Görüntü-a-rastgele-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
 
 - Bir yeniden düğmesine basın, sonra için yeni bir tweet sallama.
 - Tweet kullanılmadıkları kaydırmak için B düğmesine basın.
@@ -159,7 +156,7 @@ Test amacıyla, bu örnek proje önceden yapılandırılmış bir Twitter taşı
 3. Kullanım [bazı yardımcı programı](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) bu iki anahtarlarından Twitter taşıyıcı belirteci oluşturmak için.
 
 4. İçinde [Azure portal](https://portal.azure.com/){: hedef = "_blank"}, almak **kaynak grubu** ve Bul Azure işlevi (tür: uygulama hizmeti) "Sallama, sallama" projeniz için. Adı, her zaman 'dizesi... sallama' içeriyor.
-  ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
+  ![Azure işlevi](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. Kodunu güncelleştirmesi `run.csx` içinde **İşlevler > shakeshake cs** kendi belirteci ile:
   ```csharp
@@ -167,7 +164,7 @@ Test amacıyla, bu örnek proje önceden yapılandırılmış bir Twitter taşı
   string authHeader = "Bearer " + "[your own token]";
   ...
   ```
-  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+  ![twitter belirteci](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Dosyayı kaydedin ve tıklatın **çalıştırmak**.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Veri bilimi ile Linux veri bilimi sanal makinede Azure
 Bu kılavuzda, Linux veri bilimi VM ile birçok ortak veri bilimi görevlerinin nasıl gerçekleştirileceğini gösterir. Linux veri bilimi sanal makine (DSVM) veri analizi ve makine öğrenme için yaygın olarak kullanılan bir araç koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makine sağlama](linux-dsvm-intro.md) konu. VM görüntüsü yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan dakika cinsinden veri bilimi yapılması başlamak kolaylaştırır. Kolayca VM gerekirse ölçeklendirmek ve kullanılmadığında durdurun. Bu nedenle bu kaynak, esnek ve ekonomik içindir.
@@ -264,7 +264,7 @@ XGBoost, python veya bir komut satırından da çağırabilirsiniz.
 Python kullanarak geliştirme için Anaconda Python dağıtımları 2.7 ve 3.5 DSVM yüklenmiş.
 
 > [!NOTE]
-> Anaconda dağıtım içeren [Condas](http://conda.pydata.org/docs/index.html), farklı sürümlerini ve/veya bunları yüklü olan paketleri sahip Python için özel ortamlar oluşturmak için kullanılabilir.
+> Anaconda dağıtım içeren [Conda](http://conda.pydata.org/docs/index.html), farklı sürümlerini ve/veya bunları yüklü olan paketleri sahip Python için özel ortamlar oluşturmak için kullanılabilir.
 >
 >
 
@@ -316,6 +316,24 @@ Model için AzureML yayımlamak için:
 
 ## <a name="jupyterhub"></a>Jupyterhub
 DSVM Anaconda dağıtımlarında Jupyter not defteri ile Python, R veya Jale kodunu ve analiz paylaşmak için platformlar arası ortamda gelir. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum ***https://\<VM DNS adı veya IP adresi\>: 8000 /***. Tüm yapılandırma dosyalarını JupyterHub için dizinde bulunan **/etc/jupyterhub**.
+
+> [!NOTE]
+> Python Paket Yöneticisi'ni (aracılığıyla `pip` komutu) bir Jupyter not defteri geçerli Çekirdeği'nde, aşağıdaki komutu kod hücrede örneğin kullanılabilir:
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> Conda yükleyici kullanmak için (aracılığıyla `conda` komutu) bir Jupyter not defteri geçerli Çekirdeği'nde, aşağıdaki komutu kod hücrede örneğin kullanılabilir:
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 Birkaç örnek not defterlerini VM üzerinde zaten yüklenir:
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory kimlik koruması Kılavuzu | Microsoft Docs"
-description: "Azure AD kimlik koruması nasıl yeteneğini bir saldırgan güvenliği aşılmış kimlik veya aygıt yararlanmaya ve güvenli bir kimlik veya önceden şüpheli veya tehlikeye bilinen bir cihaz için sınırlamak sağladığını öğrenin."
+title: Azure Active Directory kimlik koruması Kılavuzu | Microsoft Docs
+description: Azure AD kimlik koruması nasıl yeteneğini bir saldırgan güvenliği aşılmış kimlik veya aygıt yararlanmaya ve güvenli bir kimlik veya önceden şüpheli veya tehlikeye bilinen bir cihaz için sınırlamak sağladığını öğrenin.
 services: active-directory
-keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
-documentationcenter: 
+keywords: Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 
@@ -50,7 +50,7 @@ Aşağıdaki yordamı tamamlayarak kullanmanızı gerektirir:
 
 **Bir oturum açma anonim bir IP adresinden benzetimini yapmak için aşağıdaki adımları gerçekleştirin**:
 
-1. Kullanarak [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en), gitmek [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Kullanarak [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en), gitmek [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
 2. Görünmesini istediğiniz hesap kimlik bilgilerini girin **anonim IP adreslerinden gerçekleştirilen oturum açma işlemleri** rapor.
 
 Oturum açma kimlik koruması Panoda 10-15 dakika içinde görünür. 
@@ -76,7 +76,7 @@ Aşağıdaki yordamı tamamlayarak olan bir kullanıcı hesabı kullanmanızı g
 **Bir oturum açma tanınmayan bir konumdan benzetimini yapmak için aşağıdaki adımları gerçekleştirin**:
 
 1. Test hesabınızla oturum açarken MFA testini MFA testini geçirerek değil başarısız.
-2. Yeni, VPN kullanarak gidin [https://myapps.microsoft.com](https://myapps.microsoft.com) ve test hesabınız kimlik bilgilerini girin.
+2. Yeni, VPN kullanarak gidin [ https://myapps.microsoft.com ](https://myapps.microsoft.com) ve test hesabınız kimlik bilgilerini girin.
    
 
 Oturum açma kimlik koruması Panoda 10-15 dakika içinde görünür.
@@ -90,18 +90,18 @@ Makine yanlış pozitifler tanıdık aygıtlardan mümkün olmayan seyahat veya 
 
 **Bir mümkün olmayan seyahat alışılmadık konuma benzetimini yapmak için aşağıdaki adımları gerçekleştirin**:
 
-1. Standart, tarayıcı kullanarak gidin [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Standart, tarayıcı kullanarak gidin [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
 2. İçin bir mümkün olmayan seyahat risk olay oluşturmak için kullanmak istediğiniz hesabın kimlik bilgilerini girin.
 3. Kullanıcı Aracısı değiştirin. Geliştirici Araçları'ndan kullanıcı aracısı Internet Explorer'da değiştirmek veya kullanıcı aracınız Firefox veya kullanıcı aracısı değiştirici Eklentisi'ni kullanarak Chrome değiştirin.
 4. IP adresini değiştirin. VPN, Tor eklentisi kullanılarak veya farklı bir veri merkezinde Azure içinde yeni bir makine dönmesini IP adresiniz değiştirebilirsiniz.
-5. Oturum açma için [https://myapps.microsoft.com](https://myapps.microsoft.com) olarak önce ve sonra önceki oturum açma birkaç dakika içinde aynı kimlik bilgilerini kullanarak.
+5. Oturum açma için [ https://myapps.microsoft.com ](https://myapps.microsoft.com) olarak önce ve sonra önceki oturum açma birkaç dakika içinde aynı kimlik bilgilerini kullanarak.
 
 Oturum açma kimlik koruması panosunda 2-4 saat içinde görüntülenir.
 
 ## <a name="simulating-vulnerabilities"></a>Güvenlik açıkları benzetimini yapma
 Güvenlik açıkları tarafından hatalı aktör yararlanan bir Azure AD ortamda zayıf giderilmiştir. Şu anda açık 3 türlerinin diğer özelliklerden Azure ad içinde Azure AD Identity Protection çıkmış. Bu özellikler ayarlandıktan sonra bu güvenlik açıklarından otomatik olarak kimlik koruması panosunda görüntülenir.
 
-* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [çok faktörlü kimlik doğrulaması](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
@@ -120,7 +120,7 @@ Daha fazla bilgi için bkz: [kullanıcı risk Güvenlik İlkesi](active-director
 
 **Bir kullanıcı risk güvenlik ilkesini test etmek için aşağıdaki adımları gerçekleştirin**:
 
-1. Oturum açma için [https://portal.azure.com](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
+1. Oturum açma için [ https://portal.azure.com ](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
 2. Gidin **kimlik koruması**. 
 3. Üzerinde **Azure AD Identity Protection** sayfasında, **kullanıcı risk ilkesine**.
 4. İçinde **atamaları** bölümünde, istenen kullanıcıların (ve gruplar) seçin ve kullanıcı risk düzeyi.
@@ -145,7 +145,7 @@ Daha fazla bilgi için bkz: [kullanıcı risk Güvenlik İlkesi](active-director
 
 **Bir oturum risk ilkesinde test etmek için aşağıdaki adımları gerçekleştirin:**
 
-1. Oturum açma için [https://portal.azure.com ](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
+1. Oturum açma için [ https://portal.azure.com ](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
 
 2. Gidin **Azure AD kimlik koruması**.
 

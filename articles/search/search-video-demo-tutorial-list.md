@@ -1,25 +1,18 @@
 ---
-title: "Videolar, örnekler ve öğreticiler Azure Search'te | Microsoft Docs"
-description: "Tüm videoları, örnekler, gösterileri ve Azure Search, MIcrosoft Azure üzerinde barındırılan bulut hizmeti için oluşturulan öğreticileri merkezi listesi."
-services: search
-documentationcenter: 
+title: Videolar, örnekler ve öğreticiler Azure Search'te | Microsoft Docs
+description: Tüm videoları, örnekler, gösterileri ve Azure Search, Microsoft Azure üzerinde barındırılan bulut hizmeti için oluşturulan öğreticileri merkezi listesi.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure arama: kod örnekleri, gösterileri, videolar ve öğreticiler
 Daha hızlı aşağıdaki videoları, gösterileri, öğreticiler ve örnek uygulamaları hızlıca alın.
@@ -31,7 +24,7 @@ Azure Search yeniyseniz, buradan başlayın. Tüm bu kaynaklar yaklaşık bir sa
 | Başlık | Açıklama | Tarih |
 |-------|-------------|------|
 | [Bu video girişi izleyin](https://channel9.msdn.com/Events/Connect/2016/138) | özellikleri, hizmet oluşturma ve sorgulara giriş 9m38s. | Kasım 2016 |
-| [Bir hizmet oluşturma](search-get-started-portal.md) | Portalda Azure Search ayarlamak için adımlar. | Şubat 2017 |
+| [ Bir hizmet oluşturma](search-get-started-portal.md) | Portalda Azure Search ayarlamak için adımlar. | Şubat 2017 |
 | [Bir dizini sorgulama](search-get-started-portal.md) | Oluşturma ve yerleşik örnek verileri kullanarak dizini sorgulayabilirsiniz. Portal araçlarında sorgu türleri hakkında bilgi edinin ve parametreleri arama yapmak için hızlı bir yoludur. | Şubat 2017 |
 | [Sonraki adım:<br/> .NET kodda](search-howto-dotnet-sdk.md) | C# izlenecek bağlanma, dizin ve Azure Search .NET kitaplığını kullanarak sorgulama gösterilmektedir. | Kasım 2016 |
 | [Sonraki adım:<br/> REST kodda](search-create-index-rest-api.md) | REST çağrılarını ve herhangi bir platformda Azure Search dizini oluşturma ve programlama dili için JSON yükü gözden geçirin. | Aralık 2016 |

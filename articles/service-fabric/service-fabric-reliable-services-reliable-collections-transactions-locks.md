@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric güvenilir koleksiyonları işlemleri ve Azure kilit modu | Microsoft Docs"
-description: "Azure Service Fabric güvenilir durum Yöneticisi ve güvenilir koleksiyonları işlemleri ve kilitleme."
+title: Service Fabric güvenilir koleksiyonları işlemleri ve Azure kilit modu | Microsoft Docs
+description: Azure Service Fabric güvenilir durum Yöneticisi ve güvenilir koleksiyonları işlemleri ve kilitleme.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>İşlemler ve Azure Service Fabric güvenilir koleksiyonları kilit modu
 
 ## <a name="transaction"></a>İşlem
 Bir işlem, tek bir mantıksal birim iş olarak gerçekleştirilen işlemler dizisidir.
-Bir işlem aşağıdaki ACID özellikleri göstermesi gerekir. (bkz: https://technet.microsoft.com/en-us/library/ms190612)
+Bir işlem aşağıdaki ACID özellikleri göstermesi gerekir. (bkz: https://technet.microsoft.com/library/ms190612)
 * **Kararlılık**: atomik bir iş birimine bir işlem olmalıdır. Diğer bir deyişle, tüm veri değişiklikleri gerçekleştirilen ya da bunların hiçbiri gerçekleştirilir.
 * **Tutarlılık**: tamamlandığında, bir işlem tüm verileri tutarlı bir durumda bırakmanız gerekir. Tüm iç veri yapılarını işlemin sonunda doğru olması gerekir.
 * **Yalıtım**: eşzamanlı işlemler tarafından yapılan değişiklikler diğer eşzamanlı işlemler tarafından yapılan değişiklikleri üzerinden olmalıdır. Bir ITransaction içinde bir işlem için kullanılan yalıtım düzeyi, işlemi gerçekleştiren IReliableState tarafından belirlenir.
@@ -34,13 +34,13 @@ Bir işlem aşağıdaki ACID özellikleri göstermesi gerekir. (bkz: https://tec
 Yalıtım düzeyi için işlem diğer işlemler tarafından yapılan değişiklikler üzerinden olmalıdır derece tanımlar.
 Güvenilir koleksiyonlarda desteklenen iki yalıtım düzeyi vardır:
 
-* **Yinelenebilir Okuma**: deyimleri değiştirildi, ancak henüz diğer işlemler tarafından kaydedilen veri okunamıyor ve başka bir işlem geçerli işlem kadar geçerli işlem tarafından okunur verileri değiştirebilir belirtir tamamlanır. Daha fazla ayrıntı için bkz: [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Yinelenebilir Okuma**: deyimleri değiştirildi, ancak henüz diğer işlemler tarafından kaydedilen veri okunamıyor ve başka bir işlem geçerli işlem kadar geçerli işlem tarafından okunur verileri değiştirebilir belirtir tamamlanır. Daha fazla ayrıntı için bkz: [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Anlık Görüntü**: bir işlemde herhangi bir deyim tarafından okunan veriler işlem başlangıcında var olan verileri işlemsel olarak tutarlı sürümü olduğunu belirtir.
   İşlem yalnızca işlem başlamadan önce kaydedilmiş veri değişiklikleri tanıyabilirsiniz.
   Geçerli işlem başladıktan sonra diğer işlemler tarafından yapılan veri değişikliklerinin geçerli işlem yürütülürken deyimleri görünür değildir.
   İşlem başlangıcında var gibi bir işlem deyimlerinde kaydedilen verilerin bir anlık görüntüsünü alırsanız gibi etkisidir.
   Anlık görüntüler güvenilir koleksiyonlar genelinde tutarlı değil.
-  Daha fazla ayrıntı için bkz: [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+  Daha fazla ayrıntı için bkz: [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Güvenilir koleksiyonları otomatik olarak hareket oluşturma zamanında işlemi ve çoğaltma rolü bağlı olarak belirli bir okuma işlemi için kullanılacak yalıtım düzeyini seçin.
 Güvenilir sözlük ve sıra işlemleri için yalıtım düzeyi varsayılan değerlerini gösterir tablosu aşağıdadır.

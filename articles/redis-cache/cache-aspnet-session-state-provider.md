@@ -1,6 +1,6 @@
 ---
-title: "Önbellek ASP.NET oturum durumu sağlayıcısı | Microsoft Docs"
-description: "Azure Redis önbelleği kullanılarak ASP.NET oturum durumu depolamayı öğrenin"
+title: Önbellek ASP.NET oturum durumu sağlayıcısı | Microsoft Docs
+description: Azure Redis önbelleği kullanılarak ASP.NET oturum durumu depolamayı öğrenin
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 485375f2f2ffb83b7d0fdeef8daab5880a8bbc27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: bb0c53433af8a679811f00bfff2efee94d211a24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis Önbelleği için ASP.NET Oturum Durumu Sağlayıcısı
-Azure Redis önbelleği bellek içi yerine bir önbellek veya SQL Server veritabanında, oturum durumunu depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından Redis önbelleği oturum durumu NuGet paketi kullanarak önbelleği için ASP.NET uygulamanızı yapılandırma.
+Azure Redis önbelleği, oturum durumu bellek içi Redis önbelleği ile bir SQL Server veritabanı yerine depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından Redis önbelleği oturum durumu NuGet paketi kullanarak önbelleği için ASP.NET uygulamanızı yapılandırma.
 
 Bunu önlemek için bir kullanıcı oturum durumu çeşit depolamak için bir gerçek bulut uygulamasında pratik çoğunlukla değildir, ancak bazı yaklaşımlar diğerlerinden daha fazla performans ve ölçeklenebilirliği etkileyen. Durumunu depolamak varsa, durum miktarını küçük tutun ve tanımlama bilgilerini depolamak için en iyi çözüm olur. Uygun değilse, sonraki en iyi çözüm ASP.NET oturum durumu sahip bir sağlayıcı için dağıtılmış, bellek içi önbellek kullanmaktır. Kötü bir performans ve ölçeklenebilirlik açısından bir veritabanını kullanmak için oturum durumu sağlayıcısı yedeklenen çözümüdür. Bu konuda, Azure Redis önbelleği için ASP.NET oturum durumu sağlayıcısı kullanma hakkında yönergeler sunmaktadır. Diğer oturum durumu seçenekleri hakkında daha fazla bilgi için bkz: [ASP.NET oturum durumu seçenekleri](#aspnet-session-state-options).
 
@@ -112,7 +112,7 @@ Bu adımları gerçekleştirdikten sonra uygulamanızı Redis önbelleği oturum
 
 ## <a name="aspnet-session-state-options"></a>ASP.NET oturum durumu seçenekleri
 * Bellek oturum durumu sağlayıcısı - bu sağlayıcı oturum durumu bellekte depolar. Bu sağlayıcı kullanmanın faydası, basit ve hızlı ' dir. Ancak değil dağıtılmış beri bellek sağlayıcısında kullanıyorsanız, Web uygulamalarınızı ölçeklendirme olamaz.
-* SQL Server oturum durumu sağlayıcısı - bu sağlayıcısı, Sql Server'da oturum durumu depolar. Oturum durumu kalıcı depolama alanına saklamak isterseniz bu sağlayıcıyı kullanın. Web uygulamanızı ölçeklendirebilirsiniz ancak oturum açmak için Sql Server kullanan Web uygulamanıza bir performans etkisi olur.
+* SQL Server oturum durumu sağlayıcısı - bu sağlayıcısı, Sql Server'da oturum durumu depolar. Oturum durumu kalıcı depolama alanına saklamak isterseniz bu sağlayıcıyı kullanın. Web uygulamanızı ölçeklendirebilirsiniz ancak oturum açmak için Sql Server kullanan Web uygulamanıza bir performans etkisi olur. Bu sağlayıcı ile de kullanabileceğiniz bir [bellek içi OLTP yapılandırma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) performansını iyileştirmeye yardımcı olmak için.
 * Dağıtılmış bellek oturum durumu sağlayıcısı Redis, önbelleği oturum durumu sağlayıcısı - bu sağlayıcının gibi en iyi iki açıdan da avantaj sağlar. Web uygulamanızı basit, hızlı ve ölçeklenebilir bir oturum durumu sağlayıcısı olabilir. Bu sağlayıcı oturum durumu verilerini bir önbellekte depolar olduğundan, uygulamanızı bir dağıtılmış, önbellek, geçici ağ hataları gibi konuşurken ilişkili tüm özelliklerini dikkate almanız gerekir. Önbellek kullanımı en iyi uygulamalar için bkz: [Kılavuzu önbelleğe alma](../best-practices-caching.md) Microsoft Patterns & yöntemler [Azure bulut uygulama tasarımı ve Uygulama Kılavuzu](https://github.com/mspnp/azure-guidance).
 
 Oturum durumu ve diğer en iyi uygulamalar hakkında daha fazla bilgi için bkz: [Web geliştirme en iyi yöntemler (yapı gerçek bulut uygulamaları Azure ile)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).

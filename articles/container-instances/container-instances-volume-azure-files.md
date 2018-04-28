@@ -1,19 +1,19 @@
 ---
-title: "Azure kapsayıcı durumlarda Azure dosyaları birim"
-description: "Azure kapsayıcı örnekleri durumuyla kalıcı hale getirmek için bir Azure dosyaları birim öğrenin"
+title: Azure kapsayıcı durumlarda Azure dosyaları birim
+description: Azure kapsayıcı örnekleri durumuyla kalıcı hale getirmek için bir Azure dosyaları birim öğrenin
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 239150c1e752ce6a4f2a19fa1192cd1a910ebea9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure kapsayıcı durumlarda bir Azure dosya paylaşımını bağlama
 
@@ -22,7 +22,7 @@ Varsayılan olarak, Azure kapsayıcı durum bilgisiz örnekleridir. Kapsayıcı 
 > [!NOTE]
 > Bir Azure dosya paylaşımına bağlanması Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
 
-## <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
+## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
 
 Azure kapsayıcı örnekleri ile Azure dosya paylaşımının kullanmadan önce oluşturmanız gerekir. Dosya Paylaşımı ve Paylaşım barındırmak için bir depolama hesabı oluşturmak için aşağıdaki betiği çalıştırın. Betik rastgele bir değeri temel dizesi olarak ekler ve böylece depolama hesabı adı genel olarak benzersiz olması gerekir.
 
@@ -83,7 +83,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-`--dns-name-label` Değeri Azure bölgesinde benzersiz olmalıdır kapsayıcı örneği oluşturun. Yukarıdaki komut değeri alırsanız güncelleştirin bir **DNS ad etiketi** hata iletisi komutu yürütün.
+`--dns-name-label` değeri, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Yukarıdaki komut değeri alırsanız güncelleştirin bir **DNS ad etiketi** hata iletisi komutu yürütün.
 
 ## <a name="manage-files-in-mounted-volume"></a>Takılan birimin dosyalarını yönetme
 

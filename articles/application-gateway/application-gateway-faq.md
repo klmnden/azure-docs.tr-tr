@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -53,7 +53,7 @@ Arka uç havuzları olan NIC'ler, sanal makine ölçek kümeleri, genel IP'ler b
 
 **Q. Hangi bölgeleri hizmettir kullanılabilir?**
 
-Uygulama ağ geçidi genel Azure tüm bölgelerde kullanılabilir. Ayrıca, kullanılabilir [Azure Çin](https://www.azure.cn/) ve [Azure kamu](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Uygulama ağ geçidi genel Azure tüm bölgelerde kullanılabilir. Ayrıca, kullanılabilir [Azure Çin](https://www.azure.cn/) ve [Azure kamu](https://azure.microsoft.com/overview/clouds/government/)
 
 **Q. Bu Aboneliğimi için adanmış bir dağıtımı veya müşterileri arasında paylaşılan?**
 
@@ -329,4 +329,4 @@ En yaygın nedeni, bir NSG veya özel DNS tarafından arka uç erişim engellend
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Uygulama ağ geçidi ziyaret hakkında daha fazla bilgi edinmek için [uygulama ağ geçidi giriş](application-gateway-introduction.md).
+Uygulama ağ geçidi ziyaret hakkında daha fazla bilgi edinmek için [Azure uygulama ağ geçidi nedir?](overview.md)

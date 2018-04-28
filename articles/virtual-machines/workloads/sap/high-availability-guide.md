@@ -1,13 +1,13 @@
 ---
-title: "Azure sanal makineler için yüksek oranda kullanılabilirlik SAP NetWeaver | Microsoft Docs"
-description: "SAP NetWeaver için Azure sanal makineler üzerinde yüksek kullanılabilirlik Kılavuzu"
+title: Azure sanal makineler için yüksek oranda kullanılabilirlik SAP NetWeaver | Microsoft Docs
+description: SAP NetWeaver için Azure sanal makineler üzerinde yüksek kullanılabilirlik Kılavuzu
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+ms.openlocfilehash: da1289b7b86f6f8016920c28890189db8ccb2511
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -366,7 +366,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP ürün kullanılabilirliği Matrisi)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -420,7 +420,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -887,8 +887,8 @@ Bizim örneğimizde, DNS hizmeti yüklenir ve bu Windows sanal makinelerde yapı
 
 | Sanal makine rolü | Sanal makine ana bilgisayar adı | Ağ kartı adı | Statik IP adresi |
 | --- | --- | --- | --- |
-| İlk DNS sunucusu |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
-| İkinci DNS sunucusu |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
+| İlk DNS sunucusu |domcontr-0 |pr1-NIC-domcontr-0 |10.0.0.10 |
+| İkinci DNS sunucusu |domcontr-1 |pr1-NIC-domcontr-1 |10.0.0.11 |
 
 ### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Ana bilgisayar adları ve SAP ASCS/SCS kümelenmiş örneği ve DBMS kümelenmiş örneği için statik IP adresleri
 
@@ -896,8 +896,8 @@ Bizim örneğimizde, DNS hizmeti yüklenir ve bu Windows sanal makinelerde yapı
 
 | Sanal ana bilgisayar adı rolü | Sanal ana bilgisayar adı | Sanal statik IP adresi |
 | --- | --- | --- |
-| SAP ASCS/SCS ilk küme sanal ana bilgisayar adı (küme yönetimi) |pr1-ascs-vir |10.0.0.42 |
-| SAP ASCS/SCS örnek sanal ana bilgisayar adı |pr1-ascs-sap |10.0.0.43 |
+| SAP ASCS/SCS ilk küme sanal ana bilgisayar adı (küme yönetimi) |pr1 ascs VIR |10.0.0.42 |
+| SAP ASCS/SCS örnek sanal ana bilgisayar adı |pr1 ascs sap |10.0.0.43 |
 | SAP DBMS ikinci küme sanal ana bilgisayar adı (küme yönetimi) |pr1-dbms-vir |10.0.0.32 |
 
 Kümeyi oluşturduğunuzda, sanal ana bilgisayar adlarını oluşturmak **pr1 ascs VIR** ve **pr1 dbms VIR** ve kümeyi yönetmek ilişkili IP adreslerini. Bunun nasıl yapılacağı hakkında daha fazla bilgi için bkz: [toplamak küme düğümleri bir küme yapılandırmasında][sap-ha-guide-8.12.1].
@@ -925,14 +925,14 @@ Bizim örneğimizde, bu sanal makineleri ve statik IP adresleri vardır:
 
 | Sanal makine rolü | Sanal makine ana bilgisayar adı | Ağ kartı adı | Statik IP adresi |
 | --- | --- | --- | --- |
-| İlk SAP uygulama sunucusu örneği |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| İkinci SAP uygulama sunucusu örneği |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| İlk SAP uygulama sunucusu örneği |pr1 dı 0 |pr1-NIC-dı-0 |10.0.0.50 |
+| İkinci SAP uygulama sunucusu örneği |pr1 dı 1 |pr1-NIC-dı-1 |10.0.0.51 |
 | ... |... |... |... |
-| Son SAP uygulama sunucusu örneği |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
-| İlk küme düğümüne ASCS/SCS örneği için |pr1 ascs 0 |pr1-nic-ascs-0 |10.0.0.40 |
-| İkinci küme düğümü ASCS/SCS örneği için |pr1 ascs 1 |pr1-nic-ascs-1 |10.0.0.41 |
-| İlk küme düğümüne DBMS örneği için |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
-| DBMS örneği için ikinci küme düğümü |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
+| Son SAP uygulama sunucusu örneği |pr1 dı 5 |pr1-nic-di-5 |10.0.0.55 |
+| İlk küme düğümüne ASCS/SCS örneği için |pr1 ascs 0 |pr1-NIC-ascs-0 |10.0.0.40 |
+| İkinci küme düğümü ASCS/SCS örneği için |pr1 ascs 1 |pr1-NIC-ascs-1 |10.0.0.41 |
+| İlk küme düğümüne DBMS örneği için |pr1-db-0 |pr1-NIC-db-0 |10.0.0.30 |
+| DBMS örneği için ikinci küme düğümü |pr1-db-1 |pr1-NIC-db-1 |10.0.0.31 |
 
 ### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Azure iç yük dengeleyici için statik bir IP adresi ayarlayın
 
@@ -959,7 +959,7 @@ Bizim örneğimizde, biz bu statik IP adresine sahip iki Azure iç yük dengeley
 | Azure iç yük dengeleyici rol | Azure iç yük dengeleyicisi adı | Statik IP adresi |
 | --- | --- | --- |
 | SAP ASCS/SCS iç yük dengeleyici örneği |pr1 lb ascs |10.0.0.43 |
-| SAP DBMS iç yük dengeleyici |pr1-lb-dbms |10.0.0.33 |
+| SAP DBMS iç yük dengeleyici |pr1 lb dbms |10.0.0.33 |
 
 
 ### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Varsayılan ASCS/SCS Yük Dengeleme kuralları Azure iç yük dengeleyici için
@@ -976,16 +976,16 @@ Gerekli iç Yük Dengeleme uç noktaları oluşturmak için ilk olarak, bu Yük 
 
 | Hizmet/Yük Dengeleme kuralı adı | Varsayılan bağlantı noktası numaraları | Somut için bağlantı noktalarını (ASCS örneği ile örnek numarasını 00) (ERS 10 ile) |
 | --- | --- | --- |
-| Enqueue Server / *lbrule3200* |32 <*InstanceNumber*> |3200 |
+| Sıraya alma sunucu / *lbrule3200* |32 <*InstanceNumber*> |3200 |
 | ABAP ileti sunucusu / *lbrule3600* |36 <*InstanceNumber*> |3600 |
 | İç ABAP ileti / *lbrule3900* |39 <*InstanceNumber*> |3900 |
 | Sunucu HTTP iletisi / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | SAP başlangıç hizmet ASCS HTTP / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
 | SAP başlangıç hizmet ASCS HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
 | Sıraya alma çoğaltma / *Lbrule50016* |5 <*InstanceNumber*> 16 |50016 |
-| SAP Start Service ERS HTTP *Lbrule51013* |5 <*InstanceNumber*> 13 |51013 |
-| SAP Start Service ERS HTTP *Lbrule51014* |5 <*InstanceNumber*> 14 |51014 |
-| Win RM *Lbrule5985* | |5985 |
+| SAP başlangıç hizmeti ERS HTTP *Lbrule51013* |5 <*InstanceNumber*> 13 |51013 |
+| SAP başlangıç hizmeti ERS HTTP *Lbrule51014* |5 <*InstanceNumber*> 14 |51014 |
+| RM win *Lbrule5985* | |5985 |
 | Dosya Paylaşımı *Lbrule445* | |445 |
 
 _**Tablo 1:** bağlantı noktası numaralarını SAP NetWeaver ABAP ASCS örnekleri_
@@ -994,16 +994,16 @@ Ardından, bu Yük Dengeleme SAP NetWeaver Java SCS bağlantı noktaları için 
 
 | Hizmet/Yük Dengeleme kuralı adı | Varsayılan bağlantı noktası numaraları | Somut için bağlantı noktalarını (SCS örneği ile örnek numarasını 01) (ERS 11 ile) |
 | --- | --- | --- |
-| Enqueue Server / *lbrule3201* |32 <*InstanceNumber*> |3201 |
-| Gateway Server / *lbrule3301* |33 <*InstanceNumber*> |3301 |
-| Java Message Server / *lbrule3900* |39 <*InstanceNumber*> |3901 |
+| Sıraya alma sunucu / *lbrule3201* |32 <*InstanceNumber*> |3201 |
+| Ağ Geçidi sunucusu / *lbrule3301* |33 <*InstanceNumber*> |3301 |
+| Java ileti sunucusu / *lbrule3900* |39 <*InstanceNumber*> |3901 |
 | Sunucu HTTP iletisi / *Lbrule8101* |81 <*InstanceNumber*> |8101 |
 | SAP başlangıç hizmet SCS HTTP / *Lbrule50113* |5 <*InstanceNumber*> 13 |50113 |
 | SAP başlangıç hizmet SCS HTTPS / *Lbrule50114* |5 <*InstanceNumber*> 14 |50114 |
 | Sıraya alma çoğaltma / *Lbrule50116* |5 <*InstanceNumber*> 16 |50116 |
-| SAP Start Service ERS HTTP *Lbrule51113* |5 <*InstanceNumber*> 13 |51113 |
-| SAP Start Service ERS HTTP *Lbrule51114* |5 <*InstanceNumber*> 14 |51114 |
-| Win RM *Lbrule5985* | |5985 |
+| SAP başlangıç hizmeti ERS HTTP *Lbrule51113* |5 <*InstanceNumber*> 13 |51113 |
+| SAP başlangıç hizmeti ERS HTTP *Lbrule51114* |5 <*InstanceNumber*> 14 |51114 |
+| RM win *Lbrule5985* | |5985 |
 | Dosya Paylaşımı *Lbrule445* | |445 |
 
 _**Tablo 2:** bağlantı noktası numaralarını SAP NetWeaver Java SCS örnekleri_
@@ -1050,7 +1050,7 @@ Kayıt defteri girdileri SAP ASCS/SCS örneği üzerinde her iki küme düğüm�
 | Yol | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Değişken adı |`KeepAliveTime` |
-| Değişken türü |REG_DWORD (Decimal) |
+| Değişken türü |REG_DWORD (ondalık) |
 | Değer |120000 |
 | Belgelere bağlantı |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
 
@@ -1061,7 +1061,7 @@ Daha sonra bu Windows kayıt defteri girdileri SAP ASCS/SCS için hem Windows k�
 | Yol | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Değişken adı |`KeepAliveInterval` |
-| Değişken türü |REG_DWORD (Decimal) |
+| Değişken türü |REG_DWORD (ondalık) |
 | Değer |120000 |
 | Belgelere bağlantı |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
@@ -1233,7 +1233,7 @@ Bir küme dosya paylaşımı tanığı yapılandırma, bu görevleri içerir:
 
   _**Şekil 38:** kümeye yeniden yapılandırılması onayı_
 
-Windows Yük devretme kümesi başarıyla yükledikten sonra değişiklikler bazı eşikleri Azure koşullar için yük devretme algılama uyarlamak için yapılması gerekir. Değiştirilecek parametreleri bu blog belgelenmiştir: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Windows Küme yapılandırması ASCS/SCS için derleme, iki VM aynı alt ağda olduğu varsayımıyla, aşağıdaki parametreleri bu değerleri değiştirilmesi gerekebilir:
+Windows Yük devretme kümesi başarıyla yükledikten sonra değişiklikler bazı eşikleri Azure koşullar için yük devretme algılama uyarlamak için yapılması gerekir. Değiştirilecek parametreleri bu blog belgelenmiştir: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Windows Küme yapılandırması ASCS/SCS için derleme, iki VM aynı alt ağda olduğu varsayımıyla, aşağıdaki parametreleri bu değerleri değiştirilmesi gerekebilir:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 

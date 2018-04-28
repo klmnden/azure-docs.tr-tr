@@ -1,38 +1,38 @@
 ---
-title: "Bir Azure Cosmos DB giriş bağlamaya sahip bir HTTP tetikleyicisi oluştur | Microsoft Docs"
-description: "Azure işlevleri olan HTTP tetikleyici sorgu Azure Cosmos DB kullanmayı öğrenin."
+title: Azure Cosmos DB giriş bağlama işlemiyle HTTP Tetikleyicisi oluşturma | Microsoft Docs
+description: Azure Cosmos DB’yi sorgulamak için HTTP Tetikleyicileri ile Azure İşlevleri’ni kullanmayı öğrenin.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Bir Azure Cosmos DB giriş bağlaması ile bir Azure işlevleri HTTP tetikleyicisi oluşturun
+# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Azure Cosmos DB giriş bağlama işlemiyle Azure İşlevleri HTTP Tetikleyicisi oluşturma
 
-Azure Cosmos DB şemasız ve sunucusuz Genel dağıtılmış, birden çok model bir veritabanıdır. Azure işlevi kodu isteğe bağlı çalıştırmanıza olanak sağlayan bir sunucusuz hesaplama hizmetidir. Bu iki Azure Hizmetleri eşleştirin ve harika uygulamaları oluşturmaya odaklanmanıza olanak sağlayan sunucusuz bir mimari için temel varsa ve sağlama ve sunucuları, hesaplama için koruma hakkında endişelenmeniz değil ve veritabanının gerekiyor.
+Azure Cosmos DB global olarak dağıtılmış, hem şemasız hem de sunucusuz çok modelli bir veritabanıdır. Azure İşlevi isteğe bağlı olarak kod çalıştırmanıza olanak sağlayan sunucusuz bir işlem hizmetidir. Bu iki Azure hizmetini eşleştirdiğinizde harika uygulamalar oluşturmaya odaklanmanızın yanı sıra işlem ve veritabanı gereksinimleriniz için sunucu sağlama ve sürdürme konusunda endişe duymamanızı sağlayan sunucusuz mimariye yönelik bir altyapıya sahip olursunuz.
 
-Bu öğreticide oluşturduğunuz kodu derlemeler [.NET için grafik API'si Hızlı Başlangıç](create-graph-dotnet.md). Bu öğretici içeren bir Azure işlevi ekler bir [HTTP tetikleyicisini](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). Bir Azure Cosmos DB HTTP tetikleyicisi kullanan [bağlama giriş](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) başlangıcın oluşturulan grafik veritabanından veri almak için. Bu belirli HTTP tetikleyicisi sorgularında Azure Cosmos DB veriler, ancak Azure Cosmos DB giriş bağlamaları ne olursa olsun, işlev gerektirir için giriş değerleri veri almak için kullanılabilir.
+Bu öğreticide [.NET için Graph API Hızlı Başlangıcı](create-graph-dotnet.md)’nda oluşturulan kod temel alınır. Bu öğreticide [HTTP tetikleyicisi](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger) içeren bir Azure İşlevi eklenir. HTTP tetikleyicisi, hızlı başlangıçta oluşturulan grafik veritabanından veri almak için Azure Cosmos DB [giriş bağlama işlemini](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) kullanır. Bu HTTP tetikleyicisi, veriler için Azure Cosmos DB’yi sorgular ancak işlevinizin gereksinimine göre veri girişi verilerinin alınması için Azure Cosmos DB’deki giriş bağlama işlemleri kullanılabilir.
 
-Bu öğretici, aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Bir Azure işlevi projesi oluşturma 
-> * Bir HTTP tetikleyicisi oluşturma
-> * Azure işlevi yayımlama
-> * Azure işlevi Azure Cosmos DB veritabanına bağlan
+> * Azure İşlevi projesi oluşturma 
+> * HTTP tetikleyicisi oluşturma
+> * Azure İşlevini yayımlama
+> * Azure İşlevini Azure Cosmos DB veritabanına bağlama
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -40,46 +40,46 @@ Bu öğretici, aşağıdaki görevleri içerir:
 
     ![Azure geliştirme iş yüküyle Visual Studio 2017’yi yükleyin](./media/tutorial-functions-http-trigger/functions-vs-workloads.png)
     
-- Yükleme veya Visual Studio 2017 sürüm 15.3 yükselttikten sonra Azure işlevleri için Visual Studio 2017 araçları el ile güncelleştirmeniz gerekir. Araçları'ndan güncelleştirebilirsiniz **Araçları** menüsünün altında **Uzantılar ve güncelleştirmeler...**   >  **Güncelleştirmeleri** > **Visual Studio Marketi'ine** > **Azure işlevleri ve Web Araçları işleri**  >  **Güncelleştirme**.
+- Visual Studio 2017 sürüm 15.3’ü yükledikten veya bu sürüme yükseltme yaptıktan sonra Azure İşlevleri için Visual Studio 2017 araçlarını el ile güncelleştirmeniz gerekir. Araçları **Uzantılar ve Güncelleştirmeler...** > **Güncelleştirmeler** > **Visual Studio Market** > **Azure İşlevleri ve Web İş Araçları** > **Güncelleştir** bölümündeki **Araçlar** menüsünden güncelleştirebilirsiniz.
 
-- Tamamlamak [grafik API'sini kullanarak bir .NET uygulaması oluşturma](tutorial-develop-graph-dotnet.md) öğretici veya örnek kod get [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub deposuna ve projeyi oluşturun.
+- [Graph API’yi kullanarak bir .NET uygulaması oluşturma](tutorial-develop-graph-dotnet.md) öğreticisini tamamlayın veya [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub deposundan örnek kodu alın ve projeyi oluşturun.
  
-## <a name="build-a-function-in-visual-studio"></a>Visual Studio'da bir işlev oluşturun
+## <a name="build-a-function-in-visual-studio"></a>Visual Studio'da işlev oluşturma
 
-1. Ekle bir **Azure işlevleri** çözüm düğümünde sağ tıklanarak çözümünüzü projeye **Çözüm Gezgini**, choose **Ekle**  >   **Yeni proje**. Seçin **Azure işlevleri** iletişim kutusundan kutusunda ve adlandırın **PeopleDataFunctions**.
+1. **Çözüm Gezgini**’ndeki çözüm düğümüne sağ tıklayarak çözümünüze bir **Azure İşlevi** ekleyin ve sonra **Ekle** > **Yeni Proje** seçeneğini belirleyin. İletişim kutusundan **Azure İşlevleri**’ni seçin ve bunu **PeopleDataFunctions** olarak adlandırın.
 
-   ![Bir Azure işlevi proje çözüme ekleyin](./media/tutorial-functions-http-trigger/01-add-function-project.png)
+   ![Çözüme bir Azure İşlevi projesi ekleme](./media/tutorial-functions-http-trigger/01-add-function-project.png)
 
-2. Sonra Azure işlevleri projesi oluşturmak, ilgili birkaç NuGet güncelleştirir ve gerçekleştirmek için yükler. 
+2. Azure İşlevleri projesini oluşturduktan sonra gerçekleştirmeniz gereken, NuGet ile ilgili birkaç güncelleştirme ve yükleme işlemi söz konusudur. 
 
-    a. Son işlevleri SDK'sını sahip olduğunuzdan emin olmak için güncelleştirmek için NuGet yöneticisini kullanın **Microsoft.NET.Sdk.Functions** paket. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve seçin **NuGet paketlerini Yönet**. İçinde **yüklü** sekmesinde, Microsoft.NET.Sdk.Functions seçin ve ardından **güncelleştirme**.
+    a. En yeni İşlev SDK'sını sahip olduğunuzdan emin olmak amacıyla **Microsoft.NET.Sdk.Functions** paketini güncelleştirmek için NuGet Yöneticisi’ni kullanın. **Çözüm Gezgini**’nde projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin. **Yüklendi** sekmesinde Microsoft.NET.Sdk.Functions seçeneğini belirleyin ve sonra **Güncelleştir** seçeneğine tıklayın.
 
    ![NuGet paketlerini güncelleştirme](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. İçinde **Gözat** sekmesinde, girin **azure.graphs** bulmak için **Microsoft.Azure.Graphs** paketini ve ardından **yükleme**. Bu paket Graph API .NET İstemci SDK'sı içerir.
+    b. **Gözat** sekmesinde **azure.graphs** ifadesini girerek **Microsoft.Azure.Graphs** paketini bulun ve daha sonra **Yükle** seçeneğine tıklayın. Bu paket, Graph API .NET İstemci SDK'sını içerir.
 
-   ![Grafik API'si yükleyin](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
+   ![Graph API’yi yükleme](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
-    c. İçinde **Gözat** sekmesinde, girin **mono.csharp** bulmak için **Mono.CSharp** paketini ve ardından **yükleme**.
+    c. **Gözat** sekmesinde **mono.csharp** ifadesini girerek **Mono.CSharp** paketini bulun ve daha sonra **Yükle** seçeneğine tıklayın.
 
-   ![Mono.CSharp yükleyin](./media/tutorial-functions-http-trigger/04-add-mono.png)
+   ![Mono.CSharp paketini yükleme](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
-3. Çözüm Gezgini şimdi aşağıda gösterildiği gibi yüklü paketleri içermesi gerekir. 
+3. Artık burada gösterildiği gibi Çözüm Gezgininiz yüklediğiniz paketleri içerir. 
    
-   Ardından, ekleyeceğiz yeni bir şekilde biraz kod yazmaya ihtiyacımız **Azure işlevi** proje öğesi. 
+   Bir sonraki adımda kod yazmamız gerekiyor, bu nedenle projeye yeni bir **Azure İşlevi** öğesi ekleyeceğiz. 
 
     a. **Çözüm Gezgini**'nde proje düğümüne sağ tıklayın, ardından **Ekle** > **Yeni Öğe** seçeneğini belirleyin.   
-    b. İçinde **Yeni Öğe Ekle** iletişim kutusunda **Visual C# öğeleri**seçin **Azure işlevi**, türü **arama** , projenizin adı olarak ve ardından tıklatın **Ekle**.  
+    b. **Yeni Öğe Ekle** iletişim kutusunda **Visual C# Öğeleri**’ni ve **Azure İşlevi**’ni seçin, projenizin adı olarak **Arama** yazın, daha sonra **Ekle**’ye tıklayın.  
  
-   ![Arama adlı yeni bir işlev oluşturun](./media/tutorial-functions-http-trigger/05-add-function.png)
+   ![Arama adlı yeni bir işlev oluşturma](./media/tutorial-functions-http-trigger/05-add-function.png)
 
-4. Http tetikleyicisi şablon burada uygun olacak şekilde Azure işlevi HTTP isteklerine yanıt verir.
+4. Azure İşlevi, HTTP isteklerini yanıtlar, bu nedenle burada HTTP tetikleyici şablonu uygundur.
    
-   İçinde **yeni Azure işlevi** kutusunda **Http tetikleyicisini**. Ayarlarız şekilde bu Azure işlevin çok, "geniş açın," olmasını istiyoruz **erişim hakları** için **anonim**, olanak sağlayan herkesin. **Tamam** düğmesine tıklayın.
+   **Yeni Azure İşlevi** kutusunda **HTTP tetikleyicisi**’ni seçin. Bu Azure İşlevinin de "tamamen açık" olmasını istiyoruz, bu nedenle **Erişim haklarını** herkese izin veren **Anonim** seçeneğine ayarlıyoruz. **Tamam**’a tıklayın.
 
-   ![Anonim erişim hakları ayarlama](./media/tutorial-functions-http-trigger/06-http-trigger.png)
+   ![Erişim haklarını anonim olarak ayarlama](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
-5. Azure işlevi projeye Search.cs ekledikten sonra bu kopyalama **kullanarak** üzerinden deyimleri using deyimleri var:
+5. Azure İşlevi projesine Arama.cs dosyasını ekledikten sonra bu **using** deyimlerini mevcut using deyimlerinin üzerine kopyalayın:
 
    ```csharp
    using Microsoft.Azure.Documents;
@@ -98,7 +98,7 @@ Bu öğretici, aşağıdaki görevleri içerir:
    using System.Threading.Tasks;
    ```
 
-6. Ardından, Azure işlevin sınıfı kodu aşağıdaki kodla değiştirin. Kod tarafından tanımlanan belirli kişi veya ya da tüm kişiler için grafik API'sini kullanarak Azure Cosmos DB veritabanı arar `name` sorgu dizesi parametresi.
+6. Daha sonra, Azure İşlevinin sınıfı kodunu aşağıdaki kodla değiştirin. Kod, tüm kişiler veya yalnızca `name` sorgu dizesi parametresi tarafından tanımlanan belirli bir kişi için Graph API’yi kullanarak Azure Cosmos DB veritabanında arama yapar.
 
    ```csharp
    public static class Search
@@ -160,36 +160,36 @@ Bu öğretici, aşağıdaki görevleri içerir:
    }
    ```
 
-   Temel veritabanıyla eşleşen kayıtları almak için basit bir sorgu sağlanmış özgün konsol uygulaması olduğu gibi aynı bağlantı mantığı kodudur.
+   Kod temel olarak, eşleşen kayıtları almak için basit bir sorgu ile veritabanının çekirdeğini oluşturan özgün konsol uygulamasındaki bağlantı mantığıyla aynıdır.
 
-## <a name="debug-the-azure-function-locally"></a>Azure işlevi yerel olarak hata ayıklama
+## <a name="debug-the-azure-function-locally"></a>Azure işlevinde yerel olarak hata ayıklama
 
-Kod tamamlandığına göre yerel olarak test etmek için kodu çalıştırmak için Azure işlevin yerel hata ayıklama araçları ve öykünücüsü kullanabilirsiniz.
+Kod tamamlandığına göre artık kodu yerel olarak çalıştırıp test etmek için Azure İşlevinin yerel hata ayıklama araçlarını ve öykünücüsü kullanabilirsiniz.
 
-1. Kodu düzgün çalıştırmadan önce Azure Cosmos DB bağlantı bilgilerinizi ile yerel yürütme için yapılandırmanız gerekir. Yerel yürütme için Azure işlevi çok aynı şekilde yapılandırmak için local.settings.json dosyasını kullanabilirsiniz kullandığınız App.config dosyasını yürütme için özgün konsol uygulamasını yapılandırmak üzere gibi.
+1. Kodun düzgün çalışması için bunu Azure Cosmos DB bağlantı bilgilerinizle yerel yürütmeye yönelik olarak yapılandırmanız gerekir. Özgün konsol uygulamasını yürütme için yapılandırmak amacıyla App.config dosyasını kullanmanızla hemen hemen aynı şekilde Azure İşlevini yerel yürütme için yapılandırmak amacıyla da local.settings.json dosyasını kullanabilirsiniz.
 
-    Bunu yapmak için local.settings.json için kod aşağıdaki satırları ekleyin ve uç nokta ve aşağıdaki görüntüde gösterildiği gibi GraphGetStarted projesinde App.Config dosyasından AuthKey kopyalayın.
+    Bunu yapmak aşağıdaki kod satırlarını local.settings.json dosyasına ekleyin ve sonra aşağıdaki resimde gösterildiği gibi GraphGetStarted projesindeki App.Config dosyasında yer alan Endpoint ve AuthKey değerlerini kopyalayın.
 
    ```json
     "Endpoint": "",
     "AuthKey": ""
     ```
 
-   ![Uç nokta ve yetkilendirme anahtarı local.settings.json dosyasında ayarlayın](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
+   ![local.settings.json dosyasında uç nokta ve yetkilendirme anahtarını ayarlama](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
-2. Başlangıç projesi yeni işlevler uygulamasına değiştirin. İçinde **Çözüm Gezgini**, sağ **PeopleDataFunctions**seçip **başlangıç projesi olarak ayarla**.
+2. Başlangıç projesini yeni İşlevler uygulaması olarak değiştirin. **Çözüm Gezgini**’nde, **PeopleDataFunctions**’a sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin.
 
-3. İçinde **Çözüm Gezgini**, sağ tıklatın **bağımlılıkları** içinde **PeopleDataFunctions** proje ve ardından **Başvuru Ekle**. Listeden System.Configuration seçin ve ardından **Tamam**.
+3. **Çözüm Gezgini**’nde **PeopleDataFunctions** projesindeki **Bağımlılıklar**’a sağ tıklayın ve sonra **Başvuru Ekle**’ye tıklayın. Listeden System.Configuration seçeneğini belirleyin ve sonra **Tamam**’a tıklayın.
 
-3. Şimdi uygulamayı şimdi çalıştırın. Yerel hata ayıklama aracını barındırılan ve kullanılmaya hazır Azure işlevi koduyla func.exe başlatmak için F5 tuşuna basın.
+3. Şimdi uygulamayı çalıştıralım. Barındırılan ve kullanıma hazır Azure İşlevi kodu ile yerel hata ayıklama aracı func.exe’yi başlatmak için F5 tuşuna basın.
 
-   Func.exe ilk çıkışı sonunda Azure işlevi localhost:7071 barındırılan bakın. Bu, bir istemcinin, test etmek yararlıdır.
+   func.exe’nin ilk çıkışının sonunda Azure İşlevi’nin localhost:7071 içinde barındırıldığını görüyoruz. Bu, bir istemcide test etmek için yararlıdır.
 
-   ![İstemci testi](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
+   ![İstemciyi test etme](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
-4. Azure işlevi sınamak için kullanın [Visual Studio Code](http://code.visualstudio.com/) Huachao Mao'nın uzantılı [REST istemcisi](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST istemcisi tek bir sağ yerel veya uzak HTTP isteği yeteneği sunar. 
+4. Azure İşlevini test etmek için Huachao Mao'nun uzantısı [REST İstemcisi](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) ile [Visual Studio Code](http://code.visualstudio.com/)’u kullanın. REST İstemcisi, tek bir sağ tıklamayla yerel ve uzak HTTP isteği özelliği sunar. 
 
-    Bunu yapmak için test işlevi locally.http adlı yeni bir dosya oluşturun ve aşağıdaki kodu ekleyin:
+    Bunu yapmak için test-function-locally.http adında yeni bir dosya oluşturun ve aşağıdaki kodu ekleyin:
 
     ```http
     get http://localhost:7071/api/Search
@@ -197,57 +197,57 @@ Kod tamamlandığına göre yerel olarak test etmek için kodu çalıştırmak i
     get http://localhost:7071/api/Search?name=ben
    ```
 
-    Şimdi kodun ilk satırı sağ tıklayın ve ardından seçin **İsteği Gönder** aşağıdaki görüntüde gösterildiği gibi.
+    Şimdi kodun ilk satırına sağ tıklayın ve sonra aşağıdaki resimde gösterildiği gibi **İsteği Gönder**’i seçin.
 
-   ![Visual Studio koddan bir REST İsteği Gönder](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
+   ![Visual Studio kodundan REST isteği gönderme](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
 
-   JSON gövdesi içeriği yerel olarak çalışan Azure işlevi üstbilgileri ham HTTP yanıtının ile sunulan her şeyi.
+   Size yerel olarak çalışan Azure İşlevi üstbilgileri, JSON gövde içeriği ve daha birçok kaynaktan ham HTTP yanıtı sunulur.
 
-   ![REST yanıt](./media/tutorial-functions-http-trigger/10-general-results.png)
+   ![REST yanıtı](./media/tutorial-functions-http-trigger/10-general-results.png)
 
-5. Şimdi ikinci kod satırı seçin ve ardından **İsteği Gönder**. Ekleyerek `name` sorgu dizesi parametresi veritabanında olduğu bilinen bir değerle biz Azure işlevi döndürür sonuçları filtreleyebilir.
+5. Şimdi ikinci kod satırını seçin ve **İsteği Gönder** seçeneğini belirleyin. `name` sorgu dizesi parametresini veritabanında olduğu bilinen bir değerle birlikte ekleyerek Azure İşlevinin döndürdüğü sonuçları filtreleyebiliriz.
 
-   ![Azure işlevinin sonuçlarını filtreleme](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
+   ![Azure İşlevinin sonuçlarını filtreleme](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
 
-Azure işlevi doğrulanır ve düzgün çalışıyor gibi görünüyor sonra Azure App Service'te yayımlama ve bulutta çalışacak şekilde yapılandırmak için son adımı olur.
+Azure İşlevi doğrulandıktan ve düzgün çalıştığı anlaşıldıktan sonraki adım bunu Azure App Service'te yayımlayıp bulutta çalışacak şekilde yapılandırmaktır.
 
-## <a name="publish-the-azure-function"></a>Azure işlevi yayımlama
+## <a name="publish-the-azure-function"></a>Azure işlevini yayımlama
 
-1. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve sonra seçin **Yayımla**.
+1. **Çözüm Gezgini**'nde projeye sağ tıklayın ve **Yayımla**'yı seçin.
 
-   ![Yeni Proje Yayımlama](./media/tutorial-functions-http-trigger/12-publish-function.png)
+   ![Yeni projeyi yayımlama](./media/tutorial-functions-http-trigger/12-publish-function.png)
 
-2. Biz bu genel kullanıma açık bir senaryoda test etmek için bulut yayımlamak hazırsınız. İçinde **Yayımla** sekmesine **Azure işlev uygulaması**seçin **Yeni Oluştur** Azure aboneliğinizde bir Azure işlevi oluşturmak için ardından **Yayımla** .
+2. Biz bunu genel kullanıma açık bir senaryoda test etmek için bulutta yayımlamaya hazırız. **Yayımla** sekmesinde **Azure İşlev Uygulaması**’nı seçin, Azure aboneliğinizde bir Azure İşlevi oluşturmak için **Yeni Oluştur**’u seçin ve daha sonra **Yayımla**’ya tıklayın.
 
-   ![Yeni bir Azure işlevi uygulaması oluşturma](./media/tutorial-functions-http-trigger/13-publish-panel.png)
+   ![Yeni bir Azure İşlevi uygulaması oluşturma](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
-3. İçinde **Yayımla** iletişim kutusunda, aşağıdakileri yapın:
+3. **Yayımla** iletişim kutusunda aşağıdakileri yapın:
    
-    a. İçinde **App Name**, işlevi benzersiz bir ad verin.
+    a. **Uygulama Adı** kısmında işleve benzersiz bir ad verin.
 
-    b. İçinde **abonelik**, kullanılacak Azure aboneliğini seçin.
+    b. **Abonelik** kısmında, kullanılacak Azure aboneliğini seçin.
    
-    c. İçinde **kaynak grubu**, yeni bir kaynak grubu oluşturun ve uygulama adı olarak aynı adı kullanın.
+    c. **Kaynak Grubu** kısmında, yeni bir kaynak grubu oluşturun ve uygulama adı olarak aynı adı kullanın.
    
-    d. İçin **App Service planı**, tıklatın **yeni** biz sunucusuz Azure işlevi için kullanım başına ödeme fatura yöntemi kullanmayı düşündüğünüz bir yeni tüketim tabanlı uygulama hizmeti planı oluşturmak için. Varsayılanları kullanın **App Service planı Yapılandır** sayfasında ve ardından **Tamam**.
+    d. Sunucusuz Azure İşlevi için kullanıma göre öde fatura yöntemini kullanmak istediğimizden, **App Service Planı** için **Yeni**’ye tıklayarak kullanıma dayalı yeni bir App Service Planı oluşturun. **App Service Planını Yapılandır** sayfasındaki varsayılanları kullanıp **Tamam**’a tıklayın.
    
-    e. İçin **depolama hesabı**,'ı da **yeni** durumunda her zamankinden BLOB'lar, tablolar veya sıralara diğer işlevleri yürütülmesini tetiklemek desteği ihtiyacımız olan Azure işlevi kullanmak için yeni bir depolama hesabı oluşturmak için. Varsayılanları kullanın **depolama hesabı** sayfasında ve ardından **Tamam**.
+    e. Başka işlevlerin yürütülmesini tetiklemeye yönelik Bloblar, Tablolar veya Kuyruklar için desteğe ihtiyaç duymamız durumunda Azure İşlevi ile birlikte kullanmak amacıyla yeni bir Depolama Hesabı oluşturmak üzere **Depolama Hesabı** kısmında **Yeni**’ye tıklayın. **Depolama Hesabı** sayfasındaki varsayılanları kullanın ve sonra **Tamam**’a tıklayın.
 
-    f. Ardından **oluşturma** Azure aboneliğinizdeki tüm kaynakları oluşturmak için iletişim kutusunda düğme. Visual Studio Azure işlevi kodunuzun bir sonraki yayımladığınızda kullanan bir yayımlama profili (basit bir XML dosyası) yükler.
+    f. Daha sonra Azure aboneliğinizde tüm kaynakları oluşturmak için iletişim kutusunda **Oluştur** düğmesine tıklayın. Visual Studio, bir sonraki Azure İşlevi kodu yayımlama işleminizde kullanacağı bir yayımlama profili (basit bir XML dosyası) indirir.
 
-   ![Depolama hesabı oluşturma](./media/tutorial-functions-http-trigger/14-new-function-app.png)
+   ![Depolama hesabını oluşturma](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
-    Visual Studio sonra işlev için değişiklikleri yapın ve yeniden yayımlayabilirsiniz gerekiyorsa kullanabileceğiniz bir yayımlama sayfası görüntüler. Bu sayfada artık herhangi bir eylemde bulunmanız gerekmez.
+    Daha sonra Visual Studio, İşlevde değişiklik yapmanız durumunda bunu yeniden yayımlamanız gerektiğinde kullanabileceğiniz bir Yayımlama sayfası görüntüler. Bu sayfada şu an için herhangi bir eylemde bulunmanız gerekmez.
 
-4. Azure işlevi yayımlandıktan sonra gidebilirsiniz [Azure portal](https://portal.azure.com/) Azure işlevinizi sayfası. Burada, Azure işlevin bağlantısını görebilirsiniz **uygulama ayarları**. Kişi verilerinizle Canlı Azure işlevi için Azure Cosmos DB veritabanı bağlantısını yapılandırmak için bu bağlantıyı açın.
+4. Azure İşlevi yayımlandıktan sonra Azure İşleviniz için [Azure portalı](https://portal.azure.com/) sayfasına gidebilirsiniz. Burada, Azure İşlevinin **Uygulama ayarlarının** bir bağlantısını görebilirsiniz. Canlı Azure İşlevini Kişi verilerinizle Azure Cosmos DB veritabanına bağlantıya yönelik olarak yapılandırmak için bu bağlantıyı açın.
 
-   ![Uygulama ayarları gözden geçirin](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
+   ![Uygulama ayarlarını gözden geçirme](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
-5. Daha önce konsol uygulamanın App.config dosyasında ve Azure işlevi uygulamanın local.settings.json dosya yaptığınız gibi uç nokta ve AuthKey yayımlanan işlevi Azure Cosmos DB veritabanına eklemeniz gerekir. Bu şekilde, hiçbir zaman anahtarlarınızı içeren yapılandırma kodunuzu iade zorunda - portalında yapılandırın ve kaynak denetiminde depolandıkları değil emin olun. Her değer eklemek için tıklatın **yeni ayar Ekle** düğmesini tıklatın, eklemek **Endpoint** ve ardından, app.config, değerinden **yeni ayar eklemeye** yeniden ekleyin **AuthKey**  ve, özel bir değer. Ekledikten ve değerleri kaydettikten sonra ayarlarınızı aşağıdaki gibi görünmelidir.
+5. Daha önce konsol uygulamasının App.config dosyasında ve Azure İşlevi uygulamasının local.settings.json dosyasında yaptığınız gibi Azure Cosmos DB veritabanındaki Endpoint ve AuthKey değerlerini yayımlanan işleve eklemeniz gerekir. Bu şekilde, hiçbir zaman anahtarlarınızı içeren yapılandırma kodunu kontrol etmeniz gerekmez, bunları portalda yapılandırarak kaynak denetiminde depolanmadıklarından emin olabilirsiniz. Her değeri eklemek için **Yeni ayar ekle** düğmesine tıklayın, **Endpoint** değerini ve app.config’den kendi değerinizi ekleyin, daha sonra tekrar **Yeni ayar ekle**’ye tıklayıp **AuthKey** değerini ve özel değerinizi ekleyin. Değerleri ekledikten ve kaydettikten sonra ayarlarınız aşağıdaki gibi görünür.
 
-   ![Uç nokta ve AuthKey yapılandırın](./media/tutorial-functions-http-trigger/16-app-settings.png)
+   ![Endpoint ve AuthKey değerlerini yapılandırma](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
-6. Azure işlevi, Azure aboneliğinizde düzgün şekilde yapılandırıldıktan sonra genel kullanıma açık Azure işlevi URL sorgulamak için Visual Studio kod REST istemci uzantısı yeniden kullanabilirsiniz. Test-işlevi-locally.http için bu iki kod satırı ekleyin ve ardından bu işlevi sınamak için her bir satır çalıştırın. URL'deki işlevin adını işlevinizi adıyla değiştirin.
+6. Azure İşlevi, Azure aboneliğinizde düzgün şekilde yapılandırıldıktan sonra genel kullanıma açık Azure İşlevi URL’sini sorgulamak için Visual Studio Code REST İstemci uzantısını yeniden kullanabilirsiniz. Bu iki kod satırını test-function-locally.http dosyasına ekleyin ve bu işlevi test etmek için her satırı çalıştırın. URL'deki işlevin adını işlevinizin adıyla değiştirin.
 
     ```json
     get https://peoplesearchfunction.azurewebsites.net/api/Search
@@ -255,24 +255,24 @@ Azure işlevi doğrulanır ve düzgün çalışıyor gibi görünüyor sonra Azu
     get https://peoplesearchfunction.azurewebsites.net/api/Search?name=thomas
     ```
 
-    İşlev Azure Cosmos Veritabanından alınan veri ile yanıt verir.
+    İşlev Azure Cosmos DB’den alınan verilerle yanıt verir.
 
-    ![REST istemcisi Azure işlevi sorgulamak için kullanın](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
+    ![Azure İşlevini sorgulamak için REST istemcisini kullanma](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Bir Azure işlevi proje oluşturuldu 
-> * Bir HTTP tetikleyicisi oluşturuldu
-> * Yayımlanan Azure işlevi
-> * Azure Cosmos DB veritabanına işlevi
+> * Azure İşlevi projesi oluşturma 
+> * HTTP tetikleyicisi oluşturma
+> * Azure işlevini yayımlama
+> * İşlevi Azure Cosmos DB veritabanına bağlama
 
-Şimdi Cosmos DB hakkında daha fazla bilgi için kavramları bölümüne geçebilirsiniz.
+Şimdi Cosmos DB hakkında daha fazla bilgi için Kavramlar bölümüne geçebilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Genel dağıtım](distribute-data-globally.md) 
 
-Bu makalede, bir blog dayalı [Brady Gaster'ın Schemaless & sunucusuz](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) blog dizisini. Kendi Web günlüğü serisi ek gönderilerde için ziyaret edin.
+Bu makalede, [Brady Gaster'ın Şemasız ve Sunucusuz](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) blog serisinden bir blog temel alınmıştır. Serideki diğer gönderiler için Brady Gaster’ın blogunu ziyaret edin.

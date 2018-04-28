@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: c32c85c560e9dfe587e79e77aa4b1262e347bed4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 831fa2b6b9afb39bff715ef54cc41e11ee903e50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Bekleyen Azure Cosmos DB veritabanı şifreleme
 
@@ -65,4 +65,4 @@ Y: öykünücüsü bir tek başına geliştirme ve test aracıdır ve yönetilen
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Cosmos DB güvenlik ve en son geliştirmeleri genel bakış için bkz: [Azure Cosmos DB veritabanı güvenliği](database-security.md).
-Microsoft sertifikalar hakkında daha fazla bilgi için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/en-us/support/trust-center/).
+Microsoft sertifikalar hakkında daha fazla bilgi için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/).

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik doğrulama - Azure SQL (genel bakış) | Microsoft Docs"
-description: "SQL veritabanı, yönetilen örneğini ve SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kullanma hakkında bilgi edinin"
+title: Azure Active Directory kimlik doğrulama - Azure SQL (genel bakış) | Microsoft Docs
+description: SQL veritabanı, yönetilen örneğini ve SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kullanma hakkında bilgi edinin
 services: sql-database
 author: GithubMirek
 manager: craigg
@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>SQL veritabanı, yönetilen örneği veya SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanma
 Azure Active Directory kimlik doğrulama mekanizmasıdır Microsoft Azure SQL veritabanına bağlanma bir ve [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) kimlikleri Azure Active Directory (Azure AD) kullanarak. Azure AD kimlik doğrulaması ile veritabanı kullanıcıları kimlikleri ve diğer Microsoft Hizmetleri tek bir merkezi konumda merkezi olarak yönetebilir. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yer sağlar ve izin Yönetimi basitleştirir. Avantajları şunlardır:
 
 * SQL Server kimlik doğrulaması için bir alternatif sunar.
 * Yardımcı veritabanı sunucuları arasında kullanıcı kimlikleri artışı durdurun.
-* Tek bir yerde parola döndürme sağlar
+* Tek bir yerde parola döndürme sağlar.
 * Müşteriler, dış (Azure AD) gruplarını kullanarak veritabanı izinlerini yönetebilir.
 * Tümleşik Windows kimlik doğrulaması ve Azure Active Directory tarafından desteklenen kimlik doğrulama başka biçimlerde etkinleştirerek bunu depolanmasını parolaları ortadan kaldırabilirsiniz.
 * Azure AD kimlik doğrulaması kapsanan veritabanı kullanıcıları veritabanı düzeyinde kimlikleri doğrulamak için kullanır.
@@ -75,7 +75,7 @@ Yönetilen örneği ile ilişkili azure AD sınırlamaları:
 - Yalnızca Azure AD yönetim veritabanları oluşturabilir, Azure AD kullanıcıları için tek bir DB kapsamlı ve bu izne sahip değil
 - Veritabanı sahipliği:
   - Azure AD asıl veritabanı (YETKİLENDİRME ON veritabanı ALTER) sahipliğini değiştiremez ve sahibi olarak ayarlanamaz.
-  - Azure AD yönetici tarafından oluşturulan veritabanları için herhangi bir sahiplik ayarlayın (owner_sid sys.sysdatabases alanıdır 0x1)
+  - Azure AD yönetici tarafından oluşturulan veritabanları için herhangi bir sahiplik ayarlayın (owner_sid sys.sysdatabases alanıdır 0x1).
 - SQL Aracısı, Azure AD ilkeleri kullanarak oturum açıldığında yönetilemez. 
 - EXECUTE AS kullanarak Azure AD yönetim özellikleri alınamaz
 - DAC bağlantı ile Azure AD ilkeleri desteklenmiyor. 
@@ -97,7 +97,7 @@ Azure Active Directory kimlik doğrulaması kullanarak Azure AD kimlikleri bir v
 
 ### <a name="additional-considerations"></a>Diğer konular
 
-* Yönetilebilirlik geliştirmek için ayrılmış bir Azure AD sağlamak önerilen yönetici olarak grup.   
+* Yönetilebilirlik geliştirmek için adanmış bir Azure AD hazırlamanızı öneririz yönetici olarak grup.   
 * Yalnızca bir Azure AD Yöneticisi (kullanıcı veya grup) herhangi bir zamanda bir Azure SQL veritabanı sunucusu, yönetilen örneği veya Azure SQL Data Warehouse için yapılandırılabilir.   
 * Yalnızca SQL Server için Azure AD yönetici başlangıçta Azure SQL veritabanı sunucusu, yönetilen örneği veya Azure SQL Data Warehouse bir Azure Active Directory hesabı kullanarak bağlanabilir. Active Directory Yöneticisi sonraki Azure AD yapılandırabilirsiniz veritabanı kullanıcılar.   
 * 30 saniye olarak bağlantı zaman aşımı ayarını öneririz.   

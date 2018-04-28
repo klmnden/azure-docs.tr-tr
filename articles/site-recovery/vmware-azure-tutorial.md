@@ -1,19 +1,19 @@
 ---
-title: "Azure Site Recovery ile şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarma ayarlama | Microsoft Docs"
-description: "Azure Site Recovery ile şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarma ayarlamayı öğrenin."
+title: Azure Site Recovery ile şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Azure Site Recovery ile şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarma ayarlamayı öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarmayı ayarlama
 
@@ -27,8 +27,8 @@ Bu öğreticide, Windows çalıştıran VMware VM’leri için Azure’da olağa
 
 Bu, serideki üçüncü öğreticidir. Bu öğreticide, önceki öğreticilerdeki görevleri tamamladığınız varsayılır:
 
-* [Azure’u hazırlama](tutorial-prepare-azure.md)
-* [Şirket içi VMware’leri hazırlama](vmware-azure-tutorial-prepare-on-premises.md)
+* [Azure’ı hazırlama](tutorial-prepare-azure.md). Bu öğreticide, bir Azure depolama hesabını ve ağı ayarlama, Azure hesabınızın doğru izinlere sahip olduğundan emin olma ve Kurtarma Hizmetleri kasası oluşturma işlemlerinin nasıl yapılacağı açıklanmaktadır.
+* [Şirket içi VMware’i hazırlama](vmware-azure-tutorial-prepare-on-premises.md). Bu öğreticide, Site Recovery’nin sanal makineleri bulmak ve sanal makineye yönelik çoğaltmayı etkinleştirdiğinizde Site Recovery Mobility hizmeti bileşenlerinin göndererek yüklemesini gerçekleştirmek için VMware sunucularına erişebilmesi için hesapları hazırlarsınız. Ayrıca VMware sunucularınızın ve sanal makinelerinizin Site Recovery gereksinimlerine uygun olduğundan da emin olursunuz.
 
 Başlamadan önce olağanüstü durum kurtarma senaryoları için [mimariyi gözden geçirmeniz](vmware-azure-architecture.md) yararlı olabilir.
 
@@ -43,8 +43,6 @@ Başlamadan önce olağanüstü durum kurtarma senaryoları için [mimariyi göz
 
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-> [!TIP]
-> VMware sanal makinelerini korumak için Yapılandırma sunucusu dağıtmaya yönelik önerilen yöntem, bu makalede de önerildiği gibi, OVF tabanlı dağıtım modelini kullanmaktır. Kuruluşunuzda, OVF şablonunu dağıtmanızı engelleyen kısıtlamalar varsa, [Yapılandırma sunucusunu yüklemek için UnifiedSetup.exe](physical-manage-configuration-server.md) kullanabilirsiniz.
 
 Kaynak ortamı ayarlamak için, şirket içi Site Recovery bileşenlerini barındıracak, yüksek kullanılabilirliğe sahip tek bir şirket içi makineye ihtiyacınız vardır. Bileşenler yapılandırma sunucusunu, işlem sunucusunu ve ana hedef sunucuyu içerir:
 
@@ -53,6 +51,10 @@ Kaynak ortamı ayarlamak için, şirket içi Site Recovery bileşenlerini barın
 - Ana hedef sunucu, Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
 
 Yapılandırma sunucusunu yüksek kullanılabilirliğe sahip bir VMware VM olarak ayarlamak için, hazırlanmış bir Open Virtualization Format (OVF) şablonu indirin ve VM’yi oluşturmak üzere şablonu VMware’e aktarın. Yapılandırma sunucusunu ayarladıktan sonra kasaya kaydedin. Kayıt işleminden sonra Site Recovery, şirket içi VMware VM’lerini bulur.
+
+> [!TIP]
+> Bu öğreticide, yapılandırma sunucusu VMware sanal makinesi oluşturmak için bir OVF şablonu kullanılmaktadır. Bunu yapamıyorsanız, [El ile kurulum](physical-manage-configuration-server.md) çalıştırabilirsiniz. 
+
 
 ### <a name="download-the-vm-template"></a>VM şablonunu indirme
 
@@ -103,7 +105,7 @@ Yapılandırma sunucusuna bir NIC daha eklemek için, ekleme işlemini sunucuyu 
 7. Araç bazı yapılandırma görevleri gerçekleştir ve sonra yeniden başlatılır.
 8. Makinede tekrar oturum açın. Yapılandırma sunucusu yönetim sihirbazı otomatik olarak başlar.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Ayarları yapılandırma ve VMware’e bağlanma
+### <a name="configure-settings-and-add-the-vmware-server"></a>Ayarları yapılandırma ve VMware sunucusunu ekleme
 
 1. Yapılandırma sunucusu yönetim sihirbazında **Bağlantı kurma** seçeneğini belirleyip, çoğaltma trafiğini almak için NIC’yi seçin. Daha sonra **Kaydet**’e tıklayın. Bu ayar yapılandırıldıktan sonra değiştirilemez.
 2. **Recovery Services kasasını seçin** bölümünde Azure aboneliğinizi, ilgili kaynak grubunu ve kasayı seçin.

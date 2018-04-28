@@ -1,19 +1,19 @@
 ---
 title: Active Directory ve DNS Azure Site Recovery ile koruma | Microsoft Docs
-description: "Bu makalede, Azure Site RECOVERY'yi kullanarak Active Directory için bir olağanüstü durum kurtarma çözümü uygulamak açıklar."
+description: Bu makalede, Azure Site RECOVERY'yi kullanarak Active Directory için bir olağanüstü durum kurtarma çözümü uygulamak açıklar.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ebddd3f68605df94bd06bef1fec785f740c3b023
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Active Directory ve DNS korumak için Azure Site Recovery kullanma
 
@@ -57,16 +57,16 @@ Etki alanı denetleyicisi veya Site kurtarma hizmetinde DNS barındıran sanal m
 İkincil sitede bir etki alanı denetleyicisi oluşturun. Bir etki alanı denetleyicisi rolünü sunucuya dağıttığınızda, birincil sitede kullanılan aynı etki alanının adını belirtin. Kullanabileceğiniz **Active Directory Siteleri ve Hizmetleri** siteler eklenir site bağlantı nesnesi ayarlarını yapılandırmak için ek bileşenini. Bir site bağlantısı ayarlarını yapılandırarak, iki veya daha fazla site ve ne sıklıkta oluştuğunu arasında çoğaltmanın ne zaman denetleyebilirsiniz. Daha fazla bilgi için bkz: [siteler arasında çoğaltma zamanlama](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Site Azure koruma
-İlk olarak, [bir Azure sanal ağındaki bir etki alanı denetleyicisi oluşturmak](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Bir etki alanı denetleyicisi rolünü sunucuya dağıttığınızda, birincil sitede kullanılan aynı etki alanı adı belirtin.
+İlk olarak, bir Azure sanal ağındaki bir etki alanı denetleyicisi oluşturun. Bir etki alanı denetleyicisi rolünü sunucuya dağıttığınızda, birincil sitede kullanılan aynı etki alanı adı belirtin.
 
-Ardından, [sanal ağın DNS sunucusu yeniden](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) Azure'da DNS sunucusunu kullanacak şekilde.
+Ardından, Azure'da DNS sunucusu kullanmak üzere sanal ağ için DNS sunucusu yeniden yapılandırın.
 
 ![Azure Ağı](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Azure Azure koruma
-İlk olarak, [bir Azure sanal ağındaki bir etki alanı denetleyicisi oluşturmak](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Bir etki alanı denetleyicisi rolünü sunucuya dağıttığınızda, birincil sitede kullanılan aynı etki alanı adı belirtin.
+İlk olarak, bir Azure sanal ağındaki bir etki alanı denetleyicisi oluşturun. Bir etki alanı denetleyicisi rolünü sunucuya dağıttığınızda, birincil sitede kullanılan aynı etki alanı adı belirtin.
 
-Ardından, [sanal ağın DNS sunucusu yeniden](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) Azure'da DNS sunucusunu kullanacak şekilde.
+Ardından, Azure'da DNS sunucusu kullanmak üzere sanal ağ için DNS sunucusu yeniden yapılandırın.
 
 ## <a name="test-failover-considerations"></a>Test yük devretme konuları
 Üretim iş yükleri üzerindeki etkisini önlemek için üretim ağınızdan yalıtılmış olan bir ağ yük devretme testi oluşur.

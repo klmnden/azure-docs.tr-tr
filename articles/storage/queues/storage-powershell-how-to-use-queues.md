@@ -1,12 +1,12 @@
 ---
-title: "PowerShell ile Azure kuyruk depolama işlemleri | Microsoft Docs"
-description: "PowerShell ile Azure kuyruk depolama işlemleri gerçekleştirme"
+title: PowerShell ile Azure kuyruk depolama işlemleri | Microsoft Docs
+description: PowerShell ile Azure kuyruk depolama işlemleri gerçekleştirme
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
 
@@ -38,15 +38,15 @@ Hiçbir veri düzlemi sıralar için PowerShell cmdlet'leri vardır. Bir ileti o
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-`Login-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+`Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Konumların listesini alma
 
-Kullanmak istediğiniz konumu bilmiyorsanız, kullanılabilir konumlarını listeleyebilirsiniz. Liste görüntülendikten sonra kullanmak istediğiniz bir bulun. Bu alıştırmada kullanacağı **eastus**. Bu değişken içerisinde nasıl depolanacağını **konumu** gelecekte kullanım için.
+Kullanmak istediğiniz konumdan emin değilseniz, kullanılabilir konumları listeleyebilirsiniz. Liste görüntülendikten sonra, kullanmak istediğiniz öğeyi bulun. Bu alıştırmada kullanacağı **eastus**. Bu değişken içerisinde nasıl depolanacağını **konumu** gelecekte kullanım için.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -64,7 +64,7 @@ $resourceGroup = "howtoqueuesrg"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Depolama hesabı oluşturma
+## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
 Yerel olarak yedekli depolama (LRS) kullanarak standart genel amaçlı depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alır. Bir depolama hesabı üzerinde hareket ederken, tekrar tekrar kimlik bilgileri sağlama yerine bağlamı başvuru.
 
@@ -171,7 +171,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu alıştırmada oluşturduğunuz varlıklar tümünün kaldırmak için kaynak grubunu kaldırın. Bu grup içinde bulunan tüm kaynaklar da siler. Bu durumda, oluşturulan depolama hesabı ve kaynak grubu kaldırır.
+Bu alıştırmada oluşturduğunuz varlıklar tümünün kaldırmak için kaynak grubunu kaldırın. Bu, ayrıca grubun içerdiği tüm kaynakları da siler. Bu durumda, oluşturulan depolama hesabı ve kaynak grubu kaldırır.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -190,7 +190,7 @@ Nasıl yapılır bu makalede, temel kuyruk Depolama Yönetimi PowerShell ile ilg
 > * Bir kuyruk silme
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell depolama cmdlet'leri
-* [Depolama PowerShell cmdlet'leri](/powershell/module/azurerm.storage#storage)
+* [Depolama PowerShell cmdlet’leri](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
 * [Microsoft Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.

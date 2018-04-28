@@ -1,12 +1,12 @@
 ---
 title: Azure VM Yedeklemesi ile ilgili SSS | Microsoft Docs
-description: "Azure VM yedeklemesinin çalışması, sınırlamalar ve ilkede değişiklikler yapıldığında ne olacağı hakkındaki yaygın soruların yanıtları"
+description: Azure VM yedeklemesinin çalışması, sınırlamalar ve ilkede değişiklikler yapıldığında ne olacağı hakkındaki yaygın soruların yanıtları
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "azure vm yedeklemesi, azure vm geri yükleme, yedekleme ilkesi"
+editor: ''
+keywords: azure vm yedeklemesi, azure vm geri yükleme, yedekleme ilkesi
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -33,7 +33,7 @@ Git üzerinden [desteklenen işletim sistemleri](backup-azure-arm-vms-prepare.md
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Yedeklemeyi yapılandırma sihirbazında sanal makinemi neden göremiyorum?
 Yapılandırma Yedekleme Sihirbazı'nda, Azure Backup yalnızca olan VM'ler listeler:
-  * Zaten korumalı VM dikey penceresine gidip ayarları menüsünden yedekleme durumunu denetleme VM yedekleme durumunu doğrulayabilirsiniz. [Sanal makinenin yedekleme durumunu denetleme](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade) hakkında daha fazla bilgi edinin.
+  * Zaten korumalı VM dikey penceresine gidip ayarları menüsünden yedekleme durumunu denetleme VM yedekleme durumunu doğrulayabilirsiniz. [Sanal makinenin yedekleme durumunu denetleme](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu) hakkında daha fazla bilgi edinin.
   * Sanal makine ile aynı bölgeye ait olan
 
 ## <a name="backup"></a>Backup
@@ -78,7 +78,7 @@ Başvurmak için PowerShell cmdlet'leri, [burada](backup-azure-vms-automation.md
 
 ## <a name="manage-vm-backups"></a>VM yedeklemelerini yönetme
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Sanal makinelerde yedekleme ilkesini değiştirdiğimde ne olur?
-Sanal makine üzerinde yeni bir ilke uygulandığında, zamanlama ve bekletme yeni ilkenin izlendiği. Bekletme genişletilirse, var olan kurtarma noktalarının yeni İlkesi uyarınca tutmak için işaretlenir. Bekletme azaltıldığında bunlar ayıklama sonraki temizleme işi için işaretlenmiş ve daha sonra silinir. 
+Sanal makine üzerinde yeni bir ilke uygulandığında, zamanlama ve bekletme yeni ilkenin izlendiği. Bekletme süresi uzatıldıysa, yeni ilkeye göre tutulması için mevcut kurtarma noktaları işaretlenir. Bekletme süresi kısaltıldıysa, bunlar sonraki temizleme işleminde kesilmek üzere işaretlenir ve sonra silinir. 
 
 ### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Kaynak grupları arasında Azure yedekleme VM kayıtlı nasıl taşıyabilir miyim?
 İzleyin başarılı bir şekilde yedeklenen VM hedef kaynak grubuna taşımak için aşağıdaki adımları 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: stgriffi
-ms.openlocfilehash: 701edc784dcde067e8ec585a3b31d6075207fbbf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Anahtar Kasası’nı uçtan uca döndürme ve denetleme ile ayarlama
 ## <a name="introduction"></a>Giriş
@@ -38,7 +38,7 @@ Bu makalede bir gizlilik bu durumda, bir uygulama tarafından erişilebilen bir 
 Bir gizli anahtar Kasası'nı almak bir uygulama etkinleştirmek için öncelikle gizli anahtar oluşturma ve, kasaya yükleyin. Bu, bir Azure PowerShell oturumu başlatarak ve aşağıdaki komut ile Azure hesabınızda oturum açma gerçekleştirilebilir:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. PowerShell Bu hesapla ilişkili tüm abonelikleri alır. PowerShell varsayılan olarak birinciyi kullanır.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

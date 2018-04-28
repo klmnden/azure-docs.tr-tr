@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -41,6 +41,11 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="stable-builds"></a>Kararlı yapılar
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Bekleyen iş tahmininde giderir.
+
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * İstikrara yönelik iyileştirmeler.
 * El ile denetim noktası oluşturma desteği.
@@ -63,6 +68,23 @@ ms.lasthandoff: 04/16/2018
 * GA SDK'SI
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.14.1 ve aşağıdaki.
 
+### <a name="pre-release-builds"></a>Yayın öncesi derlemeleri
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Yeni v2 API:
+  * İşlemci, Esnek yapımı için oluşturucu deseni: ChangeFeedProcessorBuilder sınıfı.
+    * Herhangi bir bileşimini parametreleri alabilir.
+    * DocumentClient örneği için izleme ve/veya kira toplanamıyor (v1) alabilir.
+  * IChangeFeedObserver.ProcessChangesAsync şimdi CancellationToken alır.
+  * IRemainingWorkEstimator - kalan iş tahmin işlemcisine ayrı olarak kullanılabilir.
+  * Yeni genişletilebilirlik noktaları:
+    * IParitionLoadBalancingStrategy - işlemci örnekleri arasında bölümlerinin özel Yük Dengeleme için.
+    * ILease, ILeaseManager - özel kiralama Yönetimi'ni tıklatın.
+    * IPartitionProcessor - bir bölüme özel işleme değişiklikleri için.
+* Günlüğü - kullanan [LibLog](https://github.com/damianh/LibLog) kitaplığı.
+* % 100 v1 API ile geriye dönük uyumlu.
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21.1 ve üstü.
+
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri
 Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
 
@@ -74,6 +96,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |18 Nisan 2018 |--- |
 | [1.3.1](#1.3.1) |13 Mart 2018 |--- |
 | [1.2.0](#1.2.0) |31 Ekim 2017 |--- |
 | [1.1.1](#1.1.1) |29 Ağustos 2017 |--- |

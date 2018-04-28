@@ -1,30 +1,39 @@
 ---
-title: "Kullanım Azure yönetilen hizmet kimliği Azure API Management | Microsoft Docs"
-description: "Yönetilen hizmet kimliği Azure API Management'te kullanmayı öğrenin"
+title: Kullanım Azure yönetilen hizmet kimliği Azure API Management | Microsoft Docs
+description: Yönetilen hizmet kimliği Azure API Management'te kullanmayı öğrenin
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: miaojiang
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 98aa70935a3efbbe2edb07aade85fa3ea17ce786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure yönetilen hizmet kimliği Azure API Management kullanma
 
-> [!Note]
-> Azure API Management yönetilen hizmet kimliği şu anda önizlemede değil.
-
 Bu makalede, bir API Management hizmet örneği için bir yönetilen hizmet kimliği oluşturma ve diğer kaynaklarına erişmek nasıl gösterir. Azure Active Directory (Azure AD) tarafından oluşturulan bir yönetilen hizmet kimliği, API Management Örneğinize kolay ve güvenli bir şekilde Azure AD korumalı gibi başka kaynaklar Azure anahtar kasası erişim sağlar. Bu yönetilen hizmet kimliği, Azure tarafından yönetilen ve sağlamak veya tüm gizli döndürmek gerektirmez. Azure yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/msi-overview.md).
 
-## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Bir Resource Manager şablonu kullanarak bir kimlikle bir API Management örneği oluşturma
+## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>API Management örneği için bir yönetilen hizmet kimliği oluşturma
+
+### <a name="using-the-azure-portal"></a>Azure portalını kullanma
+
+Yönetilen hizmet kimliği portalında ayarlamak için ilk normal olarak API Management örneği oluşturur ve özelliği etkinleştirmek.
+
+1. Normal olarak portalda API Management örneği oluşturma. İçin portalda gidin.
+2. Seçin **yönetilen hizmet kimliği**.
+3. Azure Active Directory ile kayıt için açık geçiş yapın. Kaydet'i tıklatın.
+
+![MSI etkinleştir](./media/api-management-msi/enable-msi.png)
+
+### <a name="using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak
 
 Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere API Management örneği bir kimlikle oluşturabilirsiniz: 
 
@@ -34,72 +43,29 @@ Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere API Management �
 }
 ```
 
-Bu özellik oluşturmak ve API Management Örneğinize kimliğini yönetmek için Azure söyler. 
+Bu oluşturup, API Management Örneğinize kimliğini yönetmek için Azure bildirir. 
 
 Örneğin, tam bir Azure Resource Manager şablonu aşağıdakine benzeyebilir:
 
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0",
-    "parameters": {
-        "serviceName": {
-            "type": "string",
-            "minLength": 1,
-            "metadata": {
-                "description": "The name of the api management service"
-            }
-        },
-        "publisherEmail": {
-            "type": "string",
-            "minLength": 1,
-            "defaultValue": "admin@contoso.com",
-            "metadata": {
-                "description": "The email address of the owner of the service"
-            }
-        },
-        "publisherName": {
-            "type": "string",
-            "minLength": 1,
-            "defaultValue": "Contoso",
-            "metadata": {
-                "description": "The name of the owner of the service"
-            }
-        },
-        "sku": {
-            "type": "string",
-            "allowedValues": [
-                "Developer",
-                "Standard",
-                "Premium"
-            ],
-            "defaultValue": "Developer",
-            "metadata": {
-                "description": "The pricing tier of this API Management service"
-            }
-        },
-        "skuCount": {
-            "type": "int",
-            "defaultValue": 1,
-            "metadata": {
-                "description": "The instance size of this API Management service."
-            }
-        }
+    "contentVersion": "0.9.0.0"
     },
     "resources": [
         {
             "apiVersion": "2017-03-01",
-            "name": "[parameters('serviceName')]",
+            "name": "contoso",
             "type": "Microsoft.ApiManagement/service",
             "location": "[resourceGroup().location]",
             "tags": {},
             "sku": {
-                "name": "[parameters('sku')]",
-                "capacity": "[parameters('skuCount')]"
+                "name": "Developer",
+                "capacity": "1"
             },
             "properties": {
-                "publisherEmail": "[parameters('publisherEmail')]",
-                "publisherName": "[parameters('publisherName')]"
+                "publisherEmail": "admin@contoso.com",
+                "publisherName": "Contoso"
             },
             "identity": { 
                 "type": "systemAssigned" 
@@ -108,16 +74,17 @@ Bu özellik oluşturmak ve API Management Örneğinize kimliğini yönetmek içi
     ]
 }
 ```
+## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Diğer kaynaklarına erişmek için Yönetilen hizmet kimliğini kullan
 
-## <a name="obtain-a-certificate-from-azure-key-vault"></a>Azure anahtar Kasası'nı bir sertifika edinin
+> [!NOTE]
+> Şu anda, yönetilen hizmet kimliği sertifikaları Azure anahtar Kasası'API Management özel etki alanı adları elde etmek için kullanılabilir. Daha fazla senaryo yakında desteklenecek.
+> 
+>
 
-Aşağıdaki örnek, Azure anahtar Kasası'nı bir sertifika edinme gösterir. Aşağıdaki adımları içerir:
 
-1. API Management örneği bir kimlikle oluşturun.
-2. Bir Azure anahtar kasası örneğinin erişim ilkeleri güncelleştirmek ve ondan parolaları almak API Management örneği izin verin.
-3. API Management örneği anahtar kasası örneğinden bir sertifika ile özel etki alanı adını ayarlayarak güncelleştirin.
+### <a name="obtain-a-certificate-from-azure-key-vault"></a>Azure anahtar Kasası'nı bir sertifika edinin
 
-### <a name="prerequisites"></a>Ön koşullar
+#### <a name="prerequisites"></a>Önkoşullar
 1. Pfx sertifika içeren anahtar kasası aynı Azure aboneliği ve API Management hizmeti ile aynı kaynak grubunda olması gerekir. Bu Azure Resource Manager şablonu bir gereksinimdir. 
 2. Gizli içerik türü olmalıdır *uygulama/x-pkcs12*. Sertifikayı karşıya yüklemek için aşağıdaki komut dosyasını kullanabilirsiniz:
 
@@ -137,6 +104,12 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 > [!Important]
 > Sertifikanın nesne sürümü sağlanmazsa, anahtar Kasası'na yüklendikten sonra API Management sertifikanın daha yeni sürümü otomatik olarak al. 
+
+Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager şablonu gösterir:
+
+1. API Management örneği ile bir yönetilen hizmet kimliği oluşturma.
+2. Bir Azure anahtar kasası örneğinin erişim ilkeleri güncelleştirmek ve ondan parolaları almak API Management örneği izin verin.
+3. API Management örneği anahtar kasası örneğinden bir sertifika ile özel etki alanı adını ayarlayarak güncelleştirin.
 
 ```json
 {

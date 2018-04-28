@@ -3,7 +3,7 @@ title: Azure yığında dağıtılan Vm'leri koruma | Microsoft Docs
 description: Azure yığın üzerinde dağıtılan sanal makineleri koruma hakkında yönergeler.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -11,20 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b49a8650611472b5e35c4bdf8373a1d7e3a45589
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure yığın üzerinde dağıtılan sanal makineleri koruma
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
-
 Bu makalede Azure yığında dağıtılan kullanıcı Vm'leri koruma hakkında yönergeler yer almaktadır.
 
 Veri kaybı ve Planlanmamış kapalı kalma süresi karşı korumak için kullanıcı uygulamaları ve verileri için bir yedekleme kurtarma ve olağanüstü durum kurtarma planı uygulamak için gerekir. Bu plan her uygulama için benzersiz olan ancak kuruluşunuzun kapsamlı iş sürekliliği ve olağanüstü durum kurtarma (BC/DR) stratejisi tarafından oluşturulan bir çerçeve izler. Genel desenleri ve uygulamalar için uygulama kullanılabilirliğini ve esnekliğini başvurmak [Azure için esnek uygulamalar tasarlama](https://docs.microsoft.com/azure/architecture/resiliency) Azure'un mimarisi Center'da.
@@ -147,7 +144,8 @@ Azure yığın dağıtımınız için önemli noktalar:
 ## <a name="next-steps"></a>Sonraki adımlar 
 
 Bu makalede, Azure yığında dağıtılan kullanıcı Vm'leri koruma hakkında yönergeleri ele. Azure hizmetlerini kullanarak Vm'lerinizi koruma hakkında daha fazla bilgi için bakın:
- - [Azure yığın Azure yedekleme sunucusu desteği](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Azure yığın Azure Site Recovery desteği](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Dosyalar ve uygulamalar Azure yığın üzerinde yedekleme için Azure Yedekleme'yi kullanın](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure yığın Azure yedekleme sunucusu desteği](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure yığın Azure Site Recovery desteği](https://docs.microsoft.com/azure/site-recovery/)  
  
 Azure yığında VM koruma sağlar iş ortağı ürün hakkında daha fazla bilgi için bkz "[uygulamaları ve verileri Azure yığında koruma](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."

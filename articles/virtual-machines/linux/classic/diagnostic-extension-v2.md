@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux Diagnostic Extension’ı kullanarak bir Linux VM’nin performansını ve tanılama verilerini izleme
 
@@ -53,7 +53,7 @@ Uzantısı'nın en son sürüm **2.3**, ve **eski sürümlerini (2.0, 2.1 ve 2.2
 
 Bu uzantıyı kullanarak etkinleştirebilirsiniz [Azure portal](https://portal.azure.com/#), Azure PowerShell veya Azure CLI komut dosyaları.
 
-Görüntülemek ve sistem ve performans verileri doğrudan Azure Portalı'nı yapılandırmak için izleyin [adımları Azure blogunda](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Görüntülemek ve sistem ve performans verileri doğrudan Azure Portalı'nı yapılandırmak için izleyin [adımları Azure blogunda](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Bu makalede etkinleştirmek ve Azure CLI komutları kullanarak uzantısını yapılandırmak nasıl odaklanır. Bu, okuma ve verileri doğrudan depolama tablosu görüntülemenize olanak sağlar.
 
@@ -88,7 +88,7 @@ Burada açıklanan yapılandırma yöntemleri için Azure portalı çalışmaz u
         "storageAccountKey" : "the key of the account"
     }
 
-2. Adım Çalıştırma **azure vm uzantısı vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ayarlayın.* --private-config-path PrivateConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ayarlayın.* --Özel yapılandırma yolu PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Senaryo 2. Performans İzleyicisi ölçümlerini özelleştirme
 
@@ -155,7 +155,7 @@ Performans ve tanılama verilerini bir Azure Storage tablosunda depolanır. Göz
 
 Ayrıca, verilere erişmek için kullanıcı Arabirimi araçlarını kullanabilirsiniz:
 
-1. Visual Studio Server Explorer. Depolama hesabınıza gidin. VM yaklaşık beş dakika boyunca çalıştıktan sonra dört varsayılan tabloları görürsünüz: "LinuxCpu", "LinuxDisk", "LinuxMemory" ve "Linuxsyslog". Tablo adları verileri görüntülemek için çift tıklayın.
+1. Visual Studio Sunucu Gezgini. Depolama hesabınıza gidin. VM yaklaşık beş dakika boyunca çalıştıktan sonra dört varsayılan tabloları görürsünüz: "LinuxCpu", "LinuxDisk", "LinuxMemory" ve "Linuxsyslog". Tablo adları verileri görüntülemek için çift tıklayın.
 1. [Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/ "Azure Storage Gezgini").
 
 ![görüntü](./media/diagnostic-extension/no1.png)

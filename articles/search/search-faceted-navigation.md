@@ -1,24 +1,18 @@
 ---
-title: "Azure Search'te modellenmiş bir gezinmede gerçekleştirme | Microsoft Docs"
-description: "Azure Search, Microsoft Azure üzerinde barındırılan bulut arama hizmeti ile tümleştirmek uygulamalara modellenmiş bir gezinmede ekleyin."
-services: search
-documentationcenter: 
+title: Azure Search'te modellenmiş bir gezinmede gerçekleştirme | Microsoft Docs
+description: Azure Search, Microsoft Azure üzerinde barındırılan bulut arama hizmeti ile tümleştirmek uygulamalara modellenmiş bir gezinmede ekleyin.
 author: HeidiSteen
-manager: mblythe
-editor: 
-ms.assetid: cdf98fd4-63fd-4b50-b0b0-835cb08ad4d3
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Modellenmiş bir gezinmede arama uygulamaları kendi kendine yönlendirilmiş ayrıntıya gitme gezinti sağlayan bir filtreleme mekanizması ' dir. 'Modellenmiş bir gezinmede' terimi bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinmeyi sonuçlara filtre uygulamak için kullanılan kategorileri'den fazla doğrudur.
@@ -54,7 +48,7 @@ Genellikle periphery yerleştirilen çok yönlü gezinmeyi sağlayan uygulama sa
 1. Azure arama için gönderilen bir sorgu modellenmiş gezinti yapısında bir veya daha fazla model sorgu parametreleri aracılığıyla belirtir. Örneğin, sorgu içerebilir `facet=Rating`, belki de ile bir `:values` veya `:sort` daha fazla sunu iyileştirmek için seçeneği.
 2. Sunu katmanı istekte belirtilen modellerle kullanarak çok yönlü gezinmeyi sağlayan bir arama sayfasını işler.
 3. Derecelendirme içeren modellenmiş gezinti yapısı verildiğinde, "4"'i yalnızca 4 veya daha yüksek bir derecelendirme ürünleriyle gösterilen olduğunu belirtmek için. 
-4. Yanıt olarak, uygulamayı içeren bir sorgu gönderir.`$filter=Rating ge 4` 
+4. Yanıt olarak, uygulamayı içeren bir sorgu gönderir. `$filter=Rating ge 4` 
 5. Sunu katmanı yeni ölçütlerini karşılayan yalnızca bu öğeleri içeren bir azaltılmış sonuç kümesi gösteren sayfasında, güncelleştirmeleri (Bu durumda, ürün 4 derecelendirilmiş ve üstü).
 
 Bir model için sorgu parametresi olsa da, sorgu girişi ile karıştırmayın. Sorguda seçim ölçütü olarak asla kullanılmaz. Bunun yerine, model Sorgu parametrelerinin yanıtta gelir gezinti yapısında girdi olarak düşünün. Sağladığınız her model için sorgu parametresi, Azure Search, her model değeri için kısmi sonuçlarında kaç belgelerdir değerlendirir.
@@ -67,7 +61,7 @@ Uygulama kodunda düzeni modeli sorgu parametreleri modeli sonuçları yanı sı
 
 ### <a name="query-basics"></a>Sorgu temelleri
 
-Azure Search'te bir isteği aracılığıyla bir veya daha fazla sorgu parametreleri belirtilir (bkz [Search belgeleri](http://msdn.microsoft.com/library/azure/dn798927.aspx) her biri bir açıklaması için). Sorgu parametreleri hiçbiri gerekli değildir, ancak en az bir geçerli olması bir sorgu için sırasıyla olması gerekir.
+Azure Search'te bir isteği aracılığıyla bir veya daha fazla sorgu parametreleri belirtilir (bkz [Search belgeleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) her biri bir açıklaması için). Sorgu parametreleri hiçbiri gerekli değildir, ancak en az bir geçerli olması bir sorgu için sırasıyla olması gerekir.
 
 Duyarlık ilgisiz isabet filtreleme yeteneği gerçekleştirilir gibi birine veya ikisine de bu ifadeleri anladım:
 
@@ -234,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Bir model sorgu parametresi için bir alanın ayarlanır ve bağlı olarak veri türü, daha fazla parametreli içeren virgülle ayrılmış liste `count:<integer>`, `sort:<>`, `interval:<integer>`, ve `values:<list>`. Aralıkları ayarlarken değerler listesini sayısal veriler için desteklenir. Bkz: [Search belgeleri (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) kullanım ayrıntıları için.
+Bir model sorgu parametresi için bir alanın ayarlanır ve bağlı olarak veri türü, daha fazla parametreli içeren virgülle ayrılmış liste `count:<integer>`, `sort:<>`, `interval:<integer>`, ve `values:<list>`. Aralıkları ayarlarken değerler listesini sayısal veriler için desteklenir. Bkz: [Search belgeleri (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) kullanım ayrıntıları için.
 
 Modelleri yanı sıra, uygulamanız tarafından şeklide isteği ayrıca bir model değeri seçimine göre adayı belgeleri kümesi daraltmak için filtreleri oluşturması gerekir. Bir Bisiklet Mağazası için ipuçları soruların ister modellenmiş bir gezinmede sağlar *hangi renkler, üreticileri ve bisiklet türleri kullanılabilir?*. Filtreleme gibi sorulara yanıtlar *hangi tam bisiklet kırmızı, Sıradağlar bisiklet bu aralığı fiyat?*. Yalnızca kırmızı ürünlerini gösterilen olduğunu belirtmek için "Red" tıklattığınızda, uygulamanın gönderdiği sonraki sorgu içeren `$filter=Color eq ‘Red’`.
 
@@ -301,7 +295,7 @@ Genel olarak, görürseniz modeli sonuçları sürekli olarak çok büyük oldu�
 
 Gezinti ağacında her modellenmiş alan için bir varsayılan sınır 10 değer yoktur. Değerler listesi yönetilebilir bir boyuta tuttuğu için bu varsayılan gezinti yapıları için anlamlıdır. Saymak için bir değer atayarak Varsayılanı geçersiz kılabilirsiniz.
 
-* `&facet=city,count:5`yalnızca sonuçlar derece üst bulunan ilk beş Şehir modeli sonucu olarak döndürüleceğini belirtir. Bir arama terimi "havaalanı" ve 32 eşleşen bir örnek sorgu göz önünde bulundurun. Sorgu belirtiyorsa `&facet=city,count:5`, yalnızca ilk beş benzersiz Şehir arama sonuçlarında en belgelerle modeli sonuçlara dahil edilir.
+* `&facet=city,count:5` yalnızca sonuçlar derece üst bulunan ilk beş Şehir modeli sonucu olarak döndürüleceğini belirtir. Bir arama terimi "havaalanı" ve 32 eşleşen bir örnek sorgu göz önünde bulundurun. Sorgu belirtiyorsa `&facet=city,count:5`, yalnızca ilk beş benzersiz Şehir arama sonuçlarında en belgelerle modeli sonuçlara dahil edilir.
 
 Model sonuçları ve arama sonuçları arasında ayrım dikkat edin. Sorguyla eşleşen tüm belgeleri arama sonuçları olabilir. Model sonuçlar her model değeri için eşleşme olur. Örnekte, arama sonuçları (örneğimizde 5) modeli sınıflandırma listesinde olmayan Şehir adları içerir. Modelleri işaretini kaldırın veya şehir yanı sıra diğer yönleri seçin çok yönlü gezinmeyi filtrelenen sonuçları görünür hale gelmiştir. 
 
@@ -335,12 +329,12 @@ Etiketleri tipik HTML veya formunda tanımlanır (`index.cshtml` örnek uygulama
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Bir aralığı tabanlı filtresi
-Değerleri aralığı üzerinden olduğunu ortak arama uygulaması gerekli değildir. Aralıkları sayısal veri ve DateTime değerleri için desteklenir. Daha fazla bilgiyi her yaklaşımı hakkında [Search belgeleri (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Değerleri aralığı üzerinden olduğunu ortak arama uygulaması gerekli değildir. Aralıkları sayısal veri ve DateTime değerleri için desteklenir. Daha fazla bilgiyi her yaklaşımı hakkında [Search belgeleri (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Azure arama, bir aralık bilgi işlem için iki yaklaşım sağlayarak aralığı yapım basitleştirir. Her iki yaklaşımın için Azure Search sağladığınız girişleri verilen uygun aralıkların oluşturur. Örneğin, 10 aralık değerleri belirtirseniz | 20 | 30, otomatik olarak oluşturur, 0-10, 10-20, 20-30 aralıkları. Uygulamanızın isteğe bağlı olarak boş aralıkları kaldırabilirsiniz. 
 
 **Yaklaşım 1: aralığı parametresini kullanın**  
-Fiyat modelleri 10 artışlarla ayarlamak için belirtmeniz gerekir:`&facet=price,interval:10`
+Fiyat modelleri 10 artışlarla ayarlamak için belirtmeniz gerekir: `&facet=price,interval:10`
 
 **Yaklaşım 2: değerler listesini kullanın**  
 Sayısal veriler için değerler listesi kullanabilirsiniz.  Model aralığının göz önünde bulundurun bir `listPrice` gibi çizilir alan:
@@ -368,7 +362,7 @@ Azure Search'te iki Jeo-uzamsal işlevleri vardır **geo.distance** ve **geo.int
 * **Geo.distance** işlevi arasında iki nokta kilometre uzaklığını döndürür. Bir noktadan bir alan ve diğer filtre bir parçası olarak geçirilen bir sabit değer. 
 * **Geo.intersects** işlevi verilen bir noktaya içinde belirli bir Çokgen ise true döndürür. Bir alan noktasıdır ve Çokgen filtre bir parçası olarak geçirilen koordinatları sabit listesi olarak belirtilir.
 
-Filtre örneklerde bulabilirsiniz [OData ifadesi sözdizimi (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Filtre örneklerde bulabilirsiniz [OData ifadesi sözdizimi (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -437,9 +431,9 @@ Tasarım ilkeleri modellenmiş gezinmesine daha fazla bilgiler için aşağıdak
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

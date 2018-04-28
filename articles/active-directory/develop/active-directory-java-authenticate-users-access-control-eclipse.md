@@ -1,25 +1,24 @@
 ---
-title: "Erişim denetimi (Java) kullanma | Microsoft Docs"
-description: "Geliştirme ve erişim denetimi Azure içinde Java ile kullanma hakkında bilgi edinin."
+title: Erişim denetimi (Java) kullanma
+description: Geliştirme ve erişim denetimi Azure içinde Java ile kullanma hakkında bilgi edinin.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse kullanarak Azure erişim denetimi hizmeti ile Web kullanıcıların kimliklerini nasıl
 Bu kılavuz Eclipse için Azure erişim denetimi Hizmeti'nden (ACS) Azure Araç Seti içinde kullanmak nasıl yapacağınızı gösterir. ACS hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next_steps) bölümü.
@@ -116,14 +115,14 @@ Bu görevde, Java web uygulamanıza geçerli RP uygulama olarak tanımak için A
    
    1. İçinde **adı**, RP adını yazın. Bu öğreticinin amaçları doğrultusunda yazın **Azure Web uygulaması**.
    2. İçinde **modu**seçin **ayarlarını girin el ile**.
-   3. İçinde **bölge**, ACS tarafından verilen güvenlik belirtecin geçerli olduğu URI yazın. Bu görev için yazın **http://localhost: 8080 /**.
+   3. İçinde **bölge**, ACS tarafından verilen güvenlik belirtecin geçerli olduğu URI yazın. Bu görev için yazın **http://localhost:8080/**.
       ![İşlem öykünücüsü kullanmak için bağlı olan taraf bölgesi][relying_party_realm_emulator]
-   4. İçinde **dönüş URL'si** ACS için güvenlik belirteci verir URL'sini yazın. Bu görev için yazın **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![bağlı olan taraf işlem öykünücüsü kullanmak için URL döndürür][relying_party_return_url_emulator]
+   4. İçinde **dönüş URL'si** ACS için güvenlik belirteci verir URL'sini yazın. Bu görev için yazın ** http://localhost:8080/MyACSHelloWorld/index.jsp ** 
+       ![bağlı olan taraf işlem öykünücüsü kullanmak için URL döndürür][relying_party_return_url_emulator]
    5. Geri kalan alanları varsayılan değerleri kabul edin.
 4. **Kaydet**’e tıklayın.
 
-Azure işlem öykünücüsü çalıştırdığınızda artık başarıyla Java web uygulamanıza yapılandırdınız (http://localhost: 8080 adresindeki /) bir RP ACS ad alanı içinde olmalıdır. Ardından, RP talebini işlemek için ACS kullanan kurallar oluşturun.
+Azure işlem öykünücüsü çalıştırdığınızda artık başarıyla Java web uygulamanıza yapılandırdınız (adresindeki http://localhost:8080/) bir RP ACS ad alanı içinde olmalıdır. Ardından, RP talebini işlemek için ACS kullanan kurallar oluşturun.
 
 ## <a name="create-rules"></a>Kuralları oluşturma
 Bu görevde, talepler, RP Ip'lerden nasıl geçirilir sürücü kuralları tanımlar. Bu kılavuz amacıyla, biz yalnızca giriş talep türlerini ve değerlerini doğrudan çıkış belirteçte filtreleme veya bunları değiştirme kopyalamak için ACS yapılandırır.

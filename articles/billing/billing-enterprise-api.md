@@ -1,11 +1,11 @@
 ---
 title: Azure Enterprise API'leri faturalama | Microsoft Docs
-description: "Raporlama Tüketim verileri programlı olarak çekmesini müşteriler kuruluş Azure sağlayan API hakkında bilgi edinin."
-services: 
-documentationcenter: 
+description: Raporlama Tüketim verileri programlı olarak çekmesini müşteriler kuruluş Azure sağlayan API hakkında bilgi edinin.
+services: ''
+documentationcenter: ''
 author: anandedwin
 manager: aedwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ae04c7c1fdddecf40583d14f7b08dcf41941c6f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Kurumsal müşteriler için raporlama API'leri genel bakış
 Raporlama API tercih edilen veri çözümleme araçları kullanım ve fatura verileri programlı olarak çekmesini müşteriler kuruluş Azure etkinleştirin. 
 
 ## <a name="enabling-data-access-to-the-api"></a>API veri erişimini etkinleştirme
-* **Oluşturmak veya API anahtarını almak** - Enterprise portal ve izleme Yardım altında öğretici için oturum açma - raporlama API'leri. Bu Yardım makalenin ilk bölümünde, oluşturmak veya belirtilen kayıt API anahtarını almak açıklanmaktadır.
+* **Oluşturmak veya API anahtarını almak** -Enterprise Portal'da oturum açın ve raporlara gitme > kullanımı indir > oluşturmak ve API anahtarını almak için API erişim anahtarı.
 * **API anahtarları geçirme** -API anahtarı kimlik doğrulaması ve yetkilendirme her çağrı için geçirilmesi gerekiyor. Aşağıdaki özellikler HTTP üstbilgilerine olması gerekir
 
 |Üstbilgi anahtarı iste | Değer|

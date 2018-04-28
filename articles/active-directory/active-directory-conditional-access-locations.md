@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory koşullu erişim konumu koşullar | Microsoft Docs"
-description: "Bir kullanıcının ağ konumuna dayalı bulut uygulamalarınıza erişimi denetlemek için konum koşul kullanmayı öğrenin."
+title: Azure Active Directory koşullu erişim konumu koşullar | Microsoft Docs
+description: Bir kullanıcının ağ konumuna dayalı bulut uygulamalarınıza erişimi denetlemek için konum koşul kullanmayı öğrenin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim konumu koşullar 
 
@@ -43,7 +43,14 @@ Güvenilen IP'leri bir ağ konumu ya da temsil ettiğini adlandırılmış konum
 
 Adlandırılmış konumlarla IP adres aralıkları, ülke ve bölgelerden oluşan mantıksal gruplar oluşturabilirsiniz. 
 
- Bir ad konumu aşağıdaki bileşenlere sahiptir:
+Adlandırılmış konumlarda erişebilirsiniz **Yönet** koşullu erişim sayfasının bölümünde.
+
+![Konumlar](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+Adlandırılmış bir konumu aşağıdaki bileşenlere sahiptir:
 
 ![Konumlar](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ Adlandırılmış konumu yapılandırabilirsiniz Azure AD'de ilgili nesne boyutu
 
 ## <a name="trusted-ips"></a>Güvenilen IP'ler
 
-Kuruluşunuzun yerel intranet olarak temsil eden IP adres aralıklarını da yapılandırabilirsiniz [çok faktörlü kimlik doğrulama hizmeti ayarlarını](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Bu özellik, en çok 50 IP adres aralıklarını yapılandırmanızı sağlar. IP adres aralıklarını CIDR biçimindedir. Daha fazla bilgi için bkz: [güvenilen IP'leri](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+Kuruluşunuzun yerel intranet olarak temsil eden IP adres aralıklarını da yapılandırabilirsiniz [çok faktörlü kimlik doğrulama hizmeti ayarlarını](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Bu özellik, en çok 50 IP adres aralıklarını yapılandırmanızı sağlar. IP adres aralıklarını CIDR biçimindedir. Daha fazla bilgi için bkz: [güvenilen IP'leri](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Güvenilen yapılandırılmış IP'leri varsa, bunlar olarak görünmesini **MFA güvenilen IP'leri** konumu koşulu için konumları listesinde.   
 
 ### <a name="skipping-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulaması atlanıyor
 
-Çok faktörlü kimlik doğrulaması ile ilgili hizmet ayarları sayfasında, Kurumsal intranet kullanıcılarının seçerek tanımlayabilirsiniz **my intranet üzerindeki Federasyon kullanıcıları gelen istekleri Atla çok faktörlü kimlik doğrulamasını**. Bu ayar gösterir şirket içi AD FS tarafından verilen, talep ağ güvenilir ve gerekir şirket ağındaki olarak kullanıcıyı tanımlamak için kullanılır. Daha fazla bilgi için bkz: [koşullu erişim kullanarak güvenilen IP'leri özelliğini etkinleştirmek](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Çok faktörlü kimlik doğrulaması ile ilgili hizmet ayarları sayfasında, Kurumsal intranet kullanıcılarının seçerek tanımlayabilirsiniz **my intranet üzerindeki Federasyon kullanıcıları gelen istekleri Atla çok faktörlü kimlik doğrulamasını**. Bu ayar gösterir şirket içi AD FS tarafından verilen, talep ağ güvenilir ve gerekir şirket ağındaki olarak kullanıcıyı tanımlamak için kullanılır. Daha fazla bilgi için bkz: [koşullu erişim kullanarak güvenilen IP'leri özelliğini etkinleştirmek](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Bu seçenek denetledikten sonra adlandırılmış konumu da dahil olmak üzere **MFA güvenilen IP'leri** hiçbir ilkede seçilen bu ile uygulanır.
 
@@ -100,7 +107,7 @@ Konum koşul yapılandırdığınızda ayırt etmek için seçeneğiniz vardır:
 
 ### <a name="any-location"></a>Herhangi bir konum
 
-Varsayılan olarak, seçme **herhangi bir yere** Internet üzerindeki herhangi bir adresi Bunun anlamı tüm IP adresleri için uygulanacak bir ilke neden olur. Bu ayar yok adlı konumu olarak yapılandırılmış IP adresleri için sınırlı değildir. Seçtiğinizde, **herhangi bir yere**, belirli konumlara hala bir ilkesinden hariç tutabilirsiniz. Örneğin, şirket ağı dışındaki tüm konumlara kapsamını belirlemek için güvenilen konumları dışındaki tüm konumlara yönelik bir ilke uygulayabilirsiniz.
+Varsayılan olarak, seçme **herhangi bir yere** Internet üzerindeki herhangi bir adresi Bunun anlamı tüm IP adresleri için uygulanacak bir ilke neden olur. Bu ayar adlandırılmış konumu olarak yapılandırılmış IP adresleri için sınırlı değildir. Seçtiğinizde, **herhangi bir yere**, belirli konumlara hala bir ilkesinden hariç tutabilirsiniz. Örneğin, şirket ağı dışındaki tüm konumlara kapsamını belirlemek için güvenilen konumları dışındaki tüm konumlara yönelik bir ilke uygulayabilirsiniz.
 
 ### <a name="all-trusted-locations"></a>Tüm güvenilen konumlar
 
@@ -112,7 +119,7 @@ Bu seçenek için geçerlidir:
 
 ### <a name="selected-locations"></a>Seçili konumlar
 
-Bu seçenek ile bir veya daha fazla adlandırılmış konumlar seçebilirsiniz. Uygulamak için bu ayarı ile bir ilke için bir kullanıcı seçili konumlardan herhangi birinden bağlanması gerekir. Tıklattığınız Microsoft **seçin** adlandırılmış ağlar listesini gösterir adlandırılmış ağ seçim denetim açar. Ağ konumu işaretlenmiş liste ayrıca gösterir olarak güvenilir. Belirtilen konum adlı **MFA güvenilen IP'ler** çok faktörlü kimlik doğrulama hizmeti ayar sayfasında yapılandırılmış IP ayarları eklemek için kullanılır.
+Bu seçenek ile bir veya daha fazla adlandırılmış konumlar seçebilirsiniz. Uygulamak için bu ayarı ile bir ilke için bir kullanıcı seçili konumlardan herhangi birinden bağlanması gerekir. Tıkladığınızda **seçin** adlandırılmış ağlar listesini gösterir adlandırılmış ağ seçim denetim açar. Ağ konumu işaretlenmiş liste ayrıca gösterir olarak güvenilir. Belirtilen konum adlı **MFA güvenilen IP'ler** çok faktörlü kimlik doğrulama hizmeti ayar sayfasında yapılandırılmış IP ayarları eklemek için kullanılır.
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fcdcc4cf948550467257fa6cbe9287cd26d49962
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4089fe636ad25f97fe78f0bd10553b93d768321d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory kullanarak Spark'tan veri kopyalama 
 
@@ -47,9 +47,9 @@ Aşağıdaki özellikleri, bağlantılı Spark hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Spark** | Evet |
 | konak | Spark sunucusunun IP adresi veya ana bilgisayar adı  | Evet |
-| port | İstemci bağlantılarını dinlemek için Spark sunucusunun kullandığı TCP bağlantı noktası.  | Evet |
-| serverType | Spark sunucu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
-| thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, ** HTTP ** | Hayır |
+| port | İstemci bağlantılarını dinlemek için Spark sunucusunun kullandığı TCP bağlantı noktası. Azure Hdınsights bağlanıyorsanız, bağlantı noktası 443'tür belirtin. | Evet |
+| Sunucu türü | Spark sunucu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
+| thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
 | authenticationType | Spark sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Spark sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |
 | password | Kullanıcıya karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
@@ -76,8 +76,7 @@ Aşağıdaki özellikleri, bağlantılı Spark hizmeti için desteklenir:
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

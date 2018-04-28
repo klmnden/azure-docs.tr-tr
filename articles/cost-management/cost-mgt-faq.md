@@ -1,20 +1,20 @@
 ---
-title: "Azure maliyeti yönetimi için sık sorulan sorular | Microsoft Docs"
-description: "Bazı Azure Yönetimi maliyeti ilgili sık sorulan soruların yanıtlarını içerir."
+title: Azure maliyeti yönetimi için sık sorulan sorular | Microsoft Docs
+description: Bazı Azure Yönetimi maliyeti ilgili sık sorulan soruların yanıtlarını içerir.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
 
@@ -89,9 +89,9 @@ Azure varsayılan adresinden e-posta adresinizi Cloudyn değiştirirseniz, hesab
 
 Hesaplardan birini kilitli durumda en az iki Cloudyn yönetici hesabı oluşturmanızı öneririz.
 
-Cloudyn portalda oturum açamaz, doğru Azure maliyeti yönetim URL'si için Cloudyn oturum açmak için kullandığınızdan emin olun. Kullanım [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Cloudyn portalda oturum açamaz, doğru Azure maliyeti yönetim URL'si için Cloudyn oturum açmak için kullandığınızdan emin olun. Kullanım [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Cloudyn doğrudan URL https://app.cloudyn.com kullanmaktan kaçının.
+Cloudyn doğrudan URL kullanmaktan kaçının https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure kimlik bilgilerine sahip etkinleştirilmemiş hesaplarla nasıl etkinleştirilsin mi?
 
@@ -116,9 +116,9 @@ Bir varlık için ek CSP hesapları eklemek için seçin **MSP erişim** yerine 
 
 Farklı para kullanarak birden çok Azure hesabı olabilir. Ancak, Cloudyn maliyet raporlarında rapor başına birden fazla para birimi türü gösterme.
 
-Farklı para kullanarak birden çok aboneliğiniz varsa, bir üst varlık ve onun alt varlık para birimlerinin USD cinsinden görüntülenen  **$** . Bizim önerilen en iyi aynı varlık hiyerarşideki farklı para kullanmaktan kaçınmak için bir yöntemdir. Diğer bir deyişle, tüm aboneliklerinizi bir varlık yapısında düzenlenmiş aynı para kullanmanız gerekir.
+Farklı para kullanarak birden çok aboneliğiniz varsa, bir üst varlık ve onun alt varlık para birimlerinin USD cinsinden görüntülenen **$**. Bizim önerilen en iyi aynı varlık hiyerarşideki farklı para kullanmaktan kaçınmak için bir yöntemdir. Diğer bir deyişle, tüm aboneliklerinizi bir varlık yapısında düzenlenmiş aynı para kullanmanız gerekir.
 
-Cloudyn otomatik olarak Kurumsal Anlaşma abonelik para algılar ve raporlarda düzgün gösterir.  Ancak, Cloudyn ABD Doları yalnızca görüntüler  **$**  CSP ve web doğrudan Azure hesapları için.
+Cloudyn otomatik olarak Kurumsal Anlaşma abonelik para algılar ve raporlarda düzgün gösterir.  Ancak, Cloudyn ABD Doları yalnızca görüntüler **$** CSP ve web doğrudan Azure hesapları için.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Cloudyn veri nelerdir zaman çizelgelerini Yenile?
 

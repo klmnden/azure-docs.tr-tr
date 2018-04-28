@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9c8472e74cab779e417e68316a6125d40410ef1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Meta veri canlı akış zaman aşımına sinyali
 
@@ -70,7 +70,7 @@ Media Services RTMP basit mod için aşağıdaki biçimde "onAdCue" adlı tek bi
 | işaret        | Dize     | Gerekli | Olay iletisi.  Basit mod belirlemek için "SpliceOut" splice olması.                                              |
 | id         | Dize     | Gerekli | Splice veya kesimi açıklayan benzersiz bir tanımlayıcı. Bu ileti örneğini tanımlar                            |
 | Süre   | Sayı     | Gerekli | Splice süresini. Kesirli saniye birimleridir.                                                                |
-| Geçen    | Sayı     | İsteğe bağlı | Sinyal desteklemek için tekrarlanırsa ince ayar, bu alan splice başlamasından bu yana geçen sunu süre miktarını olacaktır. Kesirli saniye birimleridir. Basit mod kullanırken, bu değer splice özgün süresini aşamaz.                                                  |
+| elapsed    | Sayı     | İsteğe bağlı | Sinyal desteklemek için tekrarlanırsa ince ayar, bu alan splice başlamasından bu yana geçen sunu süre miktarını olacaktır. Kesirli saniye birimleridir. Basit mod kullanırken, bu değer splice özgün süresini aşamaz.                                                  |
 | time       | Sayı     | Gerekli | Splice süresini sunu zaman içinde tutulamaz. Kesirli saniye birimleridir.                                     |
 
 ---------------------------
@@ -83,7 +83,7 @@ Media Services RTMP basit mod için aşağıdaki biçimde "onAdCue" adlı tek bi
 | type       | Dize     | Gerekli | Bir URN veya ileti düzeni tanımlayan URL; Örneğin, "urn: Örnek: sinyal: 1.0".  [SCTE-35] iletileri için bu "urn: scte:scte35:2013a:bin" [SCTE-67] uyumlu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada olmalıdır.  |
 | id         | Dize     | Gerekli | Splice veya kesimi açıklayan benzersiz bir tanımlayıcı. Bu ileti örneğini tanımlar.  İletileri eşdeğer semantiği ile aynı değere sahip.|
 | Süre   | Sayı     | Gerekli | Olay ya da ad splice-biliniyorsa segment süresi. Bilinmiyorsa, değeri 0 olmalıdır.                                                                 |
-| Geçen    | Sayı     | İsteğe bağlı | [SCTE-35] ad sinyal ayarlamak için tekrarlanırsa, bu alan splice başlamasından bu yana geçen sunu süre miktarını olacaktır. Kesirli saniye birimleridir. [SCTE-35] modunda, bu değer özgün belirtilen süresi splice veya segment aşabilir.                                                  |
+| elapsed    | Sayı     | İsteğe bağlı | [SCTE-35] ad sinyal ayarlamak için tekrarlanırsa, bu alan splice başlamasından bu yana geçen sunu süre miktarını olacaktır. Kesirli saniye birimleridir. [SCTE-35] modunda, bu değer özgün belirtilen süresi splice veya segment aşabilir.                                                  |
 | time       | Sayı     | Gerekli | Olay ya da ad sunu zamanını splice.  Sunu saatini ve süresini akış erişim noktaları (SAP ile) 1 veya 2 ' türündeki [ISO-14496-12] eki ı içinde tanımlanan uyumlu olmalıdır. HLS çıkışı için zamanını ve süresini segment sınırları ile uyumlu olmalıdır. Sunu saatini ve süresini aynı içinde farklı olay iletilerinin olay akışının çakışmaması gerekir. Kesirli saniye birimleridir.
 
 ---------------------------
@@ -224,7 +224,7 @@ Zamanlanmış meta verileri için Apple HTTP canlı akışı (HLS), özel bir M3
 
 | **Öznitelik adı** | **Tür**                      | **Gerekli?**                             | **Açıklama**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CUE                | Tırnak işaretli dize                 | Gerekli                                  | Bölümünde açıklandığı gibi bir base64 dizesi olarak kodlanmış bir ileti [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). [SCTE-35] iletilerde base64 ile kodlanmış splice_info_section() budur.                                                                                                |
+| İŞARET                | Tırnak işaretli dize                 | Gerekli                                  | Bölümünde açıklandığı gibi bir base64 dizesi olarak kodlanmış bir ileti [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). [SCTE-35] iletilerde base64 ile kodlanmış splice_info_section() budur.                                                                                                |
 | TÜR               | Tırnak işaretli dize                 | Gerekli                                  | Bir URN veya ileti düzeni tanımlayan URL; Örneğin, "urn: Örnek: sinyal: 1.0". [SCTE-35] iletileri için türü "scte35" özel değerini alır.                                                                                                                                |
 | Kimlik                 | Tırnak işaretli dize                 | Gerekli                                  | Olayı için benzersiz bir tanımlayıcı. İleti alınan zaman kimliği belirtilmezse, Azure Media Services benzersiz bir kimliği oluşturur.                                                                                                                                          |
 | SÜRE           | ondalık kayan nokta sayısı | Gerekli                                  | Olayın süresi. Bilinmiyorsa, değeri 0 olmalıdır. Factional saniye birimleridir.                                                                                                                                                                                           |
@@ -407,9 +407,9 @@ Kesintisiz akış alma medya verileri kutusu ('mdat') içermelidir gerektirir **
 
 **[AMF0]**  ["Eylemi ileti biçimi AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
+**[CANLI FMP4]**  [Parçalanmış MP4 Canlı azure Media Services alma belirtimi](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth Edition 2012-07-15.
+**[ISO-14496-12]**  ISO/IEC 14496-12: bölümü 12 ISO temel media dosya formatı, dördüncü Edition 2012-07-15.
 
 **[RTMP]**  ["Adobe gerçek zamanlı ileti Protokolü" 21 Kasım 2012](https://www.adobe.com/devnet/rtmp.html) 
 

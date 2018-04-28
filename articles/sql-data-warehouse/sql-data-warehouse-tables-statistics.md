@@ -1,43 +1,30 @@
 ---
-title: "SQL veri ambarı tablolarda istatistiklerle yönetme | Microsoft Docs"
-description: "Azure SQL Data Warehouse tablolarda istatistiklerle ile çalışmaya başlama."
+title: Oluşturma, istatistikleri - Azure SQL Data Warehouse güncelleştirme | Microsoft Docs
+description: Öneriler ve örnekleri oluşturma ve Azure SQL Data Warehouse tablolarda sorgu iyileştirme istatistikleri güncelleştirme.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda istatistiklerle yönetme
-> [!div class="op_single_selector"]
-> * [Genel bakış][Overview]
-> * [Veri türleri][Data Types]
-> * [Dağıt][Distribute]
-> * [Dizin][Index]
-> * [Bölüm][Partition]
-> * [İstatistikleri][Statistics]
-> * [Geçici][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tablolarda istatistikleri güncelleştirmeyi oluşturma
+Öneriler ve örnekleri oluşturma ve Azure SQL Data Warehouse tablolarda sorgu iyileştirme istatistikleri güncelleştirme.
 
+## <a name="why-use-statistics"></a>İstatistikleri neden kullanılır?
 Azure SQL Data Warehouse verilerinizi hakkında daha fazla bilir, o kadar hızlı sorgular çalıştırabilirsiniz. Verilerinizi istatistikleri toplama ve SQL Data Warehouse'a veri yükleme sorgularınızı iyileştirmek için yapabileceğiniz en önemli şeyler biridir. SQL veri ambarı sorgu iyileştiricisi maliyet tabanlı iyileştirici olmasıdır. Çeşitli sorgu planlarını maliyetini karşılaştırır ve çoğu durumda hızlı yürütür planı olan en düşük maliyeti planla seçer. Sorgunuzda filtreleme tarih bir satır döndürülecek iyileştirici tahminleri varsa, seçilen tarihten tahminleri 1 milyon satır döndürür daha Örneğin, onu farklı bir plan seçebilirsiniz.
 
 Oluşturma ve istatistikleri güncelleştirme işlemi şu anda elle yapılan bir işlemdir, ancak yapmak basit bir işlemdir.  En kısa sürede otomatik olarak oluşturabilir ve tek sütunları ve dizinleri istatistikleri güncelleştirme olacaktır.  Aşağıdaki bilgileri kullanarak, verilerinizi istatistikleri yönetimini büyük ölçüde otomatikleştirebilirsiniz. 
 
-## <a name="getting-started-with-statistics"></a>İstatistikleri ile çalışmaya başlama
+## <a name="scenarios"></a>Senaryolar
 Her sütunda örneklenen istatistikleri oluşturma başlamak için kolay bir yoludur. Güncel olmayan istatistikler için en iyi sorgu performansını sağlama. Ancak, verilerinizi büyüdükçe tüm sütunlarda istatistikleri güncelleştirmeyi bellek kullanabilir. 
 
 Farklı senaryolar için öneriler şunlardır:
@@ -94,7 +81,7 @@ WHERE
 
 **Tarih sütunları** veri ambarında, örneğin, genellikle istatistikleri güncelleştirmeleri sık. Her zaman yeni satırlar veri ambarına yüklenir, yeni yükleme veya işlem tarihleri eklenir. Bu, veri dağıtımı değiştirmek ve istatistikleri güncel sağlamak.  Buna karşılık, bir müşteri tablosu cinsiyetiniz sütununda istatistiklerle hiçbir zaman güncelleştirilmesi gerekebilir. Dağıtım müşterileri arasında sabit olduğunu varsayarak, yeni satırlar için tablo değişim ekleme veri dağıtım değiştirmek için adımıdır değil. Veri ambarınız tek cinsiyeti ve birden çok genders yeni gereksinimi sonuçlarında içeriyorsa, ancak daha sonra cinsiyetiniz sütun istatistiklerle güncelleştirmeniz gerekir.
 
-Daha fazla açıklama için bkz: [istatistikleri] [ Statistics] konusuna bakın.
+Daha fazla bilgi için genel yönergeler için bkz: [istatistikleri](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>İstatistikleri yönetimini uygulama
 İstatistikleri yük sonunda güncelleştirildiğinden emin olmak için veri yükleme işlemi genişletmek için genellikle iyi bir fikirdir. Tabloları boyutlarına ve/veya bunların değerleri dağıtımını en sık değiştirdiğinizde veri yükü var. Bu nedenle, bu bazı yönetim işlemlerini uygulamak için bir mantıksal yerdir.
@@ -107,7 +94,7 @@ Yükleme işlemi sırasında İstatistikleri güncelleştirmek için aşağıdak
 * Statik dağıtım sütunları daha az sıklıkla güncelleştirmeyi deneyin.
 * Unutmayın, her istatistik nesne sırayla güncelleştirilir. Yalnızca uygulama `UPDATE STATISTICS <TABLE_NAME>` her zaman özellikle istatistikleri nesnelerin çok geniş tablolar için ideal değildir.
 
-Daha fazla açıklama için bkz: [kardinalite tahmin] [ Cardinality Estimation] konusuna bakın.
+Daha fazla bilgi için bkz: [kardinalite tahmin](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="examples-create-statistics"></a>Örnekler: istatistikler oluşturma
 Bu örnekler istatistikleri oluşturmak için çeşitli seçenekler kullanmak nasıl gösterir. Her sütun için kullandığınız seçenekler verilerinizi ve sütunu sorguda nasıl kullanılacağını özelliklerine bağlıdır.
@@ -172,7 +159,7 @@ Ayrıca, seçenekleri birlikte birleştirebilirsiniz. Aşağıdaki örnek, bir �
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Tam başvuru için bkz: [CREATE STATISTICS] [ CREATE STATISTICS] konusuna bakın.
+Tam başvuru için bkz: [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Çok sütunlu istatistikler oluşturma
 Bir çok sütunlu İstatistikler nesnesi oluşturmak için yalnızca önceki örneklerde kullanır, ancak daha fazla sütun belirtin.
@@ -362,9 +349,9 @@ Bu kullanımı kolay açıklamadır. Bu güncelleştirmeler hemen unutmayın *t�
 > 
 > 
 
-Bir uygulama için bir `UPDATE STATISTICS` yordamı, bkz: [geçici tablolar][Temporary]. Uygulama yöntemi önceki öğesinden biraz farklıdır `CREATE STATISTICS` yordamı, ancak sonuç aynıdır.
+Bir uygulama için bir `UPDATE STATISTICS` yordamı, bkz: [geçici tablolar](sql-data-warehouse-tables-temporary.md). Uygulama yöntemi önceki öğesinden biraz farklıdır `CREATE STATISTICS` yordamı, ancak sonuç aynıdır.
 
-Tam sözdizimi için bkz: [Update STATISTICS] [ Update Statistics] konusuna bakın.
+Tam sözdizimi için bkz: [Update STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="statistics-metadata"></a>İstatistikleri meta verileri
 Çeşitli sistem görünümleri ve İstatistikler hakkında bilgi bulmak için kullanabileceğiniz işlevleri vardır. Örneğin, bir istatistik nesne istatistikleri en son oluşturulan veya güncelleştirilen zaman görmek için istatistikleri tarih işlevini kullanarak güncel olabilir, görebilirsiniz.
@@ -374,21 +361,21 @@ Bu sistem görünümleri İstatistikler hakkında bilgi sağlar:
 
 | Katalog görünümü | Açıklama |
 |:--- |:--- |
-| [sys.columns][sys.columns] |Her sütun için bir satır. |
-| [sys.objects][sys.objects] |Veritabanında her nesne için bir satır. |
-| [sys.schemas][sys.schemas] |Veritabanındaki her şema için bir satır. |
-| [sys.stats][sys.stats] |Her bir istatistik nesne için bir satır. |
-| [sys.stats_columns][sys.stats_columns] |İstatistikleri nesnesindeki her sütun için bir satır. Sys.columns geri bağlantılar. |
-| [sys.Tables][sys.tables] |(Dış tablolara içerir) her tablo için bir satır. |
-| [sys.table_types][sys.table_types] |Her bir veri türü için bir satır. |
+| [sys.Columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Her sütun için bir satır. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Veritabanında her nesne için bir satır. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Veritabanındaki her şema için bir satır. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Her bir istatistik nesne için bir satır. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |İstatistikleri nesnesindeki her sütun için bir satır. Sys.columns geri bağlantılar. |
+| [sys.Tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |(Dış tablolara içerir) her tablo için bir satır. |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Her bir veri türü için bir satır. |
 
 ### <a name="system-functions-for-statistics"></a>Sistem işlevleri için istatistikleri
 Bu sistem işlevler istatistikleri ile çalışmak için yararlıdır:
 
 | Sistem işlevi | Açıklama |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |İstatistikleri nesne son güncelleştirildiği tarihi. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Özet düzeyi ve ayrıntılı dağıtımı hakkında bilgi istatistikleri nesne tarafından anlaşılan gibi değerler. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |İstatistikleri nesne son güncelleştirildiği tarihi. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Özet düzeyi ve ayrıntılı dağıtımı hakkında bilgi istatistikleri nesne tarafından anlaşılan gibi değerler. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Bir görünüme istatistikleri sütunları ve işlevlerini birleştirme
 Bu görünüm istatistikleri ilişkili sütun getirir ve STATS_DATE() işlevinden birlikte sonuçlanır.
@@ -434,7 +421,7 @@ DBCC SHOW_STATISTICS() istatistikleri nesnesi içinde tutulan verileri gösterir
 
 - Üst bilgi
 - Yoğunluğu vektör
-- Histogram
+- Çubuk grafik
 
 İstatistikler hakkında üstbilgi meta veriler. Histogram değerleri dağıtım istatistikleri nesnesi ilk anahtar sütununda görüntüler. Yoğunluğu vektör arası sütun bağıntı ölçer. SQL veri ambarı nicelik tahminlerde istatistikleri nesnesindeki verilerin hesaplar.
 
@@ -476,37 +463,5 @@ DBCC SHOW_STATISTICS() SQL veri ambarı SQL Server'a karşılaştırıldığınd
 - Özel hata 2767 desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla ayrıntı için bkz: [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] konusuna bakın.
+İçin daha fazla sorgu performansı artırır, bkz: [, iş yükü izleme](sql-data-warehouse-manage-monitor.md)
 
-  Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo genel bakışı][Overview], [tablo veri türleri][Data Types], [bir tablodağıtma] [ Distribute], [Tablo dizin][Index], [bir tablo bölümleme][Partition]ve [Geçici tablolar][Temporary].
-  
-   En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

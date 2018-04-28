@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub cihaz bulut Mesajlaşma anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - IOT Hub ile cihaz bulut Mesajlaşma kullanma. Telemetri ve telemtry olmayan veri gönderme ve iletileri sunmak için yönlendirmeyi kullanma hakkında bilgiler içerir."
+title: Azure IOT Hub cihaz bulut Mesajlaşma anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - IOT Hub ile cihaz bulut Mesajlaşma kullanma. Telemetri ve telemtry olmayan veri gönderme ve iletileri sunmak için yönlendirmeyi kullanma hakkında bilgiler içerir.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>IOT hub'a cihaz-bulut iletileri gönder
 
@@ -32,7 +32,7 @@ Cihaz bulut IOT Hub ile Mesajlaşma aşağıdaki özelliklere sahiptir:
 * Cihaz bulut iletilerini sağlam ve bir IOT hub'ın varsayılan saklama **iletileri/olayları** endpoint yedi gündür.
 * Cihaz bulut iletilerini en fazla 256 KB olabilir ve gönderir iyileştirmek için toplu olarak gruplandırılabilir. Toplu işlemler en fazla 256 KB olabilir.
 * İçinde anlatıldığı gibi [IOT Hub'ına erişim denetim] [ lnk-devguide-security] bölüm, IOT Hub cihaz başına kimlik doğrulama ve erişim denetimi sağlar.
-* IOT Hub, en fazla 10 özel uç noktaları oluşturmanıza olanak sağlar. İletiler, IOT hub'ına yapılandırılmış yolları göre Uç noktalara teslim edilir. Daha fazla bilgi için bkz: [yönlendirme kuralları](#routing-rules).
+* IOT Hub, en fazla 10 özel uç noktaları oluşturmanıza olanak sağlar. İletiler, IOT hub'ına yapılandırılmış yolları göre Uç noktalara teslim edilir. Daha fazla bilgi için bkz: [yönlendirme kuralları](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IOT Hub, milyonlarca eş zamanlı cihazı sağlar (bkz [kotalar ve azaltma][lnk-quotas]).
 * IOT hub'ı rasgele bölümleme izin vermiyor. Cihaz bulut iletilerini bölümlenmiş kendi oluşturan bağlı **DeviceID**.
 

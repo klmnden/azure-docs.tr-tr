@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
@@ -44,9 +44,9 @@ Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir
 | Bulut cihaz gönderir<sup>1</sup> | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | Bulut cihaz alır<sup>1</sup> <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (min/1000/birim) | 16.67/sec/Unit (min/1000/birim) | 833.33/sec/Unit (min/50000/birim) |
 | Karşıya dosya yükleme | 1.67 dosya karşıya yükleme bildirimleri/sn/birim (min/100/birim) | 1.67 dosya karşıya yükleme bildirimleri/sn/birim (min/100/birim) | 83.33 dosya karşıya yükleme bildirimleri/sn/birim (min/5000/birim) |
-| Doğrudan yöntemleri<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
-| Cihaz çifti okur<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
-| Cihaz çifti güncelleştirmeleri<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+| Doğrudan yöntemleri<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sn/birim<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
+| Twin (aygıt ve modül) okuma<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+| Twin güncelleştirmeleri (aygıt ve modül)<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
 | İşlerini işlemleri<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | İşlerini aygıt başına işlemi işleme<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
 

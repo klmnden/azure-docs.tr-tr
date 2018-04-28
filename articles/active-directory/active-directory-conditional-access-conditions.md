@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory koşullu erişim koşullarında | Microsoft Docs"
-description: "Atamaları bir ilke tetiklemek için Azure Active Directory koşullu erişimin nasıl kullanıldığı hakkında bilgi edinin."
+title: Azure Active Directory koşullu erişim koşullarında | Microsoft Docs
+description: Atamaları bir ilke tetiklemek için Azure Active Directory koşullu erişimin nasıl kullanıldığı hakkında bilgi edinin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
 
@@ -71,7 +71,7 @@ Bulut uygulamaları bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seç
 
 Şunları seçebilirsiniz:
 
-- **Tüm bulut uygulamaları** tüm kuruluş uygulanacak temel ilkeleri. Bu seçim için ortak bir kullanım örneği oturum açma riski algılandığında her bulut uygulaması için çok faktörlü kimlik doğrulaması gerektiren bir ilkedir.
+- **Tüm bulut uygulamaları** tüm kuruluş uygulanacak temel ilkeleri. Bu seçim için ortak bir kullanım örneği oturum açma riski algılandığında her bulut uygulaması için çok faktörlü kimlik doğrulaması gerektiren bir ilkedir. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm web sitesi ve hizmetler. Bu ayar görünür bulut uygulamaları için sınırlı değildir **seçin bulut uygulamalarını** listesi.
 
 - Tek tek bulut uygulamalarını ilkelerle hedef belirli hizmetlerine. Kullanıcıların Örneğin, gerektiren bir [uyumlu aygıt](active-directory-conditional-access-policy-connected-applications.md) SharePoint Online'a erişmek için. SharePoint içeriği, örneğin, Microsoft Teams eriştiklerinde Bu ilke ayrıca diğer hizmetlere uygulanır. 
 

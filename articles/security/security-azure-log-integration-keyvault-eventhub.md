@@ -1,21 +1,21 @@
 ---
-title: "Azure anahtar kasası günlükleri Olay hub'ları kullanarak tümleştirme | Microsoft Docs"
-description: "Anahtar kasası günlükleri için bir SIEM Azure günlük tümleştirmeyi kullanarak kullanılabilmesi için gerekli adımları sağlar Öğreticisi"
+title: Azure anahtar kasası günlükleri Olay hub'ları kullanarak tümleştirme | Microsoft Docs
+description: Anahtar kasası günlükleri için bir SIEM Azure günlük tümleştirmeyi kullanarak kullanılabilmesi için gerekli adımları sağlar Öğreticisi
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: olay hub'ları kullanarak işlem Azure anahtar kasası olayları
 
@@ -81,7 +81,7 @@ Bu makaledeki adımları tamamlayabilmeniz için önce aşağıdakiler gerekir:
 
    ![Yüklenen modüller listesi](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Girin `Login-AzureRmAccount` komutu. Oturum açma penceresinde, Bu öğretici için kullanacağı aboneliği için kimlik bilgilerini girin.
+3. Girin `Connect-AzureRmAccount` komutu. Oturum açma penceresinde, Bu öğretici için kullanacağı aboneliği için kimlik bilgilerini girin.
 
    >[!NOTE]
    >Bu, Azure'a bu makineden oturum açtığınızdan ilk kez kullanıyorsanız, PowerShell kullanım verilerini toplamak için Microsoft izin verme hakkında bir ileti görürsünüz. Azure PowerShell geliştirmek için kullanılacak çünkü bu veri toplama etkinleştirmenizi öneririz.

@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı BlueJeans yapılandırma | Microsoft Docs"
-description: "Otomatik olarak sağlamak ve kullanıcı hesaplarına BlueJeans sağlanmasını için Azure Active Directory yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı BlueJeans yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlamak ve kullanıcı hesaplarına BlueJeans sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9b071d166f741df523d6343ba771b7a29cd4a303
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Öğretici: BlueJeans otomatik kullanıcı sağlamayı yapılandırın
 
@@ -112,7 +112,7 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bı
 
     ![BlueJeans sağlama](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. İçinde **bildirim e-posta** alan, bir kişi veya grubun ve sağlama hata bildirimleri almak onay e-posta adresini girin **birhataoluşursa,bire-postabildirimigönder**.
+7. İçinde **bildirim e-posta** alan, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresini girin **birhataoluşursa,bire-postabildirimigönder**.
 
     ![BlueJeans sağlama](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -143,6 +143,10 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bı
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlanan gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada hizmet sağlama Azure AD çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve BlueJeans hizmette sağlama Azure AD tarafından gerçekleştirilen tüm eylemler açıklanmaktadır Etkinlik Raporu sağlamak için bağlantıları izleyin.
 
 Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](./active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
+
+* Bluejeans 30 karakterden uzun kullanıcı adları izin verilmez.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

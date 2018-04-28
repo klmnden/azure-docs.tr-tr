@@ -3,7 +3,7 @@ title: Uygulamaları Azure Active Directory ile tümleştirme
 description: Ekle, Güncelleştir veya Azure Active Directory (Azure AD) bir uygulamayı kaldırmak nasıl.
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: mtillman
 manager: mtillman
 editor: mbaldwin
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +56,7 @@ Azure AD özelliklerini kullanmak istediği herhangi bir uygulama ilk Azure AD k
 5. Tamamlandığında tıklatarak **oluşturma**. Azure AD benzersiz bir uygulama kimliği uygulamanıza atar ve uygulamanızın ana kayıt sayfasına yönlendirilirsiniz. Uygulamanızı bir web veya yerel uygulama olmasına bağlı olarak, ek yetenekler uygulamanıza eklemek için farklı seçenekleri sunulur. Uygulama kaydınızı (kimlik bilgileri, etkinleştirme oturum açma diğer kiracılardan gelen kullanıcılar için izinler) ek yapılandırma özelliklerini etkinleştirmek için onay ve ayrıntıları genel bir bakış için bir sonraki bölümüne bakın
 
   > [!NOTE]
-  > Varsayılan olarak, yeni kayıtlı uygulama izin verecek şekilde yapılandırılmış **yalnızca** uygulamanıza oturum açmak için aynı Kiracı kullanıcılardan.
+  > Varsayılan olarak, yeni kayıtlı web uygulaması izin verecek şekilde yapılandırılmış **yalnızca** uygulamanıza oturum açmak için aynı Kiracı kullanıcılardan.
   > 
   > 
 
@@ -65,7 +65,7 @@ Uygulamanızı Azure AD ile kaydedildikten sonra web API'leri erişim sağlamak 
 
 ### <a name="overview-of-the-consent-framework"></a>Onay Framework'e Genel Bakış
 
-Azure AD onay framework çok kiracılı web ve çok katmanlı uygulamalar dahil olmak üzere, yerel istemci uygulamaları geliştirmek kolaylaştırır. Bu uygulamalar, uygulama kayıtlı olandan farklı bir Azure AD kiracısı oturum açma ana kadar kullanıcı hesapları tarafından izin. Web API'ları (Azure Active Directory, Intune ve Office 365'te hizmetlerine erişmek için) Microsoft grafik API'si gibi ve web API'leri yanı sıra diğer Microsoft Hizmetleri API'leri erişmek de gerekebilir. Bir kullanıcı veya yönetici dizin verilerine erişme gerektirebilir kendi dizininde kaydedilecek soran bir uygulamaya izin vermiş framework dayanır.
+Azure AD onay framework çok kiracılı web ve yerel istemci uygulamaları geliştirmek kolaylaştırır. Bu uygulamalar, uygulama kayıtlı olandan farklı bir Azure AD kiracısı oturum açma ana kadar kullanıcı hesapları tarafından izin. Web API'ları (Azure Active Directory, Intune ve Office 365'te hizmetlerine erişmek için) Microsoft grafik API'si gibi ve web API'leri yanı sıra diğer Microsoft Hizmetleri API'leri erişmek de gerekebilir. Bir kullanıcı veya yönetici dizin verilerine erişme gerektirebilir kendi dizininde kaydedilecek soran bir uygulamaya izin vermiş framework dayanır.
 
 Bir web istemci uygulaması, Office 365'ten Takvim kullanıcı hakkındaki bilgileri okumak gerekirse, örneğin, bu kullanıcı istemci uygulamasına ilk onayı için gereklidir. İzin verilen sonra istemci uygulamasının kullanıcı adına Microsoft Graph API çağrısı ve Takvim bilgileri gerektiği gibi kullanın. [Microsoft Graph API](https://graph.microsoft.io) kullanıcıları ve grupları Azure AD'den ve diğer veri nesneleri daha fazla Microsoft bulut hizmetlerinden yanı sıra (takvimleri ve Exchange, siteler ve SharePoint, OneDrive, OneNote defterlerinden, Planlayıcısı görevlerden, vb. Excel çalışma kitaplarından belgelerden listelerinden iletileri) gibi Office 365'te verilere erişim sağlar. 
 
@@ -93,17 +93,17 @@ Aşağıdaki adımlar nasıl onayı deneyimi uygulama geliştiricisi ve kullanı
 
 5. Kullanıcı izin veren sonra bir erişim belirteci alması ve belirteç yenilemek için kullanılan uygulamanız için bir kimlik doğrulama kodu döndürülür. Bu akış hakkında daha fazla bilgi için bkz: [web uygulaması için Azure AD kimlik doğrulama senaryoları API bölümünde web](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
-6. Yönetici olarak, aynı zamanda tüm kullanıcılar adına bir uygulamanın temsilci izinleri kiracınızda sayılırsınız. Yönetici onayı onay iletişim Kiracı her kullanıcı için görüntülenmesini engeller ve uygulamanızı yapılır sayfasındaki [Azure portal](https://portal.azure.com). Gelen **ayarları** sayfasında uygulamanız için **gerekli izinler** ve tıklayın **izinler** düğmesi. 
+6. Yönetici olarak, aynı zamanda tüm kullanıcılar adına bir uygulamanın temsilci izinleri kiracınızda sayılırsınız. Yönetici onayı onay iletişim Kiracı her kullanıcı için görüntülenmesini engeller ve yapılabilir [Azure portal](https://portal.azure.com) Yönetici rolüne sahip kullanıcılar tarafından. Gelen **ayarları** sayfasında uygulamanız için **gerekli izinler** ve tıklayın **izinler** düğmesi. 
 
   ![Açık yönetici onayı için izinler](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > Açık verme onayı kullanarak **izinler** düğmesini ADAL.js kullanan tek sayfa uygulamaları için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.   
+  > Açık verme onayı kullanarak **izinler** düğmesini ADAL.js kullanan tek sayfa uygulamaları için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Web API'leri erişmek için bir istemci uygulaması yapılandırın
 Kimlik doğrulaması gerektiren bir yetkilendirme grant akışı katılmak (ve bir erişim belirteci almak üzere) kullanabilmek için web/gizli bir istemci uygulaması için sırayla güvenli kimlik bilgileri oluşturmanız gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulama yöntemidir istemci kimliği + gizli anahtarı. Bu bölüm, istemcinin kimlik bilgileriyle gizli anahtar sağlamak için gerekli yapılandırma adımları kapsar.
 
-Bir istemci bir web API kaynak uygulama (örneğin, Microsoft Graph API) tarafından sunulan erişebilmeniz için önce ek olarak, onay framework istemci alır gereken izin verme sağlar istenen izinlerine göre. Varsayılan olarak, tüm uygulamaları izinleri "Windows Azure Active Directory" (grafik API'si) ve "Windows Azure Hizmet Yönetimi API'si." seçebilirsiniz [Grafik API'si "oturum açma ve okuma kullanıcı profili" izni](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) de varsayılan olarak seçilidir. İstemci Office 365'e abone hesaplarına sahip bir kiracı kaydedilmekte olan, Web API'ları ve SharePoint ve Exchange Online için izinleri seçilebilir. Aralarından seçim yapabileceğiniz [iki tür izin](active-directory-dev-glossary.md#permissions) her web API istenen için:
+Bir istemci bir web API kaynak uygulama (örneğin, Microsoft Graph API) tarafından sunulan erişebilmeniz için önce ek olarak, onay framework istemci alır gereken izin verme sağlar istenen izinlerine göre. Varsayılan olarak, tüm uygulamaları izinleri "Windows Azure Active Directory" (grafik API'si) ve "Windows Azure Hizmet Yönetimi API'si." seçebilirsiniz [Grafik API'si "oturum açma ve okuma kullanıcı profili" izni](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) de varsayılan olarak seçilidir. İstemci Office 365'e abone hesaplarına sahip bir kiracı kaydedilmekte olan, web API'leri ve SharePoint ve Exchange Online için izinleri seçim için kullanılabilir. Aralarından seçim yapabileceğiniz [iki tür izin](active-directory-dev-glossary.md#permissions) her web API istenen için:
 
 - Uygulama izinleri: Web API kendisini (kullanıcı içerik yok) olarak doğrudan erişmek istemci uygulamanız gerekir. Bu türdeki izinler yönetici izni gerektirir ve ayrıca yerel istemci uygulamaları için kullanılabilir değil.
 
@@ -120,7 +120,7 @@ Bir istemci bir web API kaynak uygulama (örneğin, Microsoft Graph API) tarafı
    ![Bir uygulamanın kayıt güncelleştir](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. Açılan uygulamanın ana kayıt sayfasına yönlendirilirsiniz **ayarları** uygulama için sayfa. Web uygulamanızın kimlik bilgilerini için gizli bir anahtar eklemek için:
-  - Tıklatın **anahtarları** bölümünde **ayarları** sayfası.  
+  - Tıklatın **anahtarları** bölümünde **ayarları** sayfası. 
   - Anahtarınız için bir açıklama ekleyin.
   - Bir veya iki yıllık süresini seçin.
   - **Kaydet**’e tıklayın. Yapılandırma değişiklikleri kaydettikten sonra en sağdaki sütun anahtar değeri içerir. **Anahtar kopyaladığınızdan emin olun** istemci uygulama kodunuzda kullanmak için bir kez erişilebilir olmadığı bu sayfadan ayrılmak.
@@ -141,7 +141,7 @@ Bir istemci bir web API kaynak uygulama (örneğin, Microsoft Graph API) tarafı
 6. Tamamlandığında, tıklatın **seçin** düğmesini **erişimi etkinleştir** sayfasında, sonra **Bitti** düğmesini **API Ekle erişim** sayfası. Döndürülürsünüz **gerekli izinleri** sayfası, burada yeni kaynak eklenir API'lerin listesi.
 
   > [!NOTE]
-  > Tıklatarak **Bitti** düğmesini de otomatik olarak izinleri ayarlar, uygulamanız için yapılandırdığınız diğer uygulamalara izinler göre dizininizde.  Uygulamayı bakarak bu uygulama izinlerini görüntüleyebildiği **ayarları** sayfası.
+  > Tıklatarak **Bitti** düğmesini de otomatik olarak izinleri ayarlar, uygulamanız için yapılandırdığınız diğer uygulamalara izinler göre dizininizde. Uygulamayı bakarak bu uygulama izinlerini görüntüleyebildiği **ayarları** sayfası.
   > 
   > 
 
@@ -182,7 +182,7 @@ Aşağıdaki bölümde kaynak uygulama bildirimi değiştirerek erişim kapsamla
   > Ek kapsamlar daha sonra gerektikçe getirebilir. Web API çeşitli farklı işlevler ile ilişkili birden çok kapsam doğurabilir göz önünde bulundurun. Kaynağınız kapsamı değerlendirerek çalışma zamanında web API erişimi denetleyebilirsiniz (`scp`) talepleri alınan OAuth 2.0 erişim belirteci.
   > 
 
-6. Tamamlandığında tıklatarak **kaydetmek**. Artık web API'nizi dizininizde diğer uygulamalar tarafından kullanılmak üzere yapılandırılmıştır.  
+6. Tamamlandığında tıklatarak **kaydetmek**. Artık web API'nizi dizininizde diğer uygulamalar tarafından kullanılmak üzere yapılandırılmıştır. 
 
   ![Bir uygulamanın kayıt güncelleştir](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +210,7 @@ Uygulama hakkında daha fazla bilgi için genel kavramlar bildirim, bkz: [Azure 
 
 Gösterme/API'leri, kendi uygulamalarınızda erişmenin yanı sıra daha önce belirtildiği gibi istemci uygulamanızın Microsoft kaynaklar tarafından kullanıma sunulan API'lere erişim kaydedebilirsiniz. Microsoft Graph API başvurduğu portal'ın kaynak/API listesinde, "Microsoft Graph" olarak Azure AD ile kayıtlı olan tüm uygulamaları için kullanılabilir. Bir Office 365 aboneliği için kaydolup hesaplarını içeren bir kiracı istemci uygulamanızı kaydediyorsanız çeşitli Office 365 kaynaklar tarafından kullanıma sunulan kapsamları da erişebilirsiniz.
 
-Microsoft Graph API'si tarafından kullanıma sunulan kapsamlar üzerinde tam hakkında bilgi için bkz [izin kapsamları | Microsoft Graph API kavramları](https://graph.microsoft.io/docs/authorization/permission_scopes) makalesi.
+Microsoft Graph API'si tarafından kullanıma sunulan kapsamlar üzerinde tam hakkında bilgi için bkz [Microsoft Graph izinleri başvuru](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) makalesi.
 
 > [!NOTE]
 > Geçerli bir sınırlama nedeniyle "kuruluşunuzun dizinine erişim" izni kullanırsanız, yerel istemci uygulamaları Azure AD Graph API yalnızca çağırabilir. Bu kısıtlama, web uygulamaları için geçerli değil.
@@ -247,7 +247,7 @@ Değişiklikleri yaptıktan sonra kullanıcılar ve Yöneticiler, diğer kurulu�
 
 #### <a name="changing-the-application-to-support-multi-tenant"></a>Çok kiracılı destekleyecek şekilde değiştirme
 
-Çok kiracılı uygulamalar için destek üzerinde Azure AD onay framework yoğun olarak kullanır. Onay, kullanıcının Kiracı tarafından güvenli hale getirilmiş kaynaklara uygulama erişim vermek için başka bir kiracı, gelen bir kullanıcı izin veren mekanizmasıdır. Bu deneyim "kullanıcı izni." adlandırılır
+Çok kiracılı uygulamalar için destek üzerinde Azure AD onay framework yoğun olarak kullanır. Onay kullanıcının Kiracı tarafından güvenli hale getirilmiş kaynaklara uygulama erişim vermek için başka bir kiracı gelen bir kullanıcı izin veren mekanizmadır. Bu deneyim "kullanıcı izni." adlandırılır
 
 Web uygulamanız da teklif edebilir:
 
@@ -289,7 +289,7 @@ Varsayılan olarak, OAuth 2.0 örtük Grant uygulamalar için devre dışıdır.
 Bu bölümde, bir uygulamanın kayıt Azure AD kiracınıza kaldırmayı açıklar.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Kuruluşunuz tarafından yazılan bir uygulamayı kaldırma
-Kuruluşunuzun kayıtlı olan uygulamaları Göster altında, kiracının ana "uygulama kayıtlar" sayfasında "Uygulamalarım" filtre. Bu olanları Azure portalı üzerinden veya program aracılığıyla PowerShell veya grafik API'si aracılığıyla el ile kayıtlı uygulamalardır. Daha açık belirtmek gerekirse, bunlar hem uygulama ve hizmet asıl nesne tarafından kiracınızda gösterilir. Daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
+Altında kuruluşunuzun kayıtlı olan uygulamaları görüntülenir, kiracının ana "uygulama kayıtlar" sayfasında "Uygulamalarım" filtre. Bu olanları Azure portalı üzerinden veya program aracılığıyla PowerShell veya grafik API'si aracılığıyla el ile kayıtlı uygulamalardır. Daha açık belirtmek gerekirse, bunlar hem uygulama ve hizmet asıl nesne tarafından kiracınızda gösterilir. Daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Tek kiracılı uygulama dizininizden kaldırmak için
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -307,15 +307,15 @@ Kuruluşunuzun kayıtlı olan uygulamaları Göster altında, kiracının ana "u
 6. Tıklatın **Evet** onay iletisi.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Başka bir kuruluş tarafından yetkili bir çok kiracılı uygulama kaldırma
-Bir alt kümesini Göster "Tüm uygulamaların" filtre altında uygulamaları (hariç "Uygulamalarım" kayıtlar), kiracının ana "Uygulama kayıtlar" sayfasında, çok kiracılı uygulamalardır. Teknik koşulları, bu çok kiracılı uygulamalar başka bir kiracıdan yüklenir ve Kiracı onay işlemi sırasında kaydettirildi. Daha açık belirtmek gerekirse, bunlar yalnızca bir hizmet asıl nesnesinde, Kiracı tarafından karşılık gelen hiçbir uygulama nesnesi ile temsil edilir. Uygulama ve hizmet asıl nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneleri Azure AD'de](active-directory-application-objects.md).
+Bir alt kümesini "Tüm uygulamaların" filtre altında görünür uygulamaları (hariç "Uygulamalarım" kayıtlar), kiracının ana "Uygulama kayıtlar" sayfasında, çok kiracılı uygulamalardır. Teknik koşulları, bu çok kiracılı uygulamalar başka bir kiracıdan yüklenir ve Kiracı onay işlemi sırasında kaydettirildi. Daha açık belirtmek gerekirse, bunlar yalnızca bir hizmet asıl nesnesinde, Kiracı tarafından karşılık gelen hiçbir uygulama nesnesi ile temsil edilir. Uygulama ve hizmet asıl nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneleri Azure AD'de](active-directory-application-objects.md).
 
-(İzin verilen sonra) dizininiz bir çok kiracılı uygulama erişimi kaldırmak için şirket Yöneticisi kendi hizmet sorumlusu kaldırmanız gerekir. Yönetici gerekir genel yönetici erişimine sahip ve Azure portalından kaldırabilir veya kullanmak [Azure AD PowerShell cmdlet'leri](http://go.microsoft.com/fwlink/?LinkId=294151) erişimi kaldırmak için.
+(İzin verilen sonra) dizininiz bir çok kiracılı uygulama erişimi kaldırmak için şirket Yöneticisi kendi hizmet sorumlusu kaldırmanız gerekir. Yönetici gerekir genel yönetici erişimine sahip ve Azure portalı üzerinden kaldırmak veya kullanmak [Azure AD PowerShell cmdlet'leri](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kimlik doğrulaması Azure AD'de nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
 - Bkz: [tümleşik uygulamalar için markalama yönergeleri](active-directory-branding-guidelines.md) uygulamanız için görsel kılavuz ipuçları için.
 - Bir uygulamanın uygulama ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
 - Uygulama bildirim yürütür rolü hakkında daha fazla bilgi edinmek için [Azure Active Directory Uygulama bildirimini anlama](active-directory-application-manifest.md)
-- Bkz: [Azure AD Geliştirici sözlüğü](active-directory-dev-glossary.md) bazı Azure Active Directory (AD) Geliştirici kavramları tanımları için.
+- Bkz: [Azure AD Geliştirici sözlüğü](active-directory-dev-glossary.md) bazı çekirdek Azure AD Geliştirici kavramları tanımları için.
 - Ziyaret [Active Directory Geliştirici Kılavuzu](active-directory-developers-guide.md) Geliştirici ilişkili tüm içeriği genel bakış.
 

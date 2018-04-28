@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
@@ -26,7 +26,7 @@ Bu makalede Azure PowerShell'i Resource Manager şablonları ile kaynakları Azu
 
 Resource Manager şablonu ya da makinenizde yerel bir dosya ya da GitHub gibi bir havuzda bulunan dış dosyası dağıtabilirsiniz. Bu makalede dağıttığınız şablonu kullanılabilir [örnek şablonu](#sample-template) bölümünde veya as [depolama hesabı şablonu github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell modülünü yüklemek [Azure PowerShell Kılavuzu](/powershell/azure/overview)ve ardından çalıştırın `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell modülünü yüklemek [Azure PowerShell Kılavuzu](/powershell/azure/overview)ve ardından çalıştırın `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ Bir şablon dağıtımı özelleştirmenize olanak sağlayan parametreler içere
 Aşağıdaki örnek, bir kaynak grubu oluşturur ve yerel makinenize bir şablondan dağıtır:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

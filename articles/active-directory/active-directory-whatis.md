@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 003ce2edda3e2069eb7e05f58ecc2e208c818946
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir?
 Azure Active Directory (Azure AD), Microsoft'un çok kiracılı, bulut tabanlı dizin ve çekirdek Dizin Hizmetleri, uygulama erişim yönetimi ve tek bir çözüm içine kimlik koruması birleştirir Identity management hizmeti. Ayrıca, Azure AD erişim denetimi merkezi ilke ve kural göre uygulamalarını sunmak geliştiricilere sağlayan zengin, standartlara dayalı platformu sunar.
@@ -55,7 +55,7 @@ Azure Active Directory'yi geliştirmek için Azure Active Directory temel, Premi
 > Azure Active Directory özellikleri sayısı "Kullandıkça Öde" sürümleri kullanılabilir:
 >
 > * Active Directory B2C, tüketiciye yönelik uygulamalarınız için kimlik ve erişim yönetimi çözümü ' dir. Daha fazla bilgi için bkz: [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
-> * Azure multi-Factor Authentication kimlik doğrulama sağlayıcıları veya kullanıcı başına aracılığıyla kullanılabilir. Daha fazla bilgi için bkz: [Azure multi-Factor Authentication nedir?](../multi-factor-authentication/multi-factor-authentication.md)
+> * Azure multi-Factor Authentication kimlik doğrulama sağlayıcıları veya kullanıcı başına aracılığıyla kullanılabilir. Daha fazla bilgi için bkz: [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md)
 >
 
 ## <a name="how-can-i-get-started"></a>Çalışmaya nasıl?

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -171,8 +171,8 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 * <a id="afs-files-excluded"></a>
 **Otomatik olarak Azure dosya eşitleme tarafından hangi dosya veya klasörleri hariç tutulur?**  
     Varsayılan olarak, Azure dosya eşitleme aşağıdaki dosyaları hariç tutar:
-    * desktop.ini
-    * thumbs.db
+    * Desktop.ini
+    * Thumbs.DB
     * ehthumbs.db
     * ~$\*.\*
     * \*.laccdb
@@ -181,7 +181,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
     Aşağıdaki klasörlerin de varsayılan olarak tutulur:
 
-    * \System Volume Information
+    * \System volume Information
     * \$GERİ DÖNÜŞÜM. DEPO
     * \SyncShareState
 
@@ -257,7 +257,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
     Evet. Azure dosyaları en fazla 200 paylaşımı anlık görüntüleri tutabilirsiniz. Bu yüzden paylaşımı anlık görüntüleri paylaşım başına sınır tüm paylaşım anlık görüntüleri tarafından kullanılan toplam alanı paylaşım kotası doğru sayılmaz. Depolama hesabı sınırları hala geçerlidir. 200 paylaşımı anlık görüntüleri sonra yeni paylaşım anlık görüntüleri oluşturmak için eski anlık görüntüleri silmeniz gerekir.
 * <a id="snapshot-cost"></a>
 **Ne kadar anlık görüntü maliyet paylaşmak?**  
-    Standart işlem ve standart depolama maliyeti anlık görüntü için geçerli olur. Doğası gereği artımlı anlık görüntüler. Paylaşım temel bir anlık görüntüdür. Sonraki tüm anlık görüntüleri artımlı ve yalnızca önceki anlık görüntüden fark depolar. Bu, faturanıza görülen delta değişiklikleri, iş yükü karmaşıklığı en az ise en az olacağı anlamına gelir. Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/en-us/pricing/details/storage/files/) standart Azure fiyatlandırma bilgileri dosyaları için. Paylaşım anlık görüntü tarafından tüketilen boyutu bakmak için faturalanan kapasiteyle karşılaştırarak yoludur bugün kapasite kullanılır. Raporlama artırmak araç çalışıyoruz.
+    Standart işlem ve standart depolama maliyeti anlık görüntü için geçerli olur. Doğası gereği artımlı anlık görüntüler. Paylaşım temel bir anlık görüntüdür. Sonraki tüm anlık görüntüleri artımlı ve yalnızca önceki anlık görüntüden fark depolar. Bu, faturanıza görülen delta değişiklikleri, iş yükü karmaşıklığı en az ise en az olacağı anlamına gelir. Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/files/) standart Azure fiyatlandırma bilgileri dosyaları için. Paylaşım anlık görüntü tarafından tüketilen boyutu bakmak için faturalanan kapasiteyle karşılaştırarak yoludur bugün kapasite kullanılır. Raporlama artırmak araç çalışıyoruz.
 
 
 ### <a name="create-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma

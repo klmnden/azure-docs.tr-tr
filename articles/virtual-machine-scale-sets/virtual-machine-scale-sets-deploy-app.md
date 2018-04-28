@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri, uygulamanızda dağıtma
-Ölçek kümesindeki sanal makine (VM) örneklerinde uygulamalarını çalıştırmak için önce gerekli dosyaları ve uygulama bileşenleri yüklemeniz gerekir. Bu makalede bir ölçek durumlarda ayarlayın ya da var olan VM örneklerini otomatik olarak yükleme betikleri çalıştırmak için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca uygulama veya işletim sistemi güncelleştirmelerini ölçek kümesi boyunca yönetmeyi öğrenin.
+Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Bu makalede bir ölçek durumlarda ayarlayın ya da var olan VM örneklerini otomatik olarak yükleme betikleri çalıştırmak için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca uygulama veya işletim sistemi güncelleştirmelerini ölçek kümesi boyunca yönetmeyi öğrenin.
 
 
 ## <a name="build-a-custom-vm-image"></a>Özel bir VM görüntüsü oluşturma
@@ -42,7 +42,7 @@ Yapılandırma yönetimi ve bir VM sağlayacak süresini azaltmak için bir örn
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Bir Windows PowerShell DSC ile VM uygulama yükleme
-[PowerShell istenen durum yapılandırması (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) hedef makinelere yapılandırmasını tanımlamak için bir yönetim platformu. DSC yapılandırmaları ne bir makineye yüklemek ve ana bilgisayar yapılandırma tanımlayın. İstenen eylemlerini basılmış yapılandırmalarını temel alan işler her bir hedef düğümde yerel Configuration Manager (LCM'yi) altyapısı çalışır.
+[PowerShell istenen durum yapılandırması (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) hedef makinelere yapılandırmasını tanımlamak için bir yönetim platformu. DSC yapılandırmaları ne bir makineye yüklemek ve ana bilgisayar yapılandırma tanımlayın. İstenen eylemlerini basılmış yapılandırmalarını temel alan işler her bir hedef düğümde yerel Configuration Manager (LCM'yi) altyapısı çalışır.
 
 PowerShell DSC uzantısı ölçeği PowerShell ile Ayarla VM örnekleri özelleştirmenizi sağlar. Aşağıdaki örnek:
 

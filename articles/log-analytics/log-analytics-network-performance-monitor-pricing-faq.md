@@ -15,74 +15,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 5b2335ee2584af07ed23ce87be92a869f3a07ba1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure ağı Performans İzleyicisi için fiyatlandırma değişiklikleri
+# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure Ağ Performansı İzleyicisi için fiyatlandırma değişiklikleri
 
-Geri bildiriminiz için dinleme ve yakın zamanda sunulan bir [yeni deneyimi fiyatlandırma](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), Azure üzerinde çeşitli için izleme hizmetleri.
-
-Bu belge için Azure ilgili fiyatlandırma değişiklikleri yakalar [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) herhangi bir soru ve yanıt biçimi okunması kolaydır.
+Biz geri bildirimlerinize kulak ve en yeni bir [yeni deneyimi fiyatlandırma](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure çeşitli için izleme hizmetleri. Bu makalede Azure için ilgili fiyatlandırma değişiklikleri yakalar [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) kolay okunur soru ve yanıt biçiminde.
 
 Ağ Performansı İzleyicisi üç bileşenden oluşur:
 * [Performans İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Hizmet uç noktası İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) ve
-* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Hizmet uç noktası İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
+* [ExpressRoute İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-Aşağıdaki bölümde yukarıdaki bileşenleri için fiyatlandırma değişiklikleri açıklanmaktadır.
+Aşağıdaki bölümlerde NPM bileşenleri için fiyatlandırma değişiklikleri açıklamaktadır.
 
-## <a name="performance-monitor-pm"></a>Performans İzleyicisi'ni (PM)
+## <a name="performance-monitor"></a>Performans İzleyicisi
 
 **Performans İzleyicisi'ni eski modelinde faturalandırılır kullanımını nasıl oldu mu?**
 
-NPM için fatura kullanım/tüketimi iki bileşenden dayanır:
-* Düğüm: Tüm yapay işlemler kaynaklanan ve düğümler sonlandırılacak. Düğümler aynı zamanda aracıları veya MMA (Microsoft Yönetim Aracısı) adlandırılır.
-* Veri: Çeşitli ağ test sonuçlarını günlük analizi deposunda saklanır.
+NPM için fatura kullanım ve iki bileşenden tüketim dayalı:
+* **Düğümleri**: tüm yapay işlemler kaynaklanan ve düğümler sonlandırılacak. Düğümler aynı zamanda aracıları veya Microsoft Yönetim aracıları olarak adlandırılır.
+* **Veri**: çeşitli ağ test sonuçlarını Azure günlük analizi deposunda saklanır.
 
 Eski modelinde, fatura düğüm sayısı ile oluşturulan veri hacmine göre hesaplanmıştır. 
 
-**Performans İzleyicisi, yeni modeli altında ücret kullanımını nasıl mi?**
+**Kullanım Performans İzleyicisi'nin altında yeni model nasıl ücretlendirilir?**
 
 NPM Performans İzleyicisi'ni özelliği şimdi bir birleşimini faturalandırılır: 
 
-* izlenen alt ağ bağlantıları ve
-* Veri birimi
+* İzlenen alt ağ bağlantıları
+* Veri hacmi
 
 **Bir alt ağ bağlantı nedir?**
 
-Performans İzleyicisi ağda iki veya daha fazla konum arasında bağlantısını izler.  Düğümleri/aracıları bir alt ağdaki bir grup ve bir grubu başka bir alt ağdaki düğümler arasındaki bağlantı adlandırılır alt ağ bağlantı olarak.
+Performans İzleyicisi ağda iki veya daha fazla konum arasında bağlantısını izler. Bir Grup düğümleri veya bir alt ağdaki aracıları ve bir grubu başka bir alt ağdaki düğümler arasındaki bağlantı, bir alt ağ bağlantı adı verilir.
 
-**I iki alt ağ (alt ağ A ve B) ve her alt ağda birkaç aracıları sahiptir.  Performans İzleyicisi B. alt ağdaki tüm aracıların bir alt ağdaki tüm aracıların bağlantısını izler  I arası alt ağ bağlantılarının sayısı göre ücretlendirilir?**
+**(A ve B) iki alt ağa sahip ve her alt ağda birkaç aracıları sahibim. Performans İzleyicisi B. alt ağdaki tüm aracıların bir alt ağdaki tüm aracıların bağlantısını izler I arası alt ağ bağlantılarının sayısı göre ücretlendirilir?**
 
-Hayır. Faturalandırma amacıyla alt ağına B alt ağı gelen tüm bağlantıları bir alt ağ bağlantısına birlikte gruplanır ve tek bir bağlantı için faturalandırılır.  Performans İzleyicisi, her alt ağda çeşitli aracılar arasındaki bağlantıyı izlemek devam eder.
+Hayır. Faturalandırma amacıyla, alt ağa B alt ağı gelen tüm bağlantıları bir alt ağ bağlantısına birlikte gruplandırılır. Tek bir bağlantı için fatura. Performans İzleyicisi'ni her alt ağda çeşitli aracılar arasındaki bağlantıyı izlemeye devam eder.
 
 **Bir alt ağ bağlantı izleme maliyetleri nelerdir?**
 
-Başlıklı bölüme bakın [Ping kafes](https://azure.microsoft.com/pricing/details/network-watcher/) tüm ay için tek bir alt ağ bağlantısını izleme maliyeti.
+Maliyet tüm ay için tek bir alt ağ bağlantısını izleme Bkz [Ping kafes](https://azure.microsoft.com/pricing/details/network-watcher/) bölümü.
 
-**Performans İzleyicisi tarafından oluşturulan veri ücretleri nelerdir?**
+**Performans İzleyicisi'ni oluşturur veri ücretleri nelerdir?**
 
-Alım (günlük işleme ve dizin oluşturma analizi, karşıya yükleme veri) için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) günlük analizi için.  (Bölüm: veri alımı).
-
-Veri saklama (diğer bir deyişle, ilk ayın ötesinde müşterinin seçeneği korunur veri) için ücretsiz olarak da kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/).  (Bölüm: veri saklama).
+Alım (günlük işleme ve dizin oluşturma analizi, karşıya yükleme veri) için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) veri alımı bölümündeki günlük analizi için. Veri saklama (diğer bir deyişle, ilk ayın ötesinde müşterinin seçeneği korunur veri) için ücretsiz olarak da kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/), veri saklama bölümünde.
 
 
-## <a name="expressroute-monitor-erm"></a>ExpressRoute İzleyicisi'ni (ERM)
+## <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi
 
 **ExpressRoute İzleyicisi'nin kullanım ücretleri nelerdir?**
 
-ExpressRoute İzleyici için ücret izleme sırasında oluşturulan veri hacmine göre faturalandırılır.   "Performans İzleyicisi tarafından oluşturulan veri ücretleri nelerdir?" soruya bakın Daha fazla bilgi için.
+ExpressRoute İzleyici için ücret izleme sırasında oluşturulan veri hacmine göre faturalandırılır. Daha fazla bilgi için "Performans İzleyicisi'ni oluşturur veri ücretleri nelerdir?" konusuna bakın.
 
-**I ERM birden çok ExpressRoute bağlantı hatlarını izlemek için kullanın. I izlenmekte olan devreler sayısına göre ücret 'M?**
+**I birden çok ExpressRoute bağlantı hatları izlemek için ExpressRoute İzleyicisi'ni kullanın. I izlenmekte olan devreler sayısına göre ücret 'M?**
 
-Değil Ücretli tabanlı ya da sayısını devreler veya eşliği türünü (örneğin, özel eşleme, Microsoft eşlemesi).  Yukarıda açıklandığı şekilde, bir veri biriminde sizden ücret kesilir.
+Değil Ücretli tabanlı ya da sayısını devreler veya eşliği türünü (örneğin, özel eşleme, Microsoft eşlemesi). Veri hacmine göre daha önce açıklandığı gibi sizden ücret kesilir.
 
-**Tek bir hattı izlerken, oluşturulan veri hacmini nedir?**
+**Tek bir hattı ExpressRoute izler zaman oluşturulan veri hacmini nedir?**
 
-Özel bir eşleme bağlantı izleme gibi olduğunda ayda oluşturulan veri hacmi:
+Her zaman ExpressRoute özel bir eşleme bağlantı izler, ay, oluşturulan veri hacmini aşağıdaki gibidir:
 
 |Yüzdebirlik      |Veri/ay (MB)|
 | :---:          |           ---:|
@@ -94,18 +90,18 @@ Değil Ücretli tabanlı ya da sayısını devreler veya eşliği türünü (ör
 |95<sup>th</sup> |           1560|
 
 
-Yukarıdaki tabloda 50. Yüzdeliğini müşterilerine 192 MB veri için ücret ödersiniz. ABD Doları $2.30/GB olarak ilk ayı için bir bağlantı hattı izleme için ücrete ABD Doları maliyetidir 0.43 (192 * 2.30 = / 1024) ilk ayı için.
+Bu tablo göre 50. Yüzdeliğini müşterilerine 192 MB veri için ücret ödersiniz. ABD Doları $2.30/GB olarak ilk ayı için bir bağlantı hattı izleme için ücrete ABD Doları maliyetidir $0.43 (192 * 2.30 = / 1024).
 
-**Veri birimi Çeşitlemeler nedenlerinden bazıları nelerdir?**
+**Bazı nedenlerle Veri hacmi Çeşitlemeler nelerdir?**
 
 Birimin oluşturulan veri izleme gibi çeşitli etkenlere bağlıdır:
-* Aracı sayısı artan aracılar - hata Yalıtımı doğruluğunu sayısını artırır
-* ağ üzerinde durak sayısı
-* Kaynak ve hedef arasındaki yolları sayısı
+* Aracı sayısı. Aracı sayısı artan hataya yalıtım doğruluğunu artırır.
+* Ağ üzerinde durak sayısı.
+* Kaynak ve hedef arasındaki yolları sayısı.
 
-Daha yüksek bir yüzdebirlik değeri (Yukarıdaki tablodaki), müşterilerinin genellikle kendi devreler kendi şirket içi ağındaki birkaç vantage noktalarından izleyin.  Birden çok aracı ayrıca ağ hizmeti sağlayıcısı sınır yönlendiricisi uzağa daha derin yerleştirilir. Aracıları genellikle birkaç kullanıcı siteleri, dal ve veri merkezleri rafları yerleştirilmiş.
+Daha yüksek bir yüzdebirlik değeri (önceki tabloda) müşterilerine genellikle kendi devreler kendi şirket içi ağındaki birkaç vantage noktalarından izleyin. Birden çok aracı ayrıca ağ hizmeti sağlayıcısı sınır yönlendiricisi uzağa daha derin yerleştirilir. Aracılar, genellikle birkaç kullanıcı sitelerde, dalları ve veri merkezleri rafları yerleştirilir.
 
-## <a name="service-endpoint-monitor-sepm"></a>Hizmet uç noktası İzleyicisi (SEPM)
+## <a name="service-endpoint-monitor"></a>Hizmet uç noktası İzleyicisi
 
 **Hizmet uç noktası İzleyicisi'nin kullanım ücretleri nelerdir?**
 
@@ -119,10 +115,9 @@ Bir bağlantı ulaşılabilirlik sınamasını bir uç nokta (URL veya ağ hizme
 
 **Hizmet uç noktası İzleyicisi maliyetlerini nelerdir?**
 
-- Başvurmak [bağlantı izleme](https://azure.microsoft.com/pricing/details/network-watcher/) tüm ay için bir uç nokta izleme maliyeti için bölüm.
-- Veri için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) günlük analizi için.  (Bölüm: veri alımı).
+Başvurmak [bağlantı izleme](https://azure.microsoft.com/pricing/details/network-watcher/) tüm ay için bir uç nokta izleme bölümü maliyeti. Veri için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) veri alımı bölümündeki günlük analizi için.
 
 ## <a name="references"></a>Başvurular
 
-- [Günlük analizi fiyatlandırma SSS](https://azure.microsoft.com/pricing/details/log-analytics/) -SSS bölümüne sahip düğüm fiyatlandırma, vb. başına ücretsiz katmanı hakkında bilgi.
+[Günlük analizi fiyatlandırma SSS](https://azure.microsoft.com/pricing/details/log-analytics/): SSS bölümüne sahip düğüm fiyatlandırma başına ücretsiz katmanı ve diğer fiyatlandırma ayrıntıları hakkında bilgi.
 

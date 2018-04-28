@@ -1,25 +1,25 @@
 ---
-title: "Grup tabanlı Azure AD'de lisans için PowerShell örnekleri | Microsoft Docs"
-description: "Azure Active Directory grup tabanlı lisans için PowerShell senaryoları"
+title: Grup tabanlı Azure AD'de lisans için PowerShell örnekleri | Microsoft Docs
+description: Azure Active Directory grup tabanlı lisans için PowerShell senaryoları
 services: active-directory
 keywords: Azure AD lisanslama
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 04/23/2018
 ms.author: curtand
-ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60387840b9a155c3d8494efb2d41cc094d05504b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Grup tabanlı Azure AD'de lisans için PowerShell örnekleri
 
@@ -28,8 +28,8 @@ Grup tabanlı lisans için tam işlevsellik aracılığıyla kullanılabilir [Az
 > [!NOTE]
 > Cmdlet'leri çalıştırmayı başlamadan önce bağlandığınız kiracınız için ilk olarak, çalıştırarak emin olun `Connect-MsolService` cmdlet'i.
 
->[!WARNING]
->Bu kod örneği tanıtım amacıyla sağlanır. Ortamınızda kullanmak istiyorsanız, küçük bir ölçekte veya ayrı bir test Kiracı ilk test göz önünde bulundurun. Ortamınıza özel ihtiyaçlarını karşılamak için kodu ayarlamanız gerekebilir.
+> [!WARNING]
+> Bu kod örneği tanıtım amacıyla sağlanır. Ortamınızda kullanmak istiyorsanız, küçük bir ölçekte veya ayrı bir test Kiracı ilk test göz önünde bulundurun. Ortamınıza özel ihtiyaçlarını karşılamak için kodu ayarlamanız gerekebilir.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Bir gruba atanan görünüm ürün lisansları
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet, Grup nesnesini almak ve denetlemek için kullanılabilir *lisansları* özelliği: gruba atanmış tüm ürün lisansları listeler.
@@ -202,17 +202,17 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 Burada, başka bir sürümü, lisans hataları içeren grupları arar betik verilmiştir. Bu daha burada birkaç gruplarınız sorunlarıyla beklediğiniz senaryoları için en iyi duruma getirilmiş.
 
 ```
-Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
-    $user = $_;
-    $user.IndirectLicenseErrors | % {
-            New-Object Object |
-                Add-Member -NotePropertyName UserName -NotePropertyValue $user.DisplayName -PassThru |
-                Add-Member -NotePropertyName UserId -NotePropertyValue $user.ObjectId -PassThru |
-                Add-Member -NotePropertyName GroupId -NotePropertyValue $_.ReferencedObjectId -PassThru |
-                Add-Member -NotePropertyName LicenseError -NotePropertyValue $_.Error -PassThru
-        }
-    }
-```
+$groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
+    foreach ($groupId in $groupIds) {
+    Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
+        Get-MsolUser -ObjectId {$_.ObjectId} |
+        Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId.ObjectID} |
+        Select DisplayName, `
+               ObjectId, `
+               @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId.ObjectID} | Select -ExpandProperty Error}}
+ 
+    } 
+``` 
 
 ## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Kullanıcı lisansı doğrudan atanmış veya gruptan devralınan olmadığını denetleyin
 

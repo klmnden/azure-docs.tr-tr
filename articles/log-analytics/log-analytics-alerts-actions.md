@@ -12,16 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 717adf1b19b9de8542ec507df3a01b187d0df8a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Günlük analizi uyarı kurallarında eylemleri ekleyin
+
+> [!NOTE]
+> Günlük analizi uyarıların [Azure'da genişletilen](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Azure kullanım uyarıları [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md) bu makaledeki bilgileri yerine kendi eylemleri tanımlamak için.
+
+
 Zaman bir [uyarı günlük analizi oluşturulan](log-analytics-alerts.md), seçeneğiniz vardır [uyarı kuralı yapılandırma](log-analytics-alerts.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, her tür yapılandırma hakkında ayrıntılar ve kullanılabilir farklı eylemler açıklanmaktadır.
 
 | Eylem | Açıklama |
@@ -32,7 +37,7 @@ Zaman bir [uyarı günlük analizi oluşturulan](log-analytics-alerts.md), seçe
 
 
 ## <a name="email-actions"></a>E-posta Eylemler
-E-posta Eylemler bir veya daha fazla alıcıya uyarı ayrıntılarını içeren bir e-posta gönderin.  Posta konusunu belirtebilirsiniz, ancak buna ait günlük analizi tarafından oluşturulan standart bir biçim içeriktir.  Uyarı günlüğü araması tarafından döndürülen en fazla on kayıt ayrıntılarını yanı sıra adı gibi özet bilgileri içerir.  Ayrıca, kayıt kümesinin tamamını Bu sorgudan döndürülecek günlük analizi günlük arama bağlantısını içerir.   Posta gönderen *Microsoft Operations Management Suite ekibi &lt; noreply@oms.microsoft.com &gt;* . 
+E-posta Eylemler bir veya daha fazla alıcıya uyarı ayrıntılarını içeren bir e-posta gönderin.  Postanın konusunu belirtebilirsiniz ancak içeriği, Log Analytics tarafından oluşturulan standart bir biçimdedir.  Uyarı günlüğü araması tarafından döndürülen en fazla on kayıt ayrıntılarını yanı sıra adı gibi özet bilgileri içerir.  Ayrıca bu sorgudan tüm kayıt kümesini döndürür günlük analizi, günlük arama bağlantısını içerir.   Posta gönderen *Microsoft Operations Management Suite ekibi &lt; noreply@oms.microsoft.com &gt;* . 
 
 E-posta eylemler özellikler aşağıdaki tabloda gerektirir.
 
@@ -44,7 +49,7 @@ E-posta eylemler özellikler aşağıdaki tabloda gerektirir.
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 
-Web kancası eylemleri, bir dış işlem tek bir HTTP POST isteği üzerinden çağırma olanak tanır.  Çağrılan Hizmet Web kancalarını destekleyen ve tüm yükü nasıl kullanacağınızı belirleyin aldığı.  Ayrıca, istek API özelliğini algılayan bir biçimde olduğu sürece, özellikle Web kancalarını desteklemeyen bir REST API'si çağırabilirsiniz.  Bir Web kancası yanıt olarak bir uyarı kullanma örnekleri bir ileti gönderiyorsunuz [Slack'e](http://slack.com) veya bir olay oluşturma [PagerDuty](http://pagerduty.com/).  Kayma çağırmak için bir Web kancası ile bir uyarı kuralı oluşturma izlenecek tam yol şu adresten edinilebilir [Kancalarını günlük analizi uyarılar](log-analytics-alerts-webhooks.md).
+Web kancası eylemleri, bir dış işlem tek bir HTTP POST isteği üzerinden çağırma olanak tanır.  Çağrılan Hizmet Web kancalarını destekleyen ve nasıl herhangi yükü kullandığını belirlemek aldığı.  Ayrıca, istek API özelliğini algılayan bir biçimde olduğu sürece, özellikle Web kancalarını desteklemeyen bir REST API'si çağırabilirsiniz.  Bir Web kancası yanıt olarak bir uyarı kullanma örnekleri bir ileti gönderiyorsunuz [Slack'e](http://slack.com) veya bir olay oluşturma [PagerDuty](http://pagerduty.com/).  Kayma çağırmak için bir Web kancası ile bir uyarı kuralı oluşturma izlenecek tam yol şu adresten edinilebilir [Kancalarını günlük analizi uyarılar](log-analytics-alerts-webhooks.md).
 
 Web kancası eylemleri özellikler aşağıdaki tabloda gerektirir.
 
@@ -54,10 +59,8 @@ Web kancası eylemleri özellikler aşağıdaki tabloda gerektirir.
 | Özel JSON yükü |Web kancası ile göndermek için özel yükü.  Ayrıntılar için aşağıya bakın. |
 
 
-Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yükü içerir.  Varsayılan olarak, aşağıdaki tabloda değerleri yükü içerir.  Bu yük özel bir kendi tarihle seçebilirsiniz.  Bu durumda, değişkenleri tabloda her parametre için değer özel yükünüzü dahil etmek için kullanabilirsiniz.
+Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yükü içerir.  Varsayılan olarak, yükü değerleri aşağıdaki tabloda içerir.  Bu yük özel bir kendi tarihle seçebilirsiniz.  Bu durumda, değişkenleri tabloda her parametre için değer özel yükünüzü dahil etmek için kullanabilirsiniz.
 
->[!NOTE]
-> Çalışma alanınız [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md) yükseltilmişse ağ kancası yükü değiştirilmiştir.  Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Bir örnekte görebilirsiniz [örnekleri](#sample-payload) aşağıda.
 
 | Parametre | Değişken | Açıklama |
 |:--- |:--- |:--- |
@@ -110,9 +113,9 @@ Runbook eylemleri özellikler aşağıdaki tabloda gerektirir.
 | Runbook | Bir uyarı oluşturulduğunda başlatmak istediğiniz Runbook. |
 | Üzerinde çalışır | Belirtin **Azure** runbook bulutta çalıştırmak için.  Belirtin **karma çalışanı** runbook'u ile bir aracı çalıştırmayı [karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md ) yüklü.  |
 
-Runbook eylemleri başlatmak kullanarak runbook bir [Web kancası](../automation/automation-webhooks.md).  Uyarı kuralı oluşturduğunuzda, runbook için yeni bir Web kancası adı ile otomatik olarak oluşturacağı **OMS uyarı düzeltme** bir GUID ile birlikte.  
+Runbook eylemleri başlatmak kullanarak runbook bir [Web kancası](../automation/automation-webhooks.md).  Uyarı kuralı oluşturduğunuzda, otomatik olarak runbook için yeni bir Web kancası adı ile oluşturur **OMS uyarı düzeltme** bir GUID ile birlikte.  
 
-Runbook'un parametreleri doğrudan doldurulamıyor ancak [$WebhookData parametresi](../automation/automation-webhooks.md) oluşturulduğu günlük arama sonuçları dahil olmak üzere Uyarı ayrıntılarını içerir.  Runbook tanımlamanız gereken **$WebhookData** uyarı özelliklerine erişmek için bir parametre olarak.  Uyarı verileri json biçiminde adlı tek bir özellik bulunur **SearchResult** (için runbook eylemleri ve standart yükü Web kancası eylemleri) veya **SearchResults** (Web kancası eylemleri özel Yükü de dahil olmak üzere **IncludeSearchResults ": true**) içinde **RequestBody** özelliği **$WebhookData**.  Bu, aşağıdaki tabloda özelliklere sahip olacaktır.
+Runbook'un parametreleri doğrudan doldurulamıyor ancak [$WebhookData parametresi](../automation/automation-webhooks.md) oluşturulduğu günlük arama sonuçları dahil olmak üzere Uyarı ayrıntılarını içerir.  Runbook tanımlamak gereken **$WebhookData** uyarı özelliklerine erişmek için bir parametre olarak.  Uyarı verileri json biçiminde adlı tek bir özellik bulunur **SearchResult** (için runbook eylemleri ve standart yükü Web kancası eylemleri) veya **SearchResults** (Web kancası eylemleri özel Yükü de dahil olmak üzere **IncludeSearchResults ": true**) içinde **RequestBody** özelliği **$WebhookData**.  Bu, aşağıdaki tabloda özelliklerinde sahip.
 
 >[!NOTE]
 > Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sonra da runbook yükü değişti.  Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Bir örnekte görebilirsiniz [örnekleri](#sample-payload) aşağıda.  
@@ -121,43 +124,12 @@ Runbook'un parametreleri doğrudan doldurulamıyor ancak [$WebhookData parametre
 |:--- |:--- |
 | id |Yol ve arama GUID. |
 | __metadata |Arama sonuçlarını durumunu ve kayıt sayısı dahil olmak üzere uyarı hakkında bilgi. |
-| değer |Arama sonuçlarında her kayıt için ayrı girişi.  Giriş ayrıntılarını özellikleri ve kayıt değerleri ile eşleşir. |
+| değer |Arama sonuçlarında her kayıt için ayrı girişi.  Giriş ayrıntılarını özellikleri ve kaydın değerleri aynı. |
 
 Örneğin, aşağıdaki runbook'lar, günlük araması tarafından döndürülen kayıtları Ayıkla ve her kayıt türüne göre farklı özellikler atayın.  Runbook dönüştürerek başlatır Not **RequestBody** , BT ile PowerShell nesne olarak çalışılabilecek biçimde json öğesinden.
 
 >[!NOTE]
-> Bu runbook'lar her ikisini de kullanmanız **SearchResult** runbook Eylemler ve standart yükü Web kancası eylemleri sonuçlarını içeren özellik olduğu.  Runbook özel bir yükü kullanarak bir Web kancası yanıttan adı veriliyordu, bu özelliğe değiştirmeniz gerekir **SearchResults**.
-
-Aşağıdaki runbook yükü ile çalışacak bir [eski günlük analizi çalışma alanı](log-analytics-log-search-upgrade.md).
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-Aşağıdaki runbook yükü ile çalışacak bir [günlük analizi çalışma alanı yükseltilmiş](log-analytics-log-search-upgrade.md).
+> Bu runbook kullanan **SearchResult** runbook Eylemler ve standart yükü Web kancası eylemleri sonuçlarını içeren özellik olduğu.  Runbook özel bir yükü kullanarak bir Web kancası yanıttan adı veriliyordu, bu özelliğe değiştirmeniz gerekir **SearchResults**.
 
     param ( 
         [object]$WebhookData
@@ -208,88 +180,12 @@ Aşağıdaki runbook yükü ile çalışacak bir [günlük analizi çalışma al
 
 
 ## <a name="sample-payload"></a>Örnek yükü
-Bu bölüm içinde her iki eski Web kancası ve runbook eylemler için örnek yükü gösterir ve bir [günlük analizi çalışma alanı yükseltilmiş](log-analytics-log-search-upgrade.md).
+Bu bölümde Web kancası ve runbook eylemler için örnek yükü gösterir.
 
 ### <a name="webhook-actions"></a>Web kancası eylemleri
-Bu örneklerin her ikisini de kullanmanız **SearchResult** Web kancası eylemler için birlikte standart yükü sonuçlarını içeren özellik olduğu.  Web kancası arama sonuçlarını içeren özel bir yükü kullandıysanız, bu özellik olacak **SearchResults**.
+Bu örnekte **SearchResult** Web kancası eylemler için birlikte standart yükü sonuçlarını içeren özellik olduğu.  Web kancası arama sonuçlarını içeren özel bir yükü kullandıysanız, bu özellik olacak **SearchResults**.
 
-#### <a name="legacy-workspace"></a>Eski çalışma alanı.
-Eski çalışma alanında bir Web kancası eylemi için örnek yükü aşağıdadır.
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### <a name="upgraded-workspace"></a>Yükseltilen çalışma alanı.
-Yükseltilmiş bir çalışma alanında bir Web kancası eylemi için örnek yükü aşağıdadır.
+Bir Web kancası eylemi için örnek yükü aşağıdadır.
 
     {
     "WorkspaceId": "workspaceID",
@@ -427,64 +323,7 @@ Yükseltilmiş bir çalışma alanında bir Web kancası eylemi için örnek yü
 
 ### <a name="runbooks"></a>Runbook'lar
 
-#### <a name="legacy-workspace"></a>Eski çalışma
-Eski çalışma alanında bir runbook eylemi için örnek yükü aşağıdadır.
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### <a name="upgraded-workspace"></a>Yükseltilen çalışma
-Yükseltilmiş bir çalışma alanında bir runbook eylemi için örnek yükü aşağıdadır.
+Bir runbook eylemi için örnek yükü aşağıdadır.
 
     {
     "WorkspaceId": "workspaceID",

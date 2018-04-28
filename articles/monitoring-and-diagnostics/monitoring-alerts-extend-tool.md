@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Azure'a OMS (kopya) uyarıları genişletme
 Başlangıç **14 Mayıs 2018**, yapılandırılan uyarıları aracılığıyla tüm müşterilere [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), Azure'da uzatılır. Azure için genişletilmiş uyarıları OMS aynı şekilde davranır. İzleme yeteneklerini değişmeden kalır. Azure için OMS oluşturulan uyarıların genişletme birçok avantaj sağlar. Avantajları ve Uyarılar için Azure OMS genişletme işlemi hakkında daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure'a](monitoring-alerts-extend.md).
@@ -221,7 +221,7 @@ Ve son olarak, belirtilen çalışma alanında, tüm uyarıları zaten planlanm�
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme 
-Azure'da OMS uyarılar genişletme işlemi sırasında olabilir sistem gerekli oluşturmasını engeller zaman sorunları [Eylem grupları](monitoring-action-groups.md). Böyle durumlarda, başlık uyarı bölümünde ve API için yapılan GET çağrısı aracılığıyla OMS portalında bir hata iletisi gösterilir.
+Azure'da OMS uyarılar genişletme işlemi sırasında olabilir sistem gerekli oluşturmasını engeller nadir [Eylem grupları](monitoring-action-groups.md). Böyle durumlarda, başlık uyarı bölümünde ve API için yapılan GET çağrısı aracılığıyla OMS portalında bir hata iletisi gösterilir.
 
 Aşağıda listelenen her bir hata düzeltme adımları şunlardır:
 1. **Hata: Abonelik 'Microsoft.ınsights' ad alanını kullanmak için kayıtlı değil**: ![kayıt hata iletisi OMS portalı uyarı ayarları sayfası](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +236,14 @@ Aşağıda listelenen her bir hata düzeltme adımları şunlardır:
     a. Kapsam zaman kilitleme, abonelik veya kaynak grubu için günlük analizi (OMS) çalışma içeren yeni herhangi bir değişikliği kısıtlama etkinleştirilir; Azure'da (kopya) uyarıları genişletmek ve gerekli Eylem grupları oluşturmak sistem alamıyor.
     
     b. Çözmek için silme *ReadOnly* Azure portalını, PowerShell'i, Azure CLI veya API kullanarak; çalışma içeren abonelik veya kaynak grubunuz kilit. Daha fazla bilgi için makaleyi görüntülemek [kaynak kilit kullanımı](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Makalede gösterilen adımları göredir çözülmüş sonra OMS Azure'da uyarılarınızı sonraki günün zamanlanmış çalıştırmada içinde Uzat; herhangi bir eylem veya başlatma gerek olmadan.
+
+3. **Hata: Abonelik/kaynak grubu düzeyinde ilke varsa**: ![ilke hata iletisi OMS portalı uyarı ayarları sayfası](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Zaman [Azure ilke](../azure-policy/azure-policy-introduction.md) uygulanır, abonelik veya kaynak grubu için günlük analizi (OMS) çalışma; içeren yeni bir kaynak kısıtlama sistem Azure'da (kopya) uyarıları genişletmek ve gerekli Eylem grupları oluşturmak alamıyor.
+    
+    b. İlke neden gidermek için Düzenle *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* çalışma içeren, abonelik veya kaynak grubu üzerinde yeni kaynaklar oluşturulmasını engeller hata. Azure portalını, PowerShell'i, Azure CLI veya API kullanarak; hataya neden olan uygun ilke bulmak için eylemlerini denetleyebilirsiniz. Daha fazla bilgi için makaleyi görüntülemek [Eylemler denetim için etkinlik günlükleri görüntüleme](../azure-resource-manager/resource-group-audit.md). 
     
     c. Makalede gösterilen adımları göredir çözülmüş sonra OMS Azure'da uyarılarınızı sonraki günün zamanlanmış çalıştırmada içinde Uzat; herhangi bir eylem veya başlatma gerek olmadan.
 

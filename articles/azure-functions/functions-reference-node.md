@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri için JavaScript Geliştirici Başvurusu | Microsoft Docs"
-description: "JavaScript kullanarak işlevleri geliştirmek nasıl anlayın."
+title: Azure işlevleri için JavaScript Geliştirici Başvurusu | Microsoft Docs
+description: JavaScript kullanarak işlevleri geliştirmek nasıl anlayın.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari"
+editor: ''
+tags: ''
+keywords: azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure işlevleri için JavaScript deneyimi olarak geçirilen bir işlev dışarı aktarmak kolaylaştırır bir `context` alırken ve verileri bağlamaları aracılığıyla gönderme ve çalışma zamanı ile iletişim kurmak için nesne.
 
@@ -89,7 +88,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-### <a name="contextdone-method"></a>context.done method
+### <a name="contextdone-method"></a>Context.Done yöntemi
 ```
 context.done([err],[propertyBag])
 ```
@@ -120,7 +119,7 @@ Varsayılan izleme düzeyinde akış konsol günlükleri yazmanızı sağlar. Ü
 | ---------------------- | ------------------------------------------ |
 | **hata (_ileti_)**   | Hata düzeyi oturum açma ya da daha düşük yazar.   |
 | **warn (_ileti_)**    | Uyarı düzeyi oturum açma ya da daha düşük yazar. |
-| **info(_message_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
+| **bilgi (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
 | **verbose (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme yazar.           |
 
 Aşağıdaki örnek, uyarı izleme düzeyinde konsola yazar:
@@ -210,7 +209,7 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları istek ve yanıt nesneleri 
 | ------------- | -------------------------------------------------------------- |
 | _Gövde_        | İstek gövdesini içeren bir nesne.               |
 | _Üstbilgileri_     | İstek üstbilgilerini içeren bir nesne.                   |
-| _method_      | İsteğin HTTP yöntemi.                                |
+| _Yöntemi_      | İsteğin HTTP yöntemi.                                |
 | _originalUrl_ | İstek URL'si.                                        |
 | _Parametreleri_      | İsteğin Yönlendirme parametreleri içeren bir nesne. |
 | _Sorgu_       | Sorgu parametreleri içeren bir nesne.                  |

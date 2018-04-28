@@ -1,24 +1,24 @@
 ---
-title: "Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için"
-description: "Yönetilen hizmet kimliği Azure Active Directory için bilinen sorunlar."
+title: Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
+description: Yönetilen hizmet kimliği Azure Active Directory için bilinen sorunlar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>Sık Sorulan Sorular (SSS)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>Özel önizleme ek özellikler için kullanılabilir var olmadığı?
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Var. özel Önizleme programına yaklaşan MSI özelliklerini ve tümleştirmeler var mı?
 
-Evet. Özel önizleme kayıt dikkate istiyorsanız [kaydolma sayfamızı ziyaret edin](https://aka.ms/azuremsiprivatepreview).
+Evet. Özel önizleme programı kayıt için değerlendirilmesi istiyorsanız [kaydolma sayfamızı ziyaret edin](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI Azure bulut Hizmetleri ile çalışır mı?
 
@@ -42,10 +42,24 @@ Hayır, MSI henüz ADAL veya MSAL ile tümleşiktir değil. MSI REST uç noktas�
 
 Kimliğin güvenlik sınırı kendisine bağlı olduğu kaynaktır. Örneğin, bir sanal makine MSI için güvenlik sınırı, sanal makine olur. Bu VM üzerinden çalışan herhangi bir kod MSI uç noktasını çağırmak ve belirteçler istemek kullanabilirsiniz. MSI destekleyen diğer kaynaklarla benzer deneyimidir.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>MSI VM IMDS uç nokta veya MSI VM uzantısı uç nokta kullanmalıyım?
+
+MSI VM ile birlikte kullanırken, MSI IMDS uç nokta kullanarak öneririz. Azure örneği meta veri hizmeti Azure Resource Manager aracılığıyla oluşturulan tüm Iaas VM'ler için erişilebilir bir REST uç noktadır. MSI IMDS kullanmanın avantajları bazıları şunlardır:
+
+1. Tüm Azure Iaas desteklenen işletim sistemleri MSI IMDS kullanabilirsiniz. 
+2. Artık, VM MSI etkinleştirmek için bir uzantı yüklemeniz gerekir. 
+3. MSI tarafından kullanılan sertifikaların artık VM'yi mevcut değildir. 
+4. IMDS uç noktası bir iyi bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca kullanılabilir değil. 
+
+MSI VM uzantısı hala bugün kullanılmak üzere kullanılabilir olduğunu; Ancak, biz varsayılan IMDS uç noktası için kullanılacak ilerleyen. MSI VM uzantısı kullanımdan plan üzerinde yakında başlayacak. 
+
+Azure örneği Metada hizmeti hakkında daha fazla bilgi için bkz: [IMDS belgeleri](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>Desteklenen Linux dağıtımları nelerdir?
 
-Aşağıdaki Linux dağıtımları MSI destekler: 
+Azure Iaas tarafından desteklenen tüm Linux dağıtımları ile MSI IMDS uç noktası aracılığıyla kullanılabilir. 
 
+Not: MSI VM uzantısı yalnızca aşağıdaki Linux dağıtımları destekler:
 - CoreOS kararlı
 - CentOS 7.1
 - RedHat 7.2

@@ -1,7 +1,7 @@
 ---
-title: "PowerShell: Azure Hdınsight kümesini Data Lake Store eklenti depolama | Microsoft Docs"
+title: 'PowerShell: Azure Hdınsight kümesini Data Lake Store eklenti depolama | Microsoft Docs'
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: db10e6f2cc06e493fd3269c6ac7c7ef8213fb1ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Data Lake Store (olarak ek depolama alanı) ile bir Hdınsight kümesi oluşturmak için Azure PowerShell'i kullanma
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Bir Data Lake Store oluşturmak için aşağıdaki adımları izleyin.
 1. Masaüstünüzde yeni bir Azure PowerShell penceresi açın ve aşağıdaki kod parçacığını girin. Oturum açmanız istendiğinde, bir abonelik Yöneticisi/sahibi oturum açtığınızdan emin olun:
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 044c901799ff7acae1e27602b84802f6b5f70f05
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>PowerShell kullanarak Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -45,7 +45,7 @@ Azure PowerShell sağlar *cmdlet'leri* uzaktan Hdınsight'ta Hive sorguları ça
 
 Aşağıdaki cmdlet, Hive sorguları bir uzak Hdınsight kümesinde çalıştırılırken kullanılır:
 
-* `Add-AzureRmAccount`: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
+* `Connect-AzureRmAccount`: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
 * `New-AzureRmHDInsightHiveJobDefinition`: Oluşturur bir *iş tanımı* belirtilen HiveQL ifadelerini kullanarak.
 * `Start-AzureRmHDInsightJob`: İş tanımı için Hdınsight gönderir ve işini başlatır. A *iş* nesne döndürülür.
 * `Wait-AzureRmHDInsightJob`: İş nesnesi, iş durumunu denetlemek için kullanır. İş tamamlandığında veya bekleme süresi aşılırsa kadar bekler.

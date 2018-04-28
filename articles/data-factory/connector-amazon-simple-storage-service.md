@@ -8,13 +8,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bb0b9e3db4637a6b872c7fed9653a16457b848db
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,14 +94,14 @@ Amazon S3'ten verileri kopyalamak için kümesine tür özelliği ayarlamak **Am
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **AmazonS3Object** |Evet |
 | bucketName | S3 demetini adı. |Evet |
-| anahtar | S3 nesne anahtarı. Yalnızca ön eki değil belirtildiğinde geçerlidir. |Hayır |
-| önek | S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar olmayan belirtildiğinde geçerlidir. |Hayır |
+| anahtar | **Adı veya joker karakter filtresini** belirtilen demetini altındaki S3 nesne anahtarının. Yalnızca "öneki" özelliği olmayan belirtildiğinde geçerlidir. <br/><br/>Joker karakter filtresi, yalnızca dosya adı bölümü ancak klasör bölümü için desteklenir. Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Örnek 2: `"key": "rootfolder/subfolder/???20180427.txt"` |Hayır |
+| önek | S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca "anahtar" özelliği belirtilmediğinde geçerlidir. |Hayır |
 | sürüm | S3 sürüm etkinleştirilirse S3 nesne sürümü. |Hayır |
 | Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Ayrıştırma veya belirli bir biçime sahip dosyaları oluşturmak istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
 
-> [!NOTE]
-> **bucketName + tuşu** burada demet S3 nesneleri için kök kapsayıcı ve anahtarıdır S3 nesnenin tam yolunun S3 nesnenin konumunu belirtir.
+>[!TIP]
+>Bir klasörü altındaki tüm dosyaları kopyalamak için belirtin **bucketName** sepet ve **önek** klasör bölümü için.<br>Belirli bir ada sahip tek bir dosya kopyalamak için belirtin **bucketName** sepet ve **anahtar** klasör bölümü artı dosya adı.<br>Bir klasör altındaki dosyalar kümesini kopyalamak için belirtin **bucketName** sepet ve **anahtar** klasör bölümü artı joker karakter filtresi için.
 
 **Örnek: önek kullanma**
 

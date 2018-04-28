@@ -1,19 +1,19 @@
 ---
-title: "Uygulama veya kullanıcıya özel Marathon hizmeti"
-description: "Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma"
+title: Uygulama veya kullanıcıya özel Marathon hizmeti
+description: Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 61cc379bf32f3e0db11d8fd9dae36d9ecb6b1a6c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
 
@@ -23,7 +23,7 @@ Bu makalede size bir uygulamaya veya kullanıcıya özel Marathon hizmeti ekleme
 
 Bu hizmet bir tek bir kullanıcı veya ekibe ait olduğundan bunlar istenen herhangi bir şekilde yapılandırılabilir. Ayrıca, Azure Container Service hizmetin çalışmaya devam etmesini sağlar. Hizmet başarısız olursa Azure Container Service sizin için yeniden başlatır. Çoğu zaman kesinti yaşandığının farkına varmazsınız bile.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 [DC/OS orchestrator türüyle Azure Container Service örneğini dağıtın](container-service-deployment.md) ve [istemcinizin kümenize bağlanabildiğinden emin olun](../container-service-connect.md). Ayrıca aşağıdaki adımları uygulayın.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

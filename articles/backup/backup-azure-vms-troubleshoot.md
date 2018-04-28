@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 93eb9a65e9d5733963f7d6269a06d5f3cde5e256
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında oluşan hatalar giderebilirsiniz.
@@ -36,7 +36,7 @@ Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında o
 | Sanal makine yok. -Lütfen sanal makinenin var olduğundan emin olun veya farklı bir sanal makine seçin. |Bu, birincil VM silindiği, ancak yedekleme gerçekleştirmek bir VM için aramak yedekleme ilkenizi devam durumlarda gerçekleşir. Bu hatayı düzeltmek için: <ol><li> Aynı kaynak grubu adı [bulut hizmet adı] ve aynı ada sahip sanal makine oluşturun<br>(VEYA)<br></li><li>Yedekleme verilerini silmeden sanal makine korumasını durdurun. [Daha fazla ayrıntı](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Komut yürütme başarısız oldu. -Başka bir işlem şu anda bu öğeyi sürüyor. Önceki işlem tamamlanana kadar bekleyin ve sonra yeniden deneyin |Var olan bir yedeğini VM üzerinde çalıştığından ve var olan iş çalışırken yeni bir işi başlatılamıyor. |
 | VHD'ler kopyalama zaman aşımına uğradı yedekleme Kasası'ndan Lütfen işlemi birkaç dakika içinde yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun. | Bu depolama tarafında geçici bir hata varsa veya yedekleme hizmeti yeterli IOPS kasa için zaman aşımı süresi içinde veri aktarımı için VM barındırma depolama hesabından almaktır değil gerçekleşir. Uyguladığınız emin olun [en iyi uygulamalar](backup-azure-vms-introduction.md#best-practices) yedekleme ayarı oluştu. Farklı bir depolama alanına VM yedekleme hesap yüklü değil ve yeniden deneyin taşımayı deneyin.|
-| Yedekleme bir iç hatayla başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin. Sorun devam ederse, Microsoft Support başvurun |2 nedenlerden dolayı bu hatayı alabilirsiniz: <ol><li> VM depolama erişirken geçici bir sorun yoktur. Lütfen denetleyin [Azure durum](https://azure.microsoft.com/en-us/status/) herhangi devam eden işlem ilgili bir sorun, depolama veya bölgede ağ olup olmadığını görmek için. Sorun çözüldükten sonra yedekleme işini yeniden deneyin. <li>Orijinal VM silinecek ve bu nedenle, kurtarma noktası alınamaz. Silinen bir VM için yedekleme verileri tutmak, ancak yedekleme hataları kaldırmak için: VM korumasını kaldırın ve verileri koruma seçeneğini seçin. Bu eylem, zamanlanmış yedekleme işi ve yinelenen hata iletileri durdurur. |
+| Yedekleme bir iç hatayla başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin. Sorun devam ederse, Microsoft Support başvurun |2 nedenlerden dolayı bu hatayı alabilirsiniz: <ol><li> VM depolama erişirken geçici bir sorun yoktur. Lütfen denetleyin [Azure durum](https://azure.microsoft.com/status/) herhangi devam eden işlem ilgili bir sorun, depolama veya bölgede ağ olup olmadığını görmek için. Sorun çözüldükten sonra yedekleme işini yeniden deneyin. <li>Orijinal VM silinecek ve bu nedenle, kurtarma noktası alınamaz. Silinen bir VM için yedekleme verileri tutmak, ancak yedekleme hataları kaldırmak için: VM korumasını kaldırın ve verileri koruma seçeneğini seçin. Bu eylem, zamanlanmış yedekleme işi ve yinelenen hata iletileri durdurur. |
 | Seçilen öğe üzerinde - Azure kurtarma Hizmetleri Uzantısı yüklenemedi VM Aracısı Azure kurtarma Hizmetleri uzantısı için önkoşuldur. Azure VM aracısı yükleyin ve kayıt işlemini yeniden başlatın |<ol> <li>VM Aracısı'nı doğru şekilde yüklenip yüklenmediğini denetleyin. <li>VM yapılandırma bayrağı doğru ayarlandığından emin olun.</ol> [Daha fazla bilgi](#validating-vm-agent-installation) VM aracısı ve VM Aracısı yüklemesini doğrulamak nasıl yükleme hakkında. |
 | Uzantı yüklemesi "COM + için Microsoft Distributed Transaction Coordinator konuşun başaramadı hatasıyla başarısız oldu |Bu, genellikle COM + hizmeti çalışmadığı anlamına gelir. Bu sorunu düzeltme konusunda yardım için Microsoft Destek'e başvurun. |
 | Anlık görüntü işlemi, "Bu sürücünün BitLocker Sürücü Şifrelemesi tarafından kilitlenmiş. VSS işlemi hatasıyla başarısız oldu Denetim Masası'ndan bu sürücünün kilidini açmanız gerekir. |VM üzerindeki tüm sürücüleri için BitLocker'ı açın ve VSS sorunun giderilip giderilmediğini inceleyin |
@@ -59,7 +59,7 @@ Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında o
 | İptal bu iş türü için desteklenmeyen - iş tamamlanana kadar bekleyin. |None |
 | İş iptal edilebilen bir durumda değil - iş tamamlanana kadar bekleyin. <br>OR<br> Seçilen işin iptal edilebilen bir durumda değil - işi tamamlamak lütfen bekleyin. |Tüm olasılığını içinde iş neredeyse tamamlandı. İş tamamlanana kadar bekleyin.|
 | İş sürüyor değil - iptal yalnızca sürmekte olan işleri için desteklenen olduğundan iptal edilemez. Lütfen girişimi iptal bir sürüyor işi. |Bu hatanın nedeni geçici bir durum nedeniyle oluşur. Bir dakika bekleyin ve İptal işlemi yeniden deneyin. |
-| Başarısız işi iptal-işi tamamlanana kadar bekleyin. |Hiçbiri |
+| Başarısız işi iptal-işi tamamlanana kadar bekleyin. |None |
 
 ## <a name="restore"></a>Geri Yükleme
 | Hata ayrıntıları | Geçici çözüm |
@@ -73,7 +73,7 @@ Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında o
 | Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |None |
 | Geri yükleme işlemi için belirtilen depolama hesabı türü çevrimiçi değil - geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun |Azure Storage veya kesinti nedeniyle geçici bir hata nedeniyle gerçekleşebilir. Lütfen başka bir depolama hesabı seçin. |
 | Kaynak grubu kotasına ulaşıldı - Lütfen Azure Portalı'ndan bazı kaynak gruplarını silin veya sınırları artırmak için Azure desteğine başvurun. |None |
-| Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |Hiçbiri |
+| Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |None |
 | Yedekleme Hizmeti'nin aboneliğinizdeki kaynaklara erişme yetkisi yok. |Bu, ilk geri yükleme bölümünde belirtilen adımları kullanarak diskleri sorunu çözmek için **yedeklenmiş diskleri geri yükleme** içinde [VM seçerek geri yükleme yapılandırmasını](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Bundan sonra belirtilen PowerShell adımları kullanın [geri yüklenen disklerden bir VM oluşturmak](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) geri yüklenen disklerden tam VM oluşturmak için. |
 
 ## <a name="backup-or-restore-taking-time"></a>Yedekleme veya geri yükleme sürüyor

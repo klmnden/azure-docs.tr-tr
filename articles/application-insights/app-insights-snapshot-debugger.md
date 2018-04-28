@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights .NET uygulamaları için hata ayıklayıcı anlık görüntü | Microsoft Docs"
-description: "Hata ayıklama anlık görüntüleri otomatik olarak üretim .NET uygulamaları özel durumlar, toplanan"
+title: Azure Application Insights .NET uygulamaları için hata ayıklayıcı anlık görüntü | Microsoft Docs
+description: Hata ayıklama anlık görüntüleri otomatik olarak üretim .NET uygulamaları özel durumlar, toplanan
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: pharring
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
@@ -29,7 +29,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 * Windows üzerinde çalışan .NET core 2.0 ve ASP.NET Core 2.0 uygulamaları.
 
 Aşağıdaki ortamlarda desteklenir:
-* Azure App Service.
+* Azure uygulama hizmeti.
 * İşletim sistemi ailesi 4 veya üstünü çalıştıran Azure bulut hizmeti.
 * Windows Server 2012 R2 veya sonraki sürümlerde çalışan azure Service Fabric hizmetler.
 * Windows Server 2012 R2 çalıştıran Azure sanal makineler veya sonraki bir sürümü.
@@ -42,7 +42,7 @@ Aşağıdaki ortamlarda desteklenir:
 
 1. [Application Insights web uygulamanızda etkinleştirmek](app-insights-asp-net.md), henüz yapmadınız.
 
-2. Dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi. 
+2. Dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
 3. Pakete eklenen varsayılan seçenekleri gözden [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -92,10 +92,18 @@ Aşağıdaki ortamlarda desteklenir:
 
 3. Uygulamanızın değiştirme `Startup` eklemek ve anlık görüntü toplayıcının telemetri işlemci yapılandırmak için sınıf.
 
+    Aşağıdaki using deyimlerini ekleyin `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Aşağıdakileri ekleyin `SnapshotCollectorTelemetryProcessorFactory` sınıfının `Startup` sınıfı.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ Aşağıdaki ortamlarda desteklenir:
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Ekleme `SnapshotCollectorConfiguration` ve `SnapshotCollectorTelemetryProcessorFactory` başlangıç ardışık düzene Hizmetleri:
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ Aşağıdaki ortamlarda desteklenir:
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>İzin ver
 
 Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullanıcıların bir sahibi tarafından izin verilmesi gerekir.
@@ -208,7 +216,7 @@ Anlık görüntü hata ayıklama Görünümü'nde, çağrı yığını ve deği�
 Varsayılan olarak görüntülenebilir olmadıkları ve anlık görüntüleri hassas bilgiler içerebilir. Anlık görüntüler görüntülemek için bilmeniz gereken `Application Insights Snapshot Debugger` rolü size atanmış.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise sahip anlık görüntüleri hata ayıklama
-1. Tıklatın **karşıdan anlık görüntü** karşıdan yüklemek için düğmeyi bir `.diagsession` Visual Studio 2017 kuruluş tarafından açılabilir dosya. 
+1. Tıklatın **karşıdan anlık görüntü** karşıdan yüklemek için düğmeyi bir `.diagsession` Visual Studio 2017 kuruluş tarafından açılabilir dosya.
 
 2. Açmak için `.diagsession` dosya, şunları yapmalısınız ilk [anlık görüntü hata ayıklayıcısı uzantısı için Visual Studio yükleyip](https://aka.ms/snapshotdebugger).
 
@@ -312,7 +320,7 @@ En az iki eşzamanlı anlık görüntüler için izin vermelidir.
 Örneğin, uygulamanızın toplam çalışma kümesinin 1 GB kullanıyorsa, en az 2 anlık görüntüleri saklamak için GB disk alanı olduğundan emin olmanız gerekir.
 Anlık görüntüler için yerel bir özel kaynak, bulut hizmet rolü yapılandırmak için aşağıdaki adımları izleyin.
 
-1. Yeni bir yerel kaynak, bulut hizmet tanımı (.csdf) dosyasını düzenleyerek, bulut hizmetine ekleyin. Aşağıdaki örnek denilen bir kaynağı tanımlayan `SnapshotStore` 5 GB boyuta sahip.
+1. Yeni bir yerel kaynağı, bulut hizmeti açıklaması (.csdef) dosyasını düzenleyerek bulut hizmetinize ekleyin. Aşağıdaki örnek denilen bir kaynağı tanımlayan `SnapshotStore` 5 GB boyuta sahip.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ Bu anlık görüntü Kimliğine sahip bir özel durum hala göremiyorsanız, öz
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Kodunuzda snappoints ayarlamak](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) için bir özel durum beklemeden anlık görüntüleri alınamıyor.
-* [Özel durumlar, web uygulamalarında tanılama](app-insights-asp-net-exceptions.md) daha fazla özel durumlar Application Insights tarafından görülebilmesi için açıklanmaktadır. 
+* [Özel durumlar, web uygulamalarında tanılama](app-insights-asp-net-exceptions.md) daha fazla özel durumlar Application Insights tarafından görülebilmesi için açıklanmaktadır.
 * [Akıllı algılama](app-insights-proactive-diagnostics.md) performans anormalliklerini otomatik olarak bulur.

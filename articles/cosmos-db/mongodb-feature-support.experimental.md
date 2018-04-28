@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
 ms.openlocfilehash: 0bae274a7bf849267aed92d1372bc26e86227cb2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve söz dizimi için MongoDB API’si desteği
 
@@ -39,7 +39,7 @@ Azure Cosmos DB tüm MongoDB API hesaplarında veritabanı aşağıdakileri dest
 - Bul
 - findAndModify
 - getLastError
-- getMore
+- kitaplarından elde
 - Ekle
 - Güncelleştirme
 
@@ -58,7 +58,7 @@ Azure Cosmos DB tüm MongoDB API hesaplarında veritabanı aşağıdakileri dest
 - listIndexes
 - dropIndexes
 - ConnectionStatus
-- reIndex
+- yeniden dizin oluşturma
 
 ### <a name="diagnostics-commands"></a>Tanılama komutları
 - buildInfo
@@ -77,7 +77,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 ### <a name="aggregation-commands"></a>Toplama komutları
 - Toplama
 - sayı
-- distinct
+- Farklı
 
 ### <a name="aggregation-stages"></a>Toplama aşamaları
 - $project
@@ -299,7 +299,7 @@ Aşağıdaki yöntemlerden desteklenir:
 
 Yöntem | Örnek | Notlar 
 --- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Belgeler sıralama anahtarı olmadan geri
+Cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Belgeler sıralama anahtarı olmadan geri
 
 ## <a name="unique-indexes"></a>Benzersiz dizinler
 

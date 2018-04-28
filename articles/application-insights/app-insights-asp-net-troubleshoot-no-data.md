@@ -1,6 +1,6 @@
 ---
-title: "Veri bulunmama sorunlarını giderme - .NET için Application Insights"
-description: "Azure Application ınsights'ta verileri görmesini değil mi? Burada deneyin."
+title: Veri bulunmama sorunlarını giderme - .NET için Application Insights
+description: Azure Application ınsights'ta verileri görmesini değil mi? Burada deneyin.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>My telemetri bazıları eksik
@@ -65,7 +65,7 @@ Application Insights veya belki de günlüğe kaydetme bağdaştırıcısı yük
 
 Çözüm Gezgini'nde, projenize sağ tıklayın ve seçin **Application Insights > Application Insights yapılandırma**. Azure'da oturum açmanız başvurulmasını bir iletişim kutusu elde edersiniz ve ya da bir Application Insights kaynağı oluşturun veya var olan bir yeniden kullanın.
 
-## <a name="NuGetBuild"></a>"NuGet paketleri yapı sunucum eksik"
+## <a name="NuGetBuild"></a> "NuGet paketleri yapı sunucum eksik"
 *Her şeyi Tamam my geliştirme makinenizde hata ayıklama, ancak derleme sunucuda bir NuGet hatası alıyorum oluşturur.*
 
 Lütfen bakın [NuGet paketi geri yüklemesi](http://docs.nuget.org/Consume/Package-Restore) ve [otomatik paket geri yükleme](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -124,7 +124,7 @@ Düzeltme:
     Var. bazı Özet grafikleri görürsünüz. Daha fazla ayrıntı için aralarında tıklatabilirsiniz.
 * Uygulamanızın hatalarını ayıkladığınız sırada Visual Studio'da Application Insights düğmesine tıklayın.
 
-## <a name="q03"></a>Hiçbir sunucu verisi (veya hiç veri yok)
+## <a name="q03"></a> Hiçbir sunucu verisi (veya hiç veri yok)
 *Uygulamam çalıştıran ve daha sonra Microsoft Azure'da Application Insights hizmeti açılır, ancak '... nasıl toplanacağını öğrenin' veya 'Yapılandırılmamış.' tüm grafikler Göster* Veya, *sayfa görünümü ve kullanıcı verilerini, ancak hiçbir sunucu verisi.*
 
 * Uygulamanızı (F5) Visual Studio'da hata ayıklama modunda çalıştırın. Uygulamayı birkaç telemetri oluşturmak amacıyla kullanın. Visual Studio çıktı penceresinde günlüğe kaydedilen olayları görebilirsiniz denetleyin. 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesapları ve izinleri
 Azure AD Connect Yükleme Sihirbazı'nı iki farklı yollarını sunar:
@@ -58,7 +58,7 @@ Bu kimlik bilgileri yalnızca yükleme sırasında kullanılır ve yükleme tama
 
 | İzin | İçin kullanılır |
 | --- | --- |
-| <li>Dizin Değişikliklerini Çoğaltma</li><li>Tüm çoğaltma dizini değiştirir |Parola Eşitleme |
+| <li>Dizin Değişikliklerini Çoğaltma</li><li>Tüm çoğaltma dizini değiştirir |Parola karma eşitlemesi |
 | Okuma/yazma tüm özellikleri kullanıcı |İçeri aktarma ve Exchange karma |
 | Okuma/yazma tüm özellikleri iNetOrgPerson |İçeri aktarma ve Exchange karma |
 | Tüm özellikleri Grup okuma/yazma |İçeri aktarma ve Exchange karma |
@@ -87,10 +87,10 @@ Belirttiğiniz şirket hesabının **dizinlerinizi bağlama** sayfa yükleme ön
 | Özellik | İzinler |
 | --- | --- |
 | msDS-ConsistencyGuid özelliği |Kısmında belgelenen msDS-ConsistencyGuid özniteliğine yazma izinleri [tasarım kavramları - sourceAnchor msDS-ConsistencyGuid kullanarak](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Parola Eşitleme |<li>Dizin Değişikliklerini Çoğaltma</li>  <li>Tüm çoğaltma dizini değiştirir |
+| Parola karma eşitlemesi |<li>Dizin Değişikliklerini Çoğaltma</li>  <li>Tüm çoğaltma dizini değiştirir |
 | Exchange karma dağıtımı |İçinde belirtilen öznitelikler yazma izinleri [Exchange karma geri yazma](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) kullanıcılar, gruplar ve kişiler için. |
 | Exchange posta ortak klasörü |İçinde belirtilen öznitelikler için Okuma izinleri [Exchange posta ortak klasör](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) ortak klasörleri için. | 
-| Parola geri yazma |İçinde belirtilen öznitelikler yazma izinleri [parola yönetimine Başlarken](../active-directory-passwords-writeback.md) kullanıcılar için. |
+| Parola geri yazma |İçinde belirtilen öznitelikler yazma izinleri [parola yönetimine Başlarken](../authentication/howto-sspr-writeback.md) kullanıcılar için. |
 | Cihaz geri yazma |Bölümünde açıklandığı gibi bir PowerShell Betiği ile verilen izinler [cihaz geri yazma](active-directory-aadconnect-feature-device-writeback.md). |
 | Grup geri yazma |Okuma, grup oluşturma, güncelleştirme ve silme eşitlenmesi için nesneleri **Office 365 grupları**.  Daha fazla bilgi için bkz: [grup geri yazma](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -143,7 +143,7 @@ Gösterge:
 - sMSA - [tek başına yönetilen hizmet hesabı](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - [Grup yönetilen hizmet hesabı](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | Yerel veritabanı</br>Express | LocalDB/LocalSQL</br>Özel | Uzak SQL</br>Özel |
+| | Yerel veritabanı</br>Express | Yerel veritabanı/LocalSQL</br>Özel | Uzak SQL</br>Özel |
 | --- | --- | --- | --- |
 | **tek başına/çalışma grubu makinesi** | Desteklenmiyor | **VSA**</br>Yerel hesap (2008)</br>Yerel hesap |  Desteklenmiyor |
 | **Makine etki alanına katılmış** | **VSA**</br>Yerel hesap (2008) | **VSA**</br>Yerel hesap (2008)</br>Yerel hesap</br>Etki alanı hesabı</br>smsa'yı, gMSA | **gMSA**</br>Etki alanı hesabı |

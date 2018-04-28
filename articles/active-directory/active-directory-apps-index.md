@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -42,8 +42,8 @@ Bu bölümde, ilgili sorun giderme kılavuzları hızlı erişim sağlar. Bu say
 |:---:| --- |
 | Federasyon çoklu oturum açma |[Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md) |
 | Parola tabanlı çoklu oturum açma |[Erişim paneli uzantısı Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) |
-| Uygulama Proxy'si |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
-| Çoklu oturum açma şirket içi arasında AD ve Azure AD |[Parola karma eşitleme sorunlarını giderme](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Parola geri yazma sorunlarını giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Uygulama Ara Sunucusu |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
+| Çoklu oturum açma şirket içi arasında AD ve Azure AD |[Parola karma eşitleme sorunlarını giderme](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Parola geri yazma sorunlarını giderme](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dinamik grup üyelikleri |[Dinamik grup üyeliklerini sorunlarını giderme](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Çoklu Oturum Açma (SSO)
@@ -96,7 +96,7 @@ Kuruluşunuzun şirket içi bulut Azure Active Directory'yi birlikte Windows Ser
 | Karma ortamlar yönetme hakkında bilgi yanı sıra, Azure AD Connect tek oturum açma seçenekleri hakkında genel bir bakış sunulur |[Kullanıcı oturum açma seçenekleri Azure AD'de Bağlan](active-directory-aadconnect-user-signin.md) |
 | Her ikisi de ortamlarıyla yönetmek için genel rehberlik Active Directory ve Azure Active Directory şirket içi |[Azure AD karma kimlik tasarımı hakkında dikkat edilecek noktalar](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) |
 | SSO'yu etkinleştirmek için parola eşitleme kullanarak Kılavuzu |[Azure AD ile parola eşitlemeyi uygulama Bağlan](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Parola eşitleme sorunlarını giderme](https://support.microsoft.com/en-us/kb/2855271) |
-| SSO'yu etkinleştirmek için parola geri yazma özelliğini kullanma konusunda yönergeler |[Azure AD'de parola yönetimine Başlarken](active-directory-passwords-getting-started.md)<br /><br />[Parola Geri Yazma Sorunlarını Giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| SSO'yu etkinleştirmek için parola geri yazma özelliğini kullanma konusunda yönergeler |[Azure AD'de parola yönetimine Başlarken](authentication/quickstart-sspr.md)<br /><br />[Parola Geri Yazma Sorunlarını Giderme](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | SSO'yu etkinleştirmek için üçüncü taraf kimlik sağlayıcıları kullanma konusunda yönergeler |[Çoklu oturum açmayı etkinleştirmek için kullanılan uyumlu üçüncü taraf kimlik sağlayıcıları listesi](https://aka.ms/ssoproviders) |
 | Windows 10 kullanıcıları Azure AD katılım aracılığıyla çoklu oturum açmaya yararları nasıl keyfini çıkarabilirsiniz |[10 cihaz Azure Active Directory üzerinden katılmak Windows bulut özelliklerini genişletme](active-directory-azureadjoin-overview.md) |
 
@@ -186,7 +186,7 @@ Azure AD erişim paneli burada son kullanıcılar uygulamalarını başlatmak ve
 | Kullanıcılar için çoklu oturum açma uygulamalarını dağıtmak için kullanılabilir farklı seçenekler karşılaştırması |[Tümleşik uygulamalarını kullanıcılara Azure AD dağıtma](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Erişim paneli ve kendi mobil eşdeğer MyApps genel bakış |[Erişim paneli ve MyApps giriş](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Azure AD uygulamalarınız Office 365 Web sitesinden erişme |[Office 365 uygulama Başlatıcı kullanma](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Azure AD uygulamaları Intune Managed Browser mobil uygulamasından erişmek nasıl |[Intune yönetilen tarayıcı](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Azure AD uygulamaları Intune Managed Browser mobil uygulamasından erişmek nasıl |[Intune yönetilen tarayıcı](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Çoklu oturum açma başlatmak için ayrıntılı bağlantılar kullanarak Azure AD uygulamaları erişme |[Oturum açma doğrudan bağlantılar uygulamalarınızı alma](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Erişim paneli yüklenebilir [Azure Active Directory'nin tüm sürümlerinde](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -208,6 +208,6 @@ Hangi raporların Azure Active Directory, farklı sürümlerine dahil olduğunu 
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 
-[Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
+[Azure Active Directory etki alanı Hizmetleri](https://azure.microsoft.com/services/active-directory-ds/)
 
-[Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
+[Azure çok faktörlü kimlik doğrulaması](https://azure.microsoft.com/services/multi-factor-authentication/)

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f3c8853331121fc1e267f6c569279f7d8df907b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Windows sanal makine oluşturma
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Sanal makineler hızlandırılmış etkin ağ ile oluşturulması gerekir. Bu özellik, varolan sanal makinelere etkinleştirilemez. Hızlandırılmış ağ iletişimi etkinleştirmek için aşağıdaki adımları tamamlayın:
 >   1. Sanal makineyi silin
 >   2. Hızlandırılmış ağ ile sanal makine oluşturun
@@ -52,7 +52,7 @@ Hızlandırılmış ağ en genel amaçlı ve işlem iyileştirilmiş örnek boyu
 VM örnekleri hakkında daha fazla bilgi için bkz: [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>Bölgeler
-Tüm ortak Azure bölgeleri ve Azure Bulutu kullanılabilir. 
+Tüm ortak Azure bölgeleri ve Azure Bulutu kullanılabilir.
 
 ## <a name="limitations"></a>Sınırlamalar
 Bu özelliği kullanırken aşağıdaki sınırlamalar bulunmaktadır:
@@ -65,7 +65,7 @@ Bu makale Azure PowerShell kullanarak hızlandırılmış ağ iletişimi ile bir
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Yükleme [Azure PowerShell](/powershell/azure/install-azurerm-ps) sürüm 5.1.1 veya sonraki bir sürümü. Şu anda yüklü sürümünü bulmak için Çalıştır `Get-Module -ListAvailable AzureRM`. AzureRM modülünden en son sürümünü yüklemek veya yükseltmek gerekiyorsa, yükleme [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM). Bir PowerShell oturumunda bir Azure hesabı kullanarak oturum açtığınız [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Yükleme [Azure PowerShell](/powershell/azure/install-azurerm-ps) sürüm 5.1.1 veya sonraki bir sürümü. Şu anda yüklü sürümünü bulmak için Çalıştır `Get-Module -ListAvailable AzureRM`. AzureRM modülünden en son sürümünü yüklemek veya yükseltmek gerekiyorsa, yükleme [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM). Bir PowerShell oturumunda bir Azure hesabı kullanarak oturum açtığınız [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *myNic*, ve *myVM*.
 
@@ -200,13 +200,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Sürücü işletim sisteminde yüklü doğrulayın
 
-Azure'da VM oluşturduktan sonra VM'ye bağlanın ve Windows'da sürücüsünün yüklü olduğunu onaylayın. 
+Azure'da VM oluşturduktan sonra VM'ye bağlanın ve Windows'da sürücüsünün yüklü olduğunu onaylayın.
 
 1. Bir Internet tarayıcısından Azure açın [portal](https://portal.azure.com) ve Azure hesabınızla oturum açın.
 2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *myVm*. Zaman **myVm** görünür arama sonuçlarında tıklatın. Varsa **oluşturma** altında görülebilir **Bağlan** düğmesi, Azure henüz tamamlanmadı VM oluşturma. Tıklatın **Bağlan** yalnızca sonra genel bakış sol üst köşesindeki artık bkz **oluşturma** altında **Bağlan** düğmesi.
 3. Kullanıcı adını ve parolasını girdiğiniz [sanal makine oluşturma](#create-the-virtual-machine). Bir Windows VM Azure hiçbir zaman bağlantı kurduğunuz olup [sanal makineye Bağlan](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Windows Başlat düğmesine sağ tıklatın ve **Aygıt Yöneticisi'ni**. Genişletme **ağ bağdaştırıcıları** düğümü. Onaylayın **Mellanox ConnectX-3 sanal işlev Ethernet bağdaştırıcısı** , aşağıdaki resimde gösterildiği gibi görünür:
-   
+
     ![Cihaz Yöneticisi](./media/create-vm-accelerated-networking/device-manager.png)
 
 Hızlandırılmış ağ, VM için etkinleştirilmiştir.

@@ -1,41 +1,41 @@
 ---
-title: "Azure Active Directory v2.0 Node.js web uygulaması oturum açma | Microsoft Docs"
-description: "Kişisel bir Microsoft hesabı ve bir iş veya Okul hesabı kullanarak bir kullanıcı oturum açtığında bir Node.js web uygulaması oluşturmayı öğrenin."
+title: Azure Active Directory v2.0 Node.js web uygulaması oturum açma | Microsoft Docs
+description: Kişisel bir Microsoft hesabı ve bir iş veya Okul hesabı kullanarak bir kullanıcı oturum açtığında bir Node.js web uygulaması oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1b889e72-f5c3-464a-af57-79abf5e2e147
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 05/13/2017
+ms.date: 04/20/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 230d8ad16dc62564f3c1149443dd59fbb9974db5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb16502ca255bf99c3780ff3975b6ca7f5a79993
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Oturum açma bir Node.js web uygulamasına ekleme
 
 > [!NOTE]
 > Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası ile çalışır. V2.0 uç noktası veya v1.0 uç nokta kullanması gerekip gerekmediğini belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
-> 
+>
 
-Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için Passport kullanın:
+Bu öğreticide, kullandığımız [passport azure ad](https://github.com/AzureAD/passport-azure-ad) aşağıdaki görevleri gerçekleştirmek için:
 
 * Bir web uygulaması, Azure Active Directory (Azure AD) ve v2.0 uç noktası kullanarak kullanıcı oturum.
 * Kullanıcı hakkındaki bilgileri görüntüler.
 * Uygulama dışında kullanıcı oturum açabilir.
 
-**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler, Passport sorunsuz bir şekilde bırakılan hiçbir Express tabanlı veya restify web uygulamasına. Passport, bir dizi kapsamlı strateji kimlik doğrulamasını bir kullanıcı adı ve parola, Facebook, Twitter veya diğer seçenekleri kullanarak destekler. Azure AD için bir strateji geliştirdik. Bu makalede, modülünü yüklemek ve Azure AD eklemek nasıl gösteriyoruz `passport-azure-ad` eklentisi.
+[Passport](http://passportjs.org/) Node.js için kimlik doğrulama Ara yazılımıdır. Esnek ve modüler, Passport sorunsuz bir şekilde bırakılan hiçbir Express tabanlı veya restify web uygulamasına. Passport, bir dizi kapsamlı strateji kimlik doğrulamasını bir kullanıcı adı ve parola, Facebook, Twitter veya diğer seçenekleri kullanarak destekler. Azure AD için bir strateji geliştirdik. Bu makalede, modülünü yüklemek ve Azure AD eklemek nasıl gösteriyoruz **passport azure ad** eklentisi.
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) korunur. Öğreticiyi izlemek için şunları yapabilirsiniz [uygulamanın çatısını bir .zip dosyası karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) veya çatıyı kopyalayın:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
@@ -47,40 +47,29 @@ En yeni bir uygulama oluşturma [apps.dev.microsoft.com](https://apps.dev.micros
 
 * Kopya **uygulama kimliği** uygulamanıza atanmış. Bu öğretici için ihtiyacınız.
 * Ekleme **Web** uygulamanız için platform.
-* Kopya **yeniden yönlendirme URI'si** portalından. Varsayılan URI değeri kullanmalısınız `urn:ietf:wg:oauth:2.0:oob`.
+* Aşağıdaki örnekte yapılandırılmış aşağıdaki URL'yi ekleyin `http://localhost:3000/auth/openid/return` olarak **yeniden yönlendirme URI'si**.
 
-## <a name="2-add-prerequisities-to-your-directory"></a>2: ön koşullar dizininize eklemek
-Zaten orada değilseniz kök klasörünüze gitmek için dizinleri bir komut isteminde değiştirin. Aşağıdaki komutları çalıştırın:
+## <a name="2-prerequisities-to-run-the-sample"></a>2: örneği çalıştırmak için ön koşullar
 
-* `npm install express`
-* `npm install ejs`
-* `npm install ejs-locals`
-* `npm install restify`
-* `npm install mongoose`
-* `npm install bunyan`
-* `npm install assert-plus`
-* `npm install passport`
-* `npm install webfinger`
-* `npm install body-parser`
-* `npm install express-session`
-* `npm install cookie-parser`
+Node.js oluşturmak ve bu örneği çalıştırmak için yüklü olması gerekir. Adresinden node.js'yi yükleyin http://nodejs.org/.
 
-Ayrıca, kullandığımız `passport-azure-ad` hızlı başlangıç çatısında önizlememiz:
+Zaten orada değilseniz kök klasörünüze gitmek için dizinleri bir komut isteminde değiştirin.
+Listelenen önkoşul düğümü modüllerini yüklemek için aşağıdaki komutu çalıştırın `package.json` dosyası:
 
-* `npm install passport-azure-ad`
+`npm install`
 
-Bu kitaplıklar yükler, `passport-azure-ad` kullanır.
+Bu ayrıca kitaplıkları yükler, `passport-azure-ad` kullanır.
 
-## <a name="3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3: passport düğümü js stratejisi kullanmak için uygulamanızı ayarlayın
+## <a name="3-set-up-your-app-to-use-passport-azure-ad"></a>3: passport azure ad kullanmak için uygulamanızı ayarlayın
 Openıd Connect kimlik doğrulama protokolünü kullanmak için Express ara yazılımını ayarlayın. Passport, oturum açma ve oturum kapatma isteklerini yürütmek, kullanıcının oturumunu yönetmek ve kullanıcı, başka şeylerin hakkında bilgi almak için kullanın.
 
-1.  Proje kök dizininde Config.js dosyasını açın. İçinde `exports.creds` bölümünde, uygulamanızın yapılandırma değerlerini girin.
-  
-  * `clientID`**Uygulama kimliği** Azure portalında uygulamanıza atanan.
+1.  Proje kök dizininde config.js dosyasını açın. İçinde `exports.creds` bölümünde, uygulamanızın yapılandırma değerlerini girin.
+
+  * `clientID`**Uygulama kimliği** portalında uygulamanıza atanan.
   * `returnURL`**Yeniden yönlendirme URI'si** portalda girdiğiniz.
   * `clientSecret`: Portalda oluşturulan gizli anahtarı.
 
-2.  Proje kök dizininde App.js dosyasını açın. İle birlikte OIDCStrategy stratey çağrılacak `passport-azure-ad`, aşağıdaki çağrıyı ekleyin:
+2.  Proje kök dizininde app.js dosyasını açın. İle birlikte gelen OIDCStrategy çağrılacak `passport-azure-ad`, aşağıdaki çağrıyı ekleyin:
 
   ```JavaScript
   var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -135,8 +124,8 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
 
   > [!IMPORTANT]
   > Önceki kod sunucunuza doğrulanabilir herhangi bir kullanıcı alır. Bu otomatik kaydı bilinir. Bir üretim sunucusunda herkes bunları seçtiğiniz bir kayıt sürecinden geçerler gerekmeden let istemezsiniz. Bu genellikle tüketici uygulamalarında görürsünüz düzeni olur. Uygulama, Facebook ile kaydetmenize olanak sağlayabilir, ancak ek bilgileri girmenizi ister. Bu öğretici için bir komut satırı programı doğru kullanıyorsanız, döndürülen belirteç nesnesinden e-posta ayıklanamıyor. Sonra ek bilgilerini girmesini isteyebilir. Bu bir test sunucusu olduğundan, bellek içi veritabanına doğrudan kullanıcı ekleyin.
-  > 
-  > 
+  >
+  >
 
 4.  Oturum açtığınız kullanıcılar izlemek için kullandığınız yöntemleri ekleyin Passport'un gerektirdiği gibi. Bu seri hale getirme ve seri durumdan kullanıcının bilgileri içerir:
 
@@ -234,7 +223,7 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
   // POST /auth/openid/return
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request. If authentication fails, the user is redirected back to the
-  //   sign-in page. Otherwise, the primary route function is called. 
+  //   sign-in page. Otherwise, the primary route function is called.
   //   In this example, it redirects the user to the home page.
 
   app.post('/auth/openid/return',
@@ -245,10 +234,10 @@ Passport, tüm kendi stratejileri (Twitter, Facebook vb.) benzer bir desen kulla
     });
   ```
 
-## <a name="4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4: Azure AD ile oturum açma ve oturum kapatma isteklerini yürütmek için Passport kullan
+## <a name="4-add-sign-in-and-sign-out-requests-to-azure-ad"></a>4: Azure AD ile oturum açma ve oturum kapatma isteklerini ekleyin
 Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0 uç noktası ile iletişim kurmak için ayarlanır. `passport-azure-ad` Stratejisi, kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumunu sürdürme tüm ayrıntılarını mvc'deki. Tüm yapmak için sol etmektir kullanıcılarınız oturum açın ve oturumu kapatın ve oturum kullanıcının hakkında daha fazla bilgi toplamak için bir yol sağlar.
 
-1.  Ekleme **varsayılan**, **oturum açma**, **hesap**, ve **oturum kapatma** App.js dosyanıza yöntemleri:
+1.  Ekleme **varsayılan**, **oturum açma**, **hesap**, ve **oturum kapatma** app.js dosyanıza yöntemleri:
 
   ```JavaScript
 
@@ -277,7 +266,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
   ```
 
   Ayrıntıları aşağıdadır:
-    
+
     * `/` Rota index.ejs görünümüne yeniden yönlendirir. (Varsa) istek kullanıcı geçirir.
     * `/account` İlk yol *, kimlik doğrulaması yapmasını sağlar* (Bu aşağıdaki kodda uygulamanız). Ardından, kullanıcı istekte geçirir. Böylece kullanıcı hakkında daha fazla bilgi elde edebilirsiniz budur.
     * `/login` Rota çağrıları, `azuread-openidconnect` doğrulayıcıdan `passport-azuread`. Değil başarılı olursa, kullanıcının yeniden geri `/login`.
@@ -309,7 +298,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
   ```
 
 
-## <a name="5-create-the-views-and-routes-in-express-that-you-show-your-user-on-the-website"></a>5: kullanıcı Web sitesinde Göster Express'te yolları ve görünümleri oluşturma
+## <a name="5-create-the-views-and-routes-in-express"></a>5: Express'te yolları ve görünümleri oluşturma
 Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve görünümleri de işlemek `/logout` ve `/login` oluşturduğunuz yollar.
 
 1. Kök dizininde oluşturmak `/routes/index.js` rota.
@@ -338,7 +327,7 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   };
   ```
 
-  `/routes/index.js`ve `/routes/user.js` isteği varsa kullanıcı da dahil olmak üzere, geçer basit yollar.
+  `/routes/index.js` ve `/routes/user.js` isteği varsa kullanıcı da dahil olmak üzere, geçer basit yollar.
 
 3.  Kök dizininde oluşturmak `/views/index.ejs` görünümü. Bu sayfa çağrıları, **oturum açma** ve **oturum kapatma** yöntemleri. Aynı zamanda `/views/index.ejs` hesap bilgileri yakalamak için görünümü. Koşullu kullanabilirsiniz `if (!user)` aracılığıyla istekte geçirilen kullanıcı olarak. Bu bulgu açtığınız kullanıcı sahip olur.
 
@@ -399,9 +388,15 @@ Yollar ve kullanıcı bilgilerini göster görünümleri ekleyin. Yolları ve g�
   </html>
   ```
 
-6.  Derleme ve uygulamanızı çalıştırmak için Çalıştır `node app.js`. Ardından, Git `http://localhost:3000`.
 
-7.  Kişisel bir Microsoft hesabı veya bir iş veya Okul hesabınızla oturum açın. Kullanıcının kimliğini ApplicationTier/account listesinde yansıtılır unutmayın. 
+  ## <a name="6-build-and-run-your-app"></a>6: oluşturmak ve uygulamanızı çalıştırma
+  1. Derleme ve uygulamanızı çalıştırmak için uygulamaları kök dizininden aşağıdaki komutu çalıştırın.
+
+  `node app.js`
+
+   Ardından, Git `http://localhost:3000` tarayıcınızda.
+
+  2. Kişisel bir Microsoft hesabı veya bir iş veya Okul hesabınızla oturum açın. Kullanıcının kimliğini yansıtılmıştır Not `/account` rota.
 
 Endüstri standardı protokoller kullanılarak güvenli bir web uygulaması şimdi sahipsiniz. Kişisel ve iş veya Okul hesaplarını kullanarak uygulamanızı kullanıcıların kimliklerini doğrulayabilirsiniz.
 
@@ -421,4 +416,3 @@ Bazı ek kaynaklar aşağıda verilmiştir:
 
 ### <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
 Güvenlik olayları oluştuğunda bildirim almak için kaydolun öneririz. Üzerinde [Microsoft Teknik Güvenlik bildirimleri](https://technet.microsoft.com/security/dd252948) sayfasında, güvenlik danışma uyarılara abone.
-

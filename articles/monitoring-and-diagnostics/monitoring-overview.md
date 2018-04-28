@@ -1,7 +1,7 @@
 ---
 title: Azure uygulamaları ve kaynakları izleme | Microsoft Docs
 description: Microsoft Hizmetleri ve Azure Hizmetleri ve uygulamaları için tam bir izleme stratejisi katkıda işlevler genel bakış.
-author: robb
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: c20e97e445dc79bdb65dcde40d323989005f5f5d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure uygulamaları ve kaynakları izleme
 
@@ -63,9 +63,9 @@ Günlük analizi veri dışa aktarabilirsiniz [Power BI](https://docs.microsoft.
 Bu ölçümleri ve oluşturan eğilim ve ayrıntılı çözümleme için Azure günlük analizi günlükleri göndermek veya proaktif olarak size, analiz sonucunda kritik sorunları bildirmek için ek uyarı kuralları oluşturun.  
 
 > [!NOTE]
-> Çok boyutlu ölçümleri günlük analizi için tanılama ayarları gönderme şu anda desteklenmiyor. Ölçümleri boyutlarla boyut değerleri toplanan düzleştirilmiş tek boyutlu ölçümleri olarak dışarı aktarılır.
+> Çok boyutlu ölçümleri günlük analizi için tanılama ayarları gönderme şu anda desteklenmiyor. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: bir olay hub'ındaki 'Gelen iletileri' Ölçüm incelediniz ve üzerinde grafiğinin bir sıra gerçekleştiriliyordu. Ancak, günlük analizi ölçüm gelen tüm iletilerin tüm temsil edilir dışarı aktardığınızda olay hub'ı sıralar.
+> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, günlük analizi ölçüm gelen tüm iletilerin tüm temsil edilir dışarı aktardığınızda olay hub'ı sıralar.
 >
 >
 
@@ -161,6 +161,6 @@ Bildirilen bir kesinti sonra adli sorun yaşayan belirli makineler tanımlayacak
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinin:
 
-* [Azure İzleyici](https://azure.microsoft.com/en-us/services/monitor/) çekirdek ölçümleri ve Uyarıları izleme ile çalışmaya başlamak için.
+* [Azure İzleyici](https://azure.microsoft.com/services/monitor/) çekirdek ölçümleri ve Uyarıları izleme ile çalışmaya başlamak için.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) App Service web uygulamanızda sorunlara tanı koymak çalışıyorsanız.
 * [Günlük analizi](https://azure.microsoft.com/documentation/services/log-analytics/) toplanan izleme verileri ve günlüklerini çözümlemek için.

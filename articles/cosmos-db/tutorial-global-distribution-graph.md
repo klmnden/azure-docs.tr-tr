@@ -1,11 +1,11 @@
 ---
-title: "Grafik API'si için Azure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
-description: "Grafik API'sini kullanarak Azure Cosmos DB genel dağıtım Kurulum öğrenin."
+title: Graph API’si için Azure Cosmos DB genel dağıtım öğreticisi | Microsoft Docs
+description: Graph API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlamayı öğrenin.
 services: cosmos-db
-keywords: "genel dağıtım, grafik, gremlin"
-documentationcenter: 
+keywords: genel dağıtım, grafik, gremlin
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 273b5aeafbf67016259da787f4dfef078ec0a669
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Grafik API'sini kullanarak Azure Cosmos DB genel dağıtım ayarlama
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Graph API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
 
-Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve grafik API'sini kullanarak bağlanmak için nasıl kullanılacağını gösterir.
+Bu makalede, Azure portalını kullanarak Azure Cosmos DB genel dağıtımını ayarlama ve sonra Graph API’sini kullanarak bağlanma işlemlerinin nasıl yapılacağı gösterilmektedir.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * Genel dağıtım kullanarak yapılandırma [Graph API](graph-introduction.md)
+> * Azure portalını kullanarak genel dağıtımı yapılandırma
+> * [Graph API’lerini](graph-introduction.md) kullanarak genel dağıtımı yapılandırma
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>.NET SDK kullanarak grafik API'sini kullanarak bir tercih edilen bölge bağlanma
+## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>.NET SDK’sını kullanan Graph API’sini kullanarak tercih edilen bir bölgeye bağlanma
 
-Grafik API'si SQL API üstünde bir uzantı kitaplığı olarak sunulur.
+Graph API’si SQL API’sinin üzerine bir uzantı kitaplığı olarak sunulur.
 
-Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md), istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin sıralı tercih listesi belirtebilirsiniz. Bu bağlantı İlkesi ayarlayarak yapılabilir. Azure Cosmos DB hesabı yapılandırması, geçerli bölge kullanılabilirliği ve belirtilen tercih listesi bağlı olarak, en iyi endpoint yazma gerçekleştirmek ve okuma işlemleri için SDK tarafından seçilir.
+[Genel dağıtımdan](distribute-data-globally.md) yararlanmak için istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin tercihe göre sıralanmış listesini belirtebilir. Bağlantı ilkesi ayarlanarak bu yapılabilir. Azure Cosmos DB hesap yapılandırmasına, geçerli bölgesel kullanılabilirliğe ve belirtilen tercih listesine göre yazma ve okuma işlemlerini gerçekleştirmek için SDK tarafından en iyi uç nokta seçilir.
 
-Bu tercih listesi SDK'ları kullanarak bağlantı başlatırken belirtilir. SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
+SDK’ları kullanılarak bağlantı başlatırken bu tercih listesi belirtilir. SDK’lar, Azure bölgelerinin sıralı listesinde isteğe bağlı "PreferredLocations" parametresini kabul eder.
 
-* **Yazar**: SDK geçerli yazma bölge için otomatik olarak tüm yazma işlemlerini gönderir.
-* **Okur**: tüm okuma PreferredLocations listedeki ilk kullanılabilir bölge gönderilir. İstek başarısız olursa, istemcinin sonraki bölgeyi vb. için listede aşağı başarısız olur. SDK'ları yalnızca PreferredLocations içinde belirtilen bölgelerinden okuma girişimi. Bu nedenle, örneğin, Cosmos DB hesabı üç bölgelerde kullanılabilir, ancak istemci yalnızca iki belirtir PreferredLocations sonra okuma yazma olmayan bölgelerini yük devretme durumunda bile yazma bölgesi dışında sunulur.
+* **Yazmalar**: SDK, tüm yazma işlemlerini otomatik olarak geçerli yazma bölgesine gönderir.
+* **Okumalar**: Tüm okuma işlemleri, PreferredLocations listesindeki ilk kullanılabilir bölgeye gönderilir. İstek başarısız olursa, istemci listedeki sonraki bölgeyi dener ve bu şekilde devam eder. SDK’lar yalnızca PreferredLocations listesinde belirtilen bölgelerden okuma işlemi yapmaya çalışır. Bu nedenle, örneğin, Cosmos DB hesabı dört bölgede kullanılabiliyorsa ancak istemci, PreferredLocations için yalnızca iki yazma bölgesi belirtiyorsa, yük devretme durumunda bile yazma bölgesinden okuma işlemi yapılmaz.
 
-Uygulama, geçerli yazma uç noktası doğrulayın ve WriteEndpoint ve ReadEndpoint, SDK sürümü 1.8 ve üzeri kullanılabilir iki özelliklerini denetleyerek SDK tarafından seçilen endpoint okuyun. PreferredLocations özellik ayarlanmamışsa, tüm istekleri geçerli yazma bölgesinden sunulur.
+Uygulama, SDK 1.8 ve üzeri sürümlerde kullanılabilir olan iki WriteEndpoint ve ReadEndpoint özelliğini denetleyerek SDK tarafından seçilen geçerli yazma uç noktasını ve okuma uç noktasını doğrulayabilir. PreferredLocations özelliği ayarlanmazsa, tüm istekler geçerli yazma bölgesinden işlenir.
 
-### <a name="using-the-sdk"></a>SDK'sını kullanarak
+### <a name="using-the-sdk"></a>SDK’yı kullanarak
 
-Örneğin, .NET SDK ' `ConnectionPolicy` parametresi için `DocumentClient` Oluşturucusu adlı bir özellik olan `PreferredLocations`. Bu özellik, bölge adları listesi için ayarlanabilir. Görünen adları için [Azure bölgeleri] [ regions] parçası olarak belirtilen `PreferredLocations`.
+Örneğin, .NET SDK’sında, `DocumentClient` oluşturucusu için `ConnectionPolicy` parametresi `PreferredLocations` adlı bir özelliğe sahiptir. Bu özellik bir bölge adları listesine ayarlanabilir. [Azure Bölgeleri][regions] için görünen adlar `PreferredLocations` öğesinin bir parçası olarak belirtilebilir.
 
 > [!NOTE]
-> Uç noktalar için URL'leri uzun süreli sabitleri düşünülmemelidir. Hizmet, bunlar herhangi bir noktada güncelleştirebilir. SDK, bu değişiklik otomatik olarak yönetir.
+> Uç noktaların URL’leri, uzun ömürlü sabitler olarak değerlendirilmemelidir. Bu noktada hizmet bunları güncelleştirebilir. SDK bu değişikliği otomatik olarak işler.
 >
 >
 
@@ -79,20 +79,20 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-Bu, bu öğreticinin tamamlanan kadar. Genel olarak çoğaltılmış hesabınızı tutarlılığını okuyarak yönetmek nasıl öğrenebilirsiniz [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md). Ve Azure Cosmos DB'de nasıl genel veritabanı çoğaltma hakkında daha fazla bilgi çalıştığı için bkz: [Azure Cosmos DB genel verilerle dağıtmak](distribute-data-globally.md).
+Hepsi bu kadar. Böylece bu öğretici tamamlanmış olur. [Azure Cosmos DB’deki tutarlılık düzeyleri](consistency-levels.md) bölümünü okuyarak genel olarak çoğaltılan hesabınızın tutarlılığının nasıl yönetileceğini öğrenebilirsiniz. Ayrıca genel veritabanı çoğaltmasının Azure Cosmos DB’de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Cosmos DB ile verileri genel olarak dağıtma](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * SQL API'lerini kullanarak genel dağıtım yapılandırma
+> * Azure portalını kullanarak genel dağıtımı yapılandırma
+> * SQL API’lerini kullanarak genel dağıtımı yapılandırma
 
-Artık Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğretici devam edebilirsiniz.
+Artık Azure Cosmos DB yerel öykünücüsünü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğreticiye geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Yerel olarak öykünücü ile geliştirme](local-emulator.md)
+> [Öykünücü ile yerel olarak geliştirme](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 

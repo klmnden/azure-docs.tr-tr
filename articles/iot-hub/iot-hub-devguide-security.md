@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -136,8 +136,8 @@ Beklenen değerler şunlardır:
 | --- | --- |
 | {İmza} |Bir HMAC SHA256 imza dize biçiminde: `{URL-encoded-resourceURI} + "\n" + expiry`. **Önemli**: anahtar base64 kodlaması kodunu çözdü ve HMAC SHA256 hesaplama gerçekleştirmek için anahtar olarak kullanılır. |
 | {resourceURI} |IOT hub'ı (Protokol) ana bilgisayar adı ile başlayarak, bu belirteci ile erişilen uç noktalar için URI öneki (tarafından kesim). Örneğin, `myHub.azure-devices.net/devices/device1` |
-| {expiry} |UTF8 dizeleri dönemi: 00:00:00 UTC üzerinde 1 Ocak 1970'ten beri geçen saniye sayısı. |
-| {URL-encoded-resourceURI} |Düşük küçük kaynak URI'si için URL kodlaması durumda |
+| {süre sonu} |UTF8 dizeleri dönemi: 00:00:00 UTC üzerinde 1 Ocak 1970'ten beri geçen saniye sayısı. |
+| {URL-kodlanmış-resourceURI} |Düşük küçük kaynak URI'si için URL kodlaması durumda |
 | {policyName} |Bu belirteç başvurduğu paylaşılan erişim ilkesinin adı. Yüklenmesinden belirteç aygıt kayıt defteri kimlik bilgilerini ifade eder. |
 
 **Not önek üzerinde**: URI öneki segmente göre ve karakter tarafından hesaplanır. Örneğin `/a/b` için bir önek `/a/b/c` ancak için `/a/bc`.
@@ -358,7 +358,7 @@ Sertifika yetkilisi kullanılarak kimlik doğrulaması hakkında daha fazla bilg
 
 ### <a name="c-support"></a>C\# desteği
 
-**RegistryManager** sınıfı bir cihazı kaydetmek için programlı bir yolunu sağlar. Özellikle, **AddDeviceAsync** ve **UpdateDeviceAsync** yöntemleri kaydetmek ve bir cihaz IOT Hub kimlik kayıt defterinde güncelleştirmenize olanak sağlar. Bu iki yöntem ele bir **aygıt** örnek giriş olarak. **Aygıt** sınıfı içeren bir **kimlik doğrulaması** birincil ve ikincil X.509 sertifika parmak izlerini belirtmenize olanak tanır özelliği. Parmak izi SHA-1 karma (DER ikili kodlama kullanılarak depolanır) X.509 sertifikası değerini temsil eder. Birincil bir parmak izi veya ikincil bir parmak izi veya her ikisini belirtme seçeneğiniz vardır. Birincil ve ikincil parmak izleri sertifika geçiş senaryoları işlemek için desteklenir.
+**RegistryManager** sınıfı bir cihazı kaydetmek için programlı bir yolunu sağlar. Özellikle, **AddDeviceAsync** ve **UpdateDeviceAsync** yöntemleri kaydetmek ve bir cihaz IOT Hub kimlik kayıt defterinde güncelleştirmenize olanak sağlar. Bu iki yöntem ele bir **aygıt** örnek giriş olarak. **Aygıt** sınıfı içeren bir **kimlik doğrulaması** birincil ve ikincil X.509 sertifika parmak izlerini belirtmenize olanak tanır özelliği. Parmak izi SHA256 karma (DER ikili kodlama kullanılarak depolanır) X.509 sertifikasının temsil eder. Birincil bir parmak izi veya ikincil bir parmak izi veya her ikisini belirtme seçeneğiniz vardır. Birincil ve ikincil parmak izleri sertifika geçiş senaryoları işlemek için desteklenir.
 
 Örnek C işte\# kod parçacığını bir X.509 sertifika parmak izini kullanarak bir cihazı kaydetmek için:
 

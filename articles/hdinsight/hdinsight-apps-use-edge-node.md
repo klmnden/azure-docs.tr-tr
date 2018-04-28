@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Hdınsight'ta Hadoop kümeleri üzerinde boş kenar düğümleri kullanın
 
@@ -69,6 +69,9 @@ Bir edge düğümünü oluşturduktan sonra SSH kullanarak kenar düğümüne ba
 >
 > Bir Apache teknolojisi kullanıyorsanız, Apache yardımla üzerinde proje siteleri bulamıyor olabilir [ http://apache.org ](http://apache.org), gibi [Hadoop](http://hadoop.apache.org/) site.
 
+> [!NOTE]
+> Aynı kümeleri olarak edge düğüm, ayrıca yönetilen düzeltme eki değildir.  Daha fazla bilgi için bkz: [Hdınsight için işletim sistemi düzeltme eki uygulama](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Varolan bir kümeye bir kenar düğümüne ekleyin
 Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için bir Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
 
@@ -115,6 +118,10 @@ Bu bölümde, bir kenar düğümüne ile Hdınsight kümesi oluşturmak için Re
      
      Bazı özellikler sabit kodlanmış şablondaki olmuştur: küme türü, küme çalışan düğüm sayısı, Edge düğüm boyutu ve kenar düğüm adı.
 4. Denetleme **hüküm ve koşulları yukarıda belirtildiği ediyorum**ve ardından **satın alma** kenar düğümü ile küme oluşturmak için.
+
+## <a name="add-multiple-edge-nodes"></a>Birden çok edge düğüm Ekle
+
+Bir Hdınsight kümesine içereceğini edge düğüm ekleyebilirsiniz.  Birden çok edge düğüm yapılandırması yalnızca yapılabilir Azure Resource Manager şablonları kullanarak.  Bu makalenin başlangıcında şablon örneğe bakın.  Güncelleştirmek gereken **targetInstanceCount** oluşturmak istediğiniz edge düğüm sayısını yansıtacak şekilde.
 
 ## <a name="access-an-edge-node"></a>Bir kenar düğümüne erişin
 Kenar düğümüne ssh uç noktadır &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Örneğin, yeni-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

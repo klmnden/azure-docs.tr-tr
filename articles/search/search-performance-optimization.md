@@ -1,24 +1,19 @@
 ---
-title: "Azure arama performans ve en iyi duruma getirme konuları | Microsoft Docs"
-description: "Azure Search performansı ayarlamak ve en iyi ölçeği yapılandırın"
-services: search
-documentationcenter: 
+title: Azure arama performans ve en iyi duruma getirme konuları | Microsoft Docs
+description: Azure Search performansı ayarlamak ve en iyi ölçeği yapılandırın
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure arama performans ve en iyi duruma getirme konuları
 Harika arama deneyimi, birçok mobil için başarı ve web uygulamaları için bir anahtardır. Gayrimenkul araba Pazar çevrimiçi katalog için kullanılan için hızlı arama ve ilgili sonuçlar müşteri deneyimini etkiler. Bu belge, ölçeklenebilirlik, karmaşık gereksinimlerine Gelişmiş senaryolar için özellikle Azure Search dışında en çok dilli alma için en iyi uygulamaları destekleyen Bul Yardım veya özel bir derecelendirme yöneliktir.  Ayrıca, bu belgede iç Ayrıntılar özetlemektedir ve gerçek müşteri uygulamalarında etkili yaklaşımlar kapsar.

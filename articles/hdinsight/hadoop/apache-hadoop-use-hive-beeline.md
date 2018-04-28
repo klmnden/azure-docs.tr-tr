@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive ile Beeline İstemcisi'ni kullanın
 
@@ -252,10 +252,17 @@ Bir headnode tam etki alanı adını bulmak için yer alan bilgileri kullanın. 
 
 Spark, Spark Thrift sunucusu bazen denir HiveServer2 kendi uygulamasını sağlar. Bu hizmet, Spark SQL sorguları Hive yerine çözümlemek için kullanır ve sorgunuzu bağlı olarak daha iyi performans sağlayabilir.
 
-Spark Hdınsight kümesi üzerinde Spark Thrift sunucusuna bağlanmak için bağlantı noktası kullanmak `10002` yerine `10001`. Örneğin, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+__Bağlantı dizesi__ Internet üzerinden bağlanma biraz farklı olduğunda kullanılır. İçeren yerine `httpPath=/hive2` olduğu `httpPath/sparkhive2`. İnternet üzerinden bağlanan bir örnek verilmiştir:
 
-> [!IMPORTANT]
-> Spark Thrift sunucusunun internet üzerinden doğrudan erişilebilir değil. İçin bir SSH oturumundan veya Hdınsight kümesi aynı Azure sanal ağ içinde yalnızca bağlanabilir.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Doğrudan küme baş düğümüne veya Hdınsight kümesi aynı Azure sanal ağ içindeki bir kaynaktan bağlanırken bağlantı noktası `10002` Spark Thrift sunucusunun yerine için kullanılması gereken `10001`. Doğrudan baş düğüme bağlanma bir örnek verilmiştir:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Sonraki adımlar
 

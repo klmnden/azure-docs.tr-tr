@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sorunsuz çoklu oturum açma - GDPR uyumluluk | Microsoft Docs"
+title: Kullanıcı gizliliği ve sorunsuz Azure AD çoklu oturum açma | Microsoft Docs
 description: Bu makalede, Azure Active Directory (Azure AD) sorunsuz SSO ve GDPR uyumluluk ile ilgilidir.
 services: active-directory
-keywords: "Azure AD, SSO, gerekli bileşenleri GDPR, Azure AD Connect nedir çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD, SSO, gerekli bileşenleri GDPR, Azure AD Connect nedir çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,27 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Azure AD sorunsuz çoklu oturum açma: GDPR uyumluluk
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Kullanıcı gizliliği ve Azure AD sorunsuz çoklu oturum açma
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
-Mayıs 2018, Avrupa gizlilik yasalarına içinde [genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), etkili olması son. GDPR şirketler, devlet dairesi, kar kaybı olmayan ve diğer kuruluşlardan teklif mal ve hizmet Avrupa Birliği (AB) ya da, kişilere toplamak ve analiz etmek için AB Satışlar bağlı veri yeni kuralları uygular. Bulunduğunuz olsun GDPR geçerlidir. 
-
-Microsoft Ürün ve hizmetlerini bugün GDPR gereksinimlerini karşılamanıza yardımcı olmak kullanılabilir. Microsoft Privacy İlkesi hakkında daha fazla bilgiyi [Güven Merkezi](https://www.microsoft.com/trustcenter).
 
 Azure AD sorunsuz SSO EUII içerebilir aşağıdaki günlük türünü oluşturur:
 
 - Azure AD Connect izleme günlüğü dosyalarının.
 
-GDPR uyumluluk sorunsuz SSO için iki yolla erişilebilir:
+Kullanıcı gizlilik uyumluluk sorunsuz SSO için iki yolla erişilebilir:
 
 1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın.
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.
@@ -65,6 +64,6 @@ Bir dosyada komut dosyasını kaydetme ". PS1 "uzantısı. Gerektiğinde bu komu
 Denetim günlüğü etkinleştirilirse, bu ürün, etki alanı denetleyicileri için güvenlik günlüklerini oluşturabilir. Denetim ilkeleri yapılandırma hakkında daha fazla bilgi için bu okuma [makale](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
+* [Güven Merkezi Microsoft Privacy ilkeyi gözden geçirin](https://www.microsoft.com/trustcenter)
 - [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-sso.md) -özelliği ile ilgili genel sorunları çözmeyi öğrenin.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleri dosyalama için.

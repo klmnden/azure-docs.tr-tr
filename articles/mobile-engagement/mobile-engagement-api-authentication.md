@@ -14,15 +14,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Mobil katılım REST API'leri ile kimlik doğrulaması
 > [!IMPORTANT]
-> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> Azure Mobile Engagement 31.03.2018 tarihinde kullanımdan kaldırılıyor. Bu sayfa, kısa bir süre sonra silinecek.
 > 
 
 ## <a name="overview"></a>Genel Bakış
@@ -67,7 +67,7 @@ Bir PowerShell komut dosyası kullanarak kurulumu gerçekleştirmek için aşağ
         Import-Module Azure
 3. Azure Resource Manager için aşağıdaki komutu çalıştırarak Powershell'den oturum açın. Azure hesabınız için kullanıcı adını ve parolasını sağlayın: 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. Birden çok aboneliğiniz varsa, aşağıdaki adımları uygulayın:
 
     a. Tüm Aboneliklerin listesini alın. Ardından kopyalama **Subscriptionıd** kullanmak istediğiniz abonelik. Bu abonelik Mobile Engagement uygulaması olduğundan emin olun. API'leri ile etkileşim kurmak için bu uygulamayı kullanmak için adımıdır. 
@@ -85,8 +85,8 @@ Bir PowerShell komut dosyası kullanarak kurulumu gerçekleştirmek için aşağ
 
 7. Betiğin çalışması bittikten sonra aşağıdaki dört değerden görüntüler. Program aracılığıyla Active Directory ile kimlik doğrulaması gerektiği için bunları kopyaladığınızdan emin olun: 
 
-   - **TenantId**
-   - **SubscriptionId**
+   - **Tenantıd**
+   - **Subscriptionıd**
    - **ApplicationId**
    - **Gizli dizi**
 

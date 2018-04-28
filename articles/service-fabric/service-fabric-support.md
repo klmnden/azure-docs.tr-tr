@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric destek seçenekleri hakkında bilgi edinin | Microsoft Docs"
-description: "Azure Service Fabric kümesi sürümleri desteklenir ve dosya bağlantılarını biletleri destekleyen"
+title: Azure Service Fabric destek seçenekleri hakkında bilgi edinin | Microsoft Docs
+description: Azure Service Fabric kümesi sürümleri desteklenir ve dosya bağlantılarını biletleri destekleyen
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
@@ -30,7 +30,7 @@ Azure üzerinde dağıtılan Service Fabric kümenizdeki sorunları raporlama i�
 
 Daha fazla bilgi edinin:
  
-- [Azure için Microsoft desteği](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Azure için Microsoft desteği](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier Destek](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
@@ -63,8 +63,8 @@ Kümenizi, desteklenen bir Service Fabric sürümü her zaman çalışır durumd
 
 Desteklenen bir Service Fabric sürümünü çalıştıran kümenizi tutmak hakkında ayrıntılar aşağıdaki belgelere bakın.
 
-- [Bir Azure kümede yükseltme Service Fabric sürümü](service-fabric-cluster-upgrade.md)
-- [Tek başına windows server kümesi Service Fabric sürümüne yükseltme](service-fabric-cluster-upgrade-windows-server.md)
+- [Bir Azure kümede yükseltme Service Fabric sürümü ](service-fabric-cluster-upgrade.md)
+- [Tek başına windows server kümesi Service Fabric sürümüne yükseltme ](service-fabric-cluster-upgrade-windows-server.md)
  
 Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş tarihlerini aşağıda verilmiştir.
 
@@ -77,7 +77,8 @@ Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş t
 | 5.6.* | 5.4.164.* |Sürüm 2.6 küçük veya eşit |Ekim 13,2017   |
 | 5.7.* | 5.4.164.* |Sürüm 2.7 küçük veya eşit |Aralık 15,2017  |
 | 6.0.* | 5.6.205.* |Sürüm 2.8 küçük veya eşit |30,2018 Mart     | 
-| 6.1.* | 5.7.221.* |Sürüm 3.0 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi |
+| 6.1. * | 5.7.221.* |Sürüm 3.0 küçük veya eşit |Haziran 15,2018      |
+| 6.2. * | 6.0.232.* |Sürüm 3.1 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Önizleme sürümlerini - üretim kullanımı için desteklenmiyor.
 Zaman zaman önizlemeleri sunulan, geri bildirim istiyoruz önemli özellikleri olan sürümleri bırakın. Bu önizleme sürümleri yalnızca sınama amacıyla kullanılmalıdır. Üretim kümenizi her zaman bir desteklenen ve kararlı, Service Fabric sürümünü çalıştırması gerekir. Önizleme sürümü her zaman 255 birincil ve ikincil sürüm numarası ile başlar. Örneğin, Service Fabric sürümü 255.255.5703.949 görürseniz, bu sürümü yalnızca test kümelerde kullanılacak ve önizleme aşamasındadır. Bu önizleme sürümleri de üzerinde duyurulur [Service Fabric ekip blogu](https://blogs.msdn.microsoft.com/azureservicefabric) ve dahil edilen özellikler ayrıntıları sahip olacaktır.
@@ -86,8 +87,8 @@ Bu önizleme sürümleri için Ücretli destek seçeneği yoktur. Altında liste
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Service fabric sürümü Azure bir kümede yükseltme](service-fabric-cluster-upgrade.md)
-- [Tek başına windows server kümesi Service Fabric sürümüne yükseltme](service-fabric-cluster-upgrade-windows-server.md)
+- [Service fabric sürümü Azure bir kümede yükseltme ](service-fabric-cluster-upgrade.md)
+- [Tek başına windows server kümesi Service Fabric sürümüne yükseltme ](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

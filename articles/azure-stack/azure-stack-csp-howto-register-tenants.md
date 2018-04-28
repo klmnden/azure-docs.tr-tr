@@ -1,11 +1,11 @@
 ---
-title: "Kiracılar için kullanım ekleyin ve Azure yığınına faturalama | Microsoft Docs"
-description: "Gerekli adımlar Azure bulut hizmeti sağlayıcısı tarafından yönetilen yığın bir son kullanıcı ekleyin."
+title: Kiracılar için kullanım ekleyin ve Azure yığınına faturalama | Microsoft Docs
+description: Gerekli adımlar Azure bulut hizmeti sağlayıcısı tarafından yönetilen yığın bir son kullanıcı ekleyin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Kiracı kullanımı için ekleyin ve Azure yığınına faturalama
 
@@ -58,7 +58,7 @@ Kaydınızı yeni müşteri aboneliğe güncelleştirin. Azure ortak merkezi mü
 > Bu adımı taşımak için bilmeniz gereken [Azure yığın kayıtlı](azure-stack-register.md).
 
 1. Windows PowerShell ile yükseltilmiş istemi açın ve çalıştırın:  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Azure kimlik bilgilerinizi yazın.
 3. PowerShell oturumunda çalıştırın:
 
@@ -70,7 +70,7 @@ Kaydınızı yeni müşteri aboneliğe güncelleştirin. Azure ortak merkezi mü
 | --- | --- | 
 |registrationSubscriptionID | Azure yığın ilk kayıt için kullanılan Azure aboneliği. |
 | customerSubscriptionID | Kaydedilecek müşteriye ait Azure aboneliği (Azure yığını değil). Olmalıdır CSP teklif; oluşturulmuş uygulamada, bu iş ortağı Merkezi'nden anlamına gelir. Bir müşteri birden fazla Azure Active Directory Kiracı varsa, bu abonelik Azure yığın halinde günlüğe kaydetmek için kullanılan Kiracı oluşturulmuş olması gerekir.
-| resourceGroup | Kaydınızı depolandığı Azure kaynak grubunda. 
+| kaynak grubu | Kaydınızı depolandığı Azure kaynak grubunda. 
 | registrationName | Azure yığın kayıt adı. Azure'da depolanan nesne değildir. | 
 
 

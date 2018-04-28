@@ -3,16 +3,16 @@ title: Azure Container Instances kotaları ve bölge kullanılabilirliği
 description: Azure Container Instances hizmetinin varsayılan kotaları ve bölge kullanılabilirliği.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 22be921c7ab437e08d8ea5032befb8671dc90ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances için kotalar ve bölge kullanılabilirliği
 
@@ -28,9 +28,9 @@ Azure Container Instances aşağıdaki bölgelerde belirtilen CPU ve bellek sın
 
 | Konum | İşletim Sistemi | CPU | Bellek (GB) |
 | -------- | -- | :---: | :-----------: |
-| Batı Avrupa, Batı ABD, Doğu ABD | Linux | 4 | 14 |
+| Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa | Linux | 4 | 14 |
 | Batı ABD 2, Güneydoğu Asya | Linux | 2 | 7 |
-| Batı Avrupa, Batı ABD, Doğu ABD | Windows | 4 | 14 |
+| Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa | Windows | 4 | 14 |
 | Batı ABD 2, Güneydoğu Asya | Windows | 2 | 3,5 |
 
 Bu kaynak sınırları dahilinde oluşturulan kapsayıcı örnekleri, dağıtım bölgesinde kullanılabilirliğe tabidir. Bir bölge ağı yük altında olduğunda, örnek dağıtırken hatayla karşılaşabilirsiniz. Bu tür dağıtım hatalarını azaltmak için, daha düşük CPU ve bellek ayarları ile örnekleri dağıtmayı deneyin veya dağıtımınızı daha sonra gerçekleştirmeyi deneyin.

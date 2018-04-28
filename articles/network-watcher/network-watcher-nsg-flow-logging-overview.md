@@ -1,11 +1,11 @@
 ---
-title: "Akış günlüğü Azure Ağ İzleyicisi ile ağ güvenlik grupları için giriş | Microsoft Docs"
-description: "Bu sayfayı NSG akış günlükleri kullanımı Azure Ağ İzleyicisi, bir özellik açıklanmaktadır"
+title: Giriş akışı günlüğü için ağ güvenlik grupları ile Azure Ağ İzleyicisi | Microsoft Docs
+description: Bu makalede Azure Ağ İzleyicisinin NSG akış günlükleri özelliğinin nasıl kullanılacağı açıklanmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Akış günlüğü ağ güvenlik grupları için giriş
 
-Ağ güvenlik grubu akış günlükleri, giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntülemek izin veren bir Ağ İzleyicisi özelliğidir. Bu akış günlükleri json biçiminde yazılır ve Kural başına temelinde, akış uygulanır, akış (kaynak/hedef IP, kaynak/hedef bağlantı noktası, Protokolü), 5-tanımlama grubu bilgilerini NIC giden ve gelen akışları gösterir ve trafiğe izin verilen veya reddedilen.
+Ağ güvenlik grubu (NSG) akış günlükleri, bir NSG giriş ve çıkış IP trafiğinin hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi özelliğidir. Akış günlükleri json biçiminde yazılır ve başına kural olarak, akış uygulandığı ağ arabirimi (NIC), 5-tanımlama grubu hakkında bilgi akışını (kaynak/hedef IP, kaynak/hedef bağlantı noktası ve protokol) giden ve gelen akışları Göster ve trafiği olup olmadığı izin verilen veya reddedilen.
 
-![Akış günlükleri genel bakış][1]
+![Akış günlükleri genel bakış](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Hedef ağ güvenlik grupları akış günlükleri, ancak bunlar değil aynı diğer günlükler görüntülenir. Akış günlükleri, aşağıdaki örnekte gösterildiği gibi yalnızca bir depolama hesabı içinde ve günlük yolu aşağıdaki depolanır:
+Hedef Nsg'ler akış günlükleri, ancak bunlar değil aynı diğer günlükler görüntülenir. Akış günlükleri yalnızca bir depolama hesabında depolanır ve aşağıdaki örnekte gösterilen günlük yolu izleyin:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Diğer günlükler üzerinde görülen olarak aynı bekletme ilkeleri, akış günlüklerine uygulanır. Günlükleri günden 1 gün 365 gün olarak ayarlanabilir bir bekletme ilkesi vardır. Bekletme ilkesi ayarlanmazsa günlükler süresiz olarak saklanır.
+Diğer günlükler için görülen aynı bekletme ilkeleri, akış günlüklerine uygulanır. 1 günden günlük bekletme ilkesi 365 gün olarak ayarlayabilirsiniz. Bekletme ilkesi ayarlanmazsa günlükler süresiz olarak saklanır.
 
 ## <a name="log-file"></a>Günlük dosyası
 
-Akış günlükleri, birden çok özelliği vardır. Aşağıdaki listede NSG akış günlükte döndürülen özellikleri listesi bulunmaktadır:
+Akış günlükleri aşağıdaki özellikleri içerir:
 
 * **zaman** - olayın günlüğe yazıldığı zaman zaman
 * **SistemKimliği** -ağ güvenlik grubu kaynak kimliği
-* **Kategori** -kategori olayı, bu her zaman olmaya NetworkSecurityGroupFlowEvent
+* **Kategori** -olay kategorisi. Her zaman kategorisidir **NetworkSecurityGroupFlowEvent**
 * **ResourceId** -kaynak NSG kimliği
 * **operationName** -her zaman NetworkSecurityGroupFlowEvents
 * **Özellikler** -akışının özellikleri koleksiyonu
@@ -59,15 +59,14 @@ Akış günlükleri, birden çok özelliği vardır. Aşağıdaki listede NSG ak
                     * **Trafik akışı** -trafik akış yönü. Geçerli değerler **ı** gelen ve **O** için giden.
                     * **Trafik** - trafiğine izin verilen veya reddedilen olup olmadığını. Geçerli değerler **A** izin ve **D** reddedildi için.
 
-
-Akış günlüğü örneği verilmiştir. Gördüğünüz gibi önceki bölümde açıklanan özellik listesi izleyin birden çok kayıt vardır. 
+Aşağıdaki akış günlüğü örneği metindir. Gördüğünüz gibi önceki bölümde açıklanan özellik listesi izleyin birden çok kayıt vardır.
 
 > [!NOTE]
-> FlowTuples özelliği virgülle ayrılmış bir liste değerler.
+> Değerler **flowTuples* özelliği olan bir virgülle ayrılmış listesi.
  
 ```json
 {
-    "records": 
+    "records":
     [
         
         {
@@ -102,12 +101,6 @@ Akış günlüğü örneği verilmiştir. Gördüğünüz gibi önceki bölümde
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Akış günlükleri ziyaret ederek etkinleştirmeyi öğrenin [günlüğü etkinleştirme akışı](network-watcher-nsg-flow-logging-portal.md).
-
-NSG oturum açma hakkında bilgi edinin ziyaret ederek [günlük analizi için ağ güvenlik grupları (Nsg'ler)](../virtual-network/virtual-network-nsg-manage-log.md).
-
-Trafik izin verilen veya bir VM'ye ziyaret ederek reddedilen varsa öğrenmek [IP akış ile doğrulama trafiği doğrulayın](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
-
+- Akış günlükleri etkinleştirme hakkında bilgi edinmek için [NSG etkinleştirme akışı günlük](network-watcher-nsg-flow-logging-portal.md).
+- NSG günlüğe kaydetme hakkında daha fazla bilgi için bkz: [günlük analizi için ağ güvenlik grupları (Nsg'ler)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Trafiğin izin verilen veya bir VM'den/VM'ye reddedildi olup olmadığını belirlemek için bkz: [bir VM ağ trafiği filtre sorunu tanılamak](diagnose-vm-network-traffic-filtering-problem.md)

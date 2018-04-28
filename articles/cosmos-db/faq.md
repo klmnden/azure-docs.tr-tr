@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -114,7 +114,7 @@ PreferredLocations değeri Cosmos DB kullanılabilir olduğu Azure bölgeleri i�
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Verileri Azure veri merkezleri aracılığıyla dünya çapında dağıtırken farkında olmalıdır bir şey var mı? 
 Azure Cosmos DB varsa belirtildiği gibi tüm Azure bölgeler arasında [Azure bölgeleri](https://azure.microsoft.com/regions/) sayfası. Çekirdek hizmeti olduğundan, her yeni bir veri merkezine Azure Cosmos DB durum vardır. 
 
-Bir bölge ayarladığınızda, Azure Cosmos DB sovereign ve kamu Bulutlar uyar unutmayın. Diğer bir deyişle, sovereign bir bölgede bir hesap oluşturursanız, o sovereign bölgesinin dışına çoğaltma yapamaz. Benzer şekilde, bir dış hesap sovereign diğer konumlardan içine çoğaltmayı etkinleştiremezsiniz. 
+Bir bölge ayarladığınızda, Azure Cosmos DB sovereign ve kamu Bulutlar uyar unutmayın. Diğer bir deyişle, bir hesap oluşturursanız, bir [sovereign bölge](https://azure.microsoft.com/global-infrastructure/), dışında çoğaltılamıyor [sovereign bölge](https://azure.microsoft.com/global-infrastructure/). Benzer şekilde, bir dış hesap sovereign diğer konumlardan içine çoğaltmayı etkinleştiremezsiniz. 
 
 ## <a name="develop-against-the-sql-api"></a>SQL API karşı geliştirin
 
@@ -170,6 +170,9 @@ Evet, Azure Cosmos DB bir RESTful hizmeti olduğu için kaynak bağlantıları s
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Yerel bir SQL API örneği var mı?
 Evet. [Azure Cosmos DB öykünücüsü](local-emulator.md) Cosmos DB hizmetinin yüksek doğruluk öykünmesi sağlar. Azure Cosmos JSON belgelerini sorgulamak için destek dahil olmak üzere sağlama DB'ye, aynı işlevselliği destekler ve koleksiyonları ölçekleme ve yürütme yordamları ve Tetikleyicileri depolanır. Geliştirmek ve Azure Cosmos DB öykünücüsü kullanarak uygulamaları test ve bunları Azure'da tek bir yapılandırma için Azure Cosmos DB bağlantı uç noktasına değişikliği yaparak genel bir ölçekte dağıtabilirsiniz.
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Neden uzun kayan nokta Veri Gezgini portalında görüntülendiğinde yuvarlak bir belgedeki değerlerdir. 
+Bu, JavaScript kısıtlamasıdır. JavaScript IEEE 754 belirtildiği gibi sayıları çift duyarlıklı kayan noktalı biçimlendirme kullanır ve güvenli bir şekilde sayılar arasında - gösterebilir (253 - 1) ve 253 – 1 (yani, 9007199254740991) yalnızca.
+
 ## <a name="develop-against-the-api-for-mongodb"></a>Karşı API MongoDB için geliştirme
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API MongoDB için nedir?
 Azure Cosmos DB API MongoDB için uygulamaların kolayca ve şeffaf bir şekilde varolan, topluluk tarafından desteklenen Apache MongoDB API'leri ve sürücüleri kullanarak yerel Azure Cosmos DB veritabanı altyapısı ile iletişim kurmasına olanak sağlayan bir uyumluluk katmanıdır. Geliştiriciler, Azure Cosmos DB yararlanmak uygulamaları oluşturmak için varolan MongoDB aracı zincirlerini ve yetenekleri artık kullanabilirsiniz. Geliştiriciler otomatik dizin oluşturma işlemi, yedekleme bakım, mali yedeklenmiş hizmet düzeyi sözleşmelerine (SLA) vb. dahil benzersiz yeteneklerini Azure Cosmos DB yararlanır.
@@ -215,9 +218,9 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçeneklerini sayısı vardır:
 | REST yöntemleri | REST uç noktası/sorgu seçeneği | Belge URL'leri | Açıklama |
 | ------------| ------------- | ---------- | ----------- |
-| GET, PUT | /?restype=service@comp=properties| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
-| SEÇENEKLER | /<table-resource-name> | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
-| AL | /?restype=service@comp=stats | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
+| GET, PUT | /? restype =service@comp= özellikleri| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
+| SEÇENEKLER | / < Tablo-resource-adı > | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
+| GET | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
 | GET, PUT | /mytable?comp=acl | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
 
 Ayrıca Azure Cosmos DB tablo API, yalnızca değil ATOM JSON biçimini destekler.
@@ -228,7 +231,7 @@ Azure Cosmos DB desteklerken paylaşılan erişim imzaları (SAS) var. bunu dest
 
 | Sınıf | Desteklenmeyen yöntemi |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties* |
+| CloudTableClient | \*ServiceProperties * |
 |                  | \*ServiceStats * |
 | CloudTable | İzinleri Ayarla * |
 |            | GetPermissions * |

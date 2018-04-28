@@ -1,24 +1,18 @@
 ---
 title: Azure Search'te modeli filtreleri | Microsoft Docs
-description: "Filtre ölçütü kullanıcının güvenlik kimliği, dil, coğrafi konuma veya Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti sorgularda arama sonuçları azaltmak için sayısal değerleri."
-services: search
-documentationcenter: 
+description: Filtre ölçütü kullanıcının güvenlik kimliği, dil, coğrafi konuma veya Azure arama, Microsoft Azure üzerinde barındırılan bulut arama hizmeti sorgularda arama sonuçları azaltmak için sayısal değerleri.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir model filtresi oluşturma 
 
@@ -113,7 +107,7 @@ Kullanıcı kategorisi modelin bir değer seçerse aşağıdaki kod parçacığ�
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-REST API kullanarak, istek olarak geliştirilmiştir `$filter=category eq 'c1'`. Kategoriyi birden çok değerli alan yapmak için aşağıdaki sözdizimini kullanın:`$filter=category/any(c: c eq 'c1')`
+REST API kullanarak, istek olarak geliştirilmiştir `$filter=category eq 'c1'`. Kategoriyi birden çok değerli alan yapmak için aşağıdaki sözdizimini kullanın: `$filter=category/any(c: c eq 'c1')`
 
 ## <a name="tips-and-workarounds"></a>İpuçları ve geçici çözümler
 

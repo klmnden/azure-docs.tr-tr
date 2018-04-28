@@ -1,12 +1,12 @@
 ---
-title: "Azure storage'da güvenli aktarımı gerektiren | Microsoft Docs"
+title: Azure storage'da güvenli aktarımı gerektiren | Microsoft Docs
 description: "\"Güvenli aktarım gerekli\" özelliği Azure Storage ve bunun nasıl etkinleştirileceğini öğrenin."
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure storage'da güvenli aktarımı gerektirir
 
@@ -66,7 +66,7 @@ Güvenli aktarımı program aracılığıyla gerektirecek şekilde ayarı kullan
 
 Bu örnek, Azure PowerShell modülü 4.1 veya sonraki bir sürümü gerektiriyor. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
-Çalıştırma `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.
 
  Ayarını denetlemek için aşağıdaki komut satırını kullanın:
 

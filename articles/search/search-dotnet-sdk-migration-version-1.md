@@ -1,23 +1,19 @@
 ---
-title: "Azure Search .NET SDK sürüm 1.1 yükseltme | Microsoft Docs"
-description: "Azure Search .NET SDK sürüm 1.1 yükseltme"
-services: search
-documentationcenter: 
+title: Azure Search .NET SDK sürüm 1.1 yükseltme | Microsoft Docs
+description: Azure Search .NET SDK sürüm 1.1 yükseltme
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 387a052a116388cc9ad816ec8b339347d5c28322
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ccefd21e2aa89a2b46129956b3c4417d548cbf32
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK sürüm 1.1 yükseltme
 
@@ -54,9 +50,9 @@ Derleme hataları düzelttik sonra son olarak, isterseniz yeni işlevsellikten y
 Aşağıdaki listede değişiklik uygulama kodunuz etkileyecek olasılığını göre sıralanır.
 
 #### <a name="indexbatch-and-indexaction-changes"></a>IndexBatch ve IndexAction değişiklikleri
-`IndexBatch.Create`adlandırıldı `IndexBatch.New` ve artık sahip bir `params` bağımsız değişkeni. Kullanabileceğiniz `IndexBatch.New` Eylemler (birleştirme, silme, vb.) farklı türlerde karışık toplu işlemler için. Ayrıca, toplu işleri oluşturmak için yeni statik yöntemler vardır tüm eylemleri nerede aynı: `Delete`, `Merge`, `MergeOrUpload`, ve `Upload`.
+`IndexBatch.Create` adlandırıldı `IndexBatch.New` ve artık sahip bir `params` bağımsız değişkeni. Kullanabileceğiniz `IndexBatch.New` Eylemler (birleştirme, silme, vb.) farklı türlerde karışık toplu işlemler için. Ayrıca, toplu işleri oluşturmak için yeni statik yöntemler vardır tüm eylemleri nerede aynı: `Delete`, `Merge`, `MergeOrUpload`, ve `Upload`.
 
-`IndexAction`Genel oluşturucular artık sahiptir ve özelliklerini şimdi değişmez. Farklı amaçlar için Eylemler oluşturmak için yeni statik yöntemler kullanmalısınız: `Delete`, `Merge`, `MergeOrUpload`, ve `Upload`. `IndexAction.Create`kaldırılmıştır. Yalnızca bir belge alan aşırı kullandıysanız, kullandığınızdan emin olun `Upload` yerine.
+`IndexAction` Genel oluşturucular artık sahiptir ve özelliklerini şimdi değişmez. Farklı amaçlar için Eylemler oluşturmak için yeni statik yöntemler kullanmalısınız: `Delete`, `Merge`, `MergeOrUpload`, ve `Upload`. `IndexAction.Create` kaldırılmıştır. Yalnızca bir belge alan aşırı kullandıysanız, kullandığınızdan emin olun `Upload` yerine.
 
 ##### <a name="example"></a>Örnek
 Kodunuzu şöyle ise:
@@ -74,7 +70,7 @@ Bu yapı hataları düzeltmek için bunu değiştirebilirsiniz:
     var batch = IndexBatch.Upload(documents);
     indexClient.Documents.Index(batch);
 
-#### <a name="indexbatchexception-changes"></a>IndexBatchException changes
+#### <a name="indexbatchexception-changes"></a>IndexBatchException değişiklikleri
 `IndexBatchException.IndexResponse` Özelliği adlandırılmıştır `IndexingResults`, ve türünü şimdi `IList<IndexingResult>`.
 
 ##### <a name="example"></a>Örnek
@@ -152,7 +148,7 @@ Sürüm 1.1 ile başlayarak, Azure Search .NET SDK'sı farklı işlemi yöntemle
 
 * Parametreleri bunun yerine varsayılan olarak, isteğe bağlı parametreler Modellenen artık ek yöntemi aşırı daha. Bu yöntem aşırı yüklemeleri, bazen önemli ölçüde azaltır.
 * Genişletme yöntemleri şimdi ayrıntılarını yabancı HTTP çağrıyı yapandan çok gizleyin. Örneğin, SDK'ın eski sürümleri işlemi yöntemleri throw çünkü denetlemek için genellikle ihtiyacım kalmadı bir HTTP durum kodu ile bir yanıt nesnesi döndürülen `CloudException` bir hata gösterir herhangi bir durum kodu için. Yeni Uzantı yöntemleri, yalnızca model nesneleri, kodunuzda açılacak sahip olmanın zahmetinden kurtarır döndürür.
-* Buna karşılık, çekirdek artık ihtiyacınız olursa, HTTP düzeyinde daha fazla denetime sunmaya yöntemleri arabirimleri. Şimdi istekleri ve yeni dahil edilecek özel HTTP üst bilgilerinde geçirebilirsiniz `AzureOperationResponse<T>` dönüş türü, doğrudan erişim verir `HttpRequestMessage` ve `HttpResponseMessage` işlemi için. `AzureOperationResponse`tanımlanan `Microsoft.Rest.Azure` ad alanı ve değiştirir `Hyak.Common.OperationResponse`.
+* Buna karşılık, çekirdek artık ihtiyacınız olursa, HTTP düzeyinde daha fazla denetime sunmaya yöntemleri arabirimleri. Şimdi istekleri ve yeni dahil edilecek özel HTTP üst bilgilerinde geçirebilirsiniz `AzureOperationResponse<T>` dönüş türü, doğrudan erişim verir `HttpRequestMessage` ve `HttpResponseMessage` işlemi için. `AzureOperationResponse` tanımlanan `Microsoft.Rest.Azure` ad alanı ve değiştirir `Hyak.Common.OperationResponse`.
 
 #### <a name="scoringparameters-changes"></a>ScoringParameters değişiklikleri
 Adlı yeni bir sınıf `ScoringParameter` bir arama sorgusu profilleri Puanlama için parametreleri sağlayın kolaylaştırmak için en son SDK eklendi. Daha önce `ScoringProfiles` özelliği `SearchParameters` sınıfı olarak yazıldığından `IList<string>`; Olarak yazılan artık `IList<ScoringParameter>`.
@@ -178,10 +174,10 @@ Bu yapı hataları düzeltmek için bunu değiştirebilirsiniz:
 #### <a name="model-class-changes"></a>Model sınıfı değişiklikleri
 Açıklanan imza değişiklikler nedeniyle [işlemi yöntemi değişiklikleri](#OperationMethodChanges), birçok sınıflarda `Microsoft.Azure.Search.Models` ad alanı yeniden adlandırılmış veya kaldırılmış. Örneğin:
 
-* `IndexDefinitionResponse`ile değiştirilmiştir`AzureOperationResponse<Index>`
+* `IndexDefinitionResponse` ile değiştirilmiştir `AzureOperationResponse<Index>`
 * `DocumentSearchResponse`, `DocumentSearchResult` olarak yeniden adlandırıldı
 * `IndexResult`, `IndexingResult` olarak yeniden adlandırıldı
-* `Documents.Count()`Şimdi döndüren bir `long` ile belge sayısı yerine bir`DocumentCountResponse`
+* `Documents.Count()` Şimdi döndüren bir `long` ile belge sayısı yerine bir `DocumentCountResponse`
 * `IndexGetStatisticsResponse`, `IndexGetStatisticsResult` olarak yeniden adlandırıldı
 * `IndexListResponse`, `IndexListResult` olarak yeniden adlandırıldı
 

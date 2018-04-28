@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store'a Hive performans yönergeleri ayarlama | Microsoft Docs"
-description: "Azure Data Lake Store'a Hive performans kuralları ayarlama"
+title: Azure Data Lake Store'a Hive performans yönergeleri ayarlama | Microsoft Docs
+description: Azure Data Lake Store'a Hive performans kuralları ayarlama
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Performans Kılavuzu Hive Hdınsight ve Azure Data Lake Store için ayarlama
 
 Varsayılan ayarları birçok farklı kullanım örnekleri arasında iyi bir performans sağlamak üzere ayarlanmış.  G/ç yoğun sorgularında Hive ADLS ile daha iyi performans almak için ayarlanabilecek.  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-* **Hdınsight'ta Hive çalıştıran**.  [Hive kullanma hdınsight'ta] Hdınsight'ta Hive işleri çalıştırma hakkında bilgi için bkz (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
-* **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Hdınsight'ta Hive çalıştıran**.  Hdınsight'ta Hive işleri çalıştırma hakkında bilgi edinmek için bkz: () [Hive kullanma hdınsight'ta]https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametreler
 
@@ -56,7 +56,7 @@ ADLS performansı için ince ayar için en önemli ayarları şunlardır:
 
 **Hive.Exec.reducer.bytes.Per.reducer ayarlamak** – veri sıkıştırılmamış olduğunda varsayılan değer iyi çalışır.  Sıkıştırılmış veri boyutu reducer azaltmanız gerekir.  
 
-**Hive.tez.Container.size ayarlamak** – her bir düğümündeki bellek yarn.nodemanager.resource.memory mb belirtilir ve HDI kümesi üzerinde varsayılan olarak doğru bir şekilde ayarlamanız gerekir.  YARN içinde uygun bellek ayarlama hakkında ek bilgi için bkz [sonrası](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Hive.tez.Container.size ayarlamak** – her bir düğümündeki bellek yarn.nodemanager.resource.memory mb belirtilir ve HDI kümesi üzerinde varsayılan olarak doğru bir şekilde ayarlamanız gerekir.  YARN içinde uygun bellek ayarlama hakkında ek bilgi için bkz [sonrası](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 G/ç yoğun iş yükleri, Tez kapsayıcı boyutu azaltarak daha fazla paralellik yararlı olabilir. Bu kullanıcı eşzamanlılık artıran daha fazla kapsayıcı sağlar.  Ancak, bazı Hive sorguları önemli miktarda belleği (örneğin MapJoin) gerektirir.  Görev yeterli belleğe sahip değil bir yetersiz bellek özel durumu çalışma zamanı sırasında alırsınız.  Yetersiz bellek özel durumları alırsanız, bellek artırmanız gerekir.   
 
@@ -88,6 +88,6 @@ Kısıtlanan durumunda denetlemek için hata ayıklama istemci tarafında günl�
 ## <a name="further-information-on-hive-tuning"></a>Hive ayarlama hakkında daha fazla bilgi
 
 Hive sorgularınızı ince ayar yardımcı olacak birkaç Web günlükleri şunlardır:
-* [Hdınsight'ta Hadoop için Hive sorguları en iyi duruma getirme](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Hdınsight'ta Hadoop için Hive sorguları en iyi duruma getirme](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Hive sorgusu performans sorunlarını giderme](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 * [Konuşma göz atın üzerinde hdınsight'ta Hive en iyi duruma getirme](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

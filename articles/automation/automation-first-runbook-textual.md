@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b29fd8a576b4360b8465cc59db606fb1a8f2a02d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 33e9b68973aa399123fa9e62a2d0eea77c55add0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>İlk PowerShell İş Akışı runbook uygulamam
 
@@ -97,7 +97,7 @@ Oluşturduğunuz runbook hala Taslak modundadır. Üretimde çalıştırılabilm
 12. Runbook başlatıldığında görüntülediğiniz iş bölmesini açmak için bu işe tıklayabilirsiniz. Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
-Test ve runbook'unuzu yayımlanan, ancak şu ana kadar faydalı bir şey değil. Azure kaynaklarınızı yönetmek istediğiniz. Kimlik doğrulaması ancak bölümünde bahsedilen kimlik bilgilerini kullanarak bunu açamayacaksınız [Önkoşullar](#prerequisites). Bunun **Add-AzureRMAccount** cmdlet'i.
+Test ve runbook'unuzu yayımlanan, ancak şu ana kadar faydalı bir şey değil. Azure kaynaklarınızı yönetmek istediğiniz. Kimlik doğrulaması ancak bölümünde bahsedilen kimlik bilgilerini kullanarak bunu açamayacaksınız [Önkoşullar](#prerequisites). Bunun **Connect-AzureRmAccount** cmdlet'i.
 
 1. MyFirstRunbook İş Akışı bölmesinde **Düzenle**’ye tıklayarak metin düzenleyicisini açın.
 2. gerekmeyen **Write-Output** satırı artık, bu nedenle bir tane silin.
@@ -106,7 +106,7 @@ Test ve runbook'unuzu yayımlanan, ancak şu ana kadar faydalı bir şey değil.
 
    ```powershell-interactive
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
 5. Tıklatın **Test bölmesi** böylece runbook'u test edebilirsiniz.
@@ -115,13 +115,13 @@ Test ve runbook'unuzu yayımlanan, ancak şu ana kadar faydalı bir şey değil.
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6. Adım - Sanal makineyi başlatmak için kod ekleme
 Runbook'unuzda, Azure aboneliğinizin kimlik doğrulaması, kaynakları yönetebilir. bir sanal makineyi başlatmak için bir komut ekleyin. Azure aboneliğinizde herhangi bir sanal makine seçin ve şu an için runbook adı cmdlet'e kod demektir.
 
-1. *Add-AzureRmAccount* ’un ardından, başlatılacak sanal makinenin adını ve Kaynak Grubu adını girip *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* yazın.  
+1. Sonra *Connect-AzureRmAccount*, türü *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* adını ve kaynak grubu adını sanal makinenin, sağlama.  
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
@@ -141,7 +141,7 @@ runbook'unuzda sanal makine şu anda runbook'ta Bu, sabit kodlanmış başlatır
      [string]$ResourceGroupName
     )  
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```

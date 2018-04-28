@@ -1,11 +1,11 @@
 ---
-title: "Dağıtılan bir StorSimple cihazı sorunlarını giderme | Microsoft Docs"
-description: "Tanılama ve şu anda dağıtılmış ve çalışır durumda bir StorSimple cihazında oluşan hataları düzeltme açıklar."
+title: Dağıtılan bir StorSimple cihazı sorunlarını giderme | Microsoft Docs
+description: Tanılama ve şu anda dağıtılmış ve çalışır durumda bir StorSimple cihazında oluşan hataları düzeltme açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cf037f7f1c1384b654a7144485d38f569eb7c167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>İşletimsel bir StorSimple cihazı sorun giderme
 > [!NOTE]
-> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Genel Bakış
 Bu makalede yapılandırma sorunlarını çözmek için yararlı sorun giderme kılavuzu verilmiştir StorSimple Cihazınızı dağıtılmış ve çalışır durumda sonra hatalarla karşılaşabilirsiniz. Sık karşılaşılan sorunları, olası nedenler ve önerilen adımları, Microsoft Azure StorSimple çalıştırdığınızda karşılaşabileceğiniz sorunları gidermenize yardımcı olması için açıklar. Bu bilgiler, StorSimple şirket içi fiziksel cihazı ve StorSimple sanal cihazı için geçerlidir.
@@ -65,5 +65,5 @@ Hataları sayısal sırada listelenir.
 ## <a name="next-steps"></a>Sonraki adımlar
 Sorunu gidermek erişemiyorsanız [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) Yardım için. 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/%5Clibrary/Dn715782(v=WPS.630).aspx

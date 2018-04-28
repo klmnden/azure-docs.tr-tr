@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: ea33fa95aa7b73668aeee313a9d71a7f78e89a77
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C kullanıcı arabirimini (UI) özelleştirme
 
@@ -341,7 +341,8 @@ Sayfa UI Özelleştirme özelliğini kullanmayı planlıyorsanız, aşağıdaki 
 * Yoksa, Azure AD B2C'ın varsayılan içeriği Kopyala ve onu değiştirme girişimi. HTML5 içeriğinizi sıfırdan oluşturmak ve varsayılan içerik referans olarak kullanmak için en iyisidir.
 * Güvenlik nedenleriyle, biz, içeriği tüm JavaScript dahil etmenize izin vermez. Gerekenler çoğu kutu dışı kullanılabilir olması gerekir. Aksi takdirde, kullanın [kullanıcı sesi](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) yeni işlevsellik istemek için.
 * Tarayıcı sürümleri desteklenir:
-  * Internet Explorer 11, 10, Edge
+  * Internet Explorer 11, 10, sınır
   * Internet Explorer 9, 8 için sınırlı destek
   * Google Chrome 42.0 ve üstü
   * Mozilla Firefox 38.0 ve üstü
+* İçerme emin olun `<form>` bu Azure AD B2C eklenen HTML tarafından oluşturulan gönderme işlemleri ile müdahale gibi HTML etiketleri.

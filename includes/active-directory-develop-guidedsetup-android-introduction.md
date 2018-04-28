@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Bir Android uygulaması Microsoft Graph API çağrısı
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Oturum açma kullanıcıları ve Android bir uygulamadan tüm Microsoft Graph API
 
 Bu kılavuz, nasıl yerel bir Android uygulaması bir erişim belirteci alın ve Microsoft Graph API veya Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren diğer API'leri çağırmak gösterir.
 
 Kılavuzu tamamladıktan sonra uygulama oturum açma işlemleri kişisel hesapları (dahil olmak üzere outlook.com, live.com ve diğerleri) ve herhangi bir şirket veya Azure Active Directory kullanan kuruluş iş ve Okul hesaplarını kabul edemiyor olacaktır. Uygulama daha sonra Azure Active Directory v2 bitiş noktası tarafından korunan bir API çağırır.  
 
-## <a name="how-this-sample-works"></a>Bu örnek nasıl çalışır?
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuz tarafından oluşturulan örnek uygulaması nasıl çalışır
 ![Bu örnek nasıl çalışır?](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 Bu kılavuz ile oluşturduğunuz örnek uygulama bir Android uygulaması (Microsoft Graph API, bu durumda) Azure Active Directory v2 uç noktasından belirteçleri kabul eder bir Web API sorgulamak için kullanıldığı bir senaryo temel alır. Bu senaryo için uygulamanızı HTTP isteklerini Authorization Üstbilgisi yoluyla alınan simgesi ekler. Microsoft kimlik doğrulama kitaplığı (MSAL), belirteç edinme ve yenileme sizin için işler.

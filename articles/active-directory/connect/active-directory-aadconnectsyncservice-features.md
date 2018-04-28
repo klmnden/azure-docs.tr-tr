@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
@@ -31,7 +31,7 @@ Bu konuda açıklanmaktadır nasıl özelliklerini aşağıdaki **Azure AD Conne
 Bu ayarlar ile yapılandırılan [Azure Active Directory için Windows PowerShell Modülü](https://aka.ms/aadposh). İndirin ve Azure AD Connect'ten ayrı olarak yükleyin. Bu konudaki belgelenen cmdlet'leri de tanıtılan [2016 Mart sürümünden (yapı 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Bu konudaki belgelenen cmdlet'leri yok veya aynı sonucu verir değil, en son sürümü çalıştırdığınızdan emin olun.
 
 Azure AD dizininizi yapılandırmasında görmek için çalıştırın `Get-MsolDirSyncFeatures`.  
-![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
+![Get-MsolDirSyncFeatures sonucu](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
 Bu ayarların çoğu, yalnızca Azure AD Connect tarafından değiştirilebilir.
 
@@ -56,7 +56,7 @@ Aşağıdaki ayarları Azure AD Connect tarafından yapılandırılır ve taraf�
 | DeviceWriteback |[Azure AD Connect: cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect eşitleme: dizin uzantıları](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Dışa aktarma sırasında başarısız olan nesnenin tamamı yerine başka bir nesnenin yinelemesi karantinaya için bir öznitelik sağlar. |
-| PasswordSync |[Parola Eşitleme ile Azure AD Connect eşitleme uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[Azure AD Connect eşitlemesi ile parola karma eşitlemesi uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Önizleme: Grup geri yazma](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Şu anda desteklenmiyor. |
 
@@ -88,7 +88,7 @@ Tarihsel olarak, şirket içi eşitleme hizmetini kullanmayı UserPrincipalName 
 
 Daha fazla ayrıntı için bkz: [Office 365, Azure veya Intune kullanıcı adları şirket içi UPN veya alternatif oturum açma kimliği eşleşmiyor](https://support.microsoft.com/kb/2523192).
 
-Bu özelliği etkinleştirmek, userPrincipalName içi değiştirilen olduğunda ve Parola Eşitleme'yi kullanmaya güncelleştirmek eşitleme altyapısı sağlar. Federasyon kullanırsanız, bu özellik desteklenmiyor.
+Bu özelliği etkinleştirmek, userPrincipalName içi değiştirilmiş olduğundan ve parola karma eşitlemesi kullandığınızda güncelleştirmek eşitleme altyapısı sağlar. Federasyon kullanırsanız, bu özellik desteklenmiyor.
 
 Bu özellik için varsayılan olarak yeni Azure AD dizinlerinden oluşturulur. Bu özellik, çalıştırarak etkin olup olmadığını görebilirsiniz:  
 

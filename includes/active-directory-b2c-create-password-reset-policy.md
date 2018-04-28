@@ -1,4 +1,4 @@
-Uygulamanızda ayrıntılı bir parola sıfırlama özelliği sunmak için bir parola sıfırlama İlkesi oluşturmanız gerekir. Kiracı genelinde parola sıfırlama seçeneği Not [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md) belirtilir. Bu ilke, tüketicilerin parola sıfırlama sırasında karşılaşacağı deneyimleri ve işlem başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini açıklar.
+Hassas parola sıfırlama, uygulamanızda etkinleştirmek için kullandığınız bir **parola sıfırlama** ilkesi. Kiracı genelinde parola sıfırlama seçeneği Not [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md) belirtilir. Bu ilke müşterilerin parola sıfırlama ve uygulama başarılı tamamlanma alacak belirteçleri içeriğini sırasında gidecek deneyimleri açıklanmaktadır.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -8,7 +8,7 @@ Ayarların ilkeler bölümünde **Parola sıfırlama ilkeleri**’ni seçip **+ 
 
 Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SSPR` girin.
 
-**Kimlik sağlayıcıları**’nı seçin ve **E-posta adresi kullanarak parola sıfırla**’yı işaretleyin. **Tamam** düğmesine tıklayın.
+**Kimlik sağlayıcıları**’nı seçin ve **E-posta adresi kullanarak parola sıfırla**’yı işaretleyin. **Tamam**’a tıklayın.
 
 ![Kimlik sağlayıcısı olarak E-posta adresi kullanarak parola sıfırla’yı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
 

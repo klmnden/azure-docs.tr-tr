@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Veri bilimi Sanal Makinesi üzerinde yapabileceğiniz on işlem
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>On Windows veri bilimi sanal makinede yapabilecekleriniz
 
-Microsoft Veri bilimi sanal makine (DSVM), çeşitli veri keşfi ve modelleme görevleri gerçekleştirmenizi sağlar güçlü veri bilimi geliştirme ortamıdır. Ortam zaten oluşturulmuş ve paketlenmiş çözümleme şirket içi, Bulut veya karma dağıtımlar için hızlı bir şekilde kullanmaya başlamak kolaylaştıran çeşitli popüler veri analiz araçları ile birlikte gelir. DSVM yakından çok sayıda Azure hizmetiyle çalışır ve okuma ve Azure, Azure SQL Data Warehouse, Azure Data Lake, Azure Storage veya Azure Cosmos veritabanı üzerinde depolanan verileri işlemek edebilir. Ayrıca, Azure Machine Learning ve Azure Data Factory gibi diğer analiz araçları de kullanabilir.
+Windows veri bilimi sanal makine (DSVM), çeşitli veri keşfi ve modelleme görevleri gerçekleştirmenizi sağlar güçlü veri bilimi geliştirme ortamıdır. Ortam zaten yerleşik ve çözümleme şirket için hızlı bir şekilde kullanmaya başlamak kolaylaştıran çeşitli popüler veri analiz araçları ile beraberinde gelen Bulut veya karma dağıtımlar. DSVM yakından çok sayıda Azure hizmetiyle çalışır ve okuma ve Azure, Azure SQL Data Warehouse, Azure Data Lake, Azure Storage veya Azure Cosmos veritabanı üzerinde depolanan verileri işlemek edebilir. Bunu Azure Machine Learning ve Azure Data Factory gibi diğer analiz araçları da kullanabilirsiniz.
 
 Bu makalede, DSVM çeşitli veri bilimi görevlerini gerçekleştirmek ve diğer Azure hizmetleriyle etkileşime için nasıl kullanılacağını öğreneceksiniz. Üzerinde DSVM yapabileceği şeylerden bazıları şunlardır:
 
@@ -208,7 +208,7 @@ Veri bilimcilerine büyük veri kümeleri, kod veya takım içindeki diğer kayn
 Bir Azure dosya hizmeti paylaşımı oluşturmak için Azure PowerShell'i kullanabilirsiniz. Burada, Azure dosya hizmeti paylaşımı oluşturmak için Azure PowerShell altında çalıştırmak için betik verilmiştir.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.

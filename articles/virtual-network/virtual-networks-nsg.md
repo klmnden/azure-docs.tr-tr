@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
 
@@ -50,8 +50,8 @@ NSG kuralları aşağıdaki özellikleri içerir:
 | **Protokol** |Kural ile eşleştirilecek protokol. |TCP, UDP veya * |Protokol olarak * kullanmak ICMP'yi (yalnızca Doğu-Batı trafiği), aynı zamanda UDP'yi ve TCP'yi içerir ve ihtiyacınız olan kuralların sayısını azaltabilir.<br/>Bununla birlikte, * kullanmak çok geniş bir yaklaşım olabilir, bu nedenle yalnızca gerçekten gerekli olduğu zaman * kullandığınızdan emin olun. |
 | **Kaynak bağlantı noktası aralığı** |Kural ile eşleştirilecek kaynak bağlantı noktası aralığı. |1 - 65535 aralığındaki tek bağlantı noktası numarası, bağlantı noktası aralığı (yani 1 - 65535) veya * (tüm bağlantı noktaları için). |Kaynak bağlantı noktaları kısa ömürlü olabilir. İstemci programınız belirli bir bağlantı noktasını kullanmadığı sürece, çoğu durum için * kullanın.<br/>Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
 | **Hedef bağlantı noktası aralığı** |Kural ile eşleştirilecek hedef bağlantı noktası aralığı. |1'den 65535'e kadar olan tek bağlantı noktası, bağlantı noktası aralığı (yani 1-65535) veya \* (tüm bağlantı noktaları için). |Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
-| **Kaynak adres ön eki** |Kural ile eşleştirilecek kaynak adres ön eki veya etiketi. |tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı düşünün. |
-| **Hedef adres ön eki** |Kural ile eşleştirilecek hedef adres ön eki veya etiketi. | tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı düşünün. |
+| **Kaynak adres ön eki** |Kural ile eşleştirilecek kaynak adres ön eki veya etiketi. |Tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [hizmet etiketi](#service-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, hizmet etiketleri ve * kullanmayı düşünün. |
+| **Hedef adres ön eki** |Kural ile eşleştirilecek hedef adres ön eki veya etiketi. | tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#service-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, hizmet etiketleri ve * kullanmayı düşünün. |
 | **Yön** |Kural için eşleştirilecek trafik yönü. |Gelen veya giden. |Gelen veya giden kuralları, yöne bağlı olarak ayrı ayrı işlenir. |
 | **Öncelik** |Kurallar öncelik sırasına göre denetlenir. Bir kural uygulandığı zaman eşleştirme için başka hiçbir kural test edilmez. | 100 ile 4096 arasında bir sayı. | Gelecekte oluşturabileceğiniz yeni kurallara alan bırakmak amacıyla, her kural için öncelikleri 100'lü adımlarla atlayarak kuralları oluşturmayı düşünün. |
 | **Erişim** |Kuralın eşleşmesi durumunda uygulanacak erişim türü. | İzin ver veya reddet. | Bir paket için izin verme kuralı bulunmazsa paketin bırakılacağını göz önünde bulundurun. |
@@ -62,36 +62,13 @@ NSG'ler iki kural kümesi içerir: Gelen ve giden. Bir kurala ait öncelik her k
 
 Önceki resimde NSG kurallarının nasıl işlendiği gösterilmektedir.
 
-### <a name="default-tags"></a>Varsayılan Etiketler
-Varsayılan etiketler, bir IP adresi kategorisini belirtmek için sistem tarafından sağlanan tanımlayıcılardır. Herhangi bir kuralın **kaynak adres ön eki** ve **hedef adres ön eki** özelliklerinde varsayılan etiketleri kullanabilirsiniz. Kullanabileceğiniz üç varsayılan etiket vardır:
+### <a name="default-tags"></a>Sistem etiketleri
 
-* **VirtualNetwork** (Resource Manager) (klasik için **VIRTUAL_NETWORK**): Bu etiket, sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve bağlı Azure sanal ağlarını (yerel ağlar) içerir.
-* **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure Load Balancer'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
-* **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Bu aralık [Azure'a ait genel IP alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
+Hizmet etiketleri, bir IP adresi kategorisini belirtmek için sistem tarafından sağlanan tanımlayıcılardır. Herhangi bir güvenlik kuralının **kaynak adres ön eki** ve **hedef adres ön eki** özelliklerinde hizmet etiketlerini kullanabilirsiniz. [Hizmet etiketleri](security-overview.md#service-tags) hakkında daha fazla bilgi edinin.
 
-### <a name="default-rules"></a>Varsayılan kurallar
-Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler. 
+### <a name="default-rules"></a>Varsayılan güvenlik kuralları
 
-Varsayılan kurallar, trafiğe aşağıdaki gibi izin verir ve reddeder:
-- **Sanal ağ:** Kaynağı bir sanal ağ olan ve bir sanal ağda biten trafiğe hem gelen hem de giden yönlerde izin verilir.
-- **Internet:** Giden trafiğe izin verilir, ancak gelen trafik engellenir.
-- **Yük dengeleyici:** Azure Load Balancer'ın VM’lerinizde ve rol örneklerinizde sistem durumunu araştırmasına izin verir. Bu kuralı geçersiz kılarsanız Azure Load Balancer sistem durumu araştırmaları başarısız olur ve bu hizmetinizi etkileyebilir.
-
-**Gelen trafik için varsayılan kurallar**
-
-| Adı | Öncelik | Kaynak IP | Kaynak Bağlantı Noktası | Hedef IP | Hedef Bağlantı Noktası | Protokol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | İzin Ver |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | İzin Ver |
-| DenyAllInBound |65500 | * | * | * | * | * | Reddet |
-
-**Giden trafik için varsayılan kurallar**
-
-| Adı | Öncelik | Kaynak IP | Kaynak Bağlantı Noktası | Hedef IP | Hedef Bağlantı Noktası | Protokol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | İzin Ver |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | İzin Ver |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Reddet |
+Tüm NSG'ler bir varsayılan güvenlik kuralları kümesi içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler. [Varsayılan güvenlik kuralları](security-overview.md#default-security-rules) hakkında daha fazla bilgi edinin.
 
 ## <a name="associating-nsgs"></a>NSG'leri ilişkilendirme
 Kullandığınız dağıtım modeline bağlı olarak, bir NSG'yi VM'lerle, ağ arabirimleriyle ve alt ağlarla aşağıdaki gibi ilişkilendirebilirsiniz:
@@ -127,7 +104,7 @@ Aşağıdaki araçları kullanarak NSG’leri Resource Manager veya klasik dağ�
 | PowerShell     | [Evet](virtual-networks-create-nsg-classic-ps.md) | [Evet](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [Evet](virtual-networks-create-nsg-classic-cli.md) | [Evet](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | Hayır | [Evet](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager şablonu   | Hayır  | [Evet](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager şablonu   | Hayır  | [Evet](template-samples.md) |
 
 ## <a name="planning"></a>Planlama
 NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:

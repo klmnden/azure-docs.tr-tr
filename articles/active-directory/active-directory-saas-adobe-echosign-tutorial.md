@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Adobe işaretiyle | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Adobe oturum arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Adobe işaretiyle | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Adobe oturum arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Öğretici: Azure Active Directory Tümleştirme Adobe oturum
 
@@ -31,7 +31,7 @@ Adobe oturum Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Adobe işaretiyle yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.echosign.com/`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.echosign.com/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.echosign.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) bu değerleri almak için. 
@@ -129,40 +129,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. Farklı web tarayıcısı penceresinde Adobe oturum şirket sitenize yönetici olarak oturum açın.
 
-8. Üstteki menüde tıklatın **hesap**ve ardından, sol taraftaki gezinti bölmesinde, **SAML ayarları** altında **hesap ayarlarını**.
+8. SAML menüye tıklayın **hesap ayarlarını**ve ardından **SAML ayarları**.
    
-   ![Hesap](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "hesabı")
+    ![Hesap](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "hesabı")
 
-9. SAML Ayarlar bölümünde, aşağıdaki adımları gerçekleştirin:
+9. İçinde **SAML ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+  
+    ![SAML ayarları](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML ayarları")
    
-   ![SAML ayarları](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML ayarları")
+    a. Olarak **SAML modu**seçin **SAML zorunlu**.
    
-   a. Olarak **SAML modu**seçin **SAML zorunlu**.
+    b. Seçin **Adobe oturum kimlik bilgilerini kullanarak oturum açması Adobe izin oturum hesap yöneticileri**.
    
-   b. Seçin **EchoSign kimlik bilgilerini kullanarak oturum açması EchoSign hesap yöneticileri izin**.
-   
-   c. Olarak **kullanıcı oluşturma**seçin **otomatik olarak SAML kimliği doğrulanmış kullanıcılar eklemek**.
+    c. Olarak **kullanıcı oluşturma**seçin **otomatik olarak SAML kimliği doğrulanmış kullanıcılar eklemek**.
 
-10. Üzerinde aşağıdaki adımları gerçekleştirmeden Taşı:
-
-       ![SAML ayarları](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML ayarları")
-
-    a. Yapıştır **SAML varlık kimliği**, Azure portalından kopyalanan **IDP varlık kimliği** metin kutusu.
+    d. Yapıştır **SAML varlık kimliği**, Azure portalından kopyalanan **varlık kimliği/sertifika veren URL** metin kutusu.
     
-    b. Yapıştır **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan **IDP oturum açma URL'si** metin kutusu.
+    e. Yapıştır **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan **oturum açma URL'si/SSO Endpoint** metin kutusu.
    
-    c. Yapıştır **Sign-Out URL**, Azure portalından kopyalanan **IDP oturum kapatma URL'si** metin kutusu.
+    f. Yapıştır **Sign-Out URL**, Azure portalından kopyalanan **oturum kapatma URL'si/SLO Endpoint** metin kutusu.
 
-    d. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP sertifika** metin kutusu
+    g. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP sertifika** metin kutusu
 
-    e. Tıklatın **değişiklikleri kaydetmek**.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    h. Tıklatın **değişiklikleri kaydetmek**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -193,7 +184,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-an-adobe-sign-test-user"></a>Adobe oturum test kullanıcısı oluşturma
 
@@ -208,15 +199,15 @@ Adobe imzalamak için oturum açmak Azure AD kullanıcıları etkinleştirmek i�
 
 2. Üstteki menüde tıklatın **hesap**ve ardından, sol taraftaki gezinti bölmesinde, **kullanıcıları ve grupları**ve ardından **yeni bir kullanıcı oluşturmak**.
    
-   ![Hesap](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "hesabı")
+    ![Hesap](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "hesabı")
    
 3. İçinde **yeni kullanıcı oluştur** bölümünde, aşağıdaki adımları gerçekleştirin:
    
-   ![Kullanıcı oluşturma](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "kullanıcı oluştur")
+    ![Kullanıcı oluşturma](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "kullanıcı oluştur")
    
-   a. Tür **e-posta adresi**, **ad**, ve **Soyadı** istediğiniz ilgili metin kutularına sağlamayı geçerli bir AAD hesabının.
+    a. Tür **e-posta adresi**, **ad**, ve **Soyadı** istediğiniz ilgili metin kutularına sağlamayı geçerli bir AAD hesabının.
    
-   b. Tıklatın **kullanıcı oluşturma**.
+    b. Tıklatın **kullanıcı oluşturma**.
 
 >[!NOTE]
 >Azure Active Directory hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alır. 

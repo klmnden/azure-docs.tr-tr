@@ -10,11 +10,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f729a0228c6b0c2f514ab7170299b0271ed28ad2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: d1f6515c63e789643c285218aa121f1182902e0f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure hesaplarınıza bağlantı iş ortağı kimliği 
 İş ortağı olarak, müşterinin kaynakları yönetmek için kullanılan hesaplar için iş ortağı Kimliğinizi bağlayarak, etkisi, müşteri katılımlar izleyebilirsiniz.
@@ -40,7 +40,7 @@ Müşteri'nin kaynaklarına erişimi varsa, Microsoft iş ortağı ağ kimliği 
 2. Oturum açtığınızda müşterinin Kiracı, kullanıcı hesabı veya hizmet sorumlusu, daha fazla bilgi için bkz: [Powershell ile oturum açma](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
-    C:\> Login-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
 
 

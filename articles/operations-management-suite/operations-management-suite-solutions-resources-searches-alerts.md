@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
-ms.author: bwren
+ms.date: 04/16/2018
+ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c43e262725bd7b4c4fe5680f514d80112766f991
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Günlük analizi ekleme arar ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 03/30/2018
 Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md) ve yapısı bir [Resource Manager şablonu](../resource-group-authoring-templates.md) ve çözüm dosya.
 
 
-## <a name="log-analytics-workspace"></a>Günlük analizi çalışma alanı
+## <a name="log-analytics-workspace"></a>Log Analytics Çalışma Alanı
 Günlük analizi tüm kaynaklarında bulunan bir [çalışma](../log-analytics/log-analytics-manage-access.md).  Bölümünde açıklandığı gibi [günlük analizi çalışma alanı ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), çalışma alanı yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
 
-Her günlük analizi kaynak adına çalışma adıdır.  Bu çözümle yapılır **çalışma** savedsearch kaynak aşağıdaki örnekteki gibi parametre.
+Her günlük analizi kaynak adına çalışma adıdır.  Bu çözümle yapılır **çalışma** SavedSearch kaynak aşağıdaki örnekteki gibi parametre.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -91,12 +91,17 @@ Kaydedilmiş bir aramayı, her bir özellik aşağıdaki tabloda açıklanmışt
 ## <a name="alerts"></a>Uyarılar
 [Analytics uyarıları oturum](../log-analytics/log-analytics-alerts.md) düzenli aralıklarla kaydedilmiş bir aramayı çalıştırma uyarı kuralları tarafından oluşturulur.  Sorgu eşleşmesinin sonuçlarını ölçütleri belirtilmişse, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem çalıştırın.  
 
+> [!NOTE]
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları, Azure'da genişletmek otomatik olarak başlatılacak. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+
 Uyarı kurallarında bir yönetim çözümü, aşağıdaki üç farklı kaynakları yapılır.
 
 - **Kayıtlı arama.**  Çalıştırılan günlük arama tanımlar.  Birden çok uyarı kurallarını, tek bir kayıtlı arama paylaşabilirsiniz.
 - **Zamanlama.**  Günlük arama ne sıklıkta çalıştırmak tanımlar.  Her uyarı kuralı bir ve yalnızca bir zamanlaması vardır.
-- **Uyarı eylem.**  Her uyarı kuralı bir eylem kaynak türüne sahip olan **uyarı** bir uyarı kaydı oluşturulduğunda ve uyarının önem derecesi ölçütlerini gibi uyarı ayrıntılarını tanımlar.  Eylem kaynak isteğe bağlı olarak bir posta ve runbook yanıt tanımlayacaksınız.
-- **Web kancası eylem (isteğe bağlı).**  Uyarı kuralı bir Web kancası çağırır sonra başka bir işlem kaynak türüne sahip gerektirir **Web kancası**.    
+- **Uyarı eylem.**  Bir eylem grubu kaynağı veya eylem (eski) sahip kaynak türü, her bir uyarı kuralı sahip **uyarı** bir uyarı kaydı oluşturulduğunda ve uyarının önem derecesi ölçütlerini gibi uyarı ayrıntılarını tanımlar. [Eylem grubu](../monitoring-and-diagnostics/monitoring-action-groups.md) kaynak uyarı tetiklenir - sesli araması, SMS, gibi yapılacak yapılandırılmış eylemlerin bir listesini sahip e-posta, Web kancası, ITSM aracı, Otomasyon runbook'u, mantıksal uygulama, vb.
+ 
+Eylem kaynak (eski) isteğe bağlı olarak bir posta ve runbook yanıt tanımlayacaksınız.
+- **Web kancası eylem (eski).**  Uyarı kuralı bir Web kancası çağırır sonra başka bir işlem kaynak türüne sahip gerektirir **Web kancası**.    
 
 Kaynaklar, yukarıda açıklanan arama kaydedildi.  Diğer kaynaklar aşağıda açıklanmıştır.
 
@@ -133,20 +138,25 @@ Zamanlama kaynaklar için özellikler aşağıdaki tabloda açıklanmıştır.
 
 Zamanlama önce oluşturulan zamanlama kaynak kayıtlı arama üzerinde bağımlı olmalıdır.
 
+> [!NOTE]
+> Zamanlama adı verilen bir çalışma alanında benzersiz olmalıdır; farklı Kaydedilmiş aramaları ile ilişkili olsalar bile, iki zamanlamaları aynı Kimliğe sahip olamaz. Ayrıca tüm kaydedilmiş aramaları, çizelgeler ve günlük analizi API ile oluşturulan eylemler için ad küçük olmalıdır.
+
 
 ### <a name="actions"></a>Eylemler
-Belirtilen eylem kaynak iki tür vardır **türü** özelliği.  Bir zamanlama gerektiren **uyarı** uyarı kuralı ve bir uyarı oluşturulduğunda, hangi eylemleri alınır ayrıntılarını tanımlayan eylem.  Ayrıca içerebilir bir **Web kancası** eylem bir Web kancası uyarıdan çağrılmalıdır.  
+Bir zamanlama birden çok eylemler olabilir. Bir posta gönderme veya bir runbook'u başlatma gibi gerçekleştirmek için bir veya daha fazla işlem bir eylem tanımlayabilir veya ne zaman bir arama sonuçlarını bazı ölçütlere uyan belirleyen bir eşik tanımlayabilir.  Böylece eşiğine ulaşıldığında işlemleri gerçekleştirilen bazı eylemler her ikisi de tanımlayacaksınız.
 
-Eylem kaynaklarınız türü `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
+Eylemler [eylem Grup] veya eylem kaynağına kullanılarak tanımlanabilir.
 
-#### <a name="alert-actions"></a>Uyarı eylemleri
+> [!NOTE]
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları, Azure'da genişletmek otomatik olarak başlatılacak. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
-Her zamanlama varsa **uyarı** eylem.  Bu, uyarı ve isteğe bağlı olarak bildirim ve düzeltme eylemlerinin ayrıntılarını tanımlar.  Bir bildirim bir veya daha fazla adrese bir e-posta gönderir.  Bir düzeltme algılanan sorunu düzeltmek girişiminde Azure Otomasyonu'nda bir runbook başlatır.
+
+Belirtilen eylem kaynak iki tür vardır **türü** özelliği.  Bir zamanlama gerektiren **uyarı** uyarı kuralı ve bir uyarı oluşturulduğunda, hangi eylemleri alınır ayrıntılarını tanımlayan eylem. Eylem kaynaklarınız türü `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
 
 Uyarı eylemleri aşağıdaki yapı ayarlanmıştır.  Kopyalayabilir ve çözüm dosyanıza Bu kod parçacığını yapıştırın ve parametre adlarını değiştirmek için bu ortak değişkenleri ve parametreleri içerir. 
 
 
-
+```
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -167,20 +177,16 @@ Uyarı eylemleri aşağıdaki yapı ayarlanmıştır.  Kopyalayabilir ve çözü
                     "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
                     "operator": "[variables('Alert').Trigger.Operator]",
                     "value": "[variables('Alert').Trigger.Value]"
-                },
-            },
-            "emailNotification": {
-                "recipients": [
-                    "[variables('Alert').Recipients]"
-                ],
-                "subject": "[variables('Alert').Subject]"
-            },
-            "remediation": {
-                "runbookName": "[variables('Alert').Remedition.RunbookName]",
-                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
-            }
+                  },
+              },
+      "AzNsNotification": {
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
         }
     }
+```
 
 Uyarı eylemi kaynaklar için özellikler aşağıdaki tabloda açıklanmıştır.
 
@@ -189,17 +195,16 @@ Uyarı eylemi kaynaklar için özellikler aşağıdaki tabloda açıklanmıştı
 | Tür | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
 | Ad | Evet | Uyarı görünen adı.  Bu uyarı kuralı için konsolunda görüntülenen addır. |
 | Açıklama | Hayır | Uyarı isteğe bağlı bir açıklama. |
-| Önem Derecesi | Evet | Aşağıdaki değerlerden uyarı kaydının önem derecesi:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme** |
+| Önem Derecesi | Evet | Aşağıdaki değerlerden uyarı kaydının önem derecesi:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**
 
 
-##### <a name="threshold"></a>Eşik
+#### <a name="threshold"></a>Eşik
 Bu bölüm gereklidir.  Uyarı eşiği özelliklerini tanımlar.
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | İşleç | Evet | Aşağıdaki değerlerden karşılaştırma işleci:<br><br>**gt büyük =<br>lt = küçüktür** |
 | Değer | Evet | Sonuçları karşılaştırmak için değer. |
-
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Bu bölümde isteğe bağlıdır.  Bir ölçüm ölçüm uyarı içerir.
@@ -213,12 +218,33 @@ Bu bölümde isteğe bağlıdır.  Bir ölçüm ölçüm uyarı içerir.
 | İşleç | Evet | Aşağıdaki değerlerden karşılaştırma işleci:<br><br>**gt büyük =<br>lt = küçüktür** |
 | Değer | Evet | Sayısı uyarıyı tetikleyecek ölçütler karşılanması gerekir. |
 
-##### <a name="throttling"></a>Azaltma
+
+#### <a name="throttling"></a>Azaltma
 Bu bölümde isteğe bağlıdır.  Bazı süreyi bir uyarı oluşturulduktan sonra için aynı kural uyarıları gizlemek istiyorsanız, bu bölüm içerir.
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | Dakika Cinsiden Süre | Dahil edilen öğesi azaltma, Evet | Aynı uyarı kuralı birinden oluşturulduktan sonra uyarıları gizlemek için dakika sayısı. |
+
+
+#### <a name="azure-action-group"></a>Azure eylem grubu
+Azure, içindeki tüm uyarılar Eylemler işlemek için varsayılan bir mekanizma olarak eylem grubu kullanın. Eylem grubuyla eylemlerinizi bir kez belirtin ve sonra Azure arasında birden çok uyarı - eylem grubuna ilişkilendirebilirsiniz. Sürekli olarak aynı eylemleri tekrar tekrar bildirme gerek olmadan. Eylem grupları birden çok eylem - e-posta, SMS, sesli arama, ITSM bağlantı, Otomasyon Runbook'u, Web kancası URI ve benzeri destekler. 
+
+Kimin uyarılarını Azure'da - genişletilmiş kullanıcının için bir zamanlama artık bir uyarı oluşturmak için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon Ayrıntılar ve diğer eylemleri olması gereken taraftaki ilk önce bir uyarı; oluşturma bir eylem grubu tanımlanmış bir oluşturabilir [eylem Azure İzleyicisi grubundan](../monitoring-and-diagnostics/monitoring-action-groups.md) portalında veya kullanım [eylem Grup - kaynak şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+
+| Öğe adı | Gerekli | Açıklama |
+|:--|:--|:--|
+| AzNsNotification | Evet | Uyarı ölçütler karşılandığında gerekli eylemleri ayırdığınız için uyarı ilişkilendirilecek Azure eylem grubunun kaynak kimliği. |
+| CustomEmailSubject | Hayır | İlişkili eylem grubunda belirtilen tüm adreslere gönderilen e-postaları özel konu satırı. |
+| CustomWebhookPayload | Hayır | İlişkili eylem grubunda tanımlanan tüm Web kancası Uç noktalara gönderilmek üzere özelleştirilmiş yükü. Biçimi ne Web kancası beklediği ve geçerli bir seri hale getirilmiş JSON olmalıdır bağlıdır. |
+
+
+#### <a name="actions-for-oms-legacy"></a>Eylemler için OMS (eski)
+
+Her zamanlama varsa **uyarı** eylem.  Bu, uyarı ve isteğe bağlı olarak bildirim ve düzeltme eylemlerinin ayrıntılarını tanımlar.  Bir bildirim bir veya daha fazla adrese bir e-posta gönderir.  Bir düzeltme algılanan sorunu düzeltmek girişiminde Azure Otomasyonu'nda bir runbook başlatır.
+
+> [!NOTE]
+> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları, Azure'da genişletmek otomatik olarak başlatılacak. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Bu bölümde isteğe bağlı bir veya daha fazla alıcıya posta göndermek için uyarı istiyorsanız ekleyin.
@@ -239,7 +265,7 @@ Bu bölümde isteğe yanıt olarak uyarı başlatmak üzere bir runbook'u istiyo
 | WebhookUri | Evet | Runbook için Web kancası URI'si. |
 | Süre Sonu | Hayır | Tarih ve saat düzeltme süresi dolar. |
 
-#### <a name="webhook-actions"></a>Web kancası eylemleri
+##### <a name="webhook-actions"></a>Web kancası eylemleri
 
 Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilecek bir yükü sağlayarak bir işlem başlatın. Azure Otomasyon çalışma kitabı dışındaki işlemler çağırabilir Web kancası için amacı dışında düzeltme eylemleri benzerdir. Uzak işlem teslim edilecek bir yükü sağlama ek seçeneği de sağlar.
 
@@ -268,9 +294,7 @@ Web kancası eylem kaynaklar için özellikler aşağıdaki tabloda açıklanmı
 | type | Evet | Eylem türü.  Bu **Web kancası** Web kancası eylemleri için. |
 | ad | Evet | Eylem görünen adı.  Bu konsolunda görüntülenmez. |
 | wehookUri | Evet | Web kancası için URI. |
-| customPayload | Hayır | Web kancası için gönderilecek özel yükü. Web kancası bekleniyor üzerinde biçimi bağlıdır. |
-
-
+| CustomPayload | Hayır | Web kancası için gönderilecek özel yükü. Web kancası bekleniyor üzerinde biçimi bağlıdır. |
 
 
 ## <a name="sample"></a>Örnek
@@ -279,11 +303,11 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
 
 - Kayıtlı arama
 - Zamanlama
-- Uyarı eylemi
-- Web kancası eylemi
+- Eylem grubu
 
 Örnek kullanır [standart çözüm parametreleri](operations-management-suite-solutions-solution-file.md#parameters) cmdlet'e kod değerleri kaynak tanımlarında aksine bir çözümde yaygın olarak kullanılacak değişkenleri.
 
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -294,34 +318,16 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
               "Description": "Name of Log Analytics workspace"
             }
           },
-          "accountName": {
-            "type": "string",
-            "metadata": {
-              "Description": "Name of Automation account"
-            }
-          },
           "workspaceregionId": {
             "type": "string",
             "metadata": {
               "Description": "Region of Log Analytics workspace"
             }
           },
-          "regionId": {
+          "actiongroup": {
             "type": "string",
             "metadata": {
-              "Description": "Region of Automation account"
-            }
-          },
-          "pricingTier": {
-            "type": "string",
-            "metadata": {
-              "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-          },
-          "recipients": {
-            "type": "string",
-            "metadata": {
-              "Description": "List of recipients for the email alert separated by semicolon"
+              "Description": "List of action groups for alert actions separated by semicolon"
             }
           }
         },
@@ -331,7 +337,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-11-01-preview",
+          "LogAnalyticsApiVersion": "2015-03-20",
     
           "MySearch": {
             "displayName": "Error records by hour",
@@ -357,20 +363,11 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
               "Value": 3
             },
             "ThrottleMinutes": 60,
-            "Notification": {
-              "Recipients": [
-                "[parameters('recipients')]"
+            "AzNsNotification": {
+              "GroupIds": [
+                "[parameters('actiongroup')]"
               ],
-              "Subject": "Sample alert"
-            },
-            "Remediation": {
-              "RunbookName": "MyRemediationRunbook",
-              "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-            },
-            "Webhook": {
-              "Name": "MyWebhook",
-              "Uri": "https://MyService.com/webhook",
-              "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+              "CustomEmailSubject": "Sample alert"
             }
           }
         },
@@ -394,8 +391,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
               "containedResources": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
               ]
             },
             "plan": {
@@ -458,39 +454,18 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
               "Throttling": {
                 "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
               },
-              "EmailNotification": {
-                "Recipients": "[variables('MyAlert').Notification.Recipients]",
-                "Subject": "[variables('MyAlert').Notification.Subject]",
-                "Attachment": "None"
-              },
-              "Remediation": {
-                "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
-                "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
-              }
-            }
-          },
-          {
-            "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
-            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-            "dependsOn": [
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
-            ],
-            "properties": {
-              "etag": "*",
-              "Type": "Webhook",
-              "Name": "[variables('MyAlert').Webhook.Name]",
-              "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
-              "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+            "AzNsNotification": {
+              "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
+            }             
             }
           }
         ]
     }
-
+```
 
 Aşağıdaki parametre dosyası bu çözüm için örnek değerleri sağlar.
-
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
@@ -510,12 +485,12 @@ Aşağıdaki parametre dosyası bu çözüm için örnek değerleri sağlar.
             "pricingTier": {
                 "value": "Free"
             },
-            "recipients": {
-                "value": "recipient1@contoso.com;recipient2@contoso.com"
+            "actiongroup": {
+                "value": "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
             }
         }
     }
-
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Görünümler ekleme](operations-management-suite-solutions-resources-views.md) Yönetimi çözümünüz için.

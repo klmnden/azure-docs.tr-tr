@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure Service Fabric kümesindeki sertifikaları yönetme | Microsoft Docs"
-description: "Yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar."
+title: Bir Azure Service Fabric kümesindeki sertifikaları yönetme | Microsoft Docs
+description: Yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 65ade0f2526bf444c2205c74cce0e20be540998d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70de9ed6175a5fe7a8e3eed9c0a921cf8184d50d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ekleme veya Azure Service Fabric kümesi için sertifikaları kaldırın
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı tanımak ve hakkında bilgi sahibi olmanız önerilir [küme güvenlik senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir hangi küme sertifika ve devam etmeden önce ne için kullanılır.
@@ -47,7 +47,7 @@ Maksadınızı birincil olarak işaretlenmiş sertifikayı kaldırmak için ise,
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell kullanarak bir ikincil sertifika Ekle
 > [!TIP]
-> Daha iyi ve daha kolay şekilde kullanarak bir ikincil sertifika eklemek şimdi [Ekle AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak dağıtma kullanırken küme oluşturmak için kullanılan şablon gerekmez [Ekle AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i.
+> Daha iyi ve daha kolay şekilde kullanarak bir ikincil sertifika eklemek şimdi [Ekle AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak oluşturup kullanırken küme dağıtmak için kullanılan şablon gerekmez [Ekle AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i.
 
 Bu adımları, Kaynak Yöneticisi'ni nasıl çalıştığını iyi ve en az bir Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümesi için kullanılan şablonu varsayalım. JSON kullanarak rahat olduğu da varsayılır.
 
@@ -197,7 +197,7 @@ Resource Manager şablonu parametreniz dosya düzenleme, secCertificateThumbprin
 - Azure hesabınızda oturum açın ve belirli azure aboneliğini seçin. Bu, birden fazla azure aboneliği erişen çok kişi için önemli bir adımdır.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
 
 ```

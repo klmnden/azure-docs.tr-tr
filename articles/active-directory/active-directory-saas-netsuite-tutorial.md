@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Netsuite | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Netsuite arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Netsuite | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Netsuite arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Öğretici: Azure Active Directory Tümleştirme Netsuite ile
 
@@ -31,7 +31,7 @@ Netsuite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Netsuite ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:   `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
     > Bunlar gerçek değerleri değildir. Bu değerleri gerçek yanıt URL'si ile güncelleştirin. Kişi [Netsuite destek ekibi](http://www.netsuite.com/portal/services/support.shtml) bu değerleri almak için.
@@ -183,21 +183,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. Tıklatın **yeni rol**.
 
-    d. Yazın bir **adı** yeni rol ve select **tek oturum açma yalnızca** onay kutusu.
+    d. Yazın bir **adı** yeni rolünüz için.
       
       ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
 
     f. Üstteki menüde tıklatın **izinleri**. Ardından **Kurulum**.
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Seçin **ayarlamak yukarı SAM çoklu oturum açma**ve ardından **Ekle**.
+    g. Seçin **ayarlamak yukarı SAML çoklu oturum açma**ve ardından **Ekle**.
 
-    h. **Kaydet** düğmesine tıklayın.
+    h. **Kaydet**’e tıklayın.
 
-    ı. Üst gezinti menüsünde **Kurulum**, ardından **Kurulum Yöneticisi**.
+    i. Üst gezinti menüsünde **Kurulum**, ardından **Kurulum Yöneticisi**.
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
@@ -213,12 +213,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
       
        ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
 
-    m. **Kaydet** düğmesine tıklayın.
+    m. **Kaydet**’e tıklayın.
     
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
@@ -248,7 +244,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın. 
+    d. **Oluştur**’a tıklayın. 
 
 ### <a name="creating-a-netsuite-test-user"></a>Netsuite test kullanıcısı oluşturma
 
@@ -290,7 +286,7 @@ Bu bölümde, Britta Netsuite için erişim vererek, Azure çoklu oturum açma k
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Çoklu oturum açma ayarlarınızı sınamak için adresinden erişim Paneli'nde açın [https://myapps.microsoft.com](https://myapps.microsoft.com/), oturum test dikkate ve tıklatın **Netsuite**.
+Çoklu oturum açma ayarlarınızı sınamak için adresinden erişim Paneli'nde açın [ https://myapps.microsoft.com ](https://myapps.microsoft.com/), oturum test dikkate ve tıklatın **Netsuite**.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

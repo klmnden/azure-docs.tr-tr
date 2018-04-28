@@ -3,7 +3,7 @@ title: Azure CDN kuralları altyapısı özellikleri | Microsoft Docs
 description: Azure CDN başvuru belgelerine altyapısı özellikleri kuralları.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: rli
-ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: v-deasim
+ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu makalede listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -515,16 +515,16 @@ Anahtar bilgileri:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Önbellek yanıt üstbilgilerini hata ayıklama
-**Amaç:** yanıt için önbellek ilkesini için istenen varlık bilgileri sağlayan X EC Debug yanıt üst bilgisi dahil olup olmadığını belirler.
+**Amaç:** yanıt içerip içeremeyeceğini belirler [X EC Debug yanıt üstbilgilerini](cdn-http-debug-headers.md), sağlayan bilgileri için önbellek ilkesini için istenen varlık.
 
 Aşağıdakilerin her ikisi de true olduğunda üstbilgilerini yanıta dahil önbellek yanıtı hata ayıklama:
 
-- Hata ayıklama önbellek yanıt üstbilgileri özelliğinin istenen isteği etkinleştirildi.
-- Yukarıdaki istek yanıta dahil hata ayıklama önbellek yanıt üstbilgilerini kümesini tanımlar.
+- Belirtilen isteği önbellek yanıt üstbilgilerini hata ayıklama özelliği etkinleştirildi.
+- Belirtilen istek yanıta dahil hata ayıklama önbellek yanıt üstbilgilerini kümesini tanımlar.
 
-Hata ayıklama önbellek yanıt üstbilgileri aşağıdaki üstbilgi ve istenen yönergeleri istekte ekleyerek istenebilir:
+Hata ayıklama önbellek yanıt üstbilgileri aşağıdaki üstbilgi ve belirtilen yönergeleri istekte ekleyerek istenebilir:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Örnek:**
 
@@ -624,7 +624,7 @@ Kaldır| Sağlar bir `Expires` başlık üstbilgisi Yanıtla dahil değildir. Va
 ### <a name="external-max-age"></a>Dış Maksimum yaş
 **Amaç:** POP önbellek COLLECTION tarayıcıya max-age aralığını belirler. Diğer bir deyişle, bir tarayıcı önce geçecek süreyi POP öğesinden bir varlık yeni bir sürümünü denetleyebilir.
 
-Bu özelliği etkinleştirmek oluşturacağını `Cache-Control: max-age` ve `Expires` POP üstbilgileri ve HTTP istemciye göndermek. Varsayılan olarak, bu üstbilgileri kaynak sunucu tarafından oluşturulanlar üzerine yazar. Ancak, Cache-Control üstbilgisi işleme ve üstbilgisi işleme süresi özellikleri bu davranışı değiştirmek için kullanılabilir.
+Bu özelliği etkinleştirmek oluşturacağını `Cache-Control: max-age` ve `Expires` POP üstbilgileri ve HTTP istemciye göndermek. Varsayılan olarak, bu üstbilgileri kaynak sunucusu tarafından oluşturulan Bu üstbilgiler üzerine yazar. Ancak, Cache-Control üstbilgisi işleme ve üstbilgisi işleme süresi özellikleri bu davranışı değiştirmek için kullanılabilir.
 
 Anahtar bilgileri:
 
@@ -706,7 +706,7 @@ Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıd
 Anahtar bilgileri:
 
 - İzin verilen H.264 dosya adı uzantıları boşlukla ayrılmış bir dizi dosya uzantılarını seçeneğinde tanımlayın. Dosya uzantıları seçeneği varsayılan davranışı geçersiz kılar. Bu dosya adı uzantıları dahil ederek, bu seçeneği ayarlarken MP4 ve F4V desteği korur. 
-- Bir süre eklediğinizden emin olun (örneğin, .mp4 .f4v) her dosya adı uzantısı belirtirken.
+- Her dosya adı uzantısı belirtirseniz bir süre içerir (örneğin, _.mp4_, _.f4v_).
 
 **Varsayılan davranış:** HTTP aşamalı indirme MP4 ve F4V medya varsayılan olarak destekler.
 
@@ -727,7 +727,7 @@ Devre dışı|Varsayılan davranışını geri yükler. Kaynak sunucusuna iletil
 
 Tüm üretim trafiği için bu özellik devre dışı varsayılan durumundayken bırakmayı kullanmamanız önerilir. Aksi halde, kaynak sunucuları son kullanıcılardan, web sayfaları yenilerken birçok Hayır önbellek isteği yanlışlıkla tetikleyebilir veya no-cache üstbilgisi video her istek ile göndermek için kodlanmış birçok popüler medya oynatıcıları tam korumalı değil. Bununla birlikte, bu özellik belirli hazırlama veya isteğe bağlı kaynak sunucudan alınmasını yeni içerik izin vermek üzere dizinleri, sınama üretim dışı uygulamak yararlı olabilir.
 
-Bu özellik nedeniyle bir kaynak sunucuya iletilebilmesi için izin verilen bir istek için bildirilen önbellek durumu TCP_Client_Refresh_Miss olur. Modül raporlama çekirdek kullanılabilir önbellek durumları rapor istatistiksel bilgileri önbelleği durumuna göre sağlar. Bu, bu özellik nedeniyle bir kaynak sunucuya sayısını ve iletilen isteklerin izlemenize olanak sağlar.
+Bu özellik nedeniyle bir kaynak sunucusuna iletilen bir istek için bildirilen önbellek durumu `TCP_Client_Refresh_Miss`. Modül raporlama çekirdek kullanılabilir önbellek durumları rapor istatistiksel bilgileri önbelleği durumuna göre sağlar. Bu rapor, bu özellik nedeniyle bir kaynak sunucuya sayısını ve iletilen isteklerin izlemenize olanak sağlar.
 
 **Varsayılan davranış:** devre dışı bırakılmış.
 
@@ -858,7 +858,7 @@ Devre dışı|Varsayılan davranışını geri yükler. URL bir erişim günlü�
 ### <a name="maximum-keep-alive-requests"></a>En fazla tutma isteği
 **Amaç:** , kapatılmış olmasından önce en fazla istek tutma bağlantı sayısını tanımlar.
 
-En fazla istek sayısını düşük bir değere ayarlamak, kesinlikle önerilmez ve performans düşüşüne neden olabilir.
+En fazla istek sayısını düşük bir değere ayarlanması önerilmez ve performans düşüşüne neden olabilir.
 
 Anahtar bilgileri:
 
@@ -884,9 +884,9 @@ Aşağıdaki eylemlerden birini istek üst bilgisinde gerçekleştirilebilir:
 
 Seçenek|Açıklama|Örnek
 -|-|-
-Ekle|Belirtilen değer var olan istek üstbilgi değerinin sonuna eklenir.|**Üstbilgi değeri (istemci) istek:**Value1 <br/> **Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value1Value2
-Üzerine Yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**Üstbilgi değeri (istemci) istek:**Value1 <br/>**Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value2 <br/>
-Sil|Belirtilen istek üstbilgisi siler.|**Üstbilgi değeri (istemci) istek:**Value1 <br/> **İstemci istek üstbilgisi yapılandırmasını Değiştir:** söz konusu istek üstbilgisi silin. <br/>**Sonuç:** belirtilen istek üstbilgisi kaynak sunucusuna iletilen değil.
+Ekle|Belirtilen değer var olan istek üstbilgi değerinin sonuna eklenir.|**Üstbilgi değeri (istemci) istek:** Value1 <br/> **Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value1Value2
+Üzerine Yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**Üstbilgi değeri (istemci) istek:** Value1 <br/>**Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value2 <br/>
+Sil|Belirtilen istek üstbilgisi siler.|**Üstbilgi değeri (istemci) istek:** Value1 <br/> **İstemci istek üstbilgisi yapılandırmasını Değiştir:** söz konusu istek üstbilgisi silin. <br/>**Sonuç:** belirtilen istek üstbilgisi kaynak sunucusuna iletilen değil.
 
 Anahtar bilgileri:
 
@@ -922,8 +922,8 @@ Aşağıdaki eylemlerden birini bir yanıt üstbilgisi gerçekleştirilebilir:
 
 Seçenek|Açıklama|Örnek
 -|-|-
-Ekle|Belirtilen değer var olan yanıt üstbilgi değeri sonuna eklenir.|**Yanıt üstbilgi değeri (istemci):**Value1 <br/> **Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value1Value2
-Üzerine Yaz|Yanıt üstbilgi değeri belirtilen değere ayarlanır.|**Yanıt üstbilgi değeri (istemci):**Value1 <br/>**Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value2 <br/>
+Ekle|Belirtilen değer var olan yanıt üstbilgi değeri sonuna eklenir.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/> **Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value1Value2
+Üzerine Yaz|Yanıt üstbilgi değeri belirtilen değere ayarlanır.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/>**Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value2 <br/>
 Sil|Belirtilen yanıt üst bilgisi siler.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/> **İstemci yanıt üstbilgisi yapılandırmasını Değiştir:** söz konusu yanıt üstbilgisi silin. <br/>**Sonuç:** belirtilen yanıt üst bilgisi istemciye iletilecek değil.
 
 Anahtar bilgileri:
@@ -990,12 +990,22 @@ Anahtar bilgileri:
 
 ---
 ### <a name="proxy-special-headers"></a>Proxy özel üstbilgileri
-**Amaç:** POP bir kaynak sunucuya iletilir CDN özgü istek üstbilgileri kümesini tanımlar.
+**Amaç:** kümesini tanımlayan [Verizon özgü HTTP istek üstbilgilerinin](cdn-verizon-http-headers.md) , iletilir POP bir kaynak sunucuya.
 
 Anahtar bilgileri:
 
-- Bu özellik tanımlanan her CDN özgü istek üstbilgisi bir kaynak sunucuya iletilir.
-- CDN özel istek üstbilgisi bir kaynak sunucu için bu listeden kaldırarak iletilmelerini önleyebilirsiniz.
+- Bu özellik tanımlanan her CDN özgü istek üstbilgisi bir kaynak sunucuya iletilir. Dışlanan üstbilgileri iletilmez.
+- CDN özel istek üstbilgisi iletilmesini önlemek için üstbilgi listesinin alanına boşlukla ayrılmış listesinden kaldırın.
+
+Aşağıdaki HTTP üst bilgilerine varsayılan listede yer:
+- aracılığıyla
+- X-iletilen-için
+- X iletilen Proto
+- X-ana bilgisayar
+- X-Midgress
+- X-Gateway-liste
+- X EC adı
+- Host
 
 **Varsayılan davranış:** tüm CDN özgü istek üstbilgileri kaynak sunucuya iletilir.
 

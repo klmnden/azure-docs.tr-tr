@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Günlük analizi Linux uygulamaları için performans sayaçlarını Topla 
 Bu makalede yapılandırmak için Ayrıntılar sunulmaktadır [Linux için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux) belirli uygulamalar için performans sayaçları toplanamadı.  Bu makalede bulunan uygulamalar şunlardır:  
@@ -50,7 +50,7 @@ Giriş kimlik doğrulama dosyası aşağıdaki tabloda açıklanmıştır.
 | Özellik | Açıklama |
 |:--|:--|
 | Bağlantı noktası | MySQL örneğine dinlediği geçerli bağlantı noktası temsil eder. Aşağıdaki özellikler varsayılan örnek için kullanılan bağlantı noktası 0 belirtir. |
-| Bind-Address| Geçerli MySQL bağlama-adresi. |
+| Bağ adresi| Geçerli MySQL bağlama-adresi. |
 | kullanıcı adı| MySQL kullanıcı MySQL server örneği izlemek üzere kullanmak için kullanılır. |
 | Parola Base64 ile kodlanmış| Base64 ile kodlanmış MySQL izleme kullanıcının parolası. |
 | Otomatik güncelleştirme| My.cnf dosyasındaki değişiklikleri için yeniden tarayın ve MySQL OMI sağlayıcı yükseltildiğinde MySQL OMI kimlik doğrulaması bu dosyanın üzerine belirtir. |
@@ -78,9 +78,9 @@ Aşağıdaki tabloda, mycimprovauth kullanmak için söz dizimi hakkında ayrın
 
 | İşlem | Örnek | Açıklama
 |:--|:--|:--|
-| Otomatik güncelleştirme *false\|true* | mycimprovauth otomatik güncelleştirme false | Desteklemediğini kimlik doğrulama dosyasını otomatik olarak güncelleştirilecek kümeleri üzerinde yeniden başlatın veya güncelleştirin. |
+| Otomatik güncelleştirme *yanlış veya doğru* | mycimprovauth otomatik güncelleştirme false | Desteklemediğini kimlik doğrulama dosyasını otomatik olarak güncelleştirilecek kümeleri üzerinde yeniden başlatın veya güncelleştirin. |
 | Varsayılan *bağ adresi kullanıcı adı parolası* | mycimprovauth varsayılan 127.0.0.1 kök pwd | Varsayılan örnek MySQL OMI kimlik doğrulama dosyasını ayarlar.<br>Parola alanı düz metin olarak girilmelidir - MySQL OMI authentication dosyasındaki parola Base 64 kodlu olacaktır. |
-| silme *varsayılan\|port_num* | mycimprovauth 3308 | Belirtilen örnek ya da varsayılan olarak veya bağlantı noktası numarasına göre siler. |
+| silme *varsayılan veya port_num* | mycimprovauth 3308 | Belirtilen örnek ya da varsayılan olarak veya bağlantı noktası numarasına göre siler. |
 | yardım | mycimprov Yardım | Kullanılacak komutların listesini yazdırır. |
 | Yazdırma | mycimprov yazdırma | Yazdırır kolay bir kimlik doğrulama dosyasını MySQL OMI okuyun. |
 | port_num güncelleştirme *bağ adresi kullanıcı adı parolası* | mycimprov güncelleştirme 3307 127.0.0.1 kök pwd | Belirtilen örnek güncelleştirir veya henüz yoksa örneği ekler. |
@@ -99,7 +99,7 @@ MySQL kullanıcı MySQL Server performans verilerini toplamak için aşağıdaki
 
 MySQL kullanıcı aynı zamanda aşağıdaki varsayılan tabloları seçme erişim gerektirir.
 
-- information_schema
+- INFORMATION_SCHEMA
 - MySQL. 
 
 Bu ayrıcalıklar aşağıdaki grant komutlarını çalıştırarak verilebilir.
@@ -130,7 +130,7 @@ Günlük analizi veri göndermek Linux için OMS aracısının yapılandırdıkt
 | MySQL Server | Anahtar önbelleği kullanım yüzdesi |
 | MySQL Server | Anahtar önbelleği yazma Pct |
 | MySQL Server | Sorgu önbellek isabet yüzdesi |
-| MySQL Server | Query Cache Prunes Pct |
+| MySQL Server | Sorgu önbellek ayıklar Pct |
 | MySQL Server | Sorgu önbellek kullanım yüzdesi |
 | MySQL Server | Tablo önbelleği isabet yüzdesi |
 | MySQL Server | Tablo Önbellek kullanım yüzdesi |

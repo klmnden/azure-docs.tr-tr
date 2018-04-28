@@ -1,11 +1,11 @@
 ---
-title: "HTTP üzerinden - Azure Logic Apps ile herhangi bir uç nokta iletişim | Microsoft Docs"
-description: "İletişim kurabilir logic apps ile herhangi bir uç nokta HTTP üzerinden oluşturun."
+title: HTTP üzerinden - Azure Logic Apps ile herhangi bir uç nokta iletişim | Microsoft Docs
+description: İletişim kurabilir logic apps ile herhangi bir uç nokta HTTP üzerinden oluşturun.
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>HTTP eylem ile çalışmaya başlama
 
@@ -113,8 +113,8 @@ A * gerekli bir alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Yöntemi * |yöntem |Kullanılacak HTTP fiili |
-| URI* |uri |HTTP isteği için URI |
+| Yöntemi * |method |Kullanılacak HTTP fiili |
+| URI * |uri |HTTP isteği için URI |
 | Üst bilgiler |headers |HTTP üstbilgisi eklemek için bir JSON nesnesi |
 | Gövde |body |HTTP istek gövdesi |
 | Kimlik Doğrulaması |kimlik doğrulaması |İçinde ayrıntıları [kimlik doğrulaması](#authentication) bölümü |
@@ -126,18 +126,18 @@ HTTP yanıtı için çıkış ayrıntıları verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Üst bilgiler |nesne |Yanıt üst bilgileri |
-| Gövde |nesne |Yanıt nesnesi |
+| Üst bilgiler |object |Yanıt üst bilgileri |
+| Gövde |object |Yanıt nesnesi |
 | Durum Kodu |Int |HTTP durum kodu |
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Logic Apps özelliği, farklı türlerde HTTP uç noktaları karşı kimlik doğrulama kullanmanıza olanak sağlar. Bu kimlik doğrulaması ile kullanabileceğiniz **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, ve  **[HTTP Web kancası](connectors-native-webhook.md)**  bağlayıcılar. Aşağıdaki kimlik doğrulama türlerini yapılandırılabilir:
+Logic Apps özelliği, farklı türlerde HTTP uç noktaları karşı kimlik doğrulama kullanmanıza olanak sağlar. Bu kimlik doğrulaması ile kullanabileceğiniz **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, ve **[HTTP Web kancası](connectors-native-webhook.md)** bağlayıcılar. Aşağıdaki kimlik doğrulama türlerini yapılandırılabilir:
 
 * [Temel kimlik doğrulaması](#basic-authentication)
 * [İstemci sertifikası kimlik doğrulaması](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth kimlik doğrulaması](#azure-active-directory-oauth-authentication)
 
-#### <a name="basic-authentication"></a>Temel kimlik doğrulaması
+#### <a name="basic-authentication"></a>Temel kimlik doğrulama
 
 Aşağıdaki kimlik doğrulama nesnesini temel kimlik doğrulaması için gereklidir.
 A * gerekli bir alan olduğu anlamına gelir.
@@ -150,7 +150,7 @@ A * gerekli bir alan olduğu anlamına gelir.
 
 > [!TIP]
 > Kullanım tanımından geri alınamaz bir parola kullanmak istiyorsanız bir `securestring` parametre ve `@parameters()`  
->  [iş akışı tanımı işlevi](http://aka.ms/logicappdocs).
+>  [iş akışı tanımı işlevi](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Örneğin:
 
@@ -169,12 +169,12 @@ Aşağıdaki kimlik doğrulama nesnesi için istemci sertifikası kimlik doğrul
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
 | Türü * |type |Kimlik doğrulaması türü (olmalıdır `ClientCertificate` SSL istemci sertifikaları için) |
-| PFX* |pfx |Kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği |
+| PFX* |PFX |Kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği |
 | Parola * |password |PFX dosyası erişim için parola |
 
 > [!TIP]
 > Mantıksal uygulama kaydetme sonra tanımında okunamaz bir parametre kullanmak üzere kullanabileceğiniz bir `securestring` parametre ve `@parameters()`  
->  [iş akışı tanımı işlevi](http://aka.ms/logicappdocs).
+>  [iş akışı tanımı işlevi](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Örneğin:
 
@@ -194,11 +194,11 @@ Aşağıdaki kimlik doğrulama nesnesini Azure AD OAuth kimlik doğrulaması iç
 | Türü * |type |Kimlik doğrulaması türü (olmalıdır `ActiveDirectoryOAuth` Azure AD OAuth için) |
 | Kiracı * |kiracı |Azure AD kiracısı için Kiracı tanımlayıcı |
 | Hedef kitle * |Hedef kitle |Kaynak Yetkilendirme kullanmak istiyor. Örneğin, `https://management.core.windows.net/` |
-| İstemci kimliği * |clientId |Azure AD uygulaması için istemci tanımlayıcısı |
-| Secret* |gizli dizi |Belirteç isteme istemci gizli anahtarı |
+| İstemci kimliği * |istemci kimliği |Azure AD uygulaması için istemci tanımlayıcısı |
+| Gizli * |gizli dizi |Belirteç isteme istemci gizli anahtarı |
 
 > [!TIP]
-> Kullanabileceğiniz bir `securestring` parametre ve `@parameters()` [iş akışı tanımı işlevi](http://aka.ms/logicappdocs) kaydettikten sonra tanımında okunamaz bir parametre kullanmak için.
+> Kullanabileceğiniz bir `securestring` parametre ve `@parameters()` [iş akışı tanımı işlevi](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) kaydettikten sonra tanımında okunamaz bir parametre kullanmak için.
 > 
 > 
 

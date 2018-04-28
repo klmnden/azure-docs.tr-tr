@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analytics sık sorulan sorular
 
@@ -104,11 +104,15 @@ ms.lasthandoff: 04/16/2018
 
         Panoda kaynak bilgileri görüyorsunuz; Ancak, hiçbir akışıyla ilgili istatistikleri mevcut değildir. Veri kaynakları arasında hiçbir iletişim akışını nedeniyle bulunmuyor olabilir. İçin 60 dakika bekleyin ve durum yeniden denetleyin. Kaynaklar arasında iletişimi akışları mevcut sonra içindeki sorunları Yükselt emin olduğunuzda [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Trafik analytics nasıl fiyatlandırılır?
+14. PowerShell veya Azure Resource Manager şablonu kullanarak trafiği analytics yapılandırabilir miyim?
+
+    Hayır, trafiği analytics yalnızca Azure portalını kullanarak yapılandırılabilir.
+
+15.  Trafik analytics nasıl fiyatlandırılır?
 
         Trafik analytics ölçülen azaltılmış günlükleri, geliştirme için ve günlük analizi çalışma alanında Gelişmiş günlüklerini depolamak. Faturalama yayımlanan hızlarında bir çalışma alanında veri bekletme tabidir ancak Önizleme sırasında trafiği analytics azaltılmış günlükleri, geliştirme için faturalandırılır değil. Bu yanıt için trafiği analytics fiyatları kullanılabilir olduğunda güncelleştirilir.
 
-15.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
+16.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
 
         Coğrafi harita sayfa iki ana bölümleri içerir:
     

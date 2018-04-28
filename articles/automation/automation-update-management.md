@@ -5,21 +5,21 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4b05044b0894e565ec4136f368314cb22041a7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
-Güncelleştirme yönetimi çözümü Azure automation'da Azure, şirket içi ortamları veya diğer bulut sağlayıcıları dağıtılmış, Windows ve Linux bilgisayarlar için işletim sistemi güvenlik güncelleştirmeleri yönetmenize olanak sağlar. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
+Güncelleştirme yönetimi çözümü Azure automation'da Azure, şirket içi ortamları veya diğer bulut sağlayıcıları dağıtılmış, Windows ve Linux bilgisayarlar için işletim sistemi güncelleştirmeleri yönetmenize olanak sağlar. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
 [Azure Otomasyonu](automation-offering-get-started.md) hesabınızdan sanal makineleriniz için Güncelleştirme yönetimini etkinleştirebilirsiniz.
-Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini nasıl etkinleştireceğinizi öğrenmek için bkz. [Birden fazla sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md).
+Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini nasıl etkinleştireceğinizi öğrenmek için bkz. [Birden fazla sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md). Güncelleştirme yönetimi, Azure portalında sanal makine sayfasından tek bir sanal makine için de etkinleştirebilirsiniz. Bu senaryo için hem de kullanılabilir [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) ve [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) sanal makineler.
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
 
@@ -46,16 +46,16 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
 
 ### <a name="supported-client-types"></a>Desteklenen istemci türleri
 
-Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesini gösterir: 
+Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesini gösterir:
 
 |İşletim Sistemi  |Notlar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Yalnızca destekler değerlendirmeleri güncelleştir         |
-|Windows Server 2008 R2 SP1 ve üzeri     |Windows PowerShell 4.0 veya üstü gereklidir ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([karşıdan WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için önerilir.         |
+|Windows Server 2008 R2 SP1 ve üzeri     |Windows PowerShell 4.0 veya üstü gereklidir ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([karşıdan WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için önerilir.         |
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
-|Ubuntu 12.04 LTS ve daha yeni x86/x64       |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
 
 ### <a name="unsupported-client-types"></a>Desteklenmeyen istemci türleri
 
@@ -122,7 +122,7 @@ Heartbeat
 
 Bir Windows bilgisayarda günlük analizi ile Aracısı bağlanabilirliği doğrulamak için aşağıdakileri gözden geçirebilirsiniz:
 
-1. Açık Microsoft Monitoring Agent Denetim Masası'ndaki ve üzerinde **Azure günlük analizi** sekmesinde, aracıyı görüntüler belirten iletiyi: **Microsoft Monitoring Agent için günlük analizi başarıyla bağlandı** .   
+1. Açık Microsoft Monitoring Agent Denetim Masası'ndaki ve üzerinde **Azure günlük analizi** sekmesinde, aracıyı görüntüler belirten iletiyi: **Microsoft Monitoring Agent için günlük analizi başarıyla bağlandı** .
 2. Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın. Bu olaylar, bilgisayar günlük analizi çalışma alanı ile kayıtlı ve yapılandırmayı almayı gösterir.
 
 Aracı günlük analizi ile iletişim kurabildiğinden değil ve bir güvenlik duvarı veya proxy sunucu üzerinden internet ile iletişim kuracak şekilde yapılandırıldı, güvenlik duvarı veya proxy sunucusu düzgün yapılandırılmış gözden geçirerek onaylayın [için ağ yapılandırması Windows Aracısı](../log-analytics/log-analytics-agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
@@ -145,7 +145,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | --- | --- | --- |
 | Windows aracıları |Evet |Çözüm, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve gerekli güncelleştirmelerin yüklemesini başlatır. |
 | Linux aracıları |Evet |Çözüm, Linux aracılarından sistem güncelleştirme bilgilerini toplar ve desteklenen dağıtımlarda gerekli güncelleştirmelerin yüklemesini başlatır. |
-| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
+| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.</br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
@@ -196,6 +196,30 @@ Tıklayarak yeni bir güncelleştirme dağıtımı oluşturmak **zamanlama günc
 |Zamanlama ayarları|Başlangıç ve her iki kez seçmek için saati seçin veya yineleme için yinelenen|
 | Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
 
+## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları
+
+Aşağıdaki tablolar, güncelleştirme Yönetimi'nde güncelleştirme sınıflandırmalarını her sınıflandırması için bir tanım birlikte listesini sağlar.
+
+### <a name="windows"></a>Windows
+
+|Sınıflandırma  |Açıklama  |
+|---------|---------|
+|Kritik güncelleştirmeler     | Kritik, güvenlikle ilgili olmayan bir hatayı gidermeye belirli bir sorun için bir güncelleştirme.        |
+|Güvenlik güncelleştirmeleri     | Ürüne özgü, güvenlikle ilgili bir sorun için bir güncelleştirme.        |
+|Güncelleştirme paketleri     | Bir toplu setini kolay dağıtım için bir arada paketlenmiş.        |
+|Özellik paketleri     | Bir ürünün sürümü dışında dağıtılan yeni ürün özelliklerini.        |
+|Hizmet paketleri     | Bir uygulamaya uygulanan düzeltmeleri toplu kümesi.        |
+|Tanım güncelleştirmeleri     | Bir güncelleştirme virüs veya diğer tanım dosyalarına.        |
+|Araçlar     | Bir yardımcı programı veya bir veya daha fazla görevi tamamlamayı sağlayan bir özellik.        |
+|Güncelleştirmeler     | Bir uygulama ya da şu an yüklü olan dosya için bir güncelleştirme.        |
+
+### <a name="linux"></a>Linux
+
+|Sınıflandırma  |Açıklama  |
+|---------|---------|
+|Kritik güncelleştirmeler ve güvenlik güncelleştirmeleri     | Belirli bir sorun veya ürüne özgü, güvenlikle ilgili bir sorun için güncelleştirmeleri.         |
+|Diğer güncelleştirmeler     | Doğası veya güvenlik güncelleştirmeleri kritik olmayan tüm diğer güncelleştirmeleri.        |
+
 ## <a name="search-logs"></a>Arama günlükleri
 
 Portalı'nda sağlanan Ayrıntılar ek olarak, arama günlüklerini karşı yapılabilir. İle **değişiklik izleme** sayfa açık tıklatın **günlük analizi**, bu açılır **günlük arama** sayfası
@@ -206,13 +230,13 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType "Linux" == |
-| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==<br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
-| Olay<br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false <br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
-| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;ayrı başlığı |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
-| UpdateRunProgress<br>&#124;Burada InstallationStatus "başarısız" == <br>&#124;AggregatedValue özetlemek bilgisayar, başlık, UpdateRunName tarafından count() = |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType "Linux" == |
-| Güncelleştirme<br>&#124;Burada OSType "Linux" ==<br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)<br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi | 
-| UpdateRunProgress<br>&#124;Burada UpdateRunName "DeploymentName" ==<br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() =|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
+|Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
+| Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==</br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
+| Olay</br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false </br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
+| Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;ayrı başlığı |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
+| UpdateRunProgress</br>&#124;Burada InstallationStatus "başarısız" == </br>&#124;AggregatedValue özetlemek bilgisayar, başlık, UpdateRunName tarafından count() = |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
+| Güncelleştirme</br>&#124;Burada OSType "Linux" ==</br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi |
+| UpdateRunProgress</br>&#124;Burada UpdateRunName "DeploymentName" ==</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() =|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
 
@@ -248,18 +272,18 @@ Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları giderme
 
 | İleti | Neden | Çözüm |
 |----------|----------|----------|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.InvalidOperationException: {"Message":"Makine zaten<br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---><br>System.Net.WebException: Temel alınan bağlantı<br>kapatıldı: Alma işlemi sırasında<br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:<br>İstemci ve sunucu iletişim kuramıyor,<br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
-| <wsid>.oms.opinsights.azure.com hizmeti tarafından sunulan sertifika<br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi<br>tarafından verilmemiş. İletişim<br>ağ yöneticinize başvurarak<br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA **|
+| Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>System.InvalidOperationException: {"Message":"Makine zaten</br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Düzeltme Eki Yönetimi için makine kaydedilemedi, kayıt özel durumu ile başarısız</br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---></br>System.Net.WebException: Temel alınan bağlantı</br>kapatıldı: Alma işlemi sırasında</br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:</br>İstemci ve sunucu iletişim kuramıyor,</br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| Hizmet tarafından sunulan sertifika \<wsid\>. oms.opinsights.azure.com</br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi</br>tarafından verilmemiş. İletişim</br>ağ yöneticinize başvurarak</br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---></br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının</br>klasöre okuma erişiminin olduğunu doğrulayın:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA **|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Öğretici Windows Vm'leriniz için güncelleştirmeleri yönetme konusunda bilgi almak için devam edin.
 
 > [!div class="nextstepaction"]
-> [Güncelleştirme ve düzeltme eklerini Azure Windows Vm'leriniz için yönetme](automation-tutorial-troubleshoot-changes.md)
+> [Güncelleştirme ve düzeltme eklerini Azure Windows Vm'leriniz için yönetme](automation-tutorial-update-management.md)
 
 * Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-searches.md)’te Günlük Aramalarını kullanın.
 * Bilgisayardan eksik kritik güncelleştirmeler algılandığında veya bilgisayarda otomatik güncelleştirmeler devre dışı olduğunda [uyarılar oluşturun](../log-analytics/log-analytics-alerts.md).

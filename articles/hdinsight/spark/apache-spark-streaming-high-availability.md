@@ -1,26 +1,24 @@
 ---
-title: "Yüksek oranda kullanılabilir Spark akış işleri YARN - Azure Hdınsight oluşturma | Microsoft Docs"
-description: "Spark akış bir yüksek kullanılabilirlik senaryo için nasıl kurulur."
+title: Yüksek oranda kullanılabilir Spark akış işleri YARN - Azure Hdınsight oluşturma | Microsoft Docs
+description: Spark akış bir yüksek kullanılabilirlik senaryo için nasıl kurulur.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Yüksek kullanılabilirliği Spark akış işleri YARN ile oluşturma
 
@@ -117,7 +115,7 @@ DStream denetim noktası oluşturma sürücüleriyle kurtarmak için:
 
 * Uzun süre çalışan işleri kesiminde.  Spark akış uygulama kümeye gönderildiğinde YARN sıranın iş çalıştığı tanımlanması gerekir. Kullanabileceğiniz bir [YARN kapasite Planlayıcısı](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) sıraları ayırmak için uzun süre çalışan işleri göndermek için.
 
-* Akış uygulamanız düzgün biçimde kapatılamadı. Uzaklıkları bilinen ve tüm uygulama durumu harici olarak depolanan, akış uygulamanızı ilgili yerde program aracılığıyla durdurabilirsiniz. Bir tekniktir "kancaları Spark, denetleyerek bir dış bayrağı için iş parçacığı" kullanmak için her  *n*  saniye. Aynı zamanda bir *işaretçi dosyası* , uygulama başlatılırken HDFS üzerinde oluşturulan oluşuyorsa durdurmak istediğinizde kaldırıldı. Bir işaretçi dosyası yaklaşım için ayrı bir iş parçacığı Spark uygulamanızdaki kod bu benzer çağırır kullanın:
+* Akış uygulamanız düzgün biçimde kapatılamadı. Uzaklıkları bilinen ve tüm uygulama durumu harici olarak depolanan, akış uygulamanızı ilgili yerde program aracılığıyla durdurabilirsiniz. Bir tekniktir "kancaları Spark, denetleyerek bir dış bayrağı için iş parçacığı" kullanmak için her *n* saniye. Aynı zamanda bir *işaretçi dosyası* , uygulama başlatılırken HDFS üzerinde oluşturulan oluşuyorsa durdurmak istediğinizde kaldırıldı. Bir işaretçi dosyası yaklaşım için ayrı bir iş parçacığı Spark uygulamanızdaki kod bu benzer çağırır kullanın:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

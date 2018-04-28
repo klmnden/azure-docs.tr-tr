@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Performans İzleyicisi çözümde Azure ağ
 
@@ -158,7 +158,7 @@ Bir aracısı yüklü olan tüm düğümleri listelendiğini **düğümleri** se
 
 - [Performans İzleyicisi](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
 - [Hizmet uç noktası İzleyicisi](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
+- [ExpressRoute İzleyicisi](log-analytics-network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -249,6 +249,24 @@ Haritada gösterilen topolojisi Katman 3 topolojisi ve Katman 2 aygıtlarını v
 ## <a name="log-analytics-search"></a>Günlük analizi arama 
 
 Ağ Performansı İzleyicisi Pano üzerinden kullanıma sunulan grafik ve ayrıntıya sayfaları tüm veriler kullanılabilir da yerel olarak [günlük analizi arama](log-analytics-log-search-new.md). Etkileşimli veri deposunda çözümlemesi ve farklı kaynaklardaki verilerin bağıntısını. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri Excel, Power BI veya paylaşılabilir bağlantı verin.  **Genel sorgular** panosunda alana sahip başlangıç noktası olarak kendi sorgular ve raporlar oluşturmak için kullanabileceğiniz bazı yararlı sorgular. 
+
+## <a name="alerts"></a>Uyarılar
+
+Ağ Performansı İzleyicisi uyarı yeteneklerini kullanır [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+
+Tüm uyarı kullanılarak yönetilir, yani [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+
+OMS aracılığıyla bir uyarı oluşturma bir NPM kullanıcı varsa: 
+1. Azure portalına yönlendirir bir bağlantı göreceksiniz. Portalına erişmek için tıklatın.
+2. Ağ Performansı İzleyicisi çözüm kutucuğa tıklayın. 
+3. Gidin yapılandırmak için.  
+4. Bir uyarı oluşturmak ve izleyin test seçin adımları aşağıda belirtilen.
+
+Azure Portal aracılığıyla bir uyarı oluşturma bir NPM kullanıcı varsa:  
+1. E-postanızı doğrudan girmeyi seçebilirsiniz veya Eylem grupları uyarıları oluşturmayı seçebilirsiniz.
+2. Doğrudan e-postanızı girin seçerseniz, bir eylem grup adıyla **NPM e-posta ActionGroup** oluşturulur ve e-posta kimliği bu eylem grubuna eklenir.
+3. Eylem grupları kullanmayı seçerseniz, bir daha önce oluşturulan eylem grubu seçmeniz gerekecektir. Bir eylem grubu oluşturmak nasıl öğrenebilirsiniz [burada.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+4. Uyarı başarıyla oluşturulduktan sonra Uyarıları Yönet bağlantıyı uyarılarınızı yönetmek için kullanabilirsiniz. 
 
 ##<a name="pricing"></a>Fiyatlandırma
 

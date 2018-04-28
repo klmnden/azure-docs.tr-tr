@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory ile uygulamaları yönetme | Microsoft Docs"
-description: "Bu şirket içi, Bulut ve SaaS uygulamaları ile Azure Active Directory Tümleştirme avantajlarını makalesi."
+title: Azure Active Directory ile uygulamaları yönetme | Microsoft Docs
+description: Bu şirket içi, Bulut ve SaaS uygulamaları ile Azure Active Directory Tümleştirme avantajlarını makalesi.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory ile uygulamaları yönetme
 Gerçek iş akışı veya içeriği işletmeler tüm uygulamalar için iki temel gereksinimlere sahiptir:
@@ -111,5 +111,6 @@ Azure AD ile ayrıntılı erişim ilkeleri ve önceden tümleştirilmiş MFA uyg
 Uygulamaları Azure AD ile tümleştirme başlamak için bir göz atalım [Azure Active Directory Tümleştirme alma uygulamalarla Başlangıç Kılavuzu](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
+[Azure Active Directory'de uygulama yönetimi için makale dizini](active-directory-apps-index.md)
+[SaaS uygulamasına SSO için adım adım dağıtım planı](http://aka.ms/ssodeploymentplan)
 

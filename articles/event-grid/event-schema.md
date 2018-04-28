@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure olay kılavuz olay şeması
 
 Bu makalede, tüm olaylar için mevcut şema ve özellikler açıklanmaktadır. Olayları beş gerekli dize özellikleri ve gerekli veri nesnesi kümesinden oluşur. Tüm olayları için herhangi bir yayımcıdan yaygın özelliklerdir. Veri nesnesi her yayımcı için özel özellikleri içerir. Sistem konuları için bu özellikler Azure Storage veya Azure Event Hubs gibi kaynak sağlayıcısı özgüdür.
 
-Olayları Azure olay kılavuza birden çok olay nesneleri içeren bir dizide gönderilir. Yalnızca tek bir olay ise, dizi 1 uzunluğuna sahip. Dizi toplam boyutu en fazla 1 MB olabilir. Her olay dizisindeki 64 KB ile sınırlıdır.
+Olay kaynakları olayları Azure olay kılavuza birden çok olay nesneleri içeren bir dizide gönderin. Bir olay kılavuz konusu olaylarına nakil sırasında dizi toplam boyutu en fazla 1 MB olabilir. Her olay dizisindeki 64 KB ile sınırlıdır. Bir olay ya da dizi boyutu sınırları aşarsa, yanıtı alırsınız **413 yükü çok büyük**.
+
+Olay kılavuz, tek bir olay içeren bir dizi aboneler için olaylar gönderir. Bu davranış gelecekte değişebilir.
 
 Olay kılavuz olay ve her Azure yayımcının veri yükü için JSON şeması bulabilirsiniz [olay şema deposuna](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
@@ -81,7 +83,7 @@ Tüm olaylar aynı aşağıdaki üst düzey veri içerir:
 | -------- | ---- | ----------- |
 | Konu | string | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
 | Konu | string | Olay konu yayımcı tarafından tanımlanan yolu. |
-| eventType | string | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| Olay türü | string | Bu olay kaynağı için kayıtlı olay türünden biri. |
 | EventTime | string | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
 | id | string | Olay için benzersiz tanımlayıcı. |
 | veriler | object | Olay verileri kaynak sağlayıcıya özel. |

@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: c9a04f6ebbca60e969d608e0ad92839b5e04d772
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
@@ -28,7 +28,7 @@ El ile uygulanan yöntemleri ne karar vermeniz gerekir çünkü bunlar [hizmet k
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Veritabanınızın artan performans katmanı
 
-Azure SQL veritabanı iki satın alma modeli, vCore tabanlı satın alma modeli ve v-çekirdek tabanlı satın alma modeli sunar. Her model birden çok sahip [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz. Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
+Azure SQL veritabanı iki satın alma modeli, DTU tabanlı satın alma modeli ve v-çekirdek tabanlı satın alma modeli sunar. Her model birden çok sahip [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz. Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
 
 > [!NOTE]
 > Bu makalede tek veritabanları Azure SQL Database performans rehberi odaklanır. Esnek havuzlar için ilgili performans yönergeler için bkz [esnek havuzlar için fiyat ve performans konuları](sql-database-elastic-pool-guidance.md). Ancak, bu makaledeki ayarlama önerilerin esnek havuzdaki veritabanları için geçerlidir ve benzer performans avantajlarından yararlanabilmek unutmayın.

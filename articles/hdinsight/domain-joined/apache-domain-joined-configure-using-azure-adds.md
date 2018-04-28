@@ -1,24 +1,19 @@
 ---
-title: Azure Active Directory etki alanı Hizmetleri - Azure kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma | Microsoft Docs
+title: AAD DS kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 description: Ayarlama ve Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma konusunda bilgi edinin
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bhanupr
-ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 060ca8040f514ec1df48c2ca4568cbbb2a529267
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 
@@ -36,7 +31,10 @@ Hdınsight kümesi oluşturmadan önce bir Azure AD DS oluşturmanız gerekir. B
 > [!NOTE]
 > Yalnızca Kiracı yöneticileri, etki alanı hizmetleri oluşturmak için gerekli ayrıcalıklara sahiptir. Hdınsight için varsayılan depolama alanı olarak Azure Data Lake Storage (ADLS) kullanırsanız, ardından ADLS için varsayılan Azure AD Kiracı etki alanı Hdınsight kümesi için aynı olduğundan emin olun. Bunun için Azure Data Lake Store ile çalışmak için ayarladığınız çok faktörlü kimlik doğrulaması kümeye erişimi olan kullanıcılar için devre dışı bırakılması gerekir.
 
-Etki alanı hizmeti sağlandıktan sonra bir hizmet hesabı oluşturmanız gerekir **Azure AD DC Yöneticiler** Hdınsight kümesi oluşturmak için Grup. Hizmet hesabı üzerinde Azure AD genel yönetici olması gerekir.
+AAD etki alanı hizmeti sağlandıktan sonra bir hizmet hesabı (AAD DS'ye senkronize edilir) AAD oluşturmak Hdınsight kümesi oluşturmak için doğru izinlere gerekir. Bu hizmet hesabı zaten varsa, AAD DS'ye eşitlenir kadar parola ve bekleme sıfırlamanız gerekir (Bu sıfırlama kerberos parola karması oluşturulmasında neden olur ve en fazla 30 dakika sürebilir). Bu hizmet hesabı aşağıdaki konferans olmalıdır:
+
+- Makine etki alanına ve küme oluşturma sırasında belirttiğiniz OU içinde makine sorumluları yerleştirin.
+- Küme oluşturma sırasında belirttiğiniz OU içinde hizmet asıl adı oluşturun.
 
 Güvenli LDAP Azure AD etki alanı Hizmetleri yönetilen etki alanı için etkinleştirmeniz gerekir. Güvenli LDAP etkinleştirmek için bkz: [yapılandırma güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -49,7 +47,7 @@ Azure AD etki alanı hizmeti ve Hdınsight kümesi içinde aynı Azure sanal net
 Bir etki alanına katılmış Hdınsight kümesi oluşturduğunuzda, aşağıdaki parametreleri sağlamanız gerekir:
 
 - **Etki alanı adı**: Azure AD DS ile ilişkili etki alanı adı. Örneğin, contoso.onmicrosoft.com
-- **Etki alanı kullanıcı adı**: önceki bölümde oluşturduğunuz Azure AD DC Yöneticiler grubunda hizmet hesabı. Örneğin, hdiadmin@contoso.onmicrosoft.com. Bu etki alanı kullanıcısı, bu etki alanına katılmış Hdınsight kümesinin yöneticisidir.
+- **Etki alanı kullanıcı adı**: hizmet hesabı'nda önceki bölümde oluşturduğunuz Azure AD etki alanı denetleyicisi. Örneğin, hdiadmin@contoso.onmicrosoft.com. Bu etki alanı kullanıcısı bu etki alanına katılmış Hdınsight küme yöneticisinin olacaktır.
 - **Etki alanı parolası**: hizmet hesabının parolası.
 - **Kuruluş birimi**: Hdınsight kümesi ile kullanmak istediğiniz kuruluş biriminin ayırt edici adı. Örneğin: OU HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Bu OU mevcut değilse, Hdınsight kümesi bu OU oluşturmaya çalışır. 
 - **LDAPS URL**: Örneğin, ldaps://contoso.onmicrosoft.com:636

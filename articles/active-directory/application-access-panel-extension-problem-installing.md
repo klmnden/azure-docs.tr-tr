@@ -1,11 +1,11 @@
 ---
-title: "Uygulama erişim paneli tarayıcı uzantısı - Azure yükleme | Microsoft Docs"
-description: "Erişim paneli tarayıcı uzantısı yüklediğinizde karşılaşılan yaygın hataları düzeltin."
+title: Uygulama erişim paneli tarayıcı uzantısı - Azure yükleme | Microsoft Docs
+description: Erişim paneli tarayıcı uzantısı yüklediğinizde karşılaşılan yaygın hataları düzeltin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleyin
 
@@ -37,7 +37,6 @@ Parola tabanlı, SSO için aşağıdaki tarayıcılardan birini kullanabilirsini
 - **Kenar**: Windows 10 Anniversary Edition veya sonraki sürümlerde. 
 - **Chrome**: Windows 7 veya daha sonra ve MacOS x veya sonraki sürümlerde.
 - **Firefox 26,0 veya üzeri**: Windows XP SP2 veya daha sonra ve Mac OS X 10.6 veya sonraki sürümlerde.
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 veya üzeri (sınırlı destek).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleyin
 

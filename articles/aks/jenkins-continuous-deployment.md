@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b0adf5098b1be9f245b22c859dbb86a14335e435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Jenkins ve Azure kapsayıcı hizmeti ile sürekli dağıtımı
 
@@ -160,20 +160,6 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
-
-Jenkins oturum sorunlarla karşılaşırsanız, Jenkins VM ile bir SSH oturumu oluşturmak ve Jenkins hizmetini yeniden başlatın. VM IP adresini yapı komut dosyası tarafından sağlanan adrestir. VM yönetici kullanıcı adı `azureuser`.
-
-```bash
-ssh azureuser@52.166.118.64
-```
-
-Jenkins hizmetini yeniden başlatın.
-
-```bash
-sudo service jenkins restart
-```
-
-Tarayıcınızı yenileyin ve Jenkins oturum açma formu sunulacaktır.
 
 ## <a name="jenkins-environment-variables"></a>Jenkins ortam değişkenleri
 

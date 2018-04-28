@@ -1,11 +1,11 @@
 ---
-title: "AMQP 1.0 Azure Service Bus ve Event Hubs Protokolü Kılavuzu | Microsoft Docs"
-description: "İfadeler ve Azure Service Bus ve Event Hubs AMQP 1.0 açıklamasını Protokolü Kılavuzu"
+title: AMQP 1.0 Azure Service Bus ve Event Hubs Protokolü Kılavuzu | Microsoft Docs
+description: İfadeler ve Azure Service Bus ve Event Hubs AMQP 1.0 açıklamasını Protokolü Kılavuzu
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 9af578cef9a89b4ae953b26f261f99593b79deb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus ve Event Hubs Protokolü Kılavuzu'nda AMQP 1.0
 
@@ -205,13 +205,15 @@ Aşağıdaki tabloda oklar performative akış yönü gösterir.
 
 Aşağıdaki bölümlerde, hangi özellikler standart AMQP ileti bölümlerden Service Bus tarafından kullanılır ve bunların hizmet veri yolu API'sini kümesine nasıl eşleneceğine açıklanmaktadır.
 
+AMQP için 's tanımlar uygulaması gereken herhangi bir özellik eşlenmelidir `application-properties` eşleme.
+
 #### <a name="header"></a>üst bilgi
 
 | Alan adı | Kullanım | API adı |
 | --- | --- | --- |
 | dayanıklı |- |- |
-| Öncelik |- |- |
-| TTL |Bu iletinin yaşam süresi |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| öncelik |- |- |
+| ttl |Bu iletinin yaşam süresi |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | ilk alıcı |- |- |
 | Teslimat sayısı |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
@@ -224,7 +226,7 @@ Aşağıdaki bölümlerde, hangi özellikler standart AMQP ileti bölümlerden S
 | - |Service Bus tarafından yorumlanan değil, uygulama tanımlı hedef tanımlayıcısı. |[Alıcı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | Konu |Service Bus tarafından yorumlanan değil, uygulama tanımlı ileti amacı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanan değil. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| Bağıntı Kimliği |Service Bus tarafından yorumlanan değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Correlationıd değeri](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| Bağıntı Kimliği |Service Bus tarafından yorumlanan değil, uygulama tanımlı bağıntı tanımlayıcısı. |[correlationıd değeri](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | içerik türü |İçerik türü, hizmet veri yolu tarafından yorumlanan değil gövdesi için uygulama tanımlı göstergesi. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | İçerik kodlama |Uygulama tanımlı içerik kodlama göstergesi için Service Bus tarafından yorumlanan değil gövdesi. |Hizmet veri yolu API'si üzerinden erişilebilir değil. |
 | mutlak bitiş zamanı |Hangi mutlak anlık ileti süresi sırasında bildirir. Giriş (TTL gözlenen başlığı), göz ardı çıktıyı yetkili. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
@@ -232,6 +234,80 @@ Aşağıdaki bölümlerde, hangi özellikler standart AMQP ileti bölümlerden S
 | Grup Kimliği |Uygulama tanımlı ilgili bir dizi ileti tanımlayıcısı. Hizmet veri yolu oturumları için kullanılır. |[SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | Grup Sırası |İleti bir oturum içine göreli sıra numarasını tanımlayan sayacı. Service Bus tarafından yoksayılır. |Hizmet veri yolu API'si üzerinden erişilebilir değil. |
 | yanıt için Grup Kimliği |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>İleti ek açıklamaları
+
+AMQP ileti özellikleri bir parçası olmayan ve boyunca olarak geçirilir birkaç diğer service bus ileti özellikleri vardır `MessageAnnotations` ileti üzerinde.
+
+| Ek açıklama harita anahtar | Kullanım | API adı |
+| --- | --- | --- |
+| x-opt-zamanlanmış-sıraya alma-time | Bildirir aynı zamanda varlık üzerinde iletisi görüntülenmelidir |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x opt bölüm anahtarı | Hangi bölümünü belirleyen uygulama tanımlı anahtar içinde ileti güden. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-aracılığıyla-bölüm-anahtarı | Bir aktarım kuyruk aracılığıyla iletileri göndermek için kullanılacak bir işlem olduğunda, uygulama tanımlı bölüm anahtarı değeri. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x opt sıraya alınan zamanı | Hizmet tanımlı UTC saati nedeniyle ileti gerçek süresini temsil eden. Giriş, yoksayıldı. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x opt sıra numarası | İleti atanan hizmet tanımlı benzersiz sayı. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x opt uzaklığı | İleti sıraya alınan hizmet tanımlı sıra sayısı. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-kilitli-kadar | Hizmet tanımlı. Tarih ve saat kadar sıra/abonelik ileti kilitlenmiş olabilir. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x opt sahipsiz kaynak | Hizmet tanımlı. İleti sahipsiz sıradan kaynağı özgün iletisi alırsanız. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>İşlem özelliği
+
+Bir işlem, iki veya daha fazla işlem yürütme kapsam birleştirerek gruplandırır. Doğası gereği, böyle bir işlem işlemlerinin belirli bir gruba ait tüm işlemlerin başarılı veya başarısız ortaklaşa emin olmalısınız.
+İşlemler tarafından tanımlayıcı gruplandırılır `txn-id`.
+
+İşlem etkileşim için istemci görevi gören bir `transaction controller` birlikte gruplandırılmalıdır işlemleri denetler. Service Bus hizmeti olarak görev yapan bir `transactional resource` ve iş tarafından istenen şekilde gerçekleştirir `transaction controller`.
+
+İstemci ve hizmet üzerinden iletişim kurmak bir `control link` istemci tarafından oluşturulmuş. `declare` Ve `discharge` iletileri denetleyici tarafından ayırmak ve işlemleri sırasıyla tamamlamak için denetim bağlantı üzerinden gönderilen (bunlar işlem iş düzenleme temsil etmeyen). Gerçek Gönder/Al bu bağlantıyı yapılmaz. İstenen her işlem açıkça işlemdir istenen ile tanımlanan `txn-id` ve bu nedenle bağlantı herhangi bir bağlantıyı ortaya çıkabilir. Oluşturulduğu boşalmış olmayan işlemleri varken denetimi bağlantı kapattıysanız, ardından bu tür işlemler hemen geri alınır ve bunlar üzerinde daha fazla işlem iş gerçekleştirmeyi dener hatasına neden. Denetim bağlantı iletileri kapatılan öncesi olmaması gerekir.
+
+Başlangıç ve bitiş işlemleri yapabilmek için kendi denetim bağlantı başlatmasını her bağlantısı vardır. Hizmet görür özel bir hedef tanımlayan bir `coordinator`. İstemci/denetleyicisi bu hedef denetim bağlantı kurar. Denetim bağlantı bir varlık sınır dışında başka bir deyişle, aynı denetim bağlantı başlatmak ve işlemleri için birden çok varlık Boşalma için kullanılabilir.
+
+#### <a name="starting-a-transaction"></a>Bir işlem başlatılıyor
+
+İşlem iş başlamak için. Denetleyici edinmelidir bir `txn-id` Düzenleyicisi'nden. Bunu göndererek yapar bir `declare` iletiyi yazın. Bildirim başarılı olursa, düzenleyici değerlendirme sonucu yanıt `declared` hangi taşıyan atanan `txn-id`.
+
+| İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
+| --- | --- | --- |
+| ekleme)<br/>adı = {bağlantı adı}<br/>... ,<br/>Rol =**gönderen**,<br/>Hedef =**Düzenleyicisi**<br/>) | ------> |  |
+|  | <------ | ekleme)<br/>adı = {bağlantı adı}<br/>... ,<br/>target=Coordinator()<br/>) |
+| Aktarım)<br/>teslim kimliği = 0,...)<br/>{AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | Değerlendirme) <br/> İlk = 0, 0, son = <br/>Durum =**Declared**()<br/>**işlemlerinin kimliği**= {işlem kimliği}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>Bir işlem discharging
+
+Denetleyici göndererek işlem iş ereceğini bir `discharge` Düzenleyici ileti. Denetleyici, yürütme veya geri alma için işlem iş ayarlayarak istediği olduğunu gösterir `fail` deşarj gövde bayrağı. Düzenleyici deşarj tamamlayamıyor ise, ileti bu sonucu taşıyan ile reddedilir `transaction-error`.
+
+> Not: başarısız = true başvuran bir işlem ve başarısız geri almak için = false uygulanmak üzere başvuruyor.
+
+| İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
+| --- | --- | --- |
+| Aktarım)<br/>teslim kimliği = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | Değerlendirme) <br/> İlk = 0, 0, son = <br/>Durum = bildirilen ()<br/>TXN kimliği = {işlem kimliği}<br/>))|
+| | . . . <br/>İşlem çalışma<br/>diğer bağlantıları<br/> . . . |
+| Aktarım)<br/>teslim kimliği = 57,...)<br/>{AmqpValue)<br/>**Boşalma (işlemlerinin kimliği = 0,<br/>başarısız = false)**)}| ------> |  |
+| | <------ | Değerlendirme) <br/> ilk = 57, son 57, = <br/>Durum =**kabul()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>Bir işlem içinde ileti gönderme
+
+Tüm işlem iş işlem teslim durumuyla yapılır `transactional-state` işlemlerinin kimliği taşır. İşlem-durumu iletileri gönderme söz konusu olduğunda iletinin Aktarım çerçevesi tarafından taşınır. 
+
+| İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
+| --- | --- | --- |
+| Aktarım)<br/>teslim kimliği = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | Değerlendirme) <br/> İlk = 0, 0, son = <br/>Durum = bildirilen ()<br/>TXN kimliği = {işlem kimliği}<br/>))|
+| Aktarım)<br/>tanıtıcı = 1,<br/>teslim kimliği = 1, <br/>**Durum =<br/>TransactionalState (<br/>txn kimliği = 0)**)<br/>{Yükü}| ------> |  |
+| | <------ | Değerlendirme) <br/> ilk = 1, en son = 1, <br/>Durum =**TransactionalState (<br/>txn kimliği = 0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>Bir işlemde bir ileti atma
+
+İleti değerlendirme gibi işlemleri içeren `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer`. Bir işlem içinde bu işlemleri gerçekleştirmek için geçirmek `transactional-state` değerlendirme ile.
+
+| İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
+| --- | --- | --- |
+| Aktarım)<br/>teslim kimliği = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | Değerlendirme) <br/> İlk = 0, 0, son = <br/>Durum = bildirilen ()<br/>TXN kimliği = {işlem kimliği}<br/>))|
+| | <------ |Aktarım)<br/>Tanıtıcı = 2,<br/>teslim Kimliği = 11, <br/>Durum = null)<br/>{Yükü}|  
+| Değerlendirme) <br/> ilk = 11, son = 11, <br/>Durum =**TransactionalState (<br/>txn kimliği = 0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>Gelişmiş Service Bus özellikleri
 
@@ -284,9 +360,9 @@ Protokol hareketi yönetim belirtim tarafından tanımlanan istek/yanıt exchang
 
 | Anahtar | İsteğe bağlı | Değer türü | Değer içeriği |
 | --- | --- | --- | --- |
-| işlemi |Hayır |Dize |**PUT-token** |
-| type |Hayır |Dize |Put yöntemi Belirtecin türü. |
-| ad |Hayır |Dize |"Belirteç uygulandığı hedef kitleyi". |
+| işlemi |Hayır |string |**PUT-token** |
+| type |Hayır |string |Put yöntemi Belirtecin türü. |
+| ad |Hayır |string |"Belirteç uygulandığı hedef kitleyi". |
 | süre sonu |Evet |timestamp |Belirteç süre sonu zamanı. |
 
 *Adı* özelliği, belirteci olacaktır ilişkili varlık tanımlar. Hizmet veri yolundaki kuyruk veya konu başlığının/aboneliğinin yoludur. *Türü* özelliği belirteç türü tanımlar:
@@ -304,7 +380,7 @@ Yanıt iletisi aşağıdaki sahip *uygulama özellikleri* değerleri
 | Anahtar | İsteğe bağlı | Değer türü | Değer içeriği |
 | --- | --- | --- | --- |
 | Durum kodu |Hayır |Int |HTTP yanıt kodunu **[RFC2616]**. |
-| Durum açıklaması |Evet |Dize |Durum açıklaması. |
+| Durum açıklaması |Evet |string |Durum açıklaması. |
 
 İstemci çağırabilirsiniz *put belirteci* art arda ve mesajlaşma altyapısı herhangi bir varlık için. Belirteçler geçerli istemci için kapsamlı ve bağlantı düştüğünde sunucu tutulan herhangi bir belirtece bırakır anlamı geçerli bağlantıda bağlantılı.
 
@@ -315,6 +391,19 @@ Anonim mekanizması, bu nedenle seçilen AMQP 1.0 istemcisi tarafından destekle
 Oturumu ve bağlantı kurulduğunda sonra bağlantılar ekleme *$cbs* düğümü ve gönderme *put belirteci* yalnızca verilen işlem isteği. Geçerli bir belirteci kullanarak başarıyla ayarlanmalıdır bir *put belirteci* istek bağlantı kurulduktan sonra bazı 20 saniye içinde varlık düğümü için Aksi halde bağlantı tek taraflı Service Bus tarafından düşer.
 
 İstemci, daha sonra belirteç süre sonu izlemek için sorumludur. Bir belirtecinin süresi dolduğunda, Service Bus ilgili varlık bağlantısı üzerinde tüm bağlantılar derhal bırakır. Bunu önlemek için istemci belirtecin düğümü için yeni bir sanal aracılığıyla herhangi bir zamanda değiştirebilirsiniz *$cbs* aynı yönetim düğümle *put belirteci* hareket ve olmadan alma farklı bağlantıları akan yükü trafik in the way of.
+
+### <a name="send-via-functionality"></a>Gönderme aracılığıyla işlevi
+
+[Gönderme aracılığıyla / aktarım gönderen](service-bus-transactions.md#transfers-and-send-via) İleri belirli bir ileti başka bir varlık üzerinden bir hedef varlık için veri yolu hizmet sağlayan işlevdir. Bu özellik çoğunlukla tek bir işlemde varlıklar üzerinde işlemler gerçekleştirmek için kullanılır.
+
+Bu işlevler sayesinde, bir gönderici oluşturun ve bağlantı kurmak `via-entity`. Bağlantı kurulurken ek bilgiler doğru hedef iletileri/aktarımlarının bu bağlantıyı kurmak için gönderilir. Ekleme Başarılı silindikten sonra bu bağlantıyı gönderilen tüm iletiler otomatik olarak iletilir *hedef varlık* aracılığıyla *varlık aracılığıyla*. 
+
+> Not: Her ikisi için gerçekleştirilecek kimlik doğrulaması sahip *varlık aracılığıyla* ve *hedef varlık* Bu bağlantı kurmadan önce.
+
+| İstemci | | Service Bus |
+| --- | --- | --- |
+| ekleme)<br/>adı = {bağlantı adı}<br/>Rol gönderenin =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef =**{varlık aracılığıyla}**,<br/>**Özellikler harita = [(<br/>com.microsoft:transfer hedef adres =<br/>{hedef varlık})]** ) | ------> | |
+| | <------ | ekleme)<br/>adı = {bağlantı adı}<br/>Rol alıcı =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef {aracılığıyla varlık}, =<br/>Özellikler harita [() =<br/>com.Microsoft:transfer hedef adres =<br/>{Hedef varlık})] ) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

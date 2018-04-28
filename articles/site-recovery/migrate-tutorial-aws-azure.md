@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile AWS’den Azure’a sanal makineleri geçirme | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery kullanılarak, Amazon Web Services’te (AWS) çalıştırılan Windows sanal makinelerinin Azure’a nasıl geçirileceği açıklanmaktadır."
+title: Azure Site Recovery ile AWS’den Azure’a sanal makineleri geçirme | Microsoft Docs
+description: Bu makalede, Azure Site Recovery kullanılarak, Amazon Web Services’te (AWS) çalıştırılan Windows sanal makinelerinin Azure’a nasıl geçirileceği açıklanmaktadır.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
 Bu öğretici, Site Recovery’yi kullanarak, Amazon Web Services (AWS) sanal makinelerini Azure sanal makinelerine nasıl geçireceğinizi öğretir. EC2 örnekleri Azure’a geçirilirken sanal makineler, fiziksel şirket içi bilgisayarlarmış gibi değerlendirilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
+> * Önkoşulları doğrulama
 > * Azure kaynaklarını hazırlama
 > * AWS EC2 örneklerini geçiş için hazırlama
 > * Yapılandırma sunucusunu dağıtma
@@ -29,6 +30,22 @@ Bu öğretici, Site Recovery’yi kullanarak, Amazon Web Services (AWS) sanal ma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
+## <a name="prerequisites"></a>Ön koşullar
+- Geçirmek istediğiniz sanal makinelerin aşağıdakileri içeren desteklenen bir işletim sistemi sürümünü çalıştırdığından emin olun 
+    - Windows Server 2008 R2 SP1 veya sonrasının 64 bit sürümü, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri) yalnızca Citrix PV veya AWS PV sürücülerine sahip olmalıdır. RedHat PV sürücülerini çalıştıran örnekler **desteklenmez**.
+
+- Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. 
+
+> [!IMPORTANT]
+> Sanal makine için çoğaltmayı etkinleştirdiğinizde Site Recovery bu hizmeti otomatik olarak yükler. Otomatik yükleme için, Site Recovery’nin sanal makineye erişmek için kullanacağı EC2 örneklerinde bir hesap hazırlamanız gerekir. Bir etki alanı veya yerel hesap kullanabilirsiniz. 
+> - Linux sanal makineleri için hesap, kaynak Linux sunucusu üzerindeki kök olmalıdır. 
+> - Windows sanal makineleri için, bir etki alanı hesabı kullanmıyorsanız yerel makinede Uzak Kullanıcı Erişimi denetimini devre dışı bırakın: Kayıt defterinde **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** altına **LocalAccountTokenFilterPolicy** DWORD girişini ekleyin ve değeri 1 olarak ayarlayın.
+
+- Site Recovery yapılandırma sunucusu olarak kullanabileceğiniz ayrı bir EC2 örneği gerekir. Bu örnek, Windows Server 2012 R2’yi çalıştırıyor olmalıdır.
 
 ## <a name="prepare-azure-resources"></a>Azure kaynaklarını hazırlama
 
@@ -74,19 +91,6 @@ Geçişten (yük devretme) sonra Azure sanal makineleri oluşturulduğunda bu a�
 8. **Alt Ağ** için hem **Ad** hem de **IP aralığı** varsayılanlarını değiştirmeyin.
 9. **Hizmet Uç Noktaları**’nı devre dışı bırakın.
 10. İşiniz bittiğinde **Oluştur**’a tıklayın.
-
-
-## <a name="prepare-the-ec2-instances"></a>EC2 örneklerini hazırlama
-
-Geçirmek istediğiniz bir veya daha fazla sanal makine olması gerekir. Bu EC2 örneği; 64 bit Windows Server 2008 R2 SP1 veya sonraki bir sürümünü, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 ya da Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri) sürümünü çalıştırıyor olmalıdır. Sunucuda yalnızca Citrix PV veya AWS PV sürücüler bulunmalıdır. RedHat PV sürücüleri çalıştıran örnekler desteklenmez.
-
-Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. Sanal makine için çoğaltmayı etkinleştirdiğinizde Site Recovery bu hizmeti otomatik olarak yükler. Otomatik yükleme için, Site Recovery’nin sanal makineye erişmek için kullanacağı EC2 örneklerinde bir hesap hazırlamanız gerekir.
-
-Bir etki alanı veya yerel hesap kullanabilirsiniz. Linux sanal makineleri için hesap, kaynak Linux sunucusu üzerindeki kök olmalıdır. Windows sanal makineleri içinse, bir etki alanı hesabı kullanmıyorsanız yerel makinede Uzak Kullanıcı Erişim denetimini devre dışı bırakın:
-
-  - Kayıt defterinde **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** altına **LocalAccountTokenFilterPolicy** DWORD girişini ekleyin ve değeri 1 olarak ayarlayın.
-
-Ayrıca Site Recovery yapılandırma sunucusu olarak kullanabileceğiniz ayrı bir EC2 örneği de gerekir. Bu örnek, Windows Server 2012 R2’yi çalıştırıyor olmalıdır.
 
 
 ## <a name="prepare-the-infrastructure"></a>Altyapıyı hazırlama

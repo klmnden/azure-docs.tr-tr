@@ -1,6 +1,6 @@
 ---
-title: "Dosya sistemi olarak Linux üzerinde Azure Blob Depolama nasıl | Microsoft Docs"
-description: "Linux üzerinde bir Azure Blob Depolama kapsayıcısını SİGORTASI ile bağlama"
+title: Dosya sistemi olarak Linux üzerinde Azure Blob Depolama nasıl | Microsoft Docs
+description: Linux üzerinde bir Azure Blob Depolama kapsayıcısını SİGORTASI ile bağlama
 services: storage
 documentationcenter: linux
 author: seguler
@@ -10,11 +10,11 @@ ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Bir dosya sistemi blobfuse (Önizleme) ile olarak BLOB storage nasıl
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 Bu kılavuz blobfuse kullanın ve Linux ve erişim verilerini bir Blob Depolama kapsayıcısını bağlama gösterilmektedir. Blobfuse hakkında daha fazla bilgi için Ayrıntılar okuma [blobfuse depo](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse garanti etmez % 100 POSIX uyumluluğu yalnızca isteklerine çevirir [Blob REST API'leri](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). Örneğin, yeniden adlandırma işlemleri POSIX, ancak içinde değil blobfuse atomik.
+> Blobfuse garanti etmez % 100 POSIX uyumluluğu yalnızca isteklerine çevirir [Blob REST API'leri](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Örneğin, yeniden adlandırma işlemleri POSIX, ancak içinde değil blobfuse atomik.
 > Bir yerel dosya sistemi ve blobfuse arasındaki farklar tam listesi için ziyaret [blobfuse kaynak kodu deposu](https://github.com/azure/azure-storage-fuse).
 > 
 

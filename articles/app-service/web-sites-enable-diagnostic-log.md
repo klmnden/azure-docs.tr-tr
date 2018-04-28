@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -84,7 +84,7 @@ Tüm üç depolama konumları aynı temel bilgileri günlüğe kaydedilen olayla
 > İçinde depolanan bilgileri **tablo depolama** veya **blob depolama** yalnızca bir depolama istemcisi veya doğrudan bu depolama sistemleri ile çalışabilirsiniz uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve Hdınsight blob storage'da depolanan verilere erişebilir. Ayrıca Azure Storage birini kullanarak erişen bir uygulama yazabilirsiniz [Azure SDK'ları](/downloads/#).
 >
 > [!NOTE]
-> Tanılama Azure Powershell'den de etkinleştirilebilir kullanarak **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Tanılama Azure Powershell'den de etkinleştirilebilir kullanarak **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ Günlük Dosyaları indirmek için Azure PowerShell yeni bir örneğini başlat�
 Bu komut tarafından belirtilen web uygulaması için günlüklere kaydeder **-adı** adlı bir dosyaya parametre **logs.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek içi
 Bu komut adlı bir dosyaya ' webappname' adlı web uygulaması için günlüklere kaydeder **diagnostics.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure komut satırı arabirimi (Azure CLI) yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure CLI kullanma nasıl](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Azure komut satırı arabirimi (Azure CLI) yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure CLI kullanma nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -222,7 +222,7 @@ Tablo depolama için oturum açarken ek özellikler Tablo yanı sıra olay hakk�
 | EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
 | ApplicationName |Web uygulaması adı |
 | Düzey |Olay düzeyi (uyarı, bilgi Örneğin, hata) |
-| EventId |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
+| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
 | Örnek kimliği |Hatta oluştu. web uygulaması örneği |
 | PID |İşlem Kimliği |
 | komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
@@ -239,7 +239,7 @@ Blob depolama için oturum açarken verileri virgülle ayrılmış değerler (CS
 | ApplicationName |Web uygulaması adı |
 | Örnek kimliği |Olayın oluştuğu web uygulaması örneği |
 | EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
-| EventId |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
+| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
 | PID |İşlem Kimliği |
 | komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
 | İleti |Olay Ayrıntısı iletisi |

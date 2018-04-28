@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5e657d3c171b63734ad4bf6c0097a3142993360
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Linux sanal makine oluşturma
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/16/2018
 >   2. Sanal makine hızlandırılmış etkin ağ ile yeniden oluşturun.
 >
 
-Bu öğreticide, bir Linux sanal makine (VM) ağ hızlandırılmış oluşturmayı öğrenin. Hızlandırılmış ağ önemli ölçüde ağ performansını iyileştirme, bir VM tek köklü g/ç Sanallaştırması (SR-IOV) sağlar. Bu yüksek performanslı yolu gecikme, değişim ve desteklenen VM türlerinde zorlu ağ iş yükleri ile kullanmak için CPU kullanımını azaltır ancak konaktan datapath atlar. Aşağıdaki resimde, iki VM ile ve hızlandırılmış ağ olmadan arasındaki iletişimi gösterir:
+Bu öğreticide, bir Linux sanal makine (VM) ağ hızlandırılmış oluşturmayı öğrenin. Hızlandırılmış ağ ile bir Windows VM oluşturmak için bkz: [hızlandırılmış ağ ile bir Windows VM oluşturma](create-vm-accelerated-networking-powershell.md). Hızlandırılmış ağ önemli ölçüde ağ performansını iyileştirme, bir VM tek köklü g/ç Sanallaştırması (SR-IOV) sağlar. Bu yüksek performanslı yolu gecikme, değişim ve desteklenen VM türlerinde zorlu ağ iş yükleri ile kullanmak için CPU kullanımını azaltır ancak konaktan datapath atlar. Aşağıdaki resimde, iki VM ile ve hızlandırılmış ağ olmadan arasındaki iletişimi gösterir:
 
 ![Karşılaştırma](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -78,7 +78,7 @@ En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı
 az group create --name myResourceGroup --location centralus
 ```
 
-Listelenen desteklenen bir Linux bölge seçmelisiniz [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Listelenen desteklenen bir Linux bölgeyi seçin [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
 
@@ -141,7 +141,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nic"></a>Bir VM oluşturun ve NIC ekleme
-NIC belirtin VM oluşturduğunuzda ile oluşturulan `--nics`. Bir boyut seçin ve dağıtım listelenen [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+NIC belirtin VM oluşturduğunuzda ile oluşturulan `--nics`. Bir boyut seçip listelenen dağıtım [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* UbuntuLTS görüntü ve hızlandırılmış ağ destekleyen boyutu (*Standard_DS4_v2*):
 
@@ -158,7 +158,7 @@ az vm create \
 
 Tüm VM boyutları ve özellikleri listesi için bkz: [Linux VM boyutları](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-VM oluşturulduktan sonra aşağıdaki çıktı örneği ile benzer bir çıktı döndürülür. Not edin **Publicıpaddress**. Bu adres, sonraki adımlarda VM erişmek için kullanılır.
+VM oluşturulduktan sonra aşağıdaki çıktı örneği ile benzer bir çıktı döndürülür. **publicIpAddress** değerini not alın. Bu adres, sonraki adımlarda VM erişmek için kullanılır.
 
 ```azurecli
 {

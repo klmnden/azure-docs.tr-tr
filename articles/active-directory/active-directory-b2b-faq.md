@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory B2B işbirliği ile ilgili SSS | Microsoft Docs"
-description: "Azure Active Directory B2B işbirliği hakkında sık sorulan soruların yanıtlarını alın."
+title: Azure Active Directory B2B işbirliği ile ilgili SSS | Microsoft Docs
+description: Azure Active Directory B2B işbirliği hakkında sık sorulan soruların yanıtlarını alın.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği ile ilgili SSS
 
@@ -85,7 +85,7 @@ Evet. Bir iş ortağı kuruluştan davet B2B kullanıcı için Self Servis parol
 Evet. JIT Kiracı parolasını sıfırlamak bir kullanıcı izin veren bir parola sıfırlama posta gönderilebilir.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 Azure AD B2B işbirliği için çevrimiçi destek sağlar?
-Evet, Dynamics 365 (çevrimiçi) Azure AD B2B işbirliği için destek sağlar. Daha fazla bilgi için Dynamics 365 makalesine bakın [davet Azure AD B2B işbirliği kullanıcılarla](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Evet, Dynamics 365 (çevrimiçi) Azure AD B2B işbirliği için destek sağlar. Daha fazla bilgi için Dynamics 365 makalesine bakın [davet Azure AD B2B işbirliği kullanıcılarla](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Yeni oluşturulan B2B işbirliği kullanıcı için bir başlangıç parolası ömrü nedir?
 Azure AD karakteri, parola gücünü ve kullanıcı hesaplarını eşit tüm Azure AD uygulama kilitleme gereksinimleri bulut hesabı sabit bir dizi vardır. Bulut kullanıcı hesaplarıdır başka bir kimlik sağlayıcısıyla gibi Federasyon olmayan hesaplar 

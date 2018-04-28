@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ca9df36c642334d9323736abb51a931a6610fd3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Azure Hizmetleri - PowerShell Azure İzleyicisi'nde Klasik ölçüm uyarılar oluştur
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Ek bilgi için her zaman yazabilirsiniz ```Get-Help``` ve ardından hakkında Ya
 1. Azure'da oturum açın.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Bir listesini almak abonelikleri sahip olduğunuz kullanılabilir. Doğru aboneliği çalıştığını doğrulayın. Aksi takdirde, çıkışı kullanarak doğru olanı ayarlayın `Get-AzureRmSubscription`.

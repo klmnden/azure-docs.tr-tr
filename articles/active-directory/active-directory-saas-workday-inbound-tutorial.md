@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -468,7 +468,7 @@ Azure Active Directory kiracınızın AB veri merkezleri birinde yer alıyorsa, 
 
 **Sorun giderme aracı**
 
-[Windows olay günlüğü](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) Windows Server aracıyı barındıran makine aracısı tarafından gerçekleştirilen tüm işlemler için olayları içerir. Bu olayları görüntülemek için:
+[Windows olay günlüğü](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) Windows Server aracıyı barındıran makine aracısı tarafından gerçekleştirilen tüm işlemler için olayları içerir. Bu olayları görüntülemek için:
     
 1. Açık **Eventvwr.msc**.
 2. Seçin **Windows Günlükleri > Uygulama**.
@@ -491,7 +491,7 @@ Bölümleri 1-3 tamamladıktan sonra Azure portalında sağlama hizmeti başlata
 
 4. Herhangi bir zamanda denetleyin **denetim günlüklerini** sağlama hizmeti gerçekleştirilen eylemleri görmek için Azure portalında sekmesi. Denetim günlüklerini olduğu gibi kullanıcılar dışında Workday okuma yükleniyor ve daha sonra eklenen veya Active Directory'ye güncelleştirilmiş sağlama hizmeti tarafından gerçekleştirilen tüm bireysel eşitleme olayları listeler. **[Denetim günlüklerini okumak ayrıntılı yönergeler için sağlama raporlama Kılavuzu bakın.](active-directory-saas-provisioning-reporting.md)**
 
-5.  Denetleme [Windows olay günlüğü](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) yeni hatalar veya uyarılar için aracıyı barındıran Windows Server makinesinde. Bu olaylar başlatarak görüntülenebilir **Eventvwr.msc** sunucuda seçerek **Windows Günlükleri > Uygulama**. Sağlama ile ilgili tüm iletileri kaynak kaydedilir **AADSyncAgent**. 
+5.  Denetleme [Windows olay günlüğü](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) yeni hatalar veya uyarılar için aracıyı barındıran Windows Server makinesinde. Bu olaylar başlatarak görüntülenebilir **Eventvwr.msc** sunucuda seçerek **Windows Günlükleri > Uygulama**. Sağlama ile ilgili tüm iletileri kaynak kaydedilir **AADSyncAgent**. 
     
 
 6. Bir tamamlandı, onu bir denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
@@ -819,7 +819,7 @@ GDPR uyumlu olmak iki yol vardır:
 1. İstek, bir kişi için verileri ayıklamak ve Windows olay günlükleri bu kişiden veri kaldırın. 
 2. Windows olay günlüklerini altında 48 saat AADSyncAgent işleminden kaynaklanan bekletme tutun
 
-Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha fazla bilgi için bkz: [olay günlüğü ayarları](https://technet.microsoft.com/en-us/library/cc952132.aspx). Windows olay günlüğü hakkında genel bilgi için bkz: [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha fazla bilgi için bkz: [olay günlüğü ayarları](https://technet.microsoft.com/library/cc952132.aspx). Windows olay günlüğü hakkında genel bilgi için bkz: [bu makalede](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -46,11 +46,25 @@ Bir uygulama hizmeti mobil arka uç oluşturmak için aşağıdakilerden birini 
 
 Geri *başlama* dikey altında **tablo API Oluştur**, seçin **C#** olarak, **arka uç dilinizi**. Tıklatın **karşıdan**sıkıştırılmış proje dosyalarını yerel bilgisayarınıza ayıklayın ve Visual Studio çözümü açın.
 
-### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 ve Visual Studio 2015 kullanarak bir .NET arka ucu oluşturma
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>Visual Studio 2017 kullanarak bir .NET arka ucu oluşturma
+
+Azure Mobile Apps projeye Visual Studio'dan yayımlamak için Visual Studio yükleyicisi aracılığıyla Azure iş yükü yükleyin. SDK'yı yükledikten sonra aşağıdaki adımları kullanarak bir ASP.NET uygulaması oluşturun:
+
+1. Açık **yeni proje** iletişim (gelen **dosya** > **yeni** > **proje...** ).
+2. Genişletme **Visual C#** seçip **Web**.
+3. Seçin **ASP.NET Web uygulaması (.NET Framework)**.
+4. Proje adı girin. Daha sonra, **Tamam**'a tıklayın.
+5. Seçin **Azure mobil uygulaması** şablonları listesinden.
+6. Tıklatın **Tamam** çözümü oluşturmak için.
+7. Projeye sağ tıklayın **Çözüm Gezgini** ve **Yayımla...** , ardından **uygulama hizmeti** yayımlama hedefi olarak.
+8. Bir yeni veya var olan Azure uygulama yayımlamak için hizmeti seçin ve kimlik doğrulamasını yapmak için istemleri izleyin.
+
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>Visual Studio 2015 kullanarak bir .NET arka ucu oluşturma
+
 Yükleme [.NET için Azure SDK] [ 4] (sürüm 2.9.0 veya sonrası) Visual Studio'da bir Azure Mobile Apps projesi oluşturmak için. SDK'yı yükledikten sonra aşağıdaki adımları kullanarak bir ASP.NET uygulaması oluşturun:
 
-1. Açık **yeni proje** iletişim (gelen *dosya* > **yeni** > **proje...** ).
-2. Genişletme **şablonları** > **Visual C#**seçip **Web**.
+1. Açık **yeni proje** iletişim (gelen **dosya** > **yeni** > **proje...** ).
+2. Genişletme **şablonları** > **Visual C#** seçip **Web**.
 3. Seçin **ASP.NET Web uygulaması**.
 4. Proje adı girin. Daha sonra, **Tamam**'a tıklayın.
 5. Altında *ASP.NET 4.5.2 şablonları*seçin **Azure mobil uygulaması**. Denetleme **bulutta Barındır** mobil arka uç bu proje yayımlamak bulutta oluşturmak için.
@@ -115,12 +129,12 @@ Kullanılan genişletme yöntemleri şunlardır:
 ### <a name="sdk-extensions"></a>SDK uzantıları
 Aşağıdaki NuGet tabanlı uzantısı paketleri, uygulamanız tarafından kullanılabilen çeşitli mobil özellikleri sağlar. Kullanarak başlatma sırasında uzantılarını etkinleştirme **MobileAppConfiguration** nesnesi.
 
-* [Microsoft.Azure.Mobile.Server.Quickstart] Supports the basic Mobile Apps setup. Çağırarak yapılandırmaya eklenmiş **UseDefaultConfiguration** başlatma sırasında genişletme yöntemi. Bu uzantı uzantıları aşağıdaki içerir: bildirimleri, kimlik doğrulama, varlık, tablolar, etki alanları arası ve giriş paketleri. Bu paket, Azure portalında kullanılabilir Mobile Apps Quickstart tarafından kullanılır.
+* [Microsoft.Azure.Mobile.Server.Quickstart] temel Mobile Apps Kurulumu destekler. Çağırarak yapılandırmaya eklenmiş **UseDefaultConfiguration** başlatma sırasında genişletme yöntemi. Bu uzantı uzantıları aşağıdaki içerir: bildirimleri, kimlik doğrulama, varlık, tablolar, etki alanları arası ve giriş paketleri. Bu paket, Azure portalında kullanılabilir Mobile Apps Quickstart tarafından kullanılır.
 * [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) varsayılan uygulayan *bu mobil uygulamayı çalışır durumda olduğundan sayfa* bir web sitesi kök. Yapılandırmaya çağırarak eklemek **AddMobileAppHomeController** genişletme yöntemi.
 * [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) verilerle çalışmak için sınıflar içerir ve veri ardışık kümeleri yukarı. Yapılandırmaya çağırarak eklemek **AddTables** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) Enables the Entity Framework to access data in the SQL Database. Yapılandırmaya çağırarak eklemek **AddTablesWithEntityFramework** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Authentication] Enables authentication and sets-up the OWIN middleware used to validate tokens. Yapılandırmaya çağırarak eklemek **AddAppServiceAuthentication** ve **Iappbuilder**. **UseAppServiceAuthentication** genişletme yöntemleri.
-* [Microsoft.Azure.Mobile.Server.Notifications] Enables push notifications and defines a push registration endpoint. Yapılandırmaya çağırarak eklemek **AddPushNotifications** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL veritabanındaki verilere erişmek Entity Framework sağlar. Yapılandırmaya çağırarak eklemek **AddTablesWithEntityFramework** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Authentication] kimlik doğrulaması sağlar ve ayarlar yukarı belirteçleri doğrulamak için kullanılan OWIN ara yazılımı. Yapılandırmaya çağırarak eklemek **AddAppServiceAuthentication** ve **Iappbuilder**. **UseAppServiceAuthentication** genişletme yöntemleri.
+* [Microsoft.Azure.Mobile.Server.Notifications] anında iletme bildirimleri ve anında iletme kayıt uç noktasını tanımlar sağlar. Yapılandırmaya çağırarak eklemek **AddPushNotifications** genişletme yöntemi.
 * [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Creates a controller that serves data to legacy web browsers from your Mobile App. Yapılandırmaya çağırarak eklemek **MapLegacyCrossDomainController** genişletme yöntemi.
 * [Microsoft.Azure.Mobile.Server.Login] özel kimlik doğrulama senaryoları sırasında kullanılan bir statik yöntem AppServiceLoginHandler.CreateToken() yöntemi sağlar.
 

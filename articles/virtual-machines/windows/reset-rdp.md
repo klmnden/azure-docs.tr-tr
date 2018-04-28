@@ -3,7 +3,7 @@ title: Parola veya uzak masaüstü yapılandırması Windows VM üzerinde sıfı
 description: Bir hesap parolası veya Uzak Masaüstü Hizmetleri Azure portalında veya Azure PowerShell kullanarak bir Windows VM üzerinde sıfırlama öğrenin.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: danis
-ms.openlocfilehash: 038fc81fd46f81a454ec908e2156579ff8d41ee6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Uzak Masaüstü hizmetini veya bir Windows VM oturum açma parolasını sıfırlama
 Bir Windows sanal makine (VM) bağlanamıyorsanız, yerel yönetici parolasını sıfırlama veya Uzak Masaüstü hizmet yapılandırmasını (Windows etki alanı denetleyicilerinde desteklenmez). Parola sıfırlama için Azure PowerShell'de Azure portalından veya VM erişim uzantısı kullanabilirsiniz. VM oturum açtıktan sonra o kullanıcı için parola sıfırlama.  
@@ -54,24 +54,24 @@ Seçin **yalnızca sıfırlama yapılandırma** aşağı açılır menüden, ard
 
 
 ## <a name="vmaccess-extension-and-powershell"></a>VMAccess uzantısını ve PowerShell
-Bilgisayarınızda yüklü olduğundan emin olun [yüklenmiş ve yapılandırılmış en son PowerShell Modülü](/powershell/azure/overview) ve Azure aboneliğinizle oturum `Login-AzureRmAccount` cmdlet'i.
+Bilgisayarınızda yüklü olduğundan emin olun [yüklenmiş ve yapılandırılmış en son PowerShell Modülü](/powershell/azure/overview) ve Azure aboneliğinizle oturum `Connect-AzureRmAccount` cmdlet'i.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Yerel yönetici hesabı parolasını sıfırlama**
-Yönetici parolası veya kullanıcı adı ile Sıfırla [kümesi AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet'i. Hesap kimlik bilgilerinizi gibi oluşturun:
+Yönetici parolası veya kullanıcı adı ile Sıfırla [kümesi AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet'i. 
 
 ```powershell
-$cred=Get-Credential
+$SubID = "<SUBSCRIPTION ID>" 
+$RgName = "<RESOURCE GROUP NAME>" 
+$VmName = "<VM NAME>" 
+$Location = "<LOCATION>" 
+ 
+Connect-AzureRmAccount 
+Select-AzureRMSubscription -SubscriptionId $SubID 
+Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
 ```
 
 > [!NOTE] 
 > VM üzerinde geçerli yerel yönetici hesabından farklı bir ad yazın, VMAccess uzantısını bu ada sahip bir yerel yönetici hesabı ekleyin ve bu hesap için belirtilen parola atayın. VM üzerinde yerel yönetici hesabı varsa, parolayı sıfırlar ve hesap devre dışı bırakılmışsa VMAccess uzantısını etkinleştirir.
-
-
-Aşağıdaki örnek adlı VM güncelleştirmeleri `myVM` kaynak grubunda adlı `myResourceGroup` belirtilen kimlik bilgileri.
-
-```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().UserName -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
-```
 
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Uzak Masaüstü hizmet yapılandırmasını sıfırlama**
 Uzaktan erişim, VM ile Sıfırla [kümesi AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet'i. Aşağıdaki örnek adlı erişim uzantısı sıfırlar `myVMAccess` adlı VM üzerinde `myVM` içinde `myResourceGroup` kaynak grubu:

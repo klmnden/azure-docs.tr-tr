@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb37ce7e61796494be0a9282afdc620b0ca5886a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Kanıt in elinde aygıt hizmetinizle sağlama X.509 CA sertifikalarının nasıl
 
@@ -58,7 +58,7 @@ Microsoft araçları sağlar ve yardımcı olabilecek örnek imzalı doğrulama 
 
 - **Azure IOT Hub C SDK'sı** geliştirme için CA ve yaprak sertifikaları oluşturmanıza yardımcı olması için ve elinde kanıt doğrulama kodunu kullanarak gerçekleştirmek için PowerShell'i (Windows) ve Bash (Linux) komut dosyaları sağlar. İndirebilirsiniz [dosyaları](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) sisteminize çalışma klasörü için ilgili ve yönergeleri izleyin [yönetme CA sertifikaları Benioku](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) üzerindeki bir CA sertifikasını elinde kanıt gerçekleştirmek için. 
 - **Azure IOT hub'ı C# SDK'sı** içeren [Grup sertifika doğrulama örnek](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), hangi mülkü kanıt yapmak için kullanabilirsiniz.
-- İçindeki adımları takip edebilirsiniz [CA tarafından imzalanmış X.509 sertifikalarını yönetmek için PowerShell betiklerini](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) özellikle başlıklı bölümde belirtilen komut dosyası IOT Hub belgeleri makalesinde [elinde kanıtı, X.509 CA sertifikasını](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
+- İçindeki adımları takip edebilirsiniz [CA tarafından imzalanmış X.509 sertifikalarını yönetmek için PowerShell betiklerini](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) özellikle başlıklı bölümde belirtilen komut dosyası IOT Hub belgeleri makalesinde [elinde kanıtı, X.509 CA sertifikasını](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
 > [!IMPORTANT]
 > Elinde kanıt gerçekleştirmenin yanı sıra, daha önce de bildirdi PowerShell ve Bash betiklerini kök sertifikaları, Ara sertifikalar ve kimlik doğrulaması ve cihazlara sağlamak için kullanılan yaprak sertifikaları oluşturmanızı sağlar. Bu sertifikalar yalnızca geliştirme için kullanılmalıdır. Bunlar, hiçbir zaman bir üretim ortamında kullanılmamalıdır. 

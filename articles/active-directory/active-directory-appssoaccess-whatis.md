@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7c36d2ead9ca9e1ebd08d3d5a9c4901e46d42c00
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?
 Çoklu oturum açma tüm uygulamaları ve iş, yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak yapmak için gereken kaynaklar erişebildiklerinden anlamına gelir. Oturum açıldıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazın) ikinci kez.
@@ -75,7 +75,7 @@ Kimlik bilgileri, her iki durumda da şifrelenmiş bir duruma dizininde depolan�
 Parola tabanlı SSO güvenli bir şekilde uygulama ve kullanıcıya özgü bilgileri Azure AD'den almak ve hizmete uygulamak için bir tarayıcı uzantısı kullanır. Azure AD tarafından desteklenen çoğu üçüncü taraf SaaS uygulamaları bu özelliği desteklemez.
 
 Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
-* Internet Explorer 8, 9, 10, 11--Windows 7 veya üzeri
+* Internet Explorer 11--Windows 7 veya üzeri
 * Edge Windows 10 Anniversary Edition veya daha yenisi 
 * Chrome--Windows 7 veya daha sonra ve MacOS x veya sonraki sürümlerde
 * Firefox 26,0 veya daha sonra--Windows XP SP2 veya sonraki ve Mac OS X 10,6 veya üzeri

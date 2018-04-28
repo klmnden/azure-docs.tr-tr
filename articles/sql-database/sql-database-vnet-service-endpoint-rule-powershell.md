@@ -1,6 +1,6 @@
 ---
-title: "Sanal ağ hizmet uç noktalarına ve SQL kurallarında için PowerShell | Microsoft Docs"
-description: "Oluşturma ve Azure SQL veritabanı için sanal hizmet uç noktaları yönetmek için PowerShell komut dosyaları sağlar."
+title: Sanal ağ hizmet uç noktalarına ve SQL kurallarında için PowerShell | Microsoft Docs
+description: Oluşturma ve Azure SQL veritabanı için sanal hizmet uç noktaları yönetmek için PowerShell komut dosyaları sağlar.
 services: sql-database
 author: MightyPen
 manager: jhubbard
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fcf33d3d54b118c1c25f1467a496da3644a2345
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Azure SQL veritabanı için bir sanal Hizmeti uç noktası ve kuralı oluşturmak için PowerShell kullanma
 
@@ -34,11 +34,11 @@ Bu makalede adlı cmdlet vurgular **yeni AzureRmSqlServerVirtualNetworkRule**, b
 
 Aşağıdaki liste, diğer gösterilir *ana* aramanız için hazırlamak için çalıştırmalısınız cmdlet'leri **yeni AzureRmSqlServerVirtualNetworkRule**. Bu makalede, bu çağrıları ortaya [betik 3 "sanal ağ kuralı"](#a-script-30):
 
-1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Creates a subnet object.
+1. [AzureRmVirtualNetworkSubnetConfig yeni](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): bir alt ağ nesnesi oluşturur.
 
 2. [Yeni-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): sanal ağınızı alt vermiş oluşturur.
 
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): Assigns a Virtual Service endpoint to your subnet.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): sanal hizmet uç noktası, alt ağına atar.
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): sanal ağınıza yapılan güncelleştirmeler devam ettirir.
 
@@ -49,6 +49,9 @@ Aşağıdaki liste, diğer gösterilir *ana* aramanız için hazırlamak için �
 
 - Zaten Azure'a gibi aracılığıyla oturum açabildiğinizden [Azure portal][http-azure-portal-link-ref-477t].
 - PowerShell komut dosyaları zaten çalıştırabilirsiniz.
+
+> [!NOTE]
+> Lütfen hizmet uç noktaları Vnet/sanal ağ güvenlik duvarı kuralı oluşturma başarısız olur, sunucunuza Aksi halde eklemek istediğiniz alt ağ için açık emin olun.
 
 #### <a name="one-script-divided-into-four-chunks"></a>Tek bir betik dört parçalara bölünür
 
@@ -79,7 +82,7 @@ Bu ilk PowerShell komut dosyası değişkenleri için değerleri atar. Sonraki k
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -519,7 +522,7 @@ Komut dosyasını güncelleştirmez herhangi bir şey varsa Evet yanıt sürece 
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

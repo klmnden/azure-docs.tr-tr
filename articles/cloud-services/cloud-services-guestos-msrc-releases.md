@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
@@ -26,10 +26,10 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="march-guest-os"></a>Konuk işletim sistemi Mart
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 18-03 | [4088787], [4088776] |Windows 10 güvenliği |5.17 |13 Mart 2018 |
-| Rel 18-03 | [4088878], [4088880], [4088879] |Yalnızca Windows güvenliği |2.72, 3.59, 4.52 |13 Mart 2018 |
-| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 Mart 2018 |
-| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 Mart 2018 |
+| İlişki 18-03 | [4088787], [4088776] |Windows 10 güvenliği |5.17 |13 Mart 2018 |
+| İlişki 18-03 | [4088878], [4088880], [4088879] |Yalnızca Windows güvenliği |2.72, 3.59, 4.52 |13 Mart 2018 |
+| İlişki 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 Mart 2018 |
+| İlişki 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 Mart 2018 |
 | Yok | [4074598] |Şubat güvenlikle ilgili olmayan dökümü |2.72 |13 Şubat 2018 |
 | Yok | [4074593] |Şubat güvenlikle ilgili olmayan dökümü |3.59 |13 Şubat 2018 |
 | Yok | [4074594] |Şubat güvenlikle ilgili olmayan dökümü |4.52 |13 Şubat 2018 |
@@ -39,10 +39,10 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="february-guest-os"></a>Şubat konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 18-02 | [4074590], [4074588] |Windows 10 güvenliği |5.16 |13 Şubat 2018 |
-| Rel 18-02 | [4074587], [4074589], [4074597] |Yalnızca Windows güvenliği |2.71, 3.58, 4.51 |13 Şubat 2018 |
-| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 Şubat 2018 |
-| Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 Şubat 2018 |
+| İlişki 18-02 | [4074590], [4074588] |Windows 10 güvenliği |5.16 |13 Şubat 2018 |
+| İlişki 18-02 | [4074587], [4074589], [4074597] |Yalnızca Windows güvenliği |2.71, 3.58, 4.51 |13 Şubat 2018 |
+| İlişki 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 Şubat 2018 |
+| İlişki 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 Şubat 2018 |
 | Yok | [4056894] |Ocak güvenlikle ilgili olmayan dökümü |2.71 |4 Ocak 2018 |
 | Yok | [4056896] |Ocak güvenlikle ilgili olmayan dökümü |3.58 |4 Ocak 2018 |
 | Yok | [4056895] |Ocak güvenlikle ilgili olmayan dökümü |4.51 |4 Ocak 2018 |
@@ -53,8 +53,8 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 18-01 | [4056898], [4056897], [4056899] |Yalnızca Windows güvenliği |2.70, 3.57, 4.50 |3 Ocak 2018 |
-| Rel 18-01 | [4056890], [4056892] |Yalnızca Windows güvenliği |5.15 |3 Ocak 2018 |
+| İlişki 18-01 | [4056898], [4056897], [4056899] |Yalnızca Windows güvenliği |2.70, 3.57, 4.50 |3 Ocak 2018 |
+| İlişki 18-01 | [4056890], [4056892] |Yalnızca Windows güvenliği |5.15 |3 Ocak 2018 |
 | Yok | [4054518] |Aralık dışı güvenlik dökümü |2.70 |12 Aralık 2017 |
 | Yok | [4054520] |Aralık dışı güvenlik dökümü |3.57 |12 Aralık 2017 |
 | Yok | [4054519] |Aralık dışı güvenlik dökümü |4.50 |12 Aralık 2017 |
@@ -77,10 +77,10 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="november-guest-os"></a>Kasım konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 17-11 | [4048953] |Windows 10 güncelleştirmeleri |5.13 |14 Kasım 2017 |
-| Rel 17-11 | [4048960], [4048962], [4048961] |Yalnızca Windows güvenliği |2.68, 3.55, 4.48 |14 Kasım 2017 |
-| Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
-| Rel 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 Kasım 2017 |
+| İlişki 17-11 | [4048953] |Windows 10 güncelleştirmeleri |5.13 |14 Kasım 2017 |
+| İlişki 17-11 | [4048960], [4048962], [4048961] |Yalnızca Windows güvenliği |2.68, 3.55, 4.48 |14 Kasım 2017 |
+| İlişki 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
+| İlişki 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 Kasım 2017 |
 | Yok | [4041681] |Ekim güvenlikle ilgili olmayan dökümü |2.68 |10 Ekim 2017 |
 | Yok | [4041690] |Ekim güvenlikle ilgili olmayan dökümü |3.55 |10 Ekim 2017 |
 | Yok | [4041693] |Ekim güvenlikle ilgili olmayan dökümü |4.48 |10 Ekim 2017 |
@@ -109,7 +109,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Rel 17-09 | [4038779], [4038786], [4038793] |Yalnızca Windows güvenliği |2.66, 3.53, 4.46 |12 Eylül 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Eylül .NET güncelleştirmesi |2.66, 3.53, 4.46 |12 Eylül 2017 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |12 Eylül 2017 |
-| CVE-2017-8704 | [4038782] |Hizmet reddi |5.11 |12 Eylül 2017 |
+| CVE 2017 8704 | [4038782] |Hizmet reddi |5.11 |12 Eylül 2017 |
 | Yok | [4034664] |Ağustos güvenlikle ilgili olmayan dökümü  |2.66 |8 Ağustos 2017 |
 | Yok | [4034665] |Ağustos güvenlikle ilgili olmayan dökümü |5.11 |8 Ağustos 2017 |
 | Yok | [4034681] |Ağustos güvenlikle ilgili olmayan dökümü |4.46 |8 Ağustos 2017 |
@@ -209,10 +209,10 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |.NET güvenliği |4.41 | 11 Nisan 2017 |
 | Rel 17-04 |  [4014564]; [4014572]; [4014549] |.NET güvenliği |3.48 | 11 Nisan 2017 |
 | Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |.NET güvenliği |2.61 | 11 Nisan 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 Nisan 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 Nisan 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 Nisan 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 Nisan 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE 2017 0181 |5.6 | 11 Nisan 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE 2017 0168 |2.61, 3.48, 4.41 | 11 Nisan 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE 2017 0169 |4.41 | 11 Nisan 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE 2017 0191 |2.61, 3.48, 4.41, 5.6 | 11 Nisan 2017 |
 | Rel 17-04 |  [4015193]  |Magallanes (Şili) için Windows'daki DST değişiklikleri |2.61, 3.48, 4.41 | 11 Nisan 2017 |
 | Rel 17-04 |  [4012215]  |Windows 7 SP1 ve Windows Server 2008 R2 SP1 Mart 2017 güvenlik aylık kalite dökümü |2.61 | 11 Nisan 2017 |
 | Rel 17-04 |  [4012217]  |Windows Server 2012 Mart 2017 güvenlik aylık kalite dökümü |3.48 | 11 Nisan 2017 |
@@ -384,7 +384,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok |[3133977] |BitLocker Sürücü svchost.exe işleminde Windows 7 veya Windows Server 2008 R2 hizmet kilitlenme nedeniyle şifrelenemiyor  |2.51 |10 Mayıs 2016 |
 | Yok |[3133681] |Sanal makineler işlemi Windows Server 2012 R2'de SCVMM yanıt yok  |4.32 |10 Mayıs 2016 |
 | Yok |[3123245] |Güncelleştirme, Windows Server 2012 R2'de bağlantı noktası Tükenme kimliği geliştirir.  |4.32 |10 Mayıs 2016 |
-| Yok |[Disable RC4] | Microsoft güvenlik önerisi: güncelleştirme RC4'ü devre dışı bırakmak için  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
+| Yok |[RC4'ü devre dışı bırak] | Microsoft güvenlik önerisi: güncelleştirme RC4'ü devre dışı bırakmak için  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 
 ## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -790,9 +790,9 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217
@@ -960,7 +960,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 [3133977]: http://support.microsoft.com/kb/3133977
 [3133681]: http://support.microsoft.com/kb/3133681
 [3123245]: http://support.microsoft.com/kb/3123245
-[Disable RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+[RC4'ü devre dışı bırak]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
 
 
 [3148531]: http://support.microsoft.com/kb/3148531

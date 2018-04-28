@@ -1,11 +1,11 @@
 ---
-title: "Oturum açmak için bir Azure VM yönetilen hizmet kimliği kullanma"
-description: "Adım adım yönergeler ve örnekler kullanarak bir Azure VM MSI hizmet sorumlusu betik istemci için oturum açın ve kaynak için erişim."
+title: Oturum açmak için bir Azure VM yönetilen hizmet kimliği kullanma
+description: Adım adım yönergeler ve örnekler kullanarak bir Azure VM MSI hizmet sorumlusu betik istemci için oturum açın ve kaynak için erişim.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Oturum açmak için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -51,7 +51,7 @@ Aşağıdaki komut dosyası gösterilmektedir nasıl yapılır:
 2. Azure Resource Manager'ı çağırmaz ve VM'nin hizmet asıl Kimlik Al CLI belirteç edinme/kullanımı sizin için otomatik olarak yönetme mvc'deki. İçin sanal makine adı değiştirdiğinizden emin olun `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -61,20 +61,11 @@ Aşağıdaki komut dosyası gösterilmektedir nasıl yapılır:
 
 Aşağıdaki komut dosyası gösterilmektedir nasıl yapılır:
 
-1. VM için bir MSI erişim belirteci alın.  
-2. Karşılık gelen MSI hizmet sorumlusu altında Azure AD oturum açmak için erişim belirtecini kullanır.   
-3. VM hakkında bilgi almak için bir Azure Resource Manager cmdlet'ini çağırın. PowerShell belirteç kullanımı sizin için otomatik olarak yönetme mvc'deki.  
+1. VM'ın MSI hizmet sorumlusu altında Azure AD oturum açın  
+2. VM hakkında bilgi almak için bir Azure Resource Manager cmdlet'ini çağırın. PowerShell belirteç kullanımı sizin için otomatik olarak yönetme mvc'deki.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
@@ -91,7 +82,7 @@ Bkz: [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](overview.md#az
 Aşağıdaki gibi yanıtları VM'nin MSI değil doğru şekilde yapılandırıldığını gösterebilir:
 
 - PowerShell: *Invoke-WebRequest: uzak sunucuya bağlanılamıyor*
-- CLI: *MSI: 'http://localhost:50342/oauth2/belirteciyle' hatası uygulamasından bir belirteç alınamadı ' HTTPConnectionPool (ana bilgisayar = 'localhost', bağlantı noktası 50342 =)* 
+- CLI: *MSI: uygulamasından bir belirteç alınamadı 'http://localhost:50342/oauth2/token' ile bir hata oluştu ' HTTPConnectionPool (ana bilgisayar = 'localhost', bağlantı noktası 50342 =)* 
 
 Azure VM ile Bu hatalardan biri alırsanız, dönmek [Azure portal](https://portal.azure.com) ve:
 

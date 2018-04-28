@@ -1,6 +1,6 @@
 ---
-title: "Azure batch kapsayıcı iş yükleri | Microsoft Docs"
-description: "Azure Batch kapsayıcı görüntülerden uygulamaları çalıştırmayı öğrenin."
+title: Azure batch kapsayıcı iş yükleri | Microsoft Docs
+description: Azure Batch kapsayıcı görüntülerden uygulamaları çalıştırmayı öğrenin.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch kapsayıcı uygulamaları çalıştırma
 
@@ -34,7 +34,7 @@ Bu makale, Docker kapsayıcısı kavramları ve Batch havuzu ve .NET SDK kullana
     * Batch Java SDK'sı sürüm 3.0
     * Toplu Node.js SDK'sı sürüm 3.0
 
-* Hesaplar: Azure hesabınızdaki, toplu işlem hesabı ve isteğe bağlı olarak genel amaçlı depolama hesabı oluşturmanız gerekir.
+* Hesaplar: Azure hesabınızdaki, toplu işlem hesabı ve isteğe bağlı olarak bir Azure Storage hesabı oluşturmanız gerekir.
 
 * Desteklenen bir VM görüntüsü. Kapsayıcılar yalnızca desteklenen aşağıdaki bölümde ayrıntılı görüntülerden sanal makine yapılandırması ile oluşturulan havuzlarında "sanal makine görüntülerini desteklenmiyor."
 

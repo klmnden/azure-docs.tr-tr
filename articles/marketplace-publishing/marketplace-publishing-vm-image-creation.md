@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -514,11 +514,11 @@ Teklif ve SKU oluşturduktan sonra SKU ile ilişkili görüntü ayrıntıları g
 
 |Sorun|Hata iletisi|Düzelt|Belge bağlantı|
 |---|---|---|---|
-|Kopyalama hatası görüntüleri - "?" SAS URL'si bulunamadı|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Önerilen SAS URL'yi kullanarak güncelleştirme araçları|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri kopyalama hatası - SAS URL'si değil, "st" ve "se" parametreleri|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Başlangıç ve bitiş tarihleri üzerindeki ile SAS Url güncelleştir|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri - "sp rl SAS url değil =" kopyalama hatası|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek için|SAS Url "listeyi ve"Okuma"ayarlanmış olan izinleri ile güncelleştirme|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri - SAS url kopyalama hatası vhd adlarında boşluk sahip|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Güncelleştirme boşluk olmadan SAS URL'si|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri – SAS Url yetkilendirmesi hata kopyalama hatası|Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blob indirmek için|SAS Url yeniden oluştur|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Kopyalama hatası görüntüleri - "?" SAS URL'si bulunamadı|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Önerilen SAS URL'yi kullanarak güncelleştirme araçları|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri kopyalama hatası - SAS URL'si değil, "st" ve "se" parametreleri|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Başlangıç ve bitiş tarihleri üzerindeki ile SAS Url güncelleştir|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri - "sp rl SAS url değil =" kopyalama hatası|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek için|SAS Url "listeyi ve"Okuma"ayarlanmış olan izinleri ile güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri - SAS url kopyalama hatası vhd adlarında boşluk sahip|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Güncelleştirme boşluk olmadan SAS URL'si|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri – SAS Url yetkilendirmesi hata kopyalama hatası|Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blob indirmek için|SAS Url yeniden oluştur|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Görüntüleri – SAS Url "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimi sahip değil|Hata: Görüntüleri kopyalama. Yanlış SAS Url nedeniyle blob indirmek için |SAS Url başlangıç ve bitiş tarihi parametreleri ("st", "se") 11 gibi tam tarih-saat belirtimi için gerekli-02-2017T00:00:00Z ve yalnızca tarih veya saat için kısaltılmış sürümleri. Azure CLI 2.0 (az komutu) kullanarak bu senaryoyu karşılaştığınız mümkündür. Tam tarih-saat belirtimi sağlamak ve SAS Url yeniden emin olun.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Sonraki adım

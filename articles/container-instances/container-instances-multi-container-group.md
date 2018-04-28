@@ -3,17 +3,17 @@ title: Azure kapsayıcı örnekleri gruplarında çok kapsayıcı dağıtma
 description: Azure kapsayıcı örnekleri birden çok kapsayıcı kapsayıcı grubuyla dağıtmayı öğrenin.
 services: container-instances
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5447598286e6f0dd8578af11f1789a8c5f477d5a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
@@ -108,7 +108,7 @@ Bu örnekte, iki kapsayıcı, bir kapsayıcı grubuyla bir ortak IP adresi ve ik
 }
 ```
 
-Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin.
+Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin. Bu yapılandırma örnek uygulaması için bkz: [ACI Resource Manager şablonu başvurusu] [ template-reference] belgeleri.
 
 ```json
 "imageRegistryCredentials": [
@@ -134,7 +134,7 @@ az group create --name myResourceGroup --location eastus
 az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Birkaç saniye içinde Azure'dan ilk yanıt almanız gerekir.
+Birkaç saniye içinde Azure’dan bir ilk yanıt almanız gerekir.
 
 ## <a name="view-deployment-state"></a>Dağıtım durumunu görüntüle
 
@@ -152,7 +152,7 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="view-logs"></a>Günlükleri görüntüle
+## <a name="view-logs"></a>Günlükleri görüntüleme
 
 Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin [az kapsayıcı günlükleri] [ az-container-logs] komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir.
 
@@ -210,3 +210,4 @@ Bu makalede, bir çok kapsayıcı Azure kapsayıcı örneği dağıtmak için ge
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

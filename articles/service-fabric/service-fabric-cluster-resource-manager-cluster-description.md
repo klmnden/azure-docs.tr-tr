@@ -1,11 +1,11 @@
 ---
-title: "Küme Kaynak Yöneticisi küme açıklaması | Microsoft Docs"
-description: "Service Fabric kümesi, hata etki alanlarını, yükseltme etki alanları, düğüm özellikleri ve düğüm kapasitesi için Küme Kaynak Yöneticisi'ni belirterek açıklayan."
+title: Küme Kaynak Yöneticisi küme açıklaması | Microsoft Docs
+description: Service Fabric kümesi, hata etki alanlarını, yükseltme etki alanları, düğüm özellikleri ve düğüm kapasitesi için Küme Kaynak Yöneticisi'ni belirterek açıklayan.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: MT
+ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric kümesi Kaynak Yöneticisi, bir küme açıklamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında Küme Kaynak Yöneticisi'ni kümede çalışan hizmetler yüksek düzeyde kullanılabilirliğini sağlamak için bu bilgileri kullanır. Bu önemli kurallar zorlarken bu aynı zamanda kümedeki kaynak tüketimini en iyi duruma dener.
@@ -95,7 +95,8 @@ Hangi düzenin seçmek için hiçbir en iyi yanıt, her bazı Artıları ve eksi
 Burada FDs ve UDs bir tablo oluşturur ve düğümler çapraz başlangıç yerleştirilir FD/UD matris en yaygın modelidir. Bu, varsayılan olarak Azure Service Fabric kümelerinde kullanılan modelidir. Birçok düğümleri içeren kümeler için her şeyi yukarıdaki yoğun matris düzeni gibi bakan sonlandırır.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Hata ve yükseltme etki alanı kısıtlamaları ve bunun sonucunda oluşan davranışı
-Küme Kaynak Yöneticisi'ni tutmak arıza ve kısıtlama olarak yükseltme etki alanları arasında dengeli bir hizmet isteğini işler. Kısıtlamalar hakkında daha fazla bilgi için [bu makalede](service-fabric-cluster-resource-manager-management-integration.md). Hata ve yükseltme etki alanı kısıtlamaları durumu: "verili hizmet bölüm için hiçbir zaman olması gerektiğini fark *birden büyük* arasında hizmet nesneleri (durum bilgisiz hizmet örneği veya durum bilgisi olan hizmet çoğaltmaları) sayısı iki etki alanı." Bu, belirli taşır veya bu kısıtlamayı ihlal hazırlıklara önler.
+### <a name="default-approach"></a>*Varsayılan yaklaşımı*
+Varsayılan olarak, Küme Kaynak Yöneticisi'ni hata ve yükseltme etki alanları arasında dengeli Hizmetleri tutar. Bu olarak modellendi bir [kısıtlaması](service-fabric-cluster-resource-manager-management-integration.md). Hata ve yükseltme etki alanı kısıtlaması durumları: "verili hizmet bölüm için hiçbir zaman olması gerektiğini fark aynı düzeyde iki tüm etki alanları arasında hizmet nesneleri (durum bilgisiz hizmet örneği veya durum bilgisi olan hizmet çoğaltmaları) sayısı birden büyük hiyerarşisi". Bu kısıtlamanın "maksimum fark" garantisi sağlar varsayalım. Hata ve yükseltme etki alanı kısıtlaması belirli taşır ve yukarıda belirtilen kural ihlal düzenlemeleri engeller. 
 
 Bir örneğe bakalım. Altı düğümü, beş hata etki alanları ve beş yükseltme etki alanları ile yapılandırılmış bir kümeye sahip olduğunuzu varsayalım.
 
@@ -106,6 +107,8 @@ Bir örneğe bakalım. Altı düğümü, beş hata etki alanları ve beş yükse
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Yapılandırma 1*
 
 Şimdi biz bir TargetReplicaSetSize ile (veya Instancecount bir durum bilgisi olmayan bir hizmet için) bir hizmet beş oluşturduğunuzu varsayalım. Çoğaltmaları kara N1 N5 üzerinde. Aslında, N6 hiçbir zaman kaç Hizmetleri bu oluşturduğunuz gibi olsun kullanılır. Ancak neden? Geçerli düzen ve N6 seçilirse ne olacağını arasındaki farkı bakalım.
 
@@ -120,6 +123,9 @@ Bir örneğe bakalım. Altı düğümü, beş hata etki alanları ve beş yükse
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Düzen 1*
+
+
 Bu düzen, hata etki alanı ve yükseltme etki alanı başına düğüm bakımından dengelenir. Ayrıca, hata ve yükseltme etki alanı başına çoğaltmaların sayısı bakımından dengelenir. Her etki alanı düğümleri aynı sayıda ve çoğaltmaları aynı sayıda sahiptir.
 
 Şimdi, N6 yerine N2 kullandık neler olacağını konumundaki bakalım. Nasıl çoğaltmaları sonra dağıtılmış?
@@ -133,7 +139,10 @@ Bu düzen, hata etki alanı ve yükseltme etki alanı başına düğüm bakımı
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Bu düzen, hata etki alanı kısıtlaması için bizim tanımını ihlal ediyor. FD1 iki toplam FD0 FD1 arasındaki fark yapmadan sıfır sahipken FD0 iki çoğaltması yok. Küme Kaynak Yöneticisi, bu düzenleme izin vermiyor. Benzer şekilde biz N2 ve N6 (yerine N1 ve N2) kaldırdıysa biz alın:
+*Düzen 2*
+
+
+Bu düzen bizim "maksimum fark" garantisi hata etki alanı kısıtlaması tanımını ihlal ediyor. FD1 bir maksimum fark büyük olduğu iki, toplam FD0 FD1 arasındaki fark yapmadan sıfır sahipken FD0 iki çoğaltması yok. Küme Kaynak Yöneticisi'ni kısıtlamayı ihlal olduğundan, bu düzenleme izin vermiyor. Benzer şekilde biz N2 ve N6 (yerine N1 ve N2) kaldırdıysa biz alın:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -144,7 +153,85 @@ Bu düzen, hata etki alanı kısıtlaması için bizim tanımını ihlal ediyor.
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Bu düzen, hata etki alanlarını bakımından dengelenir. Bununla birlikte, artık bu etki alanı yükseltme kısıtlaması ihlal. UD1 iki sahipken UD0 sıfır çoğaltmalarına sahip olmasıdır. Bu nedenle, bu düzeni ayrıca geçersiz ve küme kaynak yönetici tarafından çekilmesi olmaz. 
+*Düzen 3*
+
+
+Bu düzen, hata etki alanlarını bakımından dengelenir. UD1 iki sahipken UD0 sıfır çoğaltmalarına sahip olduğundan Bununla birlikte, artık bu etki alanı yükseltme kısıtlaması ihlal. Bu nedenle, bu düzeni ayrıca geçersiz ve küme kaynak yönetici tarafından çekilmesi olmaz.
+
+Bu yaklaşım durum bilgisi olan çoğaltmaları veya durum bilgisiz örneklerinin dağıtım için en iyi olası hataya dayanıklılık sağlar. Bir durumda bir etki alanı aşağı gittiğinde çoğaltmaları/örnekleri en az sayıda kaybolur. 
+
+Öte yandan, bu yaklaşım çok sıkı ve kümenin tüm kaynakları kullanmasına izin verme. Belirli bir küme yapılandırmaları için belirli düğümler kullanılamaz. Bu hizmet, hizmetlerinizi yerleştirme değil uyarı iletilerini kaynaklanan doku neden olabilir. Önceki örnekte, küme düğümleri bazıları olamaz (verilen örnekte N6) kullanılır. Bu kümeye (N7 – N10) düğümleri eklemek olsa bile, çoğaltmaları/örnekleri yalnızca N1 – hata ve yükseltme etki alanı kısıtlamaları nedeniyle N5 üzerinde konulabilir. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Yapılandırma 2*
+
+
+### <a name="alternative-approach"></a>*Alternatif bir yaklaşım*
+
+Küme Kaynak Yöneticisi'ni en düşük düzeyde güvenlik hala güvence altına almak sırasında yerleştirme sağlayan hata ve yükseltme etki alanı kısıtlaması başka bir sürümünü destekler. Alternatif hata ve yükseltme etki alanı kısıtlaması şu şekilde belirtilebilir: "verili hizmet bölümü için etki alanları arasında çoğaltma dağıtım bölüm çekirdek kayıp saptanmamış emin olmanız gerekir". Bu kısıtlamanın "çekirdek güvenli" garanti sağlayan varsayalım. 
+
+> [!NOTE]
+>Durum bilgisi olan bir hizmet için tanımlarız *çekirdek kayıp* çoğaltmalarını çoğunu aşağı olduğunda aynı anda bir durumda. Örneğin, TargetReplicaSetSize beş ise, tüm üç çoğaltmaları kümesini çekirdek temsil eder. Benzer şekilde, TargetReplicaSetSize 6 ise, dört çoğaltmaları çekirdek için gereklidir. Normal şekilde çalışmaya devam edebilmesi bölüm istiyorsa, her iki durumda da ikiden fazla çoğaltmaları aşağı aynı anda olabilir. Durum bilgisiz hizmeti için bu tür hiçbir şey yoktur *çekirdek kayıp* normalde örnekleri çoğunu bile kesilirse aynı anda functionate için durum bilgisi olmayan hizmetler conitnue olarak. Bu nedenle, biz metnin geri kalanında durum bilgisi olan hizmetler üzerinde odaklanır.
+>
+
+Önceki örnekte edelim. Kısıtlama "çekirdek güvenli" sürümü ile tüm üç verilen düzenleri geçerli olacaktır. Bu durum, bölüm olurdu olsa bile FD0 üçüncü düzeninde hatası ikinci düzeni veya UD1 hala (çoğaltmalarını çoğunu hala yukarı olur) çekirdeğini gerekir çünkü. Bu kısıtlamanın sürümüyle N6 neredeyse her zaman göstermesi.
+
+"Çekirdek güvenli" yaklaşım "maksimum fark" yaklaşım neredeyse her küme topolojisi geçerli çoğaltma dağıtımları daha kolay olduğundan daha fazla esneklik sağlar. Bazı hatalar diğerlerinden da kötüsü olduğundan ancak, bu yaklaşımın en iyi hataya dayanıklılık özellikleri garanti edemez. En kötü Durum senaryosu, çoğaltmaların çoğunluğu bir etki alanı ve bir ek çoğaltma hatası kaybolabilir. Örneğin, 5 çoğaltmaları veya örnekleri ile çekirdek kaybetmenize gerekli 3 hataları yerine, yalnızca iki hatalarıyla Çoğunluk şimdi kaybedebilirsiniz. 
+
+### <a name="adaptive-approach"></a>*Uyarlamalı yaklaşımı*
+Her iki yaklaşım güçlü ve zayıf olduğu için Biz bu iki stratejileri birleştirir Uyarlamalı bir yaklaşım ekledik.
+
+> [!NOTE]
+>Bu Service Fabric sürüm 6.2 ile başlayarak varsayılan davranışı olacaktır. 
+>
+Uyarlamalı yaklaşım, varsayılan olarak "maksimum fark" mantığını kullanır ve yalnızca gerekli olduğunda "çekirdek güvenli" mantığı geçer. Küme Kaynak Yöneticisi'ni otomatik olarak hangi stratejiyi nasıl küme ve Hizmetleri yapılandırılan en bakarak gerekli olduğunu rakamlar. Belirli bir hizmeti için: *TargetReplicaSetSize hata etki alanlarının sayısı ve yükseltme etki alanlarının sayısı tarafından tam bölünebilir ise **ve** düğüm sayısı (hata etki alanları sayısı) küçük veya eşit: * ( sayısı, yükseltme etki alanları), Küme Kaynak Yöneticisi'ni bu hizmet için "temel çekirdek" mantığı kullanmalıdır.* Küme Kaynak Yöneticisi'ni durum bilgisi olmayan hizmetler için ilgili olmaması çekirdek kaybına rağmen durum bilgisiz ve durum bilgisi olan hizmetler için bu yaklaşım kullanacağını aklınızda size aittir.
+
+Önceki örnekte edelim ve bir küme şimdi (küme hala beş hata etki alanları ve beş yükseltme etki alanları ve bu küme kalır beş barındırılan bir hizmete TargetReplicaSetSize yapılandırılır) 8 düğümü sahip olduğunu varsayın. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Yapılandırma 3*
+
+Tüm gerekli koşulların karşılanıp çünkü Küme Kaynağı Yöneticisi hizmeti dağıtma içinde "çekirdek dayalı" mantığı kullanın. Bu N6 – N8 kullanımını etkinleştirir. Bir olası bir hizmet dağıtım, bu durumda gibi görünebilir:
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Düzen 4*
+
+Hizmetinizin TargetReplicaSetSize dört ile (örneğin) azaltılmıştır, Küme Kaynak Yöneticisi'ni değişiklik dikkat edin ve TargetReplicaSetSize artık FDs ve UDs sayısına göre bölünebilen olmadığından "maksimum fark" mantığı kullanarak Sürdür. Sonuç olarak, belirli çoğaltma hareketleri, böylece hata etki alanı ve yükseltme etki alanı mantığı "maksimum fark" sürümünü ihlal edilmediğini N1 N5 düğümlerde dört çoğaltmaları kalan dağıtmak amacıyla meydana gelir. 
+
+Geri dördüncü düzeni ve beş, TargetReplicaSetSize aranıyor. N1 kümeden kaldırılırsa, yükseltme etki alanlarının sayısı dört ile eşit olur. Yeniden UDs sayısı eşit hizmetin TargetReplicaSetSize artık bölmek değil olarak "maksimum fark" mantığı kullanarak küme Kaynak Yöneticisi'ni başlatır. Sonuç olarak, böylece hata ve yükseltme etki alanı kısıtlaması değil ihlal üzerinde N4 güden çoğaltma yeniden oluşturulduğunda R1 vardır.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |Yok |Yok |Yok |Yok |Yok |Yok |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Düzen 5*
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Hata ve yükseltme etki alanlarını yapılandırma
 Hata etki alanları ve yükseltme etki alanları tanımlama yapılır otomatik olarak Azure Service Fabric dağıtımları barındırılan. Service Fabric alır ve Azure ortamı bilgileri kullanır.
@@ -271,7 +358,7 @@ Düğüm özelliğinde belirtilen değeri veya uzun imzalı bir string, bool, ol
 
 1) belirli ifadeleri oluşturmak için koşullu denetimleri
 
-| Deyimi | Sözdizimi |
+| Bildirim | Sözdizimi |
 | --- |:---:|
 | "eşit" | "==" |
 | "eşit değil" | "!=" |
@@ -282,7 +369,7 @@ Düğüm özelliğinde belirtilen değeri veya uzun imzalı bir string, bool, ol
 
 2) gruplandırma ve mantıksal işlemleri için Boole ifadeleri
 
-| Deyimi | Sözdizimi |
+| Bildirim | Sözdizimi |
 | --- |:---:|
 | "ve" | "&&" |
 | "veya" | "&#124;&#124;" |
@@ -515,7 +602,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Mimari ve bilgi akışını içinde Küme Kaynak Yöneticisi hakkında daha fazla bilgi için kullanıma [bu makalede](service-fabric-cluster-resource-manager-architecture.md)
+* Mimari ve bilgi akışını içinde Küme Kaynak Yöneticisi hakkında daha fazla bilgi için kullanıma [bu makalede ](service-fabric-cluster-resource-manager-architecture.md)
 * Birleştirme ölçümleri tanımlama yayılmak yerine düğümlerde yük birleştirmek için bir yoludur. Birleştirme yapılandırma konusunda bilgi edinmek için bkz [bu makalede](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * En baştan başlatın ve [bir giriş için Service Fabric kümesi Resource Manager Al](service-fabric-cluster-resource-manager-introduction.md)
 * Küme Kaynak Yöneticisi'ni yönetir ve yük devretme kümesinde dengeleyen hakkında bilgi almak için makalesine kontrol [Yük Dengeleme](service-fabric-cluster-resource-manager-balancing.md)

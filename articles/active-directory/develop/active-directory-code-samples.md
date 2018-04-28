@@ -1,138 +1,121 @@
 ---
-title: "Azure Active Directory kod örnekleri | Microsoft Docs"
-description: "Azure Active Directory kod örnekleri, senaryo tarafından düzenlenen bir dizini."
+title: Azure Active Directory kod örnekleri | Microsoft Docs
+description: Azure Active Directory (v1 uç noktası) dizini senaryo tarafından düzenlenen kod örnekleri sağlar.
 services: active-directory
 documentationcenter: dev-center-name
-author: msmbaldwin
+author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
-ms.author: mbaldwin
+ms.date: 04/24/2018
+ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 046d633239b09ebdf21b5383b08684d81199d026
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-active-directory-code-samples"></a>Azure Active Directory kod örnekleri
+# <a name="azure-active-directory-code-samples-v1-endpoint"></a>Azure Active Directory kod örnekleri (V1 uç noktası)
+
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Microsoft Azure Active Directory (Azure AD), kimlik doğrulama ve yetkilendirme, web uygulamaları ve web API'leri eklemek için kullanabilirsiniz. Bu bölümde nasıl yapıldığını göster örnekleri ve uygulamalarınızda kullanabileceğiniz kod parçacıkları bağlar. Ayrıntılı okuma Bul kod örnek sayfada-bana gereksinimleri, yükleme ve Kurulum Yardım konuları. Ve kritik bölümler anlamanıza yardımcı olması için kod açıklanır.
+Microsoft Azure Active Directory (Azure AD), kimlik doğrulama ve yetkilendirme, web uygulamaları ve web API'leri eklemek için kullanabilirsiniz.
 
-Her bir örnek türü için temel senaryo anlamak için Azure AD kimlik doğrulama senaryoları bakın.
+Bu bölümde, Azure AD V1 uç noktası hakkında daha fazla bilgi için kullanabileceğiniz örnek bağlantılar sağlar. Bu örnekler, uygulamalarınızda kullanabileceğiniz kod parçacıkları birlikte nasıl yapıldığını gösterir. Ayrıntılı okuma Bul kod örnek sayfada-bana gereksinimleri, yükleme ve Kurulum Yardım konuları. Ve kritik bölümler anlamanıza yardımcı olması için kod açıklanır.
 
-Bizim örneklerimizi github'da katkıda: [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
+> [!NOTE]
+> Azure AD V2 kod örnekleri ilgileniyorsanız bkz [v2.0 kod örnekleri senaryo tarafından](active-directory-v2-code-samples.md).
 
-## <a name="web-browser-to-web-application"></a>Web uygulaması için Web tarayıcısı
-Bu örnekler, Azure AD ile oturum açmak için kullanıcının tarayıcısına yönlendiren bir web uygulamasının nasıl yazılacağını gösterir.
+Her bir örnek türü için temel senaryo anlamak için bkz: [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Openıd Connect (ASP.Net Openıd Connect OWIN ara yazılımı) Azure AD kiracısı kullanıcıların kimliğini doğrulamak için kullanın. |
-| C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Çok kiracılı Openıd Connect (ASP.Net Openıd Connect OWIN ara yazılımı) kullanıcıların kimliklerini doğrulamak için birden çok Azure AD kiracılardan kullanan .NET MVC web uygulaması. |
-| C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |WS-Federasyon (ASP.Net WS-Federasyon OWIN ara yazılımı) kullanıcıların kimliklerini doğrulamak için bir Azure AD kiracısı kullanın. |
-| C# / .NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |Openıd Connect oturum açmak için kullandığı bir .NET MVC web uygulaması ASP.NET Core Openıd Connect ara yazılımı kullanarak tek bir Azure Active Directory (Azure AD) Kiracı kullanıcılardan. |
+Ayrıca bizim örneklerimizi github'da katkıda bulunabilirsiniz. Bilgi edinmek için bkz [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## <a name="single-page-application-spa"></a>Tek sayfalı uygulama (SPA)
-Bu örnek, Azure AD ile güvenli bir tek sayfa uygulamasının nasıl yazılacağını göstermektedir.  
+## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph veya bir Web API çağırma Masaüstü ve mobil ortak istemci uygulamaları
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| JavaScript, C#/.NET |[SinglePageApp-DotNet](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |Bir ASP.NET web API'si arka uç ile uygulanan bir AngularJS tabanlı tek sayfalı uygulama güvenliğini sağlamak için JavaScript ve Azure AD için ADAL kullanır. |
+Aşağıdaki örnekler ortak istemci Microsoft Graph veya bir kullanıcı adına bir Web API erişim uygulamaları (masaüstü/mobil uygulamaları) gösterir.
 
-## <a name="native-application-to-web-api"></a>Web API yerel uygulama
-Bu kod örnekleri web Azure AD tarafından güvenliği sağlanan API'leri çağırma yerel istemci uygulamalarının nasıl oluşturulacağını gösterir. Kullandıkları [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) ve [OAuth 2.0 Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+istemci uygulaması | Platform | Akış/verin | Çağrıları Microsoft Graph | Bir ASP.NET veya ASP.NET Core 2.0 Web API çağrıları
+------------------ | -------- | ---------- | -------------------- | -------------------------
+Masaüstü (WPF)           | .NET / C# | Etkileşimli | [DotNet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet yerel Masaüstü](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [DotNet yerel aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [DotNet webapı-el ile-jwt-doğrulama](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Mobil (UWP)            | .NET / C#  | Etkileşimli | [Yerel uwp wam dotnet](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  [DotNet windows mağazası](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (tek kiracılı Web API) </p> [DotNet webapı-çok kullanıcılı-windows-deposu](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (çok kiracılı Web API)|
+Mobil (Android, iOS, UWP)   | .NET / C# (Xamarin) | Etkileşimli | [DotNet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+Mobil (Android)           | Android/Java | Etkileşimli |   [Android](https://github.com/Azure-Samples/active-directory-android) |
+Mobil (iOS)           | iOS/Objective C | Etkileşimli |   [nativeClient iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
+Masaüstü (konsol)          | .NET / C# | Kullanıcı adı / parola </p> Windows tümleşik kimlik doğrulaması | | [DotNet-yerel-gözetimsiz](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Masaüstü (konsol)           | .NET core / C# | Cihaz profili | | [DotNet deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| Javascript |[NativeClient-MultiTarget-Cordova](https://github.com/Azure-Samples/active-directory-cordova-multitarget) |Apache Cordova için ADAL eklentisi web API'si çağıran ve Azure AD kimlik doğrulaması için kullandığı bir Apache Cordova uygulamanızı oluşturmak için kullanın. |
-| C#/.NET |[NativeClient-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) |Azure AD kullanarak bir web API'si çağıran bir .NET WPF uygulaması korunmaktadır. |
-| C#/.NET |[NativeClient-WindowsStore](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) |Web API'si çağıran bir Windows mağazası uygulaması, Azure AD ile güvenli hale getirilir. |
-| C#/.NET |[NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) |Çok kiracılı web Azure AD ile güvenli hale getirilen API'si çağrılırken bir Windows mağazası uygulaması. |
-| C#/.NET |[WebAPI-OnBehalfOf-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) |Bir web özgün kullanıcı adına hareket etmesi için bir belirteç alır ve ardından başka bir web API'sini çağırmak için belirteci kullanır, API çağıran bir yerel istemci uygulaması. |
-| C#/.NET |[NativeClient-WindowsPhone8.1](https://github.com/Azure-Samples/active-directory-dotnet-windowsphone-8.1) |Web API'si çağıran bir Windows Phone 8.1 için Windows mağazası uygulaması, Azure AD tarafından korunmaktadır. |
-| ObjC |[NativeClient-iOS](https://github.com/Azure-Samples/active-directory-ios) |Web API'si çağıran bir iOS uygulamasına Azure AD için kimlik doğrulaması gerektirir. |
-| C#/.NET |[WebAPI-ManuallyValidateJwt-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation) |OWIN ara yazılımı kullanmak yerine Web API'de, bir JWT belirteci işlemek için mantığı içeren bir yerel istemci uygulaması. |
-| C#/Xamarin |[NativeClient-Xamarin-Android](https://github.com/Azure-Samples/active-directory-xamarin-android) |Xamarin için bir bağlama için yerel Azure AD Authentication Library (ADAL) Android kitaplığıdır. |
-| C#/Xamarin |[NativeClient-Xamarin-iOS](https://github.com/Azure-Samples/active-directory-xamarin-ios) |İOS için Xamarin bağlama için yerel Azure AD Authentication Library (ADAL). |
-| C#/Xamarin |[NativeClient-MultiTarget-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-multitarget) |Beş platformları hedefler ve web API'si çağıran bir Xamarin projeyi Azure AD tarafından korunmaktadır. |
-| C#/.NET |[NativeClient-Headless-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-headless) |Etkileşimli olmayan kimlik doğrulaması gerçekleştiren ve bir web API'si çağıran bir yerel uygulamayı Azure AD tarafından korunmaktadır. |
+## <a name="web-applications"></a>Web Uygulamaları
 
-## <a name="web-application-to-web-api"></a>Web uygulaması Web API'si
-Bu kod örnekleri nasıl kullanılacağı gösterilmektedir [OAuth 2.0 Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx) bu çağrı web Azure AD tarafından güvenliği sağlanan API'leri web uygulamaları geliştirin.
+### <a name="web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity"></a>Kullanıcılar imzalama, Microsoft Graph veya kullanıcının kimliğine sahip bir Web API çağırma web uygulamaları
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| C#/.NET |[WebApp-WebAPI-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect) |Oturum açmış kullanıcının izinleriyle web API'si çağırma. |
-| C#/.NET |[WebApp-WebAPI-OAuth2-AppIdentity-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity) |Uygulamanın izinlerle web API'si çağırma. |
-| C#/.NET |[WebApp-WebAPI-OAuth2-UserIdentity-Dotnet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) |Yetkilendirme ile ekleme [OAuth 2.0 Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx) web API'si çağırabilirsiniz şekilde bir var olan bir web uygulaması için. |
-| JavaScript |[Webapı Nodejs](https://github.com/Azure-Samples/active-directory-node-webapi) |API koruma için Azure AD ile tümleşik bir REST API hizmeti ayarlayın. Bir Web API ile bir Node.js sunucusu içerir. |
-| C#/.NET |[WebApp-Webapı-çok kullanıcılı-Openıdconnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-multitenant-openidconnect) |Çok kiracılı MVC web Openıd Connect (ASP.Net Openıd Connect OWIN ara yazılımı) kullanıcıların kimliklerini doğrulamak için bir Azure AD kiracısı kullanan uygulama. Grafik API'sini çağırmak için yetki kodunu kullanır. |
+ Platform | Yalnızca kullanıcılar işaretleri | Çağrıları Microsoft Graph veya AAD grafik| Başka bir ASP.NET veya ASP.NET Core 2.0 Web API çağrıları
+ -------- | ------------------- | --------------------- | -------------------------
+ASP.NET 4.5 | [webApp openıdconnect dotnet](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) </p> [WebApp WSFederation dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) | [webapp çok kullanıcılı openıdconnect dotnet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) (AAD grafik) |
+ASP.NET Core 2.0 | [webapp openıdconnect aspnetcore dotnet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [WebApp-webapı-çok kullanıcılı-openıdconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) (AAD grafik) | [DotNet-webapp-webapı-openıdconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
+ASP.NET 4.5 | [DotNet-webapp-webapı-oauth2-userıdentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | |
+Python | | [Python webapp graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
+Java | | [Java webapp openıdconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
+PHP | | [PHP graphapi web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
-## <a name="server-or-daemon-application-to-web-api"></a>Sunucu veya Web API'si arka plan programı uygulamaya
-Bu kod örnekleri kullanarak bir web API kaynakları alır arka plan programı veya sunucu uygulamasının nasıl oluşturulacağını Göster [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) ve [OAuth 2.0 Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>Rol tabanlı erişim denetimi (yetkilendirme) gösteren web uygulamaları
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| C#/.NET |[Daemon-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) |Bir konsol uygulaması web API'si çağırır. İstemci kimlik bilgileri bir parola değil. |
-| C#/.NET |[Daemon-CertificateCredential-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) |Web API'si çağıran bir konsol uygulaması. İstemci kimlik bilgileri bir sertifikadır. |
+Aşağıdaki örnekler, belirli kullanıcılara bir web uygulaması'nin belirli özelliklerini izinlerini kısıtlamak için kullanılan rol tabanlı erişim denetimi gösterilmektedir. Kullanıcıların olup bir Azure AD grubu veya rolüne ait oldukları bağlı olarak yetkisine sahiptir.
 
-## <a name="calling-microsoft-graph-api"></a>Microsoft Graph API çağırma
-Bu kod örnekleri, dizin verilerini okuma ve yazma için Microsoft Graph API çağrısı uygulamalarının nasıl oluşturulacağını gösterir.
+Platform | Örnek | Açıklama
+ -------- | ------------------- | ---------------------
+ASP.NET 4.5 | [DotNet webapp groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) | Azure AD kullanan bir .NET 4.5 MVC web uygulaması **grupları** yetkilendirme için
+ASP.NET 4.5 | [DotNet webapp roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Azure AD kullanan bir .NET 4.5 MVC web uygulaması **rolleri** yetkilendirme için
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| C#/.NET |[WebApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/aspnet-snippets-sample) |Azure AD directory verilere erişmek için Microsoft Graph API'si kullanan bir web uygulaması. |
-| C#/.NET |[UWPApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/uwp-csharp-snippets-sample) |Bu Evrensel Windows platformu uygulama Microsoft Azure Active Directory (AD) dahil olmak üzere birden çok kaynaklara erişmek gösterilmiştir ve Office 365 API'leri yaparak bir Windows 10 uygulamasında Microsoft Graph API ister. |
+## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Arka plan programı uygulamaları (uygulama kimliği ile Web API erişme)
 
-## <a name="calling-azure-ad-graph-api"></a>Azure AD grafik API'si çağırma
-Bu kod örnekleri, dizin verilerini okuma ve yazma için Azure AD Graph API çağrısı uygulamalarının nasıl oluşturulacağını gösterir.
+Aşağıdaki örnekler, Microsoft Graph veya web API'si kullanıcı olmadan (uygulama kimliği) ile erişim Masaüstü veya web uygulamaları gösterir.
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| Java |[WebApp-GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |Azure AD directory verilere erişmek için grafik API'sini kullanan bir web uygulaması. |
-| PHP |[WebApp-GraphAPI-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |Azure AD directory verilere erişmek için grafik API'sini kullanan bir web uygulaması. |
-| C#/.NET |[ConsoleApp-GraphAPI-DiffQuery-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-diffquery) |Azure AD kiracısı kullanıcı nesnelerine fark sorgu düzenli almak için grafik API'sini kullanan bir konsol uygulaması değiştirir. |
-| C#/.NET |[WebApp GraphAPI DirectoryExtensions DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-directoryextensions-web) |Bir MVC uygulaması grafik API'si sorguları basit şirket kuruluş hesap oluşturmak için kullanılır. |
-| PHP |[WebApp GraphAPI DirectoryExtensions PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-directoryextensions-web) |Uzantı kaydedin ve ardından okuma, güncelleştirme ve uzantı öznitelik değerleri silmek için grafik API'si çağıran bir PHP uygulaması. |
+istemci uygulaması | Platform | Akış/verin | Çağrıları Microsoft Graph | Bir ASP.NET veya ASP.NET Core 2.0 Web API çağrıları
+------------------ | -------- | ---------- | -------------------- | -------------------------
+Arka plan programı uygulama (konsol)          | .NET / C#  | Uygulama gizli anahtarı veya sertifika ile istemci kimlik bilgileri | | [DotNet arka plan programı](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [DotNet-arka plan programı-sertifika-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
+Arka plan programı uygulama (konsol)         | .NET core / C# | Sertifika ile istemci kimlik bilgileri| | [arka plan programı sertifika kimlik dotnetcore](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
+Masaüstü            | Java | İstemci kimlik bilgileri |   [Java-yerel-gözetimsiz](https://github.com/azure-samples/active-directory-java-native-headless) |
+ASP.NET Web uygulaması  | .NET / C# | İstemci kimlik bilgileri |    | [DotNet-webapp-webapı-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
-## <a name="authorization"></a>Yetkilendirme
-Bu kod örnekleri, yetkilendirme için Azure AD kullanmayı gösterir.
+## <a name="web-apis"></a>Web API'leri
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| C#/.NET |[WebApp-GroupClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) |Rol tabanlı erişim denetimi (RBAC) Azure AD ile tümleşik bir uygulamada Azure Active Directory grup talepleri kullanarak gerçekleştirin. |
-| C#/.NET |[WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) |Azure Active Directory uygulama rolleri Azure AD ile tümleşik bir uygulama kullanarak rol tabanlı erişim denetimi (RBAC) gerçekleştirin. |
+### <a name="web-api-protected-by-azure-active-directory"></a>Web API Azure Active Directory tarafından korunan
 
-## <a name="legacy-walkthroughs"></a>Eski izlenecek yollar
-Bu izlenecek yollar biraz daha eski teknolojiyi kullanır, ancak yine de ilgi olabilir.
+Aşağıdaki örnek, bir node.js web API'si Azure AD ile korunacak gösterilmiştir.
 
-| Dil/Platform | Örnek | Açıklama |
-| --- | --- | --- |
-| C#/.NET |[Microsoft Azure AD uygulama rolü ve ACL tabanlı yetkilendirme](http://go.microsoft.com/fwlink/?LinkId=331694) |Rol tabanlı yetkilendirme (RBAC) ve ACL tabanlı bir yetkilendirme Azure AD ile tümleşik bir uygulamada gerçekleştirin. |
-| C#/.NET |[AAL - Windows mağazası uygulaması - REST hizmeti için kimlik doğrulaması](http://go.microsoft.com/fwlink/?LinkId=330605) |Kullanım [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) (önceki adıyla AAL) için Windows mağazası uygulaması için kullanıcı kimlik doğrulama özellikleri eklemek Windows mağazası Beta. |
-| C#/.NET |[Tarayıcı iletişim kutusu üzerinden aad'ye ADAL - REST hizmeti için yerel uygulama - kimlik doğrulama](http://go.microsoft.com/fwlink/?LinkId=259814) |Kullanım [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) bir WPF istemciye kullanıcı kimlik doğrulama özellikleri eklemek için. |
-| C#/.NET |[Tarayıcı iletişim kutusu üzerinden ACS ile - REST hizmeti için yerel uygulama - ADAL kimlik doğrulaması](http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc) |Kullanım [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) ve [erişim denetimi hizmeti 2.0 (ACS)](http://msdn.microsoft.com/library/azure/hh147631.aspx) bir WPF istemciye kullanıcı kimlik doğrulama özellikleri eklemek için. |
-| C#/.NET |[ADAL - sunucu kimlik doğrulaması](http://go.microsoft.com/fwlink/?LinkId=259816) |Kullanım [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) MVC4 Web API REST hizmeti için bir sunucu tarafı işleminden hizmeti çağrıları güvenli hale getirmek için. |
-| C#/.NET |[Azure AD kullanarak, Web uygulamanıza oturum açma ekleme](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Web çoklu oturum açma Azure AD kuruluş dizininizin karşı gerçekleştirmek için bir .NET uygulaması yapılandırın. |
-| C#/.NET |[Azure AD ile çok Kiracılı Web uygulamaları geliştirme](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Azure AD çoklu oturum açma ve birden çok kuruluşta çalışmak için bir .NET uygulama dizini erişim yetenekleri eklemek için kullanın. |
-| JAVA |[Azure AD grafik API'si için Java örnek uygulama](http://go.microsoft.com/fwlink/?LinkId=263969) |Grafik API'sini Azure AD directory verilerine erişmek için kullanır. |
-| PHP |[Azure AD grafik API'si için PHP örnek uygulama](http://code.msdn.microsoft.com/PHP-Sample-App-For-Windows-228c6ddb) |Grafik API'sini Azure AD directory verilerine erişmek için kullanır. |
-| C#/.NET |[Azure AD Graph API için örnek uygulama](http://go.microsoft.com/fwlink/?LinkID=262648) |Grafik API'sini Azure AD directory verilerine erişmek için kullanır. |
-| C#/.NET |[Azure AD Graph fark sorgu için örnek uygulama](http://go.microsoft.com/fwlink/?LinkId=275398) |Fark sorgu grafik API'sini bir Azure AD Kiracı kullanıcı nesneleri düzenli değişiklikleri almak için kullanın. |
-| C#/.NET |[Azure AD için çok Kiracılı bulut uygulaması tümleştirmek için örnek uygulama](http://go.microsoft.com/fwlink/?LinkId=275397) |Çok kiracılı uygulama Azure AD ile tümleştirin. |
-| C#/.NET |[Bir Windows mağazası uygulaması ve Azure AD kullanarak REST Web hizmeti güvenli hale getirme](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) |Basit bir web API kaynak ve Azure AD kullanarak bir Windows mağazası istemci uygulaması oluşturma ve [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md). |
-| C#/.NET |[Azure AD sorgulamak için grafik API'si kullanma](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |Bir Azure AD Kiracı dizininden verilerine erişmek için Azure AD grafik API'si kullanan bir Microsoft .NET uygulaması yapılandırın. |
+Platform | Örnek | Açıklama
+ -------- | ------------------- | ---------------------
+Node.js | [düğüm webapı](https://github.com/Azure-Samples/active-directory-node-webapi) |  NodeJS web güvenliğinin Azure AD ile API ve OAuth 2.0 erişim belirteçleri.
+
+### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Web API Microsoft Graph veya başka bir Web API çağırma
+
+Aşağıdaki örnekler, başka bir web API'si çağıran bir web API gösterir. İkinci örnek koşullu erişim nasıl ele alınacağını gösterir.
+
+ Platform |  Çağrıları Microsoft Graph | Başka bir ASP.NET veya ASP.NET Core 2.0 Web API çağrıları
+ -------- |  --------------------- | -------------------------
+ASP.NET 4.5 | [DotNet webapı onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) |[DotNet webapı onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof)
+ASP.NET 4.5 | [DotNet webapı onbehalfof ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |[DotNet webapı onbehalfof ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca)
+
+## <a name="single-page-applications"></a>Tek sayfa uygulamaları
+
+Bu örnek, Azure AD ile güvenli bir tek sayfa uygulamasının nasıl yazılacağını göstermektedir.
+
+ Platform |  Çağrıları Microsoft Graph | Kendi API çağrıları
+ -------- |  --------------------- | -------------------------
+JavaScript (Açısal) / ASP.NET 4.x |  | [angularjs singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+
+## <a name="other-microsoft-graph-samples"></a>Diğer Microsoft Graph örnekleri
+
+Örnekler ve Azure AD ile kimlik doğrulaması dahil Microsoft Graph API için farklı kullanım desenlerini göstermek öğreticiler için bkz: [Microsoft Graph topluluk örnekleri & öğreticiler](https://github.com/microsoftgraph/msgraph-community-samples).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-##### <a name="other-resources"></a>Diğer Kaynaklar
+
 [Azure Active Directory Geliştirici Kılavuzu](active-directory-developers-guide.md)
 
 [Azure AD Graph API kavramsal ve başvurusu](https://msdn.microsoft.com/library/azure/hh974476.aspx)

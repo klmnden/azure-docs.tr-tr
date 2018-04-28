@@ -92,7 +92,7 @@
 #### [Dağıtım hakkında SSS](cloud-services-deployment-faq.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [.csdef XML Şeması](schema-csdef-file.md)
 ### [LoadBalancerProbe Şeması](schema-csdef-loadbalancerprobe.md)
 ### [WebRole Şeması](schema-csdef-webrole.md)

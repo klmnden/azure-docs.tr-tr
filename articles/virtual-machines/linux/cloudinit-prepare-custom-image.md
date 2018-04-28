@@ -1,11 +1,11 @@
 ---
-title: "Bulut init ile kullanmak için Azure VM görüntüsünü hazırlama | Microsoft Docs"
-description: "Bulut init ile dağıtım için önceden var olan bir Azure VM görüntüsü hazırlama"
+title: Bulut init ile kullanmak için Azure VM görüntüsünü hazırlama | Microsoft Docs
+description: Bulut init ile dağıtım için önceden var olan bir Azure VM görüntüsü hazırlama
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2eb7510d4e76e4996e83f351a62c0b025b487df2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Bulut init ile kullanılmak üzere var olan bir Linux Azure VM görüntüsünü hazırlama
 Bu makale mevcut bir Azure sanal makine alın ve yeniden dağıtılan ve bulut init kullanıma hazır olması için hazırlama gösterilmektedir. Elde edilen görüntü, yeni bir sanal makine veya sanal makine ölçek kümeleri biri ya da sonra daha fazla bulut-Init dağıtım sırasında özelleştirilebilecek - dağıtmak için kullanılabilir.  Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın. Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu belge, Linux işletim sisteminin desteklenen bir sürümünü çalıştıran bir çalışan Azure sanal makine zaten olduğunu varsayar. Makine, gereksinimlerinize uygun için zaten yapılandırılmış gerekli olan tüm modülleri yüklü, tüm gerekli güncelleştirmeler işlenen ve gereksinimlerinizi karşıladığından emin olmak için sınanmıştır. 
 
 ## <a name="preparing-rhel-74--centos-74"></a>RHEL 7.4 hazırlama / CentOS 7.4
@@ -43,22 +43,20 @@ Güncelleştirme `cloud_init_modules` bölümüne `/etc/cloud/cloud.cfg` aşağ�
 
 Hangi bir genel amaçlı bir örnek şudur `cloud_init_modules` bölüm gibi görünüyor.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 Bir dizi görevi kısa ömürlü diskleri işleme ve sağlama ile ilgili olarak güncelleştirilmesi gereken `/etc/waagent.conf`. Uygun ayarları güncelleştirmek için aşağıdaki komutları çalıştırın. 
 ```bash
@@ -72,6 +70,28 @@ Yalnızca Azure, yeni bir dosya oluşturarak Azure Linux aracısı için bir ver
 ```bash
 # This configuration file is provided by the WALinuxAgent package.
 datasource_list: [ Azure ]
+```
+
+Bir bekleyen ana bilgisayar adı kayıt hatayı gidermek için bir yapılandırma ekleyin.
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
 ```
 
 Var olan Azure görüntünüzü yapılandırılmış takas dosyası varsa ve bulut init kullanarak yeni görüntüleri takas dosyası yapılandırmasını değiştirmek istediğiniz varolan takas dosyası kaldırmanız gerekir.

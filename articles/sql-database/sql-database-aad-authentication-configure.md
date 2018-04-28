@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik doğrulaması - SQL yapılandırma | Microsoft Docs"
-description: "Azure AD yapılandırdıktan sonra Azure Active Directory kimlik doğrulaması - kullanarak SQL veritabanı, yönetilen örneğini ve SQL Data Warehouse bağlayacağınızı öğrenin."
+title: Azure Active Directory kimlik doğrulaması - SQL yapılandırma | Microsoft Docs
+description: Azure AD yapılandırdıktan sonra Azure Active Directory kimlik doğrulaması - kullanarak SQL veritabanı, yönetilen örneğini ve SQL Data Warehouse bağlayacağınızı öğrenin.
 services: sql-database
 author: GithubMirek
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Yapılandırma ve SQL Database, yönetilen örneği veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme
 
@@ -72,13 +72,13 @@ Yönetilen örneğinizi başarıyla güvenlik grubu üyeliği üzerinden kullan�
 
 6.  Şimdi, yönetilen Örneğiniz için Azure AD yöneticinizin seçebilirsiniz. Bunun için Active Directory Yönetim sayfasında, tıklatın **ayarlamak yönetici** komutu.
 
-    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+    ![set-Yönetim](./media/sql-database-aad-authentication/set-admin.png)
 
 7. Kullanıcı veya Grup yönetici olarak Ekle Yönetim sayfasında, bir kullanıcıyı arayın seçin ve ardından **seçin**. 
 
    Active Directory Yönetim sayfası, tüm üyeleri ve grupları, Active Directory gösterir. Kullanıcıları veya gri renkte grupları Azure AD Yöneticiler desteklenmediği için seçilemez. Desteklenen admins listesini görmek [Azure AD özelliklerini ve sınırlamalarını](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rol tabanlı erişim denetimi (RBAC) yalnızca Azure portalına uygular ve SQL Server'a dağıtılmaz.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![Add-Yönetim](./media/sql-database-aad-authentication/add-admin.png)
 
 8. Active Directory Yönetim sayfanın en üstünde tıklatın **kaydetmek**.
 
@@ -100,8 +100,8 @@ Yönetilen örneğinizi başarıyla güvenlik grubu üyeliği üzerinden kullan�
 Aşağıdaki iki yordamdan Azure portalında ve PowerShell kullanarak Azure SQL server için Azure Active Directory yönetici sağlama gösterir.
 
 ### <a name="azure-portal"></a>Azure portalına
-1. İçinde [Azure portal](https://portal.azure.com/), sağ üst köşede, açılan olası etkin dizinlerin bir liste için bağlantınızı tıklatın. Doğru Active Directory varsayılan olarak Azure AD seçin. Bu adım, her ikisi için aynı abonelik kullanılır emin Azure SQL server ile Active Directory ile abonelik ilişkisi bağlar. Azure AD ve SQL Server. (Azure SQL Azure SQL Database veya Azure SQL Data Warehouse barındırma sunucusu olması.)   
-    ![choose-ad][8]   
+1. İçinde [Azure portal](https://portal.azure.com/), sağ üst köşede, açılan olası etkin dizinlerin bir liste için bağlantınızı tıklatın. Doğru Active Directory varsayılan olarak Azure AD seçin. Bu adım, her ikisi için aynı abonelik kullanılır emin Azure SQL server ile aboneliği ilişkili Active Directory bağlar. Azure AD ve SQL Server. (Azure SQL Azure SQL Database veya Azure SQL Data Warehouse barındırma sunucusu olması.)   
+    ![ad seçin][8]   
     
 2. Sol başlığında seçin **SQL sunucuları**seçin, **SQL server**ve ardından **SQL Server** sayfasında, **Active Directory Yöneticisi**.   
 3. İçinde **Active Directory Yöneticisi** sayfasında, **ayarlamak yönetici**.   
@@ -127,7 +127,7 @@ PowerShell cmdlet'lerini çalıştırmak için Azure PowerShell yüklenmiş ve �
 
 Bir Azure AD yönetim sağlamak için aşağıdaki Azure PowerShell komutları yürütün:
 
-* Add-AzureRmAccount
+* Connect-AzureRmAccount
 * Select-AzureRmSubscription
 
 Sağlamak ve Azure AD yönetim yönetmek için cmdlet'ler kullanılır:
@@ -208,7 +208,7 @@ Tarafından bu gereksinimleri karşılayabilirsiniz:
 Azure Active Directory kimlik doğrulaması kapsanan veritabanı kullanıcıları oluşturulacak veritabanı kullanıcıları gerektirir. Bir Azure AD kimliğine göre bir kapsanan veritabanı kullanıcısı olan bir oturum açma ana veritabanında sahip olmayan bir veritabanı kullanıcısı ve veritabanı ile ilişkili Azure AD dizininde bir kimliğine eşler. Azure AD kimlik bireysel bir kullanıcı hesabı veya bir grup olabilir. Kapsanan veritabanı kullanıcıları hakkında daha fazla bilgi için bkz: [bulunan veritabanı kullanıcıları yapma bilgisayarınızı veritabanı taşınabilir](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Veritabanı kullanıcıları (yöneticiler dışında) portal kullanarak oluşturulamıyor. SQL Server, SQL Database veya SQL Data Warehouse için RBAC rolleri yayılmaz. Azure RBAC rolleri Azure kaynaklarını yönetmek için kullanılır ve veritabanı izinleri için geçerli değildir. Örneğin, **SQL Server Katılımcısı** rolü, SQL Database veya SQL Data Warehouse bağlanmak için erişim vermez. Transact-SQL deyimlerini kullanarak veritabanına doğrudan erişim izni verilmesi gerekir.
+> Veritabanı kullanıcıları (yöneticiler dışında) Azure portalını kullanarak oluşturulamıyor. SQL Server, SQL Database veya SQL Data Warehouse için RBAC rolleri yayılmaz. Azure RBAC rolleri Azure kaynaklarını yönetmek için kullanılır ve veritabanı izinleri için geçerli değildir. Örneğin, **SQL Server Katılımcısı** rolü, SQL Database veya SQL Data Warehouse bağlanmak için erişim vermez. Transact-SQL deyimlerini kullanarak veritabanına doğrudan erişim izni verilmesi gerekir.
 >
 
 Bir Azure AD tabanlı bulunan veritabanı (başka kullanıcı veritabanı sahibi Sunucu Yöneticisi) oluşturmak, bir Azure AD kimlik veritabanıyla olan bir kullanıcı olarak bağlanmak için en az **ALTER herhangi bir kullanıcı** izni. Ardından aşağıdaki Transact-SQL söz dizimini kullanın:
@@ -279,12 +279,13 @@ Bir Federasyon etki alanına ait Azure Active Directory kimlik bilgilerinizi kul
 
 ## <a name="active-directory-password-authentication"></a>Active Directory parola kimlik doğrulaması
 
-Azure AD kullanarak bir Azure AD asıl adı ile bağlanma etki alanı yönetildiğinde bu yöntemi kullanın. Uzaktan çalışırken, örneğin etki alanı erişimi olmadan birleştirilmiş hesap için de kullanabilirsiniz.
+Azure AD kullanarak bir Azure AD asıl adı ile bağlanma etki alanı yönetildiğinde bu yöntemi kullanın. Uzaktan çalışırken, örneğin etki alanı erişimi olmadan Federasyon hesaplar için de kullanabilirsiniz.
 
-Windows Azure ile Federasyon olmayan bir etki alanı kimlik bilgilerini kullanarak oturum açarsanız, ya da Azure AD kullanarak Azure AD kimlik doğrulaması kullanarak ilk veya istemci etki alanına göre bu yöntemi kullanın.
+İçin SQL DB/DW yerel Azure AD ile kimlik doğrulaması için bu yöntemi kullanın Federasyon Azure AD kullanıcıları.
+Açıkça Azure AD'de oluşturulan bir yerel kullanıcı biridir ve bir Federasyon kullanıcısı bir Windows kullanıcı olsa, etki alanı kullanıcı adı ve parola kullanarak kimlik doğrulaması gerçekleştirilen Azure AD ile Federasyon. Bir kullanıcı kendi windows kimlik bilgileri kullanmak istiyor, ancak kendi yerel makine etki alanına katılmış değil (kullanıcı & parola kullanarak) İkinci yöntem kullanılabilir (yani bir uzaktan erişim kullanarak). Bu durumda bir Windows kullanıcısı kendi etki alanı hesabı ve parolası belirtebilir ve SQL DB/federe kimlik bilgilerini kullanarak DW için doğrulanabilir.
 
 1. Management Studio veya veri araçları başlatın ve **sunucuya Bağlan** (veya **veritabanı motoruna Bağlan**) iletişim kutusunda **kimlik doğrulaması** kutusunda  **Active Directory - parola**.
-2. İçinde **kullanıcı adı** biçiminde Azure Active Directory kullanıcı adınızı yazın  **username@domain.com** . Bir etki alanındaki bir hesabı Azure Active Directory ile birleştirmek veya bu Azure Active Directory'den bir hesabı olmalıdır.
+2. İçinde **kullanıcı adı** biçiminde Azure Active Directory kullanıcı adınızı yazın **username@domain.com**. Bir etki alanındaki bir hesabı Azure Active Directory ile birleştirmek veya bu Azure Active Directory'den bir hesabı olmalıdır.
 3. İçinde **parola** kutusunda, Azure Active Directory hesabı için kullanıcı parolanızı yazın veya Federasyon etki alanı hesabı.
 
     ![AD parola kimlik doğrulaması][12]

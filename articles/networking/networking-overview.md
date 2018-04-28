@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -37,7 +37,7 @@ Azure birlikte veya ayrı olarak kullanılan ağ yeteneklerini çeşitli sağlar
 
 Sanal makineler, bulut Hizmetleri, sanal makine ölçek kümeleri ve Azure App Service ortamları gibi Azure kaynakları özel olarak birbirleri ile bir Azure sanal ağı (VNet) iletişim kurabilir. Bir VNet ayrılmış Azure bulutunun mantıksal ayırma olduğundan, [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). Her Azure aboneliği içindeki birden çok sanal ağlar ve Azure uygulayabilirsiniz [bölge](https://azure.microsoft.com/regions). Her sanal ağ, diğer sanal ağlardan yalıtılır. Her sanal ağ için şunları yapabilirsiniz:
 
-- Ortak ve özel (RFC 1918) adreslerini kullanarak özel bir özel IP adres alanını belirtin. Azure atar kaynakları Vnet'e özel bir IP adresi atadığınız adres alanından bağlı.
+- Genel ve özel (RFC 1918) adresleri kullanarak özel bir gizli IP adresi alanı belirtin. Azure atar kaynakları Vnet'e özel bir IP adresi atadığınız adres alanından bağlı.
 - Sanal ağ bir veya daha fazla alt ağlara ayırabilir ve her alt ağ için sanal ağ adres alanının bir bölümü ayırın.
 - Azure tarafından sağlanan ad çözümlemesi kullanın veya bir sanal ağa bağlı kaynaklar tarafından kullanmak için kendi DNS sunucusu belirtin.
 
@@ -64,7 +64,7 @@ Aşağıdaki resimde, birden çok bilgisayar ve bir sanal ağ arasında site ba�
 
 ![Noktadan siteye](./media/networking-overview/point-to-site.png)
 
-Bu bağlantı tek bir bilgisayar ve bir sanal ağ arasında kurulur. Varolan ağınız çok az kayıpla veya hiç değişiklik gerektirmediği Bu bağlantı türü, yalnızca Azure ile ya da geliştiricileri için başlıyorsanız mükemmeldir. Ayrıca bir konferans gibi uzak bir konumdan bağlanırken kullanışlı veya giriş. Noktadan siteye bağlantılar genellikle aynı sanal ağ geçidi ile siteden siteye bağlantı ile bağlı değildir. Bağlantı, bilgisayar ve sanal ağ arasında Internet üzerinden şifrelenmiş iletişim sağlamak için SSTP protokolünü kullanır. Bir noktadan siteye VPN için gecikme süresini tahmin edilemez, olduğu Internet trafiği erişir.
+Bu bağlantı tek bir bilgisayar ve bir sanal ağ arasında kurulur. Azure’ı kullanmaya yeni başladıysanız bu bağlantı türü mükemmeldir. Mevcut ağınız üzerinde çok az bir değişiklik gerektirdiğinden veya hiç değişiklik gerektirmediğinden geliştiriciler için de mükemmeldir. Ayrıca bir konferans gibi uzak bir konumdan bağlanırken kullanışlı veya giriş. Noktadan siteye bağlantılar genellikle aynı sanal ağ geçidi ile siteden siteye bağlantı ile bağlı değildir. Bağlantı, bilgisayar ve sanal ağ arasında Internet üzerinden şifrelenmiş iletişim sağlamak için SSTP protokolünü kullanır. Bir noktadan siteye VPN için gecikme süresini tahmin edilemez, olduğu Internet trafiği erişir.
 
 **Siteden siteye (IPSec/IKE VPN tüneli)**
 
@@ -155,7 +155,7 @@ Dağıtma ve Azure ağ kaynakları aşağıdaki araçlardan birini yapılandır�
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Başkalarının özgürlüğüne sahip olmanıza rağmen Azure Ağ Hizmetleri bazıları bir ücret sahiptir. Görünüm [sanal ağ](https://azure.microsoft.com/pricing/details/virtual-network), [VPN ağ geçidi](https://azure.microsoft.com/pricing/details/vpn-gateway), [uygulama ağ geçidi](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [yük dengeleyici](https://azure.microsoft.com/pricing/details/load-balancer), [Ağ İzleyicisi](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [trafik Yöneticisi](https://azure.microsoft.com/pricing/details/traffic-manager) ve [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) sayfalar daha fazla bilgi için fiyatlandırma.
+Başkalarının özgürlüğüne sahip olmanıza rağmen Azure Ağ Hizmetleri bazıları bir ücret sahiptir. Görünüm [sanal ağ](https://azure.microsoft.com/pricing/details/virtual-network), [VPN ağ geçidi](https://azure.microsoft.com/pricing/details/vpn-gateway), [uygulama ağ geçidi](https://azure.microsoft.com/pricing/details/application-gateway/), [yük dengeleyici](https://azure.microsoft.com/pricing/details/load-balancer), [Ağ İzleyicisi](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [trafik Yöneticisi](https://azure.microsoft.com/pricing/details/traffic-manager) ve [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) sayfalar daha fazla bilgi için fiyatlandırma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

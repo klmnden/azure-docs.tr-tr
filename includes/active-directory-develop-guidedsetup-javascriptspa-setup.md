@@ -1,4 +1,26 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="setting-up-your-web-server-or-project"></a>Web sunucusu veya projesi ayarlama
 
 > Bu örnek 's proje yerine indirmeyi tercih ediyorsunuz? 
@@ -7,7 +29,7 @@
 > or
 > - [Proje dosyalarını indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) Python gibi bir yerel web sunucusu için
 >
-> Ve ardından geçin [yapılandırma adımı](#create-an-application-express) kod örneği çalıştırmadan önce yapılandırmak için.
+> Ve ardından geçin [yapılandırma adımı](#register-your-application) kod örneği çalıştırmadan önce yapılandırmak için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bir yerel web sunucusu gibi [Python http.server](https://www.python.org/downloads/), [http sunucu](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express ile tümleştirme [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu Destekli kurulumu çalıştırmak için gereklidir. 
@@ -18,10 +40,10 @@ Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak her
 
 > ### <a name="option-1-visual-studio"></a>Seçenek 1: Visual Studio 
 > Visual Studio kullanarak ve yeni proje oluşturma, yeni bir Visual Studio çözüm oluşturmak için aşağıdaki adımları izleyin:
-> 1.    In Visual Studio:  `File` > `New` > `Project`
-> 2.    Altında `Visual C#\Web`seçin`ASP.NET Web Application (.NET Framework)`
+> 1.    Visual Studio'da:  `File` > `New` > `Project`
+> 2.    Altında `Visual C#\Web`seçin `ASP.NET Web Application (.NET Framework)`
 > 3.    Uygulamanızı adlandırın ve tıklayın *Tamam*
-> 4.    Altında `New ASP.NET Web Application`seçin`Empty`
+> 4.    Altında `New ASP.NET Web Application`seçin `Empty`
 
 <p/><!-- -->
 

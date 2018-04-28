@@ -1,59 +1,59 @@
 ---
-title: "Azure Cosmos DB: grafik API'si, .NET geliştirme | Microsoft Docs"
-description: ".NET kullanarak Azure Cosmos veritabanı SQL API'si ile geliştirmeyi öğrenin"
+title: "Azure Cosmos DB: .NET'te Graph API ile geliştirme | Microsoft Docs"
+description: .NET kullanarak Azure Cosmos DB SQL API'si ile geliştirmeyi öğrenin
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: grafik API'si, .NET geliştirin
+# <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET’te Graph API ile geliştirme
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu öğretici, Azure portalını kullanarak bir Azure Cosmos DB hesabının nasıl oluşturulacağını ve grafik veritabanı ve kapsayıcı nasıl oluşturulacağını gösterir. Uygulama basit bir sosyal ağ kullanan dört kişilerle oluşturur [grafik API'si](graph-sdk-dotnet.md), ardından erişir ve Gremlin kullanarak grafik sorgular.
+Bu öğreticide Azure portalını kullanarak bir Azure Cosmos DB hesabını, bir grafik veritabanını ve kapsayıcıyı oluşturma işlemi gösterilmektedir. Uygulama daha sonra [Graph API](graph-sdk-dotnet.md) kullanarak dört kişilik basit bir sosyal ağ oluşturur, ardından Gremlin kullanarak grafik içinde dolaşıp sorgulama yapar.
 
-Bu öğretici, aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Azure Cosmos DB hesabı oluşturma 
-> * Bir grafik veritabanı ve kapsayıcı oluşturun
-> * Köşeleri ve kenarları .NET nesneleri seri hale
-> * Köşeleri ve kenarları ekleme
-> * Grafiğin Gremlin kullanarak sorgulama
+> * Grafik veritabanı ve kapsayıcı oluşturma
+> * .NET nesnelerinin köşe ve kenarlarını seri hale getirme
+> * Köşe ve kenar ekleme
+> * Gremlin kullanarak grafiği sorgulama
 
-## <a name="graphs-in-azure-cosmos-db"></a>Azure Cosmos DB grafiklerde
-Azure Cosmos DB oluşturmak, güncelleştirmek ve grafikler kullanarak sorgulamak için kullanabileceğiniz [Microsoft.Azure.Graphs](graph-sdk-dotnet.md) kitaplığı. Microsoft.Azure.Graph kitaplığı tek genişletme yöntemi sağlar `CreateGremlinQuery<T>` üstünde `DocumentClient` Gremlin sorgularını yürütmek için sınıf.
+## <a name="graphs-in-azure-cosmos-db"></a>Azure Cosmos DB’de grafikler
+Azure Cosmos DB’yi kullanarak [Microsoft.Azure.Graphs](graph-sdk-dotnet.md) kitaplığı ile grafikler oluşturabilir, güncelleştirebilir ve sorgulayabilirsiniz. Microsoft.Azure.Graph kitaplığı, Gremlin sorgularını yürütmek için `DocumentClient` sınıfının üstünde tek bir `CreateGremlinQuery<T>` genişletme yöntemi sağlar.
 
-Gremlin destekleyen işlevsel bir programlama dili yazma işlemleri (DML) ve sorgu ve çapraz geçişi işlemleri ' dir. Biz bu makalede, başlatılan Gremlin ile almak için birkaç örnek kapsar. Bkz: [Gremlin sorguları](gremlin-support.md) ayrıntılı kılavuz Gremlin özelliklerinden Azure Cosmos DB içinde kullanılabilir. 
+Gremlin, yazma işlemlerini (DML) ve sorgu ile çapraz geçişi destekleyen işlevsel bir programlama dilidir. Bu makalede Gremlin ile çalışmaya başlamanız için birkaç örneği ele aldık. Azure Cosmos DB’de kullanılabilen Gremlin özelliklerine ilişkin ayrıntılı bir kılavuz için bkz. [Gremlin sorguları](gremlin-support.md). 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
-    * Alternatif olarak, kullanabileceğiniz [yerel öykünücüsü](local-emulator.md) Bu öğretici için.
+    * Alternatif olarak bu öğretici için [yerel öykünücü](local-emulator.md)’yü kullanabilirsiniz.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Veritabanı hesabı oluşturma
 
-Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.  
+İlk olarak Azure portalında bir Azure Cosmos DB hesabı oluşturalım.  
 
 > [!TIP]
-> * Zaten Azure Cosmos DB hesabınız var mı? Bu durumda, İleri için atlayabilirsiniz [, Visual Studio çözümü ayarlama](#SetupVS)
-> * Azure Cosmos DB öykünücüsü kullanıyorsanız, lütfen bölümündeki adımları izleyin [Azure Cosmos DB öykünücüsü](local-emulator.md) öykünücü kurulması ve için İleri atlayabilirsiniz [, Visual Studio çözümünü kurmak](#SetupVS). 
+> * Zaten Azure Cosmos DB hesabınız var mı? Öyleyle, [Visual Studio çözümünüzü ayarlama](#SetupVS) adımına atlayın
+> * Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure Cosmos DB Öykünücüsü](local-emulator.md) konusundaki adımları izleyin ve [Visual Studio Çözümünüzü ayarlama](#SetupVS) adımına atlayın. 
 >
 > 
 
@@ -62,49 +62,49 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
 ## <a id="SetupVS"></a>Visual Studio çözümünüzü kurma
 1. Bilgisayarınızda **Visual Studio**'yu açın.
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
-3. İçinde **yeni proje** iletişim kutusunda **şablonları** / **Visual C#** / **konsol uygulaması (.NET Framework)** , projenizi adlandırın ve ardından **Tamam**.
+3. **Yeni Proje** iletişim kutusunda, **Şablonlar** / **Visual C#** / **Konsol Uygulaması (.NET Framework)** öğesini seçin, projenizi adlandırın ve ardından **Tamam**'a tıklayın.
 4. **Çözüm Gezgini**'nde Visual Studio çözümünüzün altındaki yeni konsol uygulamanıza sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesine tıklayın.
-5. İçinde **NuGet** sekmesini tıklatın, **Gözat**ve türü **Microsoft.Azure.Graphs** arama kutusu ve onay **yayın öncesi sürümlerdahil**.
-6. Sonuçları içinde bulma **Microsoft.Azure.Graphs** tıklatıp **yükleme**.
+5. **NuGet** sekmesinde **Göz At**’a tıklayın, arama kutusuna **Microsoft.Azure.Graphs** yazın ve **Ön sürümleri dahil et** seçeneğini işaretleyin.
+6. Sonuçlarda **Microsoft.Azure.Graphs**'ı bulun ve **Yükle**'ye tıklayın.
    
    Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
    
-    `Microsoft.Azure.Graphs` Kitaplığı, bir tek genişletme yöntemi sağlar `CreateGremlinQuery<T>` Gremlin işlemleri yürütmek. Gremlin destekleyen işlevsel bir programlama dili yazma işlemleri (DML) ve sorgu ve çapraz geçişi işlemleri ' dir. Biz bu makalede, başlatılan Gremlin ile almak için birkaç örnek kapsar. [Gremlin sorguları](gremlin-support.md) Azure Cosmos DB'de Gremlin özelliklerinin ayrıntılı bir kılavuz vardır.
+    `Microsoft.Azure.Graphs` kitaplığı, Gremlin işlemlerini yürütmek için tek bir `CreateGremlinQuery<T>` genişletme yöntemi sağlar. Gremlin, yazma işlemlerini (DML) ve sorgu ile çapraz geçişi destekleyen işlevsel bir programlama dilidir. Bu makalede Gremlin ile çalışmaya başlamanız için birkaç örneği ele aldık. [Gremlin sorguları](gremlin-support.md) bölümünde, Azure Cosmos DB’de kullanılabilen Gremlin özelliklerine ilişkin ayrıntılı bir kılavuz bulunur.
 
 ## <a id="add-references"></a>Uygulamanızı bağlama
 
-Bu iki sabitleri ekleyin ve *istemci* uygulamanızda değişken. 
+Bu iki sabiti ve *client* değişkeninizi uygulamanıza ekleyin. 
 
 ```csharp
 string endpoint = ConfigurationManager.AppSettings["Endpoint"]; 
 string authKey = ConfigurationManager.AppSettings["AuthKey"]; 
 ``` 
-Head ardından, yeniden [Azure portal](https://portal.azure.com) uç noktasının URL'sini ve birincil anahtar alınamadı. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir. 
+Ardından, uç nokta URL’nizi ve birincil anahtarınızı almak için tekrar [Azure portalına](https://portal.azure.com) gidin. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir. 
 
-Azure portalında Azure Cosmos DB hesabınıza gidin, tıklatın **anahtarları**ve ardından **okuma-yazma anahtarları**. 
+Azure portalında Azure Cosmos DB hesabınıza gidin **Anahtarlar**’a ve sonra da **Okuma-Yazma Anahtarları**'na tıklayın. 
 
-URI Portal'dan kopyalayın ve üzerinden yapıştırın `Endpoint` yukarıdaki uç nokta özelliğinde. Ardından portaldan birincil anahtarı kopyalayın ve yapıştırın `AuthKey` yukarıdaki özelliği. 
+Portaldaki URI’yi kopyalayın ve yukarıdaki uç nokta özelliğinde `Endpoint` üzerine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve yukarıdaki `AuthKey` özelliğine yapıştırın. 
 
-![Bir C# uygulaması oluşturmak için Öğreticisi tarafından kullanılan Azure portal ekran görüntüsü. ANAHTARLAR düğmesi üzerinde Azure Cosmos DB Gezinti vurgulanmış ve anahtarlar dikey penceresinde URI ve birincil anahtar değerleri gösterir bir Azure Cosmos DB hesabı](./media/tutorial-develop-graph-dotnet/keys.png) 
+![Bir C# uygulaması oluşturmak için öğretici tarafından kullanılan Azure portalının ekran görüntüsü. Azure Cosmos DB ezinti bölmesinde ANAHTARLAR düğmesi vurgulanmış ve Anahtarlar dikey penceresinde URI ve BİRİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir](./media/tutorial-develop-graph-dotnet/keys.png) 
  
-## <a id="instantiate"></a>DocumentClient örneği 
-Ardından, yeni bir örneğini oluşturun **DocumentClient**.  
+## <a id="instantiate"></a>DocumentClient örneği oluşturma 
+Sonra yeni bir **DocumentClient** örneği oluşturun.  
 
 ```csharp 
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); 
 ``` 
 
-## <a id="create-database"></a>Bir veritabanı oluşturun 
+## <a id="create-database"></a>Veritabanı oluşturma 
 
-Şimdi bir Azure Cosmos DB Oluştur [veritabanı](sql-api-resources.md#databases) kullanarak [Documentclient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi  **DocumentClient** sınıfıyla [SQL .NET SDK'sı](sql-api-sdk-dotnet.md).  
+Şimdi, [SQL .NET SDK](sql-api-sdk-dotnet.md)'dan **DocumentClient** sınıfının [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemini veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemini kullanarak bir Azure Cosmos DB [veritabanı](sql-api-resources.md#databases) oluşturun.  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
 ``` 
  
-## <a name="create-a-graph"></a>Bir grafik oluşturma 
+## <a name="create-a-graph"></a>Grafik oluşturma 
 
-Ardından, kullanarak kullanarak bir grafik kapsayıcı oluşturmak [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) yöntemi veya [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) yöntemi **DocumentClient** sınıfı. Bir koleksiyon, grafik varlıkların bir kapsayıcıdır. 
+Ardından, **DocumentClient** sınıfının [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) yöntemini veya [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) yöntemini kullanarak bir grafik kapsayıcısı oluşturun. Koleksiyon, bir grafik varlıkları kapsayıcısıdır. 
 
 ```csharp 
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
@@ -113,15 +113,15 @@ DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync
     new RequestOptions { OfferThroughput = 1000 }); 
 ``` 
 
-## <a id="serializing"></a>Köşeleri ve kenarları .NET nesneleri seri hale
-Azure Cosmos DB kullanır [GraphSON kablo biçiminde](gremlin-support.md), köşe, kenarları ve özellikleri için JSON şeması tanımlar. JSON.NET bağımlılık olarak Azure Cosmos DB .NET SDK'sı içerir ve bu bize seri/GraphSON biz kodda çalışabilirsiniz .NET nesneleri içine seri durumdan çıkarılacak sağlar.
+## <a id="serializing"></a>.NET nesnelerinin köşe ve kenarlarını seri hale getirme
+Azure Cosmos DB; köşeler, kenarlar ve özellikler için bir JSON şeması tanımlayan [GraphSON kablo biçimini](gremlin-support.md) kullanır. Azure Cosmos DB .NET SDK’sı, bağımlılık olarak JSON.NET içerir ve bu durum, GraphSON biçimini kod içinde birlikte çalışabileceğimiz .NET nesneleri halinde serileştirmemize/seri durumdan çıkarmamıza olanak tanır.
 
-Örnek olarak, basit bir sosyal ağ dört kişilerle şimdi çalışır. Oluşturmak nasıl tümleştirildiği incelenmektedir `Person` köşeleri eklemek `Knows` arasındaki ilişkileri ardından sorgu ve ilişkileri "arkadaş arkadaş" bulmak için grafiği çapraz geçiş. 
+Örnek olarak, dört kişilik basit bir sosyal ağ ile çalışalım. `Person` köşeleri oluşturma, aralarına `Knows` ilişkileri ekleme, ardından "arkadaşın arkadaşı" ilişkileri bulmak için grafiği sorgulama ve sonra grafik içinde dolaşma işlemlerine bakacağız. 
 
-`Microsoft.Azure.Graphs.Elements` Ad alanı sağlar `Vertex`, `Edge`, `Property` ve `VertexProperty` GraphSON yanıtlarını iyi tanımlanmış .NET nesnelerini seri durumdan çıkarmak için sınıflar.
+`Microsoft.Azure.Graphs.Elements` ad alanı, iyi tanımlanmış .NET nesnelerine GraphSON yanıtlarını seri durumdan çıkarmak için `Vertex`, `Edge`, `Property` ve `VertexProperty` sınıfları sağlar.
 
-## <a name="run-gremlin-using-creategremlinquery"></a>Gremlin CreateGremlinQuery kullanarak çalıştırma
-SQL gibi gremlin okuma, yazma ve sorgu işlemleri destekler. Örneğin, aşağıdaki kod parçacığında köşeleri kenarları oluşturmak, kullanan bazı örnek sorgular gerçekleştirmek gösterilmektedir `CreateGremlinQuery<T>`ve zaman uyumsuz olarak kullanarak bu sonuçlarını yinelemek `ExecuteNextAsync` ve ' HasMoreResults.
+## <a name="run-gremlin-using-creategremlinquery"></a>CreateGremlinQuery kullanarak Gremlin çalıştırma
+SQL gibi Gremlin de okuma, yazma ve sorgulama işlemlerini destekler. Örneğin, aşağıdaki kod parçacığında köşe ve kenarlar oluşturma, `CreateGremlinQuery<T>` kullanarak bazı örnek sorgular gerçekleştirme ve `ExecuteNextAsync` ile `HasMoreResults kullanarak bunları zaman uyumsuz olarak yineleme işlemleri gösterilmektedir.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
@@ -166,9 +166,9 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 }
 ```
 
-## <a name="add-vertices-and-edges"></a>Köşeleri ve kenarları ekleme
+## <a name="add-vertices-and-edges"></a>Köşe ve kenar ekleme
 
-Daha fazla ayrıntı önceki bölümde gösterilen Gremlin deyimlerini bakalım. İlk biz Gremlin'ın kullanarak bazı köşeleri `addV` yöntemi. Örneğin, aşağıdaki kod parçacığını ad, Soyadı ve yaş özellikleriyle "Kişi" türündeki "Thomas Andersen" köşe oluşturur.
+Önceki bölümde gösterilen Gremlin deyimlerine daha ayrıntılı olarak bakalım. İlk olarak Gremlin'ın `addV` yöntemini kullanarak birkaç köşe oluşturalım. Örneğin, aşağıdaki kod parçacığı ad, soyadı ve yaş özellikleriyle "Person" türünde bir "Thomas Andersen" köşesi oluşturur.
 
 ```cs
 // Create a vertex
@@ -182,7 +182,7 @@ while (createVertexQuery.HasMoreResults)
 }
 ```
 
-Biz Gremlin'ın kullanarak bu köşeleri arasında bazı kenarları oluşturup `addE` yöntemi. 
+Sonra Gremlin'in `addE` yöntemini kullanarak bu köşeler arasında bazı kenarlar oluşturacağız. 
 
 ```cs
 // Add a "knows" edge
@@ -196,7 +196,7 @@ while (create.HasMoreResults)
 }
 ```
 
-Biz kullanarak var olan bir köşe güncelleştirebilirsiniz `properties` Gremlin içinde adım. Biz aracılığıyla sorguyu yürütmek için çağrı atla `HasMoreResults` ve `ExecuteNextAsync` örnekler geri kalanı için.
+Gremlin’de `properties` adımını kullanarak var olan bir köşeyi güncelleştirebiliriz. Örneklerin geri kalanında `HasMoreResults` ve `ExecuteNextAsync` aracılığıyla sorguyu yürütme çağrısını atlayacağız.
 
 ```cs
 // Update a vertex
@@ -205,7 +205,7 @@ client.CreateGremlinQuery<Vertex>(
     "g.V('thomas').property('age', 45)");
 ```
 
-Kenarları ve Gremlin'ın kullanarak köşeleri düşürebilir `drop` adım. Bir köşe kenar silip gösteren bir parçacığı aşağıda verilmiştir. Bir köşe bırakarak ilişkili kenarlarının art arda delete gerçekleştirmediğini unutmayın.
+Gremlin'ın `drop` adımını kullanarak kenar ve köşeleri bırakabilirsiniz. Köşe ve kenarı silme işlemini gösteren bir kod parçacığı aşağıda verilmiştir. Bir köşe bırakıldığında ilişkili kenarların art arda silineceğini unutmayın.
 
 ```cs
 // Drop an edge
@@ -215,15 +215,15 @@ client.CreateGremlinQuery(graphCollection, "g.E('thomasKnowsRobin').drop()");
 client.CreateGremlinQuery(graphCollection, "g.V('robin').drop()");
 ```
 
-## <a name="query-the-graph"></a>Sorgu grafiği
+## <a name="query-the-graph"></a>Grafiği sorgulama
 
-Sorgular ve ayrıca Gremlin kullanarak çapraz geçişlerine gerçekleştirebilirsiniz. Örneğin, aşağıdaki kod parçacığında grafiği tepe sayısı gösterilmektedir:
+Sorguları ve çapraz geçişleri Gremlin kullanarak da gerçekleştirebilirsiniz. Örneğin, aşağıdaki kod parçacığı, graftaki köşe sayısının nasıl hesaplanacağını gösterir:
 
 ```cs
 // Run a query to count vertices
 IDocumentQuery<int> countQuery = client.CreateGremlinQuery<int>(graphCollection, "g.V().count()");
 ```
-Gremlin'ın kullanarak filtreler gerçekleştirebilirsiniz `has` ve `hasLabel` adımları ve bunları birleştirmek kullanarak `and`, `or`, ve `not` daha karmaşık filtreler oluşturmak için:
+Gremlin’in `has` ve `hasLabel` etiketlerini kullanarak filtreler gerçekleştirebilir ve daha karmaşık filtreler derlemek için `and`, `or` ve `not` kullanarak bunları birleştirebilirsiniz:
 
 ```cs
 // Run a query with filter
@@ -232,7 +232,7 @@ IDocumentQuery<Vertex> personsByAge = client.CreateGremlinQuery<Vertex>(
   "g.V().hasLabel('person').has('age', gt(40))");
 ```
 
-Belirli özellikleri kullanarak sorgu sonuçlarındaki proje `values` . adım:
+`values` adımını kullanarak sorgu sonuçlarında belirli özellikleri yansıtabilirsiniz:
 
 ```cs
 // Run a query with projection
@@ -241,7 +241,7 @@ IDocumentQuery<string> firstNames = client.CreateGremlinQuery<string>(
   $"g.V().hasLabel('person').values('firstName')");
 ```
 
-Şu ana kadar yalnızca tüm veritabanındaki iş sorgu işleçleri gördük. İlgili kenarları ve köşeleri gitmek gerektiğinde grafikleri hızlı ve verimli çapraz geçiş işlemleri için. Şimdi tüm arkadaşların Thomas bulun. Biz Gremlin'ın kullanarak bunu `outE` tüm bulmak için adım Thomas silip Gremlin'ın kullanarak bu kenarlarından içinde-köşeleri için çapraz geçiş yapan dışarı kenarları `inV` . adım:
+Şu ana kadar yalnızca tüm veritabanlarında çalışan sorgu işleçlerini gördük. Graflar, ilgili kenarlara ve köşelere gitmeniz gerektiğinde çapraz geçiş işlemleri için hızlı ve etkilidir. Şimdi Thomas’ın tüm arkadaşlarını bulalım. Thomas’taki tüm dış kenarları bulmak için Gremlin’in `outE` adımını kullanıp sonra Gremlin’in `inV` adımını kullanarak bu kenarlardan iç köşelere çapraz geçiş yaparak bunu gerçekleştiririz:
 
 ```cs
 // Run a traversal (find friends of Thomas)
@@ -250,7 +250,7 @@ IDocumentQuery<Vertex> friendsOfThomas = client.CreateGremlinQuery<Vertex>(
   "g.V('thomas').outE('knows').inV().hasLabel('person')");
 ```
 
-Tüm Thomas' "arkadaş arkadaş", çağırarak bulmak için iki atlama sonraki sorgu gerçekleştirir `outE` ve `inV` iki kez. 
+Sonraki sorgu, `outE` ve `inV` öğelerini iki kez çağırarak Thomas’ın tüm “arkadaşlarının arkadaşlarını” bulmak için iki atlama gerçekleştirir. 
 
 ```cs
 // Run a traversal (find friends of friends of Thomas)
@@ -259,9 +259,9 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   "g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-Daha karmaşık sorgular derlemek ve döngü kullanarak gerçekleştirmeden, filtre ifadeleri karıştırma dahil olmak üzere Gremlin kullanan güçlü grafik geçişi mantığı uygulamanıza `loop` adım ve uygulama koşullu Gezinti kullanarak `choose` adım. İle yapabilecekleriniz hakkında daha fazla bilgi [Gremlin Destek](gremlin-support.md)!
+Gremlin kullanarak, filtre ifadelerini karıştırma, `loop` adımını kullanarak döngü gerçekleştirme ve `choose` adımını kullanarak koşullu gezinti uygulama gibi güçlü grafik çapraz geçişi mantığı uygulayabilir ve daha karmaşık sorgular derleyebilirsiniz. [Gremlin desteği](gremlin-support.md) ile neler yapabileceğiniz hakkında daha fazla bilgi edinin!
 
-İşte bu kadar bu Azure Cosmos DB öğretici tamamlandı! 
+İşte bu kadar; bu Azure Cosmos DB öğreticisini tamamladınız! 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -272,14 +272,14 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Bir Azure Cosmos DB hesabı oluşturuldu 
-> * Bir grafik veritabanı ve kapsayıcı oluşturuldu
-> * Serileştirilmiş köşeleri ve kenarları .NET nesneleri
-> * Eklenen köşeleri ve kenarları
-> * Sorgulanan Gremlin kullanarak grafiği
+> * Azure Cosmos DB hesabı oluşturma 
+> * Grafik veritabanı ve kapsayıcı oluşturdunuz
+> * .NET nesnelerinin köşe ve kenarlarını seri hale getirdiniz
+> * Köşe ve kenar eklediniz
+> * Gremlin kullanarak grafiği sorguladınız
 
 Artık daha karmaşık sorgular oluşturabilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
 

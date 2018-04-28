@@ -1,13 +1,13 @@
 ---
-title: "Başarısız bir Azure expressroute bağlantı hattı sıfırlama: PowerShell | Microsoft Docs"
-description: "Bu makalede, başarısız bir durumda bir expressroute bağlantı hattı sıfırlamanıza yardımcı olur."
+title: 'Başarısız bir Azure expressroute bağlantı hattı sıfırlama: PowerShell | Microsoft Docs'
+description: Bu makalede, başarısız bir durumda bir expressroute bağlantı hattı sıfırlamanıza yardımcı olur.
 documentationcenter: na
 services: expressroute
 author: anzaman
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 0e017200193de3e4a02275cec3b09c32f1fa5c31
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 423bc1d6409e5b7fe02339a05d0775f4ff42de49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Başarısız bir expressroute bağlantı hattı Sıfırla
 
@@ -32,7 +32,7 @@ Bir expressroute bağlantı hattı üzerinde bir işlemi başarıyla tamamlanmaz
 2. PowerShell konsolunuzu yükseltilmiş ayrıcalıklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 3. Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.
 

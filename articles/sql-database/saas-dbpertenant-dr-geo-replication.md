@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Veritabanı coğrafi çoğaltma kullanarak çok kiracılı SaaS uygulaması için olağanüstü durum kurtarma
 
-Bu öğreticide, Kiracı başına veritabanı modeli kullanılarak uygulanan bir çok kiracılı SaaS uygulaması için bir tam olağanüstü durum kurtarma senaryosunda keşfedin. Uygulama bir kesintisi korumak için kullandığınız [ _coğrafi çoğaltma_ ](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) çoğaltmaları katalog ve Kiracı veritabanları için bir alternatif kurtarma bölgede oluşturmak için. Bir kesinti oluşursa, hızlı bir şekilde normal iş işlemlerini sürdürmek için bu çoğaltmalar için yük devri. Yük devretme, özgün bölge veritabanlarında kurtarma bölgede ve veritabanlarını ikincil çoğaltmaların haline gelir. Bu çoğaltmalar yeniden çevrimiçi duruma geldikten sonra bunlar otomatik olarak kurtarma bölge veritabanlarında durumunu Yakala. Kesinti giderildikten sonra özgün üretim bölge veritabanlarında dön başarısız.
+Bu öğreticide, Kiracı başına veritabanı modeli kullanılarak uygulanan bir çok kiracılı SaaS uygulaması için bir tam olağanüstü durum kurtarma senaryosunda keşfedin. Uygulama bir kesintisi korumak için kullandığınız [ _coğrafi çoğaltma_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) çoğaltmaları katalog ve Kiracı veritabanları için bir alternatif kurtarma bölgede oluşturmak için. Bir kesinti oluşursa, hızlı bir şekilde normal iş işlemlerini sürdürmek için bu çoğaltmalar için yük devri. Yük devretme, özgün bölge veritabanlarında kurtarma bölgede ve veritabanlarını ikincil çoğaltmaların haline gelir. Bu çoğaltmalar yeniden çevrimiçi duruma geldikten sonra bunlar otomatik olarak kurtarma bölge veritabanlarında durumunu Yakala. Kesinti giderildikten sonra özgün üretim bölge veritabanlarında dön başarısız.
 
 Bu öğretici yük devretme ve yeniden çalışma iş akışları araştırır. Bilgi edineceksiniz nasıl yapılır:
 > [!div classs="checklist"]
@@ -82,7 +82,7 @@ Bu öğreticide, ilk coğrafi çoğaltma Wingtip biletleri uygulama veritabanlar
 Daha sonra bir ayrı repatriation adımında, özgün bölge kurtarma bölgede katalog ve Kiracı veritabanları yük devri. Uygulama ve veritabanları repatriation kullanılabilir kalır. Tamamlandığında, uygulama özgün bölgede tamamen çalışır durumdadır.
 
 > [!Note]
-> Uygulama içine kurtarılan _eşleştirilmiş bölge_ uygulamanın dağıtıldığı bölge. Daha fazla bilgi için bkz: [Azure bölgeleri eşleştirilmiş](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> Uygulama içine kurtarılan _eşleştirilmiş bölge_ uygulamanın dağıtıldığı bölge. Daha fazla bilgi için bkz: [Azure bölgeleri eşleştirilmiş](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Uygulama sağlıklı durumunu gözden geçirin
 
@@ -103,7 +103,7 @@ Kurtarma işlemine başlamadan önce uygulamaya normal sağlıklı durumunu göz
 Bu görevde, sunucuların, esnek havuzlar ve veritabanlarını yapılandırma Kiracı kataloğunda eşitlenen bir işlem başlatın. İşlem, bu bilgileri kataloğunda güncel kalmasını sağlar.  İşlem, özgün bölgede olup olmadığını veya kurtarma bölgede etkin Kataloğu ile çalışır. Yapılandırma bilgilerini özgün ortamıyla tutarlı kurtarma ortamı sağlamak için kurtarma işleminin bir parçası olduğundan ve ardından emin olmak için daha sonra sırasında repatriation özgün bölge içinde yapılan değişiklikler ile tutarlı hale gelir olarak kullanılır Kurtarma Ortamı. Katalog ayrıca Kiracı kaynaklarına kurtarma durumunu izlemek için kullanılır
 
 > [!IMPORTANT]
-> Basitlik için eşitleme işlemini ve diğer uzun süren kurtarma ve repatriation işlemler bu öğreticileri yerel Powershell işleri veya istemci kullanıcı oturum açma altında Çalıştır oturumları olarak uygulanır. Oturum açma birkaç saat sonra sona erecek ve işleri sonra başarısız olacak verilen kimlik doğrulama belirteçleri. Bir üretim senaryosunda, uzun süre çalışan işlemleri, bir hizmet sorumlusu altında çalışan bir tür, güvenilir Azure Hizmetleri olarak uygulanmalıdır. Bkz: [bir sertifika ile bir hizmet sorumlusu oluşturmak için kullanım Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Basitlik için eşitleme işlemini ve diğer uzun süren kurtarma ve repatriation işlemler bu öğreticileri yerel Powershell işleri veya istemci kullanıcı oturum açma altında Çalıştır oturumları olarak uygulanır. Oturum açma birkaç saat sonra sona erecek ve işleri sonra başarısız olacak verilen kimlik doğrulama belirteçleri. Bir üretim senaryosunda, uzun süre çalışan işlemleri, bir hizmet sorumlusu altında çalışan bir tür, güvenilir Azure Hizmetleri olarak uygulanmalıdır. Bkz: [bir sertifika ile bir hizmet sorumlusu oluşturmak için kullanım Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. İçinde _PowerShell ISE_, ...\Learning Modules\UserConfig.psm1 dosyasını açın. Değiştir `<resourcegroup>` ve `<user>` satırlarında 10 ve 11 uygulama dağıtıldığında kullanılan değerine sahip.  Dosyayı kaydedin!
 
@@ -181,7 +181,7 @@ Kurtarma komut dosyası, aşağıdaki görevleri gerçekleştirir:
 
 2. Betiği çalıştırmak için **F5**'e basın.  
     * Komut dosyasını yeni bir PowerShell penceresi açar ve ardından bir dizi paralel olarak çalışan PowerShell işleri başlatır. Bu işleri Kiracı veritabanları kurtarma bölgeye yük devri.
-    * Kurtarma bölgedir _eşleştirilmiş bölge_ uygulama dağıtılan Azure bölgesiyle ilişkilendirilmiş. Daha fazla bilgi için bkz: [Azure bölgeleri eşleştirilmiş](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * Kurtarma bölgedir _eşleştirilmiş bölge_ uygulama dağıtılan Azure bölgesiyle ilişkilendirilmiş. Daha fazla bilgi için bkz: [Azure bölgeleri eşleştirilmiş](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. PowerShell penceresinde kurtarma işleminin durumunu izleyin.
     ![Yük devretme işlemi](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -310,4 +310,4 @@ Azure SQL veritabanı sağlar iş sürekliliği sağlamak için teknolojileri ha
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Wingtip SaaS uygulamasına yapı ek öğreticileri](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Wingtip SaaS uygulamasına yapı ek öğreticileri](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

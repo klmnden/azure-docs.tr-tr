@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -74,7 +74,7 @@ Aygıt Ayarları sayfasından yapılandırmanıza olanak sağlar:
 
 - **Kullanıcıları Azure AD ile cihazlarını kaydetme** -aygıtlarının izin vermek için bu ayarı yapılandırmak gereken [kayıtlı](device-management-introduction.md#azure-ad-registered-devices) Azure AD ile. Seçerseniz **hiçbiri**, Azure AD alanına bağlı olmadıkları zaman Kaydet veya karma Azure AD alanına katılmış aygıtlar izin verilmez. Office 365 için Microsoft Intune veya mobil cihaz Yönetimi (MDM) ile kayıt kayıt gerektirir. Bu hizmetlerden birini yapılandırdıysanız **tüm** seçilir ve **NONE** kullanılamıyor...
 
-- **Aygıtları katılmak çok öğeli kimlik doğrulama gerektiren** -kullanıcıların ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini seçebilirsiniz [birleştirme](device-management-introduction.md#azure-ad-joined-devices) cihazlarını Azure ad. Varsayılan değer **Hayır**. Bir cihaz kaydedilirken çok faktörlü kimlik doğrulaması gerektiren öneririz. Bu hizmet için çok faktörlü kimlik doğrulamasını etkinleştirmeden önce çok faktörlü kimlik doğrulamasının cihazlarını kaydeden kullanıcılar için yapılandırılmış emin olmalısınız. Farklı Azure çok faktörlü kimlik doğrulama hizmetleri hakkında daha fazla bilgi için bkz: [Azure multi-Factor authentication ile çalışmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Aygıtları katılmak çok öğeli kimlik doğrulama gerektiren** -kullanıcıların ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini seçebilirsiniz [birleştirme](device-management-introduction.md#azure-ad-joined-devices) cihazlarını Azure ad. Varsayılan değer **Hayır**. Bir cihaz kaydedilirken çok faktörlü kimlik doğrulaması gerektiren öneririz. Bu hizmet için çok faktörlü kimlik doğrulamasını etkinleştirmeden önce çok faktörlü kimlik doğrulamasının cihazlarını kaydeden kullanıcılar için yapılandırılmış emin olmalısınız. Farklı Azure çok faktörlü kimlik doğrulama hizmetleri hakkında daha fazla bilgi için bkz: [Azure multi-Factor authentication ile çalışmaya başlama](authentication/concept-mfa-whichversion.md). 
 
 - **En fazla cihaz sayısını** -Bu ayar, Azure AD'de kullanıcı olan aygıtların sayısı seçmenize olanak sağlar. Bir kullanıcı bu kota ulaşırsa, bunlar olan değil kadar ek cihaz ekleyemez veya daha fazla var olan cihazları kaldırılır. Azure AD alanına katılmış veya Azure AD bugün kayıtlı olan tüm aygıtları için aygıt teklif sayılır. Varsayılan değer **20**.
 
@@ -187,7 +187,7 @@ Cihaz kimliği ayrıntıları aygıttaki veya sorun giderme sırasında PowerShe
 
 Bir yöneticiyseniz, görüntüleyebilir ve kullanıcıların kendi şifreli sürücüyü kurtarmasına yardımcı olmak için BitLocker anahtarları kopyalayın. Bu anahtarlar yalnızca şifrelenmiş Windows cihazları için kullanılabilir ve kendi anahtarları Azure AD'de depolanan sahip. Cihaz ayrıntılarını erişirken bu anahtarları kopyalayabilirsiniz.
  
-![View BitLocker keys](./media/device-management-azure-portal/36.png)
+![BitLocker anahtarları görüntüleyin](./media/device-management-azure-portal/36.png)
 
 
 

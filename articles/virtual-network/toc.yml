@@ -5,6 +5,7 @@
     - name: Sanal Ağ hakkında
       href: virtual-networks-overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Sanal ağ oluşturma - Portal
       href: quick-create-portal.md

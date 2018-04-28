@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA sunucusu yükseltme | Microsoft Docs"
-description: "Adımlar ve Azure multi-Factor Authentication sunucusu daha yeni bir sürüme yükseltmek için yönergeler."
+title: Azure MFA sunucusu yükseltme | Microsoft Docs
+description: Adımlar ve Azure multi-Factor Authentication sunucusu daha yeni bir sürüme yükseltmek için yönergeler.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 456f2c64c91249f3ec2de4f2d79a2f77cc7598da
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>En son Azure multi-Factor Authentication Sunucusu'na yükseltme
 

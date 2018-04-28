@@ -11,87 +11,144 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure yığın depolama için Araçlar
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Microsoft Azure yığın diskler, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevleri için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure Storage araçları kullanabilirsiniz. Bu makalede kullanılabilen araçlar hızlı bir bakış sağlar.
+Microsoft Azure yığın diskler, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevleri için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure Storage araçları kullanabilirsiniz. Bu makale mevcut araçlar hızlı bir genel bakış sağlar.
 
 Gereksinimlerinize en uygun aracı bağlıdır:
 * [AzCopy](#azcopy)
 
-    Verileri bir nesneden başka depolama hesabınızda veya depolama hesapları arasında kopyalamak için karşıdan yükleyebileceğiniz bir depolama özgü komut satırı yardımcı programı.
+    Depolama hesabınızda veya depolama hesapları arasında başka bir nesneye bir nesneden veri kopyalamak için karşıdan yükleyebileceğiniz bir depolama özgü, komut satırı yardımcı programı.
 
 * [Azure PowerShell](#azure-powershell)
 
-    Bir görev tabanlı komut satırı kabuğu ve betik dilidir özellikle sistem yönetimi için tasarlanmıştır.
+    Görev tabanlı, komut satırı kabuğu ve betik dilidir özellikle sistem yönetimi için tasarlanmıştır.
 
 * [Azure CLI](#azure-cli)
 
     Azure ve Azure yığın platformları ile çalışmak için bir komut kümesi sağlayan bir açık kaynak, platformlar arası aracı.
 
-* [Microsoft Depolama Gezgini (Önizleme)](#microsoft-azure-storage-explorer)
+* [Microsoft Storage Gezgini](#microsoft-azure-storage-explorer)
 
-    Kullanımı kolay bir tek başına uygulama kullanıcı arabirimi ile.
+    Tek başına bir kullanımı kolay uygulama kullanıcı arabirimi ile.
 
 Depolama Hizmetleri nedeniyle arasındaki farklar Azure ve Azure yığını, aşağıdaki bölümlerde açıklanan her aracı için bazı belirli gereksinimleri olabilir. Azure yığın depolama ve Azure depolama birimi arasında bir karşılaştırma için bkz: [Azure yığın depolama: farklar ve konuları](azure-stack-acs-differences.md).
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy ve Microsoft Azure Blob ve en uygun performans ile basit komutları kullanarak Table storage veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz. AzCopy iki sürümü vardır: Windows ve Linux üzerinde AzCopy AzCopy. Azure yığını yalnızca Windows sürümünü destekler. 
- 
-### <a name="download-and-install-azcopy"></a>AzCopy yükleyip 
 
-[Karşıdan](https://aka.ms/azcopyforazurestack) Azure yığın AzCopy desteklenen bir Windows sürümü. Yükleyin ve AzCopy Azure yığında Azure aynı şekilde kullanın. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/common/storage-use-azcopy.md). 
+AzCopy ve en uygun performans ile basit komutları kullanarak Microsoft Azure blob ve tablo depolama biriminden veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz.
 
- - 1802 için güncelleştirme veya daha yeni sürümlerini [AzCopy 7.1.0 karşıdan](https://aka.ms/azcopyforazurestack20170417).
- - Önceki sürümü için [AzCopy 5.0.0 karşıdan](https://aka.ms/azcopyforazurestack20150405).
+### <a name="download-and-install-azcopy"></a>AzCopy yükleyip
+
+AzCopy yardımcı programı iki sürümü vardır: Windows ve Linux üzerinde AzCopy AzCopy.
+
+ - **Windows üzerinde AzCopy**  
+    - AzCopy desteklenen bir sürümü için Azure yığınına indirin. Yükleyin ve AzCopy Azure yığında Azure aynı şekilde kullanın. Daha fazla bilgi için bkz: [AzCopy Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+        - 1802 güncelleştirme veya daha yeni sürümlerini [AzCopy 7.1.0 karşıdan](https://aka.ms/azcopyforazurestack20170417).
+        - Önceki sürümler için [AzCopy 5.0.0 karşıdan](https://aka.ms/azcopyforazurestack20170417).
+
+ - **Linux üzerinde AzCopy**  
+
+    - AzCopy Linux Azure yığın 1802 güncelleştirmesi veya daha yeni sürümleri destekler. Yükleyin ve AzCopy Azure yığında Azure aynı şekilde kullanın. Daha fazla bilgi için bkz: [AzCopy Linux'ta](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Veri aktarımı için AzCopy komut örnekleri
-Aşağıdaki örnekler ve Azure yığın blob'lara ait veriler kopyalama için birkaç tipik senaryolar gösterilmektedir. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/storage-use-azcopy.md). 
-#### <a name="download-all-blobs-to-local-disk"></a>Tüm BLOB'lar yerel diske yükle
-```azcopy
+
+Aşağıdaki örnekler ve Azure yığın blob'lara ait veriler kopyalama için tipik senaryolar izleyin. Daha fazla bilgi için bkz: [Windows AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) ve [AzCopy Linux'ta](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+
+### <a name="download-all-blobs-to-a-local-disk"></a>Tüm BLOB'lar yerel diske yükle
+
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
-#### <a name="upload-single-file-to-virtual-directory"></a>Sanal dizin için tek dosya karşıya yükleme 
-```azcopy
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>Sanal dizin için tek dosya karşıya yükleme
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Verileri Azure yığın depolama ve Azure arasında taşıma 
-Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. aktarıma belirtmek zorunda **/SyncCopy** seçeneği. 
-```azcopy 
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Verileri Azure yığın depolama ve Azure arasında taşıma
+
+Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtmek zorunda **/SyncCopy** veya **--eşitleme kopyalama** seçeneği.
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
 
 ### <a name="azcopy-known-issues"></a>Azcopy bilinen sorunlar
-* Dosya depolama henüz Azure yığın içinde kullanılabilir olmadığından dosya depolama üzerinde herhangi bir AzCopy işlemi kullanılabilir değil.
-* Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz **/SyncCopy** verileri kopyalamak için seçeneği.
-* Azcopy Linux sürümü için Azure yığın depolama desteklenmiyor. 
+
+ - Dosya depolama henüz Azure yığın içinde kullanılabilir olmadığından bir dosya deposu üzerinde herhangi bir AzCopy işlemi kullanılabilir değil.
+ - Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz **/SyncCopy** verileri kopyalamak için seçeneği.
+ - Azcopy Linux sürümü yalnızca 1802 güncelleştirmesi veya sonraki sürümleri destekler. Ve tablo hizmeti desteklemiyor.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Azure PowerShell cmdlet'leri hem Azure hem de Azure yığın hizmetleri yönetmek için sağlayan bir modüldür. Sistem yönetimi için özel olarak tasarlanan görev tabanlı bir komut satırı kabuğu ve betik dili olarak tanımlanır.
+
+Azure PowerShell cmdlet'leri hem Azure hem de Azure yığın hizmetleri yönetmek için sağlayan bir modüldür. Bir görev tabanlı, komut satırı kabuğu ve komut dosyası dili özellikle sistem yönetimi için tasarlanmış olan.
 
 ### <a name="install-and-configure-powershell-for-azure-stack"></a>PowerShell'i yükleme ve Azure yığını için yapılandırma
+
 Azure yığın uyumlu Azure PowerShell modülleri Azure yığın ile çalışmak için gereklidir. Daha fazla bilgi için bkz: [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md) ve [Azure yığın kullanıcının PowerShell ortamını yapılandırmak](azure-stack-powershell-configure-user.md) daha fazla bilgi için.
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>Azure yığınının PowerShell örnek betiği 
-Bu örnek, başarılı bir şekilde sahip olduğunuzu varsayar [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md). Bu komut, yapılandırmayı tamamlamak ve yerel PowerShell ortamına hesabınızı eklemek için kimlik bilgileri, Azure yığın Kiracı isteyin yardımcı olur. Sonra komut dosyası varsayılan Azure aboneliği ayarlamak, yeni bir depolama hesabı oluşturma, yeni bir kapsayıcı bu yeni depolama hesabı oluşturur ve varolan bir görüntü dosyası (blob) kapsayıcıya karşıya yükleme. Bu kapsayıcıdaki tüm blob'lara komut dosyasını listeler sonra yerel bilgisayarınızda yeni bir hedef dizin oluşturun ve görüntü dosyasını indirin.
+
+Bu örnek, başarılı bir şekilde sahip olduğunuzu varsayar [Azure yığını için PowerShell yüklü](azure-stack-powershell-install.md). Bu komut, yapılandırmayı tamamlamak ve yerel PowerShell ortamına hesabınızı eklemek için kimlik bilgileri, Azure yığın Kiracı isteyin yardımcı olur. Ardından, komut dosyası varsayılan Azure aboneliği ayarlamak, yeni bir depolama hesabı oluşturmak, yeni bir kapsayıcı bu yeni depolama hesabı oluşturun ve varolan bir görüntü dosyası (blob) kapsayıcıya yükleyin. Bu kapsayıcıdaki tüm blob'lara komut dosyasını listeler sonra yerel bilgisayarınızda yeni bir hedef dizin oluşturma ve görüntü dosyasını indirin.
 
 1. Yükleme [Azure yığın uyumlu Azure PowerShell modülleri](azure-stack-powershell-install.md).  
 2. Karşıdan [Azure yığın ile çalışmak için gereken araçları](azure-stack-powershell-download.md).  
 3. Açık **Windows PowerShell ISE** ve **yönetici olarak çalıştır**, tıklatın **dosya** > **yeni** yeni bir komut dosyası oluşturmak için.
 4. Aşağıdaki betiği kopyalayıp yeni betik dosyasına yapıştırın.
 5. Yapılandırma ayarlarınızı temel alan komut dosyası değişkenleri güncelleştirin. 
-6. Not: Bu komut dosyası kök altında çalıştırılması gereken indirilen **AzureStack_Tools**. 
+  > ! [Not]  
+  > Bu komut dosyası için kök dizininde çalıştırılması gereken **AzureStack_Tools**. 
 
 ```PowerShell 
 # begin
@@ -103,7 +160,7 @@ $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
 
 $SubscriptionName = "basic" # Update with the name of your subscription.
 $ResourceGroupName = "myTestRG" # Give a name to your new resource group.
-$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase!
+$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase.
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
@@ -118,11 +175,11 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
 
 # Set the GraphEndpointResourceId value
-Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudiance
+Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Login-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
@@ -159,9 +216,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 ```
 
 ### <a name="powershell-known-issues"></a>PowerShell bilinen sorunlar 
-Geçerli uyumlu Azure PowerShell modülü Azure yığınının 1.2.10 sürümüdür. En son Azure PowerShell sürümünden farklıdır. Bu fark depolama hizmetleri işlemi etkiler:
+Geçerli uyumlu Azure PowerShell modülü Azure yığınının 1.2.12 sürümüdür. En son Azure PowerShell sürümünden farklıdır. Bu fark depolama hizmetleri işlemi etkiler:
 
-* Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.2.10 iki özelliği vardır: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
+* Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.2.12 iki özelliği vardır: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -187,7 +244,7 @@ Azure yığını, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI Azure 
 CLI yükleme ve yapılandırmasını tamamladıktan sonra Azure yığın depolama kaynakları ile etkileşim kurmak için bir küçük Kabuk örnek betiği çalışmak için aşağıdaki adımları deneyebilirsiniz. Betik önce depolama hesabınıza yeni bir kapsayıcı oluşturur sonra varolan bir dosyayı (blob) bu kapsayıcıya yükler, kapsayıcıdaki tüm blob'lara listeler ve son olarak, yerel bilgisayarınızda belirttiğiniz bir hedefe dosyasını indirir. Bu komut dosyasını çalıştırmadan önce başarılı bir şekilde bağlandığınızdan emin olun ve hedef Azure yığın oturum açın. 
 1. Sık kullandığınız metin düzenleyicisinde açın, sonra kopyalayın ve önceki komut düzenleyiciye yapıştırın.
 2. Komut dosyanızın değişken yapılandırma ayarlarınızı yansıtacak şekilde güncelleştirin. 
-3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlar komut dosyası my_storage_sample.sh adlı varsayılmıştır.
+3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlar kodunuzu adlı varsayın **my_storage_sample.sh**.
 4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin: `chmod +x my_storage_sample.sh`
 5. Betiğini yürütün. Örneğin, Bash içinde: `./my_storage_sample.sh`
 
@@ -229,11 +286,11 @@ echo "Done"
 Microsoft Azure Storage Gezgini, Microsoft'tan bir tek başına uygulamadır. Windows, macOS ve Linux Azure Storage ve Azure yığın depolama verileri ile kolayca çalışmanızı sağlar. Azure yığın depolama verilerinizi yönetmek için kolay bir yol istiyorsanız, ardından Microsoft Azure Storage Gezgini kullanmayı düşünün.
 
  - Azure Storage Gezgini Azure yığın ile çalışmak için yapılandırma hakkında daha fazla bilgi edinmek için [Depolama Gezgini Azure yığın abonelik](azure-stack-storage-connect-se.md).
- - Microsoft Azure Storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - Microsoft Azure Storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Depolama Gezgini bir Azure yığın aboneliğine bağlanma](azure-stack-storage-connect-se.md)
-* [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Depolama Gezgini ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure tutarlı Depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
 * [Microsoft Azure Depolama'ya Giriş](../../storage/common/storage-introduction.md)
 

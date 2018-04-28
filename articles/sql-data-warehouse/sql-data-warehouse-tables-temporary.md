@@ -1,41 +1,26 @@
 ---
-title: "SQL veri ambarı geçici tablolarda | Microsoft Docs"
-description: "Geçici tablolarda Azure SQL Data Warehouse ile çalışmaya başlama."
+title: SQL veri ambarı geçici tablolarda | Microsoft Docs
+description: Geçici tablolara ve vurgular oturum düzeyi geçici tablolara ilkeleri kullanmaya yönelik temel kılavuz.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a3e06a4074bc7b5cd8612162a624718107a50656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL veri ambarı geçici tabloları
-> [!div class="op_single_selector"]
-> * [Genel bakış][Overview]
-> * [Veri türleri][Data Types]
-> * [Dağıt][Distribute]
-> * [Dizin][Index]
-> * [Bölüm][Partition]
-> * [İstatistikleri][Statistics]
-> * [Geçici][Temporary]
-> 
-> 
-
-Geçici tablolara verileri - özellikle Ara sonuçların geçici nerede dönüştürme sırasında işlerken faydalıdır. SQL veri ambarı'nda geçici tablolara oturum düzeyindedir.  Bunlar yalnızca, bunlar oluşturuldu ve bu oturumu kapattığında otomatik olarak bırakılan oturum görünür olur.  Uzaktaki Depolama birimi yerine yerel sonuçları yazıldığından geçici tablolara performans avantajı sunar.  Bunlar her yerden ve saklı yordam haricindeki dahil olmak üzere oturumu içinde erişilebilir olarak geçici tabloları Azure SQL veritabanından Azure SQL Data Warehouse'da biraz farklı.
-
 Bu makalede geçici tabloları kullanmak için temel kılavuz içerir ve oturum düzeyi geçici tablolara ilkeleri vurgular. Bu makaledeki bilgileri kullanarak yeniden kullanılırlığı ve kodunuzun bakım kolaylığı artırma kodunuzu modülarize etmek yardımcı olabilir.
+
+## <a name="what-are-temporary-tables"></a>Geçici tablolara nelerdir?
+Geçici tablolara verileri - özellikle Ara sonuçların geçici nerede dönüştürme sırasında işlerken faydalıdır. SQL veri ambarı'nda geçici tablolara oturum düzeyindedir.  Bunlar yalnızca, bunlar oluşturuldu ve bu oturumu kapattığında otomatik olarak bırakılan oturum görünür olur.  Uzaktaki Depolama birimi yerine yerel sonuçları yazıldığından geçici tablolara performans avantajı sunar.  Bunlar her yerden ve saklı yordam haricindeki dahil olmak üzere oturumu içinde erişilebilir olarak geçici tabloları Azure SQL veritabanından Azure SQL Data Warehouse'da biraz farklı.
 
 ## <a name="create-a-temporary-table"></a>Geçici bir tablo oluştur
 Geçici tablolara tablo adıyla önek tarafından oluşturulan bir `#`.  Örneğin:
@@ -112,7 +97,7 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS`güçlü bir komut ve işlem günlüğü alanının kullanımını etkili olma ek avantajına sahiptir. 
+> `CTAS` güçlü bir komut ve işlem günlüğü alanının kullanımını etkili olma ek avantajına sahiptir. 
 > 
 > 
 
@@ -232,20 +217,5 @@ DROP TABLE #stats_ddl;
 SQL veri ambarı birkaç sınırlama geçici tablolara uygularken zorunlu tuttukları.  Şu anda yalnızca oturum kapsamlı geçici tablolar desteklenir.  Genel geçici tablolar desteklenmez.  Ayrıca, geçici tablolarda görünümlere oluşturulamıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo genel bakışı][Overview], [tablo veri türleri][Data Types], [bir tablodağıtma] [ Distribute], [Tablo dizin][Index], [bir tablo bölümleme] [ Partition] ve [Tablo istatistikleri koruma][Statistics].  En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
+Tabloları geliştirme hakkında daha fazla bilgi için bkz: [tablo genel bakışı](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

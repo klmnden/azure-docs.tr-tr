@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Genomics: Sık sorulan sorular | Microsoft Docs"
+title: 'Microsoft Genomics: Sık sorulan sorular | Microsoft Docs'
 titleSuffix: Azure
-description: "Microsoft Genomics hakkında genel sorular müşteriler yanıtlarını isteyin."
+description: Microsoft Genomics hakkında genel sorular müşteriler yanıtlarını isteyin.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Sık sorulan sorular
 
-Bu makalede Microsoft Genomics sahip olabileceğiniz sorguları ilişkili üst listelenmektedir. Microsoft Genomics hizmeti hakkında daha fazla bilgi için bkz: [Microsoft Genomics nedir?](overview-what-is-genomics.md) 
+Bu makalede Microsoft Genomics ilgili en sık kullanılan sorguların listelenmektedir. Microsoft Genomics hizmeti hakkında daha fazla bilgi için bkz: [Microsoft Genomics nedir?](overview-what-is-genomics.md). Sorun giderme hakkında daha fazla bilgi için bkz: bizim [sorun giderme kılavuzu](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics SLA nedir?
@@ -35,7 +35,7 @@ Saat Microsoft Genomics hizmeti % 99,9 oranda iş akışı API istekleri almak k
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Komutları için kullanılan en yaygın olarak nelerdir `msgen` istemci?
 En sık kullanılan komutlar için bağımsız değişkenler `msgen` istemcisi içerir: 
 
- |**Komutu**          |  **Alan açıklaması** |
+ |**Komut**          |  **Alan açıklaması** |
  |:--------------------|:-------------         |
  |`list`               |Gönderdiğiniz işlerin bir listesini döndürür. Bağımsız değişkenler için bkz: `msgen help list`.  |
  |`submit`             |Bir iş akışı isteği hizmetine gönderir. Bağımsız değişkenler için bkz: `msgen help submit`.|
@@ -57,7 +57,7 @@ Depolama hesabı anahtarınızı Microsoft Genomics hizmetinin çıktı dosyalar
 ## <a name="what-genome-references-can-i-use"></a>Hangi genome başvuruyor kullanabilir miyim?
 
 Bu başvurular desteklenir:
- |Başvuru              | Değeri`-pa/--process-args` |
+ |Başvuru              | Değeri `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -74,13 +74,13 @@ Boşluk göz ardı edilir.
 
  |Komut satırı bağımsız değişkeni            | Yapılandırma dosyası satırı |
  |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://URL*    |
+ |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:Key*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Microsoft Genomics ile çalışmaya başlamak için aşağıdaki kaynakları kullanın:
-- Microsoft Genomics hizmeti aracılığıyla ilk iş akışınızın çalıştırarak başlayın. [Microsoft Genomics hizmeti aracılığıyla bir iş akışını çalıştırma](quickstart-run-genomics-workflow-portal.md)
+- Microsoft Genomics hizmeti aracılığıyla ilk iş akışınızın çalıştırarak başlayın. [Microsoft Genomics hizmeti aracılığıyla bir iş akışını çalıştırma ](quickstart-run-genomics-workflow-portal.md)
 - Microsoft Genomics hizmeti tarafından işlemek için kendi verilerinizi gönderme: [FASTQ eşleştirilmiş](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [birden çok FASTQ veya BAM](quickstart-input-multiple.md) 
 

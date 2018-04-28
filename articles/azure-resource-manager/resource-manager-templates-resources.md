@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonu yapısı ve sözdizimi | Microsoft Docs"
-description: "Yapı ve bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları özelliklerini açıklar."
+title: Azure Resource Manager şablonu kaynaklarını | Microsoft Docs
+description: Bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları kaynakları bölümünde açıklanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 74830a5220a75408398af2224204f8195ab27cc6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kaynakları bölümü
 
@@ -42,9 +42,9 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -58,6 +58,21 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -78,11 +93,14 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
 | kopyala |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
 | dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager kaynakları arasındaki bağımlılıkları değerlendirir ve doğru sırada dağıtır. Kaynakları birbirlerine bağımlı olmadıkları zaman bunların paralel olarak dağıtılır. Değer bir kaynağın virgülle ayrılmış bir liste olabilir adları veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablonda dağıtılan kaynakları listeler. Bu şablonda tanımlı değil kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md). |
 | properties |Hayır |Kaynak özgü yapılandırma ayarları. Özelliklerine ilişkin değerleri kaynak oluşturmak REST API işlemi için (PUT yöntemini) istek gövdesinde sağladığınız değerleri ile aynıdır. Ayrıca bir özelliği birden çok örneğini oluşturmak için bir kopya dizisi belirtebilirsiniz. |
+| SKU | Hayır | Bazı kaynaklar dağıtmak için SKU tanımlayan değerleri izin verin. Örneğin, bir depolama hesabı için artıklık türünü belirtebilirsiniz. |
+| türü | Hayır | Bazı kaynaklar dağıttığınız kaynak türünü tanımlayan bir değeri izin verir. Örneğin, Cosmos oluşturmak için DB türünü belirtebilirsiniz. |
+| plan | Hayır | Bazı kaynaklar dağıtmayı planlıyorsunuz tanımlayan değerleri izin verin. Örneğin, bir sanal makine için Market görüntüsü belirtebilirsiniz. | 
 | kaynak |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
 
 ## <a name="resource-specific-values"></a>Kaynak özgü değerleri
 
-**ApiVersion**, **türü**, ve **özellikleri** her kaynak türü için farklıdır. Bu özelliklerin değerlerini belirlemek için bkz: [şablon başvurusu](/azure/templates/).
+**ApiVersion**, **türü**, ve **özellikleri** öğeleri her kaynak türü için farklıdır. **Sku**, **türü**, ve **planı** bazı kaynak türleri için kullanılabilir, ancak tüm öğeler. Bu özelliklerin değerlerini belirlemek için bkz: [şablon başvurusu](/azure/templates/).
 
 ## <a name="resource-names"></a>Kaynak adları
 Genellikle, kaynak adları Kaynak Yöneticisi'nde üç türleri ile çalışır:
@@ -102,7 +120,7 @@ Veri erişim uç noktası olan herhangi bir kaynak türü için bir benzersiz ka
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
-* Azure HDInsight
+* Azure Hdınsight
 
 <sup>1</sup> depolama hesabı adları de küçük olmalıdır, 24 karakter veya daha az ve tire sahip değil.
 

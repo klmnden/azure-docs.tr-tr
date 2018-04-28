@@ -1,12 +1,12 @@
 ---
-title: "Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunlarını çözmek | Microsoft Docs"
-description: "Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunları için sorun giderme olası çözümleri."
+title: Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunlarını çözmek | Microsoft Docs
+description: Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunları için sorun giderme olası çözümleri.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunlarını gidermek
 
@@ -49,13 +49,13 @@ Yalnızca kullanmak yerine _durumu_ bir bölüm anahtarı olarak bölümleme iç
 
 ### <a name="option-4-use-round-robin-distribution"></a>Seçenek 4: hepsini dağıtım kullanın
 
-Bölüm ve dağıtım için uygun bir anahtar bulamazsanız, hepsini dağıtım kullanmayı deneyebilirsiniz. Hepsini dağıtım tüm satırları eşit olarak değerlendirir ve rastgele bunları karşılık gelen demet yerleştirir. Veri dağılımla, ancak yere göre bilgi, aynı zamanda bazı işlemler için iş performansı düşürebilir bir dezavantajı kaybeder. Ayrıca, asimetrik anahtar için toplama yine de yapıyorsanız, veri eğme sorun korunur. Hepsini bir kez deneme dağıtımı hakkında daha fazla bilgi için U-SQL tablo dağıtımları bölümüne bakın. [CREATE TABLE (U-SQL): şemasıyla tablo oluşturma](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+Bölüm ve dağıtım için uygun bir anahtar bulamazsanız, hepsini dağıtım kullanmayı deneyebilirsiniz. Hepsini dağıtım tüm satırları eşit olarak değerlendirir ve rastgele bunları karşılık gelen demet yerleştirir. Veri dağılımla, ancak yere göre bilgi, aynı zamanda bazı işlemler için iş performansı düşürebilir bir dezavantajı kaybeder. Ayrıca, asimetrik anahtar için toplama yine de yapıyorsanız, veri eğme sorun korunur. Hepsini bir kez deneme dağıtımı hakkında daha fazla bilgi için U-SQL tablo dağıtımları bölümüne bakın. [CREATE TABLE (U-SQL): şemasıyla tablo oluşturma](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Çözüm 2: sorgu planı geliştirmek
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Seçenek 1: CREATE STATISTICS deyimini kullanın
 
-U-SQL CREATE STATISTICS deyimi tablolarda sağlar. Bu bildirimi sorgu iyileştiricisi bir tabloda depolanan verileri, gibi özellikleri değer dağıtımı hakkında daha fazla bilgi sağlar. Sorguların çoğu için sorgu iyileştiricisi zaten bir yüksek kaliteli sorgu planı gerekli istatistikleri oluşturur. Bazen, CREATE STATISTICS ile ek istatistikler oluşturarak veya sorgu tasarım değiştirerek sorgu performansını artırmak gerekebilir. Daha fazla bilgi için bkz: [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) sayfası.
+U-SQL CREATE STATISTICS deyimi tablolarda sağlar. Bu bildirimi sorgu iyileştiricisi bir tabloda depolanan verileri, gibi özellikleri değer dağıtımı hakkında daha fazla bilgi sağlar. Sorguların çoğu için sorgu iyileştiricisi zaten bir yüksek kaliteli sorgu planı gerekli istatistikleri oluşturur. Bazen, CREATE STATISTICS ile ek istatistikler oluşturarak veya sorgu tasarım değiştirerek sorgu performansını artırmak gerekebilir. Daha fazla bilgi için bkz: [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) sayfası.
 
 Kod örneği:
 

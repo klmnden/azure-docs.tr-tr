@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory'de varsayılan kullanıcı izinleri
 
-Azure Active Directory (Azure AD), tüm kullanıcıların varsayılan izinleri verilir. Bir kullanıcının erişimi kullanıcı türünü oluşur kendi [rol üyeliklerini](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal)ve bunların nesnelerin mülkiyetini. Bu makalede, bu varsayılan izinleri açıklar ve üye ve Konuk kullanıcı Varsayılanları karşılaştırması içerir.
+Azure Active Directory (Azure AD), tüm kullanıcıların varsayılan izinleri verilir. Bir kullanıcının erişimi kullanıcı türünü oluşur kendi [rol üyeliklerini](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal)ve bunların nesnelerin mülkiyetini. Bu makalede, bu varsayılan izinleri açıklar ve üye ve Konuk kullanıcı Varsayılanları karşılaştırması içerir.
 
 ## <a name="member-and-guest-users"></a>Üye ve Konuk kullanıcılar
 Alınan varsayılan izinler kümesini kullanıcı Kiracı (üye kullanıcı) yerel bir üyesi ise veya kullanıcı B2B işbirliği Konuk (Konuk kullanıcı) ise bağlıdır. B2B işbirliği hakkında daha fazla bilgi için bkz: [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md) Konuk kullanıcılar hakkında daha fazla bilgi için). 

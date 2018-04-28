@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 726b062aecc11db738926586cdede045eae3a61e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Intellij için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -40,7 +38,7 @@ Projenizi oluşturmak için görüntülemek [Intellij için Azure araç seti ile
 
 - Hdınsight Linux üzerinde Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 - Oracle Java Geliştirme Seti. Şuradan yükleyebilirsiniz [Oracle Web sitesi](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- IntelliJ IDEA. Bu makalede sürümünü 2017.1 kullanır. Şuradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
+- Intellij Idea. Bu makalede sürümünü 2017.1 kullanır. Şuradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Intellij için Azure Araç Seti yükleyin
 Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
@@ -73,7 +71,7 @@ Kullanıcı olabilir ya da [Azure aboneliğine oturum](#sign-in-to-your-azure-su
    
     ![Genişletilmiş bir küme adı düğümü](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Bir küme bağlantı
+<h2 id="linkcluster">Bir küme bağlantı</h2>
 Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca güvenlik hadoop kümesi etki alanı kullanıcı adı kullanarak bağlantı (örneğin: user1@contoso.com). 
 1. Tıklatın **bir küme bağlantı** gelen **Azure Gezgini**.
 
@@ -287,7 +285,7 @@ Yığın boyutu çalıştırmak Spark için yeterince büyük olduğundan bu hat
 ## <a name="faq"></a>SSS
 Azure Data Lake Store uygulamaya göndermek için tercih **etkileşimli** Azure oturum açma işlemi sırasında modu. Seçerseniz **otomatik** modu, bir hata alabilirsiniz.
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![signın etkileşim](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Şimdi, biz bunu çözümlendi. Uygulamanız herhangi bir oturum açma yöntemi göndermek için bir Azure Data Lake küme seçebilirsiniz.
 

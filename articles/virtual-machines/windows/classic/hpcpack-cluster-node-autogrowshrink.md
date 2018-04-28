@@ -1,10 +1,10 @@
 ---
-title: "Otomatik ölçeklendirme HPC paketi küme düğümleri | Microsoft Docs"
-description: "Otomatik olarak Büyüt ve azure'da HPC paketi küme işlem düğümü sayısını Daralt"
+title: Otomatik ölçeklendirme HPC paketi küme düğümleri | Microsoft Docs
+description: Otomatik olarak Büyüt ve azure'da HPC paketi küme işlem düğümü sayısını Daralt
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Otomatik olarak Büyüt ve Azure HPC paketi küme kaynaklarında göre küme iş yükü küçültme
 HPC Pack kümenizdeki Azure "veri bloğu" düğümlerini dağıtmak ya da Azure Vm'lerde bir HPC paketi küme oluşturmak, bir şekilde otomatik olarak büyütür veya küme kaynaklarını düğümleri veya çekirdek küme iş yüküne göre gibi küçültmek isteyebilirsiniz. Bu şekilde küme kaynaklarını ölçeklendirme, Azure kaynaklarınızı daha verimli şekilde kullanabilir ve bunların maliyetlerini denetlemenize olanak tanır.
@@ -35,7 +35,7 @@ Bu makalede, HPC Pack sağlayan iki otomatik ölçeklendirme yolları işlem kay
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>AutoGrowShrink küme özelliğini ayarlayın
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 * **HPC Pack 2012 R2 güncelleştirme 2 veya sonraki bir küme** -küme baş düğümüne olabilir ya da şirket içi dağıtılan veya bir Azure VM. Bkz: [HPC paketi ile karma küme ayarlama](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) bir şirket içi baş düğüm ve Azure "veri bloğu" düğümleri ile çalışmaya başlamak için. Bkz: [HPC Pack Iaas dağıtım betiği](hpcpack-cluster-powershell-script.md) hızlı bir şekilde Azure VM'de HPC paketi küme dağıtmak için.
 
@@ -50,13 +50,13 @@ Bu makalede, HPC Pack sağlayan iki otomatik ölçeklendirme yolları işlem kay
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Hesabınızın birden fazla Azure Active Directory kiracısı veya Azure aboneliği varsa, doğru Kiracı ve aboneliği seçmek için aşağıdaki komutu çalıştırabilirsiniz:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Şu anda seçili Kiracı ve abonelik görüntülemek için aşağıdaki komutu çalıştırın:
@@ -181,24 +181,24 @@ Varsayılan olarak, %1 HPC Pack büyür MPI işlerini için ek düğümleri (**E
 Varsayılan olarak, **SoaJobGrowThreshold** 50000 için ayarlanır ve **SoaRequestsPerCore** 20000 için ayarlanır. Bir SOA işi 70000 isteği göndermek, bir Sıraya alınan görev olduğunu ve gelen istekleri 70000. Bu durumda HPC Pack 1 çekirdek kuyruğa alınmış görev için ve gelen istekleri büyüdükçe, (70000-50000) büyür / 20000 = 1 çekirdek, bu nedenle, toplam bu SOA işi için 2 Çekirdek büyür.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>AzureAutoGrowShrink.ps1 komut dosyasını çalıştır
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 * **HPC Pack 2012 R2 güncelleştirme 1 veya sonraki bir küme** - **AzureAutoGrowShrink.ps1** komut dosyası, % CCP_HOME % bin klasörüne yüklenir. Küme baş düğümüne olabilir ya da şirket içi dağıtılan veya bir Azure VM. Bkz: [HPC paketi ile karma küme ayarlama](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) bir şirket içi baş düğüm ve Azure "veri bloğu" düğümleri ile çalışmaya başlamak için. Bkz: [HPC Pack Iaas dağıtım betiği](hpcpack-cluster-powershell-script.md) hızlı bir şekilde Azure VM'de HPC paketi Küme dağıtımı veya kullanmak için bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0** -komut dosyası şu anda bu belirli Azure PowerShell sürümüne bağlıdır.
 * **Azure ile bir küme düğümleri veri bloğu** -HPC Pack yüklü olduğu bir istemci bilgisayarı veya baş düğüm komut dosyasını çalıştırın. Bir istemci bilgisayarda çalışıyorsa $env değişken Ayarla olun: baş düğümüne işaret edecek şekilde CCP_SCHEDULER. Azure "veri bloğu" düğümler kümeye eklenmesi gerekir, ancak değil dağıtılan bir durumda olabilir.
-* **Azure VM'ler (Resource Manager dağıtım modeli) dağıtılan bir küme için** -Azure Resource Manager dağıtım modelinde dağıtılan VM'ler küme için komut dosyası Azure kimlik doğrulaması için iki yöntemi destekler: Azure hesabınızda oturum çalıştırmak için Her komut dosyası (çalıştırarak `Login-AzureRmAccount`, veya bir sertifika ile kimlik doğrulaması için bir hizmet sorumlusu yapılandırın. HPC Pack komut dosyası sağlar **ConfigARMAutoGrowShrinkCert.ps** sertifikayla bir hizmet sorumlusu oluşturmak için. Komut dosyasını bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu oluşturur ve hizmet sorumlusu katılımcı rolü atar. Komut dosyasını çalıştırmak için Azure PowerShell'i yönetici olarak başlatın ve aşağıdaki komutları çalıştırın:
+* **Azure VM'ler (Resource Manager dağıtım modeli) dağıtılan bir küme için** -Azure Resource Manager dağıtım modelinde dağıtılan VM'ler küme için komut dosyası Azure kimlik doğrulaması için iki yöntemi destekler: Azure hesabınızda oturum çalıştırmak için Her komut dosyası (çalıştırarak `Connect-AzureRmAccount`, veya bir sertifika ile kimlik doğrulaması için bir hizmet sorumlusu yapılandırın. HPC Pack komut dosyası sağlar **ConfigARMAutoGrowShrinkCert.ps** sertifikayla bir hizmet sorumlusu oluşturmak için. Komut dosyasını bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu oluşturur ve hizmet sorumlusu katılımcı rolü atar. Komut dosyasını çalıştırmak için Azure PowerShell'i yönetici olarak başlatın ve aşağıdaki komutları çalıştırın:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
 
     Hakkında daha fazla ayrıntı için **ConfigARMAutoGrowShrinkCert.ps1**, çalışma `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`,
 
-* **Azure VM'ler (Klasik dağıtım modeli) dağıtılan bir küme için** -bağımlı olduğundan dolayı VM baş düğümünde komut dosyasını çalıştırmak **başlangıç HpcIaaSNode.ps1** ve **Stop-HpcIaaSNode.ps1** yüklü komutlar. Bu komut ayrıca bir Azure yönetim sertifikası gerektirir veya yayımlama ayarları dosyası (bkz [bir HPC Pack Yönet işlem düğümleri küme Azure'da](hpcpack-cluster-node-manage.md)). Tüm işlem düğümü ihtiyacınız VM'ler zaten kümeye eklenmiş olduğundan emin olun. Bunlar durdurulmuş durumda olabilir.
+* **Azure VM'ler (Klasik dağıtım modeli) dağıtılan bir küme için** -bağımlı olduğundan dolayı VM baş düğümünde komut dosyasını çalıştırmak **başlangıç HpcIaaSNode.ps1** ve **Stop-HpcIaaSNode.ps1** komut dosyaları var. yüklü değildir. Bu komut ayrıca bir Azure yönetim sertifikası gerektirir veya yayımlama ayarları dosyası (bkz [bir HPC Pack Yönet işlem düğümleri küme Azure'da](hpcpack-cluster-node-manage.md)). Tüm işlem düğümü ihtiyacınız VM'ler zaten kümeye eklenmiş olduğundan emin olun. Bunlar durdurulmuş durumda olabilir.
 
 
 

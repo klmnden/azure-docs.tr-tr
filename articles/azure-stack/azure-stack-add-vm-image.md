@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88254966c8aa16bf9fa182702c9c742d908851e1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Bir özel sanal makine görüntüsü Azure yığın kullanılabilmesini
 
@@ -81,7 +81,7 @@ Azure yığın Market görüntüsü eklemek için aşağıdaki adımları tamaml
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Azure yığın Market görüntüsü eklemek için aşağıdaki adımları tamaml
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```
@@ -154,15 +154,15 @@ Remove-AzsVMImage `
 
 | Parametre | Açıklama |
 | --- | --- |
-| **publisher** |Kullanıcıların görüntüsünü dağıtırken kullanan VM görüntüsü Yayımcı adı kesimi. Örnek **Microsoft**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
+| **Yayımcı** |Kullanıcıların görüntüsünü dağıtırken kullanan VM görüntüsü Yayımcı adı kesimi. Örnek **Microsoft**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
 | **Teklif** |VM görüntüsü dağıttığınızda, kullanıcıların kullanan VM görüntüsü teklif adı kesimi. Örnek **Windows Server**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
-| **sku** |VM görüntüsü dağıttığınızda, kullanıcıların kullanan VM görüntüsü SKU adı kesimi. Örnek **Datacenter2016**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
-| **version** |VM görüntüsü dağıttığınızda, kullanıcıların kullanan VM görüntüsü sürümü. Bu sürüm biçimindedir *\#.\#.\#*. Örnek **1.0.0**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
+| **SKU** |VM görüntüsü dağıttığınızda, kullanıcıların kullanan VM görüntüsü SKU adı kesimi. Örnek **Datacenter2016**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
+| **Sürüm** |VM görüntüsü dağıttığınızda, kullanıcıların kullanan VM görüntüsü sürümü. Bu sürüm biçimindedir *\#.\#.\#*. Örnek **1.0.0**. Boşluk veya diğer özel karakterleri bu alana dahil etmeyin. |
 | **osType** |Görüntünün osType aşağıdakilerden biri olması gerekir **Windows** veya **Linux**. |
 | **osDiskLocalPath** |İşletim sistemi diski olarak bir VM görüntüsü Azure yığınına karşıya yüklediğiniz VHD yerel yolu. |
 | **dataDiskLocalPaths** |VM görüntüsü bir parçası olarak yüklenen veri diskleri için yerel yollar isteğe bağlı bir dizi. |
 | **CreateGalleryItem** |Bir öğe Marketi'ndeki oluşturulup oluşturulmayacağını belirler mantıksal bayrak. Varsayılan olarak ayarlanır **doğru**. |
-| **title** |Market öğesi görünen adı. Varsayılan olarak ayarlanır `Publisher-Offer-Sku` VM görüntüsü değeri. |
+| **Başlık** |Market öğesi görünen adı. Varsayılan olarak ayarlanır `Publisher-Offer-Sku` VM görüntüsü değeri. |
 | **Açıklama** |Market öğesi açıklaması. |
 | **konum** |VM görüntüsü Burada yayımlanan konumu. Varsayılan olarak, bu değeri ayarlamak **yerel**.|
 | **osDiskBlobURI** |(İsteğe bağlı) Bu komut, bir Blob Depolama URI'si de kabul eder için `osDisk`. |

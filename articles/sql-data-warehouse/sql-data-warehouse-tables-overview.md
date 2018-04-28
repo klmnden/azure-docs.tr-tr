@@ -1,30 +1,26 @@
 ---
-title: "Tablo Tasarımı giriş - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Azure SQL Data Warehouse tablolarda tasarlama giriş."
+title: Tabloları - Azure SQL Data Warehouse tasarlama | Microsoft Docs
+description: Azure SQL Data Warehouse tablolarda tasarlama giriş.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tablolarda tasarlama giriş
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tablolarda tasarlama
 
 Azure SQL Data Warehouse tablolarda tasarlamak için temel kavramları öğrenin. 
 
-## <a name="determining-table-category"></a>Tablo kategori belirleme 
+## <a name="determine-table-category"></a>Tablo kategori belirleme 
 
 A [yıldız şeması](https://en.wikipedia.org/wiki/Star_schema) verileri olgu ve boyut tabloları düzenler. Bir olgu veya Boyut tablosuna gitmeden önce bazı tablolar tümleştirme veya hazırlama veriler için kullanılır. Bir tablo tasarlarken, tablo verileri bir olgu, boyut veya tümleştirme tablo ait olup olmadığını belirleyin. Bu karara uygun tablo yapısı ve dağıtım bildirir. 
 
@@ -45,9 +41,9 @@ CREATE SCHEMA wwi;
 
 SQL veri ambarı'nda tabloları organizasyonu göstermek için tablo adlarının ön eklerin olarak olgu, boyutu ve int kullanabilirsiniz. Aşağıdaki tabloda bazı WideWorldImportersDW şema ve tablo adları gösterir. SQL veri ambarı adlarında SQL Server'daki adlarıyla karşılaştırır. 
 
-| WideWorldImportersDW table  | Tablo türü | SQL Server | SQL Veri Ambarı |
-|:-----|:-----|:------|
-| Şehir | Boyut | Dimension.City | wwi.DimCity |
+| WideWorldImportersDW tablosu  | Tablo türü | SQL Server | SQL Veri Ambarı |
+|:-----|:-----|:------|:-----|
+| Şehir | Boyut | Dimension.City | wwi. DimCity |
 | Sıra | Olgusu | Fact.Order | wwi.FactOrder |
 
 
@@ -70,7 +66,7 @@ Geçici bir tablo yalnızca oturum boyunca bulunmaktadır. Geçici bir tabloya d
 Azure Storage blobu veya Azure Data Lake Store içinde bulunan veriler için bir dış tablo gösterir. CREATE TABLE AS SELECT deyimi ile birlikte kullanıldığında, bir dış tablosundan seçerek verileri SQL Data Warehouse'a içeri aktarır. Dış tablolara, bu nedenle veri yüklemek için faydalıdır. Bir yükleme öğretici için bkz: [kullanım verileri Azure blob depolama alanından yüklemek için PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Veri türleri
-SQL veri ambarı desteklediği veri türleri en yaygın olarak kullanılır. Desteklenen veri türleri listesi için bkz: [veri türleri CREATE TABLE başvurusu](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) CREATE TABLE deyimi içinde. Veri türlerinin boyutu en aza sorgu performansını artırmaya yardımcı olur. Veri türlerini kullanma ile ilgili yönergeler için bkz: [veri türleri](sql-data-warehouse-tables-data-types.md).
+SQL veri ambarı desteklediği veri türleri en yaygın olarak kullanılır. Desteklenen veri türleri listesi için bkz: [veri türleri CREATE TABLE başvurusu](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) CREATE TABLE deyimi içinde. Veri türlerinin boyutu en aza sorgu performansını artırmaya yardımcı olur. Veri türlerini kullanma ile ilgili yönergeler için bkz: [veri türleri](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Dağıtılmış tablolar
 SQL veri ambarı temel özelliği, depolamak ve 60 arasında tablolarda çalıştırmak yoludur [dağıtımları](massively-parallel-processing-mpp-architecture.md#distributions).  Tabloları hepsini, karma veya çoğaltma yöntemi kullanılarak dağıtılır.
@@ -106,7 +102,7 @@ Bölümlenmiş bir tablodaki depolar ve veri aralıklarını göre tablo satırl
 ## <a name="columnstore-indexes"></a>Columnstore dizinleri
 Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini bir tablo depolar. Bu form, veri depolama yüksek veri sıkıştırma ve sorgu performansını büyük tablolarda erişir.  Kümelenmiş columnstore dizini genellikle en iyi seçimdir, ancak bazı durumlarda kümelenmiş bir dizin veya yığın uygun depolama yapısıdır.
 
-Columnstore özelliklerin listesi için bkz: [columnstore dizinlerinde yenilikler](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Columnstore dizini performansı artırmak için bkz: [columnstore dizinleri için satır grubu kimliğinde kalitesini en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Columnstore özelliklerin listesi için bkz: [columnstore dizinlerinde yenilikler](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Columnstore dizini performansı artırmak için bkz: [columnstore dizinleri için satır grubu kimliğinde kalitesini en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>İstatistikler
 Bir sorgu yürütme için plan oluştururken sorgu iyileştiricisi sütun düzeyi istatistikleri kullanır. Sorgu performansını artırmak için tek tek sütunlarda özellikle sorgu birleşimlerde kullanılan sütun istatistik oluşturulması önemlidir. Oluşturma ve istatistikleri güncelleştirmeyi otomatik olarak gerçekleştirilmez. [İstatistik oluşturma](/sql/t-sql/statements/create-statistics-transact-sql) tablo oluşturduktan sonra. Çok sayıda satır eklenen veya değiştirilen sonra istatistikleri güncelleştirin. Örneğin, bir yükleme sonrası istatistikleri güncelleştirin. Daha fazla bilgi için bkz: [istatistikleri Kılavuzu](sql-data-warehouse-tables-statistics.md).
@@ -143,7 +139,7 @@ SQL veri ambarı birçok destekler, ancak diğer veritabanı tarafından sunulan
 - [Kullanıcı tanımlı türler](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Tablo boyutu sorguları
-Alan ve her 60 dağıtımları tabloda tarafından tüketilen satırları belirlemek için basit bir yolu kullanmaktır [DBCC PDW_SHOWSPACEUSED] [DBCC PDW_SHOWSPACEUSED].
+Alan ve her 60 dağıtımları tabloda tarafından tüketilen satırları belirlemek için basit bir yolu kullanmaktır [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -342,4 +338,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri ambarınız için tabloları oluşturduktan sonra sonraki tabloya veri yüklemek için bir adımdır.  Bir yükleme öğretici için bkz: [PolyBase ile Azure blob depolama biriminden verileri yüklenirken](load-data-from-azure-blob-storage-using-polybase.md).
+Veri ambarınız için tabloları oluşturduktan sonra sonraki tabloya veri yüklemek için bir adımdır.  Bir yükleme öğretici için bkz: [SQL Data warehouse'a veri yükleme](load-data-wideworldimportersdw.md).

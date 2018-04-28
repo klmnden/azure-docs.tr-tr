@@ -1,19 +1,19 @@
 ---
-title: "Azure DC/OS kümesinde yalancı sürüm Vamp ile"
-description: "Nasıl kullanılacağını Vamp yalancı yayın Hizmetleri ve akıllı trafik bir Azure kapsayıcı hizmeti DC/OS kümesinde filtreleme Uygula"
+title: Azure DC/OS kümesinde yalancı sürüm Vamp ile
+description: Nasıl kullanılacağını Vamp yalancı yayın Hizmetleri ve akıllı trafik bir Azure kapsayıcı hizmeti DC/OS kümesinde filtreleme Uygula
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Bir Azure kapsayıcı hizmeti DC/OS kümesinde yalancı yayın mikro Vamp ile
 
@@ -41,7 +41,7 @@ Bu kılavuzda, biz Vamp Azure kapsayıcı hizmeti DC/OS kümesi ile ayarlayın. 
 
 ## <a name="set-up-vamp"></a>Vamp ayarlayın
 
-Çalışan DC/OS kümesine sahip olduğunuza göre DC/OS UI (http://localhost:80) Vamp yükleyebilirsiniz. 
+Çalışan DC/OS kümesine sahip olduğunuza göre DC/OS kullanıcı Arabiriminden Vamp yükleyebilirsiniz (http://localhost:80). 
 
 ![DC/OS Kullanıcı Arabirimi](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -151,7 +151,7 @@ Bu senaryo adlı örnek bir tek yapılı uygulama kullanır [ **sava**](https://
               webport: 8080/http # cluster endpoint, used for canary releasing
   ```
 
-4. **Kaydet** düğmesine tıklayın. Vamp dağıtımı başlatır.
+4. **Kaydet**’e tıklayın. Vamp dağıtımı başlatır.
 
 Dağıtım listelendiğini **dağıtımları** sayfası. Dağıtım durumunu izlemek için tıklatın.
 
@@ -212,7 +212,7 @@ Her şeyi oluşturulduktan sonra Git **genel bakış** dikey DC/OS Aracısı Yü
               webport: 8080/http # cluster endpoint to update
   ```
   
-3. **Kaydet** düğmesine tıklayın. Şeması depolanır ve listelenen **planlar** sayfası.
+3. **Kaydet**’e tıklayın. Şeması depolanır ve listelenen **planlar** sayfası.
 
 4. Sava: 1.1 şeması Eylem menüsünde açıp tıklatın **birleştirilecek**.
 

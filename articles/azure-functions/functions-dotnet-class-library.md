@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -44,7 +44,7 @@ Visual Studio'da **Azure işlevleri** proje şablonu aşağıdaki dosyaları iç
 > [!IMPORTANT]
 > Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasını doğrudan düzenlenmesine izin verilmiyor yöneliktir. Bağlama yapılandırmasını değiştirmek veya bu dosyasını düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakmak için [devre dışı](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) özniteliği. Örneğin, MY_TIMER_DISABLED ayarı Boolean bir uygulama ekleme ve geçerli `[Disable("MY_TIMER_DISABLED")]` işlevinizi için. Sonra etkinleştirme ve uygulama ayarı değiştirerek devre dışı.
 
-### <a name="functionname-and-trigger-attributes"></a>FunctionName ve tetikleyici öznitelikleri
+## <a name="methods-recognized-as-functions"></a>İşlev olarak kabul edilen yöntemleri
 
 Bir sınıf kitaplığı'nda, statik bir yöntemle işlevidir bir `FunctionName` ve aşağıdaki örnekte gösterildiği gibi bir tetikleyici özniteliği:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` Özniteliği yöntemi bir işlev giriş noktası olarak işaretler. Adı bir proje içinde benzersiz olmalıdır.
+`FunctionName` Özniteliği yöntemi bir işlev giriş noktası olarak işaretler. Adı bir proje içinde benzersiz olmalıdır. Proje şablonları genellikle adlı bir yöntem oluşturma `Run`, ancak yöntem adı herhangi bir geçerli C# yöntemi adı olabilir.
 
 Tetikleyici özniteliği tetikleme türünü belirtir ve bir yöntem parametresi için giriş verileri bağlar. Örnek işlevi bir kuyruk iletisi tarafından tetiklenir ve kuyruk iletisini yöntemine geçirilen `myQueueItem` parametresi.
 
-### <a name="additional-binding-attributes"></a>Ek bağlama öznitelikleri
+## <a name="method-signature-parameters"></a>Yöntem imza parametreleri
 
-Ek giriş ve çıkış öznitelikleri bağlama kullanılabilir. Aşağıdaki örnek bir çıktı sırası bağlama ekleyerek önceki bir değiştirir. İşlev giriş sırası ileti farklı bir sırada yeni bir kuyruk iletisi yazar.
+Yöntem imzası tetikleyici özniteliğiyle kullanılır farklı parametreler içerebilir. Dahil edebileceğiniz ek parametreler bazıları şunlardır:
+
+* [Giriş ve çıkış bağlamaları](functions-triggers-bindings.md) şekilde özniteliklerle tasarlayarak olarak işaretlenmiş.  
+* Bir `ILogger` veya `TraceWriter` parametresi için [günlüğü](#logging).
+* A `CancellationToken` parametresi için [kapama](#cancellation-tokens).
+* [İfadeler bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) almak için parametreleri tetiklemek meta verileri.
+
+İşlev imzası parametrelerinde sırası önemli değildir. Örneğin, önce veya sonra diğer bağlamaları trigger parametreleri koyabilirsiniz ve Günlükçü parametre önce veya sonra tetikleyici veya bağlama parametrelerini koyabilirsiniz.
+
+### <a name="output-binding-example"></a>Çıkış bağlama örneği
+
+Aşağıdaki örnek bir çıktı sırası bağlama ekleyerek önceki bir değiştirir. İşlev farklı bir sırada yeni bir kuyruk iletisi işleve tetikler kuyruk iletisi yazar.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Parametreler sırası
+Bağlama başvuru makaleleri ([depolama kuyrukları](functions-bindings-storage-queue.md), örneğin) tetikleyici, giriş veya çıkış öznitelikleri bağlama kullanabilirsiniz, parametre türleri açıklanmaktadır.
 
-İşlev imzası parametrelerinde sırası önemli değildir. Örneğin, önce veya sonra diğer bağlamaları trigger parametreleri koyabilirsiniz ve Günlükçü parametre önce veya sonra tetikleyici veya bağlama parametrelerini koyabilirsiniz.
+### <a name="binding-expressions-example"></a>Bağlama ifadeleri örneği
 
-### <a name="binding-expressions"></a>Bağlama ifadeleri
-
-Bağlama ifadeleri özniteliği Oluşturucu parametreleri ve işlev parametrelerini kullanabilirsiniz. Örneğin, aşağıdaki kod bir uygulama ayarı izlemek için sıra adını alır ve kuyruk iletisi oluşturma süresi alır `insertionTime` parametresi.
+Aşağıdaki kod bir uygulama ayarı izlemek için sırasının adını alır ve bu sıraya ileti oluşturulma zamanı alır `insertionTime` parametresi.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Daha fazla bilgi için bkz: **ifadeleri ve desenler bağlama** içinde [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Function.json dönüştürme
+## <a name="autogenerated-functionjson"></a>Otomatik olarak oluşturulur function.json
 
 Derleme işlemi oluşturur bir *function.json* yapı klasöründeki işlevi klasöründe dosya. Daha önce belirtildiği gibi bu dosyayı doğrudan düzenlenmesi için tasarlanmamıştır. Bağlama yapılandırmasını değiştirmek veya bu dosyasını düzenleyerek işlevi devre dışı bırakın. 
 
@@ -134,7 +141,7 @@ Oluşturulan *function.json* dosya içeren bir `configurationSource` .NET öznit
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet paketi
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 *Function.json* dosyası oluşturma NuGet paketi tarafından gerçekleştirilen [Microsoft\.NET\.Sdk\.işlevler](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ Arasında `Sdk` paket bağımlılıkları olan Tetikleyicileri ve bağlamaları.
 
 Kaynak kodu `Microsoft.NET.Sdk.Functions` GitHub depo kullanılabilir [azure\-işlevleri\-vs\-yapı\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Çalışma zamanı sürümü
+## <a name="runtime-version"></a>Çalışma zamanı sürümü
 
 Visual Studio kullanan [Azure işlevleri çekirdek Araçları](functions-run-local.md#install-the-azure-functions-core-tools) işlevleri projelerini çalıştırmak için. Çekirdek araçları işlevleri çalışma zamanı için bir komut satırı arabirimidir.
 

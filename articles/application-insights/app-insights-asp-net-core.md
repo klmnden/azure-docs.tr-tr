@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 
@@ -187,13 +187,13 @@ Birden çok onay istekleri ortaya okuyup değişikliklerle onaylıyorsanız kabu
 
    ![Canlı ölçümleri akışının ekran görüntüsü](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (PowerShell komut dosyası, dinamik ölçümleri görmelisiniz hala çalışıyor durduruldu ise betiği yeniden ile canlı akış açık çalıştırın.)
+   (Çalıştır durdurulmuşsa komut dosyası, hala çalışıyor, PowerShell Canlı ölçümleri görmeniz gerekir, betik canlı akış ile yeniden açın.)
 
 ## <a name="app-insights-sdk-comparison"></a>App Insights SDK karşılaştırma
 
 Application Insights ürün grubu sabit özellik eşliği olarak arasında mümkün olduğunca yakın elde etmek için çalışmakta olduğu [tam .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) ve .net Core SDK. 2.2.0 sürümü, [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) için Application Insights büyük ölçüde özelliği boşluk kapattı.
 
-Farkları ve bileşim arasında daha iyi anlamak için [.NET ve .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Farkları ve bileşim arasında daha iyi anlamak için [.NET ve .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | SDK karşılaştırma | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +203,7 @@ Farkları ve bileşim arasında daha iyi anlamak için [.NET ve .NET Core](https
    | **SQL bağımlılık çağrıları**     | **+** |**-** | **+**|
    | **Performans sayaçları*** | **+** | **-**| **-**|
 
-_Performans sayaçları_ bu bağlamda başvurduğu [sunucu tarafı performans sayaçları](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) işlemci, bellek ve disk kullanımı gibi.
+_Performans sayaçları_ bu bağlamda başvurduğu [sunucu tarafı performans sayaçları](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) işlemci, bellek ve disk kullanımı gibi.
 
 ## <a name="open-source-sdk"></a>Açık kaynak SDK'sı
 [Okuma ve koda katkıda bulunan](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

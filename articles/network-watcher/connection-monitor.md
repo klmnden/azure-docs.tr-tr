@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure portalını kullanarak Azure Ağ İzleyicisi ile ağ bağlantılarını izleme
 
@@ -42,7 +42,7 @@ Aşağıdaki adımları bağlantı 80 ve 1433 bağlantı noktaları üzerinden b
 1. Portalın sol taraftan **tüm hizmetleri**.
 2. Yazmaya başlayın *Ağ İzleyicisi* içinde **filtre** kutusu. Zaman **Ağ İzleyicisi** arama sonuçlarında görünür.
 3. Altında **izleme**seçin **Bağlantı İzleyicisi**.
-4. Seçin **+ Ekle**.
+4. **+ Ekle** öğesini seçin.
 5. Bağlantı için izleme ve ardından istediğiniz bilgileri girin veya seçin **Ekle**. Aşağıdaki resimde gösterilen örnekte, izlenen bağlantı arasındadır *MultiTierApp0* VM *Database0* bağlantı noktası 80 üzerinden VM:
 
     ![Bağlantı monitör ekleme](./media/connection-monitor/add-connection-monitor.png)
@@ -69,4 +69,4 @@ Aşağıdaki adımları bağlantı 80 ve 1433 bağlantı noktaları üzerinden b
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Paket yakalama tarafından VM uyarılarla otomatikleştirmeyi öğrenin [bir uyarıyı tetikleyen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md).
-- Belirli trafik içinde veya dışında VM kullanarak izin verilip verilmediğini belirlemek [IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md).
+- Belirli trafik içinde veya dışında VM kullanarak izin verilip verilmediğini belirlemek [IP akış doğrulayın](diagnose-vm-network-traffic-filtering-problem.md).

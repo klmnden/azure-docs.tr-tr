@@ -1,27 +1,18 @@
 ---
-title: "Azure arama sonuçlarında kırpma için güvenlik filtreleri | Microsoft Docs"
-description: "Güvenlik filtreleri ve kullanıcı kimliklerini kullanarak Azure Search içeriği üzerinde erişim denetimi."
-ms.custom: 
-ms.date: 08/07/2017
+title: Azure arama sonuçlarında kırpma için güvenlik filtreleri | Microsoft Docs
+description: Güvenlik filtreleri ve kullanıcı kimliklerini kullanarak Azure Search içeriği üzerinde erişim denetimi.
 ms.service: search
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+ms.topic: conceptual
+services: search
+ms.date: 08/07/2017
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-<<<<<<< HEAD
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
-=======
-ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure arama sonuçlarında kırpma için güvenlik filtreleri
 
@@ -35,12 +26,12 @@ Bu makalede, aşağıdaki adımları kullanarak güvenlik filtresi yüklemenin n
 > [!div class="checklist"]
 > * Asıl tanımlayıcıları içeren bir alanı oluşturma 
 > * Anında iletme veya varolan belgeleri ile ilgili asıl tanımlayıcıları güncelleştir
-> * Bir arama isteği ile sorun `search.in``filter`
+> * Bir arama isteği ile sorun `search.in` `filter`
 
 >[!NOTE]
 > Asıl tanımlayıcıları alma işlemi bu belgede ele alınmamıştır. Bunu, kimlik hizmetini sağlayıcınızdan almanız gerekir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede, sahip olduğunuz varsayılmaktadır bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Search Hizmeti](https://docs.microsoft.com/azure/search/search-create-service-portal), ve [Azure Search dizini](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 

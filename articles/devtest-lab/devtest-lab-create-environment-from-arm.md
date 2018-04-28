@@ -1,12 +1,12 @@
 ---
-title: "Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynaklarına oluşturun | Microsoft Docs"
-description: "Çoklu VM ortamları ve PaaS kaynaklarına Azure DevTest Labs'de bir Azure Resource Manager şablonu oluşturma hakkında bilgi edinin"
+title: Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynaklarına oluşturun | Microsoft Docs
+description: Çoklu VM ortamları ve PaaS kaynaklarına Azure DevTest Labs'de bir Azure Resource Manager şablonu oluşturma hakkında bilgi edinin
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Çoklu VM ortamları ve PaaS kaynaklarına Azure Resource Manager şablonları ile oluşturma
 
@@ -102,7 +102,7 @@ Bir Azure Resource Manager şablonu deposu laboratuar ortamında yapılandırıl
 
     ![Bir temel seçin](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. Üzerinde **Ekle** bölmesinde girin **ortam adı** değeri. Ortam laboratuvara kullanıcılarınıza görüntülenen addır. Kalan giriş alanları Azure Resource Manager şablonunda tanımlanır. Varsayılan değerleri şablonda tanımlanmışsa veya `azuredeploy.parameter.json` dosya varsa, varsayılan değerleri, bu girdi alanlarında görüntülenir. Tür parametreleri için *güvenli dize*, laboratuar ortamında 's depolanan gizli kullanabilirsiniz [kişisel gizli depolama](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
+1. Üzerinde **Ekle** bölmesinde girin **ortam adı** değeri. Ortam laboratuvara kullanıcılarınıza görüntülenen addır. Kalan giriş alanları Azure Resource Manager şablonunda tanımlanır. Varsayılan değerleri şablonda tanımlanmışsa veya `azuredeploy.parameter.json` dosya varsa, varsayılan değerleri, bu girdi alanlarında görüntülenir. Tür parametreleri için *güvenli dize*, laboratuar ortamında 's depolanan gizli kullanabilirsiniz [kişisel gizli depolama](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
 
     ![Bölmesi ekleme](./media/devtest-lab-create-environment-from-arm/add.png)
 

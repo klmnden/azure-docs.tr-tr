@@ -3,17 +3,17 @@ title: Azure ilke tanımı yapısı | Microsoft Docs
 description: Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzda kaynaklar için kuralları oluşturmak için Azure ilke tarafından nasıl kullanıldığını açıklar.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
-ms.date: 01/17/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -27,7 +27,7 @@ Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğele
 * açıklama
 * İlke kuralı
   * mantıksal değerlendirme
-  * effect
+  * Etkisi
 
 Örneğin, aşağıdaki JSON kaynakları dağıtıldığı sınırlar bir ilke gösterir:
 
@@ -67,7 +67,7 @@ Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-
 ## <a name="mode"></a>Mod
 
 **Modu** hangi kaynak türlerinin için bir ilke değerlendirilir belirler. Desteklenen modları şunlardır:
-* `all`: kaynak grupları ve tüm kaynak türleri değerlendir 
+* `all`: kaynak grupları ve tüm kaynak türleri değerlendir
 * `indexed`: yalnızca etiketlerini ve konumunu destekleyen kaynak türleri değerlendir
 
 Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** varsayılan değer `indexed` için geriye dönük uyumluluk.

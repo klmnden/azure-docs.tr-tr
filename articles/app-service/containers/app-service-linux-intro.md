@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7800c2e72b1bfd78f83bf7b90a35e47f6109a014
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -32,22 +32,13 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 
 | Dil | Desteklenen Sürümler |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
 | Java * | 8.0 |
-| PHP | 5.6, 7.0 |
+| PHP | 5.6, 7.0, 7.2 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-
-* Önizleme özelliği desteği
-
-### <a name="preview-supported-java-runtimes"></a>Önizleme: desteklenen Java çalışma zamanları
-
-Linux’ta App Service’teki kullanılabilir Java çalışma zamanları şunlardır:
-
-| Çalışma Zamanı | Sürüm |
-|---|---|
-| Apache Tomcat | 8.5 |
-| Apache Tomcat | 9.0 |
+| Başlayın | 1.0 |
+| Apache Tomcat | 8.5, 9.0 |
 
 Daha fazla ayrıntı için bkz. [Linux’ta App Service’te Java web uygulaması oluşturma](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java).
 
@@ -84,10 +75,7 @@ Azure portalı, yalnızca şu anda Kapsayıcılar için Web App ile kullanılabi
 
 Sanal ağ tümleştirme, Azure Active Directory/üçüncü taraf kimlik doğrulaması veya Kudu site uzantıları gibi bazı özellikler henüz kullanılamamaktadır. Bu özellikler kullanıma sunulduğunda belgelerimizi ve blogumuzu güncelleştireceğiz.
 
-Linux’ta App Service yalnızca [Temel ve Standart](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Linux’ta App Service için aşağıdaki kısıtlamalar da önemlidir:
-
-* Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız.
-* Linux olmayan Web Apps barındıran bir kaynak grubunda Kapsayıcılar için Web App oluştururken, mevcut App Service planından farklı bir kaynak grubunda bir App Service planı oluşturmanız gerekir.
+Linux’ta App Service yalnızca [Temel ve Standart](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

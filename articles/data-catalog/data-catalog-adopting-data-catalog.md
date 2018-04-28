@@ -1,12 +1,12 @@
 ---
-title: "Azure Veri Kataloğu'nu benimseme yaklaşımı ve işlemi | Microsoft Docs"
-description: "Bu makale, Azure Veri Kataloğu'nu benimsemeyi planlayan kuruluşlar için, vizyon tanımlama, işle ilgili önemli kullanım durumlarını belirleme ve pilot proje seçme aşamaları da dahil olmak üzere bir yaklaşım ve süreç sağlamaktadır."
+title: Azure Veri Kataloğu'nu benimseme yaklaşımı ve işlemi | Microsoft Docs
+description: Bu makale, Azure Veri Kataloğu'nu benimsemeyi planlayan kuruluşlar için, vizyon tanımlama, işle ilgili önemli kullanım durumlarını belirleme ve pilot proje seçme aşamaları da dahil olmak üzere bir yaklaşım ve süreç sağlamaktadır.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d092613d88a4186c17c8c91046bb598c4f60b307
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Veri Kataloğu'nu benimseme yaklaşımı ve işlemi
 Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanırsınız: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını belirleme ve pilot proje seçme.

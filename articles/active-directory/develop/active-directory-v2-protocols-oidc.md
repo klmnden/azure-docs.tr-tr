@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 ve Openıd Connect Protokolü | Microsoft Docs"
-description: "Web uygulamaları Azure AD v2.0 uygulama Openıd Connect kimlik doğrulama protokolü kullanarak oluşturun."
+title: Azure Active Directory v2.0 ve Openıd Connect Protokolü | Microsoft Docs
+description: Web uygulamaları Azure AD v2.0 uygulama Openıd Connect kimlik doğrulama protokolü kullanarak oluşturun.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 Openıd Connect OAuth 2.0, bir kullanıcı için bir web uygulaması için güvenli bir şekilde imzalamak için kullanabileceğiniz yerleşik bir kimlik doğrulama protokolüdür. Openıd Connect v2.0 uç noktanın uygulamasını kullandığınızda, web tabanlı uygulamalar için oturum açma ve API erişimini ekleyebilirsiniz. Bu makalede, bu bağımsız dilinin nasıl gösteriyoruz. Size hiçbir Microsoft açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklanır.
@@ -29,7 +29,7 @@ Openıd Connect OAuth 2.0, bir kullanıcı için bir web uygulaması için güve
 > 
 > 
 
-[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* tek gerçekleştirebilmeleri için protokol OAuth kullanılarak oturum. Openıd Connect kavramı kullanılmaya başlanmıştır bir *kimliği belirteci*, kullanıcının kimliğini doğrulamak istemci izin veren bir güvenlik belirteci değil. Kimliği belirteci ayrıca kullanıcının temel profil bilgilerini alır. Openıd Connect OAuth 2.0 genişlettiğinden uygulamaları güvenli bir şekilde elde edebilirsiniz *erişim belirteçleri*, tarafından güvenliği sağlanan kaynaklara erişmek için kullanılabilecek bir [yetkilendirme sunucusu](active-directory-v2-protocols.md#the-basics). Oluşturmakta olduğunuz Openıd Connect kullanmanızı öneririz bir [web uygulaması](active-directory-v2-flows.md#web-apps) bir sunucuda barındırılan ve tarayıcı yoluyla erişilir.
+[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* tek gerçekleştirebilmeleri için protokol OAuth kullanılarak oturum. Openıd Connect kavramı kullanılmaya başlanmıştır bir *kimliği belirteci*, kullanıcının kimliğini doğrulamak istemci izin veren bir güvenlik belirteci değil. Kimliği belirteci ayrıca kullanıcının temel profil bilgilerini alır. Openıd Connect OAuth 2.0 genişlettiğinden uygulamaları güvenli bir şekilde elde edebilirsiniz *erişim belirteçleri*, tarafından güvenliği sağlanan kaynaklara erişmek için kullanılabilecek bir [yetkilendirme sunucusu](active-directory-v2-protocols.md#the-basics). V2.0 uç noktası, ayrıca Web API'leri gibi güvenli kaynaklara erişim belirteçlerini vermek için Azure AD ile kayıtlı üçüncü taraf uygulamalar sağlar. Erişim belirteci vermek için bir uygulama kurulumu hakkında daha fazla bilgi için lütfen bkz [v2.0 uç noktası ile bir uygulama nasıl](active-directory-v2-app-registration.md). Oluşturmakta olduğunuz Openıd Connect kullanmanızı öneririz bir [web uygulaması](active-directory-v2-flows.md#web-apps) bir sunucuda barındırılan ve tarayıcı yoluyla erişilir.
 
 ## <a name="protocol-diagram-sign-in"></a>Protokol diyagramı: oturum açma
 En basit oturum açma akışını sonraki diyagramda gösterildiği adım vardır. Biz bu makalede ayrıntılı her adım açıklanmaktadır.
@@ -94,18 +94,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Bu isteğin yürütülmesi için aşağıdaki bağlantıyı tıklatın. Oturum açtıktan sonra tarayıcınızın adres çubuğuna kimliği belirteci ile https://localhost/myapp/ yönlendirilir. Bu istek kullanan Not `response_mode=query` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://Login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> Bu isteğin yürütülmesi için aşağıdaki bağlantıyı tıklatın. Oturum açtıktan sonra tarayıcınızı yönlendirilecek https://localhost/myapp/, adres çubuğundaki kimliği belirteci ile. Bu istek kullanan Not `response_mode=query` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |Kullanabileceğiniz `{tenant}` uygulamaya oturum açarak denetim isteği yolunda değeri. İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla bilgi için bkz: [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
+| kiracı |Gerekli |Kullanabileceğiniz `{tenant}` uygulamaya oturum açarak denetim isteği yolunda değeri. İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla bilgi için bkz: [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
 | response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Bu ayrıca diğer içerebilir `response_types` gibi değerler `code`. |
 | redirect_uri |Önerilen |Yeniden yönlendirme URI'si burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın. URL kodlanmış olmalıdır dışında tam olarak yeniden yönlendirme Portalı'nda kayıtlı URI'ler biriyle eşleşmelidir. |
-| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsam içermesi gerekir `openid`, UI onay "oturum" izni çevirir. Bu isteği onay isteyen diğer kapsamları de içerebilir. |
+| scope |Gerekli |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsam içermesi gerekir `openid`, UI onay "oturum" izni çevirir. Bu isteği onay isteyen diğer kapsamları de içerebilir. |
 | nonce |Gerekli |Bir talep elde edilen id_token değerindeki dahil edilecek ve uygulama tarafından üretilen istekte bulunan bir değer. Uygulama belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz. Genellikle istek kaynağını tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
 | response_mode |Önerilen |Sonuçta elde edilen yetkilendirme kodu uygulamanıza geri göndermek için kullanılacak yöntemi belirtir. Aşağıdakilerden biri olabilir `query`, `form_post`, veya `fragment`. Web uygulamaları için kullanılmasını öneririz `response_mode=form_post`, uygulamanızın en güvenli aktarımını belirteçleri sağlamak için. |
 | durum |Önerilen |Aynı zamanda isteğinde bir değer belirteci yanıt olarak döndürülür. İstediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulan benzersiz bir değer için genellikle kullanılır [siteler arası istek sahteciliği saldırılarına engellemek](http://tools.ietf.org/html/rfc6749#section-10.12). Durumu, sayfa veya kullanıcı açıktı görünüm gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
@@ -221,8 +221,8 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Bu isteğin yürütülmesi için aşağıdaki bağlantıyı tıklatın. Oturum açtıktan sonra tarayıcınızı kimliği belirteci ve adres çubuğunda bir kodla https://localhost/myapp/ yeniden yönlendirilir. Bu istek kullanan Not `response_mode=query` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://Login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> Bu isteğin yürütülmesi için aşağıdaki bağlantıyı tıklatın. Oturum açtıktan sonra tarayıcının yönlendirildiği https://localhost/myapp/kimliği belirteci ve adres çubuğunda bir kod. Bu istek kullanan Not `response_mode=query` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
@@ -242,7 +242,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Parametre | Açıklama |
 | --- | --- |
 | id_token |İstenen uygulama kimliği belirteci. Kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için kimliği belirteci kullanabilirsiniz. Kimlik belirteçlerini ve bunların içerikleri hakkında daha fazla ayrıntı bulabilirsiniz [v2.0 uç belirteçler başvuru](active-directory-v2-tokens.md). |
-| Kod |Uygulama istenen yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Bir kimlik doğrulama kodu çok kısa süreli ' dir. Genellikle, bir kimlik doğrulama kodu yaklaşık 10 dakika içinde süresi dolar. |
+| kod |Uygulama istenen yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Bir kimlik doğrulama kodu çok kısa süreli ' dir. Genellikle, bir kimlik doğrulama kodu yaklaşık 10 dakika içinde süresi dolar. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 ### <a name="error-response"></a>Hata yanıtı

@@ -1,22 +1,19 @@
 ---
 title: Tam metin arama motoru (Lucene) mimarisi Azure Search'te | Microsoft Docs
 description: Lucene sorgu işleme ve belge alma kavramları açıklaması olarak Azure arama ile ilgili tam metin araması için.
-services: search
-manager: jhubbard
+manager: jlembicz
 author: yahnoosh
-documentationcenter: ''
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 04/06/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search'te nasıl tam metin araması çalışır
 
@@ -55,7 +52,7 @@ Bir arama isteğine bir sonuç kümesi döndürdü, tam bir özelliğidir. Basit
 Aşağıdaki örnek Gönder Azure Search kullanmaya arama istektir [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2016-09-01 
+POST /indexes/hotels/docs/search?api-version=2017-11-11 
 {  
     "search": "Spacious, air-condition* +\"Ocean view\"",  
     "searchFields": "description, title",  

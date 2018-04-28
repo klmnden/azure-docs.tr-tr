@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Geliştirici sözlüğü | Microsoft Docs"
-description: "Yaygın olarak kullanılan Azure Active Directory Geliştirici kavramları ve Özellikler koşulları listesi."
+title: Azure Active Directory Geliştirici sözlüğü | Microsoft Docs
+description: Yaygın olarak kullanılan Azure Active Directory Geliştirici kavramları ve Özellikler koşulları listesi.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
@@ -79,7 +79,7 @@ Tarafından tanımlanan [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], sunuc
 
 Örneğin yetkilendirme sunucusu rolü için Azure AD uygulamaları ve Microsoft hizmet API'leri, Azure AD uygulama tümleştirmesi söz konusu olduğunda, Azure AD uygulayan [Microsoft Graph API][Microsoft-Graph].
 
-## <a name="claim"></a>Talep
+## <a name="claim"></a>talep
 A [güvenlik belirteci](#security-token) bir varlık onaylar sağlayan talepleri içerir (gibi bir [istemci uygulaması](#client-application) veya [kaynak sahibi](#resource-owner)) (örneğin, başkabirvarlıkiçin[kaynak sunucusu](#resource-server)). Talep belirteci konu hakkında bilgiler geçiş ad/değer çiftleri olan (örneğin, tarafından doğrulandı güvenlik sorumlusu [yetkilendirme sunucusu](#authorization-server)). Verilen belirteçte talep belirteci, konu, uygulama yapılandırması, vb. kimliğini doğrulamak için kullanılan kimlik bilgileri türünü türünü de dahil olmak üzere çeşitli değişkenler bağlıdır.
 
 Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
@@ -105,7 +105,7 @@ Bkz: [çok kiracılı uygulama desenini kullanarak Azure AD alanındaki herhangi
 ## <a name="native-client"></a>yerel istemci
 Bir tür [istemci uygulaması](#client-application) yüklü olan yerel bir aygıtta. Tüm kod, bir cihazda yürütülür olduğundan, "Genel" istemci kimlik bilgileri özel olarak/ilkemiz depolamak için sorunu nedeniyle olarak kabul edilir. Bkz: [OAuth2 istemci türleri ve profiller] [ OAuth2-Client-Types] daha fazla ayrıntı için.
 
-## <a name="permissions"></a>İzinler
+## <a name="permissions"></a>izinler
 A [istemci uygulaması](#client-application) erişim kazanır bir [kaynak sunucusu](#resource-server) izin istekleri bildirme tarafından. İki tür mevcuttur:
 
 * "Belirtin izinleri atanmış" [kapsam tabanlı](#scopes) imzalı bileşeninden temsilci yetkilendirme kullanarak erişim [kaynak sahibi](#resource-owner), kaynak çalışma zamanında sunulan ["scp" Talep](#claim) istemciye ait [erişim belirteci](#access-token).
@@ -152,10 +152,10 @@ Bkz: [uygulama ve hizmet sorumlusu nesneleri] [ AAD-App-SP-Objects] daha fazla b
 
 Bir uygulama oturum açma işlevini genellikle çoklu oturum açma (SSO) uygulamak için kullanılır. Bu aynı zamanda "kaydolma" bir işlev tarafından bir uygulamaya (bağlı ilk oturum açma) erişim kazanmak bir son kullanıcı için giriş noktası olarak öncesinde. Kaydolma işlevi toplayın ve kullanıcıya özgü ek durum kalıcı hale getirmek için kullanılır ve gerektirebilir [kullanıcı izni](#consent).
 
-## <a name="sign-out"></a>oturum kapatma
+## <a name="sign-out"></a>oturumu kapatma
 Kullanıcı durumunu ayrılırken bir son kullanıcı ilişkili beklemediğiniz kimlik doğrulama işlemini [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
 
-## <a name="tenant"></a>Kiracı
+## <a name="tenant"></a>kiracı
 Azure AD dizini örneğini Azure AD kiracısı adlandırılır. Dahil olmak üzere çeşitli özellikler sunar:
 
 * Tümleşik uygulamalar için bir kayıt defteri hizmeti
@@ -203,7 +203,7 @@ Lütfen geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri d
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

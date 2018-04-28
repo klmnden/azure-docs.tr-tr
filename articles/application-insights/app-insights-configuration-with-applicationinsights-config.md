@@ -1,8 +1,8 @@
 ---
-title: "Applicationınsights.config başvuru - Azure | Microsoft Docs"
-description: "Etkinleştirmek veya veri toplama modülleri devre dışı bırakın ve performans sayaçları ve diğer parametreleri ekleyin."
+title: Applicationınsights.config başvuru - Azure | Microsoft Docs
+description: Etkinleştirmek veya veri toplama modülleri devre dışı bırakın ve performans sayaçları ve diğer parametreleri ekleyin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 editor: mrbullwinkle
 manager: carmonm
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı bir NuGet paketlerini oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights telemetri göndermek için API sağlar. [Ek paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcıları* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bazıları için parametreleri ayarlayın.
@@ -30,7 +30,7 @@ Denetim eşdeğer bir dosyaya hiç [SDK, bir web sayfasındaki][client].
 Bu belgede, dosya, bunlar bileşenleri SDK ' nın nasıl kontrol ve bu bileşenleri hangi NuGet paketlerini yükleme yapılandırmada bkz bölümlerde açıklanmaktadır.
 
 > [!NOTE]
-> Applicationınsights.config ve .xml yönergeler .NET Core SDK için geçerli değildir. .NET Core uygulamasında yapılacak değişiklikler için genellikle appsettings.json dosyası kullanırız. Bu örneği bulunabilir [anlık görüntü hata ayıklayıcı belgeleri.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> Applicationınsights.config ve .xml yönergeler .NET Core SDK için geçerli değildir. .NET Core uygulamasında yapılacak değişiklikler için genellikle appsettings.json dosyası kullanırız. Bu örneği bulunabilir [anlık görüntü hata ayıklayıcı belgeleri.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri modülleri (ASP.NET)
 Her bir telemetri modülü, belirli bir veri türü toplar ve veri göndermek için çekirdek API kullanır. Modüller, ayrıca gerekli satırları .config dosyasına ekleyin farklı NuGet paketleri tarafından yüklenir.
@@ -43,13 +43,13 @@ Yapılandırma dosyasındaki her modül için bir düğüm yok. Bir modül devre
 Kod kullanarak izleme kendi bağımlılık de yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
+* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet paketi.
 
 ### <a name="performance-collector"></a>Performans Toplayıcı
 [Sistem performans sayaçlarını toplar](app-insights-performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, kendiniz ayarladığınız dahil olmak üzere toplamak için hangi sayaçları belirtebilirsiniz.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
+* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights tanılama Telemetrisi
 `DiagnosticsTelemetryModule` Application Insights araçları kod kendisini hataları bildirir. Örneğin, kod performans sayaçları erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetri görünür [tanılama arama][diagnostic]. Tanılama verileri için dc.services.vsallin.net gönderir.
@@ -263,6 +263,91 @@ Yalnızca olayları belirli bir dizi farklı bir kaynağa göndermek istiyorsan�
 ```
 
 Yeni bir anahtar almak için [Application Insights portalında yeni bir kaynak oluşturmak][new].
+
+
+
+## <a name="applicationid-provider"></a>ApplicationId sağlayıcısı
+
+_Kullanılabilir v2.6.0 içinde başlatılıyor_
+
+Bu sağlayıcı amacı bir izleme anahtarı temel bir uygulama kimliği arama olmaktır. Uygulama Kimliği RequestTelemetry ve DependencyTelemetry dahil ve Portalı'nda bağıntı belirlemek için kullanılır.
+
+Bu ayarlayarak kullanılabilir `TelemetryConfiguration.ApplicationIdProvider` kod veya yapılandırma.
+
+### <a name="interface-iapplicationidprovider"></a>Arabirim: IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+İki uygulamalarında sağladığımız [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) sdk: `ApplicationInsightsApplicationIdProvider` ve `DictionaryApplicationIdProvider`.
+
+### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
+
+Profil Apı'mize çevresinde bir sarmalayıcı budur. İstekleri ve önbellek sonuçları kısıtlama.
+
+Ya da yüklediğinizde bu sağlayıcı config dosyasına eklenir [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) veya [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
+
+Bu sınıf isteğe bağlı bir özellik olan `ProfileQueryEndpoint`.
+Varsayılan olarak bu ayarlamak `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
+Bu yapılandırma için bir proxy yapılandırmanız gerekiyorsa, proxy temel öneririz adresi ve de dahil olmak üzere "/api/profilleri/{0}/appId". Unutmayın '{0}' istek başına çalışma zamanında izleme anahtarı ile değiştirilir.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Applicationınsights.config aracılığıyla örnek yapılandırma:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Kod aracılığıyla örnek yapılandırma:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+
+Bu, yapılandırılmış araçları anahtarınızı bağlıdır, statik bir sağlayıcıdır / uygulama kimliği çiftleri.
+
+Bu sınıf özelliğine `Defined` olduğu izleme anahtarını sözlüğü < dize, dize > Uygulama Kimliği çiftleri.
+
+Bu sınıf isteğe bağlı bir özellik olan `Next` var olmayan bir izleme anahtarı istendiğinde için başka bir sağlayıcının yapılandırmanızda yapılandırmak için kullanılabilir.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Applicationınsights.config aracılığıyla örnek yapılandırma:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Kod aracılığıyla örnek yapılandırma:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [API hakkında daha fazla bilgi][api].

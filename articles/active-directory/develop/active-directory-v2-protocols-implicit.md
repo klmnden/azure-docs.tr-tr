@@ -1,30 +1,30 @@
 ---
-title: "Azure AD v2.0 örtük akışını kullanarak tek sayfa uygulamaları güvenli | Microsoft Docs"
-description: "Tek sayfa uygulamaları için Azure AD v2.0 uygulaması örtük akışını kullanarak web uygulamaları oluşturma."
+title: Azure AD v2.0 örtük akışını kullanarak tek sayfa uygulamaları güvenli | Microsoft Docs
+description: Tek sayfa uygulamaları için Azure AD v2.0 uygulaması örtük akışını kullanarak web uygulamaları oluşturma.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: abd9471ca3f6dd5448eb5d969186f8200023683d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak SPAs
-V2.0 uç noktası ile kullanıcılar, tek sayfa uygulamaları Microsoft'tan hem kişisel hem de iş/Okul hesaplarıyla içine imzalayabilirsiniz.  Tek sayfa ve diğer JavaScript uygulamalar, öncelikle birkaç ilginç sınar kimlik doğrulaması geldiğinde bir tarayıcı yazıtipi olarak çalıştırın:
+V2.0 uç noktası ile kullanıcılar, tek sayfa uygulamaları Microsoft'tan hem kişisel hem de iş/Okul hesaplarıyla içine imzalayabilirsiniz. Tek sayfa ve diğer JavaScript uygulamalar, öncelikle birkaç ilginç sınar kimlik doğrulaması geldiğinde bir tarayıcı yazıtipi olarak çalıştırın:
 
-* Bu uygulamaların güvenlik özelliklerini tabanlı geleneksel sunucu web uygulamalarından önemli ölçüde farklıdır.
+* Bu uygulamaların güvenlik özelliklerini geleneksel sunucu tabanlı web uygulamalarından önemli ölçüde farklıdır.
 * Çok sayıda yetkilendirme sunucularını & kimlik sağlayıcıları CORS isteklerini desteklemez.
 * Kullanıcı deneyimi özellikle bozucu hale uygulama çıktığınızda tam sayfa tarayıcı yönlendirir.
 
@@ -47,6 +47,9 @@ Tüm örtük oturum açma akışını şuna benzer - adımların her biri aşağ
 ## <a name="send-the-sign-in-request"></a>Oturum açma isteği gönder
 Başlangıçta kullanıcı uygulamanıza imzalamak için gönderebilirsiniz bir [Openıd Connect](active-directory-v2-protocols-oidc.md) yetkilendirme isteği ve get bir `id_token` v2.0 uç noktasından:
 
+> [!IMPORTANT]
+> Başarıyla sırada uygulama kaydında bir kimliği belirteci isteği [kayıt portalı](https://apps.dev.microsoft.com) olmalıdır **[örtük grant](active-directory-v2-protocols-implicit.md)** için etkin Web istemcisi.  Etkinleştirilmemişse, bir `unsupported_response` hata döndürülecek: "'response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. Beklenen değer 'kodu'."
+
 ```
 // Line breaks for legibility only
 
@@ -62,23 +65,24 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın! Oturum açtıktan sonra tarayıcınızı için yeniden yönlendirilmesi gereken `https://localhost/myapp/` ile bir `id_token` adres çubuğundaki.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://Login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları.  Daha fazla ayrıntı için [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
+| kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları.  Daha fazla ayrıntı için [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
 | client_id |Gerekli |Uygulama kimliği, kayıt Portalı'nı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uygulamanızı atanmış. |
 | response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için.  Response_type içerebilir `token`. Kullanarak `token` hemen bir erişim belirteci uç noktayı yetkilendirmek için ikinci bir isteği yapmak zorunda kalmadan authorize uç noktasından almak üzere uygulamanızı buraya izin verir.  Kullanırsanız `token` response_type, `scope` parametresi için belirteci vermek için hangi kaynak belirten bir kapsam içermesi gerekir. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir. |
-| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi.  Openıd Connect için kapsam içermesi gerekir `openid`, UI onay "oturum" izni çevirir.  İsteğe bağlı olarak, aynı zamanda eklemek isteyebilirsiniz `email` veya `profile` [kapsamları](active-directory-v2-scopes.md) ek kullanıcı verilerine erişim kazanmak için.  Bu istek çeşitli kaynaklara onay isteyen diğer kapsamları ekleyebiliriz. |
+| scope |Gerekli |Kapsamları boşlukla ayrılmış listesi.  Openıd Connect için kapsam içermesi gerekir `openid`, UI onay "oturum" izni çevirir.  İsteğe bağlı olarak, aynı zamanda eklemek isteyebilirsiniz `email` veya `profile` [kapsamları](active-directory-v2-scopes.md) ek kullanıcı verilerine erişim kazanmak için.  Bu istek çeşitli kaynaklara onay isteyen diğer kapsamları ekleyebiliriz. |
 | response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Olmalıdır `fragment` örtük akış için. |
 | durum |Önerilen |Belirteç yanıtta döndürülen de istekte bulunan bir değer.  İstediğiniz herhangi bir içerik dizesi olabilir.  Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
 | nonce |Gerekli |Bir talep olarak elde edilen id_token dahil edilecek ve uygulama tarafından üretilen istekte bulunan bir değer.  Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz.  Genellikle istek kaynağını tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
-| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü belirtir.  Geçerli değerler yalnızca şu anda 'oturum açma', 'none' olan ve 'onay'.  `prompt=login`Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorunlu tutar.  `prompt=none`- tersidir kullanıcı hiçbir etkileşimli istemi doğabilecek sunulmayan garanti eder.  İstek sessizce çoklu oturum açma aracılığıyla tamamlanamazsa, v2.0 uç noktası bir hata döndürür.  `prompt=consent`Uygulama izinleri vermek için kullanıcı isteyen kullanıcı, oturum sonra OAuth onay iletişim tetikler. |
+| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü belirtir.  Geçerli değerler yalnızca şu anda 'oturum açma', 'none' olan ve 'onay'.  `prompt=login` Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorunlu tutar.  `prompt=none` - tersidir kullanıcı hiçbir etkileşimli istemi doğabilecek sunulmayan garanti eder.  İstek sessizce çoklu oturum açma aracılığıyla tamamlanamazsa, v2.0 uç noktası bir hata döndürür.  `prompt=consent` Uygulama izinleri vermek için kullanıcı isteyen kullanıcı, oturum sonra OAuth onay iletişim tetikler. |
 | login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, oturum açma sayfasında kullanıcının kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Username önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametre genellikle uygulamaları kullanacak `preferred_username` talep. |
-| domain_hint |isteğe bağlı |Aşağıdakilerden biri olabilir `consumers` veya `organizations`.  Dahil edilmişse, e-posta tabanlı bulma işlemini atlar kullanıcı v2.0 oturum açma sayfasında, biraz daha kolay bir kullanıcı deneyimi baştaki geçtiği.  Genellikle uygulamaları kullanacağınız Bu parametre yeniden kimlik doğrulaması sırasında çıkartarak `tid` id_token talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmanız gereken `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
+| domain_hint |isteğe bağlı |Aşağıdakilerden biri olabilir `consumers` veya `organizations`.  Dahil edilmişse, e-posta tabanlı bulma işlemini atlar kullanıcı v2.0 oturum açma sayfasında, biraz daha kolay bir kullanıcı deneyimi baştaki geçtiği.  Genellikle uygulamaları kullanacağınız Bu parametre yeniden kimlik doğrulaması sırasında çıkartarak `tid` id_token talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad` (Microsoft Account tüketici Kiracı), kullanmanız gereken `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
+
 
 Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tamamlamak için istenir.  V2.0 uç noktası, ayrıca kullanıcı belirtilen izinleri seçtiği sağlayacak `scope` sorgu parametresi.  Kullanıcı bu izinleri hiçbirine seçtiği değil kullanıcı gerekli izinleri onayı geçersiz sorar.  Ayrıntılarını [izinleri, onay ve çok kiracılı uygulamalara sağlanan burada](active-directory-v2-scopes.md).
 
@@ -99,10 +103,10 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametre | Açıklama |
 | --- | --- |
-| access_token |Eklenen IF `response_type` içeren `token`. Uygulama, bu durumda Microsoft Graph için istenen erişim belirteci.  Erişim belirteci kodunu çözdü veya aksi halde Denetlenmekte, genel olmayan bir dize olarak işlenebilir. |
-| token_type |Eklenen IF `response_type` içeren `token`.  Her zaman açık `Bearer`. |
-| expires_in |Eklenen IF `response_type` içeren `token`.  Belirteç amacıyla önbelleğe alma için geçerli kaldığı saniye sayısını gösterir. |
-| Kapsam |Eklenen IF `response_type` içeren `token`.  Access_token geçerli olacağı kapsamlar gösterir. |
+| access_token |Eklenen IF `response_type` içeren `token`. Uygulama, bu durumda Microsoft Graph için istenen erişim belirteci. Erişim belirteci kodunu çözdü veya aksi halde Denetlenmekte, genel olmayan bir dize olarak işlenebilir. |
+| token_type |Eklenen IF `response_type` içeren `token`. Her zaman açık `Bearer`. |
+| expires_in |Eklenen IF `response_type` içeren `token`. Belirteç amacıyla önbelleğe alma için geçerli kaldığı saniye sayısını gösterir. |
+| scope |Eklenen IF `response_type` içeren `token`.  Access_token geçerli olacağı kapsamlar gösterir. |
 | id_token |Uygulama istenen id_token. Kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için id_token kullanabilirsiniz.  İd_tokens ve içerikleri daha ayrıntılı bilgi yer almaktadır [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md). |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
@@ -166,11 +170,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları.  Daha fazla ayrıntı için [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
-| client_id |Gerekli |Uygulama kimliği, kayıt Portalı'nı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uygulamanızı atanmış. |
+| kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları.  Daha fazla ayrıntı için [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
+| client_id |Gerekli |Uygulama kimliği kayıt Portalı'nı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uygulamanızı atanmış. |
 | response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için.  Bu ayrıca diğer response_types gibi içerebilir `code`. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir. |
-| Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi.  Belirteçleri almak için tüm dahil [kapsamları](active-directory-v2-scopes.md) kaynağın ilgi gerektirir. |
+| scope |Gerekli |Kapsamları boşlukla ayrılmış listesi.  Belirteçleri almak için tüm dahil [kapsamları](active-directory-v2-scopes.md) kaynağın ilgi gerektirir. |
 | response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Aşağıdakilerden biri olabilir `query`, `form_post`, veya `fragment`. |
 | durum |Önerilen |Belirteç yanıtta döndürülen de istekte bulunan bir değer.  İstediğiniz herhangi bir içerik dizesi olabilir.  Rastgele oluşturulan benzersiz bir değer genellikle siteler arası istek sahteciliği saldırılarına önlemek için kullanılır.  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
 | nonce |Gerekli |Bir talep olarak elde edilen id_token dahil edilecek ve uygulama tarafından üretilen istekte bulunan bir değer.  Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz.  Genellikle istek kaynağını tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
@@ -198,7 +202,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Her zaman açık `Bearer`. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
-| Kapsam |Erişim belirteci için geçerli kapsam. |
+| scope |Erişim belirteci için geçerli kapsam. |
 
 #### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için.  Durumunda `prompt=none`, beklenen hata olacaktır:
@@ -216,8 +220,18 @@ error=user_authentication_required
 
 IFRAME istekte bu hatayı alırsanız, kullanıcı etkileşimli olarak yeniden yeni bir belirteç almak kaydolmalısınız.  Yolu, uygulamanız için anlamlı içinde bu durumun üstesinden seçebilirsiniz.
 
+## <a name="validating-access-tokens"></a>Erişim belirteçleri doğrulanıyor
+
+Bir access_token aldıktan sonra aşağıdaki talep yanı sıra belirteç imzayı doğrulamak emin olun. Ek talep senaryoyu temel doğrulamak seçebilirsiniz. 
+
+* **Hedef kitle** talep belirteci uygulamanıza verilecek tasarlanmıştır emin olmak için
+* **veren** talep belirteci uygulamanıza v2.0 uç noktası tarafından verilmiş olduğunu doğrulamak için
+* **önce değil** ve **süre sonu** talep belirtecin süresi geçmemiş doğrulamak için
+
+Erişim belirtecinde talepler hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md)
+
 ## <a name="refreshing-tokens"></a>Yenileme belirteçleri
-Her ikisi de `id_token`s ve `access_token`s bir kısa süre uygulamanız bu yenilemek için hazırlanması gerekir böylece, düzenli aralıklarla belirteçler sonra dolacak.  İki tür belirteç yenilemek için kullanarak yukarıdaki aynı gizli IFRAME isteği gerçekleştirebilirsiniz `prompt=none` Azure AD davranışını denetlemek için parametre.  Yeni bir almak istiyorsanız `id_token`, kullandığınızdan emin olun `response_type=id_token` ve `scope=openid`, yanı sıra bir `nonce` parametresi.
+Örtük verme, yenileme belirteçleri sağlamaz.  Her ikisi de `id_token`s ve `access_token`s bir kısa süre uygulamanız bu yenilemek için hazırlanması gerekir böylece, düzenli aralıklarla belirteçler sonra dolacak.  İki tür belirteç yenilemek için kullanarak yukarıdaki aynı gizli IFRAME isteği gerçekleştirebilirsiniz `prompt=none` Azure AD davranışını denetlemek için parametre.  Yeni bir almak istiyorsanız `id_token`, kullandığınızdan emin olun `response_type=id_token` ve `scope=openid`, yanı sıra bir `nonce` parametresi.
 
 ## <a name="send-a-sign-out-request"></a>Bir oturum kapatma isteği gönder
 Openıdconnect `end_session_endpoint` v2.0 uç noktası, bir kullanıcının oturumunu sona erdirmek ve v2.0 uç noktası tarafından ayarlanmış tanımlama bilgilerini temizlemek için bir istek göndermek uygulamanızı sağlar.  Tam olarak bir web uygulaması dışında bir kullanıcı oturum için uygulamanızı kendi kullanıcı (genellikle bir belirteç önbelleği temizlemek veya tanımlama bilgilerini silmek) oturumunu ve tarayıcıya yeniden yönlendirme:
@@ -228,5 +242,5 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları.  Daha fazla ayrıntı için [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
+| kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler: `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları.  Daha fazla ayrıntı için [protokol Temelleri](active-directory-v2-protocols.md#endpoints). |
 | post_logout_redirect_uri | Önerilen | Oturum kapatma tamamlandıktan sonra kullanıcı döndürülmesi gerektiğini URL. Bu değer uygulama için URI kayıtlı yeniden yönlendirme biriyle eşleşmelidir. Dahil edilmezse, kullanıcı tarafından v2.0 uç genel bir ileti gösterilir. |

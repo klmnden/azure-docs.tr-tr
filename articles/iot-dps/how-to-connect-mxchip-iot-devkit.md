@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IOT Hub cihaz hizmeti sağlama otomatik sağlama MXChip IOT DevKit IOT Hub'ınızla kaydolmak için kullanın
 
@@ -54,7 +54,7 @@ Oluşturduğunuz hizmet örneği sağlama cihaza DevKit bağlanmak için:
 4. Visual Studio Code açın, DevKit bilgisayarınıza bağlayın ve sonra kopyaladığınız kodu içeren klasörü açın.
 
 5. Açık **DevKitDPS.ino**. Bulma ve değiştirme `[Global Device Endpoint]` ve `[ID Scope]` sadece ettiğiniz aşağı değerlere sahip.
-  ![DPS Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) bırakabilirsiniz **RegistrationId** boş. Uygulama, MAC adresi ve bellenim sürümlerine göre için bir tane oluşturur. Kayıt Kimliği özelleştirmek istiyorsanız, yalnızca alfasayısal, küçük harf kullanın ve birleşimleri en çok 128 karakterden kısa çizgi gerekir. Daha fazla bilgi için bkz: [Azure portal ile cihaz kayıtlarını yönetme](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  ![DPS Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) bırakabilirsiniz **RegistrationId** boş. Uygulama, MAC adresi ve bellenim sürümlerine göre için bir tane oluşturur. Kayıt Kimliği özelleştirmek istiyorsanız, yalnızca alfasayısal, küçük harf kullanın ve birleşimleri en çok 128 karakterden kısa çizgi gerekir. Daha fazla bilgi için bkz: [Azure portal ile cihaz kayıtlarını yönetme](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. VS code'da hızlı açık kullanın (Windows: `Ctrl+P`, macOS: `Cmd+P`) ve türü *görev aygıt karşıya yükleme* yapı ve kod DevKit karşıya yüklemek için.
 

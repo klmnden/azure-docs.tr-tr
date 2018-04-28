@@ -1,6 +1,6 @@
 ---
-title: "Azure Site RECOVERY'yi kullanarak ikincil bir siteye DR detayı Hyper-V vm'lerinde çalıştırmak | Microsoft Docs"
-description: "DR detayı VMM bulutlarındaki Hyper-V sanal makineleri için Azure Site RECOVERY'yi kullanarak bir ikincil veri merkezine çalıştırmayı öğrenin."
+title: Azure Site RECOVERY'yi kullanarak ikincil bir siteye DR detayı Hyper-V vm'lerinde çalıştırmak | Microsoft Docs
+description: DR detayı VMM bulutlarındaki Hyper-V sanal makineleri için Azure Site RECOVERY'yi kullanarak bir ikincil veri merkezine çalıştırmayı öğrenin.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>DR detayı için Hyper-V Vm'lerini ikincil bir siteye çalıştırın.
 
@@ -45,17 +45,24 @@ Yük devretme testi çalıştırdığınızda, test yineleme makineler için ağ
 
 **Seçeneği** | **Ayrıntılar** 
 --- | --- 
-Yok | Test VM VM çoğaltma bulunduğu ana bilgisayarda oluşturulur. Buluta eklenen değildir ve herhangi bir ağa bağlı değil.<br/><br/> Oluşturulduktan sonra makinenin bir VM ağına bağlanabilir.
+**Yok** | Test VM VM çoğaltma bulunduğu ana bilgisayarda oluşturulur. Buluta eklenen değildir ve herhangi bir ağa bağlı değil.<br/><br/> Oluşturulduktan sonra makinenin bir VM ağına bağlanabilir.
 **Varolanı kullanma** | Test VM VM çoğaltma bulunduğu ana bilgisayarda oluşturulur. Buluta eklenen değil.<br/><br/>Üretim ağınızdan yalıtılmış olan bir VM ağı oluşturun.<br/><br/>VLAN tabanlı ağ kullanıyorsanız (üretimde kullanılmaz) ayrı bir mantıksal ağ oluşturma VMM'de bu amaç için öneririz. Bu mantıksal ağ, yük devretme sınaması işlemlerini için VM ağları oluşturmak için kullanılır.<br/><br/>Mantıksal ağ sunucularının ağ bağdaştırıcıları, sanal makineleri barındıran tüm Hyper-V en az biriyle ilişkili olmalıdır.<br/><br/>VLAN Mantıksal ağlar için mantıksal ağa eklemek ağ siteleri yalıtılmış olması gerekir.<br/><br/>Windows ağ sanallaştırma tabanlı bir mantıksal ağ kullanıyorsanız, Azure Site Recovery yalıtılmış VM ağları otomatik olarak oluşturur. 
 **Ağ oluşturma** | Bir geçici test ağı belirttiğiniz ayarına göre otomatik olarak oluşturulan **mantıksal ağ** ve onun ilişkili ağ siteleri.<br/><br/> Yük devretme VM'ler oluşturduğunuz denetler. |Bir kurtarma planı birden fazla VM ağı kullanıyorsa bu seçeneği kullanmanız gerekir.<br/><br/> Windows ağ Sanallaştırması ağlarına kullanıyorsanız, bu seçenek çoğaltma sanal makinesi ağında VM ağları (alt ağlar ve IP adresi havuzları) aynı ayarlarla otomatik olarak oluşturabilirsiniz. Test yük devretme işlemi tamamlandıktan sonra bu VM ağları otomatik olarak temizlenir.<br/><br/> Test VM çoğaltma sanal makinesi bulunduğu ana bilgisayarda oluşturulur. Buluta eklenen değil.
 
 ### <a name="best-practices"></a>En iyi uygulamalar
 
 - Bir üretim ağı test üretim iş yükleri için kapalı kalma süresi neden olur. Olağanüstü durum kurtarma ayrıntıya devam ederken ilgili uygulamalar kullanmamayı, kullanıcılarınızın isteyin.
-- Test ağı yük devretme sınaması için kullanılan VMM mantıksal ağ türü eşleşmesi gerekmez. Ancak, bazı birleşimleri çalışmıyor: - çoğaltma bir statik IP adresi havuzuna ihtiyaç duymaz çoğaltma DHCP ve VLAN tabanlı yalıtım, VM ağını kullanır. Herhangi bir adres havuzu kullanılabilir olmadığından, böylece yük devretme sınaması için Windows ağ sanallaştırma kullanarak çalışmaz. 
-        Test yük devretme, çoğaltma ağ yalıtımı kullanır ve Windows ağ sanallaştırma test ağı kullanıyorsa çalışmaz. Bu durum, yalıtımsız ağa bir Windows ağ sanallaştırma ağ oluşturmak için gereken alt ağı yok çünkü.
+
+- Test ağı yük devretme sınaması için kullanılan VMM mantıksal ağ türü eşleşmesi gerekmez. Ancak, bazı birleşimleri çalışmıyor:
+
+     - Çoğaltma, DHCP ve VLAN tabanlı yalıtım kullanıyorsa, VM ağı çoğaltma için bir statik IP adresi havuzu gerekmez. Herhangi bir adres havuzu kullanılabilir olmadığından, böylece yük devretme sınaması için Windows ağ sanallaştırma kullanarak çalışmaz. 
+        
+     - Yük devretme testi çoğaltma ağ yalıtımı kullanır ve Windows ağ sanallaştırma test ağı kullanıyorsa çalışmaz. Bu durum, yalıtımsız ağa bir Windows ağ sanallaştırma ağ oluşturmak için gereken alt ağı yok çünkü.
+        
 - Yük devretme sınaması için Ağ eşlemesi için seçtiğiniz ağ kullanmamanızı öneririz.
+
 - Nasıl yük devretme VM ağı VMM konsolunda nasıl yapılandırıldığına bağlıdır sonra çoğaltma sanal makineleri eşlenen VM ağlarına bağlanır.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Hiçbir yalıtım veya VLAN yalıtımı ile yapılandırılmış VM ağı
 

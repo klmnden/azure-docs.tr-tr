@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery kurtarma planlarında Azure Otomasyon çalışma kitabı ekleme | Microsoft Docs"
-description: "Azure Site Recovery kurtarma planları Azure otomasyonu kullanarak genişletme nasıl yardımcı olabileceğini öğrenin. Azure Kurtarma sırasında karmaşık görevleri tamamlamak öğrenin."
+title: Azure Site Recovery kurtarma planlarında Azure Otomasyon çalışma kitabı ekleme | Microsoft Docs
+description: Azure Site Recovery kurtarma planları Azure otomasyonu kullanarak genişletme nasıl yardımcı olabileceğini öğrenin. Azure Kurtarma sırasında karmaşık görevleri tamamlamak öğrenin.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: gauravd
-editor: 
+editor: ''
 ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
 ms.devlang: powershell
@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 942c7f13c5cb37017f8907c9f0c94493af53d008
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Otomasyon çalışma kitabı kurtarma planlara Ekle
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Automation ile nasıl tümleşik çalıştığını açıklar. Kurtarma planları korunan sanal makineleri kurtarma Site Recovery ile düzenleyebilirsiniz. Kurtarma planları hem ikincil bulutu için çoğaltma ve çoğaltma Azure için çalışır. Kurtarma planları de yardımcı kurtarma yapmak **tutarlı bir şekilde doğru**, **yinelenebilir**, ve **otomatik**. Vm'lerinizi Azure üzerinden başarısız olursa, Azure Automation tümleştirme kurtarma planlarınızı genişletir. Runbook'ları, ama güçlü bir otomatikleştirme görevleri teklif çalıştırmak için kullanabilirsiniz.
@@ -97,7 +97,7 @@ Bu makalede, nasıl Azure Otomasyon çalışma kitabı kurtarma planlarınızı 
     | VmMap |Gruptaki tüm sanal makineleri bir dizi. |
     | VMMap anahtarı |Her VM için benzersiz anahtar (GUID). Bu VM, Azure Virtual Machine Manager (VMM) Kimliğini uygunsa aynıdır. |
     | SubscriptionId |VM oluşturulduğu Azure abonelik kimliği. |
-    | RoleName |Kurtarılacak Azure VM adı. |
+    | Rol adı |Kurtarılacak Azure VM adı. |
     | CloudServiceName |VM oluşturulduğu Azure bulut hizmeti adı. |
     | ResourceGroupName|VM oluşturulduğu Azure kaynak grubu adı. |
     | RecoveryPointId|VM zaman kurtarılan için zaman damgası. |
@@ -200,7 +200,7 @@ Aşağıdaki örnekte, yeni bir teknik kullanır ve oluşturma bir [karmaşık d
 1. PowerShell'de, Azure aboneliğinizde oturum açın:
 
     ```
-    login-azurermaccount
+    Connect-AzureRmAccount
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```

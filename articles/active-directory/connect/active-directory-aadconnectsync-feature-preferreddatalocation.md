@@ -1,32 +1,27 @@
 ---
 title: "Azure Active Directory Connect eşitleme: çoklu coğrafi özellikleri için tercih edilen veri konumu Office 365'te yapılandırma | Microsoft Docs"
-description: "Office 365 kullanıcı kaynaklarınızı Azure Active Directory Connect eşitleme kullanıcıyla yakın put açıklar."
+description: Office 365 kullanıcı kaynaklarınızı Azure Active Directory Connect eşitleme kullanıcıyla yakın put açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, Azure Active Directory (Azure AD) Connect eşitleme öznitelik tercih edilen veri konumu için yapılandırma konusunda size yol sağlamaktır. Birisi çok coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerin coğrafi konumunu belirtmek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirlerinin yerine kullanılır.)
-
-> [!IMPORTANT]
-> Birden çok coğrafi şu anda önizlemede değil. Önizleme programına katılma istiyorsanız, Microsoft temsilcinize başvurun.
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Tercih edilen veri konumu eşitlemeyi etkinleştir
 Varsayılan olarak, Office 365 kaynakları kullanıcılarınız için Azure AD kiracınıza aynı coğrafi bölgede bulunur. Örneğin, Kuzey Amerika'da Kiracı yer alıyorsa, kullanıcıların Exchange posta kutularına de Kuzey Amerika'da bulunur. Çokuluslu bir kuruluş için bu en iyi olmayabilir.
@@ -34,7 +29,7 @@ Varsayılan olarak, Office 365 kaynakları kullanıcılarınız için Azure AD k
 Öznitelik ayarlayarak **preferredDataLocation**, bir kullanıcının coğrafi tanımlayabilirsiniz. Kullanıcının Office 365 kaynaklarında, posta kutusu ve OneDrive gibi aynı coğrafi bölgede kullanıcı varsa ve kuruluşunuz için bir kiracı devam ediyor.
 
 > [!IMPORTANT]
-> Çoklu coğrafi için uygun olması için en az 5.000 bilgisayar lisansı Office 365 aboneliğiniz olması gerekir.
+> Birden çok coğrafi 5.000 Office 365 Hizmetleri abonelikleri en az müşterilerle şu anda kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
 >
 >
 
@@ -50,12 +45,12 @@ Office 365 çoklu coğrafi için kullanılabilir bölgelerde şunlardır:
 | Avrupa Birliği | EUR |
 | Hindistan | UL |
 | Japonya | JPN |
-| Güney Kore | KOR |
+| Kore | KOR |
 | Birleşik Krallık | GBR |
 | Amerika Birleşik Devletleri | ADI |
 
 * Ardından bir coğrafi bu tabloda (örneğin, Güney Amerika) listelenmiyorsa, çoklu coğrafi için kullanılamaz.
-* Hindistan ve Güney Kore geos yalnızca fatura adresleri ve bu bölgelerde satın alınan lisans sahip müşteriler için kullanılabilir.
+* Hindistan coğrafi yalnızca fatura adresini ve bu coğrafi bölgede satın alınan lisans sahip müşteriler için kullanılabilir.
 * Tüm Office 365 iş yükleri bir kullanıcının coğrafi ayarı kullanımını destekler.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Eşitleme için Azure AD Connect desteği
@@ -131,7 +126,7 @@ Gelen eşitleme kuralını şirket içi Active Directory'de kaynak özniteliğin
     | Açıklama | *Özel bir açıklama belirtin* |  |
     | Bağlı sistem | *Şirket içi Active Directory bağlayıcısını seçin* |  |
     | Bağlı sistem nesne türü | **Kullanıcı** |  |
-    | Meta veri deposu nesne türü | **Person** |  |
+    | Meta veri deposu nesne türü | **Kişi** |  |
     | Bağlantı türü | **Birleştir** |  |
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
@@ -140,7 +135,7 @@ Gelen eşitleme kuralını şirket içi Active Directory'de kaynak özniteliğin
 
     | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
-    |Doğrudan | preferredDataLocation | Kaynak özniteliği seçin | İşaretli | Güncelleştirme |
+    |Doğrudan | PreferredDataLocation | Kaynak özniteliği seçin | İşaretli | Güncelleştirme |
 
 7. Gelen kuralı oluşturmak için seçin **Ekle**.
 
@@ -160,7 +155,7 @@ Giden eşitleme kuralı öznitelik değerini için aramasındaki akış verir **
     | Açıklama | *Bir açıklama belirtin* ||
     | Bağlı sistem | *Azure AD Bağlayıcısı seçin* ||
     | Bağlı sistem nesne türü | **Kullanıcı** ||
-    | Meta veri deposu nesne türü | **Person** ||
+    | Meta veri deposu nesne türü | **Kişi** ||
     | Bağlantı türü | **Birleştir** ||
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
@@ -177,7 +172,7 @@ Giden eşitleme kuralı öznitelik değerini için aramasındaki akış verir **
 
     | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
-    | Doğrudan | preferredDataLocation | preferredDataLocation | İşaretli | Güncelleştirme |
+    | Doğrudan | PreferredDataLocation | PreferredDataLocation | İşaretli | Güncelleştirme |
 
 7. Kapat **Ekle** giden kuralı oluşturmak için.
 

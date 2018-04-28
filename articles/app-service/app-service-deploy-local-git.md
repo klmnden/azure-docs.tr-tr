@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service için Yerel Git Dağıtımı"
-description: "Azure uygulama hizmeti için yerel Git dağıtımı etkinleştirmeyi öğrenin."
+title: Azure App Service için Yerel Git Dağıtımı
+description: Azure uygulama hizmeti için yerel Git dağıtımı etkinleştirmeyi öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 4cbe26055bdbf906223a327ab8cf94bebe9e7998
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -45,8 +45,8 @@ Depo kök projenizdeki doğru dosyalar sahip olduğundan emin olun.
 | Çalışma Zamanı | Kök dizin dosyaları |
 |-|-|
 | ASP.NET (yalnızca Windows) | _*.sln_, _*.csproj_, veya _default.aspx_ |
-| ASP.NET Çekirdeği | _*.sln_ or _*.csproj_ |
-| PHP | _index.php_ |
+| ASP.NET Çekirdeği | _*.sln_ veya _*.csproj_ |
+| PHP | _PHP için index.php'dir_ |
 | Ruby (yalnızca Linux) | _Gemfile_ |
 | Node.js | _Server.js_, _app.js_, veya _package.json_ başlangıç komut dosyası |
 | Python (yalnızca Windows) | _\*.PY_, _requirements.txt_, veya _runtime.txt_ |
@@ -189,3 +189,5 @@ git config --global http.postBuffer 524288000
 
 * [Proje Kudu belgeleri](https://github.com/projectkudu/kudu/wiki)
 * [Azure uygulama hizmeti için sürekli dağıtım](app-service-continuous-deployment.md)
+* [Örnek: Web uygulaması oluşturma ve yerel bir Git deposu (Azure CLI) koddan dağıtma](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Örnek: Web uygulaması oluşturma ve yerel bir Git deposu (PowerShell) koddan dağıtma](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

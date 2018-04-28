@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Hızlı başlangıç: Azure Container Service (AKS) kümesini dağıtma
 
@@ -82,6 +82,11 @@ Kubernetes kümesini yönetmek için Kubernetes komut satırı istemcisi [kubect
 Azure portalının sağ üst köşesindeki düğmeyi kullanarak Cloud Shell’i açın.
 
 ![Cloud shell](media/container-service-walkthrough-portal/kubectl-cs.png)
+
+Henüz yapmadıysanız abonelik belirtin
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
 
 [az aks get-credentials][az-aks-get-credentials] komutunu kullanarak, kubectl istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırın.
 

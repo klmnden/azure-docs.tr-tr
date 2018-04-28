@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9c2ce75b2bfb4b8ddab11ac94e5a8e50c2fad6ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services yaşam döngüsü
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Service Fabric durum bilgisi olan hizmeti için birden çok nedenden dolayı bir
 
 Hizmetleri durum bilgisi olduğundan, ayrıca hizmetlerinin kullandığını büyük olasılıkla [güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md). Birincil indirgenir, Service Fabric içinde gerçekleşen ilk şey alttaki durumu yazma erişimi iptal edilmediğini biridir. Bu hizmet yaşam döngüsü etkileyebilecek sorunları ikinci bir dizi sağlar. Zamanlama ve yineleme olup taşındığı dönüş özel durumlar göre koleksiyonları veya kapat. Bu özel durumlar doğru şekilde işlemek önemlidir. 
 
-Service Fabric tarafından oluşturulan özel durumları olan ya da kalıcı [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) veya geçici [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Kalıcı özel durumları günlüğe ve durum. Geçici özel durumlar yeniden deneme mantığına göre yeniden denenebilir.
+Service Fabric tarafından oluşturulan özel durumları olan ya da kalıcı [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) veya geçici [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). Kalıcı özel durumları günlüğe ve durum. Geçici özel durumlar yeniden deneme mantığına göre yeniden denenebilir.
 
 Test etme ve güvenilir hizmetler doğrulama önemli bir bölümü kullanarak gelen özel durum işleme `ReliableCollections` hizmet yaşam döngüsü olayları ile birlikte. Hizmetinizi yük altında her zaman çalıştırmanızı öneririz. Yükseltmeler gerçekleştirmesi gereken ve [chaos sınama](service-fabric-controlled-chaos.md) üretime dağıtmadan önce. Bu temel adımları hizmetinizin doğru uygulanır ve bunu doğru şekilde yaşam döngüsü olayları işleyen sağlamaya yardımcı olur.
 

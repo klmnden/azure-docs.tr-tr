@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 04/09/2018
-ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b418d1114cf6b906dcdee46bbf7e094cbc4a0521
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Olay hub’ı kullanarak olayları Zaman Serisi Görüşleri ortamına gönderme
 Bu makalede oluşturmak ve olay hub'ı yapılandırmak nasıl açıklar ve anında iletme olaylara bir örnek uygulamayı çalıştırın. Varolan bir event hub'olaylarla JSON biçiminde varsa, Bu öğretici atlayın ve ortamınızdaki görüntülemek [zaman serisi Öngörüler](https://insights.timeseries.azure.com).
@@ -59,7 +59,7 @@ Karşıya yükleme TSI geçmiş verileri toplu, başvuru verileri yerinde olduğ
 
 Başvuru verileri yönetmek için web tabanlı kullanıcı arabirimi yoktur TSI Explorer'ın ve programlı bir C# API'si yok. TSI Gezgini bir görsel kullanıcı karşıya yükleme dosyalarını veya Yapıştır bileşenini varolan başvuru veri kümelerini JSON veya CSV biçiminde deneyimine sahiptir. API ile gerektiğinde özel bir uygulama oluşturabilirsiniz.
 
-Zaman serisi Öngörüler başvuru verilerinde yönetme ile ilgili daha fazla bilgi için bkz: [başvuru veri makale](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Zaman serisi Öngörüler başvuru verilerinde yönetme ile ilgili daha fazla bilgi için bkz: [başvuru veri makale](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Zaman Serisi Görüşleri olay kaynağı oluşturma
 1. Bir olay kaynağı oluşturmadıysanız, olay kaynağını oluşturmak için [bu yönergeleri](time-series-insights-how-to-add-an-event-source-eventhub.md) izleyin.
@@ -312,7 +312,7 @@ Bu olaylar dizisi için TSI yükü olarak anında varsa, her bir ölçü birimi 
 
 chId ölçü birimi 24 altyapısı Petrol baskısı PSI 25 CALC pompa oranı bbl/dak
 
-Zaman serisi Öngörüler başvuru verilerinde yönetme ile ilgili daha fazla bilgi için bkz: [başvuru veri makale](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Zaman serisi Öngörüler başvuru verilerinde yönetme ile ilgili daha fazla bilgi için bkz: [başvuru veri makale](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 Başka bir sorun ilk yükü zaman damgası milisaniye cinsinden olmasıdır. TSI yalnızca ISO biçiminde zaman damgaları kabul eder. Sıraya alınan zaman damgası kullanılacak olan varsayılan zaman damgası davranışı TSI içinde bırakın bir çözümdür.
 

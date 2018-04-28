@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT hub'ı terimler sözlüğü | Microsoft Docs"
-description: "Geliştirici Kılavuzu - Azure IOT Hub'ına ilgili ortak terimleri içeren sözlük."
+title: Azure IOT hub'ı terimler sözlüğü | Microsoft Docs
+description: Geliştirici Kılavuzu - Azure IOT Hub'ına ilgili ortak terimleri içeren sözlük.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları listelenmektedir.
@@ -110,6 +110,9 @@ IOT hub'ı depolanan aygıt başına veri başvurduğu cihaz verileri [kimlik ka
 ## <a name="device-identity"></a>Cihaz kimliği
 Cihaz kimliği, kayıtlı her bir aygıtı atanan benzersiz tanımlayıcıdır [kimlik kayıt defteri](#identity-registry).
 
+## <a name="module-identity"></a>Modül kimliği
+Modül kimliği bir aygıta ait her bir modüle atanan benzersiz tanımlayıcısıdır. Modül kimliği kayıtlı de [kimlik kayıt defteri](#identity-registry).
+
 ## <a name="device-management"></a>Cihaz yönetimi
 Cihaz Yönetimi çözümünüzde planlama, sağlama, yapılandırma, izleme ve devre dışı dahil olmak üzere IOT cihazları yönetmeyle ilgili tam yaşam kapsar.
 
@@ -125,14 +128,17 @@ Cihaz sağlama olan ilk ekleme işlemini [aygıt verilerini](#device-data) çöz
 ## <a name="device-twin"></a>Cihaz çifti
 A [cihaz çifti](iot-hub-devguide-device-twins.md) meta verileri, yapılandırmaları ve koşulları gibi cihaz durumu bilgilerini depolar JSON belgesi. [IOT hub'ı](#iot-hub) IOT hub'ınıza sağlamak her cihaz için cihaz çifti devam ettirir. Cihaz çiftlerini eşitlemek etkinleştirme [aygıt koşullar](#device-condition) yapılandırmaları arasında cihaz ve çözüm arka uç ve. Belirli aygıtları bulmak ve uzun süre çalışan işlemleri durumunu sorgulamak için cihaz çiftlerini sorgulayabilirsiniz.
 
-## <a name="device-twin-queries"></a>Cihaz çifti sorguları
-[Cihaz çifti sorguları](iot-hub-devguide-query-language.md) SQL benzeri IOT hub'ı sorgu dili, cihaz çiftlerini bilgileri almak için kullanın. Aynı IOT hub'ı sorgu dili hakkında bilgi almak için kullanabileceğiniz [işleri](#job) IOT hub'ınıza çalışıyor.
+## <a name="module-twin"></a>Modül twin
+Cihaz çifti, modül twin meta verileri, yapılandırmaları ve koşulları gibi Modül durumu bilgilerini depolar JSON belgesi benzer. IOT Hub cihaz kimliği altında IOT hub'ınıza sağlamak her bir modül kimliği için bir modül twin devam ettirir. Modül çiftlerini modülü koşullar ve yapılandırmaları modülü ve çözüm arka ucu arasında eşitlemek etkinleştirin. Belirli modüller bulun ve uzun süre çalışan işlemleri durumunu sorgulamak için modülü çiftlerini sorgulayabilirsiniz.
+
+## <a name="twin-queries"></a>Twin sorguları
+[Aygıt ve modül twin sorguları](iot-hub-devguide-query-language.md) SQL benzeri IOT hub'ı sorgu dili cihaz çiftlerini ya da modül çiftlerini bilgi almak için kullanın. Aynı IOT hub'ı sorgu dili hakkında bilgi almak için kullanabileceğiniz [işleri](#job) IOT hub'ınıza çalışıyor.
 
 ## <a name="device-twin-rest-api"></a>Cihaz çifti REST API'si
 Kullanabileceğiniz [cihaz çifti REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) çözümden arka uç cihaz çiftlerini yönetmek için. API almak ve güncelleştirmek sağlar [cihaz çifti](#device-twin) özellikleri ve çağırma [doğrudan yöntemleri](#direct-method). Genellikle, üst düzey birini kullanmalıdır [SDK hizmeti](#azure-iot-service-sdks) IOT hub'ı eğitimlerine gösterildiği gibi.
 
-## <a name="device-twin-synchronization"></a>Cihaz çifti eşitleme
-Cihaz çifti eşitlemenin kullandığı [özellikleri istenen](#desired-properties) cihazlarınızı yapılandırmak ve almak için cihaz çiftlerini içinde [özellikleri bildirilen](#reported-properties) cihaz çiftine depolamak için aygıtlardan.
+## <a name="twin-synchronization"></a>Twin eşitleme
+Twin eşitleme kullanır [özelliklerini istenen](#desired-properties) cihaz çiftlerini veya modülü çiftlerini aygıtları veya modülleri yapılandırmak ve almak için [özellikleri bildirilen](#reported-properties) çiftine depolamak için bunlardan.
 
 ## <a name="direct-method"></a>Doğrudan yöntemi
 A [doğrudan yöntemi](iot-hub-devguide-direct-methods.md) bir IOT hub'ınızı API'sini çağırarak bir aygıtta yürütmek için bir yöntemi tetiklemek yoldur.
@@ -184,7 +190,7 @@ Azure IOT paketi önceden yapılandırılmış çözümleri birden çok Azure hi
 ## <a name="job"></a>İş
 Çözüm arka ucunuz kullanabilirsiniz [işleri](iot-hub-devguide-jobs.md) zamanlamak ve IOT hub'ınıza kayıtlı cihazlar üzerinde etkinliklerini izlemek için. Etkinlikler dahil cihaz çifti güncelleştirme [özelliklerini istenen](#desired-properties), güncelleştirme cihaz çifti [etiketleri](#tags)ve çağırma [doğrudan yöntemleri](#direct-method). [IOT hub'ı](#iot-hub) işleri için de kullanır [için içeri ve dışarı aktarma](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) gelen [kimlik kayıt defteri](#identity-registry).
 
-## <a name="jobs-rest-api"></a>Jobs REST API
+## <a name="jobs-rest-api"></a>İşlerini REST API'si
 [İşleri REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) yönetmenize olanak veren [işleri](#job) IOT hub'ınıza çalıştıran.
 
 ## <a name="mqtt"></a>MQTT
@@ -220,7 +226,7 @@ Bağlamında bir [cihaz çifti](iot-hub-devguide-device-twins.md), özellikleri 
 ## <a name="routing-rules"></a>Yönlendirme kuralları
 Yapılandırdığınız [yönlendirme kuralları](iot-hub-devguide-messages-read-custom.md) cihaz-bulut iletileri yönlendirmek için IOT hub'bir [yerleşik uç nokta](#built-in-endpoints) veya [özel uç noktaları](#custom-endpoints) çözüm arka ucu tarafından işlenecek.
 
-## <a name="sasl-plain"></a>SASL PLAIN
+## <a name="sasl-plain"></a>SASL DÜZ
 SASL DÜZ bir protokolüdür, [AMQP](#advanced-message-queue-protocol) Protokolü güvenlik belirteçleri aktarımı için kullanır.
 
 ## <a name="shared-access-signature"></a>Paylaşılan erişim imzası

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Otomasyonu (Önizleme) çözümde yoğun olmayan saatlerde sırasında Başlat/Durdur VM'ler
 
@@ -54,16 +54,15 @@ Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon he
    ![Azure portalına](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. **Çözüm Ekle** sayfası görüntülenir. Otomasyon aboneliğinizi içeri aktarmadan önce çözümü yapılandırmak için istenir.
+
    ![VM yönetim Çözüm Ekle sayfası](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. Üzerinde **Çözüm Ekle** sayfasında, **çalışma**. Otomasyon hesabının bulunduğu aynı Azure aboneliğine bağlı bir günlük analizi çalışma alanını seçin. Bir çalışma alanı yoksa, seçin **yeni çalışma alanı oluştur**. Üzerinde **OMS çalışma** sayfasında, aşağıdakileri yapın:
    * Yeni **OMS Çalışma Alanı** için bir ad belirtin.
    * Seçin bir **abonelik** varsayılan seçili uygun değilse, aşağı açılan listeden seçerek bağlantı sağlamak için.
    * İçin **kaynak grubu**, yeni bir kaynak grubu oluşturabilir veya varolan bir tanesini seçin.
    * Bir **Konum** seçin. Şu anda yalnızca kullanılabilir konumlarının **Avustralya Güneydoğu**, **Kanada Merkezi**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **Birleşik Krallık Güney**, ve **Batı Avrupa**.
-   * Bir **Fiyatlandırma katmanı** seçin. İki katmanı çözümü sunar: **serbest** ve **başına düğüm (OMS)**. Ücretsiz katmanı her gün, saklama dönemi ve runbook iş çalışma zamanı dakika toplanan veri miktarı bir sınırı vardır. Düğüm başına katmanı bir sınır günlük toplanan veri miktarına sahip değil.
-
-        > [!NOTE]
-        > İsteğe bağlı olarak her GB (tek başına)'i Ücretli katmanı görüntülenmesine rağmen geçerli değildir. Seçin ve bu çözümü oluşturma işlemine aboneliğinizde devam edin, başarısız olur. Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır. Bu çözüm yalnızca kullanır Otomasyon iş dakikaları ve günlük alım. Ek düğümler ortamınıza eklemez.
+   * Bir **Fiyatlandırma katmanı** seçin. Seçin **başına (tek başına) GB** seçeneği. Günlük analizi güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katmanı tek seçenektir.
 
 1. Üzerinde gerekli bilgileri girdikten sonra **OMS çalışma** sayfasında, **oluşturma**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünden döndüğü size **Çözüm Ekle** sayfasında yapıldığında.
 1. Üzerinde **Çözüm Ekle** sayfasında, **Otomasyon hesabı**. Yeni bir günlük analizi çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı da oluşturmanız gerekir. Seçin **Automation hesabı oluşturma**ve **eklemek Otomasyon hesabı** sayfasında, şunları sağlar:
@@ -80,6 +79,9 @@ Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon he
    * Belirtin **VM dışlama listesi (dize)**. Hedef kaynak grubu bir veya daha fazla sanal makinelerden adıdır. Birden fazla ad girin ve her (değerleri büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Bir joker karakter kullanılması desteklenir. Bu değer depolanan **External_ExcludeVMNames** değişkeni.
    * Seçin bir **zamanlama**. Bir yinelenen tarih ve saat başlatma ve durdurma hedef kaynak grupları içindeki VM'ler için budur. Varsayılan olarak, zamanlama için UTC saat dilimi yapılandırılır. Farklı bir bölge seçmek kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli saat diliminiz için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedule).
    * Almak için **e-posta bildirimleri** SendGrid varsayılan değerini kabul **Evet** ve geçerli bir eposta adresi belirtin. Seçerseniz **Hayır** ancak daha sonraki bir tarihte karar e-posta bildirimleri almak istediğiniz, güncelleştirebilirsiniz **External_EmailToAddress** değişkeni geçerli bir e-posta adreslerine sahip bir virgülle ayrılmış ve ardından değişkeni değiştirme **External_IsSendEmail** değerle **Evet**.
+
+> [!IMPORTANT]
+> İçin varsayılan değer **hedef kaynak grubu adları** olan bir **&ast;**. Bir Abonelikteki tüm VM'ler hedefler. Aboneliğinizdeki tüm sanal makineleri hedeflemek için çözüm istemiyorsanız bu değeri zamanlamaları etkinleştirilmeden önce kaynak grubu adları listesini için güncelleştirilmesi gerekir.
 
 1. Çözüm için gereken ilk ayarlarını yapılandırdıktan sonra tıklatın **Tamam** kapatmak için **parametreleri** sayfasından seçim yapıp **oluşturma**. Tüm ayarlar doğrulandıktan sonra çözümü aboneliğinize dağıtılır. Bu işlemin tamamlanması birkaç saniye sürebilir ve altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
 
@@ -175,7 +177,7 @@ Aşağıdaki tabloda, Automation hesabınız için bu çözümü tarafından da�
 
 Tüm üst runbook'ları dahil *whatIf* parametresi. Ayarlandığında **True**, *whatIf* olmadan çalıştırdığınızda tam davranışı ayrıntılı destekler runbook alır *whatIf* parametre ve doğru doğrular VM'ler bırakılıyor Hedeflenen. Bir runbook yalnızca tanımlı eylemlerini gerçekleştirir, *whatIf* parametrenin ayarlanmış **False**.
 
-|**Runbook** | **Parametreler** | **Açıklama**|
+|**runbook** | **Parametreler** | **Açıklama**|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Üst runbook'tan çağrılır. Bu runbook DISPLAYFILTER senaryosu için kaynak başına temelinde uyarılar oluşturur.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True veya False  | Oluşturur veya vm'lerinde Azure uyarı kuralları hedeflenen abonelik veya kaynak gruplarındaki güncelleştirir. <br> VMList: Virgülle ayrılmış listesi VM'ler. Örneğin, *vm1, vm2, vm3*.<br> *WhatIf* çalıştırmadan runbook mantığının doğrular.|

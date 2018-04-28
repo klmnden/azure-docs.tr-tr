@@ -9,11 +9,11 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanı'nda Bellek içi teknolojileri kullanılarak performansı en iyi duruma getirme
 
@@ -22,7 +22,7 @@ Azure SQL veritabanı'nda Bellek içi teknolojilerini kullanarak, performans iyi
 Aşağıda, bellek içi OLTP performansı önemli ölçüde artırmak için nasıl Yardım iki örnek verilmiştir:
 
 - Bellek içi OLTP kullanarak [çekirdek işletme çözümleri % 70 Dtu'lar arttırırken, iş yükü çift mümkün](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU anlamına gelir *veritabanı işlem birimi*, ve kaynak tüketimi mesurement içerir.
+    - DTU anlamına gelir *veritabanı işlem birimi*, ve bir ölçüm kaynak tüketimi içerir.
 - Aşağıdaki videoda bir örnek iş yükü kaynak tüketimi önemli gelişme gösterilmektedir: [Azure SQL veritabanı Video, bellek içi OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Daha fazla bilgi için blog gönderisine bakın: [bellek içi OLTP Azure SQL veritabanı Blog gönderisine içinde](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -43,7 +43,7 @@ Azure SQL veritabanı bellek içi teknolojilerin sahiptir:
 
 SQL Server ürün parçası 2012 ve 2014, bu yana columnstore dizinleri ve bellek içi OLTP sırasıyla olmuştur. Azure SQL Database ve SQL Server bellek içi teknolojilerin aynı uygulaması paylaşır. SQL Server'da yayımlanmadan önce ileride, bu teknolojiler için yeni özellikler Azure SQL veritabanı'nda ilk olarak yayımlanmıştır.
 
-Bu konuda, Azure SQL veritabanına özel bellek içi OLTP ve columnstore dizinleri yönlerini açıklar ve ayrıca örnekleri içerir:
+Bu makalede, Azure SQL veritabanına özel bellek içi OLTP ve columnstore dizinleri yönlerini açıklar ve ayrıca örnekleri içerir:
 - Bu teknolojiler etkisini depolama ve veri boyutu sınırları görürsünüz.
 - Bu teknolojiler farklı fiyatlandırma katmanları arasında kullanan veritabanları hareketini yönetme görürsünüz.
 - Azure SQL veritabanında columnstore dizinleri yanı sıra, bellek içi OLTP kullanımını gösteren iki örnek görürsünüz.
@@ -92,7 +92,7 @@ Esnek havuzları ile bellek içi OLTP depolama havuzundaki tüm veritabanları a
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Veri boyutu ve columnstore dizinleri için depolama
 
-Columnstore dizinleri belleğe sığması için gerekli değildir. Bu nedenle, yalnızca dizinleri boyutuna belgelenen en fazla genel veritabanı boyutu sınırıdır [SQL Database hizmet katmanlarına](sql-database-service-tiers.md) makalesi.
+Columnstore dizinleri belleğe sığması için gerekli değildir. Bu nedenle, yalnızca dizinleri boyutuna belgelenen en fazla genel veritabanı boyutu sınırıdır [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) makaleleri.
 
 Kümelenmiş columnstore dizinleri kullandığınızda, sütunlu sıkıştırma temel tablo depolaması için kullanılır. Bu sıkıştırma depolama ayak izini veritabanında daha fazla veri sığabilecek anlamına gelir, verilerinizin kullanıcı önemli ölçüde azaltabilir. Sıkıştırma daha fazla ile artırılabilir [sütunlu arşiv sıkıştırma](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Elde edebilirsiniz sıkıştırma veri yapısına bağlıdır, ancak 10 kez sıkıştırma seyrek değil.
 
@@ -223,8 +223,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Aşağıdaki iki arasındaki tek fark *saklı yordamlar* olan bellek için iyileştirilmiş tablolar sürümlerini ilk yordamı kullanır, ikinci yordam normal disk üzerinde tabloları kullanır:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 Bu bölümde, kullanışlı kullanılması hakkında bilgi **ostress.exe** gerilimli düzeylerinde iki saklı yordamı yürütmek için yardımcı programı. Tamamlamak iki stres çalıştırmaları için gereken süreyi karşılaştırabilirsiniz.

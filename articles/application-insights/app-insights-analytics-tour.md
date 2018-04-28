@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application ınsights'ta Analytics turu
 [Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
@@ -33,7 +33,7 @@ Uygulamanızın analizi açmak [genel bakış dikey penceresinde](app-insights-d
 
 ![Portal.Azure.com açın, Application Insights kaynağınıza açın ve analizi'ı tıklatın.](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Ele](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): n satırları göster
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Ele](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): n satırları göster
 Kullanıcı işlemleri (web uygulamanız tarafından alınan genellikle HTTP isteklerini) oturum veri noktaları denilen bir tabloda depolanır `requests`. Her satır, uygulamanıza Application Insights SDK'sı alınan telemetri bir veri noktasıdır.
 
 Tablonun birkaç örnek satırları inceleyerek başlayalım:
@@ -68,7 +68,7 @@ Birden çok Application Insights uygulamalardan veri birleştirmek istiyorsanız
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Üst](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) ve [sıralama](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Üst](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) ve [sıralama](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` hızlı bir örnek bir sonuç almak kullanışlıdır ancak belirli bir sırada satırları tablodan gösterir. Sıralı bir görünüm elde etmek için kullanın `top` (için bir örnek) veya `sort` (üzerinden tüm tablo).
 
 Belirli bir sütuna göre sıralanmış ilk n satırları göster:
@@ -94,7 +94,7 @@ Sonuç aynı kalır, ancak biraz daha yavaş çalışır. (Ayrıca yazabilirsini
 
 Sütun üstbilgileri Tablo görünümünde ayrıca ekranında sonuçları sıralamak için kullanılabilir. Ancak, kullandıysanız Kuşkusuz `take` veya `top` hemen almak için sütun başlığına tıklayarak bir tablonun parçası sadece alınan kayıt yeniden sıralamak.
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Burada](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): bir koşula göre filtreleme
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Burada](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): bir koşula göre filtreleme
 
 Belirli Sonuç kodu döndürdü yalnızca istekleri görelim:
 
@@ -173,7 +173,7 @@ Diğer örnekler:
 [Tarihler ve saatlere başvuru](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Proje](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): sütunları işlem seçin ve yeniden adlandırma
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Proje](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): sütunları işlem seçin ve yeniden adlandırma
 Kullanım [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) yalnızca istediğiniz sütunları seçmek için:
 
 ```AIQL
@@ -207,7 +207,7 @@ Sütunları yeniden adlandırın ve yenilerini tanımlayın:
 İfadeleri, normal işleçleri içerebilir (`+`, `-`,...), ve bir dizi kullanışlı işlevi yoktur.
 
 ## <a name="extend"></a>Genişletme
-Yalnızca var olanları sütun eklemek istiyorsanız, kullanmak [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+Yalnızca var olanları sütun eklemek istiyorsanız, kullanmak [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -216,7 +216,7 @@ Yalnızca var olanları sütun eklemek istiyorsanız, kullanmak [ `extend` ](htt
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Kullanarak [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) daha az ayrıntılıdır [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) var olan tüm sütunları tutmak istiyorsanız.
+Kullanarak [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) daha az ayrıntılıdır [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) var olan tüm sütunları tutmak istiyorsanız.
 
 ### <a name="convert-to-local-time"></a>Yerel saate dönüştürme
 
@@ -229,8 +229,7 @@ Zaman damgaları her zaman UTC biçimindedir. Bu nedenle BİZE Pasifik Yakası o
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Özetlemek](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): toplam satır grupları
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): toplam satır grupları
 `Summarize` Belirtilen bir geçerlidir *toplama işlevi* satır grupları üzerinden.
 
 Örneğin, web uygulamanız için bir istek yanıt süresini alanında bildirilir `duration`. Tüm istekleri için ortalama yanıt süresi görelim:
@@ -268,7 +267,7 @@ ItemCount birleşimi, bu nedenle özgün olay sayısı için iyi bir gösterge s
 
 Ayrıca bir `count()` toplama (ve sayısı işlemi) durumlarda, gerçekten istediğiniz bir grup satır sayısı.
 
-Bir dizi var. [toplama işlevleri](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+Bir dizi var. [toplama işlevleri](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## <a name="charting-the-results"></a>Sonuçları grafik
 ```AIQL
@@ -409,7 +408,7 @@ Son satırı datetime olarak dönüştürme için gereklidir. Şu anda yalnızca
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Yüzdebirlik değeri](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Yüzdebirlik değeri](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 Hangi süreleri aralıklarına oturumları farklı yüzdelerini kapak?
 
 Yukarıdaki sorguda kullanır, ancak son satırı değiştirin:
@@ -470,7 +469,7 @@ Başarısız bir yanıt döndürdü bir isteği ile ilgili özel durumlar bulmak
 Kullanmak iyi bir uygulamadır `project` ihtiyacımız birleştirme gerçekleştirmeden önce sütunları seçmek için.
 Aynı yan tümcelerinde biz zaman damgası sütunu yeniden adlandırın.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): bir sonucu bir değişkene atayın
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): bir sonucu bir değişkene atayın
 
 Kullanım `let` önceki ifade bölümlerini ayırmak için. Sonuçları aynıdır:
 
@@ -541,7 +540,7 @@ Uygulamanızı bağlanıyorsa [özel boyutları (Özellikler) ve özel ölçüml
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +553,6 @@ Bu değerleri Analytics ayıklamak için:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Özel boyut belirli bir tür olup olmadığını doğrulamak için:
@@ -565,6 +563,18 @@ Bu değerleri Analytics ayıklamak için:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Özel karakterler
+
+Özel karakterler veya dil anahtar sözcükleri adlarında tanımlayıcıları için bunları aracılığıyla erişmeniz gereken `['` ve `']` veya kullanarak `["` ve `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Tanımlayıcı adlandırma kuralları başvurusu](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Panolar
 Birlikte, en önemli grafikler ve tablolar getirmek için bir Panoda sonuçlarınızı sabitleyebilirsiniz.

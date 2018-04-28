@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Power BI Çalışma Alanı Koleksiyonları'nı kullanmaya başlama"
-description: "Power BI Çalışma Alanı Koleksiyonları, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir."
+title: Microsoft Power BI Çalışma Alanı Koleksiyonları'nı kullanmaya başlama
+description: Power BI Çalışma Alanı Koleksiyonları, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI Çalışma Alanı Koleksiyonları'nı kullanmaya başlama
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 Şimdi Azure portalını kullanarak **Çalışma Alanı Koleksiyonu** oluşturma adımlarını inceleyelim.
 
-1. **Azure portalını** açın ve oturum açın: [http://portal.azure.com](http://portal.azure.com).
+1. **Azure portalı** açıp oturum açın: [http://portal.azure.com](http://portal.azure.com).
 2. Üst panelde **+ Yeni**'yi seçin.
    
    ![Azure portalındaki +Yeni seçeneği](media/get-started/create-workspace-1.png)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk şifrelemesi ile ilgili SSS
 
@@ -34,7 +34,7 @@ Azure Disk şifrelemesi GA Azure Resource Manager şablonları, Azure PowerShell
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Nasıl Azure Disk şifrelemesi maliyeti nedir?
 
-VM diskleri Azure Disk şifrelemesi ile şifrelemek için ücretsizdir.
+VM diskleri Azure Disk şifrelemesi ile şifrelemek için herhangi bir ücret alınmaz ancak Azure anahtar kasası kullanımı ile ilişkilendirilen ücretler vardır. Azure anahtar kasası hakkında daha fazla bilgi için maliyetleri başvurmak [anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) sayfası.
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Hangi sanal makine katmanları Azure Disk şifrelemesi destekliyor mu?
 
@@ -68,7 +68,7 @@ Azure Disk şifrelemesi aşağıdaki Linux sunucu dağıtımları ve sürümleri
 | SLES | Öncelik: 11-SP4 | Veri diski |
 | SLES | 11 SP4 | Veri diski |
 
-*__ADE RHEL için veri diski için desteklenir. Geçerli ADE uygulaması için işletim sistemi diski çalışır ancak şu anda ortaklaşa desteklenmiyor. Hem Microsoft hem de Red Hat ortaklaşa desteklenen bir çözüm üzerinde çalışmaktadır. Bu arada, Linux işletim sistemi disk şifrelemesi ADE Teknik Başvurusu yapabilir [burada](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE RHEL için veri diski için desteklenir. Geçerli ADE uygulaması için işletim sistemi diski çalışır ancak şu anda ortaklaşa desteklenmiyor. Hem Microsoft hem de Red Hat ortaklaşa desteklenen bir çözüm üzerinde çalışmaktadır. Bu arada, Linux işletim sistemi disk şifrelemesi ADE Teknik Başvurusu yapabilir [burada](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Şifrelemesi'ni kullanarak nasıl başlayabilir miyim?
 

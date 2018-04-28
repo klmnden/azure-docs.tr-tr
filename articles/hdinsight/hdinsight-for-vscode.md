@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 0074486d3d7fb58bc6e3adcbe4245ec53e7e4cde
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure Hdınsight araçları Visual Studio kodunu kullanın
 
@@ -29,7 +29,7 @@ Azure Hdınsight araçları Visual Studio kodunu (VS Code) oluşturun ve Hive to
 
 Aşağıdaki öğeler, bu makaledeki adımları tamamlamak için gereklidir:
 
-- Bir Hdınsight kümesi.  Bir küme oluşturmak için bkz: [Hdınsight kullanmaya başlama]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Bir Hdınsight kümesi. Bir küme oluşturmak için bkz: [Hdınsight kullanmaya başlama]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono, yalnızca Linux ve macOS için gereklidir.
 
@@ -100,7 +100,7 @@ Komut dosyaları VS koddan Hdınsight kümelerine gönderebilir önce Azure hesa
     - PySpark toplu iş komut gönderme
     - Küme yapılandırmaları
 
-**Bir küme bağlamak için**
+<a id="linkcluster"></a>**Bir küme bağlamak için**
 
 Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca güvenlik hadoop kümesi etki alanı kullanıcı adı kullanarak bağlantı (örneğin: user1@contoso.com).
 1. Komut paletini seçerek açmak **CTRL + SHIFT + P**ve ardından girin **Hdınsight: küme bağlantı**.
@@ -112,7 +112,7 @@ Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca
    ![bağlantı küme iletişim](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlı kullanıcı adı ve parola kullanın. 
+   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlı kullanıcı adı ve parola kullanılır. 
    
 3. Komutunu kullanarak bir bağlı küme görebilirsiniz **listesi küme**. Şimdi, bir komut dosyası bu bağlantılı kümeye gönderebilirsiniz.
 
@@ -275,8 +275,50 @@ VS Code'da için Hdınsight araçları Ayrıca, Spark kümeleri etkileşimli PyS
 
 Python işi gönderdikten sonra gönderme günlükleri görünür **çıkış** VS Code penceresinde. **Spark UI URL** ve **Yarn UI URL** da gösterilir. URL iş durumunu izlemek için bir web tarayıcısı açabilirsiniz.
 
-
+>[!NOTE]
+>PySpark3 (HDI 2.2 spark kümesi olan) Livy içinde 0.4 artık desteklenmiyor. Yalnızca "PySpark" python için desteklenir. Spark 2.2 gönderme sorunu başarısız python3 ile denir.
    
+## <a name="livy-configuration"></a>Livy yapılandırma
+Livy yapılandırma desteklenmez, çalışma alanı klasöründe proje ayarları ayarlanabilir. Daha fazla ayrıntı görmek [Livy Benioku](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ Proje ayarları:
+
+    ![Livy yapılandırma](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ Desteklenen Livy yapılandırmalar:   
+
+    **POST /batches**   
+    İstek Gövdesi
+
+    | ad | açıklama | type | 
+    | :- | :- | :- | 
+    | dosya | Yürütülecek uygulamayı içeren dosya | yolu (gerekli) | 
+    | proxyUser | İş çalışırken kimliğine bürünmek için kullanıcı | string | 
+    | className | Uygulama Java/Spark ana sınıfı | string |
+    | bağımsız değişken | Uygulama için komut satırı bağımsız değişkenleri | dize listesi | 
+    | Kavanoz | Bu oturumda kullanılacak jar'lar | Dize listesi | 
+    | pyFiles | Bu oturumda kullanılacak Python dosyaları | Dize listesi |
+    | dosya görüntüle | Bu oturumda kullanılacak dosyaları | Dize listesi |
+    | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | string |
+    | driverCores | Sürücü işlemi için kullanılacak çekirdek sayısı | Int |
+    | executorMemory | Yürütücü işlem başına kullanmak için bellek miktarı | string |
+    | executorCores | İçin her Yürütücü kullanmak için çekirdek sayısı | Int |
+    | numExecutors | Bu oturum için başlatmak için yürütücüler sayısı | Int |
+    | Arşivler | Bu oturumda kullanılacak arşivler | Dize listesi |
+    | Sırası | YARN kuyruğuna adını gönderildi | string |
+    | ad | Bu oturumun adı | string |
+    | conf | Spark yapılandırma özellikleri | Anahtar haritasını val = |
+
+    Yanıt gövdesi   
+    Oluşturulan toplu iş nesnesi.
+
+    | ad | açıklama | type | 
+    | :- | :- | :- | 
+    | id | Oturum kimliği | Int | 
+    | AppID | Bu oturumun uygulama kimliği |  Dize |
+    | appInfo | Ayrıntılı uygulama bilgisi | Anahtar haritasını val = |
+    | Günlük | Günlük satırları | dize listesi |
+    | durum |   Toplu işlem durumu | string |
 
 
 ## <a name="additional-features"></a>Ek Özellikler

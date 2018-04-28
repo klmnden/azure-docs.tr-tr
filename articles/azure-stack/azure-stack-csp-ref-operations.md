@@ -1,11 +1,11 @@
 ---
-title: "Kiracılar kullanımı Azure yığınında izleme için Kaydet | Microsoft Docs"
-description: "Kiracı kayıtlar ve Kiracı kullanım Azure yığınında nasıl izleneceğini yönetmek için kullanılan işlem hakkında ayrıntılar."
+title: Kiracılar kullanımı Azure yığınında izleme için Kaydet | Microsoft Docs
+description: Kiracı kayıtlar ve Kiracı kullanım Azure yığınında nasıl izleneceğini yönetmek için kullanılan işlem hakkında ayrıntılar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Kiracı kayıt Azure yığınında yönetme
 
@@ -39,7 +39,7 @@ Yalnızca bir Azure aboneliği bir kiracı ile ilişkili olabileceğini unutmay�
 |---                         | --- |
 | registrationSubscriptionID | İlk kaydı için kullanılan Azure aboneliği. |
 | customerSubscriptionID     | Kaydedilecek müşteriye ait Azure aboneliği (Azure yığını değil). Oluşturulmalıdır bulut hizmeti sağlayıcısı (CSP) teklifte. Uygulamada, bu iş ortağı Merkezi'nden anlamına gelir. Bir müşteri birden fazla Kiracı varsa, bu abonelik Azure yığın halinde günlüğe kaydetmek için kullanılan Kiracı oluşturulmuş olması gerekir. |
-| resourceGroup              | Kaydınızı depolandığı Azure kaynak grubunda. |
+| kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda. |
 | registrationName           | Azure yığın kayıt adı. Azure'da depolanan nesne değildir. Genellikle form azurestack-Cloudıd Azure yığın dağıtımınızın bulut kimliği olduğu Cloudıd içinde addır. |
 
 > [!Note]  
@@ -47,7 +47,7 @@ Yalnızca bir Azure aboneliği bir kiracı ile ilişkili olabileceğini unutmay�
 
 ### <a name="powershell"></a>PowerShell
 
-Kayıt kaynağı güncelleştirmek için yeni AzureRmResource cmdlet'ini kullanın. Azure için oturum açma (`Login-AzureRMAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
+Kayıt kaynağı güncelleştirmek için yeni AzureRmResource cmdlet'ini kullanın. Azure için oturum açma (`Connect-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -73,12 +73,12 @@ Kayıt için eklenene tüm kiracılar listesini alın.
 | Parametre                  | Açıklama          |
 |---                         | ---                  |
 | registrationSubscriptionId | İlk kaydı için kullanılan Azure aboneliği.   |
-| resourceGroup              | Kaydınızı depolandığı Azure kaynak grubunda.    |
+| kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda.    |
 | registrationName           | Azure yığın kayıt adı. Azure'da depolanan nesne değildir. Genellikle biçiminde adıdır **azurestack**-***Cloudıd***, burada ***Cloudıd*** Azure yığın dağıtımınızın bulut kimliğidir.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Tüm kayıtlı kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kullanın. Azure için oturum açma (`Login-AzureRMAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
+Tüm kayıtlı kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kullanın. Azure için oturum açma (`Connect-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -123,7 +123,7 @@ Bir kayıt eklenmiş olan bir kiracı kaldırabilirsiniz. Kiracı hala kaynaklar
 | Parametre                  | Açıklama          |
 |---                         | ---                  |
 | registrationSubscriptionId | Kayıt için abonelik kimliği.   |
-| resourceGroup              | Kayıt için kaynak grubu.   |
+| kaynak grubu              | Kayıt için kaynak grubu.   |
 | registrationName           | Kayıt adı.  |
 | customerSubscriptionId     | Müşteri abonelik kimliği  |
 

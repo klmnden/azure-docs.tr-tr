@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Güvenlik Merkezi platformu geçiş ile ilgili SSS
 Erken Haziran 2017 toplamak ve verilerini depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başlamıştır. Daha fazla bilgi için bkz: [Azure Güvenlik Merkezi platformu geçiş](security-center-platform-migration.md). Bu SSS platform geçiş ile ilgili sorular yanıtlanmaktadır.
@@ -122,8 +122,6 @@ Varolan bir günlük analizi çalışma alanını seçmek için:
    >
 
    - Seçin **iptal** işlemi iptal etmek için.
-
-      ![İzlenen VM'ler yeniden yapılandırın][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Ne Microsoft İzleme Aracısı VM üzerinde bir uzantısı olarak zaten yüklendi mi?
 Güvenlik Merkezi, kullanıcı çalışma alanları var olan bağlantılara kılmaz. Güvenlik Merkezi güvenlik verilerini VM zaten bağlı çalışma alanında depolar. Güvenlik Merkezi Güvenlik Merkezi kullanımını desteklemek için VM Azure kaynak Kimliğini içerecek şekilde genişletme sürümü güncelleştirir.
@@ -248,4 +246,3 @@ Güvenlik Merkezi platformu geçiş hakkında daha fazla bilgi için bkz:
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

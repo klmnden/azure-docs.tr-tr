@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning IOT kenar modül olarak dağıtma - Önizleme
 
@@ -25,7 +25,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir Azure Machine Learning modülü oluşturun
 > * Azure kapsayıcı kayıt defterine modülü kapsayıcı bildirme
 > * Bir Azure Machine Learning modülü IOT kenar Cihazınızı dağıtma
-> * Oluşturulan görünüm verileri
+> * Oluşturulan verileri görüntüleme
 
 Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tarafından oluşturulan ortam verilerini okur ve iletileri anormal olarak veya etiketler. 
 
@@ -33,8 +33,8 @@ Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tar
 
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
 * IOT kenar cihazın bağlandığı IOT hub'ın IOT Hub bağlantı dizesi.
-* Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
-* Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+* Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
+* Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
 
 Azure Machine Learning modülü ARM işlemcileri desteklemez. 
 
@@ -66,9 +66,9 @@ Kapsayıcı görüntünüzü başarıyla oluşturuldu ve makine öğrenme ortam�
 6. Seçin **machinelearningmodule**
 7. Artık kapsayıcının tam görüntü yolu vardır. Bu görüntü yolu bir sonraki bölüm için not edin. Aşağıdaki gibi görünmelidir: **< registry_name >.azureacr.io/machinelearningmodule:1**
 
-## <a name="add-registry-credentials-to-your-edge-device"></a>Kayıt defteri kimlik bilgilerini kenar Cihazınızı ekleyin
+## <a name="add-registry-credentials-to-your-edge-device"></a>Kayıt defteri kimlik bilgilerini Edge cihazınıza ekleme
 
-Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı kayıt için kimlik bilgilerini ekleyin. Bu komut, kapsayıcı çıkarmak için çalışma zamanı erişim sağlar.
+Kayıt defterinizin kimlik bilgilerini, Edge cihazınızı çalıştırdığınız bilgisayarın Edge çalışma zamanına ekleyin. Bu komut, kapsayıcı çıkarmak için çalışma zamanı erişim sağlar.
 
 Linux:
    ```cmd
@@ -86,17 +86,17 @@ Windows:
 1. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
 1. **Modül ayarla**’yı seçin.
 1. Daha önce IOT kenar Cihazınızı tempSensor modülü dağıttıktan sonra otomatik olarak doldurma olabilir. Modülleri listenizde değilse ekleyin.
-    1. Seçin **IOT kenar Modül Ekle**.
-    2. İçinde **adı** alanına, `tempSensor`.
-    3. İçinde **görüntü URI** alanına, `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+    1. **IoT Edge Modülü Ekle**'yi seçin.
+    2. **Ad** alanına `tempSensor` girin.
+    3. **Görüntü URI'si** alanına `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` girin.
     4. **Kaydet**’i seçin.
 1. Makine öğrenimi oluşturduğunuz modül ekleyin.
-    1. Seçin **IOT kenar Modül Ekle**.
+    1. **IoT Edge Modülü Ekle**'yi seçin.
     1. İçinde **adı** alanında, girin `machinelearningmodule`
     1. İçinde **görüntü** alan, görüntü adresinizi girin; örneğin `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. **Kaydet**’i seçin.
 1. **Modül Ekle** adımına dönüp **İleri**’yi seçin.
-1. İçinde **belirtin yollar** adım, JSON altındaki metin kutusuna Kopyala. İlk yol, tüm Azure Machine Learning modüllerinin kullanan uç nokta olduğu sıcaklık algılayıcısı iletilerden "amlInput" uç noktası aracılığıyla makine öğrenme modülü taşımaları. İkinci yol makine öğrenme modülü iletilerden IOT Hub'ına taşımaları. Bu rotadaki '' amlOutput'' veri çıkışı için tüm Azure Machine Learning modülleri kullanan uç nokta ve '' upstream$ '' IOT hub'ı gösterir. 
+1. **Rota Belirtme** adımında, aşağıdaki JSON’u metin kutusuna kopyalayın. İlk yol, tüm Azure Machine Learning modüllerinin kullanan uç nokta olduğu sıcaklık algılayıcısı iletilerden "amlInput" uç noktası aracılığıyla makine öğrenme modülü taşımaları. İkinci yol makine öğrenme modülü iletilerden IOT Hub'ına taşımaları. Bu rotadaki '' amlOutput'' veri çıkışı için tüm Azure Machine Learning modülleri kullanan uç nokta ve '' upstream$ '' IOT hub'ı gösterir. 
 
     ```json
     {
@@ -111,7 +111,7 @@ Windows:
 1. **Şablonu Gözden Geçirin** adımında **Gönder**’i seçin. 
 1. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin.  Yeni görmelisiniz **machinelearningmodule** ile birlikte çalışan **tempSensor** modülü ve IOT kenar çalışma zamanı modülleri.
 
-## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
+## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
 IOT kenar Cihazınızı kullanarak gönderen cihaz bulut iletilerini görüntüleyebilirsiniz [IOT hub'ı explorer](https://github.com/azure/iothub-explorer) veya Visual Studio Code için Azure IOT Araç Seti uzantısı. 
 

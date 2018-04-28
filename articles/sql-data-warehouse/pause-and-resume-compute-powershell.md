@@ -1,42 +1,38 @@
 ---
 title: "Hızlı Başlangıç: Azure SQL Data Warehouse'da - PowerShell duraklatma ve sürdürme işlem | Microsoft Docs"
-description: "İşlem maliyetleri kaydetmek Azure SQL Data Warehouse için Duraklat PowerShell görevlerini. Veri ambarı kullanılmaya hazır olduğunuzda sürdürebilirsiniz."
+description: Duraklatma işlem maliyetleri kaydetmek için Azure SQL Data warehouse'da PowerShell kullanın. Veri ambarı kullanılmaya hazır olduğunuzda sürdürebilirsiniz.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/25/2018
-ms.author: barbkess
-ms.openlocfilehash: b1f5c10fe294b44a9853f16e1866b77cf74a1479
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: ef341a1528bf759461abfb7cfc6d878fd8a44cb4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Hızlı Başlangıç: PowerShell'de Azure SQL Data Warehouse için duraklatma ve sürdürme işlem
-Bir Azure SQL veri ambarı'nın maliyet tasarrufu sağlamak için işlem duraklatmak için PowerShell kullanın. [İşlem devam](sql-data-warehouse-manage-compute-overview.md) veri ambarı kullanılmaya hazır olduğunuzda.
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Hızlı Başlangıç: PowerShell ile Azure SQL Data Warehouse, duraklatma ve sürdürme işlem
+Duraklatma işlem maliyetleri kaydetmek için Azure SQL Data warehouse'da PowerShell kullanın. [İşlem devam](sql-data-warehouse-manage-compute-overview.md) veri ambarı kullanılmaya hazır olduğunuzda.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğreticide Azure PowerShell modülü sürümü 5.1.1 gerektirir veya sonraki bir sürümü. Çalıştırma ` Get-Module -ListAvailable AzureRM` sürümünü bulmak için şu anda yok. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps.md). 
+Bu öğreticide Azure PowerShell modülü sürümü 5.1.1 gerektirir veya sonraki bir sürümü. Çalıştırma ` Get-Module -ListAvailable AzureRM` sürümünü bulmak için şu anda yok. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu Hızlı Başlangıç, duraklatma ve sürdürme SQL data warehouse zaten olduğunu varsayar. Bir oluşturmanız gerekiyorsa, kullanabileceğiniz [oluşturma ve Connect - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**. 
+Bu Hızlı Başlangıç, duraklatma ve sürdürme SQL data warehouse zaten olduğunu varsayar. Bir oluşturmanız gerekiyorsa, kullanabileceğiniz [oluşturma ve Connect - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-[Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) komutunu kullanarak Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) komutunu kullanarak Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Kullanmakta olduğunuz abonelik görmek için çalıştırın [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
@@ -53,7 +49,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 ## <a name="look-up-data-warehouse-information"></a>Veri ambarı bilgileri Ara
 
-Veritabanı adı, sunucu adını ve kaynak grubu, duraklatma ve sürdürme planladığınız veri ambarı için bulun. 
+Veritabanı adı, sunucu adını ve kaynak grubu, duraklatma ve sürdürme planladığınız veri ambarı için bulun.
 
 Veri ambarınız için konum bilgilerini bulmak için aşağıdaki adımları izleyin.
 
@@ -63,12 +59,12 @@ Veri ambarınız için konum bilgilerini bulmak için aşağıdaki adımları iz
 
     ![Sunucu adı ve kaynak grubu](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Veritabanı adı veri ambarı adını yazın. Ayrıca sunucu adını ve kaynak grubunu not alın. , 
+4. Veritabanı adı veri ambarı adını yazın. Ayrıca sunucu adını ve kaynak grubunu not alın. ,
 5.  Bu duraklatma ve sürdürme komutlarını.
 6. Sunucunuz foo.database.windows.net ise, PowerShell cmdlet'leri sunucu adı olarak yalnızca ilk bölümü kullanın. Önceki görüntüde newserver 20171113.database.windows.net tam sunucu adıdır. Sonek bırakın ve kullanmak **newserver 20171113** PowerShell cmdlet sunucu adı olarak.
 
 ## <a name="pause-compute"></a>Duraklatma işlem
-Maliyet tasarrufu sağlamak duraklatma ve sürdürme işlem kaynakları isteğe bağlı. Örneğin, gece sırasında ve hafta sonları veritabanı kullanmıyorsanız, bu saatlerde duraklatma ve gün boyunca sürdürün. Veritabanı durdurulduğunda ücret ödemeden işlem kaynakları yoktur. Ancak, depolama için sizden ücret devam. 
+Maliyet tasarrufu sağlamak duraklatma ve sürdürme işlem kaynakları isteğe bağlı. Örneğin, gece sırasında ve hafta sonları veritabanı kullanmıyorsanız, bu saatlerde duraklatma ve gün boyunca sürdürün. Veritabanı durdurulduğunda ücret ödemeden işlem kaynakları yoktur. Ancak, depolama için sizden ücret devam.
 
 Bir veritabanı duraklatmak için kullanmak [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet'i. Aşağıdaki örnek adlı bir veri ambarı duraklatır **mySampleDataWarehouse** adlı bir sunucuda barındırılan **newserver 20171113**. Adlı bir Azure kaynak grubu içinde sunucusudur **myResourceGroup**.
 
@@ -107,10 +103,10 @@ $resultDatabase
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Veri ambarı birimleri ve veri ambarınızda depolanan veriler için ücretlendirilirsiniz. Bu işlem ve depolama alanı kaynakları ayrı ayrı faturalandırılır. 
+Veri ambarı birimleri ve veri ambarınızda depolanan veriler için ücretlendirilirsiniz. Bu işlem ve depolama alanı kaynakları ayrı ayrı faturalandırılır.
 
 - Veri deposunda tutmak istiyorsanız, işlem duraklatın.
-- Gelecekteki ücretlendirmeleri kaldırmak istiyorsanız, veri ambarını silebilirsiniz. 
+- Gelecekteki ücretlendirmeleri kaldırmak istiyorsanız, veri ambarını silebilirsiniz.
 
 Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD'de ayrıcalıklı erişimi güvenli hale getirme | Microsoft Docs"
-description: "Azure, Azure Active Directory ve Microsoft Online Services ayrıcalıklı erişim güvenliği yaklaşımları açıklayan bir konu."
+title: Azure AD'de ayrıcalıklı erişimi güvenli hale getirme | Microsoft Docs
+description: Azure, Azure Active Directory ve Microsoft Online Services ayrıcalıklı erişim güvenliği yaklaşımları açıklayan bir konu.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD'de ayrıcalıklı erişimi güvenli hale getirme
 Ayrıcalıklı erişimi güvenli hale getirme iş varlıklar modern bir kuruluşta korunmasına yardımcı olmak için bir kritik ilk adımdır. Ayrıcalıklı hesapları yönetmek ve BT sistemleri yöneten hesaplarıdır. Siber saldırganların bir kuruluşun veriler ve sistemlerle erişmek için bu hesaplar hedef. Ayrıcalıklı erişim güvenliğini sağlamak için hesapları ve kötü niyetli bir kullanıcı için maruz kalma riskini sistemlerden yalıtmak.
@@ -63,7 +63,7 @@ Ayrıcalıkları Etkilenme süresini azaltmak ve bunların kullanılması, gör�
 Koşullu erişim denetimi ile bir kullanıcı bir uygulamaya erişimine izin vermeden önce kimlik doğrulaması sırasında seçtiğiniz belirli koşullar Azure Active Directory denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.
 
 ## <a name="related-articles"></a>İlgili makaleler
-* Etkinleştirme [Azure çok faktörlü kimlik doğrulaması](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+* Etkinleştirme [Azure çok faktörlü kimlik doğrulaması](../authentication/howto-mfa-getstarted.md)
 * Etkinleştirme [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Etkinleştirme [Azure AD kimlik koruması](../active-directory-identityprotection.md)
 * Etkinleştirme [koşullu erişim denetimleri](../active-directory-conditional-access-azure-portal.md)

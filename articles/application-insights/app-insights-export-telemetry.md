@@ -1,8 +1,8 @@
 ---
-title: "Application Insights telemetrisini sürekli verilmesini | Microsoft Docs"
-description: "Microsoft Azure depolama için tanılama ve kullanım verilerini dışa aktarın ve buradan indirin."
+title: Application Insights telemetrisini sürekli verilmesini | Microsoft Docs
+description: Microsoft Azure depolama için tanılama ve kullanım verilerini dışa aktarın ve buradan indirin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights telemetrisini dışarı aktarma
 Telemetrinize standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özelleştirilmiş bir şekilde işlemek? Sürekli verme bunun için idealdir. Application Insights portalında görmek olayları JSON biçiminde Microsoft Azure depolama alanına aktarılabilir. Buradan, verilerinizi indirin ve size kod yazma işlemesi gerekir.  
@@ -31,10 +31,11 @@ Sürekli verme ayarlamadan önce göz önünde bulundurabilirsiniz bazı alterna
 * [Analytics](app-insights-analytics.md) telemetri için güçlü sorgu dili sağlar. Ayrıca sonuçlarını dışarı aktarabilirsiniz.
 * İçin arıyorsanız [Power BI verilerinizi keşfedin](app-insights-export-power-bi.md), bunu sürekli verme kullanmadan yapabilirsiniz.
 * [Veri erişim REST API](https://dev.applicationinsights.io/) siz telemetrinize programlı erişim sağlar.
+* Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli verme](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Sürekli verme verilerinizi (burada, kalarak için istediğiniz sürece) depolama birimine kopyaladıktan sonra her zamanki için Application Insights'ta hala kullanılabilir [saklama dönemi](app-insights-data-retention-privacy.md).
 
-## <a name="setup"></a>Sürekli bir dışarı aktarma oluşturma
+## <a name="setup"></a> Sürekli bir dışarı aktarma oluşturma
 1. Application Insights kaynağı uygulamanız için sürekli verme açın ve seçin **Ekle**:
 
     ![Aşağı kaydırın ve sürekli ver](./media/app-insights-export-telemetry/01-export.png)
@@ -71,7 +72,7 @@ Dışarı aktarma kalıcı olarak durdurmak için dosyayı silin. Bunun yapılma
 ### <a name="cant-add-or-change-an-export"></a>Ekleyemez veya verme değiştirmek mi?
 * Eklemek veya dışarı aktarma değiştirmek için sahibi, katkıda bulunan veya uygulama Öngörüler katkıda erişim haklarına sahip olmanız gerekir. [Rolleri hakkında bilgi edinin][roles].
 
-## <a name="analyze"></a>Hangi olayların alıyorum?
+## <a name="analyze"></a> Hangi olayların alıyorum?
 İstemci IP adresinden biz hesaplamak konum verileri eklediğimiz dışarı aktarılan verileri uygulamanızdan aldığımız ham telemetri olmasıdır.
 
 Tarafından atılan veri [örnekleme](app-insights-sampling.md) dışarı aktarılan verileri dahil edilmez.
@@ -85,7 +86,7 @@ Veriler ayrıca herhangi sonuçlarını içerir [kullanılabilirlik web testleri
 >
 >
 
-## <a name="get"></a>Verileri inceleyin.
+## <a name="get"></a> Verileri inceleyin.
 Doğrudan portal içinde depolama inceleyebilirsiniz. Tıklatın **Gözat**, depolama hesabınızı seçin ve ardından açın **kapsayıcıları**.
 
 Visual Studio'da Azure depolama incelemek için açık **Görünüm**, **Cloud Explorer**. (Bu komutu yoksa, Azure SDK'yı yüklemeniz gerekir: açık **yeni proje** iletişim kutusunda, Visual C# ' ı genişletin / Bulut ve **.NET için Microsoft Azure SDK almak**.)
@@ -100,19 +101,19 @@ Yolu şöyledir:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Burada
+Konum
 
-* `blobCreationTimeUtc`depolama alanı hazırlama blob dahili olarak oluşturulduğu süresi
-* `blobDeliveryTimeUtc`blob verme hedef depolama için ne zaman kopyalanır zamanı
+* `blobCreationTimeUtc` depolama alanı hazırlama blob dahili olarak oluşturulduğu süresi
+* `blobDeliveryTimeUtc` blob verme hedef depolama için ne zaman kopyalanır zamanı
 
-## <a name="format"></a>Veri biçimi
+## <a name="format"></a> Veri biçimi
 * Her bir blob birden çok içeren bir metin dosyasıdır ' \n'-separated satır. Bir süre kabaca yarım bir dakika boyunca işlenen telemetri içerir.
 * Her satır bir istek veya sayfa görünümü gibi bir telemetri veri noktasını temsil eder.
 * Her satır bir biçimlendirilmemiş bir JSON dosyasıdır. Yaslanın ve yerinde stare yapmak istiyorsanız, Visual Studio'da açın ve seçin, Gelişmiş biçim dosyasını düzenleyin:
 
 ![Uygun bir araçla telemetri görüntüleyin](./media/app-insights-export-telemetry/06-json.png)
 
-Süreler olduğunuz nerede 10 000 işaretlerini çizgilerine içinde 1ms =. Örneğin, bu değerleri tarayıcısından alması 3ms ve 1.8s sayfasını tarayıcıda işlemek için bir istek göndermesini 1ms süresini göster:
+Süreler olduğunuz nerede 10 000 işaretlerini çizgilerine içinde = 1 ms. Örneğin, bu değerleri 1 süresini gösterir ve 1.8 almak için tarayıcıdan, 3 ms bir istek göndermek için ms s sayfasını tarayıcıda işlemek için:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},

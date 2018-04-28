@@ -1,8 +1,8 @@
 ---
-title: "Betik eylemi - Azure hdınsight'ta Jupyter ile yükleme Python paketlerini | Microsoft Docs"
-description: "Dış python paketlerini kullanmak için adım adım yönergeler betik eylemi kullanarak Hdınsight Spark kümeleri ile Jupyter not defterleri kullanılabilir yapılandırmak."
+title: Betik eylemi - Azure hdınsight'ta Jupyter ile yükleme Python paketlerini | Microsoft Docs
+description: Dış python paketlerini kullanmak için adım adım yönergeler betik eylemi kullanarak Hdınsight Spark kümeleri ile Jupyter not defterleri kullanılabilir yapılandırmak.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: cf4721e57d846db299ec6b8cdb7dc8cceb9d638f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4d9d1e0aaf6a1c0155f9ab74a5e63302635a0c11
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Hdınsight'ta Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek için betik eylemi kullanın
 > [!div class="op_single_selector"]
@@ -55,7 +53,7 @@ Aşağıdakilere sahip olmanız gerekir:
 
 1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
 
-2. Spark kümesi dikey penceresinden tıklatın **betik eylemleri** sol bölmeden. Baş düğümler ve çalışan düğümleri TensorFlow yükler özel eylemini çalıştırın. Bash betik başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh üzerinde belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Spark kümesi dikey penceresinden tıklatın **betik eylemleri** sol bölmeden. Baş düğümler ve çalışan düğümleri TensorFlow yükler özel eylemini çalıştırın. Bash betik başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
    > Küme yüklemelerde iki python vardır. Spark konumunda bulunan Anaconda python yükleme kullanacağınız `/usr/bin/anaconda/bin`. Bu yükleme, özel eylemleri başvuru `/usr/bin/anaconda/bin/pip` ve `/usr/bin/anaconda/bin/conda`.

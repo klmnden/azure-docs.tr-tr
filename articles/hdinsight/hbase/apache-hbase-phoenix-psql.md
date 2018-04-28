@@ -1,27 +1,25 @@
 ---
-title: "Toplu psql - Azure Hdınsight kullanarak Apache Phoenix yükleme | Microsoft Docs"
-description: "Toplu Yükleme veri Phoenix tablolara yüklemek için psql Aracı'nı kullanın."
+title: Toplu psql - Azure Hdınsight kullanarak Apache Phoenix yükleme | Microsoft Docs
+description: Toplu Yükleme veri Phoenix tablolara yüklemek için psql Aracı'nı kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 0a623113ee9f3fe2c0f5f616ecd79b8311a8ffc1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2c192707c6cf8f84d2ca1c0307770cadd5cdb8bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="bulk-load-data-into-phoenix-using-psql"></a>Toplu Yükleme veri psql kullanarak Phoenix içine
+# <a name="bulk-load-data-into-phoenix-using-psql"></a>Psql kullanarak Phoenix’e toplu veri yükleme
 
 [Apache Phoenix](http://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı üzerinde oluşturulan bir açık kaynaklı [HBase](../hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları sağlar. Phoenix, kullanıcıların oluşturma, silme ve SQL tablolar, dizinler, görünümler ve dizileri ve upsert satır ayrı ayrı ve toplu alter etkinleştirmek için JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamaları oluşturmak için noSQL yerel derleme sorgular derlemek için MapReduce kullanmak yerine kullanır. Phoenix, verilerle birlikte bulunan kod yürütmek sunucu adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere birlikte işlemciler ekler. Bu istemci/sunucu veri aktarımını en aza indirir.  Phoenix Hdınsight'ta kullanarak verilerle çalışmak için ilk tablo oluşturma ve bunların içine veri yükleme.
 

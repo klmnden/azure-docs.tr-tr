@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs"
-description: "Bu belge, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery dağıtım planlayıcısı kullanım kılavuzudur."
+title: Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs
+description: Bu belge, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery dağıtım planlayıcısı kullanım kılavuzudur.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -9,11 +9,11 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-v Azure site kurtarma dağıtım Planlayıcısı
 
@@ -116,9 +116,9 @@ Araç bir zip klasöründe paketlenmiştir. Aynı araç hem VMware’den Azure�
 3.  .zip klasörünü ayıklayın.
 Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst klasördeki ASRDeploymentPlanner.exe dosyasıdır.
 
-Örnek: .zip dosyasını E:\ sürücüsüne kopyalayıp ayıklayın. E:\ASR Deployment Planner_v2.1.zip
+Örnek: .zip dosyasını E:\ sürücüsüne kopyalayıp ayıklayın. E:\ASR dağıtım Planner_v2.2.zip
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR dağıtım Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Dağıtım planlayıcısını en son sürüme güncelleştirme
 Dağıtım planlayıcısının önceki sürümüne sahipseniz şunlardan birini yapın:
@@ -133,7 +133,7 @@ Dağıtım planlayıcısının önceki sürümüne sahipseniz şunlardan birini 
   >Her yeni dağıtım planlayıcısı, .zip dosyasının toplu bir güncelleştirmesidir. En yeni dosyaları önceki klasöre kopyalamanız gerekmez. Yeni bir klasör oluşturup kullanabilirsiniz.
 
 ## <a name="version-history"></a>Sürüm geçmişi
-En son ASR Dağıtım Planlayıcısı aracı sürümü 2.1’dir.
+En son ASR dağıtım planlayıcısı aracı 2.2 sürümüdür.
 Her güncelleştirmede eklenen düzeltmeler için [ASR Dağıtım Planlayıcısı Sürüm Geçmişi](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) sayfasına bakın.
 
 

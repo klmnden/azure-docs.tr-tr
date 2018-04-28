@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Veri temelli iş diyagramı kullanarak hata ayıklama
 
@@ -76,11 +76,11 @@ Saat ve ölçüm değeri ayrıntılarını görmek için grafik üzerine gelin.
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Biz veri okuma dönmeden?
 
-*   **InputEventsSourcesBackloggedTotal** olay hub'ları ve Azure IOT Hub girdileri okumak kaç tane daha fazla ileti gereksinim söyler.
+*   **Biriktirme listesindeki olayların (toplam) giriş** olay hub'ları ve Azure IOT Hub girdileri okumak kaç tane daha fazla ileti gereksinim söyler. Bu sayı 0'dan büyük olduğunda, işinizi verileri, gelen kadar hızlı işleyemiyor anlamına gelir. Bu durumda akış birim sayısını artırın ve/veya işinizi paralel birkaç ölçeklendirin emin olmak gerekebilir. Bunun hakkında daha fazla bilgi görebilirsiniz [sorgu paralelleştirme sayfası](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Yardım alın
-Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Stream Analytics'e giriş](stream-analytics-introduction.md)

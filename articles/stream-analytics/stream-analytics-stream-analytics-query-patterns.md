@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler ortak Stream Analytics kullanım desenlerini için sorgu
+
 ## <a name="introduction"></a>Giriş
-Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu sorguları belgelenmiştir [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx) Kılavuzu. Bu makalede gerçek senaryolarını temel alarak, birçok ortak sorgu kalıpları çözümleri özetlenmektedir. Bu iş sürüyor ve düzenli olarak yeni desenlerle güncelleştirilmesi devam eder.
+Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Dil yapıları belgelenmiştir [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx) Kılavuzu. 
+
+Sorgu Tasarım olay verilerini bir giriş akışından başka bir çıkış veri deposuna taşımak için basit bir geçiş mantık hızlı. Veya TollApp örnek olduğu gibi çeşitli zaman pencereleri üzerinden toplamları hesaplamak için zengin desen eşleştirme ve zamana bağlı analizi yapabilirsiniz. Akış olaylarını birleştirmek ve olay değerleri zenginleştirmek için statik başvuru verileri karşı arama yapmak için birden çok girişi verileri birleştirebilirsiniz. Ayrıca, birden çok çıkış veri yazabilirsiniz.
+
+Bu makalede gerçek senaryolarını temel alarak, birçok ortak sorgu kalıpları çözümleri özetlenmektedir. Bu iş sürüyor ve düzenli olarak yeni desenlerle güncelleştirilmesi devam eder.
 
 ## <a name="query-example-convert-data-types"></a>Sorgu örnek: veri türlerini dönüştürme
 **Açıklama**: Giriş akışı üzerinde özelliklerin türleri tanımlayın.
@@ -359,8 +364,8 @@ GROUP BY
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
+| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
+| Honda |GHI 345 |2015-01-01T00:00:04.0000000Z |
 
 **Çıktı**:
 
@@ -463,7 +468,7 @@ GROUP BY
 
 **Giriş**:
 
-| t | değer |
+| T | değer |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -474,7 +479,7 @@ GROUP BY
 
 **Çıktı (ilk 10 satır)**:
 
-| windowend | lastevent.t | lastevent.value |
+| windowend | lastevent.t | lastevent.Value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Açıklama**: ilk sorgu `max_power_during_last_3_mins`, kullanan [hareketli penceresi](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) son 3 dakika içinde güç algılayıcı her cihaz için en büyük değeri bulmak için. İkinci sorguyu güç değeri en son penceresinde ilgili geçerli olayı için bulmak için ilk sorgu için birleştirilir. Ve daha sonra koşullar sağlanan aygıt için bir uyarı üretilir.
+**Açıklama**: ilk sorgu `max_power_during_last_3_mins`, kullanan [hareketli penceresi](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) son 3 dakika içinde güç algılayıcı her cihaz için en büyük değeri bulmak için. İkinci sorguyu güç değeri en son penceresinde ilgili geçerli olayı için bulmak için ilk sorgu için birleştirilir. Ve daha sonra koşullar sağlanan aygıt için bir uyarı üretilir.
 
 
 ## <a name="get-help"></a>Yardım alın

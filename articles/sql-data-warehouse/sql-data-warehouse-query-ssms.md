@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL veri ambarı - SSMS bağlanma | Microsoft Docs"
-description: "SQL Server Management Studio (SSMS) bağlanmak ve Azure SQL Data Warehouse sorgulamak için kullanın."
+title: Azure SQL veri ambarı - SSMS bağlanma | Microsoft Docs
+description: SQL Server Management Studio (SSMS) bağlanmak ve Azure SQL Data Warehouse sorgulamak için kullanın.
 services: sql-data-warehouse
-documentationcenter: 
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: f62f9d14cec0cc97989c79496453c2447f7c5f65
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) ile SQL Data Warehouse'a bağlanma
 > [!div class="op_single_selector"]
@@ -41,7 +36,7 @@ Bu öğreticiyi kullanmak için şunlar gerekir:
 * Tam SQL server adı. Bunu bulmak için bkz. [SQL Veri Ambarı'na bağlanma][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse'unuza bağlanma
-1. SSMS açın.
+1. SSMS’i açın.
 2. Nesne Gezgini'ni açın. Bunu yapmak için seçin **dosya** > **bağlanmak Nesne Gezgini**.
    
     ![SQL Server Nesne Gezgini][1]

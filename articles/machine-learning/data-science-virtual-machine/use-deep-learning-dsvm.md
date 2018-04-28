@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d59f34a276332fddcbdd093747a7d42a7ba21c13
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Sanal makine öğrenme derin kullanma
 
@@ -35,9 +35,12 @@ Framework tabanlı örnekleri ek olarak, bir dizi kapsamlı izlenecek yollar üz
 
 - [Ürün Görüntüleri içinde algılamak için uçtan uca çözümü oluşturmak için nasıl yapılır kılavuz](https://github.com/Azure/cortana-intelligence-product-detection-from-images): görüntü algılamadır bulun ve görüntüleri içindeki nesneleri sınıflandırmak bir teknik. Bu teknoloji büyük ödül pek çok gerçek hayatta iş alanlarında getirmek için olasılığı vardır. Örneğin, Perakendeciler, müşterinin hangi ürün rafı çekilen belirlemek için bu tekniği kullanabilirsiniz. Bu bilgiler sırayla depoları ürün envanterini yönetmenize yardımcı olur. 
 
+- [Varlık ayıklama PubMed özetleri adlı](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) yapılandırılmamış metinden Uyuşturucu adları veya Hastalık adları gibi adlandırılmış varlıklar çıkarmayı Bu öğreticide gösterilmiştir. 18 milyon PubMed özetleri üzerinde bir metin gövde katıştırma özel bir word eğitir, varlık ayıklama uzun kısa vadeli bellek (LSTM) yinelenen sinir ağı modelini oluşturmak için bu modeli kullanır ve modeli katıştırma etki alanına özgü Word'ün daha iyi performans gösterir olduğunu gösteren bir Genel word için varlık ayıklama katıştırma.
+
+- [Ses için öğrenme derin](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Bu öğretici, üzerinde ses olay algılama derin learning modelini eğitmek gösterilmiştir [Kentsel ses dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) ve ses verilerle çalışmak nasıl bir bakış sağlar.
+
 - [Metin belgelerin sınıflandırılmasını](https://github.com/anargyri/lstm_han): Bu anlatımda nasıl oluşturulacağı ve iki farklı sinir ağı mimarileri eğitmek gösterilir: hiyerarşik dikkat ağ ve uzun kısa vadeli bellek (LSTM) ağ. Bu sinir ağları metin belgeleri sınıflandırmak için derin öğrenme için Keras API kullanın. Keras olan üç çerçeveleri öğrenme en popüler derin bir ön uç: Microsoft Bilişsel araç seti, TensorFlow ve Theano.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Örnekleri sayfa](dsvm-samples-and-walkthroughs.md) yardımcı olmak için her çerçeveleri VM üzerinde önceden yüklenmiş kod örnekleri işaretçiler hızlı başlama sağlar. 
-

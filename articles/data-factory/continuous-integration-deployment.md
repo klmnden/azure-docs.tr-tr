@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f44d8cc48d6bfee909c04b20136cd2be6f828a0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve Azure Data Factory dağıtımında
 
@@ -92,7 +92,7 @@ Veri Fabrikası birden çok ortamlara dağıtımını otomatik hale getirebilmen
 
     a.  Parolaları parametre dosyasına ekleyin:
 
-        -   Yayımla dalının karşıya parametreleri dosyanın bir kopyasını oluşturun ve aşağıdaki biçimde anahtar Kasası'ndan almak istediğiniz parametrelerinin değerlerini ayarlayın:
+       -   Yayımla dalının karşıya parametreleri dosyanın bir kopyasını oluşturun ve aşağıdaki biçimde anahtar Kasası'ndan almak istediğiniz parametrelerinin değerlerini ayarlayın:
 
         ```json
         {
@@ -102,24 +102,24 @@ Veri Fabrikası birden çok ortamlara dağıtımını otomatik hale getirebilmen
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Bu yöntemi kullandığınızda, gizli anahtar Kasası'nı otomatik olarak alınır.
+       -   Bu yöntemi kullandığınızda, gizli anahtar Kasası'nı otomatik olarak alınır.
 
-        -   Parametreler dosyası da Yayımla dalında olması gerekir.
+       -   Parametreler dosyası da Yayımla dalında olması gerekir.
 
     b.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturun, arama **Azure anahtar kasası** ve bunu ekleyin.
+       -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturun, arama **Azure anahtar kasası** ve bunu ekleyin.
 
-        -   Anahtar kasası oluşturulan abonelik anahtar kasası görevde seçin, sağlamanız gerekiyorsa, kimlik bilgileri ve anahtar Kasası'ı seçin.
+       -   Anahtar kasası oluşturulan abonelik anahtar kasası görevde seçin, sağlamanız gerekiyorsa, kimlik bilgileri ve anahtar Kasası'ı seçin.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Bir Azure Resource Manager dağıtım görev ekleyin:
 

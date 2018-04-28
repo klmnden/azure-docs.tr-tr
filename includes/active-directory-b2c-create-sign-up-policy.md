@@ -1,4 +1,4 @@
-Uygulamanızda kaydolmayı etkinleştirmek için bir kaydolma ilkesi oluşturmanız gerekir. Bu ilke, tüketicilerin kaydolma sırasında karşılaşacağı deneyimleri ve başarılı kaydolma işlemlerinde uygulamanın alacağı belirteçlerin içeriğini açıklar.
+Yalnızca etkinleştirmek kaydolma, uygulamanızda istiyorsanız, kullandığınız bir **kaydolma** ilkesi. Bu ilke müşteriler kayıt sırasında geçtikleri deneyimleri açıklar ve uygulama başarılı oturum-ups alır belirteçleri içeriğini.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -8,9 +8,9 @@ Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
 
 **Ad**, uygulamanız tarafından kullanılan kaydolma ilke adını belirler. Örneğin, **SiUp** adını girin.
 
-**Kimlik sağlayıcıları**’na tıklayın ve **E-posta ile kaydolma**’yı seçin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
+**Kimlik sağlayıcıları**’na tıklayın ve **E-posta ile kaydolma**’yı seçin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam**’a tıklayın.
 
-**Kaydolma öznitelikleri**’ne tıklayın. Burada, tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu seçin. **Tamam** düğmesine tıklayın.
+**Kaydolma öznitelikleri**’ne tıklayın. Burada, tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu seçin. **Tamam**’a tıklayın.
 
 **Uygulama talepleri**’ne tıklayın. Burada, başarılı bir kaydolma deneyiminden sonra uygulamanıza geri gönderilen belirteçlerde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
 

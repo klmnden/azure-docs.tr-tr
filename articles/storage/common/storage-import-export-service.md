@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -29,7 +29,7 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
 2.  Toplam veri boyutuna bağlı olarak, gerekli 2,5 inç SSD veya 2,5" veya sayısını 3,5" SATA II veya III sabit disk sürücüsü temin edin.
 3.  Kullanarak doğrudan SATA sabit sürücüleri eklemek veya bir windows makinesine dış USB bağdaştırıcısı ile.
 1.  Her sabit sürücü üzerinde tek bir NTFS birimi oluşturun ve birime bir sürücü harfi atama. Hiçbir bağlama.
-2.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Yönergeleri kullanın https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Yönergeleri kullanın https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Diskleri kopyalama & Yapıştır veya sürükle & bırak veya Robocopy veya böyle bir araç kullanarak bu şifrelenmiş tek NTFS birimlerine tamamen verileri kopyalayın.
 7.  WAImportExport V1 ile indirme https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  İçin varsayılan klasörü waimportexportv1 sıkıştırmasını açın. Örneğin, C:\WaImportExportV1  

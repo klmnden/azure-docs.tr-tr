@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c54670b11c0a2a3c5379abe4a43431445daa1a5a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c06289625ab18dad134c235fc28fd5c775955eb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Hdınsight ile Pig işlerini çalıştırmak için Azure PowerShell'i kullanma
 
@@ -44,7 +44,7 @@ Azure PowerShell sağlar *cmdlet'leri* Hdınsight'ta Pig işleri uzaktan çalı�
 
 Aşağıdaki cmdlet, Pig işleri uzaktan bir Hdınsight kümesine çalıştırılırken kullanılır:
 
-* **Login-AzureRmAccount**: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
+* **Connect-AzureRmAccount**: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
 * **AzureRmHDInsightPigJobDefinition yeni**: oluşturur bir *iş tanımı* belirtilen Pig Latin deyimleri kullanarak.
 * **Başlangıç AzureRmHDInsightJob**: iş tanımı için Hdınsight gönderir ve işini başlatır. A *iş* nesne döndürülür.
 * **Bekleme AzureRmHDInsightJob**: iş nesnesi işinin durumunu denetlemek için kullanır. İş tamamlandı ya da bekleme süresi aşıldı kadar bekler.

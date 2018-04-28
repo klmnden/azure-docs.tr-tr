@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 
@@ -53,7 +53,7 @@ Otomasyon hesabının giriş için aşağıdaki görmek için makine anahtarı v
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Genel olarak yerleşik herhangi bir Azure Otomasyonu DSC için makine bir [DSC m
 PowerShell DSC Local Configuration Manager Varsayılanları, kullanım büyük küçük harf duyarlı ve bunlar hem isteneceğini ve Azure Otomasyonu DSC rapor şekilde yerleşik makinelerine istiyorsanız Azure Automation cmdlet'leri gerekli DSC metaconfigurations oluşturmanın basitleştirilmiş bir yöntem sağlar:
 
 1. Yerel ortamınızdaki bir makinede PowerShell konsolunu veya PowerShell ISE'yi yönetici olarak açın.
-2. Azure Resource Manager kullanarak bağlanma **Add-AzureRmAccount**
+2. Azure Kaynak Yöneticisi'ni kullanarak bağlanmak **Connect-AzureRmAccount**
 3. Yerleşik düğümlerine istediğiniz Otomasyon hesabı eklemek istediğiniz makineler için PowerShell DSC metaconfigurations indirin:
 
     ```powershell

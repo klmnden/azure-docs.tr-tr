@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 uç noktası sınırlamaları ve kısıtlamaları | Microsoft Docs"
-description: "Sınırlamalar ve kısıtlamalarla Azure AD v2.0 uç noktası için listesi."
+title: Azure Active Directory v2.0 uç noktası sınırlamaları ve kısıtlamaları | Microsoft Docs
+description: Sınırlamalar ve kısıtlamalarla Azure AD v2.0 uç noktası için listesi.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,17 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-<<<<<<< HEAD
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
-=======
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç kullanmalıyım?
 Azure Active Directory ile tümleştirme uygulamalar oluştururken, v2.0 uç noktası ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karar vermeniz gerekir. Azure Active Directory'nin özgün uç nokta hala tam olarak desteklenir ve bazı bakımlardan v2.0'den daha fazla özellik zengin değil. Ancak, v2.0 uç [önemli avantajlar sunar](active-directory-v2-compare.md) geliştiriciler için.
@@ -90,15 +84,6 @@ Bu durumda, login.contoso.com DNS alt etki alanına başvurursunuz. Oturum açma
 Ayrıca unutmayın, belirli bir uygulama için yalnızca 20 yanıt URL'leri olabilir.
 
 Uygulama kayıt Portalı'nda uygulama kaydetmeyi öğrenmek için bkz: [v2.0 uç noktası ile bir uygulama nasıl](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Hizmetleri ve API üzerindeki kısıtlamaları
-Şu anda v2.0 uç oturum açma için uygulama kayıt Portalı'nda kayıtlı ve listesinde iner herhangi bir uygulama destekler [kimlik doğrulaması akışı desteklenen](active-directory-v2-flows.md). Ancak, bu uygulamaları çok sınırlı bir kaynak kümesi için OAuth 2.0 erişim belirteçleri elde edebilirsiniz. Belirteçleri yalnızca erişim v2.0 uç noktası sorunlarını:
-
-* Belirteç istenen uygulama. Mantıksal uygulama birkaç farklı bileşenler veya katmanları oluşuyorsa uygulama kendisi için bir erişim belirteci alması. Bu senaryoyu çalışırken görmek için kullanıma bizim [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) öğreticileri.
-* Outlook posta, Takvim ve kişiler REST API'leri, her biri https://outlook.office.com bulunur. Bu API'leri erişen bir uygulama yazmak öğrenmek için bkz: [Office Başlarken](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) öğreticileri.
-* Microsoft Graph API. Hakkında daha fazla bilgiyi [Microsoft Graph](https://graph.microsoft.io) ve kullanabileceğiniz verileri.
-
-Şu anda başka bir hizmetler desteklenir. Daha fazla Microsoft Online Services, kendi özel olarak geliştirilmiş Web API'leri ve hizmetler için destek yanı sıra gelecekte eklenir.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Kitaplıklar ve SDK'ları üzerindeki kısıtlamaları
 Şu anda v2.0 uç noktası için kitaplık desteği sınırlıdır. Bir üretim uygulamasında v2.0 uç kullanmak istiyorsanız, bu seçenekler vardır:

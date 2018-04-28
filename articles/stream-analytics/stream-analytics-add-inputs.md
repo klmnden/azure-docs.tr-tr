@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics işleri için veri girişi ekleme
-description: Stream Analytics işiniz Blog depolama verileri olay hub'ları veya başvuru veri girişi akış olarak bir veri kaynağına bağlanacağını öğrenin.
+title: Azure akış analizi için girişleri anlama
+description: Bu makale bir Azure Stream Analytics işinde başvuru veri girişi akış girişine karşılaştırma girişleri kavramı açıklanmaktadır.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,71 +8,41 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/25/2018
+ms.openlocfilehash: 926821e2ba9912ae0140f11c9fe9a2d504609a1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics işe akış veri girişi veya başvuru veri ekleme
-Olay hub'ları veya başvuru verileri Blob depolama biriminden veri girişten akış olarak Stream Analytics işiniz için bir veri kaynağı bağlanacağını öğrenin.
+# <a name="understand-inputs-for-azure-stream-analytics"></a>Azure akış analizi için girişleri anlama
 
-Azure akış analizi işleri, bir veri girişi veya varolan bir veri kaynağına her biri tanımlayan bir bağlantı daha fazla bağlanabilir. Bu veri kaynağına gönderilen veri gibi akış analizi işi tarafından tüketilen ve gerçek zamanlı veri akışı olarak işlenir. Akış Analizi ile birinci sınıf tümleştirme sahip [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ve [Azure Blob Depolama](../storage/blobs/storage-dotnet-how-to-use-blobs.md) hem içinde hem de iş abonelik dışında.
+Azure Stream Analytics işleri için bir veya daha fazla veri girişleri bağlayın. Her giriş, varolan bir veri kaynağına bağlantı tanımlar. Akış analizi veri gelen olay kaynakları Event Hubs, IOT Hub ve Blob Depolama da dahil olmak üzere birkaç tür kabul eder. Girdiler, her iş için yazma akış SQL sorgusunda adıyla başvurulur. Sorgu, veri blend veya başvuru verileri için bir arama ile veri akışı karşılaştırmak için birden çok girişi birleştirme ve sonuçları çıktıları geçirin. 
+
+Akış analizi kaynaklarını üç tür birinci sınıf tümleştirme girdi olarak sahiptir:
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) 
+
+Bu giriş kaynakları, aynı abonelikte Azure Stream Analytics işi olarak veya farklı bir abonelik dinamik.
+
+Kullanabileceğiniz [Azure portal](stream-analytics-quick-create-portal.md#configure-input-to-the-job), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), ve [Visual Studio](stream-analytics-tools-for-visual-studio.md)oluşturmak, düzenlemek ve akış analizi işi girişleri test etmek için.
+
+## <a name="stream-and-reference-inputs"></a>Akış ve başvuru girişleri
+Verileri bir veri kaynağına itildiği gibi bu akış analizi işi tarafından tüketilen ve gerçek zamanlı olarak işlenen. Girişleri iki türlerine bölünen: veri akışı girişleri ve başvuru verileri girdi.
+
+### <a name="data-stream-input"></a>Giriş veri akışı
+Veri akışı bir sınırsız olayları zamanla dizisidir. Akış analizi işleri, en az bir veri akış girişi eklemeniz gerekir. Olay hub'ları, IOT Hub ve Blob Depolama veri akışı giriş kaynağı olarak desteklenir. Olay hub'ları, birden çok cihazları ve Hizmetleri olay akışları toplayacak şekilde kullanılır. Bu akışlar, sosyal medya Etkinlik Akışları, hisse senedi ticareti bilgi veya algılayıcı verileri içerebilir. IOT hub'ları, nesnelerin interneti (IOT) senaryolarında bağlı aygıtlardan verileri toplamak için getirilmiştir.  BLOB Depolama günlük dosyaları gibi bir akış olarak toplu veri alma için bir giriş kaynağı kullanılabilir.  
+
+Veri girişleri akış hakkında daha fazla bilgi için bkz: [Stream Analytics giriş olarak veri akışı](stream-analytics-define-inputs.md)
+
+### <a name="reference-data-input"></a>Başvuru veri girişi
+Akış analizi, aynı zamanda giriş olarak bilinen destekler *başvuru verileri*. Başvuru verileri olan ya da tamamen statik veya yavaş değişir. Genellikle, bağıntı ve aramalar gerçekleştirmek için kullanılır. Örneğin, statik değerleri aramak için bir SQL birleştirme gerçekleştireceği kadar veri akış girişine başvuru verilerini de verileri birleştirebilirsiniz. Azure Blob Depolama şu anda yalnızca desteklenen giriş başvuru verileri kaynağıdır. Başvuru veri kaynağı BLOB'ları, 100 MB boyutunda sınırlıdır.
+
+Başvuru veri girişleri hakkında daha fazla bilgi için bkz: [kullanarak başvuru verileri için Stream Analytics arama](stream-analytics-use-reference-data.md)
 
 Bu makalede bir adımdır [Stream Analytics öğrenme yolu](/documentation/learning-paths/stream-analytics/).
 
-## <a name="data-input-streaming-data-and-reference-data"></a>Veri girişi: akış veri ve başvuru verileri
-İki farklı Stream Analytics girdi vardır: veri akışlarını ve başvuru verileri.
-
-* **Veri akışları**: akış analizi işleri, en az bir veri akış girişine tüketilen ve iş tarafından dönüştürülmüş içermelidir. Azure Blob Depolama ve Azure Event Hubs veri akışı giriş kaynağı olarak desteklenir. Azure Event Hubs bağlı aygıtları, hizmetler ve uygulamalar olay akışları toplayacak şekilde kullanılır. Azure Blob Depolama toplu veri akışı olarak alma için bir giriş kaynağı kullanılabilir.  
-* **Başvuru verileri**: akış analizi, ikinci bir yardımcı giriş çağrılan başvuru veri türünü destekler.  Hareket halindeki verileriniz aksine, bu verileri statik veya yavaşlamasının değiştirme.  Bu genellikle göz atmayı ve veri akışları ile bağıntıları gerçekleştirmek için daha zengin bir veri kümesi oluşturmak için kullanılır.  Azure Blob Depolama şu anda yalnızca desteklenen giriş başvuru verileri kaynağıdır.  
-
-Stream Analytics işiniz için bir giriş eklemek için:
-
-1. Azure portal'ı tıklayın **girişleri** ve ardından **bir giriş eklemek** Stream Analytics işi.
-   
-    ![Azure portal - bir giriş ekleyin.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
-   
-    Azure portal'ı tıklayın **girişleri** döşeme Stream Analytics işinde.  
-   
-    ![Azure portal - veri girişi ekleyin.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
-2. Giriş türünü belirtin: ya da **veri akışı** veya **başvuru verileri**.
-   
-    ![Doğru veri girişi, akışı veya başvuru ekleme](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)  
-   
-    ![Doğru veri girişi, akışı veya başvuru ekleme](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)  
-3. Bir veri akış girişine oluşturuyorsanız, giriş için kaynak türünü belirtin.  Bu adım, yalnızca depolama birimi şu anda desteklenen Blob olarak başvuru verileri oluşturma sırasında atlanabilir.
-   
-    ![Veri akışı veri girişi ekleme](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)  
-   
-    ![Veri akışı veri girişi ekleme](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
-4. Giriş diğer adı kutusuna bu girişi için kolay bir ad sağlayın.  Bu ad, işin sorguyu daha sonra giriş başvurmak için kullanılır.
-   
-    Veri kaynağına bağlanmak için gereken bağlantı özelliklerini doldurun. Bu alanlar giriş ve kaynak türü türüne göre değişir ve ayrıntılı olarak tanımlanan [burada](stream-analytics-create-a-job.md).  
-   
-    ![Olay hub'ı veri girişi ekleme](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
-5. Giriş verilerini seri hale getirme ayarlarını belirtin:
-   
-   * Sorgularınızın beklediğiniz gibi çalıştığından emin olmak için belirtmek **olayı seri hale getirme biçimi** gelen veri.  Desteklenen serileştirme biçimleri, JSON, CSV ve Avro olacaktır.
-   * Doğrulama **kodlama** veriler için.  Şu anda desteklenen tek kodlama biçimi UTF-8'dir.
-     
-     ![Giriş verileri için veri seri hale getirme ayarları](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
-     
-     ![Giriş verileri için veri seri hale getirme ayarları](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
-6. Giriş oluşturmayı tamamladıktan sonra Stream Analytics giriş kaynağına bağlanabildiğinizi doğrular.  Bildirim hub'ı Bağlantıyı Sına işlemin durumunu görüntüleyebilirsiniz.
-   
-    ![Giriş akış verilerini bağlantıyı sınayın](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
-   
-    ![Giriş akış verilerini bağlantıyı sınayın](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
-
-## <a name="get-help-with-streaming-data-inputs"></a>Veri girişleri akış ile ilgili yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
-
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
-* [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
-* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma](stream-analytics-quick-create-portal.md)

@@ -3,18 +3,18 @@ title: Program aracılığıyla ilkeleri oluşturma ve Azure ilkesiyle uyumluluk
 description: Bu makalede, program aracılığıyla oluşturma ve ilkeleri için Azure ilke yönetme aracılığıyla anlatılmaktadır.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 03/28/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 1809f0b7ef386bb9eeaa55982178e4cd5e1dd2e2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Program aracılığıyla ilkeleri oluşturma ve uyumluluk verilerini görüntüleme
 
@@ -28,12 +28,11 @@ Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 2. AzureRM PowerShell modülünüzü en son sürüme güncelleştirin. Azure PowerShell'in en son sürümü hakkında daha fazla bilgi için bkz: https://github.com/Azure/azure-powershell/releases.
 3. Aboneliğiniz kaynak sağlayıcısı ile birlikte çalıştığından emin olmak için Azure PowerShell kullanarak ilke Insights kaynak sağlayıcı kaydedin. Bir kaynak sağlayıcısını kaydetmek için, kaynak sağlayıcısı kaydetme işlemini gerçekleştirme iznine sahip olmanız gerekir. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
 
-    ```
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
-    ```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  ```
 
-    Kaydetme ve kaynak sağlayıcıları görüntüleme hakkında daha fazla bilgi için bkz: [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md).
-
+  Kaydetme ve kaynak sağlayıcıları görüntüleme hakkında daha fazla bilgi için bkz: [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md).
 4. Henüz yapmadıysanız, Azure CLI yükleyin. En son sürümünü almak [Windows Azure CLI 2.0 yükleme](/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Oluşturun ve bir ilke tanımı atayın
@@ -46,54 +45,46 @@ Aşağıdaki komutlar standart katmanı ilke tanımları oluşturun. Standart ka
 
 1. AuditStorageAccounts.json adlı bir JSON dosyası oluşturmak için aşağıdaki JSON parçacığı kullanın.
 
-    ```
-    {
-    "if": {
-      "allOf": [
-        {
-          "field": "type",
-          "equals": "Microsoft.Storage/storageAccounts"
-        },
-        {
-          "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-          "equals": "Allow"
-        }
-      ]
-    },
-    "then": {
-      "effect": "audit"
-    }
+  ```json
+  {
+      "if": {
+          "allOf": [{
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                  "equals": "Allow"
+              }
+          ]
+      },
+      "then": {
+          "effect": "audit"
+      }
   }
+  ```
 
-    ```
-
-    Bir ilke tanımı yazma hakkında daha fazla bilgi için bkz: [Azure ilke tanımı yapısını](policy-definition.md).
-
+  Bir ilke tanımı yazma hakkında daha fazla bilgi için bkz: [Azure ilke tanımı yapısını](policy-definition.md).
 2. AuditStorageAccounts.json dosyası kullanarak bir ilke tanımı oluşturmak için aşağıdaki komutu çalıştırın.
 
-    ```
-    PS C:\>New-AzureRmPolicyDefinition -Name "AuditStorageAccounts" -DisplayName "Audit Storage Accounts Open to Public Networks" -Policy C:\AuditStorageAccounts.json
-    ```
+  ```azurepowershell-interactive
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  ```
 
-    Adlı bir ilke tanımı komut oluşturur _denetim depolama hesapları açık ortak ağlara_. Kullanabileceğiniz diğer parametreler hakkında daha fazla bilgi için bkz: [yeni AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition?view=azurermps-4.4.1).
-
+  Adlı bir ilke tanımı komut oluşturur _denetim depolama hesapları açık ortak ağlara_. Kullanabileceğiniz diğer parametreler hakkında daha fazla bilgi için bkz: [yeni AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
 3. İlke tanımı oluşturduktan sonra aşağıdaki komutları çalıştırarak bir ilke atamasını oluşturabilirsiniz:
 
-    ```
-$rg = Get-AzureRmResourceGroup -Name "ContosoRG"
-```
+  ```azurepowershell-interactive
+  $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
 
-    ```
-$Policy = Get-AzureRmPolicyDefinition -Name "AuditStorageAccounts"
-    ```
+  $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
 
-    ```
-New-AzureRmPolicyAssignment -Name "AuditStorageAccounts" -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
-    ```
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  ```
 
-    Değiştir _ContosoRG_ , istenen kaynak grubunuzun adını.
+  Değiştir _ContosoRG_ , istenen kaynak grubunuzun adını.
 
-Azure Resource Manager PowerShell modülünü kullanarak kaynak ilkelerini yönetme hakkında daha fazla bilgi için bkz: [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies).
+Azure Resource Manager PowerShell modülünü kullanarak kaynak ilkelerini yönetme hakkında daha fazla bilgi için bkz: [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Oluşturun ve ARMClient kullanarak bir ilke tanımı atayın
 
@@ -101,75 +92,71 @@ Bir ilke tanımı oluşturmak için aşağıdaki yordamı kullanın.
 
 1. Bir JSON dosyası oluşturmak için aşağıdaki JSON parçacığı kopyalayın. Sonraki adımda dosyasının çağırması.
 
-    ```
-    {
-    "properties": {
-        "displayName": "Audit Storage Accounts Open to Public Networks",
-        "policyType": "Custom",
-        "mode": "Indexed",
-        "description": "This policy ensures that storage accounts with exposure to Public Networks are audited.",
-        "parameters": {},
-        "policyRule": {
-              "if": {
-                "allOf": [
-                  {
-                    "field": "type",
-                    "equals": "Microsoft.Storage/storageAccounts"
+  ```json
+  "properties": {
+      "displayName": "Audit Storage Accounts Open to Public Networks",
+      "policyType": "Custom",
+      "mode": "Indexed",
+      "description": "This policy ensures that storage accounts with exposure to Public Networks are audited.",
+      "parameters": {},
+      "policyRule": {
+          "if": {
+              "allOf": [{
+                      "field": "type",
+                      "equals": "Microsoft.Storage/storageAccounts"
                   },
                   {
-                    "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                    "equals": "Allow"
+                      "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                      "equals": "Allow"
                   }
-                ]
-              },
-              "then": {
-                "effect": "audit"
-              }
-            }
-    }
-}
-```
+              ]
+          },
+          "then": {
+              "effect": "audit"
+          }
+      }
+  }
+  ```
 
 2. Aşağıdaki çağrıyı kullanarak ilke tanımı oluşturun:
 
-    ```
-    armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01 @<path to policy definition JSON file>"
-    ```
+  ```
+  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  ```
 
-    Preceding_ Değiştir &lt;Subscriptionıd&gt; hedeflenen aboneliğinizi kimliği.
+  Preceding_ Değiştir &lt;Subscriptionıd&gt; hedeflenen aboneliğinizi kimliği.
 
 Sorgu yapısı hakkında daha fazla bilgi için bkz: [ilke tanımları – oluştur veya Güncelleştir](/rest/api/resources/policydefinitions/createorupdate).
-
 
 Bir ilke atamasını oluşturma ve kaynak grubu düzeyinde ilke tanımı atamak için aşağıdaki yordamı kullanın.
 
 1. JSON ilkesi atama dosyası oluşturmak için aşağıdaki JSON parçacığı kopyalayın. Örnek bilgileri yerine &lt; &gt; kendi değerlerinizi sembolleriyle.
 
-    ```
-    {
-  "properties": {
-"description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
-"displayName": "Audit Storage Accounts Open to Public Networks Assignment",
-"parameters": {},
-"policyDefinitionId":"/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
-"scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-},
-"sku": {
-    "name": "A1",
-    "tier": "Standard"
-    }
-}
-    ```
+  ```json
+  {
+      "properties": {
+          "description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
+          "displayName": "Audit Storage Accounts Open to Public Networks Assignment",
+          "parameters": {},
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
+          "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
+      },
+      "sku": {
+          "name": "A1",
+          "tier": "Standard"
+      }
+  }
+  ```
 
 2. Aşağıdaki çağrıyı kullanarak ilke ataması oluşturun:
 
-    ```
-    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
-    ```
+  ```
+  armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+  ```
 
-    Örnek bilgileri yerine &lt; &gt; kendi değerlerinizi sembolleriyle.
+  Örnek bilgileri yerine &lt; &gt; kendi değerlerinizi sembolleriyle.
 
- REST API için HTTP çağrıları yapma hakkında daha fazla bilgi için bkz: [Azure REST API kaynakları](/rest/api/resources/).
+  REST API için HTTP çağrıları yapma hakkında daha fazla bilgi için bkz: [Azure REST API kaynakları](/rest/api/resources/).
 
 ### <a name="create-and-assign-a-policy-definition-with-azure-cli"></a>Oluşturma ve Azure CLI ile bir ilke tanımı atama
 
@@ -177,41 +164,40 @@ Bir ilke tanımı oluşturmak için aşağıdaki yordamı kullanın:
 
 1. JSON ilkesi atama dosyası oluşturmak için aşağıdaki JSON parçacığı kopyalayın.
 
-    ```
-    {
-                  "if": {
-                    "allOf": [
-                      {
-                        "field": "type",
-                        "equals": "Microsoft.Storage/storageAccounts"
-                      },
-                      {
-                        "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                        "equals": "Allow"
-                      }
-                    ]
-                  },
-                  "then": {
-                    "effect": "audit"
-                  }
-    }
-    ```
+  ```json
+  {
+      "if": {
+          "allOf": [{
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                  "equals": "Allow"
+              }
+          ]
+      },
+      "then": {
+          "effect": "audit"
+      }
+  }
+  ```
 
 2. Bir ilke tanımı oluşturmak için aşağıdaki komutu çalıştırın:
 
-    ```
+  ```azurecli-interactive
 az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
-    ```
+  ```
 
-Bir ilke ataması oluşturmak için aşağıdaki komutu kullanın. Örnek bilgileri yerine &lt; &gt; kendi değerlerinizi sembolleriyle.
+3. Bir ilke ataması oluşturmak için aşağıdaki komutu kullanın. Örnek bilgileri yerine &lt; &gt; kendi değerlerinizi sembolleriyle.
 
-```
-az policy assignment create --name '<Audit Storage Accounts Open to Public Networks in Contoso RG' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
-```
+  ```azurecli-interactive
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  ```
 
 İlke tanım kimliği PowerShell ile aşağıdaki komutu kullanarak elde edebilirsiniz:
 
-```
+```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
 ```
 
@@ -227,14 +213,14 @@ Azure CLI kaynak ilkeleriyle yönetmek hakkında daha fazla bilgi için bkz: [Az
 
 Atama, ilke veya girişimi kuralları izlerseniz değil, uyumlu olmayan bir kaynak değildir. Aşağıdaki tabloda, farklı ilke eylemleri gösterilmektedir ortaya çıkan uyumluluk durumu için koşulu değerlendirmesi ile çalışabilir:
 
-| **Kaynak durumu** | **Eylem** | **İlke değerlendirmesi** | **Uyumluluk durumu** |
+| **Kaynak Durumu** | **Eylem** | **İlke Değerlendirmesi** | **Uyumluluk Durumu** |
 | --- | --- | --- | --- |
-| Var | Reddetme, Denetim, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Uyumlu Değil |
-| Var | Reddetme, Denetim, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Uyumlu |
+| Var | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Uyumlu Değil |
+| Var | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Uyumlu |
 | Yeni | Audit, AuditIfNotExist\* | True | Uyumlu Değil |
 | Yeni | Audit, AuditIfNotExist\* | False | Uyumlu |
 
-\* Ekle, DeployIfNotExist ve AuditIfNotExist Eylemler olmasını IF deyimi gerektiren TRUE. Eylemler de varlığı koşulu uyumlu olmayan FALSE olması gerekir. DOĞRU olduğunda, eğer koşul ilgili kaynakları varlığı koşulunun değerlendirmesini tetikler.
+\* Append, DeployIfNotExist ve AuditIfNotExist eylemleri IF deyiminin TRUE olmasını gerektirir. Eylemler ayrıca varlık koşulunun uyumlu olmaması için FALSE olmasını gerektirir. TRUE olduğunda, IF koşulu ilgili kaynaklar için varlık koşulunun değerlendirilmesini tetikler.
 
 Kaynakları nasıl uyumsuz olarak işaretlenmiş daha iyi anlamak için yukarıda oluşturduğunuz ilke ataması örnek kullanalım.
 
@@ -250,45 +236,42 @@ Bu örnekte, güvenlik risklerini dikkatli olmanız gerekir. Bir ilke atamasın�
 
 1. İlke ataması kimliği, aşağıdaki komutları çalıştırarak alın:
 
-    ```
-    $policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Storage Accounts with Open Public Networks"}
-    ```
+  ```azurepowershell-interactive
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
 
-    ```
-    $policyAssignment.PolicyAssignmentId
-    ```
+  $policyAssignment.PolicyAssignmentId
+  ```
 
-    Bir ilke atamanın kimliği alma hakkında daha fazla bilgi için bkz: [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment?view=azurermps-4.4.1).
+  Bir ilke atamanın kimliği alma hakkında daha fazla bilgi için bkz: [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Bir JSON dosyasına kopyalanır uyumlu olmayan kaynakların kaynak kimlikleri için aşağıdaki komutu çalıştırın:
 
-    ```
-    armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-    ```
+  ```
+  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+  ```
 
 3. Sonuçları aşağıdaki örneğe benzemelidir:
 
-  ```
-      {
-  "@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-  "@odata.count": 3,
-  "value": [
+  ```json
   {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-      },
-      {
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-             },
-  {
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-             }
-  ]
+      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+      "@odata.count": 3,
+      "value": [{
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
+          },
+          {
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
+          },
+          {
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
+          }
+      ]
   }
   ```
 
@@ -306,19 +289,16 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 
 Sonuçlarınız aşağıdaki örneğe benzer:
 
-```
+```json
 {
-  "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-  "@odata.count": 1,
-  "value": [
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-      "NumAuditEvents": 3
-    }
-  ]
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
+    "@odata.count": 1,
+    "value": [{
+        "@odata.id": null,
+        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
+        "NumAuditEvents": 3
+    }]
 }
-
 ```
 
 İlkesi durumlar gibi yalnızca HTTP istekleri içeren ilke olayları görüntüleyebilirsiniz. İlke olaylarını sorgulama hakkında daha fazla bilgi için bkz: [ilke olayları](/rest/api/policy-insights/policyevents) başvurusu makalesinde.
@@ -327,17 +307,17 @@ Sonuçlarınız aşağıdaki örneğe benzer:
 
 Kullanabileceğiniz *kümesi AzureRmPolicyAssignment* fiyatlandırma güncelleştirmek için PowerShell cmdlet, var olan bir ilke ataması için standart ya da ücretsiz katmanı. Örneğin:
 
-```
-Set-AzureRmPolicyAssignment -Id /subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID> -Sku @{Name='A1';Tier='Standard'}
+```azurepowershell-interactive
+Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
 ```
 
-Cmdlet'i hakkında daha fazla bilgi için bkz: [kümesi AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment?view=azurermps-4.4.1).
+Cmdlet'i hakkında daha fazla bilgi için bkz: [kümesi AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu makalede sorgular ve komutları hakkında daha fazla bilgi için aşağıdaki makaleleri gözden geçirin.
 
 - [Azure REST API kaynakları](/rest/api/resources/)
-- [Azure RM PowerShell modülleri](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies)
+- [Azure RM PowerShell modülleri](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI İlkesi komutları](/cli/azure/policy?view=azure-cli-latest)
 - [İlke Öngörüler kaynak sağlayıcısı REST API Başvurusu](/rest/api/policy-insights)

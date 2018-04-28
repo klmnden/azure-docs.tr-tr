@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9d1e2f801db2ed7edf262f8a5f221057ef791106
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paket ve varolan yürütülebilir bir Service Fabric dağıtma
 Varolan bir yürütülebilir dosya olarak paketleme olduğunda bir [Konuk yürütülebilir](service-fabric-guest-executables-introduction.md), Visual Studio Proje şablonu kullanılacağını seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyası yeni proje şablonu tarafından sizin için oluşturulur.
@@ -43,7 +43,7 @@ Visual Studio yürütülebilir konuk bir Service Fabric kümesi dağıtmak için
 4. Hizmetinize bir ad verin ve **Tamam**’a tıklayın.
 5. Hizmet iletişimi için bir uç nokta gerekirse, ServiceManifest.xml dosyasına protokolü, bağlantı noktası ve türü artık ekleyebilirsiniz. Örneğin: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Şimdi, paket kullanın ve Visual Studio çözümünde hata ayıklama yerel kümenizdeki karşı eylem yayımlayın. Hazır olduğunuzda, uzak bir küme uygulamayı yayımlama ya da çözüm kaynak denetimine iade edin.
-7. Okuma [çalışan uygulamanızı denetleyin](#check-your-running-application) Service Fabric Explorer'da çalıştıran Konuk yürütülebilir hizmetinizi görüntülemek bkz.
+7. Okuma [çalışan uygulamanızı denetleyin](#check-your-running-application) Service Fabric Explorer'da çalıştıran Konuk yürütülebilir hizmetinizi görüntülemek nasıl görmek için.
 
 Bir örnek için bkz [Visual Studio kullanarak ilk Konuk yürütülebilir uygulamanızı oluşturma](quickstart-guest-app.md).
 

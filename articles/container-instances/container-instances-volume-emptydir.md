@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı durumlarda emptyDir birim"
-description: "Azure kapsayıcı örnekleri kapsayıcı grubunda kapsayıcılarında arasında veri paylaşımı için bir emptyDir birim öğrenin"
+title: Azure kapsayıcı durumlarda emptyDir birim
+description: Azure kapsayıcı örnekleri kapsayıcı grubunda kapsayıcılarında arasında veri paylaşımı için bir emptyDir birim öğrenin
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 01b44f357d160a48852ee843cd8bebd138e95dfc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: MT
+ms.openlocfilehash: 71725257697456b27f2cf79200789517005c4319
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure kapsayıcı durumlarda emptyDir birim
 
@@ -41,6 +41,7 @@ EmptyDir birim kapsayıcı örneğinde kullanarak dağıtmanız gerekir bir [Azu
 
 Örneğin, aşağıdaki Resource Manager şablonu iki kapsayıcıları için oluşan bir kapsayıcı grubu oluşturur her hangi başlatmalar *emptyDir* birimi:
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
 Örnek bir Azure Resource Manager şablonu ile kapsayıcı örnek dağıtım görmek için bkz: [çok kapsayıcı grupları Azure kapsayıcı durumlarda dağıtmak](container-instances-multi-container-group.md).

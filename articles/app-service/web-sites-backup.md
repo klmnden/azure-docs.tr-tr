@@ -1,8 +1,8 @@
 ---
-title: "Uygulamanızı Azure’a yedekleme"
-description: "Azure App Service'te uygulamalarınızı yedeklerini oluşturmayı öğrenin."
+title: Uygulamanızı Azure’a yedekleme
+description: Azure App Service'te uygulamalarınızı yedeklerini oluşturmayı öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](app-service-web-overview.md) el ile veya bir zamanlamaya göre uygulama yedeklemeleri kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine veya başka bir uygulamaya geri anlık görüntü önceki bir duruma geri yükleyebilirsiniz. 
@@ -35,9 +35,9 @@ Uygulama hizmeti bir Azure depolama hesabı ve kullanmak için uygulamanızı ya
 * Uygulamanıza bağlı veritabanı
 
 Şu veritabanı çözümleri ile yedekleme özelliği desteklenir: 
-   - [SQL Veritabanı](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Azure veritabanı için MySQL (Önizleme)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Azure veritabanı için PostgreSQL (Önizleme)](https://azure.microsoft.com/en-us/services/postgres)
+   - [SQL Database](https://azure.microsoft.com/services/sql-database/)
+   - [Azure veritabanı için MySQL (Önizleme)](https://azure.microsoft.com/services/mysql)
+   - [Azure veritabanı için PostgreSQL (Önizleme)](https://azure.microsoft.com/services/postgres)
    - [Uygulama MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
@@ -71,13 +71,13 @@ Uygulama hizmeti bir Azure depolama hesabı ve kullanmak için uygulamanızı ya
 ![tıklatın yapılandırın](./media/web-sites-backup/ClickConfigure1.png)
 3. İçinde **yedekleme yapılandırması** sayfasında, **Depolama: yapılandırılmamış** bir depolama hesabı yapılandırmak için.
    
-    ![Depolama hesabı seçin][ChooseStorageAccount]
+    ![Depolama hesabı seç][ChooseStorageAccount]
 4. Yedekleme Hedefinizi seçerek bir **depolama hesabı** ve **kapsayıcı**. Depolama hesabı, yedeklemek istediğiniz uygulama aynı aboneliğe ait olmalıdır. İsterseniz, yeni bir depolama hesabı veya yeni bir kapsayıcı ilgili sayfaları oluşturabilirsiniz. İşiniz bittiğinde tıklatın **seçin**.
    
-    ![Depolama hesabı seçin](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![Depolama hesabı seç](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. İçinde **yedekleme yapılandırması** hala açık kaldığını sayfasında, **Backup Database**, ardından yedekleri (SQL veritabanı veya MySQL) dahil etmek istediğiniz veritabanlarını seçin ve ardından **Tamam**.  
    
-    ![Depolama hesabı seçin](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![Depolama hesabı seç](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Bağlantı dizesi bu listesinde görünmesi için bir veritabanı, mevcut olmalıdır **bağlantı dizeleri** bölümünü **uygulama ayarları** sayfasında uygulamanız için.
@@ -97,7 +97,7 @@ Depolama hesabı ve kapsayıcı yapılandırılmış sonra istediğiniz zaman el
 ## <a name="configure-automated-backups"></a>Otomatik yedeklemeleri yapılandırma
 1. İçinde **yedekleme yapılandırması** sayfasında **zamanlanmış yedekleme** için **üzerinde**. 
    
-    ![Depolama hesabı seçin](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![Depolama hesabı seç](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Seçenekleri gösterir, yedekleme zamanlamasını ayarlamak **zamanlanmış yedekleme** için **üzerinde**, ardından yedekleme zamanlamasını istediğiniz gibi yapılandırın ve tıklayın **Tamam**.
    
     ![Otomatik yedeklemeler etkinleştir][SetAutomatedBackupOn]
@@ -154,7 +154,7 @@ Uygulama için veritabanı yedeklemesi .zip dosyasının kök dizininde depolan�
 > 
 > 
 
-## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
+## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
 Yedekleme yönetimi komut dosyaları ile kullanarak otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 507986e4fa83e1821b1d7a1938b356feee81e9d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Azure Cosmos DB erişmek için bir Linux VM MSI kullanın 
 
@@ -113,7 +113,7 @@ Yanıt sistem atanan MSI (sonraki bölümde Principalıd olarak kullanılan unut
 ```
 ## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Cosmos DB hesap erişim anahtarı, Linux VM MSI erişim
 
-Cosmos DB yerel olarak Azure AD kimlik doğrulamasını desteklemez.  Ancak, bir MSI Kaynak Yöneticisi'nden Cosmos DB erişim tuşu almanızı sonra Cosmos DB erişmek için anahtarı kullanın.  Bu adımda, sisteminizi MSI erişim anahtarları Cosmos DB hesabına atanan verin.
+Cosmos DB yerel olarak Azure AD kimlik doğrulamasını desteklemez. Ancak, bir MSI Kaynak Yöneticisi'nden Cosmos DB erişim tuşu almanızı sonra Cosmos DB erişmek için anahtarı kullanın. Bu adımda, Cosmos DB hesabı anahtarları, MSI erişim izni.
 
 Cosmos DB hesabı Azure kaynağı Azure CLI kullanarak Yöneticisi'nde MSI kimlik erişim vermek için değerleri güncelleştirmek `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<COSMOS DB ACCOUNT NAME>` ortamınız için. Değiştir `<MSI PRINCIPALID>` ile `principalId` özellik tarafından döndürülen `az resource show` komutunu [Linux VM MSI Principalıd almak](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB erişim tuşlarını kullanırken iki düzeyde ayrıntı düzeyi destekler: okuma/yazma erişimi hesabı ve salt okunur erişim hesabı.  Ata `DocumentDB Account Contributor` hesabının okuma/yazma anahtarlarını almak ya da atamak istiyorsanız, rol `Cosmos DB Account Reader Role` hesabı için salt okunur anahtarlarını almak istiyorsanız, rol:
 
@@ -149,7 +149,7 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 4. Azure Resource Manager için bir erişim belirteci almak üzere CURL kullanın: 
      
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]

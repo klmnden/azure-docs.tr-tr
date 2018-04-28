@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ba402847d14f7de6c70b545b74d7ba8c1aaddcb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -43,14 +43,14 @@ Aşağıda, bu parametreler için Azure AD göndermek ve bu nedenle kullanıcıl
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |
 | Erişim paneli | myapps.microsoft.com/contoso.com |
-| Outlook Web üzerinde | outlook.office365.com/contoso.com |
+| Outlook Web üzerinde | Outlook.Office365.com/contoso.com |
 
 Ayrıca, diğer bir deyişle, Azure AD kiralanan Uç noktalara - uygulama oturum açma isteği gönderirse, kullanıcılar sessiz bir oturum açma deneyimi alır https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD ortak bir uç - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>. Aşağıda listelenen, oturum açma isteği bu tür uygulamalar kapsamlı olmayan bir listesidir.
 
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Azure portalına | portal.azure.com/contoso.com |
+| SharePoint Online | contoso.SharePoint.com |
+| Azure portalına | Portal.Azure.com/contoso.com |
 
 Yukarıdaki tablolarda, "contoso.com" kiracınız için doğru uygulama URL'lere almak için etki alanı adıyla değiştirin.
 
@@ -82,7 +82,7 @@ Azure AD Connect çalıştırdığınız şirket içi sunucu üzerinde aşağıd
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1. Adım AD ormanına sorunsuz SSO etkinleştirdiğiniz listesini al
 
 1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Ardından karşıdan yükleyip [64-bit Windows PowerShell için Azure Active Directory Modülü](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. Ardından karşıdan yükleyip [64-bit Windows PowerShell için Azure Active Directory Modülü](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
 4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
 5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracının genel Yöneticisi kimlik bilgilerini girmek için açılan pencere vermesi gerekir.

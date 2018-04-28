@@ -26,7 +26,7 @@
 ## [İlgili veri varlıklarını görüntüleme](data-catalog-how-to-view-related-data-assets.md) 
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Arama söz dizimi başvurusu](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Geliştirici kavramları](data-catalog-developer-concepts.md)

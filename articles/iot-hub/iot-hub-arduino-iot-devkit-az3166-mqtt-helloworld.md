@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 121bd8a21e74a836fcca74af97fc20cae297d9a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 13b1c5b9ae05a6c2d11420812efc1af17912aa28
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Bir MQTT sunucusuna ileti gönderme
 
@@ -46,26 +46,19 @@ Son [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-ard
 2. VS Code'u başlatın.
 
 3. DevKit bilgisayarınıza bağlayın.
-    VS Code otomatik olarak, DevKit algılar ve aşağıdaki sayfalarda açar:
-    * DevKit giriş sayfası.
-    * Arduino örnekler: size uygulamalı örnekleri, DevKit ile başlatıldı.
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## <a name="open-the-mqttclient-sample"></a>MQTTClient örneği açın
 
 Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örnekler > MQTT**seçip **MQTTClient**. Bu proje klasöründe ile yeni bir VS Code penceresi açar.
 
-![örnekler klasörü](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/examples.png)
-
 > [!NOTE]
-> Bölmesini kapatmak için görülüyorsa yeniden açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+> Örnek komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Derleme ve Arduino taslak DevKit karşıya yükle
 
 Tür `Ctrl+P` (macOS: `Cmd+P`) çalıştırmak için `task device-upload`. Karşıya yükleme tamamlandığında, DevKit yeniden başlatır ve taslak çalıştırır.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![cihaz karşıya yükleme](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > Alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Bu hata, Panosu paket dizinini doğru yenilenmemiş oluşur. Bu hatayı gidermek için bu başvuru [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -101,4 +94,4 @@ Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/az
 MXChip IOT DevKit MQTT istemci olarak yapılandırmak ve bir MQTT Aracısı iletileri göndermek için MQTT istemci kitaplığını kullanma öğrendiniz, önerilen sonraki adımlar şunlardır:
 
 * [Azure IOT Paketi'ne Genel Bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

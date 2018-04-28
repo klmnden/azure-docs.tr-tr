@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning yönetim PowerShell cmdlet'lerini kullanarak yeni Resource Manager temelli web hizmeti yeniden eğitme
-Yeni bir web hizmeti yeniden eğitme, yeni eğitilen model başvurmak için Tahmine dayalı web hizmeti tanımının güncelleştirin.  
+Yeni bir web hizmeti yeniden eğitme, yeni eğitilen model başvurmak için Tahmine dayalı web hizmeti tanımının güncelleştirin.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Gösterildiği gibi bir eğitim denemenizi ve Tahmine dayalı denemeye ayarlamalısınız [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md). 
+Gösterildiği gibi bir eğitim denemenizi ve Tahmine dayalı denemeye ayarlamalısınız [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> Tahmine dayalı denemeye bir Azure Kaynak Yöneticisi'ni (yeni) dayalı machine learning web hizmeti dağıtılması gerekir. Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için bkz: [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md). 
+> Tahmine dayalı denemeye bir Azure Kaynak Yöneticisi'ni (yeni) dayalı machine learning web hizmeti dağıtılması gerekir.
+> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için bkz: [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md).
 
 Web hizmetleri dağıtma hakkında ek bilgi için bkz: [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 
@@ -48,7 +49,7 @@ Adımlar şunlardır:
 6. Yeni Web hizmeti tanımının web hizmetiyle güncelleştirme
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>Azure Resource Manager hesabınızda oturum açın
-İlk PowerShell kullanarak ortam içinde Azure hesabınızdan için kaydolmalısınız [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i.
+İlk PowerShell kullanarak ortam içinde Azure hesabınızdan için kaydolmalısınız [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i.
 
 ## <a name="get-the-web-service-definition"></a>Web hizmeti tanımının Al
 Ardından, Web hizmeti çağırarak alma [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i. Web hizmeti tanımının bir iç web hizmetinin eğitilen modeli gösterimini ve doğrudan değiştirilebilir değil. Tahmine dayalı denemenizi ve değil eğitim denemenizi için Web hizmeti tanımının alırsınız emin olun.

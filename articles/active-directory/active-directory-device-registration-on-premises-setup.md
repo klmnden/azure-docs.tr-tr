@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory'deki şirket içi koşullu erişimi ayarlama | Microsoft Docs"
-description: "Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimin etkinleştirilmesine yönelik adım adım yönergeler."
+title: Azure Active Directory'deki şirket içi koşullu erişimi ayarlama | Microsoft Docs
+description: Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimin etkinleştirilmesine yönelik adım adım yönergeler.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -89,7 +89,7 @@ Denetim etkinleştirmek ve Azure Active Directory cihaz Kayıt Hizmeti'ni yapıl
 | "Etkinleştirme cihaz geri yazma özelliğini Azure AD Connect." iki bölümü tamamlayın Bitirdiğinizde, bu Kılavuzu'na dönün. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[İsteğe bağlı] 4. Kısım: Etkinleştir çok faktörlü kimlik doğrulaması
-Çok faktörlü kimlik doğrulaması için çeşitli seçenekler birini yapılandırmanız önerilir. Çok faktörlü kimlik doğrulaması gerektiren istiyorsanız, bkz: [çok faktörlü kimlik doğrulaması güvenliği çözümü seçtiğiniz](../multi-factor-authentication/multi-factor-authentication-get-started.md). Her çözüm ve tercih ettiğiniz çözüm yapılandırmanıza yardımcı olması için bağlantıları açıklamasını içerir.
+Çok faktörlü kimlik doğrulaması için çeşitli seçenekler birini yapılandırmanız önerilir. Çok faktörlü kimlik doğrulaması gerektiren istiyorsanız, bkz: [çok faktörlü kimlik doğrulaması güvenliği çözümü seçtiğiniz](authentication/concept-mfa-whichversion.md). Her çözüm ve tercih ettiğiniz çözüm yapılandırmanıza yardımcı olması için bağlantıları açıklamasını içerir.
 
 ## <a name="part-5-verification"></a>Bölüm 5: doğrulama
 Dağıtımı tamamlanmıştır ve bazı senaryolar deneyebilirsiniz. Hizmet ile denemek ve özellikleri ile tanımak için aşağıdaki bağlantıları kullanın.
@@ -156,7 +156,7 @@ Bu URL'yi, kullanıcılarınıza iletmenin birçok farklı yolu vardır. Örneğ
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak bir Windows 8.1 cihaz birleştirme
 1. Windows 8.1 Cihazınızı seçin **PC Ayarları** > **ağ** > **çalışma alanına**.
-2. Kullanıcı adınızı UPN biçiminde girin; Örneğin,  **dan@contoso.com** .
+2. Kullanıcı adınızı UPN biçiminde girin; Örneğin, **dan@contoso.com**.
 3. Seçin **katılma**.
 4. İstendiğinde, kimlik bilgilerinizle oturum açın. Cihaz artık birleştirilir.
 
@@ -186,7 +186,7 @@ Aşağıdaki adımlar bu senaryonun nasıl uygulanacağını gösterir.
 1. AD FS MMC Aracı'nı açın ve ardından **AD FS** > **güven ilişkileri** > **bağlı olan taraf güvenleri**.
 2. Bu yeni erişim kuralının uygulanacağı uygulamasını bulun. Uygulamayı sağ tıklatın ve ardından **talep kurallarını Düzenle**.
 3. Seçin **verme yetkilendirme kuralları** sekmesini tıklatın ve ardından **Kuralı Ekle**.
-4. Gelen **talep kuralı** şablonu aşağı açılan listesinden, **göre izin ver veya Reddet kullanıcılar bir gelen talep**. Ardından **sonraki**.
+4. Gelen **talep kuralı** şablonu aşağı açılan listesinden, **göre izin ver veya Reddet kullanıcılar bir gelen talep**. Sonra **İleri**’yi seçin.
 5. İçinde **talep kuralı adı** alanında, yazın **kayıtlı cihazlardan erişim izin**.
 6. Gelen **gelen talep türü** aşağı açılan listesinden, **kayıtlı kullanıcı**.
 7. İçinde **gelen talep değeri** alanında, yazın **doğru**.

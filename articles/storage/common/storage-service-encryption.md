@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Bekleyen Veri için Azure Storage Hizmeti Şifreleme
 
@@ -72,7 +72,7 @@ Y: Evet ise, [kendi şifreleme anahtarlarınızı kullanın](storage-service-enc
 
 **S: bir depolama hesabı oluşturduğunuzda, depolama hizmeti şifrelemesi varsayılan olarak etkin mi?**
 
-A: Evet depolama hizmeti şifrelemesi (Microsoft tarafından yönetilen anahtarları kullanarak) tüm depolama hesaplarının--Azure Resource Manager ve klasik varsayılan olarak etkindir. Blob storage, Table storage, kuyruk depolama ve Azure dosyaları, tüm hizmetleri de--etkinleştirdi.
+A: Evet depolama hizmeti şifrelemesi, tüm Azure Storage Hizmetleri ve tüm depolama hesapları için varsayılan olarak etkindir.
 
 **S: nasıl bu Azure Disk Şifrelemesi ' farklı mı?**
 

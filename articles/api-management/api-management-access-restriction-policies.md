@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management erişimi kısıtlama ilkeleri | Microsoft Docs"
-description: "Azure API Management'te kullanıma erişim kısıtlama ilkeleri hakkında bilgi edinin."
+title: Azure API Management erişimi kısıtlama ilkeleri | Microsoft Docs
+description: Azure API Management'te kullanıma erişim kısıtlama ilkeleri hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API yönetim erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -65,7 +65,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |başarısız oldu-onay-hata iletisi|HTTP yanıt gövdesinde başlığı yok veya geçersiz bir değere sahip ise döndürülecek hata iletisi. Bu ileti, tüm özel karakterleri düzgün şekilde çıkıldığından olması gerekir.|Evet|Yok|  
-|failed-check-httpcode|Üstbilgi yok veya geçersiz bir değere sahip olursa döndürmek için HTTP durum kodu.|Evet|Yok|  
+|başarısız oldu-onay-httpcode|Üstbilgi yok veya geçersiz bir değere sahip olursa döndürmek için HTTP durum kodu.|Evet|Yok|  
 |üstbilgi adı|Denetlenecek HTTP üstbilgisinin adı.|Evet|Yok|  
 |Yoksay durumu|TRUE veya False ayarlanabilir. Üstbilgi değeri kabul edilebilir değerler kümesi karşı karşılaştırıldığında doğru servis talebi kümesine göz ardı gerekiyorsa.|Evet|Yok|  
   
@@ -88,8 +88,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -112,9 +112,9 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|set-limit|Kök öğesi.|Evet|  
-|api|Bir veya daha fazla ürün içinde çağrı hızı sınırı üzerinde API'leri zorunlu tuttukları için bu öğeleri ekleyin. Ürün ve API sınırları bağımsız olarak uygulanır oranı arayın.|Hayır|  
-|işlemi|Bir veya daha fazla bir API işlemlerini bir çağrı hızı sınırı koymak için bu öğeleri ekleyin. Ürün, API ve işlem sınırları bağımsız olarak uygulanır oranı çağırın.|Hayır|  
+|sınırını ayarlama|Kök öğesi.|Evet|  
+|api|Bir veya daha fazla ürün içinde çağrı hızı sınırı üzerinde API'leri zorunlu tuttukları için bu öğeleri ekleyin. Ürün ve API sınırları bağımsız olarak uygulanır oranı arayın. API olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
+|işlemi|Bir veya daha fazla bir API işlemlerini bir çağrı hızı sınırı koymak için bu öğeleri ekleyin. Ürün, API ve işlem sınırları bağımsız olarak uygulanır oranı çağırın. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -171,7 +171,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|set-limit|Kök öğesi.|Evet|  
+|sınırını ayarlama|Kök öğesi.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -214,7 +214,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|ip-filter|Kök öğesi.|Evet|  
+|IP Filtresi|Kök öğesi.|Evet|  
 |Adres|Filtre uygulamak tek bir IP adresini belirtir.|En az bir `address` veya `address-range` öğesi gereklidir.|  
 |adres aralığı adresinden ="" için "Adres" =|Bir IP adresi aralığı filtrelemek için belirtir.|En az bir `address` veya `address-range` öğesi gereklidir.|  
   
@@ -223,7 +223,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |adres aralığı adresinden ="" için "Adres" =|Bir dizi IP adreslerini izin vermek veya erişimi reddetmek için.|Ne zaman gerekli `address-range` öğe kullanılır.|Yok|  
-|ip-filter action="allow &#124; forbid"|Çağrıları verilip verilmeyeceğini veya belirtilen IP adresleri ve aralıkları için belirtir.|Evet|Yok|  
+|IP filtre eylemi = "izin &#124; yasaklamaz"|Çağrıları verilip verilmeyeceğini veya belirtilen IP adresleri ve aralıkları için belirtir.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -243,8 +243,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |Kota|Kök öğesi.|Evet|  
-|api|Bir veya daha fazla API'lerde kota ürün içinde koymak için bu öğeleri ekleyin. Ürün ve API kotaları bağımsız olarak uygulanır.|Hayır|  
-|işlemi|Bir veya daha fazla bir API işlemlerini bir kota koymak için bu öğeleri ekleyin. Ürün, API ve işlem kotaları bağımsız olarak uygulanır.|Hayır|  
+|api|Bir veya daha fazla ürün içinde API çağrısı kota koymak için bu öğeleri ekleyin. Ürün ve API çağrısı kotaları bağımsız olarak uygulanır. API olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
+|işlemi|Bir veya daha fazla bir API işlemlerini çağrısı kota koymak için bu öğeleri ekleyin. Ürün, API ve işlem çağrısı kotaları bağımsız olarak uygulanır. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -489,24 +489,24 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Hedef kitle|Belirteçte mevcut olabilecek kabul edilebilir İzleyici talep listesini içerir. Birden fazla hedef kitle değer mevcut sonra her değer denenir kadar tüm (Bu durumda doğrulama başarısız) tükendiği veya biri başarılı olana kadar. En az bir hedef kitle belirtilmelidir.|Hayır|  
 |verici İmzalama anahtarları|İmzalanmış belirteçleri doğrulamak için kullanılan güvenlik Base64 ile kodlanmış anahtarları listesi. Birden çok güvenlik anahtarları varsa sonra her anahtar denenir kadar tüm (Bu durumda doğrulama başarısız) tükendiği veya biri (belirteci geçiş işlemi için yararlıdır) başarılı olana kadar. Anahtar öğeleri sahip isteğe bağlı bir `id` karşı eşleştirmek için kullanılan öznitelik `kid` talep.|Hayır|  
 |verenler|Belirtecin kabul edilebilir sorumluların listesini. Birden çok veren değer mevcut sonra her değer denenir kadar tüm (Bu durumda doğrulama başarısız) tükendiği veya biri başarılı olana kadar.|Hayır|  
-|openid-config|İçinden İmzalama anahtarları ve veren alınabilir uyumlu bir Open ID yapılandırma endpoint belirtmek için kullanılan öğe.|Hayır|  
+|openıd-config|İçinden İmzalama anahtarları ve veren alınabilir uyumlu bir Open ID yapılandırma endpoint belirtmek için kullanılan öğe.|Hayır|  
 |gerekli talep|Talep belirteci için geçerli kabul edilebilmesi için mevcut olması beklenen listesini içerir. Zaman `match` özniteliği `all` her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir. Zaman `match` özniteliği `any` en az bir talep belirteci başarılı olması doğrulama için mevcut olmalıdır.|Hayır|  
-|zumo-master-key|Ana anahtar için Azure Mobile Services tarafından yayınlanan belirteçleri|Hayır|  
+|zumo ana anahtarı|Ana anahtar için Azure Mobile Services tarafından yayınlanan belirteçleri|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|TimeSpan. Belirteç Verenin sistem saatleri ve API Management örneği arasında en fazla beklenen zaman farkı belirtmek için kullanın.|Hayır|0 saniye|  
-|failed-validation-error-message|JWT doğrulamayı geçemezse HTTP yanıt gövdesinde döndürmek için hata iletisi. Bu ileti, tüm özel karakterleri düzgün şekilde çıkıldığından olması gerekir.|Hayır|Varsayılan hata iletisini doğrulama sorunu, örneğin "JWT mevcut değil." bağlıdır|  
+|saat eğriltme|TimeSpan. Belirteç Verenin sistem saatleri ve API Management örneği arasında en fazla beklenen zaman farkı belirtmek için kullanın.|Hayır|0 saniye|  
+|başarısız oldu-doğrulama-hata iletisi|JWT doğrulamayı geçemezse HTTP yanıt gövdesinde döndürmek için hata iletisi. Bu ileti, tüm özel karakterleri düzgün şekilde çıkıldığından olması gerekir.|Hayır|Varsayılan hata iletisini doğrulama sorunu, örneğin "JWT mevcut değil." bağlıdır|  
 |failed-validation-httpcode|JWT doğrulama geçmiyor ise döndürülecek HTTP durum kodu.|Hayır|401|  
 |üstbilgi adı|Belirteç bulunduran HTTP üstbilgisinin adı.|Ya da `header-name` veya `query-parameter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
 |id|`id` Özniteliği `key` öğesi karşı eşleşen dize belirtmenize olanak verir `kid` imza doğrulama için kullanılacak uygun anahtarını bulmak (varsa) belirteç talep.|Hayır|Yok|  
 |eşleşme|`match` Özniteliği `claim` öğesi ilkedeki her talep değeri başarılı olması doğrulama belirteçte mevcut olup olmadığını belirtir. Olası değerler şunlardır:<br /><br /> -                          `all` -her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir.<br /><br /> -                          `any` -en az bir talep değeri başarılı olması doğrulama belirteci mevcut olmalıdır.|Hayır|tümü|  
 |Sorgu paremeter adı|Adını belirteci bulunduran sorgu parametresi.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
-|gerekli-sona erme-time|Boole değeri. Bir süre sonu talep belirteçte gerekip gerekmediğini belirtir.|Hayır|doğru|
+|gerekli-sona erme-time|Boole değeri. Bir süre sonu talep belirteçte gerekip gerekmediğini belirtir.|Hayır|true|
 |gerektiren düzeni|Belirteç adını düzen, örn. "Bearer". Bu öznitelik ayarlandığında, ilke yetkilendirme üst bilgisi değeri, belirtilen düzeni bulunduğundan emin olun.|Hayır|Yok|
-|gerekli-oturum-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|doğru|  
+|gerekli-oturum-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|true|  
 |ayırıcı|Dize. Ayırıcı belirtir (örneğin ",") birden çok değerli bir talep değerleri kümesi ayıklanması için kullanılacak.|Hayır|Yok| 
 |url|Burada Open ID yapılandırma meta verilerini elde edilebilir gelen kimliği yapılandırma uç noktasının URL'sini açın. Yanıt özellikleri için URL'de tanımlanan according:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` directory Kiracı adınız, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
   

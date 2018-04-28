@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1 ile V2’yi karşılaştırma
 Bu makale, Azure Data Factory’nin V2 sürümünü V1 sürümüyle karşılaştırır. V1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye giriş](v1/data-factory-introduction.md). V2 hakkında giriş bilgileri için bkz. [Data Factory'ye giriş (V2 - önizleme)](introduction.md).
@@ -139,11 +139,7 @@ V2 için güncelleştirilmiş olan SDK'lar V1 istemcileriyle uyumlu değildir.
 
 ## <a name="roles-and-permissions"></a>Roller ve izinler
 
-v2 Veri Fabrikası için alt kaynaklar oluşturmak ve yönetmek için:
-
--   Sürüm 1 Veri Fabrikası Katkıda Bulunan rolü, v2 kaynakları oluşturmak ve yönetmek için kullanılamaz.
--   Veri Fabrikası kaynağında oluşturulan standart ARM Katkıda Bulunan rolü, PowerShell veya SDK’lar ile dağıtılan bir v2 Veri Fabrikası için alt kaynakları oluşturup yönetmek için yeterlidir. Azure portalından veya ARM şablon dağıtımı ile dağıtılan v2 Veri Fabrikasına yönelik alt kaynakları oluşturup yönetmek için yeterli değildir.
--   Azure portalından veya ARM şablon dağıtımı ile dağıtılan v2 Veri Fabrikasına yönelik alt kaynaklar oluşturup yönetmek için kaynak grubu düzeyinde veya abonelik düzeyinde ‘Otomasyon İşi İşleci’ rolünün üyesi olmanız gerekir. Kuruluşunuz, [Azure Rol Tabanlı Erişim Denetimi için özel roller oluşturma ](../active-directory/role-based-access-control-custom-roles.md) bölümünde açıklandığı gibi, "Eylemler" listesinde "Microsoft.Resources/deployments/*" içeren bir özel rol de oluşturabilir.
+Veri Fabrikası sürüm 1 Katkıda Bulunan rolü, Veri Fabrikası v2 kaynakları oluşturmak ve yönetmek için kullanılabilir.
 
 ## <a name="monitoring-experience"></a>İzleme deneyimi
 V2'de, [Azure İzleyici](monitor-using-azure-monitor.md)’yi kullanarak veri fabrikalarını izleyebilirsiniz. Yeni PowerShell cmdlet’leri, [tümleştirme çalışma zamanlarını](monitor-integration-runtime.md) izlemeyi destekler. V1 ve V2, Azure portalından başlatılabilen izleme uygulaması aracılığıyla görsel izleme desteği sunar.

@@ -11,11 +11,11 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -44,8 +44,11 @@ Tam veritabanı yedeklemeleri, haftalık, artımlı veritabanı yedeklemeleri ge
 Yedekleme depolama coğrafi çoğaltma Azure Storage çoğaltma zamanlamaya göre gerçekleşir.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Ne kadar süreyle yedeklerim tutarım?
-Her SQL veritabanını yedekleme temel alan bir bekletme dönemi içeren [hizmet katmanı](sql-database-service-tiers.md) veritabanı. Bir veritabanında saklama süresi:
+Her SQL veritabanını yedekleme veritabanının Hizmet katmanını temel alır ve arasında farklı bir bekletme dönemi içeren [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md). 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli için veritabanı tutma
+DTU tabanlı satın alma modeli veritabanında saklama süresi hizmet katmanında bağlıdır. Bir veritabanı için saklama süresi:
 
 * Temel hizmet katmanı 7 gündür.
 * Standart hizmet katmanında 35 gün olur.
@@ -63,7 +66,13 @@ Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir 
 
 > [!IMPORTANT]
 > SQL veritabanlarını barındıran Azure SQL server silerseniz, sunucuya ait tüm veritabanlarının da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>VCore tabanlı satın alma modeli (Önizleme) için veritabanı tutma
+
+Veritabanı Yedeklemeleri için depolama noktası SQL veritabanı zaman geri yükleme (PITR) ve uzun vadeli bekletme (LTR) yeteneklerini desteklemek için ayrılır. Bu depolama ayrı olarak her veritabanı için ayrılan ve iki ayrı veritabanı başına ücret faturalandırılır. 
+
+- **PITR**: olan otomatik olarak tek tek veritabanı yedeklemeleri RA-GRS depolama alanına kopyalanır. Yeni yedeklemeler oluşturuldukça dinamik olarak depolama boyutunu artırır.  Depolama alanı, haftalık tam yedeklemeler, günlük fark yedekleri ve 5 dakikada bir kopyalanan işlem günlüğü yedeklemeleri tarafından kullanılır. Depolama alanı tüketimi veritabanının ve Bekletme dönemi değişiklik oranına bağlıdır. Farklı bekletme dönemi 7-35 gün arasında her veritabanı için yapılandırabilirsiniz. Veri boyutu, 1 x eşit bir en az depolama miktarını ekstra ücret ödemeden sağlanır. Çoğu veritabanları için bu miktar 7 gün yedeklemelerini depolamak için yeterlidir. Daha fazla bilgi için bkz: [noktası zaman geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **LTR**: SQL veritabanı uzun vadeli bekletme, tam yedekleme 10 yılı aşkın yapılandırma seçeneği sunar. LTR ilkesi etkinleştirilirse, bu yedeklemeler RA-GRS depolama alanına otomatik olarak depolanır, ancak yedeklemelerin ne sıklıkta kopyalanır kontrol edebilirsiniz. Farklı bir uyumluluk gereksinimini karşılayacak şekilde, haftalık, aylık ve/veya yıllık yedekleme için farklı bekletme sürelerinin seçebilirsiniz. Bu yapılandırma, ne kadar depolama alanı LTR yedeklemeler için kullanılacak tanımlayacaksınız. LTR depolama maliyetini tahmin etmek için LTR fiyatlandırma hesaplayıcısı kullanabilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Yedekleme bekletme süresini uzatmayı nasıl?
 

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma profili düzenleme ve parola sıfırlama ile bir ASP.NET web uygulaması oluşturma
 
@@ -28,7 +28,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir Azure hesabına B2C Kiracınızın bağlanmanız gerekir. Ücretsiz bir Azure hesabı oluşturabilirsiniz [burada](https://azure.microsoft.com/en-us/).
+- Bir Azure hesabına B2C Kiracınızın bağlanmanız gerekir. Ücretsiz bir Azure hesabı oluşturabilirsiniz [burada](https://azure.microsoft.com/).
 - Gereksinim duyduğunuz [Microsoft Visual Studio](https://www.visualstudio.com/) görüntülemek ve örnek kod değiştirmek için veya benzer bir program.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini oluşturma
@@ -194,7 +194,7 @@ public partial class Startup
                 },
 
                 // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
-                Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );
     }

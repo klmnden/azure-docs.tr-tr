@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
@@ -64,7 +64,7 @@ Uç nokta sahipliği kanıtlamak için geri validationResponse özelliğinde do�
 
 Bir olay abonelik oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek Web kancası uç noktanızı güvenliğini sağlayabilirsiniz. Gizli gibi olması için bu sorgu parametrelerini ayarlayın bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token) Web kancası olay tanımak için kullanabileceğiniz olay kılavuzdan geçerli izinleriyle geliyor. Olay kılavuz her olay teslimi Web kancası için bu sorgu parametrelerini içerir.
 
-Olay aboneliği düzenlerken, sorgu parametrelerini değil görüntülenen veya kaldırılacak sürece döndürülen [--dahil-tam-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parametresi Azure'da kullanılan [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
+Olay aboneliği düzenlerken, sorgu parametrelerini değil görüntülenen veya kaldırılacak sürece döndürülen [--dahil-tam-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parametresi Azure'da kullanılan [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Son olarak, Azure olay kılavuz yalnızca HTTPS Web kancası uç noktaları desteklediğini dikkate almak önemlidir.
 

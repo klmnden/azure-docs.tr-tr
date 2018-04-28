@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage erişmek için bir Windows VM MSI kullanın"
-description: "Azure depolama alanına erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici."
+title: Azure Storage erişmek için bir Windows VM MSI kullanın
+description: Azure depolama alanına erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2e78fb3344d77f33907c97e66ce262f79d13f778
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 848033f79674e6ad1457d885c75215fc5c434d93
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Azure depolama erişim tuşu erişmek için bir Windows VM yönetilen hizmet kimliği kullanın
 
@@ -39,7 +39,7 @@ Bu öğretici bir Windows sanal makine için Yönetilen hizmet kimliği (MSI) et
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
 
@@ -56,7 +56,7 @@ Bu öğretici için yeni bir Windows VM oluşturun. Mevcut bir VM'yi üzerinde M
 
 ## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir
 
-Bir sanal makine MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. Perde arkasında MSI etkinleştirme iki işlemi yapar: MSI VM uzantısı, VM yükler ve sanal makine için MSI sağlar.  
+Bir sanal makine MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. Perde arkasında MSI etkinleştirme iki işlemi yapar: yazmaçlar yönetilen kimliğini ve oluşturmak için Azure Active Directory ile VM VM kimliğini yapılandırır.
 
 1. Yeni bir sanal makine kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
 2. Sol taraftaki "ayarlar" VM altında tıklatın **yapılandırma**.
@@ -64,10 +64,6 @@ Bir sanal makine MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gere
 4. Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.
 
     ![Alt görüntü metin](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Denetlemek isterseniz, hangi uzantıları VM, tıklatın **uzantıları**. MSI etkinleştirilirse, **ManagedIdentityExtensionforWindows** listede görüntülenir.
-
-    ![Alt görüntü metin](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
@@ -119,7 +115,7 @@ Bu bölümünde Azure Resource Manager PowerShell cmdlet'lerini kullanmanız ger
 4. PowerShell'in Invoke-WebRequest kullanarak, Azure kaynak yöneticisi için bir erişim belirteci almak üzere yerel MSI uç nokta için bir isteği oluşturun.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

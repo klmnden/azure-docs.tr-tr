@@ -1,8 +1,8 @@
 ---
 title: Microsoft Dynamics CRM ve Azure Application Insights | Microsoft Docs
-description: "Telemetri Microsoft Dynamics CRM Application Insights kullanarak Online'dan alın. Kurulum, verileri, Görselleştirme ve dışarı aktarma alma kılavuz."
+description: Telemetri Microsoft Dynamics CRM Application Insights kullanarak Online'dan alın. Kurulum, verileri, Görselleştirme ve dışarı aktarma alma kılavuz.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mazharmicrosoft
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>İzlenecek yol: Telemetri Microsoft Dynamics CRM Online Application Insights kullanarak etkinleştirme
 Bu makalede, telemetri verilerini alma gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Biz uygulamanıza Application Insights komut dosyası ekleme tamamlandı işlemini veri ve veri görselleştirme yakalama yol.
@@ -60,7 +60,7 @@ Uygulamanızı izlemek üzere uygulamanıza Application Insights SDK ekleyin. SD
     ![Metin Düzenleyicisi'ni açın](./media/app-insights-sample-mscrm/00004.png)
 2. Kodu Application Insights kopyalayın. Kopyalarken, komut dosyası etiketlerini yoksay emin olun. Ekran görüntüsünün altında bakın:
 
-    ![İzleme anahtarı ayarlayın](./media/app-insights-sample-mscrm/00005.png)
+    ![İzleme anahtarı ayarlayın](./media/app-insights-sample-mscrm/000005.png)
 
     Kodu uygulama ınsights kaynağınızı tanımlayan izleme anahtarını içerir.
 3. Kaydedin ve yayımlayın.

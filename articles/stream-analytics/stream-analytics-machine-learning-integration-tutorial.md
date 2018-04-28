@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure akış analizi ve Azure Machine Learning kullanarak düşünceleri analiz gerçekleştirme
 Bu makalede, Azure Machine Learning tümleştiren basit bir Azure akış analizi işi hızlı bir şekilde ayarlamak açıklar. Machine Learning düşünceleri analiz modeli Cortana Intelligence Galeriden akış metin verileri çözümlemek ve gerçek zamanlı düşünceleri puan belirlemek için kullanın. Cortana Intelligence Suite kullanarak düşünceleri analiz modeli oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden bu görevi gerçekleştirirken olanak sağlar.
@@ -25,7 +25,7 @@ Ne bunlar gibi senaryolar için bu makaleden öğrenin uygulayabilirsiniz:
 * Forum, bloglar ve videolar açıklamaları değerlendiriliyor. 
 * Birçok diğer gerçek zamanlı, Tahmine dayalı Puanlama senaryoları.
 
-Gerçek hayattaki bir senaryoda, doğrudan bir Twitter veri akışından veri almalıdır. Akış analizi işi, Azure Blob Depolama alanında bir CSV dosyasından tweet'leri alır. böylece biz yazılmış öğretici basitleştirmek için. Örnek bir CSV dosyası aşağıdaki görüntüde gösterildiği gibi kullanabilirsiniz veya kendi CSV dosyası oluşturabilirsiniz:
+Gerçek hayattaki bir senaryoda, doğrudan bir Twitter veri akışından veri almalıdır. Akış analizi işi, Azure Blob Depolama alanında bir CSV dosyasından tweet'leri alır. böylece öğretici basitleştirmek için onu yazılır. Örnek bir CSV dosyası aşağıdaki görüntüde gösterildiği gibi kullanabilirsiniz veya kendi CSV dosyası oluşturabilirsiniz:
 
 ![bir CSV dosyasında örnek tweet'leri](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -39,7 +39,7 @@ Aşağıdaki şekilde, bu yapılandırma gösterilmektedir. Belirtilenler daha g
 Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure aboneliği.
-* Bazı veriler içeren bir CSV dosyası. Öğesinden daha önce gösterilen dosyayı indirebilirsiniz [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), ya da kendi dosyası oluşturabilirsiniz. Bu makale için GitHub dosyasından kullandığınız varsayılmıştır.
+* Bazı veriler içeren bir CSV dosyası. Öğesinden daha önce gösterilen dosyayı indirebilirsiniz [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), ya da kendi dosyası oluşturabilirsiniz. Bu makale için GitHub dosyasından kullandığınız varsayılır.
 
 Yüksek düzeyde, bu makalede gösterilen görevleri tamamlamak için aşağıdakileri yapın:
 
@@ -105,7 +105,7 @@ Bu adım için Github'da kullanılabilir bir gibi herhangi bir CSV dosyası kull
 
    ![Machine Learning Studio'da test sonuçları](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. İçinde **uygulamaları** sütun tıklatın **Excel 2010 veya önceki çalışma kitabı** bir Excel çalışma kitabı indirmek için bağlantı. Çalışma kitabını içeren bir API anahtarı ve daha sonra Stream Analytics işi ayarlamak için gereken URL.
+7. İçinde **uygulamaları** sütun tıklatın **Excel 2010 veya önceki çalışma kitabı** bir Excel çalışma kitabı indirmek için bağlantı. Çalışma kitabı API anahtarı ve daha sonra Stream Analytics işi ayarlamak için gereken URL içerir.
 
     ![Stream Analytics Machine Learning, Hızlı Bakış](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -157,7 +157,7 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 
    |Alan  |Değer  |
    |---------|---------|
-   |**Çıkış diğer adları** | Adı kullanmak `datainput` seçip **seçin, aboneliğiniz depolama blob**       |
+   |**Çıkış diğer adları** | Adı kullanmak `datamloutput` seçip **seçin, aboneliğiniz depolama blob**       |
    |**Depolama hesabı**  |  Daha önce oluşturduğunuz depolama hesabını seçin.  |
    |**kapsayıcı**  | Daha önce oluşturduğunuz kapsayıcısı seçin (`azuresamldemoblob`)        |
    |**Olayı seri hale getirme biçimi**  |  Seçin **CSV**       |
@@ -168,7 +168,7 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 
 
 ### <a name="add-the-machine-learning-function"></a>Machine Learning işlevi ekleme 
-Daha önce bir web hizmetine bir Machine Learning modeli yayımladı. Akış analizi işi çalıştığında, Senaryomuzda her örnek tweet girdisinden düşünceleri çözümleme için web hizmetine gönderir. Machine Learning web hizmeti bir düşünceleri döndürür (`positive`, `neutral`, veya `negative`) ve pozitif olması tweet bir olasılık. 
+Daha önce bir web hizmetine bir Machine Learning modeli yayımladı. Akış analizi işi çalıştığında, bu senaryoda, her örnek tweet girdisinden düşünceleri çözümleme için web hizmetine gönderir. Machine Learning web hizmeti bir düşünceleri döndürür (`positive`, `neutral`, veya `negative`) ve pozitif olması tweet bir olasılık. 
 
 Öğreticinin bu bölümünde, akış analizi işi işlevinde tanımlarsınız. İşlev, web hizmetine tweet gönderecek ve yanıt geri almak için çağrılabilir. 
 
@@ -200,12 +200,13 @@ Akış analizi giriş inceleyin ve işleme için bir bildirim temelli, SQL taban
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     Sorgu daha önce oluşturduğunuz işlevi çağırır (`sentiment`) her tweet giriş üzerinde düşünceleri analiz gerçekleştirmek için. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 55de110c61b2b7603c2f01483e28d12032b732c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesi silme
 
@@ -31,7 +31,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Portalı'nı kullanarak, açık https://portal.azure.com, olan bir hesapla oturum [gerekli izinleri](#permissions) eşlemeler ile çalışmak için.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.5.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `Login-AzureRmAccount` sahip bir hesap ile [gerekli izinleri](#permissions) Azure ile bir bağlantı oluşturmak için eşliği ile çalışmak için.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.5.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `Connect-AzureRmAccount` sahip bir hesap ile [gerekli izinleri](#permissions) Azure ile bir bağlantı oluşturmak için eşliği ile çalışmak için.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.29 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` sahip bir hesap ile [gerekli izinleri](#permissions) Azure ile bir bağlantı oluşturmak için eşliği ile çalışmak için.
 
 ## <a name="create-a-peering"></a>Bir eşleme oluşturma
@@ -42,7 +42,7 @@ Bir eşleme oluşturmadan önce ile öğrenmeniz [gereksinimleri ve kısıtlamal
 2. Sanal ağ için bir eşleme oluşturmak istediğiniz listesinden seçin.
 3. Sanal ağlar listesinden için eşliği oluşturmak istediğiniz sanal ağı seçin.
 4. Altında **ayarları**seçin **eşlemeler**.
-5. Seçin **+ Ekle**. 
+5. **+ Ekle** öğesini seçin. 
 6. <a name="add-peering"></a>Girin veya aşağıdaki ayarları için değerleri seçin:
     - **Ad:** eşleme için adı sanal ağ içinde benzersiz olmalıdır.
     - **Sanal ağ dağıtım modeli:** hangi dağıtım modeli ile eş istediğiniz sanal ağı seçin aracılığıyla dağıtıldı.
@@ -129,8 +129,8 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
 - Eş istediğiniz her iki sanal ağlar, aboneliklerin olmalıdır aynı Azure Active Directory Kiracı ilişkili. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracılar ilişkilendirilen farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
 - Bir sanal ağ, başka bir sanal ağa eşlenen ve ayrıca bir Azure sanal ağ geçidi ile başka bir sanal ağa bağlı olması. Sanal ağlar eşliği ve ağ geçidi bağlandığında, sanal ağlar arasında trafiği ağ geçidi yerine eşleme yapılandırmasını akar.
 - Sanal ağ eşlemesi kullanan girdi ve çıktı trafiği için nominal bir ücret uygulanır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
-* <a name="cross-region"></a>Sanal ağlar aynı ya da farklı bölgelerde eş. Her iki sanal ağ içinde olduğunda aşağıdaki kısıtlamalar uygulamayın *aynı* bölge, ancak sanal ağlar, geçerli *farklı* bölgeleri: 
-    - Sanal ağlar yalnızca aşağıdaki bölgelerde bulunabilir: Kore Güney, Birleşik Krallık Güney, Birleşik Krallık Batı, Doğu Kanada, Hindistan Güney, Hindistan Orta, Hindistan Batı, BİZE Batı Merkezi, Kanada merkezi ve ABD Batı 2.
+* <a name="cross-region"></a>Sanal ağlar aynı bölgede ya da farklı bölgelerde eş. Her iki sanal ağ içinde olduğunda aşağıdaki kısıtlamalar uygulamayın *aynı* bölge, ancak sanal ağlar genel eşlendikleri olduğunda geçerlidir: 
+    - Sanal ağlar yalnızca aşağıdaki bölgelerde bulunabilir: Batı Orta ABD (Wyoming), Batı ABD 2 (Washington) Orta ABD (Iowa), ABD Doğu 2 (Virginia), Kanada Merkezi (Toronto), Doğu Kanada (Quebec City), Güneydoğu Asya (Singapur) Kore Güney (Buscan) Güney Hindistan (Chennai), Orta Hindistan (Pune), Batı Hindistan (Mumbai), Güney UK (Londra), Batı UK (Cardiff), Batı Avrupa (Hollanda)
     - Bir sanal ağ kaynaklarında Azure iç yük dengeleyiciye eşlenen sanal ağdaki IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve onunla iletişim kaynakları aynı sanal ağda olması gerekir.
     - Uzak ağ geçitlerini kullanan veya ağ geçidi transit izin verin. Uzak ağ geçitleri kullanın veya ağ geçidi transit izin vermek için her iki sanal ağ eşlemesi içindeki aynı bölgede bulunması gerekir. 
 

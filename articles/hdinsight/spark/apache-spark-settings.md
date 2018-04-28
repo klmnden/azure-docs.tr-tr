@@ -1,30 +1,28 @@
 ---
-title: "Azure Hdınsight Spark ayarları - yapılandırma | Microsoft Docs"
-description: "Spark Hdınsight kümesi için yapılandırılır."
+title: Azure Hdınsight Spark ayarları - yapılandırma | Microsoft Docs
+description: Spark Hdınsight kümesi için yapılandırılır.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Spark ayarlarını yapılandırma
 
-Hdınsight Spark kümesinde bir Apache Spark kitaplığı yüklenmesini içerir.  Her Hdınsight kümesi Spark dahil olmak üzere kendi yüklü tüm hizmetler için varsayılan yapılandırma parametrelerini içerir.  Hdınsight Hadoop kümesi yönetme önemli nokta, iş yükü, tahmin edilebilir bir şekilde çalıştığından emin olmak için Spark işlerinin dahil olmak üzere izlemektedir. En iyi şekilde Spark işlerini çalıştırmak için nasıl kümenin mantıksal yapılandırma iyileştirileceği belirlerken fiziksel küme yapılandırmasını göz önünde bulundurun.
+Hdınsight Spark kümesinde bir Apache Spark kitaplığı yüklenmesini içerir.  Her Hdınsight kümesi Spark dahil olmak üzere kendi yüklü tüm hizmetler için varsayılan yapılandırma parametrelerini içerir.  Hdınsight Hadoop kümesi yönetme önemli nokta, iş yükü, işleri tahmin edilebilir bir şekilde çalıştığından emin olmak için Spark işlerinin dahil olmak üzere izlemektedir. En iyi şekilde Spark işlerini çalıştırmak için nasıl kümenin mantıksal yapılandırma iyileştirileceği belirlerken fiziksel küme yapılandırmasını göz önünde bulundurun.
 
 Varsayılan Hdınsight Apache Spark kümesinde aşağıdaki düğümleri içerir: üç ZooKeeper düğümleri, iki baş düğümler ve bir veya daha fazla çalışan düğümleri:
 
@@ -34,9 +32,13 @@ Ayrıca VM sayısını ve VM boyutları Hdınsight kümenizdeki düğümlerin i�
 
 ## <a name="spark-versions"></a>Spark sürümleri
 
-Kümeniz için en iyi Spark sürümünü de dikkate almalısınız.  Spark 2.x 1.x Spark olandan daha iyi çalıştırabilirsiniz. Spark 2.x sahip Tungsten, Catalyst sorgu en iyi duruma getirme ve diğerleri gibi performans iyileştirmelerini sayısı.  Hdınsight hizmeti Spark ve Hdınsight kendisini birden fazla sürümünü içerir.  Her sürümü Spark, varsayılan küme ayarlarını içerir.  Yeni bir küme oluşturduğunuzda, içinden seçim yapabileceğiniz geçerli Spark sürümleri şunlardır:
+Kümeniz için en iyi Spark sürümü kullanın.  Hdınsight hizmeti Spark ve Hdınsight kendisini birkaç sürümlerini içerir.  Her sürümü Spark, varsayılan küme ayarlarını içerir.  
+
+Yeni bir küme oluşturduğunuzda, içinden seçim yapabileceğiniz geçerli Spark sürümleri şunlardır:
 
 ![Spark sürümleri](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x 1.x Spark olandan daha iyi çalıştırabilirsiniz. Spark 2.x sahip Tungsten, Catalyst sorgu en iyi duruma getirme ve diğerleri gibi performans iyileştirmelerini sayısı.  
 
 > [!NOTE]
 > Apache Spark Hdınsight service'nın varsayılan sürümünde bildirilmeksizin değiştirilebilir. Sürüm bağımlılık varsa, Microsoft .NET SDK/Azure PowerShell ve Azure CLI kullanarak küme oluşturduğunuzda bu belirli sürümü belirtin önerir.
@@ -47,7 +49,7 @@ Apache Spark üç sistem yapılandırması konumları vardır:
 * Ortam değişkenleri, IP adresi gibi makine başına ayarları aracılığıyla ayarlamak için kullanılabilir `conf/spark-env.sh` her düğümde komut dosyası.
 * Günlüğe kaydetme aracılığıyla yapılandırılabilir `log4j.properties`.
 
-Spark belirli bir sürümü seçtiğinizde, kümenizi varsayılan yapılandırma ayarlarını içerir.  Özel bir Spark yapılandırma dosyası sağlayarak varsayılan Spark yapılandırma değerlerini değiştirebilirsiniz.  Bir örnek aşağıda verilmiştir.
+Spark belirli bir sürümü seçtiğinizde, kümenizi varsayılan yapılandırma ayarlarını içerir.  Özel bir Spark yapılandırma dosyası kullanarak varsayılan Spark yapılandırma değerlerini değiştirebilirsiniz.  Bir örnek aşağıda verilmiştir.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ Spark belirli bir sürümü seçtiğinizde, kümenizi varsayılan yapılandırma
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-Yukarıda gösterilen örnek beş Spark yapılandırma parametrelerini birkaç varsayılan değerlerini geçersiz kılar.  Sıkıştırma codec bunlar, açık dosya boyutları varsayılan değerler ve Hadoop mapreduce en küçük boyut ve parquet blok boyutları ve ayrıca Spar SQL bölüm bölebilirsiniz.  Bu yapılandırma değişikliklerini çünkü seçilen işleri (Bu örnekte, genomic veri) ve ilişkili veriler daha iyi bu özel yapılandırma ayarları kullanarak gerçekleştirecek belirli özelliklere sahiptir.
+Yukarıda gösterilen örnek beş Spark yapılandırma parametrelerini birkaç varsayılan değerlerini geçersiz kılar.  Sıkıştırma codec bunlar, açık dosya boyutları varsayılan değerler ve Hadoop MapReduce en küçük boyut ve parquet blok boyutları ve ayrıca Spar SQL bölüm bölebilirsiniz.  Bu yapılandırma değişikliklerini çünkü seçilen işleri (Bu örnekte, genomic veri) ve ilişkili veriler daha iyi bu özel yapılandırma ayarları kullanarak gerçekleştirecek belirli özelliklere sahiptir.
 
 ---
 
@@ -86,7 +88,7 @@ Varsayılan olmayan bir yapılandırma değerlerini oluşturursanız, yapıland�
 
 ## <a name="configuring-spark-executors"></a>Spark yürütücüler yapılandırma
 
-Aşağıdaki diyagramda anahtar Spark nesnelerini gösterir: sürücü programını ve onun ilişkili Spark bağlamı ve Küme Yöneticisi'ni ve kendi  *n*  çalışan düğümleri.  Her bir çalışan düğümünün bir yürütücü bir önbellek içerir ve  *n*  görev örneği.
+Aşağıdaki diyagramda anahtar Spark nesnelerini gösterir: sürücü programını ve onun ilişkili Spark bağlamı ve Küme Yöneticisi'ni ve kendi *n* çalışan düğümleri.  Her bir çalışan düğümünün bir yürütücü bir önbellek içerir ve *n* görev örneği.
 
 ![Küme nesneleri](./media/apache-spark-settings/spark-arch.png)
 
@@ -105,9 +107,9 @@ Alternatif olarak, program aracılığıyla Hdınsight ve Spark küme yapıland�
 
 Spark yükünüzü bağlı olarak, varsayılan olmayan bir Spark yapılandırma daha en iyi duruma getirilmiş Spark iş yürütmeleri sağlar belirleyebilir.  Varsayılan olmayan küme yapılandırmalarını doğrulamak için örnek ile iş yüklerini sınama Kıyaslama gerçekleştirmeniz gerekir.  Ayarlama düşünebilirsiniz ortak parametreler bazıları şunlardır:
 
-* `--num-executors`yürütücüler sayısını ayarlar.
-* `--executor-cores`Çekirdek sayısı için her Yürütücü ayarlar. Başka işlemler de kullanılabilir bellek kısmı kullanma gibi middle-sized yürütücüler kullanmanızı öneririz.
-* `--executor-memory`denetimleri yürütme yükü için bazı bellek bırakmak her Yürütücü YARN ve bellek boyutu (öbek boyutu) gerekir.
+* `--num-executors` yürütücüler sayısını ayarlar.
+* `--executor-cores` Çekirdek sayısı için her Yürütücü ayarlar. Başka işlemler de kullanılabilir bellek kısmı kullanma gibi middle-sized yürütücüler kullanmanızı öneririz.
+* `--executor-memory` denetimleri yürütme yükü için bazı bellek bırakmak her Yürütücü YARN ve bellek boyutu (öbek boyutu) gerekir.
 
 İki alt düğümleri farklı yapılandırma değerleri içeren bir örneği burada verilmiştir:
 
@@ -115,10 +117,10 @@ Spark yükünüzü bağlı olarak, varsayılan olmayan bir Spark yapılandırma 
 
 Aşağıdaki liste, anahtar Spark Yürütücü bellek parametrelerini gösterir.
 
-* `spark.executor.memory`kullanılabilir belleğin toplam miktarı için bir yürütücü tanımlar.
-* `spark.storage.memoryFraction`(varsayılan % ~ 60) kalıcı RDDs depolamak için kullanılabilir bellek miktarı tanımlar.
-* `spark.shuffle.memoryFraction`(varsayılan % ~ 20) karışık için ayrılan bellek miktarını tanımlar.
-* `spark.storage.unrollFraction`ve `spark.storage.safetyFraction` (toplam bellek % ~ 30 toplamda) - bu değerleri Spark tarafından dahili olarak kullanılır ve değiştirilmesi gerekir.
+* `spark.executor.memory` kullanılabilir belleğin toplam miktarı için bir yürütücü tanımlar.
+* `spark.storage.memoryFraction` (varsayılan % ~ 60) kalıcı RDDs depolamak için kullanılabilir bellek miktarı tanımlar.
+* `spark.shuffle.memoryFraction` (varsayılan % ~ 20) karışık için ayrılan bellek miktarını tanımlar.
+* `spark.storage.unrollFraction` ve `spark.storage.safetyFraction` (toplam bellek % ~ 30 toplamda) - bu değerleri Spark tarafından dahili olarak kullanılır ve değiştirilmesi gerekir.
 
 YARN her Spark düğümde kapsayıcıları tarafından kullanılan bellek maksimum toplamını denetler. Aşağıdaki diyagramda düğüm başına YARN yapılandırma ve Spark nesneleri arasındaki ilişkileri gösterir.
 
@@ -148,7 +150,7 @@ Aşağıdaki kod, bir Jupyter not defteri çalışan bir uygulama yapılandırma
 
 ## <a name="conclusion"></a>Sonuç
 
-İzleme ve tahmin edilebilir ve kullanıcı şekilde Spark işleriniz çalıştırmak emin olmak için ayarlamak için gereken çekirdek yapılandırma ayarları vardır. Bu ayarlar, belirli iş yükleri için en iyi Spark küme yapılandırması belirlemenize yardımcı.  Uzun süre çalışan ve/veya kaynak tüketen Spark iş yürütmeleri yürütülmesini izlemek gerekir.  En sık karşılaşılan zorluklar merkezi bellek baskısı nedeniyle yanlış yapılandırmaları (özellikle yanlış boyuta yürütücüler), uzun süre çalışan işlemleri ve Kartezyen işlemler sonucunda görevleri etrafında.
+İzleme ve tahmin edilebilir ve kullanıcı şekilde Spark işleriniz çalıştırmak emin olmak için ayarlamak için gereken çekirdek yapılandırma ayarları vardır. Bu ayarlar, belirli iş yükleri için en iyi Spark küme yapılandırması belirlemenize yardımcı.  Uzun süre çalışan ve/veya kaynak tüketen Spark iş yürütmeleri yürütülmesini izlemek gerekir.  En sık karşılaşılan zorluklar merkezi bellek baskısı nedeniyle hatalı yapılandırmalarını (özellikle yanlış boyuta yürütücüler), uzun süre çalışan işlemleri ve Kartezyen işlemlerinde neden görevleri etrafında.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

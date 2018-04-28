@@ -1,29 +1,24 @@
 ---
-title: "Azure SQL veri ambarı ile esnek sorgu Öğreticisi | Microsoft Docs"
-description: "Azure SQL Data Warehouse ile esnek sorgu kullanmayı öğrenin"
+title: 'Öğretici: Azure SQL veri ambarı ile esnek sorgu | Microsoft Docs'
+description: Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek sorgu özelliğini kullanır.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>Esnek sorgusu ile SQL veri ambarı yapılandırma
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Öğretici: Kullanım esnek sorgudan Azure SQL veri ambarındaki verilere erişmek için Azure SQL veritabanı
 
-Bu öğreticide, esnek sorgu SQL veri ambarı SQL veritabanından sorguya göndermek için nasıl kullanılacağını öğreneceksiniz. Esnek sorgu Azure SQL ürünleri arasında bulunan bir işlevdir. Kavram olarak esnek sorgu hakkında daha fazla bilgi için bkz: [ **esnek sorgusu ile SQL veri ambarı kullanmak nasıl**][How to use Elastic Query with SQL Data Warehouse].
+Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek sorgu özelliğini kullanır. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Öğreticisi için Önkoşullar
 
@@ -128,7 +123,7 @@ Sonraki birkaç adımda bir tablo, veri ambarı örneği birkaç değerlerle olu
 
 5. Şimdi bir dış tablo tanımındaki olduğunuz inceleyin, **SQL veritabanı örneği**.
 
-   ![Esnek sorgu dış tablo tanımı](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![Esnek sorgu dış tablo tanımı](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. Veri ambarı örneği sorgular aşağıdaki sorguyu gönderin. 2. adımda eklediğiniz beş değerleri almanız gerekir. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Tebrikler, esnek sorgu çok temelleri ayarlayın. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>Sonraki adımlar
+Önerileri için bkz: [en iyi yöntemler kullanarak Azure SQL Data Warehouse ile esnek sorgu için](how-to-use-elastic-query-with-sql-data-warehouse.md).

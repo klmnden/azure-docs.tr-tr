@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
 
+
 Bu makalede, yayımlanan sürümleri izlemenize yardımcı olmak için ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
 
 İlgili Konular listesidir:
-
-
 
 Konu |  Ayrıntılar
 --------- | --------- |
@@ -35,6 +34,21 @@ Azure AD Connect'ten yükseltme adımları | İçin farklı yöntemler [en son �
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+Durum 4/12/2018: yalnızca indirme için yayımlanan
+
+>[!NOTE]
+>Bu Azure AD Connect için bir düzeltme.
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect Eşitleme
+#### <a name="fixed-issues"></a>Giderilen sorunlar
+Burada otomatik Azure örneği bulma Çin kiracılar için zaman zaman başarısız bir sorun düzeltildi.  
+
+### <a name="ad-fs-management"></a>AD FS Yönetimi
+#### <a name="fixed-issues"></a>Giderilen sorunlar
+
+Bir sorun oluştu "aynı anahtara sahip bir öğe zaten eklenmiş." belirten bir ArgumentException neden olur yapılandırma yeniden deneme mantığında  Bu, tüm yeniden deneme işlemleri başarısız olmasına neden olur.
 
 ## <a name="117500"></a>1.1.750.0
 Durumu 22/3/2018: Otomatik yükseltme ve yükleme için yayımlamıştır.
@@ -99,8 +113,7 @@ Durum: müşterileri seçmek üzere serbest bırakılmış
 Değişiklikleri aşağıdakilerden ilgilenebilmek:
 1. Express yüklemeleri
 2. Özel yüklemeler hesabıyla otomatik olarak oluşturma
-
-* Azure AD Connect temiz yükleme SA ayrıcalığına gerektirmeyen şekilde yükleyici değiştirildi
+3. Azure AD Connect temiz yükleme SA ayrıcalığına gerektirmeyen şekilde yükleyici değiştirildi
 
 * Belirli bir nesnesi için eşitleme sorunlarını gidermek için yeni bir yardımcı programı eklendi. Azure AD Connect Sihirbazı sorun giderme ek görevi 'Nesne eşitleme sorunlarını giderme' seçeneği altında kullanılabilir. Şu anda, yardımcı program aşağıdakileri denetler:
 
@@ -479,7 +492,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|CertThumbprint|CertExtensionOids|
+    |CertFriendlyName|Certthumbprınt|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Şunu seçin:|
@@ -490,14 +503,14 @@ CBool(
 
   * Aşağıdaki öznitelikler MV şemaya eklenmiştir:
     * Grup: AccountName
-    * Group: domainNetBios
-    * Group: domainFQDN
-    * Person: distinguishedName
+    * Grup: domainNetBios
+    * Grup: domainFQDN
+    * Kişi: distinguishedName
 
   * Aşağıdaki öznitelikler Azure AD Bağlayıcısı şemaya eklenmiştir:
-    * Group: OnPremisesSamAccountName
-    * Group: NetBiosName
-    * Group: DnsDomainName
+    * Grup: OnPremisesSamAccountName
+    * Grup: NetBiosName
+    * Grup: DNSEtkiAlanıAdı
     * Kullanıcı: OnPremisesDistinguishedName
 
 * ADSyncDomainJoinedComputerSync cmdlet betik şimdi AzureEnvironment adlı yeni bir isteğe bağlı parametre vardır. Parametresi, ilgili Azure Active Directory Kiracı içinde barındırılan hangi bölgede belirtmek için kullanılır. Geçerli değerler şunlardır:

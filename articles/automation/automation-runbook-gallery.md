@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu Runbook ve modül galerileri"
-description: "Runbook'lardan ve modüllerden Microsoft ve topluluk yüklemenizi ve Azure Otomasyonu ortamınızda kullanmak için kullanılabilir.  Bu makalede, bu kaynakları nasıl erişebileceğiniz açıklanır ve runbook'larınızın Galeriye katkıda bulunma."
+title: Azure Otomasyonu Runbook ve modül galerileri
+description: Runbook'lardan ve modüllerden Microsoft ve topluluk yüklemenizi ve Azure Otomasyonu ortamınızda kullanmak için kullanılabilir.  Bu makalede, bu kaynakları nasıl erişebileceğiniz açıklanır ve runbook'larınızın Galeriye katkıda bulunma.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6a9298c0b7331bfa8af76eb904d256f6302816bf
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fe0e38e384f9f3d40bc6f7556cdb5e6dee9b4395
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zaten Microsoft ve topluluk tarafından oluşturulmuş senaryoları çeşitli erişebilir.  Bu senaryolar değişiklik yapmadan ya da kullanabilir veya bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -25,7 +25,7 @@ Runbook'lardan alabilirsiniz [Runbook Galerisi](#runbooks-in-runbook-gallery) ve
 Yalnızca Azure portalını kullanarak doğrudan Runbook'u Galeriden içeri aktarabilirsiniz. Windows PowerShell kullanarak bu işlev gerçekleştiremiyor.
 
 > [!NOTE]
-> Runbook'u Galeriden alın ve yükleme ve bir üretim ortamında çalışan çok dikkatli tüm runbook içeriğini doğrulamalıdır. |
+> Runbook'u Galeriden alın ve yükleme ve bir üretim ortamında çalışan çok dikkatli tüm runbook içeriğini doğrulamalıdır.
 > 
 > 
 
@@ -78,7 +78,7 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
    
    * Modül adı
    * Etiketler
-   * Yazar
+   * Yazma
    * Cmdlet/DSC kaynağı adı
 6. İlgilendiğiniz bir modül bulup ayrıntılarını görüntülemek için seçin.  
    Belirli bir modüle ayrıntıya, daha fazla bilgi görüntüleyebilirsiniz bağlantı geri PowerShell Galerisi modülü hakkında gerekli bağımlılıkları ve tüm cmdlet'ler ve/veya modülü içeren DSC kaynakları.

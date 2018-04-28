@@ -1,11 +1,11 @@
 ---
-title: "SaaS uygulaması Azure AD'de kullanıcı sağlamayı otomatik | Microsoft Docs"
-description: "Otomatik olarak sağlamak için Azure AD nasıl kullanabileceğiniz bir giriş sağlanmasını ve sürekli olarak kullanıcı hesaplarını birden çok üçüncü taraf SaaS uygulamalarında güncelleştirin."
+title: SaaS uygulaması Azure AD'de kullanıcı sağlamayı otomatik | Microsoft Docs
+description: Otomatik olarak sağlamak için Azure AD nasıl kullanabileceğiniz bir giriş sağlanmasını ve sürekli olarak kullanıcı hesaplarını birden çok üçüncü taraf SaaS uygulamalarında güncelleştirin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 56af1915326429b37f87dbaa397e1c9b832c675a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -176,7 +176,7 @@ Sağlama işi karantinadan tüm sabit sorunlu hataları sonra kaldırılır ve s
 
 Performans sağlama işinizi bir başlangıç eşitlemesi ya da bir artımlı eşitleme gerçekleştirme bağlı olarak farklı olacaktır.
 
-İlk eşitlemeler için tamamlamak için geçen süreyi kaç kullanıcıları, grupları ve Grup üyeleri, kaynak sistemde üzerinde doğrudan bağımlı olur. Yüzlerce nesne çok küçük kaynağı sistemleriyle birkaç dakika içinde ilk eşitlemeler tamamlayabilirsiniz. Ancak, binlerce veya birleştirilmiş nesneleri milyonlarca yüzlerce kaynağı sistemleriyle çok uzun zaman alabilir.
+İlk eşitlemeler için tamamlamak için geçen süreyi kaç kullanıcıları, grupları ve Grup üyeleri, kaynak sistemde üzerinde doğrudan bağımlı olur. Yüzlerce nesne çok küçük kaynağı sistemleriyle birkaç dakika içinde ilk eşitlemeler tamamlayabilirsiniz. Ancak, binlerce veya birleştirilmiş nesneleri milyonlarca yüzlerce kaynağı sistemleriyle daha uzun sürer.
 
 Artımlı eşitlemeler için sayı değişiklikler bu eşitleme döngüsü algılandı süresini bağlıdır. 5. 000'den az kullanıcı veya grup üyeliği değişikliklerinin algılanan varsa, bunlar genellikle 40 dakika döngüsü içinde eşitlenebilen. 
 

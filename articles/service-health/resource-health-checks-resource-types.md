@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu denetler Azure kaynak durumu
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir listesi aşağıdadır.
@@ -53,13 +53,13 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 |---|
 |<ul><li>Sunucu yukarı bu sanal makine barındırma ve çalıştırma?</li><li>Ana bilgisayar işletim sistemi önyükleme tamamlandı?</li><li>Sanal makine kapsayıcısını sağlandığında ve güç?</li><li>Ana bilgisayar ve depolama hesabı arasında ağ bağlantısı var mı?</li><li>Konuk işletim sistemi önyükleme tamamlandı?</li><li>Devam eden planlı bakım var mı?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
 |Yürütülen denetimleri|
 |---|
 |<ul><li>Data Lake Analytics bölgede kullanıcı gönderme işlerini kullanabilir?</li><li>Bölgede başarıyla tamamlamak ve temel işleri çalıştırma musunuz?</li><li>Kullanıcılar, katalog öğelerini bölgede listeleyebilirsiniz?</li>|
 
 
-## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
 |Yürütülen denetimleri|
 |---|
 |<ul><li>Kullanıcılar, Data Lake Store'a bölgede veri yükleyebilir miyim?</li><li>Kullanıcılar verileri Data Lake Store bölgede yükleyebilir?</li></ul>|
@@ -75,7 +75,7 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 |---|
 |<ul><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılamazlık nedeniyle hizmet olmayan veritabanı veya koleksiyon istekleri?</li><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılamazlık nedeniyle hizmet olmayan herhangi bir belge isteğini?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Yürütülen denetimleri|
 |---|
 |<ul><li>VPN tüneli bağlı mı?</li><li>Yapılandırma çakışmaları bağlantı var mı?</li><li>Önceden paylaşılan anahtarlar düzgün yapılandırılmış?</li><li>VPN şirket içi cihaz ulaşılabilir mu?</li><li>Eşleşmeler IPSec/IKE Güvenlik İlkesi'nde bulunur?</li><li>S2S VPN bağlantısı düzgün sağlanan veya başarısız durumda mı?</li><li>VNET-VNET bağlantısı düzgün sağlanan veya başarısız durumda mı?</li></ul>|
@@ -113,9 +113,9 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Yürütülen denetimleri|
 |---|
-|<ul><li>Ana bilgisayar sunucusu hazır ve çalışır mı?</li><li>Internet Information Services çalışıyor mu?</li><li>Yük Dengeleyici çalışıyor mu?</li><li>Web Service planı gelen veri merkezi içinde ulaşılabilen?</li><li>Depolama hesabı kullanılabilir serverFarm siteleri içeriğini barındıran??</li></ul>|
+|<ul><li>Ana bilgisayar sunucusu hazır ve çalışır mı?</li><li>Internet Information Services çalışıyor mu?</li><li>Yük Dengeleyici çalışıyor mu?</li><li>Uygulama hizmeti planı gelen veri merkezi içinde ulaşılabilen?</li><li>Depolama hesabı kullanılabilir serverFarm siteleri içeriğini barındıran??</li></ul>|
 
-## <a name="microsoftwebsites"></a>Microsoft.web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/Sites
 |Yürütülen denetimleri|
 |---|
 |<ul><li>Ana bilgisayar sunucusu hazır ve çalışır mı?</li><li>Internet Information server çalışıyor mu?</li><li>Yük Dengeleyici çalışıyor mu?</li><li>Web uygulaması veri merkezi içinde erişilebilir?</li><li>Depolama hesabı kullanılabilir site içeriğini barındıran?</li></ul>|

@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-database-application-development-overview"></a>SQL veritabanı uygulaması geliştirmeye genel bakış
 Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzere kod yazarken dikkat etmesi gereken noktalara yer verilmiştir.
@@ -29,12 +29,12 @@ Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzer
 * Daha fazla bilgi: [SQL Database ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md).
 
 ## <a name="tools"></a>Araçlar 
-[Cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/) gibi açık kaynak araçlardan yararlanabilirsiniz. Ayrıca, Azure SQL Veritabanı [Visual Studio](https://www.visualstudio.com/downloads/) ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) gibi Microsoft araçlarıyla birlikte çalışır.  Azure Yönetim Portalı, PowerShell ve REST API'leri de ek verimlilik elde etmenize yardımcı olabilir.
+Gibi açık kaynaklı araçları yararlanabilirsiniz [cheetah](https://github.com/wunderlist/cheetah), [sql CLI](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Ayrıca, Azure SQL Veritabanı [Visual Studio](https://www.visualstudio.com/downloads/) ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) gibi Microsoft araçlarıyla birlikte çalışır.  Azure Yönetim Portalı, PowerShell ve REST API'leri de ek verimlilik elde etmenize yardımcı olabilir.
 
 ## <a name="resource-limitations"></a>Kaynak sınırlamaları
 Azure SQL Veritabanı, bir veritabanı tarafından kullanılabilecek kaynakları iki farklı sistemle yönetir: Kaynak İdaresi ve Sınır Zorlama.
 
-* Daha fazla bilgi: [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md).
+* Daha fazla bilgi: [Azure SQL veritabanı DTU tabanlı kaynak modeli sınırları](sql-database-dtu-resource-limits.md) ve [Azure SQL veritabanı vCore tabanlı kaynak modeli sınırları (Önizleme)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Güvenlik
 Azure SQL Veritabanı, bir SQL Veritabanında erişim sınırlama, veri koruma ve izleme etkinlikleri için kaynaklar sunar.

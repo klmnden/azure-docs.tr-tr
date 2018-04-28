@@ -1,11 +1,11 @@
 ---
-title: "Windows Server tek başına Azure Service Fabric kümede yükseltme | Microsoft Docs"
-description: "Azure Service Fabric kod ve/veya küme güncelleştirme modu ayarı dahil olmak üzere bir tek başına Service Fabric kümesi çalıştıran yapılandırma yükseltin."
+title: Windows Server tek başına Azure Service Fabric kümede yükseltme | Microsoft Docs
+description: Azure Service Fabric kod ve/veya küme güncelleştirme modu ayarı dahil olmak üzere bir tek başına Service Fabric kümesi çalıştıran yapılandırma yükseltin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3354fab5f664391520e721586712e5035ff79cb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server, tek başına Azure Service Fabric kümede yükseltme 
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Aşağıdaki özelliği ayarlamak için küme yapılandırmanızı değiştirme 
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Kullanım ayrıntıları için bkz: [başlangıç ServiceFabricClusterConfigurationUpgrade PowerShell komutunu](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Yapılandırma yükseltmeye başlamadan önce JSON ' clusterConfigurationVersion' güncelleştirdiğinizden emin olun.
+Kullanım ayrıntıları için bkz: [başlangıç ServiceFabricClusterConfigurationUpgrade PowerShell komutunu](https://msdn.microsoft.com/library/mt788302.aspx). Yapılandırma yükseltmeye başlamadan önce JSON ' clusterConfigurationVersion' güncelleştirdiğinizden emin olun.
 
 ```powershell
 

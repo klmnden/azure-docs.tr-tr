@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure yığın 1803 güncelleştirme
 
@@ -44,10 +44,11 @@ Azure yığın 1803 güncelleştirme yapı numarası **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
-1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).
+- 1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).
 
-- [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/en-us/help/4103348)
+  - [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/en-us/help/4103348)
 
+- Bu güncelleştirmeyi yükledikten sonra emin olmak için güvenlik duvarı yapılandırmasını gözden [gerekli bağlantı noktalarını](azure-stack-integrate-endpoints.md) açıktır. Örneğin, bu güncelleştirme, etkinlik günlükleri için denetim günlüklerini değişikliği içeren Azure İzleyici tanıtır. Bu değişikliği bağlantı noktası 13012 kullanılan ve açık olmalıdır.  
 
 ### <a name="new-features"></a>Yeni Özellikler 
 Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına içerir.
@@ -169,7 +170,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
     - *İzin ver:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

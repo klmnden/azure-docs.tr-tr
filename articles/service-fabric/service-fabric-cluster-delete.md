@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
 ms.author: aljo
-ms.openlocfilehash: 7da2277fef224ff7859cac1ad5a2290c9dc56a85
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Azure ve kaynaklarını Service Fabric kümesini Sil
 Service Fabric kümesi, diğer Azure birçok kaynakları küme kaynağı yanı sıra oluşur. Bu nedenle, bir Service Fabric kümesini tamamen silmek için onu oluşturan tüm kaynakları da silmeniz gerekir.
@@ -38,7 +38,7 @@ Ayrıca, aşağıdaki Azure PowerShell cmdlet'lerini çalıştırarak kaynak gru
 Bir PowerShell penceresi açın ve aşağıdaki PS cmdlet'leri çalıştırın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -82,7 +82,7 @@ Aşağıdaki Azure PowerShell cmdlet'lerini çalıştırarak kaynakları tek tek
 Bir PowerShell penceresi açın ve aşağıdaki PS cmdlet'leri çalıştırın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Her silmek istediğiniz kaynaklar için aşağıdaki komut dosyasını çalıştırın:
 

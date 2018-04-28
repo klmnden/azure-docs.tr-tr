@@ -1,11 +1,11 @@
 ---
-title: "Parola tek oturum açma için Galeri olmayan applicationn yapılandırma | Microsoft Docs"
-description: "Azure AD uygulama galerisinde listelenmeyen zaman güvenli parola tabanlı çoklu oturum açma için özel bir galeri olmayan uygulama yapılandırma"
+title: Parola tek oturum açma için Galeri olmayan applicationn yapılandırma | Microsoft Docs
+description: Azure AD uygulama galerisinde listelenmeyen zaman güvenli parola tabanlı çoklu oturum açma için özel bir galeri olmayan uygulama yapılandırma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri olmayan uygulama için yapılandırma
 
@@ -112,6 +112,8 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 10. Kullanıcılar uygulamayı atayın.
 
 11. Ayrıca, kullanıcı adına kimlik bilgilerini kullanıcıları satırlarını seçerek ve tıklayarak sağlayabilirsiniz **güncelleştirme kimlik bilgileri** ve kullanıcılar adına kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar başlatma sırasında kimlik kendilerini girmeniz istenir.
+
+12. **İsteğe bağlı:** Twitter ve Facebook gibi sosyal medya belirli uygulamalar için Ayrıca seçili sıklığı uygulama parolasını otomatik geçişi etkinleştirmek için bir seçenek yoktur. Bu seçin etkinleştirmek için **otomatik olarak bu kullanıcı veya grubun parola yönetmek için Azure AD istediğiniz** bir kullanıcı veya grup adına kimlik bilgilerini girme oluştu. Ardından **Rollover sıklığı (hafta içinde)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Kullanıcının uygulamaya doğrudan atayın
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay kılavuz tetikleyici
 
@@ -48,7 +48,7 @@ If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` typ
 Bir olay kılavuz tetikleyicisi dile özgü örneğin bakın:
 
 * [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
+* [C# betik (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 Bir HTTP tetikleyicisi örnek için bkz: [HTTP tetikleyicisini kullanma](#use-an-http-trigger-as-an-event-grid-trigger) bu makalenin ilerisinde yer.
@@ -213,8 +213,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği |Açıklama|
 |---------|---------|----------------------|
-| **Türü** | Gerekli - kümesine olmalıdır `eventGridTrigger`. |
-| **Yönü** | Gerekli - kümesine olmalıdır `in`. |
+| **type** | Gerekli - kümesine olmalıdır `eventGridTrigger`. |
+| **direction** | Gerekli - kümesine olmalıdır `in`. |
 | **Adı** | Gerekli - işlevi kodda olay verileri alan parametresi için kullanılan değişken adı. |
 
 ## <a name="usage"></a>Kullanım
@@ -337,6 +337,9 @@ Alternatif olarak, anahtar değeri kendiniz belirtmek için bir HTTP PUT gönder
 
 ## <a name="local-testing-with-requestbin"></a>Yerel RequestBin ile test etme
 
+> [!NOTE]
+> RequestBin site şu anda kullanılabilir değil, ancak bu yaklaşımı kullanabilirsiniz https://hookbin.com yerine. Bu site kapalı ise, kullanabileceğiniz [ngrok](#local-testing-with-ngrok).
+
 Bir olay kılavuz tetikleyicisi test etmek için yerel olarak, bulutta kendi kaynaktan yerel makinenize teslim olay kılavuz HTTP isteklerini almak zorunda. Bunu yapmanın bir yolu, çevrimiçi ve el ile bunları yeniden göndermeyi yerel makinenizde istekleri yakalayarak şöyledir:
 
 2. [RequestBin uç noktası oluşturma](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Bitirdiğinizde test, aynı abonelik için üretim uç nokta güncelleştirerek 
 
 ### <a name="create-a-requestbin-endpoint"></a>RequestBin uç noktası oluşturma
 
-RequestBin, HTTP isteklerini kabul eder ve istek gövdesi gösterir bir açık kaynak aracıdır. http://requestb.in URL Azure olay kılavuz tarafından özel işleme alır. Sınama kolaylaştırmak için olay kılavuz doğru yanıt abonelik doğrulama isteklerine gerek kalmadan olaylar RequestBin URL'sine gönderir. İki test araçları aynı Muamele: http://webhookinbox.com ve http://hookbin.com.
+RequestBin, HTTP isteklerini kabul eder ve istek gövdesi gösterir bir açık kaynak aracıdır. http://requestb.in URL Azure olay kılavuz tarafından özel işleme alır. Sınama kolaylaştırmak için olay kılavuz doğru yanıt abonelik doğrulama isteklerine gerek kalmadan olaylar RequestBin URL'sine gönderir. Bir test aracı aynı Muamele yapılır: http://hookbin.com.
 
 RequestBin yüksek verimlilik kullanım için tasarlanmamıştır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
 

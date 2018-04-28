@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 
@@ -393,7 +393,7 @@ Aşağıdaki değişkenler, İşlevler ve görünümler farklı sonuçlar dönd�
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Depolama alanı olan küçük veritabanı dosyalarını aşan
 
-Her yönetilen örneğini 35 TB depolama için Azure Premium Disk alanı ayrılmış sahip ve her veritabanı dosyasını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan ücret, ancak Azure Premium Disk boyutları toplamı 35 TB aşamaz. Bazı durumlarda, bir yönetilen 8 TB toplam gerekmeyen örneği TB Azure sınırlamak iç parçalanması nedeniyle depolama boyutu 35 aşabilir. 
+Her yönetilen örneğini 35 TB depolama için Azure Premium Disk alanı ayrılmış sahip ve her veritabanı dosyasını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan ücret, ancak Azure Premium Disk boyutları toplamı 35 TB aşamaz. Bazı durumlarda, bir yönetilen 8 TB toplam gerekmeyen örneğini 35 TB Azure sınırlamak iç parçalanması nedeniyle depolama boyutu aşabilir. 
 
 Örneğin, yönetilen bir örnek 4 TB diski kullanan 1.2 TB boyuta sahip bir dosya ve her 128 GB boyutunu 248 disklerle yerleştirilir 248 dosyalarla 1 GB olabilir. Bu örnekte, toplam disk depolama boyutu 1 x 4 olan TB + 248 x 128 GB = 35 TB. Ancak, veritabanları için toplam ayrılmış örnek boyutu 1.2 x 1. TB + 248 x 1 GB = 1.4 TB. Dosyaları, belirli bir dağıtımını nedeniyle belirli koşullar altında yönetilen bir örneği burada beklediğiniz değil Azure Premium Disk Depolama sınırına ulaştığında, bu gösterilmektedir. 
 

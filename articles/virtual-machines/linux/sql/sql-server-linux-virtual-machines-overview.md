@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.author: jroth
-ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Sanal Makinelerinde SQL Server'a Genel Bakış (Linux)
 
@@ -24,27 +24,16 @@ ms.lasthandoff: 03/23/2018
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Bu konu başlığı, Azure Linux sanal makinelerinde (VM'ler) SQL Server çalıştırmaya yönelik seçeneklerle birlikte [portal görüntülerinin bağlantılarını](#create) içermektedir.
+Azure sanal makinelerinde SQL Server, şirket içi donanım yönetmenize gerek kalmadan tam SQL Server sürümlerini Bulut’ta kullanmanıza olanak sağlar. SQL Server VM’leri, kullandıkça ödeme yaptığınızda lisanslama maliyetlerini de basitleştirir.
 
-> [!NOTE]
-> SQL Server'ı zaten biliyor ve yalnızca bir SQL Server Linux VM'sinin nasıl dağıtılacağını görmek istiyorsanız bkz. [Azure'da Linux SQL Server VM'si sağlama](provision-sql-server-linux-virtual-machine.md). SQL Server içeren bir Windows VM oluşturmak istiyorsanız bkz. [Azure'da Windows SQL Server VM'si sağlama](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
+Azure sanal makineleri dünyanın birçok farklı [coğrafi bölgesinde](https://azure.microsoft.com/regions/) çalışır. Bu makineler, ayrıca çeşitli [makine boyutları](../sizes.md) sunar. Sanal makine resim galerisi, doğru sürüm ve işletim sistemiyle bir SQL Server VM’i oluşturmanızı sağlar. Bu, sanal makineleri birçok farklı SQL Server iş yükleri için iyi bir seçenek yapar.
 
-Veritabanı yöneticisi veya geliştiriciyseniz Azure VM’leri, şirket içi SQL Server iş yüklerinizi ve uygulamalarınızı Buluta taşımanız için bir yöntem sağlar.
+## <a id="create"></a> SQL VM’lerini kullanmaya başlayın
 
-## <a name="scenarios"></a>Senaryolar
-
-Verilerinizi Azure’da barındırmayı seçmeniz için birçok neden vardır. Uygulamanızı Azure'da geliştirir veya oraya geçirirseniz Azure arka uç verilerini bulma performansı da iyileştirilir. Küresel bir erişim ağı ve olağanüstü durum kurtarma için birden fazla veri merkezine otomatik olarak erişebilirsiniz. Ayrıca veriler son derece güvenilir ve dayanıklı olur.
-
-Azure VM’lerinde çalışan SQL Server, ilişkisel verilerinizi Azure’da depolamak için yararlanabileceğiniz bir seçenektir. Azure SQL Veritabanı hizmetini de kullanabilirsiniz. Sanal Makineler üzerinde SQL Server ile Azure SQL Veritabanı arasında seçim yapmanıza yardımcı olacak bilgiler için bkz. [Bulut SQL Server seçeneği belirleme: Azure SQL (PaaS) Veritabanı veya Azure VM'leri üzerinse SQL Server (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
-
-## <a id="create"></a> Yeni bir SQL sanal makinesi oluşturma
-
-Yeni SQL VM oluşturmaya yönelik adım adım yönergeleri, [Azure'da Linux SQL Server VM'si sağlama](provision-sql-server-linux-virtual-machine.md) öğreticisinde bulabilirsiniz.
-
-Aşağıdaki tabloda sanal makine galerisindeki en son SQL Server görüntülerinin bir matrisi verilmektedir. Belirtilen sürüm, yayın ve işletim sisteminizle yeni bir SQL VM oluşturmaya başlamak için bağlantılardan birine tıklayın.
+Kullanmaya başlamak için, gerekli olan sürüm ve işletim sisteminizle birlikte bir SQL Server sanal makine resmi seçin. Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir.
 
 > [!TIP]
-> Bu görüntülerin VM ve SQL fiyatlandırmasını anlamak için bkz. [Linux SQL Server VM'leri için fiyatlandırma kılavuzu](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> SQL görüntülerinin fiyatlandırmasını anlamak için bkz. [Linux SQL Server VM’leri için fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 | Sürüm | İşletim Sistemi | Sürüm |
 | --- | --- | --- |
@@ -65,6 +54,33 @@ Linux üzerinde SQL Server yapılandırdıktan sonra veritabanı altyapısı pak
 | SLES | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![hayır](./media/sql-server-linux-virtual-machines-overview/no.png) | ![hayır](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![evet](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
+## <a name="related-products-and-services"></a>İlgili ürün ve hizmetler
+
+### <a name="linux-virtual-machines"></a>Linux Sanal Makineleri
+
+* [Sanal Makinelere genel bakış](../overview.md)
+
+### <a name="storage"></a>Depolama
+
+* [Microsoft Azure Depolama'ya Giriş](../../../storage/common/storage-introduction.md)
+
+### <a name="networking"></a>Ağ
+
+* [Sanal Ağ’a genel bakış](../../../virtual-network/virtual-networks-overview.md)
+* [Azure’da IP adresleri](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Azure Portal'da Tam Etki Alanı Adı oluşturma](../portal-create-fqdn.md)
+
+### <a name="sql"></a>SQL
+
+* [Linux üzerinde SQL Server belgeleri](https://docs.microsoft.com/sql/linux)
+* [Azure SQL Veritabanı karşılaştırması](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Linux üzerinde SQL Server yapılandırma ve kullanma hakkında daha fazla bilgi için bkz. [Linux üzerinde SQL Server'a genel bakış](https://docs.microsoft.com/sql/linux/sql-server-linux-overview).
+Azure Linux sanal makinelerinde SQL Server kullanmaya başlayın:
+
+* [Azure portalında SQL Server VM’i oluşturma](provision-sql-server-linux-virtual-machine.md)
+
+Linux üzerinde SQL VM'ler hakkında sık sorulan soruların yanıtlarını alın:
+
+* [Azure Linux Sanal Makineler’de SQL Server ile ilgili SSS](sql-server-linux-faq.md)

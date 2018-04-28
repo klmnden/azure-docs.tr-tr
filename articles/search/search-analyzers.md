@@ -1,22 +1,18 @@
 ---
-title: "Çözümleyiciler Azure Search'te | Microsoft Docs"
-description: "Ata çözümleyiciler değiştirmek için bir dizin aranabilir metin alanları için özel, önceden tanımlanmış veya dile özgü Alternatiflerle birlikte standart Lucene varsayılan."
+title: Çözümleyiciler Azure Search'te | Microsoft Docs
+description: Ata çözümleyiciler değiştirmek için bir dizin aranabilir metin alanları için özel, önceden tanımlanmış veya dile özgü Alternatiflerle birlikte standart Lucene varsayılan.
 services: search
-manager: jhubbard
-author: HeidiSteen
-documentationcenter: 
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+manager: cgronlun
+author: HeidiSteen
+ms.openlocfilehash: e858966fb5a15b84af1952399a5eff3ca50d0d59
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="analyzers-in-azure-search"></a>Azure Search'te çözümleyiciler
 
@@ -53,7 +49,7 @@ Aşağıdaki liste, hangi çözümleyiciler Azure Search'te desteklenen açıkla
 
 3. Bir alan tanımı için bir çözümleyici ekleme dizini bir yazma işlemi oluşturur. Eklerseniz bir **Çözümleyicisi** varolan bir dizini için aşağıdaki adımları not edin:
  
- | Senaryo | Etkisi | Adımlar |
+ | Senaryo | Etki | Adımlar |
  |----------|--------|-------|
  | Yeni bir alan ekleyin | en az | Alan şemada henüz yoksa, alanın henüz fiziksel olarak bulunmayı dizininizdeki olmadığından yapmak için hiçbir alan düzeltmesi yoktur. Kullanım [güncelleştirme dizin](https://docs.microsoft.com/rest/api/searchservice/update-index) ve [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bu görev için.|
  | Bir Çözümleyicisi varolan bir dizini oluşturulmuş alana ekleyin. | Yeniden oluşturma | Bu alan için ters dizini sıfırdan yukarı yeniden oluşturulması gerekir ve bu alanları içeriğini reindexed gerekir. <br/> <br/>Etkin geliştirilme dizinler için [silmek](https://docs.microsoft.com/rest/api/searchservice/delete-index) ve [oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) yeni alan tanımını oluşturan çekme için dizini. <br/> <br/>Üretimde dizinler için yeniden düzenlenen bir tanımını sağlamak ve kullanmaya başlamak için yeni bir alan oluşturmanız gerekir. Kullanım [güncelleştirme dizin](https://docs.microsoft.com/rest/api/searchservice/update-index) ve [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) yeni alanı içerecek şekilde. Daha sonra planlanan dizin hizmeti, bir parçası olarak eski alanları kaldırmak için dizin oluşturan temizleyebilirsiniz. |

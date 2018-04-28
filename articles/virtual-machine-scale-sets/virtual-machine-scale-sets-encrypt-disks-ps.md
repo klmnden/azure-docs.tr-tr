@@ -1,13 +1,13 @@
 ---
-title: "Azure sanal makine ölçek ayarlar disk şifrelemesi | Microsoft Docs"
-description: "VM örnekleri ve sanal makine ölçek kümeleri bağlı disklerin şifrelemek için Azure PowerShell kullanmayı öğrenin"
+title: Azure sanal makine ölçek ayarlar disk şifrelemesi | Microsoft Docs
+description: VM örnekleri ve sanal makine ölçek kümeleri bağlı disklerin şifrelemek için Azure PowerShell kullanmayı öğrenin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>İşletim sistemi ve sanal makine ölçek kümesindeki eklenen veri disklerini şifrele
 Korumak ve rest endüstri standart şifreleme teknolojisi kullanarak verileri korumak için Azure Disk şifrelemesi (ADE) sanal makine ölçek kümesini destekler. Şifreleme, Windows ve Linux sanal makine için etkin olması ölçek kümeleri. Daha fazla bilgi için bkz: [için Azure Disk şifrelemesi Windows ve Linux](../security/azure-security-disk-encryption.md).
@@ -41,7 +41,7 @@ Bu makale Azure PowerShell modülü sürümü 5.3.0 gerektirir veya sonraki bir 
 Sanal makine ölçek için disk şifrelemesi'nin önizlemesi için Azure subsription ayarlar ile kayıt [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
@@ -80,13 +80,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
-İlk olarak, bir yönetici kullanıcı adı ve parola ile VM örnekleri için ayarlanmış [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+İlk olarak, VM örnekleri için [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile bir yönetici kullanıcı adı ve parola ayarlayın:
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Bu adımda [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) ile bir sanal makine ölçek kümesi oluşturun. Tekil VM örnekleriyle trafiğini dağıtmak için bir yük dengeleyici da oluşturulur. Yük Dengeleyici olarak, TCP bağlantı noktası 80 üzerinde trafiği dağıtmak için TCP bağlantı noktası 3389 üzerinde Uzak Masaüstü trafik ve PowerShell uzaktan iletişimini TCP bağlantı noktası 5985 izin kurallarını içerir:
+Bu adımda [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) ile bir sanal makine ölçek kümesi oluşturun. Tek tek sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Yük dengeleyici hem TCP bağlantı noktası 80 üzerinden trafiği dağıtmak hem de TCP bağlantı noktası 3389 üzerinden uzak masaüstü trafiğine hem de TCP bağlantı noktası 5985 üzerinden PowerShell uzaktan iletişimine olanak tanımak için kurallar içerir:
 
 ```powershell
 $vmssName="myScaleSet"

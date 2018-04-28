@@ -1,24 +1,24 @@
 ---
-title: "Günlük analizi veri güvenliği | Microsoft Docs"
-description: "Nasıl günlük analizi gizliliğinizi korur ve verilerinizin güvenliğini sağlama hakkında bilgi edinin."
+title: Günlük analizi veri güvenliği | Microsoft Docs
+description: Nasıl günlük analizi gizliliğinizi korur ve verilerinizin güvenliğini sağlama hakkında bilgi edinin.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Günlük analizi veri güvenliği
 Bu belge hakkında bilgi tamamlamak için Azure günlük analizi belirli bilgiler sağlamak için yöneliktir [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -46,7 +46,7 @@ Bir parçası olarak, [Abonelik Sözleşmesi](https://azure.microsoft.com/suppor
 
 Aşağıdaki tabloda kullanılabilir çözümler bazıları listeler ve bunlar toplamak veri türü örnekleri sağlar.
 
-| Çözüm | **Veri türleri** |
+| **Çözüm** | **Veri türleri** |
 | --- | --- |
 | Kapasite ve performans |Performans verilerini ve meta veriler |
 | Kötü Amaçlı Yazılım Değerlendirmesi |Yapılandırma verileri, meta veriler |
@@ -63,8 +63,8 @@ Aşağıdaki tabloda veri türlerine örnek olarak gösterilmiştir:
 | Yapılandırma |CustomerID, Agentıd, Entityıd, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Olay |Olay Kimliği, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, sayı, kategori, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Not:** Windows olay günlüğüne özel alanlara sahip olayları yazdığınızda, OMS bunları toplar. |
 | Meta Veriler |Basemanagedentityıd, ObjectStatus, kuruluş birimi, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IP adresi, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Adres, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
-| Performans |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| Durum |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| Performans |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, görüntülendiğinden, TimeSampled, TimeAdded |
+| Durum |StateChangeEventId, stateId, NewHealthState, OldHealthState, bağlam, TimeGenerated, TimeAdded, StateId2, Basemanagedentityıd, Monitorıd, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fiziksel güvenlik
 Günlük analizi hizmeti Microsoft personeli tarafından yönetilir ve tüm etkinlikler günlüğe kaydedilir ve denetlenebilir. Günlük analizi bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Sayfasında 18 Azure varlıklar fiziksel güvenliğinin ilgili ayrıntıları görüntüleyebilirsiniz [Microsoft Azure güvenlik genel bakış](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları artık aktarımı ve sonlandırma dahil olmak üzere OMS hizmetine sorumluluğu olan herkes için bir iş günü içinde değişir. Kullanırız adresindeki genel fiziksel altyapı hakkında bilgi edinebilirsiniz [Microsoft Datacenters](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx).
@@ -155,9 +155,9 @@ Windows veya yönetim sunucusu Aracısı önbelleğe alınmış verileri işleti
 Yukarıda açıklandığı gibi yönetim sunucusu veya aracılar doğrudan bağlı verileri Microsoft Azure veri merkezleri için SSL üzerinden gönderilir. İsteğe bağlı olarak, ek güvenlik için veri sağlamak için ExpressRoute kullanabilirsiniz. Çok protokollü etiket anahtarlama (MPLS) VPN, bir ağ hizmeti sağlayıcısı tarafından sağlanan gibi ExpressRoute doğrudan mevcut WAN ağınız, Azure'a bağlanmak için bir yoldur. Daha fazla bilgi için bkz: [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Günlük analizi hizmeti alır ve verileri işler
-Sertifikalar ve Azure kimlik doğrulaması ile veri bütünlüğünü doğrulayarak gelen verilerin güvenilir bir kaynaktan olduğunu kurulacağı günlük analizi hizmeti sağlar. İşlenmemiş ham verileri sonra verileri sonunda bekleyen depolanacak bölgede bir Azure Event Hub depolanır. Depolanan verilerin türünü alınacak ve veri toplamak için kullanılan çözümlerinin türlerine bağlıdır. Ardından, günlük analizi işlemlerini ham verileri hizmet ve veritabanına alır.
+Günlük analizi hizmeti gelen verilerin güvenilir bir kaynaktan sertifikalar ve Azure kimlik doğrulaması ile veri bütünlüğünü doğrulayarak olmasını sağlar. İşlenmemiş ham verileri sonra verileri sonunda bekleyen depolanacak bölgede bir Azure Event Hub depolanır. Depolanan verilerin türünü alınacak ve veri toplamak için kullanılan çözümlerinin türlerine bağlıdır. Ardından, günlük analizi işlemlerini ham verileri hizmet ve veritabanına alır.
 
-Toplanan verileri veritabanında depolanan saklama süresi çalışma alanı oluşturulduğunda seçilen plan üzerinde bağlıdır.  Ücretli katmanı için toplanan verileri varsayılan olarak 31 gün için kullanılabilir durumdadır, ancak 365 gün için genişletilebilir.  Bu veriler henüz bekleyen şifrelenmez ve mid-2018 için planlanan. 
+Toplanan verileri veritabanında depolanan saklama süresi seçilen fiyatlandırma plan üzerinde bağlıdır. İçin *serbest* katmanı, toplanan verileri kullanılabilir 7 gündür. İçin *Ödendi* katmanı, toplanan verileri varsayılan olarak 31 gün için kullanılabilir ancak 720 gün için genişletilebilir. Veri deposunda kalan veri gizliliği sağlamak için Azure, şifrelenmiş olarak depolanır. Verilerin son iki hafta da SSD tabanlı önbellekte depolanır ve bu önbelleği şu anda şifrelenmez.  2018 sonraki yarısında gibi şifreleme desteği planlıyoruz.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Veri erişimi için günlük analizi kullanın
 Günlük analizi çalışma alanınız erişmek için Kurumsal hesap veya önceden ayarladığınız Microsoft hesabı kullanarak Azure portalında oturum açın. Günlük analizi hizmeti ve portalı arasındaki tüm trafiği güvenli bir HTTPS kanal üzerinden gönderilir. Portal kullanırken, bir oturum kimliği Kullanıcı istemcide (web tarayıcısı) oluşturulur ve oturum sona kadar veri yerel önbellekte depolanır. Sona erdi, önbellek silinir. Kişisel bilgi içermez, istemci-tarafı tanımlama bilgilerini otomatik olarak kaldırılmaz. Oturum tanımlama bilgileri HTTPOnly işaretlenir ve güvenli hale getirilir. Önceden belirlenen boşta kalma süresi Azure portalı oturum sonlandırıldı.

@@ -12,11 +12,11 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -37,7 +37,7 @@ Aşağıdaki tabloda, her hizmet katmanı üç yaygın senaryo için Ekle ve RPO
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Bir veritabanını kurtarmak için zaman içinde nokta geri yükleme kullanın
 
-SQL veritabanı otomatik olarak tam veritabanı yedeklemeleri haftalık bir birleşimini gerçekleştirir, artımlı veritabanı yedeklemeleri saatlik ve işlem yedeklemeleri her beş - on dakika işletmenizi veri kaybına karşı koruyun oturum açın. Bu yedeklemeler veritabanları standart ve Premium hizmet katmanları ve temel hizmet katmanındaki veritabanları için 7 gün için 35 gün için RA-GRS depolama alanında depolanır. Genel amaçlı ve iş kritik hizmet katmanları (Önizleme) yedeklemeler bekletme 35 gün yukarı yapılandırılabilirdir. Daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md). Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-service-tiers.md) saklama süresini uzatabilirsiniz. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla bilgi için bkz: [otomatik veritabanı yedeklemeyi](sql-database-automated-backups.md).
+SQL veritabanı otomatik olarak tam veritabanı yedeklemeleri haftalık bir birleşimini gerçekleştirir, artımlı veritabanı yedeklemeleri saatlik ve işlem yedeklemeleri her beş - on dakika işletmenizi veri kaybına karşı koruyun oturum açın. Kullanıyorsanız, [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), bu yedeklemeler veritabanları standart ve Premium hizmet katmanları ve temel hizmet katmanındaki veritabanları için 7 gün için 35 gün için RA-GRS depolama alanında depolanır. Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model) saklama süresini uzatabilirsiniz. Kullanıyorsanız, [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md), genel amaçlı ve iş kritik katmanları yedeklemeleri bekletme 35 gün yapılandırılabilir ayarlama. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla bilgi için bkz: [otomatik veritabanı yedeklemeyi](sql-database-automated-backups.md).
 
 Maksimum desteklenen PITR saklama dönemi, uygulamanız için yeterli değilse, veritabanları için uzun vadeli bir bekletme (LTR) ilkesini yapılandırarak genişletebilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
@@ -97,8 +97,7 @@ Azure portal veya PowerShell kullanarak silinen bir veritabanını geri yükleme
 
 > [!IMPORTANT]
 > Mantıksal sunucu silinmişse, silinen bir veritabanını kurtaramazsınız.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Yedeklemeleri uzun vadeli bekletme geri yükleme
 

@@ -1,4 +1,26 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d407b015699925a6a3ce6ef9108ace1e9900303f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Projenizin kurulumunu
 
 Bu bölümde bir Windows Masaüstü .NET uygulaması (XAML) tümleştirme göstermek için yeni bir proje ile oluşturduğunuz *Microsoft ile oturum açma* uygulama bir belirteci gerektiren Web API'leri sorgulayabilmesi.
@@ -6,7 +28,7 @@ Bu bölümde bir Windows Masaüstü .NET uygulaması (XAML) tümleştirme göste
 Bu kılavuz ile oluşturduğunuz uygulama bir grafik ekranında sonuçları görüntülemek için bir alana çağırmak için kullanılan bir düğme ve oturum kapatma düğmesini görüntüler.
 
 > [!NOTE]
-> Bunun yerine bu örneği ait Visual Studio projesi indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)ve geçin [yapılandırma adımı](#create-an-application-express) kod örneği, yürütmeden önce yapılandırmak için.
+> Bunun yerine bu örneği ait Visual Studio projesi indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)ve geçin [yapılandırma adımı](#register-your-application) kod örneği, yürütmeden önce yapılandırmak için.
 >
 
 Uygulamanızı oluşturmak için aşağıdakileri yapın:
@@ -51,6 +73,7 @@ Bu adımda, MSAL, etkileşim belirteçleri işleme gibi işlemek için bir sın�
     ```
 
 ## <a name="create-the-application-ui"></a>Uygulama kullanıcı Arabirimi oluşturma
+
 Bu bölümde, bir uygulama gibi Microsoft Graph korumalı bir arka uç sunucusu nasıl sorgulayabilir gösterir. 
 
 A *MainWindow.xaml* dosya proje şablonu bir parçası olarak otomatik olarak oluşturulmalıdır. Bu dosyayı açın ve ardından, uygulamanızın değiştirin  *\<kılavuz >* aşağıdaki kodla düğümü:

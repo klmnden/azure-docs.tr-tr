@@ -1,18 +1,18 @@
 ---
-title: "Hizmet asıl adı ile Azure kapsayıcı kayıt defteri kimlik doğrulaması"
-description: "Bir Azure Active Directory hizmet asıl kullanarak özel kapsayıcı kaydınız görüntülerinde erişim sağlamak öğrenin."
+title: Hizmet asıl adı ile Azure kapsayıcı kayıt defteri kimlik doğrulaması
+description: Bir Azure Active Directory hizmet asıl kullanarak özel kapsayıcı kaydınız görüntülerinde erişim sağlamak öğrenin.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 97036ecabceb12b87b76c6ecb7e521157cbef827
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2dd96880292f98d6635ae5223b34cf3b78c81e16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Hizmet asıl adı ile Azure kapsayıcı kayıt defteri kimlik doğrulaması
 
@@ -38,6 +38,13 @@ Tek tek erişim ne zaman, el ile bir kapsayıcı görüntüsü geliştirme istas
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## <a name="sample-scripts"></a>Örnek komut dosyaları
+
+Yukarıdaki örnek betikler iyi sürümleri için Azure PowerShell olarak Azure CLI için github'da bulabilirsiniz:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Kapsayıcı kayıt defterine erişim izni hizmet sorumlusuna sahip olduktan sonra uygulamaları ve Hizmetleri kayıt defteri etkileşim için kimlik bilgilerini kullanabilirsiniz.
@@ -48,6 +55,8 @@ Hizmet asıl kimlik bilgilerini kullanmak üzere ayrı ayrı uygulamaları yapı
 * [Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri (ACI) ile kimlik doğrulaması](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login

@@ -1,19 +1,19 @@
 ---
-title: "CI/CD Azure kapsayıcı hizmeti ve Swarm ile"
-description: "Azure kapsayıcı hizmeti sürekli olarak çok kapsayıcı .NET Core uygulama göndermek için Docker Swarm, bir Azure kapsayıcı kayıt defteri ve Visual Studio Team Services ile kullanma"
+title: CI/CD Azure kapsayıcı hizmeti ve Swarm ile
+description: Azure kapsayıcı hizmeti sürekli olarak çok kapsayıcı .NET Core uygulama göndermek için Docker Swarm, bir Azure kapsayıcı kayıt defteri ve Visual Studio Team Services ile kullanma
 services: container-service
 author: jcorioland
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 38877afb63e993eeaab723a6ea5f4c40d3c956a5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81a07fdfe1c862bc30fb9d567db9a393c0610990
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Visual Studio Team Services kullanarak Docker Swarm ile Azure kapsayıcı hizmeti üzerinde çok kapsayıcı uygulama dağıtmak için tam CI/CD ardışık düzen
 
@@ -38,7 +38,7 @@ Kısa bir açıklama adımları şöyledir:
 7. Docker Swarm kümesinde görüntüleri en son sürümünü çeker 
 8. Uygulamanın yeni sürümü Docker Compose kullanılarak dağıtılır 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlamanız gerekir:
 

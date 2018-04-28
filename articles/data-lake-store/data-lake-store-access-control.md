@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store’da erişim denetimi
 
@@ -150,7 +150,7 @@ Azure’da bir Data Lake Store hesabının birkaç Azure rolü vardır, bunlar:
 * Katkıda Bulunanlar
 * Okuyucular
 
-Bir Data Lake Store hesabında **Sahipler** rolündeki herkes otomatik olarak o hesabın süper kullanıcısıdır. Daha fazla bilgi için bkz. [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+Bir Data Lake Store hesabında **Sahipler** rolündeki herkes otomatik olarak o hesabın süper kullanıcısıdır. Daha fazla bilgi için bkz. [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBAC) rolü oluşturmak isterseniz şu izinleri vermeniz gerekir:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ Sahip olan grup aşağıdakiler tarafından değiştirilebilir:
 * Sahip olan kullanıcı aynı zamanda hedef grubun üyesi ise sahip olan kullanıcı.
 
 > [!NOTE]
-> Sahip olan grup, bir dosya veya klasörün ACL’lerini *değiştiremez*.
+> Sahip olan grup, bir dosya veya klasörün ACL’lerini *değiştiremez*.  Sahip grup, kök klasörde olduğu gibi (yukarıdaki **Durum 1**) hesabı oluşturan kullanıcıya ayarlı olsa da, tek bir kullanıcı hesabı sahip grup üzerinden izin sağlamak için geçerli değildir.  Uygunsa bu izni geçerli bir kullanıcı hesabına atayabilirsiniz.
 
 ## <a name="access-check-algorithm"></a>Erişim denetimi algoritması
 

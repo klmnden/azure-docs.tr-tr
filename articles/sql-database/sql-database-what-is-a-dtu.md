@@ -10,14 +10,14 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Veritabanı işlem birimleri (Dtu'lar) ve esnek veritabanı işlem birimleri (Edtu'lar)
-Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır.  
+Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır. Belirli fiyatlandırma bilgileri için bkz: [Azure SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Veritabanı işlem birimleri (Dtu'lar) nelerdir?
 Belirli bir performans düzeyinde içinde tek bir Azure SQL veritabanı için bir [hizmet katmanı](sql-database-single-database-resources.md), Microsoft, belirli bir düzeyde (herhangi bir Azure bulut veritabanında bağımsız) veritabanının ve öngörülebilir bir performans düzeyini sağlamak için kaynaklar güvence altına alır. Bu miktarda kaynak veritabanı işlem birimleri veya Dtu'lar sayısı olarak hesaplanır ve ile birlikte gelen bir işlem, depolama ve g/ç kaynakları ölçüsüdür. Bu kaynaklar arasında oranı başlangıçta tarafından belirlenen bir [OLTP Kıyaslama iş yükü](sql-database-benchmark-overview.md) gerçek OLTP iş yükü tipik olarak tasarlanmıştır. İş yükünüzün bu kaynaklardan herhangi birini miktarını aşarsa, üretilen iş daraltılmış - yavaş performans ve zaman aşımları sonuç. İş yükünüzün kullandığı kaynakları diğer SQL veritabanları Azure bulutta kullanılabilir kaynakları etkilemeyen ve diğer iş yükleri tarafından kullanılan kaynak SQL veritabanınız kullanılabilir kaynakları etkileyen değil.

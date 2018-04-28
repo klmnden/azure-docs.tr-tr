@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Sık erişimli, seyrek erişimli ve arşiv depolama katmanları
+# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob depolama: Sık erişimli, seyrek erişimli ve arşiv depolama katmanları
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -32,9 +32,9 @@ Bu veri senaryolarının her biri, belirli erişim düzeni için optimize edilmi
 
 ## <a name="storage-accounts-that-support-tiering"></a>Katman ayarlamayı destekleyen depolama hesapları
 
-Blob Depolama veya Genel Amaçlı v2 (GPv2) hesaplarda nesne depolama verilerinizi yalnızca sık erişimli, seyrek erişimli ve arşiv seçeneklerine katman ayarlayabilirsiniz. Genel Amaçlı v1 (GPv1) hesaplar katman ayarlamayı desteklemez. Bununla birlikte, müşteriler Azure portalında basit bir tek tıklama işlemiyle var olan GPv1 veya Blob Depolama hesaplarını GPv2 hesaplarına kolayca dönüştürebilirler. GPv2, bloblar, dosyalar ve kuyruklar için yeni bir fiyatlandırma yapısı ve yeni diğer birçok depolama özelliğine de erişim sağlar. Ayrıca, bazı yeni özelliklere geçmek ve fiyat indirimleri yalnızca GPv2 hesaplarda sunulur. Bu nedenle, müşteriler GPv2 hesaplarını kullanmayı değerlendirmeli ancak bazı iş yükleri GPv2’de GPv1’den daha pahalı olabileceği için bu hesapları yalnızca tüm hizmetlerin fiyatlarını gözden geçirdikten sonra kullanmalıdır. Daha fazla bilgi için bkz. [Azure depolama hesabı seçenekleri](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Blob depolama veya Genel Amaçlı v2 (GPv2) hesaplarında nesne depolama verilerinizi yalnızca sık erişimli, seyrek erişimli ve arşiv seçeneklerine katman ayarlayabilirsiniz. Genel Amaçlı v1 (GPv1) hesaplar katman ayarlamayı desteklemez. Bununla birlikte, müşteriler Azure portalında basit bir tek tıklama işlemiyle var olan GPv1 veya Blob depolama hesaplarını GPv2 hesaplarına kolayca dönüştürebilir. GPv2, bloblar, dosyalar ve kuyruklar için yeni bir fiyatlandırma yapısı ve yeni diğer birçok depolama özelliğine de erişim sağlar. Ayrıca, bazı yeni özelliklere geçmek ve fiyat indirimleri yalnızca GPv2 hesaplarda sunulur. Bu nedenle, müşteriler GPv2 hesaplarını kullanmayı değerlendirmeli ancak bazı iş yükleri GPv2’de GPv1’den daha pahalı olabileceği için bu hesapları yalnızca tüm hizmetlerin fiyatlarını gözden geçirdikten sonra kullanmalıdır. Daha fazla bilgi için bkz. [Azure depolama hesabı seçenekleri](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Blob Depolama ve GPv2 hesapları, **Erişim Katmanı** özniteliğini nesne düzeyinde kullanıma sunar; bu ise nesne düzeyinde ayarlanmış katmanı olmayan depolama hesabındaki tüm bloblar için varsayılan depolama katmanını sık veya seyrek erişimli olarak belirtmenizi sağlar. Katmanı nesne düzeyinde ayarlanan nesnelerde hesap katmanı geçerli olmaz. Arşiv katmanı yalnızca nesne düzeyinde uygulanabilir. Bu depolama katmanları arasında istediğiniz zaman geçiş yapabilirsiniz.
+Blob depolama ve GPv2 hesapları, **Erişim Katmanı** özniteliğini nesne düzeyinde kullanıma sunar; bu ise nesne düzeyinde ayarlanmış katmanı olmayan depolama hesabındaki tüm bloblar için varsayılan depolama katmanını sık veya seyrek erişimli olarak belirtmenizi sağlar. Katmanı nesne düzeyinde ayarlanan nesnelerde hesap katmanı geçerli olmaz. Arşiv katmanı yalnızca nesne düzeyinde uygulanabilir. Bu depolama katmanları arasında istediğiniz zaman geçiş yapabilirsiniz.
 
 ## <a name="hot-access-tier"></a>Sık erişim katmanı
 
@@ -81,7 +81,7 @@ Aynı hesapta üç farklı depolama katmanına sahip bloblar birlikte bulunabili
 
 Bir blob daha seyrek erişilen bir katmana taşındığında (sık erişilen->seyrek erişilen, sık erişilen->arşiv veya seyrek erişilen->arşiv), bu işlem hedef katmana yazma olarak faturalandırılır ve hedef katmanın yazma işlemi (10.000 işlem başına) ile veri yazma (GB başına) ücretleri uygulanır. Bir blob daha sık erişilen bir katmana taşınırsa (arşiv->seyrek erişilen, arşiv->sık erişilen veya seyrek erişilen->sık erişilen), bu işlem kaynak katmandan okuma olarak faturalandırılır ve kaynak katmanın okuma işlemi (10.000 işlem başına) ile veri alma (GB başına) ücretleri uygulanır.
 
-Hesap katmanını sık erişilenden seyrek erişilene değiştirirseniz yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemleri (10.000 işlem başına) ücretlendirilir. Blob Depolama hesaplarında bunun için bir ücret yoktur. Blob Depolama veya GPv2 hesabınızı seyrek erişilenden sık erişilene değiştirirseniz hem okuma işlemleri (10.000 işlem başına) hem de veri alma (GB başına) için ücretlendirilirsiniz. Seyrek erişim veya arşiv katmanı dışına taşınmış tüm bloblar için erken silme ücretleri de uygulanabilir.
+Hesap katmanını sık erişilenden seyrek erişilene değiştirirseniz yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemleri (10.000 işlem başına) ücretlendirilir. Blob depolama hesaplarında bunun için bir ücret yoktur. Blob depolama veya GPv2 hesabınızı seyrek erişilenden sık erişilene değiştirirseniz hem okuma işlemleri (10.000 işlem başına) hem de veri alma (GB başına) için ücretlendirilirsiniz. Seyrek erişim veya arşiv katmanı dışına taşınmış tüm bloblar için erken silme ücretleri de uygulanabilir.
 
 ### <a name="cool-and-archive-early-deletion"></a>Seyrek erişimli ve arşiv erken silme
 
@@ -102,14 +102,14 @@ Aşağıdaki tabloda, sık erişimli, seyrek erişimli ve arşiv depolama katman
 | **Ölçeklenebilirlik ve Performans Hedefleri** | Genel amaçlı depolama hesaplarıyla aynı | Genel amaçlı depolama hesaplarıyla aynı | Genel amaçlı depolama hesaplarıyla aynı |
 
 > [!NOTE]
-> Blob Depolama hesapları, genel amaçlı depolama hesaplarıyla aynı performans ve ölçeklenebilirlik hedeflerini destekler. Daha fazla bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blob Storage hesapları, genel amaçlı depolama hesaplarıyla aynı performans ve ölçeklenebilirlik hedeflerini destekler. Daha fazla bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="quickstart-scenarios"></a>Hızlı Başlangıç senaryoları
 
 Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir:
 
-* GPv2 veya Blob Depolama hesabının varsayılan hesap erişim katmanını değiştirme.
-* GPv2 veya Blob Depolama hesabında blobun katmanını değiştirme.
+* GPv2 veya Blob depolama hesabının varsayılan hesap erişim katmanını değiştirme.
+* GPv2 veya Blob depolama hesabında blobun katmanını değiştirme.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 veya Blob depolama hesabının varsayılan hesap erişim katmanını değiştirme
 
@@ -123,7 +123,7 @@ Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir
 
 5. Dikey pencerenin en üstündeki Kaydet seçeneğine tıklayın.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 veya Blob Depolama hesabında blobun katmanını değiştirin.
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 veya Blob depolama hesabında blobun katmanını değiştirin.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -135,11 +135,11 @@ Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir
 
 ## <a name="faq"></a>SSS
 
-**Verilerime katman ayarlamak istediğimde Blob Depolama’yı mı yoksa GPv2 hesaplarını mı kullanmalıyım?**
+**Verilerime katman ayarlamak istediğimde Blob depolamayı mı yoksa GPv2 hesaplarını mı kullanmalıyım?**
 
-Katman ayarlama için Blob Depolama hesapları yerine GPv2 kullanmanızı öneririz. GPv2, Blob Depolama hesaplarının desteklediği tüm özelliklerin yanı sıra başka birçoğunu da destekler. Blob Depolama ile GPv2 ücretleri neredeyse aynıdır, ancak bazı yeni özellikler ve fiyat indirimleri yalnızca GPv2 hesaplarında kullanılabilir. GPv1 hesapları katman ayarlamayı desteklemez.
+Katman ayarlama için Blob depolama hesapları yerine GPv2 kullanmanızı öneririz. GPv2, Blob depolama hesaplarının desteklediği tüm özelliklerin yanı sıra başka birçoğunu da destekler. Blob depolama ile GPv2 ücretleri neredeyse aynıdır, ancak bazı yeni özellikler ve fiyat indirimleri yalnızca GPv2 hesaplarında kullanılabilir. GPv1 hesapları katman ayarlamayı desteklemez.
 
-GPv1 ve GPv2 hesapları arasındaki fiyat yapısı farklıdır ve müşteriler GPv2 hesaplarını kullanmaya karar vermeden önce her ikisini de dikkatle değerlendirmelidir. Var olan bir Blob Depolama veya GPv1 hesabını tek tıklamada basit bir işlemle kolayca GPv2’ye dönüştürebilirsiniz. Daha fazla bilgi için bkz. [Azure depolama hesabı seçenekleri](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+GPv1 ve GPv2 hesapları arasındaki fiyat yapısı farklıdır ve müşteriler GPv2 hesaplarını kullanmaya karar vermeden önce her ikisini de dikkatle değerlendirmelidir. Mevcut bir Blob depolama veya GPv1 hesabını tek tıklamada basit bir işlemle kolayca GPv2’ye dönüştürebilirsiniz. Daha fazla bilgi için bkz. [Azure depolama hesabı seçenekleri](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Nesneleri aynı hesapta üç depolama katmanının (sık erişimli, seyrek erişimli ve arşiv) üçüne de depolayabilir miyim?**
 
@@ -147,7 +147,7 @@ Evet. Hesap düzeyinde ayarlanan **Erişim Katmanı** özniteliği, o hesapta bu
 
 **Blob veya GPv2 depolama hesabımın varsayılan depolama katmanını değiştirebilir miyim?**
 
-Evet, depolama hesabındaki **Erişim katmanı** özniteliğini ayarlayarak varsayılan depolama katmanını değiştirebilirsiniz. Depolama katmanının değiştirilmesi, hesabta depolanmış ve açıkça belirlenmiş bir katmanı olmayan tüm nesneler için geçerli olur. Sık erişimli depolama katmanını seyrek erişimli olarak değiştirmek, yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemi maliyetleri (10.000 işlem başına), seyrek erişimliden sık erişimliye geçmek de Blob Depolama ve GPv2 hesaplarındaki tüm bloblar için hem okuma işlemi (10.000 işlem başına) hem de veri alma (GB başına) maliyetleri doğurur.
+Evet, depolama hesabındaki **Erişim katmanı** özniteliğini ayarlayarak varsayılan depolama katmanını değiştirebilirsiniz. Depolama katmanının değiştirilmesi, hesabta depolanmış ve açıkça belirlenmiş bir katmanı olmayan tüm nesneler için geçerli olur. Sık erişimli depolama katmanını seyrek erişimli olarak değiştirmek, yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemi maliyetleri (10.000 işlem başına), seyrek erişimliden sık erişimliye geçmek de Blob depolama ve GPv2 hesaplarındaki tüm bloblar için hem okuma işlemi (10.000 işlem başına) hem de veri alma (GB başına) maliyetleri doğurur.
 
 **Varsayılan hesap erişim katmanımı arşiv olarak ayarlayabilir miyim?**
 
@@ -159,7 +159,7 @@ Sık ve seyrek erişimli depolama katmanları blob düzeyinde katman ayarlama il
 
 **Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanındakilerden farklı mı davranır?**
 
-Sık erişimli depolama katmanındaki bloblar GPv1, GPv2 ve Blob Depolama hesaplarındaki bloblarla aynı gecikme süresine sahiptir. Seyrek erişimli depolama katmanındaki bloblar GPv1, GPv2 ve Blob Depolama hesaplarındaki bloblarla benzer gecikme süresine (milisaniye olarak) sahiptir. Arşiv depolama katmanındaki bloblar, GPv1, GPv2 ve Blob Depolama hesaplarında birkaç saatlik gecikme süresine sahiptir.
+Sık erişimli depolama katmanındaki bloblar GPv1, GPv2 ve Blob depolama hesaplarındaki bloblarla aynı gecikme süresine sahiptir. Seyrek erişimli depolama katmanındaki bloblar GPv1, GPv2 ve Blob depolama hesaplarındaki bloblara benzer gecikme süresine (milisaniye olarak) sahiptir. Arşiv depolama katmanındaki bloblar, GPv1, GPv2 ve Blob depolama hesaplarında birkaç saatlik gecikme süresine sahiptir.
 
 Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanında depolanan bloblara göre daha düşük kullanılabilirlik hizmet düzeyine (SLA) sahiptir. Daha fazla bilgi için bkz. [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
 
@@ -189,12 +189,12 @@ Diğer sınırlarla birlikte veri depolama da depolama katmanına göre değil h
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob Depolama hesaplarında sık erişimli, seyrek erişimli ve arşiv seçeneklerini değerlendirme
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob depolama hesaplarında sık erişimli, seyrek erişimli ve arşiv seçeneklerini değerlendirme
 
 [Bölgeye göre sık, seyrek ve arşiv kullanılabilirliğini denetleme](https://azure.microsoft.com/regions/#services)
 
 [Azure Depolama ölçümlerini etkinleştirerek geçerli depolama hesaplarınızın kullanımını değerlendirme](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Blob Depolama ve GPv2 hesaplarında bölgeye göre sık, seyrek ve arşiv fiyatlarını denetleme](https://azure.microsoft.com/pricing/details/storage/)
+[Blob depolama ve GPv2 hesaplarında bölgeye göre sık erişimli, seyrek erişimli ve arşiv fiyatlarını denetleme](https://azure.microsoft.com/pricing/details/storage/)
 
 [Veri aktarımı fiyatlandırmasını denetleme](https://azure.microsoft.com/pricing/details/data-transfers/)

@@ -1,42 +1,38 @@
 ---
-title: "Tasarım Kılavuzu dağıtılmış tablolar - Azure SQL Data Warehouse için | Microsoft Docs"
-description: "Azure SQL Data Warehouse karma dağıtılmış ve hepsini tablolarında tasarlamak için öneriler sunar."
+title: Dağıtılmış tabloları Tasarım Kılavuzu - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse karma dağıtılmış ve hepsini dağıtılmış tablolarında tasarlamak için öneriler sunar.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse dağıtılmış tablolarda tasarlamak için kılavuz
+Azure SQL Data Warehouse karma dağıtılmış ve hepsini dağıtılmış tablolarında tasarlamak için öneriler sunar.
 
-Bu makalede, Azure SQL Data Warehouse dağıtılmış tablolarda tasarlamak için öneriler sağlar. Karma dağıtılmış tabloları büyük olgu tabloları üzerinde sorgu performansını artırmak ve bu makaleyi odağını şunlardır. Hepsini tabloları yükleme hızını artırmak için faydalıdır. Bu tasarım seçenekleri sorgu iyileştirme ve performans yükleme önemli bir etkiye sahiptir.
+Bu makalede, veri dağıtımı ve SQL Data Warehouse veri taşıma kavramlarına alışık olduğunuz varsayılır.  Daha fazla bilgi için bkz: [Azure SQL Data Warehouse - yüksek düzeyde paralel işleme (MPP) mimarisi](massively-parallel-processing-mpp-architecture.md). 
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, veri dağıtımı ve SQL Data Warehouse veri taşıma kavramlarına alışık olduğunuz varsayılır.  Daha fazla bilgi için bkz: [mimarisi](massively-parallel-processing-mpp-architecture.md) makalesi. 
+## <a name="what-is-a-distributed-table"></a>Dağıtılmış bir tablo nedir?
+Dağıtılmış bir tablo tek bir tablo olarak görünür, ancak satırları gerçekte 60 dağıtımları depolanır. Satırları bir karma veya hepsini algoritması ile dağıtılır.  
+
+**Karma dağıtılmış tabloları** büyük olgu tabloları üzerinde sorgu performansını artırmak ve bu makaleyi odağını şunlardır. **Hepsini tabloları** yükleme hızını artırmak için kullanışlıdır. Bu tasarım seçenekleri sorgu iyileştirme ve performans yükleme önemli bir etkiye sahiptir.
+
+Başka bir tablo depolama küçük bir tablo tüm işlem düğümü arasında çoğaltma seçenektir. Daha fazla bilgi için bkz: [Tasarım Kılavuzu çoğaltılmış tablolar için](design-guidance-for-replicated-tables.md). Bkz: Dağıtılmış tablolarda hızla üç seçenekten seçmek için [tabloları genel bakış](sql-data-warehouse-tables-overview.md). 
 
 Tablo Tasarımı bir parçası olarak, verilerinizi ve verilerin nasıl sorgulanır hakkında mümkün olduğunca anlayın.  Örneğin, aşağıdaki soruları göz önünde bulundurun:
 
 - Tablo büyüklüğü nedir?   
 - Tablo ne sıklıkla yenileniyor?   
 - Bir veri ambarı olgu ve boyut tabloları var mı?   
-
-## <a name="what-is-a-distributed-table"></a>Dağıtılmış bir tablo nedir?
-Dağıtılmış bir tablo tek bir tablo olarak görünür, ancak satırları gerçekte 60 dağıtımları depolanır. Satırları bir karma veya hepsini algoritması ile dağıtılır. 
-
-Başka bir tablo depolama küçük bir tablo tüm işlem düğümü arasında çoğaltma seçenektir. Daha fazla bilgi için bkz: [Tasarım Kılavuzu çoğaltılmış tablolar için](design-guidance-for-replicated-tables.md). Bkz: Dağıtılmış tablolarda hızla üç seçenekten seçmek için [tabloları genel bakış](sql-data-warehouse-tables-overview.md). 
 
 
 ### <a name="hash-distributed"></a>Dağıtılmış karma
@@ -67,7 +63,7 @@ Aşağıdaki senaryolarda tablonuzun hepsini dağıtım kullanmayı dikkate alı
 - Join sorgu diğer birleşimlerde'den daha az önemli ise
 - Tablo geçici bir hazırlama tablosunda olduğunda
 
-Öğretici [verileri Azure Storage blobundan yüklenirken](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) hepsini hazırlama tabloya veri yükleme, bir örnek verir.
+Öğretici [yük New York taxicab verileri Azure SQL Data Warehouse için](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) hepsini hazırlama tabloya veri yükleme, bir örnek verir.
 
 
 ## <a name="choosing-a-distribution-column"></a>Bir dağıtım sütun seçme
@@ -91,7 +87,7 @@ WITH
 ;
 ``` 
 
-Bu sütundaki değerleri satır nasıl dağıtıldığını belirlediğinden dağıtım sütun seçme bir önemli tasarım bir karardır. En iyi seçenek, çeşitli etmenlere bağlıdır ve genellikle bileşim ilgilidir. Ancak, ilk kez en iyi sütun seçmezseniz, kullanabileceğiniz [oluşturmak tablo AS seçin (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) tablo farklı dağıtım sütunu yeniden oluşturmak için. 
+Bu sütundaki değerleri satır nasıl dağıtıldığını belirlediğinden dağıtım sütun seçme bir önemli tasarım bir karardır. En iyi seçenek, çeşitli etmenlere bağlıdır ve genellikle bileşim ilgilidir. Ancak, ilk kez en iyi sütun seçmezseniz, kullanabileceğiniz [oluşturmak tablo AS seçin (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) tablo farklı dağıtım sütunu yeniden oluşturmak için. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Güncelleştirmeleri gerektirmeyen bir dağıtım sütun seçin
 Satır silin ve güncelleştirilmiş değerlerle yeni bir satır ekleyin sürece dağıtım sütun güncelleştirilemiyor. Bu nedenle, statik değerleri içeren bir sütun seçin. 
@@ -129,7 +125,7 @@ Bir karma dağıtılmış tablosu tasarlamak sonra sonraki tabloya veri yükleme
 Veri karması dağıtılmış bir tabloya yüklendikten sonra satırları 60 dağıtımlar arasında eşit şekilde nasıl dağıtılır denetleyin. Dağıtım başına satır % 10 performansı belirgin bir etkisi olmadan farklılık gösterebilir. 
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Tablo verileri eğme olup olmadığını belirleyin
-Veri eğme kullanmak için bir hızlı şekilde [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Aşağıdaki SQL kodu her 60 dağıtımları depolanan tablo satır sayısını döndürür. Dengeli performansı elde etmek için Dağıtılmış tablosundaki satırları eşit tüm dağıtımları yayılır.
+Veri eğme kullanmak için bir hızlı şekilde [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Aşağıdaki SQL kodu her 60 dağıtımları depolanan tablo satır sayısını döndürür. Dengeli performansı elde etmek için Dağıtılmış tablosundaki satırları eşit tüm dağıtımları yayılır.
 
 ```sql
 -- Find data skew for a distributed table

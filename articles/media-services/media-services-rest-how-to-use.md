@@ -1,11 +1,11 @@
 ---
-title: "Media Services operations REST API genel bakış | Microsoft Docs"
-description: "Media Services REST API genel bakış"
+title: Media Services operations REST API genel bakış | Microsoft Docs
+description: Media Services REST API genel bakış
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API genel bakış
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ REST kullanırken aşağıdaki maddeler geçerlidir.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {
@@ -71,12 +71,12 @@ Medya Hizmetleri içine yaptığınız her çağrı için gerekli başlıklar İ
 | Üst bilgi | Tür | Değer |
 | --- | --- | --- |
 | Tarih |RFC 1123 tarih |İstek zaman damgası |
-| Kabul Ediyorum |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -Uygulama/json; odata = verbose<p> -Uygulama/atom + xml<p> Yanıtlar, yükü olarak blob akışı başarılı bir yanıt içerdiği bir blob getirme gibi farklı bir içerik türü olabilir. |
+| Kabul |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -Uygulama/json; odata = verbose<p> -Uygulama/atom + xml<p> Yanıtlar, yükü olarak blob akışı başarılı bir yanıt içerdiği bir blob getirme gibi farklı bir içerik türü olabilir. |
 | Kabul kodlama |GZIP, deflate |GZIP ve DEFLATE, uygun olduğunda kodlama. Not: büyük kaynaklar için Media Services bu başlığı yoksay ve küçülen veri döndürür. |
 | Kabul dili |"en", "es" ve benzeri. |Yanıt için tercih edilen dili belirtir. |
 | Accept-Charset |"UTF-8" gibi Charset türü |Varsayılan UTF-8'dir. |
 | X HTTP yöntemi |HTTP yöntemi |İstemcileri veya HTTP yöntemleri GET çağrısıyla tünelli bu yöntemleri kullanmak için PUT veya silme gibi desteklemeyen güvenlik duvarları sağlar. |
-| Content-Type |İçerik türü |PUT veya POST istek gövdesinde içerik türünü ister. |
+| İçerik türü |İçerik türü |PUT veya POST istek gövdesinde içerik türünü ister. |
 | İstemci istek kimliği |Dize |Belirtilen istek tanımlayan bir arayan tanımlı bir değer. Belirtilmişse, bu değer yanıt iletisinde isteği eşleştirmek için bir yol olarak dahil edilir. <p><p>**Önemli**<p>Değerleri 2096b tutulabilir (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP yanıt üstbilgileri
@@ -87,7 +87,7 @@ Aşağıdakiler için isteyen kaynak ve gerçekleştirmek için hedeflenen eylem
 | İstek Kimliği |Dize |Geçerli işlem, oluşturulan hizmet için benzersiz bir tanımlayıcı. |
 | İstemci istek kimliği |Dize |Varsa, özgün istekteki çağıran tarafından belirtilen bir tanımlayıcı. |
 | Tarih |RFC 1123 tarih |İstek işlenmiş tarih. |
-| Content-Type |Değişir |Yanıt gövdesi içerik türü. |
+| İçerik türü |Değişir |Yanıt gövdesi içerik türü. |
 | İçerik kodlama |Değişir |Gzip veya deflate uygun şekilde. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP fiilleri

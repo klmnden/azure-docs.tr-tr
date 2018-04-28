@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
+ms.date: 04/06/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme
-Bu öğreticide bir Azure CDN uç noktasına özel etki alanı ekleme işlemi gösterilmektedir. İçerik ulaştırmak için bir CDN uç noktası kullandığınızda, CDN URL’nizde kendi etki alanı adınızın görünmesini istiyorsanız özel bir etki alanı gereklidir. Görünür bir etki alanınızın olması, müşterileriniz için kolaylık sağlar ve markalama için faydalıdır. 
+Bu öğreticide bir Azure Content Delivery Network (CDN) uç noktasına özel etki alanı ekleme işlemi gösterilmektedir. İçerik ulaştırmak için bir CDN uç noktası kullandığınızda, CDN URL’nizde kendi etki alanı adınızın görünmesini istiyorsanız özel bir etki alanı gereklidir. Görünür bir etki alanınızın olması, müşterileriniz için kolaylık sağlar ve markalama için faydalıdır. 
 
 Profilinizde bir CDN uç noktası oluşturduğunuzda, varsayılan olarak CDN içeriği sunmak için URL’nize azureedge.net adresinin alt etki alanı olan uç nokta adı eklenir (örneğin, https:\//contoso.azureedge.net/photo.png). Size kolaylık olması için Azure CDN, bir CDN uç noktası ile özel etki alanını ilişkilendirme seçeneği sağlar. Bu seçeneği kullanarak URL’nizde bir uç nokta adı yerine özel etki alanı ile içerik sunabilirsiniz (örneğin, https:\//www.contoso.com/photo.png). 
 
@@ -49,7 +49,8 @@ Bir özel etki alanını Azure CDN uç noktasıyla birlikte kullanabilmeniz içi
 
 Özel etki alanı ve alt etki alanı aynı anda yalnızca tek bir uç nokta ile ilişkilendirilebilir. Ancak, birden fazla CNAME kaydı kullanarak farklı Azure hizmet uç noktaları için aynı özel etki alanından farklı alt etki alanları kullanabilirsiniz. Farklı alt etki alanlarına sahip özel bir etki alanını aynı CDN uç noktasına da eşleyebilirsiniz.
 
-## <a name="map-temporary-cdnverify-subdomain"></a>Geçici cdnverify alt etki alanını eşleme
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>Geçici cdnverify alt etki alanını eşleme
 
 Üretim aşamasındaki var olan bir etki alanını eşlerken göz önünde bulundurmanız gereken özel durumlar vardır. Özel etki alanınızı Azure portalına kaydederken etki alanı için kısa bir kapalı kalma süresi yaşanabilir. Web trafiğinin kesintiye uğramaması için, ilk olarak özel etki alanınızı Azure cdnverify alt etki alanı ile CDN uç noktası ana bilgisayar adınıza eşleyerek geçici bir CNAME eşlemesi oluşturun. Bu yöntemle kullanıcılar, DNS eşlemesi gerçekleşirken kesinti olmadan etki alanınıza erişebilir. 
 
@@ -135,7 +136,8 @@ cdnverify alt etki alanı ile bir CNAME kaydı oluşturmak için:
 
 2. Tarayıcınızda, özel etki alanını kullanarak dosyanın adresine gidin. Örneğin, özel etki alanınız cdn.contoso.com ise önbelleğe alınan dosyanın URL’si şu URL’ye benzer olmalıdır: http:\//cdn.contoso.com/my-public-container/my-file.jpg.
 
-## <a name="map-permanent-custom-domain"></a>Kalıcı özel etki alanını eşleme
+
+## <a name="map-the-permanent-custom-domain"></a>Kalıcı özel etki alanını eşleme
 
 cdnverify alt etki alanının uç noktanıza başarıyla eşlendiğini doğruladıysanız (veya üretim aşamasında olmayan yeni bir özel etki alanı kullanıyorsanız), özel etki alanını doğrudan CDN uç noktanızın ana bilgisayar adına eşleyebilirsiniz.
 
@@ -160,6 +162,8 @@ cdnverify alt etki alanının uç noktanıza başarıyla eşlendiğini doğrulad
 4. Yaptığınız değişiklikleri kaydedin.
 
 5. Daha önce geçici bir cdnverify alt etki alanı CNAME kaydı oluşturduysanız silin. 
+
+6. Bu özel etki alanını üretimde ilk kez kullanıyorsanız, [Özel etki alanını CDN uç noktanızla ilişkilendirme](#associate-the-custom-domain-with-your-cdn-endpoint) ve [Özel etki alanını doğrulama](#verify-the-custom-domain) adımlarını izleyin.
 
 Örneğin, GoDaddy etki alanı kayıt şirketi için yordam şu şekildedir:
 
@@ -192,8 +196,6 @@ cdnverify alt etki alanının uç noktanıza başarıyla eşlendiğini doğrulad
 7. Bir cdnverify CNAME kaydınız varsa yanındaki kalem simgesini ve sonra çöp kutusu simgesini seçin.
 
 8. CNAME kaydını silmek için **Sil**’i seçin.
-
-Bu özel etki alanını üretimde ilk kez kullanıyorsanız, [Özel etki alanını CDN uç noktanızla ilişkilendirme](#associate-the-custom-domain-with-your-cdn-endpoint) ve [Özel etki alanını doğrulama](#verify-the-custom-domain) adımlarını izleyin.
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

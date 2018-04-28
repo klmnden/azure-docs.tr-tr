@@ -1,7 +1,7 @@
 ---
-title: "Azure SQL oturumları ve kullanıcıları | Microsoft Docs"
-description: "Özellikle sunucu düzeyindeki asıl hesap aracılığıyla veritabanı erişimini ve oturum açma güvenliğini yönetme olmak üzere SQL Veritabanı güvenlik yönetimi hakkında bilgi edinin."
-keywords: "sql veritabanı güvenliği,veritabanı güvenliği yönetimi,oturum açma güvenliği,veritabanı güvenliği,veritabanı erişimi"
+title: Azure SQL oturumları ve kullanıcıları | Microsoft Docs
+description: Özellikle sunucu düzeyindeki asıl hesap aracılığıyla veritabanı erişimini ve oturum açma güvenliğini yönetme olmak üzere SQL Veritabanı güvenlik yönetimi hakkında bilgi edinin.
+keywords: sql veritabanı güvenliği,veritabanı güvenliği yönetimi,oturum açma güvenliği,veritabanı güvenliği,veritabanı erişimi
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1f512cdbb0275e9ae2d868a326df0e4e5dd2ee24
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Denetleme ve veritabanına erişim izni verme
 
@@ -75,7 +75,7 @@ Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni 
 1. Bir yönetici hesabını kullanarak ana veritabanına bağlanın.
 2. İsteğe bağlı adım: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) deyimini kullanarak bir SQL Server kimlik doğrulaması oturum açma bilgisi oluşturun. Örnek deyim:
    
-   ```
+   ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
    
@@ -86,15 +86,15 @@ Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni 
 
 3. Ana veritabanında [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) deyimini kullanarak bir kullanıcı oluşturun. Kullanıcı Azure Active Directory kimlik doğrulaması bağımsız veritabanı kullanıcısı (ortamınızı Azure AD kimlik doğrulaması için yapılandırdıysanız) veya SQL Server kimlik doğrulaması bağımsız veritabanı kullanıcısı ya da SQL Server kimlik doğrulaması oturum açma bilgilerini kullanan SQL Server kimlik doğrulaması kullanıcısı (önceki adımda oluşturulan) olabilir. Örnek deyimler:
    
-   ```
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-   CREATE USER Tran WITH PASSWORD = '<strong_password>';
-   CREATE USER Mary FROM LOGIN Mary; 
+   ```sql
+   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
+   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
 4. [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) deyimini kullanarak yeni kullanıcıyı **dbmanager** veritabanı rolüne ekleyin. Örnek deyimler:
    
-   ```
+   ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
@@ -114,21 +114,25 @@ Diğer yönetim rolü ise oturum açma yöneticisi rolüdür. Bu rolün üyeleri
 
 Kullanıcı oluşturmak için veritabanına bağlanın ve aşağıdaki örneklere benzer deyimleri çalıştırın:
 
-```
+```sql
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Başlangıçta veritabanı yöneticilerinden yalnızca biri veya veritabanının sahibi kullanıcı oluşturabilir. Daha fazla kullanıcıya yeni kullanıcı oluşturma yetkisi vermek için şunun gibi bir deyim kullanarak `ALTER ANY USER` izni verin:
 
-```
+```sql
 GRANT ALTER ANY USER TO Mary;
 ```
 
 Daha fazla kullanıcıya veritabanı üzerinde tam denetim vermek için `ALTER ROLE` deyimini kullanarak **db_owner** sabit veritabanı rolünün üyesi yapın.
 
+```sql
+ALTER ROLE db_owner ADD MEMBER Mary; 
+```
+
 > [!NOTE]
-> Oturum açma bilgisi tabanlı veritabanı kullanıcıları genellikle, birden fazla veritabanına erişmesi gereken SQL Server kimlik doğrulaması kullanıcılarının bulunduğu durumlarda oluşturulur. Oturum açma bilgilerini kullanan kullanıcılar, ilgili oturum açma bilgilerine ve bu oturum açma bilgisi için tutulan tek parolaya bağlıdır. Ayrı veritabanlarındaki bağımsız veritabanı kullanıcıları, ayrı varlıklardır ve her biri kendi parolasına sahiptir. Bu durum, tüm veritabanları için aynı parolayı kullanmayan bağımsız veritabanı kullanıcıları için kafa karıştırıcı olabilir.
+> Bir mantıksal sunucu oturum açma tabanlı bir veritabanı kullanıcısı oluşturmak için bir ortak birden çok veritabanı erişimi olması gereken kullanıcılar için nedeni. Bulunan bu yana veritabanı kullanıcıları tek tek varlık, kendi kullanıcı ve kendi parolanızı her veritabanı tutar. Kullanıcı daha sonra her veritabanı için her parolayı anımsa gerekir ve sunucunun birçok veritabanı için birden çok parola değiştirmek içerdiğinde untenable olabilmesi için bu ek yükü neden olabilir. Ancak, SQL Server oturumları ve yüksek kullanılabilirlik (aktif coğrafi çoğaltma ve yük devretme grupları) kullanırken, SQL Server oturumları el ile her sunucuda ayarlanması gerekir. Aksi halde, bir yük devretme gerçekleşir ve veritabanı post yük devretme erişmek mümkün olmaz sonra veritabanı kullanıcısı artık sunucu oturum açma eşleşecektir. Oturumları coğrafi çoğaltma için yapılandırma hakkında daha fazla bilgi için lütfen bkz [Yapılandır ve coğrafi geri yükleme veya yük devretme için Azure SQL veritabanı güvenlik yönetmek](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Veritabanı düzeyinde güvenlik duvarını yapılandırma
 En iyi uygulamalardan biri, yönetici olmayan kullanıcıların kullandıkları veritabanlarına yalnızca güvenlik duvarı aracılığıyla erişim sağlamasıdır. Bu kullanıcıların IP adreslerini sunucu düzeyinde güvenlik duvarından yetkilendirip tüm veritabanlarına erişim vermek yerine [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) deyimini kullanarak veritabanı düzeyinde güvenlik duvarını yapılandırabilirsiniz. Veritabanı düzeyinde güvenlik duvarı portal kullanılarak yapılandırılamaz.
@@ -164,7 +168,7 @@ SQL Veritabanında oturum açma bilgilerini ve kullanıcıları yönetirken aşa
 * Bir ADO.NET uygulamasında `CREATE/ALTER/DROP LOGIN` ve `CREATE/ALTER/DROP DATABASE` deyimlerini yürütürken parametreli komutların kullanılmasına izin verilmez. Daha fazla bilgi için bkz. [Komutlar ve Parametreler](https://msdn.microsoft.com/library/ms254953.aspx).
 * `CREATE/ALTER/DROP DATABASE` ve `CREATE/ALTER/DROP LOGIN` deyimlerini yürütürken bu deyimlerin her birinin bir Transact-SQL toplu işindeki tek deyim olması gerekir. Aksi takdirde bir hata oluşur. Örneğin, aşağıdaki Transact-SQL veritabanının mevcut olup olmadığını kontrol eder. Mevcutsa, veritabanını kaldırmak için bir `DROP DATABASE` deyimi çağrılır. `DROP DATABASE` deyimi toplu işteki tek deyim olmadığından aşağıdaki Transact-SQL deyiminin yürütülmesi hatayla sonuçlanacaktır.
 
-  ```
+  ```sql
   IF EXISTS (SELECT [name]
            FROM   [sys].[databases]
            WHERE  [name] = N'database_name')

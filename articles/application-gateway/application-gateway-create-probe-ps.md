@@ -1,11 +1,11 @@
 ---
-title: "Azure uygulama ağ geçidi - PowerShell özel bir araştırma - oluşturma | Microsoft Docs"
-description: "Kaynak Yöneticisi'nde PowerShell kullanarak uygulama ağ geçidi için özel bir araştırma oluşturmayı öğrenin"
+title: Azure uygulama ağ geçidi - PowerShell özel bir araştırma - oluşturma | Microsoft Docs
+description: Kaynak Yöneticisi'nde PowerShell kullanarak uygulama ağ geçidi için özel bir araştırma oluşturmayı öğrenin
 services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Azure Resource Manager PowerShell kullanarak Azure uygulama ağ geçidi için özel bir araştırma oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Klasik PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -39,10 +39,10 @@ Bu makalede, PowerShell ile var olan bir uygulama ağ geçidi için özel bir ar
 
 ### <a name="sign-in-and-create-resource-group"></a>Oturum açın ve kaynak grubu oluştur
 
-1. Kullanım `Login-AzureRmAccount` kimliğini doğrulamak için.
+1. Kullanım `Connect-AzureRmAccount` kimliğini doğrulamak için.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. Hesap için abonelikler alın.

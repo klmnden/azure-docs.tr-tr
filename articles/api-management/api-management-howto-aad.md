@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management'te Azure Active Directory kullanarak Geliştirici hesaplarını yetkilendirmede
 
@@ -100,6 +100,11 @@ Bu makalede Azure Active Directory (Azure AD) kullanıcılar için Geliştirici 
 31. API Management uygulamanıza geri çevirin. 
 
     İçinde **Ekle kimlik sağlayıcısı** penceresinde anahtarı yapıştırın **gizli** metin kutusu.
+
+    > [!IMPORTANT]
+    > Lütfen güncelleştirdiğinizden emin olun **gizli** anahtar süresi dolmadan önce. 
+    >  
+    >
 32. **Ekle kimlik sağlayıcısı** penceresinde de bulunur **izin kiracılar** metin kutusu. Burada, API Management hizmet örneği API'lerine erişim vermek istediğiniz Azure AD örneklerinin etki alanlarını belirtin. Birden çok etki alanı, satır başı, boşluk veya virgülle ayırabilirsiniz.
 
     Birden çok etki alanında belirtebilirsiniz **izin kiracılar** bölümü. Herhangi bir kullanıcı uygulama kaydedildiği özgün etki alanı farklı bir etki alanından oturum açabilmeniz için önce farklı etki alanının genel yönetici uygulama dizini verilere erişmek için izni vermesi gerekir. İzin vermek için genel yönetici gerekir:

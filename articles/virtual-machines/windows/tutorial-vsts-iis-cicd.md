@@ -1,6 +1,6 @@
 ---
-title: Team Services ile azure'da CI/CD işlem hattı oluşturma | Microsoft Docs
-description: Sürekli tümleştirme ve IIS üzerinde bir Windows VM için bir web uygulamasına dağıtır teslimat için bir Visual Studio Team Services potansiyel oluşturmayı öğrenin
+title: Öğretici - Azure Team Services ile CI/CD işlem hattı oluşturma | Microsoft Docs
+description: Bu öğreticide, sürekli tümleştirme ve Azure Windows VM IIS'ye bir web uygulamasına dağıtır teslimat için bir Visual Studio Team Services potansiyel oluşturmayı öğrenin.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Visual Studio Team Services ve IIS ile sürekli tümleştirme işlem hattı oluşturma
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Öğretici: Visual Studio Team Services ve IIS ile sürekli tümleştirme işlem hattı oluşturma
 Derleme, test ve dağıtım aşamaları uygulama geliştirme otomatikleştirmek için sürekli tümleştirme ve dağıtım (CI/CD) ardışık düzen kullanabilirsiniz. Bu öğreticide, Visual Studio Team Services ve Windows sanal makine (VM), IIS çalıştıran Azure kullanarak bir CI/CD işlem hattı oluşturun. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Derleme, test ve dağıtım aşamaları uygulama geliştirme otomatikleştirmek 
 > * Bir yayın oluşturmak tanımı yeni web yayımlama IIS paketlerini dağıtma
 > * CI/CD ardışık düzen test
 
-Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+Bu öğreticide Azure PowerShell modülü sürümü 5.7.0 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Team Services içinde projesi oluşturma
@@ -94,29 +94,30 @@ Derleme üzerinde barındırılan bir aracısı, zamanlanmış olarak izleme son
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 ASP.NET web uygulamanızı çalıştırmak için bir platform sağlamak için IIS çalışan bir Windows sanal makine gerekir. Team Services kod tamamlama ve derlemeleri tetiklenen IIS örneği ile etkileşim kurmak için bir aracı kullanır.
 
-Kullanarak bir Windows Server 2016 VM oluşturma [bu komut dosyası örneği](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). VM oluşturma ve çalıştırmak için komut dosyası için birkaç dakika sürer. VM oluşturulduktan sonra bağlantı noktası 80 web trafiği için açık [Ekle AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) gibi:
+Bir Windows Server 2016 VM ile oluşturma [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* içinde *Doğu ABD* konumu. Kaynak grubu *myResourceGroupVSTS* ve destekleyici ağ kaynakları da oluşturulur. Web trafiği, TCP bağlantı noktası izin vermek için *80* VM'ye açılır. İstendiğinde, bir kullanıcı adı ve parola VM için oturum açma kimlik bilgileri olarak kullanılacak sağlar:
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 VM'nize bağlanmak için ortak IP adresi ile elde [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) gibi:
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 VM'yi Uzak Masaüstü oturumu oluşturun:
@@ -167,7 +168,7 @@ Derlemeleriniz yayımlamak için bir yayın tanımı Team Services içinde oluş
     
     ![Team Services tanımında serbest bırakmak için görev ekleme](media/tutorial-vsts-iis-cicd/add_release_task.png)
 
-8. Seçin **Ekle** yanına **IIS Web uygulama Deploy(Preview)**seçeneğini belirleyip **Kapat**.
+8. Seçin **Ekle** yanına **IIS Web uygulama Deploy(Preview)** seçeneğini belirleyip **Kapat**.
 9. Seçin **dağıtım grubu üzerinde çalışan** üst görev.
     1. İçin **dağıtım grubu**, daha önce oluşturduğunuz dağıtım grubunu seçin gibi *myIIS*.
     2. İçinde **makine etiketleri** kutusunda **Ekle** ve *web* etiketi.

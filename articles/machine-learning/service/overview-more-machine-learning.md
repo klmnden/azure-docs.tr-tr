@@ -11,11 +11,11 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 189f19a3a3f588df8844a552abda73827eb45191
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbb8deeab8368d9c0e6d29c8d7e1e2e0a8805d60
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Diğer makine öğrenme ürünleri ve Microsoft Hizmetleri
 
@@ -77,7 +77,7 @@ Azure Machine Learning Model Yönetimi Batch AI Eğitimi modellerini dağıtmak,
 Bilişsel Araç Setini derin öğrenmeyi kullanarak bir model derlemek istediğinizde kullanın.  Bilişsel Araç Seti önceki hizmetlerin herhangi birinde kullanılabilir.
 
 ## <a name="azure-cognitive-services"></a>Azure Bilişsel hizmetler
-[Azure Bilişsel Hizmetler](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) yaklaşık 30 kümesidir etkinleştirmeniz API'leri iletişimin doğal yöntemlerini kullanan uygulamalar oluşturun. Bu API'ler bkz, duymak seslendir, anlamak ve kullanıcı gereksinimlerini birkaç satır kod yorumlamak uygulamalarınızı izin verir. Uygulamalarınıza aşağıdaki gibi akıllı özellikleri kolayca ekleyebilirsiniz: 
+[Azure Bilişsel Hizmetler](https://docs.microsoft.com/azure/#pivot=products&panel=ai) yaklaşık 30 kümesidir etkinleştirmeniz API'leri iletişimin doğal yöntemlerini kullanan uygulamalar oluşturun. Bu API'ler bkz, duymak seslendir, anlamak ve kullanıcı gereksinimlerini birkaç satır kod yorumlamak uygulamalarınızı izin verir. Uygulamalarınıza aşağıdaki gibi akıllı özellikleri kolayca ekleyebilirsiniz: 
 
 - Duygu ve düşünceleri algılama
 - Görme ve konuşma Tanıma

@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory v2.0 uç noktası için uygulama türleri | Microsoft Docs"
-description: "Uygulamalar ve Azure Active Directory v2.0 uç noktası tarafından desteklenen senaryoları türleri."
+title: Azure Active Directory v2.0 uç noktası için uygulama türleri | Microsoft Docs
+description: Uygulamalar ve Azure Active Directory v2.0 uç noktası tarafından desteklenen senaryoları türleri.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: hpsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 291cd1adaf36d7f02aae84f97b7f7b3e6bca2c9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 uç noktası için uygulama türleri
 Azure Active Directory (Azure AD) v2.0 uç tümünün endüstri standardı protokollerine dayalı modern uygulama mimarilerinin çeşitli kimlik doğrulamasını destekliyor [OAuth 2.0 veya Openıd Connect](active-directory-v2-protocols.md). Bu makalede, tercih edilen dilden veya platformdan bağımsız olarak Azure AD v2.0 kullanarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. Bu makaledeki bilgileri, önce üst düzey senaryoları anlamanıza yardımcı olmak için tasarlanmış [kodu ile çalışma başlangıç](active-directory-appmodel-v2-overview.md#getting-started).
@@ -120,4 +120,4 @@ Bu akışta uygulama doğrudan etkileşimde `/token` uç noktaları edinmek içi
 
 ![Arka plan programı uygulama kimlik doğrulama akışı](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Arka plan programı uygulamanızı oluşturmak için istemci kimlik bilgileri belgelerine bakın bizim [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) bölümünde veya deneyin bir [.NET örnek uygulaması](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Arka plan programı uygulamanızı oluşturmak için bkz: [istemci kimlik bilgileri belgelerine](active-directory-v2-protocols-oauth-client-creds.md), veya deneyin bir [.NET örnek uygulaması](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlaması
 
 ![Kapasite ve performans simgesi](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> Kapasite ve performans çözüm kullanım dışı bırakıldı.  Çözüm'i zaten yüklemiş olan müşterilerin kullanmaya devam edebilirsiniz, ancak kapasite ve performans için yeni bir çalışma alanı eklenemez.
 
 Kapasite, Hyper-V sunucularının anlamanıza yardımcı olması için günlük analizi kapasite ve performans çözüm kullanabilirsiniz. Çözüm, konaklar ve bu Hyper-V konakları üzerinde çalışan sanal makineleri, genel kullanımı (CPU, bellek ve disk) göstererek, Hyper-V ortamınızı fikir sağlar. Ölçümleri, CPU, bellek ve disk için tüm konaklar ve onların üzerinde çalışan sanal makineleri üzerinden toplanır.
 

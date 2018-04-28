@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: b9ead9643cc7926be3bd69e947977fa40d45a722
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>İzin verme veya belirli kuruluşlardan B2B kullanıcılara davet engelleme
 
 B2B kullanıcılara izin verilenler veya Engellenenler davetleri belirli kuruluşlardan için bir izin verilenler listesi veya reddetme listesini kullanabilirsiniz. Örneğin, kişisel e-posta adresi etki alanlarını engelleyin istiyorsanız, Gmail.com ve Outlook.com gibi etki alanı içeren bir izin verme listesi ayarlayabilirsiniz. Veya Contoso.com, Fabrikam.com ve Litware.com gibi diğer işletmelerin yöneticileriyle işiniz varsa ve yalnızca bu kuruluşların davetleri kısıtlamak istediğiniz, Contoso.com, Fabrikam.com ve Litware.com için ekleyebilirsiniz, izin verilenler listesi.
   
-> [!NOTE]
-> Şu anda kullanımını engellemek yalnızca listeleri kullanabilirsiniz. Kullanma yeteneğini izin listeleri çok yakında geliyor.
-
 ## <a name="important-considerations"></a>İle ilgili önemli noktalar
 
 - Bir izin verilenler listesi veya reddetme listesini oluşturabilirsiniz. Her iki tür listesi ayarlanamıyor. Varsayılan olarak, hangi etki alanları, izin verilenler listesi olan izin verme listesinde ve tersi yönde değildir. 
@@ -50,22 +47,34 @@ Reddetme listesine eklemek için:
 2. Seçin **Azure Active Directory** > **kullanıcılar** > **kullanıcı ayarlarını**.
 3. Altında **dış kullanıcılar**seçin **dış işbirliğini ayarlarını Yönet**.
 4. Altında **işbirliği kısıtlamaları**seçin **davetleri belirtilen etki alanları için reddetme**.
-5. Altında **hedef etki alanlarını**, engellemek istediğiniz etki alanlarından biri adını girin. Birden çok etki alanı için her etki alanında yeni bir satıra girin.
+5. Altında **hedef etki alanlarını**, engellemek istediğiniz etki alanlarından biri adını girin. Birden çok etki alanı için her etki alanında yeni bir satıra girin. Örneğin:
 
    ![Eklenen etki alanlarıyla izin verme seçeneğini gösterir](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. İşiniz bittiğinde tıklatın **kaydetmek**.
 
-Engellenen etki alanındaki bir kullanıcının davet çalışırsanız, ilke ayarladıktan sonra kullanıcının şu anda davet İlkesi tarafından engellendiğini bildiren bir ileti alırsınız.
+Engellenen etki alanındaki bir kullanıcının davet çalışırsanız, ilke ayarladıktan sonra kullanıcının şu anda davet ilkenizin engellendiğini bildiren bir ileti alırsınız.
  
 ### <a name="add-an-allow-list"></a>Bir izin verilenler listesi ekleme
 
-> [!NOTE]
-> Şu anda **davetleri yalnızca belirtilen etki alanları için (en kısıtlayıcı) izin** ayarı kullanılamıyor. Kullanma yeteneğini izin listeleri çok yakında geliyor.
-
 Burada belirli etki alanlarına izin verilenler listesinde ayarlamak ve herhangi bir kuruluş veya belirtilen olmayan etki alanları için davet kısıtlamak daha kısıtlayıcı bir yapılandırma budur. 
 
-Bir izin verilenler listesi kullanmak istiyorsanız, işletmenizin ihtiyaç duyduğu tam olarak değerlendirmek için süre beklemesini emin olun. Bu ilke çok kısıtlayıcı yaparsanız, kullanıcılarınızın e-posta belgeleri göndermek veya işbirliği diğer BT olmayan tasdikli yollarını bulmak tercih edebilirsiniz.
+Olan bir izin verilenler listesi kullanmak istiyorsanız tam olarak ne uygulamasını iş gereksinimleriniz değerlendirmek için süre beklemesini emin olun. Bu ilke çok kısıtlayıcı yaparsanız, kullanıcılarınızın e-posta belgeleri göndermek veya işbirliği diğer BT olmayan tasdikli yollarını bulmak tercih edebilirsiniz.
+
+
+Bir izin verilenler listesine eklemek için:
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Seçin **Azure Active Directory** > **kullanıcılar** > **kullanıcı ayarlarını**.
+3. Altında **dış kullanıcılar**seçin **dış işbirliğini ayarlarını Yönet**.
+4. Altında **işbirliği kısıtlamaları**seçin **davetleri yalnızca belirtilen etki alanları için (en kısıtlayıcı) izin**.
+5. Altında **hedef etki alanlarını**, izin vermek istediğiniz etki alanlarından biri adını girin. Birden çok etki alanı için her etki alanında yeni bir satıra girin. Örneğin:
+
+   ![Ek etki alanları ile izin ver seçeneği gösterir](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. İşiniz bittiğinde tıklatın **kaydetmek**.
+
+İzin verilenler listesinde değil bir etki alanındaki bir kullanıcının davet çalışırsanız, ilke ayarladıktan sonra kullanıcının şu anda davet ilkenizin engellendiğini bildiren bir ileti alırsınız.
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Anahtardan izin listesi tersi reddetmek için 
 
@@ -115,9 +124,6 @@ Modülü kurulu değil veya gerekli bir sürüme sahip değilseniz, aşağıdaki
     ````
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>AzureADPolicy cmdlet'leri ilkesini yapılandırmak için kullanın
-
-> [!NOTE]
-> Şu anda yalnızca yapılandırabilirsiniz reddetme listelerini. Kullanma yeteneğini izin listeleri çok yakında geliyor.
 
 Bir izin verme oluşturmak veya izin verilmeyenler listesi için kullanın [yeni AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Aşağıdaki örnek, reddetme listesini engelleyen "live.com" etki alanı kümesi gösterilmektedir.
 

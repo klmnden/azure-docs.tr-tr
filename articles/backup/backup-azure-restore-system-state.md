@@ -1,12 +1,12 @@
 ---
-title: "Azure yedekleme: Bir Windows Server sistem durumunu geri yükle | Microsoft Docs"
-description: "Windows Server sistem durumu azure'da bir yedekten geri yüklemek için adım açıklama tarafından adım."
+title: 'Azure yedekleme: Bir Windows Server sistem durumunu geri yükle | Microsoft Docs'
+description: Windows Server sistem durumu azure'da bir yedekten geri yüklemek için adım açıklama tarafından adım.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
 
@@ -34,7 +34,7 @@ Bu makalede, Azure kurtarma Hizmetleri Kasası'nı Windows Server sistem durumu 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Aynı sunucu sistem durumunu kurtarma dosyaları
 Aşağıdaki adımlar, Windows Server yapılandırmanızı önceki bir duruma geri açıklanmaktadır. Sunucu yapılandırması için bilinen, kararlı bir duruma geri, son derece yararlı olabilir. Aşağıdaki adımlar sunucunun sistem durumu kurtarma Hizmetleri Kasası'nı geri yükleyin. 
 
-1. Açık **Microsoft Azure yedekleme** ek bileşenini. Ek bileşenini yüklendiği bilmiyorsanız, bilgisayar veya sunucu için arama **Microsoft Azure yedekleme**.
+1. **Microsoft Azure Backup** ek bileşenini açın. Ek bileşenini yüklendiği bilmiyorsanız, bilgisayar veya sunucu için arama **Microsoft Azure yedekleme**.
 
     Masaüstü uygulaması arama sonuçlarında görüntülenmesi gerekir.
 
@@ -171,7 +171,7 @@ Azure kurtarma Hizmetleri aracısını kullanarak dosyaları olarak sistem durum
 Sistem durumu yedeklemesi Active Directory verilerini içerir. Aşağıdaki adımlarda Active Directory etki alanı hizmeti (AD DS) geri yüklemek için önceki bir duruma geçerli durumunu kullanın.
 
 1. Etki alanı denetleyicisi Dizin Hizmetleri geri yükleme modu (DSRM) yeniden başlatın.
-2. Adımları [burada](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) AD DS kurtarmak için Windows Server Yedekleme cmdlet'lerini kullanmak için.
+2. Adımları [burada](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) AD DS kurtarmak için Windows Server Yedekleme cmdlet'lerini kullanmak için.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Başarısız sistem durumu geri yükleme sorunlarını giderme

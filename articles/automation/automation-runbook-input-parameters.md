@@ -1,6 +1,6 @@
 ---
-title: "Runbook giriş parametreleri"
-description: "Runbook giriş parametreleri başlatıldığında bir runbook'a veri iletmek sağlayarak runbook'lar esnekliğini artırır. Bu makalede giriş parametreleri runbook'ları kullanıldığı farklı senaryolar anlatılmaktadır."
+title: Runbook giriş parametreleri
+description: Runbook giriş parametreleri başlatıldığında bir runbook'a veri iletmek sağlayarak runbook'lar esnekliğini artırır. Bu makalede giriş parametreleri runbook'ları kullanıldığı farklı senaryolar anlatılmaktadır.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2ce87c300d3e9092794e6e437dc9919c7eb0f3c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook giriş parametreleri
 
@@ -37,16 +37,16 @@ Windows PowerShell giriş parametreleri burada doğrulama gibi diğer adlar, lis
 
 PowerShell iş akışı runbook'ları parametre tanımında burada birden çok parametre virgülle ayrılır aşağıdaki genel biçime sahiptir.
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > Ne zaman tanımladığınız parametreler belirtmediyseniz **zorunlu** özniteliği sonra varsayılan olarak, parametre isteğe bağlı olarak kabul edilir. PowerShell iş akışı runbook'ları bir parametre için varsayılan bir değer ayarlarsanız, ayrıca, PowerShell tarafından isteğe bağlı bir parametre öğesinden bağımsız olarak işlem görür **zorunlu** öznitelik değeri.
@@ -61,13 +61,16 @@ Bu parametre tanımında parametreleri **$VMName** ve **$resourceGroupName** diz
 
 Runbook'unuz bir nesne türü giriş parametresi varsa, (adı, değer) içeren bir PowerShell hashtable kullanmak bir değer geçirmek için çiftleri. Örneğin, bir runbook'ta aşağıdaki parametre varsa:
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 Ardından parametresi şu değer geçirebilirsiniz:
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Giriş parametreleri grafik runbook'ları yapılandırma
 
@@ -146,7 +149,7 @@ Giriş kutusuna altındaki etiketinde parametresi için belirlenen öznitelikler
   
   **Örnek:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
@@ -155,7 +158,7 @@ Giriş kutusuna altındaki etiketinde parametresi için belirlenen öznitelikler
   
   **Örnek:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
   
   Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
@@ -170,7 +173,7 @@ Giriş kutusuna altındaki etiketinde parametresi için belirlenen öznitelikler
 
 * **Azure Resource Manager yöntemi:** bir programlama dili SDK'yi kullanarak bir runbook'u başlatabilirsiniz. Otomasyon hesabınızda bir runbook'u başlatmak için C# kod parçacığı aşağıdadır. Tüm koda görüntüleyebilirsiniz bizim [GitHub deposunu](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -189,7 +192,7 @@ Giriş kutusuna altındaki etiketinde parametresi için belirlenen öznitelikler
   ```
 * **Azure Klasik dağıtım modeli yöntemi:** bir programlama dili SDK'yi kullanarak bir runbook'u başlatabilirsiniz. Otomasyon hesabınızda bir runbook'u başlatmak için C# kod parçacığı aşağıdadır. Tüm koda görüntüleyebilirsiniz bizim [GitHub deposunu](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -209,7 +212,7 @@ Giriş kutusuna altındaki etiketinde parametresi için belirlenen öznitelikler
   
   Bu yöntem başlatmak için runbook parametreleri depolamak için Sözlük oluşturma **VMName** ve **resourceGroupName**ve değerleri. Daha sonra runbook'u başlatın. Yukarıda tanımlanan yöntemi çağırmak için C# kod parçacığı aşağıda verilmiştir.
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -239,7 +242,7 @@ Runbook işi parametreleri geçirmek için istek gövdesini kullanın. JSON biç
 
 Başlatmak istiyorsanız **Get-AzureVMTextual** daha önce oluşturulmuş runbook **VMName** ve **resourceGroupName** parametre olarak istek gövdesi için şu JSON biçimini kullanın.
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{
@@ -268,7 +271,7 @@ Oluşturabileceğiniz bir [Web kancası](automation-webhooks.md) runbook'unuzu i
 
 ![Web kancası oluşturun ve parametreleri atayın](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Bir Web kancası, önceden tanımlanmış giriş parametresi kullanılarak bir runbook yürütülürken  **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**  tanımlanan giriş parametreleri birlikte gönderilir. Genişletmek için tıklatın **WebhookData** daha fazla ayrıntı için parametre.
+Bir Web kancası, önceden tanımlanmış giriş parametresi kullanılarak bir runbook yürütülürken **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** tanımlanan giriş parametreleri birlikte gönderilir. Genişletmek için tıklatın **WebhookData** daha fazla ayrıntı için parametre.
 
 ![WebhookData parametresi](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

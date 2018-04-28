@@ -1,25 +1,20 @@
 ---
 title: Bir Azure Cosmos DB veri kaynağı için Azure Search dizini oluşturma | Microsoft Docs
 description: Bu makale bir Azure Cosmos DB veri kaynağı ile bir Azure Search dizin oluşturucu oluşturulacağını gösterir.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: ''
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: search
-ms.date: 03/23/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 165402f5147224cd355f0ae14642069a3de58f19
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Azure Search'te dizin oluşturucular kullanma Cosmos DB bağlanma
 
@@ -78,7 +73,7 @@ Bu makalede, REST API kullanmayı gösterir. Portal için seçerseniz [verilerin
 ## <a name="step-1-create-a-data-source"></a>1. Adım: Veri kaynağı oluşturma
 Bir veri kaynağı oluşturmak için bir POST yapın:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -151,7 +146,7 @@ Zaten yoksa, bir hedef Azure Search dizini oluşturma. Kullanarak bir dizinin ol
 
 Aşağıdaki örnek, bir kimlik ve açıklama alanı ile bir dizin oluşturur:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -183,7 +178,7 @@ Hedef dizin şeması kaynak JSON belgelerinin şemasını veya özel sorgu proje
 | JSON veri türü | Uyumlu hedef dizin alan türleri |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
-| Tamsayıları gibi ara numaraları |Edm.Int32, Edm.Int64, Edm.String |
+| Tamsayıları gibi ara numaraları |EDM.Int32, EDM.Int64, Edm.String |
 | Bu görünümlü kayan nokta sayıları |Edm.Double, Edm.String |
 | Dize |Edm.String |
 | ["A", "b", "c"] örneğin ilkel türlerin dizileri |Collection(Edm.String) |
@@ -197,7 +192,7 @@ Hedef dizin şeması kaynak JSON belgelerinin şemasını veya özel sorgu proje
 
 Dizinin ve veri kaynağının oluşturduktan sonra Dizin Oluşturucu oluşturmak hazırsınız:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -216,7 +211,7 @@ Oluşturma dizin oluşturucu API'si hakkında daha fazla ayrıntı için kullan�
 ### <a name="running-indexer-on-demand"></a>Dizin Oluşturucu isteğe bağlı çalıştırma
 Düzenli bir zamanlamaya göre çalıştırmanın yanı sıra, bir dizin oluşturucu, ayrıca isteğe bağlı olarak çağrılabilir:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -228,7 +223,7 @@ Dizin Oluşturucu durumunu portalında veya sonraki açıklamak alma dizin oluş
 ### <a name="getting-indexer-status"></a>Dizin Oluşturucu durumunu alma
 Bir dizin oluşturucu durumunu ve yürütme geçmişini alabilirsiniz:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 Yanıt, genel dizin oluşturucu durumu, son (veya devam eden) dizin oluşturucu çağırma ve son dizin oluşturucu çağrılarını geçmişini içerir.
@@ -302,7 +297,7 @@ Koleksiyondan silinen satır, normalde bu satır arama dizini de silmek istiyor.
 
 Aşağıdaki örnek, bir veri kaynağı ile bir geçici silme ilkesi oluşturur:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

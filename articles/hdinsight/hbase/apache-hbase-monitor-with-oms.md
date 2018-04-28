@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 78190576fb17409fac929b5afa50b71046f4d0e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-hbase-with-log-analytics"></a>Günlük analizi ile İzleyici HBase
 
@@ -56,7 +54,7 @@ Bir Hdınsight HBase izleme çözümü sağlamak için günlük analizi çalış
 9. **Oluştur**’u seçin.  
 10. Bu yeni yönetim çözümü kendi çalışma alanında kullanmak için gidin **günlük analizi** > ***çalışma alanı adı*** > **çözümleri**. Yönetimi çözümünüz için bir giriş listede görüntülenir. Çözüme gitmek için bir girişi seçin.
 
-    ![Log Analytics Solutions](./media/apache-hbase-monitor-with-oms/log-analytics-solutions.png)  
+    ![Günlük analizi çözümleri](./media/apache-hbase-monitor-with-oms/log-analytics-solutions.png)  
 
 11. Hdınsight HBase izleme çözümünüz için bölmesinde görünür.
 

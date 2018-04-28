@@ -1,29 +1,28 @@
 ---
-title: "Azure AD v2.0 tarafından desteklenen yetkilendirme protokolleri hakkında bilgi edinin | Microsoft Docs"
-description: "Azure AD v2.0 uç noktası tarafından desteklenen protokolleri Kılavuzu."
+title: Azure AD v2.0 tarafından desteklenen yetkilendirme protokolleri hakkında bilgi edinin | Microsoft Docs
+description: Azure AD v2.0 uç noktası tarafından desteklenen protokolleri Kılavuzu.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29d9e2d9ee05b755ef40179e0e75fb0c8a6b010b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 & Openıd Connect
-V2.0 uç noktası kimlik olarak-hizmet endüstri standardı protokolleri, Openıd Connect ve OAuth 2.0 ile Azure AD kullanabilirsiniz.  Hizmet standartlara uygun olsa da, bu protokollerin herhangi iki uygulamaları arasındaki küçük farklılıklar olabilir.  Burada yer alan bilgiler doğrudan göndererek kodunuzu yazmak seçtiğiniz & işleme HTTP isteklerini veya kullanımı bir 3. taraf açma bizim açık kaynak kitaplıkları birini kullanmak yerine Kaynak Kitaplığı yararlı olacaktır.
-<!-- TODO: Need link to libraries above -->
+V2.0 uç noktası kimlik olarak-hizmet endüstri standardı protokolleri, Openıd Connect ve OAuth 2.0 ile Azure AD kullanabilirsiniz.  Hizmet standartlara uygun olsa da, bu protokollerin herhangi iki uygulamaları arasındaki küçük farklılıklar olabilir.  Burada yer alan bilgiler doğrudan göndererek kodunuzu yazmak isterseniz yararlı olacak & HTTP işleme istekleri ya da birini kullanarak yerine 3 taraf açık kaynak kitaplık kullanmak bizim [açık kaynak kitaplıkları](active-directory-v2-libraries.md).
 
 > [!NOTE]
 > Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir.  V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).

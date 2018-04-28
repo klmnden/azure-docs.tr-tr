@@ -1,29 +1,28 @@
 ---
-title: Java CA deposuna sertifika ekleme | Microsoft Docs
-description: "Java CA sertifika (cacerts) deposuna Twilio hizmet veya Azure hizmet veri yolu için bir sertifika yetkilisi (CA) sertifikası eklemeyi öğrenin."
-services: 
+title: Java CA deposuna sertifika Ekle
+description: Java CA sertifika (cacerts) deposuna Twilio hizmet veya Azure hizmet veri yolu için bir sertifika yetkilisi (CA) sertifikası eklemeyi öğrenin.
+services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 ms.assetid: d3699b0a-835c-43fb-844d-9c25344e5cda
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c432aa9da9637675262313d935edd38bd7b698b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Bir sertifika Java CA sertifika depolama alanına ekleme
 Aşağıdaki adımlar Java CA sertifikası (cacerts) depoya bir sertifika yetkilisi (CA) sertifikası ekleme gösterir. Twilio hizmeti için gereken CA sertifikası için kullanılan örnek verilebilir. Daha sonra konu başlığı altında sağlanan bilgiler, Azure hizmet veri yolu için CA sertifikası yüklemek açıklar. 
 
-Keytool, JDK sıkıştırma ve Azure projenizin için ekleyerek önce CA sertifika eklemek için kullanabileceğiniz **approot** klasör veya sertifika eklemek için keytool kullanan bir Azure başlangıç görevi çalıştırabilir. Bu örnek, bir CA sertifikası daraltılmış JDK önce ekleyeceksiniz varsayar. Ayrıca, örnekte belirli bir CA sertifikası kullanılır, ancak farklı bir CA sertifikası alma ve cacerts deposuna içeri aktarma adımları benzer olacaktır.
+Keytool, JDK sıkıştırma ve Azure projenizin için ekleme önce CA sertifika eklemek için kullanabileceğiniz **approot** klasör veya sertifika eklemek için keytool kullanan bir Azure başlangıç görevi çalıştırabilir. (Bu örnekte, JDK sıkıştırma önce bir CA sertifikası eklemekte olduğunuz varsayılır.) Ayrıca, belirli bir CA sertifikası örnekte kullanılır, ancak farklı bir CA sertifikası alma ve cacerts deposuna içeri aktarma adımları benzer olacaktır.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>Bir sertifika cacerts deposuna eklemek için
 1. Bir yönetici komut isteminde, JDK için 's ayarlanan **jdk\jre\lib\security** klasörü, hangi sertifika yüklü görmek için aşağıdaki komutu çalıştırın:
@@ -36,7 +35,7 @@ Keytool, JDK sıkıştırma ve Azure projenizin için ekleyerek önce CA sertifi
    
     `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
    
-    MD5 parmak izi 67:CB:9 D sertifika varsa, bu sertifika güven istendiğinde: C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, yazarak yanıtlayın **y**.
+    Bir MD5 parmak izi 67:CB:9 D, sahip bir sertifika güven istenirse: C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, yazarak yanıtlayın **y**.
 4. CA sertifikasını başarıyla içe aktarıldığından emin olmak için aşağıdaki komutu çalıştırın:
    
     `keytool -list -keystore cacerts`
@@ -49,7 +48,7 @@ Azure Hizmetleri (örneğin, Azure Service Bus) kullanan, uygulamaları Baltimor
 
 Bu nedenle sertifika önceden yüklenmiş olmalıdır cacerts deponuzda Baltimore unutmayın çalıştırmak **keytool-liste** ilk zaten olup olmadığını görmek için komutu.
 
-Baltimore CyberTrust Root eklemeniz gerekiyorsa, seri numarası 02:00:00:b9 ve SHA1 parmak izi d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2 c onu vardır: 78:db:28:52:ca:e4:74. Adresten yüklenebilir <https://cacert.omniroot.com/bc2025.crt>, yerel bir dosya uzantısına sahip kaydedilmiş **.cer**ve kullanılarak içe **keytool** yukarıda gösterildiği gibi.
+Baltimore CyberTrust Root eklemeniz gerekiyorsa, seri numarası 02:00:00:b9 ve SHA1 parmak izi d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2 c onu vardır: 78:db:28:52:ca:e4:74. Adresten yüklenebilir <https://cacert.omniroot.com/bc2025.crt>, yerel bir dosya uzantısına sahip kaydedilmiş **.cer**ve kullanılarak içe **keytool** önceki adımlarda gösterildiği gibi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure tarafından kullanılan kök sertifikalar hakkında daha fazla bilgi için bkz: [Azure kök sertifika geçiş](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).

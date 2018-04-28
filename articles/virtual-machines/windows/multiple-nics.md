@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Oluşturma ve birden çok NIC sahip olan bir Windows sanal makine yönetme
 Azure sanal makineleri (VM'ler) kendisine bağlı birden çok sanal ağ arabirim kartı (NIC) olabilir. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, birden çok NIC bağlı olan bir VM oluşturmak nasıl ayrıntıları verilmektedir. Aynı zamanda NIC var olan bir sanal makineden ekleyip öğrenin. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
@@ -235,7 +235,7 @@ Aynı zamanda `copyIndex()` bir kaynak adı için bir sayı eklenecek. Daha sonr
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Tam örnek okuyabilirsiniz [Resource Manager şablonları kullanarak birden çok NIC oluşturma](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Tam örnek okuyabilirsiniz [Resource Manager şablonları kullanarak birden çok NIC oluşturma](../../virtual-network/template-samples.md).
 
 İçin ikincil NIC'ler için işletim sistemi içindeki adımları tamamlayarak yollar [işletim sistemini yapılandırmak için birden çok NIC](#configure-guest-os-for-multiple-nics).
 

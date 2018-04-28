@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a340cb3d73e0aaa86a5b7beb555133daed39d8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services genişletme
 
@@ -22,7 +22,7 @@ Genişletme ile istemci sorguları arasında birden çok dağıtılabilir *sorgu
 
 Tipik sunucu dağıtımında, bir sunucu işleme hem sorgu sunucusu görev yapar. Sorgu işleme birimleri (QPU) sunucunuzun planının modelleri sunucunuzda istemci sorguları sayısını aşıyor ya da yüksek sorgu iş yükleri aynı zamanda model işlemesi, performansı düşürebilir. 
 
-Genişletme ile en çok yedi ek sorgu çoğaltmaları (sekiz toplam sunucunuz dahil) olan bir sorgu havuzu oluşturabilirsiniz. Kritik zamanlarda QPU taleplerini karşılamak üzere sorgu çoğaltmaların sayısı ölçeklendirebilirsiniz ve herhangi bir anda bir işlem sunucusu sorgu havuzundan ayırabilirsiniz. 
+Genişletme ile en çok yedi ek sorgu çoğaltmaları (sekiz toplam sunucunuz dahil) olan bir sorgu havuzu oluşturabilirsiniz. Kritik zamanlarda QPU taleplerini karşılamak üzere sorgu çoğaltmaların sayısı ölçeklendirebilirsiniz ve herhangi bir anda bir işlem sunucusu sorgu havuzundan ayırabilirsiniz. Tüm sorgu çoğaltmaları sunucunuz ile aynı bölgede oluşturulur.
 
 Sorgu havuzda sahip sorgu çoğaltmaları sayısından bağımsız olarak, işleme iş yüklerinin sorgu çoğaltmalar arasında dağıtılmadı. Tek bir sunucu işlem sunucusu olarak görev yapar. Sorgu çoğaltmaları yalnızca sorgu havuzundaki her çoğaltma arasında eşitlenen modelleri sorguları hizmet. 
 
@@ -73,11 +73,17 @@ Kullanım **eşitleme** işlemi.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Eşitleme Powershell'den, çalıştırmak için [güncelleştirmek için en son](https://github.com/Azure/azure-powershell/releases) 5.01 veya daha yüksek AzureRM modülü. Kullanım [eşitleme AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+PowerShell, kullanmadan önce [veya son AzureRM Modülü güncelleştirmesini](https://github.com/Azure/azure-powershell/releases). 
+
+Sorgu çoğaltmaların sayısı ayarlamak için kullanın [kümesi AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). İsteğe bağlı belirtin `-ReadonlyReplicaCount` parametresi.
+
+Eşitleme çalıştırmak için kullandığınız [eşitleme AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>Bağlantılar
 
-Sunucunuzun genel bakış sayfasında, iki sunucu adları vardır. Henüz bir sunucu için genişleme yapılandırmadıysanız, her iki sunucu adları aynı çalışır. Bir sunucu için genişleme yapılandırdıktan sonra bağlantı türüne bağlı olarak uygun sunucu adını belirtmek gerekir. 
+Sunucunuzun genel bakış sayfasında, iki sunucu adları vardır. Henüz bir sunucu için genişleme yapılandırmadıysanız, her iki sunucu adları aynı çalışır. Bir sunucu için genişleme yapılandırdıktan sonra bağlantı türüne bağlı olarak uygun sunucu adı belirtmeniz gerekir. 
 
 Power BI Desktop, Excel ve özel uygulamalar kullanma gibi son kullanıcı istemci bağlantıları için **sunucu adı**. 
 

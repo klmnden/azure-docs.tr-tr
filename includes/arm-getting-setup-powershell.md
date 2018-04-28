@@ -26,7 +26,7 @@ Bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Av
 
 Bu komutla bir Azure PowerShell komut istemi ve Azure oturumunu açın.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Birden çok Azure aboneliğiniz varsa, bu komutla, Azure aboneliklerinize listeleyebilirsiniz.
 

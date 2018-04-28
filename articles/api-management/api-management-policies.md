@@ -1,11 +1,11 @@
 ---
 title: Azure API Management ilkeleri | Microsoft Docs
-description: "Azure API Management'te kullanıma ilkeleri hakkında bilgi edinin."
+description: Azure API Management'te kullanıma ilkeleri hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 7304ade9c47034b6cb76eb87126f09fb5af65c8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-management-policies"></a>API Management ilkeleri
 Bu bölümde aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
@@ -47,7 +47,7 @@ Bu bölümde aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme v
     -   [Değişken Ayarla](api-management-advanced-policies.md#set-variable) -adlandırılmış bağlamının sonraki erişim için bir değer kalır.  
     -   [İstek yöntemini ayarla](api-management-advanced-policies.md#SetRequestMethod) -bir istek için HTTP yöntemini değiştirmenize izin verir.  
     -   [Durum kodu ayarlamak](api-management-advanced-policies.md#SetStatus) -HTTP durum kodu için belirtilen değer değiştirir.  
-    -   [İzleme](api-management-advanced-policies.md#Trace) -bir dizeye ekler [API denetçisi](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) çıktı.  
+    -   [İzleme](api-management-advanced-policies.md#Trace) -bir dizeye ekler [API denetçisi](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) çıktı.  
     -   [Bekleyin](api-management-advanced-policies.md#Wait) -içine için bekleyeceği [gönderme isteği](api-management-advanced-policies.md#SendRequest), [değeri önbellekten alma](api-management-caching-policies.md#GetFromCacheByKey), veya [kontrol akışı](api-management-advanced-policies.md#choose) devam etmeden önce tamamlanmasını ilkeleri.  
 -   [Kimlik doğrulama ilkeleri](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Basic ile kimlik doğrulaması](api-management-authentication-policies.md#Basic) -temel kimlik doğrulaması kullanarak arka uç hizmeti ile kimlik doğrulaması.  

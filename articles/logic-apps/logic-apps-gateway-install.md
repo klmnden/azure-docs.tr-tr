@@ -1,25 +1,25 @@
 ---
-title: "Şirket içi veri ağ geçidi - Azure mantıksal uygulamaları yükleme | Microsoft Docs"
-description: "Şirket içi veri kaynaklarına erişim önce hızlı veri aktarımı ve şirket içi veri kaynakları ve mantıksal uygulamalar arasında şifreleme için şirket içi veri ağ geçidi yükleyin"
-keywords: "Şirket içi veri aktarımı, şifreleme, veri kaynakları veri erişimi"
+title: Şirket içi veri ağ geçidi - Azure mantıksal uygulamaları yükleme | Microsoft Docs
+description: Şirket içi veri kaynaklarına erişim önce hızlı veri aktarımı ve şirket içi veri kaynakları ve mantıksal uygulamalar arasında şifreleme için şirket içi veri ağ geçidi yükleyin
+keywords: Şirket içi veri aktarımı, şifreleme, veri kaynakları veri erişimi
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure mantıksal uygulamaları için şirket içi veri ağ geçidini yükleyin
 
@@ -54,12 +54,12 @@ Ağ geçidi diğer hizmetlerle birlikte kullanma hakkında daha fazla bilgi içi
 
 ## <a name="requirements"></a>Gereksinimler
 
-**Minimum**
+**en az**
 
 * .NET 4.5 framework
 * Windows 7 veya Windows Server 2008 R2 64-bit sürümünü (veya üstü)
 
-Önerilen
+**Önerilen**
 
 * 8 çekirdekli CPU
 * 8 GB bellek
@@ -208,11 +208,11 @@ Ağ geçidi giden bir bağlantı oluşturur [Azure Service Bus](https://azure.mi
 | Etki alanı adları | Giden bağlantı noktaları | Açıklama |
 | ------------ | -------------- | ----------- |
 | *. analysis.windows.net | 443 | HTTPS | 
-| *.login.windows.net | 443 | HTTPS | 
+| *. login.windows.net | 443 | HTTPS | 
 | *.servicebus.windows.net | 5671-5672 | Gelişmiş Message Queuing Protokolü (AMQP) | 
 | *.servicebus.windows.net | 443, 9350-9354 | Hizmet veri yolu geçişi (erişim denetimi belirteci alımı için 443'ü gerektirir) TCP üzerinden üzerindeki dinleyicileri | 
 | *.frontend.clouddatahub.net | 443 | HTTPS | 
-| *.core.windows.net | 443 | HTTPS | 
+| *. core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
 | *. msftncsi.com | 443 | Ağ geçidi Power BI hizmeti tarafından erişilemiyor olduğunda internet bağlantısı test etmek için kullanılır. | 
 ||||
@@ -225,7 +225,7 @@ IP adresleri etki alanları yerine onaylamak varsa, kullanmak karşıdan yükley
 
 Veri ağ geçidi mantıksal uygulamanızı, ağ geçidi bulut Hizmeti'ne ve şirket içi veri kaynağınız arasında hızlı ve güvenli iletişimi kolaylaştırır. 
 
-![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![Diagram-for-on-Premises-Data-Gateway-Flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe ile etkileşime giren zaman:
 
@@ -242,6 +242,11 @@ Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe i
 6. Sonuçlar veri kaynağından ağ geçidi dönün ve ağ geçidi bulut hizmetine gönderilir. Ağ geçidi bulut Hizmeti'ne ardından sonuçları kullanır.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Kiracı düzeyi Yönetimi 
+
+Şu anda Kiracı Yöneticiler diğer kullanıcıların yüklenmiş ve yapılandırılmış tüm ağ geçitleri yönetebileceği tek bir konum.  Kiracı yöneticisi değilseniz, yükledikleri her bir ağ geçidi için bir yönetici olarak eklemek için kuruluşunuzdaki kullanıcılar istemenizi öneririz. Bu sayede, kuruluşunuzda aracılığıyla veya ağ geçidi ayarları sayfası aracılığıyla tüm ağ geçitleri yönetmek [PowerShell komutlarını](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -310,7 +315,7 @@ Ayrıca, izleme sorguları için veri kaynağınız olan araçlar da bakabilirsi
 
 Ağ geçidi sürümü güncel olmayan hale geldiğinde birçok sorunları ortaya. Genel iyi uygulama olarak, en son sürümünü kullandığınızdan emin olun. Ağ geçidi, bir veya daha uzun bir ay için güncelleştirmediyseniz, ağ geçidinin en son sürümünü yüklemeyi göz önünde bulundurun ve sorunu yeniden bakın.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService performans günlük kullanıcılar)
 
 Desteklenmeyen bir etki alanı denetleyicisinde ağ geçidini yüklemeye çalıştığınızda bu hatayı alabilirsiniz. Bir etki alanı denetleyicisi olmayan bir makineye ağ geçidi dağıttığınızdan emin olun.
 

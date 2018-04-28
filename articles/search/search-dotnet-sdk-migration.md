@@ -1,23 +1,19 @@
 ---
-title: "Azure Search .NET SDK sürüm 3 yükseltme | Microsoft Docs"
-description: "Azure Search .NET SDK sürüm 3 yükseltme"
-services: search
-documentationcenter: 
+title: Azure Search .NET SDK sürüm 3 yükseltme | Microsoft Docs
+description: Azure Search .NET SDK sürüm 3 yükseltme
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK sürüm 3 yükseltme
 2.0-Önizleme veya, daha eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı sürüm 3'ü kullanacak şekilde yükseltmenize yardımcı olur.
@@ -56,7 +52,7 @@ Derleme başarısız olursa, bir derleme hatası aşağıdaki gibi görmeniz ger
 
 Bu yapı hatayı düzeltmek için sonraki adım olacaktır. Bkz: [önemli değişiklikler sürüm 3](#ListOfChanges) hatanın nedeni nedir ve nasıl düzeltileceği hakkında ayrıntılar için.
 
-Artık kullanılmayan yöntemleri ya da özellikleri ilgili ek derleme uyarıları görebilirsiniz. Uyarıları ne yerine kullanım dışı özelliği kullanmak yönergeler içerir. Örneğin, uygulamanızın kullandığı `IndexingParameters.Base64EncodeKeys` özelliği bildiren bir uyarı almak`"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
+Artık kullanılmayan yöntemleri ya da özellikleri ilgili ek derleme uyarıları görebilirsiniz. Uyarıları ne yerine kullanım dışı özelliği kullanmak yönergeler içerir. Örneğin, uygulamanızın kullandığı `IndexingParameters.Base64EncodeKeys` özelliği bildiren bir uyarı almak `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
 
 Derleme hataları düzelttik sonra isterseniz yeni işlevsellikten yararlanmak için uygulamanızı değişiklik yapabilirsiniz. SDK'sındaki yeni özellikleri ayrıntılı olarak [sürüm 3 yenilikler](#WhatsNew).
 
@@ -125,7 +121,7 @@ index.Analyzers = new Analyzer[]
 
 Derleme hataları ile ilgili görebilirsiniz yöntemleri ya da geçersiz sürüm olarak 2.0 Önizleme ve daha sonra kaldırılan sürüm 3 işaretlenen özellikleri. Bu tür hatalarla karşılaşırsanız, bunların nasıl çözüleceği şöyledir:
 
-- Bu oluşturucu kullanıyorsanız: `ScoringParameter(string name, string value)`, bunun yerine bunu kullanın:`ScoringParameter(string name, IEnumerable<string> values)`
+- Bu oluşturucu kullanıyorsanız: `ScoringParameter(string name, string value)`, bunun yerine bunu kullanın: `ScoringParameter(string name, IEnumerable<string> values)`
 - Kullanmakta olduğunuz varsa `ScoringParameter.Value` özelliği, kullanım `ScoringParameter.Values` özelliği veya `ToString` yöntemi yerine.
 - Kullanmakta olduğunuz varsa `SearchRequestOptions.RequestId` özelliği, kullanım `ClientRequestId` özelliği yerine.
 

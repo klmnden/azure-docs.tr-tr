@@ -1,10 +1,10 @@
 ---
-title: "Microsoft Azure security ile çalışmaya başlama | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure güvenlik özellikleri ve genel konular varlıklarına bir bulut sağlayıcısı geçirdiğiniz kuruluşlar için genel bakış sağlar."
+title: Microsoft Azure security ile çalışmaya başlama | Microsoft Docs
+description: Bu makalede, Microsoft Azure güvenlik özellikleri ve genel konular varlıklarına bir bulut sağlayıcısı geçirdiğiniz kuruluşlar için genel bakış sağlar.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 8d8a0088-c85a-48e7-bd04-2bc7b78b0691
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure’daki güvenlik özellikleriyle çalışmaya başlama
+
 Derleme veya BT varlıklar için bir bulut sağlayıcısı geçirmek, uygulamalar ve hizmetler ve bulut tabanlı varlıklarınızı güvenliği yönetmek için sağladıkları denetimleri ile verileri korumak için bir kuruluşun yeteneklerini güvenmek.
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Buna ek olarak, Azure’da çok çeşitli ve yapılandırılabilir güvenlik seçenekleri ile bunlar üzerinde denetim imkanı sunulmaktadır. Böylece, dağıtımlarınıza özel gereksinimleri karşılamak için güvenlik özelliklerini uyarlayabilirsiniz.
@@ -31,6 +32,7 @@ Azure güvenliğiyle ilgili bu genel bakış makalesinde şu konuları inceleyec
 * Nasıl Microsoft verileriniz ve uygulamalarınız korunmasına yardımcı olmak için Azure altyapı güvenliğini sağlar.
 
 ## <a name="identity-and-access-management"></a>Kimlik ve erişim yönetimi
+
 BT altyapısı, veri ve uygulama erişimini denetlemek, kritik öneme sahiptir. Microsoft Azure, çok sayıda standartları ve API'ler için Azure Active Directory (Azure AD), Azure Storage ve destek gibi hizmetleri tarafından bu özellikleri sunar.
 
 [Azure AD](../active-directory/active-directory-whatis.md) bir kimlik deposu ve kimlik doğrulama, yetkilendirme ve erişim denetimi kuruluşun kullanıcıları, grupları sağlayan ve nesneleri altyapısı. Azure AD, geliştiricilerin uygulamalarında kimlik yönetimini tümleştirmeleri için verimli bir yöntem de sunar. Endüstri standardı protokoller gibi [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federasyon](https://msdn.microsoft.com/library/bb498017.aspx), ve [Openıd Connect](http://openid.net/connect/) .NET, Java, Node.js ve PHP gibi platformlarda oturum açma olası olun.
@@ -38,6 +40,7 @@ BT altyapısı, veri ve uygulama erişimini denetlemek, kritik öneme sahiptir. 
 REST tabanlı Graph API, geliştiricilere her platformda dizinden okumaya ve dizine yazma olanağı sunar. Desteği aracılığıyla [OAuth 2.0](http://oauth.net/2/), geliştiricilerin mobil oluşturabilir ve Microsoft ve üçüncü taraf tümleştirme web uygulamaları API'leri web ve kendi güvenli web API oluşturma. .Net, Windows Mağazası, iOS ve Android’e yönelik mevcut açık kaynak istemci kitaplıklarına ek olarak yeni kitaplıklar da geliştirilmektedir.
 
 ### <a name="how-azure-enables-identity-and-access-management"></a>Azure’da kimlik ve erişim yönetimini etkinleştirme
+
 Azure AD kuruluşunuz için tek başına bulut dizini olarak veya mevcut şirket içi Active Directory ortamınızla tümleşik bir çözüm olarak kullanılabilir. Tümleştirme özelliklerinden bazıları dizin eşitleme ve çoklu oturum açma (SSO) hizmetleridir. Bunlar, mevcut şirket içi kimliklerinizi ulaşabileceği buluta genişletmek ve yönetici ve kullanıcı deneyimini geliştirmek.
 
 Diğer kimlik ve erişim yönetimi özelliklerinden bazıları şunlardır:
@@ -45,11 +48,12 @@ Diğer kimlik ve erişim yönetimi özelliklerinden bazıları şunlardır:
 * Azure AD, barındırıldıkları yerden bağımsız olarak SaaS uygulamaları için [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) özelliğini etkinleştirir. Bazı uygulamalar Azure AD federasyonu kullanırken diğerleri parola SSO hizmetinden yararlanır. Federasyon uygulamaları kullanıcı hazırlama ve parola kasası desteği de sunabilir.
 * [Azure Storage](https://azure.microsoft.com/services/storage/) verilerine erişim, kimlik doğrulaması ile denetlenir. Her Depolama hesabı bir birincil anahtara sahip ([depolama hesabı anahtarı](https://msdn.microsoft.com/library/azure/ee460785.aspx), veya SAK) ve ikincil bir gizli anahtar (paylaşılan erişim imzası veya SAS).
 * Azure AD kimlik Federasyon üzerinden bir hizmet olarak kullanarak sağlar [Active Directory Federasyon Hizmetleri](../active-directory/fundamentals-identity.md), eşitleme ve çoğaltma ile şirket içi dizinleri.
-* [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) oturum açma işlemleri bir mobil uygulama, telefon araması veya kısa mesaj kullanarak doğrulamasını gerektiren çok faktörlü kimlik doğrulama hizmetidir. Bu Azure AD ile Azure multi-Factor Authentication sunucusu ile ve özel uygulamalar ve dizinler SDK'sını kullanarak güvenli şirket içi kaynaklara yardımcı olmak için kullanılabilir.
+* [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) oturum açma işlemleri bir mobil uygulama, telefon araması veya kısa mesaj kullanarak doğrulamasını gerektiren çok faktörlü kimlik doğrulama hizmetidir. Bu Azure AD ile Azure multi-Factor Authentication sunucusu ile ve özel uygulamalar ve dizinler SDK'sını kullanarak güvenli şirket içi kaynaklara yardımcı olmak için kullanılabilir.
 * [Azure AD etki alanı Hizmetleri](https://azure.microsoft.com/services/active-directory-ds/) , etki alanı denetleyicilerini dağıtmaya olmadan Azure sanal makineleri bir etki alanına katın olanak tanır. Bu sanal makinelere Kurumsal Active Directory kimlik bilgilerinizle oturum açın ve sanal makinelerin etki alanına katılmış tüm Azure sanal makinelerinde güvenlik temelleri zorlamak için Grup İlkesi kullanarak yönetebilirsiniz.
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) yüz milyonlarca kimlikleri için ölçeklenebilir bir yüksek oranda kullanılabilir kimlik genel yönetim hizmeti tüketiciye yönelik uygulamalar için sağlar. Bu hizmet mobil platformlar ve web platformlarıyla tümleştirilebilir. Tüketicileriniz özelleştirilebilir deneyimler aracılığıyla tüm uygulamalarınıza, var olan sosyal hesaplarını kullanarak veya yeni kimlik bilgileri oluşturma oturum açabilir.
 
 ## <a name="data-access-control-and-encryption"></a>Veri erişim denetimi ve şifreleme
+
 Microsoft, tüm Azure işlemlerinde Görev Ayrımı ve [En Az Ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) ilkelerini uygular. Azure destek personelinin verilere erişebilmesi için özel olarak izin vermeniz gerekir ve tek seferlik izin verilen bu erişim günlüğe kaydedilir, denetlenir ve müdahale tamamlandıktan sonra iptal edilir.
 
 Azure aktarımda veya durağan verilerin korunması için birden çok yetenekleri de sağlar. Bu veri, dosyaları, uygulamaları, hizmetleri, iletişim ve sürücüler için şifreleme içerir. Azure'da yerleştirme önce bilgilerini şifrelemek ve ayrıca anahtarları, şirket içi veri merkezleri içinde depolar.
@@ -57,6 +61,7 @@ Azure aktarımda veya durağan verilerin korunması için birden çok yetenekler
 ![Azure’da Microsoft Kötü Amaçlı Yazılımdan Koruma](./media/azure-security-getting-started/sec-azgsfig1.PNG)
 
 ### <a name="azure-encryption-technologies"></a>Azure şifreleme teknolojileri
+
 [Azure AD Raporlama](../active-directory/active-directory-reporting-audit-events.md) özelliğini kullanarak abonelik ortamınıza gerçekleştirilen yönetici erişimleri hakkında bilgi toplayabilirsiniz. Yapılandırabileceğiniz [BitLocker Sürücü Şifrelemesi](https://technet.microsoft.com/library/cc732774.aspx) Azure gizli bilgileri içeren VHD'lerde.
 
 Verilerinizin güvenliğini sağlamanıza yardımcı olacak diğer Azure özellikleri:
@@ -70,6 +75,7 @@ Verilerinizin güvenliğini sağlamanıza yardımcı olacak diğer Azure özelli
 * Azure destekler ve SSL/TLS, IPSec ve AES, veri türleri, kapsayıcıları ve taşımaları bağlı olarak dahil olmak üzere çok sayıda şifreleme mekanizmaları kullanır.
 
 ## <a name="virtualization"></a>Sanallaştırma
+
 Azure platformu, sanallaştırılmış bir ortam kullanır. Kullanıcı örnekleri çalıştırmak bir fiziksel ana bilgisayar sunucusu erişimi olmayan bir tek başına sanal makineler olarak ve fiziksel kullanarak bu yalıtım zorlanan [işlemci (halka-0/halkası-3) ayrıcalık düzeylerini](https://en.wikipedia.org/wiki/Protection_ring).
 
 Halka 0 en yüksek, halka 3 ise en düşük ayrıcalıklara sahiptir. Daha düşük ayrıcalıklı halkası 1'de konuk işletim sistemini çalıştıran ve en az ayrıcalıklı Halka 3'te uygulamaları çalıştırın. Bu fiziksel kaynak sanallaştırma yöntemi sayesinde konuk işletim sistemi ve hiper yönetici arasında net bir ayrım sağlanarak bu iki bileşen arasında ek bir güvenlik ayrımı yapılmış olur.
@@ -79,6 +85,7 @@ Azure hiper yönetici mikro çekirdek gibi davranır ve tüm donanım erişim is
 ![Azure’da Microsoft Kötü Amaçlı Yazılımdan Koruma](./media/azure-security-getting-started/sec-azgsfig2.PNG)
 
 ### <a name="how-azure-implements-virtualization"></a>Azure’da sanallaştırma uygulamaları
+
 Azure hiper yöneticide uygulanabilir ve bir yapı denetleyicisi aracısı tarafından yapılandırılan bir hiper yönetici Güvenlik Duvarı (paket filtresi) kullanır. Bu bileşen, kiracıların yetkisiz erişimden korunmasına yardımcı olur. Varsayılan olarak, tüm trafiği, bir sanal makine oluşturulduğunda ve ardından doku Denetleyicisi aracı eklemek için paket filtresi yapılandırır engellenir *kuralları ve özel durumları* yetkili trafiğine izin vermek için.
 
 Burada programlanan iki kural kategorisi vardır:
@@ -87,6 +94,7 @@ Burada programlanan iki kural kategorisi vardır:
 * **Rol yapılandırma dosyası**: Bu gelen erişim denetim kiracının hizmet modelini temel alan listeleri (ACL'ler) tanımlar. Bir kiracı Web ön uç bağlantı noktası 80 üzerinde belirli bir sanal makine varsa bir uç nokta içinde yapılandırıyorsanız Örneğin, ardından Azure tüm IP'ler için TCP bağlantı noktası 80 açar [Azure Klasik dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md). Ardından sanal makinede çalışan bir arka uç veya çalışan rolü varsa, yalnızca aynı Kiracı içinde sanal makine için çalışan rolü açar.
 
 ## <a name="isolation"></a>Yalıtım
+
 Başka bir önemli bulut güvenlik gereksinimi paylaşılan çok kiracılı mimarisinde dağıtımlar arasında bilgi yetkisiz ve istemeyerek aktarımını önlemek üzere ayrılmasıdır.
 
 Azure uygulayan [ağ erişim denetimi](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) ve VLAN yalıtımı, ACL'leri, ile arasında ayrım yapma yük dengeleyicileri ve IP filtreleri. Dış trafiğini sınırlayan gelen bağlantı noktalarını ve protokolleri, sanal makinelerde tanımlarsınız. Azure ağ sahte trafiğini önlemek ve güvenilir platform bileşenleri için gelen ve giden trafiği kısıtlamak için filtreyi uygular. Sınır koruma cihazlarına uygulanan trafik akış ilkeleri, trafiği varsayılan olarak reddeder.
@@ -98,6 +106,7 @@ Azure uygulayan [ağ erişim denetimi](https://azure.microsoft.com/blog/network-
 Azure sanal makineler için dış trafiğin ACL yönlendiricileri, yük Dengeleyiciler, güvenlik duvarı ve Katman 3 anahtarları. Yalnızca bilinen belirli protokollere izin verilir. ACL'ler yönetimi için kullanılan diğer VLAN'lar için konuk sanal makinelerden kaynaklanan trafiğini sınırlandırmak için yer alır. Ayrıca, işletim sistemi daha fazla ana bilgisayar IP filtreleri aracılığıyla filtre trafiğinin hem veri katmanları bağlantı ve ağ trafiğinde sınırlar.
 
 ### <a name="how-azure-implements-isolation"></a>Azure’da yalıtım uygulamaları
+
 Kiracı İş yükleri için altyapı kaynaklarını ayırma için Azure yapı denetleyicisi sorumludur ve sanal makineler ana bilgisayardan tek yönlü iletişim yönetir. Azure hiper yönetici sanal makineler arasındaki bellek ve işlem ayrımı zorunlu kılan ve güvenli bir şekilde konuk işletim sistemi kiracılar için ağ trafiğini yönlendirir. Azure ayrıca kiracılar, depolama ve sanal ağlar için yalıtım uygular.
 
 * Her Azure AD kiracısı güvenlik sınırları kullanarak mantıksal olarak yalıtılmış.
@@ -105,6 +114,7 @@ Kiracı İş yükleri için altyapı kaynaklarını ayırma için Azure yapı de
 * Sanal ağlar birleşimi benzersiz özel IP adresleri, güvenlik duvarları ve IP ACL'ler mantıksal olarak yalıtılmış. Yük dengeleyiciler trafiği uç nokta tanımlarını temel alarak uygun kiracılara yönlendirir.
 
 ## <a name="virtual-networks-and-firewalls"></a>Sanal ağlar ve güvenlik duvarları
+
 [Dağıtılmış ve sanal ağlar](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) Azure Yardımı'nda özel ağ trafiğinizi diğer Azure sanal ağ trafiğinden mantıksal olarak yalıtılmış olduğundan emin olun.
 
 ![Azure’da Microsoft Kötü Amaçlı Yazılımdan Koruma](./media/azure-security-getting-started/sec-azgsfig4.PNG)
@@ -134,6 +144,7 @@ Güvenli iletişim sanal ağınızda yardımcı olması için aşağıdaki Azure
 * [**İş ortağı ağ güvenliği çözümleri**](https://azure.microsoft.com/marketplace/). Azure Marketi'nde erişmek için iş ortağı ağ güvenlik çözümlerini mevcuttur.
 
 ### <a name="how-azure-implements-virtual-networks-and-firewalls"></a>Azure sanal ağlar ve güvenlik duvarları nasıl uygular
+
 Azure güvenlik duvarları paket filtreleme varsayılan olarak tüm konak ile Konuk sanal makineleri uygular. Azure Marketi'nden Windows işletim sistemi görüntüleri Windows Güvenlik Duvarı varsayılan olarak etkin de vardır. Azure genel kullanıma yönelik ağları denetim iletişimleri çevre yük Dengeleyiciler IP müşteri yöneticiler tarafından yönetilen ACL'ler temel.
 
 Azure’un normal çalışma süreçleri veya olağanüstü durum sırasında bir müşterinin verilerini taşıması halinde ilgili işlemler özel ve şifreli iletişim kanallarından gerçekleştirilir. Sanal ağlar ve güvenlik duvarları kullanmak için Azure tarafından işe diğer özellikleri şunlardır:
@@ -145,6 +156,7 @@ Azure’un normal çalışma süreçleri veya olağanüstü durum sırasında bi
 * **Sanal ağ geçidi**: [Azure sanal ağ geçidi](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) Azure sanal ağındaki iş yüklerinizi, şirket içi sitelere bağlanan şirketler arası ağ geçidi olarak görev yapar. Şirket içi sitelere bağlanmak için gereken [IPSec siteden siteye VPN tünelleri](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), aracılığıyla veya [ExpressRoute](../expressroute/expressroute-introduction.md) devreler. IPSec/IKE VPN tünelleri, ağ geçitleri IKE el sıkışmaları gerçekleştirmek ve sanal ağlar ve şirket içi siteler arasında IPSec S2S VPN tünelleri oluşturabilir. Sanal ağ geçitleri de sonlandırmak [noktadan siteye VPN'lerde](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
 ## <a name="secure-remote-access"></a>Güvenli uzaktan erişim
+
 Bulutta depolanan verilerin taşıma sırasında açıklardan yararlanılmasını önlemek ve gizlilikle bütünlüğün korunmasını sağlamak için yeterli korumaya sahip olması gerekir. Buna bir kuruluşun ilke tabanlı, denetlenebilir kimlik ve erişim yönetim sistemleri ile bağlantılı ağ denetimleri dahildir.
 
 Yerleşik şifreleme teknolojisi, dağıtımlar içindeki ve arasındaki, Azure bölgeleri arasındaki ve Azure ile şirket içi veri merkezleri arasındaki iletişimleri şifrelemenizi sağlar. İle sanal makineleri için yönetici erişimine [uzak masaüstü oturumları](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [uzaktan Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx), ve Azure Portalı'nı her zaman şifrelenir.
@@ -152,11 +164,13 @@ Yerleşik şifreleme teknolojisi, dağıtımlar içindeki ve arasındaki, Azure 
 Güvenli, şirket içi veri merkezini buluta genişletmek için Azure hem de sağlar [siteden siteye VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) ve [noktadan siteye VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md), ayrılmış bağlantılarıyla artı [ExpressRoute](../expressroute/expressroute-introduction.md) (Azure VPN üzerinden sanal ağlara bağlantılar şifrelenir).
 
 ### <a name="how-azure-implements-secure-remote-access"></a>Azure’da güvenli uzaktan erişim uygulamaları
+
 Her zaman Azure portala kimlik doğrulaması ve SSL/TLS gerektirir. Yönetim sertifikalarını güvenli yönetimi etkinleştirecek şekilde yapılandırabilirsiniz. Endüstri standardı güvenlik protokolleri gibi [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) ve [IPSec](https://en.wikipedia.org/wiki/IPsec) tam olarak desteklenir.
 
 [Azure ExpressRoute](../expressroute/expressroute-introduction.md), Azure veri merkezleri ile şirketinizde veya bir birlikte bulundurma ortamında bulunan altyapı arasında özel bağlantılar oluşturmanızı sağlar. ExpressRoute bağlantıları ortak İnternet üzerinden geçmemektedir. Bunlar, daha fazla güvenilirlik, yüksek hız, düşük gecikme ve normal Internet tabanlı bağlantılar daha yüksek güvenlik sağlar. Bazı durumlarda, arasında veri aktarma şirket içi konumlara ve ExpressRoute bağlantıları kullanarak Azure önemli maliyet avantajları da sağlar.
 
 ## <a name="logging-and-monitoring"></a>Günlüğe kaydetme ve izleme
+
 Kimliği doğrulanmış olayların günlüğe kaydedilmesini bir denetim izi'ni üreten güvenlikle ilişkili Azure sağlar ve izinsiz için dayanıklı olacak şekilde tasarlanmıştır. Bu, güvenlik olay günlüklerini Azure altyapı sanal makineler ve Azure AD gibi sistem bilgilerini içerir. Güvenlik olay izleme DHCP veya DNS sunucusu IP adresi değişiklikleri gibi Olay toplama içerir; erişim bağlantı noktaları, protokolleri veya tasarım gereği engellenmiş durumda olan IP adresleri çalıştı; Güvenlik İlkesi veya Güvenlik Duvarı ayarlarında değişiklikler; hesabı veya grup oluşturma; ve beklenmeyen veya işlemler sürücü yükleme.
 
 ![Azure’da Microsoft Kötü Amaçlı Yazılımdan Koruma](./media/azure-security-getting-started/sec-azgsfig5.PNG)
@@ -164,6 +178,7 @@ Kimliği doğrulanmış olayların günlüğe kaydedilmesini bir denetim izi'ni 
 Ayrıcalıklı kullanıcı erişimini ve etkinliklerini, yetkilendirilmiş ve yetkilendirilmemiş erişim girişimlerini, sistem özel durumlarını ve bilgi güvenliği olaylarını kaydeden denetim günlükleri belirli bir süre boyunca saklanır. Günlük toplama ve bekletme ayarlarını kendi gereksinimlerinize göre yapılandırdığınızdan, günlüklerinizin bekletilme süresi size bağlıdır.
 
 ### <a name="how-azure-implements-logging-and-monitoring"></a>Azure’da günlüğe kaydetme ve izleme uygulamaları
+
 Azure, yönetilen yerel ve sanal işlem, depolama veya yapı düğümlerine Yönetim Aracıları (MA) ve Azure Güvenlik İzleme (ASM) aracıları dağıtır. Her Yönetim Aracısı, bir hizmet ekibi depolama hesabını Azure sertifika depolama alanından aldığı sertifikayla kimlik doğrulamasından geçirecek ve önceden yapılandırılmış tanılama ve olay verilerini depolama hesabına iletecek şekilde yapılandırılmıştır. Bu aracılar müşterilerin sanal makinelerine dağıtılmaz.
 
 Azure yöneticileri, kimlik doğrulamalı ve denetimli erişim için günlüklere bir web portalı üzerinden erişir. Yöneticiler günlükleri ayrıştırabilir, filtreleyebilir, bağıntı kurabilir ve çözümleyebilir. Günlükler için Azure hizmet ekibi depolama hesapları günlüklerde değişiklik yapılmasını önlemeye yardımcı olmak için doğrudan yönetici erişimine karşı korunur.
@@ -173,11 +188,13 @@ Microsoft günlükleri Syslog protokolünü kullanarak ağ aygıtlarının ve Mi
 [Azure Tanılama](https://msdn.microsoft.com/library/azure/gg433048.aspx), Azure'da çalışan bir uygulamadan tanılama verileri toplamanızı sağlayan Azure özelliğidir. Hata ayıklama ve sorun giderme performansını ölçmek, kaynak kullanımı, trafik analizi, kapasite planlaması izleme ve denetim için tanılama veri budur. Toplanan tanılama verileri Azure depolama hesabına aktarılarak saklanabilir. Aktarımları da zamanlanabilir veya isteğe bağlı.
 
 ## <a name="threat-mitigation"></a>Tehdit azaltma
+
 Azure’da yalıtım, şifreleme ve filtrelemeye ek olarak altyapıyı ve hizmetleri korumaya yönelik bir dizi tehdit azaltma sistemi ve işlemi kullanılmaktadır. Bunlara DDoS, ayrıcalık artırma ve [OWASP Top-10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) gibi gelişmiş tehditleri tespit etmek ve azaltmak için kullanılan iç denetim ve teknolojiler dahildir.
 
 Microsoft’un bulut altyapısının güvenliğini sağlamak için uyguladığı güvenlik denetimleri ve risk yönetim süreçleri, güvenlik olayı riskini azaltmaktadır. Bir olay oluşursa, güvenlik olay Yönetimi (SIM) ekibin Microsoft çevrimiçi güvenlik hizmetleri ve uyumluluk (OSSC) ekibin içinde herhangi bir zamanda yanıtlamak hazırdır.
 
 ### <a name="how-azure-implements-threat-mitigation"></a>Azure’da tehdit azaltma uygulamaları
+
 Azure güvenlik denetimleri tehdit hafifletme ve müşterilerin kendi ortamlarında olası tehditlerin azaltılmasına yardımcı olmak için yerinde sahiptir. Aşağıdaki listede, Azure tarafından sunulan tehdit azaltma özellikleri özetlenmektedir:
 
 * [Azure kötü amaçlı yazılımdan koruma](azure-security-antimalware.md) tüm altyapı sunucuları üzerinde varsayılan olarak etkindir. İsteğe bağlı olarak, kendi sanal makinelerde etkinleştirebilirsiniz.
@@ -187,6 +204,7 @@ Azure güvenlik denetimleri tehdit hafifletme ve müşterilerin kendi ortamları
 * Tümleşik dağıtım sistemleri, Azure platformunda güvenlik düzeltme eklerinin dağıtımını ve yüklenmesini yönetir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/)
 
 [Azure Güvenlik Ekibi Blogu](http://blogs.msdn.com/b/azuresecurity/)

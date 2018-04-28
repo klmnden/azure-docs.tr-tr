@@ -1,12 +1,12 @@
 ---
-title: "İş ortağı Azure VPN ağ geçitleri için bağlanmak için VPN cihaz yapılandırmalarını | Microsoft Docs"
-description: "Bu makale Azure VPN ağ geçitleri için bağlamak için iş ortağı VPN cihaz yapılandırmalarını genel bir bakış sağlar."
+title: İş ortağı Azure VPN ağ geçitleri için bağlanmak için VPN cihaz yapılandırmalarını | Microsoft Docs
+description: Bu makale Azure VPN ağ geçitleri için bağlamak için iş ortağı VPN cihaz yapılandırmalarını genel bir bakış sağlar.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9ca3937d688170798c42fce45dbcd7711773d1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>İş ortağı VPN cihaz yapılandırmalarını genel bakış
 Bu makale Azure VPN ağ geçitleri için bağlamak için şirket içi VPN aygıtları yapılandırma genel bir bakış sağlar. Bir Azure sanal ağı örnek ve VPN ağ geçidi için farklı şirket içi VPN cihaz yapılandırmalarını aynı parametreleri kullanarak bağlanmak nasıl göstermek için kullanılır.
@@ -48,7 +48,7 @@ Bu bölümde önceki bölümlerde açıklanan örnekler için parametreleri list
 | * Şirket içi BGP ASN         | 65050                        |
 | * Şirket içi BGP eşdeğer IP     | 10.52.255.254                |
 
-\*İsteğe bağlı parametresi BGP yalnızca.
+\* İsteğe bağlı parametresi BGP yalnızca.
 
 ### <a name="sample-powershell-script"></a>Örnek PowerShell komut dosyası
 Bu bölüm başlamanıza yardımcı olmak için bir örnek komut dosyası sağlar. Ayrıntılı yönergeler için bkz: [PowerShell kullanarak bir S2S VPN bağlantısı oluşturma](vpn-gateway-create-site-to-site-rm-powershell.md).
@@ -84,7 +84,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 

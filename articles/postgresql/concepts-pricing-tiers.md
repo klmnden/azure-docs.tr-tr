@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9b182935ad6a328afa4ee25049b3651f62277d45
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına PostgreSQL için
 
@@ -36,7 +36,8 @@ Bir fiyatlandırma katmanı seçmek için bir başlangıç noktası olarak aşa�
 | Genel Amaçlı | Dengeli işlem ve bellek ölçeklenebilir g/ç işleme ile gerektirir, çoğu kurumsal iş yükleri. Örnek web ve mobil uygulamaları ve diğer Kurumsal uygulamaları barındıran sunucuları içerir.|
 | Bellek için İyileştirilmiş | Daha hızlı işlem yapma ve daha yüksek eşzamanlılık için bellek içi performans gerektiren yüksek performanslı veritabanı iş yükleri. Örnekler gerçek zamanlı veri ve yüksek performanslı işlem veya analitik uygulamaları işlemek için sunucuları içerir.|
 
-Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı saniye içinde değiştirilebilir. Depolama alanı ve yedekleme bekletme süresi yukarı veya aşağı uygulama kapalı kalma süresi ile miktarı da bağımsız olarak ayarlayabilirsiniz. Daha fazla bilgi için "kaynakları ölçeklendirme" bölümüne bakın.
+Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı (aynı fiyatlandırma katmanı içinde) saniye içinde değiştirilebilir. Depolama alanı ve yedekleme bekletme süresi yukarı veya aşağı uygulama kapalı kalma süresi ile miktarı da bağımsız olarak ayarlayabilirsiniz. Bir sunucu oluşturulduktan sonra fiyatlandırma katmanı veya yedekleme depolama türünü değiştiremezsiniz. Daha fazla bilgi için bkz: [ölçeklendirme kaynakları](#scale-resources) bölümü.
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>İşlem nesli, vCores ve bellek
 
@@ -53,16 +54,18 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı saniye iç
 | Batı ABD 2 |  | X |
 | Orta Kanada | X | X |
 | Doğu Kanada | X | X |
-| Güney Brezilya | X |  |
+| Güney Brezilya | X | X |
 | Kuzey Avrupa | X | X |
 | Batı Avrupa | X | X |
 | Birleşik Krallık Batı |  | X |
 | Birleşik Krallık Güney |  | X |
 | Doğu Asya | X |  |
-| Güneydoğu Asya | X |  |
+| Güneydoğu Asya | X | X |
 | Avustralya Doğu |  | X |
+| Avustralya Güneydoğu |  | X |
 | Orta Hindistan | X |  |
 | Batı Hindistan | X |  |
+| Güney Hindistan |  | X |
 | Japonya Doğu | X | X |
 | Japonya Batı | X | X |
 | Kore Güney |  | X |
@@ -78,7 +81,7 @@ Sağlamanız depolama PostgreSQL server Azure veritabanınıza kullanılabilir d
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
 | Depolama artırım boyutu | 1 GB | 1 GB | 1 GB |
-| IOPS | Değişken |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
+| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS | 3 IOP/GB<br/>En az 100 IOPS |
 
 Ek depolama kapasitesi sırasında ve sunucu oluşturulduktan sonra ekleyebilirsiniz. Temel katman bir IOPS garanti sağlamaz. Genel amaçlı ve fiyatlandırma katmanlarına Bellek için iyileştirilmiş, 3:1 oranında sağlanan depolama boyutu ile IOPS ölçeklendirin.
 
@@ -90,7 +93,7 @@ Hizmeti sunucunuzun yedeklemeleri otomatik olarak alır. Yedeklemeler için en d
 
 ## <a name="scale-resources"></a>Kaynakları ölçeklendirme
 
-Sunucunuz oluşturduktan sonra bağımsız olarak vCores, depolama alanı miktarı ve yedekleme bekletme süresini değiştirebilirsiniz. Bir sunucu oluşturulduktan sonra fiyatlandırma katmanı veya yedekleme depolama türünü değiştiremezsiniz. vCores ve yedekleme Bekletme dönemi yukarı veya aşağı genişletilebilir. Depolama boyutu yalnızca artırılabilir. Kaynaklarını ölçeklendirme portalı veya Azure CLI yoluyla gerçekleştirilebilir. Azure CLI kullanarak ölçeklendirme ilişkin bir örnek için bkz: [İzleyici ve ölçek Azure CLI kullanarak PostgreSQL sunucu için bir Azure veritabanı](scripts/sample-scale-server-up-or-down.md).
+Sunucunuz oluşturduktan sonra bağımsız olarak vCores, depolama alanı miktarı ve yedekleme bekletme süresini değiştirebilirsiniz. Bir sunucu oluşturulduktan sonra fiyatlandırma katmanı veya yedekleme depolama türünü değiştiremezsiniz. VCores sayısı yukarı veya aşağı içinde aynı fiyatlandırma katmanı genişletilebilir. Yedekleme Bekletme dönemi yukarı veya aşağı 7'den 35 gün ölçeklendirilebilir. Depolama boyutu yalnızca artırılabilir.  Kaynaklarını ölçeklendirme portalı veya Azure CLI yoluyla gerçekleştirilebilir. Azure CLI kullanarak ölçeklendirme ilişkin bir örnek için bkz: [İzleyici ve ölçek Azure CLI kullanarak PostgreSQL sunucu için bir Azure veritabanı](scripts/sample-scale-server-up-or-down.md).
 
 VCores sayısı değiştirdiğinizde, özgün sunucu kopyası ile yeni işlem ayırma oluşturulur. Yeni Sunucu çalışır durumda sonra bağlantıları yeni sunucuya geçiş. Sistem yeni sunucuya zaman geçer şu sırasında yeni bağlantı kuruldu ve tüm kaydedilmemiş işlemleri geri alınacak. Bu pencere değişir, ancak çoğu durumda bir dakikadan az olur.
 

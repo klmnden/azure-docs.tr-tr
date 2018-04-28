@@ -1,25 +1,22 @@
 ---
-title: "Azure uygulama ağ geçidi web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını | Microsoft Docs"
-description: "Bu sayfa, web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını bilgi sağlar."
+title: Azure uygulama ağ geçidi web uygulaması güvenlik duvarı CRS kural gruplar ve kurallar
+description: Bu sayfa, web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını bilgi sağlar.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Web uygulaması güvenlik duvarı CRS Kural gruplarını ve kurallarını listesi sunulan
 
@@ -27,28 +24,8 @@ Uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) web uygulamaları, 
 
 Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygulaması güvenlik duvarı kullanırken kullanılabilir olan kuralları olur.  Her tablo belirli bir CRS sürümü için bir kural grubu bulunan kuralları gösterir.
 
-##<a name="owasp30"></a>OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">İSTEK 910 IP SAYGINLIĞI</p>
-
-|RuleId|Açıklama|
-|---|---|
-|910011|Kural 910011|
-|910012|Kural 910012|
-|910000|Bilinen kötü amaçlı istemciden (önceki trafiği ihlalleri dayalı) isteyin.|
-|910100|İstemci IP yüksek Risk ülke konumdan değil.|
-|910120|Kural 910120|
-|910130|Kural 910130|
-|910150|HTTP kara liste eşleştirmek için arama motoru IP|
-|910160|HTTP kara liste eşleşme göndericisi IP|
-|910170|Şüpheli IP için HTTP kara liste eşleşme|
-|910180|Harvester IP için HTTP kara liste eşleşme|
-|910013|Kural 910013|
-|910014|Kural 910014|
-|910015|Kural 910015|
-|910016|Kural 910016|
-|910017|Kural 910017|
-|910018|Kural 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">911 YÖNTEMİ ZORLAMA İSTEĞİ</p>
 
@@ -64,26 +41,6 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |911017|Kural 911017|
 |911018|Kural 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">İSTEK 912 DOS KORUMASI</p>
-
-|RuleId|Açıklama|
-|---|---|
-|912100|Kural 912100|
-|912012|Kural 912012|
-|912120|% Tanımlanan hizmet reddi (DoS) saldırısı @{tx.real_ip} (% @{tx.dos_block_counter} isabet son uyarı itibaren)|
-|912130|Kural 912130|
-|912140|Kural 912140|
-|912150|Kural 912150|
-|912160|Kural 912160|
-|912170|Olası hizmet reddi (DoS) saldırısı % @{tx.real_ip} - istek Bursts sayısı = % @{ip.dos_burst_counter}|
-|912013|Kural 912013|
-|912014|Kural 912014|
-|912019|Kural 912019|
-|912171|Olası hizmet reddi (DoS) saldırısı % @{tx.real_ip} - istek Bursts sayısı = % @{ip.dos_burst_counter}|
-|912015|Kural 912015|
-|912016|Kural 912016|
-|912017|Kural 912017|
-|912018|Kural 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">İSTEK 913 TARAYICI ALGILAMA</p>
 
@@ -334,9 +291,9 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |943017|Kural 943017|
 |943018|Kural 943018|
 
-##<a name="owasp229"></a>OWASP_2.2.9
+##<a name="owasp229"></a> OWASP_2.2.9
 
-### <a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs20"></a> crs_20_protocol_violations
 
 |RuleId|Açıklama|
 |---|---|
@@ -362,7 +319,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |960901|İstekte geçersiz bir karakter|
 |960018|İstekte geçersiz bir karakter|
 
-### <a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs21"></a> crs_21_protocol_anomalies
 
 |RuleId|Açıklama|
 |---|---|
@@ -375,7 +332,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |960904|İçeren içerik ancak eksik Content-Type üstbilgisi isteği|
 |960017|Ana bilgisayar üstbilgisi sayısal bir IP adresidir.|
 
-### <a name="crs23"></a>crs_23_request_limits
+### <a name="crs23"></a> crs_23_request_limits
 
 |RuleId|Açıklama|
 |---|---|
@@ -386,7 +343,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |960342|Karşıya yüklenen dosya boyutu çok büyük|
 |960343|Karşıya yüklenen dosyaların toplam boyutu çok büyük|
 
-### <a name="crs30"></a>crs_30_http_policy
+### <a name="crs30"></a> crs_30_http_policy
 
 |RuleId|Açıklama|
 |---|---|
@@ -396,7 +353,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |960035|URL dosya uzantısı İlkesi tarafından kısıtlanıyor|
 |960038|HTTP üstbilgisi İlkesi tarafından kısıtlanıyor|
 
-### <a name="crs35"></a>crs_35_bad_robots
+### <a name="crs35"></a> crs_35_bad_robots
 
 |RuleId|Açıklama|
 |---|---|
@@ -405,7 +362,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |990902|Site güvenlik tarayıcısı taranan isteği gösterir|
 |990012|Sahte web sitesi Gezgin|
 
-### <a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs40"></a> crs_40_generic_attacks
 
 |RuleId|Açıklama|
 |---|---|
@@ -434,7 +391,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |958976|PHP ekleme saldırısı|
 |958977|PHP ekleme saldırısı|
 
-### <a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
 |RuleId|Açıklama|
 |---|---|
@@ -471,7 +428,7 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |981253|MySQL ve PostgreSQL algılar saklı yordam/işlev eklemelerini|
 |981251|MySQL UDF ekleme ve diğer veri/yapısı düzenleme algılar çalışır|
 
-### <a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs41xss"></a> crs_41_xss_attacks
 
 |RuleId|Açıklama|
 |---|---|
@@ -576,13 +533,13 @@ Aşağıdaki tablolarda Kural gruplarını ve uygulama ağ geçidi ile web uygul
 |973329|IE XSS - saldırının algılandığı filtreler.|
 |973328|IE XSS - saldırının algılandığı filtreler.|
 
-### <a name="crs42"></a>crs_42_tight_security
+### <a name="crs42"></a> crs_42_tight_security
 
 |RuleId|Açıklama|
 |---|---|
 |950103|Yol çapraz geçiş saldırısı|
 
-### <a name="crs45"></a>crs_45_trojans
+### <a name="crs45"></a> crs_45_trojans
 
 |RuleId|Açıklama|
 |---|---|

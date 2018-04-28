@@ -1,19 +1,19 @@
 ---
-title: "Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma | Microsoft Docs"
-description: "Bu makalede, uyumlu olmayan kaynakları belirlemek üzere bir ilke tanımı oluşturma adımlarında size yol gösterilir."
+title: Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma | Microsoft Docs
+description: Bu makalede, uyumlu olmayan kaynakları belirlemek üzere bir ilke tanımı oluşturma adımlarında size yol gösterilir.
 services: azure-policy
-keywords: 
-author: bandersmsft
-ms.author: banders
-ms.date: 01/10/2018
+keywords: ''
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6bb9eddb6a663e1f230c9c46835661ad20c02cfd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma
 Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir. Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.
@@ -71,15 +71,14 @@ Bu yeni atamayla uyumlu olmayan mevcut kaynaklar varsa **Uyumlu olmayan kaynakla
 
 Bir koşul mevcut kaynaklarınıza göre değerlendirilip true sonucunu verdiğinde, bu kaynaklar ilkeyle uyumlu değil olarak işaretlenir. Yukarıdaki örnek resim uyumlu olmayan kaynakları gösterir. Aşağıdaki tabloda, elde edilen uyumluluk durumu için farklı ilke eylemlerinin koşul değerlendirmesi ile nasıl çalıştığı gösterilmektedir. Azure portalında değerlendirme mantığı görünmese de, uyumluluk durumu sonuçları gösterilir. Uyumluluk durumu sonucu uyumlu veya uyumsuz şeklindedir.
 
-|Kaynak  |İlkedeki Koşulun Değerlendirme Sonucu  |İlkedeki Eylem   |Uyumluluk Durumu  |
-|-----------|---------|---------|---------|
-|Var     |True     |Reddet     |Uyumlu değil |
-|Var     |False    |Reddet     |Uyumlu     |
-|Var     |True     |Ekle   |Uyumlu değil |
-|Var     |False    |Ekle   |Uyumlu     |
-|Var     |True     |Denetim    |Uyumlu değil |
-|Var     |False    |Denetim    |Uyumlu değil |
+| **Kaynak Durumu** | **Eylem** | **İlke Değerlendirmesi** | **Uyumluluk Durumu** |
+| --- | --- | --- | --- |
+| Var | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Uyumlu Değil |
+| Var | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Uyumlu |
+| Yeni | Audit, AuditIfNotExist\* | True | Uyumlu Değil |
+| Yeni | Audit, AuditIfNotExist\* | False | Uyumlu |
 
+\* Append, DeployIfNotExist ve AuditIfNotExist eylemleri IF deyiminin TRUE olmasını gerektirir. Eylemler ayrıca varlık koşulunun uyumlu olmaması için FALSE olmasını gerektirir. TRUE olduğunda, IF koşulu ilgili kaynaklar için varlık koşulunun değerlendirilmesini tetikler.
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu koleksiyondaki diğer kılavuzlar, bu hızlı başlangıcı temel alır. Sonraki kılavuzlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız Azure portalında bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.

@@ -2,7 +2,7 @@
 
 Bu bölümde bir iOS uygulaması (Swift) tümleştirme göstermek için yeni bir proje oluşturmak için adım adım yönergeler sağlar *Microsoft ile oturum açma* bir belirteci gerektiren Web API'leri sorgulayabilirsiniz şekilde.
 
-> Bu örnek 's XCode projesi yerine indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) ve geçin [yapılandırma adımı](#create-an-application-express) kod örneği çalıştırmadan önce yapılandırmak için.
+> Bu örnek 's XCode projesi yerine indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) ve geçin [yapılandırma adımı](#register-your-application) kod örneği çalıştırmadan önce yapılandırmak için.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>İndirip MSAL yapı Carthage yükleyin

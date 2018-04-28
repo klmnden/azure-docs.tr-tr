@@ -1,8 +1,8 @@
 ---
-title: "Azure depolama güvenlik duvarları ve sanal ağları yapılandırma | Microsoft Docs"
-description: "Depolama hesabınız için katmanlı ağ güvenliği yapılandırın."
+title: Azure depolama güvenlik duvarları ve sanal ağları yapılandırma | Microsoft Docs
+description: Depolama hesabınız için katmanlı ağ güvenliği yapılandırın.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarları ve sanal ağları yapılandırma
 Azure depolama, izin verilen ağlar belirli bir dizi depolama hesaplarınıza güvenli imkan tanıyan katmanlı bir güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağlar uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağrılırken uygulamalar (geçerli erişim tuşu veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -37,11 +37,9 @@ Ağ kurallarının uygulandıktan sonra tüm istekler için zorunlu tutulmaz.  B
 
 (Bağlama dahil olmak üzere operations çıkarın ve disk g/ç) sanal makine diski trafiği **değil** ağ kurallarından etkilenen.  Sayfa bloblarını REST erişimi ağ kuralları tarafından korunur.
 
-> [!NOTE]
-> Yedekleme ve geri yükleme, yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri şu anda desteklenmiyor.  Daha fazla bilgi için bkz: [yedekleme ve geri yükleme VM sınırlamaları](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 Klasik depolama hesaplarını **sağlamadığı** güvenlik duvarları ve sanal ağları destekler.
+
+Yedekleme ve geri yükleme, yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri desteklenir açıklandığı gibi bir özel durum oluşturma aracılığıyla [özel durumları](/storage/common/storage-network-security#exceptions) bu makalenin.  Zaten Azure tarafından yönetilen olarak güvenlik duvarı özel durumlarını yönetilen diskleriyle kullanılamaz.
 
 ## <a name="change-the-default-network-access-rule"></a>Varsayılan ağ erişim kuralını değiştirme
 Varsayılan olarak, depolama hesapları herhangi bir ağ üzerindeki istemcilerden gelen bağlantıları kabul.  Seçili ağlara erişimi sınırlamak için önce varsayılan eylem değiştirmeniz gerekir.
@@ -291,6 +289,7 @@ Bu tür hizmet beklendiği gibi çalışmaya izin vermek için ağ kurallarını
 
 |Hizmet|Kaynak sağlayıcı adı|Amaç|
 |:------|:---------------------|:------|
+|Azure Backup|Microsoft.Backup|Yedekleme ve geri yüklemeler yönetilmeyen disklerin IAAS sanal makinelerinizde gerçekleştirin. (yönetilen diskler için gerekli değildir). [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Özel görüntü oluşturma ve yapı yükleme.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|BLOB Storage olay yayımlamayı etkinleştirin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Olay hub'ları yakalama ile arşiv verileri.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

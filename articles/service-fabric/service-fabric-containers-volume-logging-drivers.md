@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric Docker Compose (Önizleme) | Microsoft Docs"
-description: "Azure Service Fabric Service Fabric kullanarak var olan kapsayıcıları düzenlemek daha kolay hale getirmek için Docker Compose biçimi kabul eder. Docker Compose desteği şu anda önizlemede değil."
+title: Azure Service Fabric Docker Compose (Önizleme) | Microsoft Docs
+description: Azure Service Fabric Service Fabric kullanarak var olan kapsayıcıları düzenlemek daha kolay hale getirmek için Docker Compose biçimi kabul eder. Docker Compose desteği şu anda önizlemede değil.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 79b4700b0b0b6897c19117044d37623a2f6ea8df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 72ff8e99453d3067492d50c3e35396dba9f23c12
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Docker birim eklentiler ve günlük sürücüleri, kapsayıcıdaki kullanın
 Azure Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için. Verilerinizi kalıcı [Azure dosyaları](https://azure.microsoft.com/services/storage/files/) zaman, kapsayıcı taşınmış veya farklı bir ana bilgisayarda yeniden.
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter eşleme SMB başlatmalar kapsayıcılara desteklemez ([yalnızca sürüm 1709 Windows Server'da desteklenen](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Bu sınırlama, ağ birimi eşlemenin ve Azure dosyaları birim sürücülerin 1709 eski sürümlerinde engeller. 
+> Windows Server 2016 Datacenter eşleme SMB başlatmalar kapsayıcılara desteklemez ([yalnızca sürüm 1709 Windows Server'da desteklenen](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Bu sınırlama, ağ birimi eşlemenin ve Azure dosyaları birim sürücülerin 1709 eski sürümlerinde engeller. 
 >   
 
 

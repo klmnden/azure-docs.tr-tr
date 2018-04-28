@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store bölgeler arası geçiş | Microsoft Docs"
-description: "Azure Data Lake Store için bölgeler arası geçiş hakkında bilgi edinin."
+title: Azure Data Lake Store bölgeler arası geçiş | Microsoft Docs
+description: Azure Data Lake Store için bölgeler arası geçiş hakkında bilgi edinin.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: swums
 manager: amitkul
 editor: swums
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Data Lake Store bölgeler arasında geçirme
 
 Azure Data Lake Store yeni bölgelerde kullanılabilir hale geldiğinde, yeni bölge yararlanmak için bir kerelik geçiş yapmayı seçebilirsiniz. Planlama ve Geçişi tamamlamak dikkate almanız gerekenler hakkında bilgi edinin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Daha fazla bilgi için bkz: [ücretsiz Azure hesabınızı bugün oluşturmak](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Data Lake Store hesabı iki farklı bölgelerdeki**. Daha fazla bilgi için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
-* **Azure Data Factory**. Daha fazla bilgi için bkz: [Azure Data Factory'ye giriş](../data-factory/introduction.md).
+* **Azure Data Factory**. Daha fazla bilgi için bkz. [Azure Data Factory'ye giriş](../data-factory/introduction.md).
 
 
 ## <a name="migration-considerations"></a>Geçiş konuları
@@ -45,7 +45,7 @@ Geçiş planlarken dikkate alınması gereken diğer önemli ayrıntılar verilm
 
 * **Araçlar**. Kullanmanızı öneririz [Azure Data Factory kopyalama etkinliği](../data-factory/connector-azure-data-lake-store.md) Data Lake Store dosyaları kopyalamak için. Veri Fabrikası yüksek performansı ve güvenilirliği ile veri hareketi destekler. Data Factory yalnızca klasör hiyerarşisini ve dosyaların içeriğini kopyalar göz önünde bulundurun. Eski hesabı yeni hesap için kullandığınız tüm erişim denetim listelerini (ACL'ler) el ile uygulamanız gerekir. Performans hedefleri iyi senaryoları için de dahil olmak üzere daha fazla bilgi için bkz: [kopyalama etkinliği performans ve ayarlama Kılavuzu](../data-factory/copy-activity-performance.md). Daha hızlı kopyalanan verileri istiyorsanız, ek bulut veri taşıma birimleri kullanmanız gerekebilir. AdlCopy gibi diğer bazı araçları bölgeler arasında veri kopyalamayı desteklemez.  
 
-* **Bant genişliği ücretleri**. [Bant genişliği ücretleri](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) bir Azure bölgesinin dışına aktarılan verileri için geçerlidir.
+* **Bant genişliği ücretleri**. [Bant genişliği ücretleri](https://azure.microsoft.com/pricing/details/bandwidth/) bir Azure bölgesinin dışına aktarılan verileri için geçerlidir.
 
 * **Verilerinizi ACL'lerin**. Yeni bölge verilerinizi dosya ve klasörler için ACL'ler uygulayarak güvenli hale getirin. Daha fazla bilgi için bkz: [Azure Data Lake Store içinde depolanan verilerin güvenliğini sağlama](data-lake-store-secure-data.md). ACL'ler ayarlamak ve güncelleştirmek için geçiş kullanmanızı öneririz. Geçerli ayarlarınız benzer ayarlarını kullanmak isteyebilirsiniz. Azure portalını kullanarak herhangi bir dosyaya uygulanan ACL'leri görüntülemek [PowerShell cmdlet'leri](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), ya da SDK'ları.  
 

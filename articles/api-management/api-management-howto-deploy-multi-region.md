@@ -1,11 +1,11 @@
 ---
-title: "Birden çok Azure bölgeler ile Azure API Management services dağıtma | Microsoft Docs"
-description: "Azure API Management hizmet örneği için birden fazla Azure bölgesine dağıtmayı öğrenin."
+title: Birden çok Azure bölgeler ile Azure API Management services dağıtma | Microsoft Docs
+description: Azure API Management hizmet örneği için birden fazla Azure bölgesine dağıtmayı öğrenin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Azure API Management hizmet örneği birden çok Azure bölgeler ile dağıtma
 API Management istenen Azure bölgeleri herhangi bir sayıda arasında tek bir API management hizmeti dağıtmak API yayımcılar sağlayan bölgeli dağıtımını destekler. Bu istek tarafından algılanan gecikme API tüketicileri coğrafi olarak dağıtılmış ve bir bölge çevrimdışı olursa hizmet kullanılabilirliği de geliştirir azaltılmasına yardımcı olur. 
@@ -25,11 +25,11 @@ API Management istenen Azure bölgeleri herhangi bir sayıda arasında tek bir A
 Bir API Management hizmeti başlangıçta oluşturulduğunda, yalnızca bir tane içeriyor [birim] [ unit] ve birincil bölge belirlenmiş tek bir Azure bölgesi bulunur. Ek bölgeler kolayca Azure Portalı aracılığıyla eklenebilir. Bir API Management ağ geçidi sunucusu her bölgeye dağıtılır ve arama trafiği için en yakın ağ geçidi yönlendirilir. Bir bölge çevrimdışı olursa, otomatik olarak sonraki en yakın ağ geçidine yeniden yönlendirilmiş bir trafiğidir. 
 
 > [!IMPORTANT]
-> Bölgeli dağıtım bulunan yalnızca  **[Premium] [ Premium]**  katmanı.
+> Bölgeli dağıtım bulunan yalnızca **[Premium] [ Premium]** katmanı.
 > 
 > 
 
-## <a name="add-region"></a>API Management hizmet örneği için yeni bir bölge dağıtma
+## <a name="add-region"> </a>API Management hizmet örneği için yeni bir bölge dağıtma
 > [!NOTE]
 > Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
 > 
@@ -51,7 +51,7 @@ Tıklatın **Ekle** konumlar tablosunda seçiminizi yerleştirilecek.
 
 Yapılandırılan tüm konumları elde edene kadar bu işlemi yineleyin ve'ı tıklatın **kaydetmek** dağıtım işlemini başlatmak için araç çubuğundan.
 
-## <a name="remove-region"></a>Bir konumdan bir API Management hizmeti örneği Sil
+## <a name="remove-region"> </a>API Management hizmet örneği bir konumdan Sil
 
 Azure Portalı'nda gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
 

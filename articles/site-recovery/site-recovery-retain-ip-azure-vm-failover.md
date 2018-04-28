@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3e23bab6d67cc4911dd46c226ebc9b87e40e2fa2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure sanal makine yük devretme için IP adresi bekletme
 
@@ -34,20 +34,20 @@ Basit uygulamalar için yukarıdaki varsayılan gereken tüm yapılandırmadır.
 
 Ağ mimarisi nasıl önce yük devretme göründüğünü aşağıda verilmiştir:
 - Uygulama VM'ler içinde Azure adres alanı 10.1.0.0/16 sahip Azure sanal ağı kullanan Asya, barındırılır. Bu sanal ağ adlı **kaynak VNet**.
-- Uygulama iş yükleri üç alt ağlar arasında – 10.1.0.0/24, 10.1.1.0/24, sırasıyla adlı 10.1.2.0/24 bölme **alt ağ 1**, **alt ağı 2**, **alt ağ 3**.
+- Uygulama iş yükleri üç alt ağlar arasında – 10.1.1.0/24, 10.1.2.0/24, sırasıyla adlı 10.1.3.0/24 bölme **alt ağ 1**, **alt ağı 2**, **alt ağ 3**.
 - Azure Güneydoğu Asya hedef bölgesi ve kaynak adres alanı ve alt ağ yapılandırması taklit eden bir kurtarma sanal ağ vardır. Bu sanal ağ adlı **kurtarma VNet**.
-- Çoğaltma düğümleri her zaman açık, etki alanı denetleyicisi, vb. için gerekenler gibi bir sanal ağ adres 20.1.0.0/24 ile adres alanı 20.1.0.0/16 alt 4 içinde ile yerleştirilir. Sanal ağ adlı **Azure VNet** ve Azure Güneydoğu Asya üzerinde.
+- Çoğaltma düğümleri her zaman açık, etki alanı denetleyicisi, vb. için gerekenler gibi bir sanal ağ adres 10.2.4.0/24 ile adres alanı 10.2.0.0/16 alt 4 içinde ile yerleştirilir. Sanal ağ adlı **Azure VNet** ve Azure Güneydoğu Asya üzerinde.
 - **Kaynak VNet** ve **Azure VNet** VPN siteden siteye bağlantı bağlanır.
 - **Kurtarma VNet** diğer sanal ağ ile bağlı değil.
 - **Şirket A** çoğaltılan öğeler için hedef IP adresi atar/doğrular. Bu örnekte, hedef IP her VM için kaynak IP ile aynıdır.
 
-![Yük devretme önce Azure Azure bağlantısını](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover.png)
+![Yük devretme önce Azure Azure bağlantısını](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Tam bölge yük devretme
 
 Bölgesel bir kesinti durumunda **Şirket A** hızlı ve kolay bir şekilde Azure Site Recovery'nin güçlü kullanarak, tüm dağıtım kurtarabilirsiniz [kurtarma planlarına](site-recovery-create-recovery-plans.md). Yük devretme önce her bir VM için hedef IP adresi zaten ayarlanmış **Şirket A** yük devretme düzenlemek ve kurtarma VNet ve Azure Vnet arasında bağlantı kurma gösterildiği gibi otomatikleştirmek diyagramı aşağıda.
 
-![Azure Azure bağlantısı tam bölge yük devretme](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover.png)
+![Azure Azure bağlantısı tam bölge yük devretme](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
 Uygulama gereksinimlerine bağlı olarak, hedef bölge iki Vnet arasında bağlantılar olabilir kurulan önce sırasında (bir ara adım) olarak veya yük devretme sonrasında. Kullanım [kurtarma planlarına](site-recovery-create-recovery-plans.md) komut dosyalarını ekleyin ve yük devretme sırası tanımlamak için.
 
@@ -62,23 +62,23 @@ Alt düzey uygulama yük devretme gereksinimleri için hesap için daha iyi (ba�
 Tek tek uygulamalar dayanıklılık için mimari için uygulamanın kendi özel sanal ağ içinde barındırmak ve gerektiği gibi bu sanal ağlar arasında bağlantı kurmak için önerilir. Bu, yalıtılmış uygulama yük devretme için orijinal özel IP adresleri korurken sağlar.
 
 Pre-yük devretme yapılandırması sonra şu şekilde görünür:
-- Uygulama VM'ler içinde Azure ilk uygulamaya ilişkin adres alanı 10.1.0.0/16 ve ikinci uygulamanın 15.1.0.0/16 sahip Azure sanal ağı kullanan Asya, barındırılır. Sanal ağlar adlı **kaynak VNet1** ve **kaynak vnet2'yi** birinci ve ikinci uygulama için sırasıyla.
+- Uygulama VM'ler içinde Azure ilk uygulamaya ilişkin adres alanı 10.1.0.0/16 ve 10.2.0.0/16 ikinci uygulamanın sahip Azure sanal ağı kullanan Asya, barındırılır. Sanal ağlar adlı **kaynak VNet1** ve **kaynak vnet2'yi** birinci ve ikinci uygulama için sırasıyla.
 - Her sanal ağ, daha fazla iki alt ağa her ayrılır.
 - Azure Güneydoğu Asya hedef bölgesi ve kurtarma sanal ağlar kurtarma VNet1 ve kurtarma vnet2'yi vardır.
-- Çoğaltma düğümleri her zaman açık için etki alanı denetleyicisi, vb. gerekenler gibi bir sanal ağ adres alanı 20.1.0.0/16 içinde ile yerleştirilir **alt 4** adresi 20.1.0.0/24 ile. Sanal ağ Azure VNet adı verilir ve Azure Güneydoğu Asya üzerinde değil.
+- Çoğaltma düğümleri her zaman açık için etki alanı denetleyicisi, vb. gerekenler gibi bir sanal ağ adres alanı 10.3.0.0/16 içinde ile yerleştirilir **alt 4** adresi 10.3.4.0/24 ile. Sanal ağ Azure VNet adı verilir ve Azure Güneydoğu Asya üzerinde değil.
 - **Kaynak VNet1** ve **Azure VNet** VPN siteden siteye bağlantı bağlanır. Benzer şekilde, **kaynak vnet2'yi** ve **Azure VNet** ayrıca VPN siteden siteye bağlantı bağlanır.
 - **Kaynak VNet1** ve **kaynak vnet2'yi** S2S VPN üzerinden bu örnekte de bağlanır. İki sanal ağlar aynı bölgede olduğundan, VNet eşlemesi de S2S VPN yerine kullanılabilir.
 - **Kurtarma VNet1** ve **kurtarma vnet2'yi** diğer sanal ağ ile bağlı değil.
 - Kurtarma süresi hedefi (RTO) azaltmak için VPN ağ geçitleri yapılandırılmış **kurtarma VNet1** ve **kurtarma vnet2'yi** yük devretme önce.
 
-![Yük devretmeden önce azure Azure bağlantısı yalıtılmış uygulama](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover.png)
+![Yük devretmeden önce azure Azure bağlantısı yalıtılmış uygulama](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
 (Kaynak VNet2 önce adprep.exe'de Bu örnekte) yalnızca bir uygulama etkiler bir olağanüstü durum durumunda Şirket A etkilenen uygulamanın aşağıdaki şekilde kurtarabilirsiniz:
 - VPN bağlantıları arasında **kaynak VNet1** ve **kaynak vnet2'yi**, arasındaki **kaynak vnet2'yi** ve **Azure VNet** kesilir.
 - VPN bağlantıları arasında kurulan **kaynak VNet1** ve **kurtarma vnet2'yi**, arasındaki **kurtarma vnet2'yi** ve **Azure VNet**.
 - Vm'lerden **kaynak vnet2'yi** için yük devredildi **kurtarma vnet2'yi**.
 
-![Yük devretme sonrasında azure Azure bağlantısı yalıtılmış uygulama](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover.png)
+![Yük devretme sonrasında azure Azure bağlantısı yalıtılmış uygulama](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
 Daha fazla uygulama içerir ve ağ bağlantıları için örnek yalıtılmış yük devretme genişletilebilir. Kaynak sunucudan hedef devretmek mümkün olduğunca bir gibi benzeri bağlantı modeli izlemeniz önerilir.
 
@@ -92,13 +92,13 @@ VPN ağ geçitleri, genel IP adresleri ve ağ geçidi atlama bağlantıları kur
 
 Ağ mimarisi nasıl önce yük devretme göründüğünü aşağıda verilmiştir:
 - Uygulama VM'ler içinde Azure adres alanı 10.1.0.0/16 sahip Azure sanal ağı kullanan Asya, barındırılır. Bu sanal ağ adlı **kaynak VNet**.
-- Uygulama iş yükleri üç alt ağlar arasında – 10.1.0.0/24, 10.1.1.0/24, sırasıyla adlı 10.1.2.0/24 bölme **alt ağ 1**, **alt ağı 2**, **alt ağ 3**.
+- Uygulama iş yükleri üç alt ağlar arasında – 10.1.1.0/24, 10.1.2.0/24, sırasıyla adlı 10.1.3.0/24 bölme **alt ağ 1**, **alt ağı 2**, **alt ağ 3**.
 - Azure Güneydoğu Asya hedef bölgesi ve kaynak adres alanı ve alt ağ yapılandırması taklit eden bir kurtarma sanal ağ vardır. Bu sanal ağ adlı **kurtarma VNet**.
 - VM'ler içinde Azure Doğu Asya, şirket içi veri merkezine ExpressRoute veya siteden siteye VPN üzerinden bağlanır.
 - Kurtarma süresi hedefi (RTO) azaltmak için yük devretme öncesinde kurtarma VNet içindeki Azure Güneydoğu Asya üzerindeki ağ geçitlerini Şirket B sağlar.
 - **Şirket B** çoğaltılan öğeler için hedef IP adresi atar/doğrular. Bu örnekte, hedef IP her VM için kaynak IP aynıdır
 
-![Yük devretmeden önce şirket içi-Azure'a bağlantısı](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover.png)
+![Yük devretmeden önce şirket içi-Azure'a bağlantısı](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Tam bölge yük devretme
 
@@ -106,7 +106,7 @@ Bölgesel bir kesinti durumunda **Şirket B** hızlı ve kolay bir şekilde Azur
 
 Azure Güneydoğu Asya ve şirket içi veri merkezi arasında bağlantı kurmadan önce Azure Doğu Asya ve şirket içi veri merkezi arasında özgün bağlantı kesilmesi gerekir. Yönlendirme içi hedef bölgesine işaret edecek şekilde yeniden ayrıca ve Yük Devretme ağ geçitleri gönderin.
 
-![Yük devretme sonrasında şirket içi-Azure'a bağlantısı](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover.png)
+![Yük devretme sonrasında şirket içi-Azure'a bağlantısı](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
 ### <a name="subnet-failover"></a>Alt ağ yük devretme
 

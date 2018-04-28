@@ -1,11 +1,11 @@
 ---
-title: "Aspera kullanarak Azure Media Services hesabına dosya yükleme | Microsoft Docs"
-description: "Bu öğreticide, Azure üzerinde **Aspera Server On Demand** hizmetini kullanarak bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir."
+title: Aspera kullanarak Azure Media Services hesabına dosya yükleme | Microsoft Docs
+description: Bu öğreticide, Azure üzerinde **Aspera Server On Demand** hizmetini kullanarak bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 **Aspera** çok yüksek hızlı bir dosya aktarım yazılımıdır. Azure için **Aspera Server On Demand**, büyük dosyaların doğrudan Azure Blob nesne depolama alanına yüksek hızda yüklenmesini ve indirilmesini sağlar. **İsteğe Bağlı Aspera** hakkında bilgi için [Aspera Bulut](http://cloud.asperasoft.com/) sitesine bakın. 
   
-Azure için **Aspera Server On Demand**, [Azure Market](https://azure.microsoft.com/en-us/marketplace/)’ten satın alınabilir. **Aspera Server On Demand** satın alma işlemini tamamlamak için lütfen Azure Market’te Windows Live ID’nizle oturum açın.
+Azure için **Aspera Server On Demand**, [Azure Market](https://azure.microsoft.com/marketplace/)’ten satın alınabilir. **Aspera Server On Demand** satın alma işlemini tamamlamak için lütfen Azure Market’te Windows Live ID’nizle oturum açın.
 
 Bu öğreticide, Azure üzerinde **Aspera Server On-Demand** hizmetini kullanarak bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir. 
 
@@ -36,7 +36,7 @@ Azure işlevlerinin Aspera ve Media Services ile kullanımını gösteren bir ö
 >Azure Media Services medya işlemcileri (MP’ler) ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
 >
 
-## <a name="prerequisites"></a>Önkoşullar 
+## <a name="prerequisites"></a>Ön koşullar 
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 

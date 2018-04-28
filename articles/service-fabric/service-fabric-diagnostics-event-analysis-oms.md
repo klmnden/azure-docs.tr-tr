@@ -3,7 +3,7 @@ title: Günlük analizi ile Azure Service Fabric olay çözümleme | Microsoft D
 description: Görselleştirme ve izleme ve tanılama Azure Service Fabric kümeleri için günlük analizi kullanarak olayları analiz etme hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,68 +12,101 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 290b1d594cc1f874bcfdd0cef728fc78af96f702
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme günlük analizi
 
-Azure yönetim, izleme ve tanılama uygulamaları için yardımcı Yönetim Hizmetleri ve bulutta barındırılan hizmetleri koleksiyonunu çözümdür. Günlük analizi ve ne sunar daha ayrıntılı bir özetini almak için okuma [günlük analizi nedir?](../operations-management-suite/operations-management-suite-overview.md)
+Günlük analizi, OMS (Operations Management Suite) olarak da bilinen, izleme ve tanılama uygulamaları için yardımcı Yönetim Hizmetleri ve bulutta barındırılan hizmetleri koleksiyonudur. Bu makalede Öngörüler elde edin ve kümenizdeki neler olduğunu sorun giderme için günlük analizi sorguları çalıştırmak nasıl özetlenmektedir. Aşağıdaki sık sorulan ele alınmıştır:
+
+* Sistem durumu olayları nasıl sorun giderme?
+* Ne zaman bir düğüm arıza nasıl anlarım?
+* My uygulamanın Hizmetleri başlatıldığı veya durdurulduğu nasıl anlarım?
 
 ## <a name="log-analytics-workspace"></a>Log Analytics çalışma alanı
 
-Günlük analizi bir Azure depolama tablo veya bir aracı da dahil olmak üzere yönetilen kaynaklardan veri toplayan ve merkezi bir depoya tutar. Veriler, ardından analiz, uyarı ve görselleştirme için kullanılan ya da daha fazla verme olabilir. Günlük analizi olayları, performans verileri ya da herhangi bir özel veri destekler.
+Günlük analizi bir Azure depolama tablo veya bir aracı da dahil olmak üzere yönetilen kaynaklardan veri toplayan ve merkezi bir depoya tutar. Veriler, ardından analiz, uyarı ve görselleştirme için kullanılan ya da daha fazla verme olabilir. Günlük analizi olayları, performans verileri ya da herhangi bir özel veri destekler. Kullanıma [olayları tanılama uzantısını yapılandırma adımları](service-fabric-diagnostics-event-aggregation-wad.md) ve [depolama olayları okumak için bir günlük analizi çalışma alanı oluşturmak için adımları](service-fabric-diagnostics-oms-setup.md) veri günlük analizi akan emin olmak için .
 
-Günlük analizi yapılandırıldığında, belirli bir erişebilir *günlük analizi çalışma alanı*, burada veri yüklenebilir sorgulanan veya panolarında görselleştirilen kaynağı.
+Günlük analizi tarafından alınan veri sonra Azure birkaç sahip *yönetim çözümleri* birkaç senaryo için özelleştirilmiş gelen verileri izlemek için paketlenmiş çözümleri bulunur. Bunlar bir *Service Fabric Analytics* çözüm ve *kapsayıcıları* iki en uygun olanlardır tanılama ve Service Fabric kümeleri kullanırken izleme çözümü. Bu makalede, çalışma alanıyla oluşturulan Service Fabric analiz çözümü kullanmayı açıklar.
 
-Günlük analizi tarafından alınan veri sonra Azure birkaç sahip *yönetim çözümleri* birkaç senaryo için özelleştirilmiş gelen verileri izlemek için paketlenmiş çözümleri bulunur. Bunlar bir *Service Fabric Analytics* çözüm ve *kapsayıcıları* iki en uygun olanlardır tanılama ve Service Fabric kümeleri kullanırken izleme çözümü. Birkaç diğerleri de incelenmesi yararlı olan vardır ve günlük analizi de sağlar hakkında daha fazla bilgiyi özel çözümler oluşturma [burada](../operations-management-suite/operations-management-suite-solutions.md). Bir küme için kullanmayı seçtiğiniz her bir çözümü, aynı günlük analizi çalışma alanında, günlük analizi yanında yapılandırılabilir. Çalışma alanları özel panolar ve veri ve değişiklikler, işlem, toplamak ve analiz etmek istediğiniz verileri görselleştirme izin verir.
+## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric analiz çözümü erişim
 
-## <a name="setting-up-a-log-analytics-workspace-with-the-service-fabric-analytics-solution"></a>Service Fabric analiz çözümü ile günlük analizi çalışma alanı ayarlama
-Önerilen günlük analizi çalışma alanınızda hizmeti yapı çözümü dahil - platform ve uygulama düzeyinden çeşitli gelen günlük kanalları gösterir ve sorgulama Service Fabric belirli sağlayan bir Pano içerir günlüğe kaydeder. Görece basit bir Service Fabric çözüm nasıl, kümesi üzerinde dağıtılmış tek bir uygulama ile göründüğünü aşağıda verilmiştir:
+1. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Kaynak Seç**ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin.
 
-![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
+2. Genel bakış sayfasında ilk OMS Portalı'na gitmek için bağlantıya tıklayın
 
-Bkz: [günlük analizi ayarlamak](service-fabric-diagnostics-oms-setup.md) bu kümeniz için başlamak için.
+    ![OMS portalı bağlantı](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
 
-## <a name="using-the-oms-agent"></a>OMS Aracısı'nı kullanma
+3. Şimdi OMS portalında olduğunuz ve etkinleştirdiğiniz çözümleri görebilirsiniz. Service Fabric başlıklı grafiğe sağ tıklayın (aşağıdaki ilk görüntü) Service Fabric çözüme gerçekleştirilecek için (aşağıdaki ikinci görüntü)
 
-Tanılama daha modüler bir yaklaşım için izin vermek için EventFlow ve WAD toplama çözümler olarak kullanmak için önerilen ve izleme. Örneğin, EventFlow, çıkışları değiştirmek istiyorsanız, hiçbir değişiklik, gerçek araçları yalnızca basit bir değişiklikle config dosyasına gerektirir. Ancak, günlük analizi kullanarak yatırım karar verirseniz, ayarladığınız [OMS Aracısı](../log-analytics/log-analytics-windows-agent.md). Ayrıca OMS Aracısı kapsayıcıları, kümeniz için dağıtırken aşağıda açıklandığı gibi kullanmanız gerekir. 
+    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
 
-Üzerinden baş [OMS Aracısı bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) bu adımları için.
+    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
 
-Bu avantajları şunlardır:
+Yukarıdaki resimde Service Fabric analiz çözümü giriş sayfasıdır. Neler olduğuna dair kümenizdeki bir anlık görüntü görünüm budur. Küme oluşturma tanılama etkinleştirilirse, olayları görebilirsiniz. 
 
-* Performans sayaçları ve ölçümleri tarafında daha zengin veri
-* Kolayca kümeden ve kümenizin yapılandırmasını güncelleştirmek zorunda kalmadan toplanmakta ölçümleri yapılandırılabilir. OMS Portalı'ndan aracısının ayarlarında yapılan değişiklikler yapılabilir ve gerekli yapılandırma ile eşleşmesi için aracıyı otomatik olarak yeniden başlatır. Belirli performans sayaçlarını seçmek için OMS aracısının yapılandırmak için çalışma alanına gidin **Giriş > ayarları > veri > Windows performans sayaçlarını** ve gibi görmek için toplanan veri çekme
-* Verileri, günlük analizi tarafından çekilen önce depolanması gerek kalmadan daha hızlı görüntülenir
-* Docker günlükleri (stdout, stderr) ve istatistikleri (kapsayıcı ve düğüm düzeyde performans ölçümleri) seçebilirsiniz kapsayıcıları izleme çok daha kolay olduğu
+* [İşletimsel kanal](service-fabric-diagnostics-event-generation-operational.md): Service Fabric platformundan (sistem hizmetler koleksiyonu) gerçekleştirir üst düzey işlem.
+* [Reliable Actors programlama modelini olayları](service-fabric-reliable-actors-diagnostics.md)
+* [Programlama modeli olaylarının güvenilir hizmetler](service-fabric-reliable-services-diagnostics.md)
 
-Ana burada aracı kümenizdeki tüm uygulamalarınızın yanı sıra dağıtılmış olduğundan, olabileceğini uygulamalarınızı kümede performansını artırmak için bazı etkisi noktadır.
+>[!NOTE]
+>İşletimsel kanal ek olarak, daha ayrıntılı sistem olayları tarafından toplanabilecek [tanılama uzantısını config güncelleştiriliyor](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-## <a name="monitoring-containers"></a>Kapsayıcı izleme
+### <a name="view-operational-events-including-actions-on-nodes"></a>Düğümlerde Eylemler dahil olmak üzere işletimsel olaylarını görüntüle
 
-Kapsayıcıları için Service Fabric kümesi dağıtırken, OMS Aracısı ile küme ayarlanmıştır ve kapsayıcıları çözüm tanılama ve izlemeyi etkinleştirmek için günlük analizi çalışma alanı eklendiğini önerilir. Kapsayıcıları çözümü nasıl bir çalışma alanında göründüğünü aşağıda verilmiştir:
+1. OMS portalı Service Fabric Analytics sayfasında grafik işlemsel kanal için tıklayın
 
-![Temel OMS Panosu](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![OMS BT çözüm işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
-Aracı, günlük analizi sorgulanan veya görselleştirilmiş performans göstergeleri için kullanılan birkaç kapsayıcı özgü günlükleri koleksiyonunu sağlar. Toplanan günlük türleri şunlardır:
+2. Tabloyu bir listede olayları görüntülemek için tıklatın. Bir kez Burada, toplanan tüm sistem olayları görebilirsiniz. Başvuru için bu Azure depolama hesabında WADServiceFabricSystemEventsTable arasındadır ve benzer şekilde güvenilir hizmetler ve sonraki gördüğünüz aktörler olayları ilgili bu tablolardaki.
+    
+    ![OMS sorgu işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-* ContainerInventory: kapsayıcı konumunu, adı ve görüntüleri hakkında bilgi gösterir
-* ContainerImageInventory: bilgi kimlikleri veya boyutları dahil olmak üzere, dağıtılan görüntüler hakkında
-* ContainerLog: belirli hata günlüklerini, docker günlükleri (stdout, vb.) ve diğer girişleri
-* ContainerServiceLog: çalıştırılmış docker arka plan programı komutları
-* Perf: kapsayıcı dahil olmak üzere performans sayaçlarını cpu, bellek, ağ trafiğini, disk g/ç ve ana bilgisayar makinelerden özel ölçümleri
+Alternatif olarak soldaki Büyüteç'i tıklatın ve Kusto sorgu dili aradığınızı bulmak için kullanın. Örneğin, küme tarafından düğümler üzerinde gerçekleştirilen eylemler ile ilgili tüm olayları bulmak için aşağıdaki sorguyu kullanabilirsiniz. Aşağıda kullanılan olay kimlikleri bulunan [işletimsel kanal Olay Başvurusu](service-fabric-diagnostics-event-generation-operational.md)
 
-[İzleme günlük analizi ile kapsayıcıları](service-fabric-diagnostics-oms-containers.md) kapsayıcı kümeniz için izlemeyi ayarlamak için gerekli adımlar kapsanmaktadır. Günlük analizi'nın kapsayıcıları çözüm hakkında daha fazla bilgi için kullanıma kendi [belgelerine](../log-analytics/log-analytics-containers.md).
+```kusto
+ServiceFabricOperationalEvent
+| where EventId < 29627 and EventId > 29619 
+```
+Sistem Hizmeti (görevadı) ve daha fazla belirli düğümler (bilgisayar) gibi pek çok fazla alanda sorgulayabilir
+
+### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Görünüm doku güvenilir hizmeti ve aktör olayları
+
+1. OMS portalı Service Fabric Analytics sayfasında güvenilir hizmetler için grafiği tıklatın
+
+    ![OMS BT çözüm güvenilir hizmetler](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+
+2. Tabloyu bir listede olayları görüntülemek için tıklatın. Burada güvenilir hizmetler olayları görebilirsiniz. Hizmet runasync başlatıldığında ve hangi dağıtım ve yükseltme işlemleri genellikle olur tamamlandı için farklı olayları görebilirsiniz. 
+
+    ![Güvenilir hizmetler OMS sorgulama](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+
+Güvenilir aktör olayları, benzer bir biçimde görüntülenebilir. Güvenilir aktörler için Ayrıntılı olayları yapılandırmak için değiştirmeniz gerekir `scheduledTransferKeywordFilter` (aşağıda gösterilen) tanılama uzantısı yapılandırmada. Bunlar için değerlerine ayrıntıları [güvenilir aktörler Olay Başvurusu](service-fabric-reliable-actors-diagnostics.md#keywords)
+
+```json
+"EtwEventSourceProviderConfiguration": [
+                {
+                    "provider": "Microsoft-ServiceFabric-Actors",
+                    "scheduledTransferKeywordFilter": "1",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                    }
+                },
+```
+
+Kusto sorgu dili güçlüdür. Başka bir değerli sorgu çalıştırabilirsiniz, çoğu olayları hangi düğümlerin oluşturduğunu bulmaktır. Aşağıdaki ekran görüntüsünde sorgu düğümü ve belirli bir hizmeti ile bir araya getirilir güvenilir hizmetler olay gösterir
+
+![Düğüm başına OMS sorgu olayları](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki günlük analizi araçları ve bir çalışma alanı gereksinimlerinize özelleştirmek için seçenekleri inceleyin:
-
-* Şirket içi kümeleri için günlük analizi için günlük analizi veri göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla bilgi [günlük OMS ağ geçidini kullanma analizi için Internet erişimi olmayan bilgisayarları bağlama](../log-analytics/log-analytics-oms-gateway.md)
-* Ayarlamak için günlük analizi yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için
+* Altyapı yani performans sayaçlarını izleme etkinleştirmek için üzerinden için head [OMS aracısı ekleme](service-fabric-diagnostics-oms-agent.md). Aracı performans sayaçlarını toplar ve bunları mevcut çalışma alanına ekler.
+* Şirket içi kümeleri için OMS için OMS veri göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla bilgi [Internet erişimi olmayan bilgisayarlar için OMS OMS ağ geçidini kullanarak bağlanma](../log-analytics/log-analytics-oms-gateway.md)
+* Ayarlamak için OMS yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için
 * İle familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) günlük analizi bir parçası olarak sunulan özellikler
+* Günlük analizi ve ne sunar daha ayrıntılı bir bakış elde, okuma [günlük analizi nedir?](../operations-management-suite/operations-management-suite-overview.md)

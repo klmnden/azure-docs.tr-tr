@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/07/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Anlama maliyet yönetim raporları
 
@@ -112,7 +112,7 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
         - Kısmi önceden
         - İsteğe Bağlı
         - Rezervasyon
-        - Spot
+        - Nokta
     - **Ücret türü**
         - Negatif veya pozitif Ücret türü veya her ikisini de seçin.
     - **Kiralama**

@@ -1,32 +1,29 @@
 ---
 title: Azure Active Directory'de Cloud App Discovery hizmetine ayarlama | Microsoft Docs
-description: "Bul ve bulut kullanım ve gölge BT üzerinde işlem yapılabilir bilgi sağlamak için Cloud App Discovery uygulamalarla yönetin."
+description: Bul ve bulut kullanım ve gölge BT üzerinde işlem yapılabilir bilgi sağlamak için Cloud App Discovery uygulamalarla yönetin.
 services: active-directory
-keywords: "cloud app discovery'yi, uygulamaları yönetme"
-documentationcenter: 
+keywords: cloud app discovery'yi, uygulamaları yönetme
+documentationcenter: ''
 author: curtand
 manager: mtillman
 tags: ignite
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 04/25/2018
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e46098d93360c809ba0aef46ed8244acf5af7196
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 
 Azure ad cloud App Discovery, artık Microsoft Cloud App Security kullanılabilir veri ile tümleştirme dayanır. Bulut kullanım ve gölge BT üzerinde devam eden bilgi sağlamak için trafik günlüklerinizi 15. 000'den bulut uygulamalarının Cloud App Security kataloğuna Cloud App Discovery karşılaştırır. Bu makalede, Kurulum işlemi açıklar ve her adımı için ayrıntılı bilgilere bağlantılar içerir. Ayrıca güvenlik duvarı ve proxy bilgilerini ve günlük açıklar dosya desteği.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Kuruluşunuz, ürünü kullanmak için bir Azure AD Premium P1 Lisansınızın olması gerekir. Daha fazla bilgi için bkz: [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 * Cloud App discovery'yi ayarlama için genel yönetici veya Azure Active Directory'de güvenlik okuyucusu olması gerekir.
@@ -86,6 +83,7 @@ Cloud App Discovery rapor başarıyla oluşturmak için trafik günlüklerinizi 
 * Cisco Meraki – URL günlüğü
 * Clavister NGFW (Syslog)
 * Dell Sonicwall
+* Dijital Arts i FİLTRESİ
 * Fortinet Fortigate
 * Juniper SRX
 * Juniper SSG
@@ -123,7 +121,7 @@ Günlüğünüz desteklenmiyorsa seçin **diğer** olarak **veri kaynağı** ve 
 | Juniper SSG                             | Hayır             | **Evet**       | Hayır       | **Evet**   | **Evet**       | **Evet**        |
 | McAfee SWG                              | **Evet**        | Hayır            | Hayır       | **Evet**   | **Evet**       | **Evet**        |
 | MS TMG                                  | **Evet**        | Hayır            | **Evet**  | **Evet**   | **Evet**       | **Evet**        |
-| Palo Alto Networks                      | **Evet**        | **Evet**       | **Evet**  | **Evet**   | **Evet**       | **Evet**        |
+| Palo Alto Networks                      | Hayır             | **Evet**       | **Evet**  | **Evet**   | **Evet**       | **Evet**        |
 | Sophos                                  | **Evet**        | **Evet**       | **Evet**  | **Evet**   | **Evet**       | Hayır             |
 | SQUID (ortak)                          | **Evet**        | Hayır            | **Evet**  | **Evet**   | Hayır            | **Evet**        |
 | SQUID (yerel)                          | **Evet**        | Hayır            | **Evet**  | **Evet**   | Hayır            | **Evet**        |

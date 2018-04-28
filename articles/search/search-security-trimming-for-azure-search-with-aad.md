@@ -1,24 +1,24 @@
 ---
-title: "Azure arama sonuçları kullanarak Active Directory kimlikleri kırpma için güvenlik filtreleri | Microsoft Docs"
-description: "Güvenlik filtreleri ve Active Directory kimlikleri kullanarak Azure Search içeriği üzerinde erişim denetimi."
-services: search
+title: Azure arama sonuçları kullanarak Active Directory kimlikleri kırpma için güvenlik filtreleri | Microsoft Docs
+description: Güvenlik filtreleri ve Active Directory kimlikleri kullanarak Azure Search içeriği üzerinde erişim denetimi.
 author: revitalbarletz
 manager: jlembicz
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Azure arama sonuçları kullanarak Active Directory kimlikleri kırpma için güvenlik filtreleri
 
 Bu makalede, Azure Active Directory (AAD) güvenlik kimlikleri filtreleri birlikte Azure Search'te kullanıcının grup üyeliğini temel alarak arama sonuçlarını kırpma için nasıl kullanılacağı gösterilmektedir.
 
-Bu makalede aşağıdaki görevleri içerir:
+Bu makale aşağıdaki görevleri kapsar:
 > [!div class="checklist"]
 - AAD gruplar ve kullanıcılar oluşturma
 - Kullanıcı, oluşturduğunuz grubuyla ilişkilendirin
@@ -29,7 +29,7 @@ Bu makalede aşağıdaki görevleri içerir:
 >[!NOTE]
 > Bu makaledeki örnek kod parçacıkları C# dilinde yazılmıştır. Tam kaynak kodunu [GitHub](http://aka.ms/search-dotnet-howto)'da bulabilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure Search dizininizi olmalıdır bir [güvenlik alan](search-security-trimming-for-azure-search.md) belgeyi okuma erişimi olan grup kimlikleri listesini depolamak için. Bu kullanım örneği bire bir güvenliği sağlanabilir öğesi (örneğin, bireyin üniversitenin uygulaması) ve bu öğeye (giriş personeli) kimlerin erişebileceğini belirten bir güvenlik alanı arasındaki varsayar.
 
@@ -97,7 +97,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>4. adım: grupları tanımlayıcıları önbelleğe alma
-İsteğe bağlı olarak, ağ gecikmesini azaltmak için bir arama isteğine verildiğinde grupları önbellekten AAD'ye bir gidiş dönüş kaydetme döndürülen böylece kullanıcı grubu ilişkileri önbelleğe alabilir. (AAD toplu birden çok kullanıcıya sahip tek bir Http isteği göndermek ve önbellek oluşturmak için API) [https://developer.microsoft.com/graph/docs/concepts/json_batching] kullanabilirsiniz.
+İsteğe bağlı olarak, ağ gecikmesini azaltmak için bir arama isteğine verildiğinde grupları önbellekten AAD'ye bir gidiş dönüş kaydetme döndürülen böylece kullanıcı grubu ilişkileri önbelleğe alabilir. (AAD Batch API'si) kullanabilirsiniz [https://developer.microsoft.com/graph/docs/concepts/json_batching] birden çok kullanıcıya sahip tek bir Http isteği göndermek ve önbellek oluşturmak için.
 
 Microsoft Graph, yüksek hacimli isteklerini işlemek için tasarlanmıştır. Microsoft Graph zorlamayı bir istek sayısı meydana gelirse, HTTP durum kodu 429 isteği başarısız olur. Daha fazla bilgi için bkz: [Microsoft Graph azaltma](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

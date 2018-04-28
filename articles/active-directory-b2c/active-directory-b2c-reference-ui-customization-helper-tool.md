@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: sayfası kullanıcı arabirimi (UI) özelleştirme özelliğini göstermek için kullanılan yardımcı aracı
 Bu makalede bir yardımcı olan [ana UI Özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md) Azure Active Directory (Azure AD) B2C içinde. Aşağıdaki adımları sayfası kullanıcı Arabirimi özelleştirme özelliğini sağladık örnek HTML ve CSS içerik kullanarak çalışma açıklar.
@@ -29,7 +29,7 @@ Sunulmuştur örnek içeriği customze iki sayfaları için kullanılabilir bir 
 ## <a name="register-an-application"></a>Bir uygulamayı kaydetme
 Etmeniz [bir uygulamayı kaydetme](active-directory-b2c-app-registration.md) B2C kiracınızda ilkeniz yürütmek için kullanılabilir. Uygulamanızı kaydolduktan sonra aslında kaydolma ilkenizde çalıştırmak için kullanabileceğiniz birkaç seçeneğiniz vardır:
 
-* Hızlı Başlangıç uygulamaları "kullanmaya başlayın" bölümünde listelenen Azure AD B2C birini yapı [oturum ayarlama ve tüketicilerinizin uygulamanıza oturum](active-directory-b2c-overview.md#get-started).
+* Hızlı Başlangıç uygulamaları "kullanmaya başlayın" bölümünde listelenen Azure AD B2C birini yapı [oturum ayarlama ve tüketicilerinizin uygulamanıza oturum](active-directory-b2c-overview.md).
 * Önceden derlenmiş kullanmak [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) uygulama. Playground kullanmayı seçerseniz, bir uygulama B2C kiracınızın kullanarak kaydetmelisiniz **yeniden yönlendirme URI'si** `https://aadb2cplayground.azurewebsites.net/`.
 * Kullanım **Şimdi Çalıştır** ilkenizde düğmesinde [Azure portal](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Etmeniz [bir uygulamayı kaydetme](active-directory-b2c-app-registration.md) B2C
 Bu öğreticinin amaçları doğrultusunda zaten bazı örnek içeriği oluşturulan artık ve Azure Blob Depolama alanında barındırılan. Örnek çok basit tema özelleştirmesinde kurgusal şirketimizin, "Wingtip Toys" içeriktir. Kendi ilkesinde denemek için aşağıdaki adımları izleyin:
 
 1. Oturum kiracınız için [Azure portal](https://portal.azure.com/) ve B2C özellikleri dikey penceresine gidin.
-2. Tıklatın **oturum açma veya kaydolma ilkeleri** tıkladıktan sonra ilkenizin (örneğin, "b2c\_1\_oturum\_yukarı\_oturum\_içinde").
+2. Tıklatın **oturum açma veya kaydolma ilkeleri**, İlkesi'ni tıklatın ve Düzenle'yi tıklatın (örneğin, "b2c\_1\_oturum\_yukarı\_oturum\_içinde").
 3. Tıklatın **sayfa UI özelleştirme** ve ardından **Unified kaydolma veya oturum açma sayfası**.
 4. İki durumlu **kullanım özel sayfa** geçiş **Evet**. İçinde **özel sayfa URI** alanına, `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. **Tamam**’a tıklayın.
 5. Tıklatın **yerel hesap kayıt sayfasına**. İki durumlu **özel şablonu kullan** geçiş **Evet**. İçinde **özel sayfa URI** alanına, `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

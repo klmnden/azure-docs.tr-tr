@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d1d098f45c391363523b6a56ec0c6fdb40e64d68
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Azure Kaynak Yöneticisi desteği Azure yük dengeleyici ile kullanma
 
@@ -46,7 +46,7 @@ Azure Resource Manager, uygulamalarınızı bildirim temelli bir şablon aracıl
 
 [Şablonlar hakkında daha fazla bilgi edinin](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[Ağ kaynakları hakkında daha fazla bilgi edinin](../virtual-network/resource-groups-networking.md)
+[Ağ kaynakları hakkında daha fazla bilgi edinin](../networking/networking-overview.md)
 
 Azure yük dengeleyici kullanarak hızlı başlangıç şablonları için bkz: [GitHub deposunu](https://github.com/Azure/azure-quickstart-templates) oluşturulan topluluk şablonları kümesi sunan.
 

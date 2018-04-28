@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect ve genel veri koruma düzenleme | Microsoft Docs
+title: Azure AD Connect ve kullanıcı gizlilik | Microsoft Docs
 description: Bu belge, Azure AD Connect ile GDPR uyumluluğunu elde açıklar.
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR uyumluluk ve Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>Kullanıcı gizliliği ve Azure AD Connect 
 
-Mayıs 2018, Avrupa gizlilik yasalarına içinde [genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), etkili olması son. GDPR şirketler, devlet dairesi, kar kaybı olmayan ve diğer kuruluşlardan teklif mal ve hizmet Avrupa Birliği (AB) ya da, kişilere toplamak ve analiz etmek için AB Satışlar bağlı veri yeni kuralları uygular. Bulunduğunuz olsun GDPR geçerlidir. 
-
-Microsoft Ürün ve hizmetlerini bugün GDPR gereksinimlerini karşılamanıza yardımcı olmak kullanılabilir. Microsoft Privacy İlkesi hakkında daha fazla bilgiyi [Güven Merkezi](https://www.microsoft.com/trustcenter)
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->Bu makalede, Azure AD Connect ve GDPR uyumluluk ile ilgilidir.  Uyumluluk Azure AD Connect Health ve GDPR hakkında bilgi için makaleye bakın [burada](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>Bu makalede, Azure AD Connect ve kullanıcı gizlilik ile ilgilidir.  Azure AD Connect Health ve kullanıcı gizlilik hakkında bilgi için bkz: [burada](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-Genel veri koruma düzenleme uyumluluk Azure AD Connect yüklemeleri için iki yolla erişilebilir:
+Azure AD Connect yüklemeleri için kullanıcı gizlilik uyumluluk iki yolla erişilebilir:
 
 1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.
 
 Uygulama ve koruma çok daha kolay olduğundan Azure AD Connect takım ikinci seçeneği önerir.
 
-Bir Azure AD Connect eşitleme sunucusu GDPR uyumluluk için kapsam olarak aşağıdaki verileri depolar:
+Bir Azure AD Connect eşitleme sunucusu aşağıdaki kullanıcı gizlilik verilerini depolar:
 1.  Bir kişi hakkındaki verileri **Azure AD Connect veritabanı**
 2.  Verileri **Windows olay günlüğü** bir kişi bilgilerini içerebilir dosyaları
 3.  Verileri **Azure AD Connect yükleme günlüğü dosyaları** hakkında bir kişi içerebilir
 
-Azure AD Connect müşteriler GDPR uyumlu olması için aşağıdaki yönergeleri kullanmanız gerekir:
+Azure AD Connect müşteriler, kullanıcı verilerini kaldırırken aşağıdaki yönergeleri kullanmanız gerekir:
 1.  Azure AD Connect yükleme günlük dosyalarını düzenli olarak – en az 48 saatte içeren klasörün içeriğini silin
 2.  Bu ürün, olay günlükleri de oluşturabilir.  Olay günlükleri günlükleri hakkında daha fazla bilgi için lütfen bkz [şuradaki belgelere](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
@@ -82,5 +80,5 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
-- [Azure AD Connect sağlık ve GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [Güven Merkezi Microsoft Privacy ilkeyi gözden geçirin](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect sistem durumu ve kullanıcı gizliliği](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

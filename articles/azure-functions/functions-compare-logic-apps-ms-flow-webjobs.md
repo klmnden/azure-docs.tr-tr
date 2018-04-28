@@ -1,10 +1,10 @@
 ---
-title: Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma | Microsoft Docs
-description: Microsoft'un bulut tümleştirme hizmetlerini karşılaştırın ve hangi hizmetleri kullanacağınıza karar verin.
+title: Flow, Logic Apps, Azure İşlevleri ve Web İşleri karşılaştırması - Azure
+description: 'Tümleştirme görevleri için iyileştirilen Microsoft bulut hizmetlerini karşılaştırın: Flow, Logic Apps, İşlevler ve Web İşleri.'
 services: functions,app-service\logic
 documentationcenter: na
 author: tdykstra
-manager: wpickett
+manager: cfowler
 tags: ''
 keywords: microsoft flow, flow, akış, mantıksal uygulamalar, azure işlevleri, işlevler, azure web işleri, web işleri, olay işleme, dinamik işlem, sunucusuz mimari
 ms.service: functions
@@ -12,29 +12,29 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 577031c58e95781dc97721acc71fb22114b1c606
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 23501eddc8921ed36a9e7d839660455e04ee9381
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma
+# <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, İşlevler ve Web İşleri karşılaştırması
 
-Bu makalede, Microsoft buluttaki aşağıdaki hizmetler karşılaştırılmaktadır:
+Bu makalede aşağıdaki Microsoft bulut hizmetleri karşılaştırılır:
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure İşlevleri](https://azure.microsoft.com/services/functions/)
 * [Azure App Service Web İşleri](../app-service/web-sites-create-web-jobs.md)
 
-Tüm bu hizmetler, tümleştirme sorunlarını çözebilir ve iş süreçlerini otomatikleştirebilir. Tümü giriş, eylemler, koşullar ve çıkış tanımı yapabilir. Her birini belirli bir zamanlamayla veya tetikleyiciyle çalıştırabilirsiniz. Ancak, her hizmetin benzersiz avantajları vardır ve bu makalede farklar açıklanmaktadır.
+Tüm bu hizmetler, tümleştirme sorunlarını çözebilir ve iş süreçlerini otomatikleştirebilir. Tümü giriş, eylemler, koşullar ve çıkış tanımı yapabilir. Her birini belirli bir zamanlamayla veya tetikleyiciyle çalıştırabilirsiniz. Ancak her hizmetin benzersiz avantajları vardır ve bu makalede farklar açıklanmaktadır.
 
-## <a name="flow-vs-logic-apps"></a>Flow - Logic Apps
+## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Microsoft Flow ve Azure Logic Apps karşılaştırması
 
-Microsoft Flow da Azure Logic Apps de *yapılandırmaya öncelik veren* tümleştirme hizmetleridir. Her ikisi de çeşitli SaaS ve kuruluş uygulamalarıyla tümleştirilen iş akışları oluşturur. 
+Flow ve Logic Apps, iş akışı oluşturabilen, *tasarımcıya öncelik veren* tümleştirme hizmetleridir. Her iki hizmet de çeşitli SaaS uygulamaları ve kurumsal uygulamalarla tümleştirilir. 
 
 Flow, Logic Apps’in üzerine yapılandırılmıştır. Aynı iş akışı tasarımcısını ve aynı [Bağlayıcıları](../connectors/apis-list.md) paylaşırlar. 
 
@@ -51,17 +51,34 @@ Aşağıdaki tablo, belirli bir tümleştirme için Flow'un mu yoksa Logic Apps'
 | Yönetici Deneyimi |Flow Ortamlarını ve Veri Kaybı Önleme (DLP) ilkelerini yönetme, lisansları izleme [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Kaynak Gruplarını, Bağlantıları, Erişim Yönetimini ve Günlüğe Kaydetmeyi Yönetme[https://portal.azure.com](https://portal.azure.com) |
 | Güvenlik |Office 365 Güvenlik ve Uyumluluk denetim günlükleri, Veri Kaybı Önleme (DLP), gizli veriler için [bekleyen verileri şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) vs. |Azure'un güvenlik güvencesi: [Azure Güvenliği](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlükleri](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), ve dahası. |
 
+## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure İşlevleri ve Azure Logic Apps karşılaştırması
+
+İşlevler ve Logic Apps, sunucusuz iş yüklerine olanak tanıyan Azure hizmetleridir. Azure İşlevleri, sunucusuz bir işlem hizmetiyken Azure Logic Apps, sunucusuz iş akışları sağlar. Her ikisiyle de karmaşık *düzenlemeler* oluşturulabilir. Düzenleme, Logic Apps’te karmaşık bir görevin gerçekleştirilmesi için yürütülen, *eylemler* olarak adlandırılan işlevlerin veya adımların bir koleksiyonudur. Örneğin, toplu sipariş işlemek için bir işlevin birçok örneğini paralel olarak çalıştırabilir, tüm örneklerin tamamlanmasını bekleyebilir ve sonra toplama işleminde sonuç hesaplayan bir işlevi yürütebilirsiniz.
+
+Azure İşlevleri için düzenlemeleri kod yazarak ve [Dayanıklı İşlevler uzantısını](durable-functions-overview.md) (önizlemede) kullanarak geliştirirsiniz. Logic Apps için düzenlemeleri, GUI kullanarak veya yapılandırma dosyalarını düzenleyerek oluşturursunuz.
+
+Düzenleme oluşturduğunuzda, mantıksal uygulamalardan işlev çağırdığınızda ve işlevlerden mantıksal uygulama çağırdığınızda hizmetleri karıştırıp eşleştirebilirsiniz. Hizmet özelliklerine veya kişisel tercihinize göre her düzenlemenin nasıl oluşturulacağını seçin. Aşağıdaki tabloda bu hizmetler arasındaki temel farklılıklardan bazıları listelenmektedir:
+ 
+|  | Dayanıklı İşlevler | Logic Apps |
+| --- | --- | --- |
+| Geliştirme | Koda öncelik veren (kesinlik temelli) | Tasarımcıya öncelik veren (bildirim temelli) |
+| Bağlantı | [Yaklaşık bir düzine bağlama türü](functions-triggers-bindings.md#supported-bindings), özel bağlamalar için kod yazma | [Bağlayıcılardan oluşan büyük koleksiyon](../connectors/apis-list.md), [B2B senaryoları için Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md), [özel bağlayıcı oluşturma](../logic-apps/custom-connector-overview.md) |
+| Eylemler | Her etkinlik bir Azure işlevidir; eylem işlevleri için kod yazma |[Hazır eylemlerden oluşan büyük koleksiyon](../logic-apps/logic-apps-workflow-actions-triggers.md)|
+| İzleme | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure portalı](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Yönetim | [REST API](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portalı](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/en-us/rest/api/logic/), [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| Yürütme bağlamı | [Yerel olarak](functions-runtime-overview.md) veya bulutta çalışabilir. | Yalnızca bulutta çalışır.|
+
 <a name="function"></a>
 
-## <a name="functions-vs-webjobs"></a>İşlevler - WebJobs
+## <a name="compare-functions-and-webjobs"></a>İşlevler Web İşleri karşılaştırması
 
 Azure İşlevleri gibi, WebJobs SDK ile Azure App Service WebJobs da geliştiriciler için tasarlanmış, *koda öncelik veren* bir tümleştirme hizmetidir. Her ikisi de [Azure App Service](../app-service/app-service-web-overview.md) üzerinde derlenmiş olup [source control integration](../app-service/app-service-continuous-deployment.md), [authentication](../app-service/app-service-authentication-overview.md) ve [monitoring with Application Insights integration](functions-monitoring.md) gibi özellikleri destekler.
 
-### <a name="webjobs-vs-the-webjobs-sdk"></a>WebJobs ve WebJobs SDK karşılaştırması
+### <a name="webjobs-and-the-webjobs-sdk"></a>Web İşleri ve Web İşleri SDK’sı
 
 App Service’ın *WebJobs* özelliği, bir App Service web uygulaması bağlamında betik veya kod çalıştırmanıza olanak sağlar. *WebJobs SDK*, Azure hizmetlerine yanıt olarak yazdığınız kodu kolaylaştıran WebJobs için tasarlanmış bir çerçevedir. Örneğin, bir küçük resim oluşturarak Azure Depolama’da görüntü blob’u oluşturulmasına yanıt verebilirsiniz. WebJobs SDK, WebJob’a dağıtabileceğiniz bir .NET konsol uygulaması olarak çalıştırılır. 
 
-WebJobs ve WebJobs SDK birlikte en iyi şekilde çalışır; ancak WebJobs’ı WebJobs SDK olmadan kullanabilirsiniz; bunun tersi de olabilir. WebJob, App Service korumalı alanında çalıştırılabilen herhangi bir programı veya betiği çalıştırabilir. WebJobs SDK konsol uygulaması, şirket içi sunucular gibi, konsol uygulamalarının çalıştırılabildiği her yerde çalıştırılabilir.
+WebJobs ve WebJobs SDK birlikte en iyi şekilde çalışır; ancak WebJobs’ı WebJobs SDK olmadan kullanabilirsiniz; bunun tersi de olabilir. Bir Web İşi, App Service korumalı alanında çalışan herhangi bir programı veya betiği çalıştırabilir. Web İşleri SDK konsolu uygulaması, şirket içi sunucular gibi konsol uygulamalarının çalıştığı her yerde çalışabilir.
 
 ### <a name="comparison-table"></a>Karşılaştırma tablosu
 

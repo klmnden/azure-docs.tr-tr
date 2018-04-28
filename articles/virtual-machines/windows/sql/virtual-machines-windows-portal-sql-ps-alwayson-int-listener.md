@@ -1,6 +1,6 @@
 ---
-title: "Her zaman kullanılabilirlik grubu dinleyicileri – Microsoft Azure yapılandırma | Microsoft Docs"
-description: "Kullanılabilirlik grubu dinleyicileri iç yük dengeleyiciye sahip bir veya daha fazla IP adresi kullanarak Azure Resource Manager modeli yapılandırın."
+title: Her zaman kullanılabilirlik grubu dinleyicileri – Microsoft Azure yapılandırma | Microsoft Docs
+description: Kullanılabilirlik grubu dinleyicileri iç yük dengeleyiciye sahip bir veya daha fazla IP adresi kullanarak Azure Resource Manager modeli yapılandırın.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicileri - Kaynak Yöneticisi'ni yapılandırma
 Bu konuda gösterilmektedir nasıl yapılır:
@@ -48,10 +48,10 @@ Windows Güvenlik Duvarı'nı SQL Server erişime izin verecek şekilde yapılan
 > 
 > 
 
-Aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, Yük Dengeleme kuralları yapılandırır ve yük dengeleyici için bir IP adresini ayarlar. Komut dosyasını çalıştırmak için Windows PowerShell ISE açın ve komut dosyası betik bölmesine yapıştırın. Kullanım `Login-AzureRMAccount` PowerShell oturum açmak için. Birden çok Azure aboneliğiniz varsa, kullanmak `Select-AzureRmSubscription ` aboneliği ayarlamak için. 
+Aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, Yük Dengeleme kuralları yapılandırır ve yük dengeleyici için bir IP adresini ayarlar. Komut dosyasını çalıştırmak için Windows PowerShell ISE açın ve komut dosyası betik bölmesine yapıştırın. Kullanım `Connect-AzureRmAccount` PowerShell oturum açmak için. Birden çok Azure aboneliğiniz varsa, kullanmak `Select-AzureRmSubscription ` aboneliği ayarlamak için. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ Birden çok kullanılabilirlik grubu kullanmak için ek bir IP adresi yük denge
 Aşağıdaki komut dosyasını yeni bir IP adresi için var olan bir yük dengeleyici ekler. ILB, yük dengeleyici ön uç bağlantı noktası için dinleyici bağlantı noktasını kullanır. Bu bağlantı noktası, SQL Server üzerinde dinleme bağlantı noktası olabilir. SQL Server'ın varsayılan örnekleri için bağlantı noktası 1433'tür. Arka uç bağlantı noktası ön uç bağlantı noktası ile aynı olacak şekilde yük dengeleme kuralını bir kullanılabilirlik grubu için bir kayan IP (doğrudan sunucu dönüşü) gerektirir. Değişkenleri ortamınız için güncelleştirin. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name
@@ -202,8 +202,8 @@ Daha fazla bilgi için bkz: [yapılandırma Always On kullanılabilirlik grubu A
 Azure sanal makineler için bir iç yük dengeleyici oluşturmak için aşağıdaki PowerShell cmdlet'lerini kullanın.
 
 * [AzureRmLoadBalancer yeni](http://msdn.microsoft.com/library/mt619450.aspx) bir yük dengeleyici oluşturur. 
-* [New-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) creates a front-end IP configuration for a load balancer. 
-* [New-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) creates a rule configuration for a load balancer. 
-* [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) creates a backend address pool configuration for a load balancer. 
-* [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
+* [AzureRMLoadBalancerFrontendIpConfig yeni](http://msdn.microsoft.com/library/mt603510.aspx) bir yük dengeleyici için bir ön uç IP yapılandırmasını oluşturur. 
+* [AzureRmLoadBalancerRuleConfig yeni](http://msdn.microsoft.com/library/mt619391.aspx) bir yük dengeleyici için bir kural yapılandırma oluşturur. 
+* [AzureRmLoadBalancerBackendAddressPoolConfig yeni](http://msdn.microsoft.com/library/mt603791.aspx) bir yük dengeleyici için arka uç adres havuzu yapılandırması oluşturur. 
+* [AzureRmLoadBalancerProbeConfig yeni](http://msdn.microsoft.com/library/mt603847.aspx) bir yük dengeleyici için bir araştırma yapılandırma oluşturur.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) bir yük dengeleyici Azure kaynak grubundan kaldırır.

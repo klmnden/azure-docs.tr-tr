@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c284bb3637415186a12c63d4eeb088ab5f23e2e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f85a7b018085ce30550bec21fe41ca3f9253da80
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-location-based-services---supported-languages"></a>Hizmetler - desteklenen diller Azure konumuna dayalı
 Azure konum tabanlı Hizmetleri çeşitli dillerde Hizmetleri yerelleştirilmiş.  Aşağıdaki tabloda her hizmet için desteklenen dil kodlarını sağlar.  
@@ -28,52 +28,52 @@ Azure konum tabanlı Hizmetleri çeşitli dillerde Hizmetleri yerelleştirilmiş
 
 | Kimlik         | Ad                   |  Haritalar | Arama | Yönlendirme | Trafik olaylar | JS Harita Denetim | Saat dilimi |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| af-ZA      | Afrikaner dili              |       |    ✓   |    ✓    |                   |                |     ✓     |
+| AF ZA      | Afrikaner dili              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA'sı      | Arapça                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Bask dili                 |       |        |         |                   |                |     ✓     |
-| bg-BG      | Bulgarca              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| ca-ES      | Katalanca                |       |    ✓   |         |                   |                |     ✓     |
+| AB ES      | Bask dili                 |       |        |         |                   |                |     ✓     |
+| BG-BG      | Bulgarca              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| CA-ES      | Katalanca                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Çince (Basitleştirilmiş)   |       |  zh-CN |         |                   |                |     ✓     |
-| zh-HanT    | Çince (Geleneksel)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
+| zh-HanT    | Çince (Geleneksel)  | zh-TW |  zh-TW |  zh-TW  |                   |      zh-TW     |     ✓     |
 | hr-HR      | Hırvatça               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Çekçe                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| da-DK      | Danca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl -NL     | Hollanda dili                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-BE      | Çince (Singapur)        |       |    ✓   |         |                   |                |     ✓     |
+| da DK      | Danca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-NL      | Hollanda dili                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-olabilir      | Çince (Singapur)        |       |    ✓   |         |                   |                |     ✓     |
 | tr         | Türkçe                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonca               |       |    ✓   |         |         ✓         |                |     ✓     |
-| fi-FI      | Fince                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| Fi-FI      | Fince                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Fransızca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Fransızca (Kanada)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Galiçya dili               |       |        |         |                   |                |     ✓     |
+| GL ES      | Galiçya dili               |       |        |         |                   |                |     ✓     |
 | de-DE      | Almanca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Yunanca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | İbranice                 |       |        |         |         ✓         |                |     ✓     |
-| hi-IN      | Hintçe                  |       |        |         |                   |                |     ✓     |
+| He-IL      | İbranice                 |       |        |         |         ✓         |                |     ✓     |
+| yüksek giriş      | Hintçe                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Macarca              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Endonezya dili             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| Kimliği kimliği      | Endonezya dili             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | İtalyanca                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japonca               |       |        |         |                   |                |     ✓     |
 | kk-KZ      | Kazakça                 |       |        |         |                   |                |     ✓     |
 | ko-KR      | Kore dili                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Latin Amerika İspanyolca |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Letonca                |       |    ✓   |         |         ✓         |                |     ✓     |
-| lt-LT      | Litvanca             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| lt LT      | Litvanca             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | Malay dili (Latin)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | nb-NO      | Norveççe (Bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pl-PL      | Lehçe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portekizce (Brezilya)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portekizce (Portekiz)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Rumence               |       |        |         |         ✓         |                |     ✓     |
+| Ro-RO      | Rumence               |       |        |         |         ✓         |                |     ✓     |
 | ru-RU      | Rusça                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Sırpça (Kiril)     |       |        |         |                   |                |     ✓     |
+| SR-Cyrl-RS | Sırpça (Kiril)     |       |        |         |                   |                |     ✓     |
 | SR-Latn-RS | Sırpça (Latin)        |       |        |         |                   |                |     ✓     |
-| sk-SK      | Slovakça              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sl-SL      | Slovence              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| SK SK      | Slovakça              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| SL SL      | Slovence              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | İspanyolca                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | İspanyolca (Meksika)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | İsveç dili                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Tay Dili                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| TH-TH      | Tay Dili                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Türkçe                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | Ukrayna dili               |       |        |         |                   |                |     ✓     |
-| vi-VN      | Vietnam dili             |       |        |         |                   |                |     ✓     |
+| VI VN      | Vietnam dili             |       |        |         |                   |                |     ✓     |

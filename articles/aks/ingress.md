@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1fe8a52a946b7e70a845e26b80dec94176c346f0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d56b27a040420d049f567ac0de9289b1e72f3ea9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS giriş Azure kapsayıcı hizmeti (AKS)
 
@@ -23,11 +23,11 @@ Bu belgede bir örnek dağıtımında kılavuzluk etmektedir [NGINX giriş denet
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Helm CLI yükleyin - Helm CLI [belgelerine] [CLI helm] yükleme yönergeleri için bkz.
+Helm CLI yükleme - Helm CLI bkz [belgelerine] [ helm-cli] yükleme yönergeleri için.
 
 ## <a name="install-an-ingress-controller"></a>Bir giriş denetleyicisi yükleme
 
-Helm NGINX giriş denetleyicisi yüklemek için kullanın. Bkz. NGINX giriş controller [belgelerine] [ nginx-ingress] ayrıntılı dağıtım bilgileri için. 
+Helm NGINX giriş denetleyicisi yüklemek için kullanın. Bkz. NGINX giriş controller [belgelerine] [ nginx-ingress] ayrıntılı dağıtım bilgileri için.
 
 Grafik depo güncelleştirin.
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Gerekirse, FQDN almak için aşağıdaki komutu çalıştırın. IP adresi değeri, giriş denetleyiciniz ile güncelleştirin.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-Giriş denetleyicisi şimdi FQDN üzerinden erişilebilir.
+Giriş denetleyicisi artık FQDN üzerinden erişilebilir olması gerekir.
 
 ## <a name="install-kube-lego"></a>KUBE LEGO yükleyin
 
@@ -181,13 +175,14 @@ Ayrıca bağlantı şifrelenir ve şimdi şifrelemek tarafından verilen bir ser
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede gösterilen yazılım hakkında daha fazla bilgi edinin. 
+Bu belgede gösterilen yazılım hakkında daha fazla bilgi edinin.
 
+- [Helm CLI][helm-cli]
 - [NGINX giriş denetleyicisi][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-client]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

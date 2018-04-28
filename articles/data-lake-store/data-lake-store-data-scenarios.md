@@ -1,8 +1,8 @@
 ---
-title: "Data Lake Store içeren veri senaryoları | Microsoft Docs"
-description: "Farklı senaryolar ve hangi veri kullanarak araçları alınan, işlenen, yüklenen ve bir Data Lake Store'da görselleştirilen anlama"
+title: Data Lake Store içeren veri senaryoları | Microsoft Docs
+description: Farklı senaryolar ve hangi veri kullanarak araçları alınan, işlenen, yüklenen ve bir Data Lake Store'da görselleştirilen anlama
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8cd666af9e05b543b6794612ec5acf6f8a27756
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Azure Data Lake Store için büyük veri gereksinimleri kullanma
 Büyük veri işleme, dört anahtar aşamaları şunlardır:
@@ -40,7 +40,7 @@ Bu, daha küçük veri kümeleri temsil eden bir büyük veri uygulaması için 
 
 | Veri Kaynağı | Kullanarak alma |
 | --- | --- |
-| Yerel bilgisayar |<ul> <li>[Azure portalındaki](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Yerel bilgisayar |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure depolama blobunu |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy aracı](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Hdınsight küme üzerinde çalışan Distcp'yi](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Akışa
@@ -72,7 +72,7 @@ Web sunucu günlüğü verileri karşıya yükleme için ve ayrıca verileri (ö
 Çoğu Hdınsight küme türleri (Hadoop, HBase, Storm) Data Lake Store veri depolama depo olarak destekler. Hdınsight kümeleri, Azure Storage Blobları (WASB) veri erişim. Daha iyi performans için verileri WASB kümeyle ilişkili bir Data Lake Store hesabı kopyalayabilirsiniz. Verileri kopyalamak için aşağıdaki araçları kullanabilirsiniz.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
-* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
+* [AdlCopy hizmeti](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Şirket içi veya Iaas Hadoop kümeleri veriler
@@ -131,4 +131,4 @@ Data Lake Store içinde depolanan verileri görsel gösterimi oluşturmak için 
 ![Data Lake Store'da verileri görselleştirin](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake Store'da verileri görselleştirin")
 
 * Kullanarak başlatabilirsiniz [verileri Azure SQL Data Warehouse için Data Lake Deposu'ndan veri taşımak için Azure veri fabrikası](../data-factory/copy-activity-overview.md)
-* Bundan sonra şunları yapabilirsiniz [Power BI ile Azure SQL veri ambarı tümleştirmek](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) verileri görsel temsilini oluşturmak için.
+* Bundan sonra şunları yapabilirsiniz [Power BI ile Azure SQL veri ambarı tümleştirmek](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) verileri görsel temsilini oluşturmak için.

@@ -1,13 +1,13 @@
 ---
-title: "Yedekleme ve kurtarma, Azure Linux sanal makinede bir Oracle veritabanına 12 c veritabanı | Microsoft Docs"
-description: "Yedekleme ve Azure ortamınızda bir Oracle veritabanına 12 c veritabanını kurtarma hakkında bilgi edinin."
+title: Yedekleme ve kurtarma, Azure Linux sanal makinede bir Oracle veritabanına 12 c veritabanı | Microsoft Docs
+description: Yedekleme ve Azure ortamınızda bir Oracle veritabanına 12 c veritabanını kurtarma hakkında bilgi edinin.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Yedekleme ve bir Azure Linux sanal makine üzerinde bir Oracle veritabanına 12 c veritabanını kurtarma
 
@@ -138,7 +138,7 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
 
 1. JSON dosyasını indirin.
 
-    VMSnapshotScriptPluginConfig.json https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig indirin. Dosya içeriği şuna benzer:
+    Gelen VMSnapshotScriptPluginConfig.json karşıdan https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Dosya içeriği şuna benzer:
 
     ```azurecli
     {
@@ -262,7 +262,7 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     # /etc/azure/post_script.sh
     ```
 
-Daha fazla bilgi için bkz: [Linux VM'ler için uygulamayla tutarlı yedekleme](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
+Daha fazla bilgi için bkz: [Linux VM'ler için uygulamayla tutarlı yedekleme](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5. adım: VM'yi yedeklemek için kullanım Azure kurtarma Hizmetleri kasaları
@@ -283,11 +283,11 @@ Daha fazla bilgi için bkz: [Linux VM'ler için uygulamayla tutarlı yedekleme](
 
     ![Kurtarma Hizmetleri kasaları sayfa yedekleme](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  Üzerinde **yedekleme hedefi** dikey penceresinde, varsayılan değerleri kullanmak **Azure** ve **sanal makine**. **Tamam** düğmesine tıklayın.
+5.  Üzerinde **yedekleme hedefi** dikey penceresinde, varsayılan değerleri kullanmak **Azure** ve **sanal makine**. **Tamam**’a tıklayın.
 
     ![Kurtarma Hizmetleri kasaları ayrıntı sayfaları](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  İçin **yedekleme İlkesi**, kullanın **DefaultPolicy**, ya da seçin **Yeni Oluştur ilke**. **Tamam** düğmesine tıklayın.
+6.  İçin **yedekleme İlkesi**, kullanın **DefaultPolicy**, ya da seçin **Yeni Oluştur ilke**. **Tamam**’a tıklayın.
 
     ![Kurtarma Hizmetleri kasaları İlkesi ayrıntı sayfası yedekleme](./media/oracle-backup-recovery/recovery_service_06.png)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rimman
-ms.openlocfilehash: 182f9fcfd03d736f66dd8ca11720c88c9f5b36fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 
@@ -209,38 +209,6 @@ Bu durum dikkate alınarak, uygulamanızın gerektirdiği ayrılmış işleme mi
 5. Uygulama tarafından işlevden istek birimi ücret tüm özel komut dosyalarını (saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler), kayıt
 6. Saniyede çalıştırmayı düşündüğünüz operations tahmini sayısını verilen gerekli istek birimleri hesaplayın.
 
-## <a id="GetLastRequestStatistics"></a>MongoDB API GetLastRequestStatistics komutunu kullanın
-Özel bir komut MongoDB API destekler *getLastRequestStatistics*, belirtilen işlem için istek ücret alma.
-
-Örneğin, istek ücreti doğrulamak istediğiniz işlem Mongo kabuğunu yürütün.
-```
-> db.sample.find()
-```
-
-Ardından, komutu yürütün *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-Bu durum dikkate alınarak, uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir uygulamanız tarafından kullanılan bir temsili öğesi karşı normal işlemleri çalıştırılması ile ilişkili istek birimi ücret kaydedin ve ardından tahmin yöntemdir saniyede gerçekleştirmek düşündüğünüz işlemlerinin sayısı.
-
-> [!NOTE]
-> Hangi boyutu ve Dizinli Özellikler sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
-> 
-> 
-
-## <a name="use-mongodb-api-portal-metrics"></a>MongoDB API portal ölçümleri kullanın
-En basit yolu MongoDB API veritabanınızı kullanmak için bir iyi isteğinin birim ücretleri kestirmek [Azure portal](https://portal.azure.com) ölçümleri. İle *istek sayısı* ve *isteği ücret* grafikler, kaç tane istek birimleri her işlem harcayan ve kaç tane istek birimleri bunlar tüketen birbirine göre tahmini alabilirsiniz.
-
-![MongoDB API portal ölçümleri][6]
-
 ## <a name="a-request-unit-estimate-example"></a>Bir istek birimi tahmin örneği
 Aşağıdaki ~ 1 KB belge göz önünde bulundurun:
 
@@ -344,9 +312,6 @@ Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar 
 
 Birden fazla istemci isteği hızı üst üste işletim varsa, varsayılan yeniden deneme davranışı değil yeterli olacaktır ve istemci özel durum oluşturacak bir `DocumentClientException` uygulamaya 429 ile durum kodu. Bu gibi durumlarda yeniden deneme davranışı ve uygulamanızın hata yordamları işleme mantığı işleme göz önünde bulundurun veya kapsayıcı sağlanan verimliliğini artırmak isteyebilirsiniz.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API aşan ayrılmış işleme sınırları
-Tüketim oranını sağlanan işleme hızının altına düşene kadar bir kapsayıcı için sağlanan işleme aşan uygulamalar oranı sınırlı olur. Bir hızını sınırlama ortaya çıktığında, arka uç istekle erken önlem sona erer bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Birçok alıyorsanız `Too Many Requests` hata kodları, ya da yeniden deneme mantığı, uygulamanızın hata yordamları işleme ekleme düşünmek isteyebilirsiniz veya [kapsayıcı sağlanan verimliliğini artırmak](set-throughput.md).
-
 ## <a name="next-steps"></a>Sonraki adımlar
 Ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla bilgi edinmek için şu kaynakları araştırın:
 
@@ -361,4 +326,3 @@ Azure Cosmos DB hakkında daha fazla bilgi için Azure Cosmos DB bkz [belgelerin
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png

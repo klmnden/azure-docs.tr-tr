@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Bir küme için günlük analizi Ayarla
 
-Günlük analizi çalışma alanı Azure Resource Manager, PowerShell veya Azure Market üzerinden ayarlayabilirsiniz. Dağıtımınızın gelecekte kullanım için güncelleştirilmiş bir Resource Manager şablonu bulunduruyorsanız, OMS ortamınızı ayarlamak için aynı şablonu kullanın. Market aracılığıyla dağıtımı etkin Tanılama ile dağıtılan bir kümeye zaten sahipseniz daha kolay olur. OMS dağıtma hesabında abonelik düzeyinde erişimi yoksa, PowerShell veya Resource Manager şablonunu kullanarak dağıtın.
+Günlük analizi küme düzeyi olayları izlemek için Bizim önerimiz ' dir. Günlük analizi çalışma alanı Azure Resource Manager, PowerShell veya Azure Market üzerinden ayarlayabilirsiniz. Dağıtımınızın gelecekte kullanım için güncelleştirilmiş bir Resource Manager şablonu bulunduruyorsanız, günlük analizi ortamınızı ayarlamak için aynı şablonu kullanın. Market aracılığıyla dağıtımı etkin Tanılama ile dağıtılan bir kümeye zaten sahipseniz daha kolay olur. Abonelik düzeyinde erişim için dağıtıyorsanız hesabı yoksa, PowerShell veya Resource Manager şablonunu kullanarak dağıtın.
 
 > [!NOTE]
-> Kümenizi izlemek için günlük analizi ayarlamak için tanılama küme düzeyi veya platform düzeyi olayları görüntülemek için etkin olması gerekir.
+> Kümenizi izlemek için günlük analizi ayarlamak için tanılama küme düzeyi veya platform düzeyi olayları görüntülemek için etkin olması gerekir. Başvurmak [Windows kümelerinde tanılama ayarlamak nasıl](service-fabric-diagnostics-event-aggregation-wad.md) ve [Linux kümeleri tanılamada ayarlamak nasıl](service-fabric-diagnostics-event-aggregation-lad.md) daha fazla bilgi için
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Azure Market kullanarak OMS dağıtma
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Azure Market kullanarak günlük analizi çalışma alanı dağıtma
 
-Bir küme dağıttıktan sonra bir OMS çalışma eklemek istiyorsanız, Azure Marketi portalda gidin ve Ara **Service Fabric Analytics**:
+Bir küme dağıttıktan sonra günlük analizi çalışma alanı eklemek istiyorsanız, Azure Marketi portalda gidin ve Ara **Service Fabric Analytics**. Bu veriler için Service Fabric belirli olan bir özel Service Fabric dağıtımlar için çözümüdür. Bu işlem çözüm (Öngörüler görüntülemek için Pano) ve çalışma (temel küme veri toplama) oluşturur.
 
 1. Seçin **yeni** sol gezinti menüsünde. 
 
@@ -39,7 +39,7 @@ Bir küme dağıttıktan sonra bir OMS çalışma eklemek istiyorsanız, Azure M
 
     ![OMS BT analizi pazarında](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Service Fabric Analytics oluşturma penceresinde seçin **bir çalışma alanı seçin** için **OMS çalışma** alan ve ardından **yeni bir çalışma alanı oluşturma**. Gerekli girişleri doldurun. Burada tek gereksinim abonelik Service Fabric kümesi ve OMS çalışma alanı için aynı olmasıdır. Girişlerinizi doğrulandı, OMS çalışma alanınızı dağıtmak başlatılır. Dağıtımı yalnızca birkaç dakika sürer.
+4. Service Fabric Analytics oluşturma penceresinde seçin **bir çalışma alanı seçin** için **OMS çalışma** alan ve ardından **yeni bir çalışma alanı oluşturma**. Gerekli girişleri doldurun. Burada tek gereksinim abonelik Service Fabric kümesi ve çalışma alanı için aynı olmasıdır. Girişlerinizi doğrulandı, çalışma alanınızı dağıtmaya başlar. Dağıtımı yalnızca birkaç dakika sürer.
 
 5. Tamamlandığında, seçin **oluşturma** Service Fabric Analytics oluşturma penceresinin altındaki yeniden. Yeni bir çalışma alanı altında gösterildiğini doğrulayın **OMS çalışma**. Bu eylem çözümü oluşturduğunuz çalışma alanına ekler.
 
@@ -48,9 +48,9 @@ Windows kullanıyorsanız, OMS küme olayları depolandığı depolama hesabına
 >[!NOTE]
 >Bu deneyim Linux kümeleri için etkinleştirme henüz kullanılamıyor. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>OMS çalışma alanında, kümeye bağlanın 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Günlük analizi çalışma alanı, kümeye bağlanın 
 
-1. Çalışma alanı kümenizden gelen tanılama verilerini bağlı gerekir. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin. Buradan, çözüm ayarları, çalışma alanı ayarları değiştirin ve OMS portalı erişebilirsiniz.
+1. Çalışma alanı kümenizden gelen tanılama verilerini bağlı gerekir. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfWorkspace\>**  ve kendi genel bakış sayfasına gidin. Buradan, çözüm ayarları, çalışma alanı ayarları değiştirin ve OMS portalı erişebilirsiniz.
 
 2. Sol gezinti menüsünde altında **çalışma veri kaynakları**seçin **depolama hesapları günlükleri**.
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

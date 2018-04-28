@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell ile Azure Redis önbelleğini yönetme | Microsoft Docs"
-description: "Azure Redis önbelleği Azure PowerShell kullanarak için yönetim görevlerini gerçekleştirmek öğrenin."
+title: Azure PowerShell ile Azure Redis önbelleğini yönetme | Microsoft Docs
+description: Azure Redis önbelleği Azure PowerShell kullanarak için yönetim görevlerini gerçekleştirmek öğrenin.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell ile Azure Redis önbelleği Yönet
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Azure PowerShell'i zaten yüklediyseniz, Azure PowerShell sürümü 1.0.0 olmal�
 
 İlk olarak, Azure için bu komutla oturum gerekir.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Oturum açma iletişim kutusunda Microsoft Azure e-posta adresi, Azure hesabınızı ve parolasını belirtin.
 
@@ -66,18 +66,18 @@ Bu öğreticide gördüğünüz herhangi bir cmdlet'in ayrıntılı yardım alma
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Diğer bulutlara bağlanma
-Varsayılan olarak Azure ortamıdır `AzureCloud`, genel Azure bulut örneği temsil eder. Farklı bir örneğine bağlanmak için `Add-AzureRmAccount` komutunu `-Environment` veya -`EnvironmentName` komut satırı anahtarıyla istenen ortama veya ortam adı.
+Varsayılan olarak Azure ortamıdır `AzureCloud`, genel Azure bulut örneği temsil eder. Farklı bir örneğine bağlanmak için `Connect-AzureRmAccount` komutunu `-Environment` veya -`EnvironmentName` komut satırı anahtarıyla istenen ortama veya ortam adı.
 
 Kullanılabilir ortamlar listesini görmek için Çalıştır `Get-AzureRmEnvironment` cmdlet'i.
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Azure Bulutu bağlanmak için
 Azure Bulutu bağlanmak için aşağıdaki komutlardan birini kullanın.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Azure Bulutu önbellek oluşturmak için aşağıdaki konumlardan birini kullanın.
 
@@ -89,11 +89,11 @@ Azure Bulutu hakkında daha fazla bilgi için bkz: [Microsoft Azure kamu](https:
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Azure Çin buluta bağlamak için
 Azure Çin buluta bağlanmak için aşağıdaki komutlardan birini kullanın.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Önbellek Azure Çin bulut oluşturmak için aşağıdaki konumlardan birini kullanın.
 
@@ -105,12 +105,12 @@ Azure Çin bulut hakkında daha fazla bilgi için bkz: [AzureChinaCloud Azure Ç
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Microsoft Azure Almanya bağlanmak için
 Microsoft Azure Almanya bağlanmak için aşağıdaki komutlardan birini kullanın.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Microsoft Azure Almanya önbellek oluşturmak için aşağıdaki konumlardan birini kullanın.
 
@@ -141,15 +141,15 @@ Aşağıdaki tabloda, özellikleri ve açıklamaları oluştururken ve Azure Pow
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration özellikleri
 | Özellik | Açıklama | Fiyatlandırma katmanları |
 | --- | --- | --- |
-| RDB yedekleme etkin |Olup olmadığını [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) etkin |Premium only |
-| rdb-storage-connection-string |Depolama hesabı bağlantı dizesi [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Premium only |
-| RDB yedekleme sıklığı |Yedekleme sıklığı için [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Premium only |
+| RDB yedekleme etkin |Olup olmadığını [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) etkin |Yalnızca Premium |
+| RDB depolama bağlantı dizesi |Depolama hesabı bağlantı dizesi [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Yalnızca Premium |
+| RDB yedekleme sıklığı |Yedekleme sıklığı için [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Yalnızca Premium |
 | maxmemory-ayrılmış |Yapılandırır [ayrılan bellek](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbellek olmayan işlemler için |Standart ve Premium |
 | maxmemory İlkesi |Yapılandırır [çıkarma İlkesi](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbelleği |Tüm fiyatlandırma katmanlarına |
 | bildirim-keyspace-olayları |Yapılandırır [keyspace bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) |Standart ve Premium |
-| hash-max-ziplist-entries |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| hash-max-ziplist-value |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| set-max-intset-entries |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| max ziplist girişlerini karma |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| karma-max-ziplist-değer |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| max intset girişlerini ayarlama |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | zset-max-ziplist-entries |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | zset-max-ziplist-value |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | veritabanları |Veritabanı sayısı yapılandırır. Bu özellik yalnızca önbellek oluşturma sırasında yapılandırılabilir. |Standart ve Premium |
@@ -327,7 +327,7 @@ Aşağıdaki komut maxmemory İlkesi myCache adlı Redis Önbelleği'için günc
 <a name="scale"></a>
 
 ## <a name="to-scale-a-redis-cache"></a>Redis önbelleği ölçeklendirme
-`Set-AzureRmRedisCache`bir Azure Redis önbelleği ölçeklendirmek için kullanılan zaman örnek `Size`, `Sku`, veya `ShardCount` özellikleri değiştirilemez. 
+`Set-AzureRmRedisCache` bir Azure Redis önbelleği ölçeklendirmek için kullanılan zaman örnek `Size`, `Sku`, veya `ShardCount` özellikleri değiştirilemez. 
 
 > [!NOTE]
 > PowerShell kullanarak önbellek ölçeklendirme aynı sınırları ve Azure portalından bir önbellek ölçeklendirme olarak yönergeleri tabidir. Aşağıdaki kısıtlamalarla farklı bir fiyatlandırma katmanı için ölçeklendirebilirsiniz.

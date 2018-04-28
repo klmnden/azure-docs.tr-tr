@@ -1,8 +1,8 @@
 ---
-title: "Intellij için Azure Araç Seti: Hdınsight Spark uygulamalarında uzaktan hata ayıklama | Microsoft Docs"
-description: "Bilgi nasıl Hdınsight araçları Azure Araç Seti Intellij için Hdınsight kümeleri VPN üzerinden çalışan Spark uygulamalarında uzaktan hata ayıklama için kullanın."
+title: 'Intellij için Azure Araç Seti: Hdınsight Spark uygulamalarında uzaktan hata ayıklama | Microsoft Docs'
+description: Bilgi nasıl Hdınsight araçları Azure Araç Seti Intellij için Hdınsight kümeleri VPN üzerinden çalışan Spark uygulamalarında uzaktan hata ayıklama için kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6ca69ccab6c9b526c86f6f7a8998089e52c6c939
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Intellij için Azure Araç Seti uzaktan VPN aracılığıyla hdınsight'ta Spark uygulamalarında hata ayıklama için kullanın
 
@@ -38,7 +36,7 @@ Bu makalede, Hdınsight araçları Azure Araç Seti Intellij için Hdınsight Sp
 * **Bir Azure aboneliği**. Daha fazla bilgi için bkz: [Azure ücretsiz bir deneme sürümünü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Hdınsight'ta bir Apache Spark kümesi**. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 * **Oracle Java Geliştirme Seti**. Şuradan yükleyebilirsiniz [Oracle Web sitesi](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* **IntelliJ IDEA**. Bu makalede sürümünü 2017.1 kullanır. Şuradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
+* **Intellij Idea**. Bu makalede sürümünü 2017.1 kullanır. Şuradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 * **Azure Araç Seti Intellij için Hdınsight Araçları**. Intellij için Hdınsight araçları kullanılabilir Intellij için Azure araç seti bir parçası olarak. Azure araç setini yükleme hakkında yönergeler için bkz: [Intellij için Azure Araç Seti yüklemek](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Oturum açmak için Azure aboneliğinizin Intellij Idea**. ' Ndaki yönergeleri izleyin [Spark Hdınsight kümesi için uygulamalar oluşturmak üzere Intellij için kullanım Azure Araç Seti](apache-spark-intellij-tool-plugin.md).
 * **Özel durum geçici çözüm**. Bir Windows bilgisayarda uzaktan hata ayıklama için Spark Scala uygulaması çalıştırılırken bir özel durum alabilirsiniz. Bu özel durum açıklaması [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) ve Windows'da WinUtils.exe dosyası eksik nedeniyle oluşur. Bu hata olarak çözmek için size gereken [yürütülebilir dosya indirme](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**. Ekleme bir **HADOOP_HOME** ortam değişkeni ve değişkenin değerini ayarlamak **C\WinUtils**.

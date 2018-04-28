@@ -1,6 +1,6 @@
 ---
 title: storage-files-create-clean-up-portal
-description: Azure Dosyaları’nın hızlı başlangıcından sonra temizleme işlemi
+description: Azure Dosyaları’nın hızlı başlangıçlarından sonra temizleyin.
 services: storage
 author: wmgries
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 0efe5b61e2c524142a4e2eee2efdfdbac1d9ff51
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
-İşiniz bittiğinde, kaynak grubunu silerek Azure dosya paylaşımını ve o kaynak grubunun içinde dağıttığınız diğer tüm kaynakları da silebilirsiniz.
+İşiniz bittiğinde, kaynak grubunu silebilirsiniz. Kaynak grubunu silerek depolama hesabını, Azure dosya paylaşımını ve kaynak grubu içinde dağıttığınız diğer tüm kaynakları da silersiniz.
 
-1. Sol menüden **Kaynak grupları**’nı seçin.
-2. Kaynak grubuna sağ tıklayıp **Kaynak grubunu sil**’i seçin. Bir sayfa açılarak, kaynak grubuyla birlikte hangi kaynakların silineceği konusunda sizi uyarır.
-3. Kaynak grubunun adını yazıp **Sil**’e tıklayın.
+1. Soldaki menüden **Kaynak grupları**'nı seçin.
+2. Kaynak grubuna sağ tıklayıp **Kaynak grubunu sil**’i seçin. Bir pencere açılır ve kaynak grubuyla birlikte silinecek kaynaklar hakkında bir uyarı görüntüler.
+3. Kaynak grubunun adını girin ve **Sil**'i seçin.

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure yığınında ayrıcalıklı uç noktası kullanma
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bir Azure yığın operatör olarak, Yönetici portalı'nı, PowerShell veya Azure Resource Manager API'leri en günlük yönetim görevleri için kullanmanız gerekir. Ancak, bazı ortak işlemleri daha az kullanmanız gerekir *ayrıcalıklı endpoint* (CESARETLENDİRİCİ). CESARETLENDİRİCİ gerekli bir görevi gerçekleştirmenize yardımcı olmak için yeterli yetenekleri sağlayan bir önceden yapılandırılmış Uzaktan PowerShell konsoludur. Uç nokta kullanır [PowerShell JEA (yalnızca yeterince yönetim)](https://docs.microsoft.com/en-us/powershell/jea/overview) cmdlet'leri yalnızca sınırlı sayıda kullanıma sunmak için. CESARETLENDİRİCİ erişmek ve kısıtlı bir cmdlet kümesi çağırmak için bir düşük ayrıcalıklı hesap kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmiyor.
+Bir Azure yığın operatör olarak, Yönetici portalı'nı, PowerShell veya Azure Resource Manager API'leri en günlük yönetim görevleri için kullanmanız gerekir. Ancak, bazı ortak işlemleri daha az kullanmanız gerekir *ayrıcalıklı endpoint* (CESARETLENDİRİCİ). CESARETLENDİRİCİ gerekli bir görevi gerçekleştirmenize yardımcı olmak için yeterli yetenekleri sağlayan bir önceden yapılandırılmış Uzaktan PowerShell konsoludur. Uç nokta kullanır [PowerShell JEA (yalnızca yeterince yönetim)](https://docs.microsoft.com/powershell/jea/overview) cmdlet'leri yalnızca sınırlı sayıda kullanıma sunmak için. CESARETLENDİRİCİ erişmek ve kısıtlı bir cmdlet kümesi çağırmak için bir düşük ayrıcalıklı hesap kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmiyor.
 
 Aşağıdaki gibi görevleri gerçekleştirmek için CESARETLENDİRİCİ kullanabilirsiniz:
 
@@ -83,12 +83,12 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
     > [!NOTE]
     > ERCS uç noktasını bağlamak adımları birinci ve ikinci bir ERCS olduğu zaten bağlanmaya çalıştığınız henüz VM IP adresiyle yeniden deneyin.
 
-3.  Bağlandıktan sonra istemi değiştirir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >**ortamına bağlı olarak. Buradan, çalıştırmak `Get-Command` kullanılabilir cmdlet'lerinin listesini görüntülemek için.
+3.  Bağlandıktan sonra istemi değiştirir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >** ortamına bağlı olarak. Buradan, çalıştırmak `Get-Command` kullanılabilir cmdlet'lerinin listesini görüntülemek için.
 
     Bu cmdlet'lerin çoğu yalnızca tümleşik sistemi ortamları (örneğin, veri merkezi tümleştirmesiyle ilgili cmdlet'leri) yöneliktir. Aşağıdaki cmdlet ASDK içinde doğrulandı:
 
     - Clear-ana bilgisayar
-    - Close-PrivilegedEndpoint
+    - Kapat PrivilegedEndpoint
     - Çıkış-PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
@@ -97,7 +97,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
     - Get-Help
     - Get-ThirdPartyNotices
     - Ölçü nesnesi
-    - New-CloudAdminUser
+    - CloudAdminUser yeni
     - Dışarı varsayılan
     - Remove-CloudAdminUser
     - Select-Object
@@ -108,7 +108,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Ayrıcalıklı uç noktası kullanımıyla ilgili ipuçları 
 
-Yukarıda belirtildiği gibi CESARETLENDİRİCİ olan bir [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) uç noktası. Güçlü bir güvenlik katmanı sağlarken JEA endpoint bazı komut dosyası veya sekme tamamlama gibi temel PowerShell özelliklerini azaltır. Komut dosyası işlemi herhangi bir türde çalışırsanız, işlemi şu hata ile başarısız oluyor **ScriptsNotAllowed**. Bu beklenen bir davranıştır.
+Yukarıda belirtildiği gibi CESARETLENDİRİCİ olan bir [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) uç noktası. Güçlü bir güvenlik katmanı sağlarken JEA endpoint bazı komut dosyası veya sekme tamamlama gibi temel PowerShell özelliklerini azaltır. Komut dosyası işlemi herhangi bir türde çalışırsanız, işlemi şu hata ile başarısız oluyor **ScriptsNotAllowed**. Bu beklenen bir davranıştır.
 
 Bu nedenle, örneğin, belirli bir cmdlet için parametre listesini almak için aşağıdaki komutu çalıştırın:
 
@@ -116,7 +116,7 @@ Bu nedenle, örneğin, belirli bir cmdlet için parametre listesini almak için 
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternatif olarak, kullanabileceğiniz [alma-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) yerel makinenizdeki geçerli oturuma tüm CESARETLENDİRİCİ cmdlet'lerini içeri aktarmak için cmdlet. Bunu yaparak, tüm cmdlet'ler ve CESARETLENDİRİCİ işlevlerini artık genel olarak, komut dosyası yerel makinenizde, sekme tamamlama ve daha fazla ile birlikte kullanılabilir. 
+Alternatif olarak, kullanabileceğiniz [alma-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) yerel makinenizdeki geçerli oturuma tüm CESARETLENDİRİCİ cmdlet'lerini içeri aktarmak için cmdlet. Bunu yaparak, tüm cmdlet'ler ve CESARETLENDİRİCİ işlevlerini artık genel olarak, komut dosyası yerel makinenizde, sekme tamamlama ve daha fazla ile birlikte kullanılabilir. 
 
 Yerel makinenizde CESARETLENDİRİCİ oturum içeri aktarmak için aşağıdaki adımları uygulayın:
 

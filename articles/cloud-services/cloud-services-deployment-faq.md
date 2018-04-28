@@ -1,11 +1,11 @@
 ---
-title: "Dağıtım sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure bulut Hizmetleri için dağıtım hakkında sık sorulan sorular listelenmektedir."
+title: Dağıtım sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs
+description: Bu makalede, Microsoft Azure bulut Hizmetleri için dağıtım hakkında sık sorulan sorular listelenmektedir.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için dağıtım sorunlarını: sık sorulan sorular (SSS)
 
@@ -79,4 +79,4 @@ Bulut hizmeti ile Azure Resource Manager modeli doğrudan uyumlu olmayan bir Kla
 
 Klasik Portalı'ndaki paketi yönetim API katmanı doğrudan yüklendi, ve ardından API katmanı geçici olarak paketi bir iç depolama dikkate alın.  Bu işlem, API katmanı dosyası yükleme hizmeti tasarlanmadığı için performans ve ölçeklenebilirlik sorunlarının neden olur.  Azure portalında (Resource Manager dağıtım modeli) daha hızlı ve daha güvenilir dağıtımlarda kaynaklanan biz ilk API katmana karşıya ara adım atlanır. 
 
-Maliyet için çok küçük olursa ve aynı depolama hesabındaki tüm dağıtımlar arasında yeniden kullanabilirsiniz. Kullanabileceğiniz [depolama maliyeti hesaplayıcı](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) (CSPKG) hizmet paketini karşıya yüklemek için maliyet belirlemek için CSPKG karşıdan yükleyin, ardından CSPKG silin. 
+Maliyet için çok küçük olursa ve aynı depolama hesabındaki tüm dağıtımlar arasında yeniden kullanabilirsiniz. Kullanabileceğiniz [depolama maliyeti hesaplayıcı](https://azure.microsoft.com/pricing/calculator/#storage1) (CSPKG) hizmet paketini karşıya yüklemek için maliyet belirlemek için CSPKG karşıdan yükleyin, ardından CSPKG silin. 

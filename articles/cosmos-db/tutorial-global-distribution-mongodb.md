@@ -1,12 +1,11 @@
 ---
-title: "MongoDB API için Azure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
-description: "MongoDB API kullanarak Azure Cosmos DB genel dağıtım Kurulum öğrenin."
+title: MongoDB API’si için Azure Cosmos DB genel dağıtım öğreticisi | Microsoft Docs
+description: MongoDB API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlamayı öğrenin.
 services: cosmos-db
-keywords: "genel dağıtım, MongoDB"
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+keywords: genel dağıtım, MongoDB
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 8bd86c5e66fdf2431e3db12a43e953b022a3770a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Kurulum MongoDB API'sini kullanarak Azure Cosmos DB genel dağıtım yapma
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>MongoDB API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
 
-Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve MongoDB API kullanarak bağlanmak için nasıl kullanılacağını gösterir.
+Bu makalede, Azure portalını kullanarak Azure Cosmos DB genel dağıtımını ayarlama ve sonra MongoDB API’sini kullanarak bağlanma işlemlerinin nasıl yapılacağı gösterilmektedir.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * Genel dağıtım kullanarak yapılandırma [MongoDB API](mongodb-introduction.md)
+> * Azure portalını kullanarak genel dağıtımı yapılandırma
+> * [MongoDB API](mongodb-introduction.md)’sini kullanarak genel dağıtımı yapılandırma
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>MongoDB API kullanarak bölgesel kurulumunuzu doğrulanıyor
-En basit yolu, MongoDB çalıştırmak için genel yapılandırmanızı API içinde denetleme çift *isMaster()* Mongo kabuğunu komutunu.
+## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>MongoDB API’sini kullanarak bölgesel kurulumunuzu doğrulama
+MongoDB API’sindeki genel yapılandırmanızı iki kez denetlemenin en basit yolu, Mongo Kabuğundan *isMaster()* komutunu çalıştırmaktır.
 
-Mongo kabuğunu:
+Mongo Kabuğunuzdan:
 
    ```
       db.isMaster()
    ```
    
-Örnek sonuçları:
+Örnek sonuçlar:
 
    ```JSON
       {
@@ -69,23 +68,23 @@ Mongo kabuğunu:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>MongoDB API kullanarak bir tercih edilen bölge bağlanma
+## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>MongoDB API’sini kullanarak tercih ettiğiniz bir bölgeye bağlanma
 
-MongoDB API genel olarak dağıtılmış bir veritabanı için okuma tercih koleksiyonunuzun belirtmenize olanak sağlar. Her ikisi de düşük gecikme süresi okur ve genel yüksek kullanılabilirlik için koleksiyonunuzun okuma tercih ayarını öneririz *yakın*. Bir okuma tercih *yakın* yakın bölgesinden okumak için yapılandırılır.
+MongoDB API’si, genel olarak dağıtılan bir veritabanı için koleksiyonunuzun okuma tercihini belirtmenize olanak sağlar. Hem düşük gecikmeli okumalar hem de genel yüksek kullanılabilirlik için, koleksiyonunuzun okuma tercihini *en yakın* olarak ayarlamanızı öneririz. En yakın bölgeden okumak için *en yakın* okuma tercihi yapılandırılır.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-Birincil uygulamalarla okuma/bölgeye ve bir ikincil bölge'olağanüstü durum kurtarma (DR) senaryoları yazma için koleksiyonunuzun okuma tercih ayarını öneririz *tercih edilen ikincil*. Bir okuma tercih *tercih edilen ikincil* birincil bölge kullanılamadığında ikincil bölgesinden okumak için yapılandırılır.
+Birincil okuma/yazma bölgesi ve olağanüstü durum kurtarma (DR) senaryoları için ikincil bölge içeren uygulamalar için, koleksiyonunuzun okuma tercihini *ikincil tercih edilen* olarak ayarlamanızı öneririz. Birincil bölgenin kullanılamadığı ikincil bölgeden okumak için *ikincil tercih edilen* okuma tercihi yapılandırılır.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
 ```
 
-Son olarak, el ile almak istiyorsanız okuma bölgeler belirtin. Etiket bölge içinde okuma tercihinizi ayarlayabilirsiniz.
+Son olarak, okuma bölgelerinizi kendiniz belirtmek istiyorsanız. Okuma tercihiniz içinde bölge Etiketini ayarlayabilirsiniz.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -93,17 +92,17 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-Bu, bu öğreticinin tamamlanan kadar. Genel olarak çoğaltılmış hesabınızı tutarlılığını okuyarak yönetmek nasıl öğrenebilirsiniz [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md). Ve Azure Cosmos DB'de nasıl genel veritabanı çoğaltma hakkında daha fazla bilgi çalıştığı için bkz: [Azure Cosmos DB genel verilerle dağıtmak](distribute-data-globally.md).
+Hepsi bu kadar. Böylece bu öğretici tamamlanmış olur. [Azure Cosmos DB’deki tutarlılık düzeyleri](consistency-levels.md) bölümünü okuyarak genel olarak çoğaltılan hesabınızın tutarlılığının nasıl yönetileceğini öğrenebilirsiniz. Ayrıca genel veritabanı çoğaltmasının Azure Cosmos DB’de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Cosmos DB ile verileri genel olarak dağıtma](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * SQL API'lerini kullanarak genel dağıtım yapılandırma
+> * Azure portalını kullanarak genel dağıtımı yapılandırma
+> * SQL API’lerini kullanarak genel dağıtımı yapılandırma
 
-Artık Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğretici devam edebilirsiniz.
+Artık Azure Cosmos DB yerel öykünücüsünü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğreticiye geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Yerel olarak öykünücü ile geliştirme](local-emulator.md)
+> [Öykünücü ile yerel olarak geliştirme](local-emulator.md)

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
@@ -141,7 +141,7 @@ Tüm deneme seçenekleri deneme ortamı ve/veya Azure aboneliği arasında Müş
 |**Etkileşimli Tanıtımı**    |  Kurulum KARMAŞASIZ eylem ürününüzü görmek müşterilerin olanak tanır.       |    Çözümünüzü ve deneme süresi elde etmek için zor olabilir karmaşık kurulum gerektirir.     |
 
 
-#### <a name="free-trial"></a>Ücretsiz deneme
+#### <a name="free-trial"></a>Ücretsiz deneme sürümü
 
 Çözüm ya da uygulama serbest çalışırsanız, SaaS tabanlı deneme önerdiğinde ücretsiz deneme sürümü kullanın. Bu seçenek, iş flywheel başlamanıza yardımcı olması amacıyla ilgilenen müşterilerden, yüksek kaliteli müşteri adayları sürücüleri. Ücretsiz deneme sınırlı kullanım veya sınırlı süre deneme hesapları olarak sunulabilir. Bunlar yazılımınızı Ücretli kullanılacak dönüştürülmesi hızlandırmaya için eylem yapılan bir çağrı içermelidir.
 
@@ -253,7 +253,7 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 
 |**Gereksinim**  | **Ayrıntılar**  |**Yayımlama seçeneği**  |
 |---------|---------|---------|
-|**Ücretsiz deneme süresi ve deneme sürümü deneyimi**     |  Bir müşteri uygulamanızı sınırlı bir süre için ücretsiz kullanmanız mümkün olması gerekir.<br><br>Bu, müşteri lisans veya Abonelik ücretlerinin ürününüzü ya da temel alınan Microsoft birinci taraf ürün veya hizmetle maliyetini tabi olmaz anlamına gelir. Tüm deneme seçenekleri publisher'ın Microsoft Ürün aboneliğine dağıtılan olduğundan yayımcı yalnızca deneme maliyet iyileştirmesi ve yönetim denetler.<br><br>Ücretsiz deneme sürümü, etkileşimli demo seçin veya sürücü testi. Seçtiğiniz öğeye olsun, ücretsiz deneme müşteri uygulaması için ek ücret ödemeden denemek için en az bir süre sağlaması gerekir.<br><br>Sınamayı oluşturma işlemine başlamak için ulaşmak cloudmarketplace@microsoft.com. <br><br>Azure Market SaaS deneme karşılaştığında Not kendi Active Directory iş kimlik bilgileriyle oturum açmasını izin vermeniz gerekir. [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Deneme      | 
+|**Ücretsiz deneme süresi ve deneme sürümü deneyimi**     |  Bir müşteri uygulamanızı sınırlı bir süre için ücretsiz kullanmanız mümkün olması gerekir.<br><br>Bu, müşteri lisans veya Abonelik ücretlerinin ürününüzü ya da temel alınan Microsoft birinci taraf ürün veya hizmetle maliyetini tabi olmaz anlamına gelir. Tüm deneme seçenekleri publisher'ın Microsoft Ürün aboneliğine dağıtılan olduğundan yayımcı yalnızca deneme maliyet iyileştirmesi ve yönetim denetler.<br><br>Ücretsiz deneme sürümü, etkileşimli demo seçin veya sürücü testi. Seçtiğiniz öğeye olsun, ücretsiz deneme müşteri uygulaması için ek ücret ödemeden denemek için en az bir süre sağlaması gerekir.<br><br>Sınamayı oluşturma işlemine başlamak için ulaşmak cloudmarketplace@microsoft.com. <br><br>Azure Market SaaS deneme karşılaştığında Not kendi Active Directory iş kimlik bilgileriyle oturum açmasını izin vermeniz gerekir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Deneme      | 
 | **Kolayca yapılandırılabilir, anahtar teslimi çözümü**    |  Uygulamanızı yapılandırmak ve ayarlamak hızlı ve kolay olmalıdır.       |  Deneme       |
 |**Kullanılabilirlik/açık kalma süresi**    |    SaaS uygulaması veya platform en az % 99,9 çalışma süresi olması gerekir.     |    Deneme     |
 |**Azure Active Directory**    |    Teklifiniz etkin izin ile çoklu oturum açma (SSO) Azure Active Directory (Azure AD) federe izin vermeniz gerekir.      |  Deneme|
@@ -264,7 +264,7 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 |**Gereksinim**  |**Ayrıntılar** |**Yayımlama seçeneği**  |
 |---------|---------|---------|
 |**Faturalama ve ölçümü**    |  Sanal makineniz kendi lisansını Getir veya kullanım tabanlı, aylık faturalama desteklemesi gerekir.       |    İşlem    |
-|**Azure ile uyumlu sanal sabit disk (VHD)**     |   Sanal makineler yerleşik, [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) veya [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   İşlem      |
+|**Azure ile uyumlu sanal sabit disk (VHD)**     |   Sanal makineler yerleşik, [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) veya [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   İşlem      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Önkoşullar belirli danışmanlık hizmetleri yayımlama
 
@@ -277,7 +277,7 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Denemeler etkinleştirmek için Azure Active Directory kullanma
 Azure Active Directory olduğu kimlik doğrulamasına olanak tanıyan bir bulut kimliği hizmeti ile bir Microsoft iş veya Okul hesabı endüstri standardı protokolleri kullanılarak: OAuth ve Openıd Connect. Azure AD hakkında daha fazla bilgi almak [ürün Web sayfası](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft Azure AD ile tüm Market kullanıcıların kimliğini doğrular. Kimliği doğrulanmış bir kullanıcı markette listeleme denemenizi aracılığıyla tıklar ve deneme ortamınıza yönlendirilir, ek bir oturum açma adımı gerek kalmadan doğrudan bir deneme sürümü'nü kullanıcı sağlayabilirsiniz. [Uygulamanızı Azure AD kimlik doğrulama sırasında alan belirteci](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) uygulamanızda bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içerir. Ardından, sağlama deneyimi otomatikleştirmek ve dönüştürme olasılığını artırmak. 
+Microsoft Azure AD ile tüm Market kullanıcıların kimliğini doğrular. Kimliği doğrulanmış bir kullanıcı markette listeleme denemenizi aracılığıyla tıklar ve deneme ortamınıza yönlendirilir, ek bir oturum açma adımı gerek kalmadan doğrudan bir deneme sürümü'nü kullanıcı sağlayabilirsiniz. [Uygulamanızı Azure AD kimlik doğrulama sırasında alan belirteci](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) uygulamanızda bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içerir. Ardından, sağlama deneyimi otomatikleştirmek ve dönüştürme olasılığını artırmak. 
 
 Azure AD kullanarak uygulamanızı veya deneme için tek tıklamayla kimlik doğrulamasını etkinleştirmek için:
 
@@ -292,20 +292,20 @@ Azure AD bugün destekliyorsa:
 
 - Uygulamanızı Azure portalında kaydedin.
 - Çoklu müşteri mimarisi desteği özelliği, bir tek tıklamayla deneme sürümü deneyimi almak için Azure AD'de etkinleştirin.
-- [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).
+- [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 Azure AD Federasyon SSO için yeni varsa:
 
 - Uygulamanızı Azure portalında kaydedin.
-- Azure AD ile SSO kullanarak geliştirmek [Openıd Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) veya [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Azure AD ile SSO kullanarak geliştirmek [Openıd Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) veya [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 - Çoklu müşteri mimarisi desteği özelliği, bir tek tıklamayla deneme sürümü deneyimi almak için Azure AD'de etkinleştirin.
-- [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
 ### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>Market, Azure AD tümleştirme Onayla: tek Kiracı uygulamaları
 
 Tek Kiracı uygulamalar için birden çok seçenek vardır:
 
-- Kullanıcılar, kullanarak Konuk kullanıcılar olarak dizininize eklemek [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Kullanıcılar, kullanarak Konuk kullanıcılar olarak dizininize eklemek [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 - El ile sağlama denemeler kişi Me aracılığıyla müşteriler için
 - Müşteri başına sınamayı geliştirin.
 - SSO çok müşterili örnek bir tanıtım uygulaması oluşturun.
@@ -316,11 +316,11 @@ Office, Dynamics ve Power BI genişletmek AppSource uygulamalar için bu bölüm
 
 |Ürün |Yayımlama bilgileri  |
 |---------|---------|
-|Office 365     |    Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 Finans ve işlemleri  |   İçin Enterprise Edition oluştururken gözden [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 müşteri katılım için |Gözden geçirme [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Hakkında bilgi edinin [AppSource Cortana](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|Office 365     |    Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 Finans ve işlemleri  |   İçin Enterprise Edition oluştururken gözden [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
+|Dynamics 365 müşteri katılım için |Gözden geçirme [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Hakkında bilgi edinin [AppSource Cortana](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
 |AppSource danışmanlık teklifleri     |  Gözden geçirme [yönergeleri ve teklifiniz gönderme öğrenin](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
@@ -522,11 +522,11 @@ Bir şirket hesabı oluştururken, hesap açılan Microsoft hesabı oturum açar
 
 Geliştirici hesabınızda öncelikle Güvenilen bilgisayarlarından erişilmesi. Hesap hafta başına oluşturulan kodlarını sayısına bir sınır olduğundan bu önemlidir. Güvenilen bilgisayar kullanarak, en sorunsuz oturum açma deneyimi sağlar.
 
-Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi için bkz: [bir geliştirici hesabını açma](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi için bkz: [bir geliştirici hesabını açma](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
 
 ### <a name="guidance-for-microsoft-ids-in-an-azure-ad-federated-domain"></a>Bir Azure AD Federasyon etki alanındaki Microsoft IDs Kılavuzu
 
-Şirket hesabınızı üzerinden federe [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/). Şirket e-posta adresiyle a Microsoft ID oluşturmayı denerseniz hata döndürür. İlk olarak bir hata alırsanız, bu durumda olduğundan emin olmak için BT ekibiniz denetleyin. Bu bilinen bir sorundur ve çözümlemek için çalışıyoruz. 
+Şirket hesabınızı üzerinden federe [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Şirket e-posta adresiyle a Microsoft ID oluşturmayı denerseniz hata döndürür. İlk olarak bir hata alırsanız, bu durumda olduğundan emin olmak için BT ekibiniz denetleyin. Bu bilinen bir sorundur ve çözümlemek için çalışıyoruz. 
 
 Geçici bir çözüm olarak, yeni bir e-posta adresi oluşturun olan öneririz @outlook.com etki alanı ve bir kural oluşturun. Şu adımları uygulayın:
 
@@ -562,7 +562,7 @@ Son adımı tamamladıktan sonra Outlook e-posta hesabınıza etki alanınızdak
 5. İçin **hesap türü**seçin **şirket** ve ardından **sonraki** düğmesi.
 
    >[!IMPORTANT]
-   >Hesap türleri ve seçmek için en iyi olduğu daha iyi anlamak için bkz: [hesap türlerini, konumlarını ve ücretleri](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+   >Hesap türleri ve seçmek için en iyi olduğu daha iyi anlamak için bkz: [hesap türlerini, konumlarını ve ücretleri](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 6. İçin **yayımcı görünen adı**, görünen ad (tipik olarak, şirketinizin adı) girin.
 

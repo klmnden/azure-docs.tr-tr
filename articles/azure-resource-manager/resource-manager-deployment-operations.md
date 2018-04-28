@@ -1,32 +1,31 @@
 ---
-title: "Dağıtım işlemlerini Azure Resource Manager ile | Microsoft Docs"
-description: "Portal, PowerShell, Azure CLI ve REST API ile Azure Resource Manager dağıtım işlemlerini görüntülemeyi açıklar."
+title: Dağıtım işlemlerini Azure Resource Manager ile | Microsoft Docs
+description: Portal, PowerShell, Azure CLI ve REST API ile Azure Resource Manager dağıtım işlemlerini görüntülemeyi açıklar.
 services: azure-resource-manager,virtual-machines
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
+ms.date: 04/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26c2c333a97abff75f6b4caefb1e351dea826081
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Görünüm dağıtım işlemlerini Azure Resource Manager ile
 
-
 Azure Portalı aracılığıyla bir dağıtım için işlemleri görüntüleyebilirsiniz. Başarısız olan işlemleri görüntülemek için bu makalede odaklanır şekilde dağıtımı sırasında bir hata aldınız zaman işlemleri içinde görüntüleme en ilgi çekici olabilir. Portal, kolayca hataları bulma ve olası düzeltmeleri belirlemek sağlayan bir arabirim sağlar.
 
-Denetim günlüklerini ya da dağıtım işlemlerini bakarak dağıtımınızı giderebilirsiniz. Bu konuda, her iki yöntem gösterilmektedir. Belirli dağıtım hatalarını çözme konusunda daha fazla yardım için bkz: [kaynakları Azure Azure Resource Manager ile dağıtırken sık karşılaşılan hataları gidermek](resource-manager-common-deployment-errors.md).
+Denetim günlüklerini ya da dağıtım işlemlerini bakarak dağıtımınızı giderebilirsiniz. Bu makalede her iki yöntem gösterilmektedir. Belirli dağıtım hatalarını çözme konusunda daha fazla yardım için bkz: [kaynakları Azure Azure Resource Manager ile dağıtırken sık karşılaşılan hataları gidermek](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
@@ -136,21 +135,19 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
 1. Dağıtımla genel durumunu elde **azure Grup dağıtım Göster** komutu.
 
   ```azurecli
-  azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-  Döndürülen değerlerinden biri **correlationıd değeri**. Bu değer, ilgili olayları izlemek için kullanılır ve bir dağıtım gidermek için teknik destek ile çalışırken yararlı olabilir.
+1. Döndürülen değerlerinden biri **correlationıd değeri**. Bu değer, ilgili olayları izlemek için kullanılır ve bir dağıtım gidermek için teknik destek ile çalışırken yararlı olabilir.
 
   ```azurecli
-  "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-2. Bir dağıtım için işlemleri görmek için kullanın:
+1. Bir dağıtım için işlemleri görmek için kullanın:
 
   ```azurecli
-  azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment operation list -g ExampleGroup -n ExampleDeployment
   ```
 
 ## <a name="rest"></a>REST

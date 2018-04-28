@@ -1,13 +1,13 @@
 ---
-title: "Kullanıcılar Grup tabanlı Azure Active Directory'de lisans kullanarak ürün lisansları arasında güvenli bir şekilde geçirme | Microsoft Docs"
-description: "Grup tabanlı Lisansı kullanılarak kullanıcılar farklı ürün lisansları (Office 365 Kurumsal E1 ve E3) arasında geçirmek için önerilen işlem açıklanır"
+title: Kullanıcılar Grup tabanlı Azure Active Directory'de lisans kullanarak ürün lisansları arasında güvenli bir şekilde geçirme | Microsoft Docs
+description: Grup tabanlı Lisansı kullanılarak kullanıcılar farklı ürün lisansları (Office 365 Kurumsal E1 ve E3) arasında geçirmek için önerilen işlem açıklanır
 services: active-directory
 keywords: Azure AD lisanslama
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 068457044af7af7a55bdbcc4043da3028a68b2d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Kullanıcılar Grup tabanlı lisans kullanarak ürün lisansları arasında güvenli bir şekilde geçirme
 
@@ -27,7 +27,7 @@ Bu makalede, kullanıcıların Grup tabanlı lisans kullanırken ürün lisansla
 
 -   Office 365 Kurumsal E3 ve Office 365 Kurumsal E5 arasında geçiş yapma gibi çakışan hizmet planları içermeyen ürün lisansları arasında basit geçiş.
 
--   Office 365 Kurumsal E1 ve Office 365 Kurumsal E3 arasında geçiş yapma gibi bazı Çakışan hizmeti içeren ürünleri arasında daha karmaşık geçiş planlar. Çakışmaları hakkında daha fazla bilgi için bkz: [çakışan hizmet planları](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) ve [hizmet aynı anda atanamaz planları](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-   Office 365 Kurumsal E1 ve Office 365 Kurumsal E3 arasında geçiş yapma gibi bazı Çakışan hizmeti içeren ürünleri arasında daha karmaşık geçiş planlar. Çakışmaları hakkında daha fazla bilgi için bkz: [çakışan hizmet planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) ve [hizmet aynı anda atanamaz planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Bu makalede, geçirme ve doğrulama adımlarını gerçekleştirmek için kullanılan örnek PowerShell kodu içerir. Kodu nereye adımları el ile gerçekleştirmek için uygun olmadığı büyük ölçekli işlemler için özellikle yararlıdır.
 
@@ -37,7 +37,7 @@ Geçişe başlamadan önce bazı varsayımlarda tüm geçirilecek kullanıcılar
 -   Kullanıcınız *kaynak lisans* grup tabanlı Lisansı kullanılarak atanır. Merkezden taşımak ürün lisansına tek kaynak grubundan devralınır ve doğrudan atanmamış.
 
     >[!NOTE]
-    >Lisansları de doğrudan atanırsa, uygulamayı engelleyebilirsiniz *hedef lisans*. Daha fazla bilgi edinmek [doğrudan ve Grup lisans atamasını](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Kullanmak istediğiniz bir [PowerShell Betiği](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) kullanıcıların doğrudan lisansları olup olmadığını denetlemek için.
+    >Lisansları de doğrudan atanırsa, uygulamayı engelleyebilirsiniz *hedef lisans*. Daha fazla bilgi edinmek [doğrudan ve Grup lisans atamasını](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Kullanmak istediğiniz bir [PowerShell Betiği](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) kullanıcıların doğrudan lisansları olup olmadığını denetlemek için.
 
 -   Hedef ürünü için kullanılabilir yeterli lisans var. Yeterince lisansa sahip değilseniz, bazı kullanıcılar değil alabilirsiniz *hedef lisans*. Yapabilecekleriniz [kullanılabilir lisans sayısını kontrol](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
@@ -54,7 +54,7 @@ Geçiş kullanıcı lisanslarını değiştirmek için Grup tabanlı lisans kull
 
 3.  Kullanıcıları toplu hedef grubuna ekleyin. Grup tabanlı lisans değişimi oluşturan seçer ve atar *hedef lisans*. İşlemi genişletilmiş bir toplu işlem ve diğer etkinlikleri Kiracı boyutuna bağlı olarak zaman miktarı alabilir.
 
-4.  Grup tabanlı lisans kullanıcıları toplu tam olarak işlendiğini doğrulayın. Her kullanıcının olduğunu onaylayın *hedef lisans* atanmış. Kullanıcıların diğer ürünler veya yeterli lisans eksikliği çakışıyor gibi bir hata durumuna karşı karşıya kalırsınız kaydetmedi denetleyin. Hatalar hakkında daha fazla bilgi için bkz: [Active Directory Grup sorunu çözümleme lisans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Grup tabanlı lisans kullanıcıları toplu tam olarak işlendiğini doğrulayın. Her kullanıcının olduğunu onaylayın *hedef lisans* atanmış. Kullanıcıların diğer ürünler veya yeterli lisans eksikliği çakışıyor gibi bir hata durumuna karşı karşıya kalırsınız kaydetmedi denetleyin. Hatalar hakkında daha fazla bilgi için bkz: [Active Directory Grup sorunu çözümleme lisans](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Bu noktada, her ikisi de kullanıcınız *kaynak lisans* ve *hedef lisans* atanmış.
 
@@ -175,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Kullanıcılar çakışan hizmet planları sahip ürünleri arasında geçirme
-Geçiş kullanıcı lisanslarını değiştirmek için Grup tabanlı lisans kullanımını hedeftir bir *kaynak lisans* (Bu örnekte: Office 365 Kurumsal E1) için bir *hedef lisans* (Bu örnekte: Office 365 Kurumsal E3). Kullanıcıların sorunsuz bir şekilde geçirmek için çakışma olarak çözmek alacak şekilde çakışan hizmet planları, bu senaryoda iki ürün içerir. Bu çakışmaları hakkında daha fazla bilgi için bkz: [Active Directory Grup sorunu çözümleme Lisanslama: çakışan hizmet planları](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Geçiş sırasında herhangi bir noktada kullanıcıları Hizmetleri ya da veri erişimi kaybedersiniz. Geçiş küçük "'toplu." gerçekleştirilir Her toplu işlemin sonucu doğrulayın ve işlemi sırasında oluşabilecek sorunları kapsamını en aza indirin. Genel olarak, işlem aşağıdaki gibidir:
+Geçiş kullanıcı lisanslarını değiştirmek için Grup tabanlı lisans kullanımını hedeftir bir *kaynak lisans* (Bu örnekte: Office 365 Kurumsal E1) için bir *hedef lisans* (Bu örnekte: Office 365 Kurumsal E3). Kullanıcıların sorunsuz bir şekilde geçirmek için çakışma olarak çözmek alacak şekilde çakışan hizmet planları, bu senaryoda iki ürün içerir. Bu çakışmaları hakkında daha fazla bilgi için bkz: [Active Directory Grup sorunu çözümleme Lisanslama: çakışan hizmet planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Geçiş sırasında herhangi bir noktada kullanıcıları Hizmetleri ya da veri erişimi kaybedersiniz. Geçiş küçük "'toplu." gerçekleştirilir Her toplu işlemin sonucu doğrulayın ve işlemi sırasında oluşabilecek sorunları kapsamını en aza indirin. Genel olarak, işlem aşağıdaki gibidir:
 
 1.  Kullanıcılar bir kaynak grubunun bir üyesidir ve bunlar devralır *kaynak lisans* o gruptan.
 
@@ -183,7 +183,7 @@ Geçiş kullanıcı lisanslarını değiştirmek için Grup tabanlı lisans kull
 
 3.  Kullanıcıları toplu hedef grubuna ekleyin. Grup tabanlı lisans değişimi oluşturan seçer ve atamak çalışır *hedef lisans*. Bu iki ürün Hizmetleri'nde arasındaki çakışmaları nedeniyle ataması başarısız olur. Grup tabanlı lisans hatası her kullanıcı bir hata olarak kaydeder. İşlemi genişletilmiş bir toplu işlem ve diğer etkinlikleri Kiracı boyutuna bağlı olarak zaman miktarı alabilir.
 
-4.  Grup tabanlı lisans kullanıcıları toplu tam olarak işlendiğini doğrulayın. Her kullanıcının kaydedilen çakışma hata olduğunu onaylayın. Bazı kullanıcılar bir beklenmeyen bir hata durumunda şunun kaydetmedi denetleyin. Hatalar hakkında daha fazla bilgi için bkz: [Active Directory Grup sorunu çözümleme lisans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Grup tabanlı lisans kullanıcıları toplu tam olarak işlendiğini doğrulayın. Her kullanıcının kaydedilen çakışma hata olduğunu onaylayın. Bazı kullanıcılar bir beklenmeyen bir hata durumunda şunun kaydetmedi denetleyin. Hatalar hakkında daha fazla bilgi için bkz: [Active Directory Grup sorunu çözümleme lisans](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Bu noktada, kullanıcıların çözümlenmedi *kaynak lisans* ve bir çakışma hata için *hedef lisans*. Kullanıcılara henüz yok *hedef lisans* atanmış.
 
@@ -317,7 +317,7 @@ Bu bölümde, bu makalede açıklanan komut dosyalarını çalıştırmak için 
 >[!WARNING]
 >Bu kod örneği tanıtım amacıyla sağlanır. Ortamınızda kullanmak istiyorsanız, küçük bir ölçekte veya ayrı bir test Kiracı kodu ilk test göz önünde bulundurun. Ortamınıza özel ihtiyaçlarını karşılamak için kodu ayarlamanız gerekebilir.
 
-Kod yürütmek için konusundaki yönergeleri kullanın [Azure AD PowerShell v1.0 kitaplıkları](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Komut dosyasını çalıştırmadan önce çalıştırmak `connect-msolservice` cmdlet'ini Kiracı için oturum açın.
+Kod yürütmek için konusundaki yönergeleri kullanın [Azure AD PowerShell v1.0 kitaplıkları](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Komut dosyasını çalıştırmadan önce çalıştırmak `connect-msolservice` cmdlet'ini Kiracı için oturum açın.
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

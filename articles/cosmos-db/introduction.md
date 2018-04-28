@@ -2,9 +2,8 @@
 title: Azure Cosmos DB’ye Giriş | Microsoft Belgeleri
 description: Azure Cosmos DB hakkında bilgi edinin. Bu genel olarak dağıtılan çok modelli veritabanı; düşük gecikme süresi, esnek ölçeklenebilirlik ve yüksek kullanılabilirlik için oluşturulmuştur.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 04/08/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -36,7 +35,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
 * **Anahtar teslimi genel dağıtım**
     * [Tek bir düğmeye tıklayarak](tutorial-global-distribution-sql-api.md) istediğiniz kadar çok [Azure bölgesine](https://azure.microsoft.com/regions/) [verilerinizi dağıtabilirsiniz](distribute-data-globally.md). Bu, verilerinizi kullanıcılarınızın bulunduğu yere yerleştirerek müşterileriniz için mümkün olan en düşük gecikme süresini sağlamanıza olanak tanır. 
     * Azure Cosmos DB'nin çok girişli API'lerini kullanarak, uygulama her zaman en yakın bölgenin yerini bilir ve istekleri en yakın veri merkezine gönderir. Bunların tümü yapılandırma değişikliğine gerek kalmadan yapılabilir. Yazma bölgenizi ve istediğiniz kadar çok okuma bölgesini ayarlarsınız, kalan işlemler sizin yerinize yapılır.
-    * Cosmos DB veritabanınıza bölgeleri ekleyip kaldırırken uygulamanızın yeniden dağıtılması gerekmez ve birden çok girişli API özelliği sayesinde üst düzeyde kullanılabilir olmaya devam eder.
+    * Azure Cosmos DB veritabanınıza bölgeleri ekleyip kaldırırken uygulamanızın yeniden dağıtılması gerekmez ve birden çok girişli API özelliği sayesinde üst düzeyde kullanılabilir olmaya devam eder.
 
 * **Çoklu veri modelleri ve verilere erişim ile veri sorgulamaya yönelik popüler API’ler**
     * Azure Cosmos DB'nin üzerine yapılandırıldığı ve atom kayıt sırasını (ARS) temel alan veri modeli; belge, grafik, anahtar-değer, tablo ve sütun ailesi veri modelleri de dahil olmak üzere ancak bunlarla sınırlı kalmamak kaydıyla birçok veri modelini yerel olarak destekler.
@@ -46,7 +45,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
         * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB platformu tarafından desteklenen, genel olarak dağıtımı yapılan bir Hizmet olarak Cassandra. Mevcut [Apache Cassandra](https://cassandra.apache.org/) kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
         * [Graph (Gremlin) API](graph-introduction.md): Open Graph API'leri desteğine sahip üst düzeyde bağlantılı veri kümeleriyle çalışan uygulamaların oluşturulmasını ve çalıştırılmasını kolaylaştıran, tümüyle yönetilen ve yatay olarak ölçeklenebilen graf veritabanı hizmeti ([Apache TinkerPop belirtimi](http://tinkerpop.apache.org/), Apache Gremlin temelinde).
         * [Tablo API](table-introduction.md): Hiçbir uygulama değişikliği yapmadan mevcut Azure Tablosu uygulamalarına üstün özellikler (örneğin, otomatik dizin oluşturma, garantili düşük gecik süresi, genel dağıtım) sağlamak için tasarlanan bir anahtar-değer veritabanı hizmeti.
-        * Çok yakında başka veri modelleri de sağlanacaktır!
+        * Çok yakında başka veri modelleri ve API’ler de kullanıma sunulacaktır!
 
 * **Aktarım hızı ve depolamayı dünyanın dört bir yanında, talep üzerine esnek ve bağımsız bir şekilde ölçeklendirin**
     * Veritabanı aktarım hızını [saniye başına](request-units.md) ayrıntı düzeyinde kolayca ölçeklendirin ve dilediğiniz zaman değiştirin. 
@@ -65,7 +64,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
     * İyi tanımlanmış, pratik ve sezgisel beş [tutarlılık modeli](consistency-levels.md), rahatlatılmış NoSQL benzeri nihai tutarlılığa kadar giden ve aradaki her şeyi içeren, güçlü SQL benzeri tutarlılık spektrumu sağlar. 
   
 * **Para iadesi garantisi**
-    * Görev açısından kritik verileriniz için kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılıkla ilgili, mali olarak desteklenen, endüstri lideri ve kapsamlı [hizmet düzeyli sözleşmeleri](https://aka.ms/acdbsla). 
+    * Görev açısından kritik verileriniz için kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılıkla ilgili, endüstri lideri, mali olarak desteklenen, ve kapsamlı [hizmet düzeyli sözleşmeleri](https://aka.ms/acdbsla) (SLA’lar). 
 
 * **Veritabanı şema/dizin yönetimi yok**
     * Veritabanı şeması ve/veya dizin yönetimi konusunda kaygılanmadan uygulamanızın şemasını hızla yineleyin.
@@ -77,7 +76,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
 
 ## <a name="capability-comparison"></a>Özellik karşılaştırması
 
-Azure Cosmos DB, ilişkisel ve ilişkisel olmayan veritabanlarının en iyi özelliklerini sağlar.
+Azure Cosmos DB, geleneksel ilişkisel ve ilişkisel olmayan veritabanlarının en iyi özelliklerini sağlar.
 
 | Özellikler | İlişkisel veritabanları   | İlişkisel olmayan (NoSQL) veritabanları |    Azure Cosmos DB |
 | --- | --- | --- | --- |

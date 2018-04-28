@@ -3,17 +3,17 @@ title: Azure kapsayıcı kayıt defteri ile kimlik doğrulaması
 description: Azure Active Directory dahil olmak üzere bir Azure kapsayıcı kayıt defteri için kimlik doğrulama seçenekleri ilkeleri doğrudan ve kayıt defteri oturum açma hizmeti.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c8fcebae21d73db75e19bd1091faa8f389f0ba40
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Bir özel Docker kapsayıcısı kayıt defteri ile kimlik doğrulaması
 

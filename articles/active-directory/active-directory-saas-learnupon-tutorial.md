@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile LearnUpon | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile LearnUpon arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile LearnUpon | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile LearnUpon arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 40e6df0db7651488642e774512f55fbd6805809a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2796f280b2f95504be5f9691098bff07fdd93393
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Öğretici: Azure Active Directory Tümleştirme LearnUpon ile
 
@@ -31,7 +31,7 @@ LearnUpon Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme LearnUpon ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,14 +110,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.learnupon.com/saml/consumer`
+    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE] 
     > Lütfen bu gerçek değer olmadığını unutmayın. Bu değer ile gerçek yanıt URL'si güncelleştirmeniz gerekir. Bu değer kişi almak için [LearnUpon destek ekibi](https://www.learnupon.com/features/support/).
 
 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (ham)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde, bulun **parmak izi** -bu LearnUpon SAML ayarlarınızı eklenir.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
@@ -165,7 +165,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     a. İçinde **ilk ad tanımlayıcısı biçimi** metin kutusuna, bize, SAML onayı burada kullanıcılar firstname içinde söyler değerin bulunduğu - örneğin türü: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
-    b. İçinde **son ad tanımlayıcısı biçimi** metin kutusuna, bize, SAML onayı burada kullanıcılar lastname içinde söyler değerin bulunduğu - örneğin türü: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
+    b. İçinde **son ad tanımlayıcısı biçimi** metin kutusuna, bize, SAML onayı burada kullanıcılar lastname içinde söyler değerin bulunduğu - örneğin türü: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -200,7 +200,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-learnupon-test-user"></a>LearnUpon test kullanıcısı oluşturma
 

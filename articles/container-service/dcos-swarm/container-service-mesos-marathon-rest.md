@@ -1,25 +1,25 @@
 ---
-title: "Azure DC/OS kümesi Marathon REST API ile yönetme"
-description: "Marathon REST API kullanarak Azure kapsayıcı hizmeti DC/OS kümesine kapsayıcıları dağıtın."
+title: Azure DC/OS kümesi Marathon REST API ile yönetme
+description: Marathon REST API kullanarak Azure kapsayıcı hizmeti DC/OS kümesine kapsayıcıları dağıtın.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS Marathon REST API'si aracılığıyla kapsayıcı Yönetimi
 
 DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır. Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgenin oluşturma ve Marathon REST API'sini kullanarak kapsayıcı dağıtımlarını ölçeklendirme başlamanızı sağlar. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapılandırılan bir DC/OS kümeniz olması gerekir. Bu kümeye uzaktan bağlantınız olması da gerekir. Bu öğeler hakkında daha fazla bilgi için, aşağıdaki makalelere bakın:
 
@@ -27,7 +27,7 @@ Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapı
 * [Azure Container Service kümesine bağlanma](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>DC/OS API'lere erişim
-Azure Kapsayıcı Hizmeti kümesine bağlandıktan sonra, DC/OS’ye ve ilgili REST API’lerine http://localhost:local-port aracılığıyla erişebilirsiniz. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları URI'ler erişilebildiğini itibaren `http://localhost/marathon/v2/`. 
+Azure kapsayıcı hizmeti kümesine bağlandıktan sonra DC/OS ve ilgili REST API'leri aracılığıyla erişebilirsiniz http://localhost:local-port. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları URI'ler erişilebildiğini itibaren `http://localhost/marathon/v2/`. 
 
 Çeşitli API'ler hakkında daha fazla bilgi için, [Marathon API’si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API’si](https://mesos.github.io/chronos/docs/api.html) için Mesosphere belgelerine ve [Mesos Scheduler API’si](http://mesos.apache.org/documentation/latest/scheduler-http-api/) için Apache belgelerine bakın.
 
@@ -120,7 +120,7 @@ Nginx server çıktısı aşağıdakine benzer:
 Tünel bağlantısından uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın.
 
 > [!NOTE]
-> URI, http://localhost/marathon/v2/apps/ şeklinde olur ve ardından ölçeklendirilecek uygulamanın kimliği gelir. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http://localhost/marathon/v2/apps/nginx şeklinde olacaktır.
+> URI http://localhost/marathon/v2/apps/ ölçeklendirilecek uygulamanın kimliği tarafından izlenen. Burada, URI olacaktır sunulan Nginx örneğini kullanıyorsanız, http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -179,7 +179,7 @@ Marathon API’sini uygulama dağıtımlarının ölçeğini genişletmek ve öl
 Uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın:
 
 > [!NOTE]
-> URI, http://localhost/marathon/v2/apps/ şeklinde olur ve ardından ölçeklendirilecek uygulamanın kimliği gelir. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http://localhost/marathon/v2/apps/nginx şeklinde olacaktır.
+> URI http://localhost/marathon/v2/apps/ ölçeklendirilecek uygulamanın kimliği tarafından izlenen. Burada sağlanan Nginx örneğini kullanıyorsanız, URI olacaktır http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 

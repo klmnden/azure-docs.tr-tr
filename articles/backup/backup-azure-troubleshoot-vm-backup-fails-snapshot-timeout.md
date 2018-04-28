@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -63,7 +63,8 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermiyor yedekleme başarısız olur
 
-Hata iletisi: "VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor"
+Hata iletisi: "VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor" <br>
+Hata kodu: "GuestAgentSnapshotTaskStatusError"
 
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
 **1. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -72,7 +73,8 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 
 ## <a name="backup-fails-with-an-internal-error"></a>Bir iç hata ile yedekleme başarısız oluyor
 
-Hata iletisi: "Yedekleme bir iç hatayla başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin"
+Hata iletisi: "Yedekleme bir iç hatayla başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin" <br>
+Hata kodu: "BackUpOperationFailed" / "BackUpOperationFailedV2"
 
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
 **1. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
@@ -97,6 +99,8 @@ Sorunu çözmek için aşağıdaki yöntemlerden birini deneyin:
 Kullanabileceğiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) belirli bölgenin depolama bağlantılara izin vermek için. Depolama hesabına erişim izni veren Kuralı Internet erişimi engeller kural daha yüksek önceliğe sahip olduğundan emin olun. 
 
 ![Bir bölge için depolama etiketlerle ağ güvenlik grubu](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Servis etiketlerini yapılandırmak için adım adım yordam anlamak için izleme [bu videoyu](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > Depolama hizmet etiketleri önizlemede. Bunlar yalnızca belirli bölgelerde kullanılabilir. Bölgelerin bir listesi için bkz: [hizmet depolama için etiketler](../virtual-network/security-overview.md#service-tags).

@@ -1,19 +1,19 @@
 ---
-title: "Azure IOT Edge saydam ağ geçidi aygıtı oluştur | Microsoft Docs"
-description: "Birden çok aygıt için bilgileri işleyebilir saydam ağ geçidi aygıtı oluşturmak için Azure IOT kenar kullanın"
+title: Azure IOT Edge saydam ağ geçidi aygıtı oluştur | Microsoft Docs
+description: Birden çok aygıt için bilgileri işleyebilir saydam ağ geçidi aygıtı oluşturmak için Azure IOT kenar kullanın
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0378cb2964a496a2bfe5a0bc08296cbab462a409
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Saydam bir ağ geçidi olarak davranan bir IOT sınır cihazı oluşturma - Önizleme
 
@@ -73,10 +73,10 @@ Powershell örneği kullanabilirsiniz ve Bash betiklerini açıklanan [yönetme 
 
 ### <a name="bash"></a>Bash
 
-Yeni aygıt sertifika oluşturun:
+Yeni aygıt sertifika oluşturun.  **SAĞLAMADIĞI** adı `myGatewayCAName` ağ geçidi ana bilgisayarın adıyla aynı olmalıdır.  Bunun yapılması, istemci sertifikası bu sertifikaları başarısız olmasına karşı neden olur.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate myGateway
+   ./certGen.sh create_edge_device_certificate myGatewayCAName
    ```
 
 Yeni dosyalar oluşturulur:.\certs\new-edge-device.* PFX ve ortak anahtar içerir ve.\private\new-edge-device.key.pem cihazın özel anahtarı içerir.
@@ -84,6 +84,7 @@ Yeni dosyalar oluşturulur:.\certs\new-edge-device.* PFX ve ortak anahtar içeri
 İçinde `certs` dizin, aygıt ortak anahtarı tam zincirine almak için aşağıdaki komutu çalıştırın:
 
    ```bash
+   cd ./certs
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
@@ -116,11 +117,11 @@ IOT kenar çalışma zamanı için cihaz ve sertifika bilgileri sağlar.
 Linux Bash çıkış kullanma:
 
    ```bash
-   sudo iotedgectl setup --connection-string {device connection string}
-        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
-        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+   sudo iotedgectl setup --connection-string {device connection string} \
+        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com} \
+        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem \
+        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem \
+        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem \
         --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
    ```
 

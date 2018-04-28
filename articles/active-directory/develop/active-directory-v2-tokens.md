@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory v2.0 belirteçler başvurusu | Microsoft Docs"
-description: "Azure AD v2.0 uç noktası tarafından gösterilen talep ve belirteç türleri"
+title: Azure Active Directory v2.0 belirteçler başvurusu | Microsoft Docs
+description: Azure AD v2.0 uç noktası tarafından gösterilen talep ve belirteç türleri
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
 Azure Active Directory (Azure AD) v2.0 uç her güvenlik belirteçleri çeşitli türlerde yayar [kimlik doğrulaması akışı](active-directory-v2-flows.md). Bu başvuru biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklar.
@@ -49,7 +49,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> Uygulama için örnek kimliği belirtecinizdeki talepleri incelemek için örnek kimliği belirtece Yapıştır [calebb.net](http://calebb.net/).
+> Uygulama için örnek kimliği belirtecinizdeki talepleri incelemek için örnek kimliği belirtece Yapıştır [jwt.ms](http://jwt.ms/).
 >
 >
 
@@ -57,12 +57,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Belirtecin hedeflenen alıcı tanımlar. Kimliği belirteçlerinde İzleyici uygulamanızın uygulama Microsoft uygulaması kayıt portalında uygulamanıza atanan kimliğidir. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme gerekir. |
-| issuer |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndüren güvenlik belirteci hizmeti (STS) tanımlar. Uygulamanızı belirteç v2.0 uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. Bu aynı zamanda talep GUID bölümünü uygulamaya oturum açarak kiracılar sınırlamak için kullanmanız gerekir. Kullanıcı bir Microsoft hesabı tüketici kullanıcıdan geldiğini belirten GUID'dir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Veren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndüren güvenlik belirteci hizmeti (STS) tanımlar. Uygulamanızı belirteç v2.0 uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. Bu aynı zamanda talep GUID bölümünü uygulamaya oturum açarak kiracılar sınırlamak için kullanmanız gerekir. Kullanıcı bir Microsoft hesabı tüketici kullanıcıdan geldiğini belirten GUID'dir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | çıkışı |`iat` |`1452285331` |Belirteç düzenlendiği zaman dönem saatle gösterilir. |
 | süre sonu |`exp` |`1452289231` |Hangi belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | önce değil |`nbf` |`1452285331` |Hangi belirtecin geçerli olduğu zaman dönem saatle gösterilir. Genellikle verme süresi ile aynı değil. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | sürüm |`ver` |`2.0` |Azure AD tarafından tanımlandığı şekilde kimliği belirteci sürümü. V2.0 uç noktası için değerdir `2.0`. |
-| Kiracı kimliği |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Kullanıcı bulunan Azure AD kiracısı temsil eden bir GUID. İş ve Okul hesapları için, kullanıcının ait olduğu kuruluşun değişmez Kiracı kimliği GUID'dir. Kişisel hesaplar için değerdir `9188040d-6c67-4c5b-b112-36a304b66dad`. `profile` Kapsam bu talebi almak için gereklidir. |
+| kiracı kimliği |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Kullanıcı bulunan Azure AD kiracısı temsil eden bir GUID. İş ve Okul hesapları için, kullanıcının ait olduğu kuruluşun değişmez Kiracı kimliği GUID'dir. Kişisel hesaplar için değerdir `9188040d-6c67-4c5b-b112-36a304b66dad`. `profile` Kapsam bu talebi almak için gereklidir. |
 | kod karma |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca bir OAuth 2.0 yetkilendirme koduyla kimliği belirteç kodu karma kimliği belirteçleri dahil edilir. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz: [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html). |
 | erişim belirteci karma |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca zaman kimliği belirteci bir OAuth 2.0 erişim belirteci ile verilen belirteç karma Kodunda yer alan erişim belirteçleri. Bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz: [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html). |
 | nonce |`nonce` |`12345` |Nonce belirteç yeniden yürütme saldırılarını Azaltıcı stratejidir. Uygulamanızı bir nonce bir yetkilendirme isteği kullanarak belirtebilirsiniz `nonce` sorgu parametresi. İstekte sağladığınız değerin kimliği belirtecinin yayılan `nonce` değiştirilmemiş talep. Uygulamanızı değeri uygulamanın oturumunu belirli bir kimliği belirteciyle ilişkilendirir istekte belirtilen değerle karşılaştırarak doğrulayın. Uygulamanız bu doğrulama kimliği belirteci doğrulama işlemi sırasında gerçekleştirmeniz gerekir. |
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Nesne Kimliği |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Microsoft kimlik sistemi, bu durumda, bir kullanıcı hesabı nesnesi için değişmez tanımlayıcısı.  Ayrıca, veritabanı tablolarında güvenle ve bir anahtar olarak yetkilendirme denetimleri gerçekleştirmek için de kullanılabilir. Bu kimliği kullanıcı uygulamalar arasında benzersiz şekilde tanımlar.-aynı kullanıcı imzalama iki farklı uygulamaları, aynı değeri alacak `oid` talep.  Başka bir deyişle, bu sorguları Microsoft Graph gibi Microsoft online Services yaparken kullanılabilir.  Microsoft Graph bu kimliği olarak döndürülecek `id` özelliği için belirtilen kullanıcı hesabı.  Çünkü `oid` kullanıcılar ilişkilendirmek birden fazla uygulama verir `profile` kapsamı bu talebi almak için gereklidir. Tek bir kullanıcı birden fazla kiracılar varsa, kullanıcının her bir kiracı farklı nesne Kimliğinde içerecek Not - kullanıcı kimlik bilgileriyle her bir hesaba oturum olsa bile farklı hesaplar kabul edilir. |
 
 ### <a name="access-tokens"></a>Erişim belirteçleri
-Şu anda v2.0 uç noktası tarafından verilen erişim belirteçleri, yalnızca Microsoft Services tarafından kullanılabilecek. Uygulamalarınızı herhangi bir doğrulama veya denetleme erişim belirteçlerinin herhangi biri şu anda desteklenen senaryoları için gerçekleştirmeniz gerekmez. Erişim belirteci olarak tamamen opak davranabilirsiniz. Bunlar, uygulamanızın HTTP isteklerine Microsoft'a iletebilirsiniz yalnızca dizelerdir.
 
-Yakın gelecekte v2.0 uç diğer istemcilerden erişim belirteçleri almak üzere uygulamanızı yeteneği tanıtılacaktır. O anda bu referans konu başlığı altındaki bilgiler, uygulamanız erişim belirteci doğrulama ve benzer diğer görevleri gerçekleştirmek gereken bilgilerle güncelleştirilir.
+V2.0 uç noktası için Web API'leri gibi güvenli kaynaklara erişim belirteçlerini vermek için Azure AD ile kayıtlı üçüncü taraf uygulamalar sağlar. Uygulamaya erişim belirteçlerini vermek için ayarlama hakkında daha fazla bilgi için lütfen bkz [v2.0 uç noktası ile bir uygulama nasıl](active-directory-v2-app-registration.md). Uygulamanın v2.0 uç noktası ile kayıt sırasında geliştirici olarak adlandırılan erişim düzeyleri belirleyebilir **kapsamları**, erişim belirteçleri verilebilir. Örneğin, **calendars.read** Microsoft Graph API içinde tanımlanan kapsamı kullanıcının Takvim okuma izni verir. Uygulamanız v2.0 uç noktasından bir erişim belirteci aldığında, senaryonuza bağlı olarak belirtecin imza, veren, İzleyici, sona erme zamanı ve herhangi bir talep doğrulamanız gerekir. 
 
 Bir erişim belirteci v2.0 uç noktasından istediğinde v2.0 uç de kullanmak, uygulamanız için erişim belirtecini hakkındaki meta verileri döndürür. Bu bilgiler erişim belirteci kapsamlar için geçerlidir ve sona erme saati içerir. Uygulamanız bu meta veriler akıllı erişim belirteçleri açık ayrıştırmak zorunda kalmadan erişim belirteci önbelleğe alma işlemi için kullanır.
 

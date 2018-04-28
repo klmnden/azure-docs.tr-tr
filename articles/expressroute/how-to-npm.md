@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Ağ Performansı İzleyicisi ExpressRoute için yapılandırma
 
@@ -73,7 +73,7 @@ ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalış
 1. İçinde [Azure portal](https://portal.azure.com), sanal ağlar sahip aboneliği seçin, expressroute bağlantı hattı eşlenen. Hizmet listesini arama **Market** 'Ağ Performans İzleyicisi'. Return açmak için tıklatın **Ağ Performansı İzleyicisi** sayfası.
 
    >[!NOTE]
-   >Yeni bir çalışma alanı oluşturun veya varolan bir çalışma alanını kullanın.  Varolan bir çalışma alanı kullanmak isterseniz, yeni sorgu dili çalışma geçirildiğinden emin olun gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Yeni bir çalışma alanı oluşturun veya varolan bir çalışma alanını kullanın.  Varolan bir çalışma alanı kullanmak isterseniz, yeni sorgu dili çalışma geçirildiğinden emin olun gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağ
   >
   
   >[!NOTE]
-  >Aracıları SCOM tarafından gönderilen (içeren [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) Azure üzerinde barındırılıyorsa tutarlı bir şekilde kendi konumunu algılayabilir olmayabilir.  Bu aracıları Azure Vnet'lerde ExpressRoute izlemek için kullanmamanızı öneririz.
+  >Aracıları SCOM tarafından gönderilen (içeren [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) Azure üzerinde barındırılıyorsa tutarlı bir şekilde kendi konumunu algılayabilir olmayabilir.  Bu aracıları Azure Vnet'lerde ExpressRoute izlemek için kullanmamanızı öneririz.
   >
   >
 

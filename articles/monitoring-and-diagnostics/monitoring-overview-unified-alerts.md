@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Azure İzleyicisi'nde yeni uyarılar deneyimi
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 Yeni deneyimi uyarılar var. Deneyimidir şimdi uyarılar (Klasik) sekmesi altında eski uyarılar. Yeni uyarılar deneyimi uyarıları (Klasik) deneyimi aşağıdaki faydaları vardır:
 
--   **Daha iyi bildirim sistemi**: tüm yeni Uyarıları kullanmak [Eylem grupları]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), bildirimler ve birden çok uyarıları yeniden kullanılabilir eylemler grupları denir.  Klasik ölçüm uyarıları ve eski günlük analizi uyarıları Eylem grupları kullanmayın. 
+-   **Daha iyi bildirim sistemi**: tüm yeni Uyarıları kullanmak [Eylem grupları]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), bildirimler ve birden çok uyarıları yeniden kullanılabilir eylemler grupları denir.  Klasik ölçüm uyarıları ve eski günlük analizi uyarıları Eylem grupları kullanmayın. 
 - **Bir birleşik yazma deneyimi** - tüm oluşturma için ölçümleri, uyarı günlükleri ve etkinlik oturum Azure monitöre günlük analizi ve Application Insights içinde bir yerdir. 
 - **Görünüm harekete Azure Portal'da günlük analizi uyarılarını** -Ayrıca bkz: günlük analizi uyarılar aboneliğinizde harekete artık şunları yapabilirsiniz. Daha önce bu ayrı bir portal yoktu. 
 - **Fired uyarıları ve uyarı kuralları ayrılması** - uyarı kuralları (bir uyarıyı tetikleyen koşulu tanımı) ve tetiklenen uyarıları (uyarı kuralı tetikleme örneğini) Ayrıştırılan, işletimsel ve yapılandırma görünümleri ayrılmış şekilde.
@@ -77,7 +77,7 @@ Uyarıları deneyimi tüm Azure uyarıları görüntülemek ve yönetmek için t
 > [!NOTE]
 > Uyarıları'nda gösterilen Mazotlu uyarıları desteklenen ölçüm ve etkinlik günlüğü uyarıları sınırlıdır; Azure İzleyiciye Genel Bakış eski Azure uyarıları de dahil Mazotlu uyarıları sayısını gösterir
 
- ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
+ ![Uyarılar genel bakış](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### <a name="alert-rules-management"></a>Uyarı kuralları Yönetimi
 **İzleyici - uyarıları > kuralları** tüm uyarı kuralları, Azure Aboneliklerini yönetmek için tek bir sayfadır. (Etkin veya devre dışı) tüm uyarı kurallarını listeler ve hedef kaynak, kaynak grupları, kural adı veya durum göre sıralanabilir. Uyarı kuralları da devre dışı ve etkin veya bu sayfadan düzenlenemez.  
@@ -104,7 +104,7 @@ Uyarıları hizmetlerini izleme birkaç Azure kullanılabilir. Hakkında bilgi e
 | **Sinyal türü** | **Kaynağı izle** | **Açıklama** | 
 |-------------|----------------|-------------|
 | Ölçüm | Azure İzleyicisi | Olarak da bilinir [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md), ölçüm koşulları 1 dakika olarak sık değerlendiriliyor destekler ve birden çok ölçüm ve çok boyutlu ölçüm kuralları için izin. Desteklenen kaynak türleri listesi kullanılabilir [burada](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Ölçüm | Azure İzleyicisi | [Eski classic ölçüm uyarıları](monitoring-overview-alerts.md) yeni uyarılar deneyimi desteklenmez. Bunları Azure portalında uyarılar (Klasik) altında bulabilirsiniz. Klasik uyarıları henüz yeni uyarılar taşınmamış olan bazı ölçümleri türleri desteklemez. Tam listesi için bkz: [ölçümleri desteklenen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| Ölçüm | Azure İzleyicisi | [Eski classic ölçüm uyarıları](monitoring-overview-alerts.md) yeni uyarılar deneyimi desteklenmez. Bunları Azure portalında uyarılar (Klasik) altında bulabilirsiniz. Klasik uyarıları henüz yeni uyarılar taşınmamış olan bazı ölçümleri türleri desteklemez. Tam listesi için bkz: [ölçümleri desteklenen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
 | Günlükler  | Log Analytics | Bildirimleri almak veya bir günlük arama sorgusu ölçüm ve/veya olay veriler üzerinde belirli ölçütleri karşıladığında otomatik eylemler çalıştırın. Eski günlük analizi uyarılar hala kullanılabilir, ancak [yeni deneyim halinde kopyalanmasını](monitoring-alerts-extend.md). Ayrıca, bir [, Önizleme *günlük analizi günlüklerini ölçümleri* ](monitoring-alerts-extend-tool.md) kullanılabilir. Önizleme günlükleri bazı türleri almak ve bunları burada, ardından yeni bir uyarı deneyim kullanarak üzerlerinde uyarabilir ölçümlere dönüştürmek sağlar. Önizleme yanı sıra yerel Azure İzleyici ölçümleri almak istediğiniz Azure olmayan günlükleri varsa faydalıdır. |
 | Etkinlik Günlüğü | Etkinlik günlükleri (Genel) | Seçili hedef (kaynak/kaynak grubu/abonelik) gerçekleştirilen tüm oluşturma, güncelleştirme ve silme eylemlerini kayıtları içerir. |
 | Etkinlik Günlüğü  | Hizmet Durumu | Yeni uyarılar deneyimi desteklenmiyor. Bkz: [etkinlik günlüğü uyarı hizmeti bildirimlerinin oluşturma](monitoring-activity-log-alerts-on-service-notifications.md).  |

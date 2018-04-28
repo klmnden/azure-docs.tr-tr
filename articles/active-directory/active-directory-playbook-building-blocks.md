@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/29/2018
 | **Kimlik mimarisi / geliştirme ekibi** | Bu genellikle çözümü tasarlarken, prototipleri uygulayan, onayları sürücüler ve son olarak kapatmak için işlemleri aktarır bir Ekiptir | Ortamlar sağlarlar ve olanları yönetilebilirlik açısından farklı senaryolar değerlendirme |
 | **Şirket içi kimlik işletim ekibi** | Farklı kimliğe kaynakları şirket içi yönetir: Active Directory ormanları, LDAP dizinleri, ik sistemleri ve Federasyon kimlik sağlayıcıları. | Şirket içi erişim sağlamak PT senaryoları için gerekli kaynakları.<br/>Bunlar mümkün olduğunca az söz konusu|
 | **Uygulama teknik sahipleri** | Teknik sahipleri farklı bulut uygulamaları ve Azure AD ile tümleştirme hizmetleri | SaaS uygulamaları (test etmek için örnekler) büyük olasılıkla ayrıntılarını sağlayın |
-| **Azure AD Global Admin** | Azure AD yapılandırmasını yönetir | Eşitleme hizmeti yapılandırmak için kimlik bilgilerini sağlayın. Genellikle aynı kimlik mimari PoC sırasında ekip ancak operations aşamasında ayrı|
+| **Azure AD genel yönetici** | Azure AD yapılandırmasını yönetir | Eşitleme hizmeti yapılandırmak için kimlik bilgilerini sağlayın. Genellikle aynı kimlik mimari PoC sırasında ekip ancak operations aşamasında ayrı|
 | **Veritabanı ekibi** | Veritabanı altyapısı sahipleri | SQL ortamı (ADFS veya Azure AD Connect) erişim için belirli bir senaryoyu hazırlıklar sağlar.<br/>Bunlar mümkün olduğunca az söz konusu |
 | **Ağ ekibi** | Ağ altyapısı sahipleri | Eşitleme sunucularının düzgün veri kaynaklarına erişmek ve bulut hizmetlerine (güvenlik duvarı kuralları, açılan bağlantı noktaları, IPSec kuralları vb.) ağ düzeyinde gerekli erişim sağlayın |
 | **Güvenlik ekibi** | Güvenlik stratejisi tanımlar, güvenlik raporları çeşitli kaynaklardan analiz eder ve bulguları üzerinde aşağıdaki. | Değerlendirme senaryoları hedef güvenlik sağlar |
@@ -380,8 +380,8 @@ Yaklaşık tam süresi: 15 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Kiracınızda Self Servis parola yönetimini etkinleştirin. | [Azure Active Directory parola BT yöneticileri için sıfırlama](active-directory-passwords-update-your-own-password.md) |
-| Parola şirket içi parolaları yönetmek geri yazma etkinleştirin. Bunu gerektiren belirli Azure AD Not sürümleri Bağlan | [Parola Geri Yazma önkoşulları](active-directory-passwords-writeback.md) |
-| Bu işlevselliği kullanmak ve bir güvenlik grubunun üyesi olduğundan emin olun PoC kullanıcıları belirleyin. Kullanıcıların özelliği tam olarak göstermek için yönetici olmayanlar olması gerekir | [Özelleştirme: Azure AD parola yönetimi: parola sıfırlama için erişimi kısıtla](active-directory-passwords-writeback.md) |
+| Parola şirket içi parolaları yönetmek geri yazma etkinleştirin. Bunu gerektiren belirli Azure AD Not sürümleri Bağlan | [Parola Geri Yazma önkoşulları](authentication/howto-sspr-writeback.md) |
+| Bu işlevselliği kullanmak ve bir güvenlik grubunun üyesi olduğundan emin olun PoC kullanıcıları belirleyin. Kullanıcıların özelliği tam olarak göstermek için yönetici olmayanlar olması gerekir | [Özelleştirme: Azure AD parola yönetimi: parola sıfırlama için erişimi kısıtla](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Adımlar
@@ -412,7 +412,7 @@ Yaklaşık tam süre: 10 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | MFA kullanacağı POC kullanıcıları tanımlayın  |  |
-| MFA testini iyi alımını ile telefon  | [Azure Multi-Factor Authentication nedir?](../multi-factor-authentication/multi-factor-authentication.md) |
+| MFA testini iyi alımını ile telefon  | [Azure Multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Adımlar
 
@@ -421,7 +421,7 @@ Yaklaşık tam süre: 10 dakika
 | Azure AD Yönetim Portalı'nda "Kullanıcılar ve Gruplar" dikey penceresine gidin | [Azure AD yönetim portalında: Kullanıcılar ve gruplar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | "Tüm kullanıcılar" dikey seçin |  |
 | Üst Seç "Çok faktörlü kimlik doğrulaması" düğme çubuğu | Azure MFA portal doğrudan URL'si: https://aka.ms/mfaportal |
-| "Kullanıcı" ayarlarında PoC kullanıcıları seçin ve MFA için etkinleştirme | [Azure Multi-Factor Authentication’da Kullanıcı Durumları](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| "Kullanıcı" ayarlarında PoC kullanıcıları seçin ve MFA için etkinleştirme | [Azure Multi-Factor Authentication’da Kullanıcı Durumları](authentication/howto-mfa-userstates.md) |
 | PoC kullanıcı ve güçlü işlemiyle ilerlemesi olarak oturum açın  |  |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -457,7 +457,7 @@ Yaklaşık tam süre: 10 dakika
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Federasyon kullanıyorsanız, talep iç/dış şirket ağı durumuyla iletişim kurmak için şirket içi kimlik sağlayıcıyı (IDP) kullanabilirsiniz. Değerlendirmek ve büyük kuruluşlarda yönetmek için karmaşık olabilecek IP adreslerinin listesi yönetmek zorunda kalmadan bu tekniği kullanabilirsiniz. Bu kurulum, "Ağ gezici" senaryo (iç ağdan ve oturum açmış anahtarları sırasında bir kafe gibi konumları günlüğü bir kullanıcı) için hesap ve etkilerini anladığınızdan emin olun. Daha fazla bilgi edinin: [Azure multi-Factor Authentication ve AD FS ile bulut kaynakları güvenliğini sağlama: güvenilen IP'leri Federasyon kullanıcıları için](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Federasyon kullanıyorsanız, talep iç/dış şirket ağı durumuyla iletişim kurmak için şirket içi kimlik sağlayıcıyı (IDP) kullanabilirsiniz. Değerlendirmek ve büyük kuruluşlarda yönetmek için karmaşık olabilecek IP adreslerinin listesi yönetmek zorunda kalmadan bu tekniği kullanabilirsiniz. Bu kurulum, "Ağ gezici" senaryo (iç ağdan ve oturum açmış anahtarları sırasında bir kafe gibi konumları günlüğü bir kullanıcı) için hesap ve etkilerini anladığınızdan emin olun. Daha fazla bilgi edinin: [Azure multi-Factor Authentication ve AD FS ile bulut kaynakları güvenliğini sağlama: güvenilen IP'leri Federasyon kullanıcıları için](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
@@ -559,7 +559,7 @@ Yaklaşık tamamlanma süresi: 20 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | "Sertifika kimlik doğrulamasını" ADFS etkinleştirin | [Kimlik doğrulama ilkelerini yapılandırmasını: Windows Server 2012 R2'de genel birincil kimlik doğrulaması yapılandırmak için](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| İsteğe bağlı: Sertifika kimlik doğrulaması Azure AD'de Exchange Active Sync istemciler için etkinleştirme | [Azure Active Directory'de sertifika tabanlı kimlik doğrulaması kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md) |
+| İsteğe bağlı: Sertifika kimlik doğrulaması Azure AD'de Exchange Active Sync istemciler için etkinleştirme | [Azure Active Directory’de sertifika tabanlı kimlik doğrulamayı kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md) |
 | Erişim Masası'na gidin ve kullanıcı sertifikası kullanılarak kimlik doğrulaması | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler

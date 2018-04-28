@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Nexonia | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Nexonia arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Nexonia | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Nexonia arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Öğretici: Azure Active Directory Tümleştirme Nexonia ile
 
@@ -95,7 +95,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Nexonia ile test etmek için aşa
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Nexonia uygulamanızda yapılandırın.
 
   > [!Note]
-   > Tümleştirme sırasında sorunlarla sonra bu [bağlantı](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) sorun giderme kılavuzu için. Çözüm hala bulunamadı, Azure portalından destek isteği yükseltin.
+   > Tümleştirme sırasında sorunlarla sonra bu [bağlantı](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) sorun giderme kılavuzu için. Çözüm hala bulunamadı, Azure portalından destek isteği yükseltin.
 
 **Azure AD çoklu oturum açma ile Nexonia yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
@@ -111,9 +111,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Nexonia etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, bir değer yazın:`Nexonia`
+    a. İçinde **tanımlayıcısı** metin kutusuna, bir değer yazın: `Nexonia`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
     > Yanıt URL'si değeri gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Nexonia destek ekibi](https://nexonia.zendesk.com/hc/requests/new) değeri alınamıyor.

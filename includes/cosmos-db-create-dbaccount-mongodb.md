@@ -1,18 +1,18 @@
 ---
-title: Azure Cosmos DB MongoDB API hesabı oluşturma
-description: Azure portalında Azure Cosmos DB MongoDB API hesabını nasıl oluşturacağınız açıklanmaktadır
+title: include dosyası
+description: include dosyası
 services: cosmos-db
-author: mimig1
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/20/2018
-ms.author: mimig
+ms.date: 04/13/2018
+ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 02ea0e011642313b885bc48ec48104fa2789da81
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 690c5f07a2b0f7a88e16f0b0bbbaa9ca78e37317
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 1. Yeni bir pencerede [Azure portalında](https://portal.azure.com/) oturum açın.
 2. Sol taraftaki menüde **Kaynak oluştur**'a, **Veritabanları**'na ve ardından **Azure Cosmos DB**' altında **Oluştur**’a tıklayın.
@@ -21,18 +21,15 @@ ms.lasthandoff: 03/28/2018
 
 3. **Yeni hesap** dikey penceresinde, API olarak **MongoDB** seçeneğini belirtin ve Azure Cosmos DB hesabı için istediğiniz yapılandırmayı doldurun.
  
-    ![Yeni Azure Cosmos DB dikey penceresinin ekran görüntüsü](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
-
     * **Kimlik**, Azure Cosmos DB hesabınızı tanımlamak için kullanmak istediğiniz benzersiz bir ad olmalıdır. Yalnızca küçük harf, rakam ve '-' karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
     * **Abonelik**, Azure aboneliğinizdir. Bu sizin için doldurulur.
-    * **Kaynak Grubu**, Azure Cosmos DB hesabınız için kaynak grubu adıdır.
+    * **Kaynak Grubu**, Azure Cosmos DB hesabınız için kaynak grubu adıdır. **Yeni oluştur**’u seçin ve ardından hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz.
     * **Konum**, Azure Cosmos DB örneğinizin bulunduğu coğrafi konumdur. Kullanıcılarınıza en yakın konumu seçin.
 
-4. Hesabı oluşturmak için **Oluştur**’a tıklayın.
-5. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
+    Sonra **Oluştur**’a tıklayın.
 
-    ![Dağıtım başlatıldı bildirimi](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-nosql-notification.png)
+    ![Azure Cosmos DB için yeni hesap sayfası](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 
-6.  Dağıtım tamamlandığında Tüm Kaynaklar kutucuğundan yeni hesabı açın. 
+4. Hesabın oluşturulması birkaç dakika sürer. Portalın **Tebrikler! Tebrikler! MongoDB API'si ile Azure Cosmos DB hesabınız hazır** sayfasını görüntülemesini bekleyin.
 
-    ![Tüm Kaynaklar kutucuğunda Azure Cosmos DB hesabı](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
+    ![Azure portalındaki Bildirimler bölmesi](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png)

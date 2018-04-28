@@ -1,9 +1,9 @@
 ---
-title: "İki aşamalı doğrulama sorunlarını giderme | Microsoft Docs"
-description: "Bu belge kullanıcılar Azure çok faktörlü kimlik doğrulaması ile ilgili bir sorunu içine çalıştırırsanız yapmanız gerekenler hakkında bilgi sağlar."
+title: İki aşamalı doğrulama sorunlarını giderme | Microsoft Docs
+description: Bu belge kullanıcılar Azure çok faktörlü kimlik doğrulaması ile ilgili bir sorunu içine çalıştırırsanız yapmanız gerekenler hakkında bilgi sağlar.
 services: multi-factor-authentication
-keywords: "çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu bağıntı kimliği"
-documentationcenter: 
+keywords: çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu bağıntı kimliği
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,13 +16,13 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama için Yardım alın
+# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
 Bu makalede, iki aşamalı doğrulama hakkında yapmalarını isteriz en yaygın sorular yanıtlanmaktadır. 
 
 ## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>İki aşamalı doğrulamayı gerçekleştirmek neden var mı? I kapatabilirsiniz?
@@ -86,7 +86,7 @@ Yapılandırılmış başka bir yöntem yoksa, şirket desteğine başvurun ve a
 Hatalı hücre sinyali nedeniyle gecikmeler genellikle varsa kullanmanız önerilir [Microsoft Authenticator uygulaması](microsoft-authenticator-app-how-to.md) smartphone üzerinde. Uygulama oturum açmak için kullandığınız rastgele güvenlik kodlarını oluşturabilir ve bu kodları herhangi bir hücre sinyal ya da Internet bağlantısı gerektirmez.
 
 ## <a name="app-passwords-are-not-working"></a>Uygulama parolaları çalışmıyor
-İlk olarak, uygulama parolası doğru girdiğinizden emin olun. İki aşamalı doğrulamayı desteklemeyen ancak yalnızca eski Masaüstü uygulamaları için normal parolanızı oluşturulan uygulama parolasını değiştirir. Hala çalışmıyorsa, oturum açma deneyin ve [yeni bir uygulama parolası oluşturmanız](multi-factor-authentication-end-user-app-passwords.md).  Hala çalışmıyorsa, şirket desteğine başvurun ve bunları [mevcut uygulama parolalarınızın silme](../multi-factor-authentication-manage-users-and-devices.md) ve daha sonra yeni bir tane oluşturabilirsiniz.
+İlk olarak, uygulama parolası doğru girdiğinizden emin olun. İki aşamalı doğrulamayı desteklemeyen ancak yalnızca eski Masaüstü uygulamaları için normal parolanızı oluşturulan uygulama parolasını değiştirir. Hala çalışmıyorsa, oturum açma deneyin ve [yeni bir uygulama parolası oluşturmanız](multi-factor-authentication-end-user-app-passwords.md).  Hala çalışmıyorsa, şirket desteğine başvurun ve bunları [mevcut uygulama parolalarınızın silme](../../active-directory/authentication/howto-mfa-userdevicesettings.md) ve daha sonra yeni bir tane oluşturabilirsiniz.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Bir yanıt sorunumu Bul alamadık.
 Sorun giderme adımları çalıştınız, ancak hala sorunlarla çalıştıran şirket desteğinize başvurun. Bunlar size yardımcı olmak üzere görebilmeniz gerekir.

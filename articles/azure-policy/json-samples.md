@@ -1,26 +1,26 @@
 ---
-title: "İlke şablonu örnekleri | Microsoft Docs"
-description: "Azure ilke JSON örnekleri"
+title: İlke şablonu örnekleri | Microsoft Docs
+description: Azure ilke JSON örnekleri
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure-policy
 ms.devlang: na
 ms.topic: samples
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 01/17/2018
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure ilke şablonları
 
@@ -59,7 +59,7 @@ Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını iç
 | [Onaylanan alt ağ için VM ağ arabirimleri kullanın](scripts/use-approved-subnet-vm-nics.md) | Ağ arabirimleri onaylanmış bir alt ağ kullanmanızı gerektirir. Onaylanan alt ağ Kimliğini belirtin. |
 | [VM ağ arabirimleri için onaylanan vNet kullanın](scripts/use-approved-vnet-vm-nics.md) | Ağ arabirimleri onaylanmış bir sanal ağı kullanmayı gerektirir. Onaylanan sanal ağ Kimliğini belirtin. |
 |**Etiketler**||
-| [Faturalama etiketleri İlkesi girişimi](scripts/billing-tags-policy-init.md) | Belirtilen etiket değerleri için maliyet merkezi ve ürün adı gerektirir. Yerleşik ilkelerini uygulamak ve gerekli etiketleri zorlamak için kullanır. Etiketleri için gereken değerleri belirtin.  |
+| [Faturalama etiketleri İlkesi girişimi](scripts/billing-tags-policy-init.md) | Belirtilen etiket değerleri için maliyet merkezi ve ürün adı gerektirir. Gerekli etiketleri uygulamak ve zorlamak için yerleşik ilkeleri kullanır. Etiketler için gereken değerleri belirtin.  |
 | [Etiket ve kaynak grupları değerine zorla](scripts/enforce-tag-rg.md) | Bir etiketi ve bir kaynak grubu üzerinde değer gerektirir. Gerekli etiket adını ve değerini belirtin.  |
 |**SQL**||
 | [SQL DB düzeyi denetim ayarını denetleme](scripts/audit-sql-db-audit-setting.md) | Bu ayarları belirtilmiş bir ayarın eşleşmiyorsa SQL veritabanı denetim ayarları denetler. Denetim ayarlarını etkin veya devre dışı olup olmadığını belirten bir değer belirtin.  |

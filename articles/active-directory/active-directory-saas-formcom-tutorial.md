@@ -1,10 +1,10 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Form.com | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Form.com arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Form.com | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Form.com arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Öğretici: Azure Active Directory Tümleştirme Form.com ile
 
@@ -32,7 +32,7 @@ Form.com Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Form.com ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -101,16 +101,16 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. Üzerinde **Form.com etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Form.com etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.wa-form.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.wa-form.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.form.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.form.com`
 
     c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
@@ -118,46 +118,26 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek oturum açma URL'si, yanıt URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Form.com istemci destek ekibi](https://form.com/about/company/contact-us/) bu değerleri almak için. 
- 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler, gerçek oturum açma URL'si, yanıt URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Form.com istemci destek ekibi](https://form.com/about/company/contact-us/) bu değerleri almak için.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Oluşturulacak **meta veri URL'sini**, aşağıdaki adımları gerçekleştirin:
-
-    a. Tıklatın **uygulama kayıtlar**.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde, aşağıdaki adımları gerçekleştirin:
     
-    ![Appreg yapılandırın](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Endpointcon yapılandırın](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Uç noktasını yapılandırma](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
+
+    b. Tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
      
-    d. Şimdi özellik sayfasına gidin **Form.com** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
- 
-    ![AppID yapılandırın](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Tıklatın **kaydetmek** düğmesi.
+5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **Form.com yapılandırma** 'yi tıklatın **yapılandırma Form.com** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Form.com yapılandırma** 'yi tıklatın **yapılandırma Form.com** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Form.com yapılandırma](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Çoklu oturum açma yapılandırmak için **Form.com** yan, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **meta veri URL'sini**, ve **SAML çoklu oturum açma Hizmet URL'si** için [Form.com destek ekibi](https://form.com/about/company/contact-us/). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Çoklu oturum açma yapılandırmak için **Form.com** yan, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **uygulama Federasyon meta veri URL'sini**, ve **SAML Çoklu oturum açma hizmet URL'si** için [Form.com destek ekibi](https://form.com/about/company/contact-us/). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -189,7 +169,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-formcom-test-user"></a>Form.com test kullanıcısı oluşturma
 

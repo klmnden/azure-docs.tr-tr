@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 42fbf50ac0807a3982385990871d9c4724bdaaad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web uygulamalarının yapılandırması ve Yönetimi SSS
 
@@ -268,7 +268,7 @@ Bir uygulama hizmeti sertifika satın alma etki alanı doğrulama sırasında ş
 Uygulama hizmeti sertifikanızı 24 saat sonra bu iletiyi gösterme olmaya devam ederse, lütfen aşağıdaki PowerShell betiğini çalıştırın. Komut dosyası kişiler [sertifika sağlayıcısı](https://www.godaddy.com/) doğrudan bu sorunu gidermek için.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

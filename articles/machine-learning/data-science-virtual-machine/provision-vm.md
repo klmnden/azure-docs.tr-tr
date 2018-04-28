@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makine sağlama
 Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:
 
-* [Azure Machine Learning](../preview/index.yml) çalışma ekranı
+* [Azure Machine Learning](../service/index.yml) çalışma ekranı
 * [Microsoft Server öğrenme makine](https://docs.microsoft.com/machine-learning-server/index) Geliştirici sürümü
 * Anaconda Python dağıtımı
 * Jupyter Not Defteri (ile R, Python, PySpark tekrar)
@@ -192,7 +192,7 @@ Azure Machine Learning çalışma ekranı, bir masaüstü uygulaması ve komut s
 Öğrenme ve araştırması devam etmek için İleri bazı adımlar şunlardır. 
 
 * Çeşitli veri bilimi araçları veri bilimi VM Başlat menüsünden tıklatıp menüde listelenen araçları kullanıma keşfedin.
-* Ürün ziyaret ederek Azure Machine Learning Hizmetleri ve çalışma ekranı hakkında bilgi edinin [quickstart ve öğreticiler sayfası](../preview/index.yml). 
+* Ürün ziyaret ederek Azure Machine Learning Hizmetleri ve çalışma ekranı hakkında bilgi edinin [quickstart ve öğreticiler sayfası](../service/index.yml). 
 * Gidin **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** veri analizi Kurumsal ölçekte destekler R RevoScaleR kitaplıkta kullanan örnekler için.  
 * Makaleyi okuyun: [veri bilimi sanal makine yapabileceğiniz 10 şey](http://aka.ms/dsvmtenthings)
 * Sistematik olarak kullanarak uçtan uca analitik çözümleri oluşturmayı öğrenin [takım veri bilimi işlemi](../team-data-science-process/index.yml).

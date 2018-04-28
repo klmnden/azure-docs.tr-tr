@@ -1,6 +1,6 @@
 ---
-title: dosya için PowerShell Azure DNS'de ekleyin.
-description: dosya için PowerShell Azure DNS'de ekleyin.
+title: Azure DNS için PowerShell dosyasını dahil etme
+description: Azure DNS için PowerShell dosyasını dahil etme
 services: dns
 author: subsarma
 ms.service: dns
@@ -8,24 +8,24 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 388bea528b138d78b9ec23ceea295108306c61e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS için Azure PowerShell ayarlayın
+## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS için Azure PowerShell ayarlama
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
 Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın.
 
 * Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* Azure Resource Manager PowerShell cmdlet'lerinin en yeni sürümünü yüklemeniz gerekir. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+* Azure Resource Manager PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
-Ayrıca, özel bölgeler (genel Önizleme) kullanmak için aşağıdaki PowerShell modülleri ve sürümleri sahip emin olmak gerekir. 
-* AzureRM.Dns - [sürüm 4.1.0'da](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) veya üstü
-* AzureRM.Network - [sürüm 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) veya üstü
+Ayrıca, Özel Bölgeler (Genel Önizleme) kullanmak için aşağıdaki PowerShell modüllerine ve sürümlerine sahip olduğunuzdan emin olmanız gerekir. 
+* AzureRM.Dns - [sürüm 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) veya üzeri
+* AzureRM.Network - [sürüm 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) veya üzeri
 
 ```powershell 
 Find-Module -Name AzureRM.Dns 
@@ -35,9 +35,9 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-Yukarıdaki komutların çıktısı AzureRM.Dns sürümü 4.1.0'da veya daha yüksek bir sürüm ve AzureRM.Network için 5.4.0 ya da daha yüksek bir sürümü olduğunu göstermek gerekir.  
+Yukarıdaki komutların çıktısı, AzureRM.Dns sürümünün 4.1.0 veya üzeri bir sürüm olduğunu ve AzureRM.Network için 5.4.0 ya da üzeri bir sürüm olduğunu göstermelidir.  
 
-Sisteminizin önceki sürümlere sahip olmaması durumunda, ya da Azure PowerShell'in en son sürümünü yükleyin veya yükleyip yukarıdaki modüllerini PowerShell Galerisi'nden modül sürümleri yanındaki yukarıda bağlantıları kullanarak. Daha sonra bunları yükleyebilirsiniz kullanarak aşağıdaki komutları. Her iki modülleri gereklidir ve tam olarak geriye dönük olarak uyumludur. 
+Sisteminizin önceki sürümlere sahip olması durumunda, Modül sürümlerinin yanındaki bağlantıları kullanarak en son Azure PowerShell sürümünü yükleyebilir veya PowerShell Galerisinden yukarıdaki modülleri yükleyebilirsiniz. Daha sonra aşağıdaki komutları kullanarak bunları yükleyebilirsiniz. Her iki modül de zorunludur ve tamamen geri dönük olarak uyumludur. 
 
 ```powershell
 Install-Module -Name AzureRM.Dns -Force
@@ -49,10 +49,10 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
-PowerShell konsolunuzu açın ve hesabınıza bağlanın. Daha fazla bilgi için bkz: [PowerShell kullanarak Resource Manager ile](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+PowerShell konsolunuzu açın ve hesabınıza bağlanın. Daha fazla bilgi için bkz. [Kaynak Yöneticisi ile PowerShell kullanma](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### <a name="select-the-subscription"></a>Aboneliği seçme

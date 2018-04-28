@@ -1,12 +1,12 @@
 ---
-title: "Günlük analizi ile Azure PaaS kaynak ölçümleri toplamak | Microsoft Docs"
-description: "Bekletme ve günlük analizi analizi için PowerShell kullanarak Azure PaaS kaynak ölçümleri koleksiyonunun nasıl etkinleştirileceği öğrenin."
+title: Günlük analizi ile Azure PaaS kaynak ölçümleri toplamak | Microsoft Docs
+description: Bekletme ve günlük analizi analizi için PowerShell kullanarak Azure PaaS kaynak ölçümleri koleksiyonunun nasıl etkinleştirileceği öğrenin.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Günlük analizi ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
 
@@ -57,7 +57,7 @@ Karşıdan yüklemek ve komut dosyasını çalıştırmak için aşağıdaki ad�
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Çalıştırma `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.   
+3. Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.   
 4. Aşağıdaki betiği çalıştırın `.\Enable-AzureRmDiagnostics.ps1` aboneliğinizde veya parametresi ile belirli bir kaynaktan veri toplamayı etkinleştirmek için herhangi bir parametre olmadan `-ResourceGroup <myResourceGroup>` belirli bir kaynak grubunda bir kaynak belirtmek için.   
 5. Birden çok değer girerek varsa, uygun aboneliği listeden seçin.<br><br> ![Komut dosyası tarafından döndürülen abonelik seçin](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Aksi durumda, tek bir abonelik kullanılabilir otomatik olarak seçer.
 6. Ardından, komut dosyası bir abonelikte kayıtlı günlük analizi çalışma alanlarının listesini döndürür.  Listeden uygun olanı seçin.<br><br> ![Komut dosyası tarafından döndürülen bir çalışma alanı seçin](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services uygulamalar için mikro Dönüştür | Microsoft Docs"
-description: "Bu kılavuz bulut hizmetlerinden Service Fabric geçirme yardımcı olmak için bulut Hizmetleri Web ve çalışan rolleri ve Service Fabric durum bilgisi olmayan hizmetler karşılaştırır."
+title: Azure Cloud Services uygulamalar için mikro Dönüştür | Microsoft Docs
+description: Bu kılavuz bulut hizmetlerinden Service Fabric geçirme yardımcı olmak için bulut Hizmetleri Web ve çalışan rolleri ve Service Fabric durum bilgisi olmayan hizmetler karşılaştırır.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için dönüştürme Kılavuzu
 Bu makalede, bulut Hizmetleri Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için nasıl geçirileceği açıklanmaktadır. Bu en basit geçiş bulut hizmetlerinden Service Fabric, genel mimarisi kabaca aynı kalmasını gittiği uygulamalar için yoludur.
@@ -53,7 +53,7 @@ Benzer şekilde çalışan rolü, Web rolü ayrıca durum bilgisiz iş yükünü
 | İşleniyor |`Run()` |`RunAsync()` |
 | VM Başlat |`OnStart()` |Yok |
 | VM'yi Durdur |`OnStop()` |Yok |
-| İstemci istekleri için açık dinleyicisi |Yok |<ul><li> `CreateServiceInstanceListener()`için durum bilgisiz</li><li>`CreateServiceReplicaListener()`durum bilgisi için</li></ul> |
+| İstemci istekleri için açık dinleyicisi |Yok |<ul><li> `CreateServiceInstanceListener()` için durum bilgisiz</li><li>`CreateServiceReplicaListener()` durum bilgisi için</li></ul> |
 
 ### <a name="worker-role"></a>Çalışan Rolü
 ```csharp
@@ -121,7 +121,7 @@ Bulut Hizmetleri ortam API bilgileri ve geçerli VM örneği yanı sıra diğer 
 | --- | --- | --- |
 | Yapılandırma ayarları ve değişiklik bildirimi |`RoleEnvironment` |`CodePackageActivationContext` |
 | Yerel Depolama |`RoleEnvironment` |`CodePackageActivationContext` |
-| Uç nokta bilgileri |`RoleInstance` <ul><li>Geçerli örnek:`RoleEnvironment.CurrentRoleInstance`</li><li>Diğer roller ve örneği:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`Geçerli düğüm adresi</li><li>`FabricClient`ve `ServicePartitionResolver` hizmet uç noktası bulma</li> |
+| Uç nokta bilgileri |`RoleInstance` <ul><li>Geçerli örnek: `RoleEnvironment.CurrentRoleInstance`</li><li>Diğer roller ve örneği: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` Geçerli düğüm adresi</li><li>`FabricClient` ve `ServicePartitionResolver` hizmet uç noktası bulma</li> |
 | Ortam öykünmesi |`RoleEnvironment.IsEmulated` |Yok |
 | Eşzamanlı değişiklik olayı |`RoleEnvironment` |Yok |
 
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Başlangıç görevi
 Başlatma, bir uygulama başlatılmadan önce gerçekleştirilen eylemler görevlerdir. Bir başlangıç görevi, genellikle yükseltilmiş ayrıcalıklar kullanarak kurulum komut dosyalarını çalıştırmak için kullanılır. Bulut Hizmetleri ve Service Fabric başlangıç görevleri destekler. Bir rol örneği bir parçası olduğundan Service Fabric herhangi belirli VM bağlanmayan bir hizmet için bir başlangıç görevi bağlıdır ancak bulut Hizmetleri'nde bir başlangıç görevi bir VM'ye bağlı olduğunu ana farktır.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Yapılandırma konumu |ServiceDefinition.csdef |
 | Ayrıcalıklar |"sınırlı" veya "yükseltilmiş" |

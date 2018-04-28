@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: sashan
-ms.openlocfilehash: 0eda9012e6b6c7207d200a6e550b6bc0b0b09882
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Salt okunur çoğaltmaların salt okunur sorgu dengelemeye (Önizleme) yüklemek için kullanın
 
@@ -21,18 +21,20 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="overview-of-read-scale-out"></a>Okuma genişleme genel bakış
 
-Her veritabanı Premium katmanındaki ([DTU tabanlı satın alma modeli](sql-database-service-tiers.md#dtu-based-purchasing-model)) veya iş kritik katmanındaki ([vCore tabanlı satın alma modeli](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) otomatik olarak birkaç her zaman açık çoğaltmalar için ile birlikte sağlanır Kullanılabilirlik SLA'sı destekler. Bu çoğaltmalar normal veritabanı bağlantılar tarafından kullanılan okuma-yazma çoğaltma aynı performans düzeyiyle sağlanır. **Okuma genişleme** özelliği okuma-yazma çoğaltma Paylaşımı yerine salt okunur çoğaltmaları kapasitesini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Mantıksal olarak içeren uygulamaları salt okunur gibi iş yükleri analytics, ayrılmış ve bu ek kapasite Hayır kullanarak performans avantajı dolayısıyla geçirebilir özellik öngörülmüştür ekstra maliyet.
+Her veritabanı Premium katmanındaki ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş kritik katmanındaki ([vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md)) birkaç Always ON ile otomatik olarak sağlanır Kullanılabilirlik SLA'sı desteklemek için çoğaltmalar. Bu çoğaltmalar normal veritabanı bağlantılar tarafından kullanılan okuma-yazma çoğaltma aynı performans düzeyiyle sağlanır. **Okuma genişleme** özelliği okuma-yazma çoğaltma Paylaşımı yerine salt okunur çoğaltmaları kapasitesini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Mantıksal olarak içeren uygulamaları salt okunur gibi iş yükleri analytics, ayrılmış ve bu ek kapasite Hayır kullanarak performans avantajı dolayısıyla geçirebilir özellik öngörülmüştür ekstra maliyet.
 
 Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ AzureRmSqlDatabase yeni](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi. 
 
 Bir veritabanı için okuma genişleme etkinleştirildikten sonra o veritabanına bağlanan uygulamaları okuma-yazma çoğaltmaya veya salt okunur çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın içinde yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliği, bkz: [belirtme uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+
+Okuma genişleme devre dışıysa veya desteklenmeyen hizmet katmanında ReadScale özelliği ayarlarsanız okuma-yazma çoğaltmaya, bağımsız olarak tüm bağlantılar yönlendirilir `ApplicationIntent` özelliği.
 
 > [!NOTE]
 > Önizleme sırasında sorgu veri deposu ve genişletilmiş olaylar salt okunur çoğaltmaları desteklenmez.
 
 ## <a name="data-consistency"></a>Veri tutarlılığı
 
-AlwaysON yararları çoğaltmaların her zaman işlemsel olarak tutarlı bir durumdadır, ancak zaman içinde farklı noktalarda olabilir bazı küçük gecikme süresi arasında farklı çoğaltmaları biridir. Okuma genişleme oturum düzeyi tutarlılık destekler. Bu anlamına gelir, salt okunur oturum çoğaltma kullanılabilir olmamasından nedeni bağlantı hatası sonra bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel olmayan bir çoğaltma yönlendirilebilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, benzer şekilde, en son güncelleştirmeleri hemen görünmez mümkündür. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
+Always ON yararları çoğaltmaların her zaman işlemsel olarak tutarlı bir durumdadır, ancak zaman içinde farklı noktalarda olabilir bazı küçük gecikme süresi arasında farklı çoğaltmaları biridir. Okuma genişleme oturum düzeyi tutarlılık destekler. Bu anlamına gelir, salt okunur oturum çoğaltma kullanılabilir olmamasından nedeni bağlantı hatası sonra bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel olmayan bir çoğaltma yönlendirilebilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, benzer şekilde, en son güncelleştirmeleri hemen görünmez mümkündür. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
 
 > [!NOTE]
 > Çoğaltma gecikmeleri bölge içindeki düşüktür ve bu nadir bir durumdur.
@@ -54,6 +56,12 @@ Aşağıdaki bağlantı dizeleri ya da bir okuma-yazma çoğaltma (ortamınız i
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+Aşağıdaki sorguyu çalıştırarak salt okunur bir kopyasına bağlanan olup olmadığını doğrulayabilirsiniz. Salt okunur bir kopyasına bağlıyken READ_ONLY döndürür.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Etkinleştirme ve Azure PowerShell kullanarak okunur genişleme devre dışı
@@ -82,7 +90,7 @@ New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 
 ## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Etkinleştirme ve Azure SQL Database REST API'sini kullanarak okunur genişleme devre dışı bırakma
 
-Okuma etkinse, genişletme ile bir veritabanı oluşturmak veya etkinleştirmek veya mevcut bir veritabanı için okuma genişleme devre dışı bırakmak için güncelle karşılık gelen veritabanı varlıkla `readScale` özelliğini `Enabled` veya `Disabled` gibi örnek aşağıda İstek.
+Okuma etkinse, genişletme ile bir veritabanı oluşturmak veya etkinleştirmek veya mevcut bir veritabanı için okuma genişleme devre dışı bırakmak için oluşturma veya güncelleştirme karşılık gelen veritabanı varlıkla `readScale` özelliğini `Enabled` veya `Disabled` gibi örnek aşağıda İstek.
 
 ```rest
 Method: PUT
@@ -96,7 +104,7 @@ Body:
 } 
 ```
 
-Ek bilgi için bkz: [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate).
+Daha fazla bilgi için bkz: [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,11 +11,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -49,8 +49,8 @@ Let Azure SQL veritabanına kullanabileceğiniz [otomatik olarak Sorgularınız�
 
 ## <a name="improving-database-performance-with-more-resources"></a>Daha fazla kaynak ile veritabanı performansı iyileştirme
 
-Son olarak, veritabanınızın performansını artırabilir hiçbir işlem yapılabilir öğeler varsa, Azure SQL veritabanı'nda kullanılabilen kaynakları miktarını değiştirebilirsiniz. Daha fazla kaynak değiştirerek atayabilirsiniz [hizmet katmanı](sql-database-service-tiers.md) artış bir esnek havuz edtu'larını herhangi bir zamanda veya tek başına veritabanı.
-1. Tek başına veritabanları için şunları yapabilirsiniz [hizmet katmanları değiştirmek](sql-database-service-tiers.md) veritabanı performansını artırmak için isteğe bağlı.
+Son olarak, veritabanınızın performansını artırabilir hiçbir işlem yapılabilir öğeler varsa, Azure SQL veritabanı'nda kullanılabilen kaynakları miktarını değiştirebilirsiniz. Daha fazla kaynak değiştirerek atayabilirsiniz [DTU hizmet katmanı](sql-database-service-tiers-dtu.md) artış bir esnek havuz edtu'larını herhangi bir zamanda veya tek başına veritabanı. Alternatif olarak, kullanıyorsanız, [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md), hizmet katmanını değiştirin veya veritabanınız için ayrılan kaynaklar artırın. 
+1. Tek başına veritabanları için şunları yapabilirsiniz [hizmet katmanları değiştirmek](sql-database-service-tiers-dtu.md) veya [işlem kaynaklarını](sql-database-service-tiers-vcore.md)veritabanı performansını artırmak için isteğe bağlı.
 2. Birden çok veritabanı için kullanmayı [esnek havuzlar](sql-database-elastic-pool-guidance.md) kaynaklarını otomatik olarak ölçeklendirebilirsiniz.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Ayarlama ve düzenleme uygulama veya veritabanı kodu

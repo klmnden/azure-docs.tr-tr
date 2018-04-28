@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell ile SQL Server Vm'lerinin Kılavuzu Sağlama | Microsoft Docs"
-description: "Bir Azure VM ile SQL Server sanal makineye Galerisi görüntüleri oluşturmak için adımlar ve PowerShell komutlarını sağlar."
+title: Azure PowerShell ile SQL Server Vm'lerinin Kılavuzu Sağlama | Microsoft Docs
+description: Bir Azure VM ile SQL Server sanal makineye Galerisi görüntüleri oluşturmak için adımlar ve PowerShell komutlarını sağlar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineler sağlamak nasıl
 
@@ -31,10 +31,10 @@ Bu makalede, Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerektiriy
 
 ## <a name="configure-your-subscription"></a>Aboneliğinizi yapılandırın
 
-1. PowerShell'i açıp **Add-AzureRmAccount** komutunu çalıştırarak Azure hesabınıza erişim sağlayın.
+1. PowerShell'i açın ve Azure hesabınıza erişimi çalıştırarak kurmak **Connect-AzureRmAccount** komutu.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Kimlik bilgilerinizi girebileceğiniz bir oturum açma ekranı görmeniz gerekir. Azure portala giriş yapmak için aynı e-posta adresini ve parolayı kullanın.
@@ -326,8 +326,8 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 Ayrıca **Remove-AzureRmResourceGroup** komutuyla sanal makineyle ilişkilendirilmiş olan tüm kaynakları kalıcı olarak silebilirsiniz. Bu işlem sanal makineyi de kalıcı olarak sildiğinden, bu komutu dikkatli kullanın.
 
-## <a name="example-script"></a>Örnek komut dosyası
-Aşağıdaki komut dosyası, Bu öğretici için tam PowerShell komut dosyası içerir. İle kullanılacak Azure aboneliğini Kurulum zaten sahip olduğunuzu varsayar **Add-AzureRmAccount** ve **Select-AzureRmSubscription** komutları.
+## <a name="example-script"></a>Örnek betik
+Aşağıdaki komut dosyası, Bu öğretici için tam PowerShell komut dosyası içerir. İle kullanılacak Azure aboneliğini Kurulum zaten sahip olduğunuzu varsayar **Connect-AzureRmAccount** ve **Select-AzureRmSubscription** komutları.
 
 ```PowerShell
 # Variables

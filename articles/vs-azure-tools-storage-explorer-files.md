@@ -1,12 +1,12 @@
 ---
-title: "Depolama Gezgini’ni (Önizleme) Azure Dosya Depolama ile kullanma | Microsoft Belgeleri"
-description: "Depolama Gezgini’ni (Önizleme) dosya paylaşımları ve dosyalarla çalışmak üzere kullanma hakkında bilgi alın."
+title: Depolama Gezgini’ni Azure Dosya depolama ile kullanma | Microsoft Docs
+description: Depolama Gezgini’ni dosya paylaşımları ve dosyalarla çalışmak üzere kullanma hakkında bilgi edinin.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Depolama Gezgini’ni (Önizleme) Azure Dosya Depolama ile kullanma
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Depolama Gezgini’ni Azure Dosya depolama ile kullanma
 
-Azure Dosya Depolama, standart Sunucu İleti Blogu (SMB) Protokolü kullanarak bulutta dosya paylaşımı sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Dosya Depolama’yı kullanabilirsiniz. Bu makalede, dosya paylaşımları ve dosyalarla çalışmak üzere Depolama Gezgini’ni (Önizleme) nasıl kullanacağınızı öğreneceksiniz.
+Azure Dosya Depolama, standart Sunucu İleti Blogu (SMB) Protokolü kullanarak bulutta dosya paylaşımı sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Dosya Depolama’yı kullanabilirsiniz. Bu makalede, dosya paylaşımları ve dosyalarla çalışmak üzere Depolama Gezgini’ni nasıl kullanacağınızı öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-- [Depolama Gezgini (önizleme) indirip yükleme](http://www.storageexplorer.com/)
+- [Depolama Gezgini’ni indirip yükleme](http://www.storageexplorer.com/)
 
 - [Bir Azure depolama hesabı veya hizmetine bağlanma](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Tüm dosyalar, basitçe dosyaların mantıksal bir gruplandırması olan dosya paylaşımında bulunmalıdır. Bir hesapta sınırsız sayıda dosya paylaşımı olabilir ve her paylaşım sınırsız sayıda dosya depolayabilir.
 
-Aşağıdaki adımlar, Depolama Gezgini (Önizleme) içinde bir dosya paylaşımı oluşturma işlemini göstermektedir.
+Aşağıdaki adımlar, Depolama Gezgini içinde bir dosya paylaşımı oluşturma işlemini göstermektedir.
 
-1. Depolama Gezgini’ni (Önizleme) açın.
+1. Depolama Gezgini'ni açın.
 
 2. Sol bölmede, Dosya Paylaşımını oluşturmak istediğiniz depolama hesabını genişletin
 
@@ -58,9 +58,9 @@ Aşağıdaki adımlar, Depolama Gezgini (Önizleme) içinde bir dosya paylaşım
 
 Dosya paylaşımları, dosya ve klasörler içerir (klasörler de dosya içerebilir).
 
-Aşağıdaki adımlar, Depolama Gezgini’ndeki (Önizleme) bir dosya paylaşımının içeriğini görüntüleme işlemini göstermektedir:+
+Aşağıdaki adımlar, Depolama Gezgini’ndeki bir dosya paylaşımının içeriğini görüntüleme işlemini göstermektedir:+
 
-1. Depolama Gezgini’ni (Önizleme) açın.
+1. Depolama Gezgini'ni açın.
 
 2. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
@@ -78,9 +78,9 @@ Aşağıdaki adımlar, Depolama Gezgini’ndeki (Önizleme) bir dosya paylaşım
 
 Dosya paylaşımları kolayca oluşturulabilir ve gerektiğinde silinebilir. (Dosyaları tek tek silmek için [Bir dosya paylaşımındaki dosyaları yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) bölümüne bakın.)
 
-Aşağıdaki adımlar, Depolama Gezgini (Önizleme) içinde bir dosya paylaşımını silme işlemini göstermektedir:
+Aşağıdaki adımlar, Depolama Gezgini içinde bir dosya paylaşımı silme işlemini göstermektedir:
 
-1. Depolama Gezgini’ni (Önizleme) açın.
+1. Depolama Gezgini'ni açın.
 
 2. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
@@ -96,11 +96,11 @@ Aşağıdaki adımlar, Depolama Gezgini (Önizleme) içinde bir dosya paylaşım
 
 ## <a name="copy-a-file-share"></a>Dosya paylaşımını kopyalama
 
-Depolama Gezgini’ni (Önizleme) kullanarak bir dosya paylaşımını panoya kopyalayabilir, ardından bu dosya paylaşımını başka bir depolama hesabına yapıştırabilirsiniz. (Dosyaları tek tek kopyalamak için [Bir dosya paylaşımındaki dosyaları yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) bölümüne bakın.)
+Depolama Gezgini’ni kullanarak bir dosya paylaşımını panoya kopyalayabilir, ardından bu dosya paylaşımını başka bir depolama hesabına yapıştırabilirsiniz. (Dosyaları tek tek kopyalamak için [Bir dosya paylaşımındaki dosyaları yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) bölümüne bakın.)
 
 Aşağıdaki adımlar, dosya paylaşımını bir depolama hesabından diğerine kopyalama işlemini göstermektedir.
 
-1. Depolama Gezgini’ni (Önizleme) açın.
+1. Depolama Gezgini'ni açın.
 
 2. Sol bölmede, kopyalamak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
@@ -120,7 +120,7 @@ Aşağıdaki adımlar, dosya paylaşımını bir depolama hesabından diğerine 
 
 Aşağıdaki adımlar, bir dosya paylaşımı için SAS oluşturma işlemini göstermektedir:+
 
-1. Depolama Gezgini’ni (Önizleme) açın.
+1. Depolama Gezgini'ni açın.
 
 2. Sol bölmede, SAS almak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
@@ -146,7 +146,7 @@ Aşağıdaki adımlar, bir dosya paylaşımı için SAS oluşturma işlemini gö
 
 Aşağıdaki adımlar, bir dosya paylaşımı için erişim ilkelerini yönetme (ekleme ve kaldırma) işlemlerini gösterir:+. Erişim İlkeleri, kullanıcıların tanımlı bir süre boyunca Depolama Dosya kaynaklarına erişmek için kullanabileceği SAS URL’lerini oluşturmak için kullanılır.
 
-1. Depolama Gezgini’ni (Önizleme) açın.
+1. Depolama Gezgini'ni açın.
 
 2. Sol bölmede, erişim ilkelerini yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
@@ -180,7 +180,7 @@ Bir dosya paylaşımı oluşturduktan sonra, bu dosya paylaşımına dosya yükl
 
 Aşağıdaki adımlar bir dosya paylaşımındaki dosyaları (ve klasörleri) yönetme işlemini göstermektedir.
 
-1.  Depolama Gezgini’ni (Önizleme) açın.
+1.  Depolama Gezgini'ni açın.
 
 2.  Sol bölmede, yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
@@ -258,6 +258,6 @@ Aşağıdaki adımlar bir dosya paylaşımındaki dosyaları (ve klasörleri) y�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [En son Depolama Gezgini (Önizleme) sürüm notlarını ve videolarını](http://www.storageexplorer.com/) görüntüleyin.
+- [En son Depolama Gezgini yayın notlarını ve videolarını](http://www.storageexplorer.com/) görüntüleyin.
 
 - [Azure bloblarını, tablolarını, kuyruklarını ve dosyalarını kullanarak uygulama oluşturma](https://azure.microsoft.com/documentation/services/storage/) hakkında bilgi edinin.

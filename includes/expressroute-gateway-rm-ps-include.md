@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9eaab359d76afce61cfcc72e3fa125b08856e32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 Bu görev için adımlar aşağıdaki yapılandırma başvuru listesinde değerlere dayalı bir sanal ağ kullanın. Ayrıca ek ayarlar ve adları bu listede özetlenmiştir. Bu listedeki değerlerin temelinde değişkenleri eklediğimiz ancak Biz bu listeyi adımları, doğrudan hiçbirinde kullanmayın. Değerleri kendinizinkilerle değiştirerek bir başvuru olarak kullanılacak listesini kopyalayabilirsiniz.
 
 **Yapılandırma başvuru listesi**
 
-* Virtual Network Name = "TestVNet"
+* Sanal ağ adı "TestVNet" =
 * Sanal ağ adres alanı 192.168.0.0/16 =
-* Resource Group = "TestRG"
+* Kaynak grubu "TestRG" =
 * Subnet1 Name = "Ön uç" 
 * Subnet1 adres alanı "192.168.1.0/24" =
 * Ağ geçidi alt ağ adı: "GatewaySubnet gerekir her zaman adını bir ağ geçidi alt ağı" *GatewaySubnet*.
@@ -36,7 +36,7 @@ Bu görev için adımlar aşağıdaki yapılandırma başvuru listesinde değerl
 1. Azure aboneliğinize bağlanma.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```

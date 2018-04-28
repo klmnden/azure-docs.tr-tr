@@ -2,23 +2,20 @@
 title: Geçiş ve bir Azure bulut hizmeti Visual Studio'dan bir Web uygulaması yayımlama | Microsoft Docs
 description: Geçirmek ve web uygulamanıza bir Azure bulut hizmeti Visual Studio kullanarak yayımlama hakkında bilgi edinin
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ghogen
-ms.openlocfilehash: 682be267bbb1cf495d85af5786309a98f885fc23
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: aa09cd06a5ccea3f18459efb701aeaa8d9e59639
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Nasıl yapılır: geçirmek ve bir Azure bulut hizmeti Visual Studio'dan bir Web uygulaması yayımlama
 
@@ -81,7 +78,7 @@ Aşağıdaki tabloda Azure'da uygulama başlatma hakkında ayrıntılar verilmi�
 
    | Web uygulaması türü | Azure'da çalışan |
    | --- | --- | --- |
-   | ASP.NET Web uygulaması<br/>(including MVC 2, MVC 3, MVC 4) | URL'de seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü**. |
+   | ASP.NET Web uygulaması<br/>(MVC 2, MVC 3, MVC 4 dahil) | URL'de seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü**. |
    | ASP.NET boş Web uygulaması | Varsayılan varsa `.aspx` sayfasında uygulamanızda, URL'de seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü**. Farklı bir sayfaya gitmek için bir tarayıcıda bir URL aşağıdaki biçimde girin: `<deployment_url>/<page_name>.aspx` |
    | Silverlight uygulaması<br/>Silverlight iş uygulaması<br/>Silverlight gezinti uygulaması | Şu URL biçimi kullanarak, uygulamanız için belirli bir sayfaya gidin: `<deployment_url>/<page_name>.aspx` |
     WCF hizmet uygulaması<br/>WCF iş akışı hizmeti uygulaması | Ayarlama `.svc` WCF Hizmeti projeniz için başlangıç sayfası olarak dosya. Ardından gidin `<deployment_url>/<service_file>.svc` |

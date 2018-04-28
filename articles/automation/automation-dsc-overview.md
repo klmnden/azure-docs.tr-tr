@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4282333fc8c6f0835c451b781f70dfaed0697d96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Otomasyonu DSC genel bakış
 
@@ -25,7 +25,7 @@ Azure Otomasyonu DSC Azure dışında DSC kullanarak birkaç avantajı sağlar.
 
 ### <a name="built-in-pull-server"></a>Yerleşik çekme sunucu
 
-Azure Automation'ın sağladığı bir [DSC istek sunucusuyla](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) hedef düğümleri otomatik olarak yapılandırmaları alması için bunları, belirtilen istenen duruma uyumlu ve uyumlulukları hakkında rapor.
+Azure Automation'ın sağladığı bir [DSC istek sunucusuyla](https://msdn.microsoft.com/powershell/dsc/pullserver) hedef düğümleri otomatik olarak yapılandırmaları alması için bunları, belirtilen istenen duruma uyumlu ve uyumlulukları hakkında rapor.
 Yerleşik çekme sunucunun Azure Automation ayarlama ve kendi çekme sunucunuz gereğini ortadan kaldırır.
 Azure Otomasyonu sanal veya fiziksel Windows veya Linux makineler, bulutta veya şirket içi hedefleyebilirsiniz.
 

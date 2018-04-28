@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar.
@@ -96,7 +96,7 @@ Denetimi başlatmak için aşağıdaki yordamı kullanın:
 2. Denetim günlüklerini görüntüle’ye tıklayın.</br>
 ![Denetim Olayı](media/active-directory-tou/tou8.png)
 3.  Azure AD denetim günlükleri ekranında sağlanan açılır kutuları kullanarak belirli denetim günlüğü bilgilerini hedeflemek için bilgileri filtreleyebilirsiniz.
-![Denetim Olayı](media/active-directory-tou/tou9.png)
+[Denetim Olayı](media/active-directory-tou/tou9.png)
 4.  Ayrıca bilgileri yerel olarak kullanmak için bir .csv dosyasında indirebilirsiniz.
 
 ## 
@@ -149,7 +149,7 @@ C: Evet.  Şu anda bir yöneticinin tek bir kullanım koşulları belgesi için 
 **S: Kullanım koşulları ne zaman tetiklenir?**</br>
 C: Kullanım koşulları oturum açma deneyimi sırasında tetiklenir.
 
-**S: Kullanım koşulları ile hangi uygulamaları hedefleyebilirim?**</br>
+**S: Kullanım koşullarını hangi uygulamalara hedefleyebilirim?**</br>
 C: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir koşullu erişim ilkesi oluşturabilirsiniz.  Daha fazla bilgi için bkz. [Kurumsal uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **S: Belirli bir kullanıcı veya uygulamaya birden çok kullanım koşulları belgesi ekleyebilir miyim?**</br>

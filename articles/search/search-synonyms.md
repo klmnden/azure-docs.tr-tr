@@ -1,25 +1,20 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Azure Search REST API'sini sunulan anlamlıları (Önizleme) özelliği, ön belgeleri."
-services: search
-documentationCenter: 
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Bir arama sorgusu kapsamını genişletmek için eş anlamlı sözcükleri kullanın
 authors: mhko
-manager: pablocas
-editor: 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/07/2016
+ms.topic: conceptual
+ms.date: 04/20/2018
+manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Eş anlamlıları Azure Search'te (Önizleme)
+# <a name="synonyms-in-azure-search"></a>Azure arama eş anlamlı
 
 Arama motorları eş anlamlı örtük olarak terimi aslında sağlamaya gerek olmadan kullanıcı bir sorgu kapsamını genişletmek eşdeğer terimler ilişkilendirin. Örneğin, "canine" ve "köpek yavrusu" terimi "köpek" ve eş ilişkileri "köpek" içeren tüm belgeleri verildiğinde, "köpek" veya "köpek yavrusu" sorgu kapsamında döner.
 
@@ -27,7 +22,7 @@ Azure Search'te sorgu zamanında eş genişletme yapılır. Var olan işlemler h
 
 ## <a name="feature-availability"></a>Özellik kullanılabilirliği
 
-Eş anlamlıları özelliği şu anda önizlemede değil ve yalnızca en son Önizleme api sürümü desteklenir (API sürümü 2016-09-01-Önizleme =). Şu anda Azure portalı desteği yoktur. İstekte API sürümü belirtildiğinden, genel olarak kullanılabilir (GA) birleştirmek ve aynı uygulamada API'leri önizlemesini mümkündür. Üretim uygulamalarında kullanma önermiyoruz şekilde ancak API SLA ve Özellikler altında olmayan Önizleme, değişebilir.
+Eş anlamlıları özelliği en son API sürümü desteklenir (API sürümü = 2017 11 11). Şu anda Azure portalı desteği yoktur.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Eş anlamlıları Azure search ile kullanma
 
@@ -47,11 +42,11 @@ Eş anlamlıları arama uygulamanıza ekleme iki adımlı bir işlemdir:
 
 Eş anlamlı maps hizmetine POST veya PUT aracılığıyla yüklenir. Her kural yeni satır karakteri ('\n') tarafından ayrılmış gerekir. Ücretsiz bir hizmettir eş eşlemesinde başına 5.000 kuralları ve diğer tüm SKU 10.000 kurallarında kadar tanımlayabilirsiniz. Her kural en fazla 20 uzantılarına sahip olabilir.
 
-Bu Önizleme'de, eş anlamlı eşlemeleri, aşağıda açıklandığı Apache Solr biçiminde olmalıdır. Var olan bir eş anlamlı sözlük farklı bir biçimde varsa ve doğrudan kullanmak istiyorsanız, lütfen bize bilmeniz [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Eş anlamlı eşlemeleri, aşağıda açıklandığı Apache Solr biçiminde olmalıdır. Var olan bir eş anlamlı sözlük farklı bir biçimde varsa ve doğrudan kullanmak istiyorsanız, lütfen bize bilmeniz [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Aşağıdaki örnekte olduğu gibi HTTP POST kullanılarak yeni bir eş anlamlı eşlemesi oluşturabilirsiniz:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -64,7 +59,7 @@ Aşağıdaki örnekte olduğu gibi HTTP POST kullanılarak yeni bir eş anlamlı
 
 Alternatif olarak, PUT kullanın ve URI üzerinde eş eşleme adı belirtin. Eş anlamlı eşlemesi yoksa, oluşturulur.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -90,24 +85,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste eş hizmetinizi altında eşler.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Bir eş anlamlı harita hizmetinizin altında alın.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Eş anlamlıları harita hizmetinizin altında silin.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Aranabilir alana eş harita dizin tanımı'nda kullanmak üzere yapılandırın.
 
 Yeni bir alan özelliği **synonymMaps** aranabilir alan için kullanılacak bir eş anlamlı eşlemesi belirtmek için kullanılır. Eş anlamlı eşlemeleri hizmet düzeyi kaynaklar ve dizin hizmeti altındaki herhangi bir alan başvurduğu.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -142,7 +137,7 @@ Yeni bir alan özelliği **synonymMaps** aranabilir alan için kullanılacak bir
 **synonymMaps** için 'Edm.String' veya 'Collection(Edm.String)' türünde aranabilir alanlar belirtilebilir.
 
 > [!NOTE]
-> Bu Önizleme'de, yalnızca her alan eşleme bir eş anlamlı olabilir. Birden çok eş eşlemesi kullanmak istiyorsanız, lütfen bize bilmeniz [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Yalnızca her alan eşleme bir eş anlamlı olabilir. Birden çok eş eşlemesi kullanmak istiyorsanız, lütfen bize bilmeniz [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Eş anlamlıları diğer arama özellikleri üzerinde etkisi
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: abd3ef00148795f4b3e79e2ed64dd35f56946455
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 68e3775be36b434acb5c25b522f9e28bec1b6125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP ECC veri kopyalama
 
@@ -124,7 +124,7 @@ SAP ECC verileri kopyalamak için kopyalama etkinliği için kaynak türünü ay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **SapEccSource** | Evet |
-| sorgu | Verileri filtrelemek için OData sorgu seçenekleri. Örnek: "$select = ad, açıklama & $top = 10".<br/><br/>SAP ECC bağlayıcı birleşik URL'den verileri kopyalar: (url belirtilen bağlantılı hizmetteki) / (yolu belirtilen kümesinde)? (kopyalama etkinliği kaynağında belirtilen sorgu). Başvurmak [OData URL bileşenleri](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Evet |
+| sorgu | Verileri filtrelemek için OData sorgu seçenekleri. Örnek: "$select = ad, açıklama & $top = 10".<br/><br/>SAP ECC bağlayıcı birleşik URL'den verileri kopyalar: (url belirtilen bağlantılı hizmetteki) / (yolu belirtilen kümesinde)? (kopyalama etkinliği kaynağında belirtilen sorgu). Başvurmak [OData URL bileşenleri](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek:**
 
@@ -170,7 +170,7 @@ SAP ECC veri kopyalama işlemi sırasında aşağıdaki eşlemelerini OData veri
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Ondalık |
 | Edm.Double | Çift |
-| Edm.Single | Bekar |
+| Edm.Single | Tek |
 | Edm.Guid | Dize |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

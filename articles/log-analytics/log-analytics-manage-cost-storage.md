@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri birimi ve günlük analizi bekletmeyi denetleyerek maliyet yönetme
 Günlük analizi ölçek ve Destek toplama, dizin oluşturma ve herhangi bir kaynaktan veri günde oldukça büyük miktardaki kuruluşunuzda depolamak üzere tasarlanmış veya Azure'da dağıtılabilir.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak maliyet verimliliği sonuçta temel sürücüsüdür. Kendi önemli bir günlük Analytisc çalışma maliyetini toplanan, veri biriminde yalnızca dayanmayan anlamak bu amaçla da seçilen plan bağlı olduğu ve ne kadar süreyle bağlı kaynaklarınızdan oluşturulan veri depolamak seçtiğiniz.  
@@ -38,7 +38,7 @@ Ne kadar veri topladığı tahmini sağladığından her çözümünü içeren b
 "Ücretsiz fiyatlandırma katmanı üzerinde" varsa, verilerin 7 gün bekletme sınırlıdır. "Başına GB (tek başına)" veya "Düğüm başına (OMS)" katmanları için toplanan verileri son 31 gün için kullanılabilir ve saklama yukarı 2 yıl artırılabilir. Uzun bir bekletme dönemi seçerseniz ücretleri uygulanır. Ücretsiz planı 500 MB günlük alım sınıra sahiptir ve birim izin tutarlar tutarlı bir şekilde aşması fark ederseniz, bu sınırı aşan veri toplamak için GB başına veya başına düğüm katmanları çalışma alanınızı değiştirebilirsiniz. Herhangi bir zamanda ve fiyatlandırma hakkında daha fazla bilgi için plan türünü değiştirmek, bkz: [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
 > [!NOTE]
-> Nisan 2018, biz [sunulan](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure izlemek için yeni bir fiyatlandırma modeli. Bu model Hizmetleri izleme tam Portföy arasında basit bir "Kullandıkça Öde" modelinin devralır. Daha fazla bilgi edinmek [yeni fiyatlandırma modeli](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), nasıl için [bu modeline taşıma etkisini değerlendirmenize](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) , kullanım düzenlerini esas alarak ve [yeni modeline kabul etme](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> Nisan 2018, biz [sunulan](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure izlemek için yeni bir fiyatlandırma modeli. Bu model Hizmetleri izleme tam Portföy arasında basit bir "Kullandıkça Öde" modelinin devralır. Daha fazla bilgi edinmek [yeni fiyatlandırma modeli](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), nasıl için [bu modeline taşıma etkisini değerlendirmenize](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) , kullanım düzenlerini esas alarak ve [yeni modeline kabul etme](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
 Fiyatlandırma modeli veya katmanı bağımsız olarak verilerin hacmi Yönetimi maliyetleriniz denetlenmesi için fundmental oluşturur. Günlük analizi vardır, maliyet, veri hacmi sınırlı ve yardımcı iki yolla kontrol içinde belirli çözüm yapılandırması ve seçim yanı sıra günlük cap ve veri bekletme bunlar.  
 

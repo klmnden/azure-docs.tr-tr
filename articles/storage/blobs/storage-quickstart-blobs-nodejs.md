@@ -1,19 +1,19 @@
 ---
-title: Azure Hızlı Başlangıç - Node.js’yi kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs
-description: Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Node.js için depolama istemcisi kitaplığını kullanırsınız.
+title: Azure Hızlı Başlangıç - Node.js kullanarak nesne depolamada blob oluşturma | Microsoft Docs
+description: Bu hızlı başlangıçta, nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Node.js için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Hızlı Başlangıç: Node.js’yi kullanarak blobları yükleme, indirme ve listeleme
 
@@ -82,7 +82,7 @@ Modüllerin amacı aşağıdaki gibidir:
 - *dotenv*, *.env* adlı bir dosyada tanımlanan ortam değişkenlerini geçerli yürütme bağlamına yükler
 - *path*, blob depolamaya yüklenecek dosyanın mutlak dosya yolunu belirlemek için gereklidir
 - *yargs*, komut satırı bağımsız değişkenlerine erişmek için basit bir arabirim sunar
-- *azure-storage*, Node.js için [Azure Depolama SDK’sı](/nodejs/api/azure-storage) modülüdür
+- *azure-storage*, Node.js için [Azure Depolama SDK’sı](https://docs.microsoft.com/javascript/api/azure-storage) modülüdür
 
 Daha sonra bir değişken serisi başlatılır:
 
@@ -294,4 +294,4 @@ Bu hızlı başlangıçta, Node.js kullanarak yerel bir disk ve Azure Blob depol
 > [!div class="nextstepaction"]
 > [Blob Depolama İşlemleri Nasıl Yapılır](storage-nodejs-how-to-use-blob-storage.md)
 
-Azure Depolama’ya yönelik Node.js başvurusu için bkz. [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+Azure Depolama’ya yönelik Node.js başvurusu için bkz. [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage).

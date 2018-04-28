@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event kılavuzunda kavramları
 
@@ -20,7 +20,7 @@ Azure olay kılavuzunda ana kavramları şunlardır:
 
 ## <a name="events"></a>Olaylar
 
-Bir olay sistem içinde gerçekleşen tam olarak bir şey açıklayan bilgileri küçük miktarıdır.  Her olay gibi genel bilgiler vardır: olay kaynağı olay yerinde ve benzersiz tanımlayıcı geçen süre.  Her bir olay da yalnızca belirli olay türü için uygun olan belirli bilgileri yok. Örneğin, Azure depolama alanında oluşturulan yeni bir dosya ile ilgili bir olay ayrıntıları dosyayla ilgili gibi içeriyor `lastTimeModified` değeri. Veya bir sanal makine yeniden başlatılıyor hakkında bir olay sanal makine ve yeniden başlatma nedenini adını içerir. Her olay verilerinin 64 KB ile sınırlıdır.
+Bir olay sistem içinde gerçekleşen tam olarak bir şey açıklayan bilgileri küçük miktarıdır. Her olay gibi genel bilgiler vardır: olay kaynağı olay yerinde ve benzersiz tanımlayıcı geçen süre. Her bir olay da yalnızca belirli olay türü için uygun olan belirli bilgileri yok. Örneğin, Azure depolama alanında oluşturulan yeni bir dosya ile ilgili bir olay ayrıntıları dosyayla ilgili gibi içeriyor `lastTimeModified` değeri. Veya bir sanal makine yeniden başlatılıyor hakkında bir olay sanal makine ve yeniden başlatma nedenini adını içerir. Her olay verilerinin 64 KB ile sınırlıdır.
 
 ## <a name="event-sourcespublishers"></a>Olay kaynakları/yayımcıları
 
@@ -32,7 +32,7 @@ Yayımcıları olayları konulara kategorilere ayırma. Konu, burada yayımcı o
 
 Sistem konular, Azure Hizmetleri tarafından sağlanan yerleşik konulardır. Uygulama ve üçüncü taraf konuları bunun özel konulardır.
 
-Uygulamanızı tasarlarken, ilgili olayların her kategori için özel bir konu oluşturun. Örneğin, sipariş işleme ve kullanıcı hesaplarını değiştirme ile ilgili olayları gönderen bir uygulama göz önünde bulundurun. Her iki kategorileri olayların herhangi bir olay işleyicisini istediği düşüktür. İki özel konular oluşturmak ve bunları ilgilendiğiniz bir abone olay işleyicileri izin verin. Özel konuya abone olurken, olay işleyicisi olay türüne göre filtreleyebilirsiniz.
+Uygulamanızı tasarlarken oluşturmak için kaç tane konuları karar verirken esneklik vardır. Büyük çözümler için ilgili olayların her kategori için özel bir konu oluşturun. Örneğin, sipariş işleme ve kullanıcı hesaplarını değiştirme ile ilgili olayları gönderen bir uygulama göz önünde bulundurun. Her iki kategorileri olayların herhangi bir olay işleyicisini istediği düşüktür. İki özel konular oluşturmak ve bunları ilgilendiğiniz bir abone olay işleyicileri izin verin. Küçük çözümleri için tek bir konu tüm olayları göndermek tercih edebilirsiniz. Olay aboneleri istedikleri olay türleri için filtre uygulayabilirsiniz.
 
 ## <a name="event-subscriptions"></a>Olay abonelikleri
 
@@ -40,7 +40,7 @@ Bir abonelik olay hangi olayların bir konuda üzerinde bir abone olarak alma il
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
-Bir olay kılavuz açısından bakıldığında, olay işleyici burada olayı gönderilir yerdir. İşleyicisi olayını işlemek için bazı başka bir eylem alır.  Olay kılavuz birden çok abone türlerini destekler. Abone türüne bağlı olarak, olay kılavuz olay teslimini garanti etmek için farklı mekanizmaları izler.  Bir durum kodu, işleyici dönene kadar HTTP Web kancası olay işleyicileri için olay denenir `200 – OK`. Sıra hizmeti başarıyla kuyruğa ileti gönderme işlem kadar için Azure depolama kuyruğu, olayları denenir.
+Bir olay kılavuz açısından bakıldığında, olay işleyici burada olayı gönderilir yerdir. İşleyicisi olayını işlemek için bazı başka bir eylem alır. Olay kılavuz birden çok abone türlerini destekler. Abone türüne bağlı olarak, olay kılavuz olay teslimini garanti etmek için farklı mekanizmaları izler. Bir durum kodu, işleyici dönene kadar HTTP Web kancası olay işleyicileri için olay denenir `200 – OK`. Sıra hizmeti başarıyla kuyruğa ileti gönderme işlem kadar için Azure depolama kuyruğu, olayları denenir.
 
 ## <a name="filters"></a>Filtreler
 

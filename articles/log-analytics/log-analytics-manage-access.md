@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -34,7 +34,7 @@ Bir çalışma alanı oluşturmak için şunlar gereklidir:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>İhtiyacınız olan çalışma alanı sayısını belirleme
 Çalışma alanı, bir Azure kaynağıdır. Bu alan, verilerin toplandığı, derlendiği, çözümlendiği ve Azure portalında sunulduğu bir kapsayıcıdır.
 
-Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve birden çok çalışma alanına erişebilirsiniz. Daha önce verileri yalnızca geçerli çalışma alanından çözümleyebiliyordunuz ve bu, aboneliğinizde tanımlanmış olan birden çok çalışma alanında sorgu yapabilmenizi kısıtlıyordu. Artık [birden çok çalışma alanında sorgu yapabilirsiniz](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), bu da verilerinize sistem genelinde bir görünüm sunar. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
+Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve birden çok çalışma alanına erişebilirsiniz. Daha önce verileri yalnızca geçerli çalışma alanından çözümleyebiliyordunuz ve bu, aboneliğinizde tanımlanmış olan birden çok çalışma alanında sorgu yapabilmenizi kısıtlıyordu. Artık [birden çok çalışma alanında sorgu yapabilirsiniz](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), bu da verilerinize sistem genelinde bir görünüm sunar. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
 
 Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 
@@ -77,7 +77,7 @@ Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebil
 Bir Log Analytics çalışma alanına erişimi denetleyen iki izin modeli vardır:
 
 1. Eski Log Analytics kullanıcı rolleri
-2. [Azure rol tabanlı erişim](../active-directory/role-based-access-control-configure.md)
+2. [Azure rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md)
 
 Aşağıdaki tabloda her bir izin modeli kullanılarak ayarlanabilen erişim özellikleri özetlenmektedir:
 
@@ -104,7 +104,7 @@ Eski Log Analytics kullanıcı rolleri yalnızca [Log Analytics portalında](htt
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics’e erişimi yönetme
-Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../active-directory/role-based-access-control-configure.md) bölümündeki adımları izleyin.
+Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../role-based-access-control/role-assignments-portal.md) bölümündeki adımları izleyin.
 
 Azure Log Analytics için iki yerleşik kullanıcı rolüne sahiptir:
 - Log Analytics Okuyucusu
@@ -156,7 +156,7 @@ Bu rolleri, kullanıcılara farklı kapsamlarda erişim vermek için kullanın:
 - Kaynak grubu - Kaynak grubundaki tüm çalışma alanına erişim
 - Kaynak - Yalnızca belirtilen çalışma alanına erişim
 
-Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../active-directory/role-based-access-control-custom-roles.md) kullanın.
+Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../role-based-access-control/custom-roles.md) kullanın.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure kullanıcı rolleri ve Log Analytics portalı kullanıcı rolleri
 Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak OMS portalını açabilirsiniz.
@@ -174,11 +174,11 @@ OMS portalındaki rol atamanız aşağıdaki şekilde belirlenir:
 | Bulut Çözümü Sağlayıcısı (CSP) tarafından yönetilen abonelikler için <br> Oturum açtığınız hesap, çalışma alanına bağlı Azure Active Directory’dedir | Yönetici | Genellikle bir CSP’nin müşterisi |
 | Bulut Çözümü Sağlayıcısı (CSP) tarafından yönetilen abonelikler için <br> Oturum açtığınız hesap, çalışma alanına bağlı Azure Active Directory’de değildir | Katılımcı | Genellikle CSP |
 
-<sup>1</sup> Rol tanımları hakkında daha fazla bilgi için [Azure izinlerine](../active-directory/role-based-access-control-custom-roles.md) bakın. Roller değerlendirilirken, `*` eylemi `Microsoft.OperationalInsights/workspaces/*` öğesine eşit değildir.
+<sup>1</sup> Rol tanımları hakkında daha fazla bilgi için [Azure izinlerine](../role-based-access-control/custom-roles.md) bakın. Roller değerlendirilirken, `*` eylemi `Microsoft.OperationalInsights/workspaces/*` öğesine eşit değildir.
 
 Azure portalı hakkında dikkate alınması gereken bazı noktalar:
 
-* http://mms.microsoft.com adresini kullanarak OMS portalında oturum açtığınızda **Çalışma alanı seçin** listesini görürsünüz. Bu liste yalnızca bir Log Analytics kullanıcı rolüne sahip olduğunuz çalışma alanlarını içerir. Azure abonelikleri ile erişim sahibi olduğunuz çalışma alanlarını görmek için, URL'nin parçası olarak bir kiracı belirtmeniz gerekir. Örneğin:  `mms.microsoft.com/?tenant=contoso.com`. Kiracı tanımlayıcısı, genellikle oturum açmak için kullandığınız e-posta adresinin bu son bölümüdür.
+* http://mms.microsoft.com adresini kullanarak OMS portalında oturum açtığınızda **Çalışma alanı seçin listesini** görürsünüz. Bu liste yalnızca bir Log Analytics kullanıcı rolüne sahip olduğunuz çalışma alanlarını içerir. Azure abonelikleri ile erişim sahibi olduğunuz çalışma alanlarını görmek için, URL'nin parçası olarak bir kiracı belirtmeniz gerekir. Örneğin:  `mms.microsoft.com/?tenant=contoso.com`. Kiracı tanımlayıcısı, genellikle oturum açmak için kullandığınız e-posta adresinin bu son bölümüdür.
 * Azure izinlerini kullanarak, doğrudan erişim sahibi olduğunuz bir portala gitmek istiyorsanız URL'nin parçası olarak kaynağı belirtmeniz gerekir. Bu URL'yi PowerShell kullanarak elde edebilirsiniz.
 
   Örneğin, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.

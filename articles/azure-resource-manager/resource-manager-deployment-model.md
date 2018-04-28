@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager ve klasik dağıtımı | Microsoft Docs"
-description: "Resource Manager dağıtım modeli ve klasik arasındaki farklılıkları açıklar (veya Hizmet Yönetimi) dağıtım modeli."
+title: Resource Manager ve klasik dağıtımı | Microsoft Docs
+description: Resource Manager dağıtım modeli ve klasik arasındaki farklılıkları açıklar (veya Hizmet Yönetimi) dağıtım modeli.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 06da24babd470e81bed9c45a32c59ad9cfd153fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager ve klasik dağıtım: dağıtım modelleri ve kaynaklarınızın durumunu anlamak
 Bu makalede, Azure Resource Manager ve klasik dağıtım modelleri hakkında bilgi edinin. Resource Manager ve klasik dağıtım modellerine dağıtma ve yönetme Azure çözümlerinizi iki farklı şekilde temsil eder. İki farklı API kümesi bunlarla çalışmak ve dağıtılan kaynakları önemli farklılıklar içerebilir. İki model birbirleri ile uyumlu değildir. Bu makalede bu farklar açıklanmaktadır.
@@ -108,7 +108,7 @@ Bir sanal makineyi barındırmak için Klasik çözüm içerir:
 | Depolama Hesapları |Sanal makine işletim sistemi, geçici ve ek veri disklerinin VHD'ler depolayan bir depolama hesabı gerektirir. |Sanal makinesi, disklerini blob storage'da depolamak için bir depolama hesabı gerektirir. |
 | Kullanılabilirlik Kümeleri |Platformun uygunluğu Sanal Makinelerde "AvailabilitySetName" yapılandırılarak belirtilirdi. Hata etki alanlarının en yüksek sayısı 2’ydi. |Kullanılabilirlik kümesi, Microsoft.Compute Sağlayıcısı tarafından sağlanan bir kaynaktır. Yüksek kullanılabilirliğin gerektiği Sanal Makineler Kullanılabilirlik Kümesi içinde bulunmalıdır. Hata etki alanlarının en yüksek sayısı artık 3’tür. |
 | Benzeşim Grupları |Benzeşim Grupları Sanal Ağlar oluşturmak için gerekliydi. Ancak, Bölgesel Sanal Aağlar girişiyle artık gerekmiyordu. |Basitleştirmek için, Benzeşim Grupları kavramı Azure Resource Manager aracılığıyla sunulan API'lerde yok. |
-| Yük Dengeleme |Bulut Hizmeti oluşturulması dağıtılan Virtual Machines için örtük yük dengeleyici sağlar. |Load Balancer, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Yük dengeli olması gereken Virtual Machines’in birincil ağ arabirimi yük dengeleyiciye baş vurmalıdır. Yük Dengeleyiciler dahili ve harici olabilir. Bir yük dengeleyici örneği (isteğe bağlı) bir sanal makine NIC içerir ve bir yük dengeleyici genel veya özel IP adresi (isteğe bağlı) başvuran IP adresleri arka uç havuzu başvurur. [Daha fazla bilgi edinin.](../virtual-network/resource-groups-networking.md) |
+| Yük Dengeleme |Bulut Hizmeti oluşturulması dağıtılan Virtual Machines için örtük yük dengeleyici sağlar. |Load Balancer, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Yük dengeli olması gereken Virtual Machines’in birincil ağ arabirimi yük dengeleyiciye baş vurmalıdır. Yük Dengeleyiciler dahili ve harici olabilir. Bir yük dengeleyici örneği (isteğe bağlı) bir sanal makine NIC içerir ve bir yük dengeleyici genel veya özel IP adresi (isteğe bağlı) başvuran IP adresleri arka uç havuzu başvurur. |
 | Sanal IP Adresi |Bulut Hizmetleri, bir bulut hizmeti için bir VM eklendiğinde varsayılan VIP'i (sanal IP adresi) alır. Sanal IP Adresi örtük yük dengeleyiciyle ilişkili adrestir. |Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP adresi statik (ayrılmış) veya dinamik olabilir. Dinamik genel IP'ler bir yük dengeleyiciye atanabilir. Genel IP’ler Güvenlik Grupları kullanılarak güvenli hale getirilebilir. |
 | Ayrılmış IP Adresi |Azure’da bir IP adresini ayırabilir ve IP Adresinin yapışkan olmasını sağlamak için bunu Bulut Hizmetiyle ilişkilendirebilirsiniz. |Genel IP adresi statik modunda oluşturulabilir ve ayrılmış bir IP adresi ile aynı özelliği sunar. |
 | Genel IP Adresi (PIP) / VM |Genel IP adresleri de doğrudan bir VM'ye ilişkilendirilebilir. |Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP adresi statik (ayrılmış) veya dinamik olabilir. |

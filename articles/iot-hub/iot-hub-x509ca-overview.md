@@ -1,12 +1,12 @@
 ---
-title: "Azure IOT Hub X.509 CA güvenliğine genel bakış | Microsoft Docs"
-description: "Genel Bakış - cihazlar IOT hub'ına X.509 sertifika yetkililerini kullanarak kimlik doğrulaması yapmayı."
+title: Azure IOT Hub X.509 CA güvenliğine genel bakış | Microsoft Docs
+description: Genel Bakış - cihazlar IOT hub'ına X.509 sertifika yetkililerini kullanarak kimlik doğrulaması yapmayı.
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 080c83fd0c34bdcb8978edf0ba4f783402a88b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA sertifikaları kullanarak cihaz kimlik doğrulaması
 
@@ -69,7 +69,7 @@ Burada nasıl [CA sertifikanızı kaydedin](iot-hub-security-x509-get-started.md
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Bir cihaz IOT hub'ına oluşturma
 
-Cihaz kimliğe bürünme engellemek için IOT Hub, hangi aygıtların beklediğiniz bilmeniz izin gerektirir.  Bunun için IOT Hub'ın cihaz kayıt defterinde bir cihaz girişi oluşturarak.  Bu işlem, IOT hub'ı kullanırken otomatik [aygıt hizmeti sağlama](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
+Cihaz kimliğe bürünme engellemek için IOT Hub, hangi aygıtların beklediğiniz bilmeniz izin gerektirir.  Bunun için IOT Hub'ın cihaz kayıt defterinde bir cihaz girişi oluşturarak.  Bu işlem, IOT hub'ı kullanırken otomatik [aygıt hizmeti sağlama](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
 
 Burada nasıl [el ile bir cihaz IOT Hub oluşturma](iot-hub-security-x509-get-started.md#createdevice).
 
@@ -85,4 +85,4 @@ Burada nasıl [bu cihaz bağlantısı adımı tamamlamak](iot-hub-security-x509-
 
 Hakkında bilgi edinin [X.509 CA'ın kimlik doğrulaması değeri](iot-hub-x509ca-concept.md) IOT içinde.
 
-IOT Hub ile çalışmaya başlama [aygıt hizmeti sağlama](https://docs.microsoft.com/en-us/azure/iot-dps/).
+IOT Hub ile çalışmaya başlama [aygıt hizmeti sağlama](https://docs.microsoft.com/azure/iot-dps/).

@@ -1,119 +1,95 @@
 ---
-title: "Power BI ile SQL Data Warehouse verilerini görselleştirme | Microsoft Azure"
-description: "Power BI ile SQL Data Warehouse verilerini görselleştirme"
+title: Power BI ile SQL Data Warehouse verilerini görselleştirme | Microsoft Azure
+description: Power BI ile SQL Data Warehouse verilerini görselleştirme
 services: sql-data-warehouse
-documentationcenter: NA
-author: mlee3gsd
-manager: jhubbard
-editor: 
-ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 10/31/2016
-ms.author: martinle;barbkess
-ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 52581a87caac419a79caab647cc9c5a4ee7453ba
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI ile verileri görselleştirme
-> [!div class="op_single_selector"]
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [SSMS](sql-data-warehouse-query-ssms.md)
-> 
-> 
-
 Bu öğreticide SQL Data Warehouse'a bağlanmak ve birkaç temel görselleştirme oluşturmak üzere Power BI'ı nasıl kullanacağınız gösterilmiştir.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-* AdventureWorksDW veritabanı önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı Oluşturma][Create a SQL Data Warehouse] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][load sample data manually].
+* AdventureWorksDW veritabanı önceden yüklenmiş bir SQL Data Warehouse. Veri ambarı sağlamak için bkz: [SQL Data Warehouse oluşturma](create-data-warehouse-portal.md) ve örnek verileri yüklemek seçin. Zaten bir veri ambarı var ancak örnek verileriniz yoksa yapabilecekleriniz [WideWorldImportersDW yük](load-data-wideworldimportersdw.md).
 
 ## <a name="1-connect-to-your-database"></a>1. Veritabanınıza bağlanın
 Power BI'ı açmak ve AdventureWorksDW veritabanınıza bağlanmak için şunları yapın:
 
-1. [Azure portal][Azure portal] oturumunu açın.
+1. [Azure portal](https://portal.azure.com/) oturum açın.
 2. **SQL veritabanları** seçeneğine tıklayın ve AdventureWorks SQL Data Warehouse veritabanınızı seçin.
    
-    ![Veritabanınızı bulma][1]
+    ![Veritabanınızı bulma](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png)
 3. "Power BI'da aç" düğmesine tıklayın.
    
-    ![Power BI düğmesi][2]
+    ![Power BI düğmesi](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png)
 4. Bu işlemin ardından veritabanınızın web adresinin görüntülendiği SQL Data Warehouse bağlantı sayfası açılır. İleri'ye tıklayın.
    
-    ![Power BI bağlantısı][3]
-5. Azure SQL sunucusuna ilişkin kullanıcı adı ve parolanızı girdikten sonra SQL Data Warehouse veritabanınıza tamamen bağlanmış olursunuz.
+    ![Power BI bağlantısı](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png)
+5. Azure SQL server kullanıcı adı ve parola girin.
    
-    ![Power BI'da oturum açma][4]
-6. Power BI'da oturum açtıktan sonra sol dikey penceredeki AdventureWorksDW veri kümesine tıklayın. Bu işlemin ardından veritabanı açılır.
+    ![Power BI oturum açma](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png)
+6. Veritabanını açmak için Sol dikey penceredeki AdventureWorksDW veri kümesine tıklayın.
    
-    ![Power BI AdventureWorksDW'yi açma][5]
+    ![Power BI AdventureWorksDW'yi açma](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png)
 
 ## <a name="2-create-a-report"></a>2. Bir rapor oluşturun
 Artık AdventureWorksDW örnek verilerinizi Power BI kullanarak çözümlemeye hazırsınız. AdventureWorksDW'de çözümlemenin gerçekleştirileceği AggregateSales adlı bir görünüm vardır. Bu görünüm, şirket satışlarının çözümlenmesine yönelik ana ölçümlerden birkaçını içerir.
 
 1. Posta koduna göre satış tutarlarının bir haritasını oluşturmak için sağ taraftaki alanlar bölmesinde AggregateSales görünümüne tıklayıp görünümü genişletin. PostalCode ve SalesAmount sütünlarını tıklayarak seçin.
    
-    ![Power BI AggregateSales görünümünü seçme][6]
+    ![Power BI AggregateSales seçer](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png)
    
-    Power BI otomatik olarak bu verilerin coğrafi veriler olduğunu tanır ve verileri sizin için bir haritaya yerleştirir.
+    Power BI otomatik olarak coğrafi veriler tanınmıyor ve sizin için bir harita yerleştirin.
    
-    ![Power BI haritası][7]
-2. Bu adımda müşteri geliri başına satış tutarını gösteren bir çubuk grafiği oluşturulur. Bu grafiği oluşturmak için genişletilmiş AggregateSales görünümüne gidin. SalesAmount alanına tıklayın. Müşteri Geliri alanını sola sürükleyip Eksene bırakın.
+    ![Power BI haritası](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png)
+
+2. Bu adımda müşteri geliri başına satış tutarını gösteren bir çubuk grafiği oluşturulur. Çubuk grafik oluşturmak için genişletilmiş AggregateSales görünümüne gidin. SalesAmount alanına tıklayın. Müşteri Geliri alanını sola sürükleyip Eksene bırakın.
    
-    ![Power BI eksen seçme][8]
+    ![Power BI eksen seçer](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png)
    
-    Çubuk grafiğini sola taşıdık.
+    Çubuk grafiğini sola üzerinden.
    
-    ![Power BI çubuğu][9]
-3. Bu adımda, sipariş tarihi başına satış tutarını gösteren bir çizgi grafiği oluşturulur. Bu grafiği oluşturmak için genişletilmiş AggregateSales görünümüne gidin. SalesAmount ve OrderDate öğelerine tıklayın Görselleştirmeler sütununun ikinci satırındaki ilk simge olan Çizgi Grafiği simgesine tıklayın.
+    ![Power BI çubuğu](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png)
+3. Bu adımda, sipariş tarihi başına satış tutarını gösteren bir çizgi grafiği oluşturulur. Çizgi grafiği oluşturmak için genişletilmiş AggregateSales görünümüne gidin. SalesAmount ve OrderDate öğelerine tıklayın Görselleştirmeler sütununun ikinci satırındaki ilk simge olan çizgi grafiği simgesine tıklayın.
    
-    ![Power BI çizgi grafiğini seçme][10]
+    ![Power BI çizgi grafiği seçer](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png)
    
     Artık verilerin üç farklı görselleştirmesini gösteren bir raporunuz var.
    
-    ![Power BI çizgi grafiği][11]
+    ![Power BI çizgi grafiği](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png)
 
 **Dosya**'ya tıklayıp **Kaydet**'i seçerek ilerleme durumunuzu istediğiniz zaman kaydedebilirsiniz.
 
+## <a name="using-direct-connnect"></a>Doğrudan bağlantı kullanma
+Olarak Azure SQL veritabanı ile SQL veri ambarı doğrudan bağlantı Power BI analitik yeteneklerini yanında mantıksal aşağı itme sağlar. Veri keşfetmenizde doğrudan bağlantı ile sorgular, Azure SQL Data Warehouse'da dön gerçek zamanlı gönderilir.  SQL Data Warehouse, ölçeği ile birlikte, bu özellik terabayt veri göre dakika cinsinden dinamik raporlar oluşturmanıza olanak sağlar. Ayrıca, Power BI düğmesi Aç giriş doğrudan Power BI kendi SQL veri ambarı'na Azure diğer bölümlerden bilgilerini toplamadan bağlanmasına olanak sağlar.
+
+Doğrudan bağlantı kullanırken:
+
+* Bağlanırken tam sunucu adını belirtin.
+* Veritabanı için güvenlik duvarı kuralları Azure hizmetlerine erişime izin ver için yapılandırılmış emin olun.
+* Bir sütunun seçilmesi veya bir filtre eklemeden gibi her eylem doğrudan veri ambarı sorgular.
+* Döşeme otomatik olarak ve yaklaşık 15 dakikada bir yenilenir.
+* Soru- cevap veri kümeleri doğrudan bağlanmak için kullanılamıyor.
+* Şema değişiklikleri otomatik olarak birleştirilir.
+* Tüm doğrudan bağlanmak sorguları 2 dakika sonra zaman aşımına uğrar.
+
+Deneyimleri geliştirmek gibi bu kısıtlamaları ve notlar değişebilir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
-Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme][develop], [yükleme][load] veya [geçirme][migrate] işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesi][Power BI website]'ni ziyaret edin.
-
-<!--Image references-->
-[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
-
-<!--Article references-->
-[migrate]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
-[load]: sql-data-warehouse-overview-load.md
-[load sample data manually]: sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-
-<!--Other-->
-[Azure portal]: https://portal.azure.com/
-[Power BI website]: http://www.powerbi.com/
+Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme](sql-data-warehouse-overview-develop.md), [yükleme](design-elt-data-loading.md) veya [aktarma](sql-data-warehouse-overview-migrate.md) işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesi](http://www.powerbi.com/)'ni ziyaret edin.

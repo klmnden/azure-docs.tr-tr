@@ -1,12 +1,12 @@
 ---
-title: "Azure Danışmanı güvenlik önerileri | Microsoft Docs"
-description: "Azure dağıtımlarınızın güvenliğini artırmanıza yardımcı olmak için Azure Danışmanı'nı kullanın."
+title: Azure Danışmanı güvenlik önerileri | Microsoft Docs
+description: Azure dağıtımlarınızın güvenliğini artırmanıza yardımcı olmak için Azure Danışmanı'nı kullanın.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: ea6fc67a0f5bdfe09435a00c4d2651f312695d25
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: e8a2350744e7b967cc19d0e73686f32edf980eac
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-security-recommendations"></a>Advisor güvenlik önerileri
 
@@ -26,7 +26,7 @@ Azure Danışmanı önerileri için tüm Azure kaynaklarına tutarlı, birleşti
 
 Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza, ayrıca Azure kaynaklarınızın güvenliğini denetlemenize yardımcı olur. Düzenli aralıklarla Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde öneriler oluşturur. Öneriler gereksinim denetimlerini yapılandırma işleminde size kılavuzluk. 
 
-Güvenlik önerileri hakkında daha fazla bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
+Güvenlik önerileri hakkında daha fazla bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Güvenlik önerileri Azure Danışmanı erişme
 

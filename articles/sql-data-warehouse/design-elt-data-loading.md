@@ -3,18 +3,18 @@ title: ETL yerine ELT Azure SQL Data Warehouse için Tasarım | Microsoft Docs
 description: ETL yerine, verileri veya Azure SQL Data Warehouse yüklenmesi için ayıklama, yükleme ve dönüştürme (ELT) bir işlem tasarlayın.
 services: sql-data-warehouse
 author: ckarst
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 04/11/2018
+ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 13189bfe2e2e6db6185c798065dc3bea1fd3d537
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ayıklama, yükleme ve dönüştürme (ELT) Azure SQL veri ambarı için tasarlama
 
@@ -56,7 +56,7 @@ PolyBase ile veri yüklemek için aşağıdaki yükleme seçeneklerinden herhang
 PolyBase UTF-8'den verileri yükler ve UTF-16 kodlu sınırlandırılmış metin dosyaları. Sınırlandırılmış metin dosyaları yanı sıra Hadoop dosya biçimlerinden RC dosya, ORC ve Parquet yükler. PolyBase, Gzip ve Snappy sıkıştırılmış dosyaların verileri yükleyebilirsiniz. PolyBase, genişletilmiş ASCII, sabit genişlik biçimine ve iç içe geçmiş biçimleri WinZip, JSON ve XML gibi şu anda desteklemiyor.
 
 ### <a name="non-polybase-loading-options"></a>Olmayan PolyBase yükleme seçenekleri
-Verilerinizi PolyBase ile uyumlu değilse, kullanabileceğiniz [bcp](sql-data-warehouse-load-with-bcp.md) veya [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP Azure Blob Depolama geçmeden doğrudan SQL Data Warehouse için yükler ve yalnızca küçük yükler için tasarlanmıştır. Bu seçenekler yükü performansını önemli ölçüde PolyBase yavaştır unutmayın. 
+Verilerinizi PolyBase ile uyumlu değilse, kullanabileceğiniz [bcp](/sql/tools/bcp-utility) veya [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP Azure Blob Depolama geçmeden doğrudan SQL Data Warehouse için yükler ve yalnızca küçük yükler için tasarlanmıştır. Bu seçenekler yükü performansını önemli ölçüde PolyBase yavaştır unutmayın. 
 
 
 ## <a name="extract-source-data"></a>Kaynak verileri ayıklama

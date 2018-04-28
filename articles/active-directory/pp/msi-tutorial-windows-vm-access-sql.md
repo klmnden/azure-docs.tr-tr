@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -39,7 +39,7 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açmak için Azure portalında [ https://portal.azure.com ](https://portal.azure.com).
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Ardından, VM'nin MSI grubuna ekleyin.  MSI gereksinim **objectID**, hangi Azure PowerShell kullanarak elde.  İlk olarak, indirme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Kullanarak oturum `Login-AzureRmAccount`, ve aşağıdaki komutları çalıştırın:
+Ardından, VM'nin MSI grubuna ekleyin.  MSI gereksinim **objectID**, hangi Azure PowerShell kullanarak elde.  İlk olarak, indirme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Kullanarak oturum `Connect-AzureRmAccount`, ve aşağıdaki komutları çalıştırın:
 - Birden çok olanları varsa, oturum bağlamı istediğiniz Azure aboneliği için ayarlandığından emin olun.
 - Azure aboneliğinizde kullanılabilir kaynaklar listesinde, VM adları ve doğru kaynak grubu içinde doğrulayın.
 - İçin uygun değerleri kullanarak MSI sanal makinenin özelliklerini al `<RESOURCE-GROUP>` ve `<VM-NAME>`.

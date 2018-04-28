@@ -1,21 +1,21 @@
 ---
-title: "Azure veritabanı geçiş hizmeti ile ilgili SSS | Microsoft Docs"
-description: "Veritabanı geçişleri gerçekleştirmek üzere Azure veritabanı geçiş hizmeti kullanma hakkında sık sorulan sorular öğrenin."
+title: Azure veritabanı geçiş hizmeti ile ilgili SSS | Microsoft Docs
+description: Veritabanı geçişleri gerçekleştirmek üzere Azure veritabanı geçiş hizmeti kullanma hakkında sık sorulan sorular öğrenin.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti ile ilgili SSS
 Bu makalede Azure veritabanı geçiş hizmeti ile ilgili yanıtlar birlikte kullanma hakkında sık sorulan soruların listelenmektedir.
@@ -48,11 +48,11 @@ Tipik, basit bir veritabanı geçiş sırasında:
 ### <a name="q-what-are-the-prerequisites-for-using-the-azure-database-migration-service"></a>Q. Azure veritabanı geçiş hizmeti kullanmak için önkoşulları nelerdir?
 Azure veritabanı geçiş hizmeti düzgün veritabanı geçiş gerçekleştirirken çalıştığından emin olmak için gereken birkaç önkoşul vardır. Bazı Önkoşullar Önkoşullar belirli bir senaryoyla benzersiz durumdayken service tarafından desteklenen tüm senaryoları (kaynak hedef çiftleri) uygulamak.
 Tüm desteklenen geçiş senaryoları arasında ortak olan azure veritabanı geçiş hizmeti Önkoşullar gerek şunlardır:
-- Kullanarak, şirket içi kaynak sunucular için siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak Azure veritabanı geçiş hizmeti için bir VNET oluşturma [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Azure sanal ağ (VNET) ağ güvenlik grubu kuralları blok aşağıdaki iletişim bağlantı noktaları 443, 53, 9354, 445, 12000. Azure VNET NSG trafik filtreleme daha ayrıntılı bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Kullanarak, şirket içi kaynak sunucular için siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak Azure veritabanı geçiş hizmeti için bir VNET oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Azure sanal ağ (VNET) ağ güvenlik grubu kuralları blok aşağıdaki iletişim bağlantı noktaları 443, 53, 9354, 445, 12000. Azure VNET NSG trafik filtreleme daha ayrıntılı bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Bir güvenlik duvarı gerecini kaynak veritabanları önünde kullanırken, geçiş için kaynak veritabanlarının erişmek Azure veritabanı geçiş hizmeti izin veren güvenlik duvarı kuralları eklemeniz gerekebilir.
  
-Azure veritabanı geçiş hizmeti ilgili eğitimlerine belirli geçiş senaryoları Azure veritabanı geçiş hizmeti ile rekabet için gereken tüm önkoşulları listesi için bkz [belgelerine](https://docs.microsoft.com/en-us/azure/dms/dms-overview) üzerinde docs.microsoft.com.
+Azure veritabanı geçiş hizmeti ilgili eğitimlerine belirli geçiş senaryoları Azure veritabanı geçiş hizmeti ile rekabet için gereken tüm önkoşulları listesi için bkz [belgelerine](https://docs.microsoft.com/azure/dms/dms-overview) üzerinde docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>Q. Geçiş için kaynak veritabanını erişmek için kullanılan güvenlik duvarı kuralları için bir izin verilenler oluşturmak için nasıl IP adresi için Azure veritabanı geçiş hizmeti bulabilirim?
 Geçiş için kaynak veritabanına erişmek Azure veritabanı geçiş hizmeti veren güvenlik duvarı kuralları eklemeniz gerekebilir. Hizmet için IP adresi dinamik olduğundan, ancak hızlı rota kullanıyorsanız, bu adresi şirket ağınıza tarafından özel olarak atanır. İlişkili ağ arabirimi bulmak için aynı kaynak grubunda sağlanan Azure veritabanı geçiş hizmeti kaynak olarak aramaktır uygun IP adresi tanımlamak için en kolay yolu. Genellikle ağ arabirimi kaynağın adını NIC önek ile başlar ve ardından bir benzersiz karakter ve numara sırası, örnek NIC jj6tnztnmarpsskr82rbndyp. Bu ağ arabirimi kaynak seçerek, izin verilenler listesinde kaynağa genel bakış Azure portal sayfası dahil edilmesi gereken IP adresi görebilirsiniz.
@@ -80,7 +80,7 @@ Hizmetini kullanarak, veritabanı geçiş hızlandırmak için bazı şeyler yap
 - Geçici olarak ölçek büyütme Azure SQL veritabanı hedef örneğinizi Azure SQL Database, azaltma en aza indirmek için veri geçiş işlemi sırasında Premium katmanına SKU alt düzey SKU'ları kullanırken veri taşıma etkinliklerini etkileyebilir.
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Bir Azure sanal ağı nasıl ayarlarım?
-Bir Azure sanal ayarlama işleminde size yol birden çok Microsoft öğreticiler, resmi belge makalesinde görünür [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+Bir Azure sanal ayarlama işleminde size yol birden çok Microsoft öğreticiler, resmi belge makalesinde görünür [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. Neden Azure veritabanı geçiş Hizmetim kullanılamıyor veya durdurulmuş mı?
 Kullanıcı Azure veritabanı geçiş hizmeti (DMS) açıkça durdurursa veya hizmet 24 saat boyunca etkin değilse, hizmeti durdurulmuş bir olması veya duraklatılmış otomatik. Her durumda, hizmet ve durdurulmuş durumda kullanılamaz olacaktır.  Etkin geçişler sürdürmek için hizmeti yeniden başlatın.

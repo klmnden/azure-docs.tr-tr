@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Lake Store'a erişmek için Yönetilen hizmet kimliği bir Linux VM için kullan"
-description: "Yönetilen hizmet kimliği (MSI) bir Linux VM için Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösteren bir öğretici."
+title: Azure Data Lake Store'a erişmek için Yönetilen hizmet kimliği bir Linux VM için kullan
+description: Yönetilen hizmet kimliği (MSI) bir Linux VM için Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösteren bir öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: bef549a0cb8a876bbf8fbf281a6c2d1d489736af
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8b7e6cbd4bc7cfef349e9cebd9e4db537701a877
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Azure Data Lake Store'a erişmek için Yönetilen hizmet kimliği bir Linux VM için kullan
 
@@ -58,16 +58,13 @@ Bu öğretici için yeni bir Linux VM oluşturun. Mevcut bir VM'yi üzerinde MSI
 
 ## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir
 
-Bir sanal makine için MSI kodunuzda kimlik bilgileri almaya gerek kalmadan Azure AD'den erişim belirteçleri almak için kullanabilirsiniz. MSI etkinleştirme MSI VM uzantısı, VM yükler ve MSI Azure Kaynak Yöneticisi'nde sağlar.  
+Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. Yönetilen hizmet kimliği bir VM'de etkinleştirme iki şey yapar: yazmaçlar yönetilen kimliğini ve oluşturmak için Azure Active Directory ile VM VM kimliğini yapılandırır.
 
 1. İçin **sanal makine**, MSI etkinleştirmek istediğiniz sanal makineyi seçin.
 2. Sol bölmede seçin **yapılandırma**.
 3. Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**. Devre dışı bırakmak istiyorsanız seçin **Hayır**.
    !["Azure Active Directory'ye kaydetme" seçimi](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. **Kaydet**’i seçin.
-5. Select bu Linux VM uzantıları denetlemek istiyorsanız **uzantıları**. MSI etkinleştirilirse, **ManagedIdentityExtensionforLinux** listede görüntülenir.
-
-   ![Uzantıları listesi](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Azure Data Lake Store, VM erişim
 
@@ -102,10 +99,10 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 
 1. Portalda, Linux VM'NİZDE göz atın. İçinde **genel bakış**seçin **Bağlan**.  
 2. VM için tercih ettiğiniz SSH istemcisini kullanarak bağlanın. 
-3. Terminal penceresinde cURL, kullanarak Data Lake Store dosya sistemi için bir erişim belirteci almak için yerel MSI uç nokta için bir isteği oluşturun. "Https://datalake.azure.net/" Data Lake Store için kaynak tanımlayıcısıdır.  Kaynak tanımlayıcısı eğik eklemek önemlidir.
+3. Terminal penceresinde cURL, kullanarak Data Lake Store dosya sistemi için bir erişim belirteci almak için yerel MSI uç nokta için bir isteği oluşturun. Data Lake Store kaynak tanımlayıcısıdır "https://datalake.azure.net/".  Kaynak tanımlayıcısı eğik eklemek önemlidir.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
    Başarılı yanıt Data Lake Store için kimlik doğrulaması kullanma erişim belirteci döndürür:

@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 930b5607f343b87adc253cc99d74ddf28235a50b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Esnek havuz yönetmek ve birden çok Azure SQL veritabanı ölçekleme Yardım
 
@@ -32,9 +32,9 @@ Esnek havuzlar veritabanları ihtiyaç duydukları gereksinim performans kaynakl
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Esnek havuzlar kaynakları tahmin edilemeyen kullanım dönemlerini uyum sağlamak için birden çok veritabanı tarafından ayrı veritabanlarını tarafından paylaşılan bir havuz için satın almak Geliştirici etkinleştirin. Havuz ya da temel için kaynaklarını yapılandırabilirsiniz [DTU tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#dtu-based-purchasing-model) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Bir havuz için kaynak gereksinimi veritabanlarını toplama kullanımı tarafından belirlenir. Kaynak havuzunun kullanımına miktarını Geliştirici bütçe tarafından denetlenir. Geliştirici yalnızca veritabanları havuzuna ekler, veritabanları için minimum ve maksimum kaynakları ayarlar (minumumn ve maksimum Dtu veya minimum veya maksimum vCores seçiminizi resourceing modeline bağlı olarak) ve kaynaklarına göre havuzunun ayarlar kendi bütçe. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.
+Esnek havuzlar kaynakları tahmin edilemeyen kullanım dönemlerini uyum sağlamak için birden çok veritabanı tarafından ayrı veritabanlarını tarafından paylaşılan bir havuz için satın almak Geliştirici etkinleştirin. Havuz ya da temel için kaynaklarını yapılandırabilirsiniz [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md). Bir havuz için kaynak gereksinimi veritabanlarını toplama kullanımı tarafından belirlenir. Kaynak havuzunun kullanımına miktarını Geliştirici bütçe tarafından denetlenir. Geliştirici yalnızca veritabanları havuzuna ekler, veritabanları için minimum ve maksimum kaynakları ayarlar (minimum ve maksimum Dtu ya da minimum veya maksimum vCores modeli resourcing, tercih ettiğiniz bağlı olarak) ve kaynaklarına göre havuzunun ayarlar kendi Bütçe. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.
 
-Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Ağır yük altında bir veritabanı talebi karşılamak üzere daha fazla kaynak kullanabilir. Hafif yükleri altındaki veritabanları daha az tüketmesine ve veritabanları hiçbir yük altında hiçbir kaynaklarını tüketebilir. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir. Veritabanları için yeni eDTU ayırma ek işlem kaynaklarını sağlamaya taşınması gerekebilir dışında hiçbir veritabanı kapalı kalma süresi ile var olan bir havuzu için ek kaynaklar eklenebilir. Ek Kaynaklar artık gerekirse benzer şekilde, bunlar herhangi bir noktada mevcut bir havuzdan zamanında kaldırılabilir. Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
+Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Ağır yük altında bir veritabanı talebi karşılamak üzere daha fazla kaynak kullanabilir. Hafif yükleri altındaki veritabanları daha az tüketmesine ve veritabanları hiçbir yük altında hiçbir kaynaklarını tüketebilir. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuz için tahmin edilebilir bir bütçe sahip. Veritabanları için yeni eDTU ayırma ek işlem kaynaklarını sağlamaya taşınması gerekebilir dışında hiçbir veritabanı kapalı kalma süresi ile var olan bir havuzu için ek kaynaklar eklenebilir. Ek Kaynaklar artık gerekirse benzer şekilde, bunlar herhangi bir noktada mevcut bir havuzdan zamanında kaldırılabilir. Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Ne zaman bir SQL Database esnek havuzunu dikkat etmeliyim?
 
@@ -81,7 +81,7 @@ Birleşik miktarda kaynak tek veritabanları için birden fazla 1.5 havuzu için
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Eşzamanlı olarak en üst seviyeye çıkan en fazla veritabanı sayısı
 
-Kaynakları paylaşarak, bir havuzdaki tüm veritabanları aynı anda kullanılabilir sınırına kadar kaynakları tek veritabanları için kullanabilirsiniz. Daha az veritabanları, aynı anda yoğun saatler, düşük havuz kaynakları ayarlanabilir ve daha düşük maliyetli havuzu olur. Genel, veritabanlarının havuzdaki geçmeyen 2/3 (veya % 67) aynı anda kaynakları sınırlarını tepe.
+Kaynakları paylaşarak, bir havuzdaki tüm veritabanları aynı anda kaynakları kullanılabilir sınırına kadar tek veritabanları için kullanabilir. Daha az veritabanları, aynı anda yoğun saatler, düşük havuz kaynakları ayarlanabilir ve daha düşük maliyetli havuzu olur. Genel, veritabanlarının havuzdaki geçmeyen 2/3 (veya % 67) aynı anda kaynakları sınırlarını tepe.
 
 ***DTU tabanlı satın alma model örneği***<br>
 200 eDTU içeren bir havuzdaki üç S3 veritabanının maliyetlerini azaltmak için, bu veritabanlarının en fazla iki tanesi kullanım sırasında en üst seviyeye çıkabilir. Aksi takdirde, bu dört S3 veritabanının ikiden fazlası eşzamanlı olarak en üst seviyeye çıkarsa, havuzun boyutu 200 eDTU’dan fazla olmak zorundadır. Havuz 200 eDTU’dan fazlasına yeniden boyutlandırılırsa, maliyetin tek veritabanı performans düzeylerinden düşük tutulması için havuza daha fazla S3 veritabanı eklenmesi gerekir.
@@ -98,10 +98,10 @@ En yüksek kullanımı 100 DTU’ya varan ve ortalama olarak en fazla 67 DTU kul
 
 Bir havuz için en iyi boyutu havuzdaki tüm veritabanları için gereken birleşik kaynakları bağlıdır. Bu, aşağıdaki belirleme içerir:
 
-* (Maksimum Dtu veya tercih ettiğiniz resourceing modelinin bağlı olarak en fazla vCores) havuzdaki tüm veritabanları tarafından kullanılan en fazla kaynak.
+* (En fazla Dtu'lar veya model resourcing, tercih ettiğiniz bağlı olarak en fazla vCores) havuzdaki tüm veritabanları tarafından kullanılan en fazla kaynak.
 * Havuzdaki tüm veritabanları tarafından kullanılan en fazla depolama baytı sayısı.
 
-Her kaynak modeli için kullanılabilir hizmet katmanları için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers.md#dtu-based-purchasing-model) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+Her kaynak modeli için kullanılabilir hizmet katmanları için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md).
 
 SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Önerilere ek olarak, yerleşik deneyim sunucu üzerindeki özel bir veritabanı grubu için eDTU kullanımını tahmin eder. Bu deneyim, havuza veritabanlarını etkileşimli bir şekilde ekleyerek ve değişiklikleri uygulamadan önce kaynak kullanım analizi ile boyutlandırma önerisini almak üzere veritabanlarını kaldırarak "durum" çözümlemesi yapmanıza olanak tanır. Nasıl yapılır konuları için bkz. [Elastik havuzlarını izleme, yönetme ve boyutlandırma](sql-database-elastic-pool-manage-portal.md).
 
@@ -112,11 +112,11 @@ Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler 
    DTU tabanlı satın alma modeli için: en fazla (<*DBs toplam sayısı* X *ortalama DTU kullanımı DB başına*>,<br>
    <*Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı*)
 
-   VCore tabanlı satın alma modeli için: en fazla (<*DBs toplam sayısı* X *ortalama DB başına vCore kullanımını*>,<br>
+   Satın alma modeli vCore tabanlı (Önizleme) için: en fazla (<*DBs toplam sayısı* X *ortalama DB başına vCore kullanımını*>,<br>
    <*Aynı anda peaking sayısı DBs* X *DB başına en yüksek vCore kullanımını*)
 
 2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.
-3. DTU tabanlı satın alma modeli için eDTU tahminleri daha büyük adım 1 ve 2. adım alın. VCore tabanlı satın alma modeli için adım 1'den vCore tahmin alın.
+3. DTU tabanlı satın alma modeli için eDTU tahminleri daha büyük adım 1 ve 2. adım alın. VCore tabanlı satın alma modeli için (Önizleme), 1. adımdan vCore tahmin alın.
 4. Bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/) ve en küçük havuz boyutu Bul adım 3 tahmin büyüktür.
 5. 5 Adımdaki havuz fiyatını, tek veritabanları için uygun performans düzeylerini kullanma fiyatıyla karşılaştırın.
 
@@ -269,17 +269,17 @@ Oluşturun ve SQL Database esnek yönetmek için bu REST API istekleri havuzlar�
 |[Esnek havuzlar - Al](/rest/api/sql/elasticpools/get)|Bir esnek havuz alır.|
 |[Esnek havuzlar - sunucu tarafından listesi](/rest/api/sql/elasticpools/listbyserver)|Bir sunucu esnek havuzlar listesini döndürür.|
 |[Esnek havuzlar - güncelleştirme](/rest/api/sql/elasticpools/update)|Var olan bir esnek havuzu güncelleştirir.|
-|[Önerilen esnek havuzları - Al](/rest/api/sql/recommendedelasticpools/get)|Recommented bir esnek havuz alır.|
+|[Önerilen esnek havuzları - Al](/rest/api/sql/recommendedelasticpools/get)|Önerilen esnek havuz alır.|
 |[Önerilen esnek havuzları - sunucu tarafından listesi](/rest/api/sql/recommendedelasticpools/listbyserver)|Önerilen esnek havuzları döndürür.|
-|[Önerilen esnek havuzları - liste ölçümleri](/rest/api/sql/recommendedelasticpools/listmetrics)|Recommented esnek havuz ölçümleri döndürür.|
+|[Önerilen esnek havuzları - liste ölçümleri](/rest/api/sql/recommendedelasticpools/listmetrics)|Esnek havuz ölçümleri döndürür önerilir.|
 |[Esnek havuz etkinlikleri](/rest/api/sql/elasticpoolactivities)|Esnek havuz etkinlikleri döndürür.|
 |[Esnek havuz veritabanı etkinlikleri](/rest/api/sql/elasticpooldatabaseactivities)|Etkinlik bir esnek havuz içinde veritabanlarını döndürür.|
 |[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya varolan bir veritabanını güncelleştirir.|
 |[Veritabanları - Al](/rest/api/sql/databases/get)|Bir veritabanı alır.|
 |[Veritabanı - esnek havuz tarafından Al](/rest/api/sql/databases/getbyelasticpool)|Bir veritabanını bir esnek havuz içinde alır.|
-|[Önerilen esnek havuzu tarafından veritabanları - Al](/rest/api/sql/databases/getbyrecommendedelasticpool)|Bir veritabanı içinde recommented bir esnek havuz alır.|
+|[Önerilen esnek havuzu tarafından veritabanları - Al](/rest/api/sql/databases/getbyrecommendedelasticpool)|Bir veritabanı içinde önerilen bir esnek havuz alır.|
 |[Veritabanı - esnek havuz göre listesi](/rest/api/sql/databases/listbyelasticpool)|Bir esnek havuz veritabanlarının bir listesini döndürür.|
-|[Veritabanları - önerilen esnek havuz göre listesi](/rest/api/sql/databases/listbyrecommendedelasticpool)|Recommented bir esnek havuz içindeki veritabanlarının bir listesini döndürür.|
+|[Veritabanları - önerilen esnek havuz göre listesi](/rest/api/sql/databases/listbyrecommendedelasticpool)|Önerilen esnek havuz içindeki veritabanlarının bir listesini döndürür.|
 |[Veritabanları - sunucu tarafından listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının bir listesini döndürür.|
 |[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
 

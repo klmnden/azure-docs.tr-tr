@@ -1,146 +1,141 @@
 ---
-title: "Uygulamaları Azure Active Directory'ye nasıl eklenir."
-description: "Bu makalede, Azure Active Directory örneğine uygulamaları nasıl eklenir açıklanmaktadır."
+title: Uygulamaları Azure Active Directory'ye neden ve nasıl eklenir
+description: Azure AD ile eklenecek bir uygulama için ne anlama geliyor ve nasıl var. elde?
 services: active-directory
-documentationcenter: 
-author: shoatman
+documentationcenter: ''
+author: mtillman
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
-ms.author: shoatman
+ms.date: 04/18/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1f2807a15ee2fec1f56d3f6dd33faef3f7a569fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Neden ve nasıl uygulamaları için Azure AD eklenir
-Uygulamaların bir listesini, Azure Active Directory örneğinde görüntülerken başlangıçta puzzling özelliklerinden biri, uygulamaları nereden geldiğini ve orada bulunma anlamaktır.  Bu makalede uygulamaların nasıl dizininde sunulur ve nasıl dizininizde olması için bir uygulama gelen anlaşılmasına yardımcı olacak bağlamına sahip sağlayan bir üst düzey genel bakış sağlar.
+Azure AD'de uygulamalar iki sunumu vardır: 
+* [Uygulama nesneleri](active-directory-application-objects.md#application-object) - vardır, ancak [özel durumları](#notes-and-exceptions), bu uygulamanın tanımını kabul edilebilir.
+* [Hizmet sorumluları](active-directory-application-objects.md#service-principal-object) -bu uygulamanın bir örneği olarak düşünülebilir. Hizmet asıl adı genellikle bir uygulama nesne başvurusu ve bir uygulama nesnesi tarafından birden çok hizmet asıl adı dizinlerde başvurulabilir.
 
-## <a name="what-services-does-azure-ad-provide-to-applications"></a>Hangi hizmetlerin Azure AD uygulamaları sağlar?
-Uygulamaları bir veya daha fazla sağladığı hizmetler yararlanmak için Azure AD ile eklenir.  Bu hizmetler şunlardır:
-
-* Uygulama kimlik doğrulaması ve yetkilendirme
-* Kullanıcı kimlik doğrulaması ve yetkilendirme
-* Çoklu oturum Federasyon veya parola kullanarak açma (SSO)
-* Kullanıcı sağlama ve eşitleme
-* Rol tabanlı erişim denetimi; Bir uygulamada yetkilendirme denetimleri bağlı rolleri gerçekleştirmek için uygulama rolleri tanımlamak için dizin kullanın.
-* oAuth yetkilendirme Hizmetleri (Office 365 ve diğer Microsoft uygulamaları tarafından API'leri/kaynaklara erişim yetkisi vermek için kullanılır.)
-* Uygulama yayımlama & proxy; Özel bir ağ üzerinden internet uygulama yayımlama
-
-## <a name="how-are-applications-represented-in-the-directory"></a>Nasıl uygulamaları dizininde sunulur?
-2 nesneleri kullanarak Azure AD'de uygulamalar temsil edilen: uygulama nesnesi ve bir hizmet sorumlusu nesnesi.  "Home" kayıtlı bir uygulama nesnesi / "sahip" veya "yayımlama" dizini ve bir veya daha içinde davranır her dizin uygulamada temsil eden asıl nesneleri hizmet.  
-
-Uygulama Azure ad uygulama nesnesi açıklar (çok kiracılı hizmeti) ve aşağıdakilerden herhangi birini içerebilir: (*Not*: Bu kapsamlı bir liste değildir.)
-
+## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Uygulama nesneleri nelerdir ve bunlar nereden geldiği?
+[Uygulama nesneleri](active-directory-application-objects.md#application-object) (hangi Azure portalı üzerinden yönetebilirsiniz [uygulama kayıtlar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) deneyimi) Azure ad uygulamayı tanımlayan ve uygulama tanımını kabul edilebilir izin verme ayarlarına bağlı uygulama belirteçleri vermek üzere nasıl bilmeniz hizmeti. Hizmet sorumluları diğer dizinlerde destekleyen çok kiracılı uygulama olsa bile uygulama nesnesi yalnızca kendi giriş dizininde bulunur. Uygulama nesnesi (olarak iyi gibi ek bilgileri burada sözü edilen değil) aşağıdakilerden herhangi birini içerebilir:
 * Adı, logosu ve yayımcı
+* Yanıt URL'leri
 * Gizli (uygulama kimliğini doğrulamak için kullanılan simetrik ve/veya asimetrik anahtarlar)
-* API bağımlılıkları (oAuth)
-* API/kaynakları/yayımlanan kapsamları (oAuth)
+* API bağımlılıkları (OAuth)
+* Yayımlanan API'leri/kaynakları/kapsamları (OAuth)
 * Uygulama rolleri (RBAC)
-* SSO meta verileri ve yapılandırma (SSO)
+* SSO meta verileri ve yapılandırma
 * Kullanıcı meta verileri ve yapılandırma hazırlama
 * Proxy meta verileri ve yapılandırma
 
-Hizmet sorumlusu burada kendi ana dizini de dahil olmak üzere uygulama davranır her dizin uygulamada kaydıdır.  Hizmet sorumlusu:
+Uygulama nesneleri dahil olmak üzere birden çok yollarıyla oluşturulabilir:
+* Azure portalında uygulama kayıtlar
+* Azure AD kimlik doğrulaması kullanmak için Visual Studio kullanarak ve onu yapılandırma yeni bir uygulama oluşturma
+* Bir yönetici (Bu da bir hizmet sorumlusu oluşturur) uygulama Galeriden bir uygulama eklediğinde
+* Yeni bir uygulama oluşturmak için Microsoft Graph API, Azure AD Graph API veya PowerShell kullanma
+* Diğer birçok çeşitli Geliştirici deneyimleri Azure hem de dahil olmak üzere API explorer Geliştirici merkezleri arasında deneyimleri
 
-* Uygulama Kimliği özelliği aracılığıyla uygulama nesnesini geri başvurduğu
-* Kayıtları yerel kullanıcı ve Grup uygulama rol atamaları
-* Yerel kullanıcı ve yönetici izinleri verilmiş uygulamaya kaydeder
-  * Örneğin: uygulamanın belirli kullanıcılara e-postasına erişmek için izni
-* Koşullu erişim ilkesi dahil olmak üzere kayıtları yerel ilkeler
-* Kayıtları yerel alternatif yerel ayarları bir uygulama için
+## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Hizmet sorumluları nelerdir ve bunlar nereden geldiği?
+[Hizmet sorumluları](active-directory-application-objects.md#service-principal-object) (hangi aracılığıyla yönetebilirsiniz [kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) deneyimi) ne gerçekten Azure AD'ye bağlanma uygulama yöneten olan ve uygulama örneğini kabul edilebilir, Dizin. Verilen herhangi bir uygulama için bir "Giriş" dizinine kaydedilir) en fazla bir uygulama nesnesi (ve hangi davranır her dizin uygulamada örneklerini temsil eden bir veya daha fazla hizmet asıl nesneleri olabilir. 
+
+Hizmet sorumlusu içerebilir:
+
+* Bir başvuru geri uygulama kimliği özelliği aracılığıyla uygulama nesnesi
+* Yerel kullanıcı ve Grup uygulama rol atamalarını kayıtları
+* Uygulamayı yerel kullanıcı ve yönetici izinler kayıtları
+  * Örneğin: uygulamanın belirli bir kullanıcının e-postasına erişmek izni
+* Koşullu erişim ilkesi dahil olmak üzere yerel ilkeler kayıtları
+* Bir uygulama için alternatif yerel ayarların kayıtları
   * Talep dönüştürme kuralları
   * Özellik eşlemeleri (kullanıcı hazırlama)
-  * (Uygulama özel roller destekliyorsa) belirli uygulama rolleri Kiracı
-  * Ad/logosu
+  * (Uygulama özel roller destekliyorsa) dizin özgü uygulama rolleri
+  * Dizin özgü adı veya logosu
 
-### <a name="a-diagram-of-application-objects-and-service-principals-across-directories"></a>Uygulama nesneleri ve hizmet asıl adı dizinler genelinde diyagramı
-![Nasıl uygulama nesneleri ve Azure AD örnekleriyle varolan ilkeleri hizmet gösteren diyagram.][apps_service_principals_directory]
+Uygulama nesneleri gibi hizmet asıl adı dahil olmak üzere birden çok yollarıyla oluşturulabilir:
 
-Yukarıdaki diyagramda görüldüğü gibi.  Microsoft'un iki dizini uygulamaları yayımlamak için kullandığı dahili (sol tarafta).
+* Bir üçüncü taraf uygulama için kullanıcıların oturum açma zaman Azure AD ile tümleşik
+  * Oturum açma sırasında kullanıcılar profillerini erişmek için uygulama izni ve diğer izinler vermeniz istenir. İzin vermek için ilk kişi dizine eklenecek uygulamanın gösteren bir hizmet sorumlusu neden olur.
+* Microsoft online services kullanıcılar oturum açtığında ister [Office 365](http://products.office.com/)
+  * Office 365'e abone ya da bir deneme başlatmak, bir veya daha fazla hizmet asıl adı tüm Office 365 ile ilişkili işlevselliğini sağlamak için kullanılan çeşitli hizmetlere temsil eden dizinde oluşturulur.
+  * SharePoint gibi bazı Office 365 Hizmetleri hizmet asıl adı iş akışları dahil olmak üzere bileşenleri arasında güvenli iletişim sağlamak için sürekli olarak oluşturun.
+* Bir yönetici (Bu da uygulama nesnesini oluşturur) uygulama Galeriden bir uygulama eklediğinde
+* Kullanmak için uygulama ekleme [Azure AD uygulama proxy'si](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* SAML ya da parola çoklu oturum açma (SSO) kullanarak çoklu oturum açma için uygulama Bağlan
+* Programlı şekilde Azure AD Graph API veya PowerShell aracılığıyla
+
+## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Nasıl uygulama nesneleri ve hizmet asıl adı birbiriyle?
+Bir uygulama bir uygulama nesnesi bir veya daha fazla hizmet asıl adı (uygulamanın giriş dizini dahil) burada çalışır dizinlerin her tarafından başvurulan kendi giriş dizininde bulunur.
+![Birbirine ve Azure AD örneğinde uygulama nesneleri ve hizmet asıl adı nasıl etkileşime gösteren diyagram.][apps_service_principals_directory]
+
+Önceki diyagramda iki dizini dahili olarak Microsoft'un (sol tarafta uygulamaları yayımlamak için kullandığı gösterilmiştir):
 
 * Bir Microsoft Apps (Microsoft Hizmetleri dizini)
-* Önceden tümleştirilmiş 3 taraf uygulamaları (uygulama Galerisi dizin) için bir tane
+* Önceden tümleştirilmiş üçüncü taraf uygulamaları (uygulama Galerisi dizin) için bir tane
 
-Azure AD ile tümleştirmek uygulama yayımcıları/satıcıları yayımlama dizini gerek vardır.  (Bazı SAAS dizin).
+Uygulama yayımcıları/Azure AD ile tümleştirmek satıcıları (sağa "Bazı SaaS dizin" olarak gösterilir) yayımlama dizini gerek vardır.
 
-Kendinizi ekleyin uygulamalar şunlardır:
+Kendiniz eklediğiniz uygulama (olarak temsil **uygulama (sizin hesabınız)** diyagramdaki) içerir:
 
-* Geliştirilmiş uygulamalara (AAD ile tümleşik)
+* Geliştirilmiş uygulamalara (Azure AD ile tümleşik)
 * Uygulamaları bağlı için çoklu oturum açma
-* Azure AD uygulama proxy'si kullanılarak yayımlanan uygulamalar.
+* Azure AD uygulama proxy'si kullanarak yayımlanan uygulama
 
-### <a name="a-couple-of-notes-and-exceptions"></a>Birkaç notlar ve özel durumlar
-* Tüm hizmet asıl adı uygulama nesneleri için geri gelin.  Huh? Azure AD ilk olarak yapılandırıldığında uygulamalara sağlanan hizmetlerin çok daha kısıtlı ve hizmet sorumlusu bir uygulama kimliği oluşturmak için yeterli.  Özgün hizmet sorumlusu için Windows Server Active Directory hizmet hesabı şeklinde yakın.  Bu nedenle hala uygulama nesnesi oluşturmadan Azure AD PowerShell kullanarak hizmet sorumluları oluşturmak mümkündür.  Grafik API'si, bir hizmet asıl oluşturmadan önce bir uygulama nesnesi gerektirir.
-* Yukarıda açıklanan bilgiler tüm şu anda açık program aracılığıyla.  Yalnızca kullanıcı Arabiriminde kullanılabilir şunlardır:
+### <a name="notes-and-exceptions"></a>Notlar ve özel durumlar
+* Tüm hizmet asıl adı uygulama nesneyi geri gelin. Azure AD ilk olarak yapılandırıldığında uygulamalara sağlanan hizmetlerin daha kısıtlı ve hizmet sorumlusu uygulama kimliği oluşturmak için yeterli. Özgün hizmet sorumlusu için Windows Server Active Directory hizmet hesabı şeklinde yakın. Bu nedenle, bir uygulama nesnesi oluşturmadan Azure AD PowerShell kullanarak gibi farklı yollarla aracılığıyla hizmet asıl adı oluşturmak hala mümkündür. Azure AD grafik API'si, bir hizmet asıl oluşturmadan önce bir uygulama nesnesi gerektirir.
+* Yukarıda açıklanan bilgiler tüm şu anda açık program aracılığıyla. Yalnızca kullanıcı Arabiriminde kullanılabilir şunlardır:
   * Talep dönüştürme kuralları
   * Özellik eşlemeleri (kullanıcı hazırlama)
-* İçin hizmet sorumlusu hakkında ayrıntılı bilgi ve uygulama nesneleri Lütfen Azure AD grafik REST API Başvurusu belgelerine başvurun.  *İpucu*: Azure AD Graph API belgesidir şema başvurusu için en yakın bir şey için şu anda Azure AD.  
+* Uygulama nesneleri ve hizmet sorumlusu hakkında daha ayrıntılı bilgi için Azure AD grafik REST API başvuru belgelerine bakın:
   * [Uygulama](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Hizmet sorumlusu](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
-## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Nasıl uygulamaları my Azure AD örneğinde eklenir?
-Bir uygulama için Azure AD eklenebilir birçok yolu vardır:
+## <a name="why-do-applications-integrate-with-azure-ad"></a>Neden uygulamaları Azure AD ile tümleştirme?
+Bir veya daha fazla dahil olmak üzere sağladığı hizmetler yararlanmak için Azure AD ile uygulamaları eklendi:
 
-* Uygulama Ekle [Azure Active Directory Uygulama Galerisi](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
-* Oturum/taraf uygulama Azure Active Directory ile tümleşik 3 halinde (örneğin: [Smartsheet](https://app.smartsheet.com/b/home) veya [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
-  * Yukarı/kullanıcılar oturum sırasında profillerini erişim izni uygulama ve diğer izinler vermeniz istenir.  İzin vermek için ilk kişi dizine eklenecek uygulama temsil eden bir hizmet sorumlusu neden olur.
-* Oturum/Microsoft çevrimiçi hizmetlerine ister [Office 365](http://products.office.com/)
-  * Ne zaman Office 365'e abone veya bir veya daha fazla hizmet asıl adı tüm Office 365 ile ilişkili işlevselliğini sağlamak için kullanılan çeşitli hizmetlere temsil eden dizin oluşturulan bir deneme başlatmak.
-  * SharePoint gibi bazı Office 365 Hizmetleri hizmet asıl adı iş akışları dahil olmak üzere bileşenleri arasında güvenli iletişim sağlamak için devam eden düzenli olarak oluşturun.
-* Azure Yönetim Portalı bakın, geliştirmekte bir uygulama ekleyin: https://msdn.microsoft.com/library/azure/dn132599.aspx
-* Visual Studio kullanarak geliştirirken bir uygulama görmek ekleyin:
-  * [ASP.Net kimlik doğrulama yöntemleri](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
-  * [Bağlı hizmetler](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
-* Kullanmak için bir uygulama ekleyin [Azure AD uygulama proxy'si](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-* SAML ya da parola SSO kullanma tek oturum için bir uygulamaya Bağlan
-* Diğer birçok Azure içinde çeşitli Geliştirici deneyimleri de dahil olmak üzere ve/içinde API'si Gezgini Geliştirici merkezleri arasında deneyimleri
+* Uygulama kimlik doğrulama ve yetkilendirme
+* Kullanıcı kimlik doğrulaması ve yetkilendirme
+* Federasyon ya da parolanızı kullanan SSO
+* Kullanıcı sağlama ve eşitleme
+* Rol tabanlı erişim denetimi - bir uygulamada yetkilendirme denetimleri bağlı olarak rolleri gerçekleştirmek için uygulama rolleri tanımlamak için dizin kullanın
+* API/kaynaklara erişim yetkisi vermek için Office 365 ve diğer Microsoft uygulamaları tarafından kullanılan OAuth yetkilendirme hizmetleri-
+* Uygulama yayımlama ve proxy - uygulamaya özel bir ağ üzerinden Internet yayımlama
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Kimin my Azure AD örneğinde uygulamaları ekleme iznine sahip mi?
-Yalnızca genel yöneticiler şunları yapabilir:
+Yalnızca genel Yöneticiler (uygulamalar uygulama Galerisi'nden ekleme ve uygulama proxy'sini kullanmak için bir uygulama yapılandırma gibi) varsayılan olarak dizininizdeki tüm kullanıcılara yapabildiğinizi bazı görevler uygulama kaydetmek için haklarınız varken nesneler geliştirme ve hangi uygulamaların bunlar paylaşım/erişim izni aracılığıyla kendi Kurumsal verilerine verin takdirine bağlı oldukları. Bir kişi bir uygulamada oturum açmak ve izin vermek için ilk kullanıcı dizininizde ise, kiracınızda bir hizmet sorumlusu oluşturur; Aksi takdirde, izin verme bilgi asıl varolan hizmet üzerinde depolanır.
 
-* Azure AD uygulama galerisinde (önceden tümleştirilmiş 3 taraf uygulamaları) uygulama ekleme
-* Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama
+Kullanıcıların kaydetmek ve uygulamaları kaybolabileceğini başlangıçta ses ile ilgili için onay ancak aşağıdakileri göz önünde bulundurun olanak tanır:
 
-Dizininizdeki tüm kullanıcılara, geliştirmekte olduğunuz uygulamalar ve hangi uygulamaların bunlar paylaşım/erişim kuruluş verilerini verin tedbirli eklemek için haklarınız.  *Bir uygulama için kullanıcı oturum yukarı/unutmayın ve izinleri verme, bir hizmet sorumlusu oluşturuluyor neden olabilir.*
 
-Bu başlangıçta ses ilgili olabilir, ancak aşağıdaki aklınızda tutun:
+* Uygulamaları uygulamanın kayıtlı veya dizinde kayıtlı gerek kalmadan yıllardır için kullanıcı kimlik doğrulaması için Windows Server Active Directory yararlanamaz olmuştur. Artık kuruluş görünürlük kaç uygulamalar dizin tam olarak kullanıyor ve hangi amaçla geliştirilmiş.
+* Bu Sorumluluklar kullanıcıları için temsilci bir yönetici tabanlı uygulama kaydı ve yayımlama işlemi için gereken üzerindeki geçersiz kılar. Active Directory Federasyon Hizmetleri (ADFS) olan bir yönetici kendi geliştiriciler adına bağlı olan taraf olarak bir uygulama eklemek sahip olabilir. Şimdi geliştiriciler Self Servis edebilirsiniz.
+* İş amaçlı kuruluş hesaplarını kullanarak uygulamalarına oturum açan kullanıcılar iyi bir şeydir. Daha sonra kuruluş bırakırsanız otomatik olarak erişim için kullanmakta olduğunuz uygulama hesabında kaybederler.
+* Hangi verilerin uygulama dâhil olduğu paylaşıldı kaydını sahip. Veri zamankinden daha aktarılabilir ve kimlerin hangi uygulamaları ile hangi verilerin paylaşılan Temizle kaydını olması yararlı olacaktır.
+* Azure AD için OAuth kullanan API sahipleri tam olarak hangi izinleri kullanıcıların uygulamaları verebilir ve kabul etmek için bir yönetici izinleri gerektiren karar verin. Kullanıcı izni kullanıcıların kendi verilerini ve yetenekleri kapsamlıdır sırasında yalnızca yöneticileri büyük kapsamlar ve daha önemli izinleri onay.
+* Bir kullanıcı ekler veya verilerine erişmek bir uygulama sağlar, bir uygulama dizinine nasıl eklendiğini belirlemek için Denetim raporları Azure portalındaki görüntüleyebilmeniz olay denetlenebilir.
 
-* Uygulamalar, uygulamanızın dizinde kayıtlı/kaydedilen gerek kalmadan yıllardır için kullanıcı kimlik doğrulaması için Windows Server Active Directory yararlanamaz olmuştur.  Artık kuruluş dizin ve neler için kaç tane uygulamaları tam olarak kullanmaya görünürlük geliştirilmiş.
-* Uygulama yayımlama/kayıt sürecine kullanımlı yönetici gerek yoktur.  Active Directory Federasyon Hizmetleri ile bir yönetici olarak bir bağlı olan taraf geliştiriciler adına bir uygulama eklemek sahip olabilir.  Şimdi geliştiriciler Self Servis edebilirsiniz.
-* Oturum/iş amaçlı kuruluş hesaplarını kullanarak uygulamaları kadar kullanıcılar iyi bir şeydir.  Daha sonra kuruluş bırakırsanız kullanmakta olduğunuz uygulamada kendi hesabına erişimi kaybedersiniz.
-* Hangi verilerin uygulama dâhil olduğu paylaşıldı kaydını sahip.  Veri zamankinden daha aktarılabilir ve kimlerin hangi uygulamaları ile hangi verilerin paylaşılan Temizle kaydını sahip yararlıdır.
-* Azure AD için oAuth kullanan uygulamalar, kullanıcıların uygulamaları verebilir ve kabul etmek için bir yönetici izinleri gerektiren tam olarak hangi izinlerin karar verin.  Yalnızca Yöneticiler büyük kapsamlar ve daha önemli izinleri onayı olduğunu bildiren olmadan tamamlamalıdır.
-* Bir uygulama dizinine nasıl eklendiğini belirlemek için Denetim raporları Azure Yönetimi portalı içinde görüntüleyebilmeniz için kullanıcıları ekleme ve uygulamaların verilerine erişmesini sağlayan olayları denetlendi.
+Dizininizde kullanıcıların uygulamaları kaydetme ve yönetici onayı olmadan uygulamaları açmayı önlemek istiyorsanız, bu özellikler devre dışı bırakma değiştirebileceğiniz iki ayarı vardır:
 
-**Not:** *Microsoft kendisini işletim şimdi birçok ay için varsayılan yapılandırmayı kullanarak.*
+* Kullanıcılar uygulamalara kendi adınıza onaylıyorsunuz önlemek için:
+  1. Azure portalında Git [kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) kurumsal uygulamalar bölümünde.
+  2. Değişiklik **kullanıcıların şirket adına şirket verilerine erişen uygulamaları izin** için **Hayır**. 
+     *Kullanıcı izni devre dışı bırakma karar verirseniz, bir yönetici bir kullanıcı herhangi bir yeni uygulama onayı gerekli olacağını unutmayın kullanması gerekir.*
+* Kullanıcıların kendi uygulamalarını kaydetmesini önlemek için:
+  1. Azure portalında Git [kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) Azure Active Directory altında bölümü
+  2. Değişiklik **kullanıcıları uygulamaları kaydetme** için **Hayır**.
 
-Tüm bu uygulamaları eklemesini dizininizdeki kullanıcılara önlemek mümkündür ve hangi bilgilerin tedbirli kullanan uygulamalarla Azure Yönetim Portalı'nda Dizin yapılandırma değiştirerek paylaştıkları belirtti.  Aşağıdaki yapılandırma, Azure Yönetim Portalı, dizinin "Yapılandırma" sekmesinde içinde erişilebilir.
-
-![Tümleşik uygulama ayarlarını yapılandırma kullanıcı arabiriminin ekran görüntüsü][app_settings]
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Sonraki adımlar
-Azure ad uygulamaları ekleme ve uygulamalar için hizmetlerin nasıl yapılandırılacağı hakkında daha fazla bilgi edinin.
-
-* Geliştiricileri: [bir uygulamanın AAD ile tümleştirmek öğrenin](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* Geliştiricileri: [github'da Azure Active Directory ile tümleşik uygulamalar için örnek kod gözden geçirme](https://github.com/AzureADSamples)
-* Geliştiriciler ve BT uzmanlarının: [Azure Active Directory grafik API'si için REST API belgelerini gözden geçirin](https://msdn.microsoft.com/library/azure/hh974478.aspx)
-* BT uzmanları: [Azure Active Directory önceden tümleştirilmiş uygulamaların uygulama Galeriden kullanmayı öğrenin](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-* BT uzmanları: [Bul belirli önceden tümleştirilen uygulamalar yapılandırma öğreticileri](https://msdn.microsoft.com/library/azure/dn893637.aspx)
-* BT uzmanları: [Azure Active Directory Uygulama Ara sunucusu kullanarak uygulama yayımlama öğrenin](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-
-## <a name="see-also"></a>Ayrıca bkz.
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
+> [!NOTE]
+> Microsoft kendisini uygulamalarını kaydetmek ve uygulamaları kendi adınıza sayılırsınız kullanıcılarla varsayılan yapılandırmayı kullanır.
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-[app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
+

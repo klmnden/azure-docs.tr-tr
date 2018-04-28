@@ -1,11 +1,11 @@
 ---
 title: "Sorun giderme: 'Active Directory' öğesi eksik veya kullanılabilir değil | Microsoft Docs"
-description: "Active Directory menü öğesi Azure Yönetim Portalı'nda görünmüyor ne yapmanız gerekenler."
+description: Active Directory menü öğesi Azure Yönetim Portalı'nda görünmüyor ne yapmanız gerekenler.
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Sorun giderme: 'Active Directory' öğesi eksik veya kullanılabilir değil
 Azure Active Directory özelliklerini ve hizmetlerini kullanma yönergeleri çoğunu ile başlayan "Azure Yönetim Portalı'na gidin ve tıklayın **Active Directory**." Ancak ne yaparsınız Active Directory uzantısına veya menü öğesini görünmüyorsa veya işaretlenmiş olması durumunda **kullanılamaz**? Bu konuda yardımcı olmak için tasarlanmıştır. Hangi koşullar altında açıklar **Active Directory** görünmez veya kullanılamaz durumda ve devam etmek açıklanmaktadır.
@@ -39,7 +39,7 @@ Aşağıdaki koşullardan herhangi biri true olduğunda sol gezinti menüsünde 
 * Azure Kiracı en az bir Azure AD erişim denetimi (ACS) ad alanı vardır. Daha fazla bilgi için bkz: [erişim denetimi Namespace](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
     OR
-* Azure Kiracı en az bir Azure çok faktörlü kimlik doğrulama sağlayıcısı sahiptir. Daha fazla bilgi için bkz: [yönetme Azure çok faktörlü kimlik doğrulama sağlayıcıları](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* Azure Kiracı en az bir Azure çok faktörlü kimlik doğrulama sağlayıcısı sahiptir. Daha fazla bilgi için bkz: [yönetme Azure çok faktörlü kimlik doğrulama sağlayıcıları](authentication/howto-mfa-getstarted.md).
 
 Erişim denetimi ad alanı veya çok faktörlü kimlik doğrulama sağlayıcısı oluşturmak için tıklatın **+ yeni** > **uygulama hizmetleri** > **Active Directory**.
 

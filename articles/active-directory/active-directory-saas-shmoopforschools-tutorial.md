@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile tümleştirme için Shmoop okullar ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory için Shmoop okullar arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile tümleştirme için Shmoop okullar ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory için Shmoop okullar arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e824fe7a74c4adc619f7fa324aa6fa28dacecf24
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory ile tümleştirme için Shmoop okullar ile
 
@@ -32,12 +32,12 @@ Shmoop için okullar Azure AD ile tümleştirme ile aşağıdaki avantajları sa
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi için Shmoop okullar ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Shmoop için okullar tek oturum üzerindeki etkin olmayan abonelik
+- Bir Shmoop okullar için çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamında kullanmanızı öneririz yok.
@@ -80,8 +80,6 @@ Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Shmoop için "Britt
 
 Tekli çalışmaya oturum için Azure AD için Shmoop okullar karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olan bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve Shmoop için okullar ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
 
-Shmoop için okula, vermek **kullanıcıadı** aynı değerini değer **kullanıcı adı** Azure AD'de. Şimdi, bağlantı ilişkisi.
-
 Yapılandırma ve Azure AD çoklu oturum açma için Shmoop okullar ile test etmek için aşağıdaki yapı taşları tamamlayın:
 
 1. [Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on) bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
@@ -108,9 +106,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
-    a. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desende bir URL yazın:`https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+    a. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
-    b. İçinde **tanımlayıcısı** kutusunda, aşağıdaki desende bir URL yazın:`https://schools.shmoop.com/<uniqueid>`
+    b. İçinde **tanımlayıcısı** kutusunda, aşağıdaki desende bir URL yazın: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [okullar Shmoop istemci destek ekibi](mailto:support@shmoop.com) bu değerleri almak için. 
@@ -146,31 +144,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Oluşturulacak **meta veri** URL, aşağıdaki adımları uygulayın:
+7. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
 
-    a. Seçin **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    b. Açmak için **uç noktaları** iletişim kutusunda **uç noktaları**.  
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. Kopyalamak için Kopyala düğmesini seçin **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. Özellik sayfasında gidin **Shmoop için okullar**. Ardından kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesi. Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
-
-8. Çoklu oturum açma yapılandırmak için **Shmoop için okullar** yan, ihtiyacınız göndermek **meta veri URL'sini** için [Shmoop için okullar destek ekibi](mailto:support@shmoop.com).
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com) uygulaması kuruluyor sırada. Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, select **çoklu oturum açma** sekmesinde ve katıştırılmış erişim belgeleri etraflıca **yapılandırma** alt bölüm. Daha fazla bilgiyi embedded belgeler özelliği hakkında [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+8. Çoklu oturum açma yapılandırmak için **Shmoop için okullar** yan, ihtiyacınız göndermek **uygulama Federasyon meta veri URL'sini** için [Shmoop için okullar destek ekibi](mailto:support@shmoop.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

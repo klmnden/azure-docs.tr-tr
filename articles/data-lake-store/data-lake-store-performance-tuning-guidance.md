@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store performans ayarlama yönergeleri | Microsoft Docs"
-description: "Azure Data Lake Store performans ayarlama yönergeleri"
+title: Azure Data Lake Store performans ayarlama yönergeleri | Microsoft Docs
+description: Azure Data Lake Store performans ayarlama yönergeleri
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store için performans ayarlama
 
@@ -42,7 +42,7 @@ Veri taşıma faktörlerin tarafından etkilenmemesini sağlamak önemlidir.
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Azure Data Lake Store ağ bağlantısı
 
-Veri kaynağı ile Azure Data Lake store arasında ağ bağlantısı bazen performans sorunu olabilir. Veri kaynağınızı şirket içi olduğunda, ile ayrılmış bir bağlantı kullanmayı [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . Veri kaynağınızı Azure içinde ise, performans verileri Data Lake Store ile aynı Azure bölgesinde olduğunda en iyi olacaktır.
+Veri kaynağı ile Azure Data Lake store arasında ağ bağlantısı bazen performans sorunu olabilir. Veri kaynağınızı şirket içi olduğunda, ile ayrılmış bir bağlantı kullanmayı [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Veri kaynağınızı Azure içinde ise, performans verileri Data Lake Store ile aynı Azure bölgesinde olduğunda en iyi olacaktır.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Veri alımı araçları maksimum paralelleştirme için yapılandırma
 

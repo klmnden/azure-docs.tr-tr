@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -219,7 +219,7 @@ Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Wi
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası nedir?
-Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yedekleme ilkeleri gibi verilerin tutulması için kullanılan bir çevrimiçi depolama varlığıdır. Azure hizmetleri, şirket içi sunucular ve iş istasyonları için yedekleme verilerini tutmak üzere Kurtarma Hizmetleri kasalarını kullanabilirsiniz. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. Her Azure aboneliğinde, Azure bölgesi başına en çok 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Verilerinizi nereye depolayacağınızı düşünürken, tüm bölgelerin aynı olmadığını unutmayın. Bölge eşleştirmeleri ve ek depolama alanı konuları hakkında bilgi edinmek için [Coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) bölümüne bakın.
+Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yedekleme ilkeleri gibi verilerin tutulması için kullanılan bir çevrimiçi depolama varlığıdır. Azure hizmetleri, şirket içi sunucular ve iş istasyonları için yedekleme verilerini tutmak üzere Kurtarma Hizmetleri kasalarını kullanabilirsiniz. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. Her Azure aboneliğinde, Azure bölgesi başına en çok 500 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Verilerinizi nereye depolayacağınızı düşünürken, tüm bölgelerin aynı olmadığını unutmayın. Bölge eşleştirmeleri ve ek depolama alanı konuları hakkında bilgi edinmek için [Coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) bölümüne bakın.
 
 Azure Service Manager'a dayalı Yedekleme kasaları ilk kasa sürümüdür. Azure Resource Manager modeli özelliklerinin eklendiği Kurtarma Hizmetleri kasaları kasanın ikinci sürümüdür. Özellikler arasındaki farkların kapsamlı açıklamaları için [Kurtarma Hizmetleri kasasına genel bakış makalesine](backup-azure-recovery-services-vault-overview.md) göz atın. Artık Yedekleme kasaları oluşturamazsınız ve var olan tüm Yedekleme kasaları Kurtarma Hizmetleri kasalarına yükseltilmiştir. Kurtarma Hizmetleri kasalarına yükseltilmiş kasaları yönetmek için Azure portalını kullanabilirsiniz.
 

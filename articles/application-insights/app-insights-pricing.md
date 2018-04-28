@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 694818709bd1b756198c87692df23b0b35972bdd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -32,6 +32,9 @@ Fiyatlandırma için Application Insights nasıl çalıştığı hakkında sorul
 ## <a name="pricing-plans"></a>Fiyatlandırma planı
 
 Para birimi ve bölge geçerli fiyatlar için bkz: [Application Insights fiyatlandırma][pricing].
+
+> [!NOTE]
+> Nisan 2018, biz [sunulan](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure izlemek için yeni bir fiyatlandırma modeli. Bu model Hizmetleri izleme tam Portföy arasında basit bir "Kullandıkça Öde" modelinin devralır. Daha fazla bilgi edinmek [yeni fiyatlandırma modeli](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), nasıl için [bu modeline taşıma etkisini değerlendirmenize](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) , kullanım düzenlerini esas alarak ve [yeni modeline kabul etme](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
 
 ### <a name="basic-plan"></a>Temel plan
 

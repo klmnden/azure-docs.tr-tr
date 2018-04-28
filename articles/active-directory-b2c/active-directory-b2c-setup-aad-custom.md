@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory B2C: özel ilkeler kullanarak bir Azure AD Sağlayıcısı Ekle | Microsoft Docs"
-description: "Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin"
+title: 'Azure Active Directory B2C: özel ilkeler kullanarak bir Azure AD Sağlayıcısı Ekle | Microsoft Docs'
+description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Azure AD hesapları kullanarak oturum açın
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu makalede, oturum açma kullanım yoluyla belirli bir Azure Active Directory (Azure AD) kuruluştan kullanıcılar için etkinleştirme gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
@@ -46,12 +46,12 @@ Oturum açma için belirli bir kullanıcılardan etkinleştirmek için Azure AD 
 > "Contoso.com" kuruluş için kullandığımız Azure AD kiracısı ve Azure AD B2C kiracısı'nda aşağıdaki yönergeleri olarak "fabrikamb2c.onmicrosoft.com".
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Üst çubuğunda hesabınızı seçin. Gelen **Directory** listesinde, kuruluş seçin, uygulamanız (contoso.com) kaydetmek istediğiniz Azure AD kiracısı.
-1. Seçin **daha fazla hizmet** sol bölmesinde ve "Uygulama kayıtlar" için arama
-1. Seçin **yeni uygulama kaydı**.
-1. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
-1. Seçin **Web uygulaması / API** uygulama türü için.
-1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin nerede `yourtenant` Azure AD B2C kiracınızın adıyla değiştirilen (`fabrikamb2c.onmicrosoft.com`):
+2. Üst çubuğunda hesabınızı seçin. Gelen **Directory** listesinde, kuruluş seçin, uygulamanız (contoso.com) kaydetmek istediğiniz Azure AD kiracısı.
+3. Seçin **daha fazla hizmet** sol bölmesinde ve "Uygulama kayıtlar" için arama
+4. **Yeni uygulama kaydı**’nı seçin.
+5. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
+6. Uygulama türü için **Web uygulaması / API** öğesini seçin.
+7. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin nerede `yourtenant` Azure AD B2C kiracınızın adıyla değiştirilen (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >"Yourtenant" değeri, tüm küçük harfli olması gerektiğini **oturum açma URL'si**.
@@ -60,10 +60,10 @@ Oturum açma için belirli bir kullanıcılardan etkinleştirmek için Azure AD 
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Uygulama Kimliği kaydedilemiyor
-1. Yeni oluşturulan uygulaması'nı seçin.
-1. Altında **ayarları** dikey penceresinde, select **anahtarları**.
-1. Yeni bir anahtar oluşturun ve kaydedin. Sonraki bölümde yer alan adımları de kullanır.
+8. Uygulama Kimliği kaydedilemiyor
+9. Yeni oluşturulan uygulaması'nı seçin.
+10. Altında **ayarları** dikey penceresinde, select **anahtarları**.
+11. Anahtar açıklama girin, bir süre seçin ve ardından **kaydetmek**. Anahtar değeri görüntülenir. Sonraki bölümde yer alan adımları kullanacağınız için kopyalayın.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Azure AD B2C için Azure AD anahtarı Ekle
 

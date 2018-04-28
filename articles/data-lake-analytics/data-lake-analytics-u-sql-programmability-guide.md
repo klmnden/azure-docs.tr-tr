@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake için U-SQL Programlama Kılavuzu | Microsoft Docs"
-description: "Bir bulut tabanlı büyük veri platformu oluşturmanıza olanak sağlayan bir hizmetler kümesi olan Azure Data Lake içinde hakkında bilgi edinin."
+title: Azure Data Lake için U-SQL Programlama Kılavuzu | Microsoft Docs
+description: Bir bulut tabanlı büyük veri platformu oluşturmanıza olanak sağlayan bir hizmetler kümesi olan Azure Data Lake içinde hakkında bilgi edinin.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: a241199ff8441d76d48d297b69af05a604d2a423
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
 
@@ -37,7 +37,7 @@ Aşağıdaki U-SQL betiği bakın:
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
-    ) AS D( customer, amount );
+    ) AS D( customer, amount, date );
 
 @results =
   SELECT
@@ -88,7 +88,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Bugünün tarihini C# ifadeleri kullanma
 
-Bugünün tarihini çıkarmak için aşağıdaki C# ifade kullanabilirsiniz:`DateTime.Now.ToString("M/d/yyyy")`
+Bugünün tarihini çıkarmak için aşağıdaki C# ifade kullanabilirsiniz: `DateTime.Now.ToString("M/d/yyyy")`
 
 Bu ifade bir komut dosyası kullanma örneği şöyledir:
 
@@ -536,9 +536,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 * **Seri hale**: bir nesne ya da nesneleriyle verilen kök sağlanan akış grafiği Serileştirir.
 
-`MyType`Örnek: türünün örneği.  
-`IColumnWriter`yazıcı / `IColumnReader` okuyucu: temel sütun akış.  
-`ISerializationContext`Bağlam: seri hale getirme sırasında akış kaynak veya hedef bağlamının belirten bayrakları kümesini tanımlayan Enum.
+`MyType` Örnek: türünün örneği.  
+`IColumnWriter` yazıcı / `IColumnReader` okuyucu: temel sütun akış.  
+`ISerializationContext` Bağlam: seri hale getirme sırasında akış kaynak veya hedef bağlamının belirten bayrakları kümesini tanımlayan Enum.
 
 * **Ara**: kaynak veya hedef bağlamı kalıcı depolama olmadığını belirtir.
 
@@ -1061,7 +1061,7 @@ UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimlerini 
 * EXTRACT
 * ÇIKTI
 * İŞLEM
-* COMBINE
+* BİRLEŞTİRME
 * AZALTMA
 
 > [!NOTE]  
@@ -1270,9 +1270,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`Giriş her satır için çağrılır. Döndürdüğü `IUnstructuredWriter output` satır kümesi.
+* `Output` Giriş her satır için çağrılır. Döndürdüğü `IUnstructuredWriter output` satır kümesi.
 * Oluşturucu sınıfı için kullanıcı tanımlı outputter parametreleri geçirmek için kullanılır.
-* `Close`İsteğe bağlı olarak pahalı durumunu serbest bırakmak veya son satırını zaman yazıldı belirlemek için geçersiz kılmak için kullanılır.
+* `Close` İsteğe bağlı olarak pahalı durumunu serbest bırakmak veya son satırını zaman yazıldı belirlemek için geçersiz kılmak için kullanılır.
 
 **SqlUserDefinedOutputter** öznitelik türü kullanıcı tanımlı bir outputter kayıtlı olduğunu gösterir. Bu sınıf devralınan olamaz.
 
@@ -1854,7 +1854,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 
 **SqlUserDefinedCombiner** Birleştirici modu özelliği tanımlamak için kullanılır. Bir kullanıcı tarafından tanımlanan birleştirici tanımı için isteğe bağlı bir özniteliktir.
 
-CombinerMode     Mode
+CombinerMode modu
 
 CombinerMode enum, şu değerleri alabilir:
 

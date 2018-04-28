@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory doğrudan kimlik doğrulaması
 
@@ -39,7 +39,7 @@ Doğrudan kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 - *Mükemmel bir kullanıcı deneyimi*
   - Kullanıcılar, şirket içi ve bulut tabanlı uygulamalar imzalamak için aynı parolayı kullanın.
   - Kullanıcıların BT Yardım Masası çözümleme parola ile ilgili sorunlar için Konuşmayı daha az süre beklemesini.
-  - Kullanıcıların tamamlayabilir [Self Servis parola yönetimi](../active-directory-passwords-overview.md) bulutta görevler.
+  - Kullanıcıların tamamlayabilir [Self Servis parola yönetimi](../authentication/active-directory-passwords-overview.md) bulutta görevler.
 - *Kolay dağıtma ve yönetme*
   - İçi karmaşık dağıtımlar veya ağ yapılandırması için gerekli.
   - İçi yüklü olması için yalnızca bir basit Aracısı gerekir.
@@ -56,7 +56,7 @@ Doğrudan kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 - Kullanıcı oturum açma tüm web tarayıcı tabanlı uygulamalar ve Microsoft Office kullanan istemci uygulamaları destekleyen [modern kimlik doğrulaması](https://aka.ms/modernauthga).
 - Oturum açma kullanıcı adları, şirket içi varsayılan kullanıcı olabilir (`userPrincipalName`) veya Azure AD Connect içinde yapılandırılmış başka bir öznitelik (olarak bilinen `Alternate ID`).
 - Özelliği ile sorunsuz çalışır [koşullu erişim](../active-directory-conditional-access-azure-portal.md) özellikleri gibi çok faktörlü kimlik doğrulaması (kullanıcılarınızın güvenli hale getirmek için MFA).
-- Bulut tabanlı ile tümleşik [Self Servis parola yönetimi](../active-directory-passwords-overview.md), parola geri yazma için de dahil olmak üzere şirket içi Active Directory ve parola koruması banning tarafından yaygın olarak kullanılan parolalar.
+- Bulut tabanlı ile tümleşik [Self Servis parola yönetimi](../authentication/active-directory-passwords-overview.md), parola geri yazma için de dahil olmak üzere şirket içi Active Directory ve parola koruması banning tarafından yaygın olarak kullanılan parolalar.
 - Birden çok orman ortamlarına AD ormanlar arasında orman güvenleri varsa desteklenir ve ad soneki yönlendirmesi doğru yapılandırılmışsa.
 - Boş bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri olması gerekmez.
 - Aracılığıyla etkinleştirilebilir [Azure AD Connect](active-directory-aadconnect.md).

@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management için Azure kaynaklarını - rolü ayarlarını yapılandırma | Microsoft Docs
+title: Privileged Identity Management kullanarak Azure kaynakları için rol ayarlarını yapılandırma | Microsoft Docs
 description: PIM için rol ayarlarının nasıl yapılandırılacağı açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 0fe986d8cdace301fde4045b16d299ba8395457d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---configure"></a>Privileged Identity Management - kaynak rolleri - yapılandırın
+# <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management kullanarak Azure kaynakları için rol ayarlarını yapılandırma 
 
-Rolü ayarlarını yapılandırma atamaları PIM ortamında uygulanan varsayılan değerleri tanımlar. Bu, kaynak için tanımlamak için sol gezinti ya da geçerli seçeneklerini görüntülemek için herhangi bir rolü eylem çubuğunda rol ayarlar düğmesinden rol ayarları sekmesini seçin.
+Rol ayarlarını yapılandırdığınızda, ayrıcalıklı Kimlik Yönetimi (PIM) ortamında atamaları uygulanan varsayılan ayarları tanımlayın. Kaynağınız için bu ayarları tanımlamak için seçin **rol ayarlarını** sol bölmeden sekmesi. Rol ayarlar düğmesine eylem çubuğunda (herhangi bir rolü) gelen geçerli seçeneklerini görüntülemek için öğesini de seçebilirsiniz.
 
 
 ## <a name="select-a-role"></a>Rol seçin
-Bir değişiklik yapmak istediğiniz bir rol seçin. Ardından, var olan herhangi bir ayarı değişiklikleri yapmak için Düzenle'yi seçin.
+Değişiklik yapmak istediğiniz bir rol seçin. Ardından, var olan herhangi bir ayarı değişiklikleri yapmak için seçin **Düzenle**.

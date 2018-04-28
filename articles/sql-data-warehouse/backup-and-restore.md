@@ -2,19 +2,19 @@
 title: Azure SQL Data Warehouse yedekleme ve geri yükleme - anlık görüntüler, coğrafi olarak yedekli | Microsoft Docs
 description: Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın.
 services: sql-data-warehouse
-author: ronortloff
+author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 04/11/2018
-ms.author: rortloff
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 21708f51d09d640721af196d2ffa91aede97ffb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın. 
@@ -55,9 +55,9 @@ Veri ambarı bıraktığınızda, SQL Data Warehouse son anlık görüntü oluş
 > 
 
 ## <a name="geo-backups"></a>Coğrafi yedekleri
-SQL veri ambarı gerçekleştirir coğrafi yedekleme için günde bir kez bir [eşleştirilmiş veri merkezi](../best-practices-availability-paired-regions.md). RPO bir coğrafi geri yükleme için 24 saattir. Sunucunun coğrafi eşleştirilmiş bölgede coğrafi yedekleme geri yükleyebilirsiniz. Coğrafi yedekleme anlık görüntüleri birincil bölgenizde erişemiyor durumunda, veri ambarı geri yükleyebilirsiniz sağlar.
+SQL veri ambarı gerçekleştirir coğrafi yedekleme için günde bir kez bir [eşleştirilmiş veri merkezi](../best-practices-availability-paired-regions.md). RPO bir coğrafi geri yükleme için 24 saattir. Bir sunucuya SQL Data Warehouse burada desteklenen başka bir bölgede coğrafi yedekleme geri yükleyebilirsiniz. Coğrafi yedekleme anlık görüntüleri birincil bölgenizde erişemiyor durumunda, veri ambarı geri yükleyebilirsiniz sağlar.
 
-Coğrafi yedeklemeleri varsayılan olarak açıktır. Veri ambarınız esneklik için optimize edilmiştir, yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. En iyi duruma getirilmiş ile coğrafi yedek dışında kabul edemiyor işlem performans katmanı.
+Coğrafi yedeklemeleri varsayılan olarak açıktır. Veri ambarınız Gen1 ise, yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. Veri koruma yerleşik gurantee olarak Gen2 için coğrafi yedeklemeleri dışında'ni kaldıramaz.
 
 ## <a name="backup-costs"></a>Yedekleme maliyetleri
 Azure Premium Storage ve coğrafi olarak yedekli depolama için bir satır öğesi için bir satır öğesi Azure faturasını sahip fark edeceksiniz. Premium depolama ücret anlık görüntüleri içeren birincil bölgede verilerinizi depolamak için toplam maliyetidir.  Coğrafi olarak yedekli ücret coğrafi yedeklemelerini depolamak için maliyet kapsar.  

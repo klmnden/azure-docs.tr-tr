@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
 Bu makalede, performansı ve VM yedekleme altyapınızı planlamanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, Backup hizmeti önemli yönlerini tanımlar; Bu yönlerinin, mimarisi belirlemede önemli kapasite planlaması ve zamanlama. Seçtiğiniz varsa [ortamınızı hazırlanmış](backup-azure-arm-vms-prepare.md), planlama sonraki adım başlamadan önce [Vm'leri yedekleme için](backup-azure-arm-vms.md). Azure sanal makineler hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -91,7 +91,7 @@ Yedeklenmekte olan her disk için Azure yedekleme disk üzerindeki blokları oku
 
 | Yedekleme işlemi | İyi verimlilik |
 | --- | --- |
-| İlk yedekleme |160 Mbps |
+| İlk yedekleme |160 MB/sn |
 | Artımlı yedekleme (DR) |640 Mbps <br><br> (Yedeklenmesi gereken) değiştirilen veri diski dağılmış olan, üretilen iş önemli ölçüde bırakır.|
 
 ## <a name="total-vm-backup-time"></a>Toplam VM yedekleme saati
@@ -99,7 +99,8 @@ Yedeklenmekte olan her disk için Azure yedekleme disk üzerindeki blokları oku
 
 * Gereken süre [veya yedekleme uzantısını güncelleştirmesini](backup-azure-arm-vms.md).
 * Anlık görüntü saati bir anlık görüntü tetiklemek için geçen süredir. Anlık görüntüler yakın zamanlanmış yedekleme saati tetiklenir.
-* Sıra bekleme süresi. Birden çok müşteri yedeklemelerden işleme yedekleme hizmeti olduğundan, yedekleme veya kurtarma Hizmetleri kasasına yedekleme verileri anlık görüntüden kopyalama hemen başlatılamayabilir. Yoğun saatler içinde yüklenemedi, bekleme sekiz saat işlenmekte olan yedekleme sayısı nedeniyle uzatabilirsiniz. Ancak, toplam VM yedekleme günlük yedekleme ilkeleri için 24 saatten az saattir.
+* Sıra bekleme süresi. Birden çok müşteri yedeklemelerden işleme yedekleme hizmeti olduğundan, yedekleme veya kurtarma Hizmetleri kasasına yedekleme verileri anlık görüntüden kopyalama hemen başlatılamayabilir. Yoğun saatler içinde yüklenemedi, bekleme sekiz saat işlenmekte olan yedekleme sayısı nedeniyle uzatabilirsiniz. Ancak, toplam VM yedekleme günlük yedekleme ilkeleri için 24 saatten az saattir. <br>
+**Bu, yalnızca artımlı yedeklemeler için ve ilk yedek için geçerli tutar. İlk yedekleme süresi orantılıdır ve veri boyutuna bağlı bağlı olarak 24 saatten uzun olabilir ve zaman yedeği alınır.**
 * Veri aktarımı zamanı, depolama kasası için artımlı değişiklikler önceki yedekten işlem ve bu değişiklikleri aktarmak yedekleme hizmeti için gereken zamanı.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Neden ı Gözlemleme longer(>12 hours) yedekleme zamanı?
