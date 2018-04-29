@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve tahmini maliyetleri izleme
 
@@ -39,12 +39,11 @@ Başka bir benzer kullanım işte ve maliyet özeti. Bu örnek, bir abonelik yen
 
 ## <a name="new-pricing-model"></a>Yeni bir fiyatlandırma modeli
 
-Nisan 2018 içinde yeni bir izleme fiyatlandırma modeli yayımlanmıştır. Bu, bulut kolay, tüketim tabanlı fiyatlandırma özellikleri. Yalnızca ne, düğüm tabanlı taahhüt kullandığınız için ödeme yaparsınız. Yeni fiyatlandırma modeli ayrıntılarını kullanılabilir [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [günlük analizi](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+Nisan 2018 içinde bir [fiyatlandırma modeli yeni izleme yayımlanan](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Bu, bulut kolay, tüketim tabanlı fiyatlandırma özellikleri. Yalnızca ne, düğüm tabanlı taahhüt kullandığınız için ödeme yaparsınız. Yeni fiyatlandırma modeli ayrıntılarını kullanılabilir [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [günlük analizi](https://azure.microsoft.com/pricing/details/log-analytics/) ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Günlük analizi veya Application Insights 2 Nisan 2018 sonra kullanmaya başlamak müşteriler yeni fiyatlandırma modelini tek seçenektir. Bu hizmetler zaten kullanan müşteriler için yeni fiyatlandırma modeli taşıma isteğe bağlıdır.
+Günlük analizi veya Application Insights 2 Nisan 2018 sonra müşteriler eklenmesi için yeni bir fiyatlandırma modelini tek seçenektir. Bu hizmetler zaten kullanan müşteriler için yeni fiyatlandırma modeli taşıma isteğe bağlıdır.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Yeni fiyatlandırma modeli etkisini değerlendirme
-
 Yeni fiyatlandırma modeli, kendi izleme kullanım düzenlerini esas alarak her müşteri farklı etkileri sahip olur. Günlük analizi veya Application Insights 2 Nisan 2018 önce kullanmakta olduğunuz müşteriler **kullanım ve tahmini maliyet** sayfa Azure İzleyicisi'nde yeni fiyatlandırma modeli taşırsanız maliyetleri herhangi bir değişikliği tahmin eder. Bir abonelik yeni modeline taşıma olanağı sağlar. Çoğu müşteri için yeni fiyatlandırma modeli yararlı olacaktır. Özellikle yüksek veri kullanım desenlerini veya daha yüksek maliyet bölgelerdeki müşteriler için bu durumda geçerli olmayabilir.
 
 Üzerinde seçtiğiniz maliyetleriniz abonelikler için tahmini görmek için **kullanım ve tahmini maliyetleri** sayfasında, sayfanın üstüne yakın mavi başlığını seçin. En yeni fiyatlandırma modeli benimsenmesi düzeyi olduğu için her seferinde bir Bu abonelik yapmak en iyisidir.
@@ -71,11 +70,30 @@ Günlük analizi ya da daha yüksek maliyetleri bölgelerdeki Application Insigh
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Yeni fiyatlandırma modeli ve Operations Management Suite aboneliği yetkilendirmeler
 
-Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm veri alım yetkilendirmeleri başına için uygun [günlük analizi](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Günlük analizi çalışma alanları veya Application Insights için bu yetkilendirmeleri almak için kaynaklar abonelik fiyatlandırma modeli belirli bir aboneliğe öncesi Nisan 2018 fiyatlandırma modeli kalmalıdır. Günlük analizi "Fiyatlandırma katmanı ve uygulama fiyatlandırma planı Öngörüler"Kurumsal"düğüm başına (OMS)" kullanılabildiği olmasıdır. Düğümler, kuruluşunuzun satın aldığı paket sayısına bağlı olarak, bazı abonelikler yeni fiyatlandırma modeli için hala yararlı olabilir taşıma. Ancak bu dikkat gerektirir.
+Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm başına veri alım yetkilendirmeleri uygun [günlük analizi](https://www.microsoft.com/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Bu yetkilendirmeler günlük analizi çalışma alanları veya Application Insights kaynaklar için belirli bir aboneliğe almak için: 
+
+- Aboneliğin fiyatlandırma modeli öncesi Nisan 2018 modelinde kalmalıdır.
+- Günlük analizi çalışma alanları "fiyatlandırma katmanı düğüm başına (OMS)" kullanmanız gerekir.
+- Application Insights kaynakları "planı fiyatlandırma Kurumsal" kullanmalısınız.
+
+Kuruluşunuzun satın aldığı, paketi düğümlerinin sayısına bağlı olarak bazı taşımayı abonelikleri yeni fiyatlandırma modeli için yararlı olabilir, ancak bu dikkat gerektirir. Genel olarak, yalnızca yukarıda açıklandığı gibi öncesi Nisan 2018 modelinde kalmak için önerilir.
+
+> [!WARNING]
+> Kuruluşunuz Microsoft Operations Management Suite E1 ve E2 satın aldıysa, aboneliklerinizi öncesi Nisan 2018 fiyatlandırma modeli korumak en iyisidir. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşırken değişiklikleri
 
-Bir abonelik yeni fiyatlandırma modeline taşıma yeni GB başına katmana fiyatlandırma katmanı her günlük analizi için değiştirir ve tüm (çağrılan "pergb2018" Azure Kaynak Yöneticisi'nde) taşır. Bu taşıma da herhangi bir Application Insights kaynağı kurumsal planda temel plana değiştirir. Maliyet tahmini bu değişikliklerin etkisini gösterir.
+Yeni fiyatlandırma modeli günlük analizi ve Application Insights seçenekleri yalnızca tek bir katman (veya plan) fiyatlandırma basitleştirir. Bir abonelik yeni fiyatlandırma modeli taşıma:
+
+- (Azure Kaynak Yöneticisi'nde "pergb2018" olarak adlandırılır) yeni bir GB başına katmanına her günlük analizi için fiyatlandırma katmanını değiştirin
+- Tüm kurumsal planı Application Insights kaynaklarında temel plana değiştirilir.
+
+Maliyet tahmini bu değişikliklerin etkisini gösterir.
+
+> [!WARNING]
+> Burada dağıtmak için Azure Resource Manager veya PowerShell kullanırsanız, önemli bir Not [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) veya [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) yeni taşınmış bir abonelikte fiyatlandırma modeli. Bir fiyatlandırma katmanı/planı "pergb2018" dışında için günlük analizi veya "Temel" için Application Insights belirtirseniz, yerine fiyatlandırma katmanı/plan, geçersiz bir belirtme nedeniyle dağıtım başarısız olan bu başarılı olur **ancak yalnızca geçerli kullanın Fiyatlandırma katmanı/plan**. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline taşıma
 

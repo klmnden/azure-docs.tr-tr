@@ -1,41 +1,36 @@
 ---
-title: "SQL veri ambarı veri yönetimi ortakları | Microsoft Docs"
-description: "Üçüncü taraf veri yönetimi SQL veri ambarı destek çözümleri iş ortaklarıyla listeler."
+title: SQL veri ambarı veri yönetimi ortakları | Microsoft Docs
+description: Üçüncü taraf veri yönetimi SQL veri ambarı destek çözümleri iş ortaklarıyla listeler.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 12/27/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 2fc8d1876e8a26252e83928857f5e7e9bf6ad47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: d29ccd2d4dce1d1550bac5b5ab97bb44c9960ed6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL veri ambarı veri yönetimi ortakları
-Uçtan uca veri ambarı çözüm oluşturmak için çok çeşitli endüstri lideri araçları seçin. Bu makalede, Microsoft iş ortağı şirketlerle veri yönetim araçları ve Azure SQL Data Warehouse destekleme çözümleri vurgular.
+Veri ambarı çözüm oluşturmak için çok çeşitli endüstri lideri araçları seçin. Bu makalede, Microsoft iş ortağı şirketlerle veri yönetim araçları ve Azure SQL Data Warehouse destekleme çözümleri vurgular.
 
-## <a name="our-data-management-partners"></a>Veri Yönetimi ortaklarımızın
+## <a name="data-management-partners"></a>Veri Yönetimi iş ortakları
 | Partner | Açıklama | Bağlantılar | Videolar |
 | --- | --- | --- | --- |
 | ![Coffing veri ambarı][1] |**Coffing veri ambarı**<br>Coffing veri ambarı Nexus Chameleon, sistemleri sorgulama için ayrılmış tasarımının 10 yıl sahip bir araç sağlar. Nexus SQL veri ambarı için bir sorgu aracı olarak kullanılabilir. Şirket içinde sorgulamak ve bilgisayarların ve birleştirme verilerin farklı platformlarda bulut nexus kullanın. Noktası-tıklatın-raporu! |[Market][coffing_marketplace]<br>[Web sitesi][coffing_website]<br>[Basın açıklaması][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD kesin veri modeli oluşturmak, veri artıklığı azaltmak, üretkenliği artırmak ve standartları gözlemlemek için gereken araçları sağlar. Kapsamlı kullanıcı deneyimleri hakkında temel hangi geliştirilmiştir kullanıcı Arabiriminde, kullanarak, bir modeli Oluşturucu DB modellerinde kolay ve rahat bir şekilde çalışabilirsiniz. Sürekli olarak MicroERD yeni ve geliştirilmiş işlevler komut istemi işlevsel iyileştirmeler ve Güncelleştirmeler aracılığıyla keyfini çıkarabilirsiniz. |[Web sitesi][inbrein_website]<br>[Veri sayfası][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![inbrein video](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
-| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian kataloglar, depolar ve veri yönetimi anahtar kalınan çözmenize yardımcı olması için meta verileri yönetir. Ayrıca, meta veri yönetimi, veri yönetimi ve varlık yönetim yazılımı çözümleri yönetmek ve araçlar ve teknolojiler farklı kümesinden meta veri yayımlama için sunuyoruz. |[Market][infolibrarian_marketplace]<br>[Web sitesi][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![infolibrarian video](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
-| ![Redpoint genel][4] |**RedPoint etkileşim**<br>RedPoint etkileşim müşterilerle sürekli iletişim kutusunda her bir iletişim kanalı gerçekleştirmesine ve noktası touch güçlendirir. Tek bir işlemsel denetim noktasından pazarlama omnichannel tam yaşam döngüsü kolayca yönetin |[Market][redpoint_it_marketplace]<br>[Web sitesi][redpoint_it_website]<br>[Basın açıklaması][redpoint_press]<br>[Veri sayfası][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Redpoint genel][4] |**RedPoint veri yönetimi**<br>RedPoint veri yönetimi yapılandırılmış gerçekleştirirken arası kanal müşteri katılım ve yapılandırılmamış veri yönetimi için tüm verilerine uygulamak Pazarlamacılar etkinleştirin. Azure SQL veri ambarı ve RedPoint yararlanarak bugünün omni kanal müşteri bulunmaya gereken kişiselleştirilmiş hyper, bağlamsal işlemleri sunmak için yapılandırılmış ve yapılandırılmamış veri değerini en üst düzeye çıkarabilirsiniz. Sürükle ve bırak arabirimi tasarlama ve veri yönetimi işlemleri kolay yürütmeye hale getirir. |[Market][redpoint_dm_marketplace]<br>[Web sitesi][redpoint_dm_website]<br>[Basın açıklaması][redpoint_press]<br>[Veri sayfası][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
-| ![Sentry bir][5] |**DW Sentry**<br>Akıllı veri taşıma Pano ve olay Takvim ile tam olarak hangi İş yükünüzün etkileyen her zaman bilirsiniz. Sorgular ve yük, yedekleme veya verilerinizi geri yüklemek için çalışan işleri görünürlük verecek şekilde tasarlandığından, hiçbir zaman olsun veya olmasın, Azure kaynaklarınızı çoğunu yaptığınız hakkında endişelenmeniz. |[Market][sql_sentry_marketplace]<br>[Web sitesi][sql_sentry_website]<br>[Basın açıklaması][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
+| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian kataloglar, depolar ve veri yönetimi anahtar kalınan çözmenize yardımcı olması için meta verileri yönetir. Ayrıca, meta veri yönetimi, veri yönetimi ve varlık yönetimi yazılım çözümleri yönetmek ve farklı birtakım Araçlar ve teknolojiler meta verileri yayımlama Infolibrarian sağlar. |[Market][infolibrarian_marketplace]<br>[Web sitesi][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![infolibrarian video](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
+| ![Redpoint genel][4] |**RedPoint etkileşim**<br>RedPoint etkileşim müşterilerle sürekli iletişim kutusunda her bir iletişim kanalı gerçekleştirmesine ve noktası touch sağlar. Tek bir işlemsel denetim noktasından pazarlama omnichannel tam yaşam döngüsü kolayca yönetin |[Market][redpoint_it_marketplace]<br>[Web sitesi][redpoint_it_website]<br>[Basın açıklaması][redpoint_press]<br>[Veri sayfası][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
+| ![Redpoint genel][4] |**RedPoint veri yönetimi**<br>RedPoint veri yönetimi yapılandırılmış gerçekleştirirken arası kanal müşteri katılım ve yapılandırılmamış veri yönetimi için tüm verilerine uygulamak s Pazarlamacılar etkinleştirin. Azure SQL veri ambarı ve RedPoint yararlanarak bugünün omni kanal müşteri bulunmaya gereken kişiselleştirilmiş hyper, bağlamsal işlemleri sunmak için yapılandırılmış ve yapılandırılmamış veri değerini en üst düzeye çıkarabilirsiniz. Sürükle ve bırak arabirimi tasarlama ve veri yönetimi işlemleri kolay yürütmeye hale getirir. |[Market][redpoint_dm_marketplace]<br>[Web sitesi][redpoint_dm_website]<br>[Basın açıklaması][redpoint_press]<br>[Veri sayfası][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
+| ![Sentry bir][5] |**DW Sentry**<br>Akıllı veri taşıma Pano ve olay takvimi ile her zaman tam olarak hangi İş yükünüzün etkileyen bildiğiniz. Sorgular ve işler, yedekleme, yükleme veya verilerinizi geri yüklemek için çalıştırıyor görünürlük verecek şekilde tasarlandığından, hiçbir zaman olsun veya olmasın, Azure kaynaklarınızı çoğunu yaptığınız hakkında endişe ediyorsunuz. |[Market][sql_sentry_marketplace]<br>[Web sitesi][sql_sentry_website]<br>[Basın açıklaması][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Diğer ortaklarımızın bazıları hakkında daha fazla bilgi için bkz: [iş zekası ortakları] [ bi_partners] ve [veri tümleştirme ortakları][di_partners].
+Diğer iş ortakları hakkında daha fazla bilgi için bkz: [iş zekası ortakları] [ bi_partners] ve [veri tümleştirme ortakları][di_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-management/coffing_data_warehousing_logo.png

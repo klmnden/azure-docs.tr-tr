@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 38a0c4f90b99686450b164637162c117b1fb6063
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
+# <a name="mxchip-iot-devkit"></a>MXChip IOT DevKit
 
 Bu örnek MXChip IOT DevKit WiFi bilgi ve algılayıcı durumlarını izlemek için ve Azure IOT Hub cihaz çiftlerini kullanarak kullanıcı LED rengi denetlemek için kullanabilirsiniz.
 
@@ -31,7 +31,7 @@ Bu örnek MXChip IOT DevKit WiFi bilgi ve algılayıcı durumlarını izlemek i�
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-- İzleyerek geliştirme ortamınızı ayarlayın [Başlarken Kılavuzu](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- İzleyerek geliştirme ortamınızı ayarlayın [Başlarken Kılavuzu](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 - Gitbash'i terminal pencerenizi (veya diğer Git komut satırı arabirimi), aşağıdaki komutları yazın:
     - `git clone https://github.com/DevKitExamples/DevKitState.git`
     - `cd DevKitState`
@@ -96,4 +96,4 @@ Bu örnek MXChip IOT DevKit WiFi bilgi ve algılayıcı durumlarını izlemek i�
 Önerilen sonraki adımlar şunlardır:
 
 * [Azure IOT Paketi'ne Genel Bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

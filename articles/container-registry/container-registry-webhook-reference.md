@@ -1,18 +1,18 @@
 ---
-title: "Azure kapsayıcı kayıt defteri Web kancası şema başvurusu"
-description: "Azure kapsayıcı kayıt defteri için Web kancası isteği JSON yükü başvurusu."
+title: Azure kapsayıcı kayıt defteri Web kancası şema başvurusu
+description: Azure kapsayıcı kayıt defteri için Web kancası isteği JSON yükü başvurusu.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure kapsayıcı kayıt defteri Web kancası başvurusu
 
@@ -43,7 +43,7 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 |Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|Dize|Web kancası olay kimliği.|
-|`timestamp`|Tarih Saat|Hangi Web kancası olay tetiklendi süre.|
+|`timestamp`|DateTime|Hangi Web kancası olay tetiklendi süre.|
 |`action`|Dize|Web kancası olayı tetikleyen bir eylem.|
 |[Hedef](#target)|Karmaşık Tür|Web kancası olay tetikleyen olayı hedefi.|
 |[İstek](#request)|Karmaşık Tür|Web kancası olayı oluşturan istek.|
@@ -98,7 +98,7 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Etkinliği sil
+## <a name="delete-event"></a>Olay silme
 
 Web kancası depo harekete veya bildirimi silinir. Bir etiketi silindiğinde tetiklenen değil.
 
@@ -107,12 +107,12 @@ Web kancası depo harekete veya bildirimi silinir. Bir etiketi silindiğinde tet
 |Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|Dize|Web kancası olay kimliği.|
-|`timestamp`|Tarih Saat|Hangi Web kancası olay tetiklendi süre.|
+|`timestamp`|DateTime|Hangi Web kancası olay tetiklendi süre.|
 |`action`|Dize|Web kancası olayı tetikleyen bir eylem.|
 |[Hedef](#delete_target)|Karmaşık Tür|Web kancası olay tetikleyen olayı hedefi.|
 |[İstek](#delete_request)|Karmaşık Tür|Web kancası olayı oluşturan istek.|
 
-### <a name="delete_target"></a>Hedef
+### <a name="delete_target"></a> Hedef
 
 |Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
@@ -120,7 +120,7 @@ Web kancası depo harekete veya bildirimi silinir. Bir etiketi silindiğinde tet
 |`digest`|Dize|Kayıt defteri V2 HTTP API belirtimine göre tanımlanan içerik, Özet.|
 |`repository`|Dize|Havuz adı.|
 
-### <a name="delete_request"></a>İstek
+### <a name="delete_request"></a> İstek
 
 |Öğe|Tür|Açıklama|
 |------------------|----------|-----------|

@@ -1,12 +1,12 @@
 ---
-title: "Azure PaaS veritabanlarında güvenli hale getirme | Microsoft Docs"
+title: Azure PaaS veritabanlarında güvenli hale getirme | Microsoft Docs
 description: " Azure SQL Database ve SQL veri ambarı güvenliği hakkında bilgi edinme PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi uygulamalar. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>Azure PaaS veritabanlarında güvenliğini sağlama
 
@@ -51,7 +51,7 @@ SQL kimlik doğrulaması yerine Azure AD kimlik doğrulaması kullanmanın avant
 - Veritabanı düzeyinde kimlikleri doğrulamak için veritabanı kullanıcıları bulunan kullanır.
 - SQL veritabanına bağlanma uygulamalar için belirteç tabanlı kimlik doğrulamasını destekler.
 - Etki alanı eşitleme olmadan yerel bir Azure AD için ADFS (etki alanı Federasyonu) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.
-- Active Directory Evrensel içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarını destekler [çok faktörlü kimlik doğrulama (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA kolay doğrulama seçeneklerini aralıklı güçlü kimlik doğrulaması içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için bkz: [SSMS desteklemek için SQL Database ve SQL Data Warehouse ile Azure AD MFA](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Active Directory Evrensel içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarını destekler [çok faktörlü kimlik doğrulama (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA kolay doğrulama seçeneklerini aralıklı güçlü kimlik doğrulaması içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için bkz: [SSMS desteklemek için SQL Database ve SQL Data Warehouse ile Azure AD MFA](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Azure AD kimlik doğrulaması hakkında daha fazla bilgi için bkz:
 

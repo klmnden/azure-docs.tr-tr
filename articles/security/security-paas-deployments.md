@@ -1,12 +1,12 @@
 ---
-title: "PaaS dağıtımları güvenli hale getirme | Microsoft Docs"
+title: PaaS dağıtımları güvenli hale getirme | Microsoft Docs
 description: " PaaS güvenlik avantajlarından diğer karşı bulut hizmet modeli ve Azure PaaS dağıtımınızın güvenliğini sağlamaya yönelik önerilen yöntemleri öğrenin anlayın. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="securing-paas-deployments"></a>PaaS dağıtımları güvenliğini sağlama
+# <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
 Bu makale size yardımcı olacak bilgileri sağlar:
 
@@ -87,12 +87,12 @@ Kimlik çevre yönetmek için genel bir en iyi uygulama yaklaşımı özetler.
 
 - **Anahtarları veya kimlik bilgilerini kaybetmeyin** anahtarlarını ve kimlik bilgilerini güvenli hale getirme PaaS dağıtımları güvenliğini sağlamak için önemlidir. Anahtarları ve kimlik bilgileri kaybetme yaygın görülen bir sorundur. İyi çözümlerden biri, anahtarları ve gizli anahtarları donanım güvenlik modülleri (HSM) depolanabileceği bir merkezi çözümü kullanmaktır. Azure ile bulutta HSM sağlar [Azure anahtar kasası](../key-vault/key-vault-whatis.md).
 - **Kimlik bilgileri ve diğer parolaları kaynak kodu veya GitHub koymayın** tek şey anahtarlarını ve kimlik bilgilerini kaybetme yetkisiz bir tarafın sahip daha da kötüsü erişmesini sağlamak. Saldırganlar, anahtarları ve gizli anahtarları kod depoları GitHub gibi depolanan bulma teknolojileri bot yararlanamazsınız. Bu ortak kaynak kodu depolarına anahtarı ve gizli anahtarları koymayın.
-- **Karma PaaS ve Iaas Hizmetleri, VM yönetim arabirimlerindeki korumak** Iaas ve PaaS Hizmetleri sanal makinelerde (VM) çalışır. Hizmet türüne bağlı olarak birkaç yönetim arabirimleri kullanılabilir uzaktan yönettiğiniz bu Vm'lere doğrudan o etkinleştir. Uzaktan Yönetim protokolleri gibi [Secure Shell Protokolü (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Uzak Masaüstü Protokolü (RDP)](https://support.microsoft.com/kb/186607), ve [uzak PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kullanılabilir. Genel olarak, doğrudan uzak erişim VM'ler için Internet'ten etkinleştirmemeniz önerilir. Mevcut ise, Azure sanal ağda sanal özel ağ kullanarak gibi alternatif yaklaşımlar kullanmanız gerekir. Alternatif yaklaşımlar kullanılabilir değil ve ardından karmaşık parolaları kullandığınızdan emin olun ve varsa, iki öğeli kimlik doğrulama (gibi [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md)).
+- **Karma PaaS ve Iaas Hizmetleri, VM yönetim arabirimlerindeki korumak** Iaas ve PaaS Hizmetleri sanal makinelerde (VM) çalışır. Hizmet türüne bağlı olarak birkaç yönetim arabirimleri kullanılabilir uzaktan yönettiğiniz bu Vm'lere doğrudan o etkinleştir. Uzaktan Yönetim protokolleri gibi [Secure Shell Protokolü (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Uzak Masaüstü Protokolü (RDP)](https://support.microsoft.com/kb/186607), ve [uzak PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kullanılabilir. Genel olarak, doğrudan uzak erişim VM'ler için Internet'ten etkinleştirmemeniz önerilir. Mevcut ise, Azure sanal ağda sanal özel ağ kullanarak gibi alternatif yaklaşımlar kullanmanız gerekir. Alternatif yaklaşımlar kullanılabilir değil ve ardından karmaşık parolaları kullandığınızdan emin olun ve varsa, iki öğeli kimlik doğrulama (gibi [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md)).
 - **Güçlü kimlik doğrulama ve yetkilendirme platformları kullanın**
 
   - Federasyon kimlikleri özel kullanıcı depoları yerine Azure AD kullanın. Federasyon kimlikleri kullandığınızda, platform tabanlı bir yaklaşım yararlanmak ve iş ortaklarınıza yetkili kimliklerinin yönetilmesini atayabilirsiniz. Bir Federasyon kimlik yaklaşım çalışanlar sona erdirilir ve birden çok kimlik ve yetkilendirme sistemler arasında yansıtılması gerek bilgi senaryolarında özellikle önemlidir.
   - Sağlanan platform kimlik doğrulama ve yetkilendirme mekanizmaları yerine özel kod kullanın. Özel kimlik doğrulama kodu geliştirme hataya olabilir nedenidir. Çoğu, geliştiricilerin güvenlik uzmanları değildir ve subtleties ve kimlik doğrulama ve yetkilendirme son gelişmeleri farkında olması olası değildir. Ticari (örneğin Microsoft'tan) genellikle kapsamlı bir şekilde gözden güvenlik kodudur.
-  - Çok faktörlü kimlik doğrulaması kullanın. Çok faktörlü kimlik doğrulaması kimlik doğrulama ve yetkilendirme için geçerli standart çünkü kullanıcı adı ve parola kimlik doğrulaması türlerinde devralınan güvenlik zayıf önler. Azure Yönetim (portal/uzak PowerShell) arabirimler ve müşteri hizmetleri Karşılıklı Erişim tasarlanmış ve gerekir kullanmak üzere yapılandırılmış [Azure çok faktörlü kimlik doğrulama (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Çok faktörlü kimlik doğrulaması kullanın. Çok faktörlü kimlik doğrulaması kimlik doğrulama ve yetkilendirme için geçerli standart çünkü kullanıcı adı ve parola kimlik doğrulaması türlerinde devralınan güvenlik zayıf önler. Azure Yönetim (portal/uzak PowerShell) arabirimler ve müşteri hizmetleri Karşılıklı Erişim tasarlanmış ve gerekir kullanmak üzere yapılandırılmış [Azure çok faktörlü kimlik doğrulama (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - OAuth2 ve Kerberos gibi standart kimlik doğrulama protokolleri kullanır. Bu protokollerin gözden eş yaygın olmuştur ve büyük olasılıkla platform Kitaplıklarınızı kimlik doğrulaması ve yetkilendirme bir parçası olarak uygulanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar

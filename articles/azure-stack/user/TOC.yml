@@ -110,6 +110,8 @@
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: GİT
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
                 - name: Kaynak sağlayıcısı profili tarafından desteklenen API'leri
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: İlke modülü kullanma

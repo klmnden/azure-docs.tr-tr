@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 3b689c6028470021734ad78dd88748f4079c383f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e413d921390cfb87c27c530c6870945c28c0df8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -579,6 +579,7 @@ Veri fabrikaları ile birlikte bunların alt kaynaklarını oluşturup yönetin.
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+| Microsoft.DataFactory/factory/* | Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin. |
 | Microsoft.DataFactory/dataFactories/* | Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin. |
 | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |

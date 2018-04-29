@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 9049c98803056ce459ef22869100166cbd232cc3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6c06b2819516664a367ca31925366eabd05e688e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Öğretici: Azure Active Directory Tümleştirme AppNeta Performans İzleyicisi ile
 
@@ -130,7 +130,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | başlık| user.jobtitle|
 
     > [!NOTE]
-    > 'Gruplar', 'Role' Azure AD'de eşlenen Appneta güvenlik grubunda ifade eder. Lütfen [bu](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) belge, Azure AD'de özel roller oluşturma açıklanmaktadır.
+    > 'Gruplar', 'Role' Azure AD'de eşlenen Appneta güvenlik grubunda ifade eder. Lütfen [bu](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) belge, Azure AD'de özel roller oluşturma açıklanmaktadır.
         
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 

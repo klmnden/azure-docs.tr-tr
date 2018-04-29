@@ -12,32 +12,43 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 69036b522b375eced604256340b532ad14a8708e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 90b36183ba32e75e06d434098d26cb10f3736373
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Azure yığınında Azure CLI kullanarak bir Linux sanal makine oluşturma
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Hızlı Başlangıç: Azure yığınında Azure CLI kullanarak Linux sunucusu sanal makine oluşturma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure CLI oluşturmak ve komut satırından Azure yığın kaynakları yönetmek için kullanılır. Azure yığınında Linux sanal makine oluşturmak için Azure CLI kullanarak bu hızlı başlangıç ayrıntıları.  VM oluşturulduktan sonra bir web sunucusu yüklü ve bağlantı noktası 80 web trafiğine izin vermek üzere açılır.
+Azure CLI kullanarak bir Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturmak için bu makaledeki adımları izleyin. Bu makalede ayrıca adımlarını sağlar:
 
-## <a name="prerequisites"></a>Önkoşullar 
+* Uzak bir istemci ile sanal makineye bağlanabilirsiniz.
+* NGINX web sunucusu yüklemek ve varsayılan giriş sayfasını görüntüleyin.
+* Kullanılmayan kaynakları temizlemek.
 
-* Azure yığın operatörünüze Azure yığın Market "Ubuntu Server 16.04 LTS" görüntü ekledi emin olun. 
+## <a name="prerequisites"></a>Önkoşullar
 
-* Azure yığını, Azure CLI oluşturmak ve kaynakları yönetmek için belirli bir sürümünü gerektirir. Azure CLI Azure yığını için yapılandırılmış yoksa, oturum [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) ve adımlarını izleyin [yükleyin ve Azure CLI yapılandırma](azure-stack-version-profiles-azurecli2.md).
+* **Azure yığın Market Linux görüntüde**
 
-* Genel SSH anahtarı adı id_rsa.pub ile Windows kullanıcı profiliniz .ssh dizininin oluşturulması gerekir. SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz: [oluşturma SSH anahtarları Windows'da](../../virtual-machines/linux/ssh-from-windows.md). 
+   Azure yığın Market Linux görüntü varsayılan olarak içermiyor. Sağlamak üzere Azure yığın işleci alma **Ubuntu Server 16.04 LTS** ihtiyacınız görüntü. İşleç açıklanan adımları kullanabilirsiniz [karşıdan Market öğesi Azure'dan Azure yığınına](../azure-stack-download-azure-marketplace-item.md) makalesi.
+
+* Azure yığın oluşturmak ve kaynakları yönetmek için Azure CLI belirli bir sürümünü gerektirir. Azure yığını için yapılandırılmış Azure CLI yoksa, oturum [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) ve adımlarını izleyin [ Azure CLI'yi yükleme ve yapılandırma](azure-stack-version-profiles-azurecli2.md).
+
+* Windows kullanıcı profiliniz .ssh dizinine adı id_rsa.pub ile SSH ortak anahtarı. SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz: [oluşturma SSH anahtarları Windows'da](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu hangi Azure yığına kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. Geliştirme Seti veya Azure yığınından tümleşik çalıştırılan sistemi [az grubu oluşturma](/cli/azure/group#az_group_create) bir kaynak grubu oluşturmak için komutu. Bu belgedeki tüm değişkenleri için değerleri atamış olduğunuz, bunları ya da farklı bir değer atamak gibi kullanabilirsiniz. Aşağıdaki örnek, yerel bir konum myResourceGroup adlı bir kaynak grubu oluşturur.
+Bir kaynak grubu, dağıtmak ve Azure yığın kaynaklarını yönetmek mantıksal bir kapsayıcısıdır. Geliştirme Seti veya Azure yığınından tümleşik çalıştırılan sistemi [az grubu oluşturma](/cli/azure/group#az_group_create) bir kaynak grubu oluşturmak için komutu.
+
+>[!NOTE]
+ Kod örnekleri tüm değişkenleri için değerleri atanır. Ancak, isterseniz yeni değerler atayabilirsiniz.
+
+Aşağıdaki örnek, yerel bir konum myResourceGroup adlı bir kaynak grubu oluşturur.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -45,7 +56,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek, myVM adlı VM oluşturur. Bu örnek için bir yönetici kullanıcı adı Demouser kullanır ve Demouser@123 ve parola olarak. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. Bu değerler, sanal makineye bağlanırken gereklidir.
+Kullanarak bir sanal makine oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek, myVM adlı VM oluşturur. Bu örnek için bir yönetici kullanıcı adı Demouser kullanır ve Demouser@123 kullanıcı parolası. Ortamınız için uygun bir şey için bu değerleri değiştirin.
 
 ```cli
 az vm create \
@@ -58,29 +69,29 @@ az vm create \
   --location local
 ```
 
-Tamamlandıktan sonra komut parametreleri sanal makineniz için çıktısı.  Not *Publicıpaddress*, bu yana bağlanmak ve sanal makineniz yönetmek için bunu kullanın.
+Genel IP adresi döndürülür **Publicıpaddress** parametresi. Sanal makine erişimini gerektiğinden bu adresi yazın.
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın
 
-Varsayılan olarak, Azure’a dağıtılmış Linux sanal makinelerinde yalnızca SSH bağlantılarına izin verilir. Bu VM bir web sunucusu olacaksa, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanın.
+IIS web sunucusu çalıştırmak için bu sanal makine olacağından Internet trafiği 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanın.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="ssh-into-your-vm"></a>VM’ye SSH uygulama
+## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>Sanal makineye bağlanmak için SSH kullanın
 
-SSH yüklü bir sistemden sanal makineye bağlanmak için aşağıdaki komutu kullanın. Windows üzerinde çalışıyorsanız, bağlantı oluşturmak için [Putty](http://www.putty.org/) kullanılabilir. Doğru ortak IP adresi, sanal makine ile değiştirdiğinizden emin olun. Bizim örneğimizde yukarıdaki IP adresini 192.168.102.36 oluştu.
+SSH yüklü olan bir istemci bilgisayardan sanal makineye bağlanın. Windows istemcisi üzerinde çalışıyorsanız kullanmak [Putty](http://www.putty.org/) bağlantı oluşturmak için. Sanal makineye bağlanmak için aşağıdaki komutu kullanın:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-## <a name="install-nginx"></a>NGINX yükleme
+## <a name="install-the-nginx-web-server"></a>NGINX web sunucusunu yükleme
 
-Paket kaynaklarını güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki bash betiğini kullanın. 
+Paket kaynakları güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki betiği çalıştırın:
 
-```bash 
+```bash
 #!/bin/bash
 
 # update package source
@@ -92,13 +103,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
 
-NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz *publicIpAddress* değerini kullandığınızdan emin olun. 
+Yüklü NGINX ve bağlantı noktası 80, sanal makinenizde açık ile sanal makinenin ortak IP adresini kullanarak web sunucusuna erişebilir. Bir web tarayıcısı açın ve gidin ```http://<public IP address>```.
 
-![Varsayılan NGINX sitesi](./media/azure-stack-quick-create-vm-linux-cli/nginx.png) 
+![NGINX web server Karşılama sayfası](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
+Artık gerekmeyen kaynakları temizlemek. Kullanabileceğiniz [az grubu Sil](/cli/azure/group#az_group_delete) bu kaynakları kaldırmak için komutu. Kaynak grubu ve tüm kaynaklarını silmek için aşağıdaki komutu çalıştırın:
 
 ```cli
 az group delete --name myResourceGroup
@@ -106,5 +117,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç basit Linux sanal makine dağıttıktan sonra. Azure yığın sanal makineler hakkında daha fazla bilgi için devam [Azure yığınında sanal makineler için ilgili önemli noktalar](azure-stack-vm-considerations.md).
-
+Bu hızlı başlangıç web sunucusu ile temel bir Linux sunucusu sanal makine dağıtılabilir. Azure yığın sanal makineler hakkında daha fazla bilgi için devam [Azure yığınında sanal makineler için ilgili önemli noktalar](azure-stack-vm-considerations.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Sanal Ağ eşlemesi bir - farklı oluşturmak dağıtım modelleri ve abonelikleri
 
@@ -81,7 +81,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 20. İçinde **myVnetA** görünür, dikey tıklayın **eşlemeler** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
 21. İçinde **myVnetA - eşlemeler** görünen dikey tıklayın **+ Ekle**
 22. İçinde **Ekle eşliği** görünür, dikey girin veya aşağıdaki seçenekleri belirleyin ve ardından **Tamam**:
-     - **Name**: *myVnetAToMyVnetB*
+     - **Ad**: *myVnetAToMyVnetB*
      - **Sanal ağ dağıtım modeli**: seçin **Klasik**.
      - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
      - **Kaynak Kimliği**: 15. adımdan myVnetB kaynak Kimliğini girin.
@@ -204,7 +204,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     > [!WARNING]
     > Değiştirilen ağ yapılandırma dosyasını içeri varolan sanal ağlar (aboneliğinizde Klasik) yapılan değişiklikler neden olabilir. Yalnızca önceki sanal ağ ekleyin ve verme değiştirir veya var olan tüm sanal ağları aboneliğinizden kaldırırsanız, emin olun. 
 
-5. Oturum açtığınızda Kullanıcıb'in abonelik girerek Resource Manager komutlarını kullanmak için UserB olarak `login-azurermaccount` komutu.
+5. Oturum açtığınızda Kullanıcıb'in abonelik girerek Resource Manager komutlarını kullanmak için UserB olarak `Connect-AzureRmAccount` komutu.
 6. Kullanıcıa izinleri sanal ağa B. kopyalama bir metin düzenleyicisi PC ve değiştirmek için aşağıdaki komut dosyası atamak `<SubscriptionB-id>` B. abonelik kimliği Abonelik kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıkış, abonelik kimliği. Oluşturulan Azure adlı adım 4'te bir kaynak grubunda oluşturduğunuz sanal ağ (Klasik) *varsayılan ağ*. Betik yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
     
     ```powershell 
@@ -214,7 +214,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Oturum UserB olarak Azure dışında ve oturum açma UserA olarak Kullanıcıa'nın aboneliğine girerek `login-azurermaccount` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
+7. Oturum UserB olarak Azure dışında ve oturum açma UserA olarak Kullanıcıa'nın aboneliğine girerek `Connect-AzureRmAccount` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
 8. Aşağıdaki komut dosyası kopyalama için PowerShell içinde yapıştırma ve tuşuna basarak (Resource Manager) sanal ağ oluşturma `Enter`:
 
     ```powershell

@@ -3,17 +3,17 @@ title: Anında iletme Docker görüntüsüne özel Azure kayıt defteri
 description: Docker CLI’yı kullanarak Azure’da özel bir kapsayıcı kayıt defterine Docker görüntüleri itme ve kapsayıcıdan görüntü çekme
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 40f2d3bde5e92a035709b1a8e49b76d3da079680
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
@@ -61,7 +61,7 @@ Yürütme aşağıdaki [çalıştırmak docker](https://docs.docker.com/engine/r
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Gözat [http://localhost: 8080](http://localhost:8080) çalışan kapsayıcısında Nginx tarafından sunulan varsayılan web sayfasını görüntülemek için. Aşağıdakine benzer bir sayfa görmeniz gerekir:
+Gözat [ http://localhost:8080 ](http://localhost:8080) Nginx çalışan kapsayıcısında tarafından sunulan varsayılan web sayfasını görüntülemek için. Aşağıdakine benzer bir sayfa görmeniz gerekir:
 
 ![Yerel bilgisayarda Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -103,7 +103,7 @@ Kullanım [çalıştırmak docker](https://docs.docker.com/engine/reference/run/
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Çalışmakta olan kapsayıcıyı görmek için [http://localhost:8080](http://localhost:8080) konumuna gidin.
+Gözat [ http://localhost:8080 ](http://localhost:8080) çalışan kapsayıcı görüntülemek için.
 
 Durdurun ve kapsayıcı kaldırmak için basın `Control` + `C`.
 
@@ -125,6 +125,6 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 Temel bilgileri artık bildiğinize göre kayıt defteri kullanmaya başlamak hazırsınız! Kayıt defterine kapsayıcı görüntülerden dağıtın:
 
-* [Azure kapsayıcı hizmeti (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure kapsayıcı örnekleri](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

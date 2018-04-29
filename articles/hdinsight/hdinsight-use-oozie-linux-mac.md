@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 586879c949a2acf5e84c0947864910fe120052ff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Azure Hdınsight'ta Linux tabanlı bir iş akışını çalıştırmak için kullanın.
 
@@ -106,6 +106,9 @@ Bu iş akışı SQL veritabanına veri vermek için Sqoop kullandığından, SQL
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
+
+> [!NOTE]
+> Dosya zaten bir ileti alabilirsiniz.
 
 İş akışınızı bir MapReduce uygulamayı içeren bir jar gibi diğer kaynaklar kullandıysanız, bu kaynakları de eklemeniz gerekir.
 
@@ -769,7 +772,7 @@ Bu öğreticide, Oozie iş akışı tanımlama ve Oozie işini çalıştır öğ
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme  
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
@@ -107,7 +107,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | storageAccountId |Dize | Tanılama günlükleri göndermesini istediğiniz depolama hesabının kaynak kimliği |
 | serviceBusRuleId |Dize | Olay hub'ın tanılama günlüklerini akış için oluşturulmuş olmasını istediğiniz hizmet veri yolu ad alanı service bus kuralı kimliği. Kimliktir biçimi kuralı: "{hizmet veri yolu kaynak kimliği} /authorizationrules/ {anahtar name}".|
-| workspaceId | Karmaşık Tür | Ölçüm zaman grains ve bekletme ilkelerini dizisi. Bu özellik şu anda boştur. |
+| Workspaceıd | Karmaşık Tür | Ölçüm zaman grains ve bekletme ilkelerini dizisi. Bu özellik şu anda boştur. |
 |metrics| Çağrılan ardışık düzene iletilecek parametre değerlerini ardışık çalıştırın| Parametre adları bağımsız değişken değeri için eşleştirme bir JSON nesnesi | 
 | günlükler| Karmaşık Tür| Bir kaynak türü için bir tanılama günlük kategori adı. Bir kaynak için tanılama günlük kategorileri listesini almak için önce bir GET tanılama ayarlarını işlemi gerçekleştirin. |
 | category| Dize| Günlük kategorileri ve bekletme ilkelerini dizisi |
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Daha fazla bilgi](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Daha fazla bilgi](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Şema günlüklerini ve olayları
 
@@ -325,7 +325,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Düzey |Dize | Tanılama günlüklerini düzeyi. Düzey 4 etkinlik günlükleri için geçerlidir. | `4`  |
 | correlationId |Dize | Bir özel talep uçtan uca izlemek için benzersiz kimliği | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Dize | Timespan, UTC biçiminde olay zamanı | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| Dize| Çalıştırma ardışık kimliği | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|çalıştırma kodu| Dize| Çalıştırma ardışık kimliği | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| Dize | Veri Fabrikası kaynağın ilişkili kaynak kimliği | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Dize | Tanılama günlüklerini kategorisi. Bu özelliği "PipelineRuns" olarak ayarlayın | `PipelineRuns` |
 |düzey| Dize | Tanılama günlüklerini düzeyi. Bu özelliği "Bilgilendirici" olarak ayarlayın | `Informational` |
@@ -370,7 +370,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Düzey |Dize | Tanılama günlüklerini düzeyi. Düzey 4 etkinlik günlükleri için ayarlayın. | `4`  |
 | correlationId |Dize | Bir özel talep uçtan uca izlemek için benzersiz kimliği | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Dize | Timespan, UTC biçiminde olay zamanı | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| Dize| Çalıştırma Tetikleyici kimliği | `08587023010602533858661257311` |
+|Tetikleyici No| Dize| Çalıştırma Tetikleyici kimliği | `08587023010602533858661257311` |
 |resourceId| Dize | Veri Fabrikası kaynağın ilişkili kaynak kimliği | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Dize | Tanılama günlüklerini kategorisi. Bu özelliği "PipelineRuns" olarak ayarlayın | `PipelineRuns` |
 |düzey| Dize | Tanılama günlüklerini düzeyi. Bu özelliği "Bilgilendirici" olarak ayarlayın | `Informational` |

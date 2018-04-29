@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery Azure Azure çoğaltma sorunlarını hataları için sorun giderme ve | Microsoft Docs"
-description: "Olağanüstü durum kurtarma için Azure sanal makineleri çoğaltırken hatalarını ve sorunlarını giderme"
+title: Azure Site Recovery Azure Azure çoğaltma sorunlarını hataları için sorun giderme ve | Microsoft Docs
+description: Olağanüstü durum kurtarma için Azure sanal makineleri çoğaltırken hatalarını ve sorunlarını giderme
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure Azure VM çoğaltma sorunlarını giderme
 
@@ -199,6 +199,17 @@ VM çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **başarılı
 
 - Varsa **provisioningState** olan **başarısız**, sorun giderme ayrıntılarla desteğine başvurun.
 - Varsa **provisioningState** olan **güncelleştirme**, başka bir uzantı dağıtılamıyor. Bunları ve başarısız Site kurtarma işlemini yeniden denemeniz için bekleme VM üzerinde devam eden tüm işlemler olup olmadığını kontrol **çoğaltmasını etkinleştir** işi.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ Birim Gölge Kopyası Hizmeti hatası (hata kodu 151025)
+**Hata kodu** | **Olası nedenler** | **Öneriler**
+--- | --- | ---
+151025<br></br>**İleti**: Site recovery uzantısı yüklenemedi | -'COM + Sistem uygulaması' servis devre dışı bırakıldı.</br></br>-'Birim gölge kopyası' hizmeti devre dışı.| Otomatik veya el ile başlatma modu için 'COM + Sistem uygulaması' ve 'Birim gölge kopyası' Hizmetleri ayarlayın.
+
+### <a name="fix-the-problem"></a>Sorunu gidermek
+
+'Hizmetleri' konsolunu açın ve 'COM + Sistem uygulaması' emin olun ve 'Birim gölge kopyası' 'Disabled', 'Başlangıç türünün' ayarlanmamış.
+  ![COM hata](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure sanal makinelerini çoğaltma](site-recovery-replicate-azure-to-azure.md)

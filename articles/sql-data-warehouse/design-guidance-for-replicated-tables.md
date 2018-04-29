@@ -7,21 +7,17 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da çoğaltılmış tablolar kullanmaya yönelik kılavuz tasarım
 Bu makalede SQL Data Warehouse şemanızı çoğaltılmış tablolarda tasarlamak için öneriler sağlar. Veri taşıma ve sorgu karmaşıklık azaltarak sorgu performansını artırmak için bu önerileri kullanın.
-
-> [!NOTE]
-> Çoğaltılmış tablo özelliği şu anda genel önizlemede değil. Bazı davranışları farklılık gösterebilir.
-> 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, veri dağıtımı ve SQL Data Warehouse veri taşıma kavramlarına alışık olduğunuz varsayılır.  Daha fazla bilgi için bkz: [mimarisi](massively-parallel-processing-mpp-architecture.md) makalesi. 
@@ -44,20 +40,13 @@ Aşağıdaki diyagram, her işlem düğümü üzerinde erişilebilir olan bir ç
 Çoğaltılan kullanmayı tablosundan:
 
 - 2 GB'den az, satır sayısından bağımsız olarak disk üzerindeki tablo boyutudur. Bir tablonun boyutunu bulmak için kullanabileceğiniz [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) komutu: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- Tablo, aksi halde veri taşıma gerektirecek birleştirme kullanılır. Örneğin, birleşme sütunları aynı dağıtım sütun olmadığında bir birleştirme karma dağıtılmış tablolarda veri taşıma gerektirir. Karma dağıtılmış tablolardan birini küçükse, çoğaltılmış bir tablo göz önünde bulundurun. Bir birleştirme hepsini tabloda veri taşıma gerektirir. Çoğu durumda hepsini tablolar yerine çoğaltılmış tablolar kullanmanızı öneririz. 
-
-
-Varolan bir dönüştürme dağıtılmış bir çoğaltılmış tabloya göz önünde bulundurun tablosundan:
-
-- Sorgu, veri tüm işlem düğümlerine yayını kullanımı veri taşıma işlemleri planlar. BroadcastMoveOperation pahalıdır ve sorgu performansı yavaşlatır. Sorgu planında veri taşıma işlemleri görüntülemek için kullanın [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- Tablo, aksi halde veri taşıma gerektirecek birleştirme kullanılır. Bir karma dağıtılmış tabloyu hepsini tabloya gibi aynı sütunda dağıtılmaz tabloları birleştirilirken veri taşıma sorgu tamamlamak için gereklidir.  Tablolardan birini küçükse, çoğaltılmış bir tablo göz önünde bulundurun. Çoğu durumda hepsini tablolar yerine çoğaltılmış tablolar kullanmanızı öneririz. Sorgu planında veri taşıma işlemleri görüntülemek için kullanın [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  BroadcastMoveOperation çoğaltılmış tablo kullanarak ortadan tipik veri taşıma işlemi var.  
  
 Çoğaltılmış tablolarda en iyi sorgu performansını değil verim zaman:
 
 - Tablo sık ekleme, güncelleştirme ve silme işlemleri vardır. Bu veri işleme dili (DML) işlemleri yeniden çoğaltılmış tablo oluşturulmasını gerektirir. Yeniden derleme sık performans neden olabilir.
 - Veri ambarı sık ölçeklendirilir. Veri ambarı ölçeklendirme yeniden oluşturur, işlem düğümleri sayısını değiştirir.
-- Tablo için çok sayıda sütun olsa da, veri işlemleri genellikle az sayıda sütun erişim. Tüm tabloyu çoğaltmak yerine bu senaryoda, karma değerini daha fazla etkili tablo dağıtın ve ardından sık erişilen sütunlarda dizin oluşturma olabilir. Bir sorgu veri taşıma gerektirdiğinde, SQL Data Warehouse istenen sütunlarda yalnızca verileri taşır. 
-
-
+- Tablo için çok sayıda sütun olsa da, veri işlemleri genellikle az sayıda sütun erişim. Tüm tabloyu çoğaltmak yerine bu senaryoda, tablonun dağıtın ve ardından sık erişilen sütunlarda dizin oluşturmak için daha etkili olabilir. Bir sorgu veri taşıma gerektirdiğinde, SQL Data Warehouse yalnızca istenen sütunlar için verileri taşır. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Çoğaltılmış tablolar ile basit sorgu koşulları kullanın
 Dağıtmak veya bir tablo çoğaltmak seçmeden önce tabloda çalıştırmayı planladığınız sorgu türleri düşünün. Mümkün olduğunda,
@@ -67,7 +56,7 @@ Dağıtmak veya bir tablo çoğaltmak seçmeden önce tabloda çalıştırmayı 
 
 CPU-yoğun sorguları en iyi iş tüm işlem düğümleri arasında dağıtıldığında gerçekleştirin. Örneğin, tablonun her satırında hesaplamaları çalıştırmak sorguları dağıtılmış tablolarda çoğaltılmış tablolar daha iyi gerçekleştirin. Çoğaltılmış bir tabloda, her işlem düğümü üzerinde tam kaydedildiği, çoğaltılmış bir tabloda bir CPU-yoğun sorgu karşı tüm tablo her işlem düğümünde çalışır. Ek hesaplama sorgu performansı düşürebilir.
 
-Örneğin, bu sorgu, bir karmaşık koşuluna sahip.  Sağlayıcı bir çoğaltılmış tablo yerine dağıtılmış bir tablo olduğunda daha hızlı çalışır. Bu örnekte, hepsini dağıtılmış veya tedarikçi karma dağıtılmış olabilir.
+Örneğin, bu sorgu, bir karmaşık koşuluna sahip.  Sağlayıcı bir çoğaltılmış tablo yerine dağıtılmış bir tablo olduğunda daha hızlı çalışır. Bu örnekte, sağlayıcı dağıtılmış hepsini olabilir.
 
 ```sql
 
@@ -132,7 +121,7 @@ Yeniden oluşturduğumuz `DimDate` ve `DimSalesTerritory` olarak çoğaltılmı�
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Çoğaltılmış tabloları değiştirmek için başarım düşünceleri
-SQL veri ambarı ana sürüm tablosunun tutarak çoğaltılmış tablo uygular. Her işlem düğümü üzerinde bir dağıtım veritabanı için ana sürüm kopyalar. Bir değişiklik olduğunda, SQL Data Warehouse ilk ana tablo güncelleştirir. Ardından her işlem düğümünde tabloların yeniden gerektirir. Bir yeniden oluşturma çoğaltılmış bir tablonun her işlem düğümü Tablo kopyalama ve dizinleri yeniden oluşturma içerir.
+SQL veri ambarı ana sürüm tablosunun tutarak çoğaltılmış tablo uygular. Her işlem düğümü üzerinde bir dağıtım veritabanı için ana sürüm kopyalar. Bir değişiklik olduğunda, SQL Data Warehouse ilk ana tablo güncelleştirir. Ardından her işlem düğümü tablolarda yeniden oluşturur. Bir yeniden oluşturma çoğaltılmış bir tablonun her işlem düğümü Tablo kopyalama ve dizin oluşturma içerir.  Örneğin, bir DW400 çoğaltılmış bir tabloda veri 5 kopyası yok.  Ana kopya ve her işlem düğümü üzerinde tam bir kopyasını.  Tüm verileri dağıtım veritabanlarında depolanır. SQL veri ambarı hızlı veri değişikliği deyimleri ve esnek ölçeklendirme işlemleri desteklemek için bu modeli kullanır. 
 
 Sonra yeniden gereklidir:
 - Veri yüklenen ya da değiştirilmiş
@@ -143,7 +132,7 @@ Yeniden sonra gerekli değildir:
 - Duraklatma işlemi
 - Sürdürme işlemi
 
-Veri hemen değiştirildikten sonra yeniden gerçekleşmez. Bunun yerine, yeniden tablodan bir sorgu seçer ilk kez tetiklenir.  Tablodaki ilk select deyimi içinde çoğaltılmış tablosunu yeniden adımlardır.  Yeniden oluşturma sorgu içinde yapıldığından, ilk select deyiminde etkisini tablo boyutuna bağlı olarak önemli olabilir.  Birden çok çoğaltılmış tablolar yeniden gereken söz konusuysa, her kopya seri olarak deyimi içindeki adımları olarak yeniden oluşturulur.  Verileri korumak için özel bir kilit çoğaltılmış tablo yeniden sırasında tutarlılık tabloda alınır.  Kilit yeniden süresince tabloya tüm erişimi engeller. 
+Veri hemen değiştirildikten sonra yeniden gerçekleşmez. Bunun yerine, yeniden tablodan bir sorgu seçer ilk kez tetiklenir.  Her işlem düğümüne verileri zaman uyumsuz olarak kopyalanırken yeniden tetiklenen sorgu tablo ana sürümünden hemen okur. Veri kopyalama işlemi tamamlanana kadar sonraki sorgular tablo ana sürümünü kullanmaya devam eder.  Herhangi bir etkinliği başka bir yeniden zorlar çoğaltılmış tablo karşı olursa, veri kopyalamayı geçersiz kılınan ve sonraki select deyimi yeniden kopyalanacak veri tetikler. 
 
 ### <a name="use-indexes-conservatively"></a>Dizinleri ölçülü kullanın
 Standart dizin oluşturma yöntemleri çoğaltılmış tablolar için geçerlidir. SQL veri ambarı her çoğaltılmış tablosu dizini yeniden oluşturma bir parçası olarak yeniden oluşturur. Performans kazancı dizinleri yeniden oluşturma, maliyetinden ağır yalnızca dizinler kullanın.  
@@ -172,7 +161,7 @@ Verileri çoğaltılmış tablolara yüklenirken yükleri birlikte toplu işleme
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Toplu yükleme sonrasında çoğaltılmış tablo yeniden oluşturma
-Tutarlı bir sorgu yürütme süreleri sağlamak için toplu yükleme sonrasında çoğaltılmış tablolar yenilenmesini zorlama öneririz. Aksi durumda, ilk sorgu tabloları yenilemek, dizinleri yeniden oluşturma içeren beklemeniz gerekir. Boyut ve etkilenen çoğaltılmış tablolar sayısına bağlı olarak, performans etkisi önemli olabilir.  
+Tutarlı bir sorgu yürütme süreleri sağlamak için toplu yükleme sonrasında çoğaltılmış tablolar yapı zorlama göz önünde bulundurun. Aksi durumda, ilk sorgusundaki sorguyu tamamlamak için hala veri taşıma kullanacaktır. 
 
 Bu sorgu kullanan [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV değiştirildi, ancak değil yeniden çoğaltılmış tablolarda listelenmektedir.
 
@@ -187,7 +176,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-Bir yeniden oluşturma zorlamak için her bir tabloda yukarıdaki çıktıda aşağıdaki deyimini çalıştırın. 
+Bir yeniden oluşturma tetiklemek için her bir tabloda yukarıdaki çıktıda aşağıdaki deyimini çalıştırın. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

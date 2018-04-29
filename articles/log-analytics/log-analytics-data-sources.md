@@ -1,8 +1,8 @@
 ---
-title: "Azure günlük analizi veri kaynakları yapılandırma | Microsoft Docs"
-description: "Veri kaynakları günlük analizi toplar aracıları ve diğer kaynakları bağlı verileri tanımlayın.  Bu makalede kavramı nasıl günlük analizi veri kaynakları kullanır, bunların nasıl yapılandırılacağı ayrıntılarını açıklar ve kullanılabilen değişik veri kaynakları özetini sağlar."
+title: Azure günlük analizi veri kaynakları yapılandırma | Microsoft Docs
+description: Veri kaynakları günlük analizi toplar aracıları ve diğer kaynakları bağlı verileri tanımlayın.  Bu makalede kavramı nasıl günlük analizi veri kaynakları kullanır, bunların nasıl yapılandırılacağı ayrıntılarını açıklar ve kullanılabilen değişik veri kaynakları özetini sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Günlük analizi veri kaynaklarında
 Günlük analizi bağlı kaynaklarınızdan verilerini toplar ve günlük analizi çalışma alanınızda depolar.  Her birinden toplanan verileri yapılandırdığınız veri kaynakları tarafından tanımlanır.  Günlük analizi veri bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belirli bir türdeki kayıtları oluşturur.
@@ -29,16 +29,19 @@ Veri kaynakları farklı [yönetim çözümleri](log-analytics-add-solutions.md)
 
 
 ## <a name="summary-of-data-sources"></a>Veri kaynakları özeti
-Günlük analizi şu anda kullanılabilir veri kaynakları aşağıdaki tabloda listelenmiştir.  Her ayrıntı için bu veri kaynağı sağlayarak ayrı bir makale için bir bağlantı vardır.
+Aşağıdaki tabloda günlük analizi şu anda kullanılabilir veri kaynaklarını listeler.  Her ayrıntı için bu veri kaynağı sağlayarak ayrı bir makale için bir bağlantı vardır.   Ayrıca, yöntemi ve günlük analizi veri koleksiyonuna sıklığını hakkında bilgiler sağlar.  Kullanılabilir farklı çözümler tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimleri anlamak için bu makaledeki bilgileri kullanabilirsiniz. Sütunları açıklamalar için bkz [Azure yönetim çözümleri için veri toplama ayrıntılarına](../monitoring/monitoring-solutions-inventory.md).
 
-| Veri Kaynağı | Olay Türü | Açıklama |
-|:--- |:--- |:--- |
-| [Özel günlükler](log-analytics-data-sources-custom-logs.md) |\<Günlükadı\>_CL |Metin dosyaları günlüğü bilgilerini içeren Windows veya Linux aracıları hakkında. |
-| [Windows olay günlükleri](log-analytics-data-sources-windows-events.md) |Olay |Olayları olay oturum açma Windows bilgisayarlardan toplanan. |
-| [Windows performans sayaçları](log-analytics-data-sources-performance-counters.md) |Perf |Performans sayaçları Windows bilgisayarlardan toplanan. |
-| [Linux performans sayaçları](log-analytics-data-sources-performance-counters.md) |Perf |Linux bilgisayarlardan toplanan performans sayaçları. |
-| [IIS günlükleri](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Internet Information Services W3C biçiminde kaydeder. |
-| [Syslog](log-analytics-data-sources-syslog.md) |Syslog |Syslog olayları Windows veya Linux bilgisayarlardaki. |
+
+| Veri kaynağı | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Özel günlükler](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | geldiğinde |
+| [Özel günlükler](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | geldiğinde |
+| [IIS günlükleri](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 dakika |
+| [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Zamanlandığı gibi en az 10 saniye |
+| [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Zamanlandığı gibi en az 10 saniye |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure depolama biriminden: 10 dakika; aracısından: işle |
+| [Windows olay günlükleri](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | geldiğinde |
+
 
 ## <a name="configuring-data-sources"></a>Veri kaynaklarını yapılandırma
 Veri kaynaklarından yapılandırma **veri** günlük analizi menüde **Gelişmiş ayarları**.  Herhangi bir yapılandırma çalışma alanınızdaki tüm bağlı kaynakları teslim edilir.  Şu anda bu yapılandırmasından tüm aracıları dışarıda bırakılamaz.

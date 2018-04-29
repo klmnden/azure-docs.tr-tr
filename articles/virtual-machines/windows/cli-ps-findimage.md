@@ -1,11 +1,11 @@
 ---
-title: "Windows VM görüntüleri seçin | Microsoft Docs"
-description: "Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure PowerShell kullanmayı öğrenin."
+title: Windows VM görüntüleri seçin | Microsoft Docs
+description: Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure PowerShell kullanmayı öğrenin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 6d88eea96d95ac998575b9b034ac970eabc38913
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858b5976ef422ab410f42c44f94473aa4fd10970
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell ile Azure Market'te Windows VM görüntüleri bulma
 
@@ -32,10 +32,10 @@ Yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modül�
 ## <a name="table-of-commonly-used-windows-images"></a>Yaygın olarak kullanılan Windows görüntülerinin tablosu
 | Yayımcı | Sunduğu | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016 Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |Kapsayıcılar ile 2016 Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
+| MicrosoftWindowsServer |WindowsServer |2016 Nano Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
@@ -80,7 +80,7 @@ Seçilen SKU adınızı doldurun ve aşağıdaki komutları çalıştırın:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Çıktısından `Get-AzureRMVMImage` komutu, yeni bir sanal makine dağıtmak için bir sürümü görüntüsü seçebilirsiniz.

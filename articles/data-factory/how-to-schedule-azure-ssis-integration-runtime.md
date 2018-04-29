@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -123,7 +123,7 @@ Aşağıdaki yordam, bir PowerShell runbook oluşturmak için adımları sağlar
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -226,7 +226,7 @@ Bu bölümde bir Web etkinliğini önceki bölümde oluşturduğunuz Web kancala
 Oluşturduğunuz işlem hattını üç etkinliklerini oluşur. 
 
 1. İlk **Web** etkinlik Azure SSIS IR başlatmak için ilk Web kancası çağırır 
-2. **Saklı yordam** etkinlik SSIS paketi çalıştırır SQL komut dosyasını çalıştırır. İkinci **Web** etkinlik Azure SSIS IR durdurur Saklı yordam etkinliği kullanarak Data Factory işlem hattı SSIS paketinden çağırma hakkında daha fazla bilgi için bkz: [SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+2. **SSIS paketi yürütme** etkinlik veya **saklı yordam** etkinlik SSIS paketi çalışır.
 3. İkinci **Web** etkinlik Azure SSIS IR durdurmak için Web kancası çağırır 
 
 Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve ardışık düzen ile ilişkilendirebilirsiniz. Zamanlama tetikleyici ardışık düzeni için bir zamanlama tanımlar. Günlük 23: 00 çalıştırmak üzere zamanlanmış bir tetikleyici oluşturmak varsayalım. Tetikleyici ardışık düzen 23: 00 her gün çalışır. Ardışık Düzen Azure SSIS IR başlatır, SSIS paketi yürütür ve ardından Azure SSIS IR durdurur 
@@ -278,69 +278,55 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
     3. İçin **gövde**, girin `{"message":"hello world"}`. 
    
         ![İlk Web etkinlik - Ayarlar sekmesi](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-5. Saklı yordam etkinliğinden sürükle ve bırak **genel** bölümünü **etkinlikleri** araç. Etkinliğin adını ayarlayın **RunSSISPackage**. 
-6. Geçiş **SQL hesabı** sekmesinde **özellikleri** penceresi. 
-7. İçin **bağlantılı hizmeti**, tıklatın **+ yeni**.
-8. İçinde **yeni bağlı hizmet** penceresinde, aşağıdaki eylemleri gerçekleştirin: 
 
-    1. Seçin **Azure SQL veritabanı** için **türü**.
-    2. Barındıran Azure SQL sunucunuzu seçin **SSISDB** veritabanı için **sunucu adı** alan. Azure SSIS IR sağlama işlemi, belirttiğiniz Azure SQL Server'da SSIS katalog (SSISDB veritabanı) oluşturur.
-    3. Seçin **SSISDB** için **veritabanı adı**.
-    4. İçin **kullanıcı adı**, veritabanına erişimi olan kullanıcı adını girin.
-    5. İçin **parola**, kullanıcı parolasını girin. 
-    6. Veritabanı bağlantısı tıklayarak test **Bağlantıyı Sına** düğmesi.
-    7. Bağlantılı hizmet tıklayarak Kaydet **kaydetmek** düğmesi.
-9. İçinde **özellikleri** penceresinde, anahtara **saklı yordam** gelen sekmesinde **SQL hesabı** sekmesini tıklatın ve aşağıdaki adımları uygulayın: 
+4. SSIS paketi yürütme etkinliği veya saklı yordam etkinliğinden sürükleyip **genel** bölümünü **etkinlikleri** araç. Etkinliğin adını ayarlayın **RunSSISPackage**. 
 
-    1. İçin **saklı yordam adı**seçin **Düzenle** seçeneği ve girin **sp_executesql**. 
-    2. Seçin **+ yeni** içinde **saklı yordam parametreleri** bölümü. 
-    3. İçin **adı** parametresinin girin **stmt**. 
-    4. İçin **türü** parametresinin girin **dize**. 
-    5. İçin **değeri** parametresi, aşağıdaki SQL sorgusunu girin:
+5. SSIS paketi yürütme etkinliği seçin,'ndaki yönergeleri izleyin. [SSIS etkinliği Azure Data Factory kullanarak bir SSIS paketi çalıştırmak](how-to-invoke-ssis-package-ssis-activity.md) etkinlik oluşturma işlemini tamamlamak için.  Yeterli sayıda başlaması 30 dakika sürer beri Azure SSIS IR kullanılabilirlik için beklenecek sık yeniden deneme belirttiğinizden emin olun. 
 
-        SQL sorgusu için doğru değerleri belirtin **klasör_adı**, **project_name**, ve **paket_adı** parametreleri. 
+    ![Yeniden deneme ayarları](media/how-to-schedule-azure-ssis-integration-runtime/retry-settings.png)
 
-        ```sql
-        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
+6. Saklı yordam etkinliği seçin,'ndaki yönergeleri izleyin. [saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md) etkinlik oluşturma işlemini tamamlamak için. Başlaması 30 dakika sürer beri Azure SSIS IR kullanılabilirlik için beklediği bir Transact-SQL betiği yerleştirdiğinizden emin olun.
+    ```sql
+    DECLARE @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-        -- Wait until Azure-SSIS IR is started
-        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
-        BEGIN
-            WAITFOR DELAY '00:00:01';
-        END
+    -- Wait until Azure-SSIS IR is started
+    WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+    BEGIN
+        WAITFOR DELAY '00:00:01';
+    END
 
-        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
-            @project_name=N'YourProject', @package_name=N'YourPackage',
-            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
-            @execution_id=@exe_id OUTPUT 
+    EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+        @project_name=N'YourProject', @package_name=N'YourPackage',
+        @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+        @execution_id=@exe_id OUTPUT 
 
-        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
 
-        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+    EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
 
-        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
-        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
-        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
-        BEGIN
-            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
-            RAISERROR(@err_msg, 15, 1)
-        END
+    -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/
+    -- failed (4)/pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+    IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+    BEGIN
+        SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+        RAISERROR(@err_msg, 15, 1)
+    END
+    ```
 
-        ```
-10. Bağlantı **Web** etkinliğe **saklı yordam** etkinlik. 
+7. Bağlantı **Web** etkinliğe **SSIS paketi yürütme** veya **saklı yordam** etkinlik. 
 
     ![Web ve saklı yordam etkinlikleri Bağlan](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
 
-11. Başka bir sürükle-bırak **Web** etkinliğinin sağındaki **saklı yordam** etkinlik. Etkinliğin adını ayarlayın **StopIR**. 
-12. Geçiş **ayarları** sekmesinde **özellikleri** penceresinde ve aşağıdaki eylemleri gerçekleştirebilirsiniz: 
+8. Sürükleme ve bırakma başka **Web** etkinliğinin sağındaki **SSIS paketi yürütme** etkinlik veya **saklı yordam** etkinlik. Etkinliğin adını ayarlayın **StopIR**. 
+9. Geçiş **ayarları** sekmesinde **özellikleri** penceresinde ve aşağıdaki eylemleri gerçekleştirebilirsiniz: 
 
     1. İçin **URL**, Azure SSIS IR durdurur Web kancası URL'sini yapıştırın 
     2. İçin **yöntemi**seçin **POST**. 
     3. İçin **gövde**, girin `{"message":"hello world"}`.  
-4. Bağlantı **saklı yordam** son etkinlik **Web** etkinlik.
+10. Bağlantı **SSIS paketi yürütme** etkinlik veya **saklı yordam** son etkinlik **Web** etkinlik.
 
     ![Tam ardışık düzen](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. Ardışık düzen ayarlarını tıklayarak doğrula **doğrulama** araç çubuğunda. Kapat **ardışık düzen doğrulama raporu** tıklayarak **>>** düğmesi. 
+11. Ardışık düzen ayarlarını tıklayarak doğrula **doğrulama** araç çubuğunda. Kapat **ardışık düzen doğrulama raporu** tıklayarak **>>** düğmesi. 
 
     ![İşlem hattını doğrulama](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

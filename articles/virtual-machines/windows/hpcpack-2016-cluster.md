@@ -1,11 +1,11 @@
 ---
-title: "Azure HPC Pack 2016 kümede | Microsoft Docs"
-description: "Azure HPC Pack 2016 kümede dağıtmayı öğrenin"
+title: Azure HPC Pack 2016 kümede | Microsoft Docs
+description: Azure HPC Pack 2016 kümede dağıtmayı öğrenin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Azure'da bir HPC Pack 2016 kümeyi dağıtma
 
@@ -56,7 +56,7 @@ Sertifika oluşturulduktan sonra geçerli kullanıcı deposunda sertifikayı öz
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Bir Azure anahtar kasası sertifikasını karşıya yükle
 
-HPC küme dağıtmadan önce için PFX sertifikasını karşıya bir [Azure anahtar kasası](../../key-vault/index.md) gizli anahtarı ve kayıt kullanmak için aşağıdaki bilgileri dağıtım sırasında olarak: **kasa adı**, **kasası kaynak grubu**, **sertifika URL'si**, ve **sertifika parmak izi**.
+HPC küme dağıtmadan önce için PFX sertifikasını karşıya bir [Azure anahtar kasası](../../key-vault/index.yml) gizli anahtarı ve kayıt kullanmak için aşağıdaki bilgileri dağıtım sırasında olarak: **kasa adı**, **kasası kaynak grubu**, **sertifika URL'si**, ve **sertifika parmak izi**.
 
 Sertifikayı karşıya yükleyin, anahtar kasası oluşturma ve gerekli bilgileri oluşturmak için bir PowerShell komut dosyası izler. Bir Azure anahtar kasası için bir sertifika karşıya yükleme hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md).
 

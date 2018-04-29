@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell Betiği örnek - bir web uygulaması için zamanlanmış bir yedekleme oluşturun. | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir web uygulaması için zamanlanmış bir yedekleme oluşturun."
+title: Azure PowerShell Betik Örneği - Bir web uygulaması için zamanlanmış yedekleme oluşturma | Microsoft Docs
+description: Azure PowerShell Betik Örneği - Bir web uygulaması için zamanlanmış yedekleme oluşturma
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.service: app-service-web
@@ -15,54 +15,48 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: cca2434a7af381eaa8ee7bc803a102a7781c7639
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4afa7c2b144fcb1d72d82f146719c26d7ceb4eb4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
-=======
-ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="create-a-scheduled-backup-for-a-web-app"></a>Bir web uygulaması için zamanlanmış yedekleme oluşturmak
+# <a name="create-a-scheduled-backup-for-a-web-app"></a>Bir web uygulaması için zamanlanmış yedekleme oluşturma
 
-Bu örnek komut dosyası ile ilgili kaynaklarını App Service'te bir web uygulaması oluşturur ve ardından bir zamanlanmış yedekleme için oluşturur. 
+Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bu web uygulaması için zamanlanmış bir yedekleme oluşturur. 
 
-Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell Kılavuzu](/powershell/azure/overview)ve ardından çalıştırın `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için. 
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın. 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-powershell[main](../../../powershell_scripts/app-service/backup-scheduled/backup-scheduled.ps1?highlight=1-4 "Create a scheduled backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu, web uygulaması ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu kullanılabilir.
+Betik örneği çalıştırıldıktan sonra, kaynak grubunu, web uygulamasını ve ilişkili tüm kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [Yeni-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Bir depolama hesabı oluşturur. |
-| [AzureStorageContainer yeni](/powershell/module/azure.storage/new-azurestoragecontainer) | Bir Azure depolama kapsayıcısını oluşturur. |
-| [AzureStorageContainerSASToken yeni](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Bir Azure depolama kapsayıcısı için bir SAS belirteci oluşturur. |
-| [AzureRmAppServicePlan yeni](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service planı oluşturur. |
-| [AzureRmWebApp yeni](/powershell/module/azurerm.websites/new-azurermwebapp) | Bir web uygulaması oluşturur. |
-| [Düzen AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Web uygulaması için yedekleme yapılandırması düzenler. |
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Bir web uygulaması için yedekleme listesini alır. |
-| [Get-AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/get-azurermwebappbackupconfiguration) | Web uygulaması için yedekleme yapılandırması alır. |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Bir Depolama hesabı oluşturur. |
+| [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Bir Azure depolama kapsayıcısı oluşturur. |
+| [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Azure depolama kapsayıcısı için bir SAS belirteci oluşturur. |
+| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service planı oluşturur. |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Bir web uygulaması oluşturur. |
+| [Edit-AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Web uygulamasının yedekleme yapılandırmasını düzenler. |
+| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Bir web uygulamasının yedekleme listesini alır. |
+| [Get-AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/get-azurermwebappbackupconfiguration) | Web uygulamasının yedekleme yapılandırmasını alır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Azure App Service Web Apps ek Azure Powershell örnekleri bulunabilir [Azure PowerShell örnekleri](../app-service-powershell-samples.md).
+Azure App Service Web Apps için ek Azure PowerShell örneklerini [Azure PowerShell örnekleri](../app-service-powershell-samples.md) bölümünde bulabilirsiniz.

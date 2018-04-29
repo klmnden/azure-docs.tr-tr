@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -87,9 +87,14 @@ Yüksek kullanılabilirlik mimarisi bölge olarak yedekli sürümü tarafından 
 ## <a name="read-scale-out"></a>Genişleme okuma
 Açıklandığı gibi Premium ve iş kritik (Önizleme) katmanları Dengeleme çekirdek-ayarlar ve AlwaysON teknoloji hem de tek bir bölge ve bölge olarak yedekli yapılandırmalarını yüksek kullanılabilirlik için hizmet. AlwasyON yararları çoğaltmaların her zaman işlemsel olarak tutarlı durumda olduğundan biridir. Çoğaltmaları birincil olarak aynı performans düzeyine sahip olduğundan, uygulama, salt okunur iş yüklerini hiçbir ek de bakım bu ek kapasite yararlanabilir maliyeti (okuma genişleme). Bu şekilde salt okunur sorguları ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Ölçeklendirme özelliği kullanılmaya okuma mantıksal olarak içeren uygulamalar için salt okunur iş yükleri çözümlemeleri gibi ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanan. 
 
-Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ AzureRmSqlDatabase yeni](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi.
+Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açıkça veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi.
 
-Bir veritabanı için okuma genişleme etkinleştirildikten sonra o veritabanına bağlanan uygulamaları okuma-yazma çoğaltmaya veya salt okunur çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın içinde yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliği, bkz: [uygulama amacı belirtme](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+Bir veritabanı için okuma genişleme etkinleştirildikten sonra o veritabanına bağlanan uygulamaları okuma-yazma çoğaltmaya veya salt okunur çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın içinde yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliği, bkz: [belirtme uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Okuma genişleme devre dışıysa veya desteklenmeyen hizmet katmanında ReadScale özelliği ayarlarsanız okuma-yazma çoğaltmaya, bağımsız olarak tüm bağlantılar yönlendirilir `ApplicationIntent` özelliği.  
+
+> [!NOTE]
+> Salt okunur yönlendirmeye oluşturmayacaktır olsa bile bir standart ya da bir genel amaçlı veritabanı üzerinde okuma ölçek genişletme etkinleştirmek mümkündür yönelik ayrı bir çoğaltma oturumu. Bu, standart/genel amacı ve Premium/iş kritik katmanlar arasında yukarı ve aşağı doğru ölçeklendirme mevcut uygulamaları desteklemek için gerçekleştirilir.  
 
 Okuma genişleme özelliği oturum düzeyinde tutarlılık destekler. Bağlantı hatası neden sonra çoğaltma kullanılabilir olmamasından salt okunur oturum bağlanırsa, farklı bir kopyasına yönlendirilebilir. Olası olsa da, eski veri kümesinin işleme'de neden olabilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen salt okunur oturumu kullanarak okur, benzer şekilde, yeni veriler hemen görünür değil mümkündür.
 

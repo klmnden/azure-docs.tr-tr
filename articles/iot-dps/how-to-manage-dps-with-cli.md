@@ -12,15 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e8bbf5808c11709a49f1cb6ebeba410837e5810
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Cihaz sağlama hizmetlerini yönetmek için Azure CLI 2.0 ve IoT uzantısını kullanma
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest), IoT Edge gibi Azure kaynaklarını yönetmeye yönelik açık kaynaklı bir platformlar arası komut satırı aracıdır. Azure CLI 2.0 Windows, Linux ve Mac OS ile kullanılabilir. Azure CLI 2.0’ı kullanarak Azure IoT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub’ları hemen yönetmeye başlayabilirsiniz.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), IoT Edge gibi Azure kaynaklarını yönetmeye yönelik açık kaynaklı bir platformlar arası komut satırı aracıdır. Azure CLI 2.0 Windows, Linux ve Mac OS ile kullanılabilir. Azure CLI 2.0’ı kullanarak Azure IoT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub’ları hemen yönetmeye başlayabilirsiniz.
 
 IoT uzantısı, Azure CLI 2.0’ı cihaz yönetimi ve tam IoT Edge kapasitesi gibi özelliklerle zenginleştirir.
 
@@ -34,7 +34,7 @@ Bu öğreticide ilk olarak Azure CLI 2.0 ve IoT uzantısını ayarlama adımlar�
 
 ### <a name="step-2---install-azure-cli-20"></a>Adım 2 - Azure CLI 2.0 yükleme
 
-[Yükleme yönergelerini](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) izleyerek Azure CLI 2.0’ı ortamınızda ayarlayın. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
+[Yükleme yönergelerini](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) izleyerek Azure CLI 2.0’ı ortamınızda ayarlayın. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
 
 ### <a name="step-3---install-iot-extension"></a>Adım 3 - IoT uzantısı yükleme
 

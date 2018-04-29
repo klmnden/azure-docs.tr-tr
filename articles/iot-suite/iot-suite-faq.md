@@ -1,12 +1,12 @@
 ---
 title: Azure IOT paketi ile ilgili SSS | Microsoft Docs
-description: "IoT Paketi için sık sorulan sorular"
+description: IoT Paketi için sık sorulan sorular
 services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 49e94e771deb4582b922400d81e8388faf164f40
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Paketi için sık sorulan sorular
 
@@ -33,6 +33,12 @@ Kaynak kodu aşağıdaki GitHub depolarının depolanır:
 * [Önceden yapılandırılmış Uzaktan izleme çözümü (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümü](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Bağlı Fabrika önceden yapılandırılmış çözümü](https://github.com/Azure/azure-iot-connected-factory)
+
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-preconfigured-solutions"></a>Aygıt istemcileri için önceden yapılandırılmış çözümleri geliştirmek için hangi SDK'ları kullanabilir miyim?
+
+Farklı dil (C, .NET, Java, Node.js, Python) IOT cihaz SDK'ları bağlantılar bulabilirsiniz içinde [Microsoft Azure IOT SDK'ları](https://github.com/Azure/azure-iot-sdks) GitHub depolarının.
+
+DevKit cihaz kullanıyorsanız, kaynakları ve örnekleri bulabilirsiniz [IOT DevKit SDK'sı](https://github.com/Microsoft/devkit-sdk) GitHub depo.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>Yeni mikro mimarisi, tüm üç önceden yapılandırılmış çözümler için kullanılabilir mi?
 

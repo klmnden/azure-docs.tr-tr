@@ -1,8 +1,8 @@
 ---
-title: "LDAP Kimlik Doğrulaması ve Azure MFA Sunucusu | Microsoft Belgeleri"
-description: "Bu, LDAP Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
+title: LDAP Kimlik Doğrulaması ve Azure MFA Sunucusu | Microsoft Belgeleri
+description: Bu, LDAP Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.openlocfilehash: 37f96afab67680b3140a6f4da6bff0c23a1f328f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu
 Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi farklı LDAP dizinlerini bağlamak için yapılandırılabilir. LDAP aracılığıyla bir dizine bağlandığında, Azure multi-Factor Authentication sunucusu kimlik doğrulaması gerçekleştirmek için bir LDAP proxy davranamaz. Ayrıca, IIS Kimlik Doğrulaması ile ön kimlik doğrulaması için ya da Azure MFA kullanıcı portalında birincil kimlik doğrulaması için LDAP bağlamanın RADIUS hedefi olarak kullanılmasına izin verir.

@@ -4,13 +4,13 @@
 1. Seçin **tanılama ayarlarını**.
 1. Seçin **tanılamayı açın**.
 
-   ![Tanılamayı açın][1]
+   ![Tanılamayı açma][1]
 
 1. Tanılama ayarları bir ad verin.
 1. Seçmek istediğiniz günlükleri göndermek. Üç seçenekten herhangi bir birleşimini seçebilirsiniz:
    * Bir depolama hesabına arşivle
-   * Bir olay hub'ına akış
-   * Günlük analizi için Gönder
+   * Bir olay hub'ına akış yap
+   * Log Analytics’e gönderme
 1. İzlemek istediğiniz işlemleri seçin ve bu işlemler için günlüklerini etkinleştirin. Tanılama ayarları hakkında rapor işlemleri şunlardır:
    * Bağlantılar
    * Cihaz telemetrisi
@@ -28,7 +28,7 @@
 Tanılama ayarları PowerShell ile etkinleştirmek istiyorsanız, aşağıdaki kodu kullanın:
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

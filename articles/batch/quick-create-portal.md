@@ -1,6 +1,6 @@
 ---
-title: "Azure Hızlı Başlangıç - Batch işi çalıştırma - Portal"
-description: "Azure portalı ile bir Batch işi çalıştırmayı hızlı bir şekilde öğrenin."
+title: Azure Hızlı Başlangıç - Batch işi çalıştırma - Portal
+description: Azure portalı ile bir Batch işi çalıştırmayı hızlı bir şekilde öğrenin.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında ilk Batch işinizi çalıştırma
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, Azure portalını kullanarak bir Batch hesabı, bir i
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-https://portal.azure.com adresindeki Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-batch-account"></a>Batch hesabı oluşturma
 
@@ -37,7 +37,7 @@ Test amacıyla örnek bir Batch hesabı oluşturmak için bu adımları izleyin.
 
 2. **Hesap adı** ve **Kaynak grubu** değerlerini girin. Hesap adı, seçili Azure **Konumu** içinde benzersiz olmalı, yalnızca küçük harf veya rakam içermeli ve 3-24 karakterden oluşmalıdır. 
 
-3. **Depolama hesabı** içinde, var olan bir genel amaçlı depolama hesabını seçin veya yeni bir depolama hesabı oluşturun.
+3. **Depolama hesabında**, mevcut bir depolama hesabını seçin veya yeni bir depolama hesabı oluşturun.
 
 4. Diğer ayarlar için varsayılan ayarları tutun ve **Oluştur**’a tıklayarak hesabı oluşturun.
 

@@ -1,25 +1,25 @@
 ---
-title: "Azure yığın planı, teklif, kota ve abonelik genel bakış | Microsoft Docs"
-description: "Bulut operatörü Azure yığın planları, tekliflerini, kotalarını ve abonelikleri anlamak istiyorum."
+title: Azure yığın planı, teklif, kota ve abonelik genel bakış | Microsoft Docs
+description: Bulut operatörü Azure yığın planları, tekliflerini, kotalarını ve abonelikleri anlamak istiyorum.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plan, teklif, kota ve aboneliğe genel bakış
 
@@ -32,7 +32,7 @@ Bir veya daha fazla plan teklifleri içerir ve bir veya daha fazla hizmet her pl
 - Kullanıcıların tüketebileceği kaynaklarla miktarı
 - hangi bölgeleri kaynaklara erişimi
 
-Bir hizmet sunmak, üst düzey adımları izleyeceksiniz:
+Bir hizmet sunmak, üst düzey adımları izleyin:
 
 1. Kullanıcılarınız için teslim etmek istediğiniz bir hizmet ekleyin.
 2. Bir veya daha fazla hizmet içeriyor bir plan oluşturun. Bir plan oluştururken seçin veya planda her hizmetin kaynak sınırlarını tanımlamak kotaları oluşturun.
@@ -52,13 +52,15 @@ Bulut kapasitesi yönetmenize yardımcı olmak üzere seçin veya bir plandaki h
 
 Kotalar bölgeye göre yapılandırılabilir. Örneğin, A bölgesinden işlem hizmetleri içeren bir planı iki sanal makine, 4 GB RAM ve 10 CPU çekirdek kotası olabilir. Azure yığın Geliştirme Seti, yalnızca tek bir bölge içinde (adlı *yerel*) kullanılabilir.
 
+Daha fazla bilgi edinmek [kota türleri Azure yığınında](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Temel plan
 
 Hizmet Yöneticisi, bir teklifi oluştururken, temel plan dahil edebilirsiniz. Bu teklif için bir kullanıcı abone olduğunda bu temel planları varsayılan olarak dahil edilir. Bir kullanıcı abone olduğunda, bu temel planlarıyla (karşılık gelen kotaları) içinde belirtilen tüm kaynak sağlayıcıları erişimi.
 
 ### <a name="add-on-plans"></a>Eklenti planları
 
-Ayrıca, isteğe bağlı eklenti planları bir teklif içerebilir. Eklenti planları Abonelikteki varsayılan olarak dahil edilmez. Eklenti, ek planlarıyla (kotaları) abone, abonelik ekleyebileceğiniz teklif bulunan planlarının. Örneğin, hizmet benimsemeye karar müşteriler için bir deneme sürümü için sınırlı kaynaklarla temel plan ve daha önemli kaynağı olan bir eklenti plana sunabilir.
+Eklenti planları için bir teklif eklemek isteğe bağlı planlarının. Eklenti planları Abonelikteki varsayılan olarak dahil edilmez. Eklenti, ek planlarıyla (kotaları) abone, abonelik ekleyebileceğiniz teklif bulunan planlarının. Örneğin, hizmet benimsemeye karar müşteriler için bir deneme sürümü için sınırlı kaynaklarla temel plan ve daha önemli kaynağı olan bir eklenti plana sunabilir.
 
 ## <a name="offers"></a>Teklifler
 

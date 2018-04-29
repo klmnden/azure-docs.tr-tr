@@ -1,29 +1,26 @@
 ---
-title: SQL veri ambarı Transact-SQL dil öğeleri | Microsoft Docs
-description: İçin referans içerik bağlantıları için SQL Data Warehouse için kullanılan Transact-SQL dil öğeleri listesi.
+title: T-SQL dil öğeleri - Azure SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlantılar.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: dd9dc070c817a7276369a9be7126b0d48dc9e4eb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="language-elements"></a>Dil öğeleri
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri
+Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağlantılar.
+
 ## <a name="core-elements"></a>Temel öğeler
-* [sözdizimi kuralları](https://msdn.microsoft.com/library/ms177563.aspx)
+* [sözdizimi kuralları](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [nesne adlandırma kuralları](https://msdn.microsoft.com/library/ms175874.aspx)
 * [ayrılmış anahtar sözcükler](https://msdn.microsoft.com/library/ms189822.aspx)
 * [harmanlamalar](https://msdn.microsoft.com/library/ff848763.aspx)
@@ -41,7 +38,7 @@ ms.lasthandoff: 03/28/2018
 * [BEGIN... BİTİŞ](https://msdn.microsoft.com/library/ms190487.aspx)
 * [SONU](https://msdn.microsoft.com/library/ms181271.aspx)
 * [BİLDİRME @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
-* [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
+* [IF... ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 * [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
@@ -49,7 +46,7 @@ ms.lasthandoff: 03/28/2018
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>İşleçler
-* [+ (Add)](https://msdn.microsoft.com/library/ms178565.aspx)
+* [+ (Ekle)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Dize birleştirme)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [-(Negatif)](https://msdn.microsoft.com/library/ms189480.aspx)
 * [-(Çıkart)](https://msdn.microsoft.com/library/ms189518.aspx)
@@ -72,7 +69,7 @@ ms.lasthandoff: 03/28/2018
 * [NULL OLMAYAN]](https://msdn.microsoft.com/library/ms188795.aspx)
 * [GİBİ](https://msdn.microsoft.com/library/ms179859.aspx)
 * [DEĞİL](https://msdn.microsoft.com/library/ms189455.aspx)
-* [OR](https://msdn.microsoft.com/library/ms188361.aspx)
+* [VEYA](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Bit düzeyinde işleçler
 * [& (Bit düzeyinde AND)](https://msdn.microsoft.com/library/ms174965.aspx)
@@ -103,7 +100,7 @@ ms.lasthandoff: 03/28/2018
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
 * [SAĞLAMA TOPLAMI](https://msdn.microsoft.com/library/ms189788.aspx)
-* [COALESCE](https://msdn.microsoft.com/library/ms190349.aspx)
+* [BİRLEŞİM](https://msdn.microsoft.com/library/ms190349.aspx)
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
@@ -122,7 +119,7 @@ ms.lasthandoff: 03/28/2018
 * [DATENAME](https://msdn.microsoft.com/library/ms174395.aspx)
 * [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx)
 * [DATETIME2FROMPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
-* [DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
+* [BULUNAN DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
 * [DATETIMEOFFSETFROMPARTS](https://msdn.microsoft.com/library/hh231077.aspx)
 * [GÜNÜ](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
@@ -147,16 +144,16 @@ ms.lasthandoff: 03/28/2018
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
 * [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERİC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
+* [GECİKME](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
-* [LEAD](https://msdn.microsoft.com/library/hh213125.aspx)
-* [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
+* [SAĞLAMA](https://msdn.microsoft.com/library/hh213125.aspx)
+* [SOL](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
+* [GÜNLÜK](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
 * [DAHA DÜŞÜK](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
+* [EN BÜYÜK](https://msdn.microsoft.com/library/ms187751.aspx)
 * [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
 * [AY](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
@@ -174,23 +171,23 @@ ms.lasthandoff: 03/28/2018
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
-* [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
+* [GÜÇ](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
-* [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
+* [RADYAN CİNSİNDEN](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
 * [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 * [DEĞİŞTİR](https://msdn.microsoft.com/library/ms186862.aspx)
 * [ÇOĞALTILAN](https://msdn.microsoft.com/library/ms174383.aspx)
 * [TERS ÇEVİR](https://msdn.microsoft.com/library/ms180040.aspx)
-* [RIGHT](https://msdn.microsoft.com/library/ms177532.aspx)
+* [SAĞ](https://msdn.microsoft.com/library/ms177532.aspx)
 * [YUVARLAK](https://msdn.microsoft.com/library/ms175003.aspx)
-* [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
+* [SATIR_NUM](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
 * [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-* [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
-* [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
+* [SESSION_USER'I](https://msdn.microsoft.com/library/ms177587.aspx)
+* [OTURUM](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
@@ -204,7 +201,7 @@ ms.lasthandoff: 03/28/2018
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
 * [HİZMETLER](https://msdn.microsoft.com/library/ms188043.aspx)
 * [SUBSTRING](https://msdn.microsoft.com/library/ms187748.aspx)
-* [SUM](https://msdn.microsoft.com/library/ms187810.aspx)
+* [TOPLA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
 * [SWITCHOFFSET](https://msdn.microsoft.com/library/bb677244.aspx)
 * [SYSDATETIME](https://msdn.microsoft.com/library/bb630353.aspx)
@@ -228,7 +225,7 @@ ms.lasthandoff: 03/28/2018
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>İşlemler
-* [transactions](https://msdn.microsoft.com/library/mt204031.aspx)
+* [İşlemler](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Tanılama oturumları
 * [TANILAMA OTURUMU OLUŞTUR](https://msdn.microsoft.com/library/mt204029.aspx)
@@ -249,7 +246,7 @@ ms.lasthandoff: 03/28/2018
 * [sp_pdw_remove_network_credentials](https://msdn.microsoft.com/library/mt204038.aspx)
 * [sp_pkeys](https://msdn.microsoft.com/library/ms189813.aspx)
 * [sp_prepare](https://msdn.microsoft.com/library/ff848808.aspx)
-* [sp_spaceused](https://msdn.microsoft.com/library/ms188776.aspx)
+* [bilgilerini sp_spaceused](https://msdn.microsoft.com/library/ms188776.aspx)
 * [sp_special_columns_100](https://msdn.microsoft.com/library/mt204025.aspx)
 * [sp_sproc_columns](https://msdn.microsoft.com/library/ms182705.aspx)
 * [sp_statistics](https://msdn.microsoft.com/library/ms173842.aspx)
@@ -279,5 +276,5 @@ ms.lasthandoff: 03/28/2018
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla TSQL başvuru için bkz: [SQL veri ambarı T-SQL deyimlerini](sql-data-warehouse-reference-tsql-statements.md).
+Daha fazla başvuru bilgileri için bkz: [Azure SQL Data Warehouse T-SQL deyimlerinde](sql-data-warehouse-reference-tsql-statements.md), ve [Azure SQL veri ambarı sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md).
 

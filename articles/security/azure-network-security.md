@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -124,7 +124,7 @@ Azure VM'ler için dahili ad çözümlemesi sağlar ve [bulut Hizmetleri](https:
 
 Her Azure içinde birden çok sanal ağlar uygulayabilirsiniz [abonelik](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) ve Azure [bölge](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json). Her sanal ağ, diğer sanal ağlardan yalıtılır. Her sanal ağ için şunları yapabilirsiniz:
 
--   Ortak ve özel (RFC 1918) adreslerini kullanarak özel bir özel IP adres alanını belirtin. Azure atar kaynakları Vnet'e özel bir IP adresi adres alanından bağlı, atadığınız.
+-   Genel ve özel (RFC 1918) adresleri kullanarak özel bir gizli IP adresi alanı belirtin. Azure atar kaynakları Vnet'e özel bir IP adresi adres alanından bağlı, atadığınız.
 
 -   Sanal ağ bir veya daha fazla alt ağlara ayırabilir ve her alt ağ için sanal ağ adres alanının bir bölümü ayırın.
 
@@ -160,17 +160,17 @@ Sanal ağlara bağlanabilir [şirket içi](https://docs.microsoft.com/azure/virt
 
 Şirket içi ağınıza aşağıdaki seçeneklerden herhangi bir bileşimini kullanarak bir sanal ağa bağlanabilir:
 
-- **Noktadan siteye sanal özel ağ (VPN):** , ağ ve sanal ağ için bağlı tek bir bilgisayar arasında kurulan. Varolan ağınız çok az kayıpla veya hiç değişiklik gerektirmediği Bu bağlantı türü, yalnızca Azure ile ya da geliştiricileri için başlıyorsanız mükemmeldir. Bağlantı, PC ve sanal ağ arasında Internet üzerinden şifreli iletişim sağlamak için SSTP protokolünü kullanır. Bir noktadan siteye VPN için gecikme süresini tahmin edilemez olduğu Internet trafiği erişir.
+- **Noktadan siteye sanal özel ağ (VPN):** , ağ ve sanal ağ için bağlı tek bir bilgisayar arasında kurulan. Azure’ı kullanmaya yeni başladıysanız bu bağlantı türü mükemmeldir. Mevcut ağınız üzerinde çok az bir değişiklik gerektirdiğinden veya hiç değişiklik gerektirmediğinden geliştiriciler için de mükemmeldir. Bağlantı, PC ve sanal ağ arasında Internet üzerinden şifreli iletişim sağlamak için SSTP protokolünü kullanır. Bir noktadan siteye VPN için gecikme süresini tahmin edilemez olduğu Internet trafiği erişir.
 
 - **Siteden siteye VPN:** VPN cihazınız arasındaki bir Azure VPN ağ geçidi kuruldu. Bu bağlantı türü bir VNet erişmek üzere yetkilendirmek herhangi bir şirket içi kaynak sağlar. Şirket içi Cihazınızı ve Azure VPN ağ geçidi arasında Internet üzerinden şifrelenmiş iletişimi sağlayan bir IPSec/IKE VPN bağlantısıdır. Siteden siteye bağlantı için gecikme süresini tahmin edilemez olduğu Internet trafiği erişir.
 
-- **Azure ExpressRoute:** ağınız ve Azure arasında bir expressroute bağlantı ortağı ile oluşturulmuş. Bu bağlantı özeldir. Trafik Internet'e erişmez. ExpressRoute bağlantısı için gecikme süresini tahmin edilebilir olduğu trafik Internet'e çapraz geçiş değil. Önceki tüm bağlantı seçenekleri hakkında daha fazla bilgi için okuma [bağlantı topoloji diyagramları](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Bir ExpressRoute iş ortağı aracılığıyla ağınız ile Azure arasında oluşur. Bu bağlantı özeldir. Trafik Internet'e erişmez. ExpressRoute bağlantısı için gecikme süresini tahmin edilebilir olduğu trafik Internet'e çapraz geçiş değil. Önceki tüm bağlantı seçenekleri hakkında daha fazla bilgi için okuma [bağlantı topoloji diyagramları](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Trafik filtreleme**
 
 VM ve bulut Hizmetleri rol örnekleri [ağ trafiğini](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) gelen ve giden kaynak IP adresi ve bağlantı noktası, hedef IP adresi ve bağlantı noktası ve protokol göre filtrelenebilir.
 
-Veya aşağıdaki seçeneklerden birini ikisini birden kullanarak alt ağlar arasında ağ trafiğinin filtreleyebilirsiniz:
+Aşağıdaki seçeneklerden birini veya her ikisini de kullanarak alt ağlar arasındaki ağ trafiğini filtreleyebilirsiniz:
 
 - **Ağ güvenlik grubu (NSG):** her NSG trafiğine kaynak ve hedef IP adresi, bağlantı noktası ve protokol göre filtre uygulamak için etkinleştirmeniz birden fazla gelen ve giden güvenlik kuralları içerebilir. Her NIC'nin bir VM için bir NSG uygulayabilirsiniz. Bir NSG'yi bir NIC alt ağına uygulayabilirsiniz veya diğer Azure kaynak bağlı. Nsg'ler hakkında daha fazla bilgi için okuma [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
@@ -180,7 +180,7 @@ Veya aşağıdaki seçeneklerden birini ikisini birden kullanarak alt ağlar ara
 
 İsteğe bağlı olarak, kendi yolları yapılandırmak veya bir ağ geçidi üzerinden BGP yollarını kullanarak yönlendirme Azure'un varsayılan ayarlarını geçersiz kılabilir.
 
-Azure varsayılan olarak birbirleri ile iletişim kurmak için herhangi bir VNet içindeki herhangi bir alt ağa bağlı kaynaklar etkinleştirmek yönlendirme tabloları oluşturur. Ya da Azure oluşturduğu varsayılan yolların geçersiz kılmak için aşağıdaki seçenekleri uygulayabilirsiniz:
+Azure varsayılan olarak birbirleri ile iletişim kurmak için herhangi bir VNet içindeki herhangi bir alt ağa bağlı kaynaklar etkinleştirmek yönlendirme tabloları oluşturur. Azure’ın oluşturduğu varsayılan rotaları geçersiz kılmak için aşağıdaki seçeneklerden birini veya her ikisini uygulayabilirsiniz:
 
 - **Kullanıcı tanımlı yollar:** özel yol tablolarını burada trafik yönlendirilir için her alt ağ için bu denetim yollar oluşturabilirsiniz. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için okuma [kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
@@ -347,7 +347,7 @@ VNet güvenlik ve ağ işlevlerini Azure ağ güvenliği uygulamaları geliştir
 
 -   Yetkisiz erişim önleme
 
--   Intrusion detection
+-   Yetkisiz erişim algılama
 
 -   Web uygulaması Güvenlik Duvarı (WAFs)
 
@@ -437,7 +437,7 @@ Buluttaki tüm kaynaklara Internet'ten erişilebilir olması için bir ortak IP 
 
  Uygulama ağ geçidi (OSI Ağ başvurusu yığınında katman 7) uygulama katmanında çalışır. İstemci bağlantısını sonlandıran ve istekleri arka uç noktalarına ileten ters proxy hizmeti olarak çalışır.
 
- **Traffic manager**
+ **Trafik Yöneticisi**
 
 Microsoft Azure trafik Yöneticisi, farklı veri merkezlerinde bulunan hizmet uç noktaları için kullanıcı trafiğinin dağıtımını denetlemenize olanak sağlar. Trafik Yöneticisi tarafından desteklenen hizmet uç noktaları ve bulut hizmetlerini Azure VM'ler, Web uygulamaları içerir. Traffic Manager’ı harici, Azure dışı uç noktalar için de kullanabilirsiniz.
 
@@ -648,7 +648,7 @@ Günlükleri için desteklenen [ağ güvenlik grubu](https://docs.microsoft.com/
 
 - **NetworkSecurityGroupEvent:** hangi NSG kuralları Vm'lere uygulanan ve örnek MAC adresine dayalı rolleri girişleri içerir. Bu kurallar durumunun her 60 saniyede toplanır.
 
-- **NetworkSecurityGroupRuleCounter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
+- **NetworkSecurityGroupRuleCounter:** kaç kez her NSG için içerir girişleri kural reddetmek veya trafiğine izin vermek üzere uygulanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenlik hakkında daha fazla bizim kapsamlı güvenlik konuların bazıları okuyarak bulun:

@@ -1,11 +1,11 @@
 ---
-title: "Karma kimlik tasarımı - çok faktörlü kimlik doğrulama gereksinimlerini Azure | Microsoft Docs"
-description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni."
-documentationcenter: 
+title: Karma kimlik tasarımı - çok faktörlü kimlik doğrulama gereksinimlerini Azure | Microsoft Docs
+description: Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.
+documentationcenter: ''
 services: active-directory
 author: femila
 manager: billmath
-editor: 
+editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü çok faktörlü kimlik doğrulama gereksinimlerini belirleme
 Veri ve uygulamaları bulutta ve herhangi bir CİHAZDAN erişen kullanıcılar ile yeteneği bu dünyasında bu bilgileri güvenlik altına almanın en önemli haline gelmiştir.  Her gün yeni bir başlık güvenlik ihlali hakkında yoktur.  Olmasına karşın, bu tür ihlallerine karşı garanti, çok faktörlü kimlik doğrulaması, ek bir bu ihlallerini önlemeye yardımcı olmak için güvenlik katmanı sağlar.
 Çok faktörlü kimlik doğrulaması kuruluşların gereksinimleri değerlendirilirken tarafından başlatın. Diğer bir deyişle, ne güvenli hale getirmek kuruluş çalışıyor.  Bu değerlendirme ayarlama ve kuruluşların kullanıcıları çok faktörlü kimlik doğrulaması için etkinleştirme teknik gereksinimlerini tanımlamak önemlidir.
 
 > [!NOTE]
-> MFA ile ne yaptığını bilmiyorsanız, makaleyi okuyun önerilir [Azure multi-Factor Authentication nedir?](../multi-factor-authentication/multi-factor-authentication.md) bu bölümü okumadan devam etmek için önceki.
+> MFA ile ne yaptığını bilmiyorsanız, makaleyi okuyun önerilir [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md) bu bölümü okumadan devam etmek için önceki.
 > 
 > 
 

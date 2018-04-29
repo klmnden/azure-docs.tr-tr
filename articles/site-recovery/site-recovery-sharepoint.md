@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site RECOVERY'yi kullanarak olağanüstü durum kurtarma için çok katmanlı bir SharePoint uygulama Çoğalt
 
@@ -53,7 +53,7 @@ Başlamadan önce aşağıdakileri bildiğinizden emin olun:
 
 ## <a name="sharepoint-architecture"></a>SharePoint mimarisi
 
-SharePoint sunucularında, bir veya daha çok katmanlı topoloji ve sunucu rollerini belirli hedefler ve hedefleri karşılayan grubu tasarımını uygulamak için kullanılarak dağıtılabilir. Çok sayıda eşzamanlı kullanıcı ve çok sayıda içerik öğelerini destekleyen bir tipik büyük, yüksek isteğe SharePoint sunucu grubu hizmeti gruplandırma kendi ölçeklenebilirlik stratejisinin bir parçası kullanın. Bu yaklaşım, bu hizmetleri birlikte gruplandırma ve ardından sunucuları dışında bir grup olarak ölçekleme adanmış sunuculara Hizmetleri çalıştırılmasını içerir. Aşağıdaki topoloji hizmeti ve üç katmanı bir SharePoint sunucu grubu gruplandırma server gösterir. SharePoint belgeleri ve ürün satır mimari farklı SharePoint topolojileri hakkında ayrıntılı yönergeler için lütfen bakın. SharePoint 2013 dağıtımı hakkında daha fazla ayrıntı bulabilirsiniz [bu belgeyi](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+SharePoint sunucularında, bir veya daha çok katmanlı topoloji ve sunucu rollerini belirli hedefler ve hedefleri karşılayan grubu tasarımını uygulamak için kullanılarak dağıtılabilir. Çok sayıda eşzamanlı kullanıcı ve çok sayıda içerik öğelerini destekleyen bir tipik büyük, yüksek isteğe SharePoint sunucu grubu hizmeti gruplandırma kendi ölçeklenebilirlik stratejisinin bir parçası kullanın. Bu yaklaşım, bu hizmetleri birlikte gruplandırma ve ardından sunucuları dışında bir grup olarak ölçekleme adanmış sunuculara Hizmetleri çalıştırılmasını içerir. Aşağıdaki topoloji hizmeti ve üç katmanı bir SharePoint sunucu grubu gruplandırma server gösterir. SharePoint belgeleri ve ürün satır mimari farklı SharePoint topolojileri hakkında ayrıntılı yönergeler için lütfen bakın. SharePoint 2013 dağıtımı hakkında daha fazla ayrıntı bulabilirsiniz [bu belgeyi](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 

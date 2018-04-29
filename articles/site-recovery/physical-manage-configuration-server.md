@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 84969ff04684003a04f99b4fbf7f03be4140a277
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -266,7 +266,7 @@ Sunucu gibi yükseltin:
 1. [Yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell Modülü
 2. İçine komutunu kullanarak Azure hesabınızda oturum açın
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Kasanın var olduğu altında aboneliği seçin
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

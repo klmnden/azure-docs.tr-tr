@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services sunucu Yönetici rolü için bir hizmet ilkesi ekleme | Microsoft Docs
-description: Sunucu Yönetici rolü için bir Otomasyon hizmeti ilkesine eklemeyi öğrenin
+title: Azure Analysis Services sunucu Yönetici rolü için bir hizmet sorumlusu ekleme | Microsoft Docs
+description: Sunucu Yönetici rolü için bir Otomasyon hizmet sorumlusu eklemeyi öğrenin
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="add-a-service-principle-to-the-server-administrator-role"></a>Sunucu Yöneticisi rolünün bir hizmet İlkesi Ekle 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Sunucu Yöneticisi rolünün bir hizmet sorumlusu ekleme 
 
- Katılımsız PowerShell görevleri otomatikleştirmek için bir hizmet ilkesi olmalıdır **Sunucu Yöneticisi** yönetilen Analysis Services sunucu üzerinde ayrıcalıkları. Bu makalede, bir Azure AS sunucusunda sunucu yöneticileri rolüne hizmet ilkesi eklemeyi açıklar.
+ Katılımsız PowerShell görevleri otomatikleştirmek için bir hizmet sorumlusu olmalıdır **Sunucu Yöneticisi** yönetilen Analysis Services sunucu üzerinde ayrıcalıkları. Bu makalede, bir Azure AS sunucusunda sunucu yöneticileri rolüne bir hizmet sorumlusu eklemeyi açıklar.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu görevi tamamlamadan önce Azure Active Directory'de kayıtlı bir hizmet ilkesi olması gerekir.
+Bu görevi tamamlamadan önce Azure Active Directory'de kayıtlı bir hizmet sorumlusu olması gerekir.
 
-[Hizmet İlkesi - Azure portal oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Hizmet ilkesi oluşturma - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Hizmet sorumlusu - Azure portal oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
+[Hizmet sorumlusu - PowerShell oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="required-permissions"></a>Gerekli izinler
 Bu görevi tamamlamak için ihtiyacınız [Sunucu Yöneticisi](analysis-services-server-admins.md) Azure AS sunucu üzerindeki izinleri. 
 
-## <a name="add-service-principle-to-server-administrators-role"></a>Sunucu yöneticileri rolüne hizmet İlkesi Ekle
+## <a name="add-service-principal-to-server-administrators-role"></a>Sunucu yöneticileri rolüne hizmet sorumlusu ekler
 
 1. SSMS, Azure AS server'ınıza bağlanın.
 2. İçinde **sunucu özellikleri** > **güvenlik**, tıklatın **Ekle**.
 3. İçinde **bir kullanıcı veya Grup Seç**, kayıtlı uygulamanızın adıyla seçin ve ardından arama **Ekle**.
 
-    ![Hizmet İlkesi hesabını arayın](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
+    ![Hizmet sorumlusu hesabı arayın](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Hizmet İlkesi hesap Kimliğini doğrulayın ve ardından **Tamam**.
+4. Hizmet sorumlusu hesabı Kimliğini doğrulayın ve ardından **Tamam**.
     
-    ![Hizmet İlkesi hesabını arayın](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Hizmet sorumlusu hesabı arayın](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 
 > [!NOTE]
-> AzureRm cmdlet'lerini kullanarak sunucu işlemleri için Zamanlayıcı'yı çalıştıran hizmet ilkesi de ait olmalı **sahibi** kaynak için rol [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md). 
+> AzureRm cmdlet'lerini kullanarak sunucu işlemleri için hizmet asıl çalışan Zamanlayıcısı ayrıca ait olmalı **sahibi** kaynak için rol [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>İlgili bilgiler
 

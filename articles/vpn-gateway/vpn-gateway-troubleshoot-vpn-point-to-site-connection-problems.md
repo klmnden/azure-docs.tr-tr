@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 503dcd87bf87ffb204b03780fc11f30825ac35ef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Giderme: Azure noktadan siteye bağlantı sorunlarını
 
@@ -47,8 +47,8 @@ Bu sorunu çözmek için şu adımları izleyin:
     | Sertifika | Konum |
     | ------------- | ------------- |
     | AzureClient.pfx  | Geçerli User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Geçerli User\Trusted kök sertifika yetkilileri|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Yerel bilgisayar/güvenilen kök sertifika yetkilileri|
+    | Azuregateway -*GUID*. cloudapp.net  | Geçerli User\Trusted kök sertifika yetkilileri|
+    | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Yerel bilgisayar/güvenilen kök sertifika yetkilileri|
 
 3. Kullanıcıların gidin\<kullanıcı adı > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, el ile kullanıcı ve bilgisayarın deposu (*.cer dosyası) sertifika yükleyin.
 
@@ -95,8 +95,8 @@ VPN istemcisi kullanarak bir Azure sanal ağa bağlanmaya çalıştığında aş
     | Sertifika | Konum |
     | ------------- | ------------- |
     | AzureClient.pfx  | Geçerli User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Geçerli User\Trusted kök sertifika yetkilileri|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Yerel bilgisayar/güvenilen kök sertifika yetkilileri|
+    | Azuregateway -*GUID*. cloudapp.net  | Geçerli User\Trusted kök sertifika yetkilileri|
+    | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Yerel bilgisayar/güvenilen kök sertifika yetkilileri|
 
 2. Sertifikaları konumu zaten varsa, sertifikaları silin ve yeniden deneyin. **Azuregateway -*GUID*. cloudapp.net** Azure portalından indirdiğiniz VPN istemcisi yapılandırma paketini sertifika konusu. Dosya archivers paketinden dosyaları ayıklayın için kullanabilirsiniz.
 
@@ -142,7 +142,7 @@ Ek bir sertifika, VPN ağ geçidi sanal ağınız için güvenmesi için gerekli
 
 VPN istemcisi yapılandırma paketini ayıklamak ve .cer dosyasını bulun. Sertifikayı yüklemek için aşağıdaki adımları izleyin:
 
-1. Open mmc.exe.
+1. MMC.exe açın.
 2. Ekleme **sertifikaları** ek bileşenini.
 3. Seçin **bilgisayar** yerel bilgisayar hesabı.
 4. Sağ **güvenilen kök sertifika yetkilileri** düğümü. Tıklatın **tüm görev** > **alma**ve VPN istemci yapılandırma paketi ayıkladığınız .cer dosyasının konumuna göz atın.
@@ -318,7 +318,7 @@ Azure ağ geçidi RADIUS sunucusuna erişemiyor veya ayarları yanlış VPN iste
 
 ### <a name="solution"></a>Çözüm
 
-RADIUS sunucusu doğru şekilde yapılandırıldığından emin olun. Daha fazla bilgi için bkz: [Azure multi-Factor Authentication sunucusu ile tümleştirmek RADIUS kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+RADIUS sunucusu doğru şekilde yapılandırıldığından emin olun. Daha fazla bilgi için bkz: [Azure multi-Factor Authentication sunucusu ile tümleştirmek RADIUS kimlik doğrulaması](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Hatası 405" ne zaman karşıdan kök sertifikası VPN ağ geçidi'nden
 

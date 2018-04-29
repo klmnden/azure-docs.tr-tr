@@ -1,24 +1,24 @@
 ---
-title: "Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarları kaydediliyor | Microsoft Docs"
-description: "Güvenli bir şekilde Azure kimlik bilgileri veya üçüncü taraf API gibi gizli uygulama ayarlarını kaydetmek için ASP.NET kullanmayı anahtarları anahtar kasası sağlayıcısı, kullanıcı gizli ya da .NET 4.7.1 çekirdek nasıl yapılandırma oluşturucular"
+title: Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarları kaydediliyor | Microsoft Docs
+description: Güvenli bir şekilde Azure kimlik bilgileri veya üçüncü taraf API gibi gizli uygulama ayarlarını kaydetmek için ASP.NET kullanmayı anahtarları anahtar kasası sağlayıcısı, kullanıcı gizli ya da .NET 4.7.1 çekirdek nasıl yapılandırma oluşturucular
 services: visualstudio
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
-ms.service: 
+editor: ''
+ms.assetid: ''
+ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eee882dc52ffc37067916dac29324efe0bc95b03
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -145,7 +145,7 @@ Projeniz için bir anahtar kasası yapılandırmak için ASP.NET core bölümün
 
 1. Aşağıdaki NuGet paketini projenize yükleyin
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 ```
 
 2. Anahtar kasası yapılandırma Oluşturucu Web.config dosyasında tanımlayın. Önce bu bölümdeki put *appSettings* bölümü. Değiştir *vaultName* anahtar kasanızı ortak Azure veya tam URI ise Sovereign bulut kullanıyorsanız, anahtar kasası adı olmalıdır.

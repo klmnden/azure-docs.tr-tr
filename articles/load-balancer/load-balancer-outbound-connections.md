@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantılar
 
@@ -151,7 +151,7 @@ Aşağıdaki tabloda SNAT bağlantı noktası preallocations arka uç havuzu boy
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 801-1,000 | 32 |
+| 801 1.000 | 32 |
 
 >[!NOTE]
 > Standart yük dengeleyici ile kullanırken [birden çok ön uçlar](load-balancer-multivip-overview.md), [her ön uç IP adresi kullanılabilir SNAT bağlantı noktalarının sayısını çarpar](#multivipsnat) önceki tabloda. Örneğin, 50 VM'in 2 Yük Dengeleme kuralları, her bir ayrı ön uç IP adreslerine sahip olan bir arka uç havuzu IP yapılandırması başına 2048 (2 x 1024) SNAT bağlantı noktalarını kullanır. Ayrıntılar için bkz: [birden çok ön uçlar](#multife).
@@ -243,10 +243,11 @@ Bir NSG'yi sistem durumu araştırma AZURE_LOADBALANCER varsayılan etiket istek
 
 ## <a name="limitations"></a>Sınırlamalar
 - Bir Yük Dengeleme kuralı portalında yapılandırırken DisableOutboundSnat bir seçenek olarak kullanılabilir değil.  REST, şablonu veya istemci araçlarını kullanın.
+- Yalnızca bir iç standart yük dengeleyici nasıl gelen bir yan etkisi nedeniyle kullanıldığında, Web çalışanı rolleri bir sanal ağ dışında erişilebilir olabilir öncesi VNet Hizmetleri işlevi. Hayır bu ilgili hizmet olarak kendisine veya arka plandaki dayanması gerekir platform bildirilmeksizin değişebilir. Her zaman bir iç standart yük dengeleyici yalnızca kullanırken isterseniz giden bağlantı açıkça oluşturmanıza gerek varsayalım gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md).
-- Daha fazla bilgi edinmek [standart yük dengeleyici](load-balancer-standard-overview.md).
+- [Standart Yük Dengeleyici](load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin.
 - Daha fazla bilgi edinmek [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md).
 - Başka bir anahtar bazıları hakkında bilgi edinin [ağı yetenekleri](../networking/networking-overview.md) azure'da.

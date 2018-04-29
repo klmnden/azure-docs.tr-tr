@@ -1,11 +1,11 @@
 ---
-title: "VS Team Services Azure kaynak grubu projeleri kullanarak sürekli tümleştirme | Microsoft Docs"
-description: "Visual Studio Team Services sürekli tümleştirme Visual Studio'daki Azure kaynak grubu dağıtım projeleri kullanılarak nasıl ayarlanacağını açıklar."
+title: VS Team Services Azure kaynak grubu projeleri kullanarak sürekli tümleştirme | Microsoft Docs
+description: Visual Studio Team Services sürekli tümleştirme Visual Studio'daki Azure kaynak grubu dağıtım projeleri kullanılarak nasıl ayarlanacağını açıklar.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Azure kaynak grubu dağıtım projeleri kullanarak Visual Studio Team Services sürekli tümleştirme
 Bir Azure şablonu dağıtmak için çeşitli aşamalarda görevleri: Azure derleme, Test, kopyalama ("Hazırlama" da denir) ve şablon dağıtın. Visual Studio Team Services (VS Team Services) şablonları dağıtmak için iki farklı yolu vardır. Yöntemlerin her ikisi de aynı sonuçları sağlamak, bu nedenle, iş akışınızı en uygun olanı seçin.
@@ -74,11 +74,11 @@ Aşağıdaki yordamlar, VS Team Services projenizde PowerShell Betiği çalışt
       ![Hizmet asıl seçeneği][5]
    5. Azure abonelik bilgilerinizi ekleyin **Azure aboneliği Ekle** iletişim kutusu. Aşağıdaki öğeler sağlamanız gerekir:
       
-      * Abonelik kimliği
-      * Abonelik adı
+      * Abonelik Kimliği
+      * Abonelik Adı
       * Hizmet sorumlusu kimliği
       * Hizmet sorumlusu anahtarı
-      * Kiracı kimliği
+      * Kiracı Kimliği
    6. Tercih ettiğiniz bir ad eklemek **abonelik** adı kutusu. Bu değer daha sonra da görünür **Azure aboneliği** VS Team Services aşağı açılan listesinde. 
    7. Azure abonelik Kimliğinizi bilmiyorsanız, bunu almak için aşağıdaki komutlardan birini kullanabilirsiniz.
       
@@ -106,7 +106,7 @@ Aşağıdaki yordamlar, VS Team Services projenizde PowerShell Betiği çalışt
    
    | Parametre | Açıklama |
    | --- | --- |
-   | -ResourceGroupLocation |Kaynak grubu bulunduğu, gibi coğrafi konum değeri **eastus** veya **'Doğu ABD'**. (Tek tırnak adı bir boşluk ise ekleyin.) Bkz: [Azure bölgeleri](https://azure.microsoft.com/en-us/regions/) daha fazla bilgi için. |
+   | -ResourceGroupLocation |Kaynak grubu bulunduğu, gibi coğrafi konum değeri **eastus** veya **'Doğu ABD'**. (Tek tırnak adı bir boşluk ise ekleyin.) Bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/) daha fazla bilgi için. |
    | -ResourceGroupName |Bu dağıtım için kullanılan kaynak grubunun adı. |
    | -UploadArtifacts |Bu parametre, varsa, belirleyen Azure'a yerel sistemden karşıya gerek yapıları. Yalnızca şablon dağıtımı (örneğin, yapılandırma komut dosyaları veya iç içe geçmiş şablonlarını) PowerShell Betiği kullanılarak hazırlamak istediğiniz ek yapıları gerektiriyorsa, bu anahtarı ayarlamanız gerekir. |
    | -StorageAccountName |Bu dağıtım için aşama yapıları için kullanılan depolama hesabı adı. Yapıtlar dağıtım için hazırlama varsa bu parametre yalnızca kullanılır. Bu parametre belirtilirse, önceki dağıtım sırasında bir betik oluşturmadı değilse yeni bir depolama hesabı oluşturulur. Parametresi belirtilirse, depolama hesabı önceden var olmalıdır. |

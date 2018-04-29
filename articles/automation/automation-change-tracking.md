@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki Değişiklikleri İzle
 
@@ -23,18 +23,19 @@ Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlene
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
 
-
 Değişiklikleri izlemeye başlamak için değişiklik izleme ve stok çözüm Automation hesabınız için etkinleştirmeniz gerekir.
 
 1. Azure Portal'da, Automation hesabınızı gidin
 1. Seçin **değişiklik izleme** altında **yapılandırma**.
-2. Varolan bir günlük analizi çalışma alanı seçin veya **yeni çalışma alanı oluştur** tıklatıp **etkinleştirmek**.
+1. Varolan bir günlük analizi çalışma alanı seçin veya **yeni çalışma alanı oluştur** tıklatıp **etkinleştirmek**.
 
 Bu, automation hesabınız için çözüm sağlar. Çözüm etkinleştirmek için 15 dakika sürebilir. Çözüm etkinleştirildiğinde mavi başlık size bildirir. Geri gidin **değişiklik izleme** çözümü yönetmek için sayfa.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Değişiklik izleme ve stok yapılandırma
 
-Bilgi edinmek için nasıl çözüme yerleşik bilgisayarlara ziyaret edin: [ekleme Otomasyon çözümleri](automation-onboard-solutions-from-automation-account.md). Yeni bir dosya veya izlemek için kayıt defteri anahtarı etkinleştirdiğinizde, değişiklik izleme ve stok için etkinleştirilir.
+Bilgi edinmek için nasıl çözüme yerleşik bilgisayarlara ziyaret edin: [ekleme Otomasyon çözümleri](automation-onboard-solutions-from-automation-account.md). Değişiklik izleme ve stok Çözümle makine ekleme olduktan sonra izlenecek öğeleri yapılandırabilirsiniz. Yeni bir dosya veya izlemek için kayıt defteri anahtarı etkinleştirdiğinizde, değişiklik izleme ve stok için etkinleştirilir.
+
+Windows ve Linux dosya değişiklikleri izlemek için MD5 karma dosyaların kullanılır. Bu karma, daha sonra bu yana en son Envanter bir değişiklik yapılıp yapılmadığını belirlemek için kullanılır.
 
 ### <a name="configure-linux-files-to-track"></a>Linux dosyaları izlemek için yapılandırma
 
@@ -109,6 +110,7 @@ Diğer sınırlamaları:
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
 Değişiklik izleme çözümü şu anda aşağıdaki sorunları yaşıyor:
+
 * Windows 10 oluşturucuları Update ve Windows Server 2016 çekirdek RS3 makineleri için düzeltme güncelleştirmelerini toplanmadı.
 
 ## <a name="change-tracking-data-collection-details"></a>Veri toplama ayrıntılı izleme değiştirme
@@ -117,13 +119,13 @@ Aşağıdaki tabloda değişiklik türleri için veri toplama sıklığını gö
 
 | **Değişiklik türü** | **Sıklık** |
 | --- | --- |
-| Windows kayıt defteri | 50 dakika | 
-| Windows dosya | 30 dakika | 
-| Linux file | 15 dakika | 
-| Windows hizmetleri | 30 dakika | 
+| Windows kayıt defteri | 50 dakika |
+| Windows dosya | 30 dakika |
+| Linux dosya | 15 dakika |
+| Windows hizmetleri | 30 dakika |
 | Linux Daemon | 5 dakika |
-| Windows yazılım | 30 dakika | 
-| Linux yazılım | 5 dakika | 
+| Windows yazılım | 30 dakika |
+| Linux yazılım | 5 dakika |
 
 ### <a name="registry-key-change-tracking"></a>Kayıt defteri anahtarı değişiklik izleme
 
@@ -132,35 +134,35 @@ Kayıt defteri anahtarlarını yapılan değişiklikleri izleme amacı, burada e
 > [!div class="mx-tdBreakAll"]
 > |  |
 > |---------|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
+> |**HKEY\_yerel\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows Gezgini ve genellikle çalışma işlemdeki Explorer.exe ile doğrudan kanca izleyiciler ortak autostart girişleri.    |
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
+> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Başlangıçta çalıştırılmasını izleyiciler betikler.     |
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
+> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
 |&nbsp;&nbsp;&nbsp;&nbsp;İzleyiciler kapatma sırasında çalışan komutlar.     |
 > |**HKEY\_yerel\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Kendi Windows hesabı kullanıcı işaretlerine önce yüklenen anahtarları izler. Anahtarı, 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için kullanılır.    |
 > |**HKEY\_yerel\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed bileşenleri**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Uygulama ayarlarına değişiklikleri izler.     |
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
+> |**HKEY\_yerel\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows Gezgini ve genellikle çalışma işlemdeki Explorer.exe ile doğrudan kanca izleyiciler ortak autostart girişleri.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
+> |**HKEY\_yerel\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows Gezgini ve genellikle çalışma işlemdeki Explorer.exe ile doğrudan kanca izleyiciler ortak autostart girişleri.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;İzleyici simgesi için işleyici kaydı kaplama.|
-|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|**HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;İzleyici simgesi için 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için işleyici kaydı kaplama.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
+> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser yardımcı nesneleri**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Internet Explorer için yeni tarayıcı Yardımcısı nesnesi eklentilerin izleyiciler. Geçerli sayfanın belge nesne modeli (DOM) erişmek için ve gezinti denetlemek için kullanılır.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
+> |**HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser yardımcı nesneleri**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Internet Explorer için yeni tarayıcı Yardımcısı nesnesi eklentilerin izleyiciler. Geçerli sayfanın belge nesne modeli (DOM) erişmek için ve 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için Gezinti denetlemek için kullanılır.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Özel araç menüleri ve özel araç çubuğu düğmeleri gibi yeni Internet Explorer uzantıları için İzleyici.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Özel araç menüleri ve 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için özel araç çubuğu düğmeleri gibi yeni Internet Explorer uzantıları için İzleyici.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Wavemapper, wave1 ve wave2, msacm.imaadpcm, .msadpcm, .msgsm610 ve vidc ile ilişkili 32-bit sürücüleri izler. SİSTEM [drivers] bölümünde benzer. INI dosyası.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;İzleyiciler 32-bit sürücüleri wavemapper, wave1 ve wave2, msacm.imaadpcm, .msadpcm, .msgsm610 ve 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için vidc ile ilişkili. SİSTEM [drivers] bölümünde benzer. INI dosyası.|
 > |**HKEY\_yerel\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Bilinen veya sık kullanılan sistem DLL'leri listesi izler; Bu sistem, sistem DLL'leri Truva atı sürümlerinde bırakarak zayıf uygulama dizin izinlerini yararlanmasını kişilerin engeller.|

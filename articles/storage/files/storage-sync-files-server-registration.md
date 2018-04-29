@@ -1,8 +1,8 @@
 ---
-title: "Azure dosya eşitleme (Önizleme) ile kayıtlı sunucuları yönetme | Microsoft Docs"
-description: "Kaydet ve bir Azure dosya eşitleme depolama eşitleme hizmeti ile bir Windows sunucusu kaydı hakkında bilgi edinin."
+title: Azure dosya eşitleme (Önizleme) ile kayıtlı sunucuları yönetme | Microsoft Docs
+description: Kaydet ve bir Azure dosya eşitleme depolama eşitleme hizmeti ile bir Windows sunucusu kaydı hakkında bilgi edinin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -139,7 +139,7 @@ Bu basit bir PowerShell Betiği ile de gerçekleştirilebilir:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Login-AzureRmAccount
+$accountInfo = Connect-AzureRmAccount
 Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"

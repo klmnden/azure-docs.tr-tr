@@ -1,11 +1,11 @@
 ---
-title: "Azure AD kullanarak hesapları paylaşma | Microsoft Docs"
-description: "Nasıl Azure Active Directory hesapları şirket içi uygulamalar ve tüketici bulut Hizmetleri için güvenli bir şekilde paylaşmak kuruluşların açıklar."
+title: Azure AD kullanarak hesapları paylaşma | Microsoft Docs
+description: Nasıl Azure Active Directory hesapları şirket içi uygulamalar ve tüketici bulut Hizmetleri için güvenli bir şekilde paylaşmak kuruluşların açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b6a83d91ec5d8466669655d6c3bd7ae7b42dd2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c0687a2d0dd9bb42f566daf3835c1c3130054e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD ile hesapları paylaşma
 ## <a name="overview"></a>Genel Bakış
@@ -69,7 +69,7 @@ Bir hesabı paylaşmak için Azure AD kullanmak için aktarmanız gerekir:
 * Kullanım [grup tabanlı atama](active-directory-accessmanagement-group-saasapps.md) ve paylaşılan bir kimlik bilgisi girin seçeneğini belirleyin
 * İsteğe bağlı: Facebook, Twitter ve LinkedIn, gibi bazı uygulamalarda, seçeneğini etkinleştirebilirsiniz [Azure AD parola toplama-üzerinden otomatik](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-Da paylaşılan hesabınızı çok faktörlü kimlik doğrulama (MFA) ile daha güvenli hale getirebilirsiniz (hakkında daha fazla bilgi [uygulamalarını Azure AD ile güvenli hale getirme](../multi-factor-authentication/multi-factor-authentication-get-started.md)) ve uygulama kullanarak erişimi olanların yönetme olanağı devredebilirsiniz [Azure AD Self Servis](active-directory-accessmanagement-self-service-group-management.md) Grup Yönetimi.
+Da paylaşılan hesabınızı çok faktörlü kimlik doğrulama (MFA) ile daha güvenli hale getirebilirsiniz (hakkında daha fazla bilgi [uygulamalarını Azure AD ile güvenli hale getirme](authentication/concept-mfa-whichversion.md)) ve uygulama kullanarak erişimi olanların yönetme olanağı devredebilirsiniz [Azure AD Self Servis](active-directory-accessmanagement-self-service-group-management.md) Grup Yönetimi.
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)

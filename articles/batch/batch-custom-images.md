@@ -1,18 +1,18 @@
 ---
-title: "Azure Batch havuzları özel görüntülerden sağlama | Microsoft Docs"
-description: "Özel görüntü havuzundan sağlamak için işlem yazılım ve uygulamanız için gereksinim duyduğunuz verileri içeren düğümlerini toplu oluşturabilirsiniz. Özel resimler toplu iş yüklerini çalıştırmak için işlem düğümleri yapılandırmak için etkili bir yoludur."
+title: Azure Batch havuzları özel görüntülerden sağlama | Microsoft Docs
+description: Özel görüntü havuzundan sağlamak için işlem yazılım ve uygulamanız için gereksinim duyduğunuz verileri içeren düğümlerini toplu oluşturabilirsiniz. Özel resimler toplu iş yüklerini çalıştırmak için işlem düğümleri yapılandırmak için etkili bir yoludur.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Sanal makinelerin bir havuz oluşturmak için yönetilen özel görüntü kullanın 
 
@@ -40,7 +40,7 @@ Senaryonuz için yapılandırılan özel görüntü kullanarak çeşitli avantaj
 
     
 ## <a name="prepare-a-custom-image"></a>Özel görüntü hazırlama
-Yönetilen resim VHD yönetilen diskleri olan bir Azure VM veya VM anlık görüntü hazırlayabilirsiniz. 
+Yönetilen resim VHD yönetilen diskleri olan bir Azure VM veya VM anlık görüntü hazırlayabilirsiniz. Toplu işlemi için bir VM'den yönetilen diskleri veya VM anlık görüntü ile yönetilen bir görüntü oluşturmanızı öneririz. Yönetilen resim ve temel alınan kaynak havuzları ölçeği bulunuyor olmalıdır ve havuz silindikten sonra kaldırılabilir. 
 
 Görüntünüzü hazırlık yaparken, aşağıdaki noktaları göz önünde bulundurun:
 

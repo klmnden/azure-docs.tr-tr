@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu
 Bu makalede, JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için bir Azure Search blob dizin oluşturucu yapılandırma gösterilmektedir.
@@ -36,7 +36,7 @@ JSON BLOB'ları dizin oluşturma üç bölümlük iş akışı ortak Azure Searc
 
 İlk adım, dizin oluşturucu tarafından kullanılan veri kaynağı bağlantı bilgilerini sağlamaktır. Veri kaynağı türü, belirtilen burada olarak `azureblob`, hangi veri ayıklama davranışları Oluşturucu tarafından çağrılan belirler. Dizin oluşturma için JSON blob veri kaynağı tanımını JSON belgeleri ve diziler için aynı numarasıdır. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -88,7 +88,7 @@ Yapılandırma, bir dizin oluşturucu işlemi gövdesinde sağlanır. Geri çağ
 
 Tam olarak belirtilen bir istek şu şekilde görünebilir:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -190,7 +190,7 @@ Sıfır tabanlı dizini kullanılarak tek tek dizi öğeleri de başvurabilir. �
 
 Aşağıdaki örnek, alan eşlemelerini içeren bir tam olarak belirtilen dizin oluşturucu yükü verilmiştir:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

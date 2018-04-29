@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL veritabanı vCore tabanlı satın alma modeli sınırları (Önizleme)
 
@@ -40,10 +40,9 @@ Tek veritabanları için aşağıdaki tablolarda her hizmeti katmanını ve perf
 |Hedef IOPS|320|640|1280|2560|5120|
 |G/ç gecikmesi (yaklaşık)|5-7 ms (yazma)
 |En fazla eşzamanlı çalışan (istek sayısı)|200|400|800|1600|3200|
-|Maks. eş zamanlı oturum|200|400|800|1600|3200|
-|İzin verilen maks. oturumları|3000|3000|3000|3000|3000|
+|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|
 |Çoğaltmaların sayısı|1|1|1|1|1|
-|Multi-AZ|Yok|Yok|Yok|Yok|Yok|
+|Birden çok AZ|Yok|Yok|Yok|Yok|Yok|
 |Genişleme okuma|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
@@ -63,10 +62,9 @@ Tek veritabanları için aşağıdaki tablolarda her hizmeti katmanını ve perf
 |Hedef IOPS|5000|10000|20000|40000|80000|
 |G/ç gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|
 |En fazla eşzamanlı çalışan (istek sayısı)|200|400|800|1600|3200|
-|Maks. eş zamanlı oturum|200|400|800|1600|3200|
-|İzin verilen maks. oturumları|3000|3000|3000|3000|3000|
+|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|
 |Çoğaltmaların sayısı|3|3|3|3|3|
-|Multi-AZ|Evet|Evet|Evet|Evet|Evet|
+|Birden çok AZ|Evet|Evet|Evet|Evet|Evet|
 |Genişleme okuma|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
@@ -117,18 +115,17 @@ SQL Database esnek havuzlar için aşağıdaki tablolarda her hizmeti katmanın�
 |Hedef IOPS|320|640|1280|2560|5120|
 |G/ç gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |En fazla eşzamanlı çalışan (istek sayısı)|210|420|840|1680|3360|
-|Maks. eş zamanlı oturum|210|420|840|1680|3360|
-|İzin verilen maks. oturumları|3000|3000|3000|3000|3000|
+|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|
 |En büyük havuz yoğunluğu|100|200|500|500|500|
-|Min/max esnek havuz tıklatın-durdurur|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
+|Min/max esnek havuz tıklatın-durdurur|0, 0.25, 0,5, 1|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|
 |Çoğaltmaların sayısı|1|1|1|1|1|
-|Multi-AZ|Yok|Yok|Yok|Yok|Yok|
+|Birden çok AZ|Yok|Yok|Yok|Yok|Yok|
 |Genişleme okuma|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
 ### <a name="business-critical-service-tier"></a>İş kritik hizmet katmanı
-|Performans düzeyi|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Performans düzeyi|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |H/W oluşturma|4|4|4|4|4|
 |vCores|1|2|4|8|16|
@@ -142,11 +139,10 @@ SQL Database esnek havuzlar için aşağıdaki tablolarda her hizmeti katmanın�
 |Hedef IOPS|320|640|1280|2560|5120|
 |G/ç gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|1-2 ms (yazma)<br>1-2 (okuma) ms|
 |En fazla eşzamanlı çalışan (istek sayısı)|210|420|840|1680|3360|
-|Maks. eş zamanlı oturum|210|420|840|1680|3360|
-|İzin verilen maks. oturumları|3000|3000|3000|3000|3000|
+|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|
 |En büyük havuz yoğunluğu|Yok|50|100|100|100|
-|Min/max esnek havuz tıklatın-durdurur|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Multi-AZ|Evet|Evet|Evet|Evet|Evet|
+|Min/max esnek havuz tıklatın-durdurur|0, 0.25, 0,5, 1|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|
+|Birden çok AZ|Evet|Evet|Evet|Evet|Evet|
 |Genişleme okuma|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||

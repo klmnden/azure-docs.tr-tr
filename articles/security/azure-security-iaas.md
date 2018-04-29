@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -52,7 +52,7 @@ Geçmişte, Kurumsal verilere erişimi denetlemek için ağ çevre kullanıldı.
 
 Bir hesap güvenliğini sağlamak için uygulayabileceğiniz en yararlı adımları iki faktörlü kimlik doğrulamasını etkinleştirmek için biridir. İki faktörlü kimlik doğrulaması parola yanı sıra bir şey kullanarak kimlik doğrulaması bir yoludur. Bu, başka birinin parolanızı almak için yöneten bir kişi tarafından erişim riskini azaltmaya yardımcı olur.
 
-[Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) basit bir oturum açma işlemi için kullanıcı talebine buluştururken veri ve uygulamalara erişimi korunmasına yardımcı. Kolay doğrulama seçenekleri--telefon araması, SMS mesajı veya mobil uygulama bildirimi aralıklı güçlü kimlik doğrulaması sunar. Kullanıcıların tercih yöntemi seçin.
+[Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) basit bir oturum açma işlemi için kullanıcı talebine buluştururken veri ve uygulamalara erişimi korunmasına yardımcı. Kolay doğrulama seçenekleri--telefon araması, SMS mesajı veya mobil uygulama bildirimi aralıklı güçlü kimlik doğrulaması sunar. Kullanıcıların tercih yöntemi seçin.
 
 Windows, iOS ve Android çalıştıran mobil aygıtlarda kullanılabilir Microsoft Authenticator mobil uygulamasında çok faktörlü kimlik doğrulamasını kullanmak için en kolay yoludur. Windows 10 ve Azure Active Directory (Azure AD) ile şirket içi Active Directory Tümleştirme en son sürümü ile [iş için Windows Hello](../active-directory/active-directory-azureadjoin-passport-deployment.md) sorunsuz tek oturum açma için Azure kaynakları için kullanılabilir. Bu durumda, Windows 10 cihaz ikinci faktörü olarak kimlik doğrulaması için kullanılır.
 
@@ -118,7 +118,7 @@ Alternatif olarak, kullanabileceğiniz [noktası site](../vpn-gateway/vpn-gatewa
 >[!NOTE]
 >Erişim Yönetimi uç noktaları için Internet'ten izin vermeyecek şekilde Nsg'ler ACL'lerin yapılandırılacağını ya da VPN seçeneğini kullanabilirsiniz.
 
-Başka bir seçenek dikkate değer bir [Uzak Masaüstü Ağ Geçidi](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) dağıtım. Bu bağlantılar için daha ayrıntılı denetimler uygulanırken Uzak Masaüstü sunucularına HTTPS üzerinden güvenli bir şekilde bağlanmak için bu dağıtım kullanabilirsiniz.
+Başka bir seçenek dikkate değer bir [Uzak Masaüstü Ağ Geçidi](../active-directory/authentication/howto-mfaserver-nps-rdg.md) dağıtım. Bu bağlantılar için daha ayrıntılı denetimler uygulanırken Uzak Masaüstü sunucularına HTTPS üzerinden güvenli bir şekilde bağlanmak için bu dağıtım kullanabilirsiniz.
 
 Erişiminiz eklenecek özellikleri:
 
@@ -166,7 +166,7 @@ Yüklenen uygulamalar için gerekli olan hizmet uç kullanıma böylece Azure Ia
 
 Güvenlik uyumluluk Yöneticisi ücretsiz bir araçtır. Hızlı bir şekilde yapılandırmak ve masaüstü bilgisayarlar, geleneksel veri merkezi ve özel ve genel bulut Grup İlkesi ve System Center Configuration Manager kullanarak yönetmek için kullanabilirsiniz.
 
-Güvenlik uyumluluk Yöneticisi ilkeleri Dağıt hazır ve test edilmiş Desired Configuration Management yapılandırma paketleri sağlar. Bu taban çizgileri dayalı [Microsoft Güvenlik Kılavuzu](https://technet.microsoft.com/en-us/library/cc184906.aspx) öneriler ve endüstri en iyi uygulamalar. Yapılandırma değişikliklerini, adres uyumluluk gereksinimleri, yönetme ve güvenlik tehditlerini azaltılmasına yardımcı olur.
+Güvenlik uyumluluk Yöneticisi ilkeleri Dağıt hazır ve test edilmiş Desired Configuration Management yapılandırma paketleri sağlar. Bu taban çizgileri dayalı [Microsoft Güvenlik Kılavuzu](https://technet.microsoft.com/library/cc184906.aspx) öneriler ve endüstri en iyi uygulamalar. Yapılandırma değişikliklerini, adres uyumluluk gereksinimleri, yönetme ve güvenlik tehditlerini azaltılmasına yardımcı olur.
 
 İki farklı yöntemler kullanarak bilgisayarlarınızın geçerli yapılandırma içeri aktarmak için güvenlik uyumluluk Yöneticisi'ni kullanabilirsiniz. İlk olarak, Active Directory tabanlı Grup İlkeleri aktarabilirsiniz. İkinci olarak, bir "altın ana" yapılandırmasını içeri aktarabilirsiniz kullanarak başvuru makinesini [LocalGPO aracı](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) yerel Grup İlkesi yedeklenir. Bu gibi durumlarda, yerel Grup İlkesi sonra güvenlik uyumluluk Yöneticisi içine aktarabilirsiniz.
 

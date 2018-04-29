@@ -1,11 +1,11 @@
 ---
-title: "SharePoint için StorSimple bağdaştırıcısı yükleme | Microsoft Docs"
-description: "Yükleme ve yapılandırma veya bir SharePoint sunucu grubundaki SharePoint için StorSimple bağdaştırıcısı kaldırma açıklar."
+title: SharePoint için StorSimple bağdaştırıcısı yükleme | Microsoft Docs
+description: Yükleme ve yapılandırma veya bir SharePoint sunucu grubundaki SharePoint için StorSimple bağdaştırıcısı kaldırma açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
 ms.service: storsimple
 ms.devlang: NA
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Yükleme ve SharePoint için StorSimple bağdaştırıcısını yapılandırın
 ## <a name="overview"></a>Genel Bakış
@@ -139,7 +139,7 @@ SharePoint sunucu grubunuzu doğru şu şekilde yapılandırıldığından emin 
   3. Sol bölmede **yerel sunucu**.
   4. Sağ bölmede yanına **IE Artırılmış Güvenlik Yapılandırması**, tıklatın **üzerinde**.
   5. Altında **Yöneticiler**, tıklatın **devre dışı**.
-  6. **Tamam** düğmesine tıklayın.
+  6. **Tamam**’a tıklayın.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Uzak BLOB Depolama (KKY) Önkoşullar
 SQL Server'ın desteklenen bir sürümünü kullandığınızdan emin olun. Yalnızca aşağıdaki sürümleri, desteklenen ve KKY kullanmak için:
@@ -261,4 +261,4 @@ BLOB'lar için SQL Server veritabanlarını geri taşıdıktan sonra SharePoint 
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+[8]: https://technet.microsoft.com/library/ff943565.aspx

@@ -1,11 +1,11 @@
 ---
-title: "PowerShell kullanarak bir Azure kaynağı için geçersiz bir MSI erişimi atama"
-description: "Adım adım yönergeleri bir kaynakta bir MSI atamak için PowerShell kullanarak başka bir kaynağa erişim."
+title: PowerShell kullanarak bir Azure kaynağı için geçersiz bir MSI erişimi atama
+description: Adım adım yönergeleri bir kaynakta bir MSI atamak için PowerShell kullanarak başka bir kaynağa erişim.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c9f146e829e463fbdaf1bcff8747ffc5dd055ecb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ac8cca1e80defca33a879db5d4c160362314931a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>PowerShell kullanarak bir kaynak için bir yönetilen hizmet kimliği (MSI) erişimi atayın
 
@@ -36,10 +36,10 @@ Ayrıca, yükleme [Azure PowerShell sürüm 4.3.1](https://www.powershellgallery
 
 Bir Azure kaynağı üzerinde MSI etkinleştirdikten sonra [bir Azure VM gibi](msi-qs-configure-powershell-windows-vm.md):
 
-1. Oturum Azure kullanmaya `Login-AzureRmAccount` cmdlet'i. MSI altında yapılandırdığınız Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Oturum Azure kullanmaya `Connect-AzureRmAccount` cmdlet'i. MSI altında yapılandırdığınız Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. Bu örnekte, biz bir depolama hesabı için bir Azure VM erişimi vermiş olursunuz. İlk kullanırız [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) "biz MSI etkinleştirildiğinde oluşturulduğu myVM", adlı VM için hizmet sorumlusu alınamıyor. Ardından, kullanırız [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) "Okuyucu" erişimi bir depolama hesabı VM vermek için "myStorageAcct" olarak adlandırılan:
 

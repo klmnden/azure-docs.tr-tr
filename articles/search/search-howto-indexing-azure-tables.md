@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/10/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search dizini Azure tablo depolaması
 Bu makalede Azure arama için Azure Table storage'da depolanan dizin verileri nasıl kullanılacağı gösterilmektedir.
@@ -47,7 +47,7 @@ Tablo dizin oluşturma işlemi için veri kaynağı aşağıdaki özelliklere sa
 
 Bir veri kaynağı oluşturmak için:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -79,7 +79,7 @@ Dizin alanları bir belgede özniteliklerini belirtir ve arama şekil diğer yap
 
 Bir dizin oluşturmak için:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -98,7 +98,7 @@ Bir dizin oluşturucu hedef arama dizin ile bir veri kaynağı bağlanır ve ver
 
 Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmak hazırsınız:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -131,7 +131,7 @@ Bir zamanlamaya göre çalıştırmak için bir tablo dizin oluşturucu ayarlad�
 
 Belirli belgeleri dizinden kaldırılması gerektiğini göstermek için geçici silme stratejiyi kullanabilirsiniz. Bir satırın silinmesi yerine silindi ve veri kaynağında bir geçici silme algılama İlkesi ayarlama olduğunu belirtmek için bir özellik ekleyin. Örneğin, aşağıdaki İlkesi satır özelliğine sahipse satır silinir göz önünde bulundurur `IsDeleted` değerle `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

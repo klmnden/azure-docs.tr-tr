@@ -1,14 +1,14 @@
 ---
-title: "Azure mantıksal uygulamaları için Azure Event Hubs ile olay izleme işlevini ayarlama | Microsoft Docs"
-description: "Veri akışlarının olayları gönderip olaylar logic apps ile Azure Event Hubs'ı kullanarak izleme"
+title: Azure mantıksal uygulamaları için Azure Event Hubs ile olay izleme işlevini ayarlama | Microsoft Docs
+description: Veri akışlarının olayları gönderip olaylar logic apps ile Azure Event Hubs'ı kullanarak izleme
 services: logic-apps
-keywords: "veri akışı, olay izleme, olay hub'ları"
+keywords: veri akışı, olay izleme, olay hub'ları
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>İzleme, almak ve Event Hubs Bağlayıcısı ile olayları göndermek
 
@@ -76,11 +76,28 @@ A [ *tetikleyici* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) man
 3. İzleme ve olay hub'ı denetlemek ne zaman sıklık ve aralığı ayarlamak için olay hub'ı seçin.
 
     ![Olay hub'ı veya tüketici grubu belirtin](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Tüm olay hub'ı Tetikleyiciler *uzun yoklama* tetikleyiciler, tetikleyici başlatıldığında tetikleyici tüm olayları işler ve 30 olay hub'ı görünmesini saniye için daha fazla olay bekler anlamına gelir.
+    > Hiçbir olay 30 saniye içinde aldıysanız, tetikleyici Çalıştır atlanır. Aksi takdirde, tetikleyici olay hub'ı boş olmadığı sürece olayları okumaya devam eder.
+    > Sonraki tetikleyici yoklama tetikleyici özelliklerinde belirtilen yinelenme aralığını temel alır.
 
-    > [!TIP]
-    > İsteğe bağlı olarak olayları okumak için bir tüketici grubu seçmek için Seç **Gelişmiş Seçenekleri Göster**.
 
-4. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin.
+4. İsteğe bağlı olarak bazı gelişmiş tetikleme seçeneklerini seçmek istediğinizde **Gelişmiş Seçenekleri Göster**.
+
+    ![Gelişmiş Seçenekleri tetikleyici](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Özellik | Ayrıntılar |
+    | --- | --- |
+    | İçerik türü  |Olayları içerik türü aşağı açılan listeden seçin. Varsayılan olarak application/octet-stream, seçilir. |
+    | İçerik şeması |İçerik şeması, olay Hub'ından okuma olayları için JSON'da girin. |
+    | Tüketici grubu adı |Olay hub'ı girin [tüketici grubu adı](../event-hubs/event-hubs-features.md#consumer-groups) olayları okumak için. Tüketici grubu adı belirtilmediğinde, varsayılan bir tüketici grubu kullanılır. |
+    | En düşük bölüm anahtarı |En düşük girin [bölüm](../event-hubs/event-hubs-features.md#partitions) okumak için kimliği. Varsayılan olarak, tüm bölümleri salt okunurdur. |
+    | En fazla bölüm anahtarı |Maksimum girin [bölüm](../event-hubs/event-hubs-features.md#partitions) okumak için kimliği. Varsayılan olarak, tüm bölümleri salt okunurdur. |
+    | En fazla olay sayısı |En fazla olay sayısı için bir değer girin. Bu özelliği tarafından belirtilen olayların sayısının bir arasındaki tetikleyici döndürür. |
+    |||
+
+5. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
 Şimdi, mantıksal uygulamanızı seçili olay hub'ı denetler ve yeni bir olay bulduğunda tetikleyicinin mantığını uygulamanızda bulunan olayı için eylemleri çalıştırır.
 

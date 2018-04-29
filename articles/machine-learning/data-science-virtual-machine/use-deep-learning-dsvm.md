@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Sanal makine öğrenme derin kullanma
 
@@ -35,7 +35,7 @@ Framework tabanlı örnekleri ek olarak, bir dizi kapsamlı izlenecek yollar üz
 
 - [Ürün Görüntüleri içinde algılamak için uçtan uca çözümü oluşturmak için nasıl yapılır kılavuz](https://github.com/Azure/cortana-intelligence-product-detection-from-images): görüntü algılamadır bulun ve görüntüleri içindeki nesneleri sınıflandırmak bir teknik. Bu teknoloji büyük ödül pek çok gerçek hayatta iş alanlarında getirmek için olasılığı vardır. Örneğin, Perakendeciler, müşterinin hangi ürün rafı çekilen belirlemek için bu tekniği kullanabilirsiniz. Bu bilgiler sırayla depoları ürün envanterini yönetmenize yardımcı olur. 
 
-- [Varlık ayıklama PubMed özetleri adlı](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) yapılandırılmamış metinden Uyuşturucu adları veya Hastalık adları gibi adlandırılmış varlıklar çıkarmayı Bu öğreticide gösterilmiştir. 18 milyon PubMed özetleri üzerinde bir metin gövde katıştırma özel bir word eğitir, varlık ayıklama uzun kısa vadeli bellek (LSTM) yinelenen sinir ağı modelini oluşturmak için bu modeli kullanır ve modeli katıştırma etki alanına özgü Word'ün daha iyi performans gösterir olduğunu gösteren bir Genel word için varlık ayıklama katıştırma.
+- [Varlık ayıklama PubMed özetleri adlı](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) yapılandırılmamış metinden Uyuşturucu adları veya Hastalık adları gibi adlandırılmış varlıklar çıkarmayı Bu öğreticide gösterilmiştir. 18 milyon PubMed özetleri üzerinde bir metin gövde katıştırma özel bir word eğitir, varlık ayıklama uzun kısa vadeli bellek (LSTM) yinelenen sinir ağı modelini oluşturmak için bu modeli kullanır ve modeli katıştırma etki alanına özgü Word'ün daha iyi performans gösterir olduğunu gösteren bir Genel word için varlık ayıklama katıştırma.
 
 - [Ses için öğrenme derin](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Bu öğretici, üzerinde ses olay algılama derin learning modelini eğitmek gösterilmiştir [Kentsel ses dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) ve ses verilerle çalışmak nasıl bir bakış sağlar.
 

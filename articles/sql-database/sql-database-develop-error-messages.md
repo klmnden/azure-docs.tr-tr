@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -33,8 +33,8 @@ Geçici hata hatalar genellikle, istemci programlarından aşağıdaki hata ilet
 * Veritabanı &lt;db_name&gt; sunucuda &lt;Azure_instance&gt; şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin &lt;session_id&gt;
 * Veritabanı &lt;db_name&gt; sunucuda &lt;Azure_instance&gt; şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin &lt;session_id&gt;. (Microsoft SQL Server, hata: 40613)
 * Varolan bir bağlantıyı zorla uzak ana bilgisayar tarafından kapatıldı.
-* System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. Ayrıntılar için iç özel duruma bakın. System.Data.SqlClient.SqlException--->: sonuçları sunucudan alırken bir aktarım düzeyi hatası oluştu. (sağlayıcısı: oturum sağlayıcısı, hata: 19 - fiziksel bağlantı değil kullanılabilir)
-* Veritabanı reconfguration sürecinde olduğu ve birincil veritabanında bir etkin işlem sırasında ortasında yeni sayfalar uygulama meşgul ikincil veritabanına bir bağlantı girişimi başarısız oldu. 
+* System.Data.Entity.Core.EntityCommandExecutionException: Komut tanımı yürütülürken bir hata oluştu. Ayrıntılar için iç özel duruma bakın. System.Data.SqlClient.SqlException--->: sonuçları sunucudan alırken bir aktarım düzeyi hatası oluştu. (sağlayıcısı: oturum sağlayıcısı, hata: 19 - fiziksel bağlantı değil kullanılabilir)
+* Yeniden yapılandırma sürecinde veritabanıdır ve yeni sayfa etkin bir işlem sırasında ortasında birincil veritabanında uygulama meşgul ikincil veritabanına bir bağlantı girişimi başarısız oldu. 
 
 Yeniden deneme mantığı kod örnekleri için bkz:
 
@@ -50,11 +50,11 @@ Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gere
 | ---:| ---:|:--- |
 | 4060 |16 |Veritabanı açılamıyor. "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. |
 | 40197 |17 |Hizmet isteğinizi işlerken bir hatayla karşılaştı. Lütfen yeniden deneyin. Hata kodu %d.<br/><br/>Hizmet aşağı yazılım veya donanım yükseltmeleri, donanım hataları ya da başka bir yük devretme sorunlar nedeniyle olduğunda bu hatayı alırsınız. Katıştırılmış 40197 hata iletisi içinde hata kodu (%d) tür hata veya oluştu yük devretme hakkında ek bilgi sağlar. Bazı kodlar hata 40197 ileti içinde katıştırılmış hata 40020, 40143, 40166 ve 40540 gösterilebilir.<br/><br/>SQL veritabanı sunucusuna otomatik olarak yeniden bağlanmayı veritabanınızın sağlıklı bir kopyasını bağlanır. Uygulamanız hata 40197, günlük sorun giderme için iletisindeki katıştırılmış hata kodu (%d) yakalamak ve SQL veritabanına kaynaklar kullanılabilir ve, bağlantı yeniden kurulana kadar yeniden bağlanmayı deneyin. |
-| 40501 |20 |Hizmet şu anda meşgul. İsteği 10 saniye sonra yeniden deneyin. Olay Kimliği: %ls. Kodu: %d.<br/><br/>Daha fazla bilgi için bkz.<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
+| 40501 |20 |Hizmet şu anda meşgul. İsteği 10 saniye sonra yeniden deneyin. Olay Kimliği: %ls. Kodu: %d.<br/><br/>Daha fazla bilgi için bkz.<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md). |
 | 40613 |17 |Veritabanı '%.&#x2a;ls' sunucusundaki '%.&#x2a;ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%.&#x2a;ls'. |
 | 49918 |16 |İsteği işleyemiyor. İsteği işlemek için yeterli kaynak yok.<br/><br/>Hizmet şu anda meşgul. Lütfen isteği daha sonra yeniden deneyin. |
-| 49919 |16 |İşlem oluşturulamıyor veya istek güncelleştirilemiyor. Çok sayıda oluşturma veya güncelleştirme devam eden işlemleri aboneliği için "% ld".<br/><br/>Hizmet meşgul birden çok işleme oluştur veya güncelleştir abonelik veya sunucu için istekleri. İstek şu anda kaynak iyileştirme için engellenir. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) için bekleyen işlemler. Kasa Oluştur bekleyin veya güncelleştirme isteklerinin tamamlandığı veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
-| 49920 |16 |İsteği işleyemiyor. Devam eden çok fazla işlemleri aboneliği için "% ld".<br/><br/>Hizmet, bu abonelik için birden çok istek işleme meşgul. İstek şu anda kaynak iyileştirme için engellenir. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Bekleyen istekler kadar bekleyin, tam veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
+| 49919 |16 |İşlem oluşturulamıyor veya istek güncelleştirilemiyor. Çok sayıda oluşturma veya güncelleştirme devam eden işlemleri aboneliği için "% ld".<br/><br/>Hizmet meşgul birden çok işleme oluştur veya güncelleştir abonelik veya sunucu için istekleri. İstek şu anda kaynak iyileştirme için engellenir. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) için bekleyen işlemler. Oluşturma veya güncelleştirme bekleyen istekleri tamamlandıktan veya bekleyen istekler birini silmeniz ve isteğinizi daha sonra yeniden deneyin kadar bekleyin. |
+| 49920 |16 |İsteği işleyemiyor. Devam eden çok fazla işlemleri aboneliği için "% ld".<br/><br/>Hizmet, bu abonelik için birden çok istek işleme meşgul. İstek şu anda kaynak iyileştirme için engellenir. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) işlem durumu. Bekleyen istekler kadar bekleyin, tam veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
 | 4221 |16 |Read-ikincil oturum açma 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING' üzerine uzun süre beklenmesi nedeniyle başarısız oldu. Satır sürümleri çoğaltma dönüştürüldü yükleyen yürütülen işlemler için eksik olduğundan çoğaltma oturum açma için kullanılamaz. Sorun, geri alma ya da birincil çoğaltmadaki etkin işlem yürüten tarafından çözülebilir. Bu koşul oluşumlarını uzun yazma işlemleri birincil kaçınarak en aza indirgenebilir. |
 
 ## <a name="database-copy-errors"></a>Veritabanı kopyalama hataları
@@ -86,12 +86,12 @@ Aşağıdaki hatalar, Azure SQL Database ile çalışırken aşırı kaynakları
 
 İlgili konu başlıkları:
 
-* Daha ayrıntılı bilgi sağlanmıştır burada: [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md).
+* Daha ayrıntılı bilgi sağlanmıştır burada: [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md).
 
 | Hata kodu | Önem Derecesi | Açıklama |
 | ---:| ---:|:--- |
-| 10928 |20 |Kaynak Kimliği: %d. Veritabanı için %s sınırı %d ve üst sınırına ulaşıldı. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
-| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Aksi halde, lütfen daha sonra yeniden deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
+| 10928 |20 |Kaynak Kimliği: %d. Veritabanı için %s sınırı %d ve üst sınırına ulaşıldı. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Aksi halde, lütfen daha sonra yeniden deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Veritabanı boyut kotasına ulaştı. Verileri bölün veya silin, dizinleri bırakın veya olası çözümler için belgelere bakın. |
 | 40549 |16 |Uzun süre çalışan işlem olduğundan oturum sonlandırıldı. İşleminiz kısaltmayı deneyin. |
 | 40550 |16 |Oturum, çok fazla sayıda kilit aldığından sonlandırıldı. Try okuma veya tek bir işlemde daha az sayıda satır değiştirme. |
@@ -115,7 +115,7 @@ Aşağıdaki hatalar oluşturma ve esnek havuzlarını kullanarak ilgili:
 | 40862 |EX_USER |Esnek havuz adının belirtilmesi gerekir esnek havuz hizmeti hedefi belirtildiyse smbiosguid'sinin. |None |Esnek havuz hizmeti hedefi bir esnek havuz benzersiz olarak tanımlamıyor. |Esnek havuz hizmeti hedefi kullanarak esnek havuz adı belirtin. |
 | 40864 |EX_USER |Esnek havuz için Dtu'lar en az olmalıdır (%d) Dtu'lar hizmet katmanı için ' %. * ls'. |Esnek havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Alt sınır aşağıda esnek havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için en az alt sınırı Dtu'lar ayarı yeniden deneyin. |
 | 40865 |EX_USER |Esnek havuz için Dtu'lar (%d) Dtu'lar hizmet katmanı için aşamaz ' %. * ls'. |Esnek havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Maksimum sınırı üstünde esnek havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için Dtu'lar üst sınırı'den büyük ayarı yeniden deneyin. |
-| 40867 |EX_USER |Veritabanı başına maksimum DTU olmalıdır en az (%d) hizmet katmanı için ' %. * ls'. |Veritabanı başına maksimum DTU; Esnek havuz hizmet katmanı |Desteklenen sınırı aşağıda veritabanı başına DTU max yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanarak onsider. |
+| 40867 |EX_USER |Veritabanı başına maksimum DTU olmalıdır en az (%d) hizmet katmanı için ' %. * ls'. |Veritabanı başına maksimum DTU; Esnek havuz hizmet katmanı |Desteklenen sınırı aşağıda veritabanı başına DTU max yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40868 |EX_USER |Veritabanı başına maksimum DTU (%d) hizmet katmanı için aşamaz ' %. * ls'. |Veritabanı başına maksimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına DTU max yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40870 |EX_USER |Veritabanı başına minimum DTU (%d) hizmet katmanı için aşamaz ' %. * ls'. |Veritabanı başına minimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına minimum DTU yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40873 |EX_USER |Veritabanı (%d) ve (%d) veritabanı başına DTU minimum sayısı, (%d) esnek havuz Dtu aşamaz. |Esnek havuzdaki veritabanları sayı; Veritabanı başına minimum DTU; Esnek havuz Dtu. |Esnek havuz Dtu aşıyor esnek havuzdaki veritabanları için minimum DTU belirtin çalışılıyor. | Esnek havuz için Dtu'lar artırmayı veya veritabanı başına minimum DTU azaltın veya veritabanları esnek havuzda sayısını azaltın. |
@@ -173,11 +173,11 @@ Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 | 40607 |16 |Windows oturum açma bilgileri, SQL Server'ın bu sürümünde desteklenmez. |
 | 40611 |16 |Sunucuları tanımlanan en fazla 128 güvenlik duvarı kuralları olabilir. |
 | 40614 |16 |Güvenlik duvarı kuralının başlangıç IP adresi bitiş IP adresini aşamaz. |
-| 40615 |16 |Sunucu '{0}' oturum açma tarafından istenen açamıyor. IP adresi '{1}' olan istemcinin sunucuya erişmek için izin verilmiyor.<br /><br />Erişimi etkinleştirmek için SQL veritabanı Portalı'nı kullanın veya sp çalıştırın\_ayarlamak\_Güvenlik Duvarı\_bu IP adresi veya adres aralığı için bir güvenlik duvarı kuralı oluşturmak için ana veritabanı üzerinde kuralı. Bu değişikliğin etkili olması beş dakika kadar sürebilir. |
+| 40615 |16 |Sunucu açamıyor '{0}' oturum açma tarafından istenen. İstemci IP adresi ile{1}' sunucusuna erişmek için izin verilmiyor.<br /><br />Erişimi etkinleştirmek için SQL veritabanı Portalı'nı kullanın veya sp çalıştırın\_ayarlamak\_Güvenlik Duvarı\_bu IP adresi veya adres aralığı için bir güvenlik duvarı kuralı oluşturmak için ana veritabanı üzerinde kuralı. Bu değişikliğin etkili olması beş dakika kadar sürebilir. |
 | 40617 |16 |(Kural adı) ile başlayan güvenlik duvarı kuralı adı çok uzun. En fazla uzunluk 128'dir. |
 | 40618 |16 |Güvenlik duvarı kuralı adı boş olamaz. |
 | 40620 |16 |Kullanıcı için oturum açma başarısız "%.&#x2a;ls". Parola değiştirme başarısız oldu. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor. |
-| 40627 |20 |Sunucu '{0}' ve veritabanı '{1}' işlemi devam ediyor. Yeniden denemeden önce birkaç dakika bekleyin. |
+| 40627 |20 |Sunucuda işlemi '{0}'ve veritabanı'{1}' devam ediyor. Yeniden denemeden önce birkaç dakika bekleyin. |
 | 40630 |16 |Parola doğrulama başarısız oldu. Parola çok kısa olduğundan ilke gereksinimlerini karşılamıyor. |
 | 40631 |16 |Belirttiğiniz parola çok uzun. Parola en fazla 128 karakter olmalıdır. |
 | 40632 |16 |Parola doğrulama başarısız oldu. Parola yeterince karmaşık olmadığı için ilke gereksinimlerini karşılamıyor. |
@@ -205,5 +205,6 @@ Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [Azure SQL veritabanı özellikleri](sql-database-features.md).
-* Hakkında bilgi edinin [hizmet katmanları](sql-database-service-tiers.md).
+* Hakkında bilgi edinin [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md).
+* Hakkında bilgi edinin [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md).
 

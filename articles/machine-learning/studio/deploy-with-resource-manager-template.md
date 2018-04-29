@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: 4ba75b1d1740486649cc8d4e012c3f780488cbe0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d00bed1544bc8dcb17af0d35c9c17f1c3113990
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Azure Resource Manager’ı Kullanarak Machine Learning Çalışma Alanını Dağıtma
 ## <a name="introduction"></a>Giriş
@@ -79,7 +79,7 @@ Depolama hesabı adı oluşturmak için kaynak grubunun adını ve çalışma al
 Bu şablon, c:\temp\ altında mlworkspace.json dosyası olarak kaydedin.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Şablona göre kaynak grubunu dağıtma
-* Open PowerShell
+* PowerShell'i açın
 * Azure Resource Manager ve Azure hizmet yönetimi için modüllerini yükleyin  
 
 ```
@@ -96,7 +96,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Bu adımı her oturum için yinelenmesi gerekir. Kimliği doğrulanmış sonra abonelik bilgilerinizi görüntülenmesi gerekir.
 

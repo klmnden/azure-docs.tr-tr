@@ -1,13 +1,13 @@
 ---
-title: "Windows Azure bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet'ini kullanarak VM oluşturma | Microsoft Docs"
-description: "Azure bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet ile Windows sanal makineler oluşturmak hızlı bir şekilde öğrenin."
+title: Windows Azure bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet'ini kullanarak VM oluşturma | Microsoft Docs
+description: Azure bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet ile Windows sanal makineler oluşturmak hızlı bir şekilde öğrenin.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 94eb6232cf59d502a9d70545785c3788398f4d27
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet ile Windows sanal makine oluşturma 
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]
 
-Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu öğreticide Azure PowerShell modülü sürümü 5.1.1 gerektirir veya sonraki bir sürümü. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.1.1 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
 

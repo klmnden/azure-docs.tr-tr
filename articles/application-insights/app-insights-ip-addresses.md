@@ -1,6 +1,6 @@
 ---
-title: "Application Insights ve günlük analizi tarafından kullanılan IP adresleri | Microsoft Docs"
-description: "Application Insights tarafından gerekli sunucu güvenlik duvarı özel durumlar"
+title: Application Insights ve günlük analizi tarafından kullanılan IP adresleri | Microsoft Docs
+description: Application Insights tarafından gerekli sunucu güvenlik duvarı özel durumlar
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights ve günlük analizi tarafından kullanılan IP adresleri
 [Azure Application Insights](app-insights-overview.md) hizmeti, IP adreslerinin sayısı kullanır. İzlemekte olduğunuz uygulama güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
@@ -32,9 +32,9 @@ Application Insights SDK'sı ve/veya Durum İzleyicisi portalına veri gönderme
 
 | Amaç | URL'si | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
-| Telemetri |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
-| Canlı ölçümleri akış |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
-| İç Telemetri |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
+| Telemetri |dc.services.visualstudio.com<br/>DC.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
+| Canlı ölçümleri akış |rt.services.visualstudio.com<br/>RT.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| İç Telemetri |BREEZE.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## <a name="status-monitor"></a>Durum İzleyicisi
 Durum İzleyicisi'ni yapılandırma - yalnızca değişiklik yaparken gerekir.
@@ -48,12 +48,12 @@ Durum İzleyicisi'ni yapılandırma - yalnızca değişiklik yaparken gerekir.
 | Yapılandırma |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Yapılandırma |`auth.gfx.ms` | |`443` |
 | Yapılandırma |`login.live.com` | |`443` |
-| Yükleme |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
+| Yükleme |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet indirmeleri) | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Amaç | URL'si | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
-| Çökme verileri |gate.hockeyapp.net |104.45.136.42 |80, 443 |
+| Çökme verileri |Gate.hockeyapp.NET |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Kullanılabilirlik testleri
 Hangi adreslerinden listesidir [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) çalıştırılır. Uygulamanıza web testleri çalıştırmak istediğinizi, ancak web sunucunuzu belirli istemciler hizmet için kısıtlı, test sunucuları bizim kullanılabilirlik gelen trafiğe izin gerekecektir.
@@ -186,26 +186,26 @@ East US
 
 ```  
 
-## <a name="application-insights-api"></a>Application Insights API
+## <a name="application-insights-api"></a>Application Insights API'si
 | Amaç | URI | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API belgeleri |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | İç API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dinamik|443 |
 
-## <a name="log-analytics-api"></a>Log Analytics API
+## <a name="log-analytics-api"></a>Günlük analizi API
 | Amaç | URI | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
-| API |api.loganalytics.io<br/>*.api.loganalytics.io |dinamik |80,443 |
+| API |api.loganalytics.io<br/>*. api.loganalytics.io |dinamik |80,443 |
 | API belgeleri |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |dinamik |80,443 |
 
-## <a name="application-insights-analytics"></a>Application Insights Analytics
+## <a name="application-insights-analytics"></a>Uygulama Öngörüler analizi
 
 | Amaç | URI | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
-| Analytics portalı | analytics.applicationinsights.io | dinamik | 80,443 |
+| Analytics portalı | Analytics.applicationinsights.io | dinamik | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dinamik | 80,443 |
-| Media CDN | applicationanalyticsmedia.azureedge.net | dinamik | 80,443 |
+| Medya CDN | applicationanalyticsmedia.azureedge.net | dinamik | 80,443 |
 
 Not: *. Application Insights ekibi tarafından applicationinsights.io etki alanına ait.
 
@@ -238,7 +238,7 @@ Not: *. loganalytics.io etki alanı günlük analizi ekibi tarafından ait.
 | --- | --- | --- | --- |
 | Aracı | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
 | Portal | gateway.azureserviceprofiler.net | dinamik | 443
-| Depolama | *.core.windows.net | dinamik | 443
+| Depolama | *. core.windows.net | dinamik | 443
 
 ## <a name="snapshot-debugger"></a>Anlık Görüntü Hata Ayıklayıcı
 
@@ -246,4 +246,4 @@ Not: *. loganalytics.io etki alanı günlük analizi ekibi tarafından ait.
 | --- | --- | --- | --- |
 | Aracı | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dinamik | 443
-| Depolama | *.core.windows.net | dinamik | 443
+| Depolama | *. core.windows.net | dinamik | 443

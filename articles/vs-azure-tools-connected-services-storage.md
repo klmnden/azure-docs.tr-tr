@@ -2,23 +2,20 @@
 title: Visual Studio'da bağlı hizmetler kullanarak Azure Storage ekleme | Microsoft Docs
 description: Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak uygulamanıza Azure depolama ekleme
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
-ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 521ec044-ad4b-4828-8864-01decde2e758
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/26/2017
 ms.author: ghogen
-ms.openlocfilehash: 3252d022222e1c31491a6b111e5e96f8c62ca915
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3c5d3dc1d91a6f8bb1816b2985f86ec5c4a12e63
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Visual Studio bağlantılı hizmetler kullanarak Azure depolama ekleme
 Visual Studio ile aşağıdakilerden herhangi birini Azure depolama birimine kullanarak bağlayabilirsiniz **bağlı Hizmetleri Ekle** iletişim:
@@ -50,7 +47,7 @@ Tamamlandıktan sonra **bağlı Hizmetleri Ekle** sıraları, blob storage ile �
     
     ![Varolan bir depolama hesabı projeye ekleyin](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
 
-1. Bir depolama hesabı oluşturmak için: 
+1. Depolama hesabı oluşturmak için: 
    
    1. Seçin **yeni depolama hesabı oluşturma** iletişim kutusunun altındaki.
 

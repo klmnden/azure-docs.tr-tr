@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Kullanım örneği: Automation DSC ve Chocolatey kullanarak sanal makineleri için sürekli dağıtım
 Bir DevOps dünyanın çeşitli noktalarıyla sürekli tümleştirme ardışık düzeninde yardımcı olmak üzere birçok araç vardır.  Azure Otomasyonu istenen durum yapılandırması (DSC) bir DevOps takımlar uygulayabileceğiniz seçeneklerine Hoş Geldiniz yeni ektir.  Bu makalede, bir Windows bilgisayar için yukarı sürekli dağıtımı (CD) ayarı gösterilmektedir.  (Bir web sitesi, örneğin gibi) rolü ve ek roller için buradan gerektiği kadar Windows bilgisayarlar dahil olmak üzere teknik kolayca genişletebilirsiniz.
@@ -50,7 +50,7 @@ Büyük olasılıkla zaten üst veya çoğuna bit yaptığınız.  Nuspec oluşt
 ARM şablonu ile başlatıyorsanız değil, bu da normaldir.  Çekme server ve tüm REST, Vm'leri kaydetme yardımcı olmak amacıyla tasarlanmış PowerShell cmdlet'leri vardır. Bu makalede daha fazla ayrıntı için bkz: [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md)
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>1. adım: Çekme sunucusuna ve Otomasyon hesabı ayarlama
-Bir kimliği doğrulanmış (Add-AzureRmAccount) PowerShell komut satırında: (çekme sunucunun ayarlanması birkaç dakika sürebilir)
+Bir kimliği doğrulanmış (Connect-AzureRmAccount) PowerShell komut satırında: (çekme sunucunun ayarlanması birkaç dakika sürebilir)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
@@ -132,7 +132,7 @@ ISVBoxConfig.ps1:
         }    
     }
 
-New-ConfigurationScript.ps1:
+Yeni-ConfigurationScript.ps1:
 
     Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 

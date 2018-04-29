@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi
 Microsoft Azure veri gizliliği, veri egemenliği ve etkinleştirir, Azure veri aralığı boyunca barındırılan denetime Gelişmiş Şifreleme teknolojileri denetlemek ve şifreleme anahtarlarını yönetmek sağlamak için kesinlikle kaydedilmiş veri denetim & Denetim erişimi. Bu Azure müşterilerin kendi iş gereksinimlerine en uygun çözümü seçim yapma esnekliği sağlar. Bu yazıda, biz, yeni bir teknoloji çözümüne "Azure Disk şifrelemesi Windows ve Linux Iaas VM'ın" korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olmak için tanıtılacaktır. Kağıt desteklenen senaryolar ve kullanıcı da dahil olmak üzere Azure disk şifrelemesi özelliklerinin nasıl kullanılacağı hakkında ayrıntılı yönergeler deneyimleri sağlar.
@@ -141,7 +141,7 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
 > [!NOTE]
 > Windows Server 2008 R2 için .NET Framework 4.5 Azure şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update'ten isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemler için Microsoft .NET Framework 4.5.2 yükleyerek yükleyebilirsiniz ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk şifrelemesi yalnızca üzerinde desteklenen belirli Azure Galerisi Linux sunucu dağıtımları ve sürümleri dayalıdır.  Şu anda desteklenen sürümlerin listesi için lütfen [Azure Disk şifrelemesi ile ilgili SSS](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* Azure Disk şifrelemesi yalnızca üzerinde desteklenen belirli Azure Galerisi Linux sunucu dağıtımları ve sürümleri dayalıdır.  Şu anda desteklenen sürümlerin listesi için lütfen [Azure Disk şifrelemesi ile ilgili SSS](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı Azure bölgesinde ve abonelik bulunmasını gerektirir.
 
@@ -172,7 +172,7 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
   > [!NOTE]
   > Güvenlik ilkeniz Azure vm'lerden Internet erişimi sınırlar, önceki URI çözümlemek ve IP'leri giden bağlantı izin vermek için belirli bir kuralın yapılandırın.
   >
-  >Yapılandırma ve Azure anahtar kasası bir Güvenlik Duvarı'nı (erişmek içinhttps://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
+  >Yapılandırma ve Azure anahtar kasası bir Güvenlik Duvarı'nı erişmek için (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Azure Disk şifrelemesi yapılandırmak için Azure PowerShell SDK sürümü'nın en son sürümünü kullanın. En son sürümünü indirme [Azure PowerShell sürüm](https://github.com/Azure/azure-powershell/releases)
 
@@ -783,7 +783,7 @@ Kullanım [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>İşletim sistemi disk şifrelemesi önkoşulları
 
-* VM işletim sistemi disk şifrelemesi ile uyumlu bir dağıtım içinde listelenen kullanılmalıdır [Azure Disk şifrelemesi ile ilgili SSS](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
+* VM işletim sistemi disk şifrelemesi ile uyumlu bir dağıtım içinde listelenen kullanılmalıdır [Azure Disk şifrelemesi ile ilgili SSS](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * VM, Azure Kaynak Yöneticisi'nde Market görüntüsünden oluşturulmalıdır.
 * Azure VM ile en az 4 GB RAM (boyutu 7 GB önerilir).
 * (RHEL ve CentOS) SELinux devre dışı bırakın. SELinux devre dışı bırakmak için "4.4.2. bkz. SELinux devre dışı bırakma" [SELinux kullanıcının ve Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) VM üzerinde.

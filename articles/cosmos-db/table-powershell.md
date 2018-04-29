@@ -1,12 +1,12 @@
 ---
-title: "PowerShell ile Azure Cosmos DB tablo API işlemleri | Microsoft Docs"
-description: "PowerShell ile Azure Cosmos DB tablo API işlemleri gerçekleştirme"
+title: PowerShell ile Azure Cosmos DB tablo API işlemleri | Microsoft Docs
+description: PowerShell ile Azure Cosmos DB tablo API işlemleri gerçekleştirme
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Cosmos DB tablo API işlemleri 
 
@@ -37,7 +37,7 @@ Bu nasıl yapılır makalesi ortak tablo API işlemleri kapsar. Aşağıdakileri
 > * Sorgu Tablosu
 > * Tablo varlıklarını silme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure PowerShell modülü sürümü 4.4.0 örnekler gerektiren veya sonraki bir sürümü. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulunamıyor. Hiçbir şey görünmez veya yükseltmek için bkz: gereken [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). 
 
@@ -55,10 +55,10 @@ Veritabanı hesabı adı ve kaynak grubu portaldan alın; komut dosyanızı tabl
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-`Login-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+`Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-table-or-reference-a-table"></a>Bir tablo oluşturun veya bir tablo başvurusu

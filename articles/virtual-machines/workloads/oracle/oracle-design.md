@@ -1,13 +1,13 @@
 ---
-title: "Bir Oracle veritabanına Azure üzerinde tasarlayıp | Microsoft Docs"
-description: "Tasarım ve Azure ortamınızda bir Oracle veritabanına uygulayın."
+title: Bir Oracle veritabanına Azure üzerinde tasarlayıp | Microsoft Docs
+description: Tasarım ve Azure ortamınızda bir Oracle veritabanına uygulayın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Bir Oracle veritabanına Azure'da tasarlayıp
 
@@ -136,7 +136,7 @@ Toplam ağ verimliliği aşağıdaki bilgilere dayanarak tahmin edilen:
 
 ![Ekran görüntüsü SQL * Net işleme](./media/oracle-design/sqlnet_info.png)
 
-Ağ bant genişliği gereksinimlerine bağlı olarak, aralarından seçim yapabileceğiniz çeşitli ağ geçidi türü vardır. Bunlar, temel, VpnGw ve Azure ExpressRoute içerir. Daha fazla bilgi için bkz: [VPN ağ geçidi fiyatlandırma sayfası](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Ağ bant genişliği gereksinimlerine bağlı olarak, aralarından seçim yapabileceğiniz çeşitli ağ geçidi türü vardır. Bunlar, temel, VpnGw ve Azure ExpressRoute içerir. Daha fazla bilgi için bkz: [VPN ağ geçidi fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Öneriler**
 

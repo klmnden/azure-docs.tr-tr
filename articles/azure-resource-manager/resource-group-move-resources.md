@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 341ee58904cb08a024ac9f14839cf011e72b4dd2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -121,6 +121,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Bilişsel hizmetler
 * Content Moderator
 * Veri Kataloğu
+* Veri Fabrikası - V1 olabilir taşınması, ancak V2 taşıma (Önizleme) desteklenmiyor
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -166,7 +167,6 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * BizTalk Services
 * Sertifikalar - uygulama hizmeti sertifikaları taşınabilir, ancak yüklenen sertifikalara sahip [sınırlamalar](#app-service-limitations).
 * Kapsayıcı Hizmeti
-* Data Factory
 * DevTest Labs - taşıma aynı Abonelikteki yeni kaynak grubu için etkinleştirildi, ancak çapraz abonelik taşıma etkin değil.
 * Dynamics LCS
 * Express Route

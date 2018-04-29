@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT hub'ı nasıl | Microsoft Docs"
-description: "Bir geliştirici olarak, çeşitli IOT Hub özellikleri nasıl kullanırım?"
+title: Azure IOT hub'ı nasıl | Microsoft Docs
+description: Bir geliştirici olarak, çeşitli IOT Hub özellikleri nasıl kullanırım?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Azure IOT hub'ı kullanma
 
@@ -52,7 +52,7 @@ Uygulama alıştırmalarını aracılığıyla çalışarak belirli IOT hub'ı �
 
 - [Cihazları yapılandırmak için istenen özellikleri kullanmak][lnk-properties-tutorial]. Bu öğretici nasıl cihazı kullanmak için twin'ın istenen ve özellikleri için uzaktan bildirilen Cihazınızı yapılandırmak gösterir.
 
-- [Bir cihaz üretici yazılımı güncelleştirmesi başlatmak için cihaz işleri kullanın][lnk-jobs-tutorial]. Bu öğretici çiftlerini ve doğrudan yöntemleri gibi anahtar cihaz yönetimi özelliklerinin nasıl kullanılacağını gösterir. Uzaktan aygıtınızın üretici yazılımını güncelleştirmek için bu özellikleri kullanmayı öğrenin.
+- [Cihaz üretici yazılımını güncelleştirmek için cihaz Yönetimi'ni kullanın][lnk-jobs-tutorial]. Bu öğretici çiftlerini ve doğrudan yöntemleri gibi anahtar cihaz yönetimi özelliklerinin nasıl kullanılacağını gösterir. Uzaktan aygıtınızın üretici yazılımını güncelleştirmek için bu özellikleri kullanmayı öğrenin.
 
 - [Zamanlama ve yayın işleri][lnk-schedule-tutorial]. Bu öğretici, istenen özellikleri ve doğrudan yöntemleri zamanlanmış bir saatte birden çok aygıt ile etkileşim için nasıl kullanılacağını gösterir.
 

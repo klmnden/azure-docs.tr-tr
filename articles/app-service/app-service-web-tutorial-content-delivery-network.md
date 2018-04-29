@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Öğretici: Azure App Service’e Content Delivery Network (CDN) Ekleme
 
@@ -47,7 +47,7 @@ Kullanacağınız web uygulamasını oluşturmak için, [statik HTML hızlı ba�
 
 ### <a name="have-a-custom-domain-ready"></a>Özel bir etki alanına sahip olma
 
-Bu öğreticinin özel etki alanı adımını tamamlamak için, bir özel etki alanına sahip olmanız ve etki alanı sağlayıcınız (GoDaddy gibi) için DNS kayıt defterinize erişiminiz olması gerekir. Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırmanız gerekir.
+Bu öğreticinin özel etki alanı adımını tamamlamak için, bir özel etki alanına sahip olmanız ve etki alanı sağlayıcınız için DNS kayıt defterinize erişiminiz olması gerekir. Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırmanız gerekir.
 
 Henüz bir etki alanınız yoksa, Azure portalını kullanarak bir etki alanı satın almak için [App Service etki alanı öğreticisini](custom-dns-web-site-buydomains-web-app.md) izlemeniz yararlı olabilir. 
 

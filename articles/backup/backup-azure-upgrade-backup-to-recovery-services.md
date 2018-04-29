@@ -1,6 +1,6 @@
 ---
-title: "Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme | Microsoft Docs"
-description: "Yönergeler ve destek bilgileri için bir kurtarma Hizmetleri kasası, Azure yedekleme kasası yükseltmek için."
+title: Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme | Microsoft Docs
+description: Yönergeler ve destek bilgileri için bir kurtarma Hizmetleri kasası, Azure yedekleme kasası yükseltmek için.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
 
@@ -57,7 +57,7 @@ Kurtarma Hizmetleri kasalarının, yedekleme kasaları yükseltmek için PowerSh
 
 Kasa yükseltmek için aşağıdaki komut dosyasını kullanın. Aşağıdaki örnek komut dosyası parametrelerinin açıklamaları vardır.
 
-RecoveryServicesVaultUpgrade 1.0.2.ps1 **- Subscriptionıd** `<subscriptionID>` **- VaultName** `<vaultname>` **-konum** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName**`<rgname>`
+RecoveryServicesVaultUpgrade 1.0.2.ps1 **- Subscriptionıd** `<subscriptionID>` **- VaultName** `<vaultname>` **-konum** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
 
 **Subscriptionıd** -yükseltiliyor kasa abonelik kimliği sayısı.<br/>
 **VaultName** -yükseltiliyor yedekleme kasasının adını.<br/>
@@ -84,7 +84,7 @@ PowerShell Betiği kimlik bilgilerinizi girmenizi ister. Kimlik bilgilerinizi ik
 ### <a name="pre-requisites-checking"></a>Ön koşul denetimi
 Azure kimlik bilgilerinizi girdikten sonra Azure ortamınıza aşağıdaki önkoşulları karşıladığını denetler:
 
-- **En düşük aracı sürümü** -yedekleme kasaları kurtarma Hizmetleri kasalarının yükseltme gerektirir en az olacak şekilde MARS Aracısı sürümü 2.0.9083.0. Bir aracı ile 2.0.9083.0'den önceki bir yedekleme Kasası'na kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltmeyi yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **En düşük aracı sürümü** -yedekleme kasaları kurtarma Hizmetleri kasalarının yükseltme gerektirir en az olacak şekilde MARS Aracısı sürümü 2.0.9083.0. Bir aracı ile 2.0.9083.0'den önceki bir yedekleme Kasası'na kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltmeyi yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Devam eden yapılandırma işleri**: birisi işi yükseltilmesi için ayarlanmış bir yedekleme kasası için yapılandırma ya da bir öğe kayıt, önkoşul denetimi başarısız olur. Yapılandırmayı tamamlamak veya öğeyi kaydolma işlemini tamamlamak ve kasa yükseltme işlemi başlatın.
 - **Depolama tabanlı faturalama modeli**: Kurtarma Hizmetleri kasalarının örnek tabanlı fatura modelini destekler. Depolama tabanlı fatura modelini kullanan bir yedekleme kasası kasası yükseltme çalıştırırsanız, faturalama modelinizi Kasayla birlikte yükseltmeniz istenir. Faturalama modelinizi ilk olarak, aksi takdirde, güncelleştirebilir ve kasa yükseltme çalıştırın.
 - Kurtarma Hizmetleri kasası için bir kaynak grubu tanımlayın. Resource Manager dağıtım özelliklerden yararlanmak için bir kaynak grubu bir kurtarma Hizmetleri kasası konulmalıdır. Varsa kullanın, bir ad sağlamak için hangi kaynak grubu tanımadığınız ve yükseltme işlemi kaynak grubu oluşturur. Yükseltme işlemi kasası ayrıca yeni kaynak grubu ile ilişkilendirir.
@@ -106,7 +106,7 @@ Kurtarma Hizmetleri kasasına yedekleme ilkesine belirten saat dilimi bilgilerin
 
 ## <a name="enhanced-security"></a>Geliştirilmiş güvenlik
 
-Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltildiğinde, kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman güvenlik ayarlarını, yedeklemeler silme gibi bazı işlemleri bulunan veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) PIN. Gelişmiş Güvenlik ile ilgili daha fazla bilgi için bkz: [karma yedekleri korumak için güvenlik özellikleri](backup-azure-security-feature.md). 
+Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltildiğinde, kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman güvenlik ayarlarını, yedeklemeler silme gibi bazı işlemleri bulunan veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) PIN. Gelişmiş Güvenlik ile ilgili daha fazla bilgi için bkz: [karma yedekleri korumak için güvenlik özellikleri](backup-azure-security-feature.md). 
 
 Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için tutulur. Müşteriler bu güvenlik veri depolama için faturalandırılır. Güvenlik veri saklama Azure Yedekleme aracısı, Azure yedekleme sunucusu ve System Center Data Protection Manager için alınan kurtarma noktaları için geçerlidir. 
 

@@ -2,19 +2,19 @@
 title: SQL Data Warehouse ile Azure akış analizi kullanın | Microsoft Docs
 description: Çözümleri geliştirme için Azure SQL Data Warehouse ile Azure akış analizi kullanımı hakkında ipuçları.
 services: sql-data-warehouse
-author: ckarst
+author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-ms.date: 04/12/2018
-ms.author: cakarst
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 597953be29241d3c92f9d4e0d256fcb7a1643ccc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 76cbbddca70d3bc8091dbea383213446adac533e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL Data Warehouse ile Azure akış analizi kullanın
 Azure Stream Analytics akış verileri bulutta üzerinden düşük gecikmeli, yüksek oranda kullanılabilir, ölçeklenebilir karmaşık olay işlemesi sağlayan tam olarak yönetilen bir hizmettir. Okuyarak temel kavramları öğrenebilirsiniz [Azure Stream Analytics'e giriş][Introduction to Azure Stream Analytics]. Ardından izleyerek akış Analizi ile bir uçtan uca çözüm oluşturmak nasıl öğrenebilirsiniz [Azure Stream Analytics ile çalışmaya başlamak] [ Get started using Azure Stream Analytics] Öğreticisi.

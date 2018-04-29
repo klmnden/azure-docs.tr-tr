@@ -1,27 +1,25 @@
 ---
-title: "Performans - Azure Hdınsight için Spark işlerinin en iyi duruma getirme | Microsoft Docs"
-description: "En iyi performansı Spark kümeleri için ortak stratejiler gösterilmektedir."
+title: Performans - Azure Hdınsight için Spark işlerinin en iyi duruma getirme | Microsoft Docs
+description: En iyi performansı Spark kümeleri için ortak stratejiler gösterilmektedir.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 64ddb70f071a9fadc6fef64dcd3506c6d6255481
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 381f9ef2dac2c1dfdada32a917626b17c5969a98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="optimize-spark-jobs"></a>Spark işlerinin en iyi duruma getirme
+# <a name="optimize-spark-jobs"></a>Spark işlerini en iyi duruma getirme
 
 Spark küme yapılandırması, belirli iş yükü için en iyi duruma getirme hakkında bilgi edinin.  En sık karşılaşılan hatalı yapılandırmalar (özellikle yanlış ölçekli yürütücüler), uzun süre çalışan işlemleri ve Kartezyen işlemlerinde neden görevleri nedeniyle bellek baskısı iştir. İşlerini uygun önbelleğe alma ve için sağlayarak hızlandırabilirsiniz [veri eğme](#optimize-joins-and-shuffles). En iyi performans için izlemek ve uzun süre çalışan ve kaynak tüketen Spark iş yürütmeleri gözden geçirin.
 
@@ -63,7 +61,7 @@ En iyi performans için parquet ile biçimdir *snappy sıkıştırma*, Spark var
 
 Yeni bir Spark kümesi oluşturduğunuzda, Azure Blob Storage veya Azure Data Lake Store, kümenin varsayılan depolama alanı olarak seçmek için seçeneğiniz vardır. Kümenizi sildiğinizde, verilerinizi otomatik olarak silinmez için her iki seçenek, uzun vadeli depolama yararı geçici kümeleri için verin. Geçici bir küme oluşturun ve yine de verilerinizi erişebilir.
 
-| Depo türü | Dosya Sistemi | Hız | Transient | Kullanım örnekleri |
+| Depo türü | Dosya Sistemi | Hız | Geçici | Kullanım örnekleri |
 | --- | --- | --- | --- | --- |
 | Azure Blob Depolama | **wasb:**//url/ | **Standart** | Evet | Geçici küme |
 | Azure Data Lake Store | **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
@@ -82,7 +80,7 @@ Spark farklı yöntemlerle gibi kullanılabilen kendi yerel önbelleğe alma mek
     * Bellek içi ve SSD önbelleği kullanır.
 
 * Yerel HDFS (önerilir)
-    * `hdfs://mycluster`yolu.
+    * `hdfs://mycluster` yolu.
     * SSD önbelleği kullanır.
     * Önbellek yeniden gerektiren küme sildiğinizde, önbelleğe alınan veriler kaybolur.
 
@@ -164,9 +162,9 @@ Spark küme yükünüzü bağlı olarak, belirleyebilir iyileştirilmiş Spark i
 
 Ayarlayabileceğiniz bazı ortak Parametreler şunlardır:
 
-* `--num-executors`yürütücüler uygun sayısını ayarlar.
-* `--executor-cores`Çekirdek sayısı için her Yürütücü ayarlar. Genellikle diğer işlemleri bazı kullanılabilir belleğin kullanma gibi middle-sized yürütücüler olması gerekir.
-* `--executor-memory`yığın boyutu YARN üzerinde denetimleri her Yürütücü için bellek boyutu ayarlar. Yürütme yükü için bazı bellek bırakmanız gerekir.
+* `--num-executors` yürütücüler uygun sayısını ayarlar.
+* `--executor-cores` Çekirdek sayısı için her Yürütücü ayarlar. Genellikle diğer işlemleri bazı kullanılabilir belleğin kullanma gibi middle-sized yürütücüler olması gerekir.
+* `--executor-memory` yığın boyutu YARN üzerinde denetimleri her Yürütücü için bellek boyutu ayarlar. Yürütme yükü için bazı bellek bırakmanız gerekir.
 
 ### <a name="select-the-correct-executor-size"></a>Doğru Yürütücü boyutunu seçin
 

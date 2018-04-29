@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma"
-description: "Bir Windows VM yönetilen hizmet kimliği (MSI) Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösteren bir öğretici."
+title: Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma
+description: Bir Windows VM yönetilen hizmet kimliği (MSI) Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösteren bir öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: be76fa089003a7e881bcddcfeeb628e4a704ce21
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2e0d7f7f8b63a199f921c28072bcd861711addfc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -38,7 +38,7 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
 
@@ -55,7 +55,7 @@ Bu öğretici için yeni bir Windows VM oluşturun.  Mevcut bir VM'yi üzerinde 
 
 ## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir 
 
-Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. MSI etkinleştirme, VM için yönetilen bir kimlik oluşturmak üzere Azure söyler. Perde arkasında MSI etkinleştirme iki işlemi yapar: MSI VM uzantısı, VM yükler ve MSI Azure Kaynak Yöneticisi'nde sağlar.
+Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. MSI etkinleştirme, VM için yönetilen bir kimlik oluşturmak üzere Azure söyler. Perde arkasında MSI etkinleştirme iki işlemi yapar: yazmaçlar yönetilen kimliğini ve oluşturmak için Azure Active Directory ile VM VM kimliğini yapılandırır.
 
 1. Seçin **sanal makine** MSI etkinleştirmek istediğiniz.  
 2. Sol gezinti çubuğunda **yapılandırma**. 
@@ -99,10 +99,10 @@ Bu öğreticide, Data Lake Store dosya sistemi REST yapmak için PowerShell kull
 1. Portalı'nda gidin **sanal makineleri**gidin ve Windows VM **genel bakış** tıklatın **Bağlan**.
 2. Girin, **kullanıcıadı** ve **parola** Windows VM oluşturduğunuzda, eklediğiniz için. 
 3. Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle açmak **PowerShell** uzak oturumda. 
-4. PowerShell'in kullanarak `Invoke-WebRequest`, Azure Data Lake Store için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.  "Https://datalake.azure.net/" Data Lake Store için kaynak tanımlayıcısıdır.  Data Lake kaynak tanımlayıcısını tam bir eşleşme yapar ve eğik önemlidir.
+4. PowerShell'in kullanarak `Invoke-WebRequest`, Azure Data Lake Store için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.  Data Lake Store kaynak tanımlayıcısıdır "https://datalake.azure.net/".  Data Lake kaynak tanımlayıcısını tam bir eşleşme yapar ve eğik önemlidir.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
    Yanıt için bir PowerShell nesnesi bir JSON nesnesinde dönüştürün. 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Media Services için Java SDK’sı kullanmaya başlama | Microsoft Docs"
-description: "Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar."
+title: Azure Media Services için Java SDK’sı kullanmaya başlama | Microsoft Docs
+description: Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b8dea132fc1af546b64f51e5ab395ad8bc3fe37
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Azure Media Services için Java istemci SDK’sı kullanmaya başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ Java için Media Services SDK’sını kullanmaya başlamak üzere [Azure Media 
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->`azure-media` paket sürümü `0.9.8` itibariyle SDK, Azure Active Directory (AAD) kimlik doğrulaması desteği eklemiş ve Azure Access Control Service (ACS) kimlik doğrulaması desteğini kaldırmıştır. ACS hizmetleri 1 Haziran 2018’de kullanım dışı kalacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir. Geçiş hakkında daha fazla bilgi için [Azure AD kimlik doğrulaması ile Azure Media Services API’sine erişim](media-services-use-aad-auth-to-access-ams-api.md) makalesini okuyun.
+>`azure-media` paket sürümü `0.9.8` itibariyle SDK, Azure Active Directory (AAD) kimlik doğrulaması desteği eklemiş ve Azure Access Control Service (ACS) kimlik doğrulaması desteğini kaldırmıştır. ACS hizmetleri 22 Haziran 2018’de kullanım dışı kalacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir. Geçiş hakkında daha fazla bilgi için [Azure AD kimlik doğrulaması ile Azure Media Services API’sine erişim](media-services-use-aad-auth-to-access-ams-api.md) makalesini okuyun.
 
 >[!NOTE]
 >Azure Media Services Java SDK'sının kaynak kodunu [GitHub depomuzda](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media) bulabilirsiniz. Ana dal yerine 0,9 dalına geçiş yaptığınızdan emin olun. 

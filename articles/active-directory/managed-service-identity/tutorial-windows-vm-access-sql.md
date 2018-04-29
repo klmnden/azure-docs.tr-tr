@@ -1,8 +1,8 @@
 ---
-title: "Azure SQL erişmek için bir Windows VM MSI kullanın"
-description: "Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma sürecinde anlatan öğretici."
+title: Azure SQL erişmek için bir Windows VM MSI kullanın
+description: Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma sürecinde anlatan öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5459739e9d3469adc7dbf65c8dcc0de918ea0c73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -38,7 +38,7 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
 
@@ -55,17 +55,13 @@ Bu öğretici için yeni bir Windows VM oluşturun.  Mevcut bir VM'yi üzerinde 
 
 ## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir 
 
-Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. MSI etkinleştirme, VM için yönetilen bir kimlik oluşturmak üzere Azure söyler. Perde arkasında MSI etkinleştirme iki işlemi yapar: MSI VM uzantısı, VM yükler ve MSI Azure Kaynak Yöneticisi'nde sağlar.
+Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. MSI etkinleştirme, VM için yönetilen bir kimlik oluşturmak üzere Azure söyler. Perde arkasında MSI etkinleştirme iki işlemi yapar: yazmaçlar yönetilen kimliğini ve oluşturmak için Azure Active Directory ile VM VM kimliğini yapılandırır.
 
 1.  Seçin **sanal makine** MSI etkinleştirmek istediğiniz.  
 2.  Sol gezinti çubuğunda **yapılandırma**. 
 3.  Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No 
 4.  Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.  
     ![Alt görüntü metin](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Denetleyin ve bu VM uzantıları doğrulamak isterseniz, tıklatın **uzantıları**. MSI, ardından etkinse **ManagedIdentityExtensionforWindows** listede görüntülenir.
-
-    ![Alt görüntü metin](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Bir Azure SQL server veritabanında, VM erişim
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Ardından, VM'nin MSI grubuna ekleyin.  MSI gereksinim **objectID**, hangi Azure PowerShell kullanarak elde.  İlk olarak, indirme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Kullanarak oturum `Login-AzureRmAccount`, ve aşağıdaki komutları çalıştırın:
+Ardından, VM'nin MSI grubuna ekleyin.  MSI gereksinim **objectID**, hangi Azure PowerShell kullanarak elde.  İlk olarak, indirme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Kullanarak oturum `Connect-AzureRmAccount`, ve aşağıdaki komutları çalıştırın:
 - Birden çok olanları varsa, oturum bağlamı istediğiniz Azure aboneliği için ayarlandığından emin olun.
 - Azure aboneliğinizde kullanılabilir kaynaklar listesinde, VM adları ve doğru kaynak grubu içinde doğrulayın.
 - İçin uygun değerleri kullanarak MSI sanal makinenin özelliklerini al `<RESOURCE-GROUP>` ve `<VM-NAME>`.
@@ -182,7 +178,7 @@ VM içinde çalışan kod artık MSI bir belirteç almak ve SQL sunucusunda kiml
 
 Azure SQL MSI kullanarak doğrudan erişim belirteçleri kabul edebilir destekler Azure AD kimlik doğrulama, yerel olarak alınır.  Kullandığınız **erişim belirteci** SQL bağlantısı oluşturma yöntemi.  Bu Azure AD ile tümleştirme Azure SQL'ın bir parçasıdır ve bağlantı dizesini kimlik bilgileri sağladığını farklıdır.
 
-Aşağıda, bir erişim belirteci kullanarak SQL bağlantı açma .net kod örneği verilmiştir.  Bu kod, VM'de VM MSI uç noktasına erişmek için çalıştırmanız gerekir.  **.NET framework 4.6** ya da daha yüksek erişim belirteci yöntemi kullanmak için gereklidir.  AZURE SQL SERVERNAME ve veritabanı değerlerini değiştirmek uygun şekilde.  Azure SQL kaynak kimliği "https://database.windows.net/" olduğuna dikkat edin.
+Aşağıda, bir erişim belirteci kullanarak SQL bağlantı açma .net kod örneği verilmiştir.  Bu kod, VM'de VM MSI uç noktasına erişmek için çalıştırmanız gerekir.  **.NET framework 4.6** ya da daha yüksek erişim belirteci yöntemi kullanmak için gereklidir.  AZURE SQL SERVERNAME ve veritabanı değerlerini değiştirmek uygun şekilde.  Azure SQL için kaynak kimliği Not "https://database.windows.net/".
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ Alternatif olarak, yazma ve VM üzerinde bir uygulama dağıtmak zorunda kalmada
 4.  PowerShell'in kullanarak `Invoke-WebRequest`, Azure SQL için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Yanıt için bir PowerShell nesnesi bir JSON nesnesinde dönüştürün. 

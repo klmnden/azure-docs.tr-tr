@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 109235718f085ea2912f601f0657e08230e3e91d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services hesabınız Bağlan
 
@@ -91,7 +91,7 @@ Aşağıdaki bölümlerde, maliyet yönetim erişim sağlamak için salt okunur 
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>AWS IAM kullanıcı tabanlı erişim maliyet yönetimini yapılandırma
 
-1. Azure portalından Cloudyn portalını açın veya gitmek https://azure.cloudyn.com/ ve oturum açın.
+1. Cloudyn portalını Azure portalından açın veya https://azure.cloudyn.com/ sayfasına gidip oturum açın.
 2. Dişlisine simgesine tıklayın ve ardından **bulut hesapları**.
 3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesini ve sonra **yeni Ekle +**.
 4. İçin **hesap adı**, bir hesap adı yazın.

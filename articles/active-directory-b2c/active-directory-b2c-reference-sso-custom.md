@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d64c031b1504dd8c35c1b498bbd931945fcad31
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Çoklu oturum açma (SSO) oturum yönetimi
 
@@ -67,6 +67,9 @@ Bu sağlayıcı talep bir oturumda depolamak için kullanılabilir. Bu sağlayı
 ```
 
 Oturumda talep eklemek için kullanın `<PersistedClaims>` teknik profili öğesidir. Oturum, kalıcı yeniden doldurmak için sağlayıcı kullanıldığında talep için talep paketi eklenir. `<OutputClaims>` Talep oturumdan almak için kullanılır.
+
+> [!NOTE]
+> DefaultSSOSessionProvider bir oturumda talep depolamak için kullanırken, sonraki adımlarda ön koşullar tarafından kullanılan veya uygulamaya döndürülen gereken herhangi bir talep oturumda depolanan veya kullanıcıların profilinden okuma tarafından engagement'ta emin olmak gerekir Dizin. Bu, talep eksik Yolculuklar başarısız olmaz, kimlik doğrulama garanti eder.
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 

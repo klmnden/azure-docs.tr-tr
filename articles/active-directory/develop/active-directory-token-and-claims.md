@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
-Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır.
+Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır. 
 
 ## <a name="types-of-tokens"></a>Belirteç türleri
 Azure AD destekler [OAuth 2.0 yetkilendirme protokolünü](active-directory-protocols-oauth-code.md), hangi yapar access_tokens ve refresh_tokens kullanın.  Kimlik doğrulama ve oturum açma aracılığıyla da destekler [Openıd Connect](active-directory-protocols-openid-connect-code.md), belirteç, id_token üçüncü türü sunar.  Bu belirteçler her "taşıyıcı belirteç" olarak gösterilir.
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT talep | Ad | Açıklama |
 | --- | --- | --- |
-| `appid` |Uygulama Kimliği |Bir kaynağa erişmek için belirteci kullanarak uygulamayı tanımlar. Uygulama bir kullanıcı adına veya kendisi olarak davranamaz. Uygulama kimliği genellikle Uygulama nesnesini temsil eder, ancak ayrıca Azure AD içinde bir hizmet sorumlusu nesnesi gösterebilir. <br><br> **Örnek JWT değer**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Hedef kitle |Belirtecin hedeflenen alıcı. Belirteç alan uygulama İzleyici değerin doğru olduğundan ve farklı bir izleyici için amaçlanan herhangi bir belirtece Reddet doğrulamanız gerekir. <br><br> **Örnek SAML değer**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Örnek JWT değer**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Uygulama kimlik doğrulama bağlamı sınıf başvurusu |İstemcinin kimlik doğrulamasının nasıl yapıldığı gösterir. Ortak bir istemci için değeri 0'dır. İstemci Kimliğini ve istemci gizli anahtarı kullandıysanız, değer 1'dir. <br><br> **Örnek JWT değer**: <br> `"appidacr": "0"` |
 | `acr` |Kimlik doğrulama bağlamı sınıf başvurusu |Nasıl konu, uygulama kimlik doğrulama bağlamı sınıf başvurusu talep istemcisinde aksine doğrulanmış olduğunu gösterir. Son kullanıcı kimlik doğrulaması ISO/IEC 29115 gereksinimlerini karşılamayan "0" değerini gösterir. <br><br> **Örnek JWT değer**: <br> `"acr": "0"` |
@@ -163,9 +162,8 @@ Yenileme belirteçleri geçersiz kılınan veya çeşitli nedenlerle için herha
   * Yapılan parola değişikliği: Yönetici parolasını değiştirmek için bir kullanıcı zorlar veya bunu sıfırlar, bunların parolalarını kullanarak ulaşılan, daha sonra kullanıcının belirteçleri geçersiz kılınır.  Özel durumlar için aşağıdaki notlara bakın. 
   * Güvenlik ihlali: (örn. şirket içi depolama parolaların ihlal) bir güvenlik ihlali durumunda yönetici şu anda verilen yenileme belirteçleri tümünün iptal edebilirsiniz.  Bu, tüm kullanıcıların yeniden kimlik doğrulaması için zorlar. 
 
-Not: 
-
-Kimlik doğrulama parolası olmayan yöntemi varsa (Windows Hello, Doğrulayıcı uygulama, bir yazıtipi veya parmak izi gibi biyometrik) belirteç elde etmek için kullanılan, kullanıcının parolasını değiştirme kullanıcının yeniden kimlik doğrulamasını zorla sağlamaz (ancak, Doğrulayıcı uygulama zorlar yeniden kimlik doğrulaması için).  Seçilen kendi kimlik doğrulama giriş olmasıdır (yüz, bir örneğin) değişmedi ve bu nedenle yeniden yeniden kimlik doğrulaması için kullanılabilir.
+> [!NOTE]
+>Kimlik doğrulama parolası olmayan yöntemi varsa (Windows Hello, Doğrulayıcı uygulama, bir yazıtipi veya parmak izi gibi biyometrik) belirteç elde etmek için kullanılan, kullanıcının parolasını değiştirme kullanıcının yeniden kimlik doğrulamasını zorla sağlamaz (ancak, Doğrulayıcı uygulama zorlar yeniden kimlik doğrulaması için).  Seçilen kendi kimlik doğrulama giriş olmasıdır (yüz, bir örneğin) değişmedi ve bu nedenle yeniden yeniden kimlik doğrulaması için kullanılabilir.
 
 ## <a name="sample-tokens"></a>Örnek belirteçleri
 

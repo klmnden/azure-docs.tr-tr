@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Python kullanarak Azure Table storage'ı kullanmaya başlama
 
@@ -42,7 +42,7 @@ Bu öğreticiyi başarıyla tamamlamak için aşağıdakiler gerekir:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 veya 3.6
 - [Python için Azure Cosmos DB tablo SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/). Bu SDK, Azure Table depolama ve Azure Cosmos DB tablo API ile bağlanır.
-- [Azure depolama hesabı](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) veya [Azure Cosmos DB hesabı](https://azure.microsoft.com/en-us/try/cosmosdb/)
+- [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) veya [Azure Cosmos DB hesabı](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
@@ -223,11 +223,11 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SSS - API tabloyla geliştirin](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
+* [SSS - API tabloyla geliştirin](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Python API Başvurusu için Azure Cosmos DB SDK](https://azure.github.io/azure-cosmosdb-python/)
 * [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md): görsel olarak Windows, macOS ve Linux Azure Storage ile çalışmak için ücretsiz, platformlar arası bir uygulama.
-* [Python Visual Studio (Windows) ile çalışma](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)
+* [Python Visual Studio (Windows) ile çalışma](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 [py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
 [py_create_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html

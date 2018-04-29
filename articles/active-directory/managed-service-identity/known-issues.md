@@ -14,21 +14,17 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Sık Sorulan Sorular (SSS)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Var. özel Önizleme programına yaklaşan MSI özelliklerini ve tümleştirmeler var mı?
-
-Evet. Özel önizleme programı kayıt için değerlendirilmesi istiyorsanız [kaydolma sayfamızı ziyaret edin](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI Azure bulut Hizmetleri ile çalışır mı?
 
@@ -53,7 +49,7 @@ MSI VM ile birlikte kullanırken, MSI IMDS uç nokta kullanarak öneririz. Azure
 
 MSI VM uzantısı hala bugün kullanılmak üzere kullanılabilir olduğunu; Ancak, biz varsayılan IMDS uç noktası için kullanılacak ilerleyen. MSI VM uzantısı kullanımdan plan üzerinde yakında başlayacak. 
 
-Azure örneği Metada hizmeti hakkında daha fazla bilgi için bkz: [IMDS belgeleri](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+Azure örneği Metada hizmeti hakkında daha fazla bilgi için bkz: [IMDS belgeleri](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Desteklenen Linux dağıtımları nelerdir?
 
@@ -122,3 +118,16 @@ VM başladıktan sonra etiket komutu kullanılarak kaldırılabilir:
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-msi-preview"></a>Kullanıcı atanan MSI ile ilgili bilinen sorunlar *(Önizleme)*
+
+- MSI'lerini atanan tüm kullanıcı kaldırmanın tek yolu sistem etkinleştirerek MSI atanır. 
+- Bir VM VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
+- 'Varolmayan' MSI eklemek VM başarısız olmasına neden olur. *Not: Düzeltme MSI yoksa, Ata-identity başarısız toplu genişletme*
+- Azure depolama Öğreticisi yalnızca şu anda merkezi BİZE EUAP içinde kullanılabilir. 
+- MSI adında özel karakterler (örneğin, alt çizgi) ile atanmış bir kullanıcı oluşturma, desteklenmiyor.
+- İkinci bir kullanıcı ekleme kimlik atandığında ClientID belirteçleri istekleri için kullanılamayabilir. Bir azaltma, aşağıdaki iki bash komutlarla MSI VM uzantısı yeniden başlatın:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- VMAgent Windows kullanıcı atanan MSI şu anda desteklemiyor. 
+- MSI atanmış bir kullanıcı bir VM'ye sahip ancak hiçbir sistem MSI atanan, portal UI MSI etkin olarak gösterilir. MSI atanan sistem etkinleştirmek için bir Azure Resource Manager şablonu, Azure CLI veya bir SDK kullanın.

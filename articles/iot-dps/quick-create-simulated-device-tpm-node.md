@@ -3,20 +3,20 @@ title: Node.js kullanarak Azure IOT Hub'a sanal TPM cihazı sağlama | Microsoft
 description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 services: iot-dps
 keywords: ''
-author: msebolt
-ms.author: v-masebo
-ms.date: 03/01/2018
+author: bryanla
+ms.author: v-masebo;bryanla
+ms.date: 04/09/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b73379baa2b0b73fb1501a4356db10279ac41185
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7728937e73ed9d375926ad30db89585244d06b22
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 
 Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde sanal makine oluşturmayı, Windows TPM simülatörünü cihazın [Donanım Güvenlik Modülü (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) olarak çalıştırmayı ve örnek kodlar kullanarak bu sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub’ınızla bağlamayı gösterir. 
 
-Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun.
+Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 

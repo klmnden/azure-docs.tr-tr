@@ -1,13 +1,13 @@
 ---
-title: "Birden çok şirket içi ilke tabanlı VPN cihazı Azure VPN ağ geçitleri bağlanın: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Bir Azure yol tabanlı VPN ağ geçidi Azure Resource Manager ve PowerShell kullanarak birden çok ilke tabanlı VPN aygıtları için yapılandırın."
+title: 'Birden çok şirket içi ilke tabanlı VPN cihazı Azure VPN ağ geçitleri bağlanın: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Bir Azure yol tabanlı VPN ağ geçidi Azure Resource Manager ve PowerShell kullanarak birden çok ilke tabanlı VPN aygıtları için yapılandırın.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dc2dc660262cec892270f8d6e70691fdd169a5c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell kullanarak birden çok şirket içi ilke tabanlı VPN cihazı Azure VPN ağ geçitleri Bağlan
 
@@ -113,7 +113,7 @@ Resource Manager cmdlet'lerini kullanmak için PowerShell moduna geçtiğinizden
 PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -146,7 +146,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 > Bağlantı "UsePolicyBasedTrafficSelectors" seçeneğini etkinleştirmek için bir IPSec/IKE İlkesi oluşturmanız gerekir.
 
 Aşağıdaki örnek, bu algoritmaları ve parametreleri bir IPSec/IKE ilkesi oluşturur:
-* IKEv2: AES256, SHA384, DHGroup24
+* Ikev2: AES256, SHA384 DHGroup24
 * IPSec: AES256, SHA256, PFS24, SA ömrü 3600 saniye & 2048KB
 
 ```powershell
@@ -189,7 +189,7 @@ Satır döndürürse "**True**", ardından ilke tabanlı trafik Seçici bağlant
 ### <a name="3-update-the-policy-based-traffic-selectors-on-a-connection"></a>3. İlke tabanlı trafik seçici bir bağlantısı güncelleştir
 Bağlantı kaynağı edindikten sonra etkinleştirebilir veya devre dışı bırakma seçeneği.
 
-#### <a name="disable-usepolicybasedtrafficselectors"></a>Disable UsePolicyBasedTrafficSelectors
+#### <a name="disable-usepolicybasedtrafficselectors"></a>UsePolicyBasedTrafficSelectors devre dışı bırak
 Aşağıdaki örnek, ilke tabanlı trafik Seçici seçeneği devre dışı bırakır, ancak değişmeden IPSec/IKE İlkesi bırakır:
 
 ```powershell
@@ -200,7 +200,7 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
 ```
 
-#### <a name="enable-usepolicybasedtrafficselectors"></a>Enable UsePolicyBasedTrafficSelectors
+#### <a name="enable-usepolicybasedtrafficselectors"></a>UsePolicyBasedTrafficSelectors etkinleştir
 Aşağıdaki örnek, ilke tabanlı trafik Seçici seçeneğini etkinleştirir ancak değişmeden IPSec/IKE İlkesi bırakır:
 
 ```powershell

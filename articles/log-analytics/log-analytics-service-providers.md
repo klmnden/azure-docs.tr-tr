@@ -1,11 +1,11 @@
 ---
-title: "Günlük analizi özellikleri hizmet sağlayıcıları | Microsoft Docs"
-description: "Günlük analizi yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcıları (ISV) yardımcı olabilir ve barındırma hizmeti sağlayıcıları yönetebilir ve müşterinin şirket içi veya Bulut altyapı sunucularını izleyebilirsiniz."
+title: Günlük analizi özellikleri hizmet sağlayıcıları | Microsoft Docs
+description: Günlük analizi yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcıları (ISV) yardımcı olabilir ve barındırma hizmeti sağlayıcıları yönetebilir ve müşterinin şirket içi veya Bulut altyapı sunucularını izleyebilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Hizmet sağlayıcıları için günlük analizi özellikleri
 Günlük analizi, yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcılarının (ISV'ler) ve barındırma hizmeti sağlayıcıları yönetmek ve müşterinin şirket içi veya Bulut altyapı sunucularını izlemek yardımcı olabilir. 
@@ -40,7 +40,7 @@ Farklı bir *bulut çözümü sağlayıcısı* şunları yapabilirsiniz:
 Bir kiracının aboneliğine oturum açmak için Kiracı tanımlayıcı belirtmeniz gerekir. Kiracı sık sık oturum açmak için kullandığınız e-posta adresi son kısmı tanımlayıcısıdır.
 
 * OMS portalında ekleme `?tenant=contoso.com` portalı için URL. Örneğin, `mms.microsoft.com/?tenant=contoso.com`
-* PowerShell'de kullanın `-Tenant contoso.com` kullanırken parametresi `Add-AzureRmAccount` cmdlet'i
+* PowerShell'de kullanın `-Tenant contoso.com` kullanırken parametresi `Connect-AzureRmAccount` cmdlet'i
 * Kullandığınızda Kiracı tanımlayıcısı otomatik olarak eklenen `OMS portal` açmak ve seçilen çalışma alanı için OMS portalı oturum açmak için Azure portalından bağlantı
 
 Farklı bir *müşteri* bir bulut çözümü sağlayıcısı şunları yapabilirsiniz:

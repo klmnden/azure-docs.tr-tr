@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 360e395743dcf4b4bae98a756f6483dd0d269775
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Bu makalede, belirteç edinme yanı sıra işleme belirteci süre sonu ve HTTP hataları gibi önemli konular hakkında yönergeler için çeşitli kod ve komut dosyası örnekler verilmektedir. VM uzantısı endpoint kullanım olarak yönetilen hizmet kimliği IMDS noktayla kullanmanızı öneririz.
+
+Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgileri, kodunuzda gerek kalmadan destekleyen herhangi bir hizmeti için kimlik doğrulaması yapmak için kullanabilirsiniz. 
+
+Bu makalede, belirteç edinme yanı sıra işleme belirteci süre sonu ve HTTP hataları gibi önemli konular hakkında yönergeler için çeşitli kod ve komut dosyası örnekler verilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -32,14 +35,14 @@ Bu makalede Azure PowerShell örneklerini kullanmayı planlıyorsanız, en son s
 
 
 > [!IMPORTANT]
-> - Tüm örnek kodu/komut dosyası bu makalede varsayar istemci MSI özellikli sanal makine üzerinde çalışan. VM "Bağlan" özelliği Azure portalında uzaktan VM'nize bağlanmak için kullanın. Bir VM'de MSI etkinleştirme hakkında daha fazla bilgi için bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md), veya değişken makaleleri (PowerShell, CLI, şablon veya bir Azure SDK'sını kullanarak). 
+> - Tüm örnek kodu/komut dosyası bu makalede varsayar istemci bir yönetilen hizmet kimliği ile bir sanal makine üzerinde çalışan. VM "Bağlan" özelliği Azure portalında uzaktan VM'nize bağlanmak için kullanın. Bir VM'de MSI etkinleştirme hakkında daha fazla bilgi için bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md), veya değişken makaleleri (PowerShell, CLI, şablon veya bir Azure SDK'sını kullanarak). 
 
 > [!IMPORTANT]
-> - Kaynak yönetilen kimlik, güvenlik sınırı var. Bir MSI özellikli sanal makinede çalışan tüm kod/komut istemek ve belirteçleri almak. 
+> - Bir yönetilen hizmet kimliği, güvenlik sınırı olduğundan kaynak üzerinde kullanılıyor. Bir sanal makine üzerinde çalışan tüm kod/betikler istemek ve tüm yönetilen hizmet kimliği üzerinde kullanılabilir için belirteçleri almak. 
 
 ## <a name="overview"></a>Genel Bakış
 
-Bir istemci uygulaması bir MSI isteyebilir [yalnızca uygulama erişim belirteci](../develop/active-directory-dev-glossary.md#access-token) belirli bir kaynağa erişmek için. Belirteç [MSI hizmet sorumlusu göre](overview.md#how-does-it-work). Bu nedenle, kendi hizmet sorumlusu altında bir erişim belirteci edinmek için istemcinin kendisini kaydetmek gerek yoktur. Belirtecin bir taşıyıcı belirteci olarak kullanmaya uygun [service-to-service çağrıları gerektiren istemci kimlik bilgileri](../develop/active-directory-protocols-oauth-service-to-service.md).
+Bir istemci uygulama bir yönetilen hizmet kimliği isteyebilir [yalnızca uygulama erişim belirteci](../develop/active-directory-dev-glossary.md#access-token) belirli bir kaynağa erişmek için. Belirteç [MSI hizmet sorumlusu göre](overview.md#how-does-it-work). Bu nedenle, kendi hizmet sorumlusu altında bir erişim belirteci edinmek için istemcinin kendisini kaydetmek gerek yoktur. Belirtecin bir taşıyıcı belirteci olarak kullanmaya uygun [service-to-service çağrıları gerektiren istemci kimlik bilgileri](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -48,7 +51,7 @@ Bir istemci uygulaması bir MSI isteyebilir [yalnızca uygulama erişim belirtec
 | [Git kullanarak belirteç alın](#get-a-token-using-go) | Bir Git istemciden MSI REST uç noktasını kullanma örneği |
 | [Azure PowerShell kullanarak belirteç alın](#get-a-token-using-azure-powershell) | Bir PowerShell istemciden MSI REST uç noktasını kullanma örneği |
 | [CURL kullanarak belirteç alın](#get-a-token-using-curl) | MSI REST uç noktası geçirmesi/CURL istemciden kullanma örneği |
-| [Belirteç süre sonu işleme](#handling-token-expiration) | Süresi dolan erişim belirteçleri işlemek için kılavuz |
+| [Belirteç önbelleğe alma işleme](#handling-token-caching) | Süresi dolan erişim belirteçleri işlemek için kılavuz |
 | [Hata işleme](#error-handling) | MSI belirteç uç noktadan döndürülen HTTP hataları işlemek için kılavuz |
 | [Azure Hizmetleri için kaynak kimlikleri](#resource-ids-for-azure-services) | Kaynak kimlikleri için desteklenen Azure Hizmetleri alınacağı konumu |
 
@@ -56,10 +59,10 @@ Bir istemci uygulaması bir MSI isteyebilir [yalnızca uygulama erişim belirtec
 
 Bir erişim belirteci alma için temel arabirim REST, HTTP REST çağrılarını yapabilen VM'de çalışan herhangi bir istemci uygulama için erişilebilir hale getirme temel alır. Sanal makineye bir uç nokta istemcinin kullandığı dışında bu Azure AD programlama modeline benzer (vs Azure AD uç noktası).
 
-MSI örneği meta veri hizmeti (IMDS) uç noktası kullanarak örnek isteği *(önerilen)*:
+Azure örneği meta veri hizmeti (IMDS) uç noktası kullanarak örnek isteği *(önerilen)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Öğe | Açıklama |
@@ -70,7 +73,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | Hedef kaynak uygulama kimliği URI'sini belirten bir sorgu dizesi parametresi. Ayrıca görünür `aud` verilen belirteç talep (İzleyici). Bu örnek Azure Kaynak Yöneticisi'ne erişmek için bir belirteç isteklerini sahip olduğu bir uygulama kimliği URI'sini https://management.azure.com/. |
 | `Metadata` | Sunucu tarafı istek sahtekarlığı (SSRF) saldırılara karşı azaltma olarak MSI tarafından gerekli bir HTTP isteği üstbilgisi alanının. Bu değer "tüm alt durumda true olarak" olarak ayarlanmalıdır.
 
-MSI VM uzantısı Endpoint kullanarak örnek isteği *(kullanım dışı için)*:
+Yönetilen hizmet kimliği (MSI) VM uzantısı Endpoint kullanarak örnek isteği *(kullanım dışı için)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -264,23 +267,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>Belirteç süre sonu 
+## <a name="token-caching"></a>Belirteç önbelleğe alma
 
-Kodunuzda belirteç önbelleğe kaydediyorsanız belirtecinin süresi doldu kaynak burada gösterilen senaryoları işlemek için hazırlıklı olmalıdır. 
+Kullanılan yönetilen hizmet kimliği (MSI) alt sistemi (IMDS/MSI VM uzantısı) belirteçleri önbelleğe almaz, ancak Ayrıca, kodunuzda belirteç önbelleğe alma uygulamak için öneririz. Sonuç olarak, burada belirtecinin süresi doldu kaynağı gösterir senaryoları için hazırlayın. 
 
-Not: üzerinde hat IMDS MSI alt sistemi belirteçleri önbelleğe olduğundan, Azure AD sonuçları çağırır yalnızca:
-- önbellek isabetsizliği önbelleğinde herhangi bir belirteci nedeniyle oluşur
-- belirtecin süresi doldu
+Azure ad üzerinde hat çağrıları neden yalnızca zaman:
+- önbellek isabetsizliği MSI alt sistemi önbelleğinde herhangi bir belirteci nedeniyle oluşur
+- önbelleğe alınan belirtecinin süresi doldu
 
 ## <a name="error-handling"></a>Hata işleme
 
-MSI uç noktası HTTP yanıt iletisi üst bilgisi, durum kodu alanı aracılığıyla hataları 4xx veya 5xx hataları olarak işaret eder:
+Yönetilen hizmet kimliği uç noktası HTTP yanıt iletisi üst bilgisi, durum kodu alanı aracılığıyla hataları 4xx veya 5xx hataları olarak işaret eder:
 
 | Durum Kodu | Hata açıklaması | Nasıl yapılacağını |
 | ----------- | ------------ | ------------- |
 | 429 çok fazla istek. |  IMDS kısıtlama sınırına ulaşıldı. | Üstel geri alma ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
 | İstek 4xx hatası. | Bir veya daha fazla istek parametreleri yanlış. | Yeniden denemeyin.  Daha fazla bilgi için hata ayrıntılarını inceleyin.  Tasarım zamanı hataları 4xx hatalardır.|
 | Hizmet geçici hatadan 5XX. | MSI alt sistemi veya Azure Active Directory geçici bir hata döndürdü. | En az 1 saniye bekledikten sonra yeniden denemek güvenlidir.  Çok hızlı bir şekilde veya çok sık yeniden deneme varsa, hızı sınırı hatası (429) IMDS ve/veya Azure AD döndürebilir.|
+| 404 bulunamadı. | IMDS uç noktası güncelleniyor. | Expontential geri Çekilme ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
+| timeout | IMDS uç noktası güncelleniyor. | Expontential geri Çekilme ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
 
 Bir hata oluşursa, karşılık gelen HTTP yanıt gövdesi JSON ile hata ayrıntıları içerir:
 
@@ -303,11 +308,11 @@ Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı
 |           | ACCESS_DENIED | Kaynak sahibi veya yetkilendirme sunucusu isteğini reddetti. |  |
 |           | unsupported_response_type | Yetkilendirme sunucusu bu yöntemi kullanarak bir erişim belirteci alma desteklemez. |  |
 |           | invalid_scope | İstenen kapsamı geçersiz, bilinmeyen veya hatalı biçimlendirilmiş olabilir. |  |
-| 500 İç sunucu hatası | bilinmiyor | Active Directory'den belirteci alınamadı. Ayrıntılar için günlükleri Bkz  *\<dosya yolu\>* | MSI VM etkin olduğunu doğrulayın. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa.<br><br>Ayrıca, HTTP GET isteği URI özellikle URI sorgu dizesinde belirtilen kaynak doğru biçimlendirildiğinden emin olun. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek veya [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](overview.md#azure-services-that-support-azure-ad-authentication) Hizmetleri ve bunların ilgili kaynak kimlikleri listesi.
+| 500 İç sunucu hatası | bilinmiyor | Active Directory'den belirteci alınamadı. Ayrıntılar için günlükleri Bkz  *\<dosya yolu\>* | MSI VM etkin olduğunu doğrulayın. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa.<br><br>Ayrıca, HTTP GET isteği URI özellikle URI sorgu dizesinde belirtilen kaynak doğru biçimlendirildiğinden emin olun. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek veya [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](services-support-msi.md) Hizmetleri ve bunların ilgili kaynak kimlikleri listesi.
 
-## <a name="throttling-guidance"></a>Kısıtlama Kılavuzu 
+## <a name="retry-guidance"></a>Kılavuzu yeniden deneyin 
 
-Azaltma sınırları MSI IMDS uç noktasına yapılan çağrı sayısı için geçerlidir. Azaltma eşiği aşıldığında, kısıtlama etkinken MSI IMDS uç noktası başka bir istek sınırlar. Bu süre boyunca MSI IMDS uç noktası HTTP durum kodu 429 döndürür ("çok sayıda istek"), ve istekleri başarısız olur. 
+Azaltma sınırları IMDS uç noktasına yapılan çağrı sayısı için geçerlidir. Azaltma eşiği aşıldığında, kısıtlama etkinken IMDS uç noktası başka bir istek sınırlar. Bu süre boyunca IMDS uç noktası HTTP durum kodu 429 döndürür ("çok sayıda istek"), ve istekleri başarısız olur. 
 
 Yeniden deneme için aşağıdaki stratejisi öneririz: 
 
@@ -317,7 +322,7 @@ Yeniden deneme için aşağıdaki stratejisi öneririz:
 
 ## <a name="resource-ids-for-azure-services"></a>Azure Hizmetleri için kaynak kimlikleri
 
-Bkz: [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](overview.md#azure-services-that-support-azure-ad-authentication) Azure AD destekleyen ve MSI ile test kaynakları ve bunların ilgili kaynak kimlikleri listesi.
+Bkz: [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](services-support-msi.md) Azure AD destekleyen ve MSI ile test kaynakları ve bunların ilgili kaynak kimlikleri listesi.
 
 
 ## <a name="related-content"></a>İlgili içerik

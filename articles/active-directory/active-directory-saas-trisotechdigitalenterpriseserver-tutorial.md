@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Trisotech dijital Kurumsal sunucusuyla | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Trisotech dijital Enterprise Server arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Trisotech dijital Kurumsal sunucusuyla | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Trisotech dijital Enterprise Server arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82e88b0b2b7f04f2849bf5c3a780df3c8f1c9849
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a70962c63fdf9ab723ce437563a4670d536300aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Öğretici: Azure Active Directory Tümleştirme Trisotech dijital kuruluş sunucusu
 
@@ -111,31 +111,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.trisotech.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Trisotech dijital Enterprise Server istemci destek ekibi](mailto:support@trisotech.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Trisotech dijital Enterprise Server istemci destek ekibi](mailto:support@trisotech.com) bu değerleri almak için.
 
-4. Tıklatın **kaydetmek** düğmesi.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın. 
+
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+
+5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
-
-5. Oluşturulacak **meta veri** url, aşağıdaki adımları gerçekleştirin:
-
-    a. Tıklatın **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
-   
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
-
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
-     
-    d. Şimdi özellik sayfasına gidin **Trisotech dijital Enterprise Server** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 6. Farklı web tarayıcısı penceresinde Trisotech dijital Enterprise sunucu yapılandırması şirket sitenize yönetici olarak oturum açın.
 
@@ -153,21 +137,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. Seçin **güvenli onaylama işlemi biçimlendirme dili 2 (SAML 2)** açılır menüde gelen **kimlik doğrulama yöntemini**.
 
-    b. İçinde **meta veri URL'sini** metin kutusuna, Yapıştır **meta veri URL'sini** kopyaladığınız değeri form Azure portalı.
+    b. İçinde **meta veri URL'sini** metin kutusuna, Yapıştır **uygulama Federasyon meta veri URL'sini** kopyaladığınız değeri form Azure portalı.
 
     c. İçinde **uygulama kimliği** metin kutusuna, URL şu biçimi kullanarak girin: `https://<companyname>.trisotech.com`.
 
-    d. Tıklatın **Kaydet**
+    d. **Kaydet**’e tıklayın
 
     e. Etki alanı adını girin **(boş gelir herkes) etki alanlarına izin** metin kutusuna, otomatik olarak atar izin etki alanları ile eşleşen kullanıcıları için lisans
 
-    f. Tıklatın **Kaydet**
+    f. **Kaydet**’e tıklayın
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+ ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 

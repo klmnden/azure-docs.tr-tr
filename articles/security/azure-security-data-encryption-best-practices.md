@@ -3,8 +3,8 @@ title: Veri güvenliği ve şifreleme en iyi uygulamalar | Microsoft Docs
 description: Bu makalede veri güvenliği için en iyi yöntemler kümesi sağlar ve şifreleme kullanılarak Azure özellikleri.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure veri güvenliği ve şifreleme en iyi uygulamalar
+
 Veri koruma bulutta anahtarlarından birini verilerinizi ortaya çıkabilecek ve bu durum için hangi denetimlerin kullanılabilir olası durumlar için hesap. Amacıyla Azure veri güvenlik ve şifreleme en iyi uygulamaları önerileri aşağıdaki verilerinin durumları geçici bir çözüm olacaktır:
 
 * : Çalışmıyorken Bu depolama nesneleri, kapsayıcıları ve statik olarak fiziksel medyada mevcut türleri manyetik veya optik disk olması tüm bilgileri içerir.
@@ -50,6 +51,7 @@ Bu makalede ele alınan azure veri güvenlik ve şifreleme en iyi uygulamalar ş
 * Dosya düzeyinde veri şifrelemeyi zorunlu kılma
 
 ## <a name="enforce-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını zorunlu
+
 İlk adımda veri erişimi ve Microsoft Azure denetiminde kullanıcının kimliğini etkinleştirmektir. [Azure multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) yalnızca bir kullanıcı adı ve parola'den başka bir yöntem kullanarak kullanıcının kimliğini doğrulayan bir yöntemdir. Bu kimlik doğrulama yöntemi yardımcı erişimi korumaya veri ve uygulamalara basit bir oturum açma işlemi için kullanıcı talebine toplantı oluştu.
 
 Kullanıcılarınız için Azure MFA etkinleştirerek, kullanıcı oturum açmaları ve işlemleri için ikinci bir güvenlik katmanı ekliyorsunuz. Bu durumda, bir işlem bir dosya sunucusunda veya, SharePoint Online'da bulunan bir belge erişiyor. Ayrıca, Azure MFA yardımcı BT güvenliği aşılmış bir kimlik bilgisi kuruluşunuzun veri erişimi olmasını olasılığını azaltmak için.
@@ -61,6 +63,7 @@ Kimlik doğrulama denetimi içi tutmak istediğiniz kuruluşlar için bir altern
 Azure MFA hakkında daha fazla bilgi için lütfen makaleyi okuyun [bulutta Azure multi-Factor Authentication kullanmaya Başlarken](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Kullanım rol tabanlı erişim denetimi (RBAC)
+
 Temelinde erişimi kısıtlayabilirsiniz [bilmeniz](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri. Bu, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur. Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve uygulamalar belirli bir kapsamda izinleri atamak için kullanılabilir. Rol atamasının kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir.
 
 Yararlanabileceğiniz [yerleşik RBAC rolleri](../role-based-access-control/built-in-roles.md) ayrıcalıkları kullanıcılara atamak için azure'da. Kullanmayı *depolama hesabı katkıda bulunan* depolama hesaplarını yönetmek için gereken bulut operatörleri için ve *Klasik depolama hesabı katkıda bulunan* Klasik depolama hesaplarını yönetmek için rol. Sanal makineleri ve depolama hesabı yönetmesi gereken bulut operatörleri için onlara eklemeyi düşünün *sanal makine Katılımcısı* rol.
@@ -70,6 +73,7 @@ Veri erişim denetimi RBAC gibi özellikler yararlanarak zorlamaz kuruluşlar ke
 Makaleyi okuyarak Azure RBAC hakkında daha fazla bilgiyi [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Azure Virtual Machines şifreleme
+
 Çoğu kuruluş için [bekleyen verileri şifreleme](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizliliği, uyumluluk ve veri egemenliği doğru zorunlu bir adımdır. Azure Disk şifrelemesi, Windows ve Linux Iaas sanal makine (VM) diskleri şifrelemek BT yöneticilerine sağlar. Azure Disk şifrelemesi endüstri standart BitLocker özelliği, Windows ve Linux işletim sistemi ve veri diskleri için birim şifrelemesi sağlamak için DM-Crypt özelliği yararlanır.
 
 Koruma ve Kuruluş güvenliği ve uyumluluk gereksinimleri karşılamak için verilerinizi korumaya yardımcı olmak için Azure Disk şifrelemesi yararlanabilirsiniz. Kuruluşlar, ayrıca riskleri ilgili yetkisiz veri erişimi azaltmaya yardımcı olmak için şifreleme kullanmayı düşünmeniz gerekir. Ayrıca, bunlara hassas verileri yazma önce sürücüleri şifreleme önerilir.
@@ -125,6 +129,7 @@ Veritabanı düzeyinde şifreleme kullanılarak olmayan kuruluşlar daha açıkt
 SQL TDE'nin şifreleme hakkında daha fazla makalesini okuyarak bilgi [saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Aktarımdaki verileri korumak
+
 Aktarımdaki verileri koruma temel veri koruma stratejinizin parçası olmalıdır. Verileri geri ve İleri birçok konumlardan taşıma olduğundan, genel, her zaman SSL/TLS protokolleri farklı konumlar arasında veri değişimi için kullanmanız önerilir. Bazı durumlarda, şirket içi ve bulut arasındaki tüm iletişim kanalını ayırmak isteyebilirsiniz sanal özel ağ (VPN) kullanarak altyapı.
 
 Şirket içi altyapınızı ve Azure arasında taşıma verileri için HTTPS veya VPN gibi uygun güvenlik önlemleri göz önünde bulundurmalısınız.
@@ -142,6 +147,7 @@ Aktarımdaki verileri korumak için başarısız olan kuruluşlar için daha aç
 Azure VPN seçeneği hakkında daha fazla makalesini okuyarak bilgi [planlama ve tasarım VPN ağ geçidi için](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Dosya düzeyinde veri şifrelemeyi zorunlu kılma
+
 Bir başka verileriniz için güvenlik düzeyini artırabilirsiniz koruma katmanı dosya konumuna bakılmaksızın dosyasının kendisini, şifreleme.
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) dosyalarınızın ve e-posta güvenli hale getirmek için şifreleme, kimlik ve yetkilendirme ilkelerini kullanır. Azure RMS birden çok cihazda çalışır — telefonları, Tablet ve PC'leri hem kuruluşunuz içinde hem de kuruluşunuz dışındaki koruma tarafından. Azure RMS bile, kuruluşunuzun sınırları dışına çıktığında veriler devam koruma düzeyini eklediğinden bu olası bir yetenektir.

@@ -6,20 +6,20 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b4ccb612314fc1f65be4033bc0d0893d17843a86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma ağ oluşturma hakkında
 
 >[!NOTE]
 > Azure sanal makineler için Site Recovery çoğaltma şu anda önizlemede değil.
 
-Çoğaltma ve kullanarak Azure Vm'leri bir bölgesinden diğerine kurtarma Ağ Kılavuzu bu makalede sunar [Azure Site Recovery](site-recovery-overview.md). 
+Çoğaltma ve kullanarak Azure Vm'leri bir bölgesinden diğerine kurtarma Ağ Kılavuzu bu makalede sunar [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
@@ -57,20 +57,19 @@ login.microsoftonline.com | Yetkilendirme ve kimlik doğrulaması için Site Rec
 
 Giden bağlantıyı denetlemek için bir IP tabanlı bir güvenlik duvarı proxy ya da NSG kuralları kullanıyorsanız, bu IP aralıkları izin verilmesi gerekir.
 
-- Kaynak konumuna karşılık gelen tüm IP adresi aralığı.
-    - İndirebilirsiniz [IP adres aralıklarını](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+- Kaynak bölgede depolama hesaplarına karşılık gelen tüm IP adres aralıkları
+    - Oluşturmak gereken bir [depolama hizmeti etiketi](../virtual-network/security-overview.md#service-tags) tabanlı kaynak bölge için NSG kuralının.
     - Böylece veri önbelleği depolama hesabına sanal makineden yazılabilir bu adresleri izin vermeniz gerekir.
 - Office 365'e karşılık gelen tüm IP adres aralıklarını [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
     - Yeni bir adres için Office 365 aralıkları gelecekte eklenirse, yeni NSG kuralları oluşturmanız gerekir.
-- Site Recovery Hizmeti uç noktası IP adresleri. Bunlar kullanılabilir olan bir [XML dosyası](https://aka.ms/site-recovery-public-ips)ve hedef konumuna bağlıdır.
--  Yapabilecekleriniz [indirin ve bu komut dosyası](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)üzerinde NSG gerekli kuralları otomatik olarak oluşturmak için. 
+- Site Recovery Hizmeti uç noktası IP adresleri. Bunlar kullanılabilir olan bir [XML dosyası](https://aka.ms/site-recovery-public-ips) ve hedef konumuna bağlıdır.
+-  Yapabilecekleriniz [indirin ve bu komut dosyası](https://aka.ms/nsg-rule-script)üzerinde NSG gerekli kuralları otomatik olarak oluşturmak için.
 - Bir test NSG gerekli NSG kuralları oluşturmak ve bir üretim NSG kuralları oluşturmadan önce herhangi bir sorun olduğunu doğrulayın öneririz.
-- NSG kuralları gereken sayısını oluşturmak için aboneliğinizi Güvenilenler listesine olmasını sağlayın. Kişi Azure destek aboneliğinizde NSG kural sınırını artırın.
 
-IP adres aralıklarını aşağıdaki gibidir:
 
->
-   **Hedef** | **Site Recovery IP** |  **Site Recovery IP izleme**
+Site kurtarma IP adres aralıklarını aşağıdaki gibidir:
+
+   **Hedef** | **Site kurtarma IP** |  **Site Recovery IP izleme**
    --- | --- | ---
    Doğu Asya | 52.175.17.132 | 13.94.47.61
    Güneydoğu Asya | 52.187.58.193 | 13.76.179.223
@@ -99,50 +98,73 @@ IP adres aralıklarını aşağıdaki gibidir:
    UK Kuzey | 51.142.209.167 | 13.87.102.68
    Kore Orta | 52.231.28.253 | 52.231.32.85
    Kore Güney | 52.231.298.185 | 52.231.200.144
-   
-   
-  
+   Fransa Orta | 52.143.138.106 | 52.143.136.55
+   Fransa Güney | 52.136.139.227 |52.136.136.62
+
 
 ## <a name="example-nsg-configuration"></a>Örnek NSG yapılandırma
 
-Bu örnek çoğaltmak bir VM NSG kurallarını yapılandırmak nasıl gösterir. 
+Bu örnek çoğaltmak bir VM NSG kurallarını yapılandırmak nasıl gösterir.
 
-- Giden bağlantıyı denetlemek için NSG kuralları kullanıyorsanız, tüm gerekli IP adresi aralıkları için "HTTPS giden izin ver" kurallarını kullanın.
-- Örnek VM kaynak konumu "Doğu ABD" olduğunu ve hedef konumu "Orta ABD. olduğunu varsayar.
+- Giden bağlantıyı denetlemek için NSG kuralları kullanıyorsanız, bağlantı noktası: 443 "HTTPS giden izin ver" kuralı tüm gerekli IP adresi aralıkları için kullanın.
+- Örneğin, VM kaynak konumu "Doğu ABD" olduğunu ve hedef konumu "Orta ABD" olduğunu varsayar.
 
 ### <a name="nsg-rules---east-us"></a>NSG kuralları - Doğu ABD
 
-1. Karşılık gelen kuralları oluşturma [BİZE Doğu IP adres aralıklarını](https://www.microsoft.com/download/confirmation.aspx?id=41653). Bu, böylece veri önbelleği depolama hesabına sanal makineden yazılabilir gereklidir.
-2. Office 365'e karşılık gelen tüm IP adres aralıkları için kurallar oluşturun [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Hedef konuma karşılık gelen kurallarını oluşturun:
+1. Aşağıdaki ekran görüntüsünde gösterildiği gibi NSG "Storage.EastUS" için bir giden HTTPS (443) güvenlik kuralı oluşturun.
+
+      ![Depolama etiketi](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Office 365'e karşılık gelen tüm IP adres aralıkları için giden HTTPS (443) kuralları oluşturma [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Hedef konuma karşılık gelen Site kurtarma IP'ler için giden HTTPS (443) kurallarını oluşturun:
 
    **Konum** | **Site kurtarma IP adresi** |  **Site kurtarma izleme IP adresi**
     --- | --- | ---
    Orta ABD | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>NSG kuralları - Orta ABD 
+### <a name="nsg-rules---central-us"></a>NSG kuralları - Orta ABD
 
 Bu kurallar, böylece kaynak bölgesi yük devretme sonrasında için etkin hale getirilebilir çoğaltma hedef bölgesinden gereklidir:
 
-* Karşılık gelen kuralları [merkezi ABD IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653). Veri önbelleği depolama hesabına sanal makineden yazılabilir şekilde bu gereklidir.
+1. NSG "Storage.CentralUS" için bir giden HTTPS (443) güvenlik kuralı oluşturun.
 
-* Office 365'e karşılık gelen tüm IP aralıkları için kuralları [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Office 365'e karşılık gelen tüm IP adres aralıkları için giden HTTPS (443) kuralları oluşturma [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Kaynak konumuna karşılık gelen kuralları:
-    - Doğu ABD
-    - Site kurtarma IP adresi: 13.82.88.226
-    - Site kurtarma IP adresi izleme: 104.45.147.24
+3. Kaynak konumuna karşılık gelen Site kurtarma IP'ler için giden HTTPS (443) kurallarını oluşturun:
 
+   **Konum** | **Site kurtarma IP adresi** |  **Site kurtarma izleme IP adresi**
+    --- | --- | ---
+   Orta ABD | 13.82.88.226 | 104.45.147.24
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN 
+## <a name="network-virtual-appliance-configuration"></a>Ağ sanal gereç yapılandırması
+
+Sanal makineleri giden ağ trafiğini denetlemek için ağ sanal Gereçleri (NVAs) kullanıyorsanız, tüm çoğaltma trafiği NVA geçerse Gereci kısıtlanan. Çoğaltma trafiği için nva'nın geçmez böylece bir Ağ Hizmeti uç noktası sanal ağınızda "Depolama için" oluşturmanızı öneririz.
+
+### <a name="create-network-service-endpoint-for-storage"></a>Ağ Hizmeti uç noktası için depolama alanı oluşturma
+Böylece çoğaltma trafiğini Azure sınır bırakmaz "Depolama için" sanal ağınızda Ağ Hizmeti uç noktası oluşturabilirsiniz.
+
+- Azure sanal ağınıza seçip 'Hizmet uç noktaları üzerinde' seçeneğini tıklatın
+
+    ![Depolama uç noktası](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- 'Ekle' seçeneğini tıklatın ve 'hizmet uç noktaları Ekle' sekmesinde açar
+- 'Service' altında ' Microsoft.Storage' ve 'Alt' alanı altında gerekli alt ağları seçin ve 'Ekle'yi tıklatın
+
+>[!NOTE]
+>Depolama hesaplarınıza ASR için kullanılan sanal ağ erişimini kısıtlamaz. 'Tüm ağlar' erişimden sağlamalıdır
+
+## <a name="expressroutevpn"></a>ExpressRoute/VPN
 
 Şirket içi ve Azure konum arasında bir ExpressRoute veya VPN bağlantısı varsa, bu bölümdeki yönergeleri uygulayın.
 
 ### <a name="forced-tunneling"></a>Zorlamalı tünel oluşturma
 
-Genellikle, giden Internet trafiği aracılığıyla şirket içi konuma akış zorlar varsayılan yol (0.0.0.0/0) tanımlayın. Bunu önermiyoruz. Site Recovery hizmeti iletişimi ve çoğaltma trafiğini Azure sınır bırakmamalısınız. Kullanıcı tanımlı yollar (Udr'ler) eklemek için çözümdür [bu IP aralıkları](#outbound-connectivity-for-azure-site-recovery-ip-ranges) böylece şirket içi çoğaltma trafiğini Git değil.
+Genellikle, giden Internet trafiği aracılığıyla şirket içi konuma akış zorlar varsayılan yol (0.0.0.0/0) tanımlamak veya. Bunu önermiyoruz. Çoğaltma trafiğini Azure sınır bırakmamalısınız.
 
-### <a name="connectivity"></a>Bağlantı 
+Yapabilecekleriniz [ağ hizmet uç noktası oluşturma](#create-network-service-endpoint-for-storage) , sanal ağ "Depolama için" böylece çoğaltma trafiğini Azure sınır bırakmaz.
+
+
+### <a name="connectivity"></a>Bağlantı
 
 Hedef konumu ve şirket içi konumunuz bağlantılar için bu yönergeleri izleyin:
 - Uygulamanız için şirket içi makineler bağlanın veya uygulamaya şirket içi VPN/ExpressRoute bağlanan istemciler varsa, en az bir sağlamak gerekiyorsa [siteden siteye bağlantı](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) arasında Hedef Azure bölgesi ve şirket içi veri merkezi.

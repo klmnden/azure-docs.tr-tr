@@ -1,6 +1,6 @@
 ---
-title: "Dış yönlendirmesi - Azure PowerShell ile bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Web trafiği Azure Powershell kullanarak bir dış sitesine yönlendiren bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Dış yönlendirmesi - Azure PowerShell ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Web trafiği Azure Powershell kullanarak bir dış sitesine yönlendiren bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: davidmu
-ms.openlocfilehash: b3639e1aecc2e78e8b107d7af12ca77118f55651
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 430c8b64a9e9bafb655357f4ceadd8980c1de3bd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Azure PowerShell kullanarak dış yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma
 
 Azure Powershell yapılandırmak için kullanabileceğiniz [web trafiği yeniden yönlendirme](application-gateway-multi-site-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, bir dinleyici ve uygulama ağ geçidi harici bir siteye ulaştığında web trafiğini yönlendiren kuralı yapılandırın.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ağ kurma
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürüm bulmak için Çalıştır ` Get-Module -ListAvailable AzureRM` . Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürüm bulmak için Çalıştır ` Get-Module -ListAvailable AzureRM` . Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -41,7 +41,7 @@ Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mant�
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
 Alt ağ yapılandırması oluşturma *myAGSubnet* kullanarak [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Adlı sanal ağ oluşturma *myVNet* kullanarak [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) alt ağ yapılandırmasına sahip. Ve son olarak, genel IP adresini kullanarak oluşturmak [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Bu kaynaklar, uygulama ağ geçidi ve onun ilişkili kaynakları için ağ bağlantısı sağlamak için kullanılır.
 
@@ -148,7 +148,7 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Kullanabileceğiniz [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) uygulama ağ geçidi genel IP adresi alınamıyor. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın.
+Kullanabileceğiniz [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) uygulama ağ geçidi genel IP adresi alınamıyor. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

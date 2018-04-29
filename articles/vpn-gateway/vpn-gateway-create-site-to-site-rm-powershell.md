@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6ee23beaa450129be7c173da9efc687cc3790a15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee4e200fa57a38249b0be2997de7e3268a9302cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell kullanarak Siteden Siteye VPN bağlantısı ile sanal ağ oluşturma
 
@@ -52,7 +52,7 @@ Yapılandırmanıza başlamadan önce aşağıdaki ölçütleri karşıladığı
 PowerShell’i yerel olarak yükleyip kullanmayı seçerseniz, Azure Resource Manager PowerShell cmdlet’lerinin en yeni sürümünü yükleyin. PowerShell cmdlet'leri sık sık güncelleştirilir ve en yeni özelliklerin işlevselliğine sahip olmak için genellikle PowerShell cmdlet’lerinizi güncelleştirmeniz gerekir. PowerShell cmdlet’lerinizi güncelleştirmezseniz belirtilen değerler başarısız olabilir. 
 
 Kullanmakta olduğunuz sürümünü bulmak için 'Get-Module -ListAvailable AzureRM' komutunu çalıştırın. Yükseltmeniz gerekirse bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
-PowerShell’i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için 'Login-AzureRmAccount' komutunu da çalıştırmanız gerekir.
+PowerShell’i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için 'Connect-AzureRmAccount' komutunu da çalıştırmanız gerekir.
 
 
 ### <a name="example"></a>Örnek değerler

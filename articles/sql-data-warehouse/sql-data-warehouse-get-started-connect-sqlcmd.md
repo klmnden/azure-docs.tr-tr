@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Veri Ambarı'na Bağlanma sqlcmd | Microsoft Belgeleri"
-description: "Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın."
+title: Azure SQL Veri Ambarı'na Bağlanma sqlcmd | Microsoft Belgeleri
+description: Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: a4399382445cef5732262520986281ea440f7d51
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd ile SQL Data Warehouse'a bağlanma
 > [!div class="op_single_selector"]

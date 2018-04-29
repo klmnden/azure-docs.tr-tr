@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makalede, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -44,7 +44,7 @@ Makaleyi resimleri için gösterge şöyledir:
 ## <a name="single-forest-single-azure-ad-tenant"></a>Tek bir orman, tek bir Azure AD kiracısı
 ![Tek bir ormana ve tek bir kiracı için topoloji](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-Tek bir orman, bir veya birden çok etki alanı ve tek bir Azure AD Kiracı şirket içi en sık kullanılan topolojidir. Azure AD kimlik doğrulaması için parola eşitleme kullanılır. Azure AD Connect hızlı yükleme yalnızca bu topoloji destekler.
+Tek bir orman, bir veya birden çok etki alanı ve tek bir Azure AD Kiracı şirket içi en sık kullanılan topolojidir. Azure AD kimlik doğrulaması için parola karma eşitlemesi kullanılır. Azure AD Connect hızlı yükleme yalnızca bu topoloji destekler.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Tek orman, birden çok eşitleme sunucusu için bir Azure AD kiracısı
 ![Desteklenmeyen, filtrelenmiş topolojisi tek orman](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +64,7 @@ Ortak topolojileri hakkında bölümlerde açıklanan [ayrı topolojileri](#mult
 
 Azure AD Connect eşitleme Varsayılan yapılandırmada varsayılır:
 
-* Her kullanıcının yalnızca bir etkin hesaba sahip ve bu hesabın bulunduğu orman kullanıcının kimliğini doğrulamak için kullanılır. Bu, hem parola eşitleme hem de Federasyon için varsayılır. UserPrincipalName ve sourceAnchor/İmmutableıd bu ormandan gelir.
+* Her kullanıcının yalnızca bir etkin hesaba sahip ve bu hesabın bulunduğu orman kullanıcının kimliğini doğrulamak için kullanılır. Bu, parola karması eşitlemesi, geçişli kimlik doğrulaması ve Federasyon varsayılır. UserPrincipalName ve sourceAnchor/İmmutableıd bu ormandan gelir.
 * Her kullanıcının yalnızca bir posta kutusu vardır.
 * Bir kullanıcının posta kutusunu barındıran ormanda Exchange Genel adres listesi (GAL) içinde görünür öznitelikler için en iyi veri kalitesini vardır. Kullanıcı için hiçbir posta kutusu varsa, bu öznitelik değerlerini katkıda bulunmak için herhangi bir orman kullanılabilir.
 * Bağlı bir posta kutusu varsa, yoktur da bir hesap oturum açma için kullanılan farklı bir ormanda.
@@ -157,7 +157,7 @@ Bu topoloji aşağıdaki sahip başka kısıtlamalar desteklenen senaryolar:
 
 * Azure AD kiracılarıyla yalnızca biri şirket içi Active Directory örneğiyle bir Exchange karma etkinleştirebilirsiniz.
 * Windows 10 cihazları tek bir Azure AD Kiracı ile ilişkilendirilebilir.
-* Çoklu oturum açma (SSO) seçeneği parola eşitleme ve geçişli kimlik doğrulaması için yalnızca bir Azure AD Kiracı ile kullanılabilir.
+* Çoklu oturum açma (SSO) seçeneği parola karma eşitlemesi ve geçişli kimlik doğrulaması için yalnızca bir Azure AD Kiracı ile kullanılabilir.
 
 Birbirini dışlayan bir nesneler kümesini gereksinimini geri yazma için de geçerlidir. Tek şirket içi yapılandırma varsayar çünkü geri yazma özelliklerinden bazıları bu topolojisi ile desteklenmez. Bu özellikler şunlardır:
 

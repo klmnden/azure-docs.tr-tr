@@ -3,7 +3,7 @@ title: Azure güvenlik hizmetleri ve teknolojileriyle | Microsoft Docs
 description: Makale, Azure güvenlik hizmetleri ve teknolojileriyle seçkin bir listesini sağlar.
 services: security
 documentationcenter: na
-author: TomShinder
+author: barclayn
 manager: MBaldwin
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 20d3eb9a1843e1a223ba7fb060df46a22f9315b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: eedfca2506f9e34b8e5039b0f101b1d4e68ef5a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure güvenlik hizmetleri ve teknolojileri
+
 Geçerli ve gelecekteki Azure müşterilerine bizim tartışmalarını biz genellikle sorulur "tüm güvenlik listesini zorunda ilgili hizmetleri ve sunmak için Azure sahip teknolojileri?"
 
 Bulut hizmeti sağlayıcısı seçenekleri değerlendirirken, bu bilgilere sahip yararlıdır.
@@ -28,6 +29,7 @@ Bulut hizmeti sağlayıcısı seçenekleri değerlendirirken, bu bilgilere sahip
 Bir liste sağlayarak konumundaki ilk çalışmalarımız verilmiştir. Zaman içinde bu liste değiştirin ve Azure gibi büyütün. Listenin kategorilere ve kategori listesi, aynı zamanda zamanla büyüyecektir. Bu sayfayı bizim güvenlikle ilgili hizmetleri ve teknolojileri hakkında güncel kalmak için düzenli olarak kontrol ettiğinizden emin olun.
 
 ## <a name="azure-security---general"></a>Azure güvenlik - genel
+
 * [Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/services/security-center/)
 * [Azure Anahtar Kasası.](https://azure.microsoft.com/documentation/services/key-vault/)
 * [Azure Disk şifrelemesi](azure-security-disk-encryption.md)
@@ -35,6 +37,7 @@ Bir liste sağlayarak konumundaki ilk çalışmalarımız verilmiştir. Zaman i�
 * [Azure geliştirme ve Test Laboratuvarları](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Azure depolama güvenlik
+
 * [Azure depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md)
 * [StorSimple karma depolama şifreli](https://azure.microsoft.com/documentation/services/storsimple/)
 * [Azure istemci tarafı şifreleme](../storage/common/storage-client-side-encryption.md)
@@ -44,6 +47,7 @@ Bir liste sağlayarak konumundaki ilk çalışmalarımız verilmiştir. Zaman i�
 * [Azure depolama çözümlemeleri](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Azure veritabanı güvenliği
+
 * [Azure SQL güvenlik duvarı](../sql-database/sql-database-firewall-configure.md)
 * [Azure SQL hücre düzeyi şifreleme](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
 * [Azure SQL bağlantı şifreleme](../sql-database/sql-database-control-access.md)
@@ -54,6 +58,7 @@ Bir liste sağlayarak konumundaki ilk çalışmalarımız verilmiştir. Zaman i�
 * [Azure SQL veritabanı denetimi](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Azure kimlik ve erişim yönetimi
+
 * [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
@@ -61,10 +66,12 @@ Bir liste sağlayarak konumundaki ilk çalışmalarımız verilmiştir. Zaman i�
 * [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Yedekleme ve olağanüstü durum kurtarma
+
 * [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
 * [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
 ## <a name="azure-networking"></a>Azure Ağı
+
 * [Ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md)
 * [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md)

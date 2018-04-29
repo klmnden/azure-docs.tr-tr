@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory B2B işbirliği sorunlarını giderme | Microsoft Docs"
-description: "Azure Active Directory B2B işbirliği ile ortak sorunları çözümler"
+title: Azure Active Directory B2B işbirliği sorunlarını giderme | Microsoft Docs
+description: Azure Active Directory B2B işbirliği ile ortak sorunları çözümler
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
@@ -63,7 +63,7 @@ Bu sorunu çözmek için dış kullanıcının yönetici kullanıcının hesabı
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Nasıl mu\#', olmayan normal olarak geçerli bir karakter, Azure AD ile eşitleme?
 
-"\#" Azure AD B2B işbirliği veya dış kullanıcılar için ayrılmış bir karakter UPN'ler içinde olduğundan davet edilen hesap user@contoso.com user_contoso.com# haleEXT@fabrikam.onmicrosoft.com. Bu nedenle, \# şirket içinden gelen UPN'ler de Azure portalında oturum açmak için izin verilmez. 
+"\#" Azure AD B2B işbirliği veya dış kullanıcılar için ayrılmış bir karakter UPN'ler içinde olduğundan davet edilen hesap user@contoso.com user_contoso.com#EXT# hale@fabrikam.onmicrosoft.com. Bu nedenle, \# şirket içinden gelen UPN'ler de Azure portalında oturum açmak için izin verilmez. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Bir hata Dış kullanıcılar eşitlenmiş bir gruba eklerken alır
 

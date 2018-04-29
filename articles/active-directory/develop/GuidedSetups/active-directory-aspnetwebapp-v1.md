@@ -1,24 +1,24 @@
 ---
-title: "Azure AD v1 ASP.NET Web sunucusu Başlarken | Microsoft Docs"
-description: "Microsoft oturum açma Openıd Connect standardını kullanan geleneksel web tarayıcı tabanlı bir uygulama ile ASP.NET çözümünü uygulama"
+title: Azure AD v1 ASP.NET Web sunucusu Başlarken | Microsoft Docs
+description: Microsoft oturum açma Openıd Connect standardını kullanan geleneksel web tarayıcı tabanlı bir uygulama ile ASP.NET çözümünü uygulama
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
@@ -67,7 +67,7 @@ Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ar
 
 ## <a name="create-your-aspnet-project"></a>ASP.NET projesi oluşturma
 1. Visual Studio'da: `File` > `New` > `Project`<br/>
-2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
+2. Altında *Visual C# \Web*seçin `ASP.NET Web Application (.NET Framework)`.
 3. Uygulamanızı adlandırın ve tıklayın *Tamam*
 4. Seçin `Empty` ve eklemek için onay kutusunu seçip `MVC` başvuruları
 
@@ -271,7 +271,7 @@ Kullanıcının talepleri görmek için köprü seçin. Bu eylem yalnızca kimli
 |---|---|---|
 | Ad | {Tam} kullanıcı adı | Kullanıcı adı ve Soyadı
 |Kullanıcı adı | <span>user@domain.com</span>| Oturum açmış kullanıcıyı tanımlamak için kullanılan kullanıcı adı
-| Konu| {Subject}|Kullanıcı oturum açma web üzerinden benzersiz şekilde tanımlamak için bir dize|
+| Konu| {Konu}|Kullanıcı oturum açma web üzerinden benzersiz şekilde tanımlamak için bir dize|
 | Kiracı Kimliği| {GUID}| A *GUID* kullanıcının Azure Active Directory kuruluş benzersiz olarak gösterecek.|
 
 Ayrıca, kimlik doğrulama isteğine dahil tüm kullanıcı talepleri de dahil olmak üzere bir tabloya bakın. Bu, tüm talepler kimliği belirteci ve açıklamaları listesi için bkz [makale](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "kimliği belirteçte talep listesi").
@@ -280,7 +280,7 @@ Ayrıca, kimlik doğrulama isteğine dahil tüm kullanıcı talepleri de dahil o
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Test içeren bir yöntem erişen bir *[Authorize]* özniteliği (isteğe bağlı)
 Bu adımda, bir anonim kullanıcı olarak talep denetleyicisi erişimi test:<br/>
 Kullanıcı oturum kapatma bağlantısını seçin ve oturum kapatma işlemini tamamlayın.<br/>
-Şimdi, tarayıcıda http://localhost:{port}/yazın ile korunan denetleyicinizi erişmek talepleri `[Authorize]` özniteliği
+Şimdi, tarayıcıda yazdığınız http://localhost:{port}/claims ile korunan denetleyicinizi erişmek için `[Authorize]` özniteliği
 
 #### <a name="expected-results"></a>Beklenen sonuçları
 Görmek için kimlik doğrulaması gerektirmek istemi almanız gerekir.

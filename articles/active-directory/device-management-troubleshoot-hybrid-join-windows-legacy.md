@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey aygıtları birleştirilmiş karma Azure Active Directory sorun giderme 
 
-Bu konuda, yalnızca aşağıdaki cihazlar için geçerlidir: 
+Bu makalede, yalnızca aşağıdaki cihazlar için geçerlidir: 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +33,7 @@ Bu konuda, yalnızca aşağıdaki cihazlar için geçerlidir:
 
 Windows 10 veya Windows Server 2016 için bkz: [sorun giderme karma Azure Active Directory'ye katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Directory'ye katılmış cihazları](device-management-hybrid-azuread-joined-devices-setup.md) aşağıdaki senaryoları desteklemek için:
+Bu makalede, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Directory'ye katılmış cihazları](device-management-hybrid-azuread-joined-devices-setup.md) aşağıdaki senaryoları desteklemek için:
 
 - Cihaz temelli koşullu erişim
 
@@ -45,7 +45,7 @@ Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Di
 
 
 
-Bu konu, sorun giderme ile ilgili olası sorunları gidermek nasıl yönergelerini sağlar.  
+Bu makalede, sorun giderme ile ilgili olası sorunları gidermek nasıl yönergelerini sağlar.  
 
 **Bilmeniz gerekenler:** 
 
@@ -53,15 +53,17 @@ Bu konu, sorun giderme ile ilgili olası sorunları gidermek nasıl yönergeleri
 
 - İlk kaydı / aygıtların birleştirme denemesi oturum açma veya kilidi gerçekleştirmek / kilidini açmak için yapılandırılır. Bir Görev Zamanlayıcı görevi tarafından tetiklenen 5 dakikalık gecikme olabilir. 
 
-- İşletim sistemi veya el ile yeniden unregister kaldırıp yeniden kaydettirin oluşturabilir yeni bir kayıt üzerinde Azure AD ve Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlanır. 
+- İşletim sistemi veya el ile yeniden kayıtlar yeniden Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlanır Azure AD hakkında yeni bir kayıt oluşturabilir. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
 
 **Kayıt durumunu doğrulamak için:**  
 
-1. Komut istemini yönetici olarak açın 
+1. Karma Azure AD birleştirme yürüttü kullanıcı hesabı ile oturum açma.
 
-2. Türü `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Komut istemini yönetici olarak açın 
+
+3. Türü `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 Bu komut, birleşim durumu hakkında daha fazla ayrıntı sağlayan bir iletişim kutusu görüntüler.
 
@@ -84,16 +86,11 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
     
     Neden bu durum ortaya çıkabilir birkaç farklı nedeni vardır:
     
-    1. Kullanıcının oturum açtığı etki alanı kullanıcı (örneğin, yerel bir kullanıcı) değildir. Alt düzey cihazlarda karma Azure AD birleştirme yalnızca etki alanı kullanıcıları için desteklenir.
+    - Oturum açmış olan kullanıcının etki alanı kullanıcı (örneğin, yerel bir kullanıcı) değil. Alt düzey cihazlarda karma Azure AD birleştirme yalnızca etki alanı kullanıcıları için desteklenir.
     
-    2. Herhangi bir nedenle Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması yapamıyorsa. Birkaç olası nedenleri (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantısı sorunları olabilir veya kullanıcı için etkin/yapılandırılan MFA, ancak WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olabilir. Başka bir olasılık, bu giriş bölgesi bulma (HRD) sayfasını Autoworkplace.exe sessizce bir belirteç elde etmesini engelleyen bir kullanıcı etkileşimi bekliyor olabilir.
+    - Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması alamıyor. Bu, bir (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantı sorunlarından kaynaklanıyor olabilir. Ayrıca, kullanıcı için etkin/yapılandırılan çok faktörlü kimlik doğrulaması (MFA) ve WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olabilir. Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılık olabilir **autoworkplace.exe** sessizce bir belirteç edinme gelen.
     
-    3. Azure AD sorunsuz çoklu oturum açma kuruluş kullanıyorsanız, aşağıdaki URL'yi cihazın IE intranet ayarlarını mevcut değil:
-    
-       - https://autologon.microsoftazuread-sso.com
-
-    
-       ve Intranet bölgesi için "Durum çubuğunda komut dosyası aracılığıyla izin güncelleştirmeler" ayarının etkinleştirilmesi gerekir.
+    - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` cihazın IE intranet ayarlarını, mevcut değil ve **izin durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
 
 - Bir kotasına ulaşıldı
 
@@ -103,11 +100,11 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
 
     ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-Olay günlüğünde altında durum bilgisi bulabilirsiniz **uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**.
+Olay günlüğünde altında durum bilgisi bulabilirsiniz: **uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**
   
 **Başarısız karma Azure AD katılım için en yaygın nedenler şunlardır:** 
 
-- Bilgisayarınız bir şirket içi bağlantısı olmadan VPN'yi veya kuruluşunuzun iç ağ üzerinde değil AD etki alanı denetleyicisi.
+- Bilgisayarınız, şirket içi bağlantısı olan bir VPN ya da kuruluşunuzun iç ağa bağlı AD etki alanı denetleyicisi.
 
 - Bilgisayarınıza yerel bilgisayar hesabı ile oturum. 
 
@@ -115,7 +112,7 @@ Olay günlüğünde altında durum bilgisi bulabilirsiniz **uygulamaları ve Hiz
 
   - Federasyon sunucusunu desteklemek üzere yapılandırılmış **WIAORMULTIAUTHN**. 
 
-  - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret eden bir hizmet bağlantı noktası nesne yok.
+  - Bilgisayarınızın orman sahip Azure AD'de doğrulanmış etki alanı adına işaret eden hizmet bağlantı noktası nesnesi yok 
 
   - Bir kullanıcı cihaz sınırına ulaştı. 
 

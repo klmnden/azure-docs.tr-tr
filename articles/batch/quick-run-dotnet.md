@@ -1,6 +1,6 @@
 ---
-title: "Azure Hızlı Başlangıç - Batch işi çalıştırma - .NET"
-description: "Bir Batch işini ve görevleri Batch .NET istemci kitaplığı ile hızlıca çalıştırın."
+title: Azure Hızlı Başlangıç - Batch işi çalıştırma - .NET
+description: Bir Batch işini ve görevleri Batch .NET istemci kitaplığı ile hızlıca çalıştırın.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Hızlı Başlangıç: .NET API ile ilk Azure Batch işinizi çalıştırma
 
@@ -28,11 +28,11 @@ Bu hızlı başlangıç, Azure Batch .NET API üzerinde derlenmiş bir C# uygula
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 veya daha yeni bir sürüm). 
 
-* Bir Batch hesabı ve bağlı bir genel amaçlı depolama hesabı. Bu hesapları oluşturmak için [Azure portalı](quick-create-portal.md) veya [Azure CLI](quick-create-cli.md) kullanan Batch hızlı başlangıçlarına bakın. 
+* Bir Batch hesabı ve bağlı bir Azure Depolama hesabı. Bu hesapları oluşturmak için [Azure portalı](quick-create-portal.md) veya [Azure CLI](quick-create-cli.md) kullanan Batch hızlı başlangıçlarına bakın. 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 

@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümleri anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulamaya erişim yönetimi sağlayan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD hızla [çoklu oturum açma (SSO) etkinleştirir](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 000 1, kullanıcının önceden tümleştirilmiş ticari ve özel uygulamalar [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/). Çoğu bu uygulamaların, büyük olasılıkla zaten Office 365, Salesforce.com, kutusunu, ServiceNow ve Workday gibi kullanın.
@@ -107,7 +107,7 @@ Burada, bazı ortak kimlik ve erişim senaryoları için hangi Azure kimlik seç
 Bir ton harika kaynaklarının çevrimiçi tüm Azure AD hakkında bilgi edinmenize yardımcı olmak için sahibiz. Başlamanıza yardımcı olmak için harika makalelerin bir listesi aşağıda verilmiştir:
 
 * [Dizininizi Azure AD Connect ile karma yönetimi için etkinleştirme](active-directory-aadconnect.md)
-* [Şimdiye kadar bağlı dünya için ek güvenlik](../multi-factor-authentication/multi-factor-authentication.md)
+* [Şimdiye kadar bağlı dünya için ek güvenlik](authentication/multi-factor-authentication.md)
 * [Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)
 * [Azure AD Raporlama ile çalışmaya başlama](active-directory-reporting-getting-started.md)
 * [Her yerden, parolaları yönetme](active-directory-passwords-update-your-own-password.md)

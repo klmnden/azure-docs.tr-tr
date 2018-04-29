@@ -1,20 +1,20 @@
 ---
-title: "Azure maliyeti yönetimi için bir Google Cloud Platform'un hesabı bağlama | Microsoft Docs"
-description: "Maliyet görüntülemek için bir Google Cloud Platform'un hesap bağlanın ve kullanım verilerini maliyet Yönetimi'nde repots."
+title: Azure maliyeti yönetimi için bir Google Cloud Platform'un hesabı bağlama | Microsoft Docs
+description: Maliyet görüntülemek için bir Google Cloud Platform'un hesap bağlanın ve kullanım verilerini maliyet Yönetimi'nde repots.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Bir Google Cloud Platform'un hesabına bağlanma
 
@@ -24,7 +24,7 @@ Azure maliyeti Management'a varolan Google Cloud Platform'un hesabınızı bağl
 
 Projenizi hakkında bilgi toplanıyor tarafından başlatın.
 
-1. Google Cloud Platform'un konsoluna oturum açın [https://console.cloud.google.com](https://console.cloud.google.com).
+1. Google Cloud Platform'un konsoluna oturum açın [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Onboarding Yönetimi maliyeti ve not için istediğiniz proje bilgileri gözden **proje adı** ve **proje kimliği**. Sonraki adımlar için kullanışlı bilgilerin tutun.  
     ![Google Cloud Platform'un konsol](./media/connect-google-account/gcp-console01.png)
 3. Faturalama etkin değil ve projenize bağlı varsa bir faturalama hesabı oluşturun. Daha fazla bilgi için bkz: [yeni bir faturalama hesabı oluşturma](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
@@ -44,11 +44,11 @@ Kullanım raporları depolamak için Google bulut depolama kullanarak en az ücr
 Kullanım ve varlık bilgileri toplamak için aşağıdaki Google bulut platformu etkin API'ler maliyet yönetim gerekir:
 
 - BigQuery API
-- Google Cloud SQL
+- Google bulut SQL
 - Google bulut veri deposu API
 - Google bulut depolama
 - Google bulut depolama JSON API
-- Google Compute Engine API
+- API Google bilgi işlem altyapısı
 
 ### <a name="enable-or-verify-apis"></a>Etkinleştirmek veya API'ler doğrulayın
 
@@ -59,13 +59,13 @@ Kullanım ve varlık bilgileri toplamak için aşağıdaki Google bulut platform
 
 ## <a name="add-a-google-cloud-account-to-cost-management"></a>Google Cloud hesap yönetimi maliyeti Ekle
 
-1. Azure portalından Cloudyn portalını açın veya gitmek [https://azure.cloudyn.com](https://azure.cloudyn.com/) ve oturum açın.
+1. Azure portalından Cloudyn portalını açın veya gitmek [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) ve oturum açın.
 2. Tıklatın **ayarları** (dişli simgesi) ve ardından **bulut hesapları**.
 3. İçinde **hesap yönetimi**seçin **Google hesabı** sekmesini ve sonra **yeni Ekle +**.
 4. İçinde **Google hesabı adı**, fatura hesap için e-posta adresi girin'ı tıklatın **sonraki**.
 5. Google kimlik doğrulama iletişim seçin veya bir Google hesabı girin ve ardından **izin** cloudyn.com hesabınıza erişim için.
 6. İstek proje bilgileri eklemek önceki vardı not ettiğiniz. İçerirler **proje kimliği**, **proje** adı **fatura** demet adı ve **fatura dosya** rapor öneki'a tıklayın  **Kaydet**.  
-    ![Add Google project](./media/connect-google-account/add-project.png)
+    ![Google proje ekleyin](./media/connect-google-account/add-project.png)
 
 Google hesabınız hesaplar listesinde görüntülenir ve yazması gerekir **kimlik doğrulaması yapılmış**. Bunun altında Google proje adı ve kimliği görünür ve yeşil onay işareti simgesi sahiptir. Hesap durumu söyleyin **tamamlandı**.
 

@@ -1,19 +1,18 @@
 ---
 title: Azure Search hakkında sık sorulan sorular (SSS) | Microsoft Docs
 description: Microsoft Azure arama hizmeti ilgili sık sorulan soruların yanıtlarını alın
-services: search
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
+services: search
 ms.service: search
-ms.technology: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: f61fe2930bc70e800e5d79773e0de6827621e845
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d731faffe1b2448670a5fafa0278ff8c7fb21722
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - sık sorulan sorular (SSS)
 

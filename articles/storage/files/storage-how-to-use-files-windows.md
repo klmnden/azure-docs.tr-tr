@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
 
 Bir Azure Dosya paylaşımını, barındırıldığı Azure bölgesinin dışında bağlamak için (örneğin, şirket içinde veya farklı bir Azure bölgesinde) işletim sisteminin SMB 3.0'ı desteklemesi gerekir. 
 
-Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azure dosya paylaşımlarını bağlayabilirsiniz. Hangi işletim sistemi sürümlerinin hangi ortamlarda dosya paylaşımlarını bağlamayı desteklediği aşağıdaki tabloda gösterilmiştir:
+Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azure dosya paylaşımlarını bağlayabilirsiniz. Aşağıdaki tabloda, hangi işletim sistemi sürümlerinin hangi ortamlarda dosya paylaşımlarını bağlamayı desteklediği gösterilmektedir:
 
 | Windows Sürümü        | SMB Sürümü | Azure VM'de Bağlanabilir | Şirket İçinde Bağlanabilir |
 |------------------------|-------------|-----------------------|----------------------|
@@ -49,11 +49,20 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Depolama Hesabı Anahtarı**: Azure Dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **Bağlantı noktası 445'in açık olduğundan emin olun**: Azure Dosyaları SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
+* **Bağlantı noktası 445'in açık olduğundan emin olun**: Azure Dosyaları SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun. 445 numaralı TCP bağlantı noktasının açık olup olmadığını denetlemek için Portqry kullanabilirsiniz. 445 numaralı TCP bağlantı noktası filtrelenmiş şekilde görüntülenirse TCP bağlantı noktası engellenir. Örnek bir sorgu aşağıda verilmiştir:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    445 numaralı TCP bağlantı noktası, ağ yolunda bir kural tarafından engellenirse aşağıdaki çıktıyı görürsünüz:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Portqry kullanımı hakkında daha fazla bilgi için bkz. [Portqry.exe komut satırı yardımcı programının açıklaması](https://support.microsoft.com/help/310099).
+
 
 ## <a name="persisting-connections-across-reboots"></a>Yeniden başlatma işlemlerinde bağlantıları kalıcı hale getirme
 ### <a name="cmdkey"></a>CmdKey
-Kalıcı bağlantılar kurmanın en kolay yolu, “CmdKey” komut satırı yardımcı programını kullanarak depolama hesabı kimlik bilgilerinizi Windows’a kaydetmektir. Aşağıda, sanal makinenizde depolama hesabı kimlik bilgilerinizin kalıcı hale getirilmesine yönelik örnek bir komut satırı verilmiştir:
+Kalıcı bir bağlantı kurmanın en kolay yolu, “CmdKey” komut satırı yardımcı programını kullanarak depolama hesabı kimlik bilgilerinizi Windows’a kaydetmektir. Aşağıda, sanal makinenizde depolama hesabı kimlik bilgilerinizin kalıcı hale getirilmesine yönelik örnek bir komut satırı verilmiştir:
 ```
 C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
 ```
@@ -84,7 +93,7 @@ Kimlik bilgileri kalıcı hale getirildikten sonra, paylaşımınıza bağlanır
 
 2. **Pencerenin sol tarafındaki “Bu Bilgisayar” öğesine gidin. Bu, şeritteki kullanılabilir menüleri değiştirir. Bilgisayar menüsünün altındaki “Ağ Sürücüsüne Bağlan”ı** seçin.
     
-    ![“Ağ Sürücüsüne Bağlan” açılan menüsünün ekran görüntüsü](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
+    ![“Ağ sürücüsüne bağlan” açılan menüsünün ekran görüntüsü](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
 3. **Azure portalındaki “Bağlan” bölmesinden UNC yolunu kopyalama.** 
 

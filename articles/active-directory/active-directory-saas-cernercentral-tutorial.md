@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Cerner orta ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Cerner Orta arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Cerner orta ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Cerner Orta arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 391994b8df73657dc75e8c9790356f443341159d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6481a96956fe82d47c3c0bb2f7f69a0df8d5b993
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Öğretici: Azure Active Directory Tümleştirme ile Cerner Orta
 
@@ -31,7 +31,7 @@ Cerner Orta Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Cerner orta ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -101,7 +101,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
 
 3. Üzerinde **Cerner merkezi etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -115,46 +115,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-
-    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın: 
+    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
     
-
-    > [!NOTE] 
+    > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Cerner Orta destek ekibi](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) bu değerleri almak için.
- 
-4. Tıklatın **kaydetmek** düğmesi.
+
+4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_metadataurl.png)
+     
+5. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-5. Oluşturulacak **meta veri** url, aşağıdaki adımları gerçekleştirin:
-
-    a. Tıklatın **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appregistrations.png)
-   
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
-
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpoint.png)
-     
-    d. Şimdi özellik sayfasına gidin **Cerner orta** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Çoklu oturum açma yapılandırmak için **Cerner orta** yan, ihtiyacınız göndermek **meta veri URL'sini** için [Cerner Orta Destek](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Tümleştirme tamamlamak için uygulama tarafında SSO yapılandırırlar.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Çoklu oturum açma yapılandırmak için **Cerner orta** yan, ihtiyacınız göndermek **uygulama Federasyon meta veri URL'sini** için [Cerner Orta Destek](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Tümleştirme tamamlamak için uygulama tarafında SSO yapılandırırlar.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır. 
@@ -185,7 +163,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-cerner-central-test-user"></a>Cerner Orta test kullanıcısı oluşturma
 
@@ -247,4 +225,3 @@ Erişim paneli Cerner Orta parçasında tıklattığınızda, otomatik olarak Ce
 [201]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_203.png
-

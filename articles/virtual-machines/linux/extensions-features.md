@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 2a53e34ed6f1eef3e54585587ddadd544b1ae728
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 47cc812f9dac606cf4f69df9eff6d48095eb6ef8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -241,4 +241,4 @@ Azure portalında aşağıdaki adımları kullanarak bir uzantı kaldırabilirsi
 | Docker uzantısı |Uzak Docker komutları desteklemek için Docker arka plan programı yükleyin. |[Docker VM uzantısı](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM Erişimi uzantısı |Bir Azure sanal makinesi erişimi yeniden kazanmak |[VM Erişimi uzantısı](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure tanılama uzantısını |Azure tanılama yönetme |[Azure tanılama uzantısını](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM erişim uzantısı |Kullanıcılar ve kimlik bilgilerini yönetme |[Linux VM erişim uzantısı](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM erişim uzantısı |Kullanıcılar ve kimlik bilgilerini yönetme |[Linux VM erişim uzantısı](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

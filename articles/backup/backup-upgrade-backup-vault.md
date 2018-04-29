@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Yedekleme kasasının kurtarma Hizmetleri Kasası'na yükseltme
 Kurtarma Hizmetleri kasası ve yükseltme sonrası adımlarını var olan bir yedek yükseltme hakkında sık sorulan sorular kasa, bu makalede hangi kurtarma Hizmetleri kasası sağlar genel bir bakış sağlar. Kurtarma Hizmetleri kasası, yedekleme verilerinizi barındıran bir yedekleme kasası Azure Resource Manager eşdeğerdir. Verileri genellikle veri ya da sanal makineleri (VM'ler), iş yükleri, sunucular ve iş istasyonları için yapılandırma bilgilerini kopyalarını olup şirket içi veya azure'de.
@@ -60,7 +60,7 @@ Aşağıdaki ekranlarını Azure portalında yedekleme Kasası'ndan yükseltme y
 Kurtarma Hizmetleri kasasına yedekleme ilkesine belirten saat dilimi bilgilerini destekler. Kasa başarıyla yükseltildikten sonra kasa ayarları menüsünden yedekleme ilkeleri gidin ve her bir kasaya yapılandırılmış ilkeler için saat dilimi bilgilerini güncelleştirin. Bu ekran zaten kullanıldığında yerel saat dilimi ilke oluşturuldu olarak belirtilen yedekleme zamanlaması saati gösterir. 
 
 ## <a name="enhanced-security"></a>Geliştirilmiş güvenlik
-Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltildiğinde, kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman güvenlik ayarlarını, yedeklemeler silme gibi bazı işlemleri bulunan veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) PIN. Gelişmiş Güvenlik ile ilgili daha fazla bilgi için bkz: [karma yedekleri korumak için güvenlik özellikleri](backup-azure-security-feature.md). Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için tutulur. Müşteriler bu güvenlik veri depolama için faturalandırılır. Güvenlik veri saklama Azure Yedekleme aracısı, Azure yedekleme sunucusu ve System Center Data Protection Manager için alınan kurtarma noktaları için geçerlidir. 
+Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltildiğinde, kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman güvenlik ayarlarını, yedeklemeler silme gibi bazı işlemleri bulunan veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) PIN. Gelişmiş Güvenlik ile ilgili daha fazla bilgi için bkz: [karma yedekleri korumak için güvenlik özellikleri](backup-azure-security-feature.md). Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için tutulur. Müşteriler bu güvenlik veri depolama için faturalandırılır. Güvenlik veri saklama Azure Yedekleme aracısı, Azure yedekleme sunucusu ve System Center Data Protection Manager için alınan kurtarma noktaları için geçerlidir. 
 
 ## <a name="gather-data-on-your-vault"></a>Kasanızda verileri toplayın
 Bir kez, bir kurtarma Hizmetleri Kasası'na yükseltme, raporlar için Azure Backup (Iaas Vm'leri ve Microsoft Azure kurtarma Hizmetleri aracısı için), yapılandırıp Power BI raporlarına erişmek için kullanın. Makale veri toplamayı hakkında ek bilgi için bkz: [Azure Yedekleme'yi yapılandırma raporları](backup-azure-configure-reports.md).

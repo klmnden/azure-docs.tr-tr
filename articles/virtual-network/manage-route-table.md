@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 73b0c35ac81d9b32cd56a6fd23119f3889867499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d6a4701c0318edf8292c777615196a2170a68750
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
 
@@ -31,10 +31,10 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
-## <a name="create-a-route-table"></a>Rota tablosu oluşturma
+## <a name="create-a-route-table"></a>Yönlendirme tablosu oluşturma
 
 Kaç tane yönlendirme tabloları Azure konumu ve abonelik oluşturmak için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
 
@@ -82,7 +82,7 @@ Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yo
 - Azure CLI: [az ağ yol tablosu güncelleştirme](/cli/azure/network/route-table/route#az_network_route_table_update)
 - PowerShell: [kümesi AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
-## <a name="associate-a-route-table-to-a-subnet"></a>Bir alt ağ için bir yol tablosu ilişkilendirme
+## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 
 Bir alt ağ için ilişkili sıfır veya bir yol tablosu olabilir. Bir yol tablosu sıfır veya birden çok alt ağlara ilişkili olabilir. Yönlendirme tabloları sanal ağlara ilişkili olmadığından bir yol tablosu ile ilişkili yol tablosu istediğiniz her alt ağa ilişkilendirmeniz gerekir. Alt ağdan çıkan tüm trafik yönlendirme tabloları içinde oluşturduğunuz yollar göre yönlendirilir [varsayılan yollar](virtual-networks-udr-overview.md#default), sanal ağ bağlıysa, bir Azure sanal ağı ağ geçidi (yollar yayıldığı bir şirket içi ağ üzerinden ExpressRoute, veya bir VPN ağ geçidi ile BGP kullanıyorsanız, VPN). Yalnızca bir yol tablosu rota tablosu olarak abonelik ve aynı Azure konumunda bulunan sanal ağlardaki alt ağlara ilişkilendirebilirsiniz.
 
@@ -125,14 +125,14 @@ Hiçbir alt ağ için bir yol tablosu ilişkiliyse, silinemez. [İlişkilendirme
 - Azure CLI: [az ağ rota-tablo silme](/cli/azure/network/route-table/route#az_network_route_table_delete)
 - PowerShell: [AzureRmRouteTable Sil](/powershell/module/azurerm.network/delete-azurermroutetable) 
 
-## <a name="create-a-route"></a>Bir yol oluşturma
+## <a name="create-a-route"></a>Yönlendirme oluşturma
 
 Yol tablosu başına kaç tane rota Azure konumu ve abonelik oluşturabilmeniz için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
 
 1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünür.
 2. Yol tablosu bir rotaya eklemek istediğiniz listeyi seçin.
 3. Seçin **yollar**altında **ayarları**.
-4. Seçin **+ Ekle**.
+4. **+ Ekle** öğesini seçin.
 5. Benzersiz bir girin **adı** rota tablosu içindeki rota için.
 6. Girin **adres ön eki**, trafiğini yönlendirmek istediğiniz CIDR gösteriminde. Önek içinde başka bir önek olabilir ancak önek rota tablosu içindeki birden fazla yol çoğaltılamaz. Örneğin, bir rota öneki olarak 10.0.0.0/16 tanımlanmışsa 10.0.0.0/24 adres ön ekine sahip başka bir yol tanımlayabilirsiniz. Azure üzerinde en uzun ön ek eşleşmesi göre trafiği için bir rota seçer. Azure yollar nasıl seçtiği hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Seçin bir **sonraki atlama türü**. Tüm sonraki atlama türlerini ayrıntılı bir açıklaması için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 2d64b007b68db4df652bde4308760400f4de6dbc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ac2d9620cfb6b3bc12bd3ff664d03d342efc5791
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım
 Machine learning iş akışları ve modelleri web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, tahminlerin gerçek zamanlı veya toplu iş modunda yapmak için Internet üzerinden uygulamalardan machine learning modellerini çağrılacak sonra kullanılabilir. Web hizmetleri RESTful olduğundan, bunları çeşitli programlama dillerini ve .NET ve Java gibi platformları ve Excel gibi uygulamalardan çağırabilirsiniz.
@@ -49,7 +49,7 @@ Web hizmetleri için Azure Machine Learning kaynak sağlayıcısı REST API ça�
 ### <a name="with-powershell-cmdlets"></a>PowerShell cmdlet'leri ile
 Azure Machine Learning kaynak sağlayıcısı web hizmetleri için dağıtım ve Yönetim web hizmetleri PowerShell cmdlet'lerini kullanarak etkinleştirir.
 
-Cmdlet'lerini kullanmak için ilk kez Azure hesabınızdan PowerShell ortamında kullanarak oturum gerekir [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i. Resource Manager, temel alan PowerShell komutlarını nasıl bilginiz varsa bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Cmdlet'lerini kullanmak için ilk kez Azure hesabınızdan PowerShell ortamında kullanarak oturum gerekir [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i. Resource Manager, temel alan PowerShell komutlarını nasıl bilginiz varsa bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 Tahmine dayalı denemenizi dışarı aktarmak için kullanın [Bu örnek kod](https://github.com/ritwik20/AzureML-WebServices). Koddan .exe dosyasını oluşturduktan sonra yazabilirsiniz:
 

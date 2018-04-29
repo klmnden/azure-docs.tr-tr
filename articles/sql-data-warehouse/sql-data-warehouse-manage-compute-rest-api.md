@@ -2,23 +2,19 @@
 title: Duraklatma, sürdürme, ölçeklendirme ile Azure SQL Data Warehouse, KALAN | Microsoft Docs
 description: İşlem gücü SQL Data warehouse'da REST API'leri aracılığıyla yönetin.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: kfile
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/22/2018
-ms.author: barbkess
-ms.openlocfilehash: 518bbe23f1dcb9ffdffcfb67f875165617762c78
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için REST API'leri
 REST API'ları yönetmek için Azure SQL Data Warehouse'da işlem.

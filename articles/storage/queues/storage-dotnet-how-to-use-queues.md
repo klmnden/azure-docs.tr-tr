@@ -1,24 +1,19 @@
 ---
-title: ".NET kullanarak Azure Kuyruk depolamaya başlama | Microsoft Belgeleri"
-description: "Azure Queues, uygulama bileşenleri arasında güvenilir ve zaman uyumsuz mesajlaşma sağlar. Bulut mesajlaşma özelliği uygulama bileşenlerinizin bağımsız olarak ölçeklendirilmesini sağlar."
+title: .NET kullanarak Azure Kuyruk depolamaya başlama | Microsoft Belgeleri
+description: Azure Queues, uygulama bileşenleri arasında güvenilir ve zaman uyumsuz mesajlaşma sağlar. Bulut mesajlaşma özelliği uygulama bileşenlerinizin bağımsız olarak ölçeklendirilmesini sağlar.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 04/16/2018
 ms.author: tamram
-ms.openlocfilehash: 00c737205c8970bf3cd3036b8bfa653c962949d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 749bc318af331100c8c2079d58c8e3ca395f4a49
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET kullanarak Azure Kuyruk Depolamaya başlayın
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -56,6 +51,17 @@ using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
+
+### <a name="copy-your-credentials-from-the-azure-portal"></a>Azure portalından kimlik bilgilerinizi kopyalama
+
+Örnek kodun, depolama hesabınıza erişim için kimlik doğrulaması gerçekleştirmesi gerekir. Kimlik doğrulaması gerçekleştirmek için, depolama hesabınızın kimlik bilgilerini bir bağlantı dizesi şeklinde uygulamaya sağlarsınız. Depolama hesabınızın kimlik bilgilerini görüntülemek için:
+
+1. [Azure portalına](https://portal.azure.com) gidin.
+2. Depolama hesabınızı bulun.
+3. Depolama hesabına genel bakışın **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Hesap erişim anahtarlarınız ve her bir anahtar için tam bağlantı dizesi görüntülenir.   
+4. **key1** bölümünde **Bağlantı dizesi** değerini bulun ve **Kopyala** düğmesine tıklayarak bağlantı dizesini kopyalayın. Sonraki adımda bir ortam değişkenine bağlantı dizesini ekleyeceksiniz.
+
+    ![Azure portalından bağlantı dizesinin kopyalanmasını gösteren ekran görüntüsü](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### <a name="parse-the-connection-string"></a>Bağlantı dizesini ayrıştırma
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]

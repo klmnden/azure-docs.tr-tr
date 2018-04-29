@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
 Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir.
@@ -38,7 +38,7 @@ Makaledeki örneklerde Azure İzleyici cmdlet'lerini nasıl kullanabileceğinizi
 İlk olarak, Azure aboneliğinizde oturum açın.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Bir oturum açma ekranı görürsünüz. Hesabınızda Tenantıd, bir kez oturum açın ve varsayılan abonelik kimliği görüntülenir. Tüm Azure cmdlet'lerini varsayılan aboneliğinizin bağlamında çalışır. Erişiminiz Aboneliklerin listesini görüntülemek için aşağıdaki komutu kullanın:
@@ -150,7 +150,7 @@ Aşağıdaki tabloda, parametreler ve bir ölçüm kullanarak bir uyarı oluştu
 | Ad |simpletestdiskwrite |
 | Bu uyarı kuralı konumu |Doğu ABD |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
 | Oluşturulan uyarının MetricName |\PhysicalDisk (_Total) \Disk Yazma/sn. Bkz: `Get-MetricDefinitions` cmdlet tam ölçüm adları alma hakkında |
 | işleci |GreaterThan |
 | Eşik değeri (sayısı/sn olarak bu ölçüm için) |1 |

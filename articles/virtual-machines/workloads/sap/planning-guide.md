@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c2c3443f014f6c42ba9e8b68b21c2b9d0fdb1549
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -236,7 +236,7 @@ ms.lasthandoff: 04/05/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -337,7 +337,7 @@ Belge boyunca aşağıdaki terimleri kullanırız:
 * Iaas: Hizmet olarak altyapı
 * PaaS: Hizmet olarak Platform
 * SaaS: Hizmet olarak yazılım
-* ARM: Azure Resource Manager
+* ARM: Azure Kaynak Yöneticisi
 * SAP bileşen: tek tek SAP gibi bir uygulama ECC, bant genişliği, çözüm Yöneticisi veya EP'deki  SAP bileşenleri geleneksel ABAP veya Java teknolojiler ya da olmayan-tabanlı NetWeaver uygulama iş nesneleri gibi temel alabilir.
 * SAP ortamı: bir veya daha fazla SAP bileşenleri geliştirme, QAS, eğitim, DR veya üretim gibi işletme işlevini gerçekleştirmek için mantıksal olarak gruplandırılır.
 * SAP yatay: Bu tüm müşteri'nin SAP varlıkları başvurduğu BT yatay. SAP yatay tüm üretim ve üretim dışı ortamlar içerir.
@@ -966,7 +966,7 @@ Bu durumda olan veya olmayan bir işletim sisteminde, bir VHD yüklemek ve bir v
 
 **PowerShell**
 
-* Oturum açtığınızda, aboneliğinizle *Login-AzureRmAccount*
+* Oturum açtığınızda, aboneliğinizle *Connect-AzureRmAccount*
 * Bağlamına sahip abonelik *Set-AzureRmContext* ve parametre Subscriptionıd veya varlığıyla SubscriptionName - bakın <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * VHD ile karşıya *Ekle AzureRmVhd* bir Azure depolama hesabı - bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (İsteğe bağlı) VHD ile yönetilen bir Disk oluşturmak *yeni AzureRmDisk* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -993,7 +993,7 @@ Bu durumda olan veya olmayan bir işletim sisteminde, bir VHD yüklemek ve bir v
 Böyle bir VM veya VHD gereksinim bölümde listelenen gereksinimlerini karşılamak bir Azure VM görüntü olarak kullanmak için şirket içi ağ üzerinden bir var olan VM veya VHD yüklemeye [için SAP müşteriye özgü görüntüsü olan bir VM dağıtımı için hazırlık] [ planning-guide-5.2.2] bu belgenin.
 
 * Kullanım *sysprep* Windows veya *waagent-deprovision* , VM - generalize Linux bkz [Sysprep Teknik Başvurusu](https://technet.microsoft.com/library/cc766049.aspx) Windows için veya [yakalama bir Resource Manager şablonu olarak kullanmak üzere Linux sanal makine] [ capture-image-linux-step-2-create-vm-image] Linux için
-* Oturum açtığınızda, aboneliğinizle *Login-AzureRmAccount*
+* Oturum açtığınızda, aboneliğinizle *Connect-AzureRmAccount*
 * Bağlamına sahip abonelik *Set-AzureRmContext* ve parametre Subscriptionıd veya varlığıyla SubscriptionName - bakın <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * VHD ile karşıya *Ekle AzureRmVhd* bir Azure depolama hesabı - bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (İsteğe bağlı) VHD ile yönetilen bir Disk görüntüsü oluşturmak *yeni AzureRmImage* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
@@ -1841,7 +1841,7 @@ Azure'da yüksek kullanılabilirlik SAP SAP yüksek kullanılabilirlik için bir
 
 Benzer:
 
-(99.95/100) * (99.9/100) * (99.9/100) = 0.9975 or an overall availability of 99.75%.
+(99,95/100) * (99,9/100) * (99,9/100) = 0.9975 veya %99.75 genel kullanılabilirlik.
 
 #### <a name="virtual-machine-vm-high-availability"></a>Sanal makine (VM) yüksek kullanılabilirlik
 İki tür sanal makinelerin kullanılabilirliğini etkileyebilecek Azure platformu olay vardır: planlanan Bakım ve planlanmayan Bakım.
@@ -1964,7 +1964,7 @@ Aşağıdaki şekilde yönetilen diskleri kullanarak aynı yatay gösterilmişti
 
 ![Azure Iaas SQL Server ile SAP NetWeaver uygulama HA mimarisi][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA on Linux
+##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA Linux
 Mimarisi SAP HA Linux Azure üzerinde temel Windows yukarıda açıklandığı gibi aynıdır. SAP nota bakın [1928533] desteklenen yüksek kullanılabilirlik çözümlerinin listesi.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>SAP örnekleri için Otomatik Başlat'ı kullanma

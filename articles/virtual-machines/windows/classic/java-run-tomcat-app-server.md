@@ -1,11 +1,10 @@
 ---
-title: "Java uygulama sunucusu bir Klasik Azure VM üzerinde çalışan | Microsoft Docs"
-description: "Bu öğretici, Klasik dağıtım modeli kullanılarak oluşturulmuş kaynaklarını kullanır ve bir Windows sanal makine oluşturma ve Apache Tomcat uygulama sunucusu çalıştırmak için yapılandırın gösterir."
+title: Java uygulama sunucusu bir Klasik Azure VM üzerinde çalışan
+description: Bu öğretici, Klasik dağıtım modeli kullanılarak oluşturulmuş kaynaklarını kullanır ve bir Windows sanal makine oluşturma ve Apache Tomcat uygulama sunucusu çalıştırmak için yapılandırın gösterir.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Klasik dağıtım modeliyle oluşturulan bir sanal makinede Java uygulama sunucusu çalıştırma
 > [!IMPORTANT]
@@ -84,7 +83,7 @@ Bu öğretici Tomcat Java uygulama sunucusu olarak yüklemek için kullanır.
 
 Sanal makinenizde bir komut istemi açmak ve komutunu çalıştırarak Tomcat el ile başlatabilirsiniz **net&nbsp;Başlat&nbsp;Tomcat8**.
 
-Tomcat çalışmaya başladıktan sonra URL'yi girerek Tomcat erişebilirsiniz <http://localhost: 8080> sanal makinenin tarayıcıda.
+Tomcat çalışmaya başladıktan sonra URL'yi girerek Tomcat erişebilirsiniz <http://localhost:8080> sanal makinenin tarayıcıda.
 
 Dış makinelerden çalıştıran Tomcat görmek için bir uç noktası oluşturma ve bir bağlantı noktası açmanız gerekir.
 
@@ -113,7 +112,7 @@ Dış makinelerden çalıştıran Tomcat görmek için bir uç noktası oluştur
 6. İçin **kural türü**seçin **bağlantı noktası**ve ardından **sonraki**.  
    ![Yeni gelen kuralı bağlantı noktası][NewRulePort]
 7. Üzerinde **protokol ve bağlantı noktaları** ekran, select **TCP**, belirtin **8080** olarak **belirli yerel bağlantı noktası**ve ardından **sonraki**.  
-  ![Yeni gelen kuralı][NewRuleProtocol]
+  ![Yeni gelen kuralı ][NewRuleProtocol]
 8. Üzerinde **eylem** ekran, select **bağlantıya izin**ve ardından **sonraki**.
    ![Yeni gelen kuralı eylemi][NewRuleAction]
 9. Üzerinde **profil** ekranında, emin **etki alanı**, **özel**, ve **ortak** seçilir ve ardından **sonraki**.

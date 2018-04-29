@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 56559adbc2ebd4e4379326607a28333d538504da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8cc6fa994c750f4718e6cc065819763d8be4f18c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Azure Data Factory kullanarak Phoenix verilerini 
 
@@ -45,8 +45,8 @@ Aşağıdaki özellikler Phoenix bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Phoenix** | Evet |
-| konak | Phoenix sunucusunun IP adresi veya ana bilgisayar adı. (that is, 192.168.222.160)  | Evet |
-| port | Phoenix sunucusunun istemci bağlantılarını dinlemek için kullandığı TCP bağlantı noktası. 8765 varsayılan değerdir.  | Hayır |
+| konak | Phoenix sunucusunun IP adresi veya ana bilgisayar adı. (diğer bir deyişle, 192.168.222.160)  | Evet |
+| port | Phoenix sunucusunun istemci bağlantılarını dinlemek için kullandığı TCP bağlantı noktası. 8765 varsayılan değerdir. Azure Hdınsights bağlanıyorsanız, bağlantı noktası 443'tür belirtin. | Hayır |
 | httpPath | Phoenix sunucuya karşılık gelen kısmi URL'si. (diğer bir deyişle, /gateway/sandbox/phoenix/version). Varsayılan değer `hbasephoenix` WindowsAzureHDInsightService kullanıyorsanız.  | Hayır |
 | authenticationType | Phoenix sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Phoenix sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
@@ -67,7 +67,7 @@ Aşağıdaki özellikler Phoenix bağlantılı hizmeti için desteklenir:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
+            "port" : "443",
             "httpPath" : "hbasephoenix",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",

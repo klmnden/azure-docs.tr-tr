@@ -1,8 +1,8 @@
 ---
-title: "Azure PowerShell kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs"
-description: "Data Lake Analytics hesapları, veri kaynaklarını, işlerini ve Katalog öğeleri yönetmeyi öğrenin. "
+title: Azure PowerShell kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs
+description: 'Data Lake Analytics hesapları, veri kaynaklarını, işlerini ve Katalog öğeleri yönetmeyi öğrenin. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 69530ab2ad795eaf611cb749d8c439ab07cafeac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -50,16 +50,16 @@ $location = "<Location>"
 Bir abonelik kimliği kullanarak oturum açın.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 Abonelik adı kullanarak oturum açın.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-`Login-AzureRmAccount` Cmdlet her zaman için kimlik bilgilerini ister. Aşağıdaki cmdlet'leri kullanarak sorulmasını önlemek:
+`Connect-AzureRmAccount` Cmdlet her zaman için kimlik bilgilerini ister. Aşağıdaki cmdlet'leri kullanarak sorulmasını önlemek:
 
 ```powershell
 # Save login session information
@@ -292,7 +292,7 @@ Kullanım `-Result` sona erdi işler başarıyla tamamlandığında olup olmadı
 
 * İptal edildi
 * Başarısız
-* Hiçbiri
+* None
 * Başarılı oldu
 
 ``` powershell
@@ -604,7 +604,7 @@ $deploymentName = "MyDataLakeAnalyticsDeployment"
 $armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
 
 # Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $rg -Location $location

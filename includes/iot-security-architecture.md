@@ -43,7 +43,7 @@ Tehdit modelleme gibi başka bir işlemdir. Tehdit modeli belgenin çözümün h
 1. Avantajlarına ilk başlatın. Genel bir bakış elde ve derin girmeden önce bir bütün olarak sistem anlayın. Bu yaklaşım sağlamaya yardımcı olur. Bu, ayrıntılı-Dalış doğru yerde.
 1. İşlem sürücü, sürücüsü işlem izin vermeyin. Modelleme aşamasında bir sorun bulmak ve onu keşfetmek istediğiniz, bunun için Git! Bu adımları slavishly gerek düşündüğünüz yok.
 
-#### <a name="threats"></a>Tehditleri
+#### <a name="threats"></a>Tehditler
 
 Bir tehdit modeli dört temel öğeleri şunlardır:
 
@@ -157,14 +157,14 @@ Her Azure IOT mimarisinde özetlenen kategorileri, veri/bilgileri bulunmaktadır
 
 **Yükseltme, ayrıcalık (E)**: başka bir şey yapmak için belirli bir işlevi gerçekleştiren bir aygıtı zorlanabilir. Örneğin, yarı yol açmak üzere programlanmış Vana tüm açmak için sağladı.
 
-| **Bileşen** | **Tehdit** | **Azaltma** | **Risk** | **Uygulama** |
+| **Bileşen** | **Tehdit** | **Azaltma** | **Riski** | **Uygulama** |
 | --- | --- | --- | --- | --- |
 | Cihaz |S |Cihaz kimlik doğrulaması ve kimlik cihaza atama |Aygıt veya aygıtın başka bir aygıt ile değiştirin. Doğru cihaza varsayılır nasıl bilebilirsiniz? |Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak cihaz kimlik doğrulaması. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD yararlanan [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Örneğin, aygıt tamperproof mekanizmalarına sabit anahtarları ve diğer şifreleme malzeme aygıttan ayıklamak imkansız için kolaylaştırarak uygulayın. |Birisi (fiziksel girişim) cihaz oynama, riski oluşturur. Nasıl emin, aygıt olduğunuz oynanmış değil. |En etkili Azaltıcı içinden anahtarları okunamıyor, ancak yalnızca anahtar kullanan ancak hiç anahtar ifşa şifreleme işlemleri için kullanılabilir özel yongadaki devresi anahtarlarını depolamak izin veren bir güvenilir platform Modülü (TPM) bir özelliktir. Aygıt bellek şifreleme. Cihaz için anahtar yönetimi. Kod imzalama. | |
-| E |Cihazın erişim denetimi sahip. Yetkilendirme düzeni. |Tek tek eylemlerin gerçekleştirilmesini cihaz komutları bir dış kaynaktan ya da güvenliği aşılmış algılayıcılar temel alınarak izin veriyorsa, saldırının aksi işlemleri için erişilebilir sağlar. |Cihaz için Yetkilendirme düzeni sahip | |
+|| TRID |Örneğin, aygıt tamperproof mekanizmalarına sabit anahtarları ve diğer şifreleme malzeme aygıttan ayıklamak imkansız için kolaylaştırarak uygulayın. |Birisi (fiziksel girişim) cihaz oynama, riski oluşturur. Nasıl emin, aygıt olduğunuz oynanmış değil. |En etkili Azaltıcı içinden anahtarları okunamıyor, ancak yalnızca anahtar kullanan ancak hiç anahtar ifşa şifreleme işlemleri için kullanılabilir özel yongadaki devresi anahtarlarını depolamak izin veren bir güvenilir platform Modülü (TPM) bir özelliktir. Aygıt bellek şifreleme. Cihaz için anahtar yönetimi. Kod imzalama. | |
+|| E |Cihazın erişim denetimi sahip. Yetkilendirme düzeni. |Tek tek eylemlerin gerçekleştirilmesini cihaz komutları bir dış kaynaktan ya da güvenliği aşılmış algılayıcılar temel alınarak izin veriyorsa, saldırının aksi işlemleri için erişilebilir sağlar. |Cihaz için Yetkilendirme düzeni sahip | |
 | Alan ağ geçidi |S |Bulut ağ geçidi için alan ağ geçidi kimlik doğrulaması (PSK, sertifika tabanlı veya talep tabanlı gibi.) |Ardından, birisi alan ağ geçidi taklit edebilir, kendisini herhangi bir aygıtı sunabilir. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Aynı genel – aygıtların temel depolama ve kanıtlama sorunlarının en iyi durum kullanın TPM. Kablosuz algılayıcı ağları (WSN) desteklemek IPSec 6LowPAN uzantısı. |
-| TRID |Alan ağ geçidi'ni (TPM?) oynama karşı koruma |Sahtekarlığı alan ağ geçidi Konuşmayı bulut ağ geçidi düşünmeye kandırarak saldırıları bilgilerin açığa çıkması ve verileri izinsiz neden olabilir |Bellek şifreleme, TPM bilgisayarın, kimlik doğrulaması. | |
-| E |Alan ağ geçidi için erişim denetimi mekanizması | | | |
+|| TRID |Alan ağ geçidi'ni (TPM?) oynama karşı koruma |Sahtekarlığı alan ağ geçidi Konuşmayı bulut ağ geçidi düşünmeye kandırarak saldırıları bilgilerin açığa çıkması ve verileri izinsiz neden olabilir |Bellek şifreleme, TPM bilgisayarın, kimlik doğrulaması. | |
+|| E |Alan ağ geçidi için erişim denetimi mekanizması | | | |
 
 Bu kategorideki tehditleri bazı örnekleri şunlardır:
 
@@ -200,7 +200,7 @@ Kimlik sahtekarlığı: Bir saldırgan şifreleme anahtar malzemesi bir aygıtı
 
 Cihazlar, aygıtları ve alan ağ geçitleri ve cihaz ve bulut ağ geçidi arasındaki iletişim yolunun geçici tehditleri. Aşağıdaki tabloda bazı yönergeler aygıt/VPN açık yuva geçici sahiptir:
 
-| **Bileşen** | **Tehdit** | **Azaltma** | **Risk** | **Uygulama** |
+| **Bileşen** | **Tehdit** | **Azaltma** | **Riski** | **Uygulama** |
 | --- | --- | --- | --- | --- |
 | Cihaz IOT hub'ı |KOMUTU |(D) TLS (trafiğini şifrelemek için PSK/RSA) |Gizli dinleme veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Güvenlik protokolü düzeyi. Özel protokollerle onları korumak nasıl şekil gerekir. Çoğu durumda, iletişimin aygıttan (aygıt bağlantı başlatır) IOT Hub'ına gerçekleşir. |
 | Aygıtın aygıt |KOMUTU |(D) TLS (trafiğini şifrelemek için PSK/RSA). |Cihazlar arasında Aktarımdaki verileri okunuyor. Verilerinize müdahale. Yeni bağlantıları aygıtla aşırı yüklemesi |Güvenlik protokolü düzeyinde (MQTT/AMQP/HTTP/CoAP. Özel protokollerle onları korumak nasıl şekil gerekir. Azaltma DoS tehdit için bir bulut ya da alan ağ geçidi üzerinden cihazları eş ve bunları ağ doğrultusunda istemcileri olarak yalnızca act sahip olmaktır. Eşlemeyi ağ geçidiyle aracılı sonra eşler arasında doğrudan bağlantı ile sonuçlanabilir |
@@ -224,7 +224,7 @@ Bu kategorideki tehditleri bazı örnekleri şunlardır:
 
 Her cihaz ve alan ağ geçidi (işletim sistemi (OS) görüntüsü depolama, veri queuing geçici) depolama çeşit vardır.
 
-| **Bileşen** | **Tehdit** | **Azaltma** | **Risk** | **Uygulama** |
+| **Bileşen** | **Tehdit** | **Azaltma** | **Riski** | **Uygulama** |
 | --- | --- | --- | --- | --- |
 | Cihaz depolama |TRID |Depolama şifrelemesi, günlükleri imzalama |Depolama (PII veri) verileri telemetri verilerinize müdahale okuma. Değiştirilmesine sıraya veya komut denetim verileri önbelleğe alınmış. Yapılandırma veya bellenimi güncelleştirme paketleriyle oynama önbelleğe alınmış veya yerel olarak kuyruğa sırada güvenliğinin bozulması riskini işletim sistemi ve/veya sistem bileşenleri için yol açabilir |Şifreleme, ileti kimlik doğrulama kodu (MAC) veya dijital imza. Burada kaynak erişimi aracılığıyla olası, güçlü erişim denetim listeleri (ACL'ler) veya izinleri denetler. |
 | Cihaz işletim sistemi görüntüsü |TRID | |İşletim sistemiyle oynama / işletim sistemi bileşenleri değiştirme |Salt okunur işletim sistemi bölümü, imzalı işletim sistemi görüntüsü, şifreleme |
