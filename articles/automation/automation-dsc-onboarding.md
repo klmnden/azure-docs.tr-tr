@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 
@@ -31,7 +31,7 @@ Azure Otomasyonu DSC, çeşitli makinelerde yönetmek için kullanılabilir:
 Ayrıca, buluttan makine yapılandırmasını yönetmek hazır değilseniz Azure Otomasyonu DSC de yalnızca rapor uç noktası olarak kullanılabilir. Bu DSC şirket içi aracılığıyla (anında iletme) istenen yapılandırmayı ayarlamak ve düğüm uyumluluğunu belirtilen istenen duruma Azure Automation ile zengin raporlama ayrıntıları görüntülemenizi sağlar.
 
 > [!NOTE]
-> Yüklü sanal makine DSC uzantısı 2.70 büyükse, DSC ile Azure Vm'lerini yönetme ekstra ücret ödemeden dahil edilir. Başvurmak [ **fiyatlandırma sayfası Otomasyon** ](https://azure.microsoft.com/en-us/pricing/details/automation/) daha fazla ayrıntı için.
+> Yüklü sanal makine DSC uzantısı 2.70 büyükse, DSC ile Azure Vm'lerini yönetme ekstra ücret ödemeden dahil edilir. Başvurmak [ **fiyatlandırma sayfası Otomasyon** ](https://azure.microsoft.com/pricing/details/automation/) daha fazla ayrıntı için.
 
 
 Aşağıdaki bölümlerde, her tür bir Azure Otomasyonu DSC makineye discovery'yi ekleyebilir nasıl verilmiştir.
@@ -195,7 +195,7 @@ En son sürümünü bu komutu çalıştırmak makinenin olmalıdır [WMF 5](http
 
 ## <a name="generating-dsc-metaconfigurations"></a>DSC metaconfigurations oluşturma
 
-Genel olarak yerleşik herhangi bir Azure Otomasyonu DSC için makine bir [DSC meta yapılandırmasını](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) olabilir makine isteneceğini ve/veya Azure Otomasyonu DSC raporu için DSC Aracısı bildirir, uygulandığında, oluşturulur. Azure Otomasyonu DSC DSC metaconfigurations PowerShell DSC yapılandırması veya Azure Automation PowerShell cmdlet'lerini kullanarak oluşturulabilir.
+Genel olarak yerleşik herhangi bir Azure Otomasyonu DSC için makine bir [DSC meta yapılandırmasını](https://msdn.microsoft.com/powershell/dsc/metaconfig) olabilir makine isteneceğini ve/veya Azure Otomasyonu DSC raporu için DSC Aracısı bildirir, uygulandığında, oluşturulur. Azure Otomasyonu DSC DSC metaconfigurations PowerShell DSC yapılandırması veya Azure Automation PowerShell cmdlet'lerini kullanarak oluşturulabilir.
 
 > [!NOTE]
 > DSC metaconfigurations için yerleşik bir Otomasyon makineye yönetimi için hesap gizli kod dizeleri içerir. Oluşturduğunuz tüm DSC metaconfigurations düzgün bir şekilde korumak emin olun veya kullandıktan sonra silin.

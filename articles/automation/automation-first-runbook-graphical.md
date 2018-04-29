@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fe383d172def4916338db86c5fba641d75813e9b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -117,6 +117,10 @@ Abonelik kimliğinizi tutmak üzere bir değişkene sahip olduğunuza göre, run
 1. Gerekmeyen **yazma Hello World yazmak** artık, bu nedenle üç nokta (...) tıklayın ve **silmek**.
 1. Kitaplık denetiminde, **VARLIKLAR**, **Bağlantılar**’ı genişletin ve **Tuvale Ekle**’yi seçerek **AzureRunAsConnection**’ı ekleyin.
 1. Kitaplık denetiminde yazın **Connect-AzureRmAccount** arama metin kutusuna.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** için diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızın arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, ya da Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
+
 1. Ekleme **Connect-AzureRmAccount** tuvale.
 1. Şeklin altında bir daire görünene kadar **Farklı Çalıştır Bağlantısını Al** üzerinde bekleyin. Daireye tıklayın ve oku sürükleyin **Connect-AzureRmAccount**. Oluşturduğunuz ok bir *bağlantıdır*. Runbook ile başlayan **farklı çalıştır bağlantısını Al** ve ardından çalıştırın **Connect-AzureRmAccount**.<br> ![Etkinlikler arasında bağlantı oluşturma](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. Tuvalde seçin **Connect-AzureRmAccount** ve yapılandırma denetim bölmesinde türü **Azure'da oturum aç** içinde **etiket** metin kutusu.
@@ -135,9 +139,6 @@ Abonelik kimliğinizi tutmak üzere bir değişkene sahip olduğunuza göre, run
 1. Parametre kümesini seçtiğinizde, parametreleri Etkinlik parametresi yapılandırma sayfasında görüntülenir. **SubscriptionID**’e tıklayın.
 1. Parametre değeri sayfasında seçin **değişken varlığı** için **veri kaynağı** seçip **Azuresubscriptionıd** listesi ve ardından **Tamam** iki kez.
 1. Şeklin altında bir daire görünene kadar **Azure’da Oturum Aç** üzerinde bekleyin. Daireye tıklayın ve oku **Abonelik Kimliği Belirt**’e sürükleyin.
-
-> [!IMPORTANT]
-> **Connect-AzureRmAccount** için diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızın arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Connect-AzureRmAccount**, ya da Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
 
 Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma
 
@@ -54,7 +54,7 @@ Uygulamanızı SAML yanıt olarak geçirilecek özel roller görüyorsa, bu öze
 
 5. Uygulama eklendikten sonra Git **özellikleri** sayfası ve kopyalama **nesne kimliği**.
 
-    ![Özellikler sayfası](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Özellikler sayfası](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. Açık [Azure AD Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) başka bir pencerede.
 
@@ -253,7 +253,7 @@ Mevcut bir rolü silmek için şu adımları gerçekleştirin:
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Başvuru [uygulama belgeleri ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) ek adımlar için.
+Başvuru [uygulama belgeleri ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) ek adımlar için.
 
 <!--Image references-->
 <!--Image references-->

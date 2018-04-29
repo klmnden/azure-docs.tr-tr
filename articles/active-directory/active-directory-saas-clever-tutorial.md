@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Öğretici: Azure Active Directory Tümleştirme Clever ile
 
@@ -110,10 +110,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://clever.com/in/<companyname>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://clever.com/<companyname>`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [akıllı istemci destek ekibi](https://clever.com/about/contact/) bu değerleri almak için.
+    > Oturum açma URL değeri gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [akıllı istemci destek ekibi](https://clever.com/about/contact/) bu değeri alınamıyor.
 
 4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
     
@@ -129,7 +129,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı  | Öznitelik Değeri |
     | --------------- | -------------------- |
-    | clever.Student.credentials.District\_kullanıcı adı  | User.userPrincipalName |
+    | clever.Teacher.credentials.district_username|User.userPrincipalName|
+    | clever.Student.credentials.district_username| User.userPrincipalName |
     | FirstName  | User.givenName |
     | Soyadı  | User.surname |
 
@@ -157,19 +158,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Hızlı oturum açma](./media/active-directory-saas-clever-tutorial/ic798984.png "anlık oturum açma")
 
+    > [!NOTE]
+    > Çoklu oturum açmayı Test edebilmemiz başvurmak zorunda [akıllı istemci destek ekibi](https://clever.com/about/contact/) arka uç Office 365 SSO'yu etkinleştirmek için.
+
 10. Üzerinde **anlık oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
-      
+    
       ![Hızlı oturum açma](./media/active-directory-saas-clever-tutorial/ic798985.png "anlık oturum açma")
-      
+    
       a. Tür **oturum açma URL'si**.
-      
+    
       >[!NOTE]
       >**Oturum açma URL'si** özel bir değerdir. Kişi [akıllı istemci destek ekibi](https://clever.com/about/contact/) bu değeri alınamıyor.
-      
+    
       b. Olarak **kimlik sistemi**seçin **ADFS**.
 
       c. İçinde **meta veri URL'sini** metin kutusuna, Yapıştır **uygulama Federasyon meta veri URL'sini** Azure portalından kopyaladığınız değeri.
-      
+    
       d. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma

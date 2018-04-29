@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 3bfedf940bd884fc8093f14236b6f3e4f7596839
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell kullanarak Azure bağımsız bulut depolamada yönetme
 
@@ -85,11 +85,10 @@ Bu komut aşağıdaki sonuçları döndürür.
 
 | Ad| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | Core.Windows.NET |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | core.usgov.cloudapi.net |
-
+| AzureUSGovernment | Core.usgovcloudapi.NET |
 
 Belirtilen ortamı için özelliklerin tümünü almak için arama **Get-AzureRmEnvironment** ve bulut adı belirtin. Bu kod parçacığını özelliklerin listesini döndürür; Ara **StorageEndpointSuffix** listesinde. Aşağıdaki örnek, Almanca bulut için aynıdır.
 

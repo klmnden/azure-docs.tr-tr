@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Market öğesi Azure'dan Azure yığınına indirin.
 
@@ -62,7 +62,7 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
 
 1. Bir yönetici olarak bir PowerShell konsolu açın ve [Azure yığın belirli PowerShell modüllerini yüklemek](azure-stack-powershell-install.md). Yüklediğinizden emin olun **PowerShell sürüm 1.2.11 ya da daha yüksek**.  
 
-2. Azure yığın kaydetmek için kullanılan Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Connect-AzureRmAccount** cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
+2. Azure yığın kaydetmek için kullanılan Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Add-AzureRmAccount** cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
 
 3. Birden çok aboneliğiniz varsa, kayıt için kullanılan birini seçmek için aşağıdaki komutu çalıştırın:  
 

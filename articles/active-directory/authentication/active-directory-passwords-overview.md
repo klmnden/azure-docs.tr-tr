@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 7d1103e0ab21d2eac336a0e460156d47012b2a86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Azure AD Self Servis parola sıfırlama için BT Uzmanı
 
@@ -50,7 +50,7 @@ Azure AD SSPR'yi aboneliğinize bağlı olarak üç katmanı bulunur:
 
 * **Azure AD serbest**: yalnızca bulut yöneticiler kendi parolalarını sıfırlayın.
 * **Azure AD temel** veya tüm **Ücretli Office 365 aboneliği**: yalnızca bulut kullanıcıların kendi parolalarını sıfırlayın.
-* **Azure AD Premium**: herhangi bir kullanıcı veya yönetici salt bulut dahil olmak üzere, Federasyon veya parola kullanıcılar eşitlenmiş, kendi parolalarını sıfırlayabilir. Şirket içi parolaları parola geri yazma etkin olmasını gerektirir.
+* **Azure AD Premium**: herhangi bir kullanıcı veya yönetici, yalnızca bulut, Federasyon, geçiş kimlik doğrulaması veya parola karma eşitlenen kullanıcılar dahil olmak üzere kendi parolalarını sıfırlayabilir. Şirket içi parolaları parola geri yazma etkin olmasını gerektirir.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Azure AD fiyatlandırma, SLA, güncelleştirmeleri ve yol haritası
 

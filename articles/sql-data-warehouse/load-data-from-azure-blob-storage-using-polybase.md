@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: Azure SQL Data Warehouse için yük New York Taxicab veri
 
@@ -77,9 +77,9 @@ Boş bir SQL veri ambarı oluşturmak için aşağıdaki adımları izleyin.
 
 5. **Seç**'e tıklayın.
 
-6. **Performans katmanı**'na tıklayarak veri ambarının esneklik veya işlem için iyileştirilip iyileştirilmeyeceğini ve veri ambarı birimlerinin sayısını belirtin. 
+6. Tıklatın **performans düzeyi** veri ambarı Gen1 veya Gen2 ve sayısı, veri ambarı birimlerini olup olmadığını belirtmek için. 
 
-7. Bu öğreticide, **Esneklik için İyileştirilmiş** hizmet katmanını seçin. Kaydırıcı varsayılan olarak **DW400**’e ayarlanmıştır.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
+7. Bu öğretici için seçin **Gen1** SQL veri ambarı. Varsayılan olarak, kaydırıcıyı kümesine **DW1000c**.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
 
     ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -102,7 +102,7 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 > SQL Veri Ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
 >
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver-20171113.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
+1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınız için genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver 20180430.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar. 
 
 2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Ardından sunucu adına tıklayarak sunucu ayarlarını açın.
 
@@ -132,8 +132,8 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra sunucuya bağlanırken tam adı kullanacaksınız.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam ad mynewserver-20171113.database.windows.net. 
+2. Seçin **SQL veri ambarlarında** sol taraftaki menüden ve veritabanınızı tıklayın **SQL veri ambarlarında** sayfası. 
+3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam mynewserver 20180430.database.windows.net addır. 
 
     ![bağlantı bilgileri](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -148,7 +148,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
     | Ayar      | Önerilen değer | Açıklama | 
     | ------------ | --------------- | ----------- | 
     | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-    | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver-20171113.database.windows.net**. |
+    | Sunucu adı | Tam sunucu adı | Adı, şunun gibi olmalıdır: **mynewserver 20180430.database.windows.net**. |
     | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
     | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
     | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
@@ -163,7 +163,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
 
 ## <a name="create-a-user-for-loading-data"></a>Verileri yüklemek için kullanıcı oluşturma
 
-Sunucu yöneticisi hesabı yönetim işlemlerini gerçekleştirmeye yöneliktir ve kullanıcı verileri üzerinde sorgu çalıştırmaya uygun değildir. Verileri yükleme, yoğun bellek kullanan bir işlemdir. Bellek üst sınırlar göre tanımlanır [performans katmanı](memory-and-concurrency-limits.md#performance-tiers), [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md), ve [kaynak sınıfı](resource-classes-for-workload-management.md). 
+Sunucu yöneticisi hesabı yönetim işlemlerini gerçekleştirmeye yöneliktir ve kullanıcı verileri üzerinde sorgu çalıştırmaya uygun değildir. Verileri yükleme, yoğun bellek kullanan bir işlemdir. Bellek üst sınırlar hangi oluşturma, SQL Data Warehouse göre sağladığınız, tanımlanmış [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md), ve [kaynak sınıfı](resource-classes-for-workload-management.md). 
 
 En iyisi verileri yüklemeye ayrılmış bir oturum açma ve kullanıcı bilgisi oluşturmaktır. Ardından yükleme kullanıcısını uygun bir bellek ayırma üst sınırına olanak tanıyan bir [kaynak sınıfına](resource-classes-for-workload-management.md) ekleyin.
 
@@ -588,7 +588,7 @@ Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
 3. İşlem ve depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 
-4. Oluşturduğunuz SQL sunucusunu kaldırmak için, önceki görüntüdeki **mynewserver-20171113.database.windows.net** öğesine tıklayıp **Sil**’e tıklayın.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu işlemi gerçekleştirirken dikkatli olun.
+4. Oluşturduğunuz SQL server kaldırmak için tıklatın **mynewserver 20180430.database.windows.net** önceki görüntü ve ardından **silmek**.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu işlemi gerçekleştirirken dikkatli olun.
 
 5. Kaynak grubunu kaldırmak için, **myResourceGroup**’a tıklayıp daha sonra **Kaynak grubunu sil**’e tıklayın.
 

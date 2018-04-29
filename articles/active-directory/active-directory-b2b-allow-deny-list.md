@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9a18193ee0d216416cda3145c85c8357813f794d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>İzin verme veya belirli kuruluşlardan B2B kullanıcılara davet engelleme
 
@@ -145,7 +145,7 @@ New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedA
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-İlkeyi almak üzere kullanmak [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Örneğin:
+İlkeyi almak üzere kullanmak [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Örneğin:
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

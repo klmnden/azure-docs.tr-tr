@@ -9,11 +9,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: billmath
-ms.openlocfilehash: f450747cac06a416950efc6c37c1058c1cb40775
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d21f124858a7f98227eb301a97b9837e3adbba68
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="synchronizing-guest-user-accounts-that-use-email-for-sign-in-preview"></a>Oturum açma için (Önizleme) e-posta kullanın Konuk kullanıcı hesaplarını eşitleme
 
@@ -37,7 +37,7 @@ Bu bölüm, ön koşullar ve bu senaryonun kurulumunu yapmak denemeden önce bil
 - Azure AD Connect sürüm 1.1.524.0 veya üzeri
 - Dış kullanıcıların UPN bulut ayarlamak için doğrulanmış etki alanı (örnek: bmcontoso.com).
 - Dış kullanıcıların kimliklerini doğrulamak için Federasyon Hizmeti. AD FS kullanıyorsanız, 2012 R2 olmalıdır veya üzeri
-- MSOL PowerShell v1.1 Federasyon ayarlarını doğrulamak için bir makineye yüklenir. Daha fazla bilgi için bkz: [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+- MSOL PowerShell v1.1 Federasyon ayarlarını doğrulamak için bir makineye yüklenir. Daha fazla bilgi için bkz: [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 
 ### <a name="assumptions"></a>Varsayımlar 
@@ -45,7 +45,7 @@ Bu bölüm, ön koşullar ve bu senaryonun kurulumunu yapmak denemeden önce bil
 Bu belge aşağıdaki varsayımlar yapar:
 - ayarlanmış bir Federasyon Hizmeti ve onun sahip başarıyla kullanıcıların kimlik doğrulaması.
 - Dış kullanıcılar kendi dış e-posta adresini kullanarak doğrulayabilir.
-- - Oturum açma için alternatif kimlik kullanımı ayarlamak ve yapılandırıldı. Kullanıcılar kendi alternatif kimliğini kullanarak kimlik doğrulaması yapabilir AD FS ile alternatif kimlik ayarlama hakkında ek bilgi için bkz: [alternatif oturum açma Kimliğini yapılandırma](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - Oturum açma için alternatif kimlik kullanımı ayarlamak ve yapılandırıldı. Kullanıcılar kendi alternatif kimliğini kullanarak kimlik doğrulaması yapabilir AD FS ile alternatif kimlik ayarlama hakkında ek bilgi için bkz: [alternatif oturum açma Kimliğini yapılandırma](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## <a name="task-1--prepare-the-environment"></a>Görev 1: ortamı hazırlama
 Bunlar alternatif kullanarak oturum açın böylece, dış hesaplarınızı eşitlemeye başlamak için hazır olduğunuzda aşağıdaki görevi bir bilgilendirme birkaçını, böylelikle i posta özniteliğinin gibi.
@@ -139,7 +139,7 @@ Azure AD Connect yapılandırmak için aşağıdaki yordamı kullanın.
 ## <a name="task-3--federation"></a>Görev 3: Federasyon
 Aşağıdaki görev iş senaryosu için yerinde olması gereken birkaç şey üzerinde bir bilgilendirme amaçlıdır.
 
-Azure AD PowerShell kullanarak Azure ile Federasyon ayarlarınızı doğrulayabilirsiniz. Bu belge MSOL PowerShell v1.1 kullanır. Bu sürümü yükleyebilirsiniz [burada](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+Azure AD PowerShell kullanarak Azure ile Federasyon ayarlarınızı doğrulayabilirsiniz. Bu belge MSOL PowerShell v1.1 kullanır. Bu sürümü yükleyebilirsiniz [burada](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 ### <a name="verify-the-federation-settings"></a>Federasyon ayarlarını doğrulayın
 Federasyon ayarlarını doğrulamak için aşağıdaki yordamı kullanın.
@@ -181,5 +181,5 @@ Bu düzgün çalıştığını doğrulamak için IDP kullanarak kimlik doğrulam
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir Azure Active Directory B2B işbirliği kullanıcının özelliklerini](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
-- [Alternatif oturum açma Kimliğini yapılandırma](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
+- [Alternatif oturum açma Kimliğini yapılandırma](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect: Sürüm yayınlama geçmişi](active-directory-aadconnect-version-history.md)

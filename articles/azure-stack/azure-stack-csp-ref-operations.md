@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Kiracı kayıt Azure yığınında yönetme
 
@@ -47,7 +47,7 @@ Yalnızca bir Azure aboneliği bir kiracı ile ilişkili olabileceğini unutmay�
 
 ### <a name="powershell"></a>PowerShell
 
-Kayıt kaynağı güncelleştirmek için yeni AzureRmResource cmdlet'ini kullanın. Azure için oturum açma (`Connect-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
+Kayıt kaynağı güncelleştirmek için yeni AzureRmResource cmdlet'ini kullanın. Azure için oturum açma (`Add-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Kayıt için eklenene tüm kiracılar listesini alın.
 
 ### <a name="powershell"></a>PowerShell
 
-Tüm kayıtlı kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kullanın. Azure için oturum açma (`Connect-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
+Tüm kayıtlı kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kullanın. Azure için oturum açma (`Add-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

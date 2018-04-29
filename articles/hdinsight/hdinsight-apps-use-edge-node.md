@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: jgao
-ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Hdınsight'ta Hadoop kümeleri üzerinde boş kenar düğümleri kullanın
 
@@ -73,12 +73,11 @@ Bir edge düğümünü oluşturduktan sonra SSH kullanarak kenar düğümüne ba
 > Aynı kümeleri olarak edge düğüm, ayrıca yönetilen düzeltme eki değildir.  Daha fazla bilgi için bkz: [Hdınsight için işletim sistemi düzeltme eki uygulama](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Varolan bir kümeye bir kenar düğümüne ekleyin
-Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için bir Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
+Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için bir Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
 
 **Bir boş kenar düğümüne varolan bir kümeye eklemek için**
 
-1. Henüz yoksa, Hdınsight kümesi oluşturun.  Bkz: [Hadoop Öğreticisi: Hdınsight'ta Hadoop kullanmaya başlamanıza](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-2. Azure'da oturum açın ve Azure portalında Azure Resource Manager şablonunu açmak için aşağıdaki görüntüye tıklayın. 
+1. Azure'da oturum açın ve Azure portalında Azure Resource Manager şablonunu açmak için aşağıdaki görüntüye tıklayın. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Aşağıdaki özellikleri yapılandırın:
@@ -98,7 +97,7 @@ Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için b
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Bir küme oluştururken bir kenar düğümüne ekleyin
 Bu bölümde, bir kenar düğümüne ile Hdınsight kümesi oluşturmak için Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
 
-**Bir boş kenar düğümüne varolan bir kümeye eklemek için**
+**Kenar düğümüne ile bir Hdınsight kümesi oluşturmak için**
 
 1. Henüz yoksa, Hdınsight kümesi oluşturun.  Bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Azure'da oturum açın ve Azure portalında Azure Resource Manager şablonunu açmak için aşağıdaki görüntüye tıklayın. 
@@ -121,7 +120,7 @@ Bu bölümde, bir kenar düğümüne ile Hdınsight kümesi oluşturmak için Re
 
 ## <a name="add-multiple-edge-nodes"></a>Birden çok edge düğüm Ekle
 
-Bir Hdınsight kümesine içereceğini edge düğüm ekleyebilirsiniz.  Birden çok edge düğüm yapılandırması yalnızca yapılabilir Azure Resource Manager şablonları kullanarak.  Bu makalenin başlangıcında şablon örneğe bakın.  Güncelleştirmek gereken **targetInstanceCount** oluşturmak istediğiniz edge düğüm sayısını yansıtacak şekilde.
+Hdınsight kümesi için birden çok edge düğüm ekleyebilirsiniz.  Birden çok edge düğüm yapılandırması yalnızca yapılabilir Azure Resource Manager şablonları kullanarak.  Bu makalenin başlangıcında şablon örneğe bakın.  Güncelleştirmek gereken **targetInstanceCount** oluşturmak istediğiniz edge düğüm sayısını yansıtacak şekilde.
 
 ## <a name="access-an-edge-node"></a>Bir kenar düğümüne erişin
 Kenar düğümüne ssh uç noktadır &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Örneğin, yeni-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
@@ -132,7 +131,7 @@ Kenar düğümüne Azure Portal'da bir uygulama olarak görünür.  Portal SSH k
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 2. Hdınsight kümesi ile bir edge düğümünü açın.
-3. Tıklatın **uygulamaları** küme dikey penceresinden. Kenar düğümünü göreceksiniz.  Varsayılan ad **edgenode yeni**.
+3. **Uygulamalar**'a tıklayın. Kenar düğümünü göreceksiniz.  Varsayılan ad **edgenode yeni**.
 4. Kenar düğümüne tıklayın. SSH uç noktası göreceksiniz.
 
 **Edge düğüm üzerinde Hive kullanmak için**
@@ -153,7 +152,7 @@ Azure portalından bir kenar düğümüne silebilirsiniz.
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 2. Hdınsight kümesi ile bir edge düğümünü açın.
-3. Tıklatın **uygulamaları** küme dikey penceresinden. Edge düğüm listesi göreceksiniz.  
+3. **Uygulamalar**'a tıklayın. Edge düğüm listesi göreceksiniz.  
 4. Silin ve ardından istediğiniz kenar düğümüne sağ **silmek**.
 5. Onaylamak için **Evet**’e tıklayın.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 8efbc1d400f1d32e6aee2c1e2d78847bea786940
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme günlük analizi
 
@@ -36,7 +36,7 @@ Günlük analizi tarafından alınan veri sonra Azure birkaç sahip *yönetim ç
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric analiz çözümü erişim
 
-1. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Kaynak Seç**ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin.
+1. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Kaynak Seç **ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin.
 
 2. Genel bakış sayfasında ilk OMS Portalı'na gitmek için bağlantıya tıklayın
 
@@ -67,13 +67,14 @@ Yukarıdaki resimde Service Fabric analiz çözümü giriş sayfasıdır. Neler 
     
     ![OMS sorgu işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-Alternatif olarak soldaki Büyüteç'i tıklatın ve Kusto sorgu dili aradığınızı bulmak için kullanın. Örneğin, küme tarafından düğümler üzerinde gerçekleştirilen eylemler ile ilgili tüm olayları bulmak için aşağıdaki sorguyu kullanabilirsiniz. Aşağıda kullanılan olay kimlikleri bulunan [işletimsel kanal Olay Başvurusu](service-fabric-diagnostics-event-generation-operational.md)
+Alternatif olarak soldaki Büyüteç'i tıklatın ve Kusto sorgu dili aradığınızı bulmak için kullanın. Örneğin, kümedeki düğümler üzerinde gerçekleştirilen tüm eylemler bulmak için aşağıdaki sorguyu kullanabilirsiniz. Aşağıda kullanılan olay kimlikleri bulunan [işletimsel kanal Olay Başvurusu](service-fabric-diagnostics-event-generation-operational.md)
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-Sistem Hizmeti (görevadı) ve daha fazla belirli düğümler (bilgisayar) gibi pek çok fazla alanda sorgulayabilir
+
+Belirli düğümler (bilgisayar) sistem hizmeti (görevadı) gibi pek çok fazla alanda sorgulayabilirsiniz.
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Görünüm doku güvenilir hizmeti ve aktör olayları
 

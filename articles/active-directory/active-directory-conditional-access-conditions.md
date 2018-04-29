@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 04/27/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
 
@@ -45,17 +45,23 @@ Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıklar�
 
 Kullanıcılar ve gruplar bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm kullanıcıların** veya belirli kullanıcılar ve Gruplar'ı seçin.
 
-![Denetim](./media/active-directory-conditional-access-conditions/02.png)
+![Denetim](./media/active-directory-conditional-access-conditions/111.png)
 
 Seçtiğinizde:
 
-- **Tüm kullanıcılar**, ilkenizi dizininde ile tüm kullanıcılara uygulanır. Bu, Konuk kullanıcılar içerir.
+- **Tüm kullanıcılar**, ilkenizi dizindeki tüm kullanıcılara uygulanır. Bu, Konuk kullanıcılar içerir.
 
-- **Kullanıcıları ve grupları seçin**, kullanıcıların belirli kümelerini hedefleyebilirsiniz. Örneğin, tüm üyeleri ik departmanı, bulut uygulaması seçilen bir HR uygulama olduğunda içeren bir grup seçebilirsiniz. 
+- **Kullanıcıları ve grupları seçin**, aşağıdaki seçenekleri belirleyin:
 
-- Bir grup, dinamik ya da atanan güvenlik ve dağıtım grupları dahil olmak üzere Azure AD'de Grup herhangi bir türde olabilir.
+    - **Tüm Konuk kullanıcılar** -B2B Konuk kullanıcılar için bir ilke hedef olanak tanır. Bu koşul herhangi bir kullanıcı hesabı ile eşleşen *userType* özniteliğini *Konuk*. Hesap Azure AD'de bir davet akışı oluşturulduktan hemen sonra uygulanan bir ilke gereken durumlarda bu ayarı kullanın.
 
-Belirli kullanıcı veya Grup İlkesi'nden dışlayabilirsiniz. Bir ortak kullanım örneği olup hizmet hesapları, ilke çok faktörlü kimlik doğrulamasını zorunlu tutar. 
+    - **Dizin rolleri** -kullanıcının rol ataması dayalı bir ilke hedef olanak tanır. Bu durum Dizin rolleri gibi destekleyen *genel yönetici* veya *parola Yöneticisi*.
+
+    - **Kullanıcılar ve gruplar** -hedef belirli kullanıcı kümelerine sağlar. Örneğin, tüm üyeleri ik departmanı, bulut uygulaması seçilen bir HR uygulama olduğunda içeren bir grup seçebilirsiniz.
+
+Bir grup da grup herhangi bir türde dinamik veya atanan güvenlik ve dağıtım grupları dahil olmak üzere Azure AD'de olabilir
+
+Belirli kullanıcı veya Grup İlkesi'nden dışlayabilirsiniz. Bir ortak kullanım örneği olup hizmet hesapları, ilke çok faktörlü kimlik doğrulaması (MFA) zorunlu tutar. 
 
 Belirli kullanıcı kümeleri için hedefleme yeni bir ilke dağıtımı için yararlıdır. Yeni bir ilke ilkesi davranışını doğrulamak için kullanıcıları ilk bir kümesini hedeflemelidir. 
 
@@ -105,6 +111,17 @@ Desteklenen cihaz platformlarının tam bir listesi için bkz: [cihaz platformu 
 
 
 Bu durum, bulut uygulamalarınızı erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [güvenilen cihazları](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Cihaz platform koşulu dahil daha fazla senaryoları için bkz: [Azure Active Directory Uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md).
+
+
+
+## <a name="device-state"></a>Cihaz durumu
+
+Cihaz durumu koşulu karma Azure AD alanına ve aygıtları bir koşullu erişim ilkesinden hariç tutulacak uyumlu olarak işaretlenmiş sağlar. Bu, bir ilke yalnızca ek oturum güvenliğini sağlamak için yönetilmeyen cihaza uygulanmalıdır durumunda faydalı olur. Örneğin, bir aygıt yönetilmeyen olduğunda yalnızca Microsoft Cloud App Security oturum denetimi uygulayın. 
+
+
+![Koşullar](./media/active-directory-conditional-access-conditions/112.png)
+
+Yönetilmeyen cihazlar için erişimi engellemek istiyorsanız, uygulamalıdır [cihaz temelli koşullu erişim](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Konumlar

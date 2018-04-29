@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a0646bad9f440fc1e7d0bbdfae5bd2a23156c52f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değer.
@@ -22,7 +22,7 @@ Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değe
 ## <a name="workload-management"></a>İş yükü yönetimi
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Tek bir SQL Data Warehouse için en fazla DWU | Esneklik için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>İşlem için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
+| [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Tek bir SQL Data Warehouse için en fazla DWU | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Sunucu başına DTU varsayılan |54,000<br></br>Varsayılan olarak, her bir SQL server (örneğin, myserver.database.windows.net) kadar DW6000c sağlayan bir DTU kota olarak 54.000, sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotayı artırabilir [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md) ve seçerek *kota* istek türü olarak.  DTU hesaplamak için 7.5 DWU gerektiği ve toplam çarpın veya gerekli toplam cDWU tarafından 9.0 Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu'lar<br></br>9.0 = olarak 54.000 x DW600c Dtu'lar.<br></br>SQL server seçeneği, geçerli DTU tüketimi Portalı'nda görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
 | Veritabanı bağlantısı |Eşzamanlı açık oturum |1024<br/><br/>Her 1024 etkin oturumlar aynı anda SQL veri ambarı veritabanına istekleri gönderebilirsiniz. Not, aynı anda yürütebilir sorgu sayısı sınırlamaları vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç sıra burada işlenmeyi bekleyen gider. |
 | Veritabanı bağlantısı |Hazırlanmış deyimleri için en fazla belleği |20 MB |

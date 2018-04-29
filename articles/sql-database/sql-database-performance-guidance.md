@@ -9,26 +9,26 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
 Azure SQL veritabanı sağlar [önerileri](sql-database-advisor.md) veritabanınızın performansını geliştirmek için kullanabilir veya Azure SQL veritabanı sağlayabilirsiniz [uygulamanızı otomatik olarak uyum](sql-database-automatic-tuning.md) ve değişiklikleri uygulayın, İş yükünüzün performansını artırır.
 
 Düzenlemek istediğiniz herhangi bir geçerli önerimiz yok ve performans sorunlarını çözümlenmedi, performanslarını iyileştirmek için aşağıdaki yöntemleri kullanabilirsiniz:
-1. Artırmak [hizmet katmanları](sql-database-service-tiers.md) ve veritabanınızı daha fazla kaynak sağlayın.
-2. Uygulamanızı ayarlama ve performansı artırabilir bazı en iyi uygulamalar uygulayın. 
-3. Veritabanı, dizinler ve daha verimli bir şekilde verilerle çalışmak için sorgular değiştirerek ayarlayın.
+- Hizmet katmanları artırın, [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) veritabanınız için daha fazla kaynak sağlamak için.
+- Uygulamanızı ayarlama ve performansı artırabilir bazı en iyi uygulamalar uygulayın. 
+- Veritabanı, dizinler ve daha verimli bir şekilde verilerle çalışmak için sorgular değiştirerek ayarlayın.
 
-El ile uygulanan yöntemleri ne karar vermeniz gerekir çünkü bunlar [hizmet katmanları](sql-database-service-tiers.md) seçmeniz veya uygulama ya da veritabanı kodu yeniden yazma ve değişiklikleri dağıtmak gerekir.
+El ile uygulanan yöntemleri ne karar vermeniz gerekir çünkü bunlar [DTU tabanlı modeli kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı modeli kaynak sınırları (Önizleme)](sql-database-vcore-resource-limits.md) gereksinimlerinizi karşılayacak. Aksi takdirde uygulama veya veritabanı kodu yeniden yazma ve değişiklikleri dağıtmak gerekir.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Veritabanınızın artan performans katmanı
 
-Azure SQL veritabanı iki satın alma modeli, DTU tabanlı satın alma modeli ve v-çekirdek tabanlı satın alma modeli sunar. Her model birden çok sahip [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz. Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
+Azure SQL veritabanı iki satın alma modeli sunar bir [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) , arasından seçim yapabilirsiniz. Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
 
 > [!NOTE]
 > Bu makalede tek veritabanları Azure SQL Database performans rehberi odaklanır. Esnek havuzlar için ilgili performans yönergeler için bkz [esnek havuzlar için fiyat ve performans konuları](sql-database-elastic-pool-guidance.md). Ancak, bu makaledeki ayarlama önerilerin esnek havuzdaki veritabanları için geçerlidir ve benzer performans avantajlarından yararlanabilmek unutmayın.
@@ -48,7 +48,7 @@ SQL veritabanınız için gereken hizmet düzeyi her kaynak boyutu için en yük
 
 ### <a name="service-tier-capabilities-and-limits"></a>Hizmet katmanı özellikleri ve sınırları
 
-Her hizmet katmanı yalnızca gereksinim duyduğunuz kapasitesi için ödeme esnekliğine sahip şekilde performans düzeyi ayarlayın. Yapabilecekleriniz [kapasite ayarlamak](sql-database-service-tiers.md), yukarı veya aşağı, iş yükü değişiklikleri olarak. Örneğin, veritabanının yükünüzü geri Okul alışveriş sezonu sırasında yüksekse, Temmuz Eylül aracılığıyla belirlenen bir süre için veritabanı performans düzeyi artırabilir. Yoğun sezonu sona erdiğinde azaltabilir. Bulut ortamınızın işinizin mevsimselliğin en iyi duruma getirme tarafından ödeme en aza indirebilirsiniz. Bu model de iyi yazılım ürün yayın döngüsü boyunca çalışır. Test çalışmasını ve test bitirdiğinizde kapasiteyi yayın sırasında test takımı kapasite ayırabilir. Gereksinim ve nadiren kullanabilecek ayrılmış kaynakları harcama kaçının bir kapasite isteği modelde kapasiteyi ücret ödersiniz.
+Her hizmet katmanı yalnızca gereksinim duyduğunuz kapasitesi için ödeme esnekliğine sahip şekilde performans düzeyi ayarlayın. Yapabilecekleriniz [kapasite ayarlamak](sql-database-service-tiers-dtu.md), yukarı veya aşağı, iş yükü değişiklikleri olarak. Örneğin, veritabanının yükünüzü geri Okul alışveriş sezonu sırasında yüksekse, Temmuz Eylül aracılığıyla belirlenen bir süre için veritabanı performans düzeyi artırabilir. Yoğun sezonu sona erdiğinde azaltabilir. Bulut ortamınızın işinizin mevsimselliğin en iyi duruma getirme tarafından ödeme en aza indirebilirsiniz. Bu model de iyi yazılım ürün yayın döngüsü boyunca çalışır. Test çalışmasını ve test bitirdiğinizde kapasiteyi yayın sırasında test takımı kapasite ayırabilir. Gereksinim ve nadiren kullanabilecek ayrılmış kaynakları harcama kaçının bir kapasite isteği modelde kapasiteyi ücret ödersiniz.
 
 ### <a name="why-service-tiers"></a>Neden katmanları hizmet?
 Her veritabanı iş yükü farklı olabilir ancak hizmet katmanları amacı performans öngörülebilirlik çeşitli performans düzeyleri sağlamaktır. Büyük ölçekli veritabanı kaynak gereksinimleri müşterilerle daha ayrılmış bir bilgisayar ortamda çalışabilir.
@@ -271,7 +271,8 @@ Bazı uygulamalar yazma yoğunluklu. Bazen yazma birlikte toplu nasıl dikkate a
 Bazı veritabanı uygulamaları okuma yoğun iş yükleri vardır. Katmanlar önbelleğe alma veritabanı azaltabilir ve Azure SQL veritabanını kullanarak bir veritabanı desteklemek için gereken performans düzeyi azaltmak. İle [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/), okuma ağır iş yükü varsa, bir kez veri okuma (ya da belki nasıl yapılandırıldığına bağlı olarak bir kez uygulama katmanı makine başına,), SQL veritabanınızın dışındaki verileri depolamak ve. Bu veritabanı Yükü (CPU ve okuma g/ç) azaltmak için bir yoludur ancak önbellekten okunan verileri veritabanındaki verileri ile eşitlenmemiş olabilir çünkü işlemsel tutarlılık üzerinde bir etkisi olan. Birçok uygulamada belirli bir düzeyde tutarsızlık kabul edilebilir olmasına rağmen tüm iş yükleri için geçerli değildir. Bir uygulama katmanı önbelleğe alma stratejisi uygulamadan önce herhangi bir uygulama gereksinimi tam olarak anlamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hizmet katmanları hakkında daha fazla bilgi için bkz: [SQL Database seçenekleri ve performansı](sql-database-service-tiers.md)
+* DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [DTU tabanlı modeli kaynak sınırları](sql-database-dtu-resource-limits.md)
+* VCore tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) ve [vCore tabanlı kaynak sınırları (Önizleme)](sql-database-vcore-resource-limits.md)
 * Esnek havuzları hakkında daha fazla bilgi için bkz: [Azure bir esnek havuz nedir?](sql-database-elastic-pool.md)
 * Performans ve esnek havuzları hakkında daha fazla bilgi için bkz: [ne zaman bir esnek havuz göz önünde bulundurun](sql-database-elastic-pool-guidance.md)
 

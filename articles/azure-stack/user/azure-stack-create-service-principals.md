@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6b53e46253edc063b1b7ae94bf2fac2781a0613a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 0517c85c62aaffd1055206120281c7b7de31ad82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure yığın uygulama erişim sağlamak
 
@@ -105,7 +105,7 @@ Hizmet sorumlusu oluşturulduktan sonra şunları yapmalısınız [rol atama](az
 Bir rolü atadığınız sonra size Azure hizmet sorumlusu aşağıdaki komutla kullanarak yığınına oturum açabilirsiniz:
 
 ```powershell
-Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7800c2e72b1bfd78f83bf7b90a35e47f6109a014
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -40,7 +40,7 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 | Başlayın | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
-Daha fazla ayrıntı için bkz. [Linux’ta App Service’te Java web uygulaması oluşturma](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java).
+Daha fazla ayrıntı için bkz. [Linux’ta App Service’te Java web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
 ## <a name="deployments"></a>Dağıtımlar
 

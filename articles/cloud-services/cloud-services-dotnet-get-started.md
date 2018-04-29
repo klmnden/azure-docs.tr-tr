@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -767,7 +767,6 @@ Daha gerçek kodlama uygulamalarını gösteren bazı bulut hizmeti örnek uygul
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Contoso Ads uygulamasıyla kavram olarak benzerdir, ancak daha fazla özellik ve daha gerçek kodlama uygulamaları kullanır.
 * [Tablolar, Kuyruklar ve Blob’lar ile Azure Cloud Service Çok Katmanlı Uygulaması](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Azure Storage tablolarının yanı sıra blob’ları ve kuyrukları tanıtır. .NET için daha eski bir Azure SDK sürümünü temel alır ve geçerli sürümle çalışmak için bazı değişiklikler gerektirir.
-* [Microsoft Azure’da Bulut Hizmeti Temel Bilgileri](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Microsoft Patterns and Practices grubu tarafından oluşturulan çok çeşitli en iyi yöntemleri gösteren kapsamlı bir örnektir.
 
 Bulut için geliştirme hakkında genel bilgi için bkz. [Azure ile Gerçek Bulut Uygulamaları Derleme](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +776,5 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure Cloud Services Bölüm 1: Giriş](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)
-* [Azure Depolama](/documentation/services/storage/)
+* [Azure Depolama](https://docs.microsoft.com/azure/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
