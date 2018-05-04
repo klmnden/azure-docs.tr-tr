@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: Hataları ve özel durumları işleme
           href: logic-apps-exception-handling.md
+        - name: Büyük iletileri işleme
+          href: logic-apps-handle-large-messages.md
         - name: Mantıksal uygulamanızı güvenli hale getirme
           href: logic-apps-securing-a-logic-app.md
         - name: Özel bağlayıcılar geliştirme

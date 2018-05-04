@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: VS kullanarak WebJob geliştirme
           href: websites-dotnet-deploy-webjobs.md
+        - name: Web İşleri SDK’sını kullanmaya başlama
+          href: webjobs-sdk-get-started.md
+        - name: Web İşleri SDK’sını kullanma
+          href: webjobs-sdk-how-to.md
 - name: Başvuru
   items:
     - name: Azure CLI

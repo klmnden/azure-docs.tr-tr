@@ -53,6 +53,8 @@
           href: how-to-vscode-debug-csharp-module.md
         - name: Azure İşlevleri’nde hata ayıklama
           href: how-to-vscode-debug-azure-function.md
+    - name: VSTS’de CI/CD
+      href: how-to-ci-cd.md
     - name: Uçta veri depolama
       href: sql-storage.md
     - name: Sorun giderme

@@ -1,17 +1,17 @@
 - name: VPN Gateway Belgeleri
-  href: index.md
+  href: index.yml
 - name: Genel Bakış
   items:
     - name: VPN Gateway hakkında
       href: vpn-gateway-about-vpngateways.md
-- name: Öğreticiler
-  items:
-    - name: VPN ağ geçidi oluşturma ve yönetme
-      href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Örnekler
   items:
     - name: Azure PowerShell
       href: powershell-samples.md
+- name: Öğreticiler
+  items:
+    - name: VPN ağ geçidi oluşturma ve yönetme
+      href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Kavramlar
   items:
     - name: VPN Gateway için planlama ve tasarım

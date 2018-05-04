@@ -36,6 +36,7 @@
 ## [Uygulama kaydı](active-directory-integrating-applications.md)
 ## [Çok kiracılı uygulamalar](active-directory-devhowto-multi-tenant-overview.md)
 ## [Koşullu erişim](active-directory-conditional-access-developer.md)
+## [İzinler](active-directory-permissions.md)
 ## OAuth ve OpenID Connect
 ### [OpenID Connect protokolü](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 kimlik doğrulama kodu verme](active-directory-protocols-oauth-code.md)

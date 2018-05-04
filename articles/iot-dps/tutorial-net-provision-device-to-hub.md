@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Cihazı Sağlama Hizmeti İstemcisi’ni kullanarak bir IoT hub’a cihaz kaydetme (.NET)
 
@@ -49,7 +49,7 @@ Bu adım, cihazın benzersiz güvenlik yapılarının Cihaz Sağlama Hizmeti’n
 
 - X.509 tabanlı cihazlar için:
     - Bir *.pem* veya *.cer* dosyası biçiminde [cihaza verilen X.509 sertifikası](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx). Tek kayıtta, X.509 sisteminiz için *yaprak sertifikayı* kullanmanız, kayıt grupları içinse *kök sertifika* veya eşdeğer bir *imzalayan sertifikası* kullanmanız gerekir.
-    - Ad alanındaki/kapsamdaki bir cihazı benzersiz şekilde tanımlamak için kullanılan *Kayıt Kimliği*. Bu anahtar, cihaz kimliğiyle aynı olabilir veya olmayabilir. Kimlik her cihaz için zorunludur. X.509 tabanlı cihazlar için kayıt kimliği, sertifikanın ortak adından (CN) türetilir. Bu gereksinimler hakkında daha fazla bilgi için bkz. [Cihaz kavramları](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - Ad alanındaki/kapsamdaki bir cihazı benzersiz şekilde tanımlamak için kullanılan *Kayıt Kimliği*. Bu anahtar, cihaz kimliğiyle aynı olabilir veya olmayabilir. Kimlik her cihaz için zorunludur. X.509 tabanlı cihazlar için kayıt kimliği, sertifikanın ortak adından (CN) türetilir. Bu gereksinimler hakkında daha fazla bilgi için bkz. [Cihaz kavramları](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 Cihaz Sağlama Hizmeti’ne cihazı kaydetmenin iki yolu vardır:
 
