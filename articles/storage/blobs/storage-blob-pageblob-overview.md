@@ -6,13 +6,13 @@ author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure sayfa bloblarını benzersiz özellikleri
 
@@ -21,9 +21,6 @@ Azure Storage üç tür blob depolama sunar: blok Blobları, ekleme Blobları ve
 Sayfa bloblarını rastgele bayt aralıkları okuma/yazma yeteneği sağlamak 512 baytlık sayfaların koleksiyonudur. Bu nedenle, sayfa bloblarını işletim sistemi ve veri diskleri gibi dizin tabanlı ve seyrek veri yapılarını sanal makineler ve veritabanları için depolanması için idealdir. Örneğin, Azure SQL DB, sayfa bloblarını kalıcı temel alınan depolama alanı olarak veritabanları için kullanır. Ayrıca, sayfa bloblarını de genellikle aralık tabanlı güncelleştirmeli dosyalar için kullanılır.  
 
 Azure sayfa bloblarını anahtar özellikleri, REST arabirimi, temel alınan depolama ve Azure sorunsuz geçiş yeteneklerine dayanıklılık verilmiştir. Bu özellikler sonraki bölümünde daha ayrıntılı olarak ele alınmıştır. Ayrıca, Azure sayfa bloblarını iki tür depolama üzerinde şu anda desteklenir: Premium depolama ve standart depolama. Premium depolama özellikle tutarlı yüksek performans ve düşük gecikme süresi premium sayfa bloblarını yüksek kullanıcı veri depolama veritabanları için ideal hale gerektiren iş yükleri için tasarlanmıştır.  Standart depolama daha maliyet gecikmeye duyarlı olmayan iş yüklerini çalıştırmak için etkili olur.
-
-> [!WARNING]
-> Sayfa bloblarını Premium depolama yalnızca VHD'ler olarak kullanılmak üzere tasarlanmıştır. Maliyetini önemli ölçüde daha büyük olabilir gibi diğer veri türleri Premium depolama, sayfa blobları depolamak Microsoft önermez. Blok blobları, bir VHD değil veri depolamak için kullanın.
 
 ## <a name="sample-use-cases"></a>Örnek kullanım durumları
 

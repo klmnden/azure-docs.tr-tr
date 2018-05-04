@@ -296,27 +296,37 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT Hub’ı
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/
-    - name: IoT Hub Cihazı Sağlama Hizmeti
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT Paketi
-      tocHref: /azure/iot-suite/
-      topicHref: /azure/iot-suite/
+    - name: Nesnelerin İnterneti
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/
+      items:
+        - name: IoT Temel Konuları
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/iot-fundamentals/
+        - name: IoT Edge
+          tocHref: /azure/iot-edge/
+          topicHref: /azure/iot-edge/
+        - name: IoT Hub’ı
+          tocHref: /azure/iot-hub/
+          topicHref: /azure/iot-hub/
+        - name: IoT Hub Cihazı Sağlama Hizmeti
+          tocHref: /azure/iot-dps/
+          topicHref: /azure/iot-dps/
+        - name: IoT Paketi
+          tocHref: /azure/iot-suite/
+          topicHref: /azure/iot-suite/
+        - name: Konum Tabanlı Hizmetler
+          tocHref: /azure/location-based-services/
+          topicHref: /azure/location-based-services/
+        - name: Zaman Serisi Öngörüleri
+          tocHref: /azure/time-series-insights/
+          topicHref: /azure/time-series-insights/
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
     - name: Anahtar Kasası
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Konum Tabanlı Hizmetler
-      tocHref: /azure/location-based-services/
-      topicHref: /azure/location-based-services/
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
@@ -483,9 +493,6 @@
     - name: Akış Analizi
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
-    - name: Zaman Serisi Öngörüleri
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/
     - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/

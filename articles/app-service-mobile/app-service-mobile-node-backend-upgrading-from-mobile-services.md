@@ -1,11 +1,11 @@
 ---
-title: "Azure uygulama hizmeti - Node.js için Mobile Services'den yükseltme"
-description: "Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca yükseltmeyi öğrenin"
+title: Azure uygulama hizmeti - Node.js için Mobile Services'den yükseltme
+description: Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca yükseltmeyi öğrenin
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Varolan Node.js Azure mobil hizmetinizi App Service'e yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamaları oluşturmak için yeni bir yoludur. Daha fazla bilgi için bkz: [Mobile Apps nedir?].
@@ -61,12 +61,12 @@ Yükseltme işlemi için tam anahattı aşağıdaki gibidir:
 
 Özgün geçirilen mobil hizmette herhangi bir trafik görmüyorum silme ortaya çıkabilir.
 
-## <a name="install-npm-package"></a>Önkoşulları yüklemek
+## <a name="install-npm-package"></a> Önkoşulları yüklemek
 Yerel makinenizde [Node] yüklemeniz gerekir.  Uyumluluk Paketi de yüklemeniz gerekir.  Düğüm yüklendikten sonra yeni cmd ya da PowerShell komut isteminde aşağıdaki komutu çalıştırabilirsiniz:
 
 ```npm i -g azure-mobile-apps-compatibility```
 
-## <a name="obtain-ams-scripts"></a>Azure mobil hizmetler komut dosyalarınız alın
+## <a name="obtain-ams-scripts"></a> Azure mobil hizmetler komut dosyalarınız alın
 * [Azure Portal]’da oturum açın.
 * Kullanarak **tüm kaynakları** veya **uygulama hizmetleri**, Mobile Services sitenizi bulun.
 * Site içinde tıklayın **Araçları** -> **Kudu** -> **Git** Kudu sitesini açın.
@@ -76,14 +76,14 @@ Yerel makinenizde [Node] yüklemeniz gerekir.  Uyumluluk Paketi de yüklemeniz g
 
 Bu komut dosyaları ZIP biçiminde indirir.  Yerel makinenizde yeni bir dizin oluşturun ve paket `scripts.ZIP` dizin içindeki dosya.  Bu oluşturacak bir `scripts` dizin.
 
-## <a name="scaffold-app"></a>Yeni Azure Mobile Apps arka iskele
+## <a name="scaffold-app"></a> Yeni Azure Mobile Apps arka iskele
 Komut dosyaları dizinini içeren dizininden aşağıdaki komutu çalıştırın:
 
 ```scaffold-mobile-app scripts out```
 
 Bu kurulmuş bir Azure Mobile Apps arka ucu oluşturacak `out` dizin.  Gerekli değildir, ancak bunu denetlemek için iyi bir fikirdir `out` tercih ettiğiniz bir kaynak kod havuzunda dizin.
 
-## <a name="deploy-ama-app"></a>Azure Mobile Apps arka dağıtma
+## <a name="deploy-ama-app"></a> Azure Mobile Apps arka dağıtma
 Dağıtım sırasında aşağıdakileri yapmanız gerekir:
 
 1. Yeni bir mobil uygulaması oluşturmak [Azure Portal].
@@ -146,7 +146,7 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 
 <!-- URLs. -->
 
-[Azure portalı]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
 [Mobile Apps nedir?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
@@ -159,7 +159,7 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[uygulama hizmeti fiyatlandırma]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[uygulama hizmeti fiyatlandırma]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [kimlik doğrulaması kavramlarını]: ../app-service/app-service-authentication-overview.md
 [kimlik doğrulaması Hızlı Başlangıç]: app-service-mobile-auth.md

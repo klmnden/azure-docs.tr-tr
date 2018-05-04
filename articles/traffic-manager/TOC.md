@@ -34,7 +34,7 @@
 ### [Azure Traffic Manager’da düşürülmüş durum için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)

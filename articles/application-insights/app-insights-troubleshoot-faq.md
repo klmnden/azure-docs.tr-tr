@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/03/2018
 * [Azure bulut Hizmetleri](app-insights-cloudservices.md)
 * [Docker içinde çalışan uygulama sunucuları](app-insights-docker.md)
 * [Tek sayfa web uygulamaları](app-insights-javascript.md)
-* [Sharepoint](app-insights-sharepoint.md)
+* [SharePoint](app-insights-sharepoint.md)
 * [Windows masaüstü uygulaması](app-insights-windows-desktop.md)
 * [Diğer platformlar](app-insights-platforms.md)
 
@@ -68,8 +68,8 @@ Ayrıntıları proje türüne göre değişir. Web uygulaması için:
 
 * Bu dosyaları projenize ekler:
 
-  * ApplicationInsights.config.
-  * ai.js
+  * Applicationınsights.config.
+  * Ai.js
 * Bu NuGet paketlerini yükler:
 
   * *Application Insights API'si* -API çekirdek
@@ -82,7 +82,7 @@ Ayrıntıları proje türüne göre değişir. Web uygulaması için:
 * Öğeleri ekler:
 
   * Web.config
-  * packages.config
+  * Packages.config
 * (Yeni varsa yalnızca - projeleri, [varolan bir projeye Application Insights Ekle][start], bu el ile yapmanız gerekir.) Application Insights kaynak kimliği ile başlatmak için istemci ve sunucu kodu parçacıkları ekler Örneğin, bir MVC uygulamasında kodu ana sayfaya Views/Shared/_Layout.cshtml eklenir
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Eski SDK sürümlerden nasıl yükseltme?
@@ -254,15 +254,37 @@ Web sunucunuzun bizim uç noktalarına telemetri göndermesine izin https://dc.s
 
 ### <a name="proxy"></a>Ara sunucu
 
-Trafiği sunucunuzdan bu Applicationınsights.Config'de ayarlayarak, intranetinizdeki bir ağ geçidi yönlendirme:
+Bir ağ geçidi sunucusundan trafiği intranetinizde Applicationınsights.config örnekte bu ayarları tarafından overwritting rota. Bu "Bitiş" özellikleri yapılandırma dosyasında mevcut değilse, bu sınıfları aşağıdaki örnekte gösterilen varsayılan değerler kullanılarak.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>Örnek Applicationınsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Ağ geçidiniz için trafiği yönlendirmek https://dc.services.visualstudio.com:443/v2/track
+_Not ApplicationIdProvider içinde v2.6.0 itibaren kullanılabilir_
+
+Ağ geçidiniz için trafiği yönlendirmek https://dc.services.visualstudio.com:443
+
+Yukarıdaki değerleriyle değiştirin: `http://<your.gateway.address>/<relative path>`
+ 
+Örnek: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kullanılabilirlik web testleri bir intranet sunucusunda çalıştırabilir miyim?
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
-ms.author: sethm;clemensv
-ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: sethm
+ms.openlocfilehash: 420f4573fbe8b5139a4e1e5fa4dea3404c4e099d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -263,7 +263,7 @@ Aşağıdaki tabloda Service Bus kaynaklarını üzerinde çeşitli işlemler i�
 | **Sırası** | | |
 | Bir kuyruk oluşturma |Yönetme |Herhangi bir ad alanı adresi |
 | Bir kuyruk silme |Yönetme |Herhangi bir geçerli sıra adresi |
-| Kuyruklar listeleme |Yönetme |/$Resources/Queues |
+| Kuyruklar listeleme |Yönetme |$ Kaynakları/sıraları |
 | Al sıra açıklaması |Yönetme |Herhangi bir geçerli sıra adresi |
 | Sıra için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli sıra adresi |
 | İçine kuyruğa gönderme |Gönder |Herhangi bir geçerli sıra adresi |

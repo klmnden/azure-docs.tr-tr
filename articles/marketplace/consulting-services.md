@@ -14,18 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 918af6da62e0e3a1409528691bdd460b2ad61a3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Market Danışmanlık Hizmetleri
 Azure Market Hizmetleri'nde danışmanlık Microsoft iş ortaklarının müşteriler desteklemek ve bunların kullanılması Azure genişletmek için hizmetleriyle bağlanıyor amacı sağlar. Azure Market sistem Tümleştirici (SI) ortaklarının Microsoft Danışmanlık hizmet teklifleri listesini destekler. 
 
 Bu danışmanlık hizmet tekliflerini müşteriye özgü katılımlar ' dir. Kapsamına ve süresine sabit, sabit fiyat veya ücretsiz ve sağlayabilirsiniz tanımlı sonucu. Olası müşteriler kolayca iş ortakları tarafından kurulacak isteyebilirsiniz. İş ortakları kendi CRM sisteminde bildirim ve 48 saat içinde isteklerine yanıt hedefleyin.
 
-Azure Market vs AppSource mağaza Hizmetleri danışmanlık Market veriş gereksinim duydukları şeyleri bulmalarına müşterilere yardımcı olmak için izleyiciler ve Microsoft bulut ürünleri ile hizalanır. Her mağaza yayımlama yatırımınızı en üst düzeye çıkarmanıza yardımcı olmak için özelleştirilmiş yayımlama seçeneklerini sunar. Bu seçenekler aşağıdaki tabloda özetlenmiştir:
+## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Azure Market vs AppSource mağaza Danışmanlık Hizmetleri
+Market veriş gereksinim duydukları şeyleri bulmalarına müşterilere yardımcı olmak için izleyiciler ve Microsoft bulut ürünleri ile hizalanır. Her mağaza yayımlama yatırımınızı en üst düzeye çıkarmanıza yardımcı olmak için özelleştirilmiş yayımlama seçeneklerini sunar. Bu seçenekler aşağıdaki tabloda özetlenmiştir:
 
 |         |Azure Market  |AppSource |
 |---------|---------|---------|

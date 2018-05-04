@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Azure İzleyicisi'ne genel bakış
 Bu makalede, Microsoft Azure Azure İzleyici hizmetinde genel bir bakış sağlar. Hangi Azure İzleyici yapar ve Azure İzleyicisi'ni kullanma hakkında ek bilgi işaretçiler sağlar açıklanır.  Bir tanıtım tercih ederseniz, bu makalenin sonundaki sonraki adımları bağlantılara bakın. 
@@ -108,7 +108,7 @@ Veri toplama sonra onunla aşağıdaki Azure İzleyicisi'nde yapabilirsiniz.
 
 ### <a name="store-and-archive"></a>Depolama ve Arşiv
 Bazı izleme verilerini bir kümesi süre boyunca depolanan ve Azure İzleyicisi'nde kullanılabilir zaten var. 
-- Ölçümleri 30 gün süreyle depolanır. 
+- Ölçümleri 90 gün süreyle depolanır. 
 - Etkinlik günlüğü girişleri 90 gün süreyle depolanır. 
 - Tanılama günlüklerini hiç depolanmaz. 
 

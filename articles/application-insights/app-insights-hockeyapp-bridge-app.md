@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights HockeyApp verilerde keşfetme | Microsoft Docs"
-description: "Kullanım ve Application Insights ile Azure, uygulamanızın performansını analiz edin."
+title: Azure Application Insights HockeyApp verilerde keşfetme | Microsoft Docs
+description: Kullanım ve Application Insights ile Azure, uygulamanızın performansını analiz edin.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights HockeyApp verilerde gezinme
 
 > [!NOTE]
-> Visual Studio Uygulama Merkezi Microsoft'tan önerilen hizmeti yeni mobil uygulamaları izlemek için sunulmuştur. [Uygulamalarınızı App merkezi ve Application Insights ile ayarlama öğrenin](app-insights-mobile-center-quickstart.md).
-> 
-> 
+> HockeyApp artık yeni uygulamalar için kullanılabilir. Var olan HockeyApp dağıtımlar çalışmaya devam eder. Visual Studio Uygulama Merkezi Microsoft'tan önerilen hizmeti yeni mobil uygulamaları izlemek için sunulmuştur. [Uygulamalarınızı App merkezi ve Application Insights ile ayarlama öğrenin](app-insights-mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) Canlı Masaüstü ve mobil uygulamaları izlemek için bir hizmettir. HockeyApp özel gönderebilir ve kullanımını izlemek ve (ek olarak kilitlenme verilerini alma) tanılama yardımcı olmak için telemetriyi izleme. Bu akış telemetri güçlü aracılığıyla sorgulanabilir [Analytics](app-insights-analytics.md) özelliği [Azure Application Insights](app-insights-overview.md). Buna ek olarak, şunları yapabilirsiniz [özel verme ve izleme telemetri](app-insights-export-telemetry.md). Bu özellikleri etkinleştirmek için Application Insights için HockeyApp özel veri aktaran bir köprü ayarlayın.
 

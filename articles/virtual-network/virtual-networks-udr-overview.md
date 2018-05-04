@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -38,10 +38,10 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 |-------|---------                                               |---------      |
 |Varsayılan|Sanal ağa özel                           |Sanal ağ|
 |Varsayılan|0.0.0.0/0                                               |Internet       |
-|Varsayılan|10.0.0.0/8                                              |Yok           |
+|Varsayılan|10.0.0.0/8                                              |None           |
 |Varsayılan|172.16.0.0/12                                           |None           |
-|Varsayılan|192.168.0.0/16                                          |None           |
-|Varsayılan|100.64.0.0/10                                           |None           |
+|Varsayılan|192.168.0.0/16                                          |Yok           |
+|Varsayılan|100.64.0.0/10                                           |Yok           |
 
 Önceki tabloda listelenen sonraki atlama türleri, Azure’ın listelenen adres ön ekine yönelik giden trafiği nasıl yönlendirdiğini göstermektedir. Sonraki atlama türlerinin açıklamaları:
 
@@ -122,7 +122,9 @@ Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile 
 - **VPN**: İsteğe bağlı olarak BGP kullanabilirsiniz. Ayrıntılar için [Siteden siteye VPN bağlantıları ile BGP](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) konusunu inceleyin.
 
 BGP kullanarak Azure ile yolları değiştirdiğinizde, tanıtılan her ön ek için bir sanal ağdaki tüm alt ağların yol tablosuna ayrı bir yol eklenir. Yol, kaynak ve sonraki atlama türü olarak *Sanal ağ geçidi* listelenerek eklenir. 
- 
+
+Bir yol tablosundaki özellik kullanılarak bir alt ağ üzerindeki BGP yol yayma özelliği devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar BGP yayma özelliği devre dışıyken tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü VPN olan özel yollar ](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz. [BGP yol yaymayı devre dışı bırakma](/manage-route-table#create-a-route-table.md).
+
 ## <a name="how-azure-selects-a-route"></a>Azure yolu nasıl seçer?
 
 Giden trafik bir alt ağ üzerinden gönderildiğinde, Azure en uzun ön ek eşleştirme algoritmasını kullanarak hedef IP adresine göre bir yol seçer. Örneğin, bir yol tablosunda iki yol vardır: Bir yol 10.0.0.0/24 adres ön ekini, diğer yol ise 10.0.0.0/16 adres ön ekini belirtir. 10.0.0.5 her iki adres ön ekinde bulunsa da 10.0.0.0/24 adres ön eki 10.0.0.0/16’dan daha uzun olduğu için Azure 10.0.0.5 adres ön ekini hedefleyen trafiği, 10.0.0.0/24 adres ön eki ile yolda belirtilen sonraki atlama türüne yönlendirir. 10.0.1.5 değeri 10.0.0.0/24 adres ön ekinde bulunmadığı ve bu nedenle 10.0.0.0/16 adres ön eki eşleşen en uzun ön ek olduğu için, Azure 10.0.1.5’i hedefleyen trafiği 10.0.0.0/16 adres ön ekinde belirtilen yoldaki sonraki atlama türüne yönlendirir.
@@ -210,7 +212,7 @@ Resimdeki *Subnet1* için yol tablosu aşağıdaki yolları içerir:
 |3   |Kullanıcı   |Etkin |10.0.0.0/24         |Sanal ağ        |                   |Subnet1 içinde|
 |4   |Varsayılan|Geçersiz|10.1.0.0/16         |VNet eşlemesi           |                   |              |
 |5   |Varsayılan|Geçersiz|10.2.0.0/16         |VNet eşlemesi           |                   |              |
-|6   |Kullanıcı   |Etkin |10.1.0.0/16         |None                   |                   |ToVNet2-1-Bırak|
+|6   |Kullanıcı   |Etkin |10.1.0.0/16         |Yok                   |                   |ToVNet2-1-Bırak|
 |7   |Kullanıcı   |Etkin |10.2.0.0/16         |None                   |                   |ToVNet2-2-Bırak|
 |8   |Varsayılan|Geçersiz|10.10.0.0/16        |Sanal ağ geçidi|[X.X.X.X]          |              |
 |9   |Kullanıcı   |Etkin |10.10.0.0/16        |Sanal gereç      |10.0.100.4         |Şirket-İçine    |
@@ -244,10 +246,10 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 |Varsayılan |Etkin |10.2.0.0/16         |VNet eşlemesi              |                   |
 |Varsayılan |Etkin |10.10.0.0/16        |Sanal ağ geçidi   |[X.X.X.X]          |
 |Varsayılan |Etkin |0.0.0.0/0           |Internet                  |                   |
-|Varsayılan |Etkin |10.0.0.0/8          |None                      |                   |
-|Varsayılan |Etkin |100.64.0.0/10       |None                      |                   |
+|Varsayılan |Etkin |10.0.0.0/8          |Yok                      |                   |
+|Varsayılan |Etkin |100.64.0.0/10       |Yok                      |                   |
 |Varsayılan |Etkin |172.16.0.0/12       |None                      |                   |
-|Varsayılan |Etkin |192.168.0.0/16      |Yok                      |                   |
+|Varsayılan |Etkin |192.168.0.0/16      |None                      |                   |
 
 *Subnet2* yol tablosu Azure tarafından oluşturulan tüm varsayılan yolları ve isteğe bağlı VNet eşlemesi ile Sanal ağ geçidi isteğe bağlı yollarını içerir. Sanal ağa ağ geçidi ve eşleme eklendiğinde Azure, sanal ağ içindeki tüm alt ağlara isteğe bağlı yollar eklemiştir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı yol *Subnet1*’e eklendiğinde Azure, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 ve 100.64.0.0/10 adres ön eklerine ait yolları *Subnet1* yol tablosundan kaldırmıştır.  
 

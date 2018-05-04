@@ -6,20 +6,24 @@ documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: parakhj
+ms.assetid: 357d193a-e33b-469c-8a93-0a8f45a60a9f
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: davidmu
-ms.openlocfilehash: 52cefd4fad96e94dd2cf0871fac12a9a4d74b96f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46223f1ec6b82828983861dae26ec8d777b77b86
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="azure-active-directory-b2c-add-a-custom-openid-connect-identity-provider-in-built-in-policies"></a>Azure Active Directory B2C: özel bir Openıd Connect kimlik sağlayıcısı yerleşik ilkelerinde ekleyin.
 
-[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) güvenli bir şekilde kullanıcıların oturum açmak için kullanılan OAuth 2.0 üstünde yerleşik bir kimlik doğrulama protokolüdür. Azure AD gibi bu protokolü kullanan çoğu kimlik sağlayıcıları Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları yerleşik ilkelerinizin nasıl ekleyebileceğiniz açıklanmaktadır.
+>[!NOTE]
+> Bu özellik genel önizlemede değil. Özellik üretim ortamında kullanmayın.
+
+[Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) güvenli bir şekilde kullanıcıların oturum açmak için kullanılan OAuth 2.0 üstünde yerleşik bir kimlik doğrulama protokolüdür. Bu protokol gibi kullandığınız çoğu kimlik sağlayıcıları [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları yerleşik ilkelerinizin nasıl ekleyebileceğiniz açıklanmaktadır.
 
 ## <a name="configuring-a-custom-openid-connect-identity-provider"></a>Özel bir Openıd Connect kimlik sağlayıcı yapılandırma
 
@@ -68,7 +72,7 @@ Yanıt modu verileri Azure AD B2C'ye özel kimlik sağlayıcısı'ndan geri gön
 * `query`: Kod veya belirteç sorgu parametresi olarak döndürülür.
 
 
-#### <a name="domain-hint"></a>Etki alanı İpucu
+#### <a name="domain-hint"></a>Etki alanı ipucu
 
 Etki alanı ipucu doğrudan oturum açma kullanıcı yapma liste arasında bir seçim kullanılabilir kimlik sağlayıcıları sahip yerine belirtilen kimlik sağlayıcısı sayfasına atlamak için kullanılabilir. Bu tür bir davranış izin vermek için etki alanı ipucu bir değer girin.
 
@@ -87,6 +91,6 @@ Her eşlemeleri için kimlik sağlayıcısının belirteçleri geri döndürüle
 * `Surname`: Son kullanıcı adını sağlayan talep girin.
 * `Email`: Kullanıcının e-posta adresi sağlayan talep girin.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Özel Openıd Connect kimlik sağlayıcısı için ekleyin, [yerleşik ilke](active-directory-b2c-reference-policies.md).

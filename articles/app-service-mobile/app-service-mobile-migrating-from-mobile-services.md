@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-top"></a>Mevcut Azure mobil hizmetiniz Azure App Service'e geçirme
 İle [Azure uygulama hizmeti genel kullanılabilirliğini], Azure Mobile Services siteleri kolayca geçiş yapabilir yerinde Azure App Service'in tüm özelliklerden yararlanmak için.  Bu belgede, sitenizin Azure App Service için Azure Mobile Services geçirilirken beklenmesi gerekenler açıklanmaktadır.
@@ -372,16 +372,16 @@ Uygulamanızı App Service'e geçirilir, kullanabileceğiniz daha da fazla özel
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Uygulama hizmeti fiyatlandırması]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Uygulama hizmeti fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Otomatik ölçek]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
 [Klasik Azure portalı]: https://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [Azure Zamanlayıcı planları]: ../scheduler/scheduler-plans-billing.md
 [sürekli olarak dağıtma]: ../app-service/app-service-continuous-deployment.md
-[Karma alanlarınızın Dönüştür]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Karma alanlarınızın Dönüştür]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [özel etki alanı adlarını]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler

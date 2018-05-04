@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: d80fe0bf3a0a91d2e364479f0c0f6b82ddf629d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 10d7b5d3670bd7a5f289a6f9f2754ecc6aa18795
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışlarından anlama
 Bu makalede Azure akış analizi işi için çıktıların farklı türleri açıklanmaktadır. Çıkışları depolamak ve Stream Analytics işi sonuçlarını kaydetmenize olanak tanır. Çıktı verileri kullanarak bunu yapabilirsiniz daha fazla İş analizi ve verilerinizi veri ambarı. 
@@ -104,7 +104,7 @@ BLOB Depolama çıkış olarak kullanırken, aşağıdaki durumlarda blob yeni b
 * Çıkış yolu önek deseni kullanarak bölümlenmiş saat ise, sorgu sonraki saat taşındığında yeni blob kullanılır.
 
 ## <a name="event-hub"></a>Olay Hub'ı
-[Olay hub'ları](https://azure.microsoft.com/services/event-hubs/) yüksek düzeyde ölçeklenebilir yayımlama-abone olma olay yutucu değil. Saniye başına milyonlarca olayı toplayabilirsiniz. Akış analizi işi çıktısını başka bir iş akışında girişi olduğunda bir olay hub'ı çıktı olarak kullanılır.
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) hizmetidir'ın yüksek düzeyde ölçeklenebilir yayımlama-abone olma olay yutucu. Saniye başına milyonlarca olayı toplayabilirsiniz. Akış analizi işi çıktısını başka bir iş akışında girişi olduğunda bir olay hub'ı çıktı olarak kullanılır.
 
 Olay hub'ı veri akışlarını çıkış olarak yapılandırmak için gereken birkaç parametre vardır.
 

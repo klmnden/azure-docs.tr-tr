@@ -1,23 +1,19 @@
 ---
-title: "Azure Search .NET Yönetim SDK sürüm 2 için yükseltme | Microsoft Docs"
-description: "Azure Search .NET Yönetim SDK sürüm 2 için yükseltme"
-services: search
-documentationcenter: 
+title: Azure Search .NET Yönetim SDK sürüm 2 için yükseltme | Microsoft Docs
+description: Azure Search .NET Yönetim SDK sürüm 2 için yükseltme
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: brjohnst
-ms.openlocfilehash: ade32dcb4e0885c251c17fad46fb753b6134d027
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a6b6c01f0cc811abca90139e4c26c27b7bd7119f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Yönetim SDK sürüm 2 için yükseltme
 Sürüm 1.0.2 kullanıyorsanız, eski veya [Azure Search .NET Yönetim SDK](https://aka.ms/search-mgmt-sdk), bu makalede, sürüm 2 kullanmak için uygulamanızı yükseltmenize yardımcı olur.
@@ -29,7 +25,7 @@ Azure Search .NET Yönetim SDK sürüm 2 önceki sürümlerinden bazı değişik
 ## <a name="whats-new-in-version-2"></a>Sürüm 2 yenilikler nelerdir?
 Azure Search .NET Yönetim SDK sürüm 2 önceki SDK sürümleri olarak Azure arama yönetimi REST API aynı genel olarak kullanılabilir sürümünü özellikle 2015-08-19 hedefler. SDK SDK'ın kullanılabilirliğini artırmak için kesinlikle istemci-tarafı değişiklikleri değişir. Bu değişiklikler şunları içerir:
 
-* `Services.CreateOrUpdate`ve zaman uyumsuz sürümleri artık otomatik olarak sağlama yoklaması `SearchService` ve hizmet sağlama işlemi tamamlanana kadar döndürmüyor. Bu tür yoklama kodu kendiniz yazmak zorunda kalmaktan kaydeder.
+* `Services.CreateOrUpdate` ve zaman uyumsuz sürümleri artık otomatik olarak sağlama yoklaması `SearchService` ve hizmet sağlama işlemi tamamlanana kadar döndürmüyor. Bu tür yoklama kodu kendiniz yazmak zorunda kalmaktan kaydeder.
 * Hizmeti el ile sağlama sorgulamak istiyorsanız, yeni kullanabilirsiniz `Services.BeginCreateOrUpdate` yöntemi veya zaman uyumsuz sürümlerinden biri.
 * Yeni yöntemler `Services.Update` ve zaman uyumsuz sürümlere SDK eklenmiştir. Bu yöntemler, artımlı bir hizmeti güncelleştirme desteklemek için HTTP PATCH kullanın. Örneğin, artık bir hizmet geçirerek ölçeklendirmek bir `SearchService` yalnızca istenen içeren örneği için bu yöntemlere `partitionCount` ve `replicaCount` özellikleri. Eski yolunu çağırma `Services.Get`, döndürülen değiştirme `SearchService`ve onu için `Services.CreateOrUpdate` hala desteklenmektedir, ancak artık gerekli değildir. 
 

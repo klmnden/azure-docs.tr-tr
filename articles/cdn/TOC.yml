@@ -16,6 +16,8 @@
       href: cdn-map-content-to-custom-domain.md
     - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma
       href: cdn-custom-ssl.md
+    - name: Önbelleğe alma kuralları ayarlama
+      href: cdn-caching-rules-tutorial.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -156,6 +158,8 @@
           href: cdn-pop-locations.md
         - name: Kısaltmaya göre POP konumları
           href: cdn-pop-abbreviations.md
+    - name: Azure CDN faturalamasını anlama
+      href: cdn-billing.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN forumu

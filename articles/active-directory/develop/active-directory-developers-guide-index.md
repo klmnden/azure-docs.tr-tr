@@ -1,11 +1,11 @@
 ---
-title: "Geliştiriciler için Azure Active Directory | Microsoft Docs"
-description: "Tüm kılavuzları ve Azure Active Directory Geliştirici Kılavuzu'nda başvuru makalelerinin listesi."
+title: Geliştiriciler için Azure Active Directory | Microsoft Docs
+description: Tüm kılavuzları ve Azure Active Directory Geliştirici Kılavuzu'nda başvuru makalelerinin listesi.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fe5d344eaaecc40f6d1937943603eda0404a1ca9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD Geliştirici Kılavuzu'ndaki makaleler
 Azure Active Directory Geliştirici Kılavuzu'nda kapsamdaki tüm konuların listesi verilmiştir.
@@ -41,9 +41,9 @@ Bu makaleler, belirli kavramlar ve Azure Active Directory özelliklerini açıkl
 | [AppSource Sertifikası](active-directory-devhowto-appsource-certified.md)                                                     | Microsoft AppSource bir uygulama yayımlama |
 | [Azure AD Uygulama Galerisi](active-directory-app-gallery-listing.md)                                                                 |Azure AD uygulama galerisinde bir uygulama yayımlama|
 | [Office 365 Satıcı Panosu](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | O365 satıcı Panosu'na bir uygulama yayımlama |
-| [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | Azure AD tümleştirme Visual Studio projelerinde MVC ile kullanma |
+| [Visual Studio bağlı Hizmetleri](vs-active-directory-dotnet-getting-started.md)                                               | Azure AD tümleştirme Visual Studio projelerinde MVC ile kullanma |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Şirket içi ADFS kullanarak Active Directory ile tümleştirme |
-| [ADAL hatalarıyla ilgili en iyi uygulamalar](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Dayanıklı hata işleme yapı ve günlüğü etkinleştirme |
+| [ADAL hatalarıyla ilgili en iyi uygulamalar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Dayanıklı hata işleme yapı ve günlüğü etkinleştirme |
 
 ## <a name="reference"></a>Başvuru
 Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hataları, kod örnekleri ve uç noktaları için bir temel sunar.

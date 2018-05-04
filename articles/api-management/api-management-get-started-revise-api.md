@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management'te güvenle bölünemez değişiklik yapmak için düzeltmelerini kullanın | Microsoft Docs"
-description: "API Management'te düzeltmelerini kullanarak bölünemez değişiklik yapma hakkında bilgi edinmek için Bu öğreticide adımları izleyin."
+title: Azure API Management’ta hataya neden olmayan değişiklikleri güvenli bir şekilde yapmak için revizyonları kullanma | Microsoft Docs
+description: API Management’ta revizyonları kullanarak hataya neden olmayan değişiklikler yapmayı öğrenmek için bu öğreticideki adımları uygulayın.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,83 +14,81 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 50d7ac17faebb34f1a1f9a3259aa0196950391d9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: b4812ea8d93e4bfb784370e3a3196a5d20e47519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Düzeltmeleri güvenle bölünemez değişiklik yapmak için kullanın
-API'nizi gitmek hazır ve geliştiriciler tarafından kullanılması başlatır, genellikle bu API ve API'nizi arayanlar kesintiye değil aynı zamanda değişiklik yaparken dikkatli gerekir. Yaptığınız değişiklikler hakkında bilmeniz geliştiriciler izin vermek yararlıdır. Azure API Management kullanarak bunu yapabilirsiniz **düzeltmelerini**. Daha fazla bilgi için bkz: [sürümleri & düzeltmelerini](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) ve [Azure API Management API sürüm oluşturma](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
+# <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Hataya neden olmayan değişiklikleri güvenli bir şekilde yapmak için düzeltmeleri kullanma
+API’niz kullanıma hazır olduğunda ve geliştiriciler tarafından kullanılmaya başladığında genellikle bu API’de değişiklikler yapmak ve aynı zamanda API’nizi çağıranları kesintiye uğratmamak için dikkatli olmanız gerekir. Yaptığınız değişiklikleri geliştiricilere bildirmeniz de yararlıdır. Azure API Management’da **düzeltmeleri** kullanarak bunu yapabilirsiniz. Daha fazla bilgi için bkz. [Sürümler ve revizyonlar](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) ve [Azure API Management ile API Sürümü Oluşturma](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Yeni bir düzeltme eklenmesini
-> * Bölünemez değişiklik yapmak için bir düzeltme
-> * Düzeltme geçerli hale ve değişiklik günlüğü girişi Ekle
-> * Değişiklikleri görmek ve değişiklik günlüğü için geliştirici portalına göz atın
+> * Yeni düzeltme ekleme
+> * Düzeltmenizde hataya neden olmayan değişiklikler yapma
+> * Düzeltmenizi geçerli hale getirme ve bir değişiklik günlüğü girdisi ekleme
+> * Değişiklikleri ve değişiklik günlüğünü görmek için geliştirici portalına göz atma
 
-![Geliştirici Portalı üzerindeki değişiklik günlüğü](media/api-management-getstarted-revise-api/azure_portal.PNG)
+![Geliştirici Portalında Değişiklik Günlüğü](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, aşağıdaki öğreticiye: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
++ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+## <a name="add-a-new-revision"></a>Yeni düzeltme ekleme
 
-## <a name="add-a-new-revision"></a>Yeni bir düzeltme eklenmesini
-
-1. Seçin **API'leri** sayfası.
-2. Seçin **konferans API** API listesinden (veya düzeltmeleri eklemek istediğiniz diğer API).
-3. Tıklatın **düzeltmelerini** sayfanın üstüne yakın menüsünden sekmesi.
-4. Seçin **+ düzeltme ekler**
+1. **API’ler** sayfasını seçin.
+2. API listesinden **Konferans API’sini** (veya düzeltme eklemek istediğiniz diğer API’yi) seçin.
+3. Sayfanın üst kısmındaki menüden **Düzeltmeler** sekmesine tıklayın.
+4. **+ Düzeltme Ekle**’yi seçin
 
     > [!TIP]
-    > Ayrıca seçebilirsiniz **ekleme düzeltme** bağlam menüsünden (**...** ) API.
+    > Ayrıca API’nin açılır menüsünden (**...**) **Düzeltme Ekle**’yi seçebilirsiniz.
     
-    ![Ekranın üstünde yakın düzeltmelerini menüsü](media/api-management-getstarted-revise-api/TopMenu.PNG)
+    ![Ekranın üst kısmındaki Düzeltmeler menüsü](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
-5. Hangi onu için kullanılacağını unutmayın yardımcı olmak için yeni düzeltme için bir açıklama sağlayın.
-6. Seçin **oluşturma**
-7. Artık, yeni bir düzeltme oluşturulur.
+5. Ne için kullanılacağını hatırlamaya yardımcı olmak için revizyonunuza ilişkin bir açıklama ekleyin.
+6. **Oluştur**’u seçin
+7. Yeni bir düzeltme oluşturulur.
 
     > [!NOTE]
-    > Özgün API'nizi kaldığı **düzeltme 1**. Farklı bir düzeltme geçerli hale seçene kadar çağrılacak kullanıcılarınızın devam düzeltme budur.
+    > Özgün API'niz **Düzeltme 1**’de kalır. Farklı bir düzeltmeyi güncel yapana kadar kullanıcılarınız bu düzeltmeyi çağırmaya devam eder.
 
-## <a name="make-non-breaking-changes-to-your-revision"></a>Bölünemez değişiklik yapmak için bir düzeltme
+## <a name="make-non-breaking-changes-to-your-revision"></a>Düzeltmenizde hataya neden olmayan değişiklikler yapma
 
-1. Seçin **konferans API** API listeden.
-2. Seçin **tasarım** sekmesinde ekranın üstünde yakın.
-3. Dikkat **düzeltme Seçici** (doğrudan Tasarım sekmesi), geçerli düzeltmeye gösterir **düzeltme 2**.
+1. API listesinden **Konferans API’sini** seçin.
+2. Ekranın üst kısmında **Tasarım** sekmesini seçin.
+3. **Düzeltme seçici**’nin (tasarım sekmesinin hemen üzerinde) geçerli düzeltme olarak **Düzeltme 2**’yi gösterdiğinden emin olun.
 
     > [!TIP]
-    > Üzerinde çalışmak istediğiniz düzeltmelerini arasında geçiş yapmak için düzeltme seçiciyi kullanın.
+    > Üzerinde çalışmak istediğiniz düzeltmeler arasında geçiş yapmak için düzeltme seçiciyi kullanın.
 
-4. Seçin **+ ekleme işlemi**.
-5. Yeni işleminizi olması için ayarlama **POST**, ad & işlem olarak görünen adını ve **test etme**
-6. **Kaydet** yeni işlemi.
-7. Biz şimdi bir değişiklik yapmış olduğunuz **düzeltme 2**. Kullanım **düzeltme Seçici** dönmek için sayfanın üstüne yakın **düzeltme 1**.
-8. Yeni işleminizi görünmez bildirimi **düzeltme 1**. 
+4. **+ İşlem Ekle**’yi seçin.
+5. Yeni işleminizi **POST** olarak, işlemin Adını ve Görünen Adını ise **test** olarak ayarlayın
+6. Yeni işleminizi **kaydedin**.
+7. **Düzeltme 2**’de bir değişiklik yapmış olduk. **Düzeltme 1**’e geri dönmek için sayfanın üst kısmındaki **Düzeltme Seçici**’yi kullanın.
+8. Yeni işleminizin **Düzeltme 1**’de görünmediğine dikkat edin. 
 
-## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Düzeltme geçerli hale ve değişiklik günlüğü girişi Ekle
-1. Seçin **düzeltmelerini** sayfanın üstüne yakın menüsünden sekmesi.
+## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Düzeltmenizi geçerli hale getirme ve bir değişiklik günlüğü girdisi ekleme
+1. Sayfanın üst kısmındaki menüden **Düzeltmeler** sekmesini seçin.
 
-    ![Düzeltme ekran düzeltme menüsünde.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
-1. Bağlam menüsünü açın (**...** ) için **düzeltme 2**.
-2. Seçin **geçerli hale**. Denetleme **bu API için ortak değişiklik günlüğüne sonrası**, bu değişiklik hakkında notlar sonrası istiyorsanız.
-3. Seçin **bu API için ortak değişiklik günlüğüne Post**
-4. Geliştiriciler, örneğin görürsünüz, değişiklik için bir açıklama sağlayın **düzeltmelerini test etme. Eklenen yeni işlem "test".**
-5. **Düzeltme 2** artık geçerli değil.
+    ![Düzeltme ekranındaki düzeltme menüsü.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+1. **Düzeltme 2**’nin açılır menüsünü (**...** ) açın.
+2. **Geçerli Hale Getir**’i seçin. Bu değişiklik hakkında notlar yayınlamak istiyorsanız **Bu API için Genel Değişiklik Günlüğüne Gönder**’i işaretleyin.
+3. **Bu API için Genel Değişiklik Günlüğüne Gönder**’i seçin
+4. Düzeltmeleriniz için geliştiricilerin gördüğü bir açıklama ekleyin, örn. **Test düzeltmeleri. Yeni "test" işlemi eklendi.**
+5. **Düzeltme 2** artık geçerlidir.
 
-## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Değişiklikleri görmek ve değişiklik günlüğü için geliştirici portalına göz atın
-1. Azure portalında seçin **API'leri**
-2. Seçin **Geliştirici Portalı** üstteki menüden.
-3. Seçin **API'leri**ve ardından **konferans API**.
-4. Yeni fark **test** işlemi artık kullanılabilir durumdadır.
-5. Seçin **API değişiklik geçmişini** aşağıdaki API adı.
-6. Değişiklik günlüğü girişi bu listede görüntülendiğine dikkat edin.
+## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Değişiklikleri ve değişiklik günlüğünü görmek için geliştirici portalına göz atma
+1. Azure portalında **API’ler** öğesini seçin.
+2. Üstteki menüden **Geliştirici Portalı**’nı seçin.
+3. **API'ler** ve ardından **Konferans API’si** öğesini seçin.
+4. Yeni **test** işleminizin artık kullanılabilir olduğuna dikkat edin.
+5. API adının altından **API Değişiklik Geçmişi**’ni seçin.
+6. Değişiklik günlüğü girdinizin bu listede göründüğüne dikkat edin.
 
     ![Geliştirici portalı](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
@@ -99,12 +97,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Yeni bir düzeltme eklenmesini
-> * Bölünemez değişiklik yapmak için bir düzeltme
-> * Düzeltme geçerli hale ve değişiklik günlüğü girişi Ekle
-> * Değişiklikleri görmek ve değişiklik günlüğü için geliştirici portalına göz atın
+> * Yeni düzeltme ekleme
+> * Düzeltmenizde hataya neden olmayan değişiklikler yapma
+> * Düzeltmenizi geçerli hale getirme ve bir değişiklik günlüğü girdisi ekleme
+> * Değişiklikleri ve değişiklik günlüğünü görmek için geliştirici portalına göz atma
 
-Sonraki öğretici ilerleyin:
+Sonraki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
-> [API'nizi birden fazla sürümünü yayımlama](api-management-get-started-publish-versions.md)
+> [API'nizin birden fazla sürümünü yayımlama](api-management-get-started-publish-versions.md)

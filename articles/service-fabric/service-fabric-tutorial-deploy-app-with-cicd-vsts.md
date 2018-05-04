@@ -1,12 +1,12 @@
 ---
-title: "Sürekli tümleştirme ile Azure Service Fabric uygulaması dağıtma (Team Services) | Microsoft Docs"
-description: "Bu öğreticide Visual Studio Team Services kullanarak bir Service Fabric uygulaması için nasıl sürekli tümleştirme ve dağıtım ayarlayacağınız gösterilir.  Azure’da bir Service Fabric kümesine uygulama dağıtın."
+title: Sürekli tümleştirme ile Azure Service Fabric uygulaması dağıtma (Team Services) | Microsoft Docs
+description: Bu öğreticide Visual Studio Team Services kullanarak bir Service Fabric uygulaması için nasıl sürekli tümleştirme ve dağıtım ayarlayacağınız gösterilir.  Azure’da bir Service Fabric kümesine uygulama dağıtın.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b61b7f89c127b297f058082d86952f2a45d766a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile uygulama dağıtma
-Bu öğretici bir serinin üçüncü bölümüdür ve Visual Studio Team Services kullanarak bir Azure Service Fabric uygulamasına nasıl sürekli tümleştirme ve dağıtım ayarlayacağınızı açıklar.  Mevcut bir Service Fabric uygulaması gereklidir; örnek olarak [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde oluşturulan uygulama kullanılır.
+Bu öğretici bir serinin dördüncü bölümüdür ve Visual Studio Team Services kullanarak bir Azure Service Fabric uygulamasına nasıl sürekli tümleştirme ve dağıtım ayarlayacağınızı açıklar.  Mevcut bir Service Fabric uygulaması gereklidir; örnek olarak [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde oluşturulan uygulama kullanılır.
 
 Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
@@ -36,6 +36,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
 > * [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md)
 > * [Uygulamayı uzak kümeye dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Bir ASP.NET Core ön uç hizmetine HTTPS uç noktası ekleme](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -124,7 +125,7 @@ Derleme tamamlandığında otomatik olarak bir yayın oluşturulması için sür
 
 ![Tetikleyici etkinleştirme][enable-trigger]
 
-Yayını el ile oluşturmak için **+Yayın** -> **Yayın Oluştur** -> **Oluştur**'u seçin.  Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Web tarayıcısını açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) adresine gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170616.3"). 
+Yayını el ile oluşturmak için **+Yayın** -> **Yayın Oluştur** -> **Oluştur**'u seçin.  Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Bir web tarayıcısı açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) sayfasına gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170616.3"). 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Değişiklikleri işleme ve gönderme, yayını tetikleme
 Team Services'te yapılan bazı kod değişikliklerini denetleyerek sürekli tümleştirme işlem hattının çalıştığını doğrulayın.    
@@ -143,7 +144,7 @@ Değişikliklerin Team Services'e gönderilmesi otomatik olarak derlemeyi tetikl
 
 Derlemenizin ilerleme durumunu denetlemek için, Visual Studio'nun **Takım Gezgini**'nde **Derlemeler** sekmesine geçin.  Derlemenin başarıyla yürütüldüğünü doğruladıktan sonra, uygulamanızı kümeye dağıtan bir yayın tanımı belirleyin.
 
-Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Web tarayıcısını açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) adresine gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170815.3").
+Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Bir web tarayıcısı açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) sayfasına gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170815.3").
 
 ![Service Fabric Explorer][sfx1]
 

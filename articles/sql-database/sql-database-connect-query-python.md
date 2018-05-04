@@ -10,23 +10,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8928a69436cfa0fc601c4a0c544433f3b87a90f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python kullanarak Azure SQL veritabanı sorgulama
 
- Bu hızlı başlangıç öğreticisinde, [Python](https://python.org) kullanarak bir Azure SQL veritabanına bağlanma ve Transact-SQL deyimleriyle veri sorgulama işlemlerinin nasıl yapılacağı açıklanır. Daha fazla SDK ayrıntıları için [başvuru](https://docs.microsoft.com/python/api/overview/azure/sql) belgemizi, pyodbc [örneğini](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) ve [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub deposunu inceleyin.
+ Bu hızlı başlangıçta [Python](https://python.org) kullanarak bir Azure SQL veritabanına bağlanma ve Transact-SQL deyimleriyle veri sorgulama işlemleri gösterilir. Daha fazla SDK ayrıntıları için [başvuru](https://docs.microsoft.com/python/api/overview/azure/sql) belgemizi, pyodbc [örneğini](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) ve [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub deposunu inceleyin.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
 
 - İşletim sisteminiz için Python ve ilgili yazılımları yüklediniz:
 

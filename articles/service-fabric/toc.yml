@@ -246,11 +246,13 @@
       items:
         - name: İzlemeye genel bakış
           href: service-fabric-diagnostics-overview.md
-        - name: Küme olayları
+        - name: Küme izleme
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: İşlevsel kanal
-              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Service Fabric olayları
+              href: service-fabric-diagnostics-events.md
+            - name: EventStore’a genel bakış
+              href: service-fabric-diagnostics-eventstore.md
             - name: Reliable Services olayları
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors olayları
@@ -507,6 +509,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
+                - name: Sertifika ortak adını kullanarak kümeleme
+                  href: service-fabric-create-cluster-using-cert-cn.md
             - name: Ölçek
               items:
                 - name: El ile
@@ -519,6 +523,10 @@
               href: service-fabric-cluster-security-roles.md
             - name: Yük dengeleyicide bağlantı noktası açma
               href: create-load-balancer-rule.md
+            - name: Küme sertifikasını ortak ad olarak değiştirme
+              href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+            - name: Küme sertifikalarını el ile geçirme
+              href: service-fabric-cluster-rollover-cert-cn.md
             - name: Küme sertifikalarını yönetme
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Sil
@@ -567,6 +575,8 @@
               href: service-fabric-diagnostics-oms-containers.md
         - name: Kümeleri izleme
           items:
+            - name: Sorgu EventStore API’leri
+              href: service-fabric-diagnostics-eventstore-query.md
             - name: Windows Azure Tanılama
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure Tanılama
@@ -630,6 +640,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Service Fabric olayları
+      href: service-fabric-diagnostics-event-generation-operational.md
     - name: Küme ayarlarını yapılandırma ve yapı yükseltme ilkesi
       href: service-fabric-cluster-fabric-settings.md
     - name: Hizmet modeli XML şeması

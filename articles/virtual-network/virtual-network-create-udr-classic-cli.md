@@ -3,7 +3,7 @@ title: Denetim bir Azure Virtual Network - CLI - Klasik yönlendirme | Microsoft
 description: Azure CLI kullanarak Klasik dağıtım modelinde sanal ağlara yönlendirme denetim öğrenin
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: f158270df344ebd55601b3f625aaabc284ad1323
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Yönlendirme denetlemek ve Azure CLI kullanarak sanal gereçler (Klasik) kullanma
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Azure CLI](tutorial-create-route-table-cli.md)
-> * [Şablon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Klasik)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Klasik)](virtual-network-create-udr-classic-cli.md)
 

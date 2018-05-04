@@ -4,15 +4,14 @@ description: Şirket içi veri merkezlerinizi Azure'a geçirme hakkında bir gen
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: be322596da0c3e5ba18aa64285c437cdb823fc4b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 8ba490998ea5f20efca591327716a6e39e9c1ba8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrating-your-on-premises-workloads-to-azure"></a>Şirket içi iş yüklerinizi Azure’a geçirme
 
@@ -27,11 +26,11 @@ Bu geçiş makaleleri dizisi, şirketiniz için geçiş stratejisini nasıl plan
 
 **Senaryo** | **Çözüm** | **Hizmetler** | **Makale** 
 --- | --- | --- | ---
-[1. Senaryo: Bulma ve değerlendirme](migrate-scenarios-assessment.md) | Azure’a geçiş için şirket içi uygulamaları bulun ve değerlendirin | Data Migration Yardımcısı, Azure Geçişi hizmeti  | Kullanıma sunuldu
-**2. Senaryo: Lift-and-shift ile geçiş** | Azure’da iç uygulamaları yeniden barındırın. Geçişten sonra Azure'da iyileştirme yapın. | Azure Site Recovery, Azure Veritabanı Geçiş Hizmeti, Azure SQL Yönetilen Örneği | Kullanıma sunuldu
-**3. Senaryo: Yeniden düzenleme ve geçirme** | Azure’a geçiş sırasında şirket içi müşteri uygulamalarını modernleştirin ve yeniden düzenleyin. | Planlanıyor | Planlandı
-**4. Senaryo: Yeniden oluşturma ve geçirme** | Azure’a geçiş sırasında müşteriye ait işlemsel web sitelerini yeniden oluşturun ve geçirin. | Planlanıyor | Planlandı
-**5. Senaryo: Yeniden derleme** |Müşteri uygulamasını ve verilerini yeniden derleyin ve Azure'a geçirin | Planlanıyor | Planlandı
+[1. Senaryo: Bulma ve değerlendirme](migrate-scenarios-assessment.md) | Bul ve şirket içi uygulamalar, veriler ve geçiş için Azure altyapı değerlendirin | Data Migration Yardımcısı, Azure Geçişi hizmeti  | Kullanıma sunuldu
+**[Senaryo 2: Rehost uygulama](migrate-scenarios-lift-and-shift.md)** | Yükseltme ve shift uygulamalar Azure. | Azure Site Recovery, Azure Veritabanı Geçiş Hizmeti, Azure SQL Yönetilen Örneği | Kullanıma sunuldu
+**Senaryo 3: Düzenleme uygulama** | Uygulamaları Azure geçiş sırasında yeniden düzenleyin. | Planlanıyor | Planlandı
+**Senaryo 4: Rearchitect uygulama** | Azure geçiş sırasında uygulamaları rearchitect. | Planlanıyor | Planlandı
+**Senaryo 5: Yeniden uygulama** |Uygulamaları Azure geçiş sırasında yeniden oluşturma | Planlanıyor | Planlandı
 
 
 

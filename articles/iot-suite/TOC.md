@@ -1,3 +1,4 @@
+# [Azure IoT Temel Konuları](../iot-fundamentals/index.yml)
 # [IoT Paketi Belgeleri](index.md)
 
 # Genel Bakış
@@ -94,10 +95,20 @@
 ## [Baştan sona güvenlik](securing-iot-ground-up.md)
 
 # İlgili
+## Çözümler 
+### [IoT Paketi Önceden Yapılandırılmış Çözümler](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Hizmetleri 
+### [IoT Hub’ı](/azure/iot-hub) 
+### [IoT Hub Cihazı Sağlama Hizmeti](/azure/iot-dps)
+### [IoT Hizmet SDK'ları](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Konum Tabanlı Hizmetler](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Cihaz SDK'ları](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 ## [Akış Analizi](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub’ı](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # Kaynaklar

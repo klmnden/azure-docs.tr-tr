@@ -1,69 +1,69 @@
 ---
-title: "Azure IOT Hub cihaz sağlama hizmeti (.NET) kullanarak bir cihazı sağlama | Microsoft Docs"
-description: "Cihazınızı Azure IOT Hub cihaz sağlama hizmeti (.NET) kullanılarak tek bir IOT hub'ına sağlama"
+title: Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak cihaz sağlama (.NET) | Microsoft Docs
+description: Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak tek bir IoT hub’a cihazınızı sağlama (.NET)
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6919f962d853faa572ee7ad5d0cb9aeacd3bd2b6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IOT Hub sağlama hizmeti istemci (.NET) kullanılarak bir IOT hub'ına cihaz kaydetme
+# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Cihazı Sağlama Hizmeti İstemcisi’ni kullanarak bir IoT hub’a cihaz kaydetme (.NET)
 
-Önceki öğreticide, bir aygıtı Aygıt sağlama hizmete bağlanmak için ayarlama öğrendiniz. Bu öğreticide, tek bir IOT hub aygıtınıza sağlamak için bu hizmeti kullanmak her ikisini de kullanarak öğrenin  **_tek tek kayıt_**  ve  **_kayıt grupları_**. Bu öğretici şunların nasıl yapıldığını gösterir:
+Önceki öğreticide, Cihaz Sağlama hizmetine bağlanmak için bir cihazın nasıl ayarlanacağını öğrendiniz. Bu öğreticide, hem **_Tek Kayıt_** hem de **_Kayıt Grupları_** kullanarak cihazınızı tek bir IoT hub’a sağlamak için bu hizmetin nasıl kullanılacağını öğreneceksiniz. Bu öğretici şunların nasıl yapıldığını gösterir:
 
 > [!div class="checklist"]
-> * Cihaz kaydı
-> * Cihaz Başlat
-> * Cihaz kayıtlı doğrulayın
+> * Cihazı kaydedin
+> * Cihazı başlatın
+> * Cihaz kayıtlı olduğunu doğrulayın
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Devam etmeden önce Cihazınızı yapılandırdığınızdan emin olun ve kendi *donanım güvenlik modülü* öğreticide anlatıldığı gibi [Azure IOT Hub cihaz sağlama hizmeti ile sağlamak için bir aygıtı ayarlama](./tutorial-set-up-device.md).
+Devam etmeden önce, [Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak bir cihazı sağlamak üzere ayarlama](./tutorial-set-up-device.md) öğreticisinde açıklandığı gibi cihazınızı ve *Donanım Güvenliği Modülünü* yapılandırdığınızdan emin olun.
 
 * Visual Studio 2015 veya Visual Studio 2017
 
 > [!NOTE]
-> Visual Studio gerekli değildir. Yüklemesini [.NET](https://www.microsoft.com/net) yeterlidir ve Windows veya Linux'ta geliştiricileri kendi tercih edilen Düzenleyicisi'ni kullanabilir.  
+> Visual Studio gerekli değildir. [.NET](https://www.microsoft.com/net) yüklemesi yeterlidir ve geliştiriciler Windows veya Linux üzerinde tercih ettikleri düzenleyiciyi kullanabilir.  
 
-Bu öğretici dönemi sırasında veya sonrasında sağ aygıt bilgileri sağlama hizmetine eklendiğinde işlemi, üretim donanım benzetimini yapar. Bu kod, genellikle bir PC veya .NET kod çalıştırabilir ve aygıtlar için eklenmemesi Fabrika cihazında çalıştırılır.
+Bu öğretici, cihaz bilgilerinin sağlama hizmetine eklendiği donanım üretim işlemi sırasındaki veya hemen sonrasındaki dönemin benzetimini yapar. Bu kod genellikle .NET kod çalıştırabilen bir PC veya fabrika cihazı üzerinde çalışır ve cihazlara eklenmemelidir.
 
 
-## <a name="enroll-the-device"></a>Cihaz kaydı
+## <a name="enroll-the-device"></a>Cihazı kaydedin
 
-Bu adım, cihazın benzersiz güvenlik yapıları sağlama cihazı hizmetine ekleme içerir. Bu güvenlik yapıtların aşağıdaki gibidir:
+Bu adım, cihazın benzersiz güvenlik yapılarının Cihaz Sağlama Hizmeti’ne eklenmesini kapsar. Bu güvenlik yapıtları aşağıdaki gibidir:
 
 - TPM tabanlı cihazlar için:
-    - *Onay anahtarını* her TPM yongası veya benzetimi benzersiz. Okuma [anlamak TPM onay anahtarını](https://technet.microsoft.com/library/cc770443.aspx) daha fazla bilgi için.
-    - *Kayıt kimliği* ad/kapsamında bir cihazı benzersiz olarak tanımlamak için kullanılır. Bu olabilir veya cihaz kimliği ile aynı olamaz Kimliği her aygıt için zorunludur. TPM tabanlı cihazlar için kayıt kimliği TPM kendisini, örneğin, bir SHA-256 karmasını TPM onay anahtarını türetilmiş olmalıdır.
+    - Her bir TPM yongası veya benzetimi için benzersiz olan *Onay Anahtarı*. Daha fazla bilgi için [TPM Onay Anahtarını Anlama](https://technet.microsoft.com/library/cc770443.aspx) bölümünü okuyun.
+    - Ad alanındaki/kapsamdaki bir cihazı benzersiz şekilde tanımlamak için kullanılan *Kayıt Kimliği*. Bu anahtar, cihaz kimliğiyle aynı olabilir veya olmayabilir. Kimlik her cihaz için zorunludur. TPM tabanlı cihazlar için kayıt kimliği, TPM’den türetilebilir; örneğin, TPM Onay Anahtarının SHA-256 karması.
 
 - X.509 tabanlı cihazlar için:
-    - [Cihaz için verilen X.509 sertifikası](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), ya da biçiminde bir *.pem* veya *.cer* dosya. Tek tek kayıt için kullanmanız gerekir. *Yaprak sertifikası* X.509 sisteminiz için kayıt gruplarının karşın, kullanmanız gereken *kök sertifika* veya eşdeğer bir *imzalayan Sertifika*.
-    - *Kayıt kimliği* ad/kapsamında bir cihazı benzersiz olarak tanımlamak için kullanılır. Bu olabilir veya cihaz kimliği ile aynı olamaz Kimliği her aygıt için zorunludur. X.509 tabanlı cihazlar için kayıt kimliği sertifikanın ortak adı (CN) türetilir. Bu gereksinimler hakkında daha fazla bilgi için bkz: [aygıt kavramları](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - Bir *.pem* veya *.cer* dosyası biçiminde [cihaza verilen X.509 sertifikası](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx). Tek kayıtta, X.509 sisteminiz için *yaprak sertifikayı* kullanmanız, kayıt grupları içinse *kök sertifika* veya eşdeğer bir *imzalayan sertifikası* kullanmanız gerekir.
+    - Ad alanındaki/kapsamdaki bir cihazı benzersiz şekilde tanımlamak için kullanılan *Kayıt Kimliği*. Bu anahtar, cihaz kimliğiyle aynı olabilir veya olmayabilir. Kimlik her cihaz için zorunludur. X.509 tabanlı cihazlar için kayıt kimliği, sertifikanın ortak adından (CN) türetilir. Bu gereksinimler hakkında daha fazla bilgi için bkz. [Cihaz kavramları](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
 
-Cihaz sağlama hizmetine cihazı kaydetmek için iki yolu vardır:
+Cihaz Sağlama Hizmeti’ne cihazı kaydetmenin iki yolu vardır:
 
-- **Tek tek kayıtları** bu cihaz sağlama hizmeti ile kaydedebilir tek bir cihaz için bir giriş temsil eder. Tek tek kayıtları kanıtlama mekanizmaları X.509 sertifikalarını veya SAS belirteçlerinde (gerçek veya sanal TPM) kullanabilir. Benzersiz ilk yapılandırmaları gerektirir, cihazlar için veya TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak yalnızca kullanabilirsiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Tek tek kayıtları, belirtilen istenen IOT hub cihaz kimliği olabilir.
+- **Bireysel Kayıtlar** Bu, Cihaz Sağlama Hizmeti’ne kaydolabilecek tek bir cihaz için bir girdiyi temsil eder. Bireysel kayıtlar, kanıtlama mekanizması olarak X.509 sertifikalarını veya SAS belirteçlerini (gerçek ya da sanal TPM’de) kullanabilir. Benzersiz ilk yapılandırma gerektiren cihazlar için veya kanıtlama mekanizması olarak TPM aracılığıyla yalnızca SAS belirteçlerini kullanabilen cihazlar için bireysel kayıtların kullanılmasını öneririz. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
 
-- **Kayıt grupları** bu belirli kanıtlama mekanizması paylaşan aygıtları grubunu temsil eder. Çok sayıda istenen ilk yapılandırma paylaşmak, cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Kayıt X.509 yalnızca gruplarıdır ve tüm kullanıcıların X.509 sertifikası zincirindeki bir imza sertifikası paylaşır.
+- **Kayıt Grupları** Bu, belirli bir kanıtlama mekanizmasını paylaşan bir aygıt grubunu temsil eder. İstenen bir ilk yapılandırmayı paylaşan çok sayıda cihaz için veya aynı kiracıya giden tüm cihazlar için bir kayıt grubu kullanılmasını öneririz. Kayıt grupları yalnızca X.509’dur ve tümü X.509 sertifika zincirinde bir imzalama sertifikasını paylaşır.
 
-### <a name="enroll-the-device-using-individual-enrollments"></a>Tek tek kayıtları kullanarak cihaz kaydetme
+### <a name="enroll-the-device-using-individual-enrollments"></a>Tek Kayıtları kullanarak cihaz kaydetme
 
-1. Visual Studio kullanarak bir Visual C# konsol uygulaması projesi oluşturma **konsol uygulaması** proje şablonu. Proje adı **DeviceProvisioning**.
+1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni bir Visual C# Konsol Uygulaması projesi oluşturun. Projeyi **DeviceProvisioning** olarak adlandırın.
     
-1. Çözüm Gezgini'nde sağ **DeviceProvisioning** proje ve ardından **NuGet paketlerini Yönet...** .
+1. Çözüm Gezgini'nde **DeviceProvisioning** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet...** seçeneğine tıklayın.
 
-1. İçinde **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.provisioning.service**. Girişi seçin ve'ı tıklatın **yükleme** yüklemek için **Microsoft.Azure.Devices.Provisioning.Service** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK hizmeti sağlama](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet paketi ve bağımlılıklarını.
+1. **NuGet Paket Yöneticisi** penceresinde **Göz At**’ı seçin ve **microsoft.azure.devices.provisioning.service** araması yapın. Girişi seçin ve **Yükle**’ye tıklayarak **Microsoft.Azure.Devices.Provisioning.Service** paketini yükleyin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT cihaz sağlama hizmeti SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet paketi ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
 
 1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
@@ -71,7 +71,7 @@ Cihaz sağlama hizmetine cihazı kaydetmek için iki yolu vardır:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini önceki bölümünde belirtildiği DPS bağlantı dizesiyle değiştirin.
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Önceki bölümde not edilen yer tutucu değerini DPS bağlantı dizesiyle değiştirin.
    
     ```csharp
     static readonly string ServiceConnectionString = "{DPS connection string}";
@@ -112,7 +112,7 @@ Cihaz sağlama hizmetine cihazı kaydetmek için iki yolu vardır:
     }
     ```
 
-1. Son olarak, aşağıdaki kodu ekleyin **ana** IOT hub'ınıza bağlantıyı açın ve kaydına başlamak için yöntem:
+1. Son olarak, aşağıdaki kodu **Main** yöntemine ekleyerek IoT hub’ınızla bağlantıyı açın ve kayda başlayın:
    
     ```csharp
     try
@@ -131,22 +131,22 @@ Cihaz sağlama hizmetine cihazı kaydetmek için iki yolu vardır:
     }
     ```
         
-1. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından **DeviceProvisioning** açılır menüsünde projesinde.  
+1. Visual Studio Çözüm Gezgini'nde çözümünüze sağ tıklayın ve ardından **Başlangıç Projelerini Ayarla...** öğesine tıklayın. **Tek başlangıç projesi**’ni ve ardından açılır menüdeki **DeviceProvisioning** projesini seçin.  
 
-1. .NET cihaz uygulama çalıştırma **DeviceProvisiong**. Aygıt için sağlama yukarı ayarlamanız gerekir: 
+1. **DeviceProvisiong** adlı .NET cihaz uygulamasını çalıştırın. Cihaz sağlamasını ayarlaması gerekir: 
 
-    ![Tek tek kayıt çalıştırın](./media/tutorial-net-provision-device-to-hub/individual.png)
+    ![Tek kayıt çalıştırma](./media/tutorial-net-provision-device-to-hub/individual.png)
 
-Cihaz başarıyla kaydedildiğinde görüntülenen aşağıdaki olarak Portalı'nda görmeniz gerekir:
+Cihaz başarıyla kaydedildiğinde cihazın portalda şu şekilde görüntülendiğini görmeniz gerekir:
 
-   ![Kayıt Portalı'nda](./media/tutorial-net-provision-device-to-hub/individual-portal.png)
+   ![Portalda başarılı kayıt](./media/tutorial-net-provision-device-to-hub/individual-portal.png)
 
-### <a name="enroll-the-device-using-enrollment-groups"></a>Kayıt gruplarını kullanarak cihaz kaydetme
+### <a name="enroll-the-device-using-enrollment-groups"></a>Kayıt Gruplarını kullanarak cihaz kaydetme
 
 > [!NOTE]
 > Kayıt grubu örneği bir X.509 sertifikası gerektirir.
 
-1. Visual Studio Çözüm Gezgini'nde açık **DeviceProvisioning** yukarıda oluşturduğunuz proje. 
+1. Visual Studio Çözüm Gezgini'nde, yukarıda oluşturduğunuz **DeviceProvisioning** projesini açın. 
 
 1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
     
@@ -154,14 +154,14 @@ Cihaz başarıyla kaydedildiğinde görüntülenen aşağıdaki olarak Portalı'
     using System.Security.Cryptography.X509Certificates;
     ```
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini X509 ile değiştirin sertifika konumu.
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini X509 sertifika konumu ile değiştirin.
    
     ```csharp
     private const string X509RootCertPathVar = "{X509 Certificate Location}";
     private const string SampleEnrollmentGroupId = "sample-group-csharp";
     ```
 
-1. Aşağıdakileri ekleyin **Program.cs** Grup kaydını uygulayın:
+1. Grup kaydını uygulamak için **Program.cs** dosyasına aşağıdakileri ekleyin:
 
     ```csharp
     public static async Task SetGroupRegistrationDataAsync()
@@ -191,7 +191,7 @@ Cihaz başarıyla kaydedildiğinde görüntülenen aşağıdaki olarak Portalı'
     }
     ```
 
-1. Son olarak, aşağıdaki kodu yerine **ana** IOT hub'ınıza bağlantıyı açın ve Grup kaydına başlamak için yöntem:
+1. Son olarak, aşağıdaki kodu **Main** yöntemiyle değiştirerek IoT hub’ınızla bağlantıyı açın ve grup kaydına başlayın:
    
     ```csharp
     try
@@ -210,46 +210,46 @@ Cihaz başarıyla kaydedildiğinde görüntülenen aşağıdaki olarak Portalı'
     }
     ```
 
-1. .NET cihaz uygulama çalıştırma **DeviceProvisiong**. Aygıt için Grup sağlama yukarı ayarlamanız gerekir: 
+1. **DeviceProvisiong** adlı .NET cihaz uygulamasını çalıştırın. Cihaz için grup sağlamasını ayarlaması gerekir: 
 
-    ![Grup kaydı çalıştırın](./media/tutorial-net-provision-device-to-hub/group.png)
+    ![Grup kaydı çalıştırma](./media/tutorial-net-provision-device-to-hub/group.png)
 
-    Cihaz grubu başarıyla kaydedildiğinde görüntülenen aşağıdaki olarak Portalı'nda görmeniz gerekir:
+    Cihaz grubu başarıyla kaydedildiğinde cihazın portalda şu şekilde görüntülendiğini görmeniz gerekir:
 
-   ![Başarılı Grup kayıt Portalı'nda](./media/tutorial-net-provision-device-to-hub/group-portal.png)
-
-
-## <a name="start-the-device"></a>Cihaz Başlat
-
-Bu noktada, aşağıdaki Kurulum cihaz kaydı için hazır:
-
-1. Cihaz veya cihaz grubu cihaz sağlama hizmetinize, kaydedilen ve 
-2. Cihazınızı güvenlikle yapılandırıldı ve cihaz sağlama hizmeti istemci SDK'sını kullanarak uygulama üzerinden erişilebilir hazırdır.
-
-Cihazı kayıt cihazı sağlama hizmetiniz ile başlatmak istemci uygulamanızı başlatın.  
+   ![Portalda başarılı grup kaydı](./media/tutorial-net-provision-device-to-hub/group-portal.png)
 
 
-## <a name="verify-the-device-is-registered"></a>Cihaz kayıtlı doğrulayın
+## <a name="start-the-device"></a>Cihazı başlatın
 
-Bir kez, cihaz önyüklemesinde, aşağıdaki eylemleri gerçekleşmesi. TPM simulator örnek bir uygulama bkz [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) daha fazla ayrıntı için. 
+Bu noktada, aşağıdaki kurulum cihaz kaydı için hazırdır:
 
-1. Aygıtın aygıt sağlama hizmetinize bir kayıt isteği gönderir.
-2. TPM aygıtları için aygıt hizmeti sağlama Cihazınızı yanıt vereceği bir kayıt sınama geri gönderir. 
-3. Başarılı kaydı üzerinde aygıt hizmeti sağlama IOT hub'ı URI, cihaz kimliği ve şifrelenmiş anahtar cihaza geri gönderir. 
-4. IOT Hub istemci uygulaması cihazda ardından hub'ınıza bağlanır. 
-5. Hub'ına başarılı bağlantı üzerine IOT hub ' ın görünür aygıt görmelisiniz **aygıt Explorer**. 
+1. Cihazınız veya cihaz grubunuz, Cihaz Sağlama Hizmetinize kaydolur ve 
+2. Cihazınız, güvenliği yapılandırılmış olarak hazır olur ve Cihaz Sağlama Hizmeti istemci SDK’sı kullanılarak uygulamadan cihaza erişilebilir.
 
-    ![Hub'ına Portalı'nda başarılı bağlantı](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
+İstemci uygulamanızın, Cihaz Sağlama Hizmetinize kaydı başlatmasını sağlamak için cihazı başlatın.  
+
+
+## <a name="verify-the-device-is-registered"></a>Cihaz kayıtlı olduğunu doğrulayın
+
+Cihazınız önyüklendikten sonra aşağıdaki eylemler gerçekleşmelidir. Daha fazla bilgi için [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) TPM simülatör örnek uygulamasına bakın. 
+
+1. Cihaz, Cihaz Sağlama hizmetinize bir kayıt isteği gönderir.
+2. TPM cihazları için Cihaz Sağlama Hizmeti bir kayıt sınaması gönderir ve cihazınız da buna yanıt verir. 
+3. Kayıt başarılı olduğunda Cihaz Sağlama hizmeti, IoT hub URI’sini, cihaz kimliğini ve şifrelenmiş anahtarı cihaza geri gönderir. 
+4. Sonra cihazdaki IoT Hub istemci uygulaması, hub’ınıza bağlanır. 
+5. Hub’a başarılı bağlantı gerçekleştiğinde, IoT hub’ın **Cihaz Gezgini**’nde cihazın görünmesi gerekir. 
+
+    ![Portalda hub ile başarılı bağlantı](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Cihaz kaydı
-> * Cihaz Başlat
-> * Cihaz kayıtlı doğrulayın
+> * Cihazı kaydedin
+> * Cihazı başlatın
+> * Cihaz kayıtlı olduğunu doğrulayın
 
-Yük dengeli hubs arasında birden çok aygıt sağlama konusunda bilgi almak için sonraki öğretici ilerleyin. 
+Yük dengeli hublar arasında birden çok cihaz sağlamayı öğrenmek için sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
-> [Yük dengeli IOT hub'ları aygıtlarda sağlama](./tutorial-provision-multiple-hubs.md)
+> [Yük dengeli IoT hubları arasında cihaz sağlama](./tutorial-provision-multiple-hubs.md)

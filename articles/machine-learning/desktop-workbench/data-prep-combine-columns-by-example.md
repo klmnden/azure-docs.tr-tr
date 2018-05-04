@@ -1,6 +1,6 @@
 ---
-title: "Örnek Azure Machine Learning çalışma ekranı kullanarak dönüştürme tarafından sütunu birleştirme"
-description: "Başvuru belge 'Örneğe göre sütunları birleştirmek' dönüştürme için"
+title: Örnek Azure Machine Learning çalışma ekranı kullanarak dönüştürme tarafından sütunu birleştirme
+description: Başvuru belge 'Örneğe göre sütunları birleştirmek' dönüştürme için
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu birleştirme
 Bu dönüşümü yeni bir sütun birden çok sütun değerlerinden birleştirerek eklemesine izin verir. Kullanıcı bir ayırıcı belirtin veya bu dönüştürme gerçekleştirmek için birleştirilmiş değer örnekleri sağlayın. Kullanıcı örnekleri birleşimi sağladığında, dönüşüm aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **türetilen sütun örneğe göre** Dönüştür.
@@ -58,9 +58,9 @@ Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak k
 |16041 N.E. 36th yolu|REDMOND|WA|98052|16041 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16051 N.E. 36th yolu|REDMOND|WA|98052|16051 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16061 N.E. 36th yolu|REDMOND|WA|98052|16061 N.E. 36th yolu, REDMOND, Washington, 98052|
-|3460 157th Avenue NE|REDMOND|WA|98052|3460 157th Avenue NE, REDMOND, WA, 98052|
+|3460 157th avenue NE|REDMOND|WA|98052|3460 157th avenue NE, REDMOND, Washington, 98052|
 |3350 157th Ave N.E.|REDMOND|WA|98052|3350 157th Ave N.E., REDMOND, Washington, 98052|
-|3240 157th Avenue N.E.|REDMOND|WA|98052|3240 157th avenue N.E., REDMOND, Washington, 98052|
+|3240 157th avenue N.E.|REDMOND|WA|98052|3240 157th avenue N.E., REDMOND, Washington, 98052|
 
 ## <a name="example-using-by-example"></a>Örnek tarafından kullanma örneği
 

@@ -1,6 +1,6 @@
 ---
-title: "Bir IDE ile çalışmak için Azure Machine Learning çalışma ilkesi nasıl yapılandırılır?  | Microsoft Docs"
-description: "IDE ile çalışmak için Azure Machine Learning çalışma yapılandırma için bir kılavuz."
+title: Bir IDE ile çalışmak için Azure Machine Learning çalışma ilkesi nasıl yapılandırılır?  | Microsoft Docs
+description: IDE ile çalışmak için Azure Machine Learning çalışma yapılandırma için bir kılavuz.
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 8a4bb8d825f89b08e9b7514d67ae2d2512cceec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Azure Machine Learning çalışma'ekranı bir IDE ile çalışmak için yapılandırma 
 
@@ -30,7 +30,7 @@ Azure Machine Learning çalışma ekranı popüler Python IDE (tümleşik geliş
 
 ### <a name="default-install-path-for-visual-studio-code"></a>Visual Studio Code için varsayılan yükleme yolu  
 
-* Windows 32-bit - `C:\Program Files (x86)\Microsoft VS Code\Code.exe`
+* Windows 32-bit- `C:\Program Files (x86)\Microsoft VS Code\Code.exe`
 * Windows 64-bit- `C:\Program Files\Microsoft VS Code\Code.exe`
 * macOS - .app yol örneğin seçin `/Applications/Visual Studio Code.app`, ve yolun geri kalanı, uygulama ekler. Varsayılan yürütülebilir dosyanın tam yolu `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`. Yürütülürse `Shell Command: Install 'code' command in PATH` VS Code komut başvurusu yapabilir sonra VS Code'da komutu `/usr/local/bin/code`
 

@@ -1,13 +1,13 @@
 ---
-title: "Sanal ağlar arasında bir bağlantı oluşturun: Klasik: Azure portal | Microsoft Docs"
-description: "Azure sanal ağları birbirine PowerShell ve Azure portalını kullanarak bağlanın."
+title: 'Sanal ağlar arasında bir bağlantı oluşturun: Klasik: Azure portal | Microsoft Docs'
+description: Azure sanal ağları birbirine PowerShell ve Azure portalını kullanarak bağlanın.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet bağlantı (Klasik) yapılandırma
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 Bu makalede, sanal ağlar arasında bir VPN ağ geçidi bağlantısı oluşturmanıza yardımcı olur. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Bu makaledeki adımları Klasik dağıtım modeli ve Azure portalı için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -97,7 +97,7 @@ Bu makalede bir alıştırma olarak kullanıyorsanız, aşağıdaki örnek değe
 
 **TestVNet1 için değerler**
 
-Name: TestVNet1<br>
+Ad: TestVNet1<br>
 Adres alanı: 10.11.0.0/16, 10.12.0.0/16 (isteğe bağlı)<br>
 Alt ağ adı: varsayılan<br>
 Alt ağ adresi aralığı: 10.11.0.1/24<br>
@@ -107,7 +107,7 @@ GatewaySubnet: 10.11.1.0/27
 
 **TestVNet4 için değerler**
 
-Name: TestVNet4<br>
+Ad: TestVNet4<br>
 Adres alanı: 10.41.0.0/16, 10.42.0.0/16 (isteğe bağlı)<br>
 Alt ağ adı: varsayılan<br>
 Alt ağ adresi aralığı: 10.41.0.1/24<br>
@@ -218,7 +218,7 @@ Aşağıdaki adımlarda, Azure hesabınıza bağlanın ve indirip bağlantılar�
 2. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Hesapla ilişkili abonelikleri kontrol edin.

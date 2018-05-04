@@ -8,4 +8,4 @@ Azure App Service Mobile Apps özelliğini kullanan [Azure Notification Hubs] it
 Şimdi bir bildirim hub'ı Mobile Apps arka uç projeniz bağlandınız. Daha sonra bir platform bildirim sistemi cihazlara göndermek için (PNS) bağlanmak için bu bildirim hub'ı yapılandırın.
 
 [Azure portal]: https://portal.azure.com/
-[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Azure Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

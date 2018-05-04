@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: dfa3e1996ecbd3d78fef9f85facb7da1c209fafa
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 3235813708b3c097e7f66610796f75eafd06aa05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search'te API sürümleri
 Azure arama özellik güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri bize API'mize geriye dönük uyumluluğu korumak için yeni bir sürümünü yayımlamak gerektirir. Yeni bir sürüm yayımlama nasıl ve ne zaman kodunuzda arama hizmet güncelleştirmeleri tümleştirmek denetlemenize olanak verir.
@@ -30,16 +30,16 @@ Aşağıda bir anlık görüntü sürümlerinin geçerli tüm Azure arama için 
 
 | Arabirimleri | Son ana sürümle | Durum |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |3.0 |Genellikle Kasım 2016 yayımlanan kullanılabilir |
+| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Genellikle Nisan 2018 yayımlanan kullanılabilir |
 | [.NET SDK Önizleme](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Mayıs 2017 yayımlanan Önizleme |
-| [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Genel olarak kullanılabilir |
+| [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2017 11 11 |Genel olarak kullanılabilir |
 | [Hizmet REST API Önizleme](search-api-2016-09-01-preview.md) |2016-09-01-Önizleme |Önizleme |
 | [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |2.0 |Genel olarak kullanılabilir |
 | [Yönetim REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Genel olarak kullanılabilir |
 
 REST dahil olmak üzere API'ları için `api-version` her çağrıda gereklidir. Bu bir önizleme API gibi belirli bir sürümü hedeflemesini kolaylaştırır. Aşağıdaki örnek gösterilmektedir nasıl `api-version` parametresi:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
+    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
 > [!NOTE]
 > Her istek olsa da bir `api-version`, tüm API istekler için aynı sürümünü kullanmanızı öneririz. Bu, özellikle yeni API sürümleri öznitelikler veya önceki sürümleri tarafından tanınmıyor işlemler aldığımızda geçerlidir. API sürümü karıştırma olabilir istenmeyen sonuçlara ve kaçınılmalıdır.

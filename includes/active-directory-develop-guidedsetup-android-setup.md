@@ -1,12 +1,34 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 0ed42e4ace17db1e681152589cc46d82c26dddff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Projenizin kurulumunu
 
-Bunun yerine bu örneği ait Android Studio projesi indirme istiyor musunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)ve geçin [yapılandırma adımı](#create-an-application-express) kod örneği, yürütmeden önce yapılandırmak için.
+Bunun yerine bu örneği ait Android Studio projesi indirme istiyor musunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)ve geçin [yapılandırma adımı](#register-your-application) kod örneği, yürütmeden önce yapılandırmak için.
 
 ### <a name="create-a-new-project"></a>Yeni bir proje oluşturma 
 1.  Android Studio'yu açın ve ardından **dosya** > **yeni** > **yeni proje**.
 2.  Uygulamanızı adlandırın ve ardından **sonraki**.
-3.  Seçin **API 21 ya da daha yeni (Android 5.0)**ve ardından **sonraki**.
+3.  Seçin **API 21 ya da daha yeni (Android 5.0)** ve ardından **sonraki**.
 4.  Bırakın **boş etkinlik** olduğu gibi seçin **sonraki**ve ardından **son**.
 
 

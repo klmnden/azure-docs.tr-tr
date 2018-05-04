@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -38,7 +38,8 @@ ms.lasthandoff: 04/03/2018
 ## <a name="types-of-sampling"></a>Örnekleme türleri
 Üç alternatif örnekleme yöntemi vardır:
 
-* **Uyarlamalı örnekleme** telemetri ASP.NET uygulamanızı SDK'da gönderilen hacmi otomatik olarak ayarlar. SDK v 2.0.0-beta3 ile başlayarak varsayılan örnekleme yöntem budur. Uyarlamalı örnekleme şu anda yalnızca ASP.NET sunucu tarafı telemetri için kullanılabilir. 
+* **Uyarlamalı örnekleme** telemetri ASP.NET uygulamanızı SDK'da gönderilen hacmi otomatik olarak ayarlar. SDK v 2.0.0-beta3 ile başlayarak varsayılan örnekleme yöntem budur. Uyarlamalı örnekleme şu anda yalnızca ASP.NET sunucu tarafı telemetri için kullanılabilir. Tam Asp.NET Core uygulamaları atamak için Uyarlamalı örnekleme çerçevedir Microsoft.ApplicationInsights.AspNetCore SDK 1.0.0 sürümünde kullanılabilir. Asp.NET Core uygulamaları atamak için NetCore, Uyarlamalı örnekleme Microsoft.ApplicationInsights.AspNetCore SDK 2.2.0-beta1 kullanılabilir.
+
 * **Sabit oran örnekleme** sunucunuzdan hem ASP.NET veya Java ve kullanıcılarınızın tarayıcılarından gönderilen telemetri hacmini azaltır. Hızı ayarlayın. İstemci ve sunucu kendi örnekleme eşitler böylece söz konusu, arama ilgili sayfa görünümleri ve istekler arasında gezinebilirsiniz.
 * **Alım örnekleme** Azure portalında çalışır. Ayarladığınız örnekleme hızında uygulamanızdan ulaşan telemetri bazıları atar. Uygulamanızdan gönderdiği telemetri akışı azaltmaz ancak içinde aylık kota tutmanıza yardımcı olur. Alım örnekleme ana avantajı, uygulamanızın yeniden dağıtmadan örnekleme hızını ayarlayabilirsiniz ve tüm sunucular ve istemciler için aynı şekilde çalışır ' dir. 
 
@@ -335,7 +336,7 @@ Sabit oran örnekleme özelliği 2.0.0 ASP.NET sürümlerden SDK'da ve Java SDK'
 
 Örnekleme algoritması bırakmak için hangi telemetri öğeleri ve hangilerinin (Bu SDK veya Application Insights hizmeti olup olmadığı) tutmak için karar verir. Örnekleme karar tüm birbiriyle veri noktalarını olduğu gibi bir işlem yapılabilir ve hatta sınırlı bir veri kümesi ile güvenilir Application Insights tanılama deneyimi koruma korumak için hedeflenir çeşitli kurallar temel alır. Başarısız bir istek için ek telemetri öğeleri (örneğin, özel durumu ve bu istekten oturum izlemeleri) uygulamanızı gönderirse, örneğin, örnekleme bu istek ve başka telemetriyle bölecek değil. Tutar ya da hepsini bir araya bırakır. Sonuç olarak, Application Insights isteği ayrıntılarında baktığınızda, her zaman istekle ilişkili telemetri öğelerinden birlikte görebilirsiniz. 
 
-"Kullanıcı" tanımlamak uygulamalar için (diğer bir deyişle, en tipik web uygulamaları), örnekleme karar herhangi belirli bir kullanıcı için tüm telemetri korunur veya bırakılan anlamına gelir kullanıcı kimliği, karma dayanır. Tür (örneğin, web Hizmetleri) kullanıcıları tanımlamak olmayan uygulamalar için örnekleme karar isteği işlemi kimliğini temel alır. Son olarak, tipleri (için örnek telemetri öğeleri http bağlam ile zaman uyumsuz iş parçacıklarından bildirilen) Ayarla kullanıcı veya işlem kimliğine sahip telemetri öğeleri için örnekleme yalnızca her tür telemetri öğeleri yüzdesini yakalar. 
+Örnekleme kararı, belirli bir işlemi ait tüm telemetri öğeleri korunur veya bırakılan olduğunu anlamına gelir isteği işlemi kimliğini temel alır. İşlem olmayan telemetri öğeler için kimliği kümesi (için örnek telemetri öğeleri http bağlam ile zaman uyumsuz iş parçacıklarından bildirilen) örnekleme telemetri öğelerin her tür yüzdesi yalnızca yakalar. .NET SDK'ın 2.5.0-Beta2 ve ASP.NET Core SDK 2.2.0-beta3 öncesinde örnekleme karar "kullanıcı" tanımlamak uygulamaları için kullanıcı kimliği karmasını temel (diğer bir deyişle, en tipik web uygulamaları). Kullanıcılar (örneğin, web Hizmetleri) tanımlamadığınız uygulama türleri için örnekleme karar isteği işlemi kimliği temel alarak.
 
 Telemetri size geri sunan Application Insights hizmeti ölçümler için veri noktaları dengelemek için kullanılan koleksiyon, aynı anda aynı örnekleme yüzdeyle ayarlanır. Bu nedenle, Application Insights telemetrisi bakıldığında kullanıcıların çok yakın gerçek sayılar olan istatistiksel olarak doğru yakın görüyorsunuz.
 

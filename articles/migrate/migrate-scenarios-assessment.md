@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ac6c3e428148a6609b264b0b8f8cff416b0fa4d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Senaryo 1: Azure’a geçiş için şirket içi iş yüklerini değerlendirme
 
-Azure’a geçiş ile ilgili olarak Contoso şirketi, şirket içi iş yüklerinin buluta geçiş için uygun olup olmadığını öğrenmek için teknik ve finansal değerlendirme çalıştırmak istiyor. Özellikle geçiş için makine ve veritabanı uyumluluğunu değerlendirmek, Azure’da kaynaklarını çalıştırma maliyetlerini ve kapasitesini tahmin etmek istiyor.
+Azure’a geçiş ile ilgili olarak Contoso şirketi, şirket içi iş yüklerinin buluta geçiş için uygun olup olmadığını öğrenmek amacıyla teknik ve finansal iç değerlendirme çalıştırmak istiyor. Özellikle geçiş için makine ve veritabanı uyumluluğunu değerlendirmek, Azure’da kaynaklarını çalıştırma maliyetlerini ve kapasitesini tahmin etmek istiyor.
 
 Söz konusu teknolojileri ilk kez kullanmak ve daha iyi anlamak için küçük bir şirket içi seyahat uygulamasını değerlendirip geçiriyor. Bu, bir web uygulamasının bir sanal makinede ve bir SQL Server veritabanının ikinci bir sanal makinede çalıştığı, iki katmanlı bir uygulamadır. Uygulama, VMware içinde dağıtılır ve ortam, vCenter Server tarafından yönetilir. Data Migration Yardımcısı (DMA) ve Azure Geçişi hizmetini kullanarak değerlendirmeyi gerçekleştirir.
 
@@ -285,7 +285,7 @@ Başlamadan önce, toplayıcının şu anda işletim sistemi dili ve toplayıcı
 5. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - vCenter sunucusunun adını (FQDN) veya IP adresini belirtin.
     - **Kullanıcı Adı** ve **Parola** bölümünde, toplayıcının vCenter sunucusundaki sanal makineleri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin.
-    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam 1.000 VM’den fazlasını içermemelidir. 
+    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir. 
 
     ![vCenter’a bağlanma](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 

@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 0eb567c8587b0eec367160facc86f163ef6b3c15
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: b3cc52246db213ff8d5946a1ff3ac3dbe231f4ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Şirket içi uygulamalarınıza Azure AD erişim ver B2B kullanıcılar
 
@@ -45,8 +45,8 @@ B2B kullanıcıların tümleşik Windows kimlik doğrulaması ve Kerberos Kısı
 
    B2B kullanıcı senaryosu için şirket içi dizin yetkilendirme için gerekli olan Konuk kullanıcı nesneleri oluşturmak için kullanabileceğiniz iki yöntem vardır:
 
-   - [Microsoft Identity Manager (MIM) ve MIM yönetim Aracısı Microsoft Graph için](#create-b2b-guest-user-objects-through-mim-preview). Bu çözüm, bir Azure AD Premium P1 aboneliğine sahip olmasını gerektirir. 
-   - [Bir PowerShell Betiği](#create-b2b-guest-user-objects-through-a-script-preview). Komut dosyası kullanarak MIM veya Azure AD Premium gerektirmeyen daha basit bir çözümdür. 
+   - Microsoft Identity Manager (MIM) ve [MIM yönetim Aracısı Microsoft Graph için](#create-b2b-guest-user-objects-through-mim-preview). 
+   - [Bir PowerShell Betiği](#create-b2b-guest-user-objects-through-a-script-preview). Komut dosyası kullanarak MIM gerektirmeyen daha basit bir çözümdür. 
 
 Aşağıdaki diyagramda birlikte B2B kullanıcıların şirket içi IWA ve KCD uygulamalara erişim vermek için dizin iş nasıl Azure AD uygulama proxy'si üst düzey bir genel bakış ve şirket içi B2B kullanıcı nesnesinin oluşturulmasını sağlar. Aşağıdaki diyagramda ayrıntılı numaralı adımlar açıklanmaktadır.
 
@@ -86,6 +86,6 @@ Komut dosyası kullanmadan önce ilişkili benioku dosyasında önemli noktalar 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Karma kuruluşlar için Azure Active Directory B2B işbirliği](active-directory-b2b-hybrid-organizations.md)
-- [Azure AD B2B işbirliği kullanarak bulut kaynaklarına iş ortağı yerel olarak yönetilen hesapları erişim izni ver](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 - Azure AD Connect genel bakış için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](connect/active-directory-aadconnect.md).
 

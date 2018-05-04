@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: f1c578b6ebb766f71d6e8b65b02724d91dde3126
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
 
@@ -29,9 +29,9 @@ IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>Cihaz çifti sorguları
-[Cihaz çiftlerini] [ lnk-twins] etiketleri ve özellikleri rastgele JSON nesnelerini içerebilir. IOT Hub, tüm cihaz çifti bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz çiftlerini sağlar.
-Örneğin, IOT hub cihaz çiftlerini aşağıdaki yapısını olduğunu varsayın:
+## <a name="device-and-module-twin-queries"></a>Aygıt ve modül twin sorguları
+[Cihaz çiftlerini] [ lnk-twins] ve modül çiftlerini etiketleri ve özellikleri rastgele JSON nesnelerini içerebilir. IOT hub'ı tüm twin bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz çiftlerini ve modül çiftlerini sağlar.
+Örneğin, IOT hub cihaz çiftlerini aşağıdaki yapısını sahip olduğunuzu varsaymaktadır (modül twin olacak yalnızca bir ek modül kimliği ile benzer):
 
 ```json
 {
@@ -82,6 +82,8 @@ IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili 
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Cihaz çifti sorguları
 
 IOT Hub cihaz çiftlerini adlı bir belge koleksiyonu olarak kullanıma sunar **aygıtları**.
 Bu nedenle aşağıdaki sorgu tüm cihaz çiftlerini kümesini alır:
@@ -158,6 +160,26 @@ Yansıtma sorguları yalnızca önem verdiğiniz özellikleri döndürülecek ge
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Modül twin sorguları
+
+Modül çiftlerini üzerinde sorgulama cihaz çiftlerini sorgusu benzer, ancak Sorgulayabileceğiniz farklı bir koleksiyon/ad alanı, yani "cihazların" yerine kullanarak
+
+```sql
+SELECT * FROM devices.modules
+```
+
+Biz devices.modules koleksiyonları ve cihazlar arasında birleşim izin vermez. Sorgu modülü çiftlerini cihaz üzerinden istiyorsanız, bunu etiketlere göre yapın. Bu sorgu tüm modülü çiftlerini tarama durumundaki tüm cihazlar arasında döndürür:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Bu sorgu tüm modülü çiftlerini tarama durumundaki ancak yalnızca belirtilen alt aygıtların üzerinde döndürür.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# örnek
@@ -523,7 +545,7 @@ Her simge ifadeleri sözdiziminde ifade anlamak için aşağıdaki tabloya bakı
 | --- | --- |
 | attribute_name | JSON belgesinde herhangi bir özelliği **FROM** koleksiyonu. |
 | binary_operator | Listelenen herhangi bir ikili işleç [işleçleri](#operators) bölümü. |
-| function_name| Listelenen herhangi bir işlev [işlevleri](#functions) bölümü. |
+| işlev_adı| Listelenen herhangi bir işlev [işlevleri](#functions) bölümü. |
 | decimal_literal |Bir kayan noktalı ondalık gösterimde. |
 | hexadecimal_literal |'0 x onaltılık basamak dizesiyle ve ardından' dize olarak ifade edilen bir sayı. |
 | string_literal |Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış sıraları tarafından temsil edilen Unicode dizelerdir. Dize değişmez değerleri, tek tırnak veya çift tırnak içine alınır. Çıkışları izin: `\'`, `\"`, `\\`, `\uXXXX` 4 onaltılık basamak tarafından tanımlanan Unicode karakterler. |
@@ -534,7 +556,7 @@ Aşağıdaki işleçleri desteklenir:
 | Aile | İşleçler |
 | --- | --- |
 | Aritmetik |+, -, *, /, % |
-| Mantıksal |AND, OR, NOT |
+| Mantıksal |VE VEYA DEĞİL |
 | Karşılaştırma |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>İşlevler
@@ -548,14 +570,14 @@ Yollar koşullarında aşağıdaki matematik işlevleri desteklenir:
 
 | İşlev | Açıklama |
 | -------- | ----------- |
-| ABS(x) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
+| Abs(x) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
 | EXP(x) | Belirtilen sayısal ifade üstel değeri döndürür (e ^ x). |
-| POWER(x,y) | Belirtilen güç belirtilen ifadenin değerini döndürür (x ^ y).|
+| Power(x,y) | Belirtilen güç belirtilen ifadenin değerini döndürür (x ^ y).|
 | SQUARE(x) | Kare belirtilen sayısal değeri döndürür. |
 | CEILING(x) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değeri döndürür. |
 | FLOOR(x) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayıyı döndürür. |
 | SIGN(x) | Artı (+ 1), sıfır (0) veya belirtilen sayısal ifadenin eksi (-1) işareti döndürür.|
-| SQRT(x) | Belirtilen sayısal değer kare kökünü döndürür. |
+| Sqrt(x) | Belirtilen sayısal değer kare kökünü döndürür. |
 
 Yollar koşullarda, aşağıdaki tür denetleme ve atama işlevleri desteklenir:
 
@@ -577,8 +599,8 @@ Yollar koşullarında aşağıdaki dize işlevleri desteklenir:
 | -------- | ----------- |
 | CONCAT (x, y,...) | İki veya daha fazla dize değerlerini birleştirme sonucu olan bir dize döndürür. |
 | LENGTH(x) | Belirtilen dize ifadesinin karakterlerin sayısını döndürür.|
-| LOWER(x) | Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür. |
-| UPPER(x) | Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür. |
+| Lower(x) | Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür. |
+| Upper(x) | Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür. |
 | SUBSTRING (dize, başlangıç [, uzunluk]) | Belirtilen karakter sıfır tabanlı konumdan başlayarak bir dize ifadesi bölümünü döndürür ve belirtilen uzunlukta veya dize sonu devam eder. |
 | INDEX_OF (dize, parça) | İkinci ilk örneğinin başlangıç konumunu döndürür dizesi ifade ilk belirtilen dize ifadesi veya -1 içinde dizesi bulunamadı.|
 | STARTS_WITH (x, y) | Döndüren bir Boolean belirten ilk ifade dize olup olmadığını ve ikinci başlatır. |

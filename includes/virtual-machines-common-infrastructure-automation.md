@@ -62,7 +62,7 @@ Azure üzerinde bulut başlatma hakkında daha fazla ayrıntı öğrenin:
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell istenen durum yapılandırması (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) hedef makinelere yapılandırmasını tanımlamak için bir yönetim platformu. DSC de kullanılabilir aracılığıyla Linux'ta [açık Yönetim Altyapısı (OMI) sunucu](https://collaboration.opengroup.org/omi/).
+[PowerShell istenen durum yapılandırması (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) hedef makinelere yapılandırmasını tanımlamak için bir yönetim platformu. DSC de kullanılabilir aracılığıyla Linux'ta [açık Yönetim Altyapısı (OMI) sunucu](https://collaboration.opengroup.org/omi/).
 
 DSC yapılandırmaları ne bir makineye yüklemek ve ana bilgisayar yapılandırma tanımlayın. İstenen eylemlerini basılmış yapılandırmalarını temel alan işler her bir hedef düğümde yerel Configuration Manager (LCM'yi) altyapısı çalışır. Bir çekme sunucusuna DSC yapılandırmaları ve ilişkili kaynakları depolamak için merkezi bir ana bilgisayarda çalışan bir web hizmetidir. Çekme sunucunun hakkında rapor ve gerekli yapılandırmaları sağlamak için her hedef ana bilgisayarda LCM'yi altyapısı ile iletişim kurar.
 

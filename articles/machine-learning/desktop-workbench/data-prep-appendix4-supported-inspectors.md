@@ -1,6 +1,6 @@
 ---
-title: "Denetçiler Azure Machine Learning veri hazırlığı ile kullanılabilir desteklenen | Microsoft Docs"
-description: "Bu belgede Azure Machine Learning veri hazırlığı kullanılabilir denetçiler tam bir listesi sağlanmaktadır"
+title: Denetçiler Azure Machine Learning veri hazırlığı ile kullanılabilir desteklenen | Microsoft Docs
+description: Bu belgede Azure Machine Learning veri hazırlığı kullanılabilir denetçiler tam bir listesi sağlanmaktadır
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 5d5797ede15be0779873f0a023433f0a915dd74a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Denetçiler Azure Machine Learning veri hazırlık önizlemesi için desteklenen
 Bu belgede, bu Önizleme'de kullanılabilen denetçiler kümesi özetlenmektedir.
@@ -41,7 +41,7 @@ Sayısal sütunlar için bu denetçisi farklı istatistik sütun hakkında çeş
 ### <a name="options"></a>Seçenekler 
 - None
 
-## <a name="histogram"></a>Histogram 
+## <a name="histogram"></a>Çubuk grafik 
 Hesaplar ve tek bir sayısal sütunun bir histogram görüntüler. Varsayılan aralık sayısı, Scott'ın kuralı kullanılarak hesaplanır. Bununla birlikte, kural seçenekleri ile geçersiz kılınabilir.
 
 Bu denetleyici hale efekti destekler.

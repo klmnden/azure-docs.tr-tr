@@ -7,13 +7,13 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/21/2017
+ms.date: 04/20/2018
 ms.author: liamca
-ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene sorgu söz dizimi örnekler Azure arama sorguları oluşturmak için
 Azure arama sorguları oluşturmak, her iki varsayılan kullanabilirsiniz [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) veya diğer [Lucene sorgu ayrıştırıcı Azure Search'te](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Lucene sorgu ayrıştırıcı alan kapsamlı sorgular, benzer arama, yakınlık araması, terim artırma ve normal ifade araması gibi daha karmaşık sorgu yapıları destekler.
@@ -37,13 +37,13 @@ Bu makaledeki örneklerde tümünün belirtin **queryType tam =** tamamını Luc
 
 **Örnek 1** --JSFiddle yükleyen ve sorgu çalıştıran yeni bir tarayıcı sayfasını açmak için aşağıdaki sorguyu parçacığını sağ tıklatın:
 
-* [& queryType tam = & arama = *](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+* [& queryType tam = & arama = *](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 Yeni tarayıcı penceresinde JavaScript kaynak ve HTML çıkışını yan yana sunulur. Komut dosyası tam bir sorgu (bağlantıyı gösterildiği gibi yalnızca kod parçacığında,) başvuruda bulunuyor. Tam sorgu, her örneğin URL'lerde gösterilir. 
 
 Bu sorgu belgeleri de New York şehrinde işleri dizinimize (bir korumalı alan hizmeti yüklenmiş nycjobs) döndürür. Konuyu uzatmamak amacıyla, sorgu yalnızca iş başlıkları döndürülen belirtir. Tam temel sorgu aşağıdaki gibidir:
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
 **SearchFields** parametresi yalnızca iş başlığı alanı arama kısıtlar. **QueryType** ayarlanır **tam**, bu sorgu için Lucene sorgu ayrıştırıcı kullanmak için Azure Search talimatı verir.
 
@@ -63,7 +63,7 @@ Belirtilen alan **fieldname:searchterm** aranabilir alan olması gerekir. Bkz: [
 
 **Örnek 2** --bu sorguyu arar bunları ancak değil çırak terim Kıdemli ile iş başlıkları için aşağıdaki sorguyu parçacığını sağ tıklatın:
 
-* [& queryType tam = & arama business_title:senior değil = çırak](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+* [& queryType tam = & arama business_title:senior değil = çırak](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
 ## <a name="fuzzy-search-example"></a>Benzer arama örneği
 Benzer arama eşleştiğini bulur benzer yapım olması koşuluyla. Başına [Lucene belgelerine](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), benzer aramaları temel [Damerau Levenshtein uzaklığı](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
@@ -72,7 +72,7 @@ Benzer arama yapmak için tilde Ekle "~" isteğe bağlı parametresi, 0 ve 2 ' n
 
 **Örnek 3** --aşağıdaki sorgu parçacığını sağ tıklayın. Bu sorgu, (burada, yanlış yazılmış) terim ilişkilendirme işleriyle arar:
 
-* [& queryType tam = & arama business_title:asosiate = ~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [& queryType tam = & arama business_title:asosiate = ~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
 > Belirsiz sorguları olmayan [analiz](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), olabilen dallanma veya lemmatization bekliyorsanız, şaşırtıcı. Sözcük analiz yalnızca tam koşullarınızda gerçekleştirilen (terim sorgu veya tümcecik sorgusu). Sorgu türleri (önek sorgu, joker karakter sorgu, regex sorgu, benzer sorgu) tamamlanmamış koşullarla analysis aşaması atlayarak doğrudan sorgu ağacına eklenir. Tamamlanmamış sorgu terimlerinin üzerinde gerçekleştirilen yalnızca dönüştürmeyi lowercasing.
@@ -83,11 +83,11 @@ Yakınlık aramaları şartlarını bulmak için kullanılan olan diğer bir bel
 
 **Örnek 4** --sorguyu sağ tıklayın. Birden fazla sözcük ayrıldığı "Kıdemli analist" terimi işleriyle arayın:
 
-* [& queryType tam = & arama business_title =: "Kıdemli analist" ~ 1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [& queryType tam = & arama business_title =: "Kıdemli analist" ~ 1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
 **Örnek 5** --sözcükler "Kıdemli analist" terimi arasında kaldırmayı yeniden deneyin.
 
-* [& queryType tam = & arama business_title =: "Kıdemli analist" ~ 0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+* [& queryType tam = & arama business_title =: "Kıdemli analist" ~ 0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
 ## <a name="term-boosting-examples"></a>Örnekler artırmanın terimi
 Terim artırma terimi içermeyen belgeleri göre boosted terimi içeriyorsa, daha yüksek bir belge sıralaması için ifade eder. Bu, belirli alanları yerine belirli terimleri Puanlama profilleri artırabilir, profilleri Puanlama farklıdır. Aşağıdaki örnek farklar göstermeye yardımcı olur.
@@ -98,11 +98,11 @@ Bir terim artırma, düzeltme işareti kullanmak için "^", simge arama terimi s
 
 **Örnek 6** --sorguyu sağ tıklayın. "Nerede biz sözcükler bilgisayar hem analist sonuç yok henüz olan sonuçlar en üstte analist işleri görmek bilgisayar analist" terimi işleriyle arayın.
 
-* [& queryType tam = & arama business_title:computer analist =](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [& queryType tam = & arama business_title:computer analist =](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 **Örnek 7** --yeniden deneyin, her iki sözcük yoksa bu zaman artırmanın terim bilgisayarla terim analist sonuçlanır.
 
-* [& queryType tam = & arama business_title:computer = ^ 2 analisti](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [& queryType tam = & arama business_title:computer = ^ 2 analisti](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 ## <a name="regular-expression-example"></a>Normal ifade örneği
 Normal ifade araması eğik arasında "/", içinde belgelenen olarak içeriğine göre bir eşleşme bulur [RegExp sınıfı](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
@@ -111,14 +111,14 @@ Normal ifade araması eğik arasında "/", içinde belgelenen olarak içeriğine
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-Bu örnek için URL sayfanın düzgün çalışmaz. Geçici bir çözüm olarak aşağıdaki URL'yi kopyalayın ve tarayıcı URL adresine yapıştırın: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+Bu örnek için URL sayfanın düzgün çalışmaz. Geçici bir çözüm olarak aşağıdaki URL'yi kopyalayın ve tarayıcı URL adresine yapıştırın: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Joker karakter arama örneği
 Birden çok için genellikle tanınan söz dizimini kullanabilirsiniz (\*) ya da tek (?) karakteri joker aramalar. Lucene sorgu ayrıştırıcı tek bir terim ve bir deyimi bu simgeleri kullanımını desteklediğini unutmayın.
 
 **Örnek 9** --sorguyu sağ tıklayın. 'Da iş başlıkları programlama hüküm ve programcı da içerir prog' öneki içeren işleri arayın.
 
-* [& queryType tam & $select = business_title & arama = business_title:prog* =](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:prog*)
+* [& queryType tam & $select = business_title & arama = business_title:prog* =](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
 Kullanarak bir * veya? bir arama ilk karakteri olarak simge.
 

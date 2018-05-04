@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: Günlük uyarıları için web kancası eylemleri
           href: monitor-alerts-unified-log-webhook.md
+        - name: Resource Manager şablonu ile daha yeni bir ölçüm uyarısı oluşturma
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
           href: monitoring-enable-alerts-using-template.md
         - name: Uyarıları OMS portalından Azure portalına kopyalama

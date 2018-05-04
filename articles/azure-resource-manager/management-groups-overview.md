@@ -14,7 +14,7 @@ ms.date: 3/20/2018
 ms.author: rithorn
 ms.openlocfilehash: 55203a9a64184b43d0fac898180b43d4e504d969
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
 ---

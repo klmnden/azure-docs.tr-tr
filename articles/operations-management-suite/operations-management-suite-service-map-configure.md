@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 90a1a7c836c0cd75adf003e8f7cdad4f90f42f51
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Hizmet eşlemesi Azure'da yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -28,8 +28,8 @@ Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntıları
 ## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
+| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
@@ -87,7 +87,7 @@ Bir komut satırından yüklemek için aşağıdaki tablodaki seçenekleri kulla
 | Bayrağı | Açıklama |
 |:--|:--|
 | /? | Komut satırı seçeneklerinin listesini alın. |
-| /S | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
+| / S | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
 
 Dosyalar Windows bağımlılık aracısı için varsayılan olarak C:\Program Files\Microsoft bağımlılık Aracısı yerleştirilir.
 
@@ -248,7 +248,7 @@ Bağımlılık Aracısı'nı *genellikle* yükleme veya kaldırma işlemi sıras
 
 Microsoft bağımlılık Aracısı Microsoft Visual Studio çalışma zamanı kitaplıkları'nı yerleşik olarak bulunur. Kitaplıkları yükleme sırasında bir sorun varsa bir ileti alırsınız. 
 
-Çalışma Zamanı Kitaplığı yükleyicileri günlükleri %LOCALAPPDATA%\temp klasöründe oluşturun. The file is dd_vcredist_arch_yyyymmddhhmmss.log, where *arch* is "x86" or "amd64" and *yyyymmddhhmmss* is the date and time (24-hour clock) when the log was created. Günlük yükleme engelleme sorunu hakkında ayrıntılar sağlar.
+Çalışma Zamanı Kitaplığı yükleyicileri günlükleri %LOCALAPPDATA%\temp klasöründe oluşturun. Dd_vcredist_arch_yyyymmddhhmmss.log, dosyasıdır nerede *arch* "x86" veya "amd64" ve *YYYYMMDD'nin* tarih ve günlük ne zaman oluşturulduğu saat (24 saat cinsinden). Günlük yükleme engelleme sorunu hakkında ayrıntılar sağlar.
 
 Yüklemek yararlı olabilecek [son çalışma zamanı kitaplıkları](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) kendiniz ilk.
 

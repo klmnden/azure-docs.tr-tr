@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: 5e057f3fe4a4ff06e0acac29b3dcd11fa901fc40
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="pricing-and-billing-for-azure-machine-learning-services"></a>Fiyatlandırma ve Azure Machine Learning Hizmetleri için faturalama
 
@@ -51,5 +51,5 @@ Fatura günlük oluşturulur. Faturalandırma işlemlerinde, gün başlangıcı 
 - Application Insights
 - Azure Key Vault
 - Visual Studio Team Services
-- Azure Event Hub
+- Azure Event hub'ı
 - Azure Stream Analytics için daha fazla ayrıntı veya bir örnek fatura görüntülemek için ziyaret [Azure fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/machine-learning-services/). 

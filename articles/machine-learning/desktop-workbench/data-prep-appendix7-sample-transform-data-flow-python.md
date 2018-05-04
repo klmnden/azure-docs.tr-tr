@@ -1,6 +1,6 @@
 ---
-title: "Örnek dönüştürme veri akışını dönüşümleri Azure Machine Learning veri hazırlığı ile olası | Microsoft Docs"
-description: "Bu belge dönüştürme veri akışı dönüşümler Azure Machine Learning ile veri hazırlama olası örnekleri kümesi sağlar"
+title: Örnek dönüştürme veri akışını dönüşümleri Azure Machine Learning veri hazırlığı ile olası | Microsoft Docs
+description: Bu belge dönüştürme veri akışı dönüşümler Azure Machine Learning ile veri hazırlama olası örnekleri kümesi sağlar
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Özel veri akışı Dönüşümler (Python) örneği 
 Menüde dönüştürme adıdır **dönüştürme veri akışı (komut)**. Bu ekte okumadan önce okuma [Python genişletilebilirlik genel bakış](data-prep-python-extensibility-overview.md).
@@ -55,7 +55,7 @@ Aşağı Doldur iki dönüşümler gerektirir. Aşağıdaki tabloda gibi görün
 |              |San Diego  |
 |              |San Jose   |
 |Texas         |Dallas     |
-|              |San Antonio|
+|              |SAN Antonio|
 |              |Houston    |
 
 1. Aşağıdaki kodu kullanarak bir "Sütun (komut) Ekle" dönüştürme oluşturun:
@@ -80,7 +80,7 @@ Veri şimdi aşağıdaki tabloda gibi görünür:
 |              |Kaliforniya    |San Diego  |
 |              |Kaliforniya    |San Jose   |
 |Texas         |Texas         |Dallas     |
-|              |Texas         |San Antonio|
+|              |Texas         |SAN Antonio|
 |              |Texas         |Houston    |
 
 

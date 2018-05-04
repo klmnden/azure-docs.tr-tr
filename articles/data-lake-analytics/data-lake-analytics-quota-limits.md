@@ -1,9 +1,9 @@
 ---
-title: "Azure Data Lake Analytics kota sınırları"
-description: "Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarındaki kota sınırları artırmak hakkında bilgi edinin."
+title: Azure Data Lake Analytics kota sınırları
+description: Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarındaki kota sınırları artırmak hakkında bilgi edinin.
 services: data-lake-analytics
 keywords: Azure Data Lake Analytics
-documentationcenter: 
+documentationcenter: ''
 author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics kota sınırları
 
@@ -24,9 +24,13 @@ Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarındaki kota sınırları a
 
 ## <a name="azure-subscriptions-limits"></a>Azure abonelikleri sınırları
 
-**ADLA en fazla abonelik başına hesapları:** 5
+**Sayısının ADLA hesapları her bölge abonelik başına:** 5
 
-Bu ADLA hesapları her bölge, abonelik başına oluşturabileceğiniz en fazla sayısıdır. Altıncı bir ADLA hesabı oluşturmayı denerseniz, "en fazla izin Data Lake Analytics hesabı sayısını (5) altında abonelik adını bölgesindeki ulaştığınız" bir hata alırsınız. Bu durumda, başka bir seçebileceğiniz uygun olduğunda bölge ya da delete kullanılmayan tüm ADLA hesapları aynı bölge veya kişi Azure destek tarafından [bir destek bileti açmadan](#increase-maximum-quota-limits) kota artışı isteği göndermek üzere.
+Altıncı bir ADLA hesabı oluşturmayı denerseniz, "en fazla izin Data Lake Analytics hesabı sayısını (5) altında abonelik adını bölgesindeki ulaştığınız" bir hata alırsınız. 
+
+Bu sınırı aşan gitmek isterseniz, bu seçenekleri deneyebilirsiniz:
+* uygun başka bir bölge seçin
+* Azure desteğine başvurun tarafından [bir destek bileti açmadan](#increase-maximum-quota-limits) kota artışı isteği göndermek üzere.
 
 ## <a name="adla-account-limits"></a>ADLA hesabı sınırları
 

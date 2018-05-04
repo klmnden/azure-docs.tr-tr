@@ -22,7 +22,7 @@
 ### [Esnetme Veritabanı'nı devre dışı bırakma](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=sql-server-database)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

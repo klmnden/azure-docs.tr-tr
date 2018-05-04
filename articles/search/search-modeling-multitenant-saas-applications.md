@@ -1,23 +1,19 @@
 ---
-title: "Azure Search'te çoklu müşteri Mimarisi Modelleme | Microsoft Docs"
-description: "Azure Search kullanırken çok kiracılı SaaS uygulamaları için ortak tasarım desenleri öğrenin."
-services: search
-manager: jhubbard
+title: Azure Search'te çoklu müşteri Mimarisi Modelleme | Microsoft Docs
+description: Azure Search kullanırken çok kiracılı SaaS uygulamaları için ortak tasarım desenleri öğrenin.
+manager: jlembicz
 author: ashmaka
-documentationcenter: 
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Tasarım desenleri çok kiracılı SaaS uygulamaları ve Azure Search için
 Çok kiracılı uygulama kimin göremez ya da başka bir kiracı veri paylaşımı kiracılar herhangi bir sayıda aynı Hizmetleri ve özellikleri sağlar biridir. Bu belge, Azure Search ile oluşturulan çok müşterili uygulamalar için Kiracı yalıtımı stratejileri açıklanır.
@@ -41,7 +37,7 @@ Ekleme ve kaldırma bölümlerini ve çoğaltmaları veri miktarını büyür ve
 ### <a name="service-and-index-limits-in-azure-search"></a>Azure Search dizini ve hizmet sınırları
 Birkaç farklı [fiyatlandırma katmanlarına](https://azure.microsoft.com/pricing/details/search/) Azure Search'te her katmanı farklı sahip [sınırlarını ve kotaları](search-limits-quotas-capacity.md). Bu sınırlar hizmet düzeyinde bazıları, bazı dizin düzeyinde değil ve bölüm düzeyinde bazılarıdır.
 
-|  | Temel | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Temel | Standard1 | Standart2 | Standart3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Hizmeti başına en fazla yineleme |3 |12 |12 |12 |12 |
 | Hizmet başına en fazla bölüm |1 |12 |12 |12 |3 |
@@ -66,7 +62,7 @@ Concretely, S3 hizmet kadar 1.4 milyar belgeleri birlikte barındırabilir 1 ve 
 * *Bulut kaynak maliyeti:* başka herhangi bir uygulama ile yazılım çözümleri maliyet rekabetçi bir çok kiracılı uygulama bileşeni olarak kalması gereken gibi.
 * *Operations Kolaylığı:* çok müşterili mimarisi geliştirirken, uygulamanın işlemler ve karmaşıklık üzerindeki etkisini önemli bir konudur. Azure arama sahip bir [% 99,9 SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 * *Genel ayak izini:* çok müşterili uygulamalar etkili bir şekilde dünya çapında dağıtılan kiracılar hizmet gerekebilir.
-* *Ölçeklenebilirlik:* uygulama geliştiricileri nasıl bunlar uygulama karmaşıklığını yeterince düşük düzeyde koruma ve kiracıların sayısı ve kiracılarınızın verileri ve iş yükü boyutu ile ölçeklendirmek için uygulama tasarlama arasındaki mutabakat göz önünde bulundurun gerekir.
+* *Ölçeklenebilirlik:* nasıl bunlar uygulama karmaşıklığını yeterince düşük düzeyde koruma ve kiracıların sayısı ve kiracılarınızın verilerin boyutuna göre ölçeklendirme uygulaması tasarlama arasındaki mutabakat göz önünde bulundurun gereken uygulama geliştiricileri ve iş yükü.
 
 Azure arama kiracılarınızın veri ve iş yükü ayırmak için kullanılan birkaç sınırlarını sunar.
 

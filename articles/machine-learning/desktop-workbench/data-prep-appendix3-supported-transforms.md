@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning veri hazırlık için veri dönüşümler kullanma | Microsoft Docs"
-description: "Bu makale, Azure Machine Learning veri hazırlığı kullanılabilir dönüşümleri tam bir listesini sağlar."
+title: Azure Machine Learning veri hazırlık için veri dönüşümler kullanma | Microsoft Docs
+description: Bu makale, Azure Machine Learning veri hazırlığı kullanılabilir dönüşümleri tam bir listesini sağlar.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Azure Machine Learning veri hazırlık için veri Dönüşümleri kullanma
 
@@ -34,7 +34,7 @@ Sağ tıklatma menüsünden yalnızca seçili veri türü için geçerli dönü�
 
 Bağlamsal dönüşümler küçük bir kısmı bir hücre sağ tıklayarak kullanılabilir. Bu dönüşümler kopyalama, Değiştir ve filtreleyebilirsiniz. Sayı sütununa seçeneklerini farklı bir dize sütunu için veri türünü algılayan bunlar olduğundan.
 
-## <a name="derive-column-by-example"></a>Sütun örneğe göre türetilen
+## <a name="derive-column-by-example"></a>Sütunu Örneğe Göre Türet
 Bu dönüştürme, bir veya daha fazla var olan sütun bir türevi yeni bir sütun oluşturmak için kullanın. Dönüştürme giriş (Seçili) sütunları ve verilen örnek arar ve yeni bir sütun istenen çıktıda belirler. 
 
 Bu dönüştürme kullanmak için bir veya daha fazla sütun seçin. Yeni bir (boş) türetilen sütun örnekle ekleyin. (Diğer sütunlardan türetilen varsayılarak) türetilen sütun ve "tarafından teknolojisi sütunda diğer tüm hücrelere doldurun girişiminde örnek" görmek istediğiniz bir örnek yazın. 

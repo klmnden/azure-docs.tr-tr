@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -232,9 +232,17 @@ Uygulamanız varsayılan olarak [TLS](https://wikipedia.org/wiki/Transport_Layer
 
 Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **TLS sürümü**’nde istediğiniz en düşük TLS sürümünü seçin.
 
-![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![TLS 1.1 veya 1.2’yi zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 İşlem tamamlandığında, uygulamanız daha düşük TLS sürümleriyle tüm bağlantıları reddeder.
+
+## <a name="renew-certificates"></a>Sertifikaları yenileme
+
+Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresiniz değişebilir. Bu, zaten IP tabanlı bağlamada yer alan bir sertifikayı yenilerken özellikle önemlidir. Uygulamanızın IP adresinin değişmesini önlemek için şu adımları sırasıyla izleyin:
+
+1. Yeni sertifikayı karşıya yükleyin.
+2. Eskisini silmeden yeni sertifikayı istediğiniz özel etki alanına bağlayın. Bu eylem, eskisini kaldırmak yerine bağlamayı değiştirir.
+3. Eski sertifikayı silin. 
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
@@ -278,7 +286,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Ortak sertifikalar (isteğe bağlı)
-Web uygulamanıza [ortak sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) yükleyebilirsiniz. Uygulamalara yönelik ortak sertifikaları App Service Ortamlarında da kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service Ortamında bir web uygulaması kullanmanız gerekir. Daha fazla bilgi için bkz. [Web Uygulamanızda ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Web uygulamanızın sertifika doğrulaması gerektiren bir dış hizmete erişebilmesi için, uygulamanıza [ortak sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) yükleyebilirsiniz.  Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  Ayrıca ortak sertifikaları App Service Ortamlarındaki uygulamalarla birlikte de kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service Ortamında bir web uygulaması kullanmanız gerekir. Daha fazla bilgi için bkz. [Web Uygulamanızda ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Ortak Sertifikayı Karşıya Yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

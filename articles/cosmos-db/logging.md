@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -26,7 +26,7 @@ Bir veya daha fazla Azure Cosmos DB veritabanı kullanmak başlattıktan sonra i
 
 ## <a name="logs-available-in-azure"></a>Azure'da kullanılabilir günlük
 
-Şimdi biz Azure Cosmos DB hesabınızı izleme hakkında konuşun önce günlüğe kaydetme ve izleme hakkında birkaç şey açıklayın. Azure platformunda günlükleri farklı tür vardır. Vardır [Azure etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure ölçümleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), olaylar, sinyal izleme, işlem günlükleri ve benzeri. Günlükleri sayısız yoktur. Günlüklerde tam listesini görebilir [Azure günlük analizi](https://azure.microsoft.com/en-us/services/log-analytics/) Azure portalında. 
+Şimdi biz Azure Cosmos DB hesabınızı izleme hakkında konuşun önce günlüğe kaydetme ve izleme hakkında birkaç şey açıklayın. Azure platformunda günlükleri farklı tür vardır. Vardır [Azure etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure ölçümleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), olaylar, sinyal izleme, işlem günlükleri ve benzeri. Günlükleri sayısız yoktur. Günlüklerde tam listesini görebilir [Azure günlük analizi](https://azure.microsoft.com/services/log-analytics/) Azure portalında. 
 
 Aşağıdaki görüntüde bulunan Azure günlüklerini farklı türde gösterir:
 
@@ -51,7 +51,7 @@ Etkinlik günlükleri (Denetim düzlemi işlemleri) doğası gereği daha zengin
 
 ### <a name="azure-metrics"></a>Azure ölçümleri
 
-[Azure ölçümleri](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) Azure telemetri verilerini en önemli türüne sahip (olarak da bilinir _performans sayaçları_) çoğu Azure kaynaklar tarafından gösterilen. Ölçümleri verimlilik, depolama, tutarlılık, kullanılabilirlik ve gecikme Azure Cosmos DB kaynaklarınızın hakkında bilgi görüntülemenize olanak sağlar. Daha fazla bilgi için bkz: [izleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama](use-metrics.md).
+[Azure ölçümleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) Azure telemetri verilerini en önemli türüne sahip (olarak da bilinir _performans sayaçları_) çoğu Azure kaynaklar tarafından gösterilen. Ölçümleri verimlilik, depolama, tutarlılık, kullanılabilirlik ve gecikme Azure Cosmos DB kaynaklarınızın hakkında bilgi görüntülemenize olanak sağlar. Daha fazla bilgi için bkz: [izleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 

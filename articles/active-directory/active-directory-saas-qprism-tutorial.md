@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile QPrism | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile QPrism arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile QPrism | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile QPrism arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Öğretici: Azure Active Directory Tümleştirme QPrism ile
 
@@ -32,12 +32,12 @@ QPrism Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme QPrism ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir QPrism çoklu oturum açma etkin abonelik
+- Bir QPrism çoklu oturum açma abonelik etkin
 
 Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
 
@@ -103,41 +103,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![QPrism etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusunda, aşağıdaki desen kullanan bir URL yazın:`https://<customer domain>.qmyzone.com/login`
+    a. İçinde **oturum açma URL'si** metin kutusunda, aşağıdaki desen kullanan bir URL yazın: `https://<customer domain>.qmyzone.com/login`
 
-    b. İçinde **tanımlayıcısı** metin kutusunda, aşağıdaki desen kullanan bir URL yazın:`https://<customer domain>.qmyzone.com/metadata.php`
+    b. İçinde **tanımlayıcısı** metin kutusunda, aşağıdaki desen kullanan bir URL yazın: `https://<customer domain>.qmyzone.com/metadata.php`
          
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerleri gerçek tanımlayıcısı ile güncelleştirin ve URL oturum açma. Kişi [QPrism istemci destek ekibi](mailto:qsupport-ce@quatrro.com) bu değerleri almak için. 
 
-4. Oluşturulacak **meta veri** URL, aşağıdakileri yapın:
+4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
 
-    a. Seçin **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açma uygulama kayıtlar yapılandırın](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Seçin **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Çoklu oturum açma uç noktasını yapılandırma](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Kopyalamak için Kopyala düğmesini seçin **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açma uç noktasını yapılandırma](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Özellik sayfasına Git **QPrism**ve kopyalama **uygulama kimliği** kullanarak **kopyalama**. Ardından Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açma uygulaması kimliği yapılandırın](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+     ![Sertifika indirme bağlantısı](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. **Kaydet**’i seçin.
 
     ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Çoklu oturum açma yapılandırmak için **QPrism** tarafı, Gönder **meta veri URL'sini** için [QPrism destek ekibi](mailto:qsupport-ce@quatrro.com). Bunlar, oturum açma SAML tek bağlantı iki tarafta da düzgün ayarlandığından emin olun.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken. Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve katıştırılmış erişim belgeleri etraflıca **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. Çoklu oturum açma yapılandırmak için **QPrism** yan, ihtiyacınız göndermek **uygulama Federasyon meta veri URL'sini** için [QPrism destek ekibi](mailto:qsupport-ce@quatrro.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

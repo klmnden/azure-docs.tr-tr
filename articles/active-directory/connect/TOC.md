@@ -36,7 +36,7 @@
 ##### [Nasıl çalışır?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Sık sorulan sorular](active-directory-aadconnect-sso-faq.md)
 ##### [Sorun giderme](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [Kullanıcı Gizliliği ve Azure AD Sorunsuz Çoklu Oturum Açma](active-directory-aadconnect-sso-gdpr.md)
 #### [Doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Hızlı başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Güvenliğe derinlemesine bakış](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [Kullanıcı Gizliliği ve Azure Active Directory Doğrudan Kimlik Doğrulaması](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Federasyon için çoklu etki alanı desteği](active-directory-aadconnect-multiple-domains.md)
 ### [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Çoklu Oturum Açma için SAML 2.0 Kimlik Sağlayıcısı (IdP) Kullanma](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## Azure AD Connect Sync'i yönetme
-### [GDPR uyumluluğu ve Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Kullanıcı Gizliliği ve Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [O365 kaynakları için tercih edilen veri konumu](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [LocalDB 10 GB sınırından kurtarma](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller](active-directory-aadconnect-ports.md)
 ## [Önizlemedeki özellikler](active-directory-aadconnect-feature-preview.md)

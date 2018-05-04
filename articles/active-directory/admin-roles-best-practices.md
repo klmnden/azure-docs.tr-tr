@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Ayrıcalıklı erişim karma ve bulut dağıtımları için Azure AD'de güvenliğini sağlama
 
@@ -240,7 +240,7 @@ C-suite Yöneticiler, üst düzey yöneticiler, kritik gerektiren BT ve güvenli
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Adanmış iş istasyonları için Azure AD yönetim kullanın
 
-Saldırganlar, bütünlük ve kimlik doğrulama programı mantığı değiştirir veya bir kimlik bilgisi girme yönetici snoops kötü amaçlı kod aracılığıyla veri kesintiye uğratabilir şekilde kuruluşun veriler ve sistemlerle erişmek için ayrıcalıklı hesapları hedeflemek deneyebilir. Ayrıcalıklı erişimli iş istasyonlarının (Patiler) Internet saldırıları ve tehdit vektörlerini korunan hassas görevler için adanmış bir işletim sistemi sunar. Bu önemli görevleri ve hesapları günlük ayırma iş istasyonları kullanmak ve aygıtların kimlik avı saldırıları, uygulama ve işletim sistemi güvenlik açıkları, çeşitli kimliğe bürünme saldırılarını ve tuş vuruşu gibi kimlik bilgisi hırsızlığı saldırılara karşı çok güçlü koruma sağlar günlüğe kaydetme, Pass--Hash ve geçişi anahtar. Ayrıcalıklı erişimli iş istasyonlarının dağıtarak admins sağlamlaştırılmış bir masaüstü ortamı dışındaki yönetici kimlik bilgilerini girin riskini azaltabilir. Daha fazla bilgi için bkz: [ayrıcalıklı erişimli iş istasyonlarının](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Saldırganlar, bütünlük ve kimlik doğrulama programı mantığı değiştirir veya bir kimlik bilgisi girme yönetici snoops kötü amaçlı kod aracılığıyla veri kesintiye uğratabilir şekilde kuruluşun veriler ve sistemlerle erişmek için ayrıcalıklı hesapları hedeflemek deneyebilir. Ayrıcalıklı erişimli iş istasyonlarının (Patiler) Internet saldırıları ve tehdit vektörlerini korunan hassas görevler için adanmış bir işletim sistemi sunar. Bu önemli görevleri ve hesapları günlük ayırma iş istasyonları kullanmak ve aygıtların kimlik avı saldırıları, uygulama ve işletim sistemi güvenlik açıkları, çeşitli kimliğe bürünme saldırılarını ve tuş vuruşu gibi kimlik bilgisi hırsızlığı saldırılara karşı çok güçlü koruma sağlar günlüğe kaydetme, Pass--Hash ve geçişi anahtar. Ayrıcalıklı erişimli iş istasyonlarının dağıtarak admins sağlamlaştırılmış bir masaüstü ortamı dışındaki yönetici kimlik bilgilerini girin riskini azaltabilir. Daha fazla bilgi için bkz: [ayrıcalıklı erişimli iş istasyonlarının](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Olayların işlenmesi için Ulusal Standartlar ve Enstitüsü Technology önerileri gözden geçirin 
 

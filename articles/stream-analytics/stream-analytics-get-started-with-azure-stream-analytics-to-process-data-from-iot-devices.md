@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: hero-article
 ms.date: 03/28/2017
-ms.openlocfilehash: 491b0fdba464e5b0c6225a75c534ca6abb710855
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8bee80647d692b60898880a85652189a684426f7
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
@@ -27,19 +27,21 @@ Endüstriyel otomasyon alanında faaliyet gösteren Contoso şirketi, üretim s�
 
 Burada, veriler bir Texas Instruments algılayıcı etiketi cihazında oluşturulmaktadır. Verilerin yükü JSON biçimindedir ve aşağıdaki gibi görünür:
 
-    {
-        "time": "2016-01-26T20:47:53.0000000",  
-        "dspl": "sensorE",  
-        "temp": 123,  
-        "hmdt": 34  
-    }  
+```json
+{
+    "time": "2016-01-26T20:47:53.0000000",  
+    "dspl": "sensorE",  
+    "temp": 123,  
+    "hmdt": 34  
+}  
+```
 
 Gerçek hayattaki bir senaryoda, olayları bir akış şeklinde oluşturan bunun gibi yüzlerce algılayıcınız olabilir. Bir ağ geçidi cihazının bu olayları [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)'a veya [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)'larına göndermek için kod çalıştırması idealdir. Akış Analizi işiniz, bu olayları Event Hubs'dan alır ve akışlara yönelik gerçek zamanlı analiz sorguları çalıştırır. Daha sonra, [desteklenen çıktılardan](stream-analytics-define-outputs.md) birine sonuçları gönderebilirsiniz.
 
 Kullanım kolaylığı için, bu başlangıç kılavuzunda gerçek algılayıcı etiket cihazlarından yakalanan bir örnek veri dosyası sunulmaktadır. Örnek veriler üzerinde sorgu çalıştırabilir ve sonuçları görebilirsiniz. Daha sonraki öğreticilerde, işinizi girişlere ve çıkışlara nasıl bağlayacağınızı ve bunları Azure hizmetine nasıl dağıtacağınızı öğreneceksiniz.
 
 ## <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
-1. [Azure portal](http://portal.azure.com)’da, artı işaretine tıklayın ve ardından sağdaki metin penceresine **AKIŞ ANALİZİ** yazın. Ardından sonuçlar listesinde **Akış Analizi işi**’ni seçin.
+1. [Azure portal](https://portal.azure.com)’da, artı işaretine tıklayın ve ardından sağdaki metin penceresine **AKIŞ ANALİZİ** yazın. Ardından sonuçlar listesinde **Akış Analizi işi**’ni seçin.
    
     ![Yeni bir Akış Analizi işi oluşturma](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. Benzersiz bir iş adı girin ve aboneliğin işiniz için doğru olduğundan emin olun. Ardından yeni bir kaynak grubu oluşturun veya aboneliğinizdeki mevcut bir kaynak grubunu seçin.

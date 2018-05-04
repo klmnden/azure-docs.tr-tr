@@ -1,11 +1,11 @@
 ---
-title: "Apache Cordova eklentisi için Azure Mobile Apps kullanma"
-description: "Apache Cordova eklentisi için Azure Mobile Apps kullanma"
+title: Apache Cordova eklentisi için Azure Mobile Apps kullanma
+description: Apache Cordova eklentisi için Azure Mobile Apps kullanma
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için Apache Cordova istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -105,7 +105,7 @@ Yerel ayarlarınızı yapılandırmaya eklemek için bu yönergeleri izleyin:
              "https://localhost:3000"
          ],
 
-    URL'leri hizmetinizi URL'ler ile değiştirin.  (İçin Node.js örnek hizmeti) "http://localhost: 3000" veya "http://localhost:4400" (Ripple hizmeti için) örnek olarak verilebilir.  Ancak, bu URL'ler örnekler - örneklerde, belirtilen Hizmetleri dahil olmak üzere durumunuz farklı değildir.
+    URL'leri hizmetinizi URL'ler ile değiştirin.  Örnekler "http://localhost:3000" (Node.js örnek hizmeti için) veya "http://localhost:4400" (için Ripple hizmeti).  Ancak, bu URL'ler örnekler - örneklerde, belirtilen Hizmetleri dahil olmak üzere durumunuz farklı değildir.
 8. Tıklatın **okuma/yazma** ekranın sağ üst köşesindeki düğmesi.
 9. Yeşil tıklatın **PUT** düğmesi.
 
@@ -118,7 +118,7 @@ Ayrıca bu geri döngü URL'leri uygulama hizmetiniz için CORS ayarları ekleyi
 4. Tıklatın **CORS** API menüsünün altında.
 5. Enter kutusunda eklemek istediğiniz URL sağlanan ve Enter tuşuna basın.
 6. Gerektiğinde ek URL'leri girin.
-7. Tıklatın **kaydetmek** ayarları kaydetmek için.
+7. Ayarları kaydetmek için **Kaydet**’e tıklayın.
 
 Yaklaşık olarak 10-15 etkili saniye yeni ayarları alır.
 
@@ -180,4 +180,4 @@ Ayrıntılı API ayrıntılarda bulabilirsiniz bizim [API belgelerine](http://az
 [phonegap eklentiyi itme]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova eklentisi inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

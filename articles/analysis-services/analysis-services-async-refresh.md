@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz Yenile
 REST çağrıları destekleyen herhangi bir programlama dili kullanarak, Azure Analysis Services tablolu modeller zaman uyumsuz veri yenileme işlemleri gerçekleştirebilir. Bu sorgu genişleme için salt okunur çoğaltmalarını eşitlenmesi içerir. 
@@ -198,7 +198,7 @@ Bir eşitleme işlemi durumunu denetlemek için işlem kimliği bir parametre ol
 1.  Kopyalama veya deposuna yükleyin. RestApiSample çözümü açın.
 2.  Satırı bulun **istemci. BaseAddress =...** ve sağlamak, [ana URL](#base-url).
 
-Kod örneği kullanabilirsiniz etkileşimli oturum açma, kullanıcı adı/parola veya [hizmet sorumlusu](#service-principle).
+Kod örneği kullanabilirsiniz etkileşimli oturum açma, kullanıcı adı/parola veya [hizmet sorumlusu](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Etkileşimli oturum açma veya kullanıcı adı/parola
 
@@ -235,7 +235,7 @@ Bu form kimlik doğrulaması, bir Azure uygulama API gerekli izinleri atanmış 
 
 #### <a name="service-principal"></a>Hizmet sorumlusu
 
-Bkz: [hizmet ilkesi - Azure portalında oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [hizmet ilkesi eklemek için sunucu yöneticisi rolünün](analysis-services-addservprinc-admins.md) bir hizmet sorumlusu ayarlamak ve Azure AS gerekli izinler atama hakkında daha fazla bilgi için . Adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
+Bkz: [oluşturma hizmet sorumlusu - Azure portalında](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [için sunucu yöneticisi rolünün bir hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md) bir hizmet sorumlusu ayarlamak ve Azure AS gerekli izinler atama hakkında daha fazla bilgi için . Adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
 
 1.  Kod örneğinde, bulma **dize yetkilisi =...** , yerine **ortak** kuruluşunuzun ile Kiracı kimliği.
 2.  Açıklama/ClientCredential sınıfı ki nesne örneğini oluşturmak için kullanılan şekilde açıklamadan çıkarın. Olun \<uygulama kimliği > ve \<uygulama anahtarı > değerleri güvenli bir şekilde erişilen veya sertifika tabanlı kimlik doğrulaması için hizmet asıl adı kullanın.

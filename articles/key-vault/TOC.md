@@ -1,4 +1,4 @@
-# [Anahtar Kasası Belgeleri](index.md)
+# [Anahtar Kasası Belgeleri](index.yml)
 
 # Genel Bakış
 ## [Anahtar Kasasına Genel Bakış](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Anahtar Kasası Oluşturma - Portal](quick-create-portal.md)
 
 # Öğreticiler
-## [Anahtar kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma ](tutorial-web-application-keyvault.md)
-# Örnekler
-## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# Kavramlar
+## [Key Vault’tan bir gizli anahtarı okuma ](tutorial-web-application-keyvault.md)
 ## [Anahtar Kasasını kullanmaya başlama](key-vault-get-started.md)
 ## [Anahtar değiştirme ve denetimi ayarlama](key-vault-key-rotation-log-monitoring.md)
 ## [Bir web uygulamasından Anahtar Kasası’nı kullanma](key-vault-use-from-web-application.md)
+# Örnekler
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Kavramlar
 ## [Güvenlik dünyaları](key-vault-ovw-security-worlds.md)
 ## [Geçici silme](key-vault-ovw-soft-delete.md)
 ## [Depolama hesabı anahtarları](key-vault-ovw-storage-keys.md)

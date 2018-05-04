@@ -3,16 +3,17 @@ title: Fiddler veya Postman içindeki REST API'lerini keşfetme (Azure Search RE
 description: Azure Search için HTTP istekleri ve REST API çağrıları oluşturmak için Fiddler veya Postman kullanma.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: 8a2e423d635c12f5d08395c03e4bc57ac71156ef
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler veya Postman kullanarak Azure Search REST API'lerini keşfetme
 
@@ -32,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Aşağıdaki araçlar web içeriği geliştirmek için yaygın bir şekilde kullanılmaktadır ancak başka bir araç hakkında deneyiminiz varsa bu makaledeki talimatlar o araç için de geçerli olacaktır.
 
-+ [Postman (Google Chrome eklentisi)](https://www.getpostman.com/)
++ [Postman masaüstü uygulaması](https://www.getpostman.com/)
 + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
 ## <a name="get-the-api-key-and-endpoint"></a>API anahtarını ve uç noktasını alma

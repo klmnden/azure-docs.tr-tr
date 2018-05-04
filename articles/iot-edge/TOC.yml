@@ -1,3 +1,5 @@
+- name: Azure IoT Temel Konuları
+  href: ../iot-fundamentals/index.yml
 - name: Azure IoT Edge Belgeleri
   href: index.yml
 - name: Genel Bakış
@@ -76,6 +78,32 @@
       href: security.md
     - name: IoT Edge sözlüğü
       href: iot-edge-glossary.md
+- name: İlgili
+  items:
+    - name: Çözümler
+      items:
+        - name: IoT Paketi Önceden Yapılandırılmış Çözümler
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Platform hizmetleri
+      items:
+        - name: IoT Hub’ı
+          href: /azure/iot-hub
+        - name: IoT Hub Cihazı Sağlama Hizmeti
+          href: /azure/iot-dps
+        - name: Konum Tabanlı Hizmetler
+          href: /azure/location-based-services
+        - name: Hizmet SDK'ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Zaman Serisi Öngörüleri
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT Cihaz SDK'ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Kaynaklar
   items:
     - name: IoT için Azure Sertifikalı cihaz kataloğu

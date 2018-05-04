@@ -16,7 +16,7 @@ ms.date: 03/30/2018
 ms.author: fryu
 ms.openlocfilehash: c4dc9b231668315af16c625314c737fee99d672d
 ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
 ---

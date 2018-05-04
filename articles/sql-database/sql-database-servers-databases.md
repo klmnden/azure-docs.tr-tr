@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
 
 SQL veritabanı veritabanları üç tür sunar:
 
-- İçinde oluşturulan tek bir veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
-- Bir parçası olarak oluşturulmuş bir veritabanını bir [veritabanları havuzu](sql-database-elastic-pool.md) içinde bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md) olan Tüm havuzdaki veritabanları arasında paylaşılan. Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
+- İçinde oluşturulan tek bir veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile bir [işlem ve depolama kaynaklarını kümesi birleştirilmiş](sql-database-service-tiers-dtu.md) veya bir [işlem ve depolama kaynaklarınıbağımsızölçeğini](sql-database-service-tiers-vcore.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
+- Bir parçası olarak oluşturulmuş bir veritabanını bir [veritabanları havuzu](sql-database-elastic-pool.md) içinde bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile bir [işlem ve depolama kaynaklarını kümesi birleştirilmiş (DTU tabanlı)](sql-database-service-tiers-dtu.md) veya bir [işlem ve depolama kaynaklarını (vCore tabanlı) bağımsız ölçeğini](sql-database-service-tiers-vcore.md) tüm havuzdaki veritabanları arasında paylaşılan. Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
 - Bir [bir SQL server örneğini](sql-database-managed-instance.md) (yönetilen örneği) oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) işlem ve depolama kaynaklarını bu sunucu örneğindeki tüm veritabanları için tanımlanmış bir dizi. Yönetilen bir örneği, sistem ve kullanıcı veritabanlarını içerir. Yönetilen örnek uygulamayı yeniden olmadan veritabanı yükseltme-ve-kaydırma tam yönetilen bir PaaS sağlamak üzere tasarlanmıştır. Yönetilen örneği şirket içi SQL Server programlama modeli ile yüksek uyumluluk sağlar ve SQL Server özellikleri ve eşlik eden araçları ve Hizmetleri büyük çoğunu destekler.  
 
 Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler ve yalnızca şifrelenmiş TCP/IP bağlantılarını sağlar.
@@ -52,7 +52,7 @@ Azure SQL Veritabanı mantıksal sunucusu:
 - Veritabanı erişimi için bağlantı uç noktası sağlar (<serverName>.database.windows.net)
 - Bir ana veritabanına bağlanarak DMV’ler aracılığıyla içerdiği kaynaklarla ilgili meta verilere erişim sağlar 
 - Kendi veritabanlarına - oturumları uygulanır, güvenlik duvarı, Denetim, tehdit algılama, vb. yönetim ilkeleri için kapsam sağlar. 
-- Üst abonelik içindeki bir kota tarafından kısıtlanmış (varsayılan - abonelik başına yirmi sunucuları [abonelik sınırlar buraya bakın](../azure-subscription-service-limits.md))
+- Üst abonelik içindeki bir kota tarafından kısıtlanmış (varsayılan - abonelik başına altı sunucu [abonelik sınırlar buraya bakın](../azure-subscription-service-limits.md))
 - Veritabanı kotasına ve DTU veya vCore kota kapsamın (45000 DTU gibi) içerdiği kaynakların sağlar
 - Kapsanan kaynaklardaki etkinleştirilen özellikleri için sürüm oluşturma kapsamı 
 - Sunucu düzeyinde asıl kullanıcı bilgileri bir sunucudaki tüm veritabanlarını yönetebilir
@@ -65,11 +65,11 @@ Verilerinizi korumaya yardımcı olmak için bir [SQL veritabanı Güvenlik Duva
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları Azure Portalı'nı kullanarak yönetme
 
-Azure SQL Database'in kaynak grubu vaktinden veya sunucu oluştururken oluşturabilirsiniz. 
+Azure SQL Database'in kaynak grubu vaktinden veya sunucu oluştururken oluşturabilirsiniz. İçin yeni bir SQL server form, yeni bir SQL server oluşturarak veya yeni bir veritabanı oluşturmak bir parçası olarak almak için birden çok yöntem bulunmaktadır. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Boş bir SQL server (mantıksal sunucu) oluşturun
 
-Bir Azure SQL veritabanı sunucusu (olmadan bir veritabanı) kullanarak oluşturmak için [Azure portal](https://portal.azure.com), boş bir SQL server (mantıksal) form gidin.  
+Bir Azure SQL veritabanı sunucusu (olmadan bir veritabanı) kullanarak oluşturmak için [Azure portal](https://portal.azure.com), boş bir SQL server (mantıksal sunucu) form gidin.  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Boş veya örnek bir SQL veritabanı oluşturma
 
@@ -78,7 +78,7 @@ Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portal](https://po
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Veritabanınız için fiyatlandırma katmanı seçme konusunda daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md).
+> Veritabanınız için fiyatlandırma katmanı seçme konusunda daha fazla bilgi için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md).
 
 Yönetilen bir örneğini oluşturmak için bkz: [yönetilen örneği oluşturma](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -91,7 +91,7 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
    ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Bir veritabanı performans özelliklerini yapılandırmak için bkz: [hizmet katmanları](sql-database-service-tiers.md).
+> Bir veritabanı performans özelliklerini yapılandırmak için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]
@@ -181,7 +181,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Transact-SQL ile oluşt
 
 
 > [!TIP]
-> Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak hızlı başlangıç için bkz: [Azure SQL Database: bağlanmak ve verileri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md). Visual Studio Code macOS, Linux veya Windows kullanarak bir hızlı başlangıç için bkz: [Azure SQL Database: kullanım Visual Studio Code bağlanmak ve verileri sorgulamak için](sql-database-connect-query-vscode.md).
+> Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak bir hızlı başlangıç için bkz: [Azure SQL Database: bağlanmak ve verileri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md). Visual Studio Code macOS, Linux veya Windows kullanarak bir hızlı başlangıç için bkz: [Azure SQL Database: kullanım Visual Studio Code bağlanmak ve verileri sorgulamak için](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları REST API kullanarak yönetme
 

@@ -15,11 +15,11 @@ ms.date: 04/18/2018
 ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19eb8399c59efa94e68c0d334ba708f900ce841a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -71,7 +71,7 @@ Bir web istemci uygulaması, Office 365'ten Takvim kullanıcı hakkındaki bilgi
 
 Gibi ortak veya gizli istemcileri kullanarak Yetkilendirme kodu verin ve istemci kimlik bilgileri vermenizi izin framework OAuth 2.0 ve onun çeşitli akışları yerleşik olarak bulunur. OAuth 2.0 kullanarak, Azure AD, bir telefon, tablet, sunucu veya bir web uygulaması gibi farklı türlerde istemci uygulamaları oluşturmak ve gerekli kaynakları erişim kazanmak mümkün kılar.
 
-Onay framework OAuth2.0 yetkilendirme verir ile kullanma hakkında daha fazla bilgi için bkz: [OAuth 2.0 ve Azure AD kullanarak web uygulamalarına erişim yetkisi](active-directory-protocols-oauth-code.md) ve[kimlik doğrulama senaryoları için Azure AD](active-directory-authentication-scenarios.md). Office 365 Microsoft Graph aracılığıyla yetkili erişimi alma hakkında daha fazla bilgi için bkz: [Microsoft Graph ile uygulama kimlik doğrulaması](https://graph.microsoft.io/docs/authorization/auth_overview).
+Onay framework OAuth2.0 yetkilendirme verir ile kullanma hakkında daha fazla bilgi için bkz: [OAuth 2.0 ve Azure AD kullanarak web uygulamalarına erişim yetkisi](active-directory-protocols-oauth-code.md) ve [kimlik doğrulama senaryoları için Azure AD](active-directory-authentication-scenarios.md). Office 365 Microsoft Graph aracılığıyla yetkili erişimi alma hakkında daha fazla bilgi için bkz: [Microsoft Graph ile uygulama kimlik doğrulaması](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Onayı deneyimi örneği
 

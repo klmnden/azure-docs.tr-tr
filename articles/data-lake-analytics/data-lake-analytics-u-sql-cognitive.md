@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Analytics U-SQL Bilişsel özelliklerini kullanarak | Microsoft Docs"
-description: "U-SQL Bilişsel yetenekleri Intelligence kullanmayı öğrenin"
+title: Azure Data Lake Analytics U-SQL Bilişsel özelliklerini kullanarak | Microsoft Docs
+description: U-SQL Bilişsel yetenekleri Intelligence kullanmayı öğrenin
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Öğretici: U-SQL Bilişsel yetenekleri ile çalışmaya başlama
 
@@ -37,8 +37,8 @@ Aşağıdaki bilişsel özellikleri kullanılabilir:
 
 Genel işlem basittir:
 
-* U-SQL komut dosyası için bilişsel özelliklerini etkinleştirmek için referans DERLEMESİNİ deyimi kullanın
-* Bilişsel UDO bir çıktı oluşturmak üzere kullanarak bir giriş satır kümesi üzerinde işlem kullanmak satır kümesi
+* Kullanım `REFERENCE ASSEMBLY` deyimi için U-SQL betiği bilişsel özelliklerini etkinleştirmek için
+* Kullanım `PROCESS` bir çıktı oluşturmak için Bilişsel UDO kullanarak bir giriş satır kümesi üzerinde satır kümesi
 
 ### <a name="detecting-objects-in-images"></a>Görüntülerde nesneleri algılama
 

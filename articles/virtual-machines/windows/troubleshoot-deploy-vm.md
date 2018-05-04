@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure'da dağıtma Windows sanal makine sorunlarını giderme
 
@@ -95,10 +95,6 @@ Windows tabanlı VM'ler için sürücülerin bulunduğu [burada](n-series-driver
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>GPU örneği N-serisi VM'im içinde bulunamıyor
 
 Windows Server 2016 veya Windows Server 2012 R2 çalıştıran Azure N-serisi VM'ler GPU yeteneklerinden yararlanabilmek için NVIDIA grafik sürücüleri dağıtımdan sonra her VM yüklemeniz gerekir. Sürücü Kurulum bilgileri yüklenebilir [Windows Vm'lerini](n-series-driver-setup.md) ve [Linux VM'ler](../linux/n-series-driver-setup.md).
-
-## <a name="are-client-images-supported-for-n-series"></a>İstemci görüntüleri N-seri için destekleniyor mu?
-
-Şu anda Azure yalnızca Windows Server ve Linux işletim sistemlerini çalıştıran sanal makinelerin N-serisi destekler.
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>N-serisi VM'ler bulunduğum bölgede var mı?
 

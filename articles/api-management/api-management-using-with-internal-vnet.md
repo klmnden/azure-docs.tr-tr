@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağları ile Azure API Management API'leri Internet üzerinden erişilebilir yönetebilirsiniz. VPN teknolojileri çeşitli bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -87,13 +87,13 @@ API Management dış sanal ağ modunda olduğunda DNS Azure tarafından yönetil
 
 Bu API Management hizmet uç noktalarına erişmek için API Management dağıtıldığı sanal ağa bağlı bir alt ağda bir sanal makine oluşturabilirsiniz. Hizmetiniz için iç sanal IP adresi 10.0.0.5 olduğunu varsayarak, ana bilgisayarlar dosyası, % SystemDrive%\drivers\etc\hosts, aşağıdaki gibi eşleyebilirsiniz:
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.0.0.5 contoso.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.0.0.5 contoso.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.0.0.5 contoso.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.0.0.5 contoso.scm.azure-api.net
 
 Daha sonra oluşturduğunuz sanal makineden tüm hizmet uç noktalarına erişebilirsiniz. Sanal bir ağa özel bir DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtları oluşturmak ve bu uç noktaların her yerden erişim sanal ağınızda. 
 
@@ -115,7 +115,7 @@ Daha sonra oluşturduğunuz sanal makineden tüm hizmet uç noktalarına erişeb
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [Sanal bir ağa Azure API Management ayarlanıyor sırasında ortak ağ yapılandırma sorunları][Common network configuration problems]
 * [Sanal ağ ile ilgili SSS](../virtual-network/virtual-networks-faq.md)
-* [DNS'de bir kayıt oluşturma](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [DNS'de bir kayıt oluşturma](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

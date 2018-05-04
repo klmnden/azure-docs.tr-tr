@@ -1,11 +1,11 @@
 ---
-title: "JavaScript SDK'sı için Azure Mobile Apps kullanma"
-description: "Azure Mobile Apps v kullanılmak üzere nasıl"
+title: JavaScript SDK'sı için Azure Mobile Apps kullanma
+description: Azure Mobile Apps v kullanılmak üzere nasıl
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 9494e40a27895def450de856bbf806573daedfdb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için JavaScript istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -72,7 +72,7 @@ Azure uygulama hizmeti, kimlik doğrulaması ve çeşitli dış kimlik sağlayı
 
 Varsayılan olarak, App Service kimlik doğrulaması yalnızca mobil uygulama arka erişime izin verecek şekilde yapılandırıldığından, yerel olarak çalışan sorunlara neden olabilir. Sunucu yerel olarak çalıştırırken kimlik doğrulamasını etkinleştirmek için uygulama hizmeti ayarlarını değiştirmek için aşağıdaki adımları kullanın:
 
-1. [Azure portal]’nda oturum açın
+1. [Azure portalı]’nda oturum açın
 2. Mobil uygulama arka ucunuza gidin.
 3. Seçin **kaynak Gezgini** içinde **geliştirme araçları** menüsü.
 4. Tıklatın **Git** yeni sekmesinde veya penceresinde, mobil uygulama arka ucu için kaynak gezginini açın.
@@ -90,7 +90,7 @@ Varsayılan olarak, App Service kimlik doğrulaması yalnızca mobil uygulama ar
 
 Ayrıca aynı geri döngü URL'leri CORS beyaz liste ayarlarına eklemeniz gerekir:
 
-1. Geri gidin [Azure portal].
+1. Geri gidin [Azure portalı].
 2. Mobil uygulama arka ucunuza gidin.
 3. Tıklatın **CORS** içinde **API** menüsü.
 4. Her URL boş girin **izin verilen çıkış noktası** metin kutusu.  Yeni bir metin kutusu oluşturulur.
@@ -103,6 +103,6 @@ Arka uç güncelleştirildikten sonra uygulamanızda yeni geri döngü URL'ler k
 [kimlik doğrulamayı kullanmaya başlama]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Azure portal]: https://portal.azure.com/
+[Azure portalı]: https://portal.azure.com/
 [JavaScript SDK'sı Azure Mobile Apps için]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

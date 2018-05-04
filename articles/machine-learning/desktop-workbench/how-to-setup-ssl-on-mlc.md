@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Machine Learning işlem (CBE) kümede SSL'yi | Microsoft Docs"
-description: "Bir Azure Machine Learning işlem (CBE) kümede çağrıları Puanlama için SSL kurma ayarlama yönergeleri alır"
+title: Bir Azure Machine Learning işlem (CBE) kümede SSL'yi | Microsoft Docs
+description: Bir Azure Machine Learning işlem (CBE) kümede çağrıları Puanlama için SSL kurma ayarlama yönergeleri alır
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
 ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Bir Azure Machine Learning işlem (CBE) kümede SSL etkinleştir 
 

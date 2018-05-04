@@ -14,8 +14,6 @@
 ## [Tek örnek SAP HANA yüklemesi](hana-get-started.md)
 ## [S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu](cal-s4h.md)
 ## [Azure işlemlerinde SAP HANA kılavuzu](hana-vm-operations.md)
-### Nasıl yapılır
-#### [SAP dağıtımları için Azure Yazma Hızlandırıcı](how-to-enable-write-accelerator.md)
 ## Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
 ### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
 ### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)

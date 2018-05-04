@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e93b3348c933f65067114bfce4ac517f1204af34
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
 
@@ -43,13 +43,13 @@ Application Insights SDK'sı üzerinde bir başvuru henüz yoksa:
 
 * Application Insights SDK'sı projenize ekleyin:
 
-  * [ASP.NET project](app-insights-asp-net.md)
-  * [Java project](app-insights-java-get-started.md)
+  * [ASP.NET projesi](app-insights-asp-net.md)
+  * [Java projesi](app-insights-java-get-started.md)
   * [Node.js projesi](app-insights-nodejs.md)
   * [Her Web sayfasındaki JavaScript](app-insights-javascript.md) 
 * Cihaz veya web sunucusu kodunuzda şunları içerir:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C# ' TA:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
@@ -79,7 +79,7 @@ Bir örneğini almak `TelemetryClient` (Web sayfalarındaki JavaScript'te hariç
 
 TelemetryClient iş parçacığı güvenlidir.
 
-ASP.NET ve Java projeleri için gelen HTTP isteklerini otomatik olarak yakalanır. Uygulamanızın başka bir modül için TelemetryClient ek örneklerini oluşturmak isteyebilirsiniz. Örneğin, rapor iş mantığı olaylarını ara yazılım sınıfı bir TelemetryClient örneği olabilir. Kullanıcı kimliği ve DeviceID makine tanımlamak için gibi özellikleri ayarlayabilirsiniz. Bu bilgiler instace gönderdiği tüm olayları eklenir. 
+ASP.NET ve Java projeleri için gelen HTTP isteklerini otomatik olarak yakalanır. Uygulamanızın başka bir modül için TelemetryClient ek örneklerini oluşturmak isteyebilirsiniz. Örneğin, rapor iş mantığı olaylarını ara yazılım sınıfı bir TelemetryClient örneği olabilir. Kullanıcı kimliği ve DeviceID makine tanımlamak için gibi özellikleri ayarlayabilirsiniz. Bu bilgiler örneği gönderdiği tüm olayları eklenir. 
 
 *C#*
 

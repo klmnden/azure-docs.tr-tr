@@ -35,8 +35,8 @@ Aşağıdaki bölümler destek teknolojiler ve yönergelere bağlantılar hakkı
 Ziyaret [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/) Linux ve Windows VM görüntüleri ve HPC için tasarlanmış çözümler. Örneklere şunlar dahildir:
 
 * [RogueWave CentOS tabanlı HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
-* [SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
-*  [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+* [SUSE Linux Enterprise Server HPC için](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
+*  [TIBCO kılavuz sunucu altyapısı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Azure veri bilimi Windows ve Linux için VM](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3vıew](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
@@ -57,7 +57,7 @@ Ticari veya özel HPC uygulamaları Azure üzerinde çalışır. Bu bölümdeki 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB dağıtılmış bilgi işlem sunucusu](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
@@ -172,7 +172,7 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [Mitsubishi UFJ senedi uluslararası](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
@@ -181,7 +181,7 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 * Big Compute çözümleri hakkında daha fazla bilgi [benzetimi mühendislik](https://simulation.azure.com/), [işleme](https://simulation.azure.com/), [bankacılık ve büyük harf pazarda](https://finance.azure.com/), ve [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Son duyurular için bkz. [Microsoft HPC ve Batch ekip blogu](http://blogs.technet.com/b/windowshpc/) ve [Azure blogu](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Yönetilen ve ölçeklenebilir Azure kullanmak [toplu](https://azure.microsoft.com/services/batch/) altyapının yönetmek zorunda kalmadan işlem yoğunluklu iş yüklerini çalıştırmak için hizmeti [daha fazla bilgi edinin](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Yönetilen ve ölçeklenebilir Azure kullanmak [toplu](https://azure.microsoft.com/services/batch/) altyapının yönetmek zorunda kalmadan işlem yoğunluklu iş yüklerini çalıştırmak için hizmeti [daha fazla bilgi edinin](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

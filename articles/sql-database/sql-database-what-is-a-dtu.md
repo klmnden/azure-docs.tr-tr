@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d1a40eb8c3ac842976ffb1da42650466725b35e6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Veritabanı işlem birimleri (Dtu'lar) ve esnek veritabanı işlem birimleri (Edtu'lar)
 Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır. Belirli fiyatlandırma bilgileri için bkz: [Azure SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/single/).
@@ -32,12 +32,12 @@ Dtu'lar en kaynakları Azure SQL veritabanları farklı performans düzeyleri ve
 - Bir sorgu ayrıntıları detaya, metin ve kaynak kullanımı geçmişini görüntüleyin.
 - Erişim performans tarafından gerçekleştirilen eylemler Göster önerileri ayarlama [SQL veritabanı Danışmanı'nı](sql-database-advisor.md).
 
-Uygulamanızda çok az (genellikle ortalama dört saniyenin altında) kesinti ile dilediğiniz zaman [hizmet katmanlarını değiştirebilirsiniz](sql-database-service-tiers.md). Veritabanı oluşturabilmek ve veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. Bu senaryoda, belirli bir havuzdaki birden fazla veritabanı arasında paylaşılan Edtu sayısı ile bir esnek havuz kullanın.
+Değiştirebileceğiniz [DTU hizmet katmanları](sql-database-service-tiers-dtu.md) (genellikle altında dört saniye ortalaması) uygulamanız için en az kapalı kalma süresi ile herhangi bir zamanda. Veritabanı oluşturabilmek ve veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. Bu senaryoda, belirli bir havuzdaki birden fazla veritabanı arasında paylaşılan Edtu sayısı ile bir esnek havuz kullanın.
 
 ![SQL Veritabanı'na Giriş: Katmana ve düzeye göre tek veritabanı DTU’ları](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Esnek veritabanı işlem birimleri (Edtu'lar) nelerdir?
-Bunun yerine her zaman gerekmeyen olup olmadığını bağımsız olarak, kullanılabilir bir SQL veritabanına adanmış bir kaynak (Dtu'lar) kümesi sağlayan daha veritabanlarına yerleştireceğiniz bir [esnek havuz](sql-database-elastic-pool.md) bir SQL veritabanı sunucusunda bu veritabanı arasında kaynak havuzunu paylaşır. Paylaşılan kaynaklar bir esnek havuzdaki esnek veritabanı işlem birimleri veya Edtu ölçülür. Esnek havuzlar, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar. Bir esnek havuz tek veritabanı tüm kaynakları kullanır garanti edebilir havuzda olduğunu ve ayrıca en az miktarda kaynak her zaman bir veritabanını bir esnek havuz için kullanılabilir. 
+Bunun yerine her zaman gerekmeyen olup olmadığını bağımsız olarak, kullanılabilir bir SQL veritabanına adanmış bir kaynak (Dtu'lar) kümesi sağlayan daha veritabanlarına yerleştireceğiniz bir [esnek havuz](sql-database-elastic-pool.md) bir SQL veritabanı sunucusunda kaynak havuzu paylaşır Bu veritabanları arasında. Paylaşılan kaynaklar bir esnek havuzdaki esnek veritabanı işlem birimleri veya Edtu ölçülür. Esnek havuzlar, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar. Bir esnek havuz tek veritabanı tüm kaynakları kullanır garanti edebilir havuzda olduğunu ve ayrıca en az miktarda kaynak her zaman bir veritabanını bir esnek havuz için kullanılabilir. 
 
 ![SQL Veritabanı'na Giriş: Katmana ve düzeye göre eDTU’lar](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -55,6 +55,7 @@ Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan 
 Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/performans düzeyiniz için izin verilen en üst sınırlara kadar çalıştırmak üzere gereken kaynakları sağlamak için ayarlanıp yönetilir. İş yükünüz, CPU/Veri GÇ/Günlük GÇ sınırlarından birine ulaşıyorsa kaynakları, izin verilen maksimum düzeyde almaya devam ederseniz, ancak sorgularınızda artan gecikme süreleriyle karşılaşmanız olasıdır. Bu sınırlar herhangi bir hataya yol açmaz, yalnızca iş yükünü yavaşlatır. Yavaşlama sorguların zaman aşımına uğramasına sebep olacak kadar şiddetli hale gelirse hatayla karşılaşırsınız. İzin verilen en yüksek eş zamanlı kullanıcı oturumu/isteği (çalışan iş parçacıkları) sayısı sınırına ulaşırsanız açık hatalar görürsünüz. Bkz: [Azure SQL veritabanı kaynak sınırları]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) sınır CPU dışındaki kaynaklar hakkında daha fazla bilgi için bellek, veri g/ç ve işlem günlük GÇ.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [hizmet katmanı](sql-database-service-tiers.md) Dtu ve Edtu tek veritabanları ve esnek havuzlar için kullanılabilir bilgi, yanı sıra CPU dışındaki kaynaklarda sınırları, bellek, veri g/ç ve işlem günlük GÇ.
+* Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) Dtu ve Edtu tek veritabanları ve esnek havuzlar için kullanılabilir bilgi, yanı sıra CPU dışındaki kaynaklarda sınırları, bellek, veri g/ç ve işlem günlük GÇ.
+* Bkz: [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) vCore tabanlı kaynak ayırma ve hizmet katmanları hakkında bilgi için. 
 * DTU tüketiminizi anlamak için bkz. [SQL Veritabanı Sorgu Performansı İçgörüleri](sql-database-query-performance.md).
 * DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).

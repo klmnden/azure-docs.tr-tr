@@ -24,26 +24,30 @@
 ### [Kota sınırlarını ayarlama](data-lake-analytics-quota-limits.md)
 
 ## U-SQL programlarını geliştirme
-### [U-SQL temelleri](data-lake-analytics-u-sql-get-started.md)
-### [U-SQL dil başvurusu](https://msdn.microsoft.com/library/azure/mt591959)
-### [U-SQL kataloğu](data-lake-analytics-u-sql-catalog.md)
-### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)
-### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
-### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
-### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
-### [Visual Studio Code için U-SQL özel kodu](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-### [Visual Studio Code için U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
-### [U-SQL veritabanını dışarı aktarma](data-lake-analytics-data-lake-tools-export-database.md)
 
-## U-SQL programlarında hata ayıklama
-### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Olağan dışı bir şekilde yinelenen iş sorunlarını giderme](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-### [U-SQL’de C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
-### [İş Tarayıcı ve İş Görünümünü kullanma](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-### [VSCode içinde yerel çalıştırma ve yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
-### [U-SQL Programlama Kılavuzu](data-lake-analytics-u-sql-programmability-guide.md)
+### U-SQL dili
+#### [U-SQL temelleri](data-lake-analytics-u-sql-get-started.md)
+#### [U-SQL dil başvurusu](https://msdn.microsoft.com/library/azure/mt591959)
+#### [U-SQL kataloğu](data-lake-analytics-u-sql-catalog.md)
+#### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)
+#### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
+#### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
+#### [U-SQL Programlama Kılavuzu](data-lake-analytics-u-sql-programmability-guide.md)
+#### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
+#### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+### Visual Studio
+#### [İş Tarayıcı ve İş Görünümünü kullanma](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [U-SQL’de C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
+#### [Olağan dışı bir şekilde yinelenen iş sorunlarını giderme](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [U-SQL veritabanını dışarı aktarma](data-lake-analytics-data-lake-tools-export-database.md)
+
+### Visual Studio Code
+#### [Visual Studio Code için U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Visual Studio Code için U-SQL özel kodu](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [VSCode içinde yerel çalıştırma ve yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

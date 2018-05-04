@@ -296,13 +296,15 @@
       href: /powershell/module/azurerm.logicapp
     - name: REST API
       href: /rest/api/logic/
-    - name: İş Akışı Tanımı Dil Şeması
+    - name: İş Akışı Tanımı Dil şeması
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: İş akışı eylemleri ve tetikleyicileri
+          href: logic-apps-workflow-actions-triggers.md
+        - name: İş Akışı Tanımı Dil işlevleri
+          href: workflow-definition-language-functions-reference.md
         - name: 'Genel Kullanılabilirlik: Şema geçmişi'
           href: logic-apps-schema-2016-04-01.md
-    - name: İş akışı eylemleri ve tetikleyicileri
-      href: logic-apps-workflow-actions-triggers.md
     - name: Şemaları izleme
       items:
         - name: AS2 izleme şeması

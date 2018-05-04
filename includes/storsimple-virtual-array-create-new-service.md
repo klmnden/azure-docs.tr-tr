@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
 
-1.  Microsoft hesabı kimlik bilgilerini kullanarak şu URL ile Azure portalında oturum açın: <https://portal.azure.com/>. Kamu portal cihazı dağıtma, oturum açın: <https://portal.azure.us/>
+1.  Microsoft hesabı kimlik bilgilerinizi, Azure portalında şu URL oturum açtığı kullanarak: <https://portal.azure.com/>. Kamu portal cihazı dağıtma, oturum açın: <https://portal.azure.us/>
 
 2.  Azure portalında tıklatın **+ kaynak oluşturma** &gt; **depolama** &gt; **StorSimple sanal serisi**.
 
@@ -18,7 +18,7 @@
 
         -   Var olan iş yükleri de dağıtmak için StorSimple cihazınızla düşündüğünüz Azure varsa, o veri merkezini kullanmanız önerilir.
 
-        -   StorSimple Aygıt Yöneticisi'ni ve Azure depolama alanınızı iki ayrı konumda olabilir. Böyle bir durumda, StorSimple Cihaz Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Depolama hesabı oluşturmak için Azure portalındaki Azure Depolama hizmetine gidin ve [Azure Depolama hesabı oluşturma](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) konusundaki adımları uygulayın. Bu hesabı oluşturduktan sonra, [Hizmet için yeni bir depolama hesabı yapılandırma](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) konusundaki adımları uygulayarak bunu StorSimple Cihaz Yöneticisi hizmetine ekleyin.
+        -   StorSimple Aygıt Yöneticisi'ni ve Azure depolama alanınızı iki ayrı konumda olabilir. Böyle bir durumda, StorSimple Cihaz Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Depolama hesabı oluşturmak için Azure portalındaki Azure Depolama hizmetine gidin ve [Azure Depolama hesabı oluşturma](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) konusundaki adımları uygulayın. Bu hesabı oluşturduktan sonra, [Hizmet için yeni bir depolama hesabı yapılandırma](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) konusundaki adımları uygulayarak bunu StorSimple Cihaz Yöneticisi hizmetine ekleyin.
 
         -   StorSimple cihaz Yöneticisi hizmeti kamu portalı sanal cihazı dağıtma, ABD Iowa ve ABD Virginia konumlarda kullanılabilir.
 

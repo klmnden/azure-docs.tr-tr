@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Azure sanal makineleri kurtarma Hizmetleri kasasına yedekleme
 
@@ -39,7 +39,9 @@ Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Stor
 Neleri olabilir ve yedekleyemezsiniz hakkında daha fazla bilgi için bkz: [Azure Vm'leri yedekleme için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> Bu öğretici, Azure aboneliğinizde zaten bir VM'niz olduğunu ve yedekleme hizmetinin VM'ye erişmesine izin vermek üzere gerekli işlemleri yaptığınızı varsayar.
+> Yedekleme hizmeti geri yükleme noktası koleksiyonu depolamak için VM'nin kaynak grubundan ayrı kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda olmayan kilitlemek için önerilir.
+Yedekleme hizmeti tarafından oluşturulan kaynak grubu adlandırma biçimi: AzureBackupRG_`<Geo>`_`<number>`
+<br>Örneğin: AzureBackupRG_northeurope_1
 >
 >
 

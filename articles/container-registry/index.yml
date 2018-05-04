@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Container Registry Belgeleri
 metadata:
   title: Azure Container Registry Belgeleri - Öğreticiler | Microsoft Docs
-  description: Azure Container Registry, tüm kapsayıcı dağıtımı türlerinin görüntülerini depolayıp yönetebilmenizi sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.
+  description: Azure Container Registry, her tür kapsayıcı dağıtımı için görüntüler oluşturarak bunları depolamanıza ve yönetmenize imkan sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: c4b8cc1a9d56f1fcf94e79fbef3c025fa8e51641
-  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.openlocfilehash: 9cb59b1c9a8e3e219346b6dbac98246fc92b2412
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 03/28/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
-  description: Azure Container Registry, tüm kapsayıcı dağıtımı türlerinin görüntülerini depolayıp yönetebilmenizi sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.
+  description: Azure Container Registry, her tür kapsayıcı dağıtımı için görüntüler oluşturarak bunları depolamanıza ve yönetmenize imkan sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
@@ -48,6 +48,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">ACR Build (önizleme) ile kapsayıcı görüntüleri oluşturma</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry coğrafi çoğaltma (önizleme)</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances’a sahip Container Registry</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Azure Container Service (AKS) ile Container Registry</a>

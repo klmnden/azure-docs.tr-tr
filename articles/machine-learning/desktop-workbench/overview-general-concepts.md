@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning Önizleme özellikleri kavramsal genel bakış | Microsoft Docs"
-description: "Azure Machine Learning, Önizleme özellikleri abonelikler, hesaplar, çalışma alanları, projeler, vb. gibi kavramsal genel bakış."
+title: Azure Machine Learning Önizleme özellikleri kavramsal genel bakış | Microsoft Docs
+description: Azure Machine Learning, Önizleme özellikleri abonelikler, hesaplar, çalışma alanları, projeler, vb. gibi kavramsal genel bakış.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - kavramları
 
@@ -34,7 +34,7 @@ Bu makalede tanımlar ve Azure Machine Learning kullanmak için bilmeniz gereken
 - **Çalışma alanı:** bir çalışma alanı paylaşımı ve Azure ML işbirliği için birincil bir bileşendir. Projeleri bir çalışma alanı içinde gruplandırılır. Bir çalışma alanı sonra deneme hesabı için eklenene birden çok kullanıcıyla paylaşılabilir.
 
 
-- **Proje:** Azure Machine Learning ile bir proje mantıksal bir sorunu çözmek için gerçekleştirilen tüm iş için bir kapsayıcısıdır. Tek dosya klasörü yerel diskinizde eşler ve herhangi bir dosya eklemek ya da bu klasörlere sub. Bir proje isteğe bağlı olarak kaynak denetimi ve işbirliği için bir Git deposu ile ilişkili olabilir.  
+- **Proje:** Azure Machine Learning ile bir proje mantıksal bir sorunu çözmek için gerçekleştirilen tüm iş için bir kapsayıcısıdır. Yerel diskinizde tek bir dosya klasörüne eşlenir ve buna istediğiniz tüm dosyaları veya alt klasörleri ekleyebilirsiniz. Bir proje isteğe bağlı olarak kaynak denetimi ve işbirliği için bir Git deposu ile ilişkili olabilir.  
 
 - **Deneme:** Azure ML içinde bir denemeyi tek giriş noktasından yürütülen bir veya daha fazla kaynak kodu dosyaları değil. Veri alımı, özellik Mühendisliği, model eğitim veya model değerlendirme gibi görevleri içerebilir. Şu anda Python Azure ML destekler veya PySpark yalnızca denemelerini.
 

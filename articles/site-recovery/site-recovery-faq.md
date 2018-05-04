@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery: Sık sorulan sorular | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery hakkında yaygın sorular açıklanır."
+title: 'Azure Site Recovery: Sık sorulan sorular | Microsoft Docs'
+description: Bu makalede, Azure Site Recovery hakkında yaygın sorular açıklanır.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0ec7f9e692dd4269ccb428d644c673e5c27b413a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -76,7 +76,7 @@ Evet. Çoğaltma ve yük devretme şubelerinizde düzenlemek için Site Recovery
 Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve hangi sanal makineleri veya fiziksel sunucuları üzerinde çalışan hakkında herhangi bir bilgi yoktur.
 Çoğaltma verileri şirket içi Hyper-V ana bilgisayarları, VMware hiper yöneticileri veya fiziksel sunucular ile Azure depolama alanı ya da ikincil siteniz arasında değiştirilir. Site Recovery bu verilere müdahale edemez. Yalnızca çoğaltma ve yük devretme işlemlerini düzenlemek için gereken meta veriler Site Recovery hizmetine gönderilir.  
 
-Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
+Site Recovery ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan ' dir.
 
 ### <a name="for-compliance-reasons-even-our-on-premises-metadata-must-remain-within-the-same-geographic-region-can-site-recovery-help-us"></a>Uyumluluk nedenleriyle bile bizim şirket içi meta verileri aynı coğrafi bölge içinde kalması gerekir. Site Recovery bize yardımcı olabilir?
 Evet. Bir bölgede Site Recovery kasası oluşturduğunuzda, etkinleştirmek ve çoğaltmayı düzenlemek ihtiyacımız ve yük devretme kalır, bölge içinde tüm meta veriler coğrafi olun sınır.
@@ -90,7 +90,7 @@ Evet. Bir bölgede Site Recovery kasası oluşturduğunuzda, etkinleştirmek ve 
 Azure Site Recovery, bir Azure depolama hesabı için genel bir uç nokta verilerini çoğaltır. Çoğaltma, siteden siteye VPN üzerinden değil. Bir Azure sanal ağı ile bir siteden siteye VPN oluşturabilirsiniz. Bu Site Recovery çoğaltma ile engellemez.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Sanal makineleri Azure'a çoğaltmak için ExpressRoute kullanabilir miyim?
-Evet, ExpressRoute sanal makinelerini Azure'a çoğaltma için kullanılabilir. Azure Site Recovery, bir Azure depolama hesabı için genel bir uç nokta verilerini çoğaltır. Ayarlamanız gereken [ortak eşleme](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) ExpressRoute Site Recovery çoğaltma için kullanılacak. Sanal makineler üzerinde bir Azure sanal ağı için başarısız sonra bunları erişebilirsiniz kullanarak [özel eşleme](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) Kurulum Azure sanal ağı ile.
+Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, bir Azure depolama hesabı için genel bir uç nokta verilerini çoğaltır. Ayarlamanız gereken [ortak eşleme](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) ExpressRoute Site Recovery çoğaltma için kullanılacak. Microsoft eşlemesi çoğaltma için önerilen Yönlendirme etki alanıdır. Sanal makineler üzerinde bir Azure sanal ağı için başarısız sonra bunları erişebilirsiniz kullanarak [özel eşleme](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) Kurulum Azure sanal ağı ile. Çoğaltma özel eşleme üzerinden desteklenmiyor.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Sanal makinelerin Azure'a çoğaltılması için herhangi bir önkoşul var mı?
 [VMware Vm'leri](vmware-physical-azure-support-matrix.md#replicated-machines) ve [Hyper-V sanal makineleri](hyper-v-azure-support-matrix.md#replicated-vms) çoğaltmak istediğiniz Azure uyumlu Azure gereksinimlerine sahip olması gerekir.

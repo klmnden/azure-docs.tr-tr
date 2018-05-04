@@ -1,8 +1,8 @@
 ---
-title: "Azure Anahtar Kasası’nı kullanmaya başlama | Microsoft Belgeleri"
-description: "Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı oluşturmak ve Azure'da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası kullanmaya başlamanıza yardımcı olması için kullanın."
+title: Azure Anahtar Kasası’nı kullanmaya başlama | Microsoft Belgeleri
+description: Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı oluşturmak ve Azure'da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası kullanmaya başlamanıza yardımcı olması için kullanın.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Bu makale PowerShell kullanarak Azure Key Vault kullanmaya başlamanıza yardımcı olur ve aşağıdaki etkinliklerde size kılavuzluk eder:
@@ -49,10 +49,10 @@ Bu öğreticide gördüğünüz herhangi bir cmdlet hakkında ayrıntılı yard�
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Örneğin, **Login-AzureRmAccount** cmdlet'i hakkında yardım almak için şunu yazın:
+Örneğin, **Connect-AzureRmAccount** cmdlet’i hakkında yardım almak için şunu yazın:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 Ayrıca, Azure PowerShell’de Azure Resource Manager dağıtım modeli hakkında bilgi edinmek için aşağıdaki makaleleri okuyabilirsiniz:
@@ -64,13 +64,13 @@ Ayrıca, Azure PowerShell’de Azure Resource Manager dağıtım modeli hakkınd
 Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabınızda oturum açın:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
- Belirli bir Azure örneği kullanıyorsanız -Environment parametresini kullanın. Örneğin: 
+ Belirli bir Azure örneği kullanıyorsanız -Environment parametresini kullanın. Örnek: 
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell bu hesapla ilişkili tüm abonelikleri alır ve varsayılan olarak birinciyi kullanır.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 Bu cmdlet’in çıktısı, oluşturduğunuz anahtar kasasının özelliklerini gösterir. En önemli iki özellik şunlardır:
 
 * **Kasa Adı**: Örnekte **ContosoKeyVault**'tur. Bu adı diğer Anahtar Kasası cmdlet'leri için kullanacaksınız.
-* **Kasa URI'si**: Örnekte https://contosokeyvault.vault.azure.net/ şeklindedir. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
+* **Kasa URI’si**: Örnekte bu: https://contosokeyvault.vault.azure.net/. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
 
 Azure hesabınız artık bu anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkilidir. Henüz başka kimse yetkilendirilmedi.
 
@@ -138,11 +138,11 @@ Bu anahtar türü için URI’yi görüntüleme:
 $key.id
 ```
 
-Oluşturduğunuz veya Azure Key Vault’a yüklediğiniz bu anahtara, URI’sini kullanarak başvurabilirsiniz. Geçerli sürümü almak için **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** kullanabilir ve bu belirli sürümü almak için **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** kullanabilirsiniz.  
+Oluşturduğunuz veya Azure Key Vault’a yüklediğiniz bu anahtara, URI’sini kullanarak başvurabilirsiniz. Geçerli sürümü almak için **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** ve **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** kullanarak bu sürümü alabilirsiniz.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Mevcut PFX dosyasını Azure Key Vault’a aktarma
 
-Azure Key Vault’a yüklemek istediğiniz bir pfx dosyasında depolanmış mevcut anahtarlar söz konusu olduğunda adımlar farklıdır. Örneğin:
+Azure Key Vault’a yüklemek istediğiniz bir pfx dosyasında depolanmış mevcut anahtarlar söz konusu olduğunda adımlar farklıdır. Örnek:
 - .PFX dosyasında mevcut bir yazılım korumalı anahtarınız varsa
 - Pfx dosyası softkey.pfx olarak adlandırılır 
 - Dosya C sürücüsünde depolanır.
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-Artık Azure Anahtar Kasası'na eklediğiniz bu parolaya URI'sini kullanarak başvurabilirsiniz. Her zaman geçerli sürümü almak için **https://ContosoVault.vault.azure.net/secrets/SQLPassword** kullanın ve bu belirli sürümü almak için **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** kullanın.
+Artık Azure Anahtar Kasası'na eklediğiniz bu parolaya URI'sini kullanarak başvurabilirsiniz. Her zaman geçerli sürümü almak için **https://ContosoVault.vault.azure.net/secrets/SQLPassword** ve söz konusu sürümü almak için **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** kullanın.
 
 Bu parola için URI görüntülemek üzere şunu yazın:
 
@@ -241,7 +241,10 @@ Anahtar kasanızı oluşturduğunuz Azure aboneliğini içeren dizini seçmeniz 
 10. Kasanızdaki izinleri ayarlamak için sonraki adımda **Uygulama Kimliği** ve **Anahtar** bilgilerini kullanacaksınız.
 
 ## <a id="authorize"></a>Anahtar veya gizli anahtarı kullanması için uygulamayı yetkilendirme
-Uygulamayı kasadaki anahtar veya gizli anahtara erişmek üzere yetkilendirmek için [AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'ini ayarlayın.
+Uygulamaya, kasadaki anahtara veya gizli diziye erişme yetkisi vermenin iki yolu vardır.
+
+### <a name="using-powershell"></a>PowerShell’i kullanma
+PowerShell kullanmak için [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet’ini kullanın.
 
 Örneğin, kasa adınız **ContosoKeyVault** ise ve yetkilendirmek istediğiniz uygulama 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed istemci kimliğine sahipse ve uygulamaya kasanızdaki anahtarların şifresini çözme ve bunlarla oturum açma yetkisi vermek istiyorsanız şunu çalıştırın:
 
@@ -254,6 +257,13 @@ Aynı uygulamayı kasanızdaki gizli anahtarları okumak için yetkilendirmek is
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Azure portalını kullanma
+Bir uygulamanın anahtarları veya gizli dizileri kullanma yetkisini değiştirmek için:
+1. Anahtar Kasası kaynak dikey penceresinden **Erişim İlkeleri**’ni seçin
+2. Dikey pencerenin üst kısmındaki [+ Yeni ekle] düğmesine tıklayın
+3. Daha önce oluşturmuş olduğunuz uygulamayı seçmek için **Sorumlu Seç**’e tıklayın
+4. **Anahtar izinleri** açılır listesinden "Şifre Çöz" ve "İmzala" seçeneğini belirleyerek uygulamaya kasanızdaki anahtarlarla şifre çözme ve imzalama yetkisi verin
+5. **Gizli dizi izinleri** açılır listesinden "Al" seçeneğini belirleyerek uygulamanın kasadaki gizli dizileri okumasına izin verin
 
 ## <a id="HSM"></a>Donanım güvenlik modülü (HSM) ile çalışma
 Ek güvence için HSM sınırını asla terk etmeyen donanım güvenlik modüllerinde (HSM'ler) anahtarları içeri aktarabilir veya oluşturabilirsiniz. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Bu gereksinim sizin için geçerli değilse bu bölümü atlayın ve [Anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme](#delete)'ye gidin.

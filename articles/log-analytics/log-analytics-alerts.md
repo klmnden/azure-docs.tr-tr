@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Günlük analizi, uyarıları anlama
 
@@ -67,7 +67,7 @@ Uyarı kuralları tarafından aşağıdaki ayrıntıları tanımlanmıştır:
  
     - **Yanlış uyarılar**. Bazen uyarı sorguları, olay eksikliklerini belirlemek için tasarlanmıştır. Bir sanal makine için eksik sinyal arayarak çevrimdışı olduğunda bunun bir örneği algılıyor. Olarak yukarıdaki sinyal uyarı zaman penceresi içinde arama için kullanılabilir değilse, sonra bir uyarı sinyal verileri henüz aranabilir olmadığından oluşturulur ve bu nedenle yok. Bu aynı sonucu VM yasal çevrimdışı ve tarafından oluşturulan hiçbir sinyal veriler olarak olur. Sonraki gün içinde doğru zaman penceresi sorgu yürütülürken sinyal vardı ve uyarı başarısız olduğunu gösterir. Uyarı zaman penceresini çok küçük olarak ayarlanmadığından aslında, sinyal henüz Ara kullanılamıyordu.
 
-- **Sıklık**.  Sorgu ne sıklıkta çalıştırılması gerektiğini ve uyarılar normal örneği için daha iyi yanıt vermesi için kullanılan belirtir. Değer en fazla beş dakika ile 24 saat arasında olabilir ve eşit veya uyarı zaman penceresi'den daha az olmalıdır.  Değeri zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Hedef ise, için güvenilir olarak 30 dakika kadar geciktirir ve normal gecikmesi 10 dakikadır, zaman penceresi bir saat olmalıdır ve sıklığı değeri 10 dakika olmalıdır. Bu uyarı verileri oluşturulduğunda, 10, 20 dakika arasında bir 10 dakika alım gecikme sahip verileri olan bir uyarı tetikler.<br>Zaman penceresi çok geniş olduğundan aynı veriler için birden çok uyarı oluşturmamak için [uyarıları bastırma](log-analytics-tutorial-response.md#create-alerts) seçeneği, en az sürece zaman penceresi için uyarıları gizlemek için kullanılabilir.
+- **Sıklık**.  Sorgu ne sıklıkta çalıştırılması gerektiğini ve uyarılar normal örneği için daha iyi yanıt vermesi için kullanılan belirtir. Değer en fazla beş dakika ile 24 saat arasında olabilir ve eşit veya uyarı zaman penceresi'den daha az olmalıdır.  Değeri zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Hedef ise, için güvenilir olarak 30 dakika kadar geciktirir ve normal gecikmesi 10 dakikadır, zaman penceresi bir saat olmalıdır ve sıklığı değeri 10 dakika olmalıdır. Bu uyarı verileri oluşturulduğunda, 10, 20 dakika arasında bir 10 dakika alım gecikme sahip verileri olan bir uyarı tetikler.<br>Zaman penceresi çok geniş olduğundan aynı veriler için birden çok uyarı oluşturmamak için uyarıları bastırma seçeneği en az sürece zaman penceresi için uyarıları gizlemek için kullanılabilir.
   
 - **Eşik**. Günlük arama sonuçlarını, bir uyarının oluşturulması gerekip gerekmediğini belirlemek için değerlendirilir. Eşik uyarı kuralları farklı türleri için farklıdır.
 

@@ -1,19 +1,19 @@
 ---
-title: "Azure kapsayıcı hizmeti ve Azure ile taslak kullanmayı kapsayıcı kayıt defteri"
-description: "Draft ile Azure’da ilk uygulamanızı oluşturmak için bir ACS Kubernetes kümesi ve bir Azure Container Registry oluşturun."
+title: Azure kapsayıcı hizmeti ve Azure ile taslak kullanmayı kapsayıcı kayıt defteri
+description: Draft ile Azure’da ilk uygulamanızı oluşturmak için bir ACS Kubernetes kümesi ve bir Azure Container Registry oluşturun.
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft’ı Azure Container Service ve Azure Container Registry ile kullanarak bir uygulama oluşturma ve Kubernetes’e dağıtma
 
@@ -99,8 +99,8 @@ Artık bir kümeniz olduğuna göre, [az acs kubernetes get-credentials](/cli/az
 ## <a name="install-and-configure-draft"></a>Draft’ı yükleme ve yapılandırma
 
 
-1. Ortamınıza https://github.com/Azure/draft/releases taslak indirin ve böylece komut kullanılabilir, yola yükleyin.
-2. Ortamınıza https://github.com/kubernetes/helm/releases Helm indirin ve [komut kullanılabilir biçimde, yola yüklemesini](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. Ortamınıza taslak karşıdan https://github.com/Azure/draft/releases ve böylece komut kullanılabilir, yola yükleyin.
+2. Ortamınıza Helm karşıdan https://github.com/kubernetes/helm/releases ve [komut kullanılabilir biçimde, yola yüklemesini](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Draft’ı kayıt defterinizi kullanacak şekilde yapılandırın ve Draft’ın oluşturduğu her Helm grafiği için alt etki alanları oluşturun. Draft’ı yapılandırmak için şunlar gerekir:
   - Azure Container Registry adınız (bu örnekte `draftacsdemo` kullanılmıştır)
   - `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` dosyasından kayıt defteri anahtarınız veya parolanız.

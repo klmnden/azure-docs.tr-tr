@@ -1,24 +1,18 @@
 ---
-title: "Azure arama çoklu dil | Microsoft Docs"
-description: "Azure arama, dil Çözümleyicileri Lucene ve doğal dil işleme teknolojisi Microsoft'tan gelen yararlanarak 56 dilleri destekler."
-services: search
-documentationcenter: 
+title: Azure arama çoklu dil dizini oluşturma | Microsoft Docs
+description: Azure arama, dil Çözümleyicileri Lucene ve doğal dil işleme teknolojisi Microsoft'tan gelen yararlanarak 56 dilleri destekler.
 author: yahnoosh
-manager: pablocas
-editor: 
-ms.assetid: 55a00b44-804d-41bb-9c96-e6ea498616f5
+manager: jlembicz
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 01/23/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search'te birden çok dilde belgeler için dizin oluşturma
 > [!div class="op_single_selector"]
@@ -68,7 +62,7 @@ Birçok web ve mobil uygulamalar kullanıcılar farklı diller kullanan dünya h
 
 Bir sorgu verme aracı dilinin bilinen, arama isteği kullanarak bir özel alanın kapsamlı olabilir **searchFields** sorgu parametresi. Aşağıdaki sorgu, Lehçe açıklamaya karşı yalnızca verilir:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 Dizininizi portalı, sorgu kullanarak **arama Gezgini** yukarıda gösterilene benzer bir sorguda yapıştırın. Arama Gezgini hizmeti dikey komut çubuğunda kullanılabilir. Bkz: [portalda Azure Search dizininizi sorgulama](search-explorer.md) Ayrıntılar için.
 
@@ -83,7 +77,7 @@ Bazen bir sorgu verme aracı dili, bu durumda sorgu karşı tüm alanlar aynı a
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 .NET Geliştirici değilseniz, dil Çözümleyicileri kullanarak yapılandırabileceğinize dikkat edin [Azure Search .NET SDK'sı](http://www.nuget.org/packages/Microsoft.Azure.Search). En son sürüm Microsoft dil Çözümleyicileri de destekler.
 

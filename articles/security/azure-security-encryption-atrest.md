@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: c0bc3c8774b68b49be95d5df86319a2e0463e6ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme çalışmıyorken-
 Microsoft, şirketinizin güvenlik ve uyumluluk gereksinimlerine göre verilerinizi korumak için Azure içinde birden çok araç vardır. Bu yazı odaklanır:
@@ -236,10 +236,10 @@ Bir hizmet (Iaas) olarak Azure altyapısı kullanarak müşteri özellikleri Iaa
 
 #### <a name="azure-storage"></a>Azure Storage
 
-Azure Blob ve dosya şifreli müşteri verilerini (istemci tarafı şifreleme) yanı sıra sunucu tarafı şifrelenmiş senaryoları için bekleyen Şifreleme destekler.
+Tüm Azure Storage Hizmetleri (Blob storage, kuyruk depolama, Table storage ve Azure dosyaları), REST, sunucu tarafı şifreleme anahtarları müşteri tarafından yönetilen ve istemci tarafı şifreleme destekleyen bazı hizmetler ile destekler.  
 
-- Sunucu tarafı: Azure blob depolama kullanan müşteriler REST her Azure depolama kaynak hesabı üzerinde şifrelemeyi etkinleştirebilirsiniz. Etkinleştirildikten sonra sunucu tarafı şifreleme uygulamaya şeffaf bir şekilde gerçekleştirilir. Bkz: [bekleyen veri için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption) daha fazla bilgi için.
-- İstemci-tarafı: Azure BLOB istemci tarafı şifreleme desteklenir. Ne zaman istemci tarafı şifreleme müşteriler kullanarak verileri şifrelemek ve bu verileri şifrelenmiş bir blobu olarak yükleyin. Anahtar Yönetimi, müşteri tarafından gerçekleştirilir. Bkz: [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) daha fazla bilgi için.
+- Sunucu tarafı: Tüm Azure Storage Hizmetleri hizmet tarafından yönetilen, uygulamanız için saydamdır tuşlarıyla varsayılan olarak sunucu tarafı şifrelemeyi etkinleştirin. Daha fazla bilgi için bkz: [bekleyen veri için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption). Ayrıca Azure Blob Depolama ve Azure dosyaları müşteri tarafından yönetilen anahtarları Azure anahtar kasası destekler. Daha fazla bilgi için bkz: [depolama hizmeti şifrelemesi müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- İstemci-tarafı: Azure BLOB'ları, tabloları ve kuyrukları istemci tarafı Şifreleme destekler. İstemci tarafı şifreleme kullanırken, müşterilerin verileri şifrelemek ve verileri şifrelenmiş bir blobu olarak yükleyin. Anahtar Yönetimi, müşteri tarafından gerçekleştirilir. Daha fazla bilgi için bkz: [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -259,8 +259,8 @@ Sunucu şifreleme desteği şu anda saydam veri şifreleme adlı SQL özelliği 
 | SQL Server (IaaS)                |                | Evet                 | Evet                          | Evet                          | Evet    |
 | SQL Azure (PaaS)                 |                | Evet                 | Evet                          | -                            | Evet    |
 | Azure depolama (blok/sayfa Bloblarını) |                | Evet                 | Evet                          | -                            | Evet    |
-| Azure depolama (dosyaları)            |                | Evet                 | -                            | -                            | -      |
-| Azure depolama (tablolar, kuyruklar)   |                | -                   | -                            | -                            | Evet    |
+| Azure depolama (dosyaları)            |                | Evet                 | Evet                          | -                            | -      |
+| Azure depolama (tablolar, kuyruklar)   |                | Evet                 | -                            | -                            | Evet    |
 | Cosmos DB (belge DB)          |                | Evet                 | -                            | -                            | -      |
 | StorSimple                       |                | Evet                 | -                            | -                            | Evet    |
 | Backup                           |                | -                   | -                            | -                            | Evet    |

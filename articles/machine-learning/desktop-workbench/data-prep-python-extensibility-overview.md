@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning veri hazırlıklar ile Python genişletilebilirlik kullanın | Microsoft Docs"
-description: "Bu belge genel bir bakış ve Python kodu veri hazırlığı işlevselliğini genişletmek için nasıl kullanılacağını ayrıntılı bazı örnekleri sağlar"
+title: Azure Machine Learning veri hazırlıklar ile Python genişletilebilirlik kullanın | Microsoft Docs
+description: Bu belge genel bir bakış ve Python kodu veri hazırlığı işlevselliğini genişletmek için nasıl kullanılacağını ayrıntılı bazı örnekleri sağlar
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Veriler hazırlıkları Python uzantıları
 Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu olarak Azure Machine Learning veriler hazırlıkları birçok düzeyde genişletilebilirlik içerir. Bu belgede, Python komut dosyası aracılığıyla genişletilebilirlik verilmiştir. 
@@ -25,7 +25,7 @@ Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu ola
 Veriler hazırlıkları kullanıcılar kod burada yazabilirsiniz aşağıdaki özel adımlar vardır:
 
 * Dosya okuyucu *
-* Writer*
+* Yazıcı *
 * Sütun ekleme
 * Gelişmiş Filtre
 * Veri akışı dönüştürme

@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: b4ccb612314fc1f65be4033bc0d0893d17843a86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma ağ oluşturma hakkında
 
@@ -31,7 +31,7 @@ Aşağıdaki diyagram, Azure Vm'lerinde çalışan uygulamalar için tipik bir A
 
 ![Müşteri ortamı](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Azure ExpressRoute veya bir VPN bağlantısı şirket içi ağınızdan Azure'a kullanıyorsanız, ortam şöyle görünür:
+Azure ExpressRoute veya bir VPN bağlantısı şirket içi ağınızdan Azure'a kullanıyorsanız, ortam şu şekilde görünür:
 
 ![Müşteri ortamı](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -58,11 +58,11 @@ login.microsoftonline.com | Yetkilendirme ve kimlik doğrulaması için Site Rec
 Giden bağlantıyı denetlemek için bir IP tabanlı bir güvenlik duvarı proxy ya da NSG kuralları kullanıyorsanız, bu IP aralıkları izin verilmesi gerekir.
 
 - Kaynak bölgede depolama hesaplarına karşılık gelen tüm IP adres aralıkları
-    - Oluşturmak gereken bir [depolama hizmeti etiketi](../virtual-network/security-overview.md#service-tags) tabanlı kaynak bölge için NSG kuralının.
-    - Böylece veri önbelleği depolama hesabına sanal makineden yazılabilir bu adresleri izin vermeniz gerekir.
+    - Oluşturma bir [depolama hizmeti etiketi](../virtual-network/security-overview.md#service-tags) tabanlı kaynak bölge için NSG kuralının.
+    - Böylece veri önbelleği depolama hesabına sanal makineden yazılabilir bu adresleri izin verin.
 - Office 365'e karşılık gelen tüm IP adres aralıklarını [kimlik doğrulama ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Yeni bir adres için Office 365 aralıkları gelecekte eklenirse, yeni NSG kuralları oluşturmanız gerekir.
-- Site Recovery Hizmeti uç noktası IP adresleri. Bunlar kullanılabilir olan bir [XML dosyası](https://aka.ms/site-recovery-public-ips) ve hedef konumuna bağlıdır.
+    - Yeni adresler için Office 365 aralıkları gelecekte eklenirse, yeni NSG kuralları oluşturmanız gerekir.
+- Kurtarma Hizmeti uç noktası IP adresleri - kullanılabilir site bir [XML dosyası](https://aka.ms/site-recovery-public-ips) ve hedef konumuna bağlıdır.
 -  Yapabilecekleriniz [indirin ve bu komut dosyası](https://aka.ms/nsg-rule-script)üzerinde NSG gerekli kuralları otomatik olarak oluşturmak için.
 - Bir test NSG gerekli NSG kuralları oluşturmak ve bir üretim NSG kuralları oluşturmadan önce herhangi bir sorun olduğunu doğrulayın öneririz.
 
@@ -138,7 +138,7 @@ Bu kurallar, böylece kaynak bölgesi yük devretme sonrasında için etkin hale
 
 ## <a name="network-virtual-appliance-configuration"></a>Ağ sanal gereç yapılandırması
 
-Sanal makineleri giden ağ trafiğini denetlemek için ağ sanal Gereçleri (NVAs) kullanıyorsanız, tüm çoğaltma trafiği NVA geçerse Gereci kısıtlanan. Çoğaltma trafiği için nva'nın geçmez böylece bir Ağ Hizmeti uç noktası sanal ağınızda "Depolama için" oluşturmanızı öneririz.
+Sanal makineleri giden ağ trafiğini denetlemek için ağ sanal Gereçleri (NVAs) kullanıyorsanız, tüm çoğaltma trafiği NVA geçerse Gereci kısıtlanan. Çoğaltma trafiği için nva'nın geçmez böylece bir Ağ Hizmeti uç noktası "Depolama için" sanal ağınızda oluşturma öneririz.
 
 ### <a name="create-network-service-endpoint-for-storage"></a>Ağ Hizmeti uç noktası için depolama alanı oluşturma
 Böylece çoğaltma trafiğini Azure sınır bırakmaz "Depolama için" sanal ağınızda Ağ Hizmeti uç noktası oluşturabilirsiniz.
@@ -153,42 +153,11 @@ Böylece çoğaltma trafiğini Azure sınır bırakmaz "Depolama için" sanal a�
 >[!NOTE]
 >Depolama hesaplarınıza ASR için kullanılan sanal ağ erişimini kısıtlamaz. 'Tüm ağlar' erişimden sağlamalıdır
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN
-
-Şirket içi ve Azure konum arasında bir ExpressRoute veya VPN bağlantısı varsa, bu bölümdeki yönergeleri uygulayın.
-
 ### <a name="forced-tunneling"></a>Zorlamalı tünel oluşturma
 
-Genellikle, giden Internet trafiği aracılığıyla şirket içi konuma akış zorlar varsayılan yol (0.0.0.0/0) tanımlamak veya. Bunu önermiyoruz. Çoğaltma trafiğini Azure sınır bırakmamalısınız.
-
-Yapabilecekleriniz [ağ hizmet uç noktası oluşturma](#create-network-service-endpoint-for-storage) , sanal ağ "Depolama için" böylece çoğaltma trafiğini Azure sınır bırakmaz.
-
-
-### <a name="connectivity"></a>Bağlantı
-
-Hedef konumu ve şirket içi konumunuz bağlantılar için bu yönergeleri izleyin:
-- Uygulamanız için şirket içi makineler bağlanın veya uygulamaya şirket içi VPN/ExpressRoute bağlanan istemciler varsa, en az bir sağlamak gerekiyorsa [siteden siteye bağlantı](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) arasında Hedef Azure bölgesi ve şirket içi veri merkezi.
-
-- Hedef Azure bölgesi ve şirket içi veri merkezi arasında trafiğe çok bekliyorsanız, başka bir oluşturmalısınız [ExpressRoute bağlantısı](../expressroute/expressroute-introduction.md) hedef Azure bölgesi ve şirket içi veri merkezi arasında.
-
-- Bunlar üzerinde başarısız olduktan sonra sanal makineler için IP korumak istiyorsanız, hedef bölgenin site siteye/ExpressRoute bağlantısı bağlantısı kesik durumda tutun. Hiçbir aralık çakışmasından kaynak bölgesinin IP aralıklarını ve hedef bölgenin IP aralıkları arasında olduğundan emin olmak için budur.
-
-### <a name="expressroute-configuration"></a>ExpressRoute yapılandırma
-ExpressRoute yapılandırması için bu en iyi uygulamaları izleyin:
-
-- Bir expressroute bağlantı hattı kaynak ve hedef bölgeler oluşturun. Ardından arasında bir bağlantı oluşturmanız gerekir:
-    - Kaynak sanal ağ ve şirket içi ağ kaynak bölgesindeki expressroute bağlantı hattı üzerinden.
-    - Hedef sanal ağ ve hedef bölgede expressroute bağlantı hattı üzerinden şirket içi ağ.
-
-
-- ExpressRoute standart bir parçası olarak, aynı coğrafi bölgede devreler oluşturabilirsiniz. ExpressRoute bağlantı hatları farklı coğrafi bölgelerde oluşturmak için Azure ExpressRoute Premium gereklidir artımlı bir maliyet içerir. (ExpressRoute Premium zaten kullanıyorsanız, var. ek bir maliyeti yoktur.) Daha fazla ayrıntı için bkz: [ExpressRoute konumları belge](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
-
-- Kaynak ve hedef bölgeler farklı IP aralıkları kullanmanızı öneririz. Expressroute bağlantı hattı iki Azure sanal ağlar aynı IP aralıklarının aynı anda bağlanabiliyor olmayacaktır.
-
-- Her iki bölgelerinde aynı IP aralıklarıyla sanal ağlar oluşturabilir ve sonra ExpressRoute bağlantı hatları her iki bölgelerde oluşturabilirsiniz. Bir yük devretme olayından söz konusu olduğunda bağlantı hattı kaynak sanal ağla olan bağlantınızı kesmek ve hedef sanal ağ bağlantı hattındaki bağlanın.
-
- >[!IMPORTANT]
- > Birincil bölge tamamen kapalı ise, bağlantıyı kesme işlemi başarısız olabilir. ExpressRoute bağlantı alma, hedef sanal ağ engeller.
+0.0.0.0/0 adres ön eki ile için Azure'un varsayılan sistem yolu geçersiz bir [özel rota](../virtual-network/virtual-networks-udr-overview.md#custom-routes) ve bir şirket içi ağ sanal gereç (NVA) VM trafiğine yönlendir, ancak bu yapılandırma için Site Recovery önerilmez Çoğaltma. Özel yollar kullanıyorsanız yapmanız gerekenler [bir sanal ağ hizmet uç noktası oluşturma](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) , sanal ağ "Depolama için" böylece çoğaltma trafiğini Azure sınır bırakmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İş yükleri tarafından korumaya başlamak [Azure sanal makineleri çoğaltmak](site-recovery-azure-to-azure.md).
+- İş yükleri tarafından korumaya başlamak [Azure sanal makineleri çoğaltmak](site-recovery-azure-to-azure.md).
+- Daha fazla bilgi edinmek [IP adresi bekletme](site-recovery-retain-ip-azure-vm-failover.md) Azure sanal makinesi yük devretme için.
+- Olağanüstü durum kurtarma hakkında daha fazla bilgi [ExpressRoute Azure sanal makinelerle ](azure-vm-disaster-recovery-with-expressroute.md).

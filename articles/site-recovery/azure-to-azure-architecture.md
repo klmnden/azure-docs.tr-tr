@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 
@@ -46,7 +46,7 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
 
 **Kaynak** | **Ayrıntılar**
 --- | ---
-**Hedef kaynak grubu** | Yük devretme sonrasında çoğaltılmış sanal makineleri ait olduğu kaynak grubu.
+**Hedef kaynak grubu** | Yük devretme sonrasında çoğaltılmış sanal makineleri ait olduğu kaynak grubu. Bu kaynak grubu konumu, kaynak sanal makine barındırılan Azure bölgesi dışında tüm Azure bölgesindeki olabilir.
 **Hedef sanal ağ** | Sanal ağ içinde çoğaltılmış VM'ler yük devretme sonrasında bulunur. Ağ eşlemesi, kaynak ve hedef sanal ağlar arasında ve tersi yönde oluşturulur.
 **Önbellek depolama hesapları** | Kaynak VM değişikliklerini bir hedef depolama hesabına çoğaltılır önce bunlar izlenen ve kaynak konumu önbelleği depolama hesabında gönderilir. Bu adım VM'de çalıştırılan üretim uygulamalar üzerinde en az etki sağlar.
 **(VM kullanmayan kaynak diskleri yönetiliyorsa) depolama hesapları hedef**  | Veri çoğaltılan hedef konumdaki depolama hesapları.

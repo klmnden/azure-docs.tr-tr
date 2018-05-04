@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) HTTP API'leri
 
@@ -131,6 +131,7 @@ Birkaç olası durum kodu değerleri döndürülebilir.
 |-----------------|-----------|-------------|
 | runtimeStatus   | string    | Çalışma zamanı durumu örneği. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal edildi*, *kesildi*, *Tamamlandı*. |
 | Giriş           | JSON      | Örneği başlatmak için kullanılan JSON verileri. |
+| customStatus    | JSON      | Özel orchestration durumunun kullanılan JSON verileri. Bu alan `null` değilse ayarlayın. |
 | çıkış          | JSON      | JSON çıktı örneği. Bu alan `null` örneği tamamlanmış durumda değilse. |
 | createdTime     | string    | Örneğin oluşturulduğu saat. ISO 8601 gösterimi genişletilmiş kullanır. |
 | lastUpdatedTime | string    | En son örnek kalıcı süre. ISO 8601 gösterimi genişletilmiş kullanır. |
@@ -180,6 +181,7 @@ Orchestration yürütme geçmişi ve etkinlik çıkışları (okunabilirlik içi
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

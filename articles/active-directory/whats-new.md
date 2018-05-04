@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -39,6 +39,217 @@ Azure AD geliştirmeleri düzenli olarak alır. En son gelişmeler ile güncel k
 -   Değişiklikleri planları
 
 Bu sayfayı aylık güncelleştirilir, böylece, düzenli aralıklarla yeniden ziyaret.
+
+
+## <a name="april-2018"></a>Nisan 2018
+ 
+
+
+### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C erişim belirteci olan GA
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** B2C - tüketici Kimlik Yönetimi  
+**Ürün yetenek:** B2B/B2C
+ 
+
+Azure AD B2C tarafından güvence altına artık Web API'nin erişebilir erişim belirteçleri kullanarak. Bu özellik için İST genel Önizlemesi'nden taşıma Azure AD B2C uygulamaları ve web API'nin yapılandırmak için UI deneyimi geliştirilmiştir ve diğer ikincil geliştirmeler yapılmıştır.
+ 
+Daha fazla bilgi için bkz: [Azure AD B2C: isteyen erişim belirteçleri](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-access-tokens).
+
+
+---
+ 
+
+### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>SAML tabanlı uygulamalar için çoklu oturum açma yapılandırmayı test etme
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** SSO
+ 
+
+SSO uygulamaları SAML yapılandırma temel yapılandırma sayfasında tümleştirme test etmek kullanabilirsiniz. Oturum açma sırasında bir hatayla karşılaşırsanız, test deneyimini hata sağlayabilir ve Azure AD belirli sorunu çözmek için çözüm adımları sağlar.
+
+Daha fazla bilgi için bkz.
+
+- [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+- [SAML tabanlı çoklu oturum açma Azure Active Directory uygulamalarında hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+
+
+---
+ 
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD Kullanım Koşulları'nı şimdi kullanıcı raporlama başına sahiptir
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kullanım koşulları  
+**Ürün yetenek:** uyumluluk
+ 
+
+Yöneticiler artık verilen ToU seçin ve izin ToU ve ne, tarih yer aldığı verdiği tüm kullanıcılar görür.
+
+
+Daha fazla bilgi için bkz: [kullanım koşullarını Azure AD özelliği](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+ 
+
+---
+ 
+### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>Azure AD Connect Health: AD FS extranet kilitleme koruma riskli IP 
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** diğer  
+**Ürün yetenek:** izleme ve Raporlama
+ 
+
+Günlük veya saatlik düzenli olarak başarısız U/P oturumlarının bir eşiği aşması destekler IP algılama yeteneği adresleri artık sistem durumu bağlayın. Bu özellik tarafından sağlanan özellikler şunlardır:
+
+- IP adresi ve saatlik/günlük düzenli olarak özelleştirilebilir eşik ile oluşturulan başarısız oturum açma sayısı gösteren kapsamlı rapor.
+- E-posta tabanlı uyarılar belirli bir IP adresi zaman gösteren bir saatlik/günlük temelinde başarısız U/P oturumlarının eşiğini aşmış.
+- Ayrıntılı bir analiz için verileri yapmak için bir yükleme seçeneği
+
+
+Daha fazla bilgi için bkz: [riskli IP rapor](https://aka.ms/aadchriskyip).
+
+ 
+
+---
+ 
+
+### <a name="easy-app-config-with-metadata-file-or-url"></a>Meta veri dosyası veya URL ile kolay uygulama yapılandırması
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** SSO
+ 
+
+Kurumsal uygulamalar sayfası, yöneticiler SAML tabanlı oturum açma AAD Galerisi ve olmayan galeri uygulama için yapılandırmak için bir SAML meta veri dosyası karşıya yükleyebilirsiniz.
+
+Ayrıca, Azure AD uygulama Federasyon meta veri URL'sini SSO hedeflenen uygulama ile yapılandırmak için kullanabilirsiniz.
+
+Daha fazla bilgi için bkz: [Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
+ 
+
+---
+ 
+
+### <a name="azure-ad-terms-of-use-now-generally-available"></a>Azure AD koşulları artık genel olarak kullanılabilir
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kullanım koşulları  
+**Ürün yetenek:** uyumluluk
+ 
+
+Azure AD Kullanım Koşulları'nı genel Önizlemesi'nden için genel olarak kullanılabilir taşınmıştır.
+
+Daha fazla bilgi için bkz: [kullanım koşullarını Azure AD özelliği](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+ 
+
+---
+ 
+
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>İzin verme veya belirli kuruluşlardan B2B kullanıcılara davet engelleme
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** B2B  
+**Ürün yetenek:** B2B/B2C
+ 
+
+Artık, paylaşabilir ve Azure AD B2B işbirliği birlikte çalışmak istediğiniz hangi ortak kuruluşlar belirtebilirsiniz. Bunu yapmak için özel listesini oluşturmak seçebileceğiniz izin ver veya Reddet etki alanları. Bu özellikleri kullanarak bir etki alanı engellendiğinde, çalışanların kişilere davetiye artık bu etki alanında gönderebilirsiniz.
+
+Bu, onaylanan kullanıcılar için sorunsuz bir deneyim etkinleştirirken, kaynaklara erişimi denetlemek için yardımcı olur.
+
+Bu B2B işbirliği özelliği tüm Azure Active Directory müşteriler için kullanılabilir ve koşullu erişim ve kimlik koruması gibi Azure AD Premium özellikleri ile birlikte konusunda daha ayrıntılı denetim için ne zaman ve dış iş kullanıcılar oturum nasıl kullanılabilir içinde ve erişim sahibi olursunuz.
+
+Daha fazla bilgi için bkz: [B2B kullanıcılara izin verilenler veya Engellenenler davetleri belirli kuruluşların](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
+
+ 
+
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Yeni Federal apps mevcut Azure AD uygulama galerisinde
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** 3 taraf tümleştirme
+ 
+
+Nisan 2018 bizim uygulama galerisinde Federasyon ile aşağıdaki 13 yeni uygulamaları desteği ekledik:
+
+
+
+Ölçüt HCM, [FiscalNote](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [gizli sunucu (şirket içi)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [dinamik sinyal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mindwireless-tutorial), [Kuruluş Şeması Şimdi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ziflow-tutorial), [AppNeta Performans İzleyicisi'ni](https://docs.microsoft.com/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx Labs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [ Cisco bulut](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ciscocloud-tutorial), raf, [SafetyNet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-safetynet-tutorial)
+
+
+
+ Burada kullanılabilen öğreticileri listesini bulabilirsiniz: [ https://aka.ms/appstutorial ](https://aka.ms/appstutorial).
+
+Daha fazla bilgi için bkz: [uygulamanızı Azure Active Directory Uygulama galerisinde listelemek](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+
+
+ 
+
+---
+ 
+### <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications-public-preview"></a>Şirket içi uygulamalarınıza (genel Önizleme) Azure AD erişim ver B2B kullanıcılar
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** B2B  
+**Ürün yetenek:** B2B/B2C
+ 
+
+Azure AD iş ortağı kuruluşlardan konuk kullanıcılara davet etmek için Azure Active Directory (Azure AD) B2B işbirliği özelliklerinden kullanan kuruluş olarak, artık bu B2B kullanıcılara şirket içi uygulamalara erişim sağlayabilir. Bu şirket içi uygulamaları Kerberos Kısıtlı temsilci (KCD) ile SAML tabanlı kimlik doğrulaması veya tümleşik Windows kimlik doğrulaması (IWA) kullanabilirsiniz.
+
+Daha fazla bilgi için bkz: [Grant B2B kullanıcılar Azure AD'de şirket içi uygulamalarınıza erişme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises)
+ 
+
+---
+ 
+### <a name="get-sso-integration-tutorials-from-the-azure-marketplace"></a>SSO tümleştirme öğreticileri Azure Marketi'nden alın
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** diğer  
+**Ürün yetenek:** 3 taraf tümleştirme
+ 
+
+Listede bir uygulama, [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) destekleyen SAML tabanlı çoklu oturum açma tıklatarak özelliğini, **Şimdi Al** uygulama ile ilişkili tümleştirme öğretici sağlar. 
+
+
+---
+
+### <a name="faster-performance-of-azure-ad-automatic-user-provisioning-to-saas-applications"></a>Azure AD SaaS uygulamaları için otomatik kullanıcı sağlamayı daha hızlı performans
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** uygulama sağlama  
+**Ürün yetenek:** 3 taraf tümleştirme
+ 
+
+Azure AD kiracıları 100.000 birleşik kullanıcılar içeriyorsa daha önce Azure Active Directory kullanıcı bağlayıcıları SaaS uygulamaları (örneğin Salesforce, ServiceNow ve kutusunu) için hazırlama kullanan müşteriler çok yavaş performans karşılaşması ve grupları ve kullanıcı ve Grup atamaları hangi kullanıcıların sağlanan belirlemek için kullandığınız.
+
+2 Nisan çok önemli performans geliştirmeleri için Azure Active Directory ve hedef SaaS uygulamaları arasındaki ilk eşitlemeler gerçekleştirmek için gerekli süreyi büyük ölçüde azaltabilir Azure AD sağlama hizmeti dağıtıldı.
+
+
+Sonuç olarak, birçok müşteri, çok sayıda gün sürdü veya hiçbir zaman tamamlandı, artık bir kaç dakika veya saat içinde Tamamlanıyor uygulamalara ilk eşitlemeler vardı.
+
+Daha fazla bilgi için bkz: [sağlama işlemi sırasında ne olur?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning#what-happens-during-provisioning)
+
+---
+ 
+
+### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>Self Servis parola sıfırlama karma Azure AD için Windows 10 kilit ekranından makineler alanına katılmış
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** Self Servis parola sıfırlama  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+
+Biz karma Azure AD alanına katılmış olan makineler için destek eklemek için Windows 10 SSPR özelliği güncelleştirdiniz. Bu özellik kullanılabilir Windows 10 RS4 bir Windows 10 makinenin kilit ekranı parolalarını sıfırlamasına izin verir. Bu özellik etkin ve Self Servis parola sıfırlama için kayıtlı kullanıcılar kullanabilir.
+
+Daha fazla bilgi için bkz: [Azure AD parola oturum açma ekranından sıfırlama](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows).
+ 
+
+---
+
+
 
 ## <a name="march-2018"></a>Mart 2018
  
@@ -73,6 +284,32 @@ Azure AD B2C, kimlik sağlayıcısı Twitter veya GitHub artık ekleyebilirsiniz
 
 Daha fazla bilgi için bkz: [Azure AD B2B işbirliği nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>İOS ve Android için Intune Managed Browser Azure AD uygulama tabanlı ile koşullu erişim kullanarak tarayıcı erişimi kısıtlama
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** koşullu erişim  
+**Ürün yetenek:** kimlik güvenlik ve koruma
+ 
+
+**Artık genel önizlemede!**
+
+**Intune yönetilen tarayıcı SSO:** çalışanlarınızın çoklu oturum açma (Microsoft Outlook gibi) yerel istemcileri ve Intune yönetilen tarayıcı tüm Azure AD bağlı uygulamaları için kullanabilirsiniz.
+
+**Intune yönetilen tarayıcı koşullu erişim desteği:** çalışanların uygulama bağlı olarak koşullu erişim ilkelerini kullanarak Intune yönetilen tarayıcı kullanımı için şimdi gerektirebilir.
+
+Bu konu hakkında daha fazla bilgiyi bizim [blog gönderisi](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
+
+Daha fazla bilgi için bkz.
+
+- [Koşullu erişim uygulama tabanlı kurulum](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Yönetilen tarayıcı ilkelerini yapılandırma](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 
@@ -336,7 +573,7 @@ Daha fazla bilgi için bkz: [Azure Active Directory'de kurumsal uygulamalar içi
 
 Uygulama dağıtımı kolaylaştırmak ve yönetim yükünüzü azaltmak için artık joker karakterler kullanarak uygulama Yayımlama özelliği desteklenmektedir. Joker uygulama yayımlamak için standart uygulama yayımlama akış izleyin, ancak iç ve dış URL'ler içinde bir joker karakter kullanın.
 
-Daha fazla bilgi için bkz: [joker uygulamalarında Azure Active Directory Uygulama proxy'si](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+Daha fazla bilgi için bkz: [joker uygulamalarında Azure Active Directory Uygulama proxy'si](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard)
 
  
 
@@ -393,11 +630,11 @@ En son sürümü Azuread'i PowerShell modülünün Azure AD'de grupları yönetm
 - Remove-AzureADMSGroup
 - Set-AzureADMSGroup
 - Get-AzureADMSGroupLifecyclePolicy
-- New-AzureADMSGroupLifecyclePolicy
+- AzureADMSGroupLifecyclePolicy yeni
 - Remove-AzureADMSGroupLifecyclePolicy
-- Add-AzureADMSLifecyclePolicyGroup
+- Ekleme AzureADMSLifecyclePolicyGroup
 - Remove-AzureADMSLifecyclePolicyGroup
-- Reset-AzureADMSLifeCycleGroup   
+- Sıfırlama AzureADMSLifeCycleGroup   
 - Get-AzureADMSLifecyclePolicyGroup
  
 
@@ -477,7 +714,7 @@ Aşağıdaki uygulamalar Şubat sonuna eklenir
 
 - Microsoft PowerBI
 
-- Microsoft Launcher
+- Microsoft Başlatıcısı
 
 - Microsoft faturalama
 
@@ -495,7 +732,7 @@ Daha fazla bilgi için bkz.
 
 **Tür:** değiştirilen özelliği  
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare
+**Ürün yetenek:** uyumluluk
  
 
 Kullanım koşulları görüntülendiğinde, şimdi tıklayabilirsiniz **sorun görüntüleme sahip mi? Burayı**. Bu bağlantıya tıkladıklarında, Cihazınızda yerel kullanım koşullarını açar. Belge yazı tipi boyutu veya aygıt ekran boyutunu bağımsız olarak, yakınlaştırma ve gerektiğinde belgeyi okuyun. 
@@ -630,7 +867,7 @@ Daha fazla bilgi için bkz.
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare/uyumluluk
+**Ürün yetenek:** uyumluluk
  
 Şimdi erişim Masası'na gidin ve önceden kabul kullanım şartlarını görüntüleyin.
 
@@ -681,7 +918,7 @@ Daha fazla bilgi için bkz: [daha az sayıda oturum açma komut istemleri: yeni 
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare/uyumluluk
+**Ürün yetenek:** uyumluluk
  
 Yöneticiler için bir seçenek koşulları kabul etmeden önce Kullanım Koşulları'nı genişletin, kullanıcılar gerektirir.
 
@@ -838,7 +1075,7 @@ Daha fazla bilgi için bkz.
 
 **Tür:** yeni özellik    
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare/uyumluluk
+**Ürün yetenek:** uyumluluk
 
 
 
@@ -1019,7 +1256,7 @@ Azure AD Yönetim merkezinde, şunları yapabilirsiniz:
 
 Aşağıdaki uygulamalar listesine eklenen [istemci uygulamaları onaylanan](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
-- Microsoft Planner
+- Microsoft Planlayıcısı
 - Azure Information Protection 
 
 
@@ -1128,7 +1365,7 @@ Daha fazla bilgi için bkz: [MFA Azure portalında raporlama için başvuru](htt
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare/uyumluluk  
+**Ürün yetenek:** uyumluluk  
 
 
 
@@ -1171,7 +1408,7 @@ Daha fazla bilgi için bkz: [Azure kaynakları için Privileged Identity Managem
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** erişim gözden geçirme  
-**Ürün yetenek:** idare/uyumluluk  
+**Ürün yetenek:** uyumluluk  
 
 
 

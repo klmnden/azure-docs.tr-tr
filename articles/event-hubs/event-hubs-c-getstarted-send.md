@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs'a C kullanarak olayları göndermek | Microsoft Docs"
-description: "Azure Event Hubs'a C kullanarak olayları Gönder"
+title: Azure Event Hubs'a C kullanarak olayları göndermek | Microsoft Docs
+description: Azure Event Hubs'a C kullanarak olayları Gönder
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Azure Event Hubs'a C kullanarak olayları Gönder
 
 ## <a name="introduction"></a>Giriş
 Olay hub'ları saniye başına milyonlarca olayı alma, bir uygulamaya etkinleştirme işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir yüksek düzeyde ölçeklenebilir bir alım sistemine olur. Bir olay hub'ına toplandığında, dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya depolama kümesi kullanarak verileri depolar.
 
-Daha fazla bilgi için lütfen bkz [Event Hubs'a genel bakış] [Event Hubs'a genel bakış].
+Daha fazla bilgi için lütfen bkz [Event Hubs'a genel bakış](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
 
 Bu öğretici, c dilinde bir konsol uygulaması kullanarak bir olay hub'ına olayları göndermeyi açıklar Olayları alma hakkında bilgi edinmek için sol taraftaki İçindekiler uygun alıcı dilde'ı tıklatın.
 
@@ -33,7 +33,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Bir C geliştirme ortamı. Bu öğretici Azure Linux VM'de Ubuntu 14.04 ile gcc yığın varsayar.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Event Hubs’a ileti gönderme
 Bu bölümde, olay hub'ınıza olayları göndermek için C uygulama yazmak gösterilmiştir. Kodu Proton AMQP Kitaplığı'ndan kullanan [Apache Qpid proje](http://qpid.apache.org/). Bu hizmet veri yolu sıraları ve konuları AMQP ile C'den gösterildiği gibi kullanmaya benzer [bu örnekteki](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Daha fazla bilgi için bkz: [Qpid Proton belgelerine](http://qpid.apache.org/proton/index.html).

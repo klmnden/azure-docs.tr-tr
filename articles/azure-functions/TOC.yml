@@ -97,6 +97,8 @@
           href: durable-functions-bindings.md
         - name: Denetim noktası ve yeniden yürütme
           href: durable-functions-checkpointing-and-replay.md
+        - name: Özel düzenleme durumu
+          href: durable-functions-custom-orchestration-status.md
         - name: Örnek yönetimi
           href: durable-functions-instance-management.md
         - name: HTTP API
@@ -181,6 +183,8 @@
           href: durable-functions-phone-verification.md
         - name: Birim testi
           href: durable-functions-unit-testing.md
+        - name: Etkinlik yayımlama
+          href: durable-functions-event-publishing.md
 - name: Başvuru
   items:
     - name: Bağlamalar

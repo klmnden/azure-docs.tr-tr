@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Yönetilen örnek
       href: sql-database-managed-instance.md
-    - name: Hizmet katmanları
-      href: sql-database-service-tiers.md
+    - name: DTU tabanlı Hizmet katmanları
+      href: sql-database-service-tiers-dtu.md
+    - name: Sanal çekirdek tabanlı Hizmet katmanları
+      href: sql-database-service-tiers-vcore.md
     - name: Okuma Amaçlı Ölçeği Genişletme
       href: sql-database-read-scale-out.md
     - name: DTU tabanlı kaynak sınırları
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Kiracılar arası raporlama
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: Analiz için ETL
-              href: saas-tenancy-tenant-analytics.md
+            - name: Kiracı analizi
+              items:
+                - name: SQL DB ile
+                  href: saas-tenancy-tenant-analytics.md
+                - name: SQL DW ile
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Coğrafi geri yüklemeyi kullanarak olağanüstü durum kurtarma
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Coğrafi veri tabanı çoğaltmayı kullanarak olağanüstü durum kurtarma

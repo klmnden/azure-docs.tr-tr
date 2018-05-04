@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6ea915ac10314f6304c98e40a50b26e3d1ee79eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights ve günlük analizi tarafından kullanılan IP adresleri
 [Azure Application Insights](app-insights-overview.md) hizmeti, IP adreslerinin sayısı kullanır. İzlemekte olduğunuz uygulama güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
@@ -49,11 +49,6 @@ Durum İzleyicisi'ni yapılandırma - yalnızca değişiklik yaparken gerekir.
 | Yapılandırma |`auth.gfx.ms` | |`443` |
 | Yapılandırma |`login.live.com` | |`443` |
 | Yükleme |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet indirmeleri) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| Amaç | URL'si | IP | Bağlantı Noktaları |
-| --- | --- | --- | --- |
-| Çökme verileri |Gate.hockeyapp.NET |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Kullanılabilirlik testleri
 Hangi adreslerinden listesidir [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) çalıştırılır. Uygulamanıza web testleri çalıştırmak istediğinizi, ancak web sunucunuzu belirli istemciler hizmet için kısıtlı, test sunucuları bizim kullanılabilirlik gelen trafiğe izin gerekecektir.
@@ -218,7 +213,7 @@ Not: *. Application Insights ekibi tarafından applicationinsights.io etki alan�
 
 Not: *. loganalytics.io etki alanı günlük analizi ekibi tarafından ait.
 
-## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure portalı uzantısı
+## <a name="application-insights-azure-portal-extension"></a>Uygulama Öngörüler Azure portalı uzantısı
 
 | Amaç | URI | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |

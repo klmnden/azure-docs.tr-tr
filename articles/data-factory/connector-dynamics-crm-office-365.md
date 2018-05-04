@@ -15,7 +15,7 @@ ms.date: 04/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
 ---

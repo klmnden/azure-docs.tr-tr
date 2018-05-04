@@ -1,13 +1,13 @@
 ---
-title: "Dinamik gruplar ve Azure Active Directory B2B işbirliği | Microsoft Docs"
-description: "Azure AD dinamik grupların Azure Active Directory B2B işbirliği ile nasıl kullanılacağını gösterir"
+title: Dinamik gruplar ve Azure Active Directory B2B işbirliği | Microsoft Docs
+description: Azure AD dinamik grupların Azure Active Directory B2B işbirliği ile nasıl kullanılacağını gösterir
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: MT
+ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dinamik gruplar ve Azure Active Directory B2B işbirliği
 
@@ -55,7 +55,4 @@ Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 * [B2B işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
 * [B2B işbirliği kodu ve PowerShell örnekleri](active-directory-b2b-code-samples.md)
 * [SaaS uygulamaları B2B işbirliği için yapılandırma](active-directory-b2b-configure-saas-apps.md)
-* [B2B işbirliği kullanıcı belirteçleri](active-directory-b2b-user-token.md)
-* [B2B işbirliği kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
-* [Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
-* [B2B işbirliği geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
+

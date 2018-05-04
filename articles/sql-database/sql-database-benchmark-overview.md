@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL veritabanı DTU Kıyaslama genel bakış
 ## <a name="overview"></a>Genel Bakış
-DTU tabanlı satın alma modeli, Microsoft Azure SQL veritabanı üç sunar [hizmet katmanları](sql-database-service-tiers.md) birden çok performans düzeyine sahip. Her performans düzeyi kaynakları ya da 'power' giderek daha yüksek verimlilik sağlamak üzere tasarlanmış, artan bir dizi sağlar.
+DTU tabanlı satın alma modeli, Microsoft Azure SQL veritabanı üç sunar [hizmet katmanları](sql-database-service-tiers-dtu.md) birden çok performans düzeyine sahip. Her performans düzeyi kaynakları ya da 'power' giderek daha yüksek verimlilik sağlamak üzere tasarlanmış, artan bir dizi sağlar.
 
 > [!IMPORTANT]
-> Azure SQL veritabanı artık bir vCore tabanlı satın alma modeli (Önizleme) destekler. Bilgi için bkz: [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+> Azure SQL veritabanı artık bir vCore tabanlı satın alma modeli (Önizleme) destekler. Bilgi için bkz: [vCore tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 Her performans düzeyi artan gücünü artan veritabanı performansını nasıl çevirir ölçme olması önemlidir. Bu Microsoft yapmak için Azure SQL veritabanı Kıyaslama (ASDB) geliştirmiştir. Kıyaslama temel işlemleri tüm OLTP iş yüklerini bulunan bir karışımını uygular. Biz her performans düzeyi çalışan veritabanları için elde edilen işleme ölçün.
 
@@ -126,6 +126,8 @@ Azure SQL veritabanı Kıyaslama kullanılabilir hizmet katmanları ve performan
 ## <a name="resources"></a>Kaynaklar
 [SQL veritabanı giriş](sql-database-technical-overview.md)
 
-[Hizmet katmanları ve performans düzeyleri](sql-database-service-tiers.md)
+[DTU tabanlı hizmet katmanları ve performans düzeyleri](sql-database-service-tiers-dtu.md)
+
+[vCore tabanlı hizmet katmanları ve performans düzeyleri](sql-database-service-tiers-vcore.md)
 
 [Tek veritabanları için performans rehberi](sql-database-performance-guidance.md)

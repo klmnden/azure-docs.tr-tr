@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Site Recovery ile Azure Traffic Manager hakkında
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: Site Recovery ile ExpressRoute hakkında
+      href: concepts-expressroute-with-site-recovery.md
     - name: SSS
       href: site-recovery-faq.md
 - name: Nasıl Yapılır Kılavuzları
@@ -119,16 +121,20 @@
       items:
         - name: Ağ
           items:
-            - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı yönetme (Önizleme)
+            - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı yönetme
               href: azure-to-azure-about-networking.md
             - name: Azure VM’lerinde olağanüstü durum kurtarmada ağ eşlemesini hazırlama
               href: azure-to-azure-network-mapping.md
             - name: Yük devretme için IP adresi ayarlama
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: Azure VM olağanüstü durum kurtarma ile ExpressRoute
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Olağanüstü durum kurtarma
           items:
             - name: Azure geçişinden sonra Azure VM'leri olağanüstü durumdan kurtarma
               href: azure-to-azure-replicate-after-migration.md
+            - name: PowerShell kullanarak Azure VM'leri olağanüstü durumdan kurtarma
+              href: azure-to-azure-powershell.md
         - name: 'Çoğaltma, yük devretme ve yeniden çalıştırma'
           items:
             - name: Azure-Azure arası çoğaltmayı etkinleştirme

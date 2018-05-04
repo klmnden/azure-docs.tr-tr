@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -178,6 +178,11 @@ Hayır, ancak uygulama ağ geçidi bir Eşiğe ulaşıldığında, sizi uyarmak 
 **Q. El ile ölçek yukarı/aşağı neden kapalı kalma süresi mu?**
 
 Kapalı kalma süresi olmadan, örnekler yükseltme etki alanları ve hata etki alanları arasında dağıtılır.
+
+**Q. Uygulama ağ geçidi destek bağlantı boşaltma mu?**
+
+Evet. Bağlantı kesintisi olmadan bir arka uç havuzundaki üyeleri değiştirmek için boşaltma yapılandırabilirsiniz. Bu, bu bağlantı kapalı ya da yapılandırılabilir bir zaman aşımı süresi kadar önceki hedeflerine gönderilecek devam etmek var olan bağlantılara izin verir. Bu bağlantı yalnızca bekler tamamlamak geçerli yürütülen bağlantılarını boşaltma unutmayın. Uygulama ağ geçidi uygulama oturum durumunu uyumlu değil.
+
 
 **Q. Örnek boyutu ortamından kesintiye uğratmadan büyük değiştirebilirim?**
 

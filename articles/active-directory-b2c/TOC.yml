@@ -112,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (Tek Kiracılı)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: Özel OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Self servis parola sıfırlamayı ayarlama
           href: active-directory-b2c-reference-sspr.md
         - name: Kullanıcı arabirimini özelleştirme
@@ -159,6 +163,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Çok Kiracılı
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: SAML sağlayıcılarını yapılandırma
               items:
                 - name: ADFS
@@ -195,12 +201,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Oturumumu açık bırak seçeneğini etkinleştirme
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: Kullanıcı davranışını izleme
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Sorun giderme
               items:
                 - name: Application Insights’ı kullanarak günlük toplama
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: Kullanıcı davranışını izleme
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Başvuru
           items:
             - name: Sürüm notları

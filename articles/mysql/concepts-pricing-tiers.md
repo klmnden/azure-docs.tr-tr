@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 376e153f7efcf78f824c42cc2f957bc97286f389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına MySQL için
 
@@ -44,7 +44,7 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı (aynı fiy
 
 | **Azure bölgesi** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Orta ABD |  | X |
+| Orta ABD | X |  |
 | Doğu ABD | X | X |
 | Doğu ABD 2 | X | X |
 | Orta Kuzey ABD | X |  |
@@ -55,7 +55,7 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı (aynı fiy
 | Doğu Kanada | X | X |
 | Güney Brezilya | X | X |
 | Kuzey Avrupa | X | X |
-| Batı Avrupa | X | X |
+| Batı Avrupa |  | X |
 | Birleşik Krallık Batı |  | X |
 | Birleşik Krallık Güney |  | X |
 | Doğu Asya | X |  |

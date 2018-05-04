@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Data Factory'de sorun giderme
 > [!NOTE]
@@ -34,7 +34,7 @@ Bu hatayı aldıysanız Azure Data Factory kaynak sağlayıcısı makinenizde ka
 2. Aşağıdaki komutu kullanarak Azure hesabınızda oturum açın.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Azure Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın.
 
@@ -45,7 +45,7 @@ Bu hatayı aldıysanız Azure Data Factory kaynak sağlayıcısı makinenizde ka
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Sorun: bir Data Factory cmdlet çalıştırıldığında yetkisiz hata
 Azure PowerShell ile doğru Azure hesabını veya aboneliğini kullanmıyor olabilirsiniz. Azure PowerShell ile kullanılacak doğru Azure hesabını ve aboneliğini seçmek için aşağıdaki cmdlet’leri kullanın.
 
-1. Login-AzureRmAccount - kullanım doğru kullanıcı kimliği ve parolası
+1. Connect-AzureRmAccount - kullanım doğru kullanıcı kimliği ve parolası
 2. Get-AzureRmSubscription - hesap için tüm abonelikleri görüntüleyin.
 3. Select-AzureRmSubscription &lt;abonelik adı&gt; -doğru abonelik seçin. Aynı Azure Portal'da data factory oluşturmak için kullandığınız kullanın.
 

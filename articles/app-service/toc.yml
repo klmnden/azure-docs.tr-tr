@@ -253,6 +253,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: Performans sorunlarını giderme
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Etki alanı ve sertifika sorunlarını giderme
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: SSS
           items:
             - name: 'kullanılabilirlik, performans ve uygulama hakkında SSS'

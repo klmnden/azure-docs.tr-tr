@@ -69,9 +69,9 @@
 ## [ACS Geçişi](active-directory-acs-migration.md)
 ## [ADAL hatalarıyla ilgili en iyi uygulamalar](active-directory-devhowto-adal-error-handling.md)
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Kimlik doğrulama kitaplıkları (ADAL)](active-directory-authentication-libraries.md)
-## [Kod örnekleri makalesi](active-directory-code-samples.md)
+## [Senaryoya göre kod örnekleri](active-directory-code-samples.md)
 ## [Sözlük](active-directory-dev-glossary.md)
 ## [Kimlik doğrulama protokolleri](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +97,8 @@
 ### Mobil ve Masaüstü uygulamaları
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (Windows Masaüstü)](guidedsetups/active-directory-windesktop.md)
+#### [Windows Masaüstü .NET](guidedsetups/active-directory-windesktop.md)
+#### [Evrensel Windows Platformu](guidedsetups/active-directory-uwp-v2.md)
 ### Web uygulamaları
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +110,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Kılavuzlar
 ### [Bir uygulamayı kaydetme](active-directory-v2-app-registration.md)
+### [Uygulama kayıt başvurusu](active-directory-v2-registration-portal.md)
 ## Başvuru
 ### [Kimlik doğrulama kitaplıkları](active-directory-v2-libraries.md)
+### [Senaryoya göre v2.0 kod örnekleri](active-directory-v2-code-samples.md)
 ### [v2.0 kimlik doğrulama protokolleri](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [OAuth 2.0 yetkilendirme kodu verme](active-directory-v2-protocols-oauth-code.md)

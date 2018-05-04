@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modeli Yönetim Kurulumu ve yapılandırması | Microsoft Docs"
-description: "Bu belgede adımları ve kavramları açıklamaktadır ayarlama ve Azure Machine Learning modeli yönetimini yapılandırma katılan."
+title: Azure Machine Learning modeli Yönetim Kurulumu ve yapılandırması | Microsoft Docs
+description: Bu belgede adımları ve kavramları açıklamaktadır ayarlama ve Azure Machine Learning modeli yönetimini yapılandırma katılan.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -38,7 +38,7 @@ Diğer tüm sistemlerde CLIs yüklemeniz gerekir.
 
 ### <a name="installing-or-updating-on-windows"></a>Yükleme (veya güncelleştirme) Windows
 
-Python https://www.python.org/ yükleyin. PIP yüklemek için seçtiğinizden emin olun.
+Gelen Python yüklemek https://www.python.org/. PIP yüklemek için seçtiğinizden emin olun.
 
 Yönetici olarak çalıştır'ı kullanarak bir komut istemi açın ve aşağıdaki komutları çalıştırın:
 
@@ -83,7 +83,7 @@ Yerel bir dağıtımı ile'ı başlatın, modeli ve kod, ardından çalıştığ
 Başlatmak için dağıtım ortamı kurmanız gerekir. Bir ortamı kurulması saat görevi. Kurulum tamamlandıktan sonra ortam sonraki dağıtımlar için yeniden kullanabilirsiniz. Daha fazla ayrıntı için aşağıdaki bölüme bakın.
 
 Ortam Kurulumu tamamlanırken:
-- Azure'da oturum açın istenir. Oturum açmak için sayfayı https://aka.ms/devicelogin açın ve kimlik doğrulaması için sağlanan kod girmek için bir web tarayıcısı kullanın.
+- Azure'da oturum açın istenir. Oturum açmak için sayfayı açmak için bir web tarayıcısı kullanın https://aka.ms/devicelogin ve kimlik doğrulaması için sağlanan kod girin.
 - Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliğinizin ve kaynakları hesabı oluşturmak için yeterli izinlere sahip bir hesap seçin - oturum aç tamamlandığında, abonelik bilgilerinizi sunulur ve devam etmek istiyor olup olmadığını istenir Seçilen hesap.
 
 ### <a name="environment-setup"></a>Ortam Kurulumu

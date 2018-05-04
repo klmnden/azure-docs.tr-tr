@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3473cb5260773fda0534c4f0aca1db731cce74eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure ilke şablonları
 
@@ -79,6 +79,9 @@ Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını iç
 | [İzin verilen kaynak türleri](scripts/allowed-res-types.md) | Yalnızca onaylanan kaynak türleri dağıtılan sağlar. İzin verilen kaynak türleri dizisi belirtin.  |
 | [Depolama hesabı SKU'ları izin](scripts/allowed-stor-acct-skus.md) | Depolama hesapları onaylanmış bir SKU kullanmanızı gerektirir. Onaylanan SKU'ları dizisi belirtin. |
 | [Etiket ve varsayılan değerini Uygula](scripts/apply-tag-def-val.md) | Bu etiket sağlanmazsa, belirtilen etiket ad ve değer ekler. Uygulama için değer ve etiket adı belirtin.  |
+| [SQL veritabanı şifreleme denetleme](scripts/sql-database-encryption-audit.md) | SQL veritabanı saydam veri şifreleme etkin yoksa denetler. |
+| [SQL Server denetim ayarlarını denetleme](scripts/sql-server-audit.md) | Denetim ayarlarını etkin temel SQL server denetler. |
+| [Data Lake Store şifrelemeyi zorunlu kılma](scripts/enforce-datalakestore-encryption.md) | Şifreleme etkin olmayan herhangi bir Data Lake Store hesabı reddeder. |
 | [Etiket ve değerini zorla](scripts/enforce-tag-val.md) | Belirtilen etiket adı ve değeri gerektirir. Zorlamak için değer ve etiket adı belirtin.  |
 | [Kaynak türleri izin verilmiyor](scripts/not-allowed-res-type.md) | Belirtilen kaynak türleri dağıtımını engelliyor. Bir dizi engellemek için kaynak türlerini belirtin.  |
 | [SQL Server sürüm 12.0 gerektirir](scripts/req-sql-12.md) | SQL sunucu sürümü 12.0 kullanmasını gerektirir.  |

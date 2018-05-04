@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Gezgini sürüm notları
 
@@ -227,7 +227,7 @@ Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler i�
 * Açın veya geçersiz bir Windows dosya adına sahip bir blob indirmek çalıştıysanız işlemi başarısız olur. Depolama Gezgini şimdi blob adı geçersizse algılamak ve kodlamak veya blob atlamak isteyip isteyin. Depolama Gezgini, bir dosya adı kodlanması ve, sorun görünüp görünmeyeceğini de algılar, karşıya yüklemeden önce çözmek istiyor.
 * BLOB karşıya yükleme sırasında hedef blob kapsayıcısı için Düzenleyicisi bazen düzgün yeniler değil. Bu düzeltilmiştir.
 * Bağlantı dizeleri ve SAS URI'ler çeşitli biçimlerde desteği gerileyen. Biz tüm bilinen sorunlar ele, ancak daha fazla sorunlarla karşılaşırsanız lütfen geri bildirim gönderin.
-* Güncelleştirme bildirimi 0.9.0'dan bazı kullanıcılar için kesildi. Bu sorun düzeltilmiştir ve bunlar için hatadan etkilenen, el ile Depolama Gezgini en son sürümünü indirebilirsiniz [burada](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* Güncelleştirme bildirimi 0.9.0'dan bazı kullanıcılar için kesildi. Bu sorun düzeltilmiştir ve bunlar için hatadan etkilenen, el ile Depolama Gezgini en son sürümünü indirebilirsiniz [burada](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Bilinen Sorunlar
 * Depolama Gezgini ADFS hesaplarını desteklemez.
@@ -281,7 +281,7 @@ Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler i�
 * Açın veya geçersiz bir Windows dosya adına sahip bir blob indirmek çalıştıysanız işlemi başarısız olur. Depolama Gezgini şimdi blob adı geçersizse algılamak ve kodlamak veya blob atlamak isteyip isteyin. Depolama Gezgini, bir dosya adı kodlanması ve, sorun görünüp görünmeyeceğini de algılar, karşıya yüklemeden önce çözmek istiyor.
 * BLOB karşıya yükleme sırasında hedef blob kapsayıcısı için Düzenleyicisi bazen düzgün yeniler değil. Bu düzeltilmiştir.
 * Bağlantı dizeleri ve SAS URI'ler çeşitli biçimlerde desteği gerileyen. Biz tüm bilinen sorunlar ele, ancak daha fazla sorunlarla karşılaşırsanız lütfen geri bildirim gönderin.
-* Güncelleştirme bildirimi 0.9.0'dan bazı kullanıcılar için kesildi. Bu sorun düzeltilmiştir ve bunlar için hatadan etkilenen, el ile Depolama Gezgini en son sürümünü indirebilirsiniz [burada](https://azure.microsoft.com/en-us/features/storage-explorer/)
+* Güncelleştirme bildirimi 0.9.0'dan bazı kullanıcılar için kesildi. Bu sorun düzeltilmiştir ve bunlar için hatadan etkilenen, el ile Depolama Gezgini en son sürümünü indirebilirsiniz [burada](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Bilinen Sorunlar
 * Depolama Gezgini ADFS hesaplarını desteklemez.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: 2682054dd132e33897602b60f0799b7cc10ea5f1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 3e897ecb4d42fe2165457c34faa4c1178178e4d3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Genişletme tarafından doldurulmuş tabloları itibaren büyür kota isabet kad
 ## <a name="log-collection-configurations"></a>Günlük toplama yapılandırmaları
 Ek kanalları günlüklerinden de koleksiyonu için kullanılabilir olan, Azure'da çalışan kümeler için şablonda yapabileceğiniz yapılandırmaların çoğu bazıları aşağıda verilmiştir.
 
-* İşlemsel kanal - Base: varsayılan, Service Fabric ve gelen dağıtılmakta olan yeni bir uygulama, bir düğüm için olaylar dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlemler veya yükseltme bir geri alma tarafından etkinleştirilmiş vb. Olaylar listesi için bkz [çalışma kanal olaylarını](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* İşlemsel kanal - Base: varsayılan, Service Fabric ve gelen dağıtılmakta olan yeni bir uygulama, bir düğüm için olaylar dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlemler veya yükseltme bir geri alma tarafından etkinleştirilmiş vb. Olaylar listesi için bkz [çalışma kanal olaylarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"

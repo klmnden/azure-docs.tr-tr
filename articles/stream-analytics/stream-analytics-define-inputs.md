@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/25/2018
-ms.openlocfilehash: 1fc1791d75355cc30f2ef43fc17e39a868e2c756
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 04/27/2018
+ms.openlocfilehash: 2b2ef68622f96d87a25d203d3d67aa0877397072
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak veri akışı
 
@@ -45,7 +45,7 @@ Azure Event Hubs sağlayan yüksek düzeyde ölçeklenebilir olay ingestors yay�
 Varsayılan zaman damgası akış analizi, olay hub'ten gelen olayların olay Olay hub'ı, ama olan gelen zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü, kullanmalısınız durumunda bir zaman damgası kullanarak bir akış işlemek için [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
 
 ### <a name="consumer-groups"></a>Tüketici grupları
-Kendi tüketici grubu için giriş her akış analizi olay hub'ı yapılandırmanız gerekir. Bir işi kendi kendine birleşim içerdiğinde ya da birden fazla giriş varsa, bazı giriş aşağı birden fazla okuyucu tarafından okuyabilir. Bu durum, tek bir tüketici grubundaki okuyucu sayısını etkiler. Bölüm başına tüketici grubu başına beş okuyucuların olay hub'ları sınırını aşmamak için her akış analizi işi için bir tüketici grubu atamak için bir en iyi uygulamadır. Olay hub'ı başına 20 tüketici grupları sınırı yoktur. Daha fazla bilgi için bkz: [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md).
+Kendi tüketici grubu için giriş her akış analizi olay hub'ı yapılandırmanız gerekir. Bir işi kendi kendine birleşim içerdiğinde ya da birden fazla giriş varsa, bazı giriş aşağı birden fazla okuyucu tarafından okuyabilir. Bu durum, tek bir tüketici grubundaki okuyucu sayısını etkiler. Bölüm başına tüketici grubu başına beş okuyucuların olay hub'ları sınırını aşmamak için her akış analizi işi için bir tüketici grubu atamak için bir en iyi uygulamadır. Olay hub'ı başına 20 tüketici grupları sınırı yoktur. Daha fazla bilgi için bkz: [Azure akış analizi olay hub'ı alıcı ile ilgili sorunları giderme](stream-analytics-event-hub-consumer-groups.md).
 
 ### <a name="stream-data-from-event-hubs"></a>Event hubs veri akışı
 Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** bir olay hub'ı Azure portalından akış veri giriş sayfası:

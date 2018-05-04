@@ -3,7 +3,7 @@ title: İlke bakım azure yığın | Microsoft Docs
 description: Bakım İlkesi ve desteklenen bir duruma tümleşik bir sistem korumak nasıl Azure yığın hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/18/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 160ba42c5cbdd3e8b999040cba8254d4c87f7c63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>İlke bakım azure yığını
 Bu makalede hizmet ilkesi Azure tümleşik yığını sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekir. 
@@ -55,6 +55,9 @@ Destek almak devam etmek için geçerli Azure yığın dağıtımınızı tutmal
 Örneğin, en son kullanılabilir güncelleştirme sürüm 1805 ve önceki iki güncelleştirme paketleri 1804 ve 1803 sürümleri olan 1803 ve 1804 desteği kalır. Ancak, 1802 dışında desteğidir. İlke olduğunda hiçbir sürüm ayda bir veya iki için geçerlidir. Örneğin, 1805 sürümü geçerli olduğundan ve hiçbir 1804 yayın vardı, önceki iki güncelleştirme paketleri 1803 ve 1802 desteği kalır.
 
 Microsoft yazılım güncelleştirme paketleri, toplu olmayan ve bir önkoşul olarak önceki güncelleştirme paketini gerektirir. Bir veya daha fazla güncelleştirmelerinin erteleneceği karar verirseniz, en son sürümünü almak genel çalışma zamanı göz önünde bulundurun. 
+
+## <a name="get-support"></a>Destek alın
+Azure yığını aynı Azure destek süreci izler. Kurumsal müşteriler açıklanan işlemi izleyin [Azure destek isteği oluşturmak nasıl](/azure/azure-supportability/how-to-create-azure-support-request). Bir müşteri bir bulut hizmeti sağlayıcısı (CSP) varsa, CSP için desteğine başvurun.  Daha fazla bilgi için bkz: [Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

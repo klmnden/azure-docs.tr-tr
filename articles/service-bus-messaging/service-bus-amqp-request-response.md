@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemleri
 
@@ -69,7 +69,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Bir istek iletisi Aktarım  
 
 Bir istek iletisi aktarır.  
-  
+İşlem durumu, işlem destekleyen işlemleri için isteğe bağlı olarak eklenebilir.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +80,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Bir yanıt iletisi alıyorsunuz  
@@ -195,7 +200,7 @@ Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:
   
 ### <a name="schedule-message"></a>Zamanlama iletisi  
 
-İletileri zamanlar.  
+İletileri zamanlar. Bu işlem, işlem destekler.
   
 #### <a name="request"></a>İstek  
 
@@ -217,8 +222,9 @@ Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |ileti kimliği|string|Evet|`amqpMessage.Properties.MessageId` dize olarak|  
-|oturum kimliği|string|Evet|`amqpMessage.Properties.GroupId as string`|  
-|Bölüm anahtarı|string|Evet|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|oturum kimliği|string|Hayır|`amqpMessage.Properties.GroupId as string`|  
+|Bölüm anahtarı|string|Hayır|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|aracılığıyla bölüm-anahtar|string|Hayır|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |message|bayt dizisi|Evet|Hat üzeri olarak kodlanmış bir AMQP 1.0 ileti.|  
   
 #### <a name="response"></a>Yanıt  
@@ -323,7 +329,7 @@ Oturum iletileri kilitlemeden iletiye göz atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|from-sequence-number|uzun|Evet|Peek başlayacağı sıra numarası.|  
+|sırası-sayı|uzun|Evet|Peek başlayacağı sıra numarası.|  
 |ileti sayısı|Int|Evet|En fazla atmaya ileti sayısı.|  
 |oturum kimliği|string|Evet|Oturum kimliği|  
   
@@ -428,7 +434,7 @@ Bir Mesajlaşma varlığı oturumlarını numaralandırır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|timestamp|Evet|Yalnızca belirli bir süre sonra güncelleştirilmiş oturumları göstermek için filtrelenir.|  
+|Son güncelleştirme saati|timestamp|Evet|Yalnızca belirli bir süre sonra güncelleştirilmiş oturumları göstermek için filtrelenir.|  
 |Atla|Int|Evet|Oturum sayısını atlayın.|  
 |Sayfanın Üstü|Int|Evet|En fazla oturum sayısını.|  
   
@@ -466,15 +472,15 @@ Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bi
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |Kural adı|string|Evet|Kural adı, abonelik ve konu adları dahil edilmez.|  
-|rule-description|eşleme|Evet|Sonraki bölümde belirtildiği gibi kural açıklaması.|  
+|Kural açıklaması|eşleme|Evet|Sonraki bölümde belirtildiği gibi kural açıklaması.|  
   
 **Kural açıklaması** eşlemesi, aşağıdaki girişleri içermelidir nerede **sql filtresi** ve **bağıntı filtresi** karşılıklı olarak birbirini dışlar:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|sql-filter|eşleme|Evet|`sql-filter`, sonraki bölümde belirtildiği gibi.|  
+|SQL filtresi|eşleme|Evet|`sql-filter`, sonraki bölümde belirtildiği gibi.|  
 |Bağıntı filtresi|eşleme|Evet|`correlation-filter`, sonraki bölümde belirtildiği gibi.|  
-|sql-rule-action|eşleme|Evet|`sql-rule-action`, sonraki bölümde belirtildiği gibi.|  
+|SQL kural eylemi|eşleme|Evet|`sql-rule-action`, sonraki bölümde belirtildiği gibi.|  
   
 Sql filtresi eşleme aşağıdaki girdileri şunları içermelidir:  
   
@@ -537,6 +543,85 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
 |StatusDescription|string|Hayır|Durum açıklaması.|  
   
+### <a name="get-rules"></a>Kuralları Al
+
+#### <a name="request"></a>İstek
+
+İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:
+
+|Anahtar|Değer türü|Gerekli|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+|işlemi|string|Evet|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
+
+İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+  
+|Anahtar|Değer türü|Gerekli|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+|Sayfanın Üstü|Int|Evet|Sayfanın getirmek için kuralları sayısı.|  
+|Atla|Int|Evet|Atlamak için kuralları sayısı. Başlangıç dizini (+ 1) kurallarının listesini tanımlar. | 
+
+#### <a name="response"></a>Yanıt
+
+Yanıt iletisi aşağıdaki özellikleri içerir:
+
+|Anahtar|Değer türü|Gerekli|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
+|rules| Harita dizisi|Evet|Kuralları dizisi. Her bir kural tarafından bir harita temsil edilir.|
+
+Dizideki her eşleme girişi aşağıdaki özellikleri içerir:
+
+|Anahtar|Değer türü|Gerekli|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+|Kural açıklaması|açıklanan nesneler dizisi|Evet|`com.microsoft:rule-description:list` kod 0x0000013700000004 AMQP ile açıklanan| 
+
+`com.microsoft.rule-description:list` açıklanan nesnelerinin bir dizisidir. Dizi aşağıdakileri içerir:
+
+|Dizin|Değer türü|Gerekli|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+| 0 | açıklanan nesneler dizisi | Evet | `filter` Aşağıda belirtildiği gibi. |
+| 1 | açıklanan nesne dizisi | Evet | `ruleAction` Aşağıda belirtildiği gibi. |
+| 2 | string | Evet | Kural adı. |
+
+`filter` şu türlerden birini olabilir:
+
+| Tanımlayıcı adı | Tanımlayıcı kod | Değer |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL filtresi |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Bağıntı filtresi |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | 1 = 1 temsil eden true filtresi |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | 1 = 0 temsil eden false filtresi |
+
+`com.microsoft:sql-filter:list` içeren açıklanan bir dizi şöyledir:
+
+|Dizin|Değer türü|Gerekli|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Evet | SQL filtre ifadesi |
+
+`com.microsoft:correlation-filter:list` içeren açıklanan bir dizi şöyledir:
+
+|Dizin (varsa var)|Değer türü|Değer içeriği|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Bağıntı Kimliği |
+| 1 | string | İleti kimliği |
+| 2 | string | Alıcı |
+| 3 | string | Yanıtla |
+| 4 | string | Etiket |
+| 5 | string | Oturum Kimliği |
+| 6 | string | Oturum kimliği Yanıtla|
+| 7 | string | İçerik Türü |
+| 8 | Eşleme | Uygulama tanımlı özelliklerinin eşleme |
+
+`ruleAction` Aşağıdaki türlerden biri olabilir:
+
+| Tanımlayıcı adı | Tanımlayıcı kod | Değer |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Boş kural eylemi - mevcut hiçbir kural eylemi |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL kural eylemi |
+
+`com.microsoft:sql-rule-action:list` SQL kural eylemin ifadesi içeren bir dize olan ilk giriştir açıklanan nesnelerinin bir dizisidir.
+
 ## <a name="deferred-message-operations"></a>Ertelenmiş ileti işlemleri  
   
 ### <a name="receive-by-sequence-number"></a>Seri numarasına göre alma  
@@ -583,7 +668,7 @@ Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:
   
 ### <a name="update-disposition-status"></a>Değerlendirme durumunu güncelleştir  
 
-Ertelenmiş iletileri değerlendirme durumunu güncelleştirir.  
+Ertelenmiş iletileri değerlendirme durumunu güncelleştirir. Bu işlem işlemleri destekler.
   
 #### <a name="request"></a>İstek  
 
@@ -598,11 +683,11 @@ Ertelenmiş iletileri değerlendirme durumunu güncelleştirir.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Değerlendirme durumu|string|Evet|tamamlandı<br /><br /> abandoned<br /><br /> askıya alındı|  
+|Değerlendirme durumu|string|Evet|tamamlandı<br /><br /> terk<br /><br /> askıya alındı|  
 |Kilit belirteçleri|UUID dizisi|Evet|Değerlendirme durumunu güncelleştirmek için kilit belirteçleri ileti.|  
-|deadletter-reason|string|Hayır|Değerlendirme durumu ayarlanmışsa ayarlanabilir **askıya**.|  
-|deadletter-description|string|Hayır|Değerlendirme durumu ayarlanmışsa ayarlanabilir **askıya**.|  
-|properties-to-modify|eşleme|Hayır|Hizmet veri yolu listesini değiştirmek için ileti özellikleri aracılı.|  
+|sahipsiz nedeni|string|Hayır|Değerlendirme durumu ayarlanmışsa ayarlanabilir **askıya**.|  
+|sahipsiz açıklaması|string|Hayır|Değerlendirme durumu ayarlanmışsa ayarlanabilir **askıya**.|  
+|değiştirme özellikleri|eşleme|Hayır|Hizmet veri yolu listesini değiştirmek için ileti özellikleri aracılı.|  
   
 #### <a name="response"></a>Yanıt  
 

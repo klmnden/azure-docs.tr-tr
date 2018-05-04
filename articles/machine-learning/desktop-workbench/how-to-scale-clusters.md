@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti kümesi Machine Learning için ölçeklendirme | Microsoft Docs"
-description: "Bir ACS küme - otomatik ölçeklendirme ve statik ölçeklendirme ölçeklendirme; Kümedeki düğüm sayısını ölçeklendirme"
+title: Azure kapsayıcı hizmeti kümesi Machine Learning için ölçeklendirme | Microsoft Docs
+description: Bir ACS küme - otomatik ölçeklendirme ve statik ölçeklendirme ölçeklendirme; Kümedeki düğüm sayısını ölçeklendirme
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
 ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Web hizmeti üretilen işini yönetmenizi küme ölçeklendirme
 
@@ -86,10 +86,10 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 | Parametre adı | Tür | Açıklama |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | boole | Otomatik ölçeklendirme etkinleştirilip etkinleştirilmeyeceğini belirtir. Varsayılan: true |
-| `autoscale-min-replicas` | tamsayı | Pod'ları minimum sayısını belirtir. 0 veya daha büyük olmalıdır. Varsayılan: 1 |
-| `autoscale-max-replicas` | tamsayı | Pod'ları üst sınırını belirtir. 1 veya daha büyük olmalıdır. Otomatik ölçeklendirme max çoğaltmaları otomatik ölçeklendirme-min-çoğaltmaları küçük ise, otomatik ölçeklendirme max çoğaltmaları yoksayılacak. Varsayılan: 10 |
-| `autoscale-refresh-period-seconds` | tamsayı | Otomatik ölçeklendirme yenilemeleri arasında saniye cinsinden süreyi belirtir. Varsayılan: 1 |
-| `autoscale-target-utilization` | tamsayı | 1 ile 100 arasında otomatik ölçeklendirme hedefleyen yüzdesi kullanımı belirtir. Varsayılan: 70 |
+| `autoscale-min-replicas` | integer | Pod'ları minimum sayısını belirtir. 0 veya daha büyük olmalıdır. Varsayılan: 1 |
+| `autoscale-max-replicas` | integer | Pod'ları üst sınırını belirtir. 1 veya daha büyük olmalıdır. Otomatik ölçeklendirme max çoğaltmaları otomatik ölçeklendirme-min-çoğaltmaları küçük ise, otomatik ölçeklendirme max çoğaltmaları yoksayılacak. Varsayılan: 10 |
+| `autoscale-refresh-period-seconds` | integer | Otomatik ölçeklendirme yenilemeleri arasında saniye cinsinden süreyi belirtir. Varsayılan: 1 |
+| `autoscale-target-utilization` | integer | 1 ile 100 arasında otomatik ölçeklendirme hedefleyen yüzdesi kullanımı belirtir. Varsayılan: 70 |
 
 Aşağıdaki iki koşul sağlamak için otomatik ölçeklendirme çalışır:
 

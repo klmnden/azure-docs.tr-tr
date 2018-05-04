@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) durumlarda yönetme
 
@@ -77,6 +77,7 @@ module.exports = function (context, input) {
 * **CreatedTime**: orchestrator işlevi başladığı çalıştıran zaman.
 * **LastUpdatedTime**: zaman orchestration son belirttiğinizde.
 * **Giriş**: JSON değeri olarak işlevinin giriş.
+* **CustomStatus**: özel orchestration durum JSON biçiminde. 
 * **Çıktı**: işlevi (işlev tamamladıysa) JSON değer olarak çıktı. Bu özellik, orchestrator işlevi başarısız oldu, hata ayrıntıları dahil edilir. Orchestrator işlevi sonlandırıldı, bu özellik sonlandırma sağlanan nedeni (varsa) içerir.
 * **RuntimeStatus**: şu değerlerden biri:
     * **Çalışan**: örnek çalışmaya başladı.

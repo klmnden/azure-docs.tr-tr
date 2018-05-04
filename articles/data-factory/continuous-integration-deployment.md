@@ -10,19 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve Azure Data Factory dağıtımında
 
 Sürekli Tümleştirme yapılan her değişiklik test uygulaması olduğundan, otomatik olarak ve mümkün olduğunca erken codebase. Sürekli dağıtım sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sisteme iter test izler.
 
 Azure Data Factory için sürekli tümleştirme ve dağıtım taşıma Data Factory işlem hatlarını (geliştirme, test, üretim) bir ortamdan diğerine gelir. Sürekli tümleştirme ve dağıtım yapmak için Azure Resource Manager şablonları ile veri fabrikası UI tümleştirmesi kullanabilirsiniz. Seçtiğiniz Data Factory UI Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **verme ARM şablonu**, portal data factory ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası için Resource Manager şablonu oluşturur. Ardından (geliştirme, test, üretim) her ortam için bir yapılandırma dosyası oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
+
+Dokuz dakikalık bir giriş ve bu özellik tanıtımı için aşağıdaki videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Her ortam için Resource Manager şablonu oluşturma
 Seçin **verme ARM şablonu** geliştirme ortamında veri fabrikanızın Resource Manager şablonu dışarı aktarmak için.

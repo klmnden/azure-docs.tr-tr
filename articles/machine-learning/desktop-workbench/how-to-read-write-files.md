@@ -1,6 +1,6 @@
 ---
-title: "Büyük veri dosyaları okuma ve yazma | Microsoft Docs"
-description: "Okuma ve Azure Machine Learning denemeleri büyük dosyaları yazma."
+title: Büyük veri dosyaları okuma ve yazma | Microsoft Docs
+description: Okuma ve Azure Machine Learning denemeleri büyük dosyaları yazma.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Değişiklikleri devam ettirmeden ve büyük dosyaları ile çalışma
 Azure Machine Learning deneme hizmetiyle yürütme hedefleri çeşitli yapılandırabilirsiniz. Yerel bir yerel bilgisayarda veya yerel bir bilgisayardaki bir Docker kapsayıcısı gibi bazı hedefler. Diğer uzak, Docker kapsayıcısı uzak makinede veya bir Hdınsight kümesi gibi. Daha fazla bilgi için bkz: [Azure Machine Learning genel bakış denemeler yürütme hizmeti](experimentation-service-configuration.md). 

@@ -16,7 +16,7 @@
 ## [2. Görev: Ağ ayarlarını yapılandırma](active-directory-ds-getting-started-network.md)
 ## [3. Görev: Yönetici grubunu yapılandırma ve Azure AD Domain Services’ı etkinleştirme](active-directory-ds-getting-started-admingroup.md)
 ## [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
-## [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
+## [5. Görev: Parola karması eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
 # Nasıl yapılır
 ## [Yönetilen bir etki alanının sistem durumunu denetleme](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # İlgili
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

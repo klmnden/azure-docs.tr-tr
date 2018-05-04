@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure anahtar kasası depolama hesabı anahtarları"
-description: "Depolama hesabı anahtarları Azure anahtar kasası ve anahtar tabanlı erişim arasında seemless tümleştirme Azure depolama hesabı sağlayın."
+ms.assetid: ''
+title: Azure anahtar kasası depolama hesabı anahtarları
+description: Depolama hesabı anahtarları Azure anahtar kasası ve anahtar tabanlı erişim arasında seemless tümleştirme Azure depolama hesabı sağlayın.
 ms.topic: article
 services: key-vault
 ms.service: key-vault
@@ -9,11 +9,11 @@ author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: a3f8d540c7e4c8a86b151540980724777fd150fd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 
@@ -136,7 +136,7 @@ $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup"
 $servicePrincipalId = $(Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-Ardından, izinlerini ayarlamak **hesabınızı** anahtar Kasası'nda tüm depolama izinlerini yönetebilir emin olmak için. Aşağıdaki örnekte, Azure bizim hesabıdır  _developer@contoso.com_ .
+Ardından, izinlerini ayarlamak **hesabınızı** anahtar Kasası'nda tüm depolama izinlerini yönetebilir emin olmak için. Aşağıdaki örnekte, Azure bizim hesabıdır _developer@contoso.com_.
 
 ```powershell
 # Searching our Azure Active Directory for our account's ObjectId
@@ -189,7 +189,7 @@ Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Contain
 
 ### <a name="get-sas-tokens"></a>SAS belirteci alma
 
-Karşılık gelen SAS belirteci alın ve depolama birimine çağrıları yapma. `-SecretName` girdisinden kullanılarak oluşturulan `AccountName` ve `Name` , çalıştırıldığında parametreleri [kümesi AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
+Karşılık gelen SAS belirteci alın ve depolama birimine çağrıları yapma. `-SecretName` girdisinden kullanılarak oluşturulan `AccountName` ve `Name` , çalıştırıldığında parametreleri [kümesi AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
 
 ```powershell
 $readSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "$accountName-$readSasName").SecretValueText
@@ -215,7 +215,7 @@ Mümkün erişim yazma erişimi olduğundan SAS belirteci ile içerik depolama b
 - [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
 - [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
 - [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
+- [Güncelleştirme AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
 - [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
 - [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
 - [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)

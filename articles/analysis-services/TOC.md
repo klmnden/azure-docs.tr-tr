@@ -1,18 +1,22 @@
 # [Analysis Services Belgeleri](index.md)
 
 # Genel Bakış
-## [Analysis Services hakkında](analysis-services-overview.md)
-## [Desteklenen veri kaynakları](analysis-services-datasource.md)
-## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
-## [Şirket içi veri kaynaklarına bağlanma](analysis-services-gateway.md)
-## [Uyumluluk düzeyi](analysis-services-compat-level.md)
-## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
+## [Azure Analysis Services nedir?](analysis-services-overview.md)
+
 
 # başlarken
 ## [Azure portalında bir sunucu oluşturma](analysis-services-create-server.md)
 ## [Azure PowerShell ile bir sunucu oluşturma](analysis-services-create-powershell.md)
 ## [Visual Studio üzerinden model dağıtma](analysis-services-deploy.md)
 ## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
+
+# Kavramlar
+## [Desteklenen veri kaynakları](analysis-services-datasource.md)
+## [Şirket içi veri kaynaklarına bağlanma](analysis-services-gateway.md)
+## [Sunuculara bağlanma](analysis-services-connect.md)
+## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
+## [Uyumluluk düzeyi](analysis-services-compat-level.md)
+## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
 
 # Nasıl yapılır 
 ## [Şirket içi veri ağ geçidini yükleme ve yapılandırma](analysis-services-gateway-install.md)
@@ -21,9 +25,9 @@
 ## [REST API ile yenileme](analysis-services-async-refresh.md)
 ## [Ölçek genişletmeyi yapılandırma](analysis-services-scale-out.md)
 ## Yönetim görevlerini otomatikleştirme
-### [Hizmet ilkesi oluşturma - Azure portalı](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Hizmet ilkesi oluşturma - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [Sunucu yöneticisi rolüne hizmet ilkesi ekleme](analysis-services-addservprinc-admins.md)
+### [Hizmet sorumlusu oluşturma - Azure portalı](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Hizmet sorumlusu oluşturma - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Sunucu yöneticisi rolüne hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md)
 ## Sunucu yönetimi
 ### [Sunucu diğer adı yapılandırma](analysis-services-server-alias.md)
 ### [Sunucu yönetme](analysis-services-manage.md)
@@ -31,7 +35,7 @@
 ### [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
 ### [Sunucu ölçümlerini izleme](analysis-services-monitor.md)
 ### [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md)
-### [VNET üzerindeki veri kaynakları için ağ geçidi kullanma](analysis-services-vnet-gateway.md)
+### [VNet üzerindeki veri kaynakları için ağ geçidi kullanma](analysis-services-vnet-gateway.md)
 ## Bağlan
 ### [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ### [Excel ile bağlanma](analysis-services-connect-excel.md)

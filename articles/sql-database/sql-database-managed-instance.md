@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -67,9 +67,9 @@ Aşağıdaki tabloda çeşitli özellikleri, Transact SQL erişilebilir uygulama
 
 ![Çoklu oturum açma](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>vCore tabanlı satın alma modeli
+## <a name="vcore-based-purchasing-model-preview"></a>satın alma modeli vCore tabanlı (Önizleme)
 
-Ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini esneklik, Denetim, saydamlık vCore tabanlı satın alma modeli sağlar. Bu model, bilgi işlem, bellek ve kendi iş yükü ihtiyaçlarına depolama olanak tanır. VCore modeli de yüzde 30 tasarrufları ile için uygun yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini esneklik, Denetim, saydamlık vCore tabanlı satın alma modeli (Önizleme) sağlar. Bu model, bilgi işlem, bellek ve kendi iş yükü ihtiyaçlarına depolama olanak tanır. VCore modeli de yüzde 30 tasarrufları ile için uygun yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder.
 - 4. Nesil Mantıksal CPU’lar Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri temel alır.
@@ -186,7 +186,7 @@ Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma 
 Geçiş yaklaşım SQL yedeklemeleri Azure blob depolamaya yararlanır. Azure depolama blobunu depolanan yedeklerini doğrudan yönetilen örneğine geri yüklenebilir. Varolan bir SQL veritabanının bir yönetilen örneğine geri yüklemek için şunları yapabilirsiniz:
 
 - Kullanım [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview). Bir öğretici için bkz: [yönetilen Azure veritabanı geçiş hizmeti (DMS) kullanarak bir örneğini geçiş](../dms/tutorial-sql-server-to-managed-instance.md) bir veritabanı yedekleme dosyasından geri yüklemek için
-- Kullanım [T-SQL Geri Yükle komutunu](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Kullanım [T-SQL Geri Yükle komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme gösteren bir öğretici için bkz: [bir yedekleme dosyası yönetilen bir örneğine geri](sql-database-managed-instance-restore-from-backup-tutorial.md). Bu öğretici, Azure blogu depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterir.
   - URL'den geri yükleme hakkında daha fazla bilgi için bkz: [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Bir BACPAC Dosyadan İçeri Aktar](sql-database-import.md)

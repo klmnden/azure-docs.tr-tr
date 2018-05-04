@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d6bc4f69386cc8a9119aa852693456f6465f59ce
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell ile Application Insights kaynakları oluşturma
 Bu makalede oluşturulması ve güncelleştirilmesini otomatikleştirmek gösterilmiştir [Application Insights](app-insights-overview.md) Azure kaynak yönetimi kullanarak otomatik olarak kaynakları. Örneğin, bir derleme işleminin parçası olarak bunu olabilir. Temel Application Insights kaynağı yanı sıra oluşturduğunuz [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md), ayarlayın [uyarıları](app-insights-alerts.md)ayarlayın [düzeni fiyatlandırma](app-insights-pricing.md)ve diğer Azure kaynakları oluşturun .
@@ -52,7 +52,6 @@ Yeni bir .json dosyası oluşturma - şimdi çağrı `template1.json` Bu örnekt
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {
@@ -155,7 +154,7 @@ Yeni bir .json dosyası oluşturma - şimdi çağrı `template1.json` Bu örnekt
 ## <a name="create-application-insights-resources"></a>Application Insights kaynakları oluşturun
 1. PowerShell'de, Azure'da oturum açın:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Bu gibi bir komutu çalıştırın:
    
     ```PS

@@ -17,7 +17,7 @@ ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
 ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
 ---

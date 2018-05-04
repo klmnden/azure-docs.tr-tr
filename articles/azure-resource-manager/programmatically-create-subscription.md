@@ -15,7 +15,7 @@ ms.date: 4/18/2018
 ms.author: jlian
 ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
 ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
 ---

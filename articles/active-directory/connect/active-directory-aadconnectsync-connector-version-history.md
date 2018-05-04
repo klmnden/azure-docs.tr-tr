@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
@@ -34,7 +34,7 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 * [En son bağlayıcılar indirin](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Genel LDAP Bağlayıcısı](active-directory-aadconnectsync-connector-genericldap.md) başvuru belgelerini
 * [Genel SQL bağlayıcı](active-directory-aadconnectsync-connector-genericsql.md) başvuru belgelerini
-* [Web Hizmetleri Bağlayıcısı](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) başvuru belgelerini
+* [Web Hizmetleri Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) başvuru belgelerini
 * [PowerShell Bağlayıcısı](active-directory-aadconnectsync-connector-powershell.md) başvuru belgelerini
 * [Lotus Domino Bağlayıcısı](active-directory-aadconnectsync-connector-domino.md) başvuru belgelerini
 
@@ -230,7 +230,7 @@ Mart 2016 öncesinde bağlayıcıları destek konuları yayımlanmıştır.
 * [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, 2014 Eylül
 * [KB2936070](https://support.microsoft.com/kb/2936070) -4.3.1082, Mart 2014
 
-**WebServices**
+**Webservices'a**
 
 * [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, 2014 Eylül
 

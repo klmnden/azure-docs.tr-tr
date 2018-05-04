@@ -16,7 +16,7 @@ ms.author: davidmu
 ms.custom: mvc
 ms.openlocfilehash: d918ad530704baef4275fabeb6ce08e4732408e6
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
 ---

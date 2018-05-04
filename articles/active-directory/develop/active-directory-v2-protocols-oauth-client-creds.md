@@ -1,11 +1,11 @@
 ---
-title: "Kullanıcı etkileşimi olmadan güvenli kaynaklara erişmek için Azure AD v2.0 kullanın | Microsoft Docs"
-description: "Web uygulamaları Azure AD uygulama OAuth 2.0 kimlik doğrulama protokolü kullanarak oluşturun."
+title: Kullanıcı etkileşimi olmadan güvenli kaynaklara erişmek için Azure AD v2.0 kullanın | Microsoft Docs
+description: Web uygulamaları Azure AD uygulama OAuth 2.0 kimlik doğrulama protokolü kullanarak oluşturun.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ea681244edd81bcba1269886acc725175f779bfb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışının
-Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri vermenizi](http://tools.ietf.org/html/rfc6749#section-4.4)bazen adlı *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web bulunan kaynaklara erişmek için. Yaygın olarak grant bu tür bir kullanıcıyla hemen etkileşimi olmadan arka planda çalıştırılmalıdır server sunucusu etkileşimleri için kullanılır. Bu tür uygulamalar genellikle denir *deamon'lar* veya *hizmet hesapları*.
+Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri vermenizi](http://tools.ietf.org/html/rfc6749#section-4.4) olarak da adlandırılan RFC 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web bulunan kaynaklara erişmek için. Yaygın olarak grant bu tür bir kullanıcıyla hemen etkileşimi olmadan arka planda çalıştırılmalıdır server sunucusu etkileşimleri için kullanılır. Bu tür uygulamalar genellikle denir *deamon'lar* veya *hizmet hesapları*.
 
 > [!NOTE]
 > V2.0 uç noktası, tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez. V2.0 uç kullanması gerekip gerekmediğini belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
@@ -49,10 +49,10 @@ Bu tür bir kimlik doğrulama, arka plan programları ve kişisel Microsoft hesa
 ### <a name="application-permissions"></a>Uygulama izinleri
 ACL'ler kullanmak yerine, uygulama izinleri kullanıma sunmak için API'ler kullanabilirsiniz. Bir uygulama izni bir uygulamaya bir kuruluşun Yöneticisi tarafından verilir ve yalnızca belirli bir kuruluş ve çalışanlarının tarafından ait veri erişimi için kullanılabilir. Örneğin, Microsoft Graph aşağıdakileri yapmak için birkaç uygulama izinleri sunar:
 
-* Tüm posta kutularındaki postaları okuma
-* Tüm posta kutularındaki postaları okuma ve yazma
+* Tüm posta kutularındaki okuma
+* Okuma ve tüm posta kutularında posta yazma
 * Herhangi bir kullanıcı adına posta gönderme
-* Dizin verilerini okuma
+* Dizin verilerini okuyun
 
 Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https://graph.microsoft.io).
 
@@ -60,7 +60,7 @@ Uygulama izinlerini uygulamanızda kullanmak için sonraki bölümlerde aşağı
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Uygulama kayıt Portalı'nda izinleri iste
 1. Uygulamanızda gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya [bir uygulama oluşturmak](active-directory-v2-app-registration.md), henüz yapmadıysanız. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
-2. Bulun **doğrudan uygulama izinleri** bölümünde ve uygulamanızın gerektirdiği izinleri ekleyin.
+2. Bulun **Mcrosoft grafik izinleri** bölümünde ve ardından ekleyin **uygulama izinleri** , uygulamanızı gerektirir.
 3. **Kaydet** uygulama kaydı.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilir: kullanıcı uygulamanızda oturum
@@ -90,7 +90,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |İzni istemek için istediğiniz dizin Kiracı. Bu GUID veya kolay ad biçiminde olabilir. Kullanıcının ait olduğu için Kiracı ve oturum ile hiçbir Kiracı, kullanın bildirmek istediğiniz bilmiyorsanız, `common`. |
+| kiracı |Gerekli |İzni istemek için istediğiniz dizin Kiracı. Bu GUID veya kolay ad biçiminde olabilir. Kullanıcının ait olduğu için Kiracı ve oturum ile hiçbir Kiracı, kullanın bildirmek istediğiniz bilmiyorsanız, `common`. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
 | redirect_uri |Gerekli |Yeniden yönlendirme işlemek uygulamanız için gönderilecek yanıt istediğiniz URI'si. URL kodlanmış olmalıdır ancak bu, tam olarak yeniden yönlendirme Portalı'nda kayıtlı URI'ler eşleşmelidir ve ek yol kesimine sahip olabilir. |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek yer aldığı bir değer. İstediğiniz herhangi bir içerik dizesi olabilir. Durum, uygulama kullanıcının durumu hakkında bilgi sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanılır. |
@@ -106,7 +106,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parametre | Açıklama |
 | --- | --- | --- |
-| Kiracı |Uygulamanız bu GUID biçiminde istenen izinlerin dizin Kiracı. |
+| kiracı |Uygulamanız bu GUID biçiminde istenen izinlerin dizin Kiracı. |
 | durum |Ayrıca belirteci yanıtta döndürülen istek yer aldığı bir değer. İstediğiniz herhangi bir içerik dizesi olabilir. Durum, uygulama kullanıcının durumu hakkında bilgi sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanılır. |
 | admin_consent |Kümesine **doğru**. |
 
@@ -130,11 +130,14 @@ Uygulamanız için gerekli yetkilendirmeyi edindiğiniz sonra erişim belirteçl
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&grant_type=client_credentials
 ```
 
 ```
@@ -143,26 +146,32 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
+| kiracı |Gerekli | Uygulama dizini Kiracı, GUID veya etki alanı adı biçiminde boşluğunun planlar. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
-| Kapsam |Gerekli |Geçirilen değeri `scope` bu isteği parametresinde istediğiniz ile yapıştırılmış kaynağının kaynak tanımlayıcısı (uygulama kimliği URI) olmalıdır `.default` soneki. Microsoft Graph örneğin değerdir `https://graph.microsoft.com/.default`. Bu değer v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinlerini, onu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
+| scope |Gerekli |Geçirilen değeri `scope` bu isteği parametresinde istediğiniz ile yapıştırılmış kaynağının kaynak tanımlayıcısı (uygulama kimliği URI) olmalıdır `.default` soneki. Microsoft Graph örneğin değerdir `https://graph.microsoft.com/.default`. Bu değer v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinlerini, onu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
 | client_secret |Gerekli |Uygulama uygulama kayıt Portalı'nda, uygulamanız için oluşturulan gizli anahtarı. |
 | grant_type |Gerekli |Olmalıdır `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durumda: bir sertifika ile erişim belirteci isteği
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
 ```
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
+| kiracı |Gerekli | Uygulama dizini Kiracı, GUID veya etki alanı adı biçiminde boşluğunun planlar. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
-| Kapsam |Gerekli |Geçirilen değeri `scope` bu isteği parametresinde istediğiniz ile yapıştırılmış kaynağının kaynak tanımlayıcısı (uygulama kimliği URI) olmalıdır `.default` soneki. Microsoft Graph örneğin değerdir `https://graph.microsoft.com/.default`. Bu değer v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinlerini, onu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
-| client_assertion_type |Gerekli |Değer olmalıdır`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| scope |Gerekli |Geçirilen değeri `scope` bu isteği parametresinde istediğiniz ile yapıştırılmış kaynağının kaynak tanımlayıcısı (uygulama kimliği URI) olmalıdır `.default` soneki. Microsoft Graph örneğin değerdir `https://graph.microsoft.com/.default`. Bu değer v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinlerini, onu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
+| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
 | grant_type |Gerekli |Olmalıdır `client_credentials`. |
 

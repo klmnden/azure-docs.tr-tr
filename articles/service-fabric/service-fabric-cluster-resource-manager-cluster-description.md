@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 07ddf1c2b76230c8d753426d70098603ff14ec4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric kümesi Kaynak Yöneticisi, bir küme açıklamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında Küme Kaynak Yöneticisi'ni kümede çalışan hizmetler yüksek düzeyde kullanılabilirliğini sağlamak için bu bilgileri kullanır. Bu önemli kurallar zorlarken bu aynı zamanda kümedeki kaynak tüketimini en iyi duruma dener.
@@ -39,7 +39,7 @@ Service Fabric güvenle Hizmetleri yerleştirmek için bu bilgileri kullandığ�
 > [!WARNING]
 > Service Fabric sağlanan hata etki alanı bilgileri doğru olması önemlidir. Örneğin, Service Fabric kümenin düğümleri beş fiziksel ana bilgisayarda çalışan 10 sanal makinelerde çalıştırılan varsayalım. Bu durumda, olsa bile 10 sanal makineyi, vardır yalnızca 5 farklı (üst düzey) hata etki alanları. Aynı fiziksel ana bilgisayar paylaşımı fiziksel ana bilgisayarları başarısız olursa VM'ler Eşgüdümlü hatasıyla karşılaşan beri aynı kök hata etki paylaşmak VM'ler neden olur.  
 >
-> Service Fabric hata etki alanı değil değiştirmek için bir düğümün bekliyor. Sanal makinelerin yüksek kullanılabilirliğini gibi sağlamaya başka mekanizmalar [HA-VMs](https://technet.microsoft.com/en-us/library/cc967323.aspx) saydam VM'ler geçişini bir ana bilgisayardan diğerine kullandıkları Service Fabric ile çakışmalarına neden olabilir. Bu mekanizmaların etmeyin yeniden yapılandırın veya VM içinde çalışan kod bildirin. Bu nedenle, oldukları **desteklenmiyor** Service Fabric çalıştırmak için ortam olarak kümeleri. Service Fabric işe yalnızca yüksek oranda kullanılabilirlik teknolojisi olmalıdır. Dinamik VM geçiş gibi mekanizmaları SAN'lar, veya diğerleri gerekli değildir. Service Fabric, bu mekanizmaların ile birlikte kullandıysanız _azaltmak_ uygulama kullanılabilirliği ve güvenilirliği ek karmaşıklık tanıtmak için hata merkezi kaynakları ekleyin ve güvenilirlik kullanma ve Service Fabric de çakışan kullanılabilirlik stratejisi. 
+> Service Fabric hata etki alanı değil değiştirmek için bir düğümün bekliyor. Sanal makinelerin yüksek kullanılabilirliğini gibi sağlamaya başka mekanizmalar [HA-VMs](https://technet.microsoft.com/library/cc967323.aspx) saydam VM'ler geçişini bir ana bilgisayardan diğerine kullandıkları Service Fabric ile çakışmalarına neden olabilir. Bu mekanizmaların etmeyin yeniden yapılandırın veya VM içinde çalışan kod bildirin. Bu nedenle, oldukları **desteklenmiyor** Service Fabric çalıştırmak için ortam olarak kümeleri. Service Fabric işe yalnızca yüksek oranda kullanılabilirlik teknolojisi olmalıdır. Dinamik VM geçiş gibi mekanizmaları SAN'lar, veya diğerleri gerekli değildir. Service Fabric, bu mekanizmaların ile birlikte kullandıysanız _azaltmak_ uygulama kullanılabilirliği ve güvenilirliği ek karmaşıklık tanıtmak için hata merkezi kaynakları ekleyin ve güvenilirlik kullanma ve Service Fabric de çakışan kullanılabilirlik stratejisi. 
 >
 >
 

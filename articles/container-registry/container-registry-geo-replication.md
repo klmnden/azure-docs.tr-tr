@@ -1,27 +1,27 @@
 ---
-title: "Coğrafi-çoğaltan bir Azure kapsayıcı kayıt defteri"
-description: "Oluşturma ve yönetme coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterleri kullanmaya başlayın."
+title: Coğrafi-çoğaltan bir Azure kapsayıcı kayıt defteri
+description: Oluşturma ve yönetme coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterleri kullanmaya başlayın.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="geo-replication-in-azure-container-registry"></a>Azure kapsayıcı kayıt defterinde coğrafi çoğaltma
+# <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry’de coğrafi çoğaltma
 
 Birden çok Azure bölgelerinden hizmetlerini çalıştırmak yerel bir varlık veya bir dinamik yedek isteyen şirketler seçin. En iyi uygulama, ağ Kapat işlemlerine, hızlı ve güvenilir görüntü katman aktarımları etkinleştirme görüntüleri çalıştırdığı her bölgede bir kapsayıcı kayıt defteri yerleştirme izin verir.
 
 Coğrafi çoğaltma, tek bir kayıt defteri çalışması bir Azure kapsayıcı kayıt defteri birden çok yöneticili bölgesel kayıt defterleri ile birden çok bölgeye hizmet sağlar.
 
 > [!IMPORTANT]
-> Azure kapsayıcı kayıt defteri coğrafi çoğaltma özelliği şu anda kullanımda **Önizleme**. Önizlemeler kullanılabilir hale getirilir size kabul ettiğiniz koşuluyla [ek kullanım koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Bu özellik bazı yönleri genel kullanılabilirlik (GA) önce değişebilir.
+> Azure Container Registry’nin coğrafi çoğaltma özelliği şu anda **önizleme** aşamasındadır. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
 >
 
 Coğrafi olarak çoğaltılmış bir kayıt defteri aşağıdaki avantajları sağlar:
@@ -59,8 +59,8 @@ Birden çok kayıt defterleri, tipik zorluklar içerir:
 
 Azure kapsayıcı kayıt defteri coğrafi çoğaltma özelliğini kullanarak, bu faydaları gerçekleşir:
 
-* Tek bir kayıt defteri tüm bölgeler arasında yönetin:`contoso.azurecr.io`
-* Tüm bölgeler aynı resim URL'si kullanılan görüntüsü dağıtımları için tek bir yapılandırması yönetin:`contoso.azurecr.io/public/products/web:1.2`
+* Tek bir kayıt defteri tüm bölgeler arasında yönetin: `contoso.azurecr.io`
+* Tüm bölgeler aynı resim URL'si kullanılan görüntüsü dağıtımları için tek bir yapılandırması yönetin: `contoso.azurecr.io/public/products/web:1.2`
 * Coğrafi yerel bildirimler için bölgesel Web kancalarını da dahil olmak üzere çoğaltma, ACR yönetir ancak tek bir kayıt defteri bildirme
 
 ## <a name="configure-geo-replication"></a>Coğrafi çoğaltmayı yapılandırma
@@ -70,15 +70,15 @@ Coğrafi çoğaltma özelliğidir [Premium kayıt defterleri](container-registry
 
 ![Azure portalında SKU'ları değiştirme](media/container-registry-skus/update-registry-sku.png)
 
-Coğrafi çoğaltma Premium kayıt için yapılandırmak için http://portal.azure.com Azure portalında oturum açın.
+Coğrafi çoğaltma Premium kayıt için yapılandırmak için oturum açtığınızda Azure portalında http://portal.azure.com.
 
 Azure kapsayıcı kaydınız gidin ve **çoğaltmalar**:
 
-![Azure portal kapsayıcısı kayıt defterinde UI çoğaltmalar](media/container-registry-geo-replication/registry-services.png)
+![Azure portalı kapsayıcı kayıt defteri kullanıcı arabirimindeki Çoğaltmalar](media/container-registry-geo-replication/registry-services.png)
 
 Geçerli tüm Azure bölgeleri gösteren bir harita görüntülenir:
 
- ![Azure Portalı'nda Bölge eşleme](media/container-registry-geo-replication/registry-geo-map.png)
+ ![Azure portalındaki bölge haritası](media/container-registry-geo-replication/registry-geo-map.png)
 
 * Mavi Altıgenler geçerli çoğaltmaları temsil eder
 * Yeşil Altıgenler olası çoğaltma bölgeleri temsil eder
@@ -86,7 +86,7 @@ Geçerli tüm Azure bölgeleri gösteren bir harita görüntülenir:
 
 Bir çoğaltmayı yapılandırmak için yeşil Altıgene seçin, sonra seçin **oluşturma**:
 
- ![Azure portalında çoğaltma kullanıcı Arabirimi oluşturma](media/container-registry-geo-replication/create-replication.png)
+ ![Azure portalında çoğaltma oluşturmaya yönelik kullanıcı arabirimi](media/container-registry-geo-replication/create-replication.png)
 
 Ek çoğaltmaları yapılandırmak için diğer bölgeler için yeşil Altıgenler seçin ve ardından **oluşturma**.
 

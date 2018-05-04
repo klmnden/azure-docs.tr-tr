@@ -4,7 +4,7 @@
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
-Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](../articles/sql-database/sql-database-service-tiers.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](../articles/sql-database/sql-database-features.md) içinde oluşturulur. 
+Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](../articles/sql-database/sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](../articles/sql-database/sql-database-features.md) içinde oluşturulur. 
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
 

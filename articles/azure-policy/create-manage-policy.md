@@ -1,19 +1,19 @@
 ---
-title: "Azure İlkesi kullanarak kurumsal uyumluluğu zorunlu tutacak ilkeleri oluşturma ve yönetme | Microsoft Docs"
-description: "Standartları zorunlu tutmak, yönetmeliklere uygunluğu ve denetim gereksinimlerini karşılamak, maliyetleri denetlemek, güvenlik ve performans tutarlılığını korumak, ayrıca kuruluş genelinde tasarım ilkeleri ayarlamak için Azure İlkesi'ni kullanın."
+title: Azure İlkesi kullanarak kurumsal uyumluluğu zorunlu tutacak ilkeleri oluşturma ve yönetme | Microsoft Docs
+description: Standartları zorunlu tutmak, yönetmeliklere uygunluğu ve denetim gereksinimlerini karşılamak, maliyetleri denetlemek, güvenlik ve performans tutarlılığını korumak, ayrıca kuruluş genelinde tasarım ilkeleri ayarlamak için Azure İlkesi'ni kullanın.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/18/2018
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 
@@ -372,7 +372,7 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Dışlama'yı kullanarak uyumlu olmayan veya reddedilen kaynağı hariç tutma
 
-Yukarıdaki örneği izleyerek, SQL Server sürüm 12.0'ı gerektirecek bir ilke tanımı atadıktan sonra farklı bir sürümde oluşturulan SQL Server reddedilebilir. Bu bölümde, reddedilen SQL Server oluşturma girişimini çözmek için bir dışlama isteğinde bulunma işleminde size yol gösterilir. Dışlama temelde ilkenin zorlanmasını engeller. Kaynak grubuna dışlama uygulanabilir veya dışlamayı tek tek kaynakları içerecek şekilde daraltabilirsiniz.
+Yukarıdaki örneği izleyerek, SQL Server sürüm 12.0'ı gerektirecek bir ilke tanımı atadıktan sonra 12.0’dan farklı bir sürümde oluşturulan SQL Server reddedilebilir. Bu bölümde, reddedilen SQL Server oluşturma girişimini çözmek için belirli kaynaklara yönelik dışlama isteğinde bulunma işleminde size yol gösterilir. Dışlama temelde ilkenin zorlanmasını engeller. Aşağıdaki örnekte herhangi bir SQL server sürümü kullanılabilir. Kaynak grubuna dışlama uygulanabilir veya dışlamayı tek tek kaynakları içerecek şekilde daraltabilirsiniz.
 
 1. Sol bölmede **Atamalar**'ı seçin.
 2. Tüm ilke atamalarına göz atın ve *SQL Server sürüm 12.0 gerektir* atamasını açın.
@@ -384,7 +384,7 @@ Yukarıdaki örneği izleyerek, SQL Server sürüm 12.0'ı gerektirecek bir ilke
 
 4. **Ata**'ya tıklayın.
 
-Bu bölümde, kaynaklarda bir dışlama isteğine bulunarak sürümü 12.0 olan bir SQL Server oluşturma girişiminizin reddedilmesi sorununu çözmüş oldunuz.
+Bu bölümde, kaynaklarda bir dışlama isteğinde bulunarak SQL Server oluşturma girişiminizin reddedilmesi sorununu çözmüş oldunuz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

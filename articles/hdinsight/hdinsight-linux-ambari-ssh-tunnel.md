@@ -11,21 +11,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Ambari web kullanıcı Arabirimi, kaynak, iş, Oozie ve diğer web Uı'lar erişmek için SSH tünel kullan
 
-Linux tabanlı Hdınsight kümeleri Internet üzerinden erişebilmesi için Ambari web kullanıcı Arabirimi, ancak bazı özellikler UI değildir. Örneğin, web kullanıcı Arabirimi Ambari ortaya çıkmış diğer hizmetler için. Ambari web kullanıcı Arabirimi tam işlevsellik için küme head için SSH tüneli kullanmanız gerekir.
+Hdınsight kümeleri Internet üzerinden erişebilmesi için Ambari web kullanıcı Arabirimi, ancak bazı özellikler SSH tüneli gerektirir. Örneğin, Oozie hizmeti için web kullanıcı Arabirimi olmadan SSh tüneli Internet üzerinden erişilemiyor.
 
 ## <a name="why-use-an-ssh-tunnel"></a>SSH tüneli neden kullanılır?
 
-Ambari menülerde çeşitli yalnızca SSH tüneli çalışır. Bu menüler web siteleri ve alt düğümleri gibi diğer düğüm türleri üzerinde çalışan hizmetleri kullanır. Doğrudan internet'te kullanıma sunmak güvenli değildir genellikle, bu web sitelerinin, sağlanmaz.
+Ambari menülerde çeşitli yalnızca SSH tüneli çalışır. Bu menüler web siteleri ve alt düğümleri gibi diğer düğüm türleri üzerinde çalışan hizmetleri kullanır.
 
 Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 
@@ -35,14 +35,14 @@ Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 * Oozie web kullanıcı Arabirimi
 * HBase ana ve günlükleri kullanıcı Arabirimi
 
-Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet veya bir web kullanıcı arabirimini kullanıma yüklediğiniz utilities SSH tüneli gerektirir. Örneğin, ton betik eylemini kullanarak yüklerseniz, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.
+Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet veya bir web hizmeti kullanıma yüklediğiniz utilities SSH tüneli gerektirir. Örneğin, ton betik eylemini kullanarak yüklerseniz, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.
 
 > [!IMPORTANT]
 > Bir sanal ağ üzerinden hdınsight'a doğrudan erişimi varsa, SSH tünelleri kullanmak gerekmez. Hdınsight aracılığıyla bir sanal ağa doğrudan erişimini ilişkin bir örnek için bkz: [şirket içi ağınıza bağlanmak Hdınsight](connect-on-premises-network.md) belge.
 
 ## <a name="what-is-an-ssh-tunnel"></a>SSH tüneli nedir
 
-[Güvenli Kabuk (SSH) tüneli](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) yerel istasyonunuzda bir bağlantı noktasına gönderilen trafiğin yönlendirir. Trafik, Hdınsight küme baş düğümüne bir SSH bağlantısı üzerinden yönlendirilir. İstek baş düğümünde geldiyse olarak çözümlenir. Yanıt, sonra iş istasyonunuzu için tünelinden yönlendirilir.
+[Güvenli Kabuk (SSH) tüneli](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) bir bağlantı noktası yerel makinenizde bir baş düğüm hdınsight'ta bağlanır. Yerel bağlantı noktasına gönderilen trafiğin baş düğümüne bir SSH bağlantısı üzerinden yönlendirilir. İstek baş düğümünde geldiyse olarak çözümlenir. Yanıt, sonra iş istasyonunuzu için tünelinden yönlendirilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -51,7 +51,7 @@ Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet v
 * SOCKS5 proxy kullanmak üzere yapılandırılmış bir web tarayıcısı.
 
     > [!WARNING]
-    > Windows'da yerleşik SOCKS proxy desteği SOCKS5 desteklemez ve bu belgede yer alan adımlar ile çalışmaz. Aşağıdaki tarayıcılar Windows proxy ayarlarını kullanır ve bu belgedeki adımları şu anda çalışmıyor:
+    > Windows Internet ayarlarını yerleşik SOCKS proxy desteği SOCKS5 desteklemez ve bu belgede yer alan adımlar ile çalışmaz. Aşağıdaki tarayıcılar Windows proxy ayarlarını kullanır ve bu belgedeki adımları şu anda çalışmıyor:
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
@@ -60,10 +60,10 @@ Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet v
 
 ## <a name="usessh"></a>SSH komutunu kullanarak bir tünel oluşturma
 
-Bir SSH oluşturmak için aşağıdaki komutu kullanarak tünel kullanımı `ssh` komutu. Değiştir **kullanıcıadı** Hdınsight kümesi ve değiştirmek için bir SSH kullanıcıyla **CLUSTERNAME** Hdınsight kümenizin adıyla:
+Bir SSH oluşturmak için aşağıdaki komutu kullanarak tünel kullanımı `ssh` komutu. Değiştir **sshuser** Hdınsight kümesi ve değiştirmek için bir SSH kullanıcıyla **clustername** Hdınsight kümenizin adıyla:
 
 ```bash
-ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
 Bu komut, bağlantı noktasına yerel 9876 kümeye SSH üzerinden trafiğini yönlendiren bir bağlantı oluşturur. Seçenekler şunlardır:
@@ -119,10 +119,10 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 Küme oluşturulduktan sonra hizmet web Uı'lar Ambari Web üzerinden erişebilirsiniz doğrulamak için aşağıdaki adımları kullanın:
 
-1. Tarayıcınızda, Git http://headnodehost:8080. `headnodehost` Adresi ambarı üzerinde çalıştığı headnode çözümleyip ve küme için tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
+1. Tarayıcınızda, Git http://headnodehost:8080. `headnodehost` Adresi çözümleme Ambari çalıştıran baş düğümüne ve küme için tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
 
    > [!NOTE]
-   > Kullanırken http://headnodehost:8080 kümeye bağlanmak için adres, tünel üzerinden bağlanan. İletişim HTTPS yerine SSH tüneli kullanılarak güvenli hale getirilir. HTTPS kullanarak Internet üzerinden bağlanırken kullanacağı https://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** kümesinin adı.
+   > Kullanırken http://headnodehost:8080 kümeye bağlanmak için adres, tünel üzerinden bağlanan. İletişim HTTPS yerine SSH tüneli kullanılarak güvenli hale getirilir. HTTPS kullanarak Internet üzerinden bağlanırken kullanacağı https://clustername.azurehdinsight.net, burada **clustername** kümesinin adı.
 
 2. Ambari Web kullanıcı arabirimini HDFS sayfanın sol taraftaki listeden seçin.
 

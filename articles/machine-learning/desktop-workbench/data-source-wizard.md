@@ -1,6 +1,6 @@
 ---
-title: "Azure veri kaynağı Sihirbazı'nı Azure Machine Learning için | Microsoft Docs"
-description: "Veri kaynağı Sihirbazı AML ekranının açıklar"
+title: Azure veri kaynağı Sihirbazı'nı Azure Machine Learning için | Microsoft Docs
+description: Veri kaynağı Sihirbazı AML ekranının açıklar
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: 4f9a2249142220f3c57cb2e479a175d4227749fd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-source-wizard"></a>Veri kaynağı Sihirbazı #
 
@@ -22,7 +22,7 @@ Veri kaynağı Sihirbazı'nı, bir veri kümesi kodu olmadan Azure ML çalışma
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>1. adım: veri kaynağı Sihirbazı'nı tetikler ## 
 
-Veri kaynağı Sihirbazı'nı kullanarak bir projeye verileri getirmek için. Seçin  **+**  düğmesini Veri Görünümü'ndeki arama kutusunun yanında ve veri kaynağı Ekle'i seçin. 
+Veri kaynağı Sihirbazı'nı kullanarak bir projeye verileri getirmek için. Seçin **+** düğmesini Veri Görünümü'ndeki arama kutusunun yanında ve veri kaynağı Ekle'i seçin. 
 
 ![Veri kaynağı ekleme](media/data-source-wizard/add-data-source.png)
 

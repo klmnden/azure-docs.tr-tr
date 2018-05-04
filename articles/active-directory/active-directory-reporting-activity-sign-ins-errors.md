@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları | Microsoft Docs"
-description: "Oturum açma etkinlik raporu hata kodları başvurusu."
+title: Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları | Microsoft Docs
+description: Oturum açma etkinlik raporu hata kodları başvurusu.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -65,6 +65,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50055|Geçersiz parola, süresi dolmuş parola girildi.|
 |50057|Kullanıcı hesabı devre dışı bırakıldı.|
 |50058|Sağlanan kimlik bilgilerinde kullanıcının kimliğiyle ilgili hiçbir bilgi bulunamadı veya Kullanıcı, kiracıda bulunamadı veya Sessiz bir oturum açma isteği gönderildi ancak hiçbir kullanıcı oturum açmadı veya Hizmet, kullanıcının kimliğini doğrulayamadı.|
+|50072|Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir (etkileşimli)|
 |50074|Kullanıcı MFA testini geçemedi.|
 |50079|Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir.|
 |50089|Akış belirteci doğrulaması, akış belirteci süre sonu nedeniyle başarısız oldu.|
@@ -97,7 +98,6 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |81013|Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı.|
 |90014|Kimlik bilgilerinde beklenen bir alanın bulunamadığı çeşitli durumlarda kullanılır.|
 |90093|Graph istek için yasak hata kodu döndürdü.|
-
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

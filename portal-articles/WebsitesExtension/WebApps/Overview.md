@@ -1,6 +1,6 @@
 ---
-title: "Web Apps’e Genel Bakış | Microsoft Belgeleri"
-description: "Azure portalındaki Web Apps'e genel bakış için yardım içeriği"
+title: App Service’e Genel Bakış | Microsoft Docs
+description: Azure portalında, App Service’e genel bakışa yönelik yardım içeriği
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -8,19 +8,21 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 13709876752dd5df356765ed636c5a7e4a665d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="web-apps-documentation"></a>Web Apps Belgeleri
+# <a name="app-service-documentation"></a>App Service Belgeleri
+Azure App Service, altyapıyı veya dilin ya da web çerçevesinin çalışma zamanını yönetmeye gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
 
-Azure Web Apps, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Web Apps’i kullanmayı öğrenin.
+## <a name="windows-linux-and-docker"></a>Windows, Linux ve Docker
+[Web Apps](/app-service/app-service-web-overview), App Service’in Windows ortamlarını kullanarak web uygulamaları oluşturmaya ve barındırmaya yönelik sunduğu ana hizmettir. Linux ortamını tercih eden geliştiriciler[Linux için App Service](/app-service/containers/app-service-linux-intro)’i seçebilir. Geliştiriciler ayrıca özel çalışma zamanları/çerçeveler dağıtmak için Docker görüntülerini doğrudan Linux için App Service’e dağıtabilir.
 
 ## <a name="5-minute-quickstarts"></a>5 Dakikalık Hızlı Başlangıçlar
 
-Web Apps kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:
+Web Apps için App Service kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:
 
 - [.NET](/azure/app-service/app-service-web-get-started-dotnet)
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
@@ -33,7 +35,11 @@ Web Apps kullanarak ilk uygulamanızı buluta dağıtmayı öğrenin:
 
 Azure'da güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin.
 
-- [Azure SQL DB ile .NET](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) veya [MongoDB ile Node.js](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app) kullanarak uygulama oluşturma
+- Şunları kullanarak bir uygulama oluşturun:
+  - [Azure SQL DB ile .NET](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+  - [MongoDB ile Node.js](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [MySQL ile Java](/app-service/app-service-web-tutorial-java-mysql)
+  - [PostgreSQL ile Python](/app-service/app-service-web-tutorial-python-postgresql)
 - [Mevcut bir özel etki alanını uygulamanıza eşleme](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Mevcut bir SSL sertifikasını uygulamanıza bağlama](/azure/app-service/app-service-web-tutorial-custom-SSL)
 
@@ -51,5 +57,4 @@ Genel görevleri yönetmeye yönelik betikleri bulun.
 
 ## <a name="more"></a>Daha fazla
 
-- [Daha fazla bilgi edinmek için belgeler sayfasını ziyaret edin](/azure/app-service-web/index)
 - [Azure Hizmetleri hakkında bilgi edinin](https://aka.ms/j3wr7y)

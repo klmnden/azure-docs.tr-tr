@@ -6,7 +6,7 @@
 ## [İşletimsel güvenliği etkinleştirme](../azure-operational-security.md)
 ## [Azure’da idare](../governance-in-azure.md)
 ## [Azure bulutta yalıtım](../azure-isolation.md)
-## [Güvenli karma ağ mimarisi](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Güvenli karma ağ mimarisi](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Güvenliğe yönelik teknik özellikler](../azure-security-technical-capabilities.md)
 
 # [Veri güvenliği ve şifreleme](../security-azure-encryption-overview.md)

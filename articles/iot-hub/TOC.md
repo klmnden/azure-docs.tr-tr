@@ -1,7 +1,7 @@
+# [Azure IoT Temel Konuları](../iot-fundamentals/index.yml)
 # [IoT Hub Belgeleri](index.md)
 
 # Genel Bakış
-## [Azure ve IoT](iot-hub-what-is-azure-iot.md)
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
@@ -78,6 +78,7 @@
 #### [Kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md)
 #### [Fiyatlandırma örnekleri](iot-hub-devguide-pricing.md)
 #### [Cihaz ve hizmet SDK’ları](iot-hub-devguide-sdks.md)
+#### [Mobil cihazlar için geliştirme](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT desteği](iot-hub-mqtt-support.md)
 #### [Sözlük](iot-hub-devguide-glossary.md)
 ### [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
@@ -169,7 +170,7 @@
 ##### [Sertifika oluşturma - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +187,18 @@
 ## [REST (İşler)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # İlgili
-## [Azure IoT Paketi](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT Hub Cihazı Sağlama Hizmeti](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Akış Analizi](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Çözümler 
+### [IoT Paketi Önceden Yapılandırılmış Çözümler](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Hizmetleri 
+### [IoT Hub’ı](/azure/iot-hub) 
+### [IoT Hub Cihazı Sağlama Hizmeti](/azure/iot-dps)
+### [IoT Hizmet SDK'ları](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Konum Tabanlı Hizmetler](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Cihaz SDK'ları](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Kaynaklar
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)

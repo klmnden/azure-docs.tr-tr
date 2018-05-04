@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: İş yüklerini koruma
           items:
-            - name: Bir VMware sunucusunu yedeklemek için Azure Backup Sunucusu kullanma
+            - name: VMware sunucusu
               href: backup-azure-backup-server-vmware.md
-            - name: Exchange’i yedeklemek için Azure Backup Sunucusu kullanma
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Bir SharePoint grubunu yedeklemek için Azure Backup Sunucusu kullanma
+            - name: SharePoint grubu
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: SQL’yi yedeklemek için Azure Backup Sunucusu kullanma
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Sistem durumunu koruma ve tam kurtarma
               href: backup-mabs-system-state-and-bmr.md
+            - name: Azure Stack’teki Dosyalar ve Uygulamalar
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Azure Backup Sunucusu’ndan veri kurtarma
           href: backup-azure-alternate-dpm-server.md
     - name: Azure Dosya paylaşımları

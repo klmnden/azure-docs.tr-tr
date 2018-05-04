@@ -1,6 +1,6 @@
 ---
-title: "Desteklenen veri hedefleri ve Azure Machine Learning ile veri hazırlama çıktıların | Microsoft Docs"
-description: "Bu belge desteklenen hedefleri tam bir listesini sağlar ve Azure Machine Learning veri hazırlığı kullanılabilir çıkarır"
+title: Desteklenen veri hedefleri ve Azure Machine Learning ile veri hazırlama çıktıların | Microsoft Docs
+description: Bu belge desteklenen hedefleri tam bir listesini sağlar ve Azure Machine Learning veri hazırlığı kullanılabilir çıkarır
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Bu önizleme için verileri dışarı aktarma desteklenen 
 Birkaç farklı biçimlerde dışa aktarmak mümkündür. Machine Learning iş akışının geri kalanı sonuçları tümleştirmeden önce veri hazırlığı Ara sonuçlarını korumak için bu biçimlerini kullanabilirsiniz.
@@ -47,8 +47,8 @@ Parquet bir biçim görece küçük yaştaki ve bazı uygulama tutarsızlıklar 
 - ;
 - {}
 - ()
-- \\n
-- \\t
+- \\N
+- \\T
 - =
 
 >[!NOTE]

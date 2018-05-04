@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Veritabanınızın güvenliğini sağlama
 
-SQL Veritabanı veritabanınıza erişimi sınırlamak için güvenlik duvarı kurallarını, kullanıcıların kimliğini doğrulamak için kimlik doğrulama sistemlerini, rol tabanlı üyelikler ve izinler ile veri yetkilendirmeyi, satır düzeyi güvenliği ve dinamik veri maskelemeyi kullanarak verilerinizin güvenliğini sağlar.
+SQL Veritabanı aşağıdakileri yaparak verilerinizin güvenliğini sağlar: 
+- Güvenlik duvarı kurallarını kullanarak veritabanınıza erişimi sınırlandırma 
+- Kimlik gerektiren kimlik doğrulama mekanizmaları kullanma
+- Rol temelli üyelikler ve izinler aracılığıyla verilere yetki verme, 
+- Satır düzeyi güvenlik
+- Dinamik veri maskeleme
+
+SQL Veritabanı ayrıca çok yönlü izleme, denetleme ve tehdit algılama özelliklerine sahiptir. 
 
 Yalnızca birkaç basit adımda kötü amaçlı kullanıcılara ya da yetkisiz erişime karşı veritabanınızın korumasını artırabilirsiniz. Bu öğreticide şunları öğrenirsiniz: 
 
@@ -155,7 +162,7 @@ Azure SQL Veritabanı saydam veri şifrelemesi (TDE), şifrelenmiş veritabanın
 
 3. Gerekirse, **Veri şifreleme** ayarını AÇIK olarak belirleyip **Kaydet**’e tıklayın.
 
-Şifreleme işlemi arka planda başlatılır. [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ile SQL Veritabanına bağlanıp `sys.dm_database_encryption_keys` görünümünün encryption_state sütununu sorgulayarak ilerleme durumunu izleyebilirsiniz.
+Şifreleme işlemi arka planda başlatılır. [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ile SQL Veritabanına bağlanıp [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) görünümünün encryption_state sütununu sorgulayarak ilerleme durumunu izleyebilirsiniz. 3 durumu veritabanının şifrelendiğini belirtir. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Gerekirse SQL Veritabanı denetimini etkinleştirin
 

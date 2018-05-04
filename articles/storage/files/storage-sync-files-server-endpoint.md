@@ -1,8 +1,8 @@
 ---
-title: "Bir Azure dosya eşitleme (Önizleme) sunucu uç nokta Ekle/Kaldır | Microsoft Docs"
-description: "Azure dosyaları dağıtımı için planlama yaparken göz önünde bulundurmanız gerekenler hakkında bilgi edinin."
+title: Bir Azure dosya eşitleme (Önizleme) sunucu uç nokta Ekle/Kaldır | Microsoft Docs
+description: Azure dosyaları dağıtımı için planlama yaparken göz önünde bulundurmanız gerekenler hakkında bilgi edinin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Bir Azure dosya eşitleme (Önizleme) sunucu uç nokta Ekle/Kaldır
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -49,7 +49,7 @@ Aşağıdaki bilgiler altında gerekli **sunucusu uç noktası ekleme**:
 Seçin **oluşturma** sunucusu uç noktası eklemek için. Bir eşitleme grubundaki bir ad alanı içindeki dosyalar artık eşitlenmiş tutulacak. 
 
 ## <a name="remove-a-server-endpoint"></a>Sunucusu uç noktası Kaldır
-Katmanlama sunucusu uç noktası için etkinleştirildiğinde, bulut *katmanı* , Azure dosya paylaşımları için dosya. Bu dosya sunucusu üzerindeki alanı verimli kullanılmasını sağlamak için veri kümesi, tam bir kopyasını yerine bir önbellek olarak davranmak üzere şirket içi dosya paylaşımları sağlar. Ancak, bir sunucu uç sunucuda yerel olarak hala katmanlı dosyalarla kaldırılırsa, bu dosyaları erişilemiyor olur. Bu nedenle, dosya erişimini istenen etseydi, Azure dosyaları tüm katmanlı dosyaları silme ile devam etmeden önce geri çağırma gerekir. 
+Katmanlama sunucusu uç noktası için etkinleştirildiğinde, bulut *katmanı* , Azure dosya paylaşımları için dosya. Bu dosya sunucusu üzerindeki alanı verimli kullanılmasını sağlamak için veri kümesi, tam bir kopyasını yerine bir önbellek olarak davranmak üzere şirket içi dosya paylaşımları sağlar. Ancak, **sunucusu uç noktası hala yerel olarak sunucuda katmanlı dosyalarla kaldırılırsa, bu dosyaları erişilemez hale**. Bu nedenle, dosya erişimini şirket içi dosya paylaşımlarında istenen etseydi, tüm katmanlı dosyaları Azure dosyalarından sunucusu uç noktası siliniyor ile devam etmeden önce geri çekmek gerekir. 
 
 Bu PowerShell cmdlet'ini aşağıda gösterildiği gibi yapılabilir:
 

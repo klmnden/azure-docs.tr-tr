@@ -19,7 +19,7 @@
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
 ## [Azure AD Connect Health Uyarı Kataloğu](active-directory-aadconnect-health-alert-catalog.md)
-## [GDPR uyumluluğu ve Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
+## [Kullanıcı Gizliliği ve Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # İlgili
 ## [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory-aadconnect.md)

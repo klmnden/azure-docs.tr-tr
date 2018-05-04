@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric kümeleri Chaos anlamına | Microsoft Docs"
-description: "Hata ekleme ve küme analiz hizmeti API'leri Chaos kümede yönetmek için kullanma."
+title: Service Fabric kümeleri Chaos anlamına | Microsoft Docs
+description: Hata ekleme ve küme analiz hizmeti API'leri Chaos kümede yönetmek için kullanma.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 40ceb62e544d2aa71296e24da957cb062029da9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric kümelerinde denetimli Chaos anlamına
 Bulut altyapılarının doğası gereği güvenilir gibi büyük ölçekli dağıtılmış sistemler. Azure Service Fabric, güvenilir olmayan bir altyapının en üstünde güvenilir dağıtılmış hizmet yazmak geliştiricilerin sağlar. Güvenilir olmayan bir altyapının en üstünde güçlü dağıtılmış hizmet yazmak için geliştiriciler güvenilmez altyapının hataları nedeniyle karmaşık durumu geçişleri üzerinden giderek sırada hizmetlerini kararlılığını test etmek gerekir.
@@ -33,7 +33,7 @@ Hızı ve hataları türü ile Chaos yapılandırdıktan sonra C#, Powershell ve
 > Mevcut haliyle, dış hataları olmaması durumunda bir çekirdek kayıp veya veri kaybı hiçbir zaman oluştuğunu anlamına gelir, yalnızca güvenli hataları Chaos uygulanmasını.
 >
 
-Chaos çalışırken, bu anda çalışma durumunu yakalama farklı olayları üretir. Örneğin, bir ExecutingFaultsEvent Chaos bu yinelemede yürütmek için karar verdiği tüm hataları içerir. Bir ValidationFailedEvent küme doğrulama sırasında bulundu bir doğrulama hatası (sistem durumu veya kararlılık sorunları) ayrıntılarını içerir. GetChaosReport Chaos çalıştırır rapor almak için API (C#, Powershell veya REST) çağırabilirsiniz. Bu olaylar kalıcı bir [güvenilir sözlük](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), iki yapılandırmaları tarafından dikte kesilmesi ilkesi vardır: **MaxStoredChaosEventCount** (varsayılan değer olan 25000) ve **StoredActionCleanupIntervalInSeconds** (varsayılan değer olan 3600). Every *StoredActionCleanupIntervalInSeconds* Chaos checks and all but the most recent *MaxStoredChaosEventCount* events, are purged from the reliable dictionary.
+Chaos çalışırken, bu anda çalışma durumunu yakalama farklı olayları üretir. Örneğin, bir ExecutingFaultsEvent Chaos bu yinelemede yürütmek için karar verdiği tüm hataları içerir. Bir ValidationFailedEvent küme doğrulama sırasında bulundu bir doğrulama hatası (sistem durumu veya kararlılık sorunları) ayrıntılarını içerir. GetChaosReport Chaos çalıştırır rapor almak için API (C#, Powershell veya REST) çağırabilirsiniz. Bu olaylar kalıcı bir [güvenilir sözlük](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), iki yapılandırmaları tarafından dikte kesilmesi ilkesi vardır: **MaxStoredChaosEventCount** (varsayılan değer olan 25000) ve **StoredActionCleanupIntervalInSeconds** (varsayılan değer olan 3600). Her *StoredActionCleanupIntervalInSeconds* Chaos denetler ve tüm ancak en son *MaxStoredChaosEventCount* olayları, güvenilir sözlükten temizlendi.
 
 ## <a name="faults-induced-in-chaos"></a>İçinde Chaos kopyaladığınızda hataları
 Chaos hataları tüm Service Fabric kümesi oluşturur ve ay veya yıl birkaç saat görülür hataları sıkıştırır. Yüksek hata oranı araya eklemeli hataları birleşimi, aksi takdirde atlanabilir köşe durumlarda bulur. Bu alıştırmada karmaşık dünyada hizmet kod kalitesi, önemli bir iyileştirme neden olmaktadır.

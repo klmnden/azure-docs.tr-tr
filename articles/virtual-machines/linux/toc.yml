@@ -110,6 +110,8 @@
           href: disk-scalability-targets.md
         - name: Diskler için yedekleme ve olağanüstü durum kurtarma
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Yazma hızlandırıcıyı etkinleştirme
+          href: how-to-enable-write-accelerator.md
         - name: Ekli VHD’lerde sorun giderme
           href: troubleshoot-vhds.md
     - name: Ağ
@@ -183,6 +185,8 @@
           href: move-vm.md
         - name: VM boyutunu değiştirme
           href: change-vm-size.md
+        - name: İşletim sistemi diskini değiştirme
+          href: os-disk-swap.md
         - name: Bir VM’yi etiketleme
           href: tag.md
         - name: Bir VM üzerinde betikleri çalıştırma

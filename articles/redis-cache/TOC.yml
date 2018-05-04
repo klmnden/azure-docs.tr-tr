@@ -2,23 +2,9 @@
   href: index.md
 - name: Genel Bakış
   items:
-    - name: Neden Redis önbelleği kullanmalısınız?
-      href: 'https://azure.microsoft.com/services/cache/'
-    - name: Premium katman özelliklerini keşfetme
-      href: cache-premium-tier-intro.md
-    - name: Senaryolar
-      items:
-        - name: Önbellekteki öğelere erişme
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache'
-        - name: Yüksek kullanılabilirliği yapılandırma
-          href: 'https://azure.microsoft.com/pricing/details/cache/'
-        - name: SSL kullanarak güvenli bağlantı kurun
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache'
-        - name: Yönetilen Önbellek Hizmeti’nden Geçiş
-          href: cache-migrate-to-redis.md
-        - name: Modeller ve Uygulamalar Önbelleğe Alma kılavuzu
-          href: ../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json
-- name: başlarken
+    - name: Azure Redis Önbelleği hakkında
+      href: cache-overview.md
+- name: Hızlı Başlangıçlar
   items:
     - name: ASP.NET
       href: cache-web-app-howto.md
@@ -30,9 +16,27 @@
       href: cache-java-get-started.md
     - name: Python
       href: cache-python-get-started.md
-    - name: Redis Önbelleği Hakkında SSS
-      href: cache-faq.md
-- name: Nasıl yapılır
+- name: Öğreticiler
+  items:
+    - name: Puan tablolarını önbelleğe alma
+      href: cache-web-app-cache-aside-leaderboard.md
+- name: Örnekler
+  items:
+    - name: Redis Önbelleği örnekleri
+      href: cache-redis-samples.md
+    - name: Azure PowerShell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: Azure CLI
+      href: cli-samples.md
+- name: Kavramlar
+  items:
+    - name: En İyi Uygulamalar
+      items:
+        - name: Azure Redis Önbelleğine ilişkin En İyi Uygulamalar
+          href: 'https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f'
+        - name: Önbelleğe Alma İçin Azure Mimarisi Açısından En İyi Uygulamalar
+          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+- name: Nasıl yapılır kılavuzları
   items:
     - name: Planlama
       items:
@@ -72,6 +76,8 @@
           href: 'cache-administration.md#reboot'
         - name: Güncelleştirmeleri zamanlama
           href: 'cache-administration.md#schedule-updates'
+        - name: redis-cli.exe erişimini yapılandırma
+          href: cache-how-to-redis-cli-tool.md
     - name: İzleme ve sorun giderme
       items:
         - name: Azure portalında izleme
@@ -114,5 +120,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cache/'
-    - name: Redis önbelleği örnekleri
-      href: cache-redis-samples.md
+    - name: Redis Önbelleği Hakkında SSS
+      href: cache-faq.md
+    - name: Videolar
+      href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc'

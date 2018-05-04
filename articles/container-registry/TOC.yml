@@ -21,6 +21,14 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Kapsayıcı görüntüleri oluşturma (önizleme)
+      items:
+        - name: 1 - Azure’da görüntü oluşturma
+          href: container-registry-tutorial-quick-build.md
+        - name: 2 - Görüntü oluşturmayı otomatikleştirme
+          href: container-registry-tutorial-build-task.md
+        - name: 3 - Temel görüntü güncelleştirme derlemeleri
+          href: container-registry-tutorial-base-image-update.md
     - name: Coğrafi Çoğaltma (önizleme)
       items:
         - name: 1 - Kapsayıcı kayıt defterini hazırlama

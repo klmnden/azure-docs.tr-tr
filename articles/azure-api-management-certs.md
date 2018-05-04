@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure Hizmet Yönetim sertifikasını karşıya yükleme | Microsoft Docs"
-description: "Azure portalında Hizmet Yönetim sertifikası karşıya öğrenin."
+title: Bir Azure Hizmet Yönetim sertifikasını karşıya yükleme | Microsoft Docs
+description: Azure portalında Hizmet Yönetim sertifikası karşıya öğrenin.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Bir Azure Hizmet Yönetim sertifikasını karşıya yükle
 Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli, kimlik doğrulaması sağlar. Birçok programlar ve araçlar (örneğin, Visual Studio ya da Azure SDK'sı) yapılandırma ve çeşitli Azure hizmetlerine dağıtımını otomatik hale getirmek için bu sertifikaları kullanacak. 
@@ -30,7 +30,7 @@ Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli, k
 
 (Dahil olmak üzere otomatik olarak imzalanan sertifika oluşturma) Azure sertifikalar hakkında daha fazla bilgi isterseniz bkz [Azure Cloud Services sertifikalarına genel bakış](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Aynı zamanda [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Otomasyon amaçları için istemci kodu doğrulanacak.
+Aynı zamanda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) Otomasyon amaçları için istemci kodu doğrulanacak.
 
 **Not:** yönetim sertifikaları altında herhangi bir işlem gerçekleştirmek için abonelik ortak bir yönetici olması gerekir. [Daha fazla bilgi edinin](https://go.microsoft.com/fwlink/?linkid=849300) yeni Azure Portalı'ndan nasıl Ekle veya Kaldır ortak yöneticileri 
 

@@ -24,6 +24,8 @@
           href: migrate-scenarios-overview.md
         - name: Senaryo 1 - Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
           href: migrate-scenarios-assessment.md
+        - name: '2. Senaryo: Lift-and-shift ile Azure’a geçiş'
+          href: migrate-scenarios-lift-and-shift.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
     - name: Grup makineleri
