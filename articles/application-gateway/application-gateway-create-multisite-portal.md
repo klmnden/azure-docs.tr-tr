@@ -1,26 +1,26 @@
 ---
-title: "Birden çok siteyi barındıran ile - bir uygulama ağ geçidi oluşturma Azure portalı | Microsoft Docs"
-description: "Azure portalını kullanarak birden çok site barındıran bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Birden çok siteyi barındıran ile - bir uygulama ağ geçidi oluşturma Azure portalı | Microsoft Docs
+description: Azure portalını kullanarak birden çok site barındıran bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Azure portalını kullanarak barındırma birden çok siteyle bir uygulama ağ geçidi oluşturma
 
 Azure Portalı'nı yapılandırmak için kullanabileceğiniz [birden çok web sitesi barındırma](application-gateway-multi-site-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makine ölçekleme kümeleri kullanarak arka uç havuzları oluşturun. Daha sonra dinleyicileri ve uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olmak için kendi etki alanlarını temel alan kurallar yapılandırın. Bu öğretici birden çok etki alanları ve kullanım örnekleri sahibi olduğunu varsayar *www.contoso.com* ve *www.fabrikam.com*.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Uygulama ağ geçidi oluşturma
@@ -35,7 +35,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açtığınızda Azure portalında [http://portal.azure.com](http://portal.azure.com)
+Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -83,15 +83,15 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 3. Sanal makine için bu değerleri girin:
 
     - *contosoVM* - sanal makine adı için.
-    - *azureuser* - yönetici kullanıcı adı.
+    - Yönetici kullanıcı adı için *azureuser*.
     - *Azure123456!* parolası.
     - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
 
 4. **Tamam**’a tıklayın.
-5. Seçin **DS1_V2** tıklatın ve sanal makine boyutu için **seçin**.
+5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
-7. Tıklatın **devre dışı** önyükleme tanılaması devre dışı bırakmak için.
-8. Tıklatın **Tamam**, Özet sayfasında ayarları gözden geçirin ve ardından **oluşturma**.
+7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
+8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
@@ -102,7 +102,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 2. IIS sanal makineye yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -166,7 +166,7 @@ Uygulama ağ geçidi genel IP adresiyle oluşturulduktan sonra DNS adresi alın 
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-1. Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin, http://www.contoso.com.
+1. Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Gibi http://www.contoso.com.
 
     ![Uygulama ağ geçidi test contoso sitede](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure - Cortana Intelligence çözüm şablonu ile Havacılık Tahmine dayalı bakım | Microsoft Docs"
-description: "Microsoft Cortana Intelligence Tahmine dayalı bakım Havacılık, yardımcı programlar ve taşıma için bulunduğu bir çözüm şablonu."
+title: Tahmine dayalı bakım çözümleri için Azure AI Playbook | Microsoft Docs
+description: Birden fazla dikey sektörlerde Tahmine dayalı bakım çözümü'nın temelini oluşturan veri bilimi, kapsamlı bir açıklama.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence çözüm şablonu Playbook Havacılık ve diğer işletmelerin Tahmine dayalı bakım
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure AI Playbook 
 ## <a name="executive-summary"></a>Özet
 Tahmine dayalı bakım en talep edilen maliyet tasarrufları İnanılmaz derecede unarguable yararlar ile Tahmine dayalı analiz uygulamalarının biridir. Bu playbook önemli kullanım örneklerini indirimlere ile Tahmine dayalı bakım çözümler için bir başvuru sağlamaya amaçlar.
 En yaygın iş senaryolarına Tahmine dayalı bakım, zorluklar, iş sorunlarını Tahmine dayalı modelleme teknikleri kullanarak bu tür veri çözümleri oluşturmak üzere bu iş sorunlarını çözmek için gerekli verileri bu tür çözümler için uygun bir anlayış okuyucuya vermek hazır olan ve örnek çözüm mimarileri ile en iyi uygulamalar.
@@ -97,7 +97,7 @@ Uçak motorları ekipman çok hassas ve pahalı parçası ve altyapısı bölüm
 ##### <a name="business-value-of-the-predictive-model"></a>Tahmine dayalı bir model iş değeri
 Birden çok sınıf sınıflandırma modeli, bir sonraki ay içinde belirli bir bileşeni nedeniyle bir hata olasılığını tahmin oluşturuldu. Bu çözümlerin mimarisi kullanarak airlines bileşen onarım maliyetleri azaltmak, bileşen stok kullanılabilirliğini artırın, ilgili varlıklar stok düzeylerini küçültmek ve Bakım planlama geliştirmek.
 
-### <a name="utilities"></a>Altyapı hizmetleri
+### <a name="utilities"></a>Altyapı Hizmetleri
 #### <a name="use-case-1-atm-cash-dispense-failure"></a>Kullanım örneği 1: ATM nakit hatası etiket.
 ##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
 İşlerini birincil işletimsel risk varlıklarına beklenmeyen hatalarının olduğunu Yöneticiler varlık yoğun sektörlerde genellikle durum içinde. Örnek olarak, endüstri bankacılık içinde makineler ATM gibi başarısızlığını sıklıkla ortaya çok yaygın bir sorundur. Bu tür sorunları gibi makine işleçler için Tahmine dayalı bakım çözüm çok istenen olun. Bu kullanım örneğinde tahmin ATM nakit mevzuatı işlem nakit dağıtıcısının kağıt sıkıştı gibi bir hata veya bir bölümü hatası nedeniyle kesintiye uğrarsa olasılık hesaplamak için sorunudur. Ana veri bu durumda nakit notları dispensed sırada ölçümleri toplamak sensör okumaları ve aynı zamanda bakım kayıtları toplanan zamanla kaynaklarıdır. Tamamlanan her işlem başına sensör okumaları ve ayrıca sensör okumaları dispensed her Not başına algılayıcı verilerini dahil. Notlar, kalınlığı arasındaki boşlukları gibi algılayıcı sağlanan okumalar ölçümleri varış uzaklığı vb. unutmayın. Bakım veri, hata kodları ve onarım bilgileri dahil. Bunlar, hata durumlarını tanımlamak için kullanılmıştır.

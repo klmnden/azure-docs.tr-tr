@@ -1,24 +1,24 @@
 ---
-title: "Ücretsiz Azure hesabı - eşleme ölçer hizmetine | Microsoft Docs"
-description: "Ölçer eşleştirme ücretsiz hesapla dahil Hizmetleri için hizmet anlayın."
-services: 
-documentationcenter: 
+title: Ücretsiz Azure hesabı - eşleme ölçer hizmetine | Microsoft Docs
+description: Ölçer eşleştirme ücretsiz hesapla dahil Hizmetleri için hizmet anlayın.
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 9d7e355e755f2bac8929ab16f7f71aa3b0702658
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Ölçer eşleme için ücretsiz hizmeti anlama
 
@@ -45,10 +45,10 @@ Her Azure hizmeti kullanım kullanıcılar Hizmetleri için kaydedilecek Azure f
 | Disk yönetilen *  | Standart yönetilen Disk/anlık görüntüler (GB) - yerel olarak yedekli | Standart yönetilen Disk/anlık görüntüler (GB) - ücretsiz | ad94c237-52a5-4804-ae65-38c5bf85ef42
 | Disk yönetilen *  | Standart yönetilen Disk işlemleri (10.000 s) | Standart yönetilen Disk işlemleri (10.000 s) - ücretsiz | 82cc6ea4-0abd-43ac-ACC0-ec34edf0f14c
 | Disk yönetilen *  | Premium depolama sayfa blobu/P6 (birim) - yerel olarak yedekli | Premium depolama sayfa blobu/P6 (birim) - ücretsiz | 2b98c168-27CA-4cc1-b509-e887dec87657
-| SQL Veritabanı | Standart S0 veritabanı gün - SQL veritabanı | Standart S0 veritabanı gün - ücretsiz | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
+| SQL Database | Standart S0 veritabanı gün - SQL veritabanı | Standart S0 veritabanı gün - ücretsiz | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | Paylaşılan - bant genişliği ** | Veri Aktarımı Gönderilen (GB) | Veri aktarımı çıkışı (GB) - ücretsiz | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\*Windows sanal makine oluşturursanız ve yönetilen disk seçin, sanal makinenin parçası olarak yönetilen disk ölçer tüketir.
+\* Windows sanal makine oluşturursanız ve yönetilen disk seçin, sanal makinenin parçası olarak yönetilen disk ölçer tüketir.
 
 \** Paylaşılan ölçümler birden çok Hizmetleri aracılığıyla tüketilebilir. Örneğin, sanal makineleri ve depolama kullanımı veri aktarım Out(GB) ölçer karşı yayma.
 

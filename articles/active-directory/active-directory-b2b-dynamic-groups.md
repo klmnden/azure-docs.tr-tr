@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 5f628f20cbe86d48b1757644df64b36a27dc526c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dinamik gruplar ve Azure Active Directory B2B işbirliği
 
@@ -47,12 +47,7 @@ Ne tür bir grup aşağıdaki gibi görünmelidir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
-
-* [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
-* [Bir role B2B işbirliği kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
-* [B2B işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
-* [B2B işbirliği kodu ve PowerShell örnekleri](active-directory-b2b-code-samples.md)
-* [SaaS uygulamaları B2B işbirliği için yapılandırma](active-directory-b2b-configure-saas-apps.md)
+- [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
+- [Bir role B2B işbirliği kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
+- [B2B işbirliği kullanıcılar için koşullu erişim](active-directory-b2b-mfa-instructions.md)
 

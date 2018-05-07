@@ -1,22 +1,22 @@
 ---
-title: "Azure DNS geriye doğru DNS arama bölgeleri barındıran | Microsoft Docs"
-description: "Azure DNS geriye doğru DNS arama bölgeleri IP aralıkları için barındırmak için kullanmayı öğrenin"
+title: Azure DNS geriye doğru DNS arama bölgeleri barındıran | Microsoft Docs
+description: Azure DNS geriye doğru DNS arama bölgeleri IP aralıkları için barındırmak için kullanmayı öğrenin
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: d5dc152af6acb510e12cd42503b6128dc6492e89
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: kumud
+ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Ana bilgisayar geriye doğru DNS arama bölgeleri Azure DNS'de
 
@@ -52,7 +52,7 @@ Aşağıdaki örnek adlı bir sınıf C geriye doğru DNS bölgesi oluşturmak n
 
  ![Doldurulmuş kutusuyla "DNS bölgesi oluşturma" bölmesi](./media/dns-reverse-dns-hosting/figure2.png)
 
-**Kaynak grubu konumu** kaynak grubu için konum tanımlar. Bu DNS bölgesini üzerinde etkisi yoktur. DNS bölge konumu her zaman "Genel" ve gösterilmiyor.
+**Kaynak grubu konumu** kaynak grubu için konum tanımlar. Bu DNS bölgesini üzerinde etkisi yoktur. DNS bölgesinin konumu her zaman “genel” şeklindedir ve gösterilmez.
 
 Aşağıdaki örnekler, Azure PowerShell ve Azure CLI kullanarak bu görevi tamamlamak nasıl gösterir.
 
@@ -83,7 +83,7 @@ Aşağıdaki örnek adlı bir IPv6 geriye doğru DNS arama bölgesi oluşturmak 
 
  ![Doldurulmuş kutusuyla "DNS bölgesi oluşturma" bölmesi](./media/dns-reverse-dns-hosting/figure3.png)
 
-**Kaynak grubu konumu** kaynak grubu için konum tanımlar. Bu DNS bölgesini üzerinde etkisi yoktur. DNS bölge konumu her zaman "Genel" ve gösterilmiyor.
+**Kaynak grubu konumu** kaynak grubu için konum tanımlar. Bu DNS bölgesini üzerinde etkisi yoktur. DNS bölgesinin konumu her zaman “genel” şeklindedir ve gösterilmez.
 
 Aşağıdaki örnekler, Azure PowerShell ve Azure CLI kullanarak bu görevi tamamlamak nasıl gösterir.
 

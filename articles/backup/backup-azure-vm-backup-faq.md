@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -54,6 +54,9 @@ Evet. "Anlık görüntü almak" aşamasında ise, yedekleme işi iptal edebilirs
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>T kaynak grubu kilit my yedeklenen yönetilen diskte VM'ler etkin. Yedeklemelerim çalışmaya devam edecek mi?
 Kullanıcının kaynak grubu belirtilirse, Backup hizmeti eski geri yükleme noktaları silmek mümkün değil. Bunun nedeni, yeni yedeklemeler arka ucundan uygulanan en fazla 18 geri yükleme noktaları sınırı olarak başarısız olmaya başlar. Yedeklemelerinizin sonra RG kilit bir iç hatayla başarısız oluyorsa, aşağıdaki adımları [geri yüklemeyi kaldırma adımları koleksiyonu noktası](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Yedekleme İlkesi Yaz kaydetme Time(DST) dikkate mu?
+Hayır. Tarih ve saat, yerel bilgisayarınızda görüntülenir, yerel tarih ve geçerli gün ışığından yararlanma saati göre olduğunu unutmayın. Bu nedenle zamanlanmış yedeklemeler için yapılandırılan süre yerel saatinizle DST nedeniyle farklı olabilir.
 
 ## <a name="restore"></a>Geri Yükleme
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Diskleri geri yüklemekle tam sanal makine geri yüklemesi yapmak arasında nasıl seçim yapabilirim?

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c195cc0bacd9eea7e75fa35cd155845f03dd21cf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 934585082e2832c41885874c82ab43d64a1fa361
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure yığın PKI sertifikaları dağıtımı için hazırlama
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) Azure yığın sertifika gereksinimleri eşleşen özelliklere sahip dışarı ve içeri aktarılan gerekir.
@@ -28,55 +28,58 @@ Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) A
 ## <a name="prepare-certificates-for-deployment"></a>Sertifikaları dağıtımı için hazırlama
 Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
 
+### <a name="import-the-certificate"></a>Sertifika alma
+
 1.  Orijinal sertifika sürümlerini kopyalamak [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) dağıtım ana bilgisayarda bir dizine. 
   > [!WARNING]
   > Zaten içe, dışa aktarılan, değiştirilmiş veya silinmiş dosyaları doğrudan CA tarafından sağlanan dosyalarından herhangi bir şekilde kopyalamayın.
 
-2.  Yerel Makine sertifika deposuna sertifikaların içeri aktarın:
+2.  Sağ tıklatın ve sertifika **sertifikayı yükle** veya **PFX'i** nasıl sertifika, CA'teslim bağlı olarak.
 
-    a.  Sağ tıklatın ve sertifika **PFX'i**.
-
-    b.  İçinde **Sertifika Alma Sihirbazı'nı**seçin **yerel makine** içeri aktarma konumu olarak. **İleri**’yi seçin.
+3. İçinde **Sertifika Alma Sihirbazı'nı**seçin **yerel makine** içeri aktarma konumu olarak. **İleri**’yi seçin. Aşağıdaki ekranda sonraki yeniden tıklayın.
 
     ![Yerel makine içeri aktarma konumu](.\media\prepare-pki-certs\1.png)
 
-    c.  Seçin **sonraki** üzerinde **içeri aktarmak için dosya** sayfası.
-
-    d.  Üzerinde **özel anahtar korumasını** sayfasında, sertifika dosyaları için parolayı girin ve ardından etkinleştirmek **bu anahtarı verilebilir olarak işaretle. Bu sayede yedeklemek veya daha sonraki bir zamanda anahtarlarınızı aktarım** seçeneği. **İleri**’yi seçin.
-
-    ![Anahtarı verilebilir olarak işaretle](.\media\prepare-pki-certs\2.png)
-
-    e.  Seçin **tüm sertifika aşağıdaki depolama alanına yerleştir** ve ardından **Kurumsal güven** konumu olarak. Tıklatın **Tamam** sertifika deposu seçimi iletişim kutusunu kapatın ve ardından **sonraki**.
+4.  Seçin **tüm sertifika aşağıdaki depolama alanına yerleştir** ve ardından **Kurumsal güven** konumu olarak. Tıklatın **Tamam** sertifika deposu seçimi iletişim kutusunu kapatın ve ardından **sonraki**.
 
     ![Sertifika deposu yapılandırma](.\media\prepare-pki-certs\3.png)
 
-  f.    Tıklatın **son** Sertifika Alma Sihirbazı'nı tamamlayın.
+    a. Bir PFX alıyorsanız, ek bir iletişim kutusu ile sunulur. Üzerinde **özel anahtar korumasını** sayfasında, sertifika dosyaları için parolayı girin ve ardından etkinleştirmek **bu anahtarı verilebilir olarak işaretle. Bu sayede yedeklemek veya daha sonraki bir zamanda anahtarlarınızı aktarım** seçeneği. **İleri**’yi seçin.
 
-  g.    Dağıtımınız için sağlama tüm sertifikalar için işlemi yineleyin.
+    ![Anahtarı verilebilir olarak işaretle](.\media\prepare-pki-certs\2.png)
 
-3. Sertifikayı PFX dosyası biçimi Azure yığın gereksinimleriyle verin:
+5. Alma işlemini tamamlamak için Son'u tıklatın.
 
-  a.    Sertifika Yöneticisi'ni MMC konsolu açın ve yerel makine sertifika deposuna bağlanın.
+### <a name="export-the-certificate"></a>Sertifika verme
 
-  b.    Git **Kurumsal güven** dizin.
+Sertifika Yöneticisi'ni MMC konsolu açın ve yerel makine sertifika deposuna bağlanın.
 
-  c.    2. adımda aldığınız sertifikalardan birini seçin.
+1. Microsoft Yönetim Konsolu'nu açın, Windows 10'da Başlat menüsünde sağ tıklayın ve sonra Çalıştır'ı tıklatın. Tür **mmc** Tamam'ı tıklatın.
 
-  d.    Görev çubuğu Sertifika Yöneticisi konsolundan seçin **Eylemler** > **tüm görevler** > **verme**.
+2. Dosya,'ı Ekle/Kaldır ek bileşenini sonra select sertifikaları Ekle'yi tıklatın.
 
-  e.    **İleri**’yi seçin.
+    ![Sertifikalar ek bileşenini ekleme](.\media\prepare-pki-certs\mmc-2.png)
+ 
+3. Bilgisayar hesabını seçin, İleri'yi yerel bilgisayar Seç sonra son. Ekle/Kaldır ek bileşenini sayfasını kapatmak için Tamam'ı tıklatın.
 
-  f.    Seçin **Evet, özel anahtarı dışarı aktar**ve ardından **sonraki**.
+    ![Sertifikalar ek bileşenini ekleme](.\media\prepare-pki-certs\mmc-3.png)
 
-  g.    Dışarı aktarma dosyası biçimi bölümünde **tüm genişletilmiş özellikleri dışarı** ve ardından **sonraki**.
+4. Sertifikalar için Gözat > Kurumsal güven > sertifika konumu. Sağ tarafta sertifikanızı gördüğünüzü doğrulayın.
 
-  h.    Seçin **parola** ve sertifikalar için bir parola belirtin. Dağıtım parametre olarak kullanılan bu parolayı unutmayın. **İleri**’yi seçin.
+5. Görev çubuğu Sertifika Yöneticisi konsolundan seçin **Eylemler** > **tüm görevler** > **verme**. **İleri**’yi seçin.
 
-  i.    Bir dosya adı ve dışarı aktarmak pfx dosyası konumunu seçin. **İleri**’yi seçin.
+  > [!NOTE]
+  > Kaç Azure yığın bağlı olarak birden çok kez bu işlemi tamamlamak, sahip sertifikaları gerekebilir.
 
-  j.    **Son**’u seçin.
+4. Seçin **Evet, özel anahtarı dışarı aktar**ve ardından **sonraki**.
 
-  k.    2. adımda, dağıtımınız için alınan tüm sertifikalar için bu işlemi yineleyin.
+5. Dışarı aktarma dosyası biçimi bölümünde **tüm genişletilmiş özellikleri dışarı** ve ardından **sonraki**.
+
+6. Seçin **parola** ve sertifikalar için bir parola belirtin. Dağıtım parametre olarak kullanılan bu parolayı unutmayın. **İleri**’yi seçin.
+
+7. Bir dosya adı ve dışarı aktarmak pfx dosyası konumunu seçin. **İleri**’yi seçin.
+
+8. **Son**’u seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [PKI sertifikaları doğrula](azure-stack-validate-pki-certs.md)

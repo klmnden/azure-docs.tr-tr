@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/30/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 54faa5a50b3fe965bc7f95fc0da0fdda9388412f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="write-accelerator"></a>Hızlandırıcı yazma
 Hızlandırıcı bir disk özelliği için M-serisi sanal makinelerde (VM'ler) yönetilen Azure disklerle Premium depolama özel olarak yazma. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. Hızlandırıcı ideal burada günlük dosyası güncelleştirmelerini diske modern veritabanları için yüksek oranda kullanıcı şekilde kalıcı hale getirmek için gereken uygun yazma.
@@ -42,7 +42,7 @@ Hızlandırıcı yazma Azure bir disk/VHD için kullanırken bu kısıtlamalar g
 
 - Premium disk önbelleği 'None' ayarlanması gerekir ya da 'Salt okunur'. Diğer tüm önbelleğe alma modu desteklenmiyor.
 - Yazma etkinleştirilmiş Hızlandırıcı disk üzerinde anlık görüntü henüz desteklenmiyor. Bu kısıtlama, Azure Backup hizmeti bir uygulamayla tutarlı anlık görüntü sanal makinenin tüm disklerinin gerçekleştirme yeteneğini engeller.
-- Küçük g/ç boyutları hızlandırılmış yolu sürüyor. İş yükü verileri toplu mdan olduğu durumlarda yüklü olan veya depolama birimine kalıcı önce için büyük ölçüde doldurulmuş farklı DBMS işlem günlüğü arabelleklerini burada olasılığını yazılan g/ç disk hızlandırılmış yolu sürüyor değil.
+- Küçük g/ç boyutları (< 32KiB =) hızlandırılmış yolu sürüyor. İş yükü verileri toplu mdan olduğu durumlarda yüklü olan veya depolama birimine kalıcı önce için büyük ölçüde doldurulmuş farklı DBMS işlem günlüğü arabelleklerini burada olasılığını yazılan g/ç disk hızlandırılmış yolu sürüyor değil.
 
 Azure Premium Storage VHD'ler yazma Hızlandırıcı tarafından desteklenen VM başına sınırları vardır. Geçerli sınırlarını şunlardır:
 
@@ -105,7 +105,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Aşağıdaki bölümlerde gösterildiği gibi iki ana senaryo betiği yazılabilir.
 
-#### <a name="adding--new-disk-supported-by-write-accelerator"></a>Yazma Hızlandırıcı tarafından desteklenen yeni disk ekleme
+#### <a name="adding-a-new-disk-supported-by-write-accelerator"></a>Yazma Hızlandırıcı tarafından desteklenen yeni bir disk ekleme
 VM için yeni bir disk eklemek için bu komut dosyasını kullanabilirsiniz. Bu komut dosyası ile oluşturduğunuz disk yazma Hızlandırıcı kullanmak zordur.
 
 ```
@@ -157,6 +157,13 @@ VM, disk ve kaynak grubu adları uyarlamanız gerekir. Yukarıdaki komut dosyas�
 
 > [!Note]
 > Yukarıdaki komut dosyası yürütme belirtilen disk ayırma, yazma Hızlandırıcı karşı disk etkinleştirir ve diski yeniden ekleyin
+
+### <a name="enabling-through-azure-portal"></a>Azure portalı üzerinden etkinleştirme
+
+Yazma Hızlandırıcı önbelleğe alma ayarları diskinizin belirlediğiniz Portalı aracılığıyla etkinleştirebilirsiniz: 
+
+![Azure Portal'da Hızlandırıcı yazma](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+
 
 ### <a name="enabling-through-rest-apis"></a>REST API'leri aracılığıyla etkinleştirme
 Azure Rest API aracılığıyla dağıtmak için Azure armclient yüklemeniz gerekir

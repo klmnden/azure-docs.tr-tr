@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 8d1eb3229f22b2da3a356562250fedb3c35c4816
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
@@ -65,19 +65,19 @@ Azure erişiminiz tüm kayıt hesaplarının bir listesiyle yanıt verir:
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ Azure hesaplarının nesne kimlikleri ve e-posta adresleri listesi ile yanıt ve
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -117,19 +117,19 @@ Azure hesaplarının nesne kimlikleri ve e-posta adresleri listesi ile yanıt ve
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ Kullanım `principalName` için faturalandırılmaya abonelikleri istediğiniz h
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Belirli kayıt hesabı altında abonelikleri oluşturma 
 
-Aşağıdaki örnek adlı abonelik oluşturmak için bir istek oluşturur *geliştirme ekibi abonelik* ve abonelik teklif *MS-AZR - 0017P* (normal EA). Kayıt hesabıdır `<enrollmentAccountId>`, kayıt hesabı olduğu MobileOnboardingEng@contoso.com. Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahipleri olarak ekler.
+Aşağıdaki örnek adlı abonelik oluşturmak için bir istek oluşturur *geliştirme ekibi abonelik* ve abonelik teklif *MS-AZR - 0017P* (normal EA). Kayıt hesabıdır `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (yer tutucu değerini, bu GUID'dir), kayıt hesabı olduğu SignUpEngineering@contoso.com. Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahipleri olarak ekler.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 Kullanım `id` , `enrollmentAccount` abonelik oluşturmak için istek yolundaki.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ Yanıtta ulaşırsınız bir `subscriptionOperation` izleme nesnesi. Abonelik ol
 
 Bu önizleme modülü kullanmak için çalıştırarak yüklemek `Install-Module AzureRM.Subscription -AllowPrerelease` ilk. Emin olmak için `-AllowPrerelease` çalıştığı PowerShellGet en son sürümünü yükleyin [alma PowerShellGet Modülü](/powershell/gallery/psget/get_psget_module).
 
-Kullanım [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) ile birlikte `enrollmentAccount` adı olarak `EnrollmentAccountObjectId` parametresini kullanarak yeni bir abonelik oluşturun. 
+Kullanım [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) ile birlikte `enrollmentAccount` nesne kimliği olarak `EnrollmentAccountObjectId` parametresini kullanarak yeni bir abonelik oluşturun. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Öğe adı  | Gerekli | Tür   | Açıklama                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Hayır      | Dize | Abonelik görünen adı. Belirtilmezse, "Microsoft Azure Kurumsal" gibi teklif adına ayarlanır                                 |
 | `OfferType`   | Evet      | Dize | Abonelik teklif. EA için iki seçenek olan [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (üretim kullanın) ve [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (geliştirme ve test olması gerekir [EA Portalı'nı kullanarak açık](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Evet       | Dize | Abonelik altında oluşturulur ve için fatura kayıt hesabı nesne kimliği. Bu aldığınız bir GUID değeridir `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı nesnesi kimliği.  |
 | `OwnerSignInName`    | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı e-posta adresi. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`.|
 | `OwnerApplicationId` | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet asıl uygulama kimliği. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`.| 
@@ -197,16 +198,17 @@ Tüm parametreler tam listesini görmek için bkz: [New-AzureRmSubscription](/po
 
 Bu önizleme uzantısını kullanacak şekilde çalıştırarak yüklemek `az extension add --name subscription` ilk.
 
-Kullanım [az hesabı oluşturma](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) ile birlikte `enrollmentAccount` adı olarak `enrollment_account_name` parametresini kullanarak yeni bir abonelik oluşturun.
+Kullanım [az hesabı oluşturma](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) ile birlikte `enrollmentAccount` nesne kimliği olarak `enrollment-account-object-id` parametresini kullanarak yeni bir abonelik oluşturun.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Öğe adı  | Gerekli | Tür   | Açıklama                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Hayır      | Dize | Abonelik görünen adı. Belirtilmezse, "Microsoft Azure Kurumsal" gibi teklif adına ayarlanır                                 |
 | `offer-type`   | Evet      | Dize | Abonelik teklif. EA için iki seçenek olan [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (üretim kullanın) ve [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (geliştirme ve test olması gerekir [EA Portalı'nı kullanarak açık](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Evet       | Dize | Abonelik altında oluşturulur ve için fatura kayıt hesabı nesne kimliği. Bu aldığınız bir GUID değeridir `az billing enrollment-account list`. |
 | `owner-object-id`      | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı nesnesi kimliği.  |
 | `owner-upn`    | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı e-posta adresi. Bu parametre yerine kullanabileceğiniz `owner-object-id`.|
 | `owner-spn` | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet asıl uygulama kimliği. Bu parametre yerine kullanabileceğiniz `owner-object-id`.| 
@@ -217,12 +219,12 @@ Tüm parametreler tam listesini görmek için bkz: [az hesabı oluşturma](/cli/
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>RBAC kullanarak bir kayıt hesaba temsilci seçme
 
-Başka bir kullanıcı veya hizmet sorumlusu belirli bir hesaba karşı abonelikleri oluşturma olanağı vermek için [kayıt hesabı kapsamındaki bir RBAC sahip rolünü vermediğiniz](../active-directory/role-based-access-control-manage-access-rest.md). Aşağıdaki örnek, Kiracı ile içinde kullanıcıya verir `principalId` , `<userObjectId>` (için MobileOnboardingEng@contoso.com) sahip rolü kayıt hesabındaki. 
+Başka bir kullanıcı veya hizmet sorumlusu belirli bir hesaba karşı abonelikleri oluşturma olanağı vermek için [kayıt hesabı kapsamındaki bir RBAC sahip rolünü vermediğiniz](../active-directory/role-based-access-control-manage-access-rest.md). Aşağıdaki örnek, Kiracı ile içinde kullanıcıya verir `principalId` , `<userObjectId>` (için SignUpEngineering@contoso.com) sahip rolü kayıt hesabındaki. 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ Sahip rolü kayıt hesap kapsamda başarıyla atandığında, Azure rol ataması
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ Sahip rolü kayıt hesap kapsamda başarıyla atandığında, Azure rol ataması
 Kullanım [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) kayıt hesabınıza başka bir kullanıcıya sahip erişim vermek için.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 Kullanım [az rol ataması oluşturma](../active-directory/role-based-access-control-manage-access-azure-cli.md) kayıt hesabınıza başka bir kullanıcıya sahip erişim vermek için.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

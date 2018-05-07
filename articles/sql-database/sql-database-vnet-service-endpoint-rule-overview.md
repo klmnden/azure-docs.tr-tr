@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -207,7 +207,7 @@ Bağlantı hatası 40914 ilişkili *sanal ağ kuralları*, güvenlik duvarı bö
 
 #### <a name="error-40615"></a>Hata 40615
 
-*İleti metni:* sunucu '{0}' oturum açma tarafından istenen açamıyor. IP adresi '{1}' olan istemcinin sunucuya erişmek için izin verilmiyor.
+*İleti metni:* sunucu açamıyor '{0}' oturum açma tarafından istenen. İstemci IP adresi ile{1}' sunucusuna erişmek için izin verilmiyor.
 
 *Hata açıklaması:* istemci Azure SQL veritabanı sunucusuna bağlanmak için yetkili olmayan bir IP adresinden bağlanmaya çalışıyor. Sunucu güvenlik duvarı verilen IP adresinden SQL veritabanıyla iletişim kurmak bir istemci veren IP adresi kuralı yok.
 
@@ -334,7 +334,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017 içind
 
 [vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
-[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
+[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 
 

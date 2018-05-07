@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/02/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2d9e0fc50bed4e8301a24a062407b490d688803d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure yük dengeleyici nedir?
 
@@ -73,7 +73,11 @@ Yük Dengeleyici TCP ve UDP uygulamalar için aşağıdaki temel yetenekleri sa�
 
 * **Belirsiz ve şeffaf uygulama**
 
-    Yük Dengeleyici doğrudan TCP veya UDP veya uygulama katmanı ve tüm TCP ile etkileşime girmez veya UDP tabanlı uygulama senaryosu desteklenmiyor. Örneğin, yük dengeleyici TLS kendisini sonlandırmak değil de, yapı ve TLS uygulamalarının yük dengeleyicisi kullanarak ölçeklendirmek ve VM TLS bağlantıda sonlandırılacak. Yük Dengeleyici bir akış sonlandırmak değil ve protokolü el sıkışmaları her zaman doğrudan istemci ve karma seçilen arka uç havuzu örnek arasında gerçekleşir. Örneğin, bir TCP anlaşması her zaman istemci ve seçilen arka uç VM arasında oluşur. Bir ön uç isteğine yanıt arka uç sanal makineden oluşturulan bir yanıt olan. Yük Dengeleyici giden ağ performansını yalnızca seçtiğiniz VM SKU tarafından sınırlandırılır ve boşta kalma zaman aşımı hiçbir zaman ulaşıldığında akışları uzun süre boyunca etkin kalır.
+    Yük Dengeleyici doğrudan TCP veya UDP veya uygulama katmanı ve tüm TCP ile etkileşime girmez veya UDP tabanlı uygulama senaryosu desteklenmiyor.  Yük Dengeleyici yok sonlandırmak veya akışları kaynaklanan, etkileşimde akış yükü hiçbir uygulama katmanı ağ geçidi işlevi sağlar ve protokolü el sıkışmaları her zaman meydana doğrudan istemci ve arka uç havuzu örnek arasında.  Gelen bir akış yanıt her zaman bir sanal makineden bir yanıt olan.  Sanal makinede akış geldiğinde, özgün kaynak IP adresini de korunur.  Daha fazla saydamlık göstermek için örnekler birkaç:
+    - Bir TCP anlaşması her zaman istemci ve seçilen arka uç VM arasında oluşur. Bir ön uç isteğine yanıt arka uç VM tarafından üretilen bir yanıt olan. Bu senaryo için bağlanabilirliği doğrulamak için TCP ping kullanmanız gerekir.  Kullanım [psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) veya [nmap](https://nmap.org) sağlıklı bir sanal makineyle bir anlaşması başarılı olup olmadığını denetlemek için. Lütfen ICMP farklı bir IP protokol UDP veya TCP değerinden olmadığını ve bu amaç için desteklenmeyen unutmayın.
+    - Uygulama yükü yük dengeleyici ve tüm UDP saydam veya TCP tabanlı uygulama desteklenebilir. Yük dengeleyici gibi bir katman 7 kullandığınız her HTTP istek işleme ya da (örneğin HTTP URL'lerini ayrıştırma), uygulama katmanı yüklerini işlenmesini gerektiren iş yükleri için [uygulama ağ geçidi](https://azure.microsoft.com/en-us/services/application-gateway).
+    - Yük Dengeleyici TCP yükü belirsiz olduğundan ve TLS Boşaltması ("SSL") sağlanmaz, yük dengeleyici kullanarak uçtan uca şifrelenmiş senaryolar yapı ve VM TLS bağlantıda sonlandırarak TLS uygulamalar için büyük ölçeklendirme elde.  Örneğin, TLS oturumunuz kapasite anahtarlama yalnızca arka uç havuzuna eklemek VM'lerin sayısını ve türünü sınırlıdır.  "SSL boşaltma", uygulama katmanı işleme veya Azure sertifika yönetimi temsilci istiyorsanız gerektiriyorsa, Azure'nın katman 7 yük dengeleyici kullanması gereken [uygulama ağ geçidi](https://azure.microsoft.com/en-us/services/application-gateway) yerine.
+        
 
 * **Otomatik yeniden yapılandırma**
 

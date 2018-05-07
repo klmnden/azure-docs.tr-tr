@@ -21,8 +21,12 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: Öğreticiler
   items:
-    - name: Uygulamaları Azure ve Azure Stack’e dağıtma
+    - name: Azure ve Azure uygulamaları dağıtmak yığını
       href: azure-stack-solution-pipeline.md
+    - name: Karma bulut kimlik yapılandırın
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Karma bulut bağlantısını yapılandır
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure Stack Portal’ı kullanma
@@ -73,7 +77,7 @@
               href: azure-stack-understanding-dns.md
             - name: Azure Stack’te DNS
               href: azure-stack-dns.md
-        - name: Anahtar Kasası
+        - name: Key Vault
           items:
             - name: Genel Bakış
               href: azure-stack-kv-intro.md

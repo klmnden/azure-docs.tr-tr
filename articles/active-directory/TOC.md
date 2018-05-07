@@ -53,6 +53,7 @@
 #### [Davet e-postası](active-directory-b2b-invitation-email.md)
 #### [Davet kullanma](active-directory-b2b-redemption-experience.md)
 #### [Davetiye olmadan B2B kullanıcıları ekleme](active-directory-b2b-add-user-without-invite.md)
+#### [Davetlere izin verme veya davetleri engelleme](active-directory-b2b-allow-deny-list.md)
 #### [B2B için koşullu erişim](active-directory-b2b-mfa-instructions.md)
 #### [B2B paylaşım ilkeleri](active-directory-b2b-delegate-invitations.md)
 #### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
@@ -273,6 +274,7 @@
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 ### [Acil durum erişimi yönetici hesaplarını yönetin](active-directory-admin-manage-emergency-access-accounts.md)
+### [Ayrıcalıklı rollerin güvenliğini sağlama](admin-roles-best-practices.md)
 
 ## Erişim gözden geçirmeleri
 ### [Erişim gözden geçirmelerine genel bakış](active-directory-azure-ad-controls-access-reviews-overview.md)

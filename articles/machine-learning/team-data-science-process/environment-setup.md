@@ -1,9 +1,9 @@
 ---
-title: "Azure veri bilimi ortamları ayarlama | Microsoft Docs"
-description: "Verileri Bilim ortamları takım veri bilimi işlemi kullanmak için Azure üzerinde ayarlayın."
+title: Azure veri bilimi ortamları ayarlama | Microsoft Docs
+description: Verileri Bilim ortamları takım veri bilimi işlemi kullanmak için Azure üzerinde ayarlayın.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 481cfa6a-7ea3-46ac-b0f9-2e3982c37153
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 96139523cd2440c801230b62abf9c9b56ec15e83
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: deguhath
+ms.openlocfilehash: 9bc5b3f830f2eee533c24d26710cc6b4e8745586
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Team Data Science Process içinde kullanım için veri bilimi ortamlarını ayarlama
 Takım veri bilimi işlemi, depolama, işleme ve veri analizi için çeşitli veri bilimi ortamları kullanır. Azure Blob Storage, Azure sanal makineler, Hdınsight (Hadoop) kümeleri ve Azure Machine Learning çalışma alanları çeşitli içerirler. Model alınacak türü ve veri miktarını kullanmak için hangi ortamı bağlıdır ve bu verileri bulutta hedef hedefini hakkındaki kararınızı. 

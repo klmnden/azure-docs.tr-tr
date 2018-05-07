@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 34d115f36e64a34b4382ce4e11e93a0c06215c5d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir. Portalı veya eski API'lerini kullanarak diğer ölçümleri bulunabilir. Aşağıda bu liste, yalnızca ölçümleri birleştirilmiş Azure ölçüm işlem hattını izleme ile kullanılabilen içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 api sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -425,6 +425,16 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |---|---|---|---|---|---|
 |CpuUsage|CPU Kullanımı|Sayı|Ortalama|Millicores, tüm çekirdek CPU kullanımı.|Kapsayıcı adı|
 |MemoryUsage|Bellek Kullanımı|Bayt|Ortalama|Bayt olarak toplam bellek kullanımı.|Kapsayıcı adı|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Yönetilen bir kümede kullanılabilir cpu çekirdeklerinin toplam sayısı|Sayı|Toplam|Yönetilen bir kümede kullanılabilir cpu çekirdeklerinin toplam sayısı|Hiç boyut|
+|kube_node_status_allocatable_memory_bytes|Yönetilen bir kümede kullanılabilir belleğin toplam miktarı|Bayt|Toplam|Yönetilen bir kümede kullanılabilir belleğin toplam miktarı|Hiç boyut|
+|kube_pod_status_ready|Hazır durumda pod'ları sayısı|Sayı|Toplam|Hazır durumda pod'ları sayısı|ad alanı, pod|
+|kube_node_status_condition|Çeşitli düğüm koşulları için durumlar|Sayı|Toplam|Çeşitli düğüm koşulları için durumlar|Koşul, durum, düğüm|
+|kube_pod_status_phase|Aşama tarafından pod'ları sayısı|Sayı|Toplam|Aşama tarafından pod'ları sayısı|Aşama, ad alanı, pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -1012,6 +1022,20 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |CPUXNS|Ad alanı başına CPU kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı CPU kullanım ölçümü|Hiç boyut|
 |WSXNS|Ad alanı başına bellek boyutu kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı bellek kullanım ölçümü|Hiç boyut|
 
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|ConnectionCount|Bağlantı sayısı|Sayı|Maksimum|Kullanıcı bağlantısı miktarı.|Hiç boyut|
+|ConnectionCountPerSecond|Saniye başına bağlantısı sayısı|CountPerSecond|Ortalama|Saniye başına ortalama bağlantı sayısı.|Hiç boyut|
+|MessageCount|İleti Sayısı|Sayı|Maksimum|İleti ay toplam miktarı|Hiç boyut|
+|MessageCountPerSecond|Saniye başına ileti sayısı|CountPerSecond|Ortalama|İleti ortalama sayısı|Hiç boyut|
+|MessageUsed|Kullanılan ileti|Yüzde|Maksimum|İletileri yüzdesi ayında kullanılmış|Hiç boyut|
+|ConnectionUsed|Kullanılan bağlantı|Yüzde|Maksimum|Bağlantıları yüzdesi kullanılan|Hiç boyut|
+|UserErrors|Kullanıcı hataları|Yüzde|Maksimum|Kullanıcı hatalarının yüzdesi|Hiç boyut|
+|SystemErrors|Sistem hataları|Yüzde|Maksimum|Sistem hatalarının yüzdesi|Hiç boyut|
+|SystemLoad|Sistem yükü|Yüzde|Maksimum|Sistem yükü yüzdesi|Hiç boyut|
+
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
@@ -1147,6 +1171,30 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |DeserializationError|Giriş Serileştirme Kaldırma Hataları|Sayı|Toplam|Giriş Serileştirme Kaldırma Hataları|Hiç boyut|
 |EarlyInputEvents|Uygulanma zamanı varış zamanından önce olan olaylar.|Sayı|Toplam|Uygulanma zamanı varış zamanından önce olan olaylar.|Hiç boyut|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Giriş alınan iletileri|Sayı|Toplam|Tüm olay hub'ı veya IOT hub'ı olay kaynakları okuma iletilerinin sayısı|Hiç boyut|
+|IngressReceivedInvalidMessages|Giriş geçersiz ileti alındı|Sayı|Toplam|Tüm olay hub'ı veya IOT hub'ı olay kaynakları okuma geçersiz ileti sayısı|Hiç boyut|
+|IngressReceivedBytes|Giriş alınan bayt miktarı|Bayt|Toplam|Tüm olay kaynaklardan okunan bayt sayısı|Hiç boyut|
+|IngressStoredBytes|Bayt giriş depolanan|Bayt|Toplam|Başarıyla işlenen ve sorgu için kullanılabilir olayların toplam boyutu|Hiç boyut|
+|IngressStoredEvents|Giriş olayları depolanan|Sayı|Toplam|Başarıyla işlenen ve sorgu için kullanılabilir düzleştirilmiş olayların sayısı|Hiç boyut|
+|IngressReceivedMessagesTimeLag|Giriş alınan iletilerin zaman gecikmesini|Saniye|Maksimum|Olay kaynağı, sıraya alınan ileti saati ve giriş işlendiği saati arasındaki farkı|Hiç boyut|
+|IngressReceivedMessagesCountLag|Giriş alınan iletilerin sayısını gecikme|Sayı|Ortalama|Son sıraya alınan ileti sıra numarası arasındaki farkı olay kaynağı giriş işlenen ileti bölüm ve sıra sayısı|Hiç boyut|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Giriş alınan iletileri|Sayı|Toplam|Olay kaynaktan okunan ileti sayısı|Hiç boyut|
+|IngressReceivedInvalidMessages|Giriş geçersiz ileti alındı|Sayı|Toplam|Olay kaynaktan okunan geçersiz ileti sayısı|Hiç boyut|
+|IngressReceivedBytes|Giriş alınan bayt miktarı|Bayt|Toplam|Olay kaynaktan okunan bayt sayısı|Hiç boyut|
+|IngressStoredBytes|Bayt giriş depolanan|Bayt|Toplam|Başarıyla işlenen ve sorgu için kullanılabilir olayların toplam boyutu|Hiç boyut|
+|IngressStoredEvents|Giriş olayları depolanan|Sayı|Toplam|Başarıyla işlenen ve sorgu için kullanılabilir düzleştirilmiş olayların sayısı|Hiç boyut|
+|IngressReceivedMessagesTimeLag|Giriş alınan iletilerin zaman gecikmesini|Saniye|Maksimum|Olay kaynağı, sıraya alınan ileti saati ve giriş işlendiği saati arasındaki farkı|Hiç boyut|
+|IngressReceivedMessagesCountLag|Giriş alınan iletilerin sayısını gecikme|Sayı|Ortalama|Son sıraya alınan ileti sıra numarası arasındaki farkı olay kaynağı giriş işlenen ileti bölüm ve sıra sayısı|Hiç boyut|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
@@ -1181,6 +1229,19 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AppConnections|Bağlantılar|Sayı|Ortalama|Bağlantılar|Örnek|
 |Tanıtıcılar|Tanıtıcı Sayısı|Sayı|Ortalama|Tanıtıcı Sayısı|Örnek|
 |İş Parçacıkları|İş Parçacığı Sayısı|Sayı|Ortalama|İş Parçacığı Sayısı|Örnek|
+|IoReadBytesPerSecond|Saniye başına okunan bayt g/ç|BytesPerSecond|Toplam|Saniye başına okunan bayt g/ç|Örnek|
+|IoWriteBytesPerSecond|G/ç yazma bayt / saniye|BytesPerSecond|Toplam|G/ç yazma bayt / saniye|Örnek|
+|IoOtherBytesPerSecond|GÇ diğer bayt / saniye|BytesPerSecond|Toplam|GÇ diğer bayt / saniye|Örnek|
+|IoReadOperationsPerSecond|Saniye başına g/ç okuma işlemleri|BytesPerSecond|Toplam|Saniye başına g/ç okuma işlemleri|Örnek|
+|IoWriteOperationsPerSecond|G/ç yazma işlemlerini / saniye|BytesPerSecond|Toplam|G/ç yazma işlemlerini / saniye|Örnek|
+|IoOtherOperationsPerSecond|Diğer işlemlerin saniye başına g/ç|BytesPerSecond|Toplam|Diğer işlemlerin saniye başına g/ç|Örnek|
+|RequestsInApplicationQueue|Uygulama sırasındaki isteklerin|Sayı|Ortalama|Uygulama sırasındaki isteklerin|Örnek|
+|CurrentAssemblies|Geçerli Derlemeler|Sayı|Ortalama|Geçerli Derlemeler|Örnek|
+|TotalAppDomains|Toplam uygulama etki alanları|Sayı|Ortalama|Toplam uygulama etki alanları|Örnek|
+|TotalAppDomainsUnloaded|Toplam uygulama etki alanları kaldırıldı|Sayı|Ortalama|Toplam uygulama etki alanları kaldırıldı|Örnek|
+|Gen0Collections|Gen 0 çöp koleksiyonları|Sayı|Toplam|Gen 0 çöp koleksiyonları|Örnek|
+|Gen1Collections|Gen 1 çöp koleksiyonları|Sayı|Toplam|Gen 1 çöp koleksiyonları|Örnek|
+|Gen2Collections|Gen 2 çöp koleksiyonları|Sayı|Toplam|Gen 2 çöp koleksiyonları|Örnek|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (işlev)
 
@@ -1193,6 +1254,19 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
 |FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Toplam|İşlev Yürütme Birimleri|Örnek|
 |İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Toplam|İşlev Yürütme Sayısı|Örnek|
+|IoReadBytesPerSecond|Saniye başına okunan bayt g/ç|BytesPerSecond|Toplam|Saniye başına okunan bayt g/ç|Örnek|
+|IoWriteBytesPerSecond|G/ç yazma bayt / saniye|BytesPerSecond|Toplam|G/ç yazma bayt / saniye|Örnek|
+|IoOtherBytesPerSecond|GÇ diğer bayt / saniye|BytesPerSecond|Toplam|GÇ diğer bayt / saniye|Örnek|
+|IoReadOperationsPerSecond|Saniye başına g/ç okuma işlemleri|BytesPerSecond|Toplam|Saniye başına g/ç okuma işlemleri|Örnek|
+|IoWriteOperationsPerSecond|G/ç yazma işlemlerini / saniye|BytesPerSecond|Toplam|G/ç yazma işlemlerini / saniye|Örnek|
+|IoOtherOperationsPerSecond|Diğer işlemlerin saniye başına g/ç|BytesPerSecond|Toplam|Diğer işlemlerin saniye başına g/ç|Örnek|
+|RequestsInApplicationQueue|Uygulama sırasındaki isteklerin|Sayı|Ortalama|Uygulama sırasındaki isteklerin|Örnek|
+|CurrentAssemblies|Geçerli Derlemeler|Sayı|Ortalama|Geçerli Derlemeler|Örnek|
+|TotalAppDomains|Toplam uygulama etki alanları|Sayı|Ortalama|Toplam uygulama etki alanları|Örnek|
+|TotalAppDomainsUnloaded|Toplam uygulama etki alanları kaldırıldı|Sayı|Ortalama|Toplam uygulama etki alanları kaldırıldı|Örnek|
+|Gen0Collections|Gen 0 çöp koleksiyonları|Sayı|Toplam|Gen 0 çöp koleksiyonları|Örnek|
+|Gen1Collections|Gen 1 çöp koleksiyonları|Sayı|Toplam|Gen 1 çöp koleksiyonları|Örnek|
+|Gen2Collections|Gen 2 çöp koleksiyonları|Sayı|Toplam|Gen 2 çöp koleksiyonları|Örnek|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1219,6 +1293,19 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AppConnections|Bağlantılar|Sayı|Ortalama|Bağlantılar|Örnek|
 |Tanıtıcılar|Tanıtıcı Sayısı|Sayı|Ortalama|Tanıtıcı Sayısı|Örnek|
 |İş Parçacıkları|İş Parçacığı Sayısı|Sayı|Ortalama|İş Parçacığı Sayısı|Örnek|
+|IoReadBytesPerSecond|Saniye başına okunan bayt g/ç|BytesPerSecond|Toplam|Saniye başına okunan bayt g/ç|Örnek|
+|IoWriteBytesPerSecond|G/ç yazma bayt / saniye|BytesPerSecond|Toplam|G/ç yazma bayt / saniye|Örnek|
+|IoOtherBytesPerSecond|GÇ diğer bayt / saniye|BytesPerSecond|Toplam|GÇ diğer bayt / saniye|Örnek|
+|IoReadOperationsPerSecond|Saniye başına g/ç okuma işlemleri|BytesPerSecond|Toplam|Saniye başına g/ç okuma işlemleri|Örnek|
+|IoWriteOperationsPerSecond|G/ç yazma işlemlerini / saniye|BytesPerSecond|Toplam|G/ç yazma işlemlerini / saniye|Örnek|
+|IoOtherOperationsPerSecond|Diğer işlemlerin saniye başına g/ç|BytesPerSecond|Toplam|Diğer işlemlerin saniye başına g/ç|Örnek|
+|RequestsInApplicationQueue|Uygulama sırasındaki isteklerin|Sayı|Ortalama|Uygulama sırasındaki isteklerin|Örnek|
+|CurrentAssemblies|Geçerli Derlemeler|Sayı|Ortalama|Geçerli Derlemeler|Örnek|
+|TotalAppDomains|Toplam uygulama etki alanları|Sayı|Ortalama|Toplam uygulama etki alanları|Örnek|
+|TotalAppDomainsUnloaded|Toplam uygulama etki alanları kaldırıldı|Sayı|Ortalama|Toplam uygulama etki alanları kaldırıldı|Örnek|
+|Gen0Collections|Gen 0 çöp koleksiyonları|Sayı|Toplam|Gen 0 çöp koleksiyonları|Örnek|
+|Gen1Collections|Gen 1 çöp koleksiyonları|Sayı|Toplam|Gen 1 çöp koleksiyonları|Örnek|
+|Gen2Collections|Gen 2 çöp koleksiyonları|Sayı|Toplam|Gen 2 çöp koleksiyonları|Örnek|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

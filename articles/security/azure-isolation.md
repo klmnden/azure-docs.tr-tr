@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 302859bce7abda547a893d9de2cb763ae8fa779c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutunda yalıtımı
 ##  <a name="introduction"></a>Giriş
@@ -210,7 +210,7 @@ Güvenlik duvarları kurmak ve güvenilir istemcileriniz için bir IP adresi ara
 IP depolama veri trafiği IP depolama için ayrılmış ya da ayrılmış bir tünel ayırmak için kullanılan bir ağ mekanizması aracılığıyla yetkisiz kullanıcılara karşı korunur.
 
 ### <a name="encryption"></a>Şifreleme
-Azure verileri korumak için şifreleme türlerini sunar:
+Azure verileri korumak için şifreleme aşağıdaki türlerini sağlar:
 -   Aktarımdaki şifreleme
 
 -   Bekleme sırasında şifreleme

@@ -1,9 +1,9 @@
 ---
-title: "Örnek Azure Hdınsight Hive tablolarındaki verileri | Microsoft Docs"
-description: "Azure Hdınsight (Hadopop) Hive tablolarındaki verileri örnekleme aşağı"
+title: Örnek Azure Hdınsight Hive tablolarındaki verileri | Microsoft Docs
+description: Azure Hdınsight (Hadopop) Hive tablolarındaki verileri örnekleme aşağı
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: d765c2adc8a3aa77d903490875c7f8ad622ef4d2
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: b40aae9d494f3e7ebeae56fcad48f0ff47798bbc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive tablolarındaki örnek veriler
 Bu makalede aşağı örnekli analiz için daha kolay yönetilebilir bir boyutunu küçültmek için Hive sorguları kullanarak Azure Hdınsight Hive tabloları depolanan verileri açıklar. Bu üç özellik kullanılan örnekleme yöntemleri kapsar:
@@ -39,10 +39,10 @@ Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://a
 ## <a name="how-to-submit-hive-queries"></a>Hive sorguları gönderme
 Hive sorguları, Hadoop küme baş düğümü üzerinde Hadoop komut satırı konsolundan gönderilebilir. Bunu yapmak için Hadoop küme baş düğümüne oturum, Hadoop komut satırı konsolunu açın ve buradan Hive sorguları göndermek. Hadoop komut satırı konsolunda Hive sorguları gönderme ile ilgili yönergeler için bkz: [Hive sorguları göndermek için nasıl](move-hive-tables.md#submit).
 
-## <a name="uniform"></a>Tekdüzen rastgele örnekleme
+## <a name="uniform"></a> Tekdüzen rastgele örnekleme
 Tekdüzen rastgele örnekleme veri kümesindeki her satır örneklenen şansı eşittir sahip olduğu anlamına gelir. Bir ek alan rand() veri kümesine iç sorgu "Seç" ve "Seç" dış sorgu bu koşul, rastgele alan üzerinde ekleyerek uygulanabilir.
 
-Örnek bir sorgu şöyledir:
+Örnek bir sorgu aşağıda verilmiştir:
 
     SET sampleRate=<sample rate, 0-1>;
     select
@@ -57,7 +57,7 @@ Tekdüzen rastgele örnekleme veri kümesindeki her satır örneklenen şansı e
 
 Burada, `<sample rate, 0-1>` kullanıcıları örneklemek istediğiniz kayıtları oranını belirtir.
 
-## <a name="group"></a>Gruplara göre rastgele örnekleme
+## <a name="group"></a> Gruplara göre rastgele örnekleme
 Örnekleme kategorik verileri dahil etmek veya hariç tüm örnekleri için bazı değişkenin değeri olarak kategorik istediğinizde. Bu tür bir örnekleme "grubu tarafından örnekleme" adı verilir. Kategorik bir değişken varsa, örneğin, "*durumu*" NY, MA, CA, NJ ve PA gibi değerler vardır, kayıtların her durumundan veya örneklenen birlikte olmasını istediğiniz.
 
 Grup tarafından bu örnekleri örnek bir sorgu şöyledir:
@@ -89,7 +89,7 @@ Grup tarafından bu örnekleri örnek bir sorgu şöyledir:
 ## <a name="stratified"></a>Stratified örnekleme
 Elde edilen örnekleri üst popülasyonun oldukları gibi aynı oranı var olan kategorik değerlere sahip olduğunda rastgele örnekleme göre Kategorik bir değişken stratified. Yukarıdaki, aynı örneği kullanarak varsayalım verilerinizi durumları tarafından aşağıdaki gözlemleri vardır: NJ 100 gözlemleri, NY sahip 60 gözlemleri ve WA varsa 300 gözlemleri. 0,5 olarak stratified örnekleme oranını belirtirseniz, ardından elde örnek yaklaşık 50, 30 ve 150 gözlemleri NJ, NY ve WA sırasıyla olmalıdır.
 
-Örnek bir sorgu şöyledir:
+Örnek bir sorgu aşağıda verilmiştir:
 
     SET sampleRate=<sample rate, 0-1>;
     select

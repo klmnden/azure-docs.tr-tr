@@ -1,33 +1,27 @@
 ---
-title: "Ücretsiz Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltin | Microsoft Docs"
-description: "Bir Kullandıkça Öde nasıl yapabileceğiniz açıklanır ücretsiz bir abonelik ve gereksinimleri'den yükseltme"
-keywords: "Kullandıkça Öde yükseltme"
-services: 
-documentationcenter: 
+title: Ücretsiz Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltin | Microsoft Docs
+description: Bir Kullandıkça Öde nasıl yapabileceğiniz açıklanır ücretsiz bir abonelik ve gereksinimleri'den yükseltme
+keywords: Kullandıkça Öde yükseltme
+services: ''
+documentationcenter: ''
 author: jlian
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-<<<<<<< HEAD
-ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 7b9642eec0fd0f1e547f34de1077e551fbb61593
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Ücretsiz deneme sürümü veya Microsoft düşünün Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltin
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory Web etkinlik
 Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 
@@ -68,7 +68,7 @@ Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını
 -------- | ----------- | -------------- | --------
 ad | Web etkinlik adı | Dize | Evet
 type | Ayarlanmalıdır **WebActivity**. | Dize | Evet
-yöntem | Hedef uç nokta için REST API yöntemi. | Dize. <br/><br/>Desteklenen türleri: "GET", "POST", "PUT" | Evet
+method | Hedef uç nokta için REST API yöntemi. | Dize. <br/><br/>Desteklenen türleri: "GET", "POST", "PUT" | Evet
 url | Hedef uç noktası ve yol | Dize (veya dize Resulttype'a sahip ifadesi). Etkinlik olacak zaman aşımı hatasıyla 1 dakika, uç noktasından bir yanıt alamazsa. | Evet
 headers | İsteği gönderilir üstbilgileri. Örneğin, bir isteği dil ve türünü ayarlamak için: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Dize (veya dize Resulttype'a sahip ifade) | Evet, Content-type üstbilgisi gereklidir. `"headers":{ "Content-Type":"application/json"}`
 body | Uç noktasına gönderilen yükünü temsil eder. POST/PUT yöntemleri için gereklidir.  | Dize (veya dize Resulttype'a sahip ifadesi). <br/><br/>İstek yükünde şeması bkz [istek yükü şeması](#request-payload-schema) bölümü. | Hayır
@@ -78,6 +78,16 @@ linkedServices | Bağlı hizmetler listesi uç noktasına geçirildi. | Bağlant
 
 > [!NOTE]
 > Web etkinliği çağırır REST uç noktalarını bir yanıt türü JSON döndürmesi gerekir. Etkinlik olacak zaman aşımı hatasıyla 1 dakika, uç noktasından bir yanıt alamazsa.
+
+Aşağıdaki tabloda JSON içeriği için gereksinimleri gösterilmektedir:
+
+| Değer türü | İstek gövdesi | Yanıt gövdesi |
+|---|---|---|
+|JSON nesnesi | Desteklenen | Desteklenen |
+|JSON dizisi | Desteklenen <br/>(Şu anda bir hata sonucu olarak JSON dizileri çalışmıyor. Bir düzeltme devam ediyor.) | Desteklenmiyor |
+| JSON değeri | Desteklenen | Desteklenmiyor |
+| Olmayan JSON türü | Desteklenmiyor | Desteklenmiyor |
+||||
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 

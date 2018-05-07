@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: d382d1198d84555035d348ac66881c24249c4d95
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 51e86b608aadd7921c40f1a53c3c5248269159ff
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak FTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,6 +59,9 @@ Aşağıdaki özellikleri, bağlantılı FTP hizmeti için desteklenir:
 | Kullanıcı adı | FTP sunucusuna erişimi olan kullanıcı belirtin. | Hayır |
 | password | (Kullanıcı adı) kullanıcının parolasını belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+>[!NOTE]
+>Hiçbir şifrelemesi veya açık SSL/TLS şifrelemesi ile erişilirken FTP sunucusu FTP Bağlayıcısı'nı destekler; örtük SSL/TLS şifrelemesi desteklemiyor.
 
 **Örnek 1: Anonim kimlik doğrulamasını kullanma**
 
@@ -118,7 +121,7 @@ FTP'den verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShar
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **dosya paylaşımı** |Evet |
-| folderPath | Klasör yolu. Örneğin: klasör/alt / |Evet |
+| folderPath | Klasör yolu. Joker karakter filtresi desteklenmiyor. Örneğin: klasör/alt / |Evet |
 | fileName | **Adı veya joker karakter filtresini** belirtilen "folderPath" altında dosyalar için. Bu özellik için bir değer belirtmezseniz, veri kümesi klasördeki tüm dosyaları işaret eder. <br/><br/>Filtre için joker karakter verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"` |Hayır |
 | Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Belirli bir biçime sahip dosyaları ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |

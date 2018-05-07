@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 10d7b5d3670bd7a5f289a6f9f2754ecc6aa18795
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışlarından anlama
 Bu makalede Azure akış analizi işi için çıktıların farklı türleri açıklanmaktadır. Çıkışları depolamak ve Stream Analytics işi sonuçlarını kaydetmenize olanak tanır. Çıktı verileri kullanarak bunu yapabilirsiniz daha fazla İş analizi ve verilerinizi veri ambarı. 
@@ -290,10 +290,10 @@ Bölüm destek ve her bir çıkış türü için çıktı yazıcılarının say�
 | Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri yol deseni. Gibi YYYY/AA/GG, GG/AA/YYYY-AA-GG-YYYY tarih biçimini seçin. SS saat biçimi için kullanılır. | Giriş için bölümleme izleyen [tam olarak paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
 | Azure Event hub'ı | Evet | Evet | Bölüm hizalama bağlı olarak değişir.</br> Olay hub'ı bölüm sayısı, Event Hub'ı bölüm anahtarı eşit (Yukarı Akış önceki) sorgu adım ile yazıcılarının sayısı hizalanır aynıdır çıkış çıkış. Her yazıcı EventHub'ın kullandığı [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) olayları belirli bir bölüme göndermek için. </br> Çıktı olay hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adım ile yazıcılarının sayısı hizalı değil olduğunda, önceki adımda bölüm sayısı ile aynı. Her yazıcı EventHubClient kullanan [SendBatchAsync sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) tüm çıktı bölümleri olayları göndermek için. |
 | Power BI | Hayır | None | Geçerli değil. | 
-| Azure Tablo depolama | Evet | Herhangi bir çıktı sütun.  | Giriş için bölümleme izleyen [tam olarak, sorguları paralyzed](stream-analytics-scale-jobs.md). | 
+| Azure Tablo depolama | Evet | Herhangi bir çıktı sütun.  | Giriş için bölümleme izleyen [tam olarak sorguları paralel birkaç ölçeklendirin](stream-analytics-scale-jobs.md). | 
 | Azure hizmet veri yolu konusu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.| Çıktı konuda bölüm sayısı ile aynıdır.  |
 | Azure hizmet veri yolu kuyruğu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.| Çıkış sırası bölüm sayısı ile aynıdır. |
-| Azure Cosmos DB | Evet | {Partition} belirteci koleksiyon adı deseni kullanın. {partition} değer sorgusunda PARTITION BY yan tümcesi temel alır. | Giriş için bölümleme izleyen [tam olarak, sorguları paralyzed](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Evet | {Partition} belirteci koleksiyon adı deseni kullanın. {partition} değer sorgusunda PARTITION BY yan tümcesi temel alır. | Giriş için bölümleme izleyen [tam olarak sorguları paralel birkaç ölçeklendirin](stream-analytics-scale-jobs.md). |
 | Azure İşlevleri | Hayır | None | Geçerli değil. | 
 
 ## <a name="output-batch-size"></a>Toplu iş boyutu

@@ -5,14 +5,14 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/01/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e925dba3805ec8994aeba730e325c407468a5c87
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7139ec67536a1c0e41c991db6d867b956f995c11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 ## <a name="supported-distributions-and-drivers"></a>Desteklenen dağıtımlar ve sürücüler
 
@@ -25,7 +25,7 @@ Aşağıdaki tabloda CUDA sürücü bilgileri yayın zamanında geçerli olur. E
 
 | Dağıtım | Sürücü |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ya da 7.4<br/><br/> CentOS 7.3 ya da 7.4, CentOS tabanlı 7.4 HPC | NVIDIA CUDA 9.1, sürücüyü dal R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ya da 7.4<br/><br/> CentOS tabanlı 7.3 ya da 7.4, CentOS tabanlı 7.4 HPC | NVIDIA CUDA 9.1, sürücüyü dal R390 |
 
 ### <a name="nv-series---nvidia-grid-drivers"></a>NV-serisi - NVIDIA kılavuz sürücüleri
 
@@ -33,7 +33,7 @@ Microsoft NV VM'ler için NVIDIA kılavuz sürücü yükleyiciler yeniden dağı
 
 | Dağıtım | Sürücü |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS tabanlı 7.3 | NVIDIA kılavuz 6.0, sürücüyü dal R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ya da 7.4<br/><br/>CentOS tabanlı 7.3 veya 7.4 | NVIDIA kılavuz 6.0, sürücüyü dal R390|
 
 
 

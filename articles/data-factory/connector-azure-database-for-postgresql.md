@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 4aea42bd20f01b4dae9e940b0ed101020d64c00c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 365775f840f85efe1792f376880145c7e7db1312
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL için Azure veritabanından veri kopyalama 
 
@@ -47,6 +47,13 @@ Aşağıdaki özellikler PostgreSQL bağlantılı hizmeti için Azure veritaban�
 | type | Type özelliği ayarlanmalıdır: **AzurePostgreSql** | Evet |
 | connectionString | PostgreSQL için Azure veritabanına bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+Tipik bağlantı dizesi `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
+
+| Özellik | Açıklama | Seçenekler | Gerekli |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| Sürücü yöntemi sürücü ve veritabanı sunucusu arasında gönderilen verileri şifrelemek için kullanır. Örneğin `ValidateServerCertificate=<0/1/6>;`| 0 (şifreleme) **(varsayılan)** / 1 (SSL) / 6 (RequestSSL) | Hayır |
+| ValidateServerCertificate (VSC'yi) | Sürücü SSL şifrelemesi etkin olduğunda, veritabanı sunucusu tarafından gönderilen sertifikayı doğrulayıp doğrulamadığını belirler (şifreleme yöntemini = 1). Örneğin `ValidateServerCertificate=<0/1>;`| 0 (devre dışı) **(varsayılan)** / 1 (etkin) | Hayır |
 
 **Örnek:**
 

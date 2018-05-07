@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey aygıtları birleştirilmiş karma Azure Active Directory sorun giderme 
 
@@ -90,7 +90,7 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
     
     - Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması alamıyor. Bu, bir (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantı sorunlarından kaynaklanıyor olabilir. Ayrıca, kullanıcı için etkin/yapılandırılan çok faktörlü kimlik doğrulaması (MFA) ve WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olabilir. Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılık olabilir **autoworkplace.exe** sessizce bir belirteç edinme gelen.
     
-    - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` cihazın IE intranet ayarlarını, mevcut değil ve **izin durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
+    - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` veya `https://aadg.windows.net.nsatc.net` cihazın IE intranet ayarlarını, mevcut olmayan ve **izin durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
 
 - Bir kotasına ulaşıldı
 

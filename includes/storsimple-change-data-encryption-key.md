@@ -26,7 +26,7 @@ Seçin ve hizmet verileri şifreleme anahtarı değişikliğini başlatmak için
    
     ![Değişiklik hizmeti şifreleme anahtarı](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
 2. İçinde **değişiklik hizmeti veri şifreleme anahtarı** iletişim kutusunda, seçin ve hizmet verileri şifreleme anahtarı değişikliğini başlatmak için bir aygıt yetkilendirmek. Aşağı açılan liste yetkilendirilebilir uygun aygıtı yok.
-3. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+3. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
 ### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. adım: Hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın
 Bu adım, StorSimple arabirimi yetkili StorSimple cihazında için Windows PowerShell'de gerçekleştirilir.

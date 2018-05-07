@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks not defteri çalıştırma
 
@@ -49,7 +49,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 3.  **Yeni veri fabrikası** bölmesinde **Ad** altına **ADFTutorialDataFactory** girin.
 
-    Azure data factory adı *küresel olarak benzersiz* olmalıdır. Aşağıdaki hatayı görürseniz veri fabrikasının adını değiştirin. (Örneğin, **\<adınız\>ADFTutorialDataFactory** biçimini kullanın). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - adlandırma kuralları](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) makalesini inceleyin.
+    Azure data factory adı *küresel olarak benzersiz* olmalıdır. Aşağıdaki hatayı görürseniz veri fabrikasının adını değiştirin. (Örneğin, **\<adınız\>ADFTutorialDataFactory** biçimini kullanın). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - adlandırma kuralları](https://docs.microsoft.com/azure/data-factory/naming-rules) makalesini inceleyin.
 
     ![Yeni veri fabrikası için bir ad belirtin](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -61,7 +61,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     
     - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.
 
-    Bu hızlı başlangıçtaki adımlardan bazıları kaynak grubu için **ADFTutorialResourceGroup** adını kullandığınızı varsayar. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+    Bu hızlı başlangıçtaki adımlardan bazıları kaynak grubu için **ADFTutorialResourceGroup** adını kullandığınızı varsayar. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1.  **Sürüm** için **V2 (Önizleme)** öğesini seçin.
 
@@ -149,7 +149,7 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
           ![Yeni klasör oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Yeni not defteri oluşturun](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python). Bu not defterini **adftutorial** Klasörü altında **mynotebook** olarak adlandırıp**,** **Oluştur**’a tıklayın.
+       3. [Yeni not defteri oluşturun](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python). Bu not defterini **adftutorial** Klasörü altında **mynotebook** olarak adlandırıp **,** **Oluştur**’a tıklayın.
 
           ![Yeni not defteri oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

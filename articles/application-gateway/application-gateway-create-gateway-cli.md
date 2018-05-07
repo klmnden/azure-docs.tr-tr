@@ -1,22 +1,22 @@
 ---
-title: "Bir uygulama ağ geçidi - Azure CLI oluşturma | Microsoft Docs"
-description: "Azure CLI kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Bir uygulama ağ geçidi - Azure CLI oluşturma | Microsoft Docs
+description: Azure CLI kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -38,7 +38,7 @@ Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *ea
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun 
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
 Sanal ağ alt ağı kullanarak oluşturup [az ağ vnet oluşturma](/cli/azure/vnet#az_vnet_create). Ortak IP adresini kullanarak oluşturmak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_public_ip_create).
 
@@ -60,13 +60,13 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>Arka uç sunucuları oluşturun
+## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak iki sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde NGINX yükleyin.
 
 ### <a name="create-two-virtual-machines"></a>İki sanal makine oluşturma
 
-NGINX yüklemek ve 'Hello World' Node.js uygulaması Linux sanal makine üzerinde çalıştırmak için bir bulut init yapılandırma dosyası kullanabilirsiniz. Geçerli Kabuğu'nda bulut init.txt ve kopyalama adlı bir dosya oluşturun ve aşağıdaki yapılandırma kabuğundan yapıştırın. Bütün kopyaladığınızdan emin olun bulut init dosya doğru özellikle ilk satırı:
+cloud-init yapılandırma dosyasını kullanarak NGINX’i yükleyin ve Linux sanal makinesinde 'Merhaba Dünya' Node.js uygulaması çalıştırın. Geçerli kabuğunuzda cloud-init.txt adlı bir dosya oluşturup aşağıdaki yapılandırmayı kopyalayıp kabuğa yapıştırın. Başta birinci satır olmak üzere cloud-init dosyasının tamamını doğru bir şekilde kopyaladığınızdan emin olun:
 
 ```yaml
 #cloud-config
@@ -110,7 +110,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Ağ arabirimleri ile oluşturma [az ağ NIC oluşturma](/cli/azure/network/nic#az_network_nic_create). Sanal makineler ile oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create).
+Ağ arabirimleri ile oluşturma [az ağ NIC oluşturma](/cli/azure/network/nic#az_network_nic_create). [az vm create](/cli/azure/vm#az_vm_create) komutunu kullanarak sanal makineleri oluşturun.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -160,7 +160,7 @@ Oluşturulacak uygulama ağ geçidi için birkaç dakika sürebilir. Uygulama a�
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Uygulama ağ geçidi genel IP adresi almak için [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidi genel IP adresi almak için [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,5 +182,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç bir kaynak grubu, ağ kaynaklarına ve arka uç sunucularına oluşturdu. Bir uygulama ağ geçidi oluşturmak için bu kaynakları kullanılır. Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.
+Bu hızlı başlangıçta bir kaynak grubu, ağ kaynakları ve arka uç sunucuları oluşturdunuz. Bir uygulama ağ geçidi oluşturmak için bu kaynakları kullanılır. Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.
 

@@ -3,7 +3,7 @@ title: Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı | Mic
 description: Ağ İzleyicisi Aracısı'nı bir sanal makine uzantısını kullanarak Linux sanal makine dağıtın.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
@@ -39,11 +39,12 @@ Ağ İzleyicisi Aracısı uzantısı bu Linux dağıtımları karşı çalışt�
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS ve 12.04 LTS |
 | Debian | 7 ve 8 |
-| RedHat | 6.x ve 7.x |
-| Oracle Linux | 7 x |
-| SuSE | 11 ve 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| RedHat | 6 ve 7 |
+| Oracle Linux | 6,8 + ve 7 |
+| SUSE Linux Enterprise Server | 11 ve 12 |
+| OpenSUSE artık | 42.3 + |
+| CentOS | 6.5 + ve 7 |
+| CoreOS | 899.17.0+ |
 
 CoreOS şu anda desteklenmediğini unutmayın.
 

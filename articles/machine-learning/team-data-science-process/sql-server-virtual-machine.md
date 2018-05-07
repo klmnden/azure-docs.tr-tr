@@ -3,7 +3,7 @@ title: Azure üzerinde bir SQL Server sanal makine keşfedin | Microsoft Docs
 description: Verileri araştırmak ve özellikleri Azure üzerinde bir SQL Server sanal makine oluştur
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: ''
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: bradsev
-ms.openlocfilehash: 69ee0657479430abf4ad039efc82d85a9501c7c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 31612f56e996ba0b609a34dd556ede3a0ac498f9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>SQL Server sanal makinede Azure üzerinde işlem verileri
 Bu belge, verileri araştırmak ve Azure üzerinde bir SQL Server VM depolanan veri için özellikleri oluşturmak alınmaktadır. Bu SQL kullanarak veri wrangling veya Python gibi bir programlama dili kullanılarak yapılabilir.

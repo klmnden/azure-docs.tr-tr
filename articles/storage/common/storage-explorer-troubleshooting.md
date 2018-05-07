@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Gezgini sorun giderme kılavuzu
 
@@ -61,6 +61,7 @@ Yukarıdaki adımları kullanarak herhangi bir otomatik olarak imzalanan sertifi
 
 Oturum açın, aşağıdaki sorun giderme yöntemleri deneyin:
 
+* MacOS üzerinde olan ve oturum açma penceresi hiçbir zaman "bekleyen için kimlik doğrulaması,..." iletişim kutusu görüntülenir, sonra deneyin [adımları](#Resetting-the-Mac-Keychain)
 * Depolama Gezgini yeniden başlatın
 * Kimlik doğrulama penceresi boş ise, kimlik doğrulama iletişim kutusunu kapatmadan önce en az bir dakika bekleyin.
 * Proxy ve sertifika ayarlarının, makine ve Depolama Gezgini için düzgün biçimde yapılandırıldığından emin olun
@@ -96,7 +97,8 @@ Ekli hesabı ya da kullanıcı Arabirimi aracılığıyla depolama kaynağı kal
 
 İlk olarak, aşağıdaki bilgileri, girdiğiniz tüm doğru olduğundan emin olun:
 
-* Proxy URL'si ve bağlantı noktası numarası * kullanıcı adı ve proxy sunucu tarafından gerekliyse parola
+* Proxy URL'si ve bağlantı noktası numarası
+* Kullanıcı adı ve proxy sunucu tarafından gerekliyse parola
 
 ### <a name="common-solutions"></a>Yaygın çözümleri
 
@@ -129,7 +131,7 @@ Proxy ayarlarınızın doğru olduğunu, proxy sunucusu yöneticinize başvurman
 
 Azure için bir proxy üzerinden bağlıysanız, proxy ayarlarının doğru olduğundan emin olun. Abonelik ya da hesap sahibinden bir kaynağa erişim verilmiş, okuma veya bu kaynak için izinleri listesinde doğrulayın.
 
-### <a name="issues-with-sas-url"></a>SAS URL ile ilgili sorunları
+## <a name="issues-with-sas-url"></a>SAS URL ile ilgili sorunları
 Bir SAS URL'si kullanarak ve bu hatanın bir hizmete bağlanıyorsanız:
 
 * URL okuma veya kaynakları listelemek için gerekli izinleri sağladığından emin olun.
@@ -152,6 +154,19 @@ Ubuntu 16.04 dışında Linux distro'lar için bazı bağımlılıklar el ile y�
 * Güncel GCC
 
 Distro bağlı olarak yüklemek için gereken diğer paket olabilir. Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) bazı distro'lar için belirli adımlar içerir.
+
+## <a name="resetting-the-mac-keychain"></a>Mac Anahtarlık sıfırlama
+MacOS Anahtarlık bazen depolama Gezgini'nin kimlik doğrulama kitaplığı sorunlarda neden olan bir duruma alabilirsiniz. Aşağıdaki adımlar bu durum try dışında Anahtarlık almak için:
+1. Depolama Gezgini'ni kapatın.
+2. Açık Anahtarlık (**cmd + alanı**Anahtarlıkta yazın, isabet girin).
+3. "Login" anahtar zinciri seçin.
+4. (Asma kilit animasyon tamamlandıktan sonra ne açın, uygulamalara bağlı olarak birkaç saniye sürebilir kilitli bir konuma) Anahtarlık kilitlemek için asma kilit simgesini tıklatın.
+
+    ![görüntü](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Depolama Gezgini'ni başlatın.
+6. Pop yukarı bildiren gösterilene benzer görünmelidir "hizmet hub Anahtarlık erişim istediği", Mac Yönetici hesap parolanızı girin ve tıklatın **her zaman izin ver** (veya **izin** varsa **'herzamanizinver** kullanılamaz).
+7. Oturum açmayı deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

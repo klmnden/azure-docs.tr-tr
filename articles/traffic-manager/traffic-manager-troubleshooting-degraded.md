@@ -1,10 +1,10 @@
 ---
-title: "Durum üzerinde Azure Traffic Manager düşürülmüş sorunlarını giderme"
-description: "Traffic Manager profillerini olarak gösteriliyorsa ile ilgili sorunları giderme durumu düzeyi."
+title: Durum üzerinde Azure Traffic Manager düşürülmüş sorunlarını giderme
+description: Traffic Manager profillerini olarak gösteriliyorsa ile ilgili sorunları giderme durumu düzeyi.
 services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
+documentationcenter: ''
+author: chadmath
+manager: cshepard
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: f5b2f471b13db67411f15f32abad5afc644c04ba
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Durum üzerinde Azure Traffic Manager düşürülmüş sorunlarını giderme
 
@@ -48,7 +48,7 @@ Bir araştırma hatası gidermek için HTTP durum kodu araştırma URL'den dön�
 
 Ayrıca, HTTP yanıtları görüntülemek için Internet Explorer'da F12 hata ayıklama araçları'nın Ağ sekmesini kullanabilirsiniz.
 
-Bizim araştırma URL'si yanıttan görmeyi istiyoruz Bu, örneğin: http://watestsdp2008r2.cloudapp.net:80/araştırma. Aşağıdaki PowerShell örneğinde sorun gösterilmektedir.
+Bizim araştırma URL'si yanıttan görmeyi istiyoruz Bu, örneğin: http://watestsdp2008r2.cloudapp.net:80/Probe. Aşağıdaki PowerShell örneğinde sorun gösterilmektedir.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

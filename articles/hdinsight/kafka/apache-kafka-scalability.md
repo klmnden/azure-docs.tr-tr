@@ -1,24 +1,24 @@
 ---
-title: "Apache Kafka ölçek artırma - Azure HDInsight | Microsoft Docs"
-description: "Ölçeklenebilirliği artırmak için Azure HDInsight üzerinde Apache Kafka kümesi için yönetilen diskleri yapılandırmayı öğrenin."
+title: Apache Kafka ölçek artırma - Azure HDInsight | Microsoft Docs
+description: Ölçeklenebilirliği artırmak için Azure HDInsight üzerinde Apache Kafka kümesi için yönetilen diskleri yapılandırmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: hero-article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 583e1f8b9a2b6d6260efea8864839e8bbbd9a868
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 131ffd121d8d7a695e72fb4bea245428decd2833
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için depolamayı ve ölçeklenebilirliği yapılandırma
 
@@ -53,7 +53,7 @@ Kafka kümesindeki çalışan düğümleri tarafından kullanılan disk sayısı
     ],
 ```
 
-Yönetilen disklerin nasıl yapılandırıldığını gösteren eksiksiz bir şablon için [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) adresine gidin.
+Yönetilen disklere yapılandırmak nasıl gösteren tam bir şablon bulabilirsiniz [ https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json ](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

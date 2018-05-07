@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e2dbc6020dd317e96c4116811f8e3bf87680bfb
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Hızlı Başlangıç: Azure yığınında PowerShell kullanarak Linux sunucusu sanal makine oluşturma
 
@@ -28,6 +28,7 @@ ms.lasthandoff: 04/28/2018
 Azure yığın PowerShell kullanarak bir Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturmak için bu makaledeki adımları izleyin.  Bu makalede ayrıca adımlarını sağlar:
 
 * Uzak bir istemci ile sanal makineye bağlanabilirsiniz.
+* NGINX web sunucusu yüklemek ve varsayılan giriş sayfasını görüntüleyin.
 * Kullanılmayan kaynakları temizlemek.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -218,6 +219,26 @@ ssh <Public IP Address>
 ```
 
 İstendiğinde, azureuser oturum açma kullanıcı olarak girin. SSH anahtarları oluşturduğunuzda bir parola kullandıysanız, parolayı sağlamanız gerekir.
+
+## <a name="install-the-nginx-web-server"></a>NGINX web sunucusunu yükleme
+
+Paket kaynakları güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki betiği çalıştırın:
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
+
+Yüklü NGINX ve bağlantı noktası 80, sanal makinenizde açık ile sanal makinenin ortak IP adresini kullanarak web sunucusuna erişebilir. Bir web tarayıcısı açın ve gidin ```http://<public IP address>```.
+
+![NGINX web server Karşılama sayfası](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

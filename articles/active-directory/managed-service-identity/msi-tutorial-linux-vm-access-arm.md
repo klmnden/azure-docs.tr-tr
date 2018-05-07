@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8beb9e4e8abb09cf3e1a0f89baa33431ee74c160
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 40134f92abaa785ce76f36ec19b8888410585231
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Atanan kullanıcı kimliği, Azure Resource Manager erişmek için bir Linux VM üzerinde kullanın.
 
@@ -73,7 +73,7 @@ Bu öğretici için öncelikle yeni bir Linux VM oluşturun. Mevcut bir VM'yi ku
 2. Kullanarak bir kullanıcı tarafından atanan kimlik oluşturmak [az kimliği oluşturma](/cli/azure/identity#az_identity_create). `-g` Parametresi, burada MSI oluşturulur, kaynak grubu belirtir ve `-n` parametresi adını belirtir. Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizi ile:
     
     > [!IMPORTANT]
-    > Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+    > Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>

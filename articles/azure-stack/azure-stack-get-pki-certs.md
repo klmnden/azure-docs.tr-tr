@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b65d0d88fd57dea59c79d2f72bab60967856e015
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure yığın sertifika imzalama isteği oluşturma
 
-Bu makalede açıklanan Azure yığın hazırlık Denetleyicisi aracı kullanılabilir [PowerShell Galerisi'nden](https://aka.ms/AzsReadinessChecker). Araç sertifika imzalama isteği (CSR) bir Azure yığın dağıtımına uygun olarak oluşturur. Sertifikaları istenen, oluşturulan ve dağıtımından önce test etmek için yeterli süre ile doğrulanması gerekir. 
+Bu makalede açıklanan Azure yığın hazırlık Denetleyicisi aracı kullanılabilir [PowerShell Galerisi'nden](https://aka.ms/AzsReadinessChecker). Araç sertifika imzalama isteği (CSR) bir Azure yığın dağıtımına uygun olarak oluşturur. Sertifikaları istenen, oluşturulan ve dağıtımından önce test etmek için yeterli süre ile doğrulanması gerekir.
 
 Azure yığın hazırlık Denetleyicisi aracını (AzsReadinessChecker) aşağıdaki sertifika isteklerini gerçekleştirir:
 
  - **Standart sertifika istekleri**  
-    Göre isteği [Azure yığın dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md). 
+    Göre isteği [Azure yığın dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md).
  - **İstek türü**  
-    Birden fazla joker SAN, birden çok etki alanı sertifikaları, tek bir joker karakter sertifika istekleri isteyin.
+    Sertifika imzalama isteği tek bir istekte ya da birden çok istek olup olmadığını belirtir.
  - **Hizmet olarak Platform**  
     İsteğe bağlı olarak hizmet olarak platform (PaaS) adlarını belirtildiği şekilde sertifikalarla isteği [Azure yığın ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -44,6 +44,9 @@ Sisteminizi Azure yığın dağıtımı için PKI sertifikaları için CSR(s) ol
     - Dış tam etki alanı adı (FQDN)
     - Konu
  - Windows 10 veya Windows Server 2016
+ 
+  > [!NOTE]
+  > Aldığınızda sertifikalarınızı adımlarda, sertifika yetkilisi tarafından geri [hazırlama Azure yığın PKI sertifikaları](azure-stack-prepare-pki-certs.md) aynı sistemde tamamlanması gerekir!
 
 ## <a name="generate-certificate-signing-requests"></a>İsteklere imzalama sertifikası oluştur
 
@@ -68,10 +71,23 @@ Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdak
     ````PowerShell  
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
+4.  Bildirme sistem tanımlayın
 
-4. Bildirme **bölge adı** ve bir **dış FQDN** Azure yığın dağıtım için hedeflenen.
+    Azure Active Directory
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "AAD"
+    ````
+
+    Active Directory Federasyon Hizmetleri
+
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. Bildirme **bölge adı** ve bir **dış FQDN** Azure yığın dağıtım için hedeflenen.
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
@@ -79,19 +95,23 @@ Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdak
     > [!note]  
     > `<regionName>.<externalFQDN>` üzerinde Azure yığınında tüm dış DNS adlarını oluşturulur, bu örnekte temelini oluşturur, portal olacaktır `portal.east.azurestack.contoso.com`.
 
-5. PaaS Hizmetleri için gereken dahil olmak üzere birden fazla konu alternatif adı ile tek bir sertifika isteği oluşturmak için:
+6. Birden fazla konu alternatif adı ile tek bir sertifika isteği oluşturmak için:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-6. İmzalama istekleri PaaS Hizmetleri olmadan her bir DNS adı için tek tek sertifikasını oluşturmak için:
+    Eklenecek anahtar PaaS Hizmetleri belirtin ```-IncludePaaS```
+
+7. İmzalama istekleri her bir DNS adı için tek tek sertifikasını oluşturmak için:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. Çıktıyı gözden geçirin:
+    Eklenecek anahtar PaaS Hizmetleri belirtin ```-IncludePaaS```
+
+8. Çıktıyı gözden geçirin:
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -109,9 +129,8 @@ Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdak
     AzsReadinessChecker Completed
     ````
 
-8.  Gönderme **. İSTEĞİ** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizini **başlangıç AzsReadinessChecker** bir sertifika yetkilisine göndermek için gereken CSR(s) içerir.  Ayrıca, bir başvuru olarak sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizini içerir. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure yığın PKI gereksinimleri](azure-stack-pki-certs.md).
+9.  Gönderme **. İSTEĞİ** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizini **başlangıç AzsReadinessChecker** bir sertifika yetkilisine göndermek için gereken CSR(s) içerir.  Ayrıca, bir başvuru olarak sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizini içerir. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure yığın PKI gereksinimleri](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Azure yığın PKI sertifikaları hazırlama](azure-stack-prepare-pki-certs.md)
-

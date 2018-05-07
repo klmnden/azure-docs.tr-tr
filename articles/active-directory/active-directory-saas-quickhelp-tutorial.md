@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile QuickHelp | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile QuickHelp arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile QuickHelp | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile QuickHelp arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4a7bc895e2ee9b4a66bc59f309971c577be8019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb51a61ebe67f583b47ad516ddb40cd5b84b905
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Öğretici: Azure Active Directory Tümleştirme QuickHelp ile
 
@@ -31,7 +31,7 @@ QuickHelp Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme QuickHelp ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,12 +110,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://quickhelp.com/<instancename>/#/Login`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://quickhelp.com/<ROUTEURL>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.quickhelp.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://auth.quickhelp.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [QuickHelp istemci destek ekibi](https://support.quickhelp.com/) bu değerleri almak için. 
+    > Oturum açma URL'si değeri gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Değer almak için kuruluşunuzun QuickHelp yöneticinizle veya beyin fırtınasını istemci başarı yöneticinize başvurun.
  
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -153,10 +153,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     f. İçinde **Eylem çubuğu**, tıklatın **kaydetmek**.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
@@ -186,7 +182,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-quickhelp-test-user"></a>QuickHelp test kullanıcısı oluşturma
 

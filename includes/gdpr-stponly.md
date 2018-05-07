@@ -5,4 +5,4 @@ MS.Service: azure ilke ms.topic: ms.date içerir: 24/04/2018 ms.author: lizross 
 ---
 
 >[!Note] 
->GDPR hakkında genel bilgi arıyorsanız bkz [hizmet Güven Merkezi GDPR bölümünü](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+>GDPR hakkında genel bilgi arıyorsanız bkz [Hizmeti'ne güvenen portal GDPR bölümünü](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

@@ -3,7 +3,7 @@ title: 'Eylem takım veri bilimi işleminde: SQL Data Warehouse kullanarak | Mic
 description: Gelişmiş analizler işlemi ve eylem teknoloji
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev
-ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Eylem takım veri bilimi işleminde: SQL Data Warehouse kullanma
 Bu öğreticide, biz, oluşturma ve dağıtma SQL veri ambarı (SQL DW) kullanarak bir makine öğrenimi modeline aracılığıyla genel kullanıma açık bir veri kümesi için--yol [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modeli bir ipucu seyahat için ödeme ve çok sınıflı sınıflandırma ve regresyon modeli Ayrıca, dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -49,7 +49,7 @@ Yaklaşık 20 GB sıkıştırılmış CSV dosyaları (~ 48 GB sıkıştırılmam
 
 * medallion,
 * korsan saldırılarına\_lisans ve
-* pickup\_datetime.
+* Toplama\_datetime.
 
 ## <a name="mltasks"></a>Üç tür tahmin görevleri adres
 Biz göre üç tahmin sorunları formüle *İpucu\_tutar* görevleri modelleme üç tür göstermek için:
@@ -125,7 +125,7 @@ Geçerli çalışma dizini değişikliklerini başarılı yürütme sonrasında 
 
     ./SQLDW_Data_Import.ps1
 
-PowerShell komut dosyası ilk kez çalıştığında Azure SQL DW ve Azure blob depolama hesabı bilgileri giriş istenir. Bu PowerShell betik tamamlandığında, ilk olarak, kimlik bilgileri çalıştıran, giriş mevcut çalışma dizininde bir yapılandırma dosyasına SQLDW.conf yazılan. Bu PowerShell komut dosyası gelecekteki yürütülmesi tüm gerekli parametreleri bu yapılandırma dosyasından okuma seçeneğine sahiptir. Bazı parametreler değiştirmeniz gerekiyorsa, bu yapılandırma dosyasını silmek ve parametre değerlerini istendiğinde giriş yapma giriş ekranında istemi bağlı parametreleri veya, SQLDW.confdosyasındadüzenleyerekparametredeğerlerinideğiştirmekiçinseçebilirsiniz*- DestDir* dizini.
+PowerShell komut dosyası ilk kez çalıştığında Azure SQL DW ve Azure blob depolama hesabı bilgileri giriş istenir. Bu PowerShell betik tamamlandığında, ilk olarak, kimlik bilgileri çalıştıran, giriş mevcut çalışma dizininde bir yapılandırma dosyasına SQLDW.conf yazılan. Bu PowerShell komut dosyası gelecekteki yürütülmesi tüm gerekli parametreleri bu yapılandırma dosyasından okuma seçeneğine sahiptir. Bazı parametreler değiştirmeniz gerekiyorsa, bu yapılandırma dosyasını silmek ve parametre değerlerini istendiğinde giriş yapma giriş ekranında istemi bağlı parametreleri veya, SQLDW.confdosyasındadüzenleyerekparametredeğerlerinideğiştirmekiçinseçebilirsiniz *- DestDir* dizini.
 
 > [!NOTE]
 > Şema adı çakışıyor, Azure SQL DW parametreleri doğrudan SQLDW.conf dosyasından okurken zaten o önlemek için 3 basamaklı bir rastgele sayı şema adı SQLDW.conf dosyasından her çalışma için varsayılan şema adı olarak eklenir. PowerShell komut dosyası için bir şema ad isteyebilir: kullanıcı kümeleri adı belirtilebilir.
@@ -874,7 +874,7 @@ Puanlama deneme oluşturulduğunda, gözden geçirin ve gerektiği gibi ayarlay�
 
 Deneme Puanlama bir örneği aşağıdaki şekilde sağlanır. Hazır olduğunuzda dağıtmak tıklatın **yayımlama WEB hizmeti** alt eylem çubuğunda düğmesi.
 
-![Azure ML Publish][11]
+![Azure ML yayımlama][11]
 
 ## <a name="summary"></a>Özet
 Ne Biz bu gözden geçirme öğreticide yaptığınızdan olduðunu üzere büyük ortak sahip bir veri kümesi, çalışan bir Azure veri bilimi ortamı için takım veri bilimi işlemini, tüm veri alım model eğitim ve ardından için aracılığıyla alma oluşturduğunuz bir Azure Machine Learning web hizmeti dağıtımı.

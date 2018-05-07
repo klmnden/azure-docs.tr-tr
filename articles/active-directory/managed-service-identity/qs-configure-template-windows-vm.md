@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 521c5a3c0ad55afa0b71628195be7782b0e43b67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 324a1e08e92a2c7ae76d7a6df56536540dc772a1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırın
 
@@ -34,7 +34,7 @@ Bu makalede, Azure Resource Manager dağıtım şablonu kullanarak bir Azure VM 
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
-Olarak ile Azure portal ve komut dosyası, Azure Resource Manager şablonları bir Azure kaynak grubu tarafından tanımlanan yeni veya değiştirilmiş kaynakları dağıtma yeteneği sağlar. Şablon düzenleme ve dağıtım, hem yerel hem de portal tabanlı dahil olmak üzere birkaç seçenek bulunur:
+Azure ile gibi portal ve komut dosyası, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) şablonları, bir Azure kaynak grubu tarafından tanımlanan yeni veya değiştirilmiş kaynakları dağıtma yeteneği sağlar. Şablon düzenleme ve dağıtım, hem yerel hem de portal tabanlı dahil olmak üzere birkaç seçenek bulunur:
 
    - Kullanarak bir [Azure Marketi'nden özel şablon](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), sıfırdan bir şablon oluşturmak veya mevcut bir ortak üzerinde temel olanak sağlayan veya [hızlı başlatma şablonunu](https://azure.microsoft.com/documentation/templates/).
    - Bir şablon herhangi birinden dışa aktararak var olan bir kaynak grubundan türetme [özgün dağıtım](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), veya [dağıtımının geçerli durumu](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -112,59 +112,14 @@ Bir VM'niz varsa, artık bir yönetilen hizmet kimliği gerekir:
 
 ## <a name="user-assigned-identity"></a>Kullanıcı kimliği atanır
 
-Bu bölümde, bir kullanıcı kimliği ve bir Azure Resource Manager şablonu kullanarak Azure VM oluşturun.
+Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure VM'ye atanan kullanıcı kimliğini atayın.
 
- ### <a name="create-and-assign-a-user-assigned-identity-to-an-azure-vm"></a>Oluşturma ve kimlik için bir Azure VM atanmış bir kullanıcı atama
+> [!Note]
+> Bir Azure Resource Manager şablonu kullanarak bir kullanıcı tarafından atanan kimlik oluşturmak için bkz: [atanan kullanıcı kimliğini oluşturma](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-1. İlk adım gerçekleştirmeniz [bir Azure VM veya mevcut bir VM'yi oluşturma sırasında atanmış sistem kimliğini etkinleştir](#enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm)
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Bir Azure VM kimlik atanan kullanıcı atama
 
-2.  Azure VM için yapılandırma değişkenleri içeren değişkenler bölümü altında aşağıdakine benzer bir kullanıcı atanmış kimlik adı için bir giriş ekleyin.  Bu kimlik Azure VM oluşturma işlemi sırasında atanmış kullanıcı oluşturacak:
-    
-    > [!IMPORTANT]
-    > Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
-
-    ```json
-    "variables": {
-        "vmName": "[parameters('vmName')]",
-        //other vm configuration variables...
-        "identityName": "[concat(variables('vmName'), 'id')]"
-    ```
-
-3. Altında `resources` öğesi, bir kullanıcı tarafından atanan kimlik oluşturmak üzere aşağıdaki girişi ekleyin:
-
-    ```json
-    {
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-        "name": "[variables('identityName')]",
-        "apiVersion": "2015-08-31-PREVIEW",
-        "location": "[resourceGroup().location]"
-    },
-    ```
-
-4. Sonraki altında `resources` öğesi yönetilen kimlik uzantıları VM'nize atamak için aşağıdaki girişi ekleyin:
-
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
-        "apiVersion": "2015-05-01-preview",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-5. Ardından, VM'nize kimliği atanır, kullanıcıya atamak için aşağıdaki girişi ekleyin:
-
+1. Altında `resources` öğesi, bir kullanıcı tarafından atanan kimlik VM'nize atamak için aşağıdaki girişi ekleyin.  Değiştirdiğinizden emin olun `<USERASSIGNEDIDENTITY>` atanan kullanıcı kimliğini adı ile oluşturduğunuz.
     ```json
     {
         "apiVersion": "2017-12-01",
@@ -174,15 +129,36 @@ Bu bölümde, bir kullanıcı kimliği ve bir Azure Resource Manager şablonu ku
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('identityName'))]"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
             ]
         },
     ```
-6.  İşiniz bittiğinde, şablonunuz şuna benzer görünmelidir:
-    > [!NOTE]
-    > Şablondaki tüm VM oluşturmak için gerekli değişkenleri listelenmez.  `//other configuration variables...` konuyu uzatmamak amacıyla tüm gerekli yapılandırma değişkenleri yerine kullanılır.
+    
+2. (İsteğe bağlı) Sonraki altında `resources` öğesi, yönetilen Identity uzantısı VM'nize atamak için aşağıdaki girişi ekleyin. Azure örneği meta veri hizmeti (IMDS) kimlik endpoint de belirteçleri almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
+    ```json
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50342
+            }
+        }
+    }
+    ```
+    
+3.  İşiniz bittiğinde, şablonunuz şuna benzer görünmelidir:
 
-      ![Atanan kullanıcı kimliğini ekran görüntüsü](../media/msi-qs-configure-template-windows-vm/template-user-assigned-identity.png)
+      ![Atanan kullanıcı kimliğini ekran görüntüsü](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>İlgili içerik

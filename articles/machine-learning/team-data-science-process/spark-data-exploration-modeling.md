@@ -3,7 +3,7 @@ title: Veri keşfi ve modelleme Spark ile | Microsoft Docs
 description: Azure üzerinde Spark Mllib'i Araç Seti veri keşfi ve modelleme yetenekleri gösterir.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
-ms.openlocfilehash: c796cc5f19ac3a30d2cdf72b8fea2813a1586c1b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d505d432897eb7f4e792b45a95ec91ce1802eeb8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark ile veri keşfi ve modelleme
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -55,9 +55,9 @@ Kurulum adımlarını ve kod bu kılavuzda bir Hdınsight Spark 1.6 kullanmak i�
 ### <a name="spark-20-notebooks"></a>Spark 2.0 dizüstü bilgisayarlar
 Bir Spark 2.0 kümesi kullanılarak uygulanan regresyon ve sınıflandırma görevler ayrı not defterlerinde ve sınıflandırma dizüstü bilgisayar farklı bir veri kümesi kullanır:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Bu Not hızlı bir şekilde Spark 2.0 için sağladık kod keşfetme için iyi bir başlangıç noktası olabilir. Daha ayrıntılı bir not defteri NYC ücreti verileri analiz eder, bu listedeki sonraki dizüstü bakın. Bu not defterlerini karşılaştırmak bu liste aşağıdaki notlara bakın. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the well-known Airline On-time departure dataset from 2011 and 2012. Bu hava durumu özellikleri modele dahil edilebilir biz havaalanı hava durumu verileri (ör. windspeed, sıcaklık, yükseklik vb.) içeren hava yolu veri kümesi modelleme önce tümleşik.
+- [Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Bu dosyayı veri keşfi, modelleme, gerçekleştirmeyle ilgili bilgi sağlar ve Spark 2. 0'Puanlama NYC ücreti seyahat kullanarak kümelerini ve ücreti verileri-set açıklanan [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Bu Not hızlı bir şekilde Spark 2.0 için sağladık kod keşfetme için iyi bir başlangıç noktası olabilir. Daha ayrıntılı bir not defteri NYC ücreti verileri analiz eder, bu listedeki sonraki dizüstü bakın. Bu not defterlerini karşılaştırmak bu liste aşağıdaki notlara bakın. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Bu dosyayı nasıl wrangling verileri (işlem), Spark SQL ve dataframe modelleme ve NYC ücreti seyahat ve açıklanan ücreti veri kümesini kullanarak Puanlama araştırması gerçekleştirileceğini gösterir [burada ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Bu dosyayı wrangling verileri (işlem), Spark SQL ve dataframe modelleme ve bilinen uçak zamanında ayrılma kullanarak Puanlama araştırması gerçekleştirmek nasıl gösterir veri kümesi 2011 ve 2012. Bu hava durumu özellikleri modele dahil edilebilir biz havaalanı hava durumu verileri (ör. windspeed, sıcaklık, yükseklik vb.) içeren hava yolu veri kümesi modelleme önce tümleşik.
 
 <!-- -->
 
@@ -129,7 +129,7 @@ Ayarlama, ayrıca gerekli kitaplıkları içeri aktarma gerektirir. Spark bağla
 Jupyter not defterleri ile sağlanan PySpark tekrar önceden belirlenmiş bir içerik var. Bu nedenle Spark kümesi gerekmez veya açıkça uygulama ile çalışmaya başlamadan önce Hive bağlamları geliştirme. Bu içerikler varsayılan olarak sizin için kullanılabilir. Bu içerikler şunlardır:
 
 * SC - Spark 
-* sqlContext - for Hive
+* sqlContext - Hive için
 
 Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar olduğu PySpark çekirdeği sağlar %%. Bu kod örneklerinde kullanılan olan iki komut vardır.
 
@@ -218,7 +218,7 @@ Veri Spark alındıktan sonra sonraki veri bilimi işlemi araştırması ve gör
 Bu kodu ve sonraki parçacıkları verileri çizmek için yerel Sihirli ve örnek sorgu için SQL Sihirli kullanın.
 
 * **SQL Sihirli (`%%sql`)** Hdınsight PySpark çekirdeği sqlContext kolay satır içi HiveQL sorguları destekler. (-O deðiþken_adý) bağımsız değişkeni devam ederse SQL sorgusu çıktısını Pandas DataFrame Jupyter sunucuda olarak. Bu, yerel modda kullanılabilir olduğu anlamına gelir.
-*  **`%%local` Sihirli** kod Hdınsight kümesi headnode olan Jupyter sunucuda yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` - o parametresiyle Sihirli. -O parametresiyle SQL sorgusu yerel olarak çıktısını kalıcı ve ardından %% yerel Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek
+* **`%%local` Sihirli** kod Hdınsight kümesi headnode olan Jupyter sunucuda yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` - o parametresiyle Sihirli. -O parametresiyle SQL sorgusu yerel olarak çıktısını kalıcı ve ardından %% yerel Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek
 
 Çıkış kodu çalıştırdıktan sonra otomatik olarak görünür.
 
@@ -908,7 +908,7 @@ Katsayısını: [0.00457675809917,-0.0226314167349,-0.0191910355236, 0.246793409
 
 Intercept: 0.853872718283
 
-RMSE = 1.24190115863
+RMSE 1.24190115863 =
 
 R sqr 0.608017146081 =
 
@@ -960,7 +960,7 @@ Bu bölümdeki kod, eğitme, değerlendirmek ve ipucu tutar NYC ücreti seyahat 
 
 **ÇIKTI:**
 
-RMSE = 0.891209218139
+RMSE 0.891209218139 =
 
 R sqr 0.759661334921 =
 
@@ -1011,13 +1011,13 @@ Bu bölümdeki kod, eğitme, değerlendirmek ve ipucu tutar NYC ücreti seyahat 
 
 **ÇIKTI:**
 
-RMSE = 0.908473148639
+RMSE 0.908473148639 =
 
 R sqr 0.753835096681 =
 
 Hücre yürütülmesi için geçen süre: 34.52 saniye
 
-**Plot**
+**Çizim**
 
 *tmp_results* önceki hücrenin Hive tablo olarak kaydedilir. Tablodan sonuçlar halinde çıkış *sqlResults* çizdirmek için veri çerçeve. Kodu
 
@@ -1047,7 +1047,7 @@ Jupyter sunucu kullanarak verileri çizmek için kod aşağıdaki gibidir.
 
 **ÇIKTI:**
 
-![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Fiili-vs-tahmin-ipucu-tutarlar](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="clean-up-objects-from-memory"></a>Bellek nesneleri Temizle
 Kullanım `unpersist()` bellekte önbelleğe alınmış nesneleri silmek için.

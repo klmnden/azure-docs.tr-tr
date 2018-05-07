@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: e9f90127bce0502147572c5ac6bd65e47dbe8c35
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dfb39b809f9a1082682d269d8bd4c180c8a264ce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Office 365 hesabınıza bir Azure aboneliği için kaydolun
 Bir Office 365 aboneliğiniz varsa, bir Azure aboneliği oluşturmak için Office 365 hesabınızı kullanabilirsiniz. Oturum [Azure portal](https://portal.azure.com/) Office 365 kullanıcı adınızı ve parolanızı kullanarak. Sanal makineleri ayarlamanız veya diğer Azure hizmetleriyle kullanmak istiyorsanız, Azure aboneliği için kaydolmanız gerekir. Azure aboneliğiniz başkalarıyla paylaşabilir ve [Azure aboneliği ve kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi kullanın](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

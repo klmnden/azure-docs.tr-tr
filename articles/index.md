@@ -123,7 +123,7 @@ ms.lasthandoff: 05/01/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Karma</h3>
+                                                <h3>Hibrit</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/azure-stack/">Azure Stack</a></li>
                                                 </ul>
@@ -137,7 +137,7 @@ ms.lasthandoff: 05/01/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Uygulamaları geliştirme</h3>
+                                                <h3>Uygulama geliştirme</h3>
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
                                                     <li>
@@ -188,7 +188,7 @@ Go</a>
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Veri ve AI yönetme</h3>
+                                                <h3>Veri ve Yapay Zeka yönetimi</h3>
                                                 <h4>İlişkisel Veritabanları</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">Hizmet olarak SQL veritabanı</a></li>
@@ -204,7 +204,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Depolama</a></li>
                                                 </ul>
-                                                <h4>AI ve Bilişsel Hizmetler</h4>
+                                                <h4>Yapay Zeka ve Bilişsel Hizmetler</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Bilişsel Hizmetler</a></li>
@@ -359,7 +359,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>SQL Database</p>
+                                                <p>SQL Veritabanı</p>
                                             </a>
                                         </li>
                                         <li>
@@ -401,7 +401,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Önbelleği</p>
+                                                <p>Redis Cache</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -422,7 +422,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Azure Container Kayıt Defteri</p>
+                                                <p>Azure Container Registry</p>
                                             </a>
                                         </li>
                                         <li>
@@ -444,7 +444,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Enterprise Integration</h3>
+                                    <h3>Kurumsal Tümleştirme</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
@@ -608,7 +608,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Yapay Zeka ve Makine Öğrenimi</h3>
+                                    <h3>Yapay Zeka ve Makine Öğrenmesi</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/">
@@ -619,7 +619,7 @@ Terraform </a>
                                         <li>
                                             <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Azure Robot Hizmeti</p>
+                                                <p>Azure Bot Hizmeti</p>
                                             </a>
                                         </li>
                                         <li>
@@ -631,7 +631,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
-                                                <p>Özel Karar Hizmeti</p>
+                                                <p>Özel Karar Alma Hizmeti</p>
                                             </a>
                                         </li>
                                         <li>
@@ -643,13 +643,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/kes/overview">
                                                 <img src="media/index/API_KnowledgeExploration.svg" alt="" />
-                                                <p>Bilgi Keşfi Hizmeti (KES)</p>
+                                                <p>Bilgi Keşfetme Hizmeti (KES)</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/qnamaker/home">
                                                 <img src="media/index/API_QnAMaker.svg" alt="" />
-                                                <p>QnAMaker</p>
+                                                <p>Soru-Cevap Oluşturma</p>
                                             </a>
                                         </li>
                                         <li>
@@ -667,13 +667,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Dil Anlama (LUIS)</p>
+                                                <p>Language Understanding (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/linguisticanalysisapi/home">
                                                 <img src="media/index/API_LinguisticAnalysis.svg" alt="" />
-                                                <p>Dil Çözümleme</p>
+                                                <p>Dilbilimsel Analiz</p>
                                             </a>
                                         </li>
                                         <li>
@@ -691,13 +691,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/translator/">
                                                 <img src="media/index/API_TranslatorText.svg" alt="" />
-                                                <p>Translator Metni</p>
+                                                <p>Translator Metin Çevirisi</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/web-language-model/home">
                                                 <img src="media/index/API_WebLanguageModel.svg" alt="" />
-                                                <p>Web Dil Modeli</p>
+                                                <p>Web Language Model</p>
                                             </a>
                                         </li>
                                         <li>
@@ -751,7 +751,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Custom_Speech.svg" alt="" />
-                                                <p>Özel Konuşma Hizmeti</p>
+                                                <p>Özel Konuşma Tanıma Hizmeti</p>
                                             </a>
                                         </li>
                                         <li>
@@ -775,7 +775,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/API_Custom_Vision.svg" alt="" />
-                                                <p>Özel Görsel Arama</p>
+                                                <p>Özel Görüntü İşleme Hizmeti</p>
                                             </a>
                                         </li>
                                         <li>
@@ -793,7 +793,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/API_VideoIndexer.svg" alt="" />
-                                                <p>Video Dizinleyici</p>
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -875,7 +875,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Akış Analizi</p>
+                                                <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -983,7 +983,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Azure IoT Hub'ı</p>
+                                                <p>Azure IoT Hub</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1019,7 +1019,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Akış Analizi</p>
+                                                <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1037,7 +1037,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Zaman Serisi Öngörüleri</p>
+                                                <p>Time Series Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1061,7 +1061,7 @@ Terraform </a>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Web + Mobil</h3>
+                                    <h3>Web ve Mobil</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-web/">
@@ -1118,7 +1118,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Güvenlik + Kimlik</h3>
+                                    <h3>Güvenlik ve Kimlik</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/security-center">
@@ -1135,7 +1135,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Anahtar Kasası</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1351,7 +1351,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Web ve mobil için güçlü bulut uygulamalarını hızlıca oluşturun</p>
+                                                    <p>Web ve mobil için güçlü bulut uygulamalarını hızla oluşturun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1427,7 +1427,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Bulut ölçeğinde iş zamanlaması ve bilgi işlem yönetimi</p>
+                                                    <p>Bulut ölçeğinde iş zamanlaması ve işlem yönetimi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1446,7 +1446,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Windows veya Linux üzerinde mikro hizmet geliştirme ve kapsayıcıları düzenleme</p>
+                                                    <p>Windows veya Linux üzerinde mikro hizmet geliştirin ve kapsayıcıları düzenleyin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1659,7 +1659,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DDOS koruması</h3>
+                                                    <h3>DDOS Koruması</h3>
                                                     <p>Uygulamalarınızı Dağıtılmış Hizmet Engelleme (DDoS) saldırılarına karşı koruma</p>
                                                 </div>
                                             </div>
@@ -1865,7 +1865,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Web + Mobil</a>
+                        <a href="#web">Web ve Mobil</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-web">
@@ -1898,7 +1898,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Kapsayıcılar için Web App</h3>
-                                                    <p>İşinizle ölçeklendirilebilen kapsayıcılı web uygulamalarını kolayca dağıtma ve çalıştırma</p>
+                                                    <p>İşinizle ölçeklendirilebilen kapsayıcılı web uygulamalarını kolayca dağıtın ve çalıştırın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2092,7 +2092,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Kayıt Defteri</h3>
+                                                    <h3>Azure Container Registry</h3>
                                                     <p>Tüm Azure dağıtımı türlerinde kapsayıcı görüntüleri depolayın ve yönetin</p>
                                                 </div>
                                             </div>
@@ -2112,7 +2112,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Windows veya Linux üzerinde mikro hizmet geliştirme ve kapsayıcıları düzenleme</p>
+                                                    <p>Windows veya Linux üzerinde mikro hizmet geliştirin ve kapsayıcıları düzenleyin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2131,7 +2131,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Kapsayıcılar için Web App</h3>
-                                                    <p>İşinizle ölçeklendirilebilen kapsayıcılı web uygulamalarını kolayca dağıtma ve çalıştırma</p>
+                                                    <p>İşinizle ölçeklendirilebilen kapsayıcılı web uygulamalarını kolayca dağıtın ve çalıştırın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2150,7 +2150,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Bulut ölçeğinde iş zamanlaması ve bilgi işlem yönetimi</p>
+                                                    <p>Bulut ölçeğinde iş zamanlaması ve işlem yönetimi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2173,8 +2173,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Database</h3>
-                                                    <p>Yönetilen, ilişkisel hizmet olarak SQL Veritabanı</p>
+                                                    <h3>SQL Veritabanı</h3>
+                                                    <p>Yönetilen, hizmet olarak ilişkisel SQL Veritabanı</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2306,7 +2306,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Önbelleği</h3>
+                                                    <h3>Redis Cache</h3>
                                                     <p>Verilere yüksek aktarım hızı ve düşük gecikme süresiyle erişim olanağıyla uygulamaları daha da güçlendirin</p>
                                                 </div>
                                             </div>
@@ -2317,7 +2317,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analizler</a>
+                        <a href="#analytics">Analiz</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2368,7 +2368,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Akış Analizi</h3>
+                                                    <h3>Stream Analytics</h3>
                                                     <p>Milyonlarca IoT cihazından gerçek zamanlı veri akışı işleme</p>
                                                 </div>
                                             </div>
@@ -2550,7 +2550,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#ai">Yapay Zeka ve Makine Öğrenimi</a>
+                        <a href="#ai">Yapay Zeka ve Makine Öğrenmesi</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Yapay Zeka</h2>
@@ -2585,8 +2585,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Robot Hizmeti</h3>
-                                                    <p>İsteğe bağlı olarak ölçeklendirilebilen akıllı ve sunucusuz robot hizmeti</p>
+                                                    <h3>Azure Bot Hizmeti</h3>
+                                                    <p>İsteğe bağlı olarak ölçeklendirilebilen akıllı ve sunucusuz bot hizmeti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2623,8 +2623,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bilişsel hizmetler</h3>
-                                                    <p>Görmek, duymak, konuşmak ve anlamak için uygulamalar, web siteleri ve robotlara zeka ekleme</p>
+                                                    <h3>Bilişsel Hizmetler</h3>
+                                                    <p>Görme, duyma, konuşma ve anlama için uygulamalara, web sitelerine ve botlara zeka ekleyin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2666,7 +2666,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Hub’ı</h3>
+                                                    <h3>IoT Hub</h3>
                                                     <p>Milyarlarca IoT varlığını bağlayın, izleyin ve denetleyin</p>
                                                 </div>
                                             </div>
@@ -2799,7 +2799,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Akış Analizi</h3>
+                                                    <h3>Stream Analytics</h3>
                                                     <p>Milyonlarca IoT cihazından gerçek zamanlı veri akışı işleme</p>
                                                 </div>
                                             </div>
@@ -2856,7 +2856,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Zaman Serisi Öngörüleri</h3>
+                                                    <h3>Time Series Insights</h3>
                                                     <p>Zaman serisi verilerini anında keşfedin ve analiz edin</p>
                                                 </div>
                                             </div>
@@ -2924,7 +2924,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Enterprise Integration</a>
+                        <a href="#integration">Kurumsal Tümleştirme</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/logic-apps/">
@@ -3014,7 +3014,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Esnetme Veritabanı</h3>
-                                                    <p>Şirket içi SQL Server veritabanlarını dinamik olarak esnetin</p>
+                                                    <p>Şirket içi SQL Server veritabanlarını dinamik olarak Azure’a esnetin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3100,7 +3100,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#security">Güvenlik + Kimlik</a>
+                        <a href="#security">Güvenlik ve Kimlik</a>
                         <ul id="security" class="cardsA">
                             <li>
                                 <a href="/azure/security-center">
@@ -3151,7 +3151,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Anahtar Kasası</h3>
+                                                    <h3>Key Vault</h3>
                                                     <p>Anahtarlarınızı ve diğer gizli dizileri koruyun ve denetimini elinizde tutun</p>
                                                 </div>
                                             </div>
@@ -3366,7 +3366,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Xamarin</h3>
-                                                    <p>Bulut destekli harika mobil uygulamaları daha hızlı oluşturma</p>
+                                                    <p>Bulut destekli harika mobil uygulamaları daha hızlı oluşturun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3579,7 +3579,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Advisor</h3>
+                                                    <h3>Azure Danışmanı</h3>
                                                     <p>Azure’a yönelik en iyi yöntemler için kişiselleştirilmiş öneri altyapınız</p>
                                                 </div>
                                             </div>
@@ -3642,7 +3642,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack Operatörü</h3>
-                                                    <p>Bu yeni karma bulut platformuyla, kendi veri merkezinizden Azure hizmetleri sunun</p>
+                                                    <p>Bu yeni hibrit bulut platformuyla, kendi veri merkezinizden Azure hizmetleri sunun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3660,7 +3660,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>Azure Stack Kullanıcısı</h3>
-                                                <p>Hizmetleri kullanma ve Azure Stack için uygulamalar derleme</p>
+                                                <p>Hizmetleri kullanın ve Azure Stack için uygulamalar oluşturun</p>
                                             </div>
                                         </div>
                                     </div>
@@ -3740,7 +3740,7 @@ Terraform </a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>Diller &amp; Çerçeveler</h2>
+                                    <h2>Diller &amp; ve Çerçeveler</h2>
                                 </div>
                             </li>
                             <li>
@@ -3756,7 +3756,7 @@ Terraform </a>
                                                 <h3>
 .NET Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/dotnet/azure">Başlarken</a>
+                                                    <a href="/dotnet/azure">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API başvurusu</a>
@@ -3779,7 +3779,7 @@ Terraform </a>
                                                 <h3>
 Python Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/python/azure">Başlarken</a>
+                                                    <a href="/python/azure">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="/python/api/overview/azure/">API başvurusu</a>
@@ -3802,7 +3802,7 @@ Python Geliştiricileri için Azure </h3>
                                                 <h3>
 Node.js Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Başlarken</a>
+                                                    <a href="/javascript/azure/">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API başvurusu</a>
@@ -3825,7 +3825,7 @@ Node.js Geliştiricileri için Azure </h3>
                                                 <h3>
 Java Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/java/azure">Başlarken</a>
+                                                    <a href="/java/azure">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/overview/azure">API başvurusu</a>
@@ -3848,7 +3848,7 @@ Java Geliştiricileri için Azure </h3>
                                                 <h3>
 Go Geliştiricileri için Azure </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Başlarken</a>
+                                                    <a href="/go/azure/">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API Başvurusu</a>
@@ -3896,7 +3896,7 @@ Azure REST API'leri </h3>
                                                 <h3>
 Azure CLI </h3>
                                                 <p>
-                                                    <a href="/cli/azure">Başlarken</a>
+                                                    <a href="/cli/azure">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/reference-index">Başvuru</a>
@@ -3918,7 +3918,7 @@ Azure CLI </h3>
                                             <div class="cardText">
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/get-started-azureps">Başlarken</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Başvuru</a>
@@ -3930,7 +3930,7 @@ Azure CLI </h3>
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Araçlar &amp; Uzantılar</h2>
+                                    <h2>Araçlar &amp; ve Uzantılar</h2>
                                 </div>
                             </li>
                             <li>
@@ -3979,13 +3979,13 @@ Docker </h3>
                                                     <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Docker için Visual Studio Araçları</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Visual Studio için indirme</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Visual Studio için indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code için indirme</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code için indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Team Services için indirme</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Team Services için indirin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4084,16 +4084,16 @@ SQL Araçları </h3>
                                                     <a href="http://storageexplorer.com">Depolama Gezgini</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Başlarken</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Kullanmaya başlayın</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux için indirme</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux için indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Mac için indirme</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Mac için indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Windows için indirme</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Windows için indirin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4113,16 +4113,16 @@ SQL Araçları </h3>
                                                 <h3>
 Service Fabric SDK’sı ve Araçları </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Windows için indirme</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Windows için indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Linux için indirme</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Linux için indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Mac OS X indirme</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Mac OS X indirin</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI’sını indirme</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI’sını indirin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4196,7 +4196,7 @@ Azure Mimari Merkezi, Microsoft Azure’da uçtan uca çözüm oluşturmaya yön
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Başvuru Mimarileri</h3>
-                                                    <p>Bulut için önerilen mimari kümesi. Her mimaride; en iyi yöntemler, belirleyici adımlar ve dağıtılabilir bir çözüm bulunur.</p>
+                                                    <p>Bulut için önerilen mimari kümesi. Her mimaride en iyi yöntemler, belirleyici adımlar ve dağıtılabilir bir çözüm bulunur.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4215,7 +4215,7 @@ Azure Mimari Merkezi, Microsoft Azure’da uçtan uca çözüm oluşturmaya yön
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bulut Tasarımı Desenleri</h3>
-                                                    <p>Buluta yönelik tasarım desenleri. Her desen; bir sorunu, sorunu ele alan bir deseni ve Azure'ı temel alan bir örneği açıklar.</p>
+                                                    <p>Buluta yönelik tasarım desenleri. Her desen bir sorunu, sorunu ele alan bir deseni ve Azure'ı temel alan bir örneği açıklar.</p>
                                                 </div>
                                             </div>
                                         </div>

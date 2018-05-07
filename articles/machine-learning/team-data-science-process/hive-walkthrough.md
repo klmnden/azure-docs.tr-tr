@@ -1,9 +1,9 @@
 ---
-title: "Hadoop kümesi keşfedin ve Azure Machine Learning modellerini oluşturun | Microsoft Docs"
-description: "Takım veri bilimi işlem yapı ve model dağıtmak için bir Hdınsight Hadoop kümesi kullanan bir uçtan uca senaryo için kullanıyor."
+title: Hadoop kümesi keşfedin ve Azure Machine Learning modellerini oluşturun | Microsoft Docs
+description: Takım veri bilimi işlem yapı ve model dağıtmak için bir Hdınsight Hadoop kümesi kullanan bir uçtan uca senaryo için kullanıyor.
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Eylem takım veri bilimi işleminde: kullanım Azure Hdınsight Hadoop kümeleri
 Bu kılavuzda, kullandığımız [takım veri bilimi işlem (TDSP)](overview.md) bir uçtan uca senaryosunda. Kullanırız bir [Azure Hdınsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek ve genel kullanıma açık özellik mühendislik verilerden [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. Çok sınıflı ve ikili sınıflandırma ve regresyon Tahmine dayalı görevler işlemek için size Azure Machine Learning ile veri modelleri oluşturabilir. 
@@ -137,7 +137,7 @@ Küme keşif veri analizi için hazırlamak için ilgili Hive komut dosyaların�
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Bu iki komutlar yerel dizine bu kılavuzda gerekli tüm .hql dosyaları karşıdan ***C:\temp &#92;*** baş düğümünde.
+Bu iki komutlar yerel dizine bu kılavuzda gerekli tüm .hql dosyaları karşıdan ***C:\temp&#92;***  baş düğümünde.
 
 ## <a name="#hive-db-tables"></a>Hive veritabanı ve aya göre bölümlenmiş tabloları oluşturma
 > [!NOTE]

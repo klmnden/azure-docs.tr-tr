@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu şeması FedRAMP Web uygulamaları, Otomasyon - yedek planlama"
-description: "FedRAMP Web uygulamaları Otomasyon - yedek planlama"
+title: Azure güvenliği ve uyumluluğu şeması FedRAMP Web uygulamaları, Otomasyon - yedek planlama
+description: FedRAMP Web uygulamaları Otomasyon - yedek planlama
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="contingency-planning-cp"></a>Yedek (CP) planlama
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt ilkesi planlama olasılığına Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve planlama ilke ve denetimleri planlama ilişkili yedek yedek uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve ilkesi planlama geçerli olasılığına güncelleştirmeleriyle [atama: kuruluş tarafından tanımlanan sıklığı]; ve olasılığına yordamları planlama [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.a** önemli görevler ve iş işlevleri ve ilişkili yedek gereksinimlerini tanımlar; Kurtarma hedefi, geri yükleme öncelikleri sağlar bilgi sistemi için yedek bir plan kuruluş geliştirir ve Ölçümleri; kişi bilgilerini sahip kişiler atanan yedek rollerini, sorumlulukları yöneliktir; Gerekli görevler ve işletme işlevlerinin bir bilgi sistem kesintisi, tehlikeye veya hata rağmen koruyarak adresleri; Sistem Geri yükleme güvenlik önlemleri bozulmasını olmadan başlangıçta planlanması ve uygulanan nihai, tam bilgiler ele; ve gözden ve tarafından onaylanan [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.b** kuruluş Yedek planı kopyalarını dağıtan [atama: (Ada göre ve/veya rol tarafından tanımlanan) kuruluşunuz tarafından tanımlanan anahtar yedek personel ve kuruluş öğeleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.c** kuruluş etkinlikleri işleme olay ile yedek Planlama etkinlikleri koordine eder.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.d** kuruluş bilgi sistemi için Yedek planı incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.e** Kuruluş kuruluşta, bilgi sistem ya da ortam işlemi ve yedek planı uygulama, yürütme veya test sırasında karşılaşılan sorunları adresi değişiklikler Yedek planı güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.f** kuruluş Yedek planı değişiklikleri iletişim kurar [atama: (Ada göre ve/veya rol tarafından tanımlanan) kuruluşunuz tarafından tanımlanan anahtar yedek personel ve kuruluş öğeleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.g** yetkisiz olarak ifşa ve değişiklik kuruluş Yedek planı korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (1)** kuruluş Yedek planı geliştirme kuruluş öğelerle ilgili planları için sorumlu düzenler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (2)** bilgi işleme, telekomünikasyon ve ortam desteği için gerekli kapasite yedek işlemleri sırasında mevcut böylece kuruluş kapasite planlaması yürütür.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (3)** önemli görevler ve iş işlevlerinde sürdürme kuruluş planlarını [atama: kuruluş tanımlı süre] Yedek planı etkinleştirme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (4)** tüm görevler ve iş işlevlerinde sürdürme kuruluş planlarını [atama: kuruluş tanımlı süre] Yedek planı etkinleştirme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (5)** kuruluş planları için gerekli görevler ve işletme işlevlerinin devamlılığı işletimsel sürekliliği çok az kayıpla veya hiç kaybı ve birincil işleme sırasında tam bilgi sistem geri yükleme kadar bu sürekliliği mı karşıladığına ve/veya Depolama siteleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (8)** önemli görevler ve iş işlevlerini destekleyen kritik bilgi Sistem varlıklarının kuruluş tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.a** kuruluş bilgileri sistem kullanıcıları atanan roller ve sorumluluklar içinde tutarlı yedek eğitim sağlar [atama: kuruluş tanımlı süre] bir yedek rol veya sorumluluk varsayarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.b** kuruluş bilgileri sistem kullanıcıları atanan roller ve sorumluluklar bilgileri sistem değişiklikleri tarafından istendiğinde ile tutarlı yedek eğitim sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.c** kuruluş bilgileri sistem kullanıcıları atanan roller ve sorumluluklar ile tutarlı yedek eğitim sağlayan [atama: kuruluş tarafından tanımlanan sıklığı] bundan sonra.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3 (1)** yedek kriz durumlarda personeli tarafından etkili yanıt kolaylaştırmak eğitim içine kuruluş benzetimli olaylarını içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4.a** kuruluş bilgi sistemi için Yedek planı testleri [atama: kuruluş tarafından tanımlanan sıklığı] kullanarak [atama: kuruluş tarafından tanımlanan testleri] planı ve kuruluş verimliliğini belirlemek için plan yürütmek için hazır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4.b** kuruluş Yedek planı test sonuçlarını gözden geçirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4.c** gerekirse düzeltici eylemler, kuruluşun başlatır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (1)** sorumlu kuruluş öğelerle sınama kuruluş koordinatları Yedek planı ilgili planlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (2) bir** yedek personel tesis ve kullanılabilir kaynaklar hakkında bilgi edinmek için Yedek planı alternatif işleme sitesinde kuruluş sınar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -347,13 +347,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 Control CP-4 (2).b
+ ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800 53 CP-4 (2) .b denetleme
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Yedek planı sınama | Alternatif işleme sitesi
 
 **CP-4 (2) .b** yedek işlemlerini desteklemek için alternatif işleme site özelliklerini değerlendirmek için Yedek planı alternatif işleme sitesinde kuruluş sınar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.a** kuruluş depolanması ve alınması bilgileri sistem yedekleme bilgileri izin vermek için gerekli anlaşmaları dahil olmak üzere bir alternatif depolama site oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.b** alternatif depolama site güvenlik önlemleri, birincil site için eşdeğer bilgi sağladığından emin kuruluş sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (1)** kuruluş başarısızlıklara karşı duyarlılığı aynı tehditleri azaltmak için birincil depolama sitesinden ayrılmış bir alternatif depolama site tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (2)** kuruluş kurtarma süresini ve kurtarma noktası hedefi uygun olarak kurtarma işlemlerini kolaylaştırmak için diğer depolama siteyi yapılandırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (3)** organizasyon alanı genelinde kesintisi veya olağanüstü durum durumunda alternatif depolama siteye olası erişilebilirlik sorunları tanımlar ve açık azaltma işlemleri ana hatlarıyla gösterir.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.a** kuruluş, sürdürme ve aktarım izin vermek için gerekli anlaşmaları dahil olmak üzere bir alternatif işleme sitesi kurar [atama: kuruluş tarafından tanımlanan bilgileri sistem işlemleri] önemli görevler/iş için içinde işlevleri [atama: kuruluş tanımlı süre kurtarma süresini ve kurtarma noktası hedefi ile tutarlı] birincil işleme yeteneklerine olduğunda kullanılamaz.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.b** donanım ve aktarım ve işlemleri sürdürmek için gerekli kaynakları alternatif işleme sitede kullanılabilir veya sözleşmeleri kuruluşunuz tarafından tanımlanan süre içinde siteye dağıtımını desteklemek için yürürlükte olan Kuruluş sağlar Aktarım/sürdürme süre.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.c** alternatif işleme sitesi, birincil site gereksinimlerine eşdeğer güvenlik önlemleri bilgiler sağlar kuruluş sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (1)** başarısızlıklara karşı duyarlılığı aynı tehditleri azaltmak için birincil işleme sitesinden ayrılmış bir alternatif işleme sitesi kuruluş tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (2)** organizasyon alanı genelinde kesintisi veya olağanüstü durum durumunda alternatif işleme siteye olası erişilebilirlik sorunları tanımlar ve açık azaltma işlemleri ana hatlarıyla gösterir.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (3)** (Kurtarma zamanı hedeflerine dahil) kuruluş kullanılabilirlik gereksinimlere uygun hizmet öncelik hükümleri içeren diğer işleme site anlaşmaları kuruluş geliştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (4)** site önemli görevler ve iş işlevlerini destekleyen işletimsel site kullanılmak üzere hazır olmasını sağlamak kuruluş alternatif işleme sitesi hazırlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8** kuruluş, sürdürme izin vermek için gerekli anlaşmaları dahil olmak üzere diğer telekomünikasyon hizmetlerini kurar [atama: kuruluş tarafından tanımlanan bilgileri sistem işlemleri] önemli görevler ve işletme için içinde işlevleri [atama: kuruluş tanımlı süre] birincil telekomünikasyon yetenekleri olduğunda birincil ya da alternatif işleme veya depolama siteler sırasında kullanılamaz.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (1) bir** kuruluş birincil geliştirir ve diğer telekomünikasyon hizmet hizmet öncelik hükümleri (Kurtarma süresi dahil olmak üzere kuruluş kullanılabilirlik gereksinimlere uygun içeren sözleşmeleri hedefleri).
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (1) .b** kuruluş telekomünikasyon hizmet önceliği birincil ve/veya diğer telekomünikasyon hizmetlerin gerektiğinde, Ulusal Güvenlik Acil Durum hazırlığı için kullanılan tüm telekomünikasyon hizmetler için istekleri Ortak operatör tarafından sağlanır.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (2)** kuruluş tek hata noktası birincil telekomünikasyon hizmetleriyle paylaşım olasılığını azaltmak için alternatif telekomünikasyon hizmetlerini alır.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (3)** başarısızlıklara karşı duyarlılığı aynı tehditleri azaltmak için birincil hizmet sağlayıcılarından ayrılmış sağlayıcılardan alternatif telekomünikasyon hizmetlerini kuruluş alır.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4) bir** kuruluşun birincil gerektirir ve diğer telekomünikasyon hizmeti yedek planlarınız sağlayıcıları.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -613,13 +613,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Microsoft Azure, Azure security tarafından korunan Microsoft Güvenlik İlkesi ' nin yayın ilkesiyle planlama olasılığına uyguladı. Dış müşterileri ve dahili Microsoft iş hizmeti ve abone olunan Hizmetleri ve iş çekirdek geri yüklemek için bir kurtarma özelliği birlikte işlevsel dayanıklılık sağlayarak korumak için Azure sürekliliği yönetim ilkesi hedefi olan yetkinlikleri önemli bir kesinti sırasında önceden belirlenmiş bir zaman çerçevesi içinde. |
 
 
- ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800-53 Control CP-8 (4).b
+ ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800 53 CP-8 (4) .b denetleme
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telekomünikasyon hizmetlerini | Sağlayıcı Yedek planı
 
 **CP-8 (4) .b** kuruluş planları kuruluş yedek gereksinimleri karşıladığından emin olmak üzere sağlayıcı olasılık planlarını gözden geçirir.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4) .c** olasılığına sınama eğitim sağlayıcıları tarafından kanıtı kuruluş edinir [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.a** kuruluş bilgileri sistemde yer alan kullanıcı düzeyinde bilgi yedeklerini yürütür [atama: kuruluş tarafından tanımlanan sıklığı kurtarma süresini ve kurtarma noktası hedefi ile tutarlı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.b** kuruluş bilgi sisteminde sistem düzeyindeki bilgileri yedeklerini yürütür [atama: kuruluş tarafından tanımlanan sıklığı kurtarma süresini ve kurtarma noktası hedefi ile tutarlı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.c** güvenlikle ilgili belgeleri gibi bilgileri sisteminizin belgelerine yedeklerini kuruluş yürütür [atama: kuruluş tarafından tanımlanan sıklığı kurtarma süresini ve kurtarma noktası hedefi ile tutarlı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.d** kuruluşun gizlilik, bütünlük ve kullanılabilirlik depolama konumlara yedekleme bilgilerinin korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (1)** kuruluş yedekleme bilgilerini testleri [atama: kuruluş tarafından tanımlanan sıklığı] medya güvenilirlik ve bilgi tutarlılığı doğrulamak için.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (2)** kuruluş seçili bilgileri sistem işlevleri Yedek planı test bir parçası olarak geri yedekleme bilgilerini bir örneğini kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (3)** kuruluş yedek kopyalarını depolar [atama: kuruluş tarafından tanımlanan kritik bilgileri sistem yazılımı ve diğer güvenlik ile ilgili bilgileri] ayrı tesis veya ile birlikte değil yangın dereceli bir kapsayıcı işletim sistemi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (5)** kuruluş bilgileri sistem yedekleme bilgileri alternatif depolama siteye aktarır [atama: kuruluş tarafından tanımlanan süre ve aktarım oranı kurtarma süresini ve kurtarma noktası hedefi ile tutarlı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10** kuruluş bilinen bir duruma bilgi sistemi reconstitution kesintisi, tehlikeye veya hata sonra ve kurtarma sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10 (2)** bilgi sistemi işlem tabanlı sistemler için işlem kurtarma uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10 (4)** kuruluş içinde bilgi sistem bileşenleri geri yükleme yeteneği sağlar [atama: kuruluş tarafından tanımlanan geri yükleme süreleri] yapılandırma denetimli ve bütünlük korumalı bilgileri bilinen, işletimsel durumunu bileşenleri temsil eden.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

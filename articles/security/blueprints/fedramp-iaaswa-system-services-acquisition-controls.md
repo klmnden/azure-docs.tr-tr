@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve Hizmetleri edinme"
-description: "FedRAMP Web uygulamaları Otomasyon - sistem ve Hizmetleri edinme"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve Hizmetleri edinme
+description: FedRAMP Web uygulamaları Otomasyon - sistem ve Hizmetleri edinme
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Sistem ve Hizmetleri edinme (SA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt bir sistem ve Hizmetleri alma İlkesi Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve sistem hizmetleri alım İlkesi ve ilişkili sistem ve hizmetleri alım denetimlerin uygulanması kolaylaştırmak için yordamlar; gözden geçirir ve geçerli sistem güncelleştirir ve alım İlkesi Hizmetleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve sistem ve hizmetleri alım yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 2.a** görev/iş sürecini planlama bilgileri sistem veya bilgi sistem hizmeti bilgi güvenlik gereksinimlerini kuruluş belirler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 2.b** kuruluş belirler, belgeler ve bilgileri sistem ya da bilgi sistem hizmeti sermaye planlama ve yatırım Denetim işleminin bir parçası olarak korumak için gerekli kaynakları ayırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 2.c** kuruluş programlama ve bütçeleme belgelerine kuruluş bilgi güvenliği için ayrı bir satır öğesi oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 3.a** sistem bilgileri kullanarak kuruluş yönetir [atama: kuruluş tarafından tanımlanan sistem geliştirme yaşam döngüsü] bilgileri güvenlik konuları içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 3.b** kuruluş tanımlar ve bilgileri güvenlik rolleri ve sorumlulukları sistem geliştirme yaşam döngüsü boyunca belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 3.c** kuruluş bilgileri güvenlik rolleri ve sorumlulukları sahip kişiler tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 3.d** kuruluşun kurumsal bilgilerin güvenlik riski yönetim işlemi sistem geliştirme yaşam döngüsü etkinliklerine tümleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4** kuruluş aşağıdaki gereksinimleri, açıklamalar ve ölçütleri açıkça veya başvuruya göre bilgi sistem, sistem bileşeni veya bilgi sistem hizmeti ile uyumlu olarak alma sözleşmesindeki içerir Geçerli federal yasalar, Executive siparişler, yönergeleri, ilkeleri, düzenlemeler, standartları ve yönergeleri, ve kuruluş görev iş gereksinimleriniz: güvenlik işlevsel gereksinimlerini; Güvenlik gücü gereksinimlerini; Güvenlik güvencesi gereksinimlerini; güvenlikle ilgili belgeleri gereksinimleri; güvenlikle ilgili belgeleri korumak için gereksinimleri; bilgi sistem geliştirme ortamını ve çalışması sistem amaçlıdır ortam açıklaması; ve kabul kriterlerini.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (1)** doğrulanması için güvenlik denetimleri işlevsel özelliklerini açıklamasını sağlamak geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (2)** bilgileri sistem, sistem bileşeni, geliştirici kuruluşun gerektirir veya sistem hizmeti güvenlik denetimleri tasarım ve uygulama bilgilerini sağlamak için kullanılan bilgileri içerir: [seçimi (bir veya daha fazla): güvenlik ilgili dış sistem arabirimleri; üst düzey tasarımı; alt düzey tasarım; Kaynak kodu veya donanım şemaları; [Atama: kuruluş tarafından tanımlanan tasarım/uygulama bilgisi]] konumundaki [atama: ayrıntı düzeyi kuruluşunuz tarafından tanımlanan].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (8)** içeren güvenlik denetimi verimliliğini sürekli izleme için bir plan geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir [atama: Kuruluşunuz tarafından tanımlanan ayrıntı düzeyini].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (9)** bilgi sistem, sistem bileşeni veya erken sistem geliştirme yaşam döngüsü, İşlevler, bağlantı noktaları tanımlamak için bilgi sistem hizmeti protokolleri ve Hizmetleri yönelik Geliştirici kuruluşun gerektirir Kuruluş kullanın.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (10)** kuruluş yalnızca bilgi teknolojisi ürünleri kuruluş bilgi systems içinde uygulanan kişisel kimlik doğrulama (PIV) özelliği için FIPS 201 onaylı ürün listesini uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 5.a** kuruluş yönetici belgelerine bilgileri sistem, sistem bileşeni veya güvenli yapılandırma ve yükleme işlemi sistem, bileşen veya hizmeti; açıklayan bilgileri sistem hizmeti alır verimli kullanım ve güvenlik işlevleri/mekanizmasıyla bakım; ve bilinen güvenlik açıkları yapılandırma ve yönetim kullanılmasıyla ilgili (yani, ayrıcalıklı) işlevleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 5.b** kuruluş bilgileri sistem, sistem bileşeni için kullanıcı belgeleri alır veya sistem hizmet bilgileri kullanıcı erişilebilir güvenlik işlevleri/mekanizmaları ve etkili bir şekilde bu güvenlik işlevlerinin nasıl kullanılacağı açıklanır /Mechanisms; Kişiler sistem, bileşen veya hizmet daha güvenli bir şekilde kullanmayı sağlayan bir kullanıcı etkileşimi için yöntemleri; ve güvenlik sistem, bileşen veya hizmet korumada kullanıcı sorumlulukları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 5.c** kuruluş böyle belgelerine kullanılamıyor veya var olmayan ve geçen bilgi sistem, sistem bileşeni ya da bilgi sistem hizmet belgeleri almaya çalışır belgeleri [atama: Kuruluşunuz tarafından tanımlanan Eylemler] yanıt.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 5.d** kuruluş belgelerine gerektiği risk yönetimi stratejisi uygun olarak korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 5.e** Kuruluş belgelerine dağıtır [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-8** kuruluş bilgileri sistem güvenliği ilkeleri belirtimi, tasarım, geliştirme, uygulama ve bilgi sistemi değiştirilmesini mühendislik uygulanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 9.a** sağlayıcıları dış bilgileri sistem hizmetlerinin Kurumsal bilgilerin güvenlik gereksinimleri ve employ uymak kuruluşunuza [atama: kuruluş tarafından tanımlanan güvenlik denetimleri] ile uyumlu olarak Geçerli federal yasalar, Executive siparişler, yönergeleri, ilkeleri, düzenlemeleri, standartlar ve Kılavuzu.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 9.b** kuruluş tanımlar ve kamu gözetim ve kullanıcı rolleri ve sorumlulukları dış bilgileri sistem hizmetleriyle belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 9.c** kuruluş kullanır [atama: kuruluş tarafından tanımlanan işlemleri, yöntemleri ve teknikleri] düzenli olarak dış hizmet sağlayıcıları tarafından güvenlik denetimi uyumluluğunu izlemek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (1) bir** bir kuruluş alım önce risk değerlendirmesini veya ayrılmış bilgi güvenlik hizmetleri dış kaynak kuruluş yürütür.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (1) .b** edinme veya ayrılmış bilgi güvenlik hizmetleri dış kaynak tarafından onaylandığı kuruluş sağlar [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (2)** sağlayıcılarından kuruluşunuza [atama: kuruluş tarafından tanımlanan dış bilgileri sistem hizmetlerini] işlevleri, bağlantı noktaları, protokolleri ve bu tür hizmetlerin kullanım için gereken diğer hizmetleri tanımlamak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (4)** kuruluş kullanır [atama: kuruluş tanımlanan güvenlik önlemlerinin] ilgi emin olmak için [atama: kuruluş tanımlı bir dış hizmet sağlayıcıları] tutarlıdır ve kuruluş yansıtır ilgi alanları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (5)** kuruluş konumunu kısıtlayan [seçimi (bir veya daha fazla): bilgi işleme, bilgi/data; bilgileri sistem hizmetlerini] için [atama: kuruluş tarafından tanımlanan konumları] göre [atama: Kuruluşunuz tarafından tanımlanan gereksinimler veya koşullar].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 10.a** sistem, bileşen veya hizmet sırasında yapılandırma yönetimi gerçekleştirmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir [seçimi (bir veya daha fazla): Tasarım; geliştirme ; Uygulama; işlem].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 10.b** belge, yönetmek ve değişiklikleri bütünlüğünü denetlemek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir [atama: kuruluş tanımlı yapılandırma öğeleri Yapılandırma Yönetimi altında].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 10.c** yalnızca Organizasyon onaylı değişiklikler Sistem, bileşen veya hizmete uygulamak geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 10.d** kuruluşun sistem, bileşen veya hizmet onaylanan değişiklikleri belgelemek için geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistemi hizmeti ve olası güvenlik etkileri bu değişiklikleri gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -477,9 +477,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="developer-configuration-management"></a>Geliştirici yapılandırma yönetimi
 
-**SA-10.e** Kuruluşun güvenlik açıkları ve sistem, bileşen veya hizmeti ve rapor bulgularını içinde kusur çözümleme izlemek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti gerektirir [atama: kuruluş tarafından tanımlanan Personel].
+**SA 10.e** Kuruluşun güvenlik açıkları ve sistem, bileşen veya hizmeti ve rapor bulgularını içinde kusur çözümleme izlemek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti gerektirir [atama: kuruluş tarafından tanımlanan Personel].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10 (1)** yazılımını ve bellenimini bileşenlerinin bütünlüğünün doğrulanması etkinleştirmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 11.a** oluşturmak ve güvenlik değerlendirmesini planınızı uygulamak geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 11.b** gerçekleştirmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir [seçimi (bir veya daha fazla): birim tümleştirme; sistem; regresyon] konumundaki sınama/değerlendirme [atama: Kuruluşunuz tarafından tanımlanan derinliği ve kapsamı];
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 11.c** kuruluşun güvenlik değerlendirmesi planı ve güvenlik sınama/değerlendirme sonuçlarını yürütülmesini kanıtı üretmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 11.d** doğrulanabilen kusur düzeltme işlemi uygulamak geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -561,9 +561,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="developer-security-testing-and-evaluation"></a>Geliştirici güvenlik sınama ve değerlendirme
 
-**SA-11.e** Kuruluşun güvenlik sınama/değerlendirme sırasında tanımlanan açıkları düzeltmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti gerektirir.
+**SA 11.e** Kuruluşun güvenlik sınama/değerlendirme sırasında tanımlanan açıkları düzeltmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11 (1)** kuruluşun geliştirici bilgileri sistem, sistem bileşeni veya sistem hizmeti statik kullanımlar için kod çözümleme araçları ortak açıkları tanımlamak ve analiz sonuçlarını belgelemek için bilgi gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11 (2)** kuruluşunuza tehdit ve güvenlik açığı çözümlemeler gerçekleştirmek için geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistemi hizmeti ve sonraki test/değerlendirmesi yerleşik sistem bileşeni veya hizmet.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11 (8)** kuruluşun geliştirici bilgileri sistem, sistem bileşeni veya sistem hizmeti dinamik kullanımlar için kod çözümleme araçları ortak açıkları tanımlamak ve analiz sonuçlarını belgelemek için bilgi gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-12** kullanarak kuruluş bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti tedarik zinciri tehditlere karşı korur [atama: kuruluş tanımlanan güvenlik önlemlerinin] kapsamlı bir parçası olarak savunma içinde avantajlarına bilgi güvenlik stratejisi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 15.a** bilgileri sistem, sistem bileşeni, geliştirici kuruluşun gerektirir veya belgelenmiş geliştirme izlemek için sistem hizmeti işlemi, açıkça bilgi güvenlik gereksinimlerini ele; standartları tanımlar ve geliştirme işleminde kullanılan araçları; belgeleri belirli aracı seçenekleri ve geliştirme işleminde kullanılan aracı yapılandırmalarını; belgeler, yönetir ve işlem ve/veya geliştirme kullanılan araçlar değişiklikler bütünlüğünü sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 15.b** kuruluş geliştirme süreci, standartları, Araçlar ve aracı seçenekleri/yapılandırmalarını inceler [atama: kuruluş tarafından tanımlanan sıklığı] işlem standartları araçları belirlemek ve seçenekleri/yapılandırmaları aracı Seçili ve işe karşılayabilen [atama: kuruluş tarafından tanımlanan güvenlik gereksinimlerini].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-16** sağlamak geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir [atama: kuruluş tanımlı eğitim] işlemi uygulanan güvenlik ve doğru kullanımı İşlevler, denetimleri ve/veya mekanizmaları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 17.a** ile tutarlı ve kuruluşun, destekleyici bir tasarım belirtimi ve güvenlik mimarisi üretmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir içinde oluşturulur ve kuruluşun kurumsal mimarisi tümleşik bir parçası olan güvenlik mimarisi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 17.b** doğru ve tamamen gerekli açıklar tasarım belirtimi ve güvenlik mimarisi üretmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir Güvenlik işlevler ve güvenlik denetimleri fiziksel ve mantıksal bileşenler arasında ayırma.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA 17.c** bir tasarım belirtimi ve nasıl tekil güvenlik işlevler ifade güvenlik mimarisi üretmek geliştirici bilgileri sistem, sistem bileşeni veya bilgi sistem hizmeti kuruluşun gerektirir mekanizmaları ve Hizmetleri, gerekli güvenlik özellikleri ve birleştirilmiş bir yaklaşım koruma sağlamak üzere birlikte çalışır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

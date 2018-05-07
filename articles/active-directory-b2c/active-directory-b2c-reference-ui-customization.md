@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C kullanıcı arabirimini (UI) özelleştirme
 
@@ -332,7 +332,17 @@ Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak
 
 ## <a name="localizing-your-html-content"></a>HTML içeriğinizi yerelleştirme
 
-Açarak HTML içeriğinizi yerelleştirebilirsiniz ['Dil özelleştirme'](active-directory-b2c-reference-language-customization.md).  Bu özelliği etkinleştirmek sağlayan Open ID Connect parametre iletmek Azure AD B2C `ui-locales`, uç noktanız için.  İçeriğinize dile özgü özelleştirilmiş HTML sayfaları sağlamak için bu parametreyi kullanabilirsiniz.
+HTML içeriğinizi yerelleştirme için iki yolu vardır. Açmak için tek yönlü olduğu [dil özelleştirme](active-directory-b2c-reference-language-customization.md). Bu özelliği etkinleştirmek sağlayan Open ID Connect parametre iletmek Azure AD B2C `ui-locales`, uç noktanız için.  İçeriğinize dile özgü özelleştirilmiş HTML sayfaları sağlamak için bu parametreyi kullanabilirsiniz.
+
+Alternatif olarak, farklı yerlerde kullanılan bölgesel ayarına göre içerik isteyecek. CORS etkin uç noktanızı içinde belirli diller için içeriği barındırmak için bir klasör yapısı ayarlayabilirsiniz. Joker karakter değeri kullanırsanız, doğru olanı çağırmanız `{Culture:RFC5646}`.  Örneğin, bu özel sayfanızı URI olduğunu varsayın:
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+Sayfanın yükleyebilir `fr`. Sayfanın HTML ve CSS içerik çeker, gelen çekiyor:
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Bunları kendi içeriğinizi oluştururken unutmayın
 

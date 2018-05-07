@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri 
 
@@ -75,13 +75,13 @@ Belirtilen bulut uygulamasında erişmek için çok faktörlü kimlik doğrulama
 
 ### <a name="compliant-device"></a>Uyumlu cihaz
 
-Cihaz temelli koşullu erişim ilkeleri yapılandırabilirsiniz. Amacı bir cihaz temelli koşullu erişim ilkesi, yalnızca güvenilen cihazlardan yapılandırılmış kaynaklarına erişim sağlamaktır. Uyumlu bir cihaz gerektirmektir sahip tanımlamak için bir seçenek güvenilir cihazlar olduğunu. Bu seçenek belirlenirse, koşullu erişim ilkenizi, Azure Active Directory'ye katıldığında ve MDM çözümü tarafından uyumlu olarak işaretlenmiş aygıtlara yapılan erişim için erişim denemesi verir.
+Cihaz temelli koşullu erişim ilkeleri yapılandırabilirsiniz. Yapılandırılmış kaynaklardan yalnızca erişim vermek için bir cihaz temelli koşullu erişim ilkesi amacı olan [yönetilen cihazlara](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Uyumlu bir cihaz gerektirmektir sahip tanımlamak için bir seçenek yönetilen aygıt. Bu seçenek belirlenirse, koşullu erişim ilkenizi cihazlar ile yapılan erişim için erişim denemesi verir [kayıtlı](device-management-introduction.md) için Azure Active Directory ve bu işaretlenmiş uyumlu olarak MDM çözümü tarafından.
 
 Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Cihaz etki alanına katılmış
+### <a name="hybrid-azure-ad-joined-device"></a>Karma Azure AD birleştirilmiş cihaz
 
-Etki alanına katılmış bir cihaz başka bir seçenektir gerektiren cihaz temelli koşullu erişim ilkelerini yapılandırmanız gerekir. Bu gereksinim Windows Masaüstü ve dizüstü bilgisayarlar ile bir şirket içi Active Directory'e katılmayan Kurumsal tabletlerde ifade eder. Bu seçenek belirlenirse, koşullu erişim ilkesini, şirket içi Active Directory ve Azure Active Directory'yi katılmış cihazları yapılan erişim için erişim denemesi verir.  
+Azure AD birleştirilmiş cihaz cihaz temelli koşullu erişim ilkeleri yapılandırmak zorunda başka bir seçenektir karma gerektirme. Bu gereksinim Windows Masaüstü ve dizüstü bilgisayarlar ile bir şirket içi Active Directory'e katılmayan Kurumsal tabletlerde ifade eder. Bu seçenek belirlenirse, koşullu erişim ilkesini, şirket içi Active Directory ve Azure Active Directory'yi katılmış cihazları yapılan erişim için erişim denemesi verir.  
 
 Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
 

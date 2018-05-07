@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -83,8 +83,20 @@ Aşağıdaki URL'ler için Azure AD kuruluş ağınızdaki bilgisayarların kay�
 
 - https://device.login.microsoftonline.com
 
-Kuruluşların bir giden proxy üzerinden Internet erişimi gerektiriyorsa, Azure AD ile kaydetmek Windows 10 bilgisayarları etkinleştirmek için Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir.
+- Kuruluşunuzun STS (Federasyon etki alanları)
 
+Yapmadıysanız, kuruluşunuzun STS (için Federasyon etki alanları) kullanıcının yerel intranet ayarlarında bulunması gerekir.
+
+Kuruluşunuz sorunsuz SSO kullanmak planlama, aşağıdaki URL'ler kuruluşunuz içinde bilgisayarlardan erişilebilir olması gerekir ve bunlar aynı zamanda kullanıcının yerel intranet bölgesine eklenmesi gerekir:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Ayrıca, aşağıdaki ayar kullanıcının intranet bölgesinde etkinleştirilmiş olmalıdır: "Durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri izin ver."
+
+
+Kuruluşunuzda bir giden proxy üzerinden internet erişimi gerekiyorsa, Azure AD ile kaydetmek Windows 10 bilgisayarları etkinleştirmek için Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir.
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 

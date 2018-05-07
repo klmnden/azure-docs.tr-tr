@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -275,7 +275,7 @@ Yaklaşık tam süresi: 60 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Azure AD Connect yüklenir ve yapılandırılır. | Yapı Taşı: [dizin eşitleme - parola karması eşitlemesi](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| ADLDS örneği toplantı gereksinimleri | [Genel LDAP Bağlayıcısı teknik başvuru: Genel LDAP Bağlayıcısı'nı genel bakış](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| ADLDS örneği toplantı gereksinimleri | [Genel LDAP Bağlayıcısı teknik başvuru: Genel LDAP Bağlayıcısı'nı genel bakış](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | Kullanıcıların kullanmadığınız iş yükleri ve bu iş yükleri ile ilişkili öznitelikleri listesi | [Azure AD Connect eşitleme: öznitelikleri eşitlenmiş Azure Active Directory'ye](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ Yaklaşık tam süresi: 60 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Genel LDAP Bağlayıcısı Ekle | [Genel LDAP Bağlayıcısı teknik başvuru: yeni bir bağlayıcı oluşturun](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| Genel LDAP Bağlayıcısı Ekle | [Genel LDAP Bağlayıcısı teknik başvuru: yeni bir bağlayıcı oluşturun](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | (Tam içeri aktarma, delta içeri aktarma, tam eşitleme, delta eşitleme, dışa aktarma) oluşturulan Bağlayıcısı için çalıştırma profillerini oluşturma | [Bir yönetim aracı çalıştırma profili oluştur](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Azure AD Connect Eşitleme Hizmeti Yöneticisi ile bağlayıcıları kullanma](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Tam içeri aktarma profili çalıştırın ve bağlayıcı alanı nesne olduğunu doğrulayın | [Bağlayıcı alanı nesne arayın](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Azure AD Connect Eşitleme Hizmeti Yöneticisi ile bağlayıcıları kullanma: arama bağlayıcı alanı](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Böylece meta veri deposu nesneleri iş yükleri için gerekli öznitelikler eşitleme kuralları oluşturma | [Azure AD Connect eşitleme: en iyi uygulamalar varsayılan yapılandırmasını değiştirmek için: eşitleme kurallarına değiştirir](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect eşitleme: bildirim temelli hazırlama anlama](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect eşitleme: bildirim temelli hazırlama ifadeleri anlama](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

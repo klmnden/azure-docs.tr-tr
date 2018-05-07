@@ -3,7 +3,7 @@ title: Azure Hdınsight'ta Spark kullanarak veri bilimi genel bakış | Microsof
 description: Spark Mllib'i Araç Seti modelleme yetenekleri dağıtılmış Hdınsight ortamına önemli makine öğrenimi getirir.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: a4e1de99-a554-4240-9647-2c6d669593c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d7b4a87b72349375df71a5dd47c2bb544f3b4e3b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure Hdınsight'ta Spark kullanarak veri bilimi genel bakış
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -44,9 +44,9 @@ Bu dizüstü bilgisayarlar Jupyter not defteri sunucu pySpark Çekirdeği'nde ç
 ### <a name="spark-20-notebooks"></a>Spark 2.0 dizüstü bilgisayarlar
 Bu dizüstü bilgisayarlar Jupyter not defteri sunucu pySpark3 Çekirdeği'nde çalıştırmak üzeresiniz.
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Bu Not hızlı bir şekilde Spark 2.0 için sağladık kod keşfetme için iyi bir başlangıç noktası olabilir. Daha ayrıntılı bir not defteri NYC ücreti verileri analiz eder, bu listedeki sonraki dizüstü bakın. Bu not defterlerini karşılaştırmak bu liste aşağıdaki notlara bakın. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the well-known Airline On-time departure dataset from 2011 and 2012. Bu hava durumu özellikleri modele dahil edilebilir biz havaalanı hava durumu verileri (ör. windspeed, sıcaklık, yükseklik vb.) içeren hava yolu veri kümesi modelleme önce tümleşik.
+- [Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Bu dosyayı veri keşfi, modelleme, gerçekleştirmeyle ilgili bilgi sağlar ve Spark 2. 0'Puanlama NYC ücreti seyahat kullanarak kümelerini ve ücreti verileri-set açıklanan [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Bu Not hızlı bir şekilde Spark 2.0 için sağladık kod keşfetme için iyi bir başlangıç noktası olabilir. Daha ayrıntılı bir not defteri NYC ücreti verileri analiz eder, bu listedeki sonraki dizüstü bakın. Bu not defterlerini karşılaştırmak bu liste aşağıdaki notlara bakın. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Bu dosyayı nasıl wrangling verileri (işlem), Spark SQL ve dataframe modelleme ve NYC ücreti seyahat ve açıklanan ücreti veri kümesini kullanarak Puanlama araştırması gerçekleştirileceğini gösterir [burada ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Bu dosyayı wrangling verileri (işlem), Spark SQL ve dataframe modelleme ve bilinen uçak zamanında ayrılma kullanarak Puanlama araştırması gerçekleştirmek nasıl gösterir veri kümesi 2011 ve 2012. Bu hava durumu özellikleri modele dahil edilebilir biz havaalanı hava durumu verileri (ör. windspeed, sıcaklık, yükseklik vb.) içeren hava yolu veri kümesi modelleme önce tümleşik.
 
 <!-- -->
 

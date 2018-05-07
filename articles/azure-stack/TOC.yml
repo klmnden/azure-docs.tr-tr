@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: Kota türleri
               href: azure-stack-quota-types.md
-        - name: PaaS olarak SQL veya MySQL teklifi
+        - name: PaaS hizmetlerine genel bakış
+          href: azure-stack-tools-paas-services.md
+        - name: SQL PaaS teklifi
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: PaaS hizmetlerine genel bakış
-              href: azure-stack-tools-paas-services.md
-            - name: MySQL kaynak sağlayıcısı dağıtma
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: SQL kaynak sağlayıcısı dağıtma
+            - name: SQL Server Kaynak sağlayıcısı dağıtma
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Barındırma sunucuları ekleme
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL veritabanı oluşturma
               href: azure-stack-sql-resource-provider-databases.md
+            - name: SQL Server Kaynak sağlayıcısını güncelle
+              href: azure-stack-sql-resource-provider-update.md
+            - name: SQL Server Kaynak sağlayıcısı koru
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: SQL Server Kaynak sağlayıcısını kaldırma
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: MySQL PaaS teklifi
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: PaaS olarak App Service teklifi
           items:
             - name: Azure Stack’te App Service’e genel bakış

@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - personel güvenliği"
-description: "FedRAMP Web uygulamaları Otomasyon - personel güvenliği"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - personel güvenliği
+description: FedRAMP Web uygulamaları Otomasyon - personel güvenliği
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="personnel-security-ps"></a>Personel Güvenliği (PS)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu bir personel güvenlik ilkesi Kurumsal varlıklar ve uyumluluk arasında; ve personel güvenlik ilkesini ve ilişkili personel güvenlik denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli personel Güvenlik İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve personel güvenliği yordamları [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 2.a** kuruluş risk tayin tüm kuruluş konumlara atar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 2.b** kuruluş bu konumları doldurma kişiler için filtreleme ölçütlerini oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 2.c** kuruluş gözden geçirir ve güncelleştirmeleri konumu risk belirtimler [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 3.a** kuruluş bilgileri sistem erişimi yetkilendirme öncesinde kişiler ekranları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 3.b** kuruluşun kişiler göre rescreens [atama: kuruluş tanımlanan koşullar rescreening gerektiren ve rescreening böylece belirtilen yerlerde, bu tür sıklığı rescreening].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-3 (3) bir** işleme, saklamak veya bilgi ileten bir bilgi sisteme erişen kişilerin özel koruma gerektiren tarafından gösterilen geçerli erişim kimlik doğrulamalarını resmi atadığınız kuruluş sağlar Kamu görevlerini.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-3 (3) .b** bilgi sistem işleme erişme kişiler, saklamak veya bilgi gerektiren özel koruma aktarıyor karşılamak kuruluş sağlar [atama: kuruluş tarafından tanımlanan ek personel filtreleme Ölçüt].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.a** tek tek çalışma sonlandırılması bağlı kuruluş içindeki bilgileri sistem erişimi devre dışı bırakır [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.b** tek tek çalışma sonlandırılması bağlı kuruluş sonlandırır/herhangi Doğrulayıcı / kişiyle ilişkili kimlik bilgilerini iptal eder.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.c** tartışması dahil çıkış görüşmeleri sonlandırma tek tek çalışma sırasında kuruluşun yürütür [atama: kuruluş tarafından tanımlanan bilgileri güvenlik konuları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.d** tek tek çalışma sonlandırılması bağlı kuruluş sistemi ile ilgili tüm güvenlikle ilgili kuruluş bilgilerini özelliği alır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -197,9 +197,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="personnel-termination"></a>Personel sonlandırma
 
-**PS-4.e** Tek tek çalışma sonlandırılması bağlı kuruluş kuruluş bilgilere erişimi korur ve bilgi sistemleri tarafından önceden denetlenen tek tek sonlandırdı.
+**PS 4.e** Tek tek çalışma sonlandırılması bağlı kuruluş kuruluş bilgilere erişimi korur ve bilgi sistemleri tarafından önceden denetlenen tek tek sonlandırdı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.f** tek tek çalışma sonlandırılması bağlı kuruluş bildirir [atama: kuruluş tarafından tanımlanan personel ya da roller] içinde [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4 (2)** kuruluş bildirmek için otomatik mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan personel ya da roller] birey sonlandırılması bağlıdır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.a** kuruluş gözden geçirir ve yeniden atandığında ya da başka konumlara içinde aktarılan kişiler bilgi systems/tesisler için geçerli mantıksal ve fiziksel erişim kimlik doğrulamalarını devam eden işlem gereksinimini onaylar Kuruluş.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.b** kuruluş başlatır [atama: kuruluş tarafından tanımlanan aktarımı veya yeniden atama eylemi] içinde [atama: kuruluş tanımlı resmi aktarımı eylemi aşağıdaki süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.c** yeniden atama veya aktarımı nedeniyle işletimsel gerek herhangi bir değişiklikle karşılık gelecek şekilde gerektiği gibi kuruluş erişim yetkilendirme değiştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.d** kuruluş bildirir [atama: kuruluş tarafından tanımlanan personel ya da roller] içinde [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 6.a** kuruluş geliştirir ve belgeleri kuruluş bilgi systems sözleşmelerini erişebilirsiniz.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 6.b** kuruluş gözden geçirir ve erişim anlaşmaları güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 6.c** kuruluş kuruluş bilgilerini ve bilgi sistemleri erişmesi kişiler oturum; erişim verilmeden önce uygun erişim anlaşmalar ve erişim sağlamak için erişim anlaşmaları yeniden oturum sağlar erişim anlaşmaları güncelleştirildiği kuruluş bilgilerini sistemleri veya [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.a** kuruluşun güvenlik rolleri ve sorumlulukları üçüncü taraf sağlayıcılar için de dahil olmak üzere personel güvenlik gereksinimleri oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.b** personel güvenlik ilkelerini ve kuruluşunuz tarafından belirlenen yordamları uyması üçüncü taraf sağlayıcılar kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.c** kuruluş personel güvenlik gereksinimleri belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.d** bildirmek üçüncü taraf sağlayıcılar kuruluşunuza [atama: kuruluş tarafından tanımlanan personel ya da roller], herhangi bir personel aktarımları veya Kurumsal kimlik bilgilerine sahip üçüncü taraf personeli sonlandırmalar ve/veya rozetleri veya bilgi sistem ayrıcalıklarına sahip [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -393,9 +393,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="third-party-personnel-security"></a>Üçüncü taraf personel güvenliği
 
-**PS-7.e** Kuruluş sağlayıcısı uyumluluk izler.
+**PS 7.e** Kuruluş sağlayıcısı uyumluluk izler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 8.a** kuruluş kurulan bilgi güvenlik ilkelerini ve yordamlarını uymak başarısız olan kişiler için resmi sanctions işlemi uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 8.b** kuruluş bildirir [atama: kuruluş tarafından tanımlanan personel ya da roller] içinde [atama: kuruluş tanımlı süre] resmi çalışan sanctions olduğunda işlem, tasdikli tek tanımlayan başlatılır ve sanction nedeni.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

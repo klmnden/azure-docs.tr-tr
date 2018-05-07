@@ -7,16 +7,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: bce7a8532782e6d911ab1acdd74de8bb0de84307
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluştaki ve Yönetim için Yönetim grupları oluşturma
 Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. İle birlikte kullanılabilen bir etkili ve verimli hiyerarşisi oluşturmak için bu kapsayıcıları oluşturma [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini](../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md). 

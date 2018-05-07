@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -30,7 +30,7 @@ Müşteriler kendi veritabanlarını dayanıklılık içinde en ilgilendiğiniz 
 
 Veriler için SQL veritabanını doğrudan bağlı diskler/VHD'lerde bağlı yerel depolama (LS) ve Azure Premium Storage sayfa blobları üzerinde temel uzaktaki depolama birimi (RS) kullanır. 
 - İş kritik (Önizleme) veritabanları ve esnek havuzlar için tasarlanmış yüksek IOPS gereksinimleri olan kritik OLTP uygulamalar görev veya yerel depolama Premium'da kullanılır. 
-- Uzaktaki Depolama birimi depolama gerektiren ve bağımsız olarak ölçeklendirebilirsiniz güç işlem bütçe yönelik kurumsal iş yükleri için tasarlanmış, temel ve standart hizmet katmanları için kullanılır. Tek sayfa blobu veritabanı ve günlük dosyaları ve yerleşik depolama çoğaltma ve yük devretme mekanizmalarını kullanırlar.
+- Uzaktaki Depolama birimi depolama gerektiren ve bağımsız olarak ölçeklendirebilirsiniz güç işlem bütçe yönelik kurumsal iş yükleri için tasarlanmış, temel, standart ve genel amaçlı hizmet katmanlarında kullanılır. Tek sayfa blobu veritabanı ve günlük dosyaları ve yerleşik depolama çoğaltma ve yük devretme mekanizmalarını kullanırlar.
 
 Her iki durumda da çoğaltma, hata algılama ve yük devretme mekanizmaları SQL veritabanı için tam otomatik ve insan etkileşimi olmadan çalışır. Bu mimari, kaydedilmiş veri hiç kayıp olduğundan ve veri dayanıklılığı tüm öncelikli olacağını emin olmak için tasarlanmıştır.
 
@@ -56,7 +56,7 @@ Bu yapılandırmada, her veritabanı çevrimiçi denetim halkası içinde Yönet
 
 ## <a name="remote-storage-configuration"></a>Uzak Depolama yapılandırması
 
-Uzak Depolama yapılandırmaları (temel ve standart katmanları) için tam olarak bir kopya dayanıklılık, artıklık ve bit rot algılama için depolama sistemlerini yeteneklerini kullanarak uzak blob storage'da korunur. 
+Uzak Depolama yapılandırmaları (temel, standart veya genel amaçlı katmanları) için tam olarak bir kopya dayanıklılık, artıklık ve bit rot algılama için depolama sistemlerini yeteneklerini kullanarak uzak blob storage'da korunur. 
 
 Yüksek kullanılabilirlik mimarisi tarafından Aşağıdaki diyagramda gösterilmiştir:
  

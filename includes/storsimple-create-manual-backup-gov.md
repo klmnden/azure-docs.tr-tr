@@ -12,7 +12,7 @@
    
     ![El ile yedek 2 oluşturma](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 5. Yedekleme işi tamamlandıktan sonra **Yedekleme kataloğu** sekmesine gidin.
-6. Filtre seçimlerini uygun aygıt, yedekleme İlkesi ve zaman aralığına ayarlayın. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) filtreleri ayarladıktan sonra tıklayın.
+6. Filtre seçimlerini uygun aygıt, yedekleme İlkesi ve zaman aralığına ayarlayın. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) filtreleri ayarladıktan sonra tıklayın.
    
    Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 

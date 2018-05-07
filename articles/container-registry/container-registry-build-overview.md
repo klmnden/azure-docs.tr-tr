@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 0e10b415f3d1c7ca502cfd63ebd27a6adcb69635
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>İşletim sistemi ve framework ACR yapısı ile düzeltme eki uygulama otomatikleştirme
 
@@ -58,7 +58,7 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR yapı dinamik olarak temel g�
 İşletim sistemi ve üçüncü ACR yapı öğreticide framework düzeltme eki uygulama hakkında bilgi edinin [otomatikleştirme görüntü, Azure kapsayıcı kayıt defteri yapısı ile temel görüntü Update'te derlemeler](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> ACR yapı önizlemede olsa da, temel ve uygulama görüntüleri aynı Azure kapsayıcı kayıt defterinde yer aldığında yalnızca temel görüntü güncelleştirmeleri tetikleyici oluşturur.
+> Yalnızca temel ve uygulama görüntüleri aynı Azure kapsayıcı kayıt defterinde bulunuyorsa ilk önizleme için temel görüntü güncelleştirmeleri tetikleyici oluşturur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

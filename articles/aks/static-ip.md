@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti (AKS) yük dengeleyici ile statik bir IP adresi kullanın"
-description: "Statik bir IP adresi ile Azure kapsayıcı hizmeti (AKS) yük dengeleyici kullanın."
+title: Azure kapsayıcı hizmeti (AKS) yük dengeleyici ile statik bir IP adresi kullanın
+description: Statik bir IP adresi ile Azure kapsayıcı hizmeti (AKS) yük dengeleyici kullanın.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Azure kapsayıcı hizmeti (AKS) yük dengeleyici ile statik bir IP adresi kullanın
 
@@ -59,9 +59,11 @@ IP adresini not alın.
 
  Gerekirse, adresi kullanılarak alınabilir [az ağ ortak IP listesi] [ az-network-public-ip-list] komutu.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 Statik IP adresi oluşturulmadı veya yanlış kaynak grubunda oluşturduğunuz hizmet oluşturma başarısız olur. Sorun giderme, hizmet oluşturma olayları ile döndürmek için [kubectl açıklayan] [ kubectl-describe] komutu.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>

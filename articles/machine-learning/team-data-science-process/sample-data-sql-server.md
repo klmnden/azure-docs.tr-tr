@@ -3,7 +3,7 @@ title: Örnek veri Azure üzerinde SQL Server'daki | Microsoft Docs
 description: Azure SQL Server'da örnek veri
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: e854f35cb68ddf0bc93e7c7959d14ef79a346c6e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 1f17a360cc8be7b1160e036f8c0694d05bf7e417
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>Azure üzerinde SQL Server örnek veri
 Bu makalede Azure SQL sunucusunda depolanan verileri örnek SQL veya Python programlama dili kullanılarak gösterilmektedir. Ayrıca, bir dosyaya kaydetmeyi, bir Azure blob karşıya yükleme ve Azure Machine Learning Studio'ya okuma Azure Machine Learning örneklenen verileri taşımak nasıl gösterir.

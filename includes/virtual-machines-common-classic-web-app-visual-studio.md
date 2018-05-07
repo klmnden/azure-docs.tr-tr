@@ -8,7 +8,7 @@ Bir web uygulaması oluşturduğunuzda, bir sanal makine oluşturmak için aşa�
 2. İçinde **yeni ASP.NET projesi** iletişim kutusunda, istediğiniz web uygulamasının türü seçin ve iletişim kutusunda (sağ alt köşedeki) Azure bölümünde olduğundan emin olun **bulutta Barındır** onay kutusu Seçili (Bu onay kutusunu etiketli **uzak kaynaklar Oluştur** bazı yüklemeler içinde).
    
     ![][0]
-3. Bu örneğin Microsoft Azure altında aşağı açılan listesinde seçin **sanal makine (v1)**ve ardından **Tamam** düğmesi.
+3. Bu örneğin Microsoft Azure altında aşağı açılan listesinde seçin **sanal makine (v1)** ve ardından **Tamam** düğmesi.
 4. İstenirse Azure oturumu açın. **Sanal makine oluşturma** iletişim kutusu görüntülenir.
    
     ![][2]

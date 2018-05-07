@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: f92629a3a5d20cce050aa7f124b140b1f4eb32d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Kullanıcı Arabirimi özelleştirme özel bir ilke yapılandırın.
 
@@ -95,7 +95,7 @@ Blob depolama alanına genel bir kapsayıcı oluşturmak için aşağıdakileri 
 11. Yanına **URL**, tıklatın **kopya**.
 12. Bir tarayıcıda, kopyalanan URL'sini yapıştırın ve sitesine gidin. Site erişilemez, emin olun kapsayıcı erişim türü ayarlanırsa **blob**.
 
-## <a name="configure-cors"></a>CORS'yi yapılandırın
+## <a name="configure-cors"></a>CORS Yapılandırma
 
 BLOB Depolama çıkış noktaları arası kaynak paylaşımı için aşağıdakileri yaparak yapılandırın:
 
@@ -143,7 +143,7 @@ Aşağıdakileri yaparak hazırsınız olduğunu doğrulama:
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Özel ilke kullanarak test **Şimdi Çalıştır**
 
-1. Üzerinde **Azure AD B2C** dikey penceresinde, Git **tüm ilkeler**.
+1. Üzerinde **Azure AD B2C** dikey penceresinde, Git **tüm ilkeleri**.
 2. Karşıya yüklenen ve'ı tıklatın özel ilkeyi seçin **Şimdi Çalıştır** düğmesi.
 3. Bir e-posta adresi kullanarak kaydolabilirsiniz olması gerekir.
 
@@ -159,10 +159,10 @@ Aşağıdaki HTML dosyaları sample_templates/wingtip klasör içerir:
 
 | HTML5 şablonu | Açıklama |
 |----------------|-------------|
-| *phonefactor.html* | Bu dosyayı bir çok faktörlü kimlik doğrulaması sayfası için bir şablon olarak kullanın. |
-| *resetpassword.html* | Bu dosya için bir şablon olarak kullanmak bir parolanızı mı unuttunuz sayfasını. |
+| *phonefactor.HTML* | Bu dosyayı bir çok faktörlü kimlik doğrulaması sayfası için bir şablon olarak kullanın. |
+| *ResetPassword.HTML* | Bu dosya için bir şablon olarak kullanmak bir parolanızı mı unuttunuz sayfasını. |
 | *selfasserted.html* | Bu dosya, sosyal hesap kayıt sayfası, yerel hesap kaydolma sayfası veya bir yerel hesap oturum açma sayfası için bir şablon olarak kullanın. |
-| *unified.html* | Bu dosyayı bir birleşik kayıt veya oturum açma sayfası için bir şablon olarak kullanın. |
+| *Unified.HTML* | Bu dosyayı bir birleşik kayıt veya oturum açma sayfası için bir şablon olarak kullanın. |
 | *updateprofile.html* | Bu dosya için bir profil güncelleştirme sayfası şablon olarak kullanın. |
 
 İçinde [, oturum açma veya kaydolma özel ilke bölümünü değiştirme](#modify-your-sign-up-or-sign-in-custom-policy), içerik tanımı yapılandırılmış `api.idpselections`. Tam bir içerik kümesinin Azure AD B2C kimlik deneyimi framework ve açıklamalarının tarafından tanınan tanımı kimlikleri aşağıdaki tabloda verilmiştir:

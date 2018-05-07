@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 2b3651eaf702cfe2f73320fcaf2ab469dd7c478a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dad00995ab9f90e9eebec16697d55f4491431e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Bir VMSS yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -121,7 +121,8 @@ Bir kullanıcı atamak için var olan bir Azure VMSS kimliği atanır:
 2. İlk kullanarak VM özelliklerini almak `Get-AzureRmVM` cmdlet'i. Atanan kullanıcı kimliğini Azure VMSS atamak için kullan `-IdentityType` ve `-IdentityID` anahtarının [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i. Değiştir `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` kendi değerlere sahip.
 
    > [!IMPORTANT]
-   > Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+   > Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+
 
    ```powershell
    $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>

@@ -1,9 +1,9 @@
 ---
-title: "Azure PowerShell kullanarak Azure DNS'de DNS kayıtlarını yönetme | Microsoft Docs"
-description: "DNS kayıt kümelerini ve Azure DNS kayıtlarını Azure DNS'nin etki alanınızda barındırdığında yönetme. Kayıt kümelerini ve kayıtları işlemleri için tüm PowerShell komutları."
+title: Azure PowerShell kullanarak Azure DNS'de DNS kayıtlarını yönetme | Microsoft Docs
+description: DNS kayıt kümelerini ve Azure DNS kayıtlarını Azure DNS'nin etki alanınızda barındırdığında yönetme. Kayıt kümelerini ve kayıtları işlemleri için tüm PowerShell komutları.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: gwallace
-ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: 511af342727dc46369ae70d60a7e9a3171bf986d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS kayıtlarını ve kayıt kümeleri Azure PowerShell kullanarak Azure DNS'de yönetme
 
@@ -379,15 +379,15 @@ Kayıt kümesi nesnesi bir parametre olarak geçirilen yerine de yöneltilen:
 Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzureRmDnsRecordSet
 ```
 
-## <a name="confirmation-prompts"></a>Onay istekleri
+## <a name="confirmation-prompts"></a>Onay istemleri
 
-`New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet`, Ve `Remove-AzureRmDnsRecordSet` cmdlet'leri tüm destek onay ister.
+`New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet` ve `Remove-AzureRmDnsRecordSet` cmdlet’lerinin tamamı onay istemlerini destekler.
 
 Her bir cmdlet için onay ister `$ConfirmPreference` PowerShell tercih değişkeni değerine sahip `Medium` veya daha düşük. İçin varsayılan değer itibaren `$ConfirmPreference` olan `High`, bu komut istemlerini varsayılan PowerShell ayarlarını kullanırken verilmez.
 
-Geçerli kılabilirsiniz `$ConfirmPreference` kullanarak ayarlama `-Confirm` parametresi. Belirtirseniz `-Confirm` veya `-Confirm:$True` , cmdlet sizden onay kendisinden önce çalışır ister. Belirtirseniz `-Confirm:$False` , cmdlet onaylamanız istenmez. 
+`-Confirm` parametresini kullanarak geçerli `$ConfirmPreference` ayarını geçersiz kılabilirsiniz. `-Confirm` veya `-Confirm:$True` belirtirseniz cmdlet, çalıştırılmadan önce size onay istemi görüntüler. `-Confirm:$False` belirtirseniz cmdlet size onay istemi görüntülemez. 
 
-Hakkında daha fazla bilgi için `-Confirm` ve `$ConfirmPreference`, bkz: [tercih değişkenleri hakkında](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+`-Confirm` ve `$ConfirmPreference` hakkında daha fazla bilgi için bkz. [Tercih Değişkenleri Hakkında](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

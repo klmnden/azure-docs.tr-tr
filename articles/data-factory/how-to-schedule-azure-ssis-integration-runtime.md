@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2ccde1a4eaff391dccf1b5f624257479acb263cb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -69,21 +69,20 @@ Bir Azure Otomasyonu hesabı yoksa, bu adımı'ndaki yönergeleri izleyerek olu�
 
 ### <a name="import-data-factory-modules"></a>Veri Fabrikası modülleri alın
 
-1. Seçin **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve sahip olup olmadığınızı doğrulayın **AzureRM.Profile** ve **AzureRM.DataFactoryV2** modülleri listesinde. Yoksa, seçin **Gözat galeri** araç çubuğunda.
+1. Seçin **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve sahip olup olmadığınızı doğrulayın **AzureRM.Profile** ve **AzureRM.DataFactoryV2** modülleri listesinde. Bunlar bir listede değilseniz seçin **Gözat galeri** araç çubuğunda ve aşağıdaki adımlarla devam edin.
 
-    ![Otomasyon giriş sayfası](./media/how-to-schedule-azure-ssis-integration-runtime/automation-modules.png)
-2. İçinde **Gözat galeri** penceresinde, türü **AzureRM.Profile** arama penceresi ve tuşuna **ENTER**. Seçin **AzureRM.Profile** listesinde. Ardından **alma** araç çubuğunda. 
+    > [!IMPORTANT]
+    > Şu anda yalnızca kullanabilirsiniz **AzureRM.DataFactoryV2 0.5.2** ve **AzureRM.Profile 4.5.0** modüller.
 
-    ![AzureRM.Profile seçin](./media/how-to-schedule-azure-ssis-integration-runtime/select-azurerm-profile.png)
-1. İçinde **alma** penceresinde, seçin **tüm Azure modülleri güncelleştirmek kabul ediyorum** seçeneğini ve tıklayın **Tamam**.  
+    ![Gerekli modüllerini doğrulayın](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-    ![İçeri aktarma AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/import-azurerm-profile.png)
-4. Kapatmak için geri almak için windows **modülleri** penceresi. İçeri aktarma listesinde durumunu görmeniz gerekir. Listeyi yenilemek için **Yenile**’yi seçin. Görene kadar bekleyin **durum** olarak **kullanılabilir**.
+2.  PowerShell Galerisi gidin [AzureRM.DataFactoryV2 0.5.2 Modülü](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2)seçin **Azure Otomasyonu Dağıt**Otomasyon hesabınızı seçin ve ardından **Tamam**. Görüntülemeye dönmek **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve görene kadar bekleyin **durum** , **AzureRM.DataFactoryV2 0.5.2**  modülü değişiklik **kullanılabilir**.
 
-    ![Alma durumu](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-profile.png)
-1. İçeri aktarmak için gereken adımları yineleyin **AzureRM.DataFactoryV2** modülü. Bu modül durumunu ayarlamak Onayla **kullanılabilir** devam etmeden önce. 
+    ![Veri Fabrikası modülü doğrulayın](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-    ![Son alma durumu](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-datafactoryv2.png)
+3.  PowerShell Galerisi gidin [AzureRM.Profile 4.5.0 Modülü](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), tıklayın **Azure Otomasyonu Dağıt**Otomasyon hesabınızı seçin ve ardından **Tamam**. Görüntülemeye dönmek **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve görene kadar bekleyin **durum** , **AzureRM.Profile 4.5.0** modülü değişiklik **kullanılabilir**.
+
+    ![Profil modülü doğrulayın](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
 ### <a name="create-a-powershell-runbook"></a>PowerShell runbook’u oluşturma
 Aşağıdaki yordam, bir PowerShell runbook oluşturmak için adımları sağlar. Bu runbook'la ilişkilendirilmiş ya da komut dosyasını başlatır/Azure SSIS belirtmek için komut göre IR durdurur **işlemi** parametresi. Bu bölümde, bir runbook oluşturmak için tüm ayrıntıları sağlamaz. Daha fazla bilgi için bkz: [bir runbook oluşturmak](../automation/automation-quickstart-create-runbook.md) makalesi.

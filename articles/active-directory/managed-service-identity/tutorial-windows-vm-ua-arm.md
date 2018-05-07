@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: d80e0fc35b8c20bd61a78a68542f3311c1a40952
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bdd7966721b22d75023c593593e69ab651b3aaca
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Bir kullanıcı atanan yönetilen hizmet kimliği (MSI), Azure Resource Manager erişmek için bir Windows VM üzerinde kullanın.
 
@@ -79,7 +79,7 @@ New-AzureRmVm `
 Bir kullanıcı kimliği atanır tek başına Azure kaynak olarak oluşturulur. Kullanarak [yeni AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), Azure, Azure AD kiracınızda bir veya daha fazla Azure hizmet örneklerine atanabilir bir kimlik oluşturur.
 
 > [!IMPORTANT]
-> Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+> Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1

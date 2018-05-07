@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning için bir Azure SQL veritabanına veri taşıma | Microsoft Docs"
-description: "SQL tablosu ve SQL tablosuna yük verileri oluşturma"
+title: Azure Machine Learning için bir Azure SQL veritabanına veri taşıma | Microsoft Docs
+description: SQL tablosu ve SQL tablosuna yük verileri oluşturma
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning için Azure SQL Veritabanına veri taşıma
 Bu konu, verileri düz dosyalardan (CSV veya TSV biçimleri) veya bir Azure SQL veritabanı için bir şirket içi SQL Server'da depolanan veri taşıma seçeneklerini özetler. Verileri buluta taşımak için bu görevleri takım veri bilimi işleminin bir parçasıdır.
@@ -39,7 +39,7 @@ Bir Azure SQL veritabanına veri taşıma seçenekleri aşağıdaki tabloda öze
 ## <a name="prereqs"></a>Önkoşullar
 Burada gösterilen yordamları sahip olması gerekir:
 
-* Bir **Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
+* Bir **Azure aboneliği**. Aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * Bir **Azure depolama hesabı**. Bu öğreticide verileri depolamak için bir Azure depolama hesabı kullanın. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın. Depolama hesabını oluşturduktan sonra, depolamaya erişmek için kullanılan hesap anahtarını edinmeniz gerekir. Bkz: [depolama erişim tuşlarınızı yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Erişim bir **Azure SQL veritabanı**. Bir Azure SQL veritabanı, ayarlarsanız, [Microsoft Azure SQL veritabanı ile çalışmaya başlama](../../sql-database/sql-database-get-started.md) bir Azure SQL veritabanına yeni bir örneğini sağlayacak bilgiler verilmektedir.
 * Yüklenmiş ve yapılandırılmış **Azure PowerShell** yerel olarak. Yönergeler için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
@@ -48,13 +48,13 @@ Burada gösterilen yordamları sahip olması gerekir:
 
 Kendi veri kümesine burada açıklanan yordamları uyum veya NYC ücreti dataset kullanarak açıklanan adımları izleyin. NYC ücreti veri kümesi şirket içi SQL Server veritabanınıza karşıya yüklemek için özetlenen yordamı izleyin [toplu içeri aktarma verileri SQL Server veritabanına](sql-walkthrough.md#dbload). SQL Server üzerinde bir Azure sanal makine için bu yönergeleri bağlıdır, ancak şirket içi SQL Server'a yükleme yordamı aynıdır.
 
-## <a name="file-to-azure-sql-database"></a>Bir Azure SQL veritabanına bir düz dosya kaynaktan veri taşıma
+## <a name="file-to-azure-sql-database"></a> Bir Azure SQL veritabanına bir düz dosya kaynaktan veri taşıma
 (CSV veya TSV biçimlendirilmiş) düz dosyalardaki veriler toplu Ekle bir SQL sorgusunu kullanarak bir Azure SQL veritabanına taşınabilir.
 
-### <a name="bulk-insert-sql-query"></a>Toplu ekleme SQL sorgusu
+### <a name="bulk-insert-sql-query"></a> Toplu ekleme SQL sorgusu
 Adımları toplu Ekle SQL sorgusunu kullanarak yordamı için verileri bir düz dosya kaynaktan SQL Server için bir Azure VM taşıma için bölümlerde ele benzerdir. Ayrıntılar için bkz [toplu Ekle SQL sorgusu](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a>Şirket içi SQL Server'dan Azure SQL veritabanına veri taşıma
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Şirket içi SQL Server'dan Azure SQL veritabanına veri taşıma
 Veri kaynağını bir şirket içi SQL sunucusunda depolanan, bir Azure SQL veritabanına veri taşıma için çeşitli seçenekler vardır:
 
 1. [Düz dosya dışarı aktarma](#export-flat-file)

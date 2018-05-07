@@ -1,23 +1,23 @@
 ---
-title: "Azure ayrılmış sanal makine örnekleri indirim uygulama anlama | Microsoft Docs"
-description: "Sanal makineleri çalıştıran için Azure ayrılmış VM örnek indirim nasıl uygulandığı hakkında bilgi edinin."
+title: Azure ayrılmış sanal makine örnekleri indirim uygulama anlama | Microsoft Docs
+description: Sanal makineleri çalıştıran için Azure ayrılmış VM örnek indirim nasıl uygulandığı hakkında bilgi edinin.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama
 Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma miktarı ile eşleşen sanal makinelere otomatik olarak uygulanır. Bir ayırma sanal makinelerinizi altyapı maliyetinden kapsar. Bir ayırma satın aldıktan sonra sanal makine maliyetlerini aşağıdaki tabloda gösterilmektedir. Her durumda, depolama ve ağ aygıtları için ücretlendirilirsiniz normal hızlarında.
@@ -43,7 +43,7 @@ Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma
 Anlamak ve kullanım raporları faturalama, rezervasyonları uygulama görüntülemek için bkz: [anlamak ayrılmış VM örnek kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows VM ayırma indirim uygulamaya
-Windows VM örnekleri çalışırken ayırma altyapı maliyetlerini karşılamak üzere uygulanır. VM altyapı maliyetlerini Windows VM'ler için ayırma uygulamasının Windows olmayan VM'ler için aynıdır. Ayrıca, Windows yazılım vCPU başına temelinde ücretlendirilirsiniz. Bkz: [Windows yazılım maliyetleri ayırmaları ile](https://go.microsoft.com/fwlink/?linkid=862756). Windows lisans maliyetleriniz [karma avantajı Windows Server için Azure] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) ile ele.
+Windows VM örnekleri çalışırken ayırma altyapı maliyetlerini karşılamak üzere uygulanır. VM altyapı maliyetlerini Windows VM'ler için ayırma uygulamasının Windows olmayan VM'ler için aynıdır. Ayrıca, Windows yazılım vCPU başına temelinde ücretlendirilirsiniz. Bkz: [Windows yazılım maliyetleri ayırmaları ile](https://go.microsoft.com/fwlink/?linkid=862756). Lisanslama maliyetleri [karma avantajı Windows Server için Azure] ile Windows kapak (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.

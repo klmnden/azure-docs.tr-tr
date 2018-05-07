@@ -6,13 +6,13 @@ manager: jlembicz
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: 018388cd2bd85eb86ad7b62ee247bccd6329e9ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 88949f4cf0e4408f5d1e4d9c9a5833b041b5a5ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK sürüm 5 yükseltme
 4.0 Önizleme veya, daha eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı sürüm 5 kullanacak şekilde yükseltmenize yardımcı olur.
@@ -57,7 +57,7 @@ Sürüm 5 en önemli sonu değişikliği olan `Microsoft.Azure.Search` derleme v
  - `Microsoft.Azure.Search`: Tüm diğer Azure Search paketler bağımlılık içeren bir meta-paket budur. SDK'ın önceki bir sürümden yükseltirken, yalnızca bu paketi yükseltme ve yeniden oluşturmak, yeni sürüm kullanmaya başlamak için yeterli olmalıdır.
  - `Microsoft.Azure.Search.Data`: Bu paket Azure arama'yı kullanarak bir .NET Uygulama geliştirirken ve sorgu veya dizinleri belgelerde güncelleştirmek yalnızca ihtiyacınız varsa kullanın. Ayrıca oluşturmak veya dizinleri güncelleştirmek gerekirse, eş anlamlı eşlemeleri ya da hizmet düzeyi kaynaklar kullanın `Microsoft.Azure.Search` bunun yerine paket.
  - `Microsoft.Azure.Search.Service`: Bu paket Azure Search dizinlerini, eş anlamlı eşlemeleri, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için .NET otomasyon geliştiriyorsanız kullanın. Dizinlerinizi içinde yalnızca sorgu veya güncelleştirme belgelere gerekiyorsa kullanın `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search tüm işlevselliğini gerekiyorsa kullanın `Microsoft.Azure.Search` bunun yerine paket.
-- `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gerekli genel türleri. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
+ - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gerekli genel türleri. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
  
 Birçok türleri derlemeler arasında taşındı beri bu değişikliği teknik kesiliyor. Uygulamanızı yeniden SDK 5 sürümüne yükseltmek için gerekli olan nedeni budur.
 

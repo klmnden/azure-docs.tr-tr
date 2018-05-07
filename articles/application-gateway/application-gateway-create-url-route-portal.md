@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 554618b055ce5afcc67f95afa0242d36e74fabc0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
 Azure Portalı'nı yapılandırmak için kullanabileceğiniz [URL yolu tabanlı yönlendirme kuralları](application-gateway-url-route-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makineleri kullanarak arka uç havuzları oluşturun. Uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olun yönlendirme kuralları oluşturursunuz.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Uygulama ağ geçidi oluşturma
@@ -82,16 +82,16 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 2. Tıklatın **işlem** ve ardından **Windows Server 2016 Datacenter** öne çıkan listesinde.
 3. Sanal makine için bu değerleri girin:
 
-    - *myVM1* - sanal makine adı için.
-    - *azureuser* - yönetici kullanıcı adı.
+    - Sanal makinenin adı için *myVM1*.
+    - Yönetici kullanıcı adı için *azureuser*.
     - *Azure123456!* parolası.
     - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
 
 4. **Tamam**’a tıklayın.
-5. Seçin **DS1_V2** tıklatın ve sanal makine boyutu için **seçin**.
+5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
-7. Tıklatın **devre dışı** önyükleme tanılaması devre dışı bırakmak için.
-8. Tıklatın **Tamam**, Özet sayfasında ayarları gözden geçirin ve ardından **oluşturma**.
+7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
+8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
@@ -102,7 +102,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 2. IIS sanal makineye yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -153,7 +153,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
     ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Gibi http://http://40.121.222.19.
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Gibi http://http://40.121.222.19.
 
     ![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

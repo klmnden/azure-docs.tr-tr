@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile TrackVia | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile TrackVia arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile TrackVia | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile TrackVia arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Öğretici: Azure Active Directory Tümleştirme TrackVia ile
 
@@ -108,13 +108,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![TrackVia etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url.png)
 
-    İçinde **tanımlayıcısı** metin değeri yazın:`TrackVia`
+    İçinde **tanımlayıcısı** metin değeri yazın: `TrackVia`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![TrackVia etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://companyname.trackvia.com`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://companyname.trackvia.com`
      
     > [!NOTE] 
     > Oturum açma URL değeri gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [TrackVia istemci destek ekibi](mailto:support@trackvia.com) bu değeri alınamıyor.
@@ -126,11 +126,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 6. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Çoklu oturum açma yapılandırmak için **TrackVia** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [TrackVia destek ekibi](mailto:support@trackvia.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Üzerinde **TrackVia yapılandırma** 'yi tıklatın **yapılandırma TrackVia** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
+
+    ![TrackVia yapılandırma](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. Farklı bir tarayıcı penceresinde TrackVia şirket sitenize yönetici olarak oturum açma.
+
+9. Tıklatın üzerinde Trackvia **hesabım** ayarlar ve ardından **çoklu oturum açma** sekmesinde, aşağıdaki adımları gerçekleştirin:
+
+    ![TrackVia yapılandırma](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. İçinde **kimlik sağlayıcısı varlık kimliği** metin kutusuna, Yapıştır **SAML varlık kimliği** Azure portalından kopyaladığınız değeri.
+
+    b. Seçin **Dosya Seç** Azure portalından indirdiğiniz meta veri dosyasını karşıya yükleyin.
+
+    c. **Kaydet**’e tıklayın
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -212,8 +223,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +236,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

@@ -2,8 +2,8 @@
 title: İç yönlendirmesi - Azure CLI ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
 description: Azure CLI kullanarak uygun havuzu iç web trafiğini yönlendiren bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2017
-ms.author: davidmu
-ms.openlocfilehash: 20f54796f1dd088fa9d6446866151e6ce8ce03f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: victorh
+ms.openlocfilehash: a477896255baf40fd824f23498377d9677661169
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Bir uygulama ağ geçidi ile Azure CLI kullanarak iç yönlendirmesi oluşturma
 
@@ -194,7 +194,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 

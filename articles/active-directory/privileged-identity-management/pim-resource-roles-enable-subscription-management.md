@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management Azure kaynaklarını - abonelik yönetimini etkinleştirmeniz için | Microsoft Docs
-description: Genel Yöneticiler Kiracı Aboneliklerini yönetmek hakkında bilgi edinin.
+title: Privileged Identity Management Azure kaynaklarını için-abonelik yönetimini etkinleştirin | Microsoft Docs
+description: Bilgi edinmek nasıl genel yöneticileri Kiracı aboneliklerini yönetebilirsiniz.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,52 +13,54 @@ ms.workload: identity
 ms.date: 03/27/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 4c6ae3da34fe5157314b8ea422591f7ecbd2a667
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e164d8adaf5df63dba31bb6aa8e56f768741479c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="enable-subscription-management"></a>Abonelik yönetimini etkinleştirme
+# <a name="enable-subscription-management-in-your-tenant"></a>Kiracı abonelik yönetimini etkinleştirme
 
-Dizininizin genel Yöneticisi olarak, tüm abonelik kaynaklarına varsayılan erişim kiracınızda olmayabilir. Bu makalede kendiniz kiracınız ve erişim aldıktan sonra kuruluşunuza tüm güvenlik denetimleri ile uyumlu kalan bir önerilen yaklaşım tüm abonelikleri erişmenizi adımlarını özetler.
+Dizininizin genel Yöneticisi olarak, tüm abonelik kaynaklarına varsayılan erişim kiracınızda sahip olmayabilir. Bu makalede kendiniz kiracınızda tüm abonelikleri erişmesini sağlamak için gereken adımları özetler. Ayrıca, erişim aldıktan sonra kuruluşunuza tüm güvenlik denetimleri ile uyumlu kalan bir önerilen yaklaşım sağlar.
 
 ## <a name="who-can-enable-management-of-subscriptions-in-my-directory"></a>Kimin Dizinim Aboneliklerde yönetim etkinleştirebilir?
 
-Genel yönetici rolüne atanan her bir kullanıcı abonelik yönetimini etkinleştirmek için aşağıdaki adımları izlemelisiniz. Kendiniz için abonelik yönetimi etkinleştirdikten sonra kaynak erişimi gerekebilir başka genel Yöneticiler ekleyebilirsiniz. Genel yönetici rolüne tüm üyeleri için erişim sağlayan hiçbir dizin ayarı yoktur.
+Genel yönetici rolüne atanan her bir kullanıcı abonelik yönetimini etkinleştirmek için aşağıdaki adımları izlemelisiniz. Kendiniz için abonelik yönetimi etkinleştirdikten sonra kaynak gerekebilecek başka genel Yöneticiler ekleyebilirsiniz de erişim. Genel yönetici rolüne tüm üyeleri için erişim sağlayan hiçbir dizin ayarı yoktur.
 
-## <a name="log-on-to-the-azure-portal"></a>Azure portalında oturum açın
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-Azure portalına genel Yönetici rolüne uygun veya etkin bir üyesi olan bir hesapla oturum açarak başlar. Uygun bir genel yönetici hesabı ise, sonraki adıma geçmeden önce ilk olarak rolü etkinleştirmeniz gerekir.
+Azure portalına genel Yönetici rolüne uygun veya etkin bir üyesi olan bir hesapla oturum açın. Uygun bir genel yönetici hesabı ise, sonraki adıma geçmeden önce ilk olarak rolü etkinleştirmeniz gerekir.
 
-## <a name="access-the-azure-ad-admin-center"></a>Azure AD Yönetim Merkezi'ne erişme
+## <a name="access-the-azure-active-directory-admin-center"></a>Azure Active Directory Yönetim Merkezi erişim
 
-Azure portalına genel yönetici olarak oturum artık Azure abonelikleri erişim sağlayacak mı ayarları düzenleyebilirsiniz. Azure AD Yönetim Merkezi'ne gidin, bulun ve sol gezinti bölmesinde Özellikler sekmesini seçin.
+Azure portalına genel yönetici olarak oturum, Azure abonelikleri erişim sağlayan ayarları düzenleyebilirsiniz. Azure Active Directory (Azure AD) Yönetim Merkezi'ne gözatın ve seçin **özellikleri**.
 
-![](media/azure-pim-resource-rbac/aad_properties.png)
+![Vurgulanan özellikleriyle ekran Azure AD Yönetim Merkezi](media/azure-pim-resource-rbac/aad_properties.png)
 
-Özellikler listesinde "Genel yönetici Azure Aboneliklerini yönetmek" başlıklı "Evet" olarak değiştirin.
+Özellikler listesinde altında **genel yönetici Azure Aboneliklerini yönetmek**seçin **Evet**.
 
-![](media/azure-pim-resource-rbac/aad_properties_save.png)
+![Ekran özelliklerin sayfasıyla geçiş Evet olarak ayarlayın](media/azure-pim-resource-rbac/aad_properties_save.png)
 
-## <a name="navigate-to-azure-ad-pim"></a>Azure AD PIM gidin
+Artık hesabınızı her Kiracı aboneliği kaynak için kullanıcı erişimi yöneticisi rolü için otomatik olarak eklenir.
 
-Bu seçeneği etkinleştirdiğinizde, hesabınız için her Kiracı aboneliği kaynağında "Kullanıcı erişimi Yöneticisi" rolüne otomatik olarak eklenir. Buradan, Azure AD PIM gidin ve sol gezinti bölmesinin Yönet bölümünde Azure kaynaklarını seçin.
+## <a name="browse-to-azure-ad-pim"></a>Azure AD PIM Gözat
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+ Buradan, Azure AD Privileged Identity Management (PIM için) gidin. Altında **Yönet**seçin **Azure kaynaklarını**.
+
+![Ekran görüntüsü, PIM, vurgulanmış Azure kaynakları ile](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
 
 ## <a name="manage-and-discover-resources"></a>Kaynakları bulmak ve yönetme
 
-Kuruluşunuz Azure Active Directory yöneticileri korumak üzere zaten Azure AD PIM kullanıyorsa, dikey yüklediğinde Aboneliklerin listesini görürsünüz.
+Kuruluşunuz zaten yöneticileri Azure AD'de korumak için Azure AD PIM kullanıyorsa, dikey yüklediğinde Aboneliklerin listesini görebilirsiniz.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![Ekran görüntüsü, PIM, dikey penceresinde gösterilen Aboneliklerin listesini ile](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
 
 > [!NOTE]
-> Herhangi bir kaynağa görmüyorsanız denetleyin:
->- Genel yönetici rolü'nüz süresi yok 
->- Kuruluşunuzda bir Azure aboneliğiniz varsa
+> Herhangi bir kaynağa görmüyorsanız onaylayın:
+>- Genel yönetici rolü'nüz süresi geçmedi. 
+>- Kuruluşunuzda bir Azure aboneliğiniz varsa.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_empty_resource_list.png)
+![Ekran görüntüsü, PIM, boş bir kaynak listesi](media/azure-pim-resource-rbac/aadpim_rbac_empty_resource_list.png)
 
 ## <a name="configure-assignments"></a>Atamaları yapılandırın
 
@@ -69,13 +71,13 @@ Sonraki adıma geçmeden önce her bir kaynak için bu işlemi yineleyin.
 
 ## <a name="clean-up-standing-access"></a>Durumu erişimi Temizle
 
-Önemli abonelikler için uygun atamaları, kuruluşunuzda sahip olduğunuza göre dizin özelliklerini seçeneği devre dışı bırakarak durumu erişimi temizleyebilirsiniz:
+Önemli abonelikler için uygun atamaları, kuruluşunuzda sahip olduğunuza göre dizin özelliklerini seçeneği devre dışı bırakarak durumu erişimi temizleyebilirsiniz.
 
-![](media/azure-pim-resource-rbac/aad_properties_no.png)
+![Ekran görüntüsü, Özellikler sayfasında, iki durumlu Hayır olarak ayarlayın](media/azure-pim-resource-rbac/aad_properties_no.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Kaynakları bulmak](pim-resource-roles-discover-resources.md)
+[Kaynakları bulma](pim-resource-roles-discover-resources.md)
 
 [Rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
 

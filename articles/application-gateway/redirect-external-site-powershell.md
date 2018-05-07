@@ -2,8 +2,8 @@
 title: Dış yönlendirmesi - Azure PowerShell ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
 description: Web trafiği Azure Powershell kullanarak bir dış sitesine yönlendiren bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 6ae672ba20ed6314f7baf49fee3310cecf7837ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.author: victorh
+ms.openlocfilehash: ae3fcc65d3a377d3317e632f28a43263e1d1fce2
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Azure PowerShell kullanarak dış yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma
 

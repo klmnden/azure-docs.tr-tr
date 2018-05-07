@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: özel ilkelerini kullanarak çok kiracılı Azure AD kimlik sağlayıcısı için oturum açmak kullanıcılara izin ver
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, oturum açma kullanılarak Azure Active Directory (Azure AD) için ortak bir uç kullanan kullanıcılar etkinleştirme gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md).
+Bu makalede, oturum açma kullanılarak Azure Active Directory (Azure AD) çok Kiracı bitiş noktası kullanan kullanıcılar etkinleştirme gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md). Bu kullanıcılar her bir kiracı için teknik bir sağlayıcı yapılandırmadan Azure AD B2C oturum için birden çok Azure AD kiracılarıyla izin verir. Ancak, bu kiracılar hiçbirinde üyeleri Konuk **almayacak** oturum açmak kullanabilirsiniz. Bunun için gerekecek [ayrı ayrı her bir kiracı yapılandırma](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > "Contoso.com" kuruluş için kullandığımız Azure AD kiracısı ve Azure AD B2C kiracısı'nda aşağıdaki yönergeleri olarak "fabrikamb2c.onmicrosoft.com".
@@ -36,25 +36,22 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlam
 Bu adımlar şunları içerir:
      
 1. Bir Azure Active Directory B2C oluşturma (Azure AD B2C) Kiracı.
-2. Bir Azure AD B2C uygulaması oluşturuluyor.    
-3. İki ilke altyapısı uygulama kaydediliyor.  
-4. Anahtarları ayarlama. 
-5. Başlangıç paketi ayarlama.
+1. Bir Azure AD B2C uygulaması oluşturuluyor.    
+1. İki ilke altyapısı uygulama kaydediliyor.  
+1. Anahtarları ayarlama. 
+1. Başlangıç paketi ayarlama.
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>1. Adım Çok kiracılı Azure AD uygulaması oluştur
 
-Oturum açma çok kiracılı Azure AD uç noktası kullanan kullanıcılar etkinleştirmek için Azure AD kiracılarıyla hiçbirinde kayıtlı bir çok kiracılı uygulamanızın olması gerekir. Bu makalede, Azure AD B2C kiracınızda bir çok kiracılı Azure AD uygulaması oluşturmak nasıl göstereceğiz. Oturum açma, çok kiracılı Azure AD uygulaması kullanımı ile kullanıcılar için daha sonra etkinleştirin.
-
->[!NOTE]
-> Azure AD kullanıcılarının isterseniz **ve Microsoft hesabı olan kullanıcılar** oturum açmak için bu bölüm atlayın ve bunun yerine bir uygulamada kaydetmek [Microsoft Geliştirici Portalı](https://apps.dev.microsoft.com).
+Oturum açma çok kiracılı Azure AD uç noktası kullanan kullanıcılar etkinleştirmek için Azure AD kiracılarıyla birinde kayıtlı bir çok kiracılı uygulamanızın olması gerekir. Bu makalede, Azure AD B2C kiracınızda bir çok kiracılı Azure AD uygulaması oluşturmak nasıl göstereceğiz. Oturum açma, çok kiracılı Azure AD uygulaması kullanımı ile kullanıcılar için daha sonra etkinleştirin.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Üst çubuğunda hesabınızı seçin. Gelen **Directory** listesinde, Azure AD uygulaması (fabrikamb2c.onmicrosoft.com) kaydetmek için Azure AD B2C kiracısı seçin.
-2. Seçin **daha fazla hizmet** sol bölmesinde ve "Uygulama kayıtlar" için arama
-3. **Yeni uygulama kaydı**’nı seçin.
-4. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
-5. Uygulama türü için **Web uygulaması / API** öğesini seçin.
-6. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin nerede `yourtenant` Azure AD B2C kiracınızın adıyla değiştirilen (`fabrikamb2c.onmicrosoft.com`):
+1. Seçin **daha fazla hizmet** sol bölmesinde ve "Uygulama kayıtlar" için arama
+1. **Yeni uygulama kaydı**’nı seçin.
+1. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
+1. Uygulama türü için **Web uygulaması / API** öğesini seçin.
+1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin nerede `yourtenant` Azure AD B2C kiracınızın adıyla değiştirilen (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >"Yourtenant" değeri, tüm küçük harfli olması gerektiğini **oturum açma URL'si**.
@@ -82,8 +79,8 @@ Azure AD B2C ayarlarında uygulama anahtarı kaydetmeniz gerekir. Bunu yapmak i�
    * İçin **adı**, Azure AD Kiracı adı ile eşleşen bir ad seçin (örneğin, `AADAppSecret`).  Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
    * Uygulama anahtarınızı Yapıştır **gizli** kutusu.
    * Seçin **imza**.
-5. **Oluştur**’u seçin.
-6. Anahtar oluşturduğunuz onaylayın `B2C_1A_AADAppSecret`.
+1. **Oluştur**’u seçin.
+1. Anahtar oluşturduğunuz onaylayın `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>3. Adım Bir talep sağlayıcı temel ilkenizde ekleme
 
@@ -114,11 +111,12 @@ Azure AD ile ekleyerek bir talep sağlayıcısı olarak Azure AD tanımlayabilir
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +148,15 @@ Azure AD ile ekleyerek bir talep sağlayıcısı olarak Azure AD tanımlayabilir
 1. Değeri güncelleştirme `<Description>`.
 1. Ayarlama `<Item Key="client_id">` için Azure AD mulity Kiracı uygulama kaydı uygulama kimliği.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>Azure AD kiracılarıyla belirli listesi 3.1 erişimi [isteğe bağlı] kısıtlama adım
-Geçerli belirteç verenler listesini güncelleştirmek ve belirli kullanıcılar oturum açma Azure AD kiracılarıyla listesine erişimi sınırlamak isteyebilirsiniz. Değerleri almak için her özel meta verileri oluşturmayı inceler gerekecektir gelen kullanıcınız istediğiniz Azure AD kiracılarıyla oturum açın. Veri biçimi şu şekilde görünür: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, burada `yourAzureADtenant` , Azure AD Kiracı adınız (contoso.com veya diğer Azure AD kiracısı).
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Adım 3.1 belirli Azure AD kiracılar listesini erişimi kısıtlama
+
+> [!NOTE]
+> Kullanarak `https://sts.windows.net` değeri olarak **ValidTokenIssuerPrefixes** tüm Azure AD kullanıcıların uygulamanıza oturum izin verir.
+
+Geçerli belirteç verenler listesini güncelleştirmek ve belirli kullanıcılar oturum açma Azure AD kiracılarıyla listesine erişimi kısıtlama gerekir. Değerleri almak için her özel meta verileri oluşturmayı inceler gerekecektir gelen kullanıcınız istediğiniz Azure AD kiracılarıyla oturum açın. Veri biçimi şu şekilde görünür: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, burada `yourAzureADtenant` , Azure AD Kiracı adınız (contoso.com veya diğer Azure AD kiracısı).
 1. Tarayıcınızı açın ve meta veri URL'sine gidin.
 1. Tarayıcıda 'dağıtımcı' nesnesi için konum ve değerini kopyalayın. Aşağıdaki gibi görünmelidir: `https://sts.windows.net/{tenantId}/`.
 1. Değeri yapıştırın `ValidTokenIssuerPrefixes` anahtarı. Virgül kullanarak aralarına tarafından birden çok ekleyebilirsiniz. Bunun bir örneğini XML yukarıdaki örnekte bırakılmıştır.
-
-> [!NOTE]
-> Kullanarak `https://sts.windows.net` bir önek değeri uygulamanıza oturum tüm Azure AD kullanıcılarının izin.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>4. Adım. Azure AD hesabı talep sağlayıcısını Kaydet
 
@@ -212,11 +211,11 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>6. adım: ilke kiracınız için karşıya yükleme
 
 1. İçinde [Azure portal](https://portal.azure.com), geçiş [bağlamı Azure AD B2C kiracınızın](active-directory-b2c-navigate-to-b2c-context.md)ve ardından **Azure AD B2C**.
-2. Seçin **kimlik deneyimi Framework**.
-3. Seçin **tüm ilkeleri**.
-4. Seçin **karşıya İlkesi**.
-5. Seçin **varsa ilkesi üzerine** onay kutusu.
-6. Karşıya yükleme `TrustFrameworkExtensions.xml` dosyasını ve RP dosyasını (örneğin `SignUpOrSignInWithAAD.xml`) ve doğrulama geçirirler emin olun.
+1. Seçin **kimlik deneyimi Framework**.
+1. Seçin **tüm ilkeleri**.
+1. Seçin **karşıya İlkesi**.
+1. Seçin **varsa ilkesi üzerine** onay kutusu.
+1. Karşıya yükleme `TrustFrameworkExtensions.xml` dosyasını ve RP dosyasını (örneğin `SignUpOrSignInWithAAD.xml`) ve doğrulama geçirirler emin olun.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7. adım: Test Şimdi Çalıştır kullanarak özel İlkesi
 

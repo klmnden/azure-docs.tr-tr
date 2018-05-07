@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IOT Hub ile fiyatlandırma bilgileri
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 04/03/2018
 | Bulut-cihaz iletilerini | Başarıyla gönderilen iletileri 4 KB öbekler ücretlendirilen, 6-KB ileti 2 mesaj örneğin doludur. |
 | Dosya yüklemeleri | Azure depolama birimine dosya aktarımı IOT Hub tarafından ölçülen değil. Dosya aktarımı başlatma ve tamamlanma iletilerini 4 KB artımlarla ölçülen messaged gibi ücretlendirilirsiniz. Örneğin, 10 MB'lık dosyası aktarma Azure Storage maliyetinin yanı sıra iki ileti doludur. |
 | Doğrudan yöntemler | Başarılı yöntem isteği 4 KB öbekler ücretlendirilen, boş olmayan gövdeleri yanıtları 4 KB öbekler ek iletiler sizden ücret kesilir. Bağlantısı kesilmiş aygıtları isteklerine 4 KB öbekler iletilerinde olarak ücretlendirilirsiniz. Örneğin, aygıt hiçbir gövde ile bir yanıt sonuçlanan 6-KB gövde yöntemiyle seçili iki ileti. Bir 1 KB aygıttan yanıt gelmesi sonuçlanan 6-KB gövde ile bir yöntem olarak istek için iki ileti artı başka bir ileti yanıtı için ücret kesilir. |
-| Cihaz ikizi okumaları | Cihaz çifti cihaz ve çözüm arka uç 512 baytlık öbekleri iletilerinde olarak ücretlendirilirsiniz okur. Örneğin, 6-KB cihaz çifti okuma 12 iletileri doludur. |
-| Cihaz çifti güncelleştirmeleri (etiketleri ve özellikleri) | Cihaz çifti güncelleştirmeleri cihaz ve çözüm arka ucu olarak 512 baytlık öbekleri iletilerinde sizden ücret kesilir. Örneğin, 6-KB cihaz çifti okuma 12 iletileri doludur. |
-| Cihaz çifti sorguları | Sorgu sonuç boyutunu 512 baytlık parçalar bağlı olarak iletileri olarak ücretlendirilirsiniz. |
+| Aygıt ve modülü twin okur | Son olarak 512 baytlık öbekleri iletilerinde ücretlendirilirsiniz aygıt ya da modül ve çözüm arka Twin okur. Örneğin, 6-KB twin okuma 12 iletileri doludur. |
+| Cihaz ve modül twin güncelleştirmeleri (etiketleri ve özellikleri) | Twin güncelleştirmeleri cihaz veya modülü ve çözüm arka ucu olarak 512 baytlık öbekleri iletilerinde sizden ücret kesilir. Örneğin, 6-KB twin okuma 12 iletileri doludur. |
+| Aygıt ve modül twin sorguları | Sorgu sonuç boyutunu 512 baytlık parçalar bağlı olarak iletileri olarak ücretlendirilirsiniz. |
 | İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | Ücret işlenmedi. |
-| İşlerini aygıt başına işlem | İşlerini işlemleri (örneğin, cihaz çifti güncelleştirmeleri ve yöntemleri) normal olarak sizden ücret kesilir. Örneğin, 1 KB isteklerini ve yanıtlarını gövdesi boş olan 1000 yöntem çağrılarını sonuçta bir işi 1000 iletileri doludur. |
+| İşlerini aygıt başına işlem | İşlerini işlemleri (örneğin, twin güncelleştirmeleri ve yöntemleri) normal olarak sizden ücret kesilir. Örneğin, 1 KB isteklerini ve yanıtlarını gövdesi boş olan 1000 yöntem çağrılarını sonuçta bir işi 1000 iletileri doludur. |
 
 > [!NOTE]
 > Tüm boyutları yükü boyutu (Protokolü çerçeveleme göz ardı edilir) bayt dikkate hesaplanır. Özellikler ve gövde sahip, iletilerde boyutu Protokolü belirsiz şekilde hesaplanır. Daha fazla bilgi için bkz: [IOT Hub Geliştirici Kılavuzu Mesajlaşma][lnk-message-size].

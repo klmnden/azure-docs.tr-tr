@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı Bağlan
 Bu makalede, iş öğelerini merkezi olarak yönetmek için günlük analizi içinde ITSM Ürün/hizmet ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantı yapılandırma hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -271,7 +271,10 @@ Kullanıcı başarıyla oluşturduktan sonra durumu **denetleyin yükleme Yapıl
 
 > [!NOTE]
 
-> ITSM bağlayıcı olayları ServiceNow örnek üzerinde yüklü modülleri olmadan ServiceNow gönderin. ServiceNow örneğinizi EventManagement modülünü kullanıyorsanız ve olayları veya uyarı Bağlayıcısı'nı kullanarak ServiceNow içinde oluşturmak istediğiniz, aşağıdaki rollerin tümleştirme kullanıcıyı eklemek: - evt_mgmt_integration - evt_mgmt_operator  
+> ITSM bağlayıcı olayları ServiceNow örnek üzerinde yüklü modülleri olmadan ServiceNow gönderin. ServiceNow örneğinizi EventManagement modülünü kullanıyorsanız ve olayları veya uyarı Bağlayıcısı'nı kullanarak ServiceNow içinde oluşturmak istediğiniz aşağıdaki rolleri tümleştirme kullanıcıya ekleyin:
+
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Provance BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 09e20d9a80b881075d9bb6be7d4daafc739340a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Geliştir ve C# IOT kenar modülünü sanal Cihazınızı dağıtmak - Önizleme
 
@@ -59,7 +59,7 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-3. Yeni modül için bir proje oluşturun. Aşağıdaki komut proje klasörünü oluşturur **FilterModule**, kapsayıcı deponuz ile. İkinci parametre biçiminde olmalıdır `<your container registry name>.azurecr.io` Azure kapsayıcı kayıt defteri kullanıyorsanız. Geçerli çalışma klasöründe aşağıdaki komutu girin:
+3. Yeni modül için bir proje oluşturun. Aşağıdaki komut proje klasörünü oluşturur **FilterModule**, kapsayıcı deponuz ile. Azure kapsayıcı kayıt defterini kullanıyorsanız ikinci parametre `<your container registry name>.azurecr.io` biçiminde olmalıdır. Geçerli çalışma klasörüne aşağıdaki komutu girin:
 
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
@@ -115,9 +115,10 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
     // Read TemperatureThreshold from Module Twin Desired Properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
     var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
+    try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    } catch(ArgumentOutOfRangeException e) {
+        Console.WriteLine("Proerty TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates
@@ -216,19 +217,19 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
 
 13. Bu dosyayı kaydedin.
 
-## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntü oluşturma ve kayıt defterine yayımlama
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntüsü oluşturma ve bunu kayıt defterinize yayımlama
 
-1. VS Code tümleşik terminale aşağıdaki komutu girerek Docker için oturum açın: 
+1. VS Code tümleşik terminale aşağıdaki komutu girerek Docker’da oturum açın: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
    Bu komutta kullanılacak kullanıcı adını, parolayı ve oturum açma sunucusunu bulmak için [Azure portalına] (https://portal.azure.com)) gidin. **Tüm kaynaklar**'da, Azure kapsayıcı kayıt defterinizin kutucuğuna tıklayarak özelliklerini açın ve **Erişim tuşları**'na tıklayın. **Kullanıcı adı**, **Parola** ve **Oturum açma sunucusu** alanlarındaki değerleri kopyalayın. 
 
-2. VS Code Explorer'da sağ **module.json** dosya ve tıklayın **oluşturma ve gönderme IOT kenar modülü Docker görüntü**. VS Code pencerenin üstündeki açılır açılır kutusunda kapsayıcı platformunuz ya da seçin **amd64** Linux kapsayıcısı için veya **windows amd64** Windows kapsayıcısı için. VS Code'da sonra kodunuzu oluşturur, containerize `FilterModule.dll` ve belirttiğiniz kapsayıcı kayıt defterine gönderme.
+2. VS Code gezgininde **module.json** dosyasına sağ tıklayın ve **IoT Edge modülü Docker görüntüsü derle ve gönder** seçeneğine tıklayın. VS Code penceresinin açılır kutusunda, Linux kapsayıcı için **amd64** ve Windows kapsayıcı için **windows-amd64** olacak şekilde kapsayıcı platformunuzu seçin. VS Code'da sonra kodunuzu oluşturur, containerize `FilterModule.dll` ve belirttiğiniz kapsayıcı kayıt defterine gönderme.
 
 
-3. Tam kapsayıcı görüntü adresi etiketi ile tümleşik VS Code'da terminal alabilirsiniz. Derleme ve anında iletme tanımı hakkında daha fazla bilgi için başvurabilirsiniz `module.json` dosya.
+3. VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini alabilirsiniz. Derleme ve gönderme tanımı hakkında daha fazla bilgi için `module.json` dosyasına bakabilirsiniz.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Kayıt defteri kimlik bilgilerini kenar çalışma zamanına ekleyin
 Kayıt defterinizin kimlik bilgilerini, Edge cihazınızı çalıştırdığınız bilgisayarın Edge çalışma zamanına ekleyin. Bu kimlik bilgileri kapsayıcı çıkarmak için çalışma zamanı erişim verin. 

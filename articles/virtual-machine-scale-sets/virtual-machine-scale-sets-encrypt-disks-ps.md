@@ -1,6 +1,6 @@
 ---
-title: Azure sanal makine ölçek ayarlar disk şifrelemesi | Microsoft Docs
-description: VM örnekleri ve sanal makine ölçek kümeleri bağlı disklerin şifrelemek için Azure PowerShell kullanmayı öğrenin
+title: Azure PowerShell ile Azure ölçek ayarlar için diskleri şifrelemek | Microsoft Docs
+description: VM örnekleri ve bir Windows sanal makine ölçek kümesindeki bağlı disklerde şifrelemek için Azure PowerShell kullanmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -13,52 +13,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/30/2018
 ms.author: iainfou
-ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 91138ffad0fd906061e0b0ce5cdb251f402d3341
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>İşletim sistemi ve sanal makine ölçek kümesindeki eklenen veri disklerini şifrele
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>İşletim sistemi ve eklenen veri disklerini ayarlayın (Önizleme) Azure PowerShell ile bir sanal makine ölçek şifrele
+
 Korumak ve rest endüstri standart şifreleme teknolojisi kullanarak verileri korumak için Azure Disk şifrelemesi (ADE) sanal makine ölçek kümesini destekler. Şifreleme, Windows ve Linux sanal makine için etkin olması ölçek kümeleri. Daha fazla bilgi için bkz: [için Azure Disk şifrelemesi Windows ve Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
->  Sanal makine ölçek kümeleri için Azure Disk şifrelemesi Önizleme, tüm Azure ortak bölgelerde kullanılabilir şu anda kullanılıyor. 
->
-> Ölçek kümesi VM yeniden görüntü oluşturma ve yükseltme işlemleri geçerli Önizleme'de desteklenmez. Önizleme'de, Ölçek kümesi şifreleme yalnızca sınama ortamlarında önerilir. Önizleme'de, disk şifreleme yere bir işletim sistemi görüntüsüne yükseltmeniz gerekebilir üretim ortamlarında etkinleştirmeyin.
+>  Sanal makine ölçek kümeleri için Azure disk şifrelemesi genel Önizleme, tüm Azure ortak bölgelerde kullanılabilir şu anda kullanılıyor.
 
 Azure disk şifrelemesi desteklenir:
 - Ölçek kümeleri yönetilen diskler ile oluşturulan ve yerel (veya yönetilmeyen) disk ölçek kümeleri için desteklenmiyor.
 - işletim sistemi ve veri birimleri için Windows ölçek kümeleri. Devre dışı şifrelemesi, işletim sistemi ve veri birimleri Windows ölçek kümeleri için desteklenir.
 - Linux ölçek kümeleri veri birimleri için. İşletim sistemi disk şifrelemesi Linux ölçek kümeleri için geçerli Önizleme'de desteklenmez.
 
+Ölçek kümesi VM yeniden görüntü oluşturma ve yükseltme işlemleri geçerli Önizleme'de desteklenmez. Sanal makine ölçek kümeleri Önizleme için Azure disk şifrelemesi yalnızca sınama ortamlarında önerilir. Önizleme'de, disk şifreleme yere bir şifrelenmiş ölçek kümesindeki bir işletim sistemi görüntüsüne yükseltmeniz gerekebilir üretim ortamlarında etkinleştirmeyin.
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu makale Azure PowerShell modülü sürümü 5.3.0 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Sanal makine ölçek için disk şifrelemesi'nin önizlemesi için Azure subsription ayarlar ile kayıt [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
+Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu öğreticide Azure PowerShell modülü sürümü 5.7.0 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
-```powershell
-Connect-AzureRmAccount
+## <a name="register-for-disk-encryption-preview"></a>Disk şifrelemesi önizlemesi için kaydolun
+
+Sanal makine ölçek Önizleme ayarlar için Azure disk şifrelemesi aboneliğinizle kendi kendine kaydettirmek gerektirir [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerçekleştirmeniz gerekir:
+
+```azurepowershell-interactive
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Yaklaşık 10 dakika kadar bekleyin *kayıtlı* durumu tarafından döndürülen [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature), ardından yeniden kaydettirin `Microsoft.Compute` sağlayıcısı: 
+Yaymak kayıt isteği 10 dakika kadar sürebilir. Kayıt durumu ile denetleyebilirsiniz [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Zaman `RegistrationState` raporları *kayıtlı*, yeniden kaydettirin *Mirosoft.Compute* sağlayıcısıyla [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Disk şifrelemesi için etkin bir Azure anahtar kasası oluşturma
+
 Azure anahtar kasası anahtarları, gizli ya da, uygulama ve hizmetlerinize güvenli bir şekilde uygulamak izin parolaları depolayabilirsiniz. Şifreleme anahtarları yazılım koruması'nı kullanarak Azure anahtar kasası içinde depolanır veya içe aktarmak ya da anahtarlarınızı FIPS 140-2 Düzey 2 standartları sertifikalı donanım güvenlik modüllerinde (HSM'ler) oluşturur. Bu şifreleme anahtarlarını şifrelemek ve şifresini çözmek, VM'ye bağlı sanal diskler için kullanılır. Bu şifreleme anahtarları denetimin korumak ve kullanımlarını denetleyebilirsiniz.
 
 Bir anahtar kasası ile oluşturma [AzureRmKeyVault yeni](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Disk şifrelemesi için kullanılacak anahtar kasası izin verecek şekilde ayarlamanız *EnabledForDiskEncryption* parametresi. Aşağıdaki örnek, ayrıca kaynak grubu adı, anahtar kasasının adı ve konumu için değişkenleri tanımlar. Kendi benzersiz anahtar kasası adı girin:
 
-```powershell
+```azurepowershell-interactive
 $rgName="myResourceGroup"
 $vaultName="myuniquekeyvault"
 $location = "EastUS"
@@ -67,28 +69,28 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
 ```
 
-
 ### <a name="use-an-existing-key-vault"></a>Var olan bir anahtar kasası kullanın
+
 Bu adım yalnızca olan disk şifrelemesi ile kullanmak istediğiniz bir anahtar kasası varsa gerekli. Bir anahtar kasası önceki bölümde oluşturduysanız, bu adımı atlayın.
 
 Disk şifrelemesi ile ayarlamak ölçek olarak aynı abonelikte ve bölgede var olan bir anahtar kasasına etkinleştirebilirsiniz [kümesi AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy). Varolan anahtar kasanızı adını tanımlamak *$vaultName* şekilde değişkeni:
 
-```powershell
+```azurepowershell-interactive
 $vaultName="myexistingkeyvault"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 ```
 
-
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
+
 İlk olarak, VM örnekleri için [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile bir yönetici kullanıcı adı ve parola ayarlayın:
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 Bu adımda [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) ile bir sanal makine ölçek kümesi oluşturun. Tek tek sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Yük dengeleyici hem TCP bağlantı noktası 80 üzerinden trafiği dağıtmak hem de TCP bağlantı noktası 3389 üzerinden uzak masaüstü trafiğine hem de TCP bağlantı noktası 5985 üzerinden PowerShell uzaktan iletişimine olanak tanımak için kurallar içerir:
 
-```powershell
+```azurepowershell-interactive
 $vmssName="myScaleSet"
 
 New-AzureRmVmss `
@@ -103,11 +105,11 @@ New-AzureRmVmss `
     -Credential $cred
 ```
 
-
 ## <a name="enable-encryption"></a>Şifrelemeyi etkinleştir
+
 Ölçek kümesindeki VM örnekleri şifrelemek için ilk anahtarı kasa URI'sini ve kaynak kimliği ile ilgili bazı bilgi edinmek [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault). Bu değişkenleri ile şifreleme işlemini başlatmak için kullanılan [kümesi AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension):
 
-```powershell
+```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
 $keyVaultResourceId=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
 
@@ -117,11 +119,11 @@ Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetNam
 
 İstendiğinde yazın *y* ölçekte disk şifreleme işlem kümesi VM devam etmek için örnekleri.
 
-
 ## <a name="check-encryption-progress"></a>Şifreleme ilerleme durumunu denetleme
+
 Disk şifrelemesi durumunu denetlemek için kullanın [Get-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Get-AzureRmVmssDiskEncryption):
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
@@ -145,14 +147,14 @@ EncryptionEnabled            : True
 EncryptionExtensionInstalled : True
 ```
 
-
 ## <a name="disable-encryption"></a>Şifreleme devre dışı bırak
+
 Artık şifrelenmiş VM örnekleri diskleri kullanmak istiyorsanız, şifreleme ile devre dışı bırakabilirsiniz [devre dışı bırakma AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Disable-AzureRmVmssDiskEncryption) gibi:
 
-```powershell
+```azurepowershell-interactive
 Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu makalede, Azure PowerShell bir sanal makine ölçek kümesi şifrelemek için kullanılır. Aynı zamanda [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) için ya da şablon [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).

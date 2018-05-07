@@ -9,17 +9,20 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eecbc10b5e030f67382d72a7b702e441a2e5492c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Bir C# modül Azure IOT Edge ile hata ayıklamak için Visual Studio Code kullanma
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) Azure IOT kenar modüllerinizi hata ayıklamak için ana geliştirme aracı olarak.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir bilgisayar veya geliştirme makine olarak Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. Geliştirme makinenizde IOT kenar Cihazınızı benzetimini yapabilirsiniz veya başka bir fiziksel cihaz IOT sınır cihazı olabilir.
+
+> [!NOTE]
+> C# linux amd64 kapsayıcıları modülünde yalnızca ayıklayabilirsiniz.
 
 Bu makaledeki yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [IOT kenar çözümünü birden fazla modülü Visual Studio Code ile geliştirme](tutorial-multiple-modules-in-vscode.md). Bundan sonra aşağıdaki öğeleri hazır olmalıdır:
 - Geliştirme makinenizde çalıştıran yerel Docker kayıt defteri. Prototip ve test amacıyla için yerel bir Docker kayıt kullanmak için önerilir. Kapsayıcı kayıt defterinde güncelleştirebilirsiniz `module.json` her modül klasöründe dosyasında.

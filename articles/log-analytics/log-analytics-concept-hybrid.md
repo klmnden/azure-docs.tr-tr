@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -28,7 +28,7 @@ Azure günlük analizi toplamak ve bulunan Windows veya Linux bilgisayardan veri
 * Fiziksel sunucularda veya sanal makinelerde olarak veri merkeziniz
 * Sanal makineler bir bulut tarafından barındırılan hizmette Amazon Web Hizmetleri (AWS) gibi
 
-Ortamınızda bulunan bilgisayarlar doğrudan bağlanması için günlük analizi ya da System Center Operations Manager 2012 R2 veya 2016 ile bu bilgisayarları izleme zaten varsa, işlemleri yönetme yönetim grubunuz günlük analizi ile tümleştirebilir ve Hizmet işlemleri işlemleri ve stratejisi koruyarak devam edin.  
+Ortamınızda bulunan bilgisayarlar doğrudan bağlanması günlük analizi için veya 2016 System Center Operations Manager 2012 R2'de, bu bilgisayarlarla izlemekte olduğunuz veya sürüm 1801, işlemleri yönetme yönetim grubu ile tümleştirebilir Analytics oturum ve BT hizmet işlemleri işlemlerinizi korumaya devam.  
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -36,15 +36,11 @@ Ortamınızda bulunan bilgisayarlar doğrudan bağlanması için günlük analiz
 
 Çözümleme ve toplanan verileri üzerinde hareket önce ilk yükleme ve aracılar için günlük analizi hizmetine veri göndermek istediğiniz tüm bilgisayarların bağlanmak gerekir. Kurulum, komut satırı kullanılarak, şirket içi bilgisayarları veya ile istenen durum yapılandırması (DSC) Azure Automation aracıları yükleyebilirsiniz. 
 
-Aracı Linux ve Windows için TCP bağlantı noktası 443 giden günlük analizi hizmeti ile iletişim kurar ve bilgisayar Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bağlanırsa gözden [aracı kullanmak için bir proxy sunucusu ile yapılandırma veya OMS ağ geçidi](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway) hangi yapılandırma değişiklikleri anlamak için uygulanması gerekir. System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, bilgisayarla izliyorsanız veri toplamak ve Hizmeti'ne iletmek ve tarafından izlenmesi için günlük analizi hizmeti ile çok konaklı olabilir [Operations Manager ](log-analytics-om-agents.md). Günlük analizi ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar veri kaynakları ve yönetim grubu ile ileri toplanan veriler için yapılandırma almaz. Linux Aracısı'nı yalnızca tek bir çalışma alanına raporlama desteklerken Windows Aracısı en fazla dört çalışma alanları bildirebilirsiniz.  
+Aracı Linux ve Windows için TCP bağlantı noktası 443 giden günlük analizi hizmeti ile iletişim kurar ve bilgisayar Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bağlanırsa gözden [Önkoşullar bölümüne](#prerequisites) için gereken ağ yapılandırması anlayın.  BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabilirsiniz bir [OMS ağ geçidi](log-analytics-oms-gateway.md) ve aracı günlük analizi için ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve hangi veri toplama kuralları ve etkinleştirdiğiniz çözümleri bağlı olarak toplanan verileri gönderin. 
 
-Yalnızca günlük analizi bağlanmak için aracı Linux ve Windows için değil, ayrıca Azure Automation ile ana bilgisayar karma Runbook çalışanı rolü ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri bağlanmayı destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz: [Azure Otomasyon karma Runbook çalışanı](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, bilgisayarla izliyorsanız veri toplamak ve Hizmeti'ne iletmek ve tarafından izlenmesi için günlük analizi hizmeti ile çok konaklı olabilir [Operations Manager ](log-analytics-om-agents.md). Günlük analizi ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar veri kaynakları ve yönetim grubu ile ileri toplanan veriler için yapılandırma almaz. Linux Aracısı'nı yalnızca tek bir çalışma alanına raporlama desteklerken Windows Aracısı en fazla dört çalışma alanları bildirebilirsiniz.  
 
-BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağınızdaki izin vermiyorsa, aracı yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için OMS ağ geçidine bağlanmak için yapılandırılabilir. Daha fazla bilgi ve günlük analizi hizmetine bir OMS ağ geçidi üzerinden iletişim kurmak için Linux veya Windows Aracısı yapılandırma adımları için bkz: [OMS ağ geçidini kullanarak OMS bilgisayarları bağlamak](log-analytics-oms-gateway.md). 
-
-> [!NOTE]
-> Windows için aracı yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0 ve 1.1 destekler.  
-> 
+Yalnızca günlük Analizi'ne bağlamak için aracı Linux ve Windows için değil, ana bilgisayar karma Runbook çalışanı rolü ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri için Azure Otomasyonu de destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz: [Azure Otomasyon karma Runbook çalışanı](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 ## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce en düşük sistem gereksinimlerini karşıladığını doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
@@ -54,6 +50,9 @@ Aşağıdaki Windows işletim sistemi sürümleri için Windows Aracısı resmi 
 
 * Windows Server 2008 Service Pack 1 (SP1) veya daha yenisi
 * Windows 7 SP1 ve sonraki sürümler.
+
+> [!NOTE]
+> Windows için aracı yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0 ve 1.1 destekler.  
 
 #### <a name="network-configuration"></a>Ağ yapılandırması
 Aşağıdaki liste Windows aracı günlük analizi ile iletişim kurmak için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri. Günlük analizi hizmeti ağınızdan giden trafiğidir. 

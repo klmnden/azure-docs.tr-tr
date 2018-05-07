@@ -4,7 +4,7 @@ description: Özel DNS barındırma hizmeti Microsoft Azure ile ilgili genel bak
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Azure DNS için özel etki alanlarını kullanma
 Etki alanı adı sistemi ya da DNS, çevirmek için sorumludur (veya çözme) IP adresi için bir hizmet adı. Azure DNS barındırma için bir DNS etki alanı, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın hizmetidir.  İnternet'e yönelik DNS etki alanı yanı sıra Azure DNS şimdi ayrıca özel DNS etki alanı bir önizleme özelliği olarak destekler.  
@@ -75,7 +75,7 @@ Ayrıca, aynı zamanda okumaya öneririz [SSS](./dns-faq.md#private-dns) bazı o
 
 Azure DNS kullanarak özel bir bölge oluşturmayı öğrenin [PowerShell](./private-dns-getstarted-powershell.md) veya [CLI](./private-dns-getstarted-cli.md).
 
-Bazı genel senaryolar üzerinde okuma [özel bölge senaryoları](./private-dns-scenarios.md) , gerçekleşen Azure DNS'de özel bölgeler ile.
+Azure DNS’te Özel Bölgeler ile gerçekleştirilebilecek bazı genel senaryolara ([Özel Bölge senaryoları](./private-dns-scenarios.md)) göz atın.
 
 Üzerinde okuma [SSS](./dns-faq.md#private-dns) bazı ortak sorular ve yanıtlar özel bölgelerinde Azure DNS'de için de dahil olmak üzere belirli bir davranışı belirli türde operasyonlar bekleyebilirsiniz. 
 

@@ -9,15 +9,17 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 285ee153a86270fe65846dc6a22786e007a8a595
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: ba5380813266b3baf981eaf39eda384ad8c91d5a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
 Azure ilke tarafından kullanılan kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzdaki kaynakların kuralları kurmanızı sağlar. Kuralları tanımlayarak, daha kolay kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, sanal makineler yalnızca belirli türdeki izin verildiğini belirtebilirsiniz. Veya, tüm kaynakların belirli bir etikete sahip olması gerekir. İlkeler tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
+
+Azure ilke tarafından kullanılan şema şurada bulunabilir: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:
 
@@ -184,7 +186,7 @@ Bir koşulu değerlendirir olup bir **alan** belirli kriterlere uyan. Desteklene
 
 Kullanırken **gibi** ve **notLike** koşullar, bir joker (*) değer sağlayabilir.
 
-Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [onaylanmış VM görüntüleri](scripts/allowed-custom-images.md).
+Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [birden çok adı desenleri izin](scripts/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Alanlar
 Koşullar alanlar kullanılarak oluşturulur. Bir alan kaynağının durumu tanımlamak için kullanılan kaynak istek yükünde özelliklerini temsil eder.  

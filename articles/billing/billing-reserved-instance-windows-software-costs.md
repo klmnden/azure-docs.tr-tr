@@ -1,24 +1,24 @@
 ---
-title: "Azure ayırma VM örnekleri Windows yazılım maliyetleri | Microsoft Docs"
-description: "Hangi Windows yazılım ölçümler ayrılmış sanal makine örnek maliyetlerini bulunmayan öğrenin."
+title: Azure ayırma VM örnekleri Windows yazılım maliyetleri | Microsoft Docs
+description: Hangi Windows yazılım ölçümler ayrılmış sanal makine örnek maliyetlerini bulunmayan öğrenin.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil
 
@@ -44,7 +44,7 @@ Azure karma kullanımı avantajı, ayrılmış örnek sanal makinelere sahip de�
 | 0d5bdf46-b719-4b1f-a780-b9bdfffd0591 | Ayırma Windows Svr (32 çekirdek) | Tüm B serisi dışında |
 | f1214b5c-cc16-445f-be6c-a3bb75f8395a | Ayırma Windows Svr (40 çekirdek) | Tüm B serisi dışında |
 | 637b7c77-65ad-4486-9cc7-dc7b3e9a8731 | Ayırma Windows Svr (64 çekirdek) | Tüm B serisi dışında |
-| da612742-e7cc-4ca3-9334-0fb7234059cd | Ayırma Windows Svr (72 çekirdek) | Tüm B serisi dışında |
+| da612742-e7cc-4CA3-9334-0fb7234059cd | Ayırma Windows Svr (72 çekirdek) | Tüm B serisi dışında |
 | a485cb8c-069b-4cf3-9a8e-ddd84b323da2 | Ayırma Windows Svr (128 çekirdek) | Tüm B serisi dışında |
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Ayırma Windows Svr (256 çekirdek) | Tüm B serisi dışında |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Ayırma Windows Svr (96 çekirdek) | Tüm B serisi dışında |

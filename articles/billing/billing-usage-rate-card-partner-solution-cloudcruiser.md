@@ -10,16 +10,16 @@ tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: mobandyo
+ms.openlocfilehash: 487636ffb0efc35c282e14d835c6669ed9d47315
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cruiser ve Microsoft Azure API tümleştirme faturalama bulut
 Bu makalede nasıl yeni Microsoft Azure fatura API'lerden toplanan bilgiler bulut Cruiser iş akışı maliyet benzetimi ve analiz için kullanılabileceği açıklanır.
@@ -123,7 +123,7 @@ Son aşağıdakine benzer raporlar oluşturun ve maliyet ve etiketlere göre dol
 
 ![Şekil 10 - etiketleri kullanarak dökümleri raporla][10]
 
-### <a name="microsoft-azure-tags"></a>Microsoft Azure Tags
+### <a name="microsoft-azure-tags"></a>Microsoft Azure etiketleri
 Azure kullanım API aracılığıyla kullanılabilir verileri yalnızca tüketim bilgileri, aynı zamanda kendisiyle ilişkilendirilmiş herhangi bir etiket dahil olmak üzere kaynak meta verileri içerir. Etiketleri kaynaklarınızı düzenleme, ancak etkili olması için kolay bir yol sağlar, emin olmanız gerekir:
 
 * Etiketleri doğru sağlama zaman kaynaklarına uygulanır

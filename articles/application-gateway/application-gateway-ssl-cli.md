@@ -1,26 +1,26 @@
 ---
-title: "SSL sonlandırma - Azure CLI ile bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Bir uygulama ağ geçidi oluşturmak ve Azure CLI kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin."
+title: SSL sonlandırma - Azure CLI ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Bir uygulama ağ geçidi oluşturmak ve Azure CLI kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
-ms.author: davidmu
-ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: cdc24d0b95e30f762eb202ce08222ccde34424e9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>İle SSL sonlandırma Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
 Azure CLI oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) için bir sertifika ile [SSL sonlandırma](application-gateway-backend-ssl.md) kullanan bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) arka uç sunucuları için. Bu örnekte uygulama ağ geçidi varsayılan arka uç havuzuna eklenen iki sanal makine örnekleri ölçek kümesini içerir.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
@@ -60,7 +60,7 @@ Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *ea
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
 Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağın *myAGSubnet* kullanarak [az ağ vnet oluşturma](/cli/azure/network/vnet#az_net). Daha sonra adlı alt ağ ekleyebilirsiniz *myBackendSubnet* kullanarak arka uç sunucuları tarafından gerekli [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -115,7 +115,7 @@ az network application-gateway create \
 - *appGatewayFrontendIP* -atar *myAGPublicIPAddress* için *appGatewayHttpListener*.
 - *Kuralı 1* - ilişkilendirilen kural yönlendirme varsayılan *appGatewayHttpListener*.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi oluşturma
+## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 
 Bu örnekte uygulama ağ geçidi varsayılan arka uç havuzunda sunucuları sağlayan bir sanal makine ölçek kümesi oluşturun. Ölçek kümesindeki sanal makineler ilişkili *myBackendSubnet* ve *appGatewayBackendPool*. Ölçek oluşturmak için kullanabileceğiniz [az vmss oluşturma](/cli/azure/vmss#az_vmss_create).
 
@@ -144,13 +144,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Uygulama ağ geçidi genel IP adresi almak için kullanabileceğiniz [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidi genel IP adresi almak için kullanabileceğiniz [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell-interactive
 az network public-ip show \

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubu silme
 
@@ -34,7 +34,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 - Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.28 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
-## <a name="work-with-network-security-groups"></a>Ağ güvenlik gruplarıyla çalışma
+## <a name="work-with-network-security-groups"></a>Ağ güvenlik grupları ile çalışma
 
 Oluşturabileceğiniz, [tüm görüntüle](#view-all-network-security-groups), [ayrıntılarını görüntülemek](#view-details-of-a-network-security-group), [değiştirme](#change-a-network-security-group), ve [silme](#delete-a-network-security-group) bir ağ güvenlik grubu. Ayrıca [ilişkilendir ya da ilişkilendirmesini](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) bir ağ arabirimi veya alt ağ güvenlik grubu.
 
@@ -79,7 +79,7 @@ Portal üstündeki arama kutusuna girin *ağ güvenlik grubu*. Zaman **ağ güve
 ### <a name="change-a-network-security-group"></a>Bir ağ güvenlik grubu değiştirme
 
 1. Portal üstündeki arama kutusuna girin *ağ güvenlik grubu* arama kutusuna. Zaman **ağ güvenlik grubu** arama sonuçlarında görünecek, onu seçin.
-2. Değiştirmek istediğiniz ağ güvenlik grubu seçin. En yaygın değişiklikler [ekleme](#create-a-security-rule) veya [kaldırma](#delete-a-security-rule) güvenlik kuralları ve [Associating veya bir ağ güvenlik grubu için veya bir alt ağ veya ağ arabirimi kaldırdıktan](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Değiştirmek istediğiniz ağ güvenlik grubu seçin. En yaygın değişiklikler [ekleme](#create-a-security-rule) veya [kaldırma](#delete-a-security-rule) güvenlik kuralları ve [Associating veya bir ağ güvenlik grubu için veya bir alt ağ veya ağ arabirimi kaldırdıktan](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Komutları**
 

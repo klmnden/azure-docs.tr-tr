@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 64fe217cf3d845e6a09fe67d03648e79e8a4cadd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b95f5bb2aa93fb29999994ccd83dc898f88f1072
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Bir şablonu kullanarak bir VMSS yönetilen hizmet kimliği yapılandırın
 
@@ -36,7 +36,7 @@ Bu makalede, Azure Resource Manager dağıtım şablonu kullanarak bir Azure VMS
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
-Olarak ile Azure portal ve komut dosyası, Azure Resource Manager şablonları bir Azure kaynak grubu tarafından tanımlanan yeni veya değiştirilmiş kaynakları dağıtma yeteneği sağlar. Şablon düzenleme ve dağıtım, hem yerel hem de portal tabanlı dahil olmak üzere birkaç seçenek bulunur:
+Azure ile gibi portal ve komut dosyası, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) şablonları, bir Azure kaynak grubu tarafından tanımlanan yeni veya değiştirilmiş kaynakları dağıtma yeteneği sağlar. Şablon düzenleme ve dağıtım, hem yerel hem de portal tabanlı dahil olmak üzere birkaç seçenek bulunur:
 
    - Kullanarak bir [Azure Marketi'nden özel şablon](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), sıfırdan bir şablon oluşturmak veya mevcut bir ortak üzerinde temel olanak sağlayan veya [hızlı başlatma şablonunu](https://azure.microsoft.com/documentation/templates/).
    - Bir şablon herhangi birinden dışa aktararak var olan bir kaynak grubundan türetme [özgün dağıtım](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), veya [dağıtımının geçerli durumu](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -51,13 +51,11 @@ Bu bölümde, etkinleştirme ve bir Azure Resource Manager şablonu kullanarak k
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss"></a>Bir Azure VMSS ya da var olan bir Azure VMSS oluşturma sırasında kimliği atanır Sistemi'ni etkinleştir
 
-1. Azure için yerel olarak veya Azure portalı üzerinden oturum olsun, sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
-
-2. Şablonu bir düzenleyicisine yüklendikten sonra bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Sizin kullandığınız Düzenleyicisi bağlı olarak aşağıdaki ekran görüntüsü biraz farklı görünebilir ve yeni bir dağıtım veya varolan bir şablondan düzenlemekte olduğunuz.
+1. Bir düzenleyicisine yük şablon, bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Sizin kullandığınız Düzenleyicisi bağlı olarak aşağıdaki ekran görüntüsü biraz farklı görünebilir ve yeni bir dağıtım veya varolan bir şablondan düzenlemekte olduğunuz.
    
    ![Şablon - ekran görüntüsü VM bulun](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
-3. Atanan sistem kimliği etkinleştirmek için add `"identity"` özelliği aynı düzeyde `"type": "Microsoft.Compute/virtualMachineScaleSets"` özelliği. Aşağıdaki sözdizimini kullanın:
+2. Atanan sistem kimliği etkinleştirmek için add `"identity"` özelliği aynı düzeyde `"type": "Microsoft.Compute/virtualMachineScaleSets"` özelliği. Aşağıdaki sözdizimini kullanın:
 
    ```JSON
    "identity": { 
@@ -65,7 +63,7 @@ Bu bölümde, etkinleştirme ve bir Azure Resource Manager şablonu kullanarak k
    },
    ```
 
-4. (İsteğe bağlı) Sanal makine ölçek kümesi MSI uzantısı olarak ekleme bir `extensionsProfile` öğesi. Azure örneği meta veri hizmeti (IMDS) kimlik de belirteçleri almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
+3. (İsteğe bağlı) Sanal makine ölçek kümesi MSI uzantısı olarak ekleme bir `extensionsProfile` öğesi. Azure örneği meta veri hizmeti (IMDS) kimlik de belirteçleri almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
 
    >[!NOTE] 
    > Aşağıdaki örnek bir Windows sanal makine ölçek kümesi uzantısı varsayar (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri.
@@ -89,7 +87,7 @@ Bu bölümde, etkinleştirme ve bir Azure Resource Manager şablonu kullanarak k
             }
    ```
 
-5. İşiniz bittiğinde, şablonunuz şuna benzer görünmelidir:
+4. İşiniz bittiğinde, şablonunuz şuna benzer görünmelidir:
 
    ![Güncelleştirmeden sonra şablonu ekran görüntüsü](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
@@ -100,41 +98,18 @@ Bu bölümde, etkinleştirme ve bir Azure Resource Manager şablonu kullanarak k
 
 Artık kümesi bir sanal makine ölçek varsa kimlik atanmış bir sistem gerekiyor ancak hala kimlikleri atanan kullanıcı gerekir:
 
-1. Azure için yerel olarak veya Azure portalı üzerinden oturum olsun, sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
-
-2. Kimlik türünü değiştirme `'UserAssigned'`
+- Şablonu bir düzenleyicisine yüklemek ve kimlik türünü değiştirme `'UserAssigned'`
 
 ## <a name="user-assigned-identity"></a>Kullanıcı kimliği atanır
 
-Bu bölümde, kimlik ve bir Azure Resource Manager şablonu kullanarak bir Azure VMSS atanmış bir kullanıcı oluşturun.
+Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure VMSS atanan kullanıcı kimliğini atayın.
 
-### <a name="create-and-assign-a-user-assigned-identity-to-an-azure-vmss"></a>Oluşturma ve kimlik için bir Azure VMSS atanmış bir kullanıcı atama
+> [!Note]
+> Bir Azure Resource Manager şablonu kullanarak bir kullanıcı tarafından atanan kimlik oluşturmak için bkz: [atanan kullanıcı kimliğini oluşturma](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-1. İlk adım gerçekleştirmeniz [varolan VMSS üzerinde bir Azure VMSS oluşturulması sırasında atanmış sistem kimliğini etkinleştirme](qs-configure-template-windows-vmss.md#enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss).
+### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Bir Azure VMSS kimlik atanan kullanıcı atama
 
-2. Yapılandırma değişkenleri için Azure VMSS içeren değişkenler bölümü altında aşağıdakine benzer bir kullanıcı atanmış kimlik adı için bir giriş ekleyin.  Bu Azure VMSS oluşturma işlemi sırasında kimliği atanır, kullanıcı değeri tutar:
-    
-    > [!IMPORTANT]
-    > Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
-
-    ```json
-    "variables": {
-        "vmssPrefix": "vmss",
-        "vmssName": "[concat(variables('vmssPrefix'), uniquestring(resourceGroup().id,deployment().name))]",
-        //other vm configuration variables...
-        "identityName": "[concat(variables('vmssName'), 'id')]"
-    ```
-3. Altında `resources` öğesi atanan kullanıcı kimliğini oluşturmak için aşağıdaki girişi ekleyin:
-
-    ```json
-    {
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-        "name": "[variables('identityName')]",
-        "apiVersion": "2015-08-31-PREVIEW",
-        "location": "[resourceGroup().location]"
-    },
-    ```
-4. Sonraki altında `resources` öğesi atanan kullanıcı kimliği, VMSS atamak için aşağıdaki girişi ekleyin:
+1. Altında `resources` öğesi, bir kullanıcı tarafından atanan kimlik bilgilerinizi VMSS atamak için aşağıdaki girişi ekleyin.  Değiştirdiğinizden emin olun `<USERASSIGNEDIDENTITY>` atanan kullanıcı kimliğini adı ile oluşturduğunuz.
 
     ```json
     {
@@ -144,13 +119,13 @@ Bu bölümde, kimlik ve bir Azure Resource Manager şablonu kullanarak bir Azure
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/, variables('identityName'))]"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
             ]
         }
 
     }
     ```
-5. (İsteğe bağlı) Altında aşağıdaki girişi ekleyin `extensionProfile` yönetilen Identity uzantısı, VMSS atamak için öğesi. Azure örneği meta veri hizmeti (IMDS) kimlik endpoint de belirteçleri almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
+2. (İsteğe bağlı) Altında aşağıdaki girişi ekleyin `extensionProfile` yönetilen Identity uzantısı, VMSS atamak için öğesi. Azure örneği meta veri hizmeti (IMDS) kimlik endpoint de belirteçleri almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
    
     ```JSON
        "extensionProfile": {
@@ -169,11 +144,9 @@ Bu bölümde, kimlik ve bir Azure Resource Manager şablonu kullanarak bir Azure
                     }
                 }
    ```
-6.  İşiniz bittiğinde, şablonunuz şuna benzer görünmelidir:
-    > [!NOTE]
-    > Şablon, VMSS oluşturmak için gerekli değişkenleri listelenmez.  `//other configuration variables...` konuyu uzatmamak amacıyla tüm gerekli yapılandırma değişkenleri yerine kullanılır.
-
-      ![Atanan kullanıcı kimliğini ekran görüntüsü](../media/msi-qs-configure-template-windows-vmss/template-vmss-user-assigned-identity.png)
+3.  İşiniz bittiğinde, şablonunuz şuna benzer görünmelidir:
+   
+      ![Atanan kullanıcı kimliğini ekran görüntüsü](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

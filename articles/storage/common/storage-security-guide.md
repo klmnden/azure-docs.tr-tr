@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -294,7 +294,7 @@ Bekleyen şifreleme sağlayan üç Azure özellikleri vardır. Azure Disk şifre
 
 SSE tüm depolama hesapları için etkin ve devre dışı bırakılamaz. SSE verilerinizi Azure depolama alanına yazma sırasında otomatik olarak şifreler. Verileri Azure depolama alanından okuyun, Azure Storage tarafından döndürülen önce şifresi çözülür. SSE kodu değiştirin veya herhangi bir uygulama kodu eklemek zorunda kalmadan verilerinizin güvenliğini sağlar.
 
-SSE için kullanılan anahtarları Microsoft tarafından yönetilir. Microsoft anahtarları başlangıçta oluşturur ve iç Microsoft İlkesi tarafından tanımlanan normal kendi dönüş yanı sıra, güvenli depolama yönetir. Müşteri tarafından yönetilen anahtarları sonunda, müşteri tarafından yönetilen anahtarlarına anahtarlardan Microsoft tarafından yönetilen bir geçiş yolu ile birlikte kullanılabilir.
+Microsoft tarafından yönetilen anahtarlar veya kendi özel anahtarları kullanabilirsiniz. Microsoft, yönetilen anahtarlar oluşturur ve iç Microsoft İlkesi tarafından tanımlanan normal kendi dönüş yanı sıra, güvenli depolama işler. Özel anahtarları kullanma hakkında daha fazla bilgi için bkz: [depolama hizmeti şifrelemesi müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak](storage-service-encryption-customer-managed-keys.md).
 
 SSE tüm performans katmanları (Standart ve Premium), tüm dağıtım modelleri (Azure Resource Manager ve Klasik) ve tüm Azure Depolama hizmetlerinde (Blob, Kuyruk, Tablo ve Dosya) verileri otomatik olarak şifreler. 
 

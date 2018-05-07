@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 281f50a942a9396bf1163f5a20feb98bf450e6eb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcı içinde imzalama
 Çoğu kuruluş için bir hizmet uygulaması olarak bir yazılım teklifi sunuyorsanız, uygulamanız oturum açmalardan tüm Azure Active Directory (AD) Kiracı kabul edecek şekilde yapılandırabilirsiniz. Bu yapılandırma, uygulama çok kiracılı özelleştirme adı verilir. Tüm Azure AD Kiracı kullanıcılar hesaplarına uygulamanızla birlikte kullanmak için onaylıyorsunuz sonra uygulamanıza oturum açabilir.  
@@ -57,7 +57,8 @@ Ne zaman Azure AD alır / Common ağda bir istek uç noktası, kullanıcı oturu
 
 Uygulama oturum açma yanıtı kullanıcıyı temsil eden bir belirteci içeriyor. Belirteç veren değerinde bir uygulama kullanıcının arasındadır hangi Kiracı söyler. Bir yanıt / Common döndüğünde uç noktası, Belirteç Verenin değerinde kullanıcının Kiracı karşılık gelir. 
 
-> [! IMPORTANTNT] / Common uç noktası bir kiracı değil ve bir veren değil, yalnızca çoğaltıcı değildir. / Common kullanırken belirteçleri doğrulamak için uygulamanızın mantık bu dikkate güncelleştirilmesi gerekiyor. 
+> [!IMPORTANT]
+> / Ortak uç nokta bir kiracı değil ve bir veren değil, yalnızca çoğaltıcı değildir. / Common kullanırken belirteçleri doğrulamak için uygulamanızın mantık bu dikkate güncelleştirilmesi gerekiyor. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Birden çok veren değerleri işlemek için kodunuzu güncelleştirin
 Web uygulamaları ve web API'leri alır ve Azure AD'den belirteçleri doğrulamak.  
@@ -156,9 +157,6 @@ Kullanıcıların ve yöneticilerin izin uygulamanıza herhangi bir zamanda ipta
 * Yöneticiler, Azure AD kullanarak kaldırarak uygulamalara erişimi iptal etme [kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) bölümünü [Azure portal][AZURE-portal].
 
 Bir uygulamaya bir kiracıdaki tüm kullanıcılar için bir yönetici izin verirse, kullanıcılar tek tek erişim iptal edilemez. Yönetici erişimi iptal edebilirsiniz yalnızca ve yalnızca tüm uygulama için.
-
-### <a name="consent-and-protocol-support"></a>İzin ve protokol desteği
-Onay, Openıd Connect, OAuth aracılığıyla Azure AD'de desteklenir WS-Federation ve SAML protokoller. SAML ve WS-Federasyon protokollerini desteklemeyen `prompt=admin_consent` yönetici izni yalnızca OAuth ve Openıd Connect aracılığıyla mümkün olması için parametre.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Çok kiracılı uygulamalara ve erişim belirteçleri önbelleğe alma
 Çok kiracılı uygulamalara da Azure AD tarafından korunan API'leri çağırmak için erişim belirteçleri elde edebilirsiniz. Çok kiracılı uygulama ile Active Directory Authentication Library (ADAL) kullanarak başlangıçta/Common, kullanarak bir kullanıcı için bir belirteç istemek için olduğunda yaygın görülen bir hata yanıt, sonra da/Common kullanarak, aynı kullanıcı için bir sonraki belirteç isteği. Azure AD yanıttan bir kiracıdan gelen değil/yaygın ADAL olarak kiracısından belirteç önbelleğe çünkü. Kullanıcı için erişim belirteci almak için/Common sonraki çağrı önbellek girişi isabetsiz okuma ve kullanıcı yeniden oturum açmanız istenir. Önbellek eksik önlemek için zaten oturum açmış olan kullanıcı için sonraki çağrılar kiracının uç noktasına yapıldığından emin olun.

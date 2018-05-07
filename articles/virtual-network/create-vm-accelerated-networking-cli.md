@@ -16,19 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a5e657d3c171b63734ad4bf6c0097a3142993360
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1eed0584170c9d94a8f02a2e0538d5982d92b976
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Linux sanal makine oluşturma
-
-> [!IMPORTANT] 
-> Sanal makineler hızlandırılmış etkin ağ ile oluşturulması gerekir. Bu özellik, varolan sanal makinelere etkinleştirilemez. Hızlandırılmış ağ iletişimi etkinleştirmek için aşağıdaki adımları tamamlayın:
->   1. Sanal makineyi silin.
->   2. Sanal makine hızlandırılmış etkin ağ ile yeniden oluşturun.
->
 
 Bu öğreticide, bir Linux sanal makine (VM) ağ hızlandırılmış oluşturmayı öğrenin. Hızlandırılmış ağ ile bir Windows VM oluşturmak için bkz: [hızlandırılmış ağ ile bir Windows VM oluşturma](create-vm-accelerated-networking-powershell.md). Hızlandırılmış ağ önemli ölçüde ağ performansını iyileştirme, bir VM tek köklü g/ç Sanallaştırması (SR-IOV) sağlar. Bu yüksek performanslı yolu gecikme, değişim ve desteklenen VM türlerinde zorlu ağ iş yükleri ile kullanmak için CPU kullanımını azaltır ancak konaktan datapath atlar. Aşağıdaki resimde, iki VM ile ve hızlandırılmış ağ olmadan arasındaki iletişimi gösterir:
 
@@ -46,29 +40,39 @@ Hızlandırılmış ağ yararları yalnızca üzerinde etkin VM için de geçerl
 * **Düşük CPU kullanımı:** konakta sanal anahtar atlayarak müşteri adayları ağ trafiğini işlemek için daha az CPU kullanımı için.
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
-* **Ubuntu 16.04**: 4.11.0-1013 veya büyük çekirdek sürümü
-* **SLES 12 SP3**: 4.4.92-6.18 veya büyük çekirdek sürümü
-* **RHEL 7.4**: 7.4.2017120423 veya büyük çekirdek sürümü
-* **CentOS 7.4**: 7.4.20171206 veya büyük çekirdek sürümü
+Kutunun Azure galerisinden dışında aşağıdaki dağıtımlar desteklenir: 
+* **Ubuntu 16.04** 
+* **SLES 12 SP3** 
+* **RHEL 7.4**
+* **CentOS 7.4**
+* **CoreOS Linux**
+* **Debian "backports çekirdek ile uzatma"**
+* **Oracle Linux 7.4**
 
-## <a name="supported-vm-instances"></a>Desteklenen VM örnekleri
-Hızlandırılmış ağ en genel amaçlı ve işlem iyileştirilmiş örnek boyutları 4 veya daha fazla Vcpu'lar ile desteklenir. Hiper iş parçacığı destekleyen örneklerinde D/DSv3 veya E/ESv3 gibi hızlandırılmış ağ 8 veya daha fazla Vcpu'lar ile VM örneklerinde desteklenir.  Desteklenen serisi şunlardır: D/DSv2, D/DSv3, E/ESv3, Fs/F/Fsv2 ve Ms/Mms. 
+## <a name="limitations-and-constraints"></a>Sınırlamalar ve kısıtlamalar
+
+### <a name="supported-vm-instances"></a>Desteklenen VM örnekleri
+Hızlandırılmış ağ en genel amaçlı ve işlem iyileştirilmiş örnek boyutları 2 veya daha fazla Vcpu'lar ile desteklenir.  Bu desteklenen serisi şunlardır: D/DSv2 ve F/Fs
+
+Hiper iş parçacığı destek örneklerinde hızlandırılmış ağ 4 veya daha fazla Vcpu'lar VM örnekleriyle desteklenir. Desteklenen serisi şunlardır: D/DSv3, E/ESv3, Fsv2 ve Ms/Mms.
 
 VM örnekleri hakkında daha fazla bilgi için bkz: [Linux VM boyutları](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="regions"></a>Bölgeler
+### <a name="regions"></a>Bölgeler
 Azure kamu Bulutları yanı sıra tüm ortak Azure bölgeleri'nde kullanılabilir.
 
-## <a name="limitations"></a>Sınırlamalar
-Bu özelliği kullanırken aşağıdaki sınırlamalar bulunmaktadır:
+### <a name="network-interface-creation"></a>Ağ arabirimi oluşturma 
+Hızlandırılmış ağ yalnızca yeni bir NIC için etkinleştirilebilir Varolan bir NIC için etkinleştirilemez
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Hızlandırılmış ağ üzerinde çalışan bir VM etkinleştirme
+Desteklenen bir VM boyutu hızlandırılmış ağ olmadan yalnızca özelliğinin durduruldu ve serbest etkin olabilir.  
+### <a name="deployment-through-azure-resource-manager"></a>Dağıtım aracılığıyla Azure Kaynak Yöneticisi
+Sanal makineler (Klasik), ağ hızlandırılmış dağıtılamıyor.
 
-* **Ağ arabirimi oluşturma:** hızlandırılmış ağ yalnızca yeni bir NIC için etkinleştirilmesi Varolan bir NIC için etkinleştirilemez
-* **VM oluşturma:** etkin hızlandırılmış ağ ile bir NIC yalnızca eklenebilir bir VM VM oluşturulduğunda. NIC için mevcut bir VM'yi eklenemiyor. VM için mevcut bir kullanılabilirlik ekleme ayarlarsanız, kullanılabilirlik kümesindeki tüm sanal makineleri de etkin ağ hızlandırılmış gerekir.
-* **Yalnızca aracılığıyla Azure Resource Manager dağıtımı:** hızlandırılmış ağ ile sanal makineleri (Klasik) dağıtılamıyor.
+## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Bir Linux VM ile Azure hızlandırılmış ağ oluşturma
 
 Bu makale ile hızlandırılmış ağ Azure CLI kullanarak bir sanal makine oluşturmak için adımlar sağlar ancak şunları da yapabilirsiniz. [ile hızlandırılmış ağ Azure portalını kullanarak bir sanal makine oluşturmak](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bir sanal makine portalında altında oluştururken **ayarları**seçin **etkin**altında **ağ hızlandırılmış**. Seçtiğiniz sürece hızlandırılmış ağ etkinleştirme seçeneği Portalı'nda görünmüyor bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances). Sanal makine oluşturulduktan sonra yönergeleri tamamlamak gereken [hızlandırılmış ağ etkinleştirildiğini onaylayın](#confirm-that-accelerated-networking-is-enabled).
 
-## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *myNic*, ve *myVm*.
 
@@ -91,7 +95,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
+### <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
 
 ```azurecli
@@ -117,7 +121,7 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-## <a name="create-a-network-interface-with-accelerated-networking"></a>Bir ağ arabirimi ile hızlandırılmış ağ oluşturma
+### <a name="create-a-network-interface-with-accelerated-networking"></a>Bir ağ arabirimi ile hızlandırılmış ağ oluşturma
 
 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) komutu ile bir genel IP adresi oluşturun. Sanal makine Internet'ten erişmek için ancak bu makaledeki adımları tamamlamak için planlamıyorsanız bir ortak IP adresi gerekli değilse, gerekli değildir.
 
@@ -140,7 +144,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nic"></a>Bir VM oluşturun ve NIC ekleme
+### <a name="create-a-vm-and-attach-the-nic"></a>Bir VM oluşturun ve NIC ekleme
 NIC belirtin VM oluşturduğunuzda ile oluşturulan `--nics`. Bir boyut seçip listelenen dağıtım [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* UbuntuLTS görüntü ve hızlandırılmış ağ destekleyen boyutu (*Standard_DS4_v2*):
@@ -173,7 +177,7 @@ VM oluşturulduktan sonra aşağıdaki çıktı örneği ile benzer bir çıktı
 }
 ```
 
-## <a name="confirm-that-accelerated-networking-is-enabled"></a>Hızlandırılmış ağ etkinleştirilmiş olduğunu doğrulayın
+### <a name="confirm-that-accelerated-networking-is-enabled"></a>Hızlandırılmış ağ etkinleştirilmiş olduğunu doğrulayın
 
 Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Değiştir `<your-public-ip-address>` sanal için atanan ortak IP adresiyle makine oluşturduğunuz ve Değiştir *azureuser* için farklı bir değer kullandıysanız `--admin-username` VM oluşturduğunuzda.
 
@@ -210,3 +214,84 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Hızlandırılmış ağ, VM için etkinleştirilmiştir.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Hızlandırılmış ağ mevcut vm'lerde etkinleştir
+Bir VM hızlandırılmış ağ olmadan oluşturduysanız, mevcut bir VM'yi bu özelliği etkinleştirmek mümkündür.  VM hızlandırılmış ağ da yukarıda özetlenen aşağıdaki önkoşulları karşılayarak desteklemesi gerekir:
+
+* VM hızlandırılmış ağ için desteklenen bir boyut olmalıdır
+* VM desteklenen Azure galeri görüntüsü (ve Linux için çekirdek sürümü) olmalıdır
+* Tüm sanal makineleri bir kullanılabilirlik kümesinde veya VMSS hızlandırılmış ağ üzerindeki herhangi bir NIC etkinleştirmeden önce durduruldu ve serbest olmalıdır
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>Tek tek sanal makineleri ve sanal makineleri bir kullanılabilirlik kümesi
+İlk Dur / VM serbest bırakma veya bir kullanılabilirlik kümesi ise, kümedeki tüm sanal makineleri:
+
+```azurecli
+az vm deallocate \
+    --resource-group myResourceGroup \
+    --name myVM
+```
+
+Önemli, lütfen VM'yi ayrı ayrı bir kullanılabilirlik kümesi, yalnızca oluşturulduysa Not gereken hızlandırılmış ağ iletişimi etkinleştirmek için tek tek VM Dur/serbest bırakma.  VM'yi bir kullanılabilirlik kümesiyle oluşturduysanız, kullanılabilirlik kümesinde bulunan tüm VM'ler hızlandırılmış ağ NIC'ler hiçbirinde etkinleştirmeden önce durduruldu ve serbest olması gerekir. 
+
+Hizmet durdurulduğunda hızlandırılmış ağ, VM NIC üzerinde etkinleştirin:
+
+```azurecli
+az network nic update \
+    --name myVM -n myNic \
+    --resource-group myResourceGroup \
+    --accelerated-networking true
+```
+
+VM veya, eğer bir kullanılabilirlik kümesi, kümedeki tüm sanal makineleri yeniden başlatın ve hızlandırılmış ağ etkinleştirilmiş olduğunu doğrulayın: 
+
+```azurecli
+az vm start --resource-group myResourceGroup \
+    --name myVM
+```
+
+### <a name="vmss"></a>VMSS
+VMSS biraz farklıdır, ancak aynı iş akışı izler.  İlk olarak, sanal makineleri durdurun:
+
+```azurecli
+az vmss deallocate \
+    --name myvmss \
+    --resource-group myrg
+```
+
+Sanal makineleri durdurulduğunda, ağ arabirimi'nin altındaki hızlandırılmış ağ özelliğini güncelleştirin:
+
+```azurecli
+az vmss update --name myvmss \
+    --resource-group myrg \
+    --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
+```
+
+Lütfen unutmayın, bir VMSS otomatik, çalışırken ve el ile olmak üzere üç farklı ayarları kullanarak güncelleştirmeleri uygulamak VM yükseltmeler sahiptir.  VMSS değişiklikleri hemen yeniden başlatıldıktan sonra almak için bu yönergeleri ilke otomatik olarak ayarlanır.  Değişiklikler hemen çekilir şekilde otomatik olarak ayarlamak için: 
+
+```azurecli
+az vmss update \
+    --name myvmss \
+    --resource-group myrg \
+    --set upgradePolicy.mode="automatic"
+```
+
+Son olarak, VMSS yeniden başlatın:
+
+```azurecli
+az vmss start \
+    --name myvmss \
+    --resource-group myrg
+```
+
+Bir kez, yeniden başlatın, yükseltmeleri bitmesini bekleyin, ancak, VF VM içinde görünür tamamlandıktan sonra.  (Lütfen desteklenen bir işletim sistemi ve VM boyutu kullandığınızdan emin olun.)
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Hızlandırılmış ağ ile var olan sanal makineleri yeniden boyutlandırma
+
+Hızlandırılmış etkin ağ ile sanal makineleri yalnızca hızlandırılmış ağ destek sanal makineleri yeniden boyutlandırılabilir.  
+
+Hızlandırılmış etkin ağ ile VM hızlandırılmış yeniden boyutlandırma işlemi kullanarak ağ desteklemeyen bir VM örneğine boyutlandırılamaz.  Bunun yerine, bu Vm'lere birini yeniden boyutlandırmak için: 
+
+* VM'yi Durdur/Deallocate veya bir kullanılabilirlik kümesi/VMSS varsa içinde Dur/set/VMSS tüm Vm'lerde serbest bırakma.
+* Hızlandırılmış ağ VM veya bir kullanılabilirlik kümesi/VMSS, kümesi/VMSS tüm Vm'lerde içindeki IF NIC üzerinde devre dışı bırakılması gerekir.
+* Hızlandırılmış ağ devre dışı bırakıldığında VM/kullanılabilirlik kümesi/VMSS hızlandırılmış ağ desteklemez ve yeniden yeni bir boyut için taşınabilir.  
+

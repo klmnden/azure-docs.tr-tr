@@ -1,11 +1,11 @@
 ---
-title: "Oluşturmak, düzenlemek veya JSON için mantıksal uygulama tanımları - Azure Logic Apps genişletmek | Microsoft Docs"
-description: "Yazar ve mantıksal uygulama tanımları JSON içinde özelleştirme"
+title: Oluşturmak, düzenlemek veya JSON için mantıksal uygulama tanımları - Azure Logic Apps genişletmek | Microsoft Docs
+description: Yazar ve mantıksal uygulama tanımları JSON içinde özelleştirme
 author: ecfan
 manager: SyntaxC4
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f37f600d001b110775d8ca0e78950e3b8743df82
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Oluşturmak, düzenlemek veya JSON mantıksal uygulama tanımları için özelleştirme
 
@@ -29,7 +29,7 @@ Mantıksal uygulama tanımları JSON içinde çalışmak için Azure portalında
 > [!NOTE]
 > Mantıksal uygulama tanımlarında parametreler ve birden çok tetikleyici tanımlama gibi bazı Azure Logic Apps özelliklerini yalnızca JSON içinde Logic Apps Tasarımcısı kullanılabilir. Bu nedenle bu görevler için kod görünümünde veya başka bir Düzenleyici'de çalışmalıdır.
 
-## <a name="edit-json---azure-portal"></a>Edit JSON - Azure portal
+## <a name="edit-json---azure-portal"></a>JSON - Azure portalında Düzenle
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>’da oturum açın.
 
@@ -39,7 +39,7 @@ Mantıksal uygulama tanımları JSON içinde çalışmak için Azure portalında
 
    Kod Görünümü Düzenleyicisi'ni açar ve JSON biçiminde, mantıksal uygulama tanımını gösterir.
 
-## <a name="edit-json---visual-studio"></a>Edit JSON - Visual Studio
+## <a name="edit-json---visual-studio"></a>Visual Studio JSON - Düzenle
 
 Mantıksal uygulama tanımınızı Visual Studio üzerinde çalışmadan önce açtığınızdan emin olun [gerekli araçları yüklü](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Visual Studio ile bir mantıksal uygulama oluşturmak için gözden [hızlı başlangıç: görevleri ve işlemleri Azure Logic Apps - Visual Studio ile otomatikleştirmek](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -49,7 +49,7 @@ Visual Studio'da oluşturulan ve doğrudan Azure portalından ya da Visual Studi
 
 2. Bulma ve görünür, varsayılan olarak, mantıksal uygulama tanımını açın bir [Resource Manager şablonu](../azure-resource-manager/resource-group-overview.md#template-deployment), adlandırılmış **LogicApp.json**. Dağıtım farklı ortamlar için bu şablonu özelleştirme ve kullanabilirsiniz.
 
-3. Mantıksal uygulama tanımını ve şablon için kısayol menüsünü açın. Seçin **mantığı Uygulama Tasarımcısı ile Aç**.
+3. Mantıksal uygulama tanımını ve şablon için kısayol menüsünü açın. **Mantıksal Uygulama Tasarımcısı ile Aç**’ı seçin.
 
    ![Visual Studio çözümünde açık mantıksal uygulama](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
@@ -119,7 +119,7 @@ Bir temel tanımı aşağıda verilmiştir:
 
 ``` json
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "uri": {
@@ -170,7 +170,7 @@ Logic Apps Dizelerle çalışmaya yönelik çeşitli işlevleri vardır. Örneğ
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {
@@ -231,7 +231,7 @@ Bir özelliğin değerini bağlı olarak farklı sonuçlar almak için her özel
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "specialCategories": {
@@ -321,7 +321,7 @@ Tarihleri biçimlendirmek için dize biçimlendiricileri kullanabilirsiniz. Örn
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {

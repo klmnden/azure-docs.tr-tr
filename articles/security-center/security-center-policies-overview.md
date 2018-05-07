@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi güvenlik ilkelerine giriş | Microsoft Docs"
-description: "Azure Güvenlik Merkezi güvenlik ilkeleri ve anahtar özellikleri hakkında bilgi edinin."
+title: Azure Güvenlik Merkezi güvenlik ilkelerine giriş | Microsoft Docs
+description: Azure Güvenlik Merkezi güvenlik ilkeleri ve anahtar özellikleri hakkında bilgi edinin.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-policies-overview"></a>Güvenlik ilkelerine genel bakış
 Bu makalede, Güvenlik Merkezi'nde güvenlik ilkelerini genel bir bakış sağlar.
@@ -31,7 +31,7 @@ Güvenlik Merkezi ilkeleri aşağıdaki bileşenleri içerir:
 - **Veri toplama**: sağlama Aracısı belirler ve [veri toplama](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) ayarlar.
 - **Güvenlik İlkesi**: Güvenlik Merkezi izleyiciler denetler ve önerir belirler. Düzenleyebileceğiniz [Güvenlik İlkesi](https://docs.microsoft.com/azure/security-center/security-center-policies) Güvenlik Merkezi'nde. Aynı zamanda [Azure ilke](security-center-azure-policy.md) (önizlemede sınırlı) yeni tanımları oluşturmak için ek ilkeler tanımlayın ve yönetim grubu içinde ilkeleri atayın.
 - **E-posta bildirimleri**: güvenlik kişiler belirler ve [bildirim e-posta](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) ayarlar.
-- **Fiyatlandırma katmanı**: boş ya da standart tanımlar [seçimi fiyatlandırma](https://docs.microsoft.com/azure/security-center/security-center-pricing). Seçtiğiniz katmanı kapsamında kaynaklar için hangi Güvenlik Merkezi özellikleri kullanılabileceğini belirler. Abonelik, kaynak grupları ve çalışma alanları için bir katmanı belirtebilirsiniz. 
+- **Fiyatlandırma katmanı**: boş ya da standart tanımlar [seçimi fiyatlandırma](https://docs.microsoft.com/azure/security-center/security-center-pricing). Seçtiğiniz katman, kapsam dahilindeki kaynaklar için hangi Güvenlik Merkezi özelliklerinin kullanılabilir olduğunu belirler. Abonelik, kaynak grupları ve çalışma alanları için bir katmanı belirtebilirsiniz. 
 
 
 ## <a name="who-can-edit-security-policies"></a>Kimin güvenlik ilkeleri düzenleyebilirsiniz.

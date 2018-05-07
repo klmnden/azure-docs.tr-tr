@@ -37,5 +37,5 @@
       > 
       
       ![Birim ekle](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
-4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulur.
+4. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulur.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -40,11 +40,8 @@ Para birimi ve bölge geçerli fiyatlar için bkz: [Application Insights fiyatla
 
 Temel plan yeni bir Application Insights kaynak oluşturulduğunda planı fiyatlandırma varsayılandır. Temel plan, bir Operations Management Suite aboneliğine sahip olanlar dışında tüm müşteriler için uygundur.
 
-* Temel planda bazında veri hacmi sizden ücret kesilir. Veri birimi Application Insights tarafından alınan telemetri bayt sayısıdır. 
-    
-    Veri birimi Application Insights tarafından uygulamanızdan alınan sıkıştırılmamış JSON veri paketi boyutu olarak ölçülür.
-
-    İçin [tablo veri analizi için içeri](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), veri birimi Application Insights'a gönderilen dosyalarının sıkıştırılmamış boyut olarak ölçülür.
+* Temel planda bazında veri hacmi sizden ücret kesilir. Veri birimi Application Insights tarafından alınan telemetri bayt sayısıdır. Veri birimi Application Insights tarafından uygulamanızdan alınan sıkıştırılmamış JSON veri paketi boyutu olarak ölçülür. İçin [tablo veri analizi için içeri](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), veri birimi Application Insights'a gönderilen dosyalarının sıkıştırılmamış boyut olarak ölçülür.
+* Uygulamanızın veri birimi ücretlerini şimdi adlı bir yeni fatura ölçerde bildirilen **veri alımı** Nisan 2018 itibariyle. Bu yeni ölçer olan uygulamaları Öngörüler ve günlük analizi gibi teknolojileri izleme genelinde paylaşılmak ve şu an hizmet adı altında **uygulama hizmetleri** (ve yakında değiştirme **günlük analizi**). 
 * [Canlı ölçümleri akış](app-insights-live-stream.md) veri yok sayılan amacıyla fiyatlandırma için.
 * [Sürekli verme](app-insights-export-telemetry.md) ve [Azure günlük analizi bağlayıcı](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) Nisan 2018 itibariyle temel plan ekstra ücret ödemeden kullanılabilir.
 

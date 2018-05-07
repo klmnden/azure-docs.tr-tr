@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory'de cihaz yönetimine giriş | Microsoft Docs"
-description: "Aygıt Yönetimi, ortamınızdaki kaynaklarına erişen cihazlar üzerinde denetim elde size nasıl yardımcı olabileceğini öğrenin."
+title: Azure Active Directory'de cihaz yönetimine giriş | Microsoft Docs
+description: Aygıt Yönetimi, ortamınızdaki kaynaklarına erişen cihazlar üzerinde denetim elde size nasıl yardımcı olabileceğini öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory'de cihaz yönetimine giriş
 
@@ -73,7 +73,7 @@ Azure AD alanına katılmış aygıtlar basitleştirmek için belirtilir:
 
 
 Azure ad denetiminde çalışma şirkete ait cihazları almak için kullanıcılarınızın bir Self Servis deneyimi sağlayarak bu hedefleri gerçekleştirilebilir.  
-**Azure AD birleştirme** bulut ilk / salt bulut olan kuruluşlar için tasarlanmıştır. Bir şirket içi Windows Server Active Directory altyapısına sahip olmayan küçük ve orta ölçekli işletmeler genellikle şunlardır. 
+**Azure AD birleştirme** bulut ilk veya yalnızca bulut işlemleriniz kuruluşlar için tasarlanmıştır. Boyutu veya Azure AD katılım dağıtabilirsiniz kuruluşlar tür sınırlaması yoktur. Azure AD birleştirme works bile bir karma bir ortamda yanı sıra ve uygulamalarına ve kaynaklarına şirket içi erişimi etkinleştirebilirsiniz.
 
 Azure AD alanına katılmış aygıtlar uygulama ile aşağıdaki avantajları sağlar:
 
@@ -81,11 +81,14 @@ Azure AD alanına katılmış aygıtlar uygulama ile aşağıdaki avantajları s
 
 - **Kurumsal uyumlu gezici** alanına katılmış aygıtlar arasındaki kullanıcı ayarlarının. Kullanıcıların aygıtları arasında ayarları görmek için bir Microsoft hesabı (örneğin, Hotmail) bağlanmak gerekmez.
 
-- **İş için Windows Mağazası'na erişimi** AD hesabı kullanarak. Kullanıcılarınızın, kuruluş tarafından önceden seçilmiş uygulamalarının stoğunu arasından seçim yapabilirsiniz.
+- **İş için Windows Mağazası'na erişimi** bir Azure AD hesabı kullanarak. Kullanıcılarınızın, kuruluş tarafından önceden seçilmiş uygulamalarının stoğunu arasından seçim yapabilirsiniz.
 
 - **Windows Hello** iş kaynaklarına güvenli ve kolay erişim için destek.
 
 - **Erişim kısıtlama** uyumluluk ilkesine uygun aygıtlardan uygulamalar için.
+
+- **Şirket içi kaynaklara sorunsuz erişim** cihaz görüş şirket içi etki alanı denetleyicisine sahip olduğunda.
+
 
 Azure AD birleştirme öncelikle bir şirket içi Windows Server Active Directory altyapısına sahip olmayan kuruluşlar için tasarlanmıştır ancak kesinlikle yapabilecekleriniz senaryolarda de burada:
 

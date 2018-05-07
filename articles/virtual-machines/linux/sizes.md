@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 06dc8075318e3de10a75e7fc1c22e2bdf61afffc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2480a48670646d13f55b405d2594c5937d1b61ba
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure'daki Linux sanal makineler için Boyutlar
 Bu makalede, kullanılabilir boyutları ve Linux uygulamaları ve iş yüklerini çalıştırmak için kullanabileceğiniz Azure sanal makineleri için seçenekleri açıklar. Ayrıca, ne zaman, bu kaynakları kullanmayı planlıyorsanız bulundurmanız dağıtımında dikkat edilecek noktalar sağlar. Bu makalede ayrıca kullanılabilir [Windows sanal makineleri](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -27,11 +27,11 @@ Bu makalede, kullanılabilir boyutları ve Linux uygulamaları ve iş yüklerini
 
 | Tür                     | Boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Genel amaçlı](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7,  | Dengeli CPU/bellek oranı. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. |
+| [Genel amaçlı](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7  | Dengeli CPU/bellek oranı. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. |
 | [İşlem için iyileştirilmiş](sizes-compute.md)        | Fsv2, Fs, F             | Yüksek CPU/bellek oranı. Orta yoğunlukta trafiğe sahip web sunucuları, ağ gereçleri, toplu işlemler ve uygulama sunucuları için uygundur.        |
 | [Bellek için iyileştirilmiş](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek CPU oranı. İlişkisel veritabanı sunucuları, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
 | [Depolama için iyileştirilmiş](sizes-storage.md)        | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özel sanal makineleri yoğun grafik işleme ve video düzenleme için hedeflenen yanı sıra model eğitim ve derin learning ile inferencing (ND)... Tek veya birden çok GPU ile kullanılabilir.       |
+| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özelleştirilmiş sanal makineleri yoğun grafik işleme ve video düzenleme için hedeflenen, aynı zamanda model eğitim ve derin learning ile inferencing (ND). Tek veya birden çok GPU ile kullanılabilir.       |
 | [Yüksek performanslı işlem](sizes-hpc.md) | H, A8-11          | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren sanal makineler, şimdiye kadarki en hızlı ve en güçlü CPU ile sunuluyor. 
 
 <br>

@@ -1,27 +1,27 @@
 ---
-title: "SSL sonlandırma - Azure portal ile bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Bir uygulama ağ geçidi oluşturmak ve Azure portalını kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin."
+title: SSL sonlandırma - Azure portal ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Bir uygulama ağ geçidi oluşturmak ve Azure portalını kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 10796000f913428e39a0ffbd0aa2cbe0c515eb7a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>İle SSL sonlandırma Azure portalını kullanarak bir uygulama ağ geçidi oluşturma
 
 Azure Portalı'nı oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) arka uç sunucuları için sanal makineler kullanan SSL sonlandırma için bir sertifika ile.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açtığınızda Azure portalında [http://portal.azure.com](http://portal.azure.com)
+Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
 
@@ -102,7 +102,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
 3. Girin *myBackendSubnet* 'ye tıklayın ve alt ağ adı için **Tamam**.
 
-## <a name="create-backend-servers"></a>Arka uç sunucuları oluşturun
+## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak iki sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
 
@@ -113,15 +113,15 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 3. Sanal makine için bu değerleri girin:
 
     - *myVM* - sanal makine adı için.
-    - *azureuser* - yönetici kullanıcı adı.
+    - Yönetici kullanıcı adı için *azureuser*.
     - *Azure123456!* parolası.
     - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
 
 4. **Tamam**’a tıklayın.
-5. Seçin **DS1_V2** tıklatın ve sanal makine boyutu için **seçin**.
+5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
-7. Tıklatın **devre dışı** önyükleme tanılaması devre dışı bırakmak için.
-8. Tıklatın **Tamam**, Özet sayfasında ayarları gözden geçirin ve ardından **oluşturma**.
+7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
+8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
@@ -161,11 +161,11 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
     ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
 
-2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Kendinden imzalı bir sertifika kullanıyorsa uyarı güvenlik kabul etmek için Ayrıntılar'ı seçin ve ardından Web sayfasına gidin:
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Kendinden imzalı bir sertifika kullanıyorsa uyarı güvenlik kabul etmek için Ayrıntılar'ı seçin ve ardından Web sayfasına gidin:
 
     ![Güvenli uyarı](./media/application-gateway-ssl-portal/application-gateway-secure.png)
 
-    Güvenli, IIS Web sitesi sonra aşağıdaki örnekte olduğu gibi görüntülenir:
+    Güvenli IIS siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
 
     ![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 

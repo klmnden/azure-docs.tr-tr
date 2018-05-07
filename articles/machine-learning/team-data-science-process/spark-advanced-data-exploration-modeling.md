@@ -3,7 +3,7 @@ title: Gelişmiş Veri keşfi ve modelleme Spark ile | Microsoft Docs
 description: Hdınsight Spark veri keşfi yapın ve çapraz doğrulama ve hyperparameter en iyi duruma getirme kullanarak ikili sınıflandırma ve regresyon modeli eğitmek için kullanın.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: bradsev
-ms.openlocfilehash: 3d4cd29596b14e6de07fdf06191f7d69c2d39641
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: 9f24d05a344e0042fa498b62c874617ba7466f8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Spark ile gelişmiş veri keşfi ve modelleme
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -59,7 +59,7 @@ Kurulum adımlarını ve kod bu kılavuzda bir Hdınsight Spark 1.6 kullanmak i�
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0 dizüstü bilgisayarlar
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
+[Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Bu dosya, model oluşturma ve Spark 2.0 kümelerde Puanlama veri keşfi gerçekleştirmek nasıl hakkında bilgiler sağlar.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -87,7 +87,7 @@ Aşağıdaki kod örneği okunacak veriler ve model çıkış kaydedildiği mode
 
 **ÇIKTI**
 
-datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
+DateTime.DateTime (2016, 4, 18, 17, 36, 27, 832799)
 
 ### <a name="import-libraries"></a>Kitaplıkları içeri aktarma
 Aşağıdaki kod ile gerekli kitaplıkları içeri aktarma:
@@ -112,7 +112,7 @@ Aşağıdaki kod ile gerekli kitaplıkları içeri aktarma:
 Jupyter not defterleri ile sağlanan PySpark tekrar önceden belirlenmiş bir içerik var. Bu nedenle Spark kümesi gerekmez veya açıkça uygulama ile çalışmaya başlamadan önce Hive bağlamları geliştirme. Bu içerikler varsayılan olarak sizin için kullanılabilir. Bu içerikler şunlardır:
 
 * SC - Spark 
-* sqlContext - for Hive
+* sqlContext - Hive için
 
 Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar olduğu PySpark çekirdeği sağlar %%. Bu kod örneklerinde kullanılan olan iki komut vardır.
 
@@ -199,7 +199,7 @@ Veri Spark alındıktan sonra sonraki veri bilimi işlemi araştırması ve gör
 Bu kodu ve sonraki parçacıkları verileri çizmek için yerel Sihirli ve örnek sorgu için SQL Sihirli kullanın.
 
 * **SQL Sihirli (`%%sql`)** Hdınsight PySpark çekirdeği sqlContext kolay satır içi HiveQL sorguları destekler. (-O deðiþken_adý) bağımsız değişkeni devam ederse SQL sorgusu çıktısını Pandas DataFrame Jupyter sunucuda olarak. Bu, yerel modda kullanılabilir olduğu anlamına gelir.
-*  **`%%local` Sihirli** kod Hdınsight kümesi headnode olan Jupyter sunucuda yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` sonra Sihirli `%%sql -o` Sihirli bir sorguyu çalıştırmak için kullanılır. -O parametresiyle SQL sorgusu yerel olarak çıktısını kalıcı. Ardından `%%local` Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacıkları sonraki kümesini tetikler. Çıkış kodu çalıştırdıktan sonra otomatik olarak görünür.
+* **`%%local` Sihirli** kod Hdınsight kümesi headnode olan Jupyter sunucuda yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` sonra Sihirli `%%sql -o` Sihirli bir sorguyu çalıştırmak için kullanılır. -O parametresiyle SQL sorgusu yerel olarak çıktısını kalıcı. Ardından `%%local` Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacıkları sonraki kümesini tetikler. Çıkış kodu çalıştırdıktan sonra otomatik olarak görünür.
 
 Bu sorgu dönüşleri yolcu sayısına göre alır. 
 
@@ -1059,9 +1059,9 @@ Katsayısını: [0.0141707753435,-0.0252930927087,-0.0231442517137, 0.2470709029
 
 Intercept: 0.854507624459
 
-RMSE = 1.23485131376
+RMSE 1.23485131376 =
 
-R-sqr = 0.597963951127
+R sqr 0.597963951127 =
 
 Hücre yürütülmesi için geçen süre: 38.62 saniye
 
@@ -1115,9 +1115,9 @@ Bu bölümdeki kod, eğitme, değerlendirmek ve ipucu tutar NYC ücreti seyahat 
 
 **ÇIKTI**
 
-RMSE = 0.931981967875
+RMSE 0.931981967875 =
 
-R-sqr = 0.733445485802
+R sqr 0.733445485802 =
 
 Hücre yürütülmesi için geçen süre: 25.98 saniye
 
@@ -1166,13 +1166,13 @@ Bu bölümdeki kod, eğitme, değerlendirmek ve ipucu tutar NYC ücreti seyahat 
 
 **ÇIKTI**
 
-RMSE = 0.928172197114
+RMSE 0.928172197114 =
 
 R sqr 0.732680354389 =
 
 Hücre yürütülmesi için geçen süre: 20.9 saniye
 
-**Plot**
+**Çizim**
 
 *tmp_results* önceki hücrenin Hive tablo olarak kaydedilir. Tablodan sonuçlar halinde çıkış *sqlResults* çizdirmek için veri çerçeve. Kodu
 
@@ -1199,7 +1199,7 @@ Jupyter sunucu kullanarak verileri çizmek için kod aşağıdaki gibidir.
     plt.axis([-1, 15, -1, 15])
     plt.show(ax)
 
-![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Fiili-vs-tahmin-ipucu-tutarlar](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Ek: çapraz doğrulama parametresi dağılımlarında ile kullanarak ek gerileme görevleri
 Bu ekte için doğrusal regresyon esnek net kullanarak MS nasıl ve rastgele orman regresyon için özel kod kullanarak parametre tarama ile MS nasıl gösteren kod içerir.
@@ -1375,7 +1375,7 @@ Bu bölümdeki kod doğrulama ile rastgele orman regresyon için özel kod kulla
 
 **ÇIKTI**
 
-RMSE = 0.906972198262
+RMSE 0.906972198262 =
 
 R sqr 0.740751197012 =
 
@@ -1411,7 +1411,7 @@ Kullanım `unpersist()` bellekte önbelleğe alınmış nesneleri silmek için.
 
 **ÇIKTI**
 
-PythonRDD[122] at RDD at PythonRDD.scala: 43
+PythonRDD [122] RDD PythonRDD.scala adresindeki adresindeki: 43
 
 ** Tüketim not defterinde kullanılacak modeli dosyalarının çıktının yolu. ** Kullanmasına ve bağımsız bir veri kümesi puan için bu dosya adları "tüketim dizüstü" kopyalayıp gerekir.
 

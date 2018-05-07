@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 87396204933ca964634656f9eb84c6d245c0c6c0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleyin
 
@@ -83,6 +83,12 @@ Chrome ve aşağıdaki siteleri doğrudan kenarından uzantısı da yükleyebili
    3. My uygulamaları Portalı'nda kullanılabilir olan bir uygulamayı arayın.
    4. Arama sonuçları listesinde uygulamayı seçin.  
        Kullandığınız son üç uygulamaları görüntülenen **kısa süre önce kullanılan** kısayol listesi.
+       
+* Şirket içi URL'leri uzaktan sırasında kullanmak için aşağıdakileri yapın:
+    1. [Uygulama proxy'si yapılandırma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) kiracınız hakkında
+    2. [Uygulamayı yayımlamak](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) ve uygulama proxy'si aracılığıyla URL'si
+    3. Uzantıyı yüklemek ve için oturum açma seçerek başlamak için oturum açın
+    4. Şirket içi URL'ye uzaktan sırasında bile gözatabilirsiniz
 
 > [!NOTE]
 > Yukarıdaki seçeneklerden yalnızca kenar, Chrome ve Firefox için kullanılabilir.

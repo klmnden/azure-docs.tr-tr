@@ -1,23 +1,23 @@
 ---
-title: "Azure sanal makineler için önceden ödeme tarafından paradan tasarruf - Azure | Microsoft Docs"
-description: "Azure ayrılmış sanal makine, sanal makineleri maliyetlerinizi kaydetmek için örnek hakkında bilgi edinin."
+title: Azure sanal makineler için önceden ödeme tarafından paradan tasarruf - Azure | Microsoft Docs
+description: Azure ayrılmış sanal makine, sanal makineleri maliyetlerinizi kaydetmek için örnek hakkında bilgi edinin.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf 
 Ayrılmış sanal makine örnekleri, yıllık veya üç yıl kullandığınız sanal makinelerde indirim almak için işlem kapasitesi için önceden ödeme olanak tanır. Sanal makine maliyetlerinizi önemli ölçüde azaltır — yüzde 72 Kullandıkça Öde fiyatları – yıllık veya üç yıllık ön taahhüt ile. Ayrılmış sanal makine örneklerinin bir fatura iskonto ve sanal makineler çalışma zamanı durumunu etkilemez.

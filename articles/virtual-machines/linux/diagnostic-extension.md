@@ -1,19 +1,19 @@
 ---
-title: "Azure işlem - Linux tanılama uzantısını | Microsoft Docs"
-description: "Azure Linux tanılama uzantısını (ölçümleri toplamak ve Linux Azure'da çalışan Vm'lerden gelen olayları günlüğe LAD) yapılandırmak nasıl."
+title: Azure işlem - Linux tanılama uzantısını | Microsoft Docs
+description: Azure Linux tanılama uzantısını (ölçümleri toplamak ve Linux Azure'da çalışan Vm'lerden gelen olayları günlüğe LAD) yapılandırmak nasıl.
 services: virtual-machines-linux
-author: jasonzio
-manager: anandram
+author: abhijeetgaiha
+manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: jasonzio
-ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: agaiha
+ms.openlocfilehash: 84be206ef02cca9cc321e9764c016ca79816edf5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçümleri ve günlükleri izlemek için Linux tanılama uzantısını kullanın
 
@@ -276,7 +276,7 @@ scheduledTransferPeriod | Hesaplanan ve Azure 8601 olduğu zaman aralığı ifad
 
 Performans sayaçları bölümünde belirtilen ölçümleri örnekleri 15 dakikada toplanan veya örnek oranı açıkça sayaç için tanımlanmış. Birden çok scheduledTransferPeriod sıklıklarını (örnekte olduğu gibi) görünüyorsa, her bir toplama bağımsız olarak hesaplanır.
 
-#### <a name="performancecounters"></a>performanceCounters
+#### <a name="performancecounters"></a>performans sayaçları
 
 ```json
 "performanceCounters": {
@@ -319,7 +319,7 @@ counterSpecifier | Azure ölçümleri ad alanı içindeki belirli ölçüm tanı
 koşul | (isteğe bağlı) Ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne belirli bir örneği seçer. Daha fazla bilgi için bkz: [ `builtin` ölçüm tanımlarını](#metrics-supported-by-builtin).
 sampleRate | Toplanan ve bu ölçüm için ham örnek hızı ayarlar 8601 aralığı BELİRTİR. Ayarlanmadı, toplama aralığı değeri olarak ayarlanmış olup olmadığını [sampleRateInSeconds](#ladcfg). En kısa desteklenen örnek hızı 15 (PT15S) saniyedir.
 Birim | Bu dizeler biri olmalıdır: "Count", "Bayt sayısı", "Saniye", "Yüzde", "CountPerSecond", "BytesPerSecond", "Milisaniyelik". Ölçü birimi tanımlar. Toplanan veri tüketicileri bu birimi eşleştirmek için toplanan veri değerleri bekler. Bu alan LAD yoksayar.
-displayName | Etiket (ilişkili yerel ayarı tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenmiş. Bu alan LAD yoksayar.
+Görünen adı | Etiket (ilişkili yerel ayarı tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenmiş. Bu alan LAD yoksayar.
 
 CounterSpecifier rasgele bir tanımlayıcıdır. Tüketiciler ölçümleri, Azure portal grafik ister ve özelliği, uyarı counterSpecifier "bir ölçüm veya bir ölçüm örneğini tanımlayan anahtar olarak" kullanın. İçin `builtin` ölçümleri, öneririz ile başlayan counterSpecifier değerleri kullandığınız `/builtin/`. Ölçüm belirli bir örneği topluyorsanız counterSpecifier değerine örneğinin tanıtıcısı ekleme öneririz. Bazı örnekler:
 
@@ -433,7 +433,7 @@ Yerleşik ölçüm ölçümleri geniş bir kullanıcı kümesi için en ilgi çe
 Sayaç | Anlamı
 ------- | -------
 PercentIdleTime | İşlemci çekirdeği boşta döngü yürütülmekte toplama penceresi sırasında zamanı yüzdesi
-PercentProcessorTime | Boş olmayan bir iş parçacığı yürütme zamanı yüzdesi
+percentProcessorTime | Boş olmayan bir iş parçacığı yürütme zamanı yüzdesi
 PercentIOWaitTime | G/ç işlemlerinin tamamlanması beklenirken zaman yüzdesi
 PercentInterruptTime | Donanım/yazılım kesmeler ve DPC'ler (ertelenmiş yordam çağrılarını) yürütme zamanı yüzdesi
 PercentUserTime | Boş olmayan süresini toplama penceresi sırasında zamanın normal öncelik en fazla kullanıcı yüzdesi
@@ -694,7 +694,7 @@ JsonBlob havuzlarını gönderilen veriler adlı depolama hesabındaki BLOB depo
 
 Ayrıca, Azure depolama alanındaki verilere erişmek için bu UI araçları kullanabilirsiniz:
 
-* Visual Studio Server Explorer.
+* Visual Studio Sunucu Gezgini.
 * [Microsoft Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/ "Azure Storage Gezgini").
 
 Bu oturumunun anlık görüntüsü, bir Microsoft Azure Storage Gezgini test VM üzerinde oluşturulan Azure Storage tablolarının ve doğru yapılandırılmış bir LAD 3.0 uzantısı kapsayıcılardan gösterir. Görüntü ile tam olarak eşleşmiyor [örnek LAD 3.0 yapılandırma](#an-example-lad-30-configuration).

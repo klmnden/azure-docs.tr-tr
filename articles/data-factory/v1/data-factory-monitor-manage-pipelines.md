@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -28,11 +28,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [izlemek ve 2 sürümündeki Data Factory işlem hatlarını yönetmek](../monitor-visually.md).
 
+Bu makalede, izleme, yönetme ve işlem hatlarınızı Azure portalı ve PowerShell kullanarak hata ayıklama açıklar.
+
 > [!IMPORTANT]
 > İzleme ve yönetim uygulama izleme ve veri işlem hatlarınızı yönetmek ve sorunları gidermek için daha iyi destek sağlar. Uygulamayı kullanma hakkında daha fazla bilgi için bkz: [izlemek ve Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetmek](data-factory-monitor-manage-app.md). 
 
-
-Bu makalede, izleme, yönetme ve işlem hatlarınızı Azure portalı ve PowerShell kullanarak hata ayıklama açıklar.
+> [!IMPORTANT]
+> Azure Data Factory sürüm 1 şimdi kullanan yeni [Azure altyapı uyarı İzleyicisi](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Eski uyarı altyapı kullanım dışıdır. Sonuç olarak, mevcut uyarılarınızı 1 veri fabrikaları artık çalışma sürümü için yapılandırılmış. Mevcut uyarılarınızı v1 veri fabrikaları için otomatik olarak geçirilmez. Bu uyarılar yeni uyarı altyapı oluşturmanız gerekebilir. Azure portal ve select oturum açma **İzleyici** yeni uyarılar ölçümleri (örneğin, başarısız çalışır veya başarılı çalıştırır) sürümünüz için 1 veri fabrikaları oluşturmak için.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Ardışık Düzen ve etkinlik durumlarını anlama
 Azure Portalı'nı kullanarak şunları yapabilirsiniz:
@@ -45,7 +47,7 @@ Bu bölümde, nasıl bir veri kümesi dilim başka bir duruma bir durumdan diğe
 
 ### <a name="navigate-to-your-data-factory"></a>Veri fabrikanızın gidin
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Tıklatın **veri fabrikaları** soldaki menüde. Göremiyorsanız, tıklatın **daha fazla hizmet >**ve ardından **veri fabrikaları** altında **INTELLİGENCE + ANALİZ** kategorisi.
+2. Tıklatın **veri fabrikaları** soldaki menüde. Göremiyorsanız, tıklatın **daha fazla hizmet >** ve ardından **veri fabrikaları** altında **INTELLİGENCE + ANALİZ** kategorisi.
 
    ![Tümüne Gözat > veri fabrikaları](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Üzerinde **veri fabrikaları** dikey penceresinde, ilgilendiğiniz data factory seçin.
@@ -136,7 +138,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 <td>Atlandı</td><td>None</td><td>Dilimin işlenmekte olan değil.</td>
 </tr>
 <tr>
-<td>Hiçbiri</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
+<td>None</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
 </tr>
 </table>
 
@@ -196,7 +198,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Ardışık Düzen hata ayıklama
 Azure Data Factory hata ayıklama ve ardışık düzen Azure portalı ve Azure PowerShell kullanarak sorun giderme için zengin özellikleri sağlar.
 
-> [! Not} izleme ve yönetim uygulaması kullanarak troubleshot hataları daha kolaydır. Uygulamayı kullanma hakkında daha fazla bilgi için bkz: [izlemek ve Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetmek](data-factory-monitor-manage-app.md) makalesi. 
+> [!NOTE] 
+> İzleme ve yönetim uygulaması kullanarak troubleshot hataları daha kolay olur. Uygulamayı kullanma hakkında daha fazla bilgi için bkz: [izlemek ve Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetmek](data-factory-monitor-manage-app.md) makalesi. 
 
 ### <a name="find-errors-in-a-pipeline"></a>Ardışık düzeninde hataları bulma
 Ardışık düzeninde etkinlik çalıştırma başarısız olursa, ardışık düzen tarafından üretilen veri kümesi bir hata nedeniyle başarısız durumda. Hata ayıklama ve aşağıdaki yöntemleri kullanarak Azure Data factory'de hatalarında sorun giderme.
@@ -296,6 +299,35 @@ Aşağıdaki örnek tablosunun tüm dilimleri durumunu 'DAWikiAggregatedData' 'A
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Azure portalında uyarılar oluştur
+
+1.  Azure portal ve select oturum açma **İzleyicisi -> Uyarılar** uyarıları sayfasını açın.
+
+    ![Uyarılar sayfasında açın.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Seçin **+ yeni uyarı kuralı** yeni bir uyarı oluşturmak için.
+
+    ![Yeni bir uyarı oluştur](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Tanımlamak **Uyarı koşulu**. (Seçtiğinizden emin olun **veri fabrikaları** içinde **kaynak türüne göre filtre** alan.) Ayrıca değerlerini belirtebilirsiniz **boyutları**.
+
+    ![Uyarı koşulu - Select hedef tanımlayın](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Uyarı koşulu tanımla - Uyarı ölçütleri ekleme](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Uyarı koşulu tanımla - uyarı mantığı ekleyin](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Tanımlamak **uyarı ayrıntıları**.
+
+    ![Uyarı ayrıntılarını tanımlayın](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Tanımlamak **eylem grubu**.
+
+    ![Eylem grubunu tanımlayın - yeni bir eylem grubu oluşturun.](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Eylem Grup - özelliklerini ayarlama tanımlayın](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Eylem Grup - oluşturulan yeni eylem Grup tanımlayın](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Veri Fabrikası farklı bir kaynak grubuna veya aboneliğe taşıma
 Kullanarak farklı bir kaynak grubunda veya farklı bir abonelik için bir veri fabrikası taşıyabilirsiniz **taşıma** veri fabrikanızın giriş sayfasında düğme çubuğu komutu.

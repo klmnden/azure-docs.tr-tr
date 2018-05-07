@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0f167fef2303ff3b552b9924db3eae9a07c1cb69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b8497f03281028c8a26cd66ac6afabf63911a65
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Yönetilen hizmet kimliği (MSI) Azure CLI kullanarak bir Azure VM yapılandırma
 
@@ -113,10 +113,11 @@ Bu bölümde, bir kullanıcı kimliği atanır atamasının olan bir VM oluştur
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Kimlik bilgileriniz kullanılarak atanmış bir kullanıcı oluşturmak [az kimliği oluşturma](/cli/azure/identity#az_identity_create).  `-g` Parametresi, burada kimlik atanmış kullanıcı oluşturuldu, kaynak grubu belirtir ve `-n` parametresi adını belirtir.
+2. Kimlik bilgileriniz kullanılarak atanmış bir kullanıcı oluşturmak [az kimliği oluşturma](/cli/azure/identity#az_identity_create).  `-g` Parametresi, burada kimlik atanmış kullanıcı oluşturuldu, kaynak grubu belirtir ve `-n` parametresi adını belirtir.    
     
     > [!IMPORTANT]
-    > Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+    > Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+
 
     ```azurecli-interactive
     az identity create -g myResourceGroup -n myUserAssignedIdentity

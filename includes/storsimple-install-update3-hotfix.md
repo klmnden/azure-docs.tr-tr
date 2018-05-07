@@ -3,7 +3,7 @@
 #### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
 Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşağıdaki adımları uygulayın.
 
-1. Internet Explorer'ı başlatın ve [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com) adresine gidin.
+1. Internet Explorer'ı başlatın ve gidin [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
 2. Microsoft Update Kataloğu’nu bu bilgisayarda ilk kez kullanıyorsanız, sorulduğunda **Yükle**’ye tıklayarak Microsoft Update Kataloğu eklentisini yükleyin.
     ![Katalog yükleyin](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 3. Microsoft Update Kataloğu arama kutusuna, örneğin, yüklemek istediğiniz düzeltme Bilgi Bankası (KB) sayısını girin **3186843**ve ardından **arama**.

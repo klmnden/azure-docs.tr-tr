@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT hub'da cihaz çiftlerini kullanın
 
@@ -182,12 +182,12 @@ Bellenim güncelleştirmeleri gibi uzun süre çalışan işlemleri eşitlemek i
     | --- | --- |
     $content-türü | uygulama/json |
     $iothub-enqueuedtime |  Zaman zaman bildirim gönderildi |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
+    $iothub-ileti-kaynak | twinChangeEvents |
+    $content-kodlama | UTF-8 |
     deviceId | Cihaz kimliği |
     hubName | IOT hub'ının adı |
     operationTimestamp | [ISO8601] işleminin zaman damgası |
-    iothub-message-schema | deviceLifecycleNotification |
+    ıothub ileti şeması | deviceLifecycleNotification |
     opType | "replaceTwin" veya "updateTwin" |
 
     İleti sistemi özelliklerini öneki ile `'$'` simgesi.
@@ -352,6 +352,7 @@ IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Şimdi, öğrenilen cihaz çiftlerini hakkında aşağıdaki IOT Hub Geliştirici Kılavuzu konuları ilgilenebilirsiniz:
 
+* [Anlama ve IOT hub'ında modülü çiftlerini kullanın][lnk-module-twins]
 * [Bir cihazda doğrudan bir yöntem çağırma][lnk-methods]
 * [Birden çok aygıta işleri zamanla][lnk-jobs]
 
@@ -385,5 +386,6 @@ Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hu
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

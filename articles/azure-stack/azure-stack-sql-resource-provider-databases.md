@@ -1,33 +1,31 @@
 ---
-title: "Veritabanlarını SQL bağdaştırıcısı RP Azure yığında tarafından sağlanan kullanma | Microsoft Docs"
-description: "Oluşturma ve SQL bağdaştırıcısı kaynak sağlayıcısı kullanılarak sağlanan SQL veritabanlarını yönetme"
+title: Veritabanlarını SQL bağdaştırıcısı RP Azure yığında tarafından sağlanan kullanma | Microsoft Docs
+description: Oluşturma ve SQL bağdaştırıcısı kaynak sağlayıcısı kullanılarak sağlanan SQL veritabanlarını yönetme
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39f6cc30191f07a7c891446a9132222a6d264dc4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.reviewer: jeffgo
+ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-sql-databases"></a>SQL veritabanı oluşturma
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
-
 Veritabanlarının Self Servis Kullanıcı Portalı deneyimi sağlanır. Bir kullanıcı veritabanı hizmeti içeren bir teklif sahip bir abonelik gerekiyor.
 
 1. Oturum [Azure yığın](azure-stack-poc.md) kullanıcı portalı (hizmet yöneticileri aynı zamanda de Yönetim Portalı'nı kullanın).
 
-2. Tıklatın **+ yeni** &gt; **veri + depolama "** &gt; **SQL Server veritabanı (Önizleme)** &gt; **Ekle**.
+2. Tıklatın **+ yeni** &gt; **veri + depolama "** &gt; **SQL Server veritabanı** &gt; **eklemek**.
 
 3. Dahil olmak üzere veritabanı ayrıntılarla formu doldurun bir **veritabanı adı**, **en büyük boyutu**ve diğer parametreler gerektiği gibi değiştirin. Veritabanınız için bir SKU çekme istenir. Barındırma sunucuları eklendikçe bir SKU atanmış oldukları. Veritabanları, SKU yapmak sunucuları bulundurma bu havuzda oluşturulur.
 
@@ -47,17 +45,15 @@ Veritabanlarının Self Servis Kullanıcı Portalı deneyimi sağlanır. Bir kul
 
     ![Bağlantı dizesi alma](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## <a name="delete-sql-databases"></a>SQL veritabanlarını Sil
-Portalı'ndan
-
->[!NOTE]
->
->SQL AlwaysOn veritabanı RP silindiğinde, birincil ve AlwaysOn Kullanılabilirlik grubu başarıyla silindi ancak Tasarım SQL AG tarafından veritabanı geri yükleme durumunda her yinelemede yerleştirir ve veritabanı tetiklenen sürece bırakma değil. Bir veritabanı bırakılmaz, ikincil çoğaltmaları gider durumu değil eşitleniyor. Yeni bir veritabanı ile aynı RP aracılığıyla AG yeniden ekleme hala çalışmaktadır. Bkz: ![ikincil bir veritabanı kaldırılıyor](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/remove-a-secondary-database-from-an-availability-group-sql-server)
-
-## <a name="manage-database-credentials"></a>Veritabanı kimlik bilgileri yönetme
-Veritabanı kimlik bilgileri (oturum açma ayarları) güncelleştirebilirsiniz.
+## <a name="delete-sql-alwayson-databases"></a>SQL AlwaysOn veritabanlarını Sil
+SQL AlwaysOn veritabanı kaynak Sağlayıcısı'ndan silindiğinde, bu birincil ve AlwaysOn Kullanılabilirlik grubu başarıyla silindi ancak veritabanı geri yükleme durumunda her yinelemede tasarım, SQL tarafından AG yerleştirir ve veritabanı tetiklenen sürece bırakma değil. Bir veritabanı bırakılmaz, ikincil çoğaltmaları gider durumu değil eşitleniyor. Yeni bir veritabanı ile aynı RP aracılığıyla AG yeniden ekleme hala çalışmaktadır.
 
 ## <a name="verify-sql-alwayson-databases"></a>SQL AlwaysOn veritabanlarını doğrulayın
 AlwaysOn veritabanlarını göstermek eşitlenmiş olarak ve tüm örneklerini ve kullanılabilirlik grubundaki kullanılabilir. Yük devretme işleminden sonra veritabanı sorunsuzca bağlanmanız gerekir. Bir veritabanı eşitliyor doğrulamak için SQL Server Management Studio'yu kullanabilirsiniz:
 
 ![AlwaysOn doğrulayın](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[SQL Server Kaynak sağlayıcısı koru](azure-stack-sql-resource-provider-maintain.md)

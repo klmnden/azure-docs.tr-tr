@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 39d7eeaf565a6c58bac162d110e6fd1cd96ad1f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9fbf4364e22c0b25d224ee0961f7e7ee13ddcef8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Kafka Hdınsight üzerinde Apache Kafka konuları çoğaltmak için MirrorMaker kullanın
 
@@ -65,11 +65,11 @@ Farklı ağlarda Kafka kümeler arasında yansıtma gerekiyorsa, aşağıdaki di
 
 Bir Azure sanal ağı oluşturmak ve Kafka el ile kümeleri olsa da, bir Azure Resource Manager şablonunu kullanmak daha kolaydır. Bir Azure sanal ağı ve iki Kafka kümeleri Azure aboneliğinize dağıtmak için aşağıdaki adımları kullanın.
 
-1. Azure'da oturum açın ve Azure portalında şablon açmak için aşağıdaki düğmesini kullanın.
+1. Aşağıdaki düğmeyi kullanarak Azure'da oturum açın ve şablonu Azure portalında açın.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager şablonu bulunur **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
+    Azure Resource Manager şablonu **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json** sayfasında bulunur.
 
     > [!WARNING]
     > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Bu şablon, üç alt düğümleri içeren bir Kafka küme oluşturur.
@@ -94,7 +94,7 @@ Bir Azure sanal ağı oluşturmak ve Kafka el ile kümeleri olsa da, bir Azure R
 
 3. Okuma **hüküm ve koşullar**ve ardından **hüküm ve koşulları yukarıda belirtildiği ediyorum**.
 
-4. Son olarak, denetleme **panoya Sabitle** ve ardından **satın alma**. Kümeleri oluşturmak için yaklaşık 20 dakika sürer.
+4. Son olarak, **Panoya sabitle**’yi işaretleyin ve **Satın Al**’ı seçin. Kümeleri oluşturmak için yaklaşık 20 dakika sürer.
 
 > [!IMPORTANT]
 > Hdınsight kümeleri adını **kaynak BASENAME** ve **taşınmaya BASENAME**, BASENAME şablona verdiğiniz adı olduğu. Kümeye bağlanırken bu adları daha sonraki adımlarda kullanın.

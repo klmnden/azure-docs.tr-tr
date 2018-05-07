@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon--güvenlik denetimi ve yetkilendirme"
-description: "FedRAMP Web uygulamaları Otomasyon - güvenlik değerlendirmesi ve yetkilendirme"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon--güvenlik denetimi ve yetkilendirme
+description: FedRAMP Web uygulamaları Otomasyon - güvenlik değerlendirmesi ve yetkilendirme
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Güvenlik değerlendirmesi ve yetkilendirme (CA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim bir güvenlik değerlendirmesi ve yetkilendirme ilkesi Taahhüt, Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve güvenlik değerlendirmesi ve yetkilendirme ilkesini ve ilişkili güvenlik değerlendirmesi ve yetkilendirme denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli güvenlik değerlendirmesi ve yetkilendirme ilkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve güvenlik değerlendirmesi ve yetkilendirme yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 2.a** kuruluşun güvenlik denetimleri ve denetim geliştirmeleri değerlendirme altında dahil olmak üzere değerlendirme kapsamını tanımlayan bir güvenlik değerlendirmesi planı; değerlendirme yordamları güvenlik denetimi belirlemek için kullanılacak geliştirir etkinliğini; değerlendirme ortamı, değerlendirme ekip ve değerlendirme rolleri ve sorumlulukları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 2.b** bilgileri sistem ve kendi ortamında işleminin kuruluşun güvenlik denetimleri değerlendirir [atama: kuruluş tarafından tanımlanan sıklığı] için denetimler uygulanır, doğru işletim hasarın belirlemek için İstenen sonuca toplantı göre kadar hedeflenen ve üretmeye güvenlik gereksinimlerini kurdu.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 2.c** kuruluş değerlendirme sonuçlarını belgeleri bir güvenlik değerlendirmesi rapor üretir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 2.d** kuruluş için güvenlik denetim değerlendirme sonuçlarını sağlar [atama: kuruluş tarafından tanımlanan kişiler veya rolleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (1)** assessors veya değerlendirme takımları kuruluş kullanır [atama: bağımsızlığı kuruluşunuz tarafından tanımlanan düzeyini] güvenlik denetimi değerlendirmeleri yürütmek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (2)** güvenlik denetimi değerlendirmeleri, bir parçası olarak kuruluş içerir [atama: kuruluş tarafından tanımlanan sıklığı], [seçim: duyurulmuş; bildirimde bulunmadan], [seçimi (bir veya daha fazla): ayrıntılı izleme; güvenlik açığı taraması; sınama amaçlı bir kullanıcı; Insider tehdit değerlendirmesi; Performans/yük test etme; [Atama: kuruluş tanımlı güvenlik değerlendirmesi başka biçimlerde]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (3)** kuruluş bir değerlendirme sonuçlarını kabul [atama: kuruluş tarafından tanımlanan bilgileri sistem] tarafından gerçekleştirilen [atama: kuruluş tarafından tanımlanan dış kuruluş] zaman değerlendirme karşılayan [atama: gereksinimleri] kuruluş tanımlı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 3.a** bağlantısı güvenlik anlaşmaları kullanımı ile diğer bilgi systems bilgi sisteminden bağlantıları kuruluş yetkilendirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 3.b** kuruluş belgeler her arası bağlantı, arabirimi özellikleri, güvenlik gereksinimleri ve bilgileri yapısı için iletilen.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 3.c** kuruluş gözden geçirir ve bağlantısı güvenlik anlaşmaları güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3 (3)** kuruluş doğrudan bağlanmasını engelliyor bir [atama: kuruluş tarafından tanımlanan Sınıflandırılmamış, Ulusal olmayan güvenlik sistemi] kullanmadan bir dış ağa [atama; sınır kuruluşunuz tarafından tanımlanan koruma Aygıt].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3 (5)** kuruluş kullanır [Seçimi: izin ver-tüm, reddetme-tarafından-özel durum; Reddet tüm, izin tarafından özel durum] izin verme ilkesi [atama: kuruluş tarafından tanımlanan bilgileri sistemleri] dış bilgi sistemlerine bağlanmak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 5.a** bir plan kuruluş geliştirir ve kilometre taşları bilgi sisteme kuruluşun belge planlanan zayıf veya güvenlik denetimleri ve çok değerlendirme sırasında not ettiğiniz eksiklikler düzeltmek için düzeltici eylemler azaltın veya bilinen güvenlik açıklarının sistemde ortadan kaldırmak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 5.b** eylem kilometre taşları ve varolan bir planı kuruluş güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı] güvenlik denetimleri değerlendirmeleri, güvenlik etkisi çözümlemesi ve sürekli izleme etkinliklerini bulgularını göre.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 6.a** kuruluş bir üst düzey executive veya Yöneticisi bilgi sistemi için yetki vererek resmi olarak atar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 6.b** yetki vererek resmi bilgileri sistem işlemleri işlemine başlamadan önce işleme için yetkilendirir kuruluş sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 6.c** kuruluşun güvenlik yetkilendirme güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 7.a** kuruluş sürekli izleme stratejisi geliştirir ve kurulmasını içerir sürekli bir izleme program uygulayan [atama: kuruluş tarafından tanımlanan ölçümleri] izlenmesi için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 7.b** kuruluş sürekli izleme stratejisi geliştirir ve kurulmasını içerir sürekli bir izleme program uygulayan [atama: kuruluş tarafından tanımlanan sıklıklarını] izleme ve [atama: Kuruluşunuz tarafından tanımlanan sıklıklarını] değerlendirmeleri gibi izleme desteklemek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 7.c** kuruluş sürekli izleme stratejisi geliştirir ve devam eden güvenlik denetimi değerlendirmeleri kuruluş sürekli izleme stratejisi uygun olarak içeren bir sürekli izleme programı uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 7.d** kuruluş sürekli izleme stratejisi geliştirir ve kuruluşunuz tarafından tanımlanan ölçümleri kuruluş uygun durumu devam eden güvenlik izleme içeren sürekli bir izleme programın uygular sürekli izleme stratejisi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -337,9 +337,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="continuous-monitoring"></a>Sürekli izleme
 
-**CA-7.e** Kuruluş, sürekli bir izleme stratejisi geliştirir ve bağıntı ve analiz değerlendirmeleri ve izleme tarafından oluşturulan güvenlikle ilgili bilgileri içeren bir sürekli izleme programı uygular.
+**CA 7.e** Kuruluş, sürekli bir izleme stratejisi geliştirir ve bağıntı ve analiz değerlendirmeleri ve izleme tarafından oluşturulan güvenlikle ilgili bilgileri içeren bir sürekli izleme programı uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 7.f** kuruluş sürekli izleme stratejisi geliştirir ve güvenlikle ilgili bilgiler için Adres Çözümleme sonuçlarını yanıt eylemleri içeren bir sürekli izleme programın uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 7.g** kuruluş sürekli izleme stratejisi geliştirir ve kuruluş bilgileri sistem ve güvenlik durumu raporlama içerir sürekli bir izleme program uygulayan [atama: kuruluş tarafından tanımlanan Personel veya rolleri] [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (1)** assessors veya değerlendirme takımları kuruluş kullanır [atama: bağımsızlığı kuruluşunuz tarafından tanımlanan düzeyini] düzenli olarak bilgi sistemindeki güvenlik denetimleri izlemek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (3)** kuruluşun güvenlik uygulamaları denetlerseniz, sürekli izleme etkinliklerini ve/veya sürekli izleme işleminde kullanılan etkinlik türlerini sıklığını değiştirilecek belirlemek üzere eğilim analizleri kullanır ampirik verilerine dayalı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-8** sızma testi kuruluş yürütür [atama: kuruluş tarafından tanımlanan sıklığı] üzerinde [atama: kuruluş tarafından tanımlanan bilgileri sistemleri veya sistem bileşenleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-8 (1)** sızma bilgileri sistem veya sistem bileşenleri test gerçekleştirmek için bir bağımsız sızma aracısı veya sızma Takım Kuruluş kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 9.a** iç bağlantıların kuruluş yetkilendirir [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri veya sınıflar bileşenlerini] bilgi sisteme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA 9.b** her iç bağlantı, arabirimi özellikleri, güvenlik gereksinimleri ve bilgileri yapısına yönelik kuruluş belgeleri iletilen.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

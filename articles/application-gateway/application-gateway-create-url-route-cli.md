@@ -1,26 +1,26 @@
 ---
-title: "URL yolu tabanlı yönlendirme kuralları ile - Azure CLI bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "URL yolu tabanlı yönlendirme kuralları Azure CLI kullanarak bir uygulama ağ geçidi ve sanal makine ölçek oluşturmayı öğrenin."
+title: URL yolu tabanlı yönlendirme kuralları ile - Azure CLI bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: URL yolu tabanlı yönlendirme kuralları Azure CLI kullanarak bir uygulama ağ geçidi ve sanal makine ölçek oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: eeba6ce5bd082cb6b9c3266fcc95deb1785e8cce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI kullanarak URL yolu tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
 Azure CLI yapılandırmak için kullanabileceğiniz [URL yolu tabanlı yönlendirme kuralları](application-gateway-url-route-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide oluşturduğunuz kullanarak arka uç havuzları bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olun yönlendirme kuralları oluşturursunuz.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ağ kurma
@@ -45,7 +45,7 @@ Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *ea
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun 
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
 Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağın *myAGSubnet* kullanarak [az ağ vnet oluşturma](/cli/azure/network/vnet#az_net). Daha sonra adlı alt ağ ekleyebilirsiniz *myBackendSubnet* kullanarak arka uç sunucuları tarafından gerekli [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -213,13 +213,13 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Uygulama ağ geçidi genel IP adresi almak için kullanabileceğiniz [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Gibi *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, veya *http://40.121.222.19:8080/video/test.htm*.
+Uygulama ağ geçidi genel IP adresi almak için kullanabileceğiniz [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Gibi *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, veya *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \

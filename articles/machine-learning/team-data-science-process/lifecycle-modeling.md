@@ -3,7 +3,7 @@ title: Takım veri bilimi işlemi yaşam döngüsü - Azure aşaması modelleme 
 description: Hedefler, görevler ve veri bilimi projelerinizi modelleme aşaması için teslim edilebilir
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 8ef76e32e0a78f4ca492e6ac6d5755fdf19e734c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 22f54e94293bae9f308b75f93e2dbec75b1f97c8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="modeling"></a>Modelleme
 

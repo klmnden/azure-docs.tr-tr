@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - olay yanıtlama"
-description: "FedRAMP Web uygulamaları Otomasyon - olay yanıtlama"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - olay yanıtlama
+description: FedRAMP Web uygulamaları Otomasyon - olay yanıtlama
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="incident-response-ir"></a>Olay yanıtlama (IR)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu bir olay yanıtlama İlkesi Kurumsal varlıklar ve uyumluluk arasında; ve ilişkili olay yanıtlama denetimleri ve olay yanıtlama ilkesi uygulaması kolaylaştırmak için yordamlar; gözden geçirir ve geçerli olay yanıtlama İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve olay yanıtı yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 2.a** kuruluş bilgileri sistem kullanıcıları atanan roller ve sorumluluklar içinde tutarlı olay yanıtlama eğitim sağlar [atama: kuruluş tanımlı süre], bir olay yanıtlama rolü üstlenme veya Sorumluluk.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 2.b** kuruluş bilgileri sistem kullanıcıları atanan roller ve sorumluluklar bilgileri sistem değişiklikleri tarafından istendiğinde ile tutarlı olay yanıtlama eğitim sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 2.c** kuruluş bilgileri sistem kullanıcıları atanan roller ve sorumluluklar ile tutarlı olay yanıtlama eğitim sağlayan [atama: kuruluş tarafından tanımlanan sıklığı] bundan sonra.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-2 (1)** kuruluş kriz durumlarda personeli tarafından etkili yanıt kolaylaştırmak eğitim olay yanıtlama benzetimli olayları birleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-2 (2)** kuruluş daha kapsamlı ve gerçekçi bir olay yanıtlama eğitim ortamı sağlamak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 3** kuruluş bilgileri sistem olay yanıtlama özellik testleri [atama: kuruluş tarafından tanımlanan sıklığı] kullanarak [atama: kuruluş tarafından tanımlanan testleri] olay yanıtlama etkinliğini belirlemek için ve sonuçları belgeler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-3 (2)** kuruluş kuruluş öğelerle ilgili planları için sorumlu test olay yanıtlama düzenler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 4.a** kuruluş işleme hazırlama, algılama ve analiz, kapsama, eradication ve kurtarma içeren yeteneği güvenlik olaylar için bir olay uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 4.b** kuruluş etkinlikleri planlama olasılığına ile olay işleme etkinlikleri düzenler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 4.c** kuruluş eğitim ve test etme, olay yanıtlama yordamlara, devam eden olay işleme etkinliklerden öğrenilen dersler içerir ve Implements elde edilen değişiklikleri buna göre.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (1)** kuruluş işlem işleme olay desteklemek için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (2)** dinamik yeniden yapılandırılması kuruluş içerir [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri] olay yanıtlama özelliğinin bir parçası olarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (3)** kuruluş tanımlayan [atama: kuruluş tanımlı sınıflar, olayların] ve [atama: yanıt, olayların sınıflar olarak gerçekleştirilecek eylemler kuruluşunuz tarafından tanımlanan] kuruluş görev devamlılığı emin olmak için ve İş işlevleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (4)** kuruluş karşılık gelen olay bilgileri ve bir kuruluş genelinde perspektif olay tanıma ve yanıt elde etmek için tek tek olay yanıtlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -242,7 +242,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (6)** olay işleme yeteneği içeriden gelen tehditleri kuruluş uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -256,7 +256,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (8)** kuruluş koordinatları ile [atama: kuruluş tarafından tanımlanan dış kuruluşlar] ilişkilendirmek ve paylaşmak için [atama: kuruluş tarafından tanımlanan olay bilgileri] arası kuruluş perspektif olay elde etmek için farkındalık ve daha etkili olay yanıtlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -270,7 +270,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 5** kuruluş izler ve bilgi sistem güvenlik olaylarına belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -284,7 +284,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-5 (1)** kuruluşun güvenlik olaylarını izleme ve toplama ve analiz olay bilgilerinin yardımcı olmak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -298,7 +298,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 6.a** kuruluşun kuruluş olay yanıtlama yetenek güvenlik olaylarına şüpheli rapor personel gerektirir [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -312,7 +312,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 6.b** kuruluş Raporları güvenlik olay bilgileri [atama: kuruluş tarafından tanımlanan yetkilileri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -326,7 +326,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-6 (1)** kuruluş raporlama güvenlik olaylarına yardımcı olmak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -340,7 +340,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-7** bir tam sayı işlenmesi için bilgi sistemin kullanıcıları ve güvenliğini raporlama için öneriler ve Yardım sunar kuruluş olay yanıtlama özelliği için olay yanıtlama destek kaynak kuruluş sağlar olaylar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -354,7 +354,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-7 (1)** kuruluş olay yanıtı ile ilgili bilgi ve Destek kullanılabilirliğini artırmak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -368,7 +368,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-7 (2) bir** kuruluşun kendi olay yanıtı yetenek ve bilgi Sistem Koruması yeteneğinin dış sağlayıcılar arasında doğrudan, ortak bir ilişki kurar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -382,7 +382,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-7 (2) .b** kuruluşun dış sağlayıcılarına kuruluş olay yanıtlama takım üyeleri tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -396,7 +396,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.a** kuruluşun kendi olay yanıtı özelliği uygulamak için bir yol haritası kuruluşla sağlar; yapısı ve kuruluşunuzun olay yanıtlama yeteneğinin açıklar bir olay yanıtlama planı geliştirir; sağlar Olay yanıtlama yetenek genel kuruluşuna nasıl uyduğunu için üst düzey bir yaklaşım; kuruluşa, görev, boyutu, yapı ve işlevleri ilişkilendiren benzersiz gereksinimlerini karşılayan; raporlanabilir olayları tanımlar; Kuruluş içinde olay yanıtlama yetenek ölçmek üzere ölçümleri sağlar; Kaynaklar ve etkili bir şekilde korumak ve bir olay yanıtlama özelliği yetişkin için gereken yönetim destek tanımlar; ve gözden ve tarafından onaylanan [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -410,7 +410,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.b** kuruluşunuzun olay yanıtlama plana kopyalarını dağıtan [atama: kuruluş tarafından tanımlanan olay yanıtlama personel (Ada göre ve/veya rol tarafından tanımlanan) ve kuruluş öğeleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -424,7 +424,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.c** kuruluş olay yanıtı planınızı gözden geçirir [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -432,13 +432,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ir-8d"></a>NIST 800-53 Control IR-8.d
+ ## <a name="nist-800-53-control-ir-8d"></a>NIST 800 53 denetim IR-8.d
 
 #### <a name="incident-response-plan"></a>Olay yanıtlama planı
 
 **IR 8.d** sistem/Kurumsal değişiklikler veya plan uygulama, yürütme veya test sırasında karşılaşılan sorunları gidermek için olay yanıtı planınızı kuruluş güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -450,9 +450,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="incident-response-plan"></a>Olay yanıtlama planı
 
-**IR-8.e** Kuruluşunuzun olay yanıtlama plan değişiklikleri iletişim kurar [atama: kuruluş tarafından tanımlanan olay yanıtlama personel (Ada göre ve/veya rol tarafından tanımlanan) ve kuruluş öğeleri].
+**IR 8.e** Kuruluşunuzun olay yanıtlama plan değişiklikleri iletişim kurar [atama: kuruluş tarafından tanımlanan olay yanıtlama personel (Ada göre ve/veya rol tarafından tanımlanan) ve kuruluş öğeleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -466,7 +466,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.f** yetkisiz olarak ifşa ve değişiklik kuruluş olay yanıtı planınızı korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -480,7 +480,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.a** içinde bilgi sistem oluşumuna ilgili belirli bilgileri belirleyerek kuruluş için bilgi sıvı sıçraması yanıt verir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -494,7 +494,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.b** uyarı tarafından kuruluş için bilgi sıvı sıçraması yanıt [atama: kuruluş tarafından tanımlanan personel ya da roller] bilgilerinin sığdırmaya iletişim Karmadaki ile ilişkili olmayan bir yöntem kullanarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -508,7 +508,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.c** contaminated bilgileri sistem veya sistem bileşeni yalıtarak kuruluş için bilgi sıvı sıçraması yanıt verir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -522,7 +522,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.d** contaminated bilgi sistemin veya bileşenin bilgilerinden eradicating tarafından kuruluş için bilgi sıvı sıçraması yanıt verir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -534,9 +534,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="information-spillage-response"></a>Bilgi Spillage yanıt
 
-**IR-9.e** Kuruluş için bilgi sıvı sıçraması diğer bilgi systems veya sonradan contaminated sistem bileşenleri belirleyerek yanıt verir.
+**IR 9.e** Kuruluş için bilgi sıvı sıçraması diğer bilgi systems veya sonradan contaminated sistem bileşenleri belirleyerek yanıt verir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -550,7 +550,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.f** diğer gerçekleştirerek kuruluş için bilgi sıvı sıçraması yanıt [atama: kuruluş tarafından tanımlanan Eylemler].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -564,7 +564,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (1)** kuruluş atar [atama: kuruluş tarafından tanımlanan personel ya da roller] bilgilere yanıt sorumlu sıvı sıçraması.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -578,7 +578,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (2)** kuruluş bilgilerini spillage yanıt eğitim sağlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -592,7 +592,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (3)** kuruluş Implements [atama: kuruluş tarafından tanımlanan yordamları] kuruluş personel bilgileri tarafından etkilenmemesini sağlamak için sıvı sıçraması contaminated sistemleri yanıt sırada atanan görevleri gerçekleştirmek devam edebilirsiniz Düzeltme eylemleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -606,7 +606,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (4)** kuruluş kullanır [atama: kuruluş tanımlanan güvenlik önlemlerinin] erişim kimlik doğrulamalarını personel bilgileri değil içinde sunulan atanmış.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

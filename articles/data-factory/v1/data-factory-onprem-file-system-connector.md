@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 51ee39608672d21b6e838ff1d617bad1089c3c38
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 960a5e7a67ffaed45515e99b6aa7e64025d3167a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri için ve bir şirket içi dosya sisteminden kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -128,7 +128,7 @@ Veri kümesi her tür için farklı typeProperties bölümüdür. Konum ve veril
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Alt klasöre belirtir. Kaçış karakteri kullanmak ' \' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
+| folderPath |Alt klasöre belirtir. Kaçış karakteri kullanmak '\' dize özel karakter. Joker karakter filtresi desteklenmiyor. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
 | fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>Zaman **fileName** bir çıkış veri kümesi için belirtilmemiş ve **preserveHierarchy** belirtilmemiş etkinlik havuzunda oluşturulmuş dosya adı şu biçimde: <br/><br/>`Data.<Guid>.txt` (Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
 | fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. <br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: "fileFilter": "* .log"<br/>Örnek 2: "fileFilter": 2014 - 1-? txt"<br/><br/>Bu fileFilter bir giriş FileShare veri kümesi için geçerli olduğunu unutmayın. |Hayır |
 | partitionedBy |PartitionedBy dinamik folderPath/için bir dosya adı time series verilerini belirtmek için kullanabilirsiniz. İçin verileri saatte parametreli folderPath örneğidir. |Hayır |

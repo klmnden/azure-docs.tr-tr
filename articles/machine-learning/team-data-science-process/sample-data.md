@@ -3,7 +3,7 @@ title: Örnek verileri Azure blob kapsayıcılar, SQL Server'ı ve tabloları Hi
 description: Çeşitli Azure enviromnents içinde depolanan verileri araştırmak nasıl.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3dede87191b2122168cc9ad2cdf0a27c5e4908b4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 73b0d3992627b7787ee46e61f62717a545c5b9e2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>Örnek verileri Azure blob kapsayıcılar, SQL Server'ı ve tabloları Hive
 Bu belge bağlantılar üç farklı Azure konumlardan birinde depolanan verileri örnek konularını makaleler için:

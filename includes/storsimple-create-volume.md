@@ -24,7 +24,7 @@
       > 
       
         ![Birim ekle](./media/storsimple-create-volume/AddVolume2-include.png)
-4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulacaktır.
+4. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulacaktır.
 
 ![Video var](./media/storsimple-create-volume/Video_icon.png) **Video var**
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure uygulama ağ geçidi - Azure portalı özel bir araştırma - oluşturma | Microsoft Docs"
-description: "Portalı kullanarak uygulama ağ geçidi için özel bir araştırma oluşturmayı öğrenin"
+title: Azure uygulama ağ geçidi - Azure portalı özel bir araştırma - oluşturma | Microsoft Docs
+description: Portalı kullanarak uygulama ağ geçidi için özel bir araştırma oluşturmayı öğrenin
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Portalı kullanarak uygulama ağ geçidi için özel bir araştırma oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Klasik PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -52,8 +52,8 @@ Araştırmalar iki adımlı bir işlem portal üzerinden yapılandırılır. İl
   |---|---|---|
   |**Ad**|customProbe|Bu değer, Portalı'nda erişilebilir araştırma için kolay bir addır.|
   |**Protokol**|HTTP veya HTTPS | Sistem durumu araştırması kullanan protokol.|
-  |**Ana bilgisayar**|yani contoso.com|Bu değer araştırması için kullanılan ana bilgisayar adıdır. Geçerli yalnızca çok siteli uygulama ağ geçidi üzerinde yapılandırılmış, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM ana bilgisayar adından farklıdır.|
-  |**Path**|/ veya başka bir yolu|Özel araştırma için tam bir url kalanı. İle başlayan geçerli bir yol '/'. Yalnızca http://contoso.com için varsayılan yolu kullanın '/' |
+  |**Ana Bilgisayar**|yani contoso.com|Bu değer araştırması için kullanılan ana bilgisayar adıdır. Geçerli yalnızca çok siteli uygulama ağ geçidi üzerinde yapılandırılmış, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM ana bilgisayar adından farklıdır.|
+  |**Path**|/ veya başka bir yolu|Özel araştırma için tam bir url kalanı. İle başlayan geçerli bir yol '/'. Varsayılan yolu http://contoso.com yalnızca '/' |
   |**Aralığı (saniye)**|30|Ne sıklıkta araştırma için sistem durumu denetlemek için çalıştırılır. Alt ayarlamak için önerilmez 30 saniyeden.|
   |**Zaman aşımı (sn)**|30|Yoklama zaman aşımına uğramadan önce beklediği süre miktarı. Zaman aşımı aralığı bir http çağrısıyla arka uç sağlık durumu sayfasında kullanılabilir olduğundan emin olmak için yapılabilmesi için yeterince yüksek olması gerekir.|
   |**Sağlıksız durum eşiği.**|3|Sağlıksız olarak kabul edilmesi için başarısız girişim sayısı. Arka uç sistem durumu denetimi başarısız olursa, sağlıksız hemen belirlenir bir eşik 0 anlamına gelir.|

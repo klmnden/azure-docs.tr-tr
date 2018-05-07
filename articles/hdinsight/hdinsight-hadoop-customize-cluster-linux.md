@@ -4,7 +4,7 @@ description: Özel bileşenler için betik eylemleri kullanarak Linux tabanlı H
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
@@ -12,24 +12,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: ff8b8ffc66ea4c90ca2f11edc36aac670f24eac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
 
-Hdınsight adlı bir yapılandırma seçeneği sağlar **betik eylemi** küme özelleştirme özel komut dosyaları çağırır. Bu komut dosyalarını ek bileşenler yükleme ve yapılandırma ayarlarını değiştirmek için kullanılır. Betik eylemleri, sırasında veya Küme oluşturulduktan sonra kullanılabilir.
+Hdınsight adlı bir yapılandırma yöntemi sağlar **betik eylemleri** küme özelleştirmek için özel komut dosyaları çağırır. Bu komut dosyalarını ek bileşenler yükleme ve yapılandırma ayarlarını değiştirmek için kullanılır. Betik eylemleri, sırasında veya Küme oluşturulduktan sonra kullanılabilir.
 
 > [!IMPORTANT]
 > Betik eylemleri zaten çalışan bir kümede kullanma olanağı yalnızca Linux tabanlı Hdınsight kümeleri için kullanılabilir.
 >
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Betik eylemleri de Azure Marketi'nde bir Hdınsight uygulaması olarak yayımlanabilir. Bu belgedeki örneklerde bazıları, PowerShell ve .NET SDK'sı betik eylemi komutları kullanarak bir Hdınsight uygulamasının nasıl yükleyebileceğinizi gösterir. Hdınsight uygulamaları hakkında daha fazla bilgi için bkz: [yayımlama Hdınsight uygulamalarını Azure Marketi'nde](hdinsight-apps-publish-applications.md).
+Betik eylemleri de Azure Marketi'nde bir Hdınsight uygulaması olarak yayımlanabilir. Hdınsight uygulamaları hakkında daha fazla bilgi için bkz: [yayımlama Hdınsight uygulamalarını Azure Marketi'nde](hdinsight-apps-publish-applications.md).
 
 ## <a name="permissions"></a>İzinler
 

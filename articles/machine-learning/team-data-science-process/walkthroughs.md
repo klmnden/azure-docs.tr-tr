@@ -1,9 +1,9 @@
 ---
-title: "İzlenecek yollar Azure üzerinde takım veri bilimi işlemi yürütülürken | Microsoft Docs"
-description: "Bulut ve şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl."
+title: İzlenecek yollar Azure üzerinde takım veri bilimi işlemi yürütülürken | Microsoft Docs
+description: Bulut ve şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 3a536c432f3a095d75beb57f8203f10afc074fdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: deguhath
+ms.openlocfilehash: 6d8b8a3f5fd2d3cb0d4fcc9e17e4ec35450c1570
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Takım veri bilimi işlemi yürütülürken izlenecek yollar
 

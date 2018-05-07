@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -34,8 +34,9 @@ Bir çözüm gösterilmektedir hangi kapsayıcılar olan çalışan, hangi kapsa
 - Service Fabric
 - Red Hat OpenShift
 
+İçinde ilgileniyorsanız, iş yüklerinin performansını izleme Kubernetes ortamlara üzerinde barındırılan AKS (Azure kapsayıcı hizmeti) dağıtılan bkz [İzleyici Azure kapsayıcı hizmeti](../monitoring/monitoring-container-health.md).  Kapsayıcı izleme çözümü, platform izlemek için destek içermez.  
 
-Aşağıdaki diyagramda çeşitli kapsayıcı konakları ve OMS aracılarla arasındaki ilişkileri gösterir.
+Aşağıdaki diyagramda, çeşitli kapsayıcı konakları ve günlük analizi ile aracılar arasındaki ilişkileri gösterir.
 
 ![Kapsayıcıları diyagramı](./media/log-analytics-containers/containers-diagram.png)
 
@@ -91,7 +92,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanter, performans
 ## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
 Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
-1. Kapsayıcı izleme çözümü, OMS çalışma alanından ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+1. Günlük analizi çalışma alanından kapsayıcı izlemesi çözümü eklemek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
 
 2. Yükleyin ve Docker bir OMS Aracısı ile kullanın. İşletim sistemi ve Docker orchestrator temel alınarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
   - Tek başına ana bilgisayarlar için:
@@ -116,15 +117,15 @@ Gözden geçirme [Docker altyapısına Windows](https://docs.microsoft.com/virtu
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Yükleme ve Linux kapsayıcı konakları yapılandırma
 
-Docker yükledikten sonra aracı kullanmak için Docker ile yapılandırmak için kapsayıcı ana bilgisayarınız için aşağıdaki ayarları kullanın. Öncelikle, OMS çalışma alanı kimliği ve Azure portalında bulabilirsiniz anahtarınızı gerekir. Çalışma alanınızda tıklatın **Hızlı Başlangıç** > **bilgisayarlar** görüntülemek için **çalışma alanı kimliği** ve **birincil anahtar**.  Her ikisini de kopyalayıp sık kullandığınız bir düzenleyiciye yapıştırın.
+Docker yükledikten sonra aracı kullanmak için Docker ile yapılandırmak için kapsayıcı ana bilgisayarınız için aşağıdaki ayarları kullanın. Öncelikle günlük analizi çalışma alanı kimliği ve Azure portalında bulabilirsiniz anahtarı gerekir. Çalışma alanınızda tıklatın **Hızlı Başlangıç** > **bilgisayarlar** görüntülemek için **çalışma alanı kimliği** ve **birincil anahtar**.  Her ikisini de kopyalayıp sık kullandığınız bir düzenleyiciye yapıştırın.
 
 **Tüm Linux kapsayıcı ana bilgisayarlar için CoreOS dışında:**
 
-- Daha fazla bilgi ve Linux için OMS Aracısı'nı yüklemek adımları için bkz: [Linux bilgisayarları Operations Management Suite (OMS) bağlantı](log-analytics-agent-linux.md).
+- Daha fazla bilgi ve Linux için OMS Aracısı'nı yüklemek adımları için bkz: [Linux bilgisayarlarınızı günlük Analizi'ne bağlamak](log-analytics-concept-hybrid.md).
 
 **CoreOS dahil olmak üzere tüm Linux kapsayıcı ana bilgisayarlar için:**
 
-İzlemek istediğiniz OMS kapsayıcı başlatın. Değiştirin ve aşağıdaki örneği kullanın:
+İzlemek istediğiniz kapsayıcı başlatın. Değiştirin ve aşağıdaki örneği kullanın:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **CoreOS dahil olmak üzere tüm Azure kamu Linux kapsayıcı ana bilgisayarlar için:**
 
-İzlemek istediğiniz OMS kapsayıcı başlatın. Değiştirin ve aşağıdaki örneği kullanın:
+İzlemek istediğiniz kapsayıcı başlatın. Değiştirin ve aşağıdaki örneği kullanın:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -144,7 +145,7 @@ Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsa
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm için OMS Aracısı'nı yapılandırma
 
-Docker Swarm, OMS Aracısı genel hizmet olarak çalıştırabilirsiniz. Bir OMS Aracısı hizmeti oluşturmak için aşağıdaki bilgileri kullanın. OMS çalışma alanı kimliği ve birincil anahtar eklemeniz gerekir.
+Docker Swarm, OMS Aracısı genel hizmet olarak çalıştırabilirsiniz. Bir OMS Aracısı hizmeti oluşturmak için aşağıdaki bilgileri kullanın. Günlük analizi çalışma alanı kimliği ve birincil anahtarı sağlamanız gerekir.
 
 - Aşağıdaki ana düğümde çalıştırın.
 
@@ -190,8 +191,8 @@ Kapsayıcı izleme verilerini toplamaya başlamak için Red Hat OpenShift için 
 
 Bu bölümde bir OpenShift arka plan programı kümesi OMS Aracısı'nı yüklemek için gerekli olan adımları kapsar.  
 
-1. OpenShift ana düğüme oturum açma ve yaml dosyasını kopyalayın [ocp omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) ana düğüme github'dan ve değerini, OMS çalışma alanı Kimliğinizi ve birincil anahtarınız ile değiştirin.
-2. OMS için proje oluşturma ve kullanıcı hesabı ayarlamak için aşağıdaki komutları çalıştırın.
+1. OpenShift ana düğüme oturum açma ve yaml dosyasını kopyalayın [ocp omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) ana düğüme github'dan ve değerini, günlük analizi çalışma alanı Kimliğinizi ve birincil anahtarınız ile değiştirin.
+2. Günlük analizi için proje oluşturma ve kullanıcı hesabı ayarlamak için aşağıdaki komutları çalıştırın.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ Bu bölümde bir OpenShift arka plan programı kümesi OMS Aracısı'nı yüklem
     No events.  
     ```
 
-OMS çalışma alanı kimliği ve birincil anahtar OMS Aracısı arka plan programı kümesi yaml dosyası kullanıldığında güvenli hale getirmek için gizli anahtarları kullanmak istiyorsanız, aşağıdaki adımları gerçekleştirin.
+Günlük analizi çalışma alanı kimliği ve birincil anahtar OMS Aracısı arka plan programı kümesi yaml dosyası kullanıldığında güvenli hale getirmek için gizli anahtarları kullanmak istiyorsanız, aşağıdaki adımları gerçekleştirin.
 
-1. OpenShift ana düğüme oturum açma ve yaml dosyasını kopyalayın [ocp ds omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) ve komut dosyası oluşturuluyor gizli [ocp secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) github'dan.  Bu komut dosyası OMS çalışma alanı kimliği ve birincil anahtarı güvenli hale getirmek gizli yaml dosyası oluşturur, bilgi secrete.  
-2. OMS için proje oluşturma ve kullanıcı hesabı ayarlamak için aşağıdaki komutları çalıştırın. Komut dosyası oluşturuluyor gizliliği için OMS çalışma alanı kimliği ister <WSID> ve birincil anahtar <KEY> ve isteğe bağlı olarak tamamlandıktan sonra ocp secret.yaml dosyası oluşturur.  
+1. OpenShift ana düğüme oturum açma ve yaml dosyasını kopyalayın [ocp ds omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) ve komut dosyası oluşturuluyor gizli [ocp secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) github'dan.  Bu komut dosyası için günlük analizi çalışma alanı kimliği ve birincil anahtar güvenliğini sağlamak gizli yaml dosyası oluşturur, bilgi secrete.  
+2. Günlük analizi için proje oluşturma ve kullanıcı hesabı ayarlamak için aşağıdaki komutları çalıştırın. Komut dosyası oluşturuluyor gizliliği için günlük analizi çalışma alanı kimliği ister <WSID> ve birincil anahtar <KEY> ve isteğe bağlı olarak tamamlandıktan sonra ocp secret.yaml dosyası oluşturur.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ Omsagent DaemonSets ile veya olmadan gizli oluşturmayı seçebilirsiniz.
     1. Komut dosyası ve gizli şablon dosyasını kopyalayın ve aynı dizinde olduklarından emin olun.
         - Komut dosyası - gizli gen.sh üretiliyor gizli
         - Gizli şablon - gizli template.yaml
-    2. Aşağıdaki örnekteki gibi komut dosyasını çalıştırın. OMS çalışma alanı kimliği ve birincil anahtar için komut dosyası ister ve bunları girdikten sonra onu çalıştırabilmeniz için komut dosyası gizli yaml dosyasını oluşturur.   
+    2. Aşağıdaki örnekteki gibi komut dosyasını çalıştırın. Günlük analizi çalışma alanı kimliği ve birincil anahtar için komut dosyası ister ve bunları girdikten sonra onu çalıştırabilmeniz için komut dosyası gizli yaml dosyasını oluşturur.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -561,7 +562,7 @@ Etiketleri eklenmiş için *PodLabel* veri türleridir kendi özel etiketler. Ta
 
 
 ## <a name="monitor-containers"></a>Kapsayıcıları izleme
-OMS Portalı'nda etkin çözüm sonra **kapsayıcıları** döşeme kapsayıcı konaklarınızın ve ana bilgisayarlarda çalışan kapsayıcıları hakkında özet bilgileri gösterir.
+Günlük analizi portalında etkin çözüm sonra **kapsayıcıları** döşeme kapsayıcı konaklarınızın ve ana bilgisayarlarda çalışan kapsayıcıları hakkında özet bilgileri gösterir.
 
 ![Kapsayıcıları döşeme](./media/log-analytics-containers/containers-title.png)
 

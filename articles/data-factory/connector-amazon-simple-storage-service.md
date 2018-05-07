@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: bb0b9e3db4637a6b872c7fed9653a16457b848db
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3747b53af0be02fb33e0c4b97ff01aaf505066d3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -93,7 +93,7 @@ Amazon S3'ten verileri kopyalamak için kümesine tür özelliği ayarlamak **Am
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **AmazonS3Object** |Evet |
-| bucketName | S3 demetini adı. |Evet |
+| bucketName | S3 demetini adı. Joker karakter filtresi desteklenmiyor. |Evet |
 | anahtar | **Adı veya joker karakter filtresini** belirtilen demetini altındaki S3 nesne anahtarının. Yalnızca "öneki" özelliği olmayan belirtildiğinde geçerlidir. <br/><br/>Joker karakter filtresi, yalnızca dosya adı bölümü ancak klasör bölümü için desteklenir. Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Örnek 2: `"key": "rootfolder/subfolder/???20180427.txt"` |Hayır |
 | önek | S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca "anahtar" özelliği belirtilmediğinde geçerlidir. |Hayır |
 | sürüm | S3 sürüm etkinleştirilirse S3 nesne sürümü. |Hayır |

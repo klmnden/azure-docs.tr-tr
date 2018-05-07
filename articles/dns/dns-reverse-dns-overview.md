@@ -1,22 +1,22 @@
 ---
-title: "Ters Azure DNS'ye genel bakış | Microsoft Docs"
-description: "Nasıl geriye doğru DNS çalışır ve Azure'da nasıl kullanılabileceğini öğrenin"
+title: Ters Azure DNS'ye genel bakış | Microsoft Docs
+description: Nasıl geriye doğru DNS çalışır ve Azure'da nasıl kullanılabileceğini öğrenin
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: kumud
+ms.openlocfilehash: 1ce14360d0f62a01172a8003e1d78a45885166f6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Geriye doğru DNS ve Azure desteği'na genel bakış
 
@@ -86,7 +86,7 @@ Geriye doğru arama PTR kaydı için IP adresi '192.0.2.129' sorgular için '129
 
 ### <a name="ipv6"></a>IPv6
 
-Bir IPv6 geriye doğru arama bölgesi adı şu biçimde olmalıdır:`<IPv6 network prefix in reverse order>.ip6.arpa`
+Bir IPv6 geriye doğru arama bölgesi adı şu biçimde olmalıdır: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
 Örneğin. Ana bilgisayar kayıtları geriye doğru arama bölgesine konakları için IP'leri ile oluşturduğunuz olduğunda 2001:db8:1000:abdc:: / 64 öneki, bölge adı oluşturulacaktır adresinin ağ öneki yalıtarak (2001:db8:abdc::). Sonraki kaldırmak için IPv6 öneki genişletin [sıfır sıkıştırma](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), IPv6 adresi öneki kısaltmak için kullandıysanız (2001:0db8:abdc:0000::). Bir süre ters ağ öneki oluşturmak için her bir onaltılık sayıyı önek bölücüyü kullanarak sırasını ters (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) ve soneki eklemek `.ip6.arpa`.
 

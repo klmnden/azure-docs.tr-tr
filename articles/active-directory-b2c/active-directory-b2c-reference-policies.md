@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Yerleşik ilkeleri
 
@@ -81,6 +81,10 @@ Bu ilke, her iki tüketici kaydolma ve oturum açma deneyimlerini tek bir yapıl
 ## <a name="create-a-password-reset-policy"></a>Parola sıfırlama ilkesi oluşturma
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
+
+## <a name="preview-policies"></a>Önizleme ilkeleri
+
+Şu yeni özellikler yayın gibi bunlardan bazıları varolan ilkeleri kullanılamayabilir.  Bu ilkeler İST girdikten sonra eski sürümleri aynı türde en son değiştirme planlıyoruz  Varolan ilkelerinizi değişmez ve bu yeni özelliklerden yararlanmak için yeni ilkeler oluşturacağınız gerekecektir.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

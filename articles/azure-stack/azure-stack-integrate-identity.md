@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure yığın datacenter tümleştirmesi - kimliği
 Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın kimlik sağlayıcıları olarak dağıtabilirsiniz. Azure yığın dağıtmadan önce seçim yapmanız gerekir. AD FS kullanarak dağıtımı da bağlantısı kesilmiş modunda Azure yığın dağıtma olarak adlandırılır.
@@ -60,6 +60,8 @@ Gereksinimleri:
 
 ## <a name="setting-up-graph-integration"></a>Grafik tümleştirme ayarlama
 
+Grafik yalnızca tek bir Active Directory ormanı ile tümleştirmeyi destekler. Birden çok ormanınız varsa, yapılandırmada belirtilen orman kullanıcılar ve gruplar getirmek için kullanılır.
+
 Otomasyon parametre için girdi olarak aşağıdaki bilgiler gereklidir:
 
 
@@ -95,12 +97,14 @@ Bu yordam için Azure yığınında ayrıcalıklı uç noktası ile iletişim ku
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   İstendiğinde, Grafik Hizmeti (örneğin, graphservice) için kullanmak istediğiniz kullanıcı hesabının kimlik bilgilerini belirtin.
+   İstendiğinde, Grafik Hizmeti (örneğin, graphservice) için kullanmak istediğiniz kullanıcı hesabının kimlik bilgilerini belirtin. Register-DirectoryService cmdlet'i için giriş, orman adı / ormandaki etki alanı yerine orman içindeki başka bir etki alanı kökü.
 
    > [!IMPORTANT]
    > Kimlik bilgileri için açılır bekleyin (Get-Credential ayrıcalıklı uç desteklenmez) ve grafik hizmet hesabı kimlik bilgilerini girin.
 
 #### <a name="graph-protocols-and-ports"></a>Grafik protokoller ve bağlantı noktaları
+
+Azure yığın grafik hizmetinde bir yazılabilir genel katalog sunucusu (GC) ve Active Directory ormanı hedefinde oturum açma istekleri işleyebilmesi için Anahtar Dağıtım Merkezi (KDC) ile iletişim kurmak için aşağıdaki protokoller ve bağlantı noktaları kullanır.
 
 Azure yığın grafik hizmetinde hedef Active Directory ile iletişim kurmak için aşağıdaki protokolleri ve bağlantı noktalarını kullanır:
 

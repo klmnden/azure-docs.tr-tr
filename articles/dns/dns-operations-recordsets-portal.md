@@ -1,11 +1,11 @@
 ---
-title: "DNS kayıt kümelerini ve Azure DNS kayıtlarını yönetme | Microsoft Docs"
-description: "Azure DNS etki alanınızı barındırmaya olduğunda DNS kayıt kümelerini ve kayıtları yönetme yeteneği sağlar."
+title: DNS kayıt kümelerini ve Azure DNS kayıtlarını yönetme | Microsoft Docs
+description: Azure DNS etki alanınızı barındırmaya olduğunda DNS kayıt kümelerini ve kayıtları yönetme yeteneği sağlar.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
+author: KumudD
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>DNS kayıtlarını yönetme ve Azure portalını kullanarak kayıt kümeleri
 
@@ -63,7 +63,7 @@ Herhangi bir kayıt kümesi en fazla 20 kayıt ekleyebilirsiniz. Kayıt kümesi 
 
 Kayıt kaydedildi sonra değerleri **DNS bölgesi** dikey yeni kayıttaki yansıtacak.
 
-## <a name="update-a-record"></a>Bir kaydı güncelleştirme
+## <a name="update-a-record"></a>Bir kaydı güncelleştirmeye
 
 Varolan bir kayıt kümesini kaydında güncelleştirdiğinizde güncelleştirebilirsiniz alanları çalıştığınız kayıt türü bağlıdır.
 

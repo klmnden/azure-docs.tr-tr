@@ -1,6 +1,6 @@
 ---
-title: "Alma ve Azure CLI 1.0 kullanarak Azure DNS'ye bir etki alanı bölge dosyasına verme | Microsoft Docs"
-description: "İçeri aktarma ve Azure CLI 1.0 kullanarak Azure DNS'ye bir DNS bölge dosyasına dışarı aktarma hakkında bilgi edinin"
+title: Alma ve Azure CLI 2.0 kullanan Azure DNS'ye bir etki alanı bölge dosyasına verme | Microsoft Docs
+description: İçeri aktarma ve Azure CLI 2.0 kullanarak Azure DNS'ye bir DNS bölge dosyasına dışarı aktarma hakkında bilgi edinin
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 04/30/2018
 ms.author: gwallace
-ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bb9b6de195eaea1f7c8591d2de47d360ccde488
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>Alma ve Azure CLI 1.0 kullanarak bir DNS bölge dosyasına verme 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Alma ve Azure CLI 2.0 kullanan bir DNS bölge dosyasına verme 
 
-Bu makalede, Azure CLI 1.0 kullanarak Azure DNS için DNS bölge dosyalarını vermek ve almak nasıl açıklanmaktadır.
+Bu makalede, Azure CLI 2.0 kullanan Azure DNS için DNS bölge dosyalarını vermek ve almak nasıl açıklanmaktadır.
 
 ## <a name="introduction-to-dns-zone-migration"></a>DNS bölge geçişe giriş
 
@@ -29,11 +29,8 @@ Bir DNS bölge dosyasına bölgedeki her etki alanı adı sistemi (DNS) kaydı a
 
 Azure DNS, içeri aktarma ve Azure komut satırı arabirimi (CLI) kullanarak bölge dosyaları dışarı aktarma destekler. Bölge dosyası alma **değil** Azure PowerShell veya Azure Portalı aracılığıyla şu anda desteklenmiyor.
 
-Azure CLI 1.0 Azure hizmetleri yönetmek için kullanılan bir platformlar arası komut satırı aracıdır. Windows, Mac ve Linux platformlarından için kullanılabilir [Azure indirmeler sayfası](https://azure.microsoft.com/downloads/). Platformlar arası desteği önemlidir içeri ve dışarı aktarma bölge dosyaları için çünkü en yaygın adı sunucu yazılımı [BAĞLAMAK](https://www.isc.org/downloads/bind/), genellikle Linux üzerinde çalışır.
+Azure CLI 2.0 Azure hizmetleri yönetmek için kullanılan bir platformlar arası komut satırı aracıdır. Windows, Mac ve Linux platformlarından için kullanılabilir [Azure indirmeler sayfası](https://azure.microsoft.com/downloads/). Platformlar arası desteği önemlidir içeri ve dışarı aktarma bölge dosyaları için çünkü en yaygın adı sunucu yazılımı [BAĞLAMAK](https://www.isc.org/downloads/bind/), genellikle Linux üzerinde çalışır.
 
-> [!NOTE]
-> Şu anda Azure CLI iki sürümü de vardır. CLI1.0 Node.js üzerinde temel alır ve "azure" ile başlayan komutlar vardır.
-> CLI2.0 Python üzerinde temel alır ve "az" ile başlayan komutlar vardır. Bölge dosyası alma her iki sürümde de destekleniyorsa CLI1.0 komutlarını kullanarak bu sayfasında açıklandığı şekilde öneririz.
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Var olan DNS bölge dosyanızı alın
 
@@ -58,11 +55,10 @@ Bir bölge dosyasını içeri bir zaten mevcut değilse yeni bir bölge, Azure D
 ### <a name="merge-behavior"></a>Davranış birleştirme
 
 * Varsayılan olarak, var olan ve yeni kayıt kümelerini birleştirilir. Birleştirilmiş bir kayıt kümesi içinde aynı kayıtlar XML'deki yinelenen.
-* Belirterek alternatif olarak, `--force` seçeneği, var olan kayıt kümeleri yeni kayıt kümeleri ile içeri aktarma işlemi değiştirir. Alınan bölge dosyasında ayarlanan karşılık gelen bir kayıt yok var olan kayıt kümeleri olması kaldırılmaz.
-* Kayıt kümeleri birleştirildiğinde, yaşam süresi (TTL) önceden var olan kayıt kümelerinin kullanılır. Zaman `--force` olan kullanıldığında, yeni kayıt kümesi TTL kullanılır.
-* Yetki (SOA) parametreleri başlangıcı (dışında `host`) içeri aktarılan bölge dosyasından mi bağımsız olarak her zaman gerçekleştirilecek `--force` kullanılır. Benzer şekilde, bölgenin tepesinde ayarlamak ad sunucusu kaydı için TTL her zaman alınan bölge dosyasından alınır.
-* İçeri aktarılan bir CNAME kaydı aynı ada sahip varolan bir CNAME kaydı sürece değiştirmez `--force` parametresi belirtilir.
-* Bir CNAME kaydı ve başka bir kayıtla aynı adlı ancak farklı türü (bakılmaksızın, varolan veya yeni) arasında bir çakışma ortaya etkinleştirildiğinde, varolan bir kaydı korunur. Bu kullanımını bağımsızdır `--force`.
+* Kayıt kümeleri birleştirildiğinde, yaşam süresi (TTL) önceden var olan kayıt kümelerinin kullanılır.
+* Yetki (SOA) parametreleri başlangıcı (dışında `host`) her zaman alınan bölge dosyasından alınır. Benzer şekilde, bölgenin tepesinde ayarlamak ad sunucusu kaydı için TTL her zaman alınan bölge dosyasından alınır.
+* İçeri aktarılan bir CNAME kaydı, aynı ada sahip varolan bir CNAME kaydı değiştirmez.  
+* Bir CNAME kaydı ve başka bir kayıtla aynı adlı ancak farklı türü (bakılmaksızın, varolan veya yeni) arasında bir çakışma ortaya etkinleştirildiğinde, varolan bir kaydı korunur. 
 
 ### <a name="additional-information-about-importing"></a>İçeri aktarma hakkında ek bilgi
 
@@ -81,57 +77,32 @@ Aşağıdaki notlar, bölge hakkında ek teknik ayrıntılar alma işlemi sunar.
 Bir DNS bölgesi almak için Azure CLI komut biçimi şöyledir:
 
 ```azurecli
-azure network dns zone import [options] <resource group> <zone name> <zone file name>
+az network dns zone import -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Değerler:
 
-* `<resource group>`kaynak grubunun Azure DNS bölgesinde adıdır.
-* `<zone name>`Bölge adıdır.
-* `<zone file name>`İçeri aktarılacak bölge dosyası yolu/adıdır.
+* `<resource group>` kaynak grubunun Azure DNS bölgesinde adıdır.
+* `<zone name>` Bölge adıdır.
+* `<zone file name>` İçeri aktarılacak bölge dosyası yolu/adıdır.
 
-Bu ada sahip bir bölge kaynak grubunda mevcut değilse sizin için oluşturulur. Bölgesi zaten varsa, içeri aktarılan kayıt kümelerini var olan kayıt kümeleri ile birleştirilir. Var olan kayıt kümeleri üzerine yazmak için kullanın `--force` seçeneği.
+Bu ada sahip bir bölge kaynak grubunda mevcut değilse sizin için oluşturulur. Bölgesi zaten varsa, içeri aktarılan kayıt kümelerini var olan kayıt kümeleri ile birleştirilir. 
 
-Bir bölge dosyası biçimi gerçekten almadan doğrulamak için kullanın `--parse-only` seçeneği.
 
 ### <a name="step-1-import-a-zone-file"></a>1. Adım Bir bölge dosyasını içeri aktarma
 
 Bölge için bir bölge dosyasına aktarmak için **contoso.com**.
 
-1. Azure CLI 1.0 kullanarak Azure aboneliğinizde oturum açın.
+1. Zaten yoksa, bir Resource Manager kaynak grubu oluşturmanız gerekir.
 
     ```azurecli
-    azure login
+    az group create --group myresourcegroup -l westeurope
     ```
 
-2. Yeni DNS bölgenizi oluşturmak istediğiniz aboneliği seçin.
+2. Bölge almak için **contoso.com** dosyasından **contoso.com.txt** kaynak grubunda yeni bir DNS bölgesi içinde **myresourcegroup**, komut çalışır `az network dns zone import` .<BR>Bu komut bölge dosyasını yükler ve onu ayrıştırır. Komutu bir dizi komut bölgesi oluşturmak için Azure DNS hizmeti yürütür ve tüm kayıt bölgeyi ayarlar. Komut konsol penceresinde herhangi bir hata veya uyarı birlikte ilerlemeyi raporlar. Kayıt kümeleri serisinde oluşturulduğundan, büyük bölge dosyasını içeri aktarmak için birkaç dakika sürebilir.
 
     ```azurecli
-    azure account set <subscription name>
-    ```
-
-3. Azure DNS bir Azure yalnızca Resource Manager hizmeti kitabıdır Azure CLI Resource Manager moduna geçirilmesi gerekiyor.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Azure DNS hizmeti kullanmadan önce Microsoft.Network kaynak sağlayıcısını kullanmak için aboneliğinizi kaydetmeniz gerekir. (Her abonelik için tek seferlik bir işlem budur.)
-
-    ```azurecli
-    azure provider register Microsoft.Network
-    ```
-
-5. Zaten yoksa, ayrıca bir Resource Manager kaynak grubu oluşturmanız gerekir.
-
-    ```azurecli
-    azure group create myresourcegroup westeurope
-    ```
-
-6. Bölge almak için **contoso.com** dosyasından **contoso.com.txt** kaynak grubunda yeni bir DNS bölgesi içinde **myresourcegroup**, komutu çalıştırmak `azure network dns zone import`.<BR>Bu komut bölge dosyasını yükler ve bu ayrıştırılamadı. Komutu bir dizi komut bölgesi oluşturmak için Azure DNS hizmeti yürütür ve tüm kayıt bölgeyi ayarlar. Komut konsol penceresinde herhangi bir hata veya uyarı birlikte ilerlemeyi raporlar. Kayıt kümeleri serisinde oluşturulduğundan, büyük bölge dosyasını içeri aktarmak için birkaç dakika sürebilir.
-
-    ```azurecli
-    azure network dns zone import myresourcegroup contoso.com contoso.com.txt
+    az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```
 
 ### <a name="step-2-verify-the-zone"></a>2. Adım Bölge doğrulayın
@@ -141,29 +112,41 @@ Dosyayı içeri aktardıktan sonra DNS bölgesi doğrulamak için aşağıdaki y
 * Aşağıdaki Azure CLI komutunu kullanarak kayıtları listeleyebilirsiniz:
 
     ```azurecli
-    azure network dns record-set list myresourcegroup contoso.com
+    az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
 * PowerShell cmdlet'ini kullanarak kayıtları listeleyebilirsiniz `Get-AzureRmDnsRecordSet`.
-* Kullanabileceğiniz `nslookup` kayıtlar için ad çözümlemesini doğrulayın. Bölge henüz temsilci değil çünkü doğru Azure DNS ad sunucuları açıkça belirtmeniz gerekir. Aşağıdaki örnek, bölgenize atanan ad sunucusu adlarını almak gösterilmiştir. BT ayrıca kullanarak "www" kayıt sorgulama gösterir `nslookup`.
+* Kullanabileceğiniz `nslookup` kayıtlar için ad çözümlemesini doğrulayın. Bölge henüz temsilci değil çünkü doğru Azure DNS ad sunucuları açıkça belirtmeniz gerekir. Aşağıdaki örnek, bölgenize atanan ad sunucusu adlarını almak gösterilmiştir. Bu da kullanarak "www" kayıt sorgulama gösterilmektedir `nslookup`.
+```
+C:\>az network dns record-set ns list -g myresourcegroup -z  --output json 
+  [
+   .......
+   "name": "@",
+    "nsRecords": [
+      {
+        "additionalProperties": {},
+        "nsdname": "ns1-03.azure-dns.com."
+      },
+      {
+        "additionalProperties": {},
+        "nsdname": "ns2-03.azure-dns.net."
+      },
+      {
+        "additionalProperties": {},
+        "nsdname": "ns3-03.azure-dns.org."
+      },
+      {
+        "additionalProperties": {},
+        "nsdname": "ns4-03.azure-dns.info."
+      }
+    ],
+    "resourceGroup": "myresourcegroup",
+    "ttl": 86400,
+    "type": "Microsoft.Network/dnszones/NS"
+  }
+]
 
-        C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
-        info:Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-        data:Id: /subscriptions/.../resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-        data:Name: @
-        data:Type: Microsoft.Network/dnszones/NS
-        data:Location: global
-        data:TTL : 3600
-        data:NS records
-        data:Name server domain name : ns1-01.azure-dns.com
-        data:Name server domain name : ns2-01.azure-dns.net
-        data:Name server domain name : ns3-01.azure-dns.org
-        data:Name server domain name : ns4-01.azure-dns.info
-        data:
-        info:network dns record-set show command OK
-
-        C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+        C:\> nslookup www.contoso.com ns1-03.azure-dns.com
 
         Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
@@ -171,6 +154,7 @@ Dosyayı içeri aktardıktan sonra DNS bölgesi doğrulamak için aşağıdaki y
         Name:www.contoso.com
         Addresses:  134.170.185.46
         134.170.188.221
+```
 
 ### <a name="step-3-update-dns-delegation"></a>3. Adım DNS temsilcisini güncelleştir
 
@@ -181,39 +165,21 @@ Bölge düzgün bir şekilde içeri olduğunu doğruladıktan sonra Azure DNS ad
 Bir DNS bölgesi almak için Azure CLI komut biçimi şöyledir:
 
 ```azurecli
-azure network dns zone export [options] <resource group> <zone name> <zone file name>
+az network dns zone export -g <resource group> -z <zone name> -f <zone file name>
 ```
 
 Değerler:
 
-* `<resource group>`kaynak grubunun Azure DNS bölgesinde adıdır.
-* `<zone name>`Bölge adıdır.
-* `<zone file name>`dışa aktarılacak bölge dosyası yolu/adıdır.
+* `<resource group>` kaynak grubunun Azure DNS bölgesinde adıdır.
+* `<zone name>` Bölge adıdır.
+* `<zone file name>` dışa aktarılacak bölge dosyası yolu/adıdır.
 
 Olarak bölge alma işleminde, ilk oturum için aboneliğinizi seçin ve Resource Manager modunu kullanmak için Azure CLI yapılandırın.
 
 ### <a name="to-export-a-zone-file"></a>Bir bölge dosyasına dışarı aktarmak için
 
-1. Azure CLI kullanarak Azure aboneliğinizde oturum açın.
+Varolan bir Azure DNS bölgesi dışarı aktarmak için **contoso.com** kaynak grubunda **myresourcegroup** dosyaya **contoso.com.txt** (geçerli), çalışma klasörü `azure network dns zone export`. Bu komutun bölge içindeki kayıt kümelerini numaralandırır ve sonuçları bir BIND uyumlu bölge dosyasına dışarı aktarmak için Azure DNS hizmeti çağırır.
 
-    ```azurecli
-    azure login
     ```
-
-2. DNS bölgenizi oluşturmak istediğiniz aboneliği seçin.
-
-    ```azurecli
-    azure account set <subscription name>
-    ```
-
-3. Azure DNS bir Azure yalnızca Resource Manager hizmetidir. Azure CLI Resource Manager moduna geçirilmesi gerekiyor.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Varolan bir Azure DNS bölgesi dışarı aktarmak için **contoso.com** kaynak grubunda **myresourcegroup** dosyaya **contoso.com.txt** (geçerli), çalışma klasörü `azure network dns zone export`. Bu komutun bölge içindeki kayıt kümelerini numaralandırır ve sonuçları bir BIND uyumlu bölge dosyasına dışarı aktarmak için Azure DNS hizmeti çağırır.
-
-    ```azurecli
-    azure network dns zone export myresourcegroup contoso.com contoso.com.txt
+    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```

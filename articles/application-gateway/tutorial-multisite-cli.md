@@ -1,9 +1,9 @@
 ---
-title: "Birden çok siteyi barındıran ile - bir uygulama ağ geçidi oluşturma Azure CLI | Microsoft Docs"
-description: "Azure CLI kullanarak birden çok site barındıran bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Birden çok siteyi barındıran ile - bir uygulama ağ geçidi oluşturma Azure CLI | Microsoft Docs
+description: Azure CLI kullanarak birden çok site barındıran bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 2e1367db9c2c1d47f34cc35fc088a9eecf00247b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Birden çok site Azure CLI kullanarak barındırma ile bir uygulama ağ geçidi oluşturma
 
 Azure CLI yapılandırmak için kullanabileceğiniz [birden çok web sitesi barındırma](application-gateway-multi-site-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makine ölçekleme kümeleri kullanarak arka uç havuzları oluşturun. Daha sonra dinleyicileri ve uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olmak için kendi etki alanlarını temel alan kurallar yapılandırın. Bu öğretici birden çok etki alanları ve kullanım örnekleri sahibi olduğunu varsayar *www.contoso.com* ve *www.fabrikam.com*.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ağ kurma
@@ -49,7 +49,7 @@ Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *ea
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun 
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
 Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağın *myAGSubnet* kullanarak [az ağ vnet oluşturma](/cli/azure/network/vnet#az_net). Daha sonra adlı alt ağ ekleyebilirsiniz *myBackendSubnet* kullanarak arka uç sunucuları tarafından gerekli [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -205,7 +205,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
@@ -226,7 +226,7 @@ Uygulama ağ geçidi yeniden başlatıldığında VIP değişebilir çünkü A k
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin, http://www.contoso.com.
+Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Gibi http://www.contoso.com.
 
 ![Uygulama ağ geçidi test contoso sitede](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

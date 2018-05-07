@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - bakım şeması"
-description: "FedRAMP Web uygulamaları Otomasyon - bakım"
+title: Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - bakım şeması
+description: FedRAMP Web uygulamaları Otomasyon - bakım
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="maintenance-ma"></a>Bakım (MA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu sistem bakım İlkesi Kurumsal varlıklar ve uyumluluk arasında; ve ilişkili sistem bakımı denetimleri ve Sistem Bakımı ilke uygulaması kolaylaştırmak için yordamlar; gözden geçirir ve geçerli sistem bakımı İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve Bakım yordamları [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.a** kuruluş zamanlar, gerçekleştirir, belgeler ve Bakım ve onarım bilgileri sistem bileşenlere üreticisi veya Satıcı belirtimleri ve/veya kuruluş gereksinimlerine göre kayıtlarını gözden geçirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.b** kuruluş onaylar ve tüm bakım etkinlikleri sitesinde gerçekleştirilen olup olmadığını izler veya uzaktan ve olup ekipman sitesinde hizmet veya başka bir konuma kaldırıldı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.c** kuruluş gerektiren [atama: kuruluş tarafından tanımlanan personel ya da roller] açıkça bilgi sistemi veya şirket dışı Bakım veya onarım kuruluş tesislerinde sistem bileşenlerini kaldırılmasını onaylayın.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.d** kuruluşun şirket dışı Bakım veya onarım kuruluş tesislerinde kaldırma önce ilişkili medya tüm bilgileri kaldırmak için donanım temizler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -99,9 +99,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="controlled-maintenance"></a>Denetimli bakım
 
-**MA-2.e** Kuruluş düzgün Bakım veya onarım eylemleri aşağıdaki denetimleri hala çalıştığını doğrulamak için tüm olası etkilenen güvenlik denetimleri denetler.
+**MA 2.e** Kuruluş düzgün Bakım veya onarım eylemleri aşağıdaki denetimleri hala çalıştığını doğrulamak için tüm olası etkilenen güvenlik denetimleri denetler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.f** kuruluş içerir [atama: Bakım ilgili bilgiler kuruluş tarafından tanımlanan] kuruluş bakım kayıtlarında.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-2 (2) bir** kuruluş zamanlama, kuralları, belge Bakım ve onarım otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-2 (2) .b** güncel, doğru kuruluş üretir ve tam tüm bakım ve onarım eylemlerin istenen kayıtları, zamanlanan, işlemde ve tamamlandı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3** kuruluş onaylar, denetimleri ve bilgi Sistem Bakımı araçları izler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (1)** yanlış ya da yetkisiz değişiklikler için bakım personeli tarafından tesisi gerçekleştirilen bakım araçlarını kuruluş inceler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (2)** medya bilgileri sistemde kullanılmadan önce kuruluş medya tanılama içeren ve test programlar için kötü amaçlı kod denetler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (3)** kuruluş hiçbir donanım üzerinde bulunan kuruluş bilgilerini; temizleme veya yok etme olduğunu doğrulayarak kuruluş bilgilerini içeren bakım ekipman yetkisiz kaldırılmasını engeller ekipman; tesis içinde donanım korur; veya bir muafiyet alma [atama: kuruluş tarafından tanımlanan personel ya da roller] açıkça tesis gelen ekipmanının kaldırma yetkisi verme.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.a** kuruluş onaylar ve yerel olmayan Bakım ve tanılama etkinliklerini izler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.b** kuruluş yerel olmayan bakım kullanılmasına izin verir ve tanılama araçları yalnızca olarak kuruluş ilkesi ile tutarlı ve bilgi sistemi güvenlik planı belgelenen.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.c** kuruluş güçlü Doğrulayıcı olmayan Bakım ve tanılama oturumları kurulmasını içinde kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.d** kuruluş yerel olmayan Bakım ve tanılama etkinliklerin kayıtları korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -267,9 +267,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="nonlocal-maintenance"></a>Yerel olmayan bakım
 
-**MA-4.e** Yerel olmayan bakım tamamlandığında, kuruluşun oturum ve ağ bağlantılarını sonlandırır.
+**MA 4.e** Yerel olmayan bakım tamamlandığında, kuruluşun oturum ve ağ bağlantılarını sonlandırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (2)** bilgi sistemi, ilkeleri ve yordamlar oluşturulması ve yerel olmayan Bakım ve tanılama bağlantıları kullanımı için güvenlik planlama kuruluş belgelerde.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (3)** yerel olmayan Bakım ve tanılama Hizmetleri karşılaştırılabilir verilen; sistemde uygulanan özelliği için bir güvenlik özelliği uygulayan veya kaldıran bir bilgi sisteminden gerçekleştirilmesi kuruluşun gerektirir yerel olmayan Bakım veya tanı Hizmetleri önce bilgi sisteminden verilecek bileşen bileşeni (açısından kuruluş bilgilerini) kuruluş tesis ve hizmet sonra kaldırılmadan önce temizler gerçekleştirilen, inceler ve bilgi sistemi bileşenine yeniden bağlanmadan önce bileşen (açısından, kötü amaçlı yazılım) temizler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (6)** bilgileri sistem bütünlüğü ve gizliliği yerel olmayan Bakım ve tanılama iletişimleri korumak için şifreleme mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.a** kuruluş bakım personel yetkilendirme için bir işlem oluşturur ve yetkili bakım kuruluşlar veya personel listesini tutar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.b** escorted personel bilgi sistemde bakım gerçekleştirme erişim kimlik doğrulamalarını gerekli sahip kuruluş sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.c** gerekli erişim kimlik doğrulamalarını ve gerekli erişim yetkilerini sahip olmayan personeli bakım etkinliklerini denetlemek için teknik yetki ile kuruluş personel kuruluş belirler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-5 (1) bir** kuruluş eksikliği uygun güvenlik düzeylerinin veya gerekli olan aşağıdaki gereksinimleri bakım personeli içeren ABD kullanıcılarının olmayan bakım personelinin kullanmak için yordamlar uygular erişim kimlik doğrulamalarını, düzeylerinin veya onayları escorted ve Bakım ve tanılama bilgileri sistem etkinliklerini performansını sırasında tam olarak temizlenir, onaylanan kuruluş personeli tarafından denetlenen resmi erişimine sahip uygun erişim kimlik doğrulamalarını ve bu teknik olarak tam; başlatma Bakım veya tanılama etkinlikleri personeli tarafından önce kimin erişim kimlik doğrulamalarını, düzeylerinin veya resmi erişim onaylar, depolama bileşenleri bilgi sistemi içinde ayıklanır tüm volatile bilgileri ve tüm gerekli sahip değil kalıcı depolama medyası kaldırıldı veya fiziksel olarak sistemden bağlantısı kesilen ve güvenli.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-5 (1) .b** kuruluş geliştirir ve Implements alternatif güvenlik önlemleri bilgileri sistem bileşeni ayıklanır, kaldırılamıyor veya sistemden bağlantısı kesildi durumunda.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-6** kuruluş bakım için destek ve/veya yedek bölümleri edinir [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri] içinde [atama: kuruluş tanımlı süre] hata.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|

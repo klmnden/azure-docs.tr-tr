@@ -1,25 +1,25 @@
 ---
-title: "Posta dağıtım yapılandırmaları için Azure yığın Geliştirme Seti'nı (ASDK) | Microsoft Docs"
-description: "Azure yığın Geliştirme Seti (ASDK) yükledikten sonra yapmak için önerilen yapılandırma değişiklikleri açıklar."
+title: Posta dağıtım yapılandırmaları için Azure yığın Geliştirme Seti'nı (ASDK) | Microsoft Docs
+description: Azure yığın Geliştirme Seti (ASDK) yükledikten sonra yapmak için önerilen yapılandırma değişiklikleri açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 Sonra [ASDK yükleme](asdk-install.md), birkaç önerilen yükleme sonrası yapılandırma değişiklikleri yapılan vardır. 
@@ -37,7 +37,10 @@ Set-PSRepository `
 
  Azure yığın uyumlu AzureRM modülleri API sürümü profilleri yüklenir. Azure yığın AzureRM.Bootstrapper modülü yükleyerek kullanılabilir 2017-03-09-profili API sürümü profili gerektirir. 
  
- Azure yığın PowerShell ile veya ASDK ana bilgisayara internet bağlantısı olmadan yükleyebilirsiniz:
+ En son Azure yığın PowerShell modülü ile veya ASDK ana bilgisayara internet bağlantısı olmadan yükleyebilirsiniz:
+
+> [!IMPORTANT]
+> Gerekli sürümü yüklemeden önce emin olun, [tüm mevcut Azure PowerShell modülleri kaldırmak](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
 
 - **Internet bağlantısı olan** ASDK ana bilgisayardan. Bu modüller, Geliştirme Seti yüklemesine yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
@@ -127,7 +130,7 @@ ASDK dağıtımınız başarılı olduğundan emin olmak için aşağıdaki adı
 
 Sınamaların tamamlanması birkaç dakika sürebilir. Yükleme başarılı olduysa, çıktı şöyle görünür:
 
-![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
+![Test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 Hatası varsa, Yardım almak için sorun giderme adımlarını izleyin.
 

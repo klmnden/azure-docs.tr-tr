@@ -1,39 +1,35 @@
 ---
-title: "SQL barındırma sunucuları Azure yığında | Microsoft Docs"
-description: "SQL bağdaştırıcısı kaynak Sağlayıcısı sağlama SQL örnekleri ekleme"
+title: SQL barındırma sunucuları Azure yığında | Microsoft Docs
+description: SQL bağdaştırıcısı kaynak Sağlayıcısı sağlama SQL örnekleri ekleme
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>SQL bağdaştırıcısı tarafından kullanım için barındırma sunucuları ekleme
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 İçinde sanal makineleri üzerinde SQL örnekleri kullanabilirsiniz, [Azure yığın](azure-stack-poc.md), veya kaynak sağlayıcısı sağlanan Azure yığın ortamınızı dışında bir örneği için bağlanabilirsiniz. Genel gereksinimler vardır:
 
 * SQL örneği RP ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Uygulama Hizmetleri dahil olmak üzere diğer herhangi bir tüketici tarafından kullanılan bir SQL örneğini kullanamazsınız.
-* RP bağdaştırıcısı etki alanına katılmamışsa ve yalnızca SQL kimlik doğrulaması kullanarak bağlanabilir.
-* RP tarafından kullanım için uygun ayrıcalıklara sahip bir hesap yapılandırmanız gerekir.
-* Bu ağ üzerindeki bir SQL örneğine bağlanma gerekli olacak şekilde RP ve kullanıcıların Web uygulamaları gibi kullanıcı ağ kullanın. Bu gereksinim genellikle IP SQL örnekleri için ortak bir ağda olması gerektiği anlamına gelir.
-* SQL örnekleri ve konaklarının Yönetimi kadar; RP düzeltme eki uygulama, Yedekleme gerçekleştirmek yok, döndürme, vb. kimlik bilgisi.
+* SQL kaynak sağlayıcısı VM etki alanına katılmamışsa ve yalnızca SQL kimlik doğrulaması kullanarak bağlanabilir.
+* Kaynak sağlayıcısı tarafından kullanım için uygun ayrıcalıklara sahip bir hesap yapılandırmanız gerekir.
+* Bu ağ üzerindeki bir SQL örneğine bağlanma gerekli olacak şekilde kaynak sağlayıcısı ve kullanıcılar, Web uygulamaları gibi kullanıcı ağ kullanın. Bu gereksinim genellikle IP SQL örnekleri için ortak bir ağda olması gerektiği anlamına gelir.
+* SQL örnekleri ve konaklarının Yönetimi kadar; Kaynak sağlayıcısı düzeltme eki uygulama, Yedekleme gerçekleştirmek yok, döndürme, vb. kimlik bilgisi.
 * SKU'ları, her zaman açık, vb. gibi performans, SQL yeteneklerini farklı sınıflar oluşturmak için kullanılabilir.
 
-
-Bir dizi SQL Iaas sanal makine görüntülerini Market yönetim özelliği kullanılarak kullanılabilir. Market öğesi kullanarak bir VM'i dağıtmadan önce her zaman SQL Iaas uzantısı'nın en son sürümü karşıdan emin olun. SQL görüntüleri mevcut olan SQL VM'ler ile aynıdır. SQL Iaas uzantısı bu görüntüleri kullanılarak oluşturulan ve portal geliştirmeleri karşılık gelen VM'ler için otomatik düzeltme eki uygulama ve yedekleme özellikleri gibi özellikler sağlar.
+Bir dizi SQL Iaas sanal makine görüntülerini Market yönetim özelliği kullanılarak kullanılabilir. Her zaman en son sürümünü indirme emin **SQL Iaas uzantısı** Market öğesi kullanarak bir VM'i dağıtmadan önce. SQL görüntüleri mevcut olan SQL VM'ler ile aynıdır. SQL Iaas uzantısı bu görüntüleri kullanılarak oluşturulan ve portal geliştirmeleri karşılık gelen VM'ler için otomatik düzeltme eki uygulama ve yedekleme özellikleri gibi özellikler sağlar.
 
 Şablonlarda dahil olmak üzere SQL VM dağıtma için diğer seçenekleri vardır [Azure yığın hızlı başlama Galerisi](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -84,7 +80,10 @@ Barındırma zaten sağlandı sunucusu tek başına eklemek için aşağıdaki a
 
   Böylece kullanıcılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz SKU adı özelliklerini yansıtmalıdır. Bir SKU tüm barındırma sunucuları aynı olanaklara sahip olmalıdır.
 
-    Örnek:
+> [!IMPORTANT]
+> Özel karakterler, boşluklar ve dönemleri dahil olmak üzere desteklenmiyor **ailesi** veya **katmanı** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda adları.
+
+Örnek:
 
 ![SKU'lar](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -140,27 +139,6 @@ SQL Always On barındırma sunucuları eklemek için aşağıdaki adımları izl
 Planları ve SQL veritabanları kullanıcılar için kullanılabilir hale getirmek için teklifleri oluşturun. Microsoft.SqlAdapter hizmet planına ekleme ve var olan bir kota ekleyin veya yeni bir tane oluşturun. Bir kota oluşturursanız, izin vermek için kapasitesini belirtin.
 
 ![Planları ve veritabanlarını içerecek şekilde teklifleri oluştur](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>SQL bağdaştırıcısının RP bakım
-
-Bakım SQL örneği burada parola döndürme bilgileri dışında kapsamında değildir. Düzeltme eki uygulama ve yedekleme/kurtarma SQL bağdaştırıcısı ile kullanılan veritabanı sunucularının sorumlu.
-
-### <a name="patching-and-updating"></a>Düzeltme eki uygulama ve güncelleştirme
- Bir eklenti bileşeni olduğu gibi SQL bağdaştırıcısı Azure yığın bir parçası olarak bakım değil. Microsoft Güncelleştirmeleri gerektiği gibi SQL bağdaştırıcıya sağlıyor olabilir. Üzerinde SQL bağdaştırıcısı örneği bir _kullanıcı_ varsayılan sağlayıcı abonelik altında sanal makine. Bu nedenle, Windows düzeltme ekleri, virüsten koruma imzaları vb. sağlamak gereklidir. Windows güncelleştirme, düzeltme ve güncelleştirme döngüsünün parçası Windows VM güncelleştirmeleri uygulamak için kullanılabilir olarak sağlanan paketleri. Güncelleştirilmiş bir bağdaştırıcı yayımlandığında, bir komut dosyası güncelleştirmeyi uygulamak için sağlanır. Bu komut dosyasını yeni bir RP VM oluşturur ve zaten herhangi bir durum geçirme.
-
- ### <a name="backuprestoredisaster-recovery"></a>Yedekleme/geri yükleme/olağanüstü durum kurtarma
- Bir eklenti bileşeni olduğu gibi SQL bağdaştırıcısı Azure yığın BC-DR işleminin bir parçası yedeklenmez. Komut dosyaları kolaylaştırmak için sağlanır:
-- (Bir Azure yığın depolama hesabında depolanır) gerekli durum bilgisinin yedekleme
-- Tam yığını kurtarma gerekli hale gelmesi durumunda RP geri yükleniyor.
-Veritabanı sunucuları kurtarılması gereken ilk (gerekiyorsa), RP geri yüklenmeden önce.
-
-### <a name="updating-sql-credentials"></a>SQL kimlik bilgileri güncelleştiriliyor
-
-Oluşturma ve SQL Server sistem yönetici hesaplarında korumaya yönelik sorumluluğu size aittir. RP veritabanlarını kullanıcılar adına yönetmek için bu ayrıcalıklarına sahip bir hesap gerekir - bu veritabanları veri erişimi gerekmez. SQL Server sa parolalarını güncellemeniz gerekiyorsa, RP tarafından kullanılan depolanan parolayı değiştirmek için RP'ın yönetici arabirimi güncelleştirme özelliğini kullanabilirsiniz. Bu parolalar bir anahtar kasası, Azure yığın örneğinde depolanır.
-
-Ayarları değiştirmek için tıklatın **Gözat** &gt; **yönetim KAYNAKLARININ** &gt; **SQL barındırma sunucuları** &gt; **SQL oturum açma bilgileri** ve bir oturum açma adı seçin. Değişiklik SQL örneğinde önce yapılmalıdır (ve gerekirse, tüm yinelemeleri). İçinde **ayarları** paneli, tıklayın **parola**.
-
-![Yönetici parolasını güncelleştirin](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

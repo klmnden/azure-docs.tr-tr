@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a873aa9835ffab8b0d195d9fc9588167ea134128
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -78,7 +78,7 @@ Her birini ayrıntılı içine şimdi edinebilirsiniz.
 |Saldırılara karşı yanıt|Olası bir saldırı bildirmek için Azure desteğine temas sonra 5-adım olay yanıtlama süreci başlayacağı zamana devre dışı. Mümkün olan en kısa sürede normal hizmet güvenliği ve işlemleri bir sorun algıladı ve bir araştırma başlatıldıktan sonra geri yüklemek için 5-adım işlemi belirtilir.<br><br>Daha fazla bilgi edinin [bulutta Microsoft Azure Security Response](https://aka.ms/securityresponsepaper).|
 |Coğrafi yalıtma|Veri Yönetimi ve uyumluluk sovereign bölgeler (örneğin, Almanya, Çin, BİZE kamu) için Azure Cosmos DB sağlar.|
 |Korumalı özellikleri|Veriler Azure Cosmos veritabanı Azure'nın korumalı veri merkezlerinde SSD depolanır.<br><br>Daha fazla bilgi edinin [Microsoft küresel veri merkezleri](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS şifrelemesi|Tüm istemci hizmeti Azure Cosmos DB etkileşimler SSL/TLS 1.2 zorlanan ' dir. Ayrıca, tüm içi veri merkezi ve çapraz veri merkezine çoğaltma SSL/TLS 1.2 zorlanan vardır.|
+|HTTPS/SSL/TLS şifrelemesi|Tüm istemci hizmeti Azure Cosmos DB etkileşimler SSL/TLS 1.2 özellikli ' dir. Ayrıca, tüm içi veri merkezi ve çapraz veri merkezine çoğaltma SSL/TLS 1.2 zorlanan vardır.|
 |Bekleme sırasında şifreleme|Bekleyen Azure Cosmos Veritabanına depolanan tüm veriler şifrelenir. Daha fazla bilgi edinin [bekleyen Azure Cosmos DB şifreleme](.\database-encryption-at-rest.md)|
 |Düzeltme eki sunucuları|Yönetilen bir veritabanı olarak Azure Cosmos DB sizin için otomatik olarak yapılır, yönetmek ve sunucular, düzeltme eki için ihtiyacını ortadan kaldırır.|
 |Güçlü parolalar ile yönetici hesapları|Bu gereksinim anlatılması biz bile gerekir, ancak bazı bizim rakiplere, bir yönetici hesabı parolası olmayan Azure Cosmos DB'de sahip mümkün değildir düşünüyorsanız zordur.<br><br> SSL ve HMAC gizli tabanlı kimlik doğrulaması aracılığıyla güvenlik varsayılan olarak mı baked.|

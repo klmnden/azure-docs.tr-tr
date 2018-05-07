@@ -1,27 +1,27 @@
 ---
-title: "Fatura ve günlük kullanım verileri faturalama Azure karşıdan | Microsoft Docs"
-description: "İndirme veya, Azure fatura faturayı ve günlük kullanım verilerini görüntülemek açıklar."
-keywords: "Fatura Fatura, fatura indirme, azure fatura, azure kullanımı"
-services: 
-documentationcenter: 
+title: Fatura ve günlük kullanım verileri faturalama Azure karşıdan | Microsoft Docs
+description: İndirme veya, Azure fatura faturayı ve günlük kullanım verilerini görüntülemek açıklar.
+keywords: Fatura Fatura, fatura indirme, azure fatura, azure kullanımı
+services: ''
+documentationcenter: ''
 author: genlin
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 6fa9f9ae4ef2bd39f3c6d3ec7c6d757aa50b2fd1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura faturayı ve günlük kullanım verilerini görüntüleme
 Faturanız dan indirebilirsiniz [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) veya e-posta ile gönderilen sahip. Günlük kullanımı indirmek için Git [Azure hesap Merkezi](https://account.azure.com/Subscriptions). Yalnızca belirli rolleri fatura fatura ve kullanım bilgilerini, Hesap Yöneticisi gibi alma iznine sahip. Fatura bilgilere erişim sağlama hakkında daha fazla bilgi için bkz: [rollerini kullanarak faturalama Azure erişimi yönetme](billing-manage-access.md).
@@ -90,7 +90,7 @@ Yalnızca Hesap Yöneticisi Azure hesap merkezi erişebilir. Bir sahip gibi diğ
 
 Günlük kullanımı hakkında daha fazla bilgi için bkz: [faturanızı anlamak için Microsoft Azure](billing-understand-your-bill.md). Maliyetleri yönetme hakkında Yardım için bkz: [Azure faturalama ve maliyet yönetimi ile beklenmeyen maliyetleri önlemek](billing-getting-started.md).
 
-## <a name="noinvoice"></a>Son fatura dönemine ait bir fatura neden göremiyorum?
+## <a name="noinvoice"></a> Son fatura dönemine ait bir fatura neden göremiyorum?
 
 Fatura görmüyorum çeşitli nedenleri olabilir:
 

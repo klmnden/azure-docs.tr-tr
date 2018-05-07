@@ -3,8 +3,8 @@ title: Azure uygulama ağ geçidi iç yük dengeleyici - PowerShell kullanarak |
 description: Bu sayfa, Azure Resource Manager için iç yük dengeleyiciye (ILB) sahip bir Azure uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme yönergelerini sağlar
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: davidmu
-ms.openlocfilehash: dd6455622a7fecd99c23aef1b181035ffe6061dd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.author: victorh
+ms.openlocfilehash: a558a5f4f1e19be7b15721c8f99dc5a2d7b396bc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Azure Resource Manager kullanarak iç yük dengeleyiciye (ILB) sahip bir uygulama ağ geçidi oluşturma
 

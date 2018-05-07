@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - medya koruma şeması"
-description: "FedRAMP Web uygulamaları Otomasyon - medya koruma"
+title: Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - medya koruma şeması
+description: FedRAMP Web uygulamaları Otomasyon - medya koruma
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="media-protection-mp"></a>Medya koruma (MP)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu bir medya koruma İlkesi Kurumsal varlıklar ve uyumluluk arasında; ve media koruma ilkesini ve ilişkili medya koruma denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli medya koruma İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve medya koruma yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -41,11 +41,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-mp-2"></a>NIST 800 53 denetim MP-2
 
-#### <a name="media-access"></a>Media Access
+#### <a name="media-access"></a>Ortam erişim
 
 **MP-2** kuruluş erişimi kısıtlayan [atama: dijital ve/veya sayısal olmayan medya türleri kuruluşunuz tarafından tanımlanan] için [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -55,11 +55,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-mp-3a"></a>NIST 800 53 denetim MP-3.a
 
-#### <a name="media-marking"></a>Media Marking
+#### <a name="media-marking"></a>Medya işaretleme
 
 **MP 3.a** kuruluş uyarılar ve bilgiler ilgili güvenlik işaretler (varsa) işleme dağıtım kısıtlamaları belirten bilgi sistem ortamı işaretler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -69,11 +69,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-mp-3b"></a>NIST 800 53 denetim MP-3.b
 
-#### <a name="media-marking"></a>Media Marking
+#### <a name="media-marking"></a>Medya işaretleme
 
 **MP 3.b** kuruluş zorunluluğundan [atama: kuruluşunuz tarafından tanımlanan bilgileri sistem medya türlerini] içinde medya kaldığı sürece gelen işaretleme [atama: kuruluş tarafından tanımlanan denetlenen alanları].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 4.a** kuruluş fiziksel olarak denetler ve güvenli bir şekilde depolar [atama: dijital ve/veya sayısal olmayan medya türleri kuruluşunuz tarafından tanımlanan] içinde [atama: kuruluş tarafından tanımlanan denetlenen alanları].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 4.b** ortamı yok veya ayıklanmış kullanarak onaylanmış ekipman, teknikleri ve yordamları kadar bilgi sistem ortam kuruluş korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 5.a** kuruluş korur ve denetimleri [atama: kuruluş tarafından tanımlanan bilgileri sistem medya türlerini] kullanarak denetimli alanları dışında aktarım sırasında [atama: kuruluş tanımlanan güvenlik önlemlerinin].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 5.b** denetimli alanları dışında aktarım sırasında bilgi sistem ortam sorumluluk kuruluş korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 5.c** kuruluş bilgileri sistem Medya Aktarım ile ilişkili etkinlikler belgeleri.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 5.d** yetkili personel bilgileri sistem Medya Aktarım ile ilişkili etkinlikler kuruluş kısıtlar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5 (4)** bilgi sistemi denetimli alanları dışında aktarım sırasında dijital medyada depolanan bilgilerin bütünlüğünü ve gizliliğini korumak için şifreleme mekanizmaları uygular.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 6.a** kuruluş temizler [atama: kuruluş tarafından tanımlanan bilgileri sistem ortam] kuruluş denetimi dışında elden önce yayın veya yayın yeniden kullanmak için [atama: kuruluş tarafından tanımlanan temizleme teknikleri ve yordamları] geçerli federal ve kuruluş standartları ve ilkeleri uygun olarak.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 6.b** kuruluş gücü ve bütünlüğü güvenlik kategorisi veya bilgilerin sınıflandırılması orantılı temizleme mekanizmalarını kullanır.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (1)** kuruluş inceler, onaylar, izler, belgeler ve medya temizleme ve elden Eylemler doğrular.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (2)** kuruluş testleri temizleme ekipman ve yordamlar [atama: kuruluş tarafından tanımlanan sıklığı] hedeflenen temizleme elde olduğunu doğrulamak için.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (3)** kuruluş aşağıdaki durumlarda bilgi sistemi cihazlara bağlanma önce taşınabilir depolama aygıtlarını dönüşlü temizleme teknikleri uygulandığı: [atama: kuruluş tarafından tanımlanan koşullar] taşınabilir depolama aygıtlarını temizleme gerektirme.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-7** kuruluş [seçim: kısıtlar; yasaklar] kullanımını [atama: kuruluş tarafından tanımlanan bilgileri sistem medya türlerini] üzerinde [atama: kuruluş tarafından tanımlanan bilgileri sistemleri veya sistem bileşenleri] kullanarak [atama: Kuruluşunuz tarafından tanımlanan güvenlik önlemleri].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-7 (1)** cihazlara tanımlanabilen sahip olduğunda kuruluş taşınabilir depolama aygıtlarının kullanımını kuruluş bilgilerini sistemlerinde yasaklar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|

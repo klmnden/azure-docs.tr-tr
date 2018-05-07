@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -82,6 +82,7 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 ## <a name="linux-distributions"></a>Linux dağıtımları
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
+| ![Linux işletim sistemi temizleyin](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux işletim sistemi temizleyin](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Linux dağıtım Intel mimarisi için en iyi hale getirilmiş bir başvuru. | Linux proje temizleyin |
 | ![CoreOS tarafından kapsayıcı Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS tarafından kapsayıcı Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Kapsayıcı Linux modern ve en az Linux dağıtım kapsayıcıları çalıştırmak, kümelerin yönetimi ve sorunsuz bir şekilde sunucularınızı güncelleştirmek için kolay bir yol sağlayarak - ambar ölçekli etkinleştirmek tüm bileşenleri işlem. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu, dünyanın en popüler Linux bulut ortamları için sunucusudur. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |

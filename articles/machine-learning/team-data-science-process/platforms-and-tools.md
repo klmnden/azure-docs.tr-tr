@@ -2,7 +2,7 @@
 title: Takım projeleri - Azure platformlar ve veri bilimi için araçları | Microsoft Docs
 description: Maddeler halinde listelemektedir ve takım veri bilimi işlemi Standartlaştırma işletmelere kullanılabilir verileri ve çözümlemeler kaynaklar açıklanır.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platformlar ve veri bilimi takım projeleri için Araçlar
 
@@ -39,7 +39,7 @@ Bu belgede, biz kısaca kaynakları tanımlayan ve öğreticiler ve TDSP takıml
 
 Veri bilimi sanal makine hem Windows hem de Linux Microsoft tarafından sunulan veri bilimi modelleme ve geliştirme etkinlikleri için popüler araçları içerir. Araçları gibi içerir:
 
-- Microsoft R Server Developer Edition 
+- Microsoft R Server Geliştirici sürümü 
 - Anaconda Python dağıtımı
 - Python ve R Jupyter Not Defterleri 
 - Python ve Windows'da R araçları ile Visual Studio Community Edition / Tutulma Linux'ta

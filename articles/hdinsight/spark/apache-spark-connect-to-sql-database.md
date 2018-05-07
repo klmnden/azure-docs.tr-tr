@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Hdınsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 
@@ -87,7 +87,7 @@ Bu bölümde, bir tablodan veri okuma (örneğin, **SalesLT.Address**) Adventure
 
     Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.  
 
-2. Aşağıdaki kod parçacığında API'ler oluşturur Spark dataframe geçirebilirsiniz bir JDBC URL derlemeler bir `Properties` parametreleri tutacak nesne. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
+2. API'ler oluşturur Spark dataframe geçirebilirsiniz bir JDBC URL oluşturmak için aşağıdaki kod parçacığında kullanın bir `Properties` parametreleri tutacak nesne. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
 
        import java.util.Properties
 
@@ -96,7 +96,7 @@ Bu bölümde, bir tablodan veri okuma (örneğin, **SalesLT.Address**) Adventure
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. Aşağıdaki kod parçacığını bir dataframe verileriyle, Azure SQL veritabanındaki bir tablo oluşturur. Kullandığımız bu parçacığında, bir **SalesLT.Address** olarak kullanılabilir tablo parçası **AdventureWorksLT** veritabanı. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
+3. Aşağıdaki kod parçacığında, Azure SQL veritabanındaki bir tablo verilerle bir dataframe oluşturmak için kullanın. Kullandığımız bu parçacığında, bir **SalesLT.Address** olarak kullanılabilir tablo parçası **AdventureWorksLT** veritabanı. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +141,7 @@ Bu bölümde, örnek bir CSV dosyası kullanılabilir küme üzerinde Azure SQL 
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. Aşağıdaki kod parçacığında HVAC.csv verilerde şeması ayıklar ve verileri bir dataframe CSV'ye yüklemek üzere şemasını kullanan `readDf`. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
+3. Aşağıdaki kod parçacığında kullanabilir HVAC.csv verilerde şeması ayıklamak ve bir dataframe CSV'ye gelen verileri yüklemek için şema `readDf`. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +165,10 @@ Bu bölümde, örnek bir CSV dosyası kullanılabilir küme üzerinde Azure SQL 
 
     ![SSMS kullanarak SQL veritabanına bağlanma](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "SSMS kullanarak SQL veritabanına bağlan")
 
+7. SSMS tablodaki sütunların görmek için bir sorgu çalıştırın.
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>Azure SQL veritabanına veri akışı
 
 Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritabanı önceki bölümde oluşturduğunuz.
@@ -184,7 +188,7 @@ Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritaban�
 3. Biz veri akışı **HVAC.csv** hvactable içine. Konumundaki küme üzerinde HVAC.csv dosya kullanılabilir */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. Aşağıdaki kod parçacığında, biz öncelikle veri şeması ve akışını alın. Ardından, o Şeması'nı kullanarak bir akış dataframe oluşturun. Bir kod hücresini ve tuşuna parçacığını yapıştırın **SHIFT + ENTER** çalıştırmak için.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. Çıktı şeması gösterir **HVAC.csv**. **Hvactable** de aynı şeması vardır. Çıkış tablosundaki sütunlar listeler.

@@ -1,27 +1,27 @@
 ---
-title: "Bir web uygulaması güvenlik duvarı ile - Azure portalında bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Azure portalı kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Bir web uygulaması güvenlik duvarı ile - Azure portalında bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Azure portalı kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
 
 Azure Portalı'nı oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) ile bir [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) (WAF). WAF kullandığı [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) uygulamanızı korumak için kurallar. Bu kurallar SQL ekleme gibi saldırıları, siteler arası komut dosyası saldırıları ve oturumu ele geçirilmesini karşı koruma içerir.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Etkin WAF ile bir uygulama ağ geçidi oluşturma
@@ -32,7 +32,7 @@ Bu makalede, bilgi nasıl yapılır:
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açtığınızda Azure portalında [http://portal.azure.com](http://portal.azure.com)
+Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -72,7 +72,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
 3. Girin *myBackendSubnet* 'ye tıklayın ve alt ağ adı için **Tamam**.
 
-## <a name="create-backend-servers"></a>Arka uç sunucuları oluşturun
+## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak iki sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
 
@@ -83,15 +83,15 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 3. Sanal makine için bu değerleri girin:
 
     - *myVM* - sanal makine adı için.
-    - *azureuser* - yönetici kullanıcı adı.
+    - Yönetici kullanıcı adı için *azureuser*.
     - *Azure123456!* parolası.
     - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
 
 4. **Tamam**’a tıklayın.
-5. Seçin **DS1_V2** tıklatın ve sanal makine boyutu için **seçin**.
+5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
-7. Tıklatın **devre dışı** önyükleme tanılaması devre dışı bırakmak için.
-8. Tıklatın **Tamam**, Özet sayfasında ayarları gözden geçirin ve ardından **oluşturma**.
+7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
+8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
@@ -132,7 +132,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 Bu öğreticide, uygulama ağ geçidi saptamak ve önlemek amacıyla verileri depolamak için bir depolama hesabı kullanır. Veri kaydı için günlük analizi veya olay hub'ı da kullanabilirsiniz.
 
 1. Tıklatın **yeni** Azure portalında sol üst köşesinde bulundu.
-2. Seçin **depolama**ve ardından **depolama hesabı - blob, dosya, tablo, kuyruk**.
+2. **Depolama**’yı ve sonra **Depolama hesabı - blob, dosya, tablo, kuyruk** öğesini seçin.
 3. Select depolama hesabının adını girin **kullanım varolan** kaynak grubu ve ardından **myResourceGroupAG**. Bu örnekte, depolama hesabı adı olan *myagstore1*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **oluşturma**.
 
 ## <a name="configure-diagnostics"></a>Tanılama Yapılandır
@@ -155,7 +155,7 @@ Tanılama verileri kaydetmek üzere ApplicationGatewayAccessLog, ApplicationGate
 
     ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın.
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
     ![Test uygulama ağ geçidi](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 

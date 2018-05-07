@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning için gelişmiş analizler senaryolarını belirle | Microsoft Docs"
-description: "Tahmine dayalı analiz takım veri bilimi işlemine Gelişmiş yapmak için uygun senaryolar seçin."
+title: Azure Machine Learning için gelişmiş analizler senaryolarını belirle | Microsoft Docs
+description: Tahmine dayalı analiz takım veri bilimi işlemine Gelişmiş yapmak için uygun senaryolar seçin.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
 Bu makalede birçok örnek veri kaynakları ve tarafından işlenen hedef senaryoları özetlenmektedir [takım veri bilimi işlem (TDSP)](overview.md). TDSP akıllı uygulamaları derleme işbirliği yapmak ekipler için sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özellikleri, kaynak konumları ve Azure hedef depoları bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.

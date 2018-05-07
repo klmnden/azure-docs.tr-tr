@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c4dc9b231668315af16c625314c737fee99d672d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: da8eb0b9e2e5aba60b61a36d83f525c7ce4a7958
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure depolama ölçümlerini geçişi
 
@@ -117,7 +117,7 @@ A: Klasik uyarı kuralları eski depolama ölçümleri temel oluşturduysanız, 
 
 * Varsayılan olarak aynı depolama hesabında depolanan yeni ölçüm verileri mı?
 
-Y: No Depolama hesabı ölçüm verileri arşivlemek gerekiyorsa, kullanabileceğiniz [tanılama ayarında Azure İzleyicisi](https://azure.microsoft.com/blog/azure-monitor-multiple-diagnostic-settings/)
+Y: No Depolama hesabı ölçüm verileri arşivlemek gerekiyorsa, kullanabileceğiniz [Azure monitör tanılama ayarını API'si](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

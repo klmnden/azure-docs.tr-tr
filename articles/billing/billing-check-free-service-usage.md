@@ -1,24 +1,24 @@
 ---
-title: "Ücretsiz hizmetlere - Azure İzleyicisi ve izleme kullanımını | Microsoft Docs"
-description: "Ücretsiz Hizmetler kullanımını denetlemek öğrenin. Azure portal ve kullanım csv kullanın."
-services: 
-documentationcenter: 
+title: Ücretsiz hizmetlere - Azure İzleyicisi ve izleme kullanımını | Microsoft Docs
+description: Ücretsiz Hizmetler kullanımını denetlemek öğrenin. Azure portal ve kullanım csv kullanın.
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure ücretsiz hesabınıza eklendi Ücretsiz Hizmetler kullanımını denetleyin 
 

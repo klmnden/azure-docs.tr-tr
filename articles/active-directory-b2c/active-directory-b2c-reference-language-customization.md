@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C dil özelleştirme
-
->[!NOTE]
->Bu özellik genel önizlemede değil.
->
 
 Azure Active Directory B2C dil özelleştirmesinde (Azure AD B2C) ilkeniz müşteri gereksinimlerinize uygun olarak farklı dillerde uyum sağlar.  Microsoft, çevirilerini sağlar [36 dilleri](#supported-languages), ancak herhangi bir dil için kendi Çeviriler de sağlayabilirsiniz. Deneyiminizi yalnızca tek bir dil için sağlanan olsa bile, herhangi bir metin sayfalarında özelleştirebilirsiniz.  
 
@@ -49,7 +45,7 @@ Dil özelleştirme ilkesinde etkinleştirdiğinizde ekleyerek kullanıcı gezisi
 5. İletişim kutusu bilgileri okuyun ve seçin **Evet**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Kullanıcı Yolculuğunuzun hangi dillerde etkin seçin 
-Diller için ne zaman çevrilecek kullanıcı Yolculuğunuzun için bir dizi etkinleştirmek `ui_locales` parametresi sağlanmadı.
+Bir dizi için tarayıcıyı olmadan tarafından talep edildiğinde çevrilecek kullanıcı Yolculuğunuzun için dilleri etkinleştirmek `ui_locales` parametresi.
 1. İlkeniz dil özelleştirme önceki yönergeleri etkin olduğundan emin olun.
 2. Gelen **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
 3. Desteklemek istediğiniz bir dil seçin.
@@ -102,7 +98,7 @@ Değiştir `<ExtensionAttribute>` ile özel kullanıcı özniteliğinin adı.
 Değiştir `<ExtensionAttributeValue>` görüntülenecek yeni dizesiyle.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>LocalizedCollections kullanarak değerler listesini sağlayın
-Yanıtlar için bir değer kümesi listesi sağlamak istiyorsanız, oluşturmak gereken bir `LocalizedCollections` özniteliği.  `LocalizedCollections` dizisidir `Name` ve `Value` çiftleri. Eklemek için `LocalizedCollections`, aşağıdaki biçimi kullanın:
+Yanıtlar için bir değer kümesi listesi sağlamak istiyorsanız, oluşturmak gereken bir `LocalizedCollections` özniteliği.  `LocalizedCollections` dizisidir `Name` ve `Value` çiftleri. Öğelerin sırasını görüntülendikleri sıralaması olacaktır.  Eklemek için `LocalizedCollections`, aşağıdaki biçimi kullanın:
 
 ```JSON
 {
@@ -153,9 +149,9 @@ Sayfanın yükleyebilir `fr`. Sayfanın HTML ve CSS içerik çeker, gelen çekiy
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Özel yerel ayarlar ekleme
+## <a name="add-custom-languages"></a>Özel dil ekleyin
 
-Microsoft çevirileri için şu anda sağlamaz dilleri de ekleyebilirsiniz. İlke tüm dizelerde çevirileri sağlamak gerekir.
+Microsoft çevirileri için şu anda sağlamaz dilleri de ekleyebilirsiniz. İlke tüm dizelerde çevirileri sağlamak gerekir.  Dili ve yerel ayar kodları ISO 639-1 standart de sınırlıdır. 
 
 1. Gelen **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
 2. Seçin **özel dil eklemek** sayfasının üstten.
@@ -165,6 +161,10 @@ Microsoft çevirileri için şu anda sağlamaz dilleri de ekleyebilirsiniz. İlk
 6. Seçin **etkinleştirmek**, ve ilkeniz şimdi kullanıcılarınız için bu dilde gösterebilir.
 7. Dil kaydedin.
 
+>[!IMPORTANT]
+>Özel dilleri etkinleştirmek ya da kaydedebilmek için öncelikle geçersiz kılmalar için karşıya gerekir.
+>
+
 ## <a name="additional-information"></a>Ek bilgiler
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Sayfanın UI Özelleştirme etiketleri olarak geçersiz kılmaları
@@ -172,7 +172,7 @@ Dil özelleştirme etkinleştirdiğinizde, önceki düzenlemeleriniz sayfası ku
 ### <a name="up-to-date-translations"></a>Güncel çevirileri
 Microsoft, kullanımınız için en güncel çevirileri sağlamayı taahhüt eder. Microsoft, sürekli olarak çevirileri artırır ve bunları sizin için Uyumluluk tutar. Microsoft hatalar ve genel terminolojisi değişiklikleri tanımlamak ve çalışacak güncelleştirmeleri sorunsuz kullanıcı Yolculuğunuzun yapın.
 ### <a name="support-for-right-to-left-languages"></a>Sağdan sola yazılan diller için destek
-Microsoft, şu anda sağdan sola yazılan diller için destek sağlamaz. Bu özellik gerekiyorsa, lütfen için oy [Azure geri bildirim](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft, şu anda sağdan sola yazılan diller için destek sağlamaz. Bu, özel yerel ayarlar kullanarak ve dizeleri görüntülenme şeklini değiştirmek için CSS kullanarak gerçekleştirebilirsiniz.  Bu özellik gerekiyorsa, lütfen için oy [Azure geri bildirim](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Sosyal kimlik sağlayıcısı çevirileri
 Microsoft sağlar `ui_locales` sosyal oturum açmalar OIDC parametresi. Ancak, Facebook ve Google, dahil olmak üzere bazı sosyal kimlik sağlayıcıları dikkate yok. 
 ### <a name="browser-behavior"></a>Tarayıcı davranışı
@@ -182,7 +182,7 @@ Chrome ve Firefox her ikisi de kümesi dillerini isteyin. Desteklenen bir dil is
 
 | Dil              | Dil kodu |
 |-----------------------|---------------|
-| Bangla dili                | bn            |
+| Bangla dili                | Bn            |
 | Çekçe                 | cs            |
 | Danca                | da            |
 | Almanca                | de            |
@@ -192,19 +192,19 @@ Chrome ve Firefox her ikisi de kümesi dillerini isteyin. Desteklenen bir dil is
 | Fince               | fi            |
 | Fransızca                | fr            |
 | Gucerat dili              | gu            |
-| Hintçe                 | hi            |
+| Hintçe                 | yüksek            |
 | Hırvatça              | sa.            |
 | Macarca             | hu            |
 | İtalyanca               | it            |
 | Japonca              | ja            |
 | Kannada dili               | kn            |
 | Kore dili                | ko            |
-| Malayalam dili             | ml            |
-| Marathi dili               | mr            |
+| Malayalam dili             | ML            |
+| Marathi dili               | MR            |
 | Malay dili                 | ms            |
 | Norveççe Bokmal      | nb            |
 | Hollanda dili                 | nl            |
-| Pencap dili               | pa            |
+| Pencap dili               | Pa            |
 | Lehçe                | pl            |
 | Portekizce - Brezilya   | pt-br         |
 | Portekizce - Portekiz | pt-pt         |
@@ -212,7 +212,7 @@ Chrome ve Firefox her ikisi de kümesi dillerini isteyin. Desteklenen bir dil is
 | Rusça               | ru            |
 | Slovakça                | SK            |
 | İsveç dili               | sv            |
-| Tamil dili                 | ta            |
+| Tamil dili                 | eri            |
 | Telugu dili                | metin            |
 | Tay Dili                  | TH            |
 | Türkçe               | tr            |

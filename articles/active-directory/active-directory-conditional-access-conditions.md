@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
 
@@ -38,8 +38,10 @@ Koşullarınızı erişim denetimleri ile birlikte bir koşullu erişim ilkesi t
 
 ![Denetim](./media/active-directory-conditional-access-conditions/61.png)
 
-Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
+Bir koşullu erişim ilkesinde yapılandırılmamış koşullar uygulanmaz. Bazı koşullar [zorunlu](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) bir ortam için bir koşullu erişim ilkesini uygulamak için. 
+
+Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
 ## <a name="users-and-groups"></a>Kullanıcılar ve gruplar
 
@@ -110,7 +112,7 @@ Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından be
 Desteklenen cihaz platformlarının tam bir listesi için bkz: [cihaz platformu koşul](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Bu durum, bulut uygulamalarınızı erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [güvenilen cihazları](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Cihaz platform koşulu dahil daha fazla senaryoları için bkz: [Azure Active Directory Uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md).
+Bu durum, bulut uygulamalarınızı erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [yönetilen cihazlara](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Cihaz platform koşulu dahil daha fazla senaryoları için bkz: [Azure Active Directory Uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md).
 
 
 

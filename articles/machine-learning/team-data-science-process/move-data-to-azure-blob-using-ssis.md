@@ -1,9 +1,9 @@
 ---
-title: "İçin veya SSIS bağlayıcıları kullanarak Azure Blob storage'da veri taşıma | Microsoft Docs"
-description: "Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın."
+title: İçin veya SSIS bağlayıcıları kullanarak Azure Blob storage'da veri taşıma | Microsoft Docs
+description: Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 39feca23532264c1f4c17017f89b064af09e9c1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın
 [Azure için SQL Server Integration Services Feature Pack](https://msdn.microsoft.com/library/mt146770.aspx) , Azure'a bağlanmak için Azure ve şirket içi veri kaynakları ve Azure'da depolanan verileri işlemek arasında veri aktarımı bileşenleri sağlar.
@@ -36,7 +36,7 @@ Bir iş gereksinimlerini karma veri tümleştirme senaryolarına genel gerçekle
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede açıklanan görevleri gerçekleştirmek için bir Azure aboneliği ve kurulu bir Azure depolama hesabınız olması gerekir. Karşıya yükleme veya veri yüklemek için Azure depolama hesabı adını ve hesap anahtarını bilmesi gerekir.
 
 * Ayarlamak için bir **Azure aboneliği**, bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
@@ -45,7 +45,7 @@ Bu makalede açıklanan görevleri gerçekleştirmek için bir Azure aboneliği 
 Kullanılacak **SSIS Bağlayıcılar**, karşıdan yüklemeniz gerekir:
 
 * **SQL Server 2014 veya 2016 standart (veya üstü)**: Install SQL Server Integration Services içerir.
-* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi Azure**: Bunlar indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
+* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi Azure**: Bunlar indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 tümleştirmesi Hizmetleri](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
 
 > [!NOTE]
 > SSIS SQL Server ile birlikte yüklenir, ancak Express sürümünde bulunmaz. Hangi uygulamaların çeşitli SQL Server sürümlerinde bulunan hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)

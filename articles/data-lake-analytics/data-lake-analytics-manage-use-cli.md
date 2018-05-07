@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/29/2018
 ms.author: sngun
-ms.openlocfilehash: a78a7ea619be28f01372a7b80d3cb4a5d35bd50e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure komut satırı arabirimi (CLI) kullanarak Azure Data Lake Analytics yönetme
 
@@ -194,6 +194,27 @@ Bir proje oluşturmadan önce bir Data Lake Analytics hesabı olması gerekir.  
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
+
+## <a name="pipelines-and-recurrences"></a>İşlem hatları ve tekrarlar
+
+**İşlem hatları ve tekrarlar hakkında bilgi edinin**
+
+Önceden gönderilmiş işler hakkında işlem hatları bilgilerini görmek için `az dla job pipeline` komutlarını kullanın.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Önceden gönderilmiş işler hakkında tekrar bilgilerini görmek için `az dla job recurrence` komutlarını kullanın.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
 
 ## <a name="use-azure-resource-manager-groups"></a>Azure Resource Manager grupları kullanma
 Uygulamalar genellikle web uygulaması, veritabanı, veritabanı sunucusu, depolama alanı ve üçüncü taraf hizmetleri gibi birçok bileşenden oluşur. Azure Resource Manager, uygulamanızdaki kaynaklarla uygulamanız için bir Azure kaynak grubu adlandırılan bir grup olarak çalışmanıza olanak sağlar. Dağıtma, güncelleştirme, izlemek veya tüm kaynakları tek ve eşgüdümlü bir işlemle uygulamanızda için silin. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Tüm grup için aktarılmış maliyetleri görüntüleyerek kuruluşunuzun fatura işlemlerine açıklık getirebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](../azure-resource-manager/resource-group-overview.md). 

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 83ce49d9ac368404edcc2d68859493476e74869e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Bir Web uygulamasından Azure anahtar kasası kullanın
 
@@ -157,7 +157,7 @@ Bir test sertifikası oluşturma hakkında daha fazla bilgi için bkz: [nasıl y
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Sertifika bir Azure AD uygulama ile ilişkilendirme
 
-Bir sertifika sahip olduğunuza göre Azure AD uygulaması ile ilişkilendirmeniz gerekir. Şu anda Azure portalı, bu iş akışı desteklemiyor; Bu PowerShell aracılığıyla tamamlanabilir. Aşağıdaki komutları assoicate için sertifika ile Azure AD uygulaması çalıştırın:
+Bir sertifika sahip olduğunuza göre Azure AD uygulaması ile ilişkilendirmeniz gerekir. Şu anda Azure portalı, bu iş akışı desteklemiyor; Bu PowerShell aracılığıyla tamamlanabilir. Sertifika Azure AD uygulama ile ilişkilendirmek için aşağıdaki komutları çalıştırın:
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

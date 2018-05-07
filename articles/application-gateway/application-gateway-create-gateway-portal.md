@@ -1,21 +1,21 @@
 ---
-title: "Azure Portalı - Uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Azure portalı kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Azure Portalı - Uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Azure portalı kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 0df71c445d2c5fc6827b69f708203a3b3e6e2b53
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -25,7 +25,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açtığınızda Azure portalında [http://portal.azure.com](http://portal.azure.com)
+Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -64,7 +64,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
 3. Girin *myBackendSubnet* 'ye tıklayın ve alt ağ adı için **Tamam**.
 
-## <a name="create-backend-servers"></a>Arka uç sunucuları oluşturun
+## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak iki sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
 
@@ -75,15 +75,15 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 3. Sanal makine için bu değerleri girin:
 
     - *myVM* - sanal makine adı için.
-    - *azureuser* - yönetici kullanıcı adı.
+    - Yönetici kullanıcı adı için *azureuser*.
     - *Azure123456!* parolası.
     - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
 
 4. **Tamam**’a tıklayın.
-5. Seçin **DS1_V2** tıklatın ve sanal makine boyutu için **seçin**.
+5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
-7. Tıklatın **devre dışı** önyükleme tanılaması devre dışı bırakmak için.
-8. Tıklatın **Tamam**, Özet sayfasında ayarları gözden geçirin ve ardından **oluşturma**.
+7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
+8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
@@ -123,7 +123,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
     ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın.
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
     ![Test uygulama ağ geçidi](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
@@ -134,4 +134,4 @@ Artık gerekli olduğunda, kaynak grubu, uygulama ağ geçidi ve tüm ilişkili 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç bir kaynak grubu, ağ kaynaklarına ve arka uç sunucularına oluşturdu. Bir uygulama ağ geçidi oluşturmak için bu kaynakları kullanılır. Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.
+Bu hızlı başlangıçta bir kaynak grubu, ağ kaynakları ve arka uç sunucuları oluşturdunuz. Bir uygulama ağ geçidi oluşturmak için bu kaynakları kullanılır. Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.

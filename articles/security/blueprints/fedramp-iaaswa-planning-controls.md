@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu şeması FedRAMP Web uygulamaları, Otomasyon - planlama"
-description: "FedRAMP Web uygulamaları Otomasyon - planlama"
+title: Azure güvenliği ve uyumluluğu şeması FedRAMP Web uygulamaları, Otomasyon - planlama
+description: FedRAMP Web uygulamaları Otomasyon - planlama
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="planning-pl"></a>Planlama (PL)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] güvenlik adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu ilkesi planlama Kurumsal varlıklar ve uyumluluk arasında; ve güvenlik ilkesini ve ilişkili güvenlik denetimleri planlama planlama uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve ilkesi planlama geçerli güvenlik güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve Güvenlik planlaması yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.a** kuruluş kuruluşun kurumsal mimarisi ile tutarlı; açıkça sistemi için yetkilendirme sınır tanımlar; işlem bağlamı açıklar bilgi sistemi güvenlik planlama geliştirir Görevler ve iş süreçlerini açısından bilgi sistemi; Güvenlik kategori stratejinin destek dahil olmak üzere bilgi sistemi sağlar; işletimsel ortamı bilgileri sistem ve ilişkileri veya diğer bilgi systems bağlantıları açıklar; Sistem güvenlik gereksinimlerini genel bir bakış sağlar. tüm ilgili yer paylaşımları varsa tanımlar; bir stratejinin tailoring kararları için; de dahil olmak üzere bu gereksinimleri karşılamak için planlanan veya güvenlik denetimlerin açıklanır ve gözden ve yetki vererek resmi tarafından onaylanan ya da plan uygulama önce temsilci atanmış.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.b** kuruluşun güvenlik planı kopyalarını dağıtan ve plana sonraki değişiklikler iletişim kurar [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.c** kuruluş bilgileri sistem güvenlik planlama incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.d** işlemi ya da plan uygulama veya güvenlik denetimi değerlendirmeler sırasında tanımlanan sorunları bilgileri sistem/ortam adresi değişiklikler plan kuruluş güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.e** Kuruluş, yetkisiz olarak ifşa ve değiştirme güvenlik planı korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2 (3)** kuruluş planları ve güvenlikle ilgili etkinlikleri bilgi sistemiyle etkileyen koordinatları [atama: kuruluş tarafından tanımlanan kişiler veya gruplar] üzerindeki etkisini azaltmak için bu tür etkinlikler yapmadan önce diğer kuruluş varlıklar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 4.a** kuruluş kurar ve bilgi sisteme erişim gerektiren kişiler sorumluluklarını ve beklenen bir davranış bilgisi ve bilgi sistemi açısından açıklayan kurallar için kullanıma hazır hale getirir kullanımı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 4.b** kuruluş, okuma, anlamak ve davranış kuralları tarafından bilgisi ve bilgi sistem erişimi yetkilendirme önce uymayı kabul belirten böyle kişilerden imzalı bir bildirim alır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 4.c** kuruluş gözden geçirir ve davranış kuralları güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 4.d** okuyun ve davranış kuralları düzenlendi ve güncelleştirilmiş olduğunda yeniden imzalamak için davranış kuralları önceki bir sürümünü açmış kişiler kuruluşun gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-4 (1)** kuruluş davranış kuralları, sosyal medya/ağ sitelerini kullanma açık kısıtlamaları ve ortak sitelerindeki nakil kuruluş bilgilerini içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 8.a** kuruluş genel felsefesi, gereksinimleri ve yaklaşım gizliliğini, bütünlüğünü koruma açısından gerçekleştirilecek açıklayan bilgileri sistem için bir bilgi güvenlik mimari geliştirir ve kuruluş bilgilerini kullanılabilirliğini; bilgi güvenliği mimarisi içine tümleştirilmiştir ve kuruluş mimarisini destekleyen nasıl açıklanmaktadır; ve herhangi bir bilgi güvenlik varsayımlar hakkında ve bağımlılıkları, dış hizmetler açıklar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 8.b** kuruluş gözden geçirir ve bilgi güvenlik mimarisi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı] kuruluş mimarisi güncelleştirmelerinde yansıtacak şekilde.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 8.c** planlanan bilgisi güvenlik mimarisi değişiklikler güvenlik planı, güvenlik işlemlerini kavram (CONOPS) ve kuruluş procurements/satın almalar yansıtılır kuruluş sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

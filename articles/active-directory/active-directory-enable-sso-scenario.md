@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e05b2d515b997e769306146a5390d4d44fd5cf50
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory ile uygulamaları yönetme
 Gerçek iş akışı veya içeriği işletmeler tüm uygulamalar için iki temel gereksinimlere sahiptir:
@@ -111,6 +111,6 @@ Azure AD ile ayrıntılı erişim ilkeleri ve önceden tümleştirilmiş MFA uyg
 Uygulamaları Azure AD ile tümleştirme başlamak için bir göz atalım [Azure Active Directory Tümleştirme alma uygulamalarla Başlangıç Kılavuzu](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[Azure Active Directory'de uygulama yönetimi için makale dizini](active-directory-apps-index.md)
-[SaaS uygulamasına SSO için adım adım dağıtım planı](http://aka.ms/ssodeploymentplan)
+* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
+* [SaaS uygulamasına SSO için adım adım dağıtım planı](http://aka.ms/ssodeploymentplan)
 

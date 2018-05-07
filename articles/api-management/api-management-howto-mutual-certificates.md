@@ -1,11 +1,11 @@
 ---
-title: "Arka uç hizmetlerini kullanan istemci güvenli sertifika kimlik doğrulaması - Azure API Management | Microsoft Docs"
-description: "Azure API Management'te istemci sertifikası kimlik doğrulaması kullanarak arka uç hizmetlerini güvence altına alma hakkında bilgi edinin."
+title: Arka uç hizmetlerini kullanan istemci güvenli sertifika kimlik doğrulaması - Azure API Management | Microsoft Docs
+description: Azure API Management'te istemci sertifikası kimlik doğrulaması kullanarak arka uç hizmetlerini güvence altına alma hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: c3060765022cabcb877041927886b59d6725c7cf
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması Azure API Management'te güvenliğini sağlama
 API Management istemci sertifikalarını kullanan güvenli bir API'nin arka uç hizmetine erişim olanağı sağlar. Bu kılavuz, API yayımcı portalına sertifikaları yönetme ve arka uç hizmetine erişmek için bir sertifika kullanmak üzere bir API yapılandırma gösterir.
 
-API Management REST API kullanarak sertifikaların yönetilmesi hakkında daha fazla bilgi için bkz: [Azure API Management REST API sertifikası varlık][Azure API Management REST API Certificate entity].
+API Management REST API kullanarak sertifikaların yönetilmesi hakkında daha fazla bilgi için bkz: <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API sertifikası varlık</a>.
 
 ## <a name="prerequisites"> </a>Önkoşulları
 Bu kılavuz bir API arka uç hizmetine erişim için istemci sertifikası kimlik doğrulamasını kullanmak için API Management hizmet örneği yapılandırmak nasıl gösterir. Bu konudaki adımları izlemeden önce arka uç hizmeti istemci sertifikası kimlik doğrulaması için yapılandırılmış olması gerekir ([Azure Web siteleri sertifika kimlik doğrulaması yapılandırmak için bu makalesine başvurun][to configure certificate authentication in Azure WebSites refer to this article]), ve sertifika ve parola için API Management yayımcı Portalı'nda yüklemeyle sertifikanın erişebilir.

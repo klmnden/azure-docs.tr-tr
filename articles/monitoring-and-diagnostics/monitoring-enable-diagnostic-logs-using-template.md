@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 090629874e75d75223e018b002cf04a02b1d1bb0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 76021642073c7463254f51e84efd9af459af2244
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak kaynak oluşturma sırasında otomatik olarak tanılama ayarlarını etkinleştirin
 Bu makalede biz nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda bir kaynakta tanılama ayarlarını yapılandırmak için. Bu, tanılama günlüklerini ve Event Hubs, bir depolama hesabında arşivleme veya bir kaynak oluşturulduğunda için günlük analizi göndererek ölçümlere akış otomatik olarak başlatılmasını sağlar.
@@ -176,7 +176,7 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
       "location": "[resourceGroup().location]",
       "properties": {
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {

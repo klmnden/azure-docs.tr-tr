@@ -1,8 +1,8 @@
 ---
-title: "Hizmetten hizmete kimlik doğrulaması: Data Lake Store Azure Active Directory ile | Microsoft Docs"
-description: "Hizmetten hizmete kimlik doğrulaması Azure Active Directory'yi kullanarak Data Lake Store ile elde öğrenin"
+title: 'Hizmetten hizmete kimlik doğrulaması: Data Lake Store Azure Active Directory ile | Microsoft Docs'
+description: Hizmetten hizmete kimlik doğrulaması Azure Active Directory'yi kullanarak Data Lake Store ile elde öğrenin
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory kullanarak Data Lake Store ile hizmet kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -77,6 +77,9 @@ Program aracılığıyla oturum açarken, uygulamanız için kimliği gerekir. U
 7. İçinde **eklemek özel erişim** dikey penceresinde tıklatın **Tamam**. Yeni eklenen grupla ilişkili izinler listelenir **erişim** dikey.
    
     ![Grup için izinleri atayın](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "gruplandırmak için izinler atama")
+
+> [!NOTE]
+> Azure Active Directory uygulamanızı belirli bir klasöre kısıtlama planlıyorsanız, de çok aynı Azure Active directory uygulamayı vermeniz gerekir **yürütme** permisison aracılığıyla dosya oluşturma erişimi etkinleştirmek için kök dizini. NET SDK.
 
 > [!NOTE]
 > Bir Data Lake Store hesabı oluşturmak için SDK'ları kullanmak istiyorsanız, bir rol olarak Azure AD web uygulamasının Data Lake Store hesabı oluşturmak kaynak grubuna atamanız gerekir.

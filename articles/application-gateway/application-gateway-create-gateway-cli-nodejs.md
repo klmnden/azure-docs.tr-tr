@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure uygulama ağ geçidi - Azure CLI 1.0 oluşturma | Microsoft Docs"
-description: "Resource Manager'da Azure CLI 1.0 kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin"
+title: Bir Azure uygulama ağ geçidi - Azure CLI 1.0 oluşturma | Microsoft Docs
+description: Resource Manager'da Azure CLI 1.0 kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
-ms.openlocfilehash: fe50fb3a7434702101dc5ae7a9dd176a33423119
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
@@ -67,7 +67,7 @@ Açık **Microsoft Azure komut istemi**ve oturum açın.
 azure login
 ```
 
-Önceki örnekte yazın sonra bir kod sağlanır. Oturum açma işlemine devam etmek için bir tarayıcıda https://aka.ms/devicelogin gidin.
+Önceki örnekte yazın sonra bir kod sağlanır. Gidin https://aka.ms/devicelogin oturum açma işlemine devam etmek için bir tarayıcıda.
 
 ![cmd gösteren cihaz oturum açma][1]
 

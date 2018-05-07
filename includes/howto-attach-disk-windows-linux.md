@@ -4,7 +4,7 @@
 ## <a name="attach-an-empty-disk"></a>Boş disk ekleme
 Boş bir diski ekleme, çünkü Azure .vhd dosyası sizin için oluşturur ve depolama hesabında depolayan bir veri diski eklemek için basit bir yoludur.
 
-1. Tıklatın **sanal makineleri (Klasik)**ve ardından uygun VM seçin.
+1. Tıklatın **sanal makineleri (Klasik)** ve ardından uygun VM seçin.
 
 2. Ayarlar menüsünde tıklatın **diskleri**.
 
@@ -32,7 +32,7 @@ Boş bir diski ekleme, çünkü Azure .vhd dosyası sizin için oluşturur ve de
 ## <a name="how-to-attach-an-existing-disk"></a>Nasıl yapılır: varolan bir diski kullanıma açın
 Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır. Kullanım [Ekle AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) .vhd dosyası depolama hesabına yüklemek için cmdlet'i. Oluşturulan ve .vhd dosyasını karşıya sonra bir VM'ye ekleyebilirsiniz.
 
-1. Tıklatın **sanal makineleri (Klasik)**ve ardından uygun sanal makine seçin.
+1. Tıklatın **sanal makineleri (Klasik)** ve ardından uygun sanal makine seçin.
 
 2. Ayarlar menüsünde tıklatın **diskleri**.
 

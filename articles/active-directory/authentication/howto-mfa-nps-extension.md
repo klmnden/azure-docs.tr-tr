@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 05/01/2018
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -117,9 +117,9 @@ NPS uzantısı dağıttığınızda, hangi yöntemler, kullanıcılarınız içi
 
 Yapabilecekleriniz [desteklenmeyen kimlik doğrulama yöntemleri devre dışı](howto-mfa-mfasettings.md#selectable-verification-methods) azure'da.
 
-### <a name="enable-users-for-mfa"></a>Kullanıcılar için MFA'yı etkinleştirin
+### <a name="register-users-for-mfa"></a>MFA için kullanıcıları kaydetme
 
-Tam NPS uzantısını dağıtmadan önce iki aşamalı doğrulamayı gerçekleştirmek istediğiniz kullanıcılar için MFA etkinleştirmeniz gerekir. Daha hemen bu dağıtırken uzantısı sınamak için çok faktörlü kimlik doğrulaması için tam olarak kayıtlı en az bir sınama hesabı gerekir.
+Dağıtma ve NPS uzantısı kullanmaya başlamadan önce iki aşamalı doğrulamayı gerçekleştirmek için gereken kullanıcıların MFA'ya kayıtlı olması gerekir. Daha hemen bu dağıtırken uzantısı sınamak için çok faktörlü kimlik doğrulaması için tam olarak kayıtlı en az bir sınama hesabı gerekir.
 
 Başlatılan bir sınama hesabı almak için aşağıdaki adımları kullanın:
 1. Oturum [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) bir test hesabıyla. 

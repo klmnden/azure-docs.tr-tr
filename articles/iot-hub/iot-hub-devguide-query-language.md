@@ -1,6 +1,6 @@
 ---
 title: Azure IOT Hub sorgu dili anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - IOT hub'dan cihaz çiftlerini ve işleri hakkında bilgi almak için kullanılan SQL benzeri IOT hub'ı sorgu dili açıklaması.
+description: Geliştirici Kılavuzu - SQL benzeri IOT hub'ın açıklaması sorgu dili, IOT hub'ından aygıt/modülü çiftlerini ve işleri hakkında bilgi almak için kullanılır.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: f1c578b6ebb766f71d6e8b65b02724d91dde3126
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Aygıt ve modülü çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
 
 IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili [cihaz çiftlerini] [ lnk-twins] ve [işleri][lnk-jobs], ve [ileti yönlendirme][lnk-devguide-messaging-routes]. Bu makalede sunar:
 

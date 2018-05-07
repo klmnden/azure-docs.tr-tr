@@ -1,25 +1,25 @@
 ---
-title: "Genel veri merkezinde tümleştirme konuları Azure yığınının tümleşik sistemleri | Microsoft Docs"
-description: "Şimdi planlamak ve çok düğümlü Azure yığını ile veri merkezi tümleştirme için hazırlanmak için yapabileceğinizi öğrenin."
+title: Genel veri merkezinde tümleştirme konuları Azure yığınının tümleşik sistemleri | Microsoft Docs
+description: Şimdi planlamak ve çok düğümlü Azure yığını ile veri merkezi tümleştirme için hazırlanmak için yapabileceğinizi öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure tümleşik yığını sistemler için veri merkezi tümleştirme konuları
 Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli planlama konuları dağıtım ve sistem merkeziniz nasıl uyduğunu etrafında anlamanız gerekir. Bu makalede, Azure yığını çok düğümlü sisteminiz için önemli altyapı kararları almanıza yardımcı olmak için bu noktalar üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması veri merkeziniz için Azure yığın dağıtırken OEM donanım satıcınızla çalışırken yardımcı olur.  
@@ -50,7 +50,9 @@ Uyarı aracı adımlara çözülmüş olmayan sorunlarını gidermek için eriş
 ## <a name="identity-considerations"></a>Kimlik konuları
 
 ### <a name="choose-identity-provider"></a>Kimlik sağlayıcısı seçin
-Ya da Azure AD veya AD FS Azure yığın dağıtım için kullanmak istediğiniz hangi kimlik sağlayıcısı göz önüne almanız gerekir. Tam bir sistem yeniden dağıtım olmadan dağıtımdan sonra kimlik sağlayıcıları geçemezsiniz.
+Ya da Azure AD veya AD FS Azure yığın dağıtım için kullanmak istediğiniz hangi kimlik sağlayıcısı göz önüne almanız gerekir. Tam bir sistem yeniden dağıtım olmadan dağıtımdan sonra kimlik sağlayıcıları geçemezsiniz. Azure AD hesabının sahibi olmadığınız ve bulut hizmeti sağlayıcısı tarafından sağlanmış bir hesap kullanıyorsanız ve sağlayıcı geçin ve farklı bir Azure AD'yi kullanmaya karar verirseniz hesap, bu noktada f çözümü yeniden dağıtmak için çözüm sağlayıcınıza başvurun gerekecektir veya, maliyet.
+
+
 
 Katılmak bir Active Directory etki alanı, vb. Kimlik sağlayıcısı seçiminizi şifrelemeyle Kiracı sanal makineleri, kimlik sistemi ve kullandıkları, hesapları vardır. Bu ayrıdır.
 

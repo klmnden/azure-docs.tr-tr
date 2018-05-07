@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 96fd86a2af3372f53973c95ee11ab35ccee1e63e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: de768bdfa75e80adbfde8a677ffe1d5f24d56472
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Oluşturma, liste ve Azure Kaynak Yöneticisi'ni kullanarak bir kullanıcı tarafından atanan kimlik silme
 
@@ -52,7 +52,7 @@ Olarak ile Azure portal ve komut dosyası, Azure Resource Manager şablonları b
 Bir kullanıcı kimliği atanır oluşturmak için aşağıdaki şablonu kullanın. Değiştir `<USER ASSIGNED IDENTITY NAME>` kendi değerlerinizi değerle:
 
 > [!IMPORTANT]
-> Kullanıcı adında özel karakterler (örneğin, alt çizgi) kimliklerle atanan oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Geri güncelleştirmeleri denetleyin.  Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+> Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
 
 ```json
 {

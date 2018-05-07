@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -214,6 +214,7 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 * Azure Table depolama tablo adları büyük küçük harfe duyarlı değildir, ancak Azure Cosmos DB tablo API oldukları
 * İkili alanları gibi kodlama bilgilerini Azure Cosmos DB'ın iç biçimlerinden bazıları şu anda bir beğenebileceğiniz olarak etkin değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna neden olabilir. Örneğin, şu anda bir tablo varlığının tam 1 MB verinin boyutunu artırır kodlama için ikili verileri depolamak için kullanın uygulanamadı.
 * Varlık özellik adı "Id" şu anda desteklenmiyor
+* TableQuery TakeCount 1000 sınırlı değildir
 
 REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçeneklerini sayısı vardır:
 | REST yöntemleri | REST uç noktası/sorgu seçeneği | Belge URL'leri | Açıklama |

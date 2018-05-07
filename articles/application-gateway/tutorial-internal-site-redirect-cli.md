@@ -1,9 +1,9 @@
 ---
-title: "İç yönlendirmesi - Azure CLI ile bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Azure CLI kullanarak uygun havuzu iç web trafiğini yönlendiren bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: İç yönlendirmesi - Azure CLI ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Azure CLI kullanarak uygun havuzu iç web trafiğini yönlendiren bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 4228a3f534a5dc58ab2efa3c5cf0edd4caee43c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 5bd9e8f2521120dd1d12eb9630663493b89f5844
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Bir uygulama ağ geçidi ile Azure CLI kullanarak iç yönlendirmesi oluşturma
 
 Azure CLI yapılandırmak için kullanabileceğiniz [web trafiği yeniden yönlendirme](application-gateway-multi-site-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, bir sanal makine ölçek kümesi kullanan bir arka uç havuzu oluşturun. Daha sonra dinleyicileri ve web trafiği uygun havuz konumunda ulaşan emin olmak için kendi etki alanlarını temel alan kurallar yapılandırın. Bu öğretici birden çok etki alanları ve kullanım örnekleri sahibi olduğunu varsayar *www.contoso.com* ve *www.contoso.org*.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ağ kurma
@@ -47,7 +47,7 @@ Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *ea
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun 
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
 Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağın *myAGSubnet* kullanarak [az ağ vnet oluşturma](/cli/azure/network/vnet#az_net). Daha sonra adlı alt ağ ekleyebilirsiniz *myBackendSubnet* kullanarak sunucularının arka uç havuzu tarafından gerekli [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -190,7 +190,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -208,11 +208,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin, http://www.contoso.com.
+Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Gibi http://www.contoso.com.
 
 ![Uygulama ağ geçidi test contoso sitede](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Diğer etki alanınıza adresini değiştirmek, örneğin http://www.contoso.org ve trafiği www.contoso.com için dinleyici için yeniden yönlendirilen görmeniz gerekir.
+Adres, diğer etki alanına, örneğin değiştirmek http://www.contoso.org ve trafiği www.contoso.com için dinleyici için yeniden yönlendirilen görmeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

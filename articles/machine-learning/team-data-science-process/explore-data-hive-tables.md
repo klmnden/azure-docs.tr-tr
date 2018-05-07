@@ -1,9 +1,9 @@
 ---
-title: "Hive tabloları Hive sorguları ile keşfedin | Microsoft Docs"
-description: "Hive sorgularını kullanarak Hive tablolarındaki verileri keşfedin."
+title: Hive tabloları Hive sorguları ile keşfedin | Microsoft Docs
+description: Hive sorgularını kullanarak Hive tablolarındaki verileri keşfedin.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 9cf205abcf9782ceac4d9ac5a920e136b69c57b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: e85530e5297618b9e87f46a5a274621b060fe1fc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive sorguları ile Hive tablosundaki verileri keşfedin
 Bu belgede bir Hdınsight Hadoop kümesindeki Hive tablolarındaki verileri keşfetmek için kullanılan örnek Hive komut dosyaları sağlar.
@@ -27,7 +27,7 @@ Aşağıdaki **menü** araçları çeşitli depolama ortamlarından verileri ara
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -37,11 +37,11 @@ Bu makalede, sahip olduğunuz varsayılmaktadır:
 * Hive sorguları göndermek yönergeler gerekiyorsa bkz [nasıl Hive sorguları göndermek için](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Veri keşfi için örnek Hive sorgusu komut dosyaları
-1. Bölüm başına gözlemleri sayısını alın`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Gün başına gözlemleri sayısını alın`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+1. Bölüm başına gözlemleri sayısını alın  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Gün başına gözlemleri sayısını alın  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Kategorik bir sütunda düzeylerini Al  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. İki kategorik sütun arada düzey sayısını Al`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. İki kategorik sütun arada düzey sayısını Al  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Sayısal sütunlar için dağıtım Al  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. İki tablo birleştirme kayıtları Ayıkla

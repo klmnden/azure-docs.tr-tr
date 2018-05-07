@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - fiziksel ve ortam koruma şeması"
-description: "FedRAMP Web uygulamaları Otomasyon - fiziksel ve ortam koruma"
+title: Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - fiziksel ve ortam koruma şeması
+description: FedRAMP Web uygulamaları Otomasyon - fiziksel ve ortam koruma
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Fiziksel ve ortam koruma (PE)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim fiziksel ve ortam koruma İlkesi Taahhüt, Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve fiziksel ve ortam koruma ilkesini ve ilişkili fiziksel ve ortam koruma denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli fiziksel ve ortam koruma İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve fiziksel ve ortam koruma yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.a** kuruluş geliştirir, onaylar ve kişiler bilgi sistemi bulunduğu tesis yetkili erişimi olan bir listesini tutar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.b** kuruluş tesis erişimi için yetkilendirme kimlik bilgilerini sorunları.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.c** kuruluşun kişiler tarafından yetkili tesis erişim ayrıntılı erişim listesi incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.d** erişim artık gerekli olmadığında kuruluşun kişiler tesis erişimi listesinden kaldırır.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.a** adresindeki fiziksel erişim yetkilerini kuruluş zorlar [atama: kuruluş tarafından tanımlanan giriş/çıkış noktaları tesisine bilgi sistemi bulunduğu] vermeden önce bireysel erişim yetkilerini doğrulayarak tesisine erişim; ve tesis kullanarak giriş/çıkış denetleme [seçimi (bir veya daha fazla): [atama: kuruluş tarafından tanımlanan fiziksel erişim denetim sistemleri/aygıtları]; koruyucuları].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.b** kuruluş fiziksel erişim denetim günlükleri tutar [atama: kuruluş tarafından tanımlanan giriş/çıkış noktaları].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.c** kuruluş sağlar [atama: kuruluş tanımlanan güvenlik önlemlerinin] resmi olarak genel olarak erişilebilir olarak belirlenmiş tesis içindeki alanlara erişimi denetleme.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.d** kuruluş ziyaretçileri escorts ve izleyicileri ziyaretçi etkinliği [atama: ziyaretçi escorts gerektiren ve izleme kuruluşunuz tarafından tanımlanan koşullar].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -155,9 +155,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="physical-access-control"></a>Fiziksel erişim denetimi
 
-**PE-3.e** Kuruluş anahtarları, birleşimleri ve diğer fiziksel erişim aygıtları güvenliğini sağlar.
+**PE 3.e** Kuruluş anahtarları, birleşimleri ve diğer fiziksel erişim aygıtları güvenliğini sağlar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.f** kuruluş envanterleri [atama: kuruluş tarafından tanımlanan fiziksel erişim aygıtları] her [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.g** birleşimleri ve anahtarları kuruluş değişiklikler [atama: kuruluş tarafından tanımlanan sıklığı] ve/veya anahtarları kaybolur birleşimleri tehlikeye veya kişiler aktarılan veya sonlandırıldı.  
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3 (1)** fiziksel erişim kimlik doğrulamalarını olanağı için fiziksel erişim denetimi ek bilgileri sisteme kuruluş zorlar [atama: bir veya daha fazla bileşenlerini içeren kuruluş tarafından tanımlanan fiziksel alanları bilgi sistem].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 4** kuruluş fiziksel erişimi kontrol [atama: kuruluş tarafından tanımlanan bilgileri sistem dağıtım ve aktarım satırları] kullanarak kuruluş tesis içinde [atama: kuruluş tanımlanan güvenlik önlemlerinin] .
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 5** kuruluş bilgileri sistem çıkış aygıtları yetkisiz kişiler çıkış ele geçirmesini önlemek için fiziksel erişimi kontrol eder.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.a** kuruluş bilgileri sistem bulunduğu algılamak ve fiziksel güvenlik olaylarını yanıtlama tesis fiziksel erişim izler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.b** kuruluş fiziksel erişim günlüklerini gözden geçirir [atama: kuruluş tarafından tanımlanan sıklığı] ve geçişi sırasında [atama: kuruluş tarafından tanımlanan olayları ya da olayların olası göstergeleri].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.c** kuruluş incelemeler ve kuruluş olay yanıtlama özelliğine sahip araştırmalar sonuçları düzenler. 
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (1)** kuruluş fiziksel yetkisiz erişim alarmlar ve izleme sistemine donanım izler.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (4)** kuruluş izler fiziksel erişim olanağı izlenmesini ek olarak bilgi sisteme fiziksel erişim [atama: bir veya daha fazla bileşen bilgileri içeren kuruluş tarafından tanımlanan fiziksel alanları Sistem].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 8.a** kuruluş bilgileri sistem bulunduğu için tesis ziyaretçi erişim kayıtları tutar [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 8.b** kuruluş ziyaretçi erişim kayıtları incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-8 (1)** kuruluş Bakımı ve gözden geçirilmesi ziyaretçi erişim kayıtları kolaylaştırmak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 9** kuruluş güç donanım ve güç hasar ve yok etme kablo için bilgi sistemi korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -363,11 +363,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-pe-10a"></a>NIST 800 53 denetim PE-10.a
 
-#### <a name="emergency-shutoff"></a>Emergency Shutoff
+#### <a name="emergency-shutoff"></a>Acil Durum kesici
 
 **PE 10.a** kuruluş kapatma bilgileri sistem ya da tek sistem bileşenleri acil durumlarda kapatılıyor yeteneği sağlar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -377,11 +377,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-pe-10b"></a>NIST 800 53 denetim PE-10.b
 
-#### <a name="emergency-shutoff"></a>Emergency Shutoff
+#### <a name="emergency-shutoff"></a>Acil Durum kesici
 
 **PE 10.b** Acil Durum kesici anahtarları ya da cihaz kuruluş yerleştirir [atama: kuruluş tarafından tanımlanan konum bilgileri sistem veya sistem bileşeni tarafından] personeli için güvenli ve kolay erişim sağlamak için.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -391,11 +391,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-pe-10c"></a>NIST 800 53 denetim PE-10.c
 
-#### <a name="emergency-shutoff"></a>Emergency Shutoff
+#### <a name="emergency-shutoff"></a>Acil Durum kesici
 
 **PE 10.c** kuruluş Acil Durum güç kesici özelliği yetkisiz etkinleştirmeden korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-11** kuruluş kolaylaştırmak için kısa vadeli bir kesintisiz güç kaynağı sağlar [seçimi (bir veya daha fazla): bilgi sistemi kapanmasını; uzun vadeli alternatif güç bilgi sisteme geçişin] durumunda bir Birincil güç kaynağı kaybı.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-11 (1)** en düşük düzeyde koruma yeteneğine bilgileri sistem birincil güç kaynağı genişletilmiş bir kaybı durumunda işletimsel yetenek gerekli uzun vadeli bir alternatif güç kaynağı kuruluş sağlar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-12** kuruluş kullanır ve güç kaybı veya kesintisi durumunda etkinleştirir ve, kapsayan Acil durum bilgileri sistem çıkar için otomatik Acil Durum ışık ve Tahliye yollarını tesis içinde tutar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13** kuruluş uygular ve yangın gizleme ve algılama aygıtları/bağımsız enerji kaynak tarafından desteklenen işletim sistemleri bilgi sistemi için korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (1)** kullanan kuruluş algılama aygıtları/otomatik olarak etkinleştirmeyi ve bildirim sistemleri için bilgi sistemi yangın [atama: kuruluş tarafından tanımlanan personel ya da roller] ve [atama: kuruluş tarafından tanımlanan Acil Durum Yanıtlayıcı] yangın durumunda.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (2)** kullanan kuruluş gizleme aygıtları/sistemler için herhangi bir etkinleştirme otomatik bildirim sağlamak bilgileri sistem için yangın [atama: kuruluş tarafından tanımlanan personel ya da roller] ve [atama: Acil Durum yanıtlayıcılarını] kuruluş tanımlı.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (3)** tesis üzerinde sürekli bir şekilde aracılığıyla değil, kuruluşunuzun bilgi sistem için bir otomatik yangın gizleme özelliği kullanır.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 14.a** kuruluş bilgileri sistem bulunduğu adresindeki tesis içindeki sıcaklık ve nem düzeyleri tutar [atama: kuruluş tarafından tanımlanan kabul edilebilir düzeyleri].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 14.b** kuruluş sıcaklık ve nem düzeyleri izler [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-14 (2)** kuruluş kullanır sıcaklık ve nem izleme, bir uyarı veya bildirim değişiklikleri zararlı personel veya ekipman sağlar.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-15** anahtar personel erişilebilir, düzgün çalışma ve bilinen ana kesici veya yalıtım vanalar sağlayarak su sızıntısına karşı kaynaklanan hasarlardan bilgi sistemi kuruluş korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-15 (1)** kuruluş bilgileri sistem ve Uyarıları kapsamına su varolup olmadığını algılamak için otomatik mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-16** kuruluş yetkilendirir, izler ve denetimleri [atama: kuruluş tanımlı türler bilgileri sistem bileşenlerinin] girme ve tesis çıkma ve bu öğelerden kayıtları korur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.a** kuruluş kullanır [atama: kuruluş tarafından tanımlanan güvenlik denetimleri] alternatif iş sitelerdeki.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.b** kuruluş uygun olarak değerlendirir, güvenlik verimliliğini alternatif iş sitelerde denetler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.c** kuruluşun güvenlik olaylarına veya sorunları durumunda bilgi güvenliği personeli ile iletişim kurmak çalışanlar için bir yol sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 18** kuruluş bilgileri sistem bileşenleri olası zarar en aza indirmek için tesis içinde konumlandırır [atama: kuruluş tarafından tanımlanan fiziksel ve ortam tehlikesi] ve yetkisiz için Fırsat en aza indirmek için erişim.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|

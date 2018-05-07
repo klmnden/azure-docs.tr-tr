@@ -1,32 +1,26 @@
 ---
-title: "Yeniden etkinleştirme Azure aboneliği devre dışı | Microsoft Docs"
-description: "Ne zaman devre dışı bir Azure aboneliğine sahip ve onu yeniden etkinleştirmeyi açıklar."
-keywords: "azure aboneliği devre dışı"
-services: 
-documentationcenter: 
+title: Yeniden etkinleştirme Azure aboneliği devre dışı | Microsoft Docs
+description: Ne zaman devre dışı bir Azure aboneliğine sahip ve onu yeniden etkinleştirmeyi açıklar.
+keywords: azure aboneliği devre dışı
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 4529d685-3a87-49d9-8d7a-49baad552d76
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/22/2017
 ms.author: genli
-<<<<<<< HEAD
-ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 0b573a3745cbaa3deb583458159faaa0ac93f202
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 76ca118accf91850168f35ee3b7f66337ed96592
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Neden Azure Aboneliğim devre dışı bırakıldı ve nasıl yeniden?
 

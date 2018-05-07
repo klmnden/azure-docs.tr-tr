@@ -1,30 +1,24 @@
 ---
-title: "R, Python ve T-SQL kullanarak SQL Server veri bilimi talimatları | Microsoft Docs"
-description: "R, Python ve T-SQL SQL Server'daki Tahmine dayalı analiz gerçekleştirmede kullanımla yol örnekleri."
+title: R, Python ve T-SQL kullanarak SQL Server veri bilimi talimatları | Microsoft Docs
+description: R, Python ve T-SQL SQL Server'daki Tahmine dayalı analiz gerçekleştirmede kullanımla yol örnekleri.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-<<<<<<< HEAD
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: deguhath
+ms.openlocfilehash: 1de293885c691aa7112eb9288eaa48554d81bdb2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server veri bilimi R, Python ve T-SQL kullanarak izlenecek yollar
 

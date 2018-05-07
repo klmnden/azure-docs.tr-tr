@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: c5a9a56d444da232717b023cb7057b96c291c265
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -393,27 +393,27 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-authentication"></a>Özel cihaz kimlik doğrulaması
+## <a name="custom-device-and-module-authentication"></a>Özel aygıt ve modülü kimlik doğrulama
 
-IOT hub'ı kullanabilirsiniz [kimlik kayıt defteri] [ lnk-identity-registry] cihaz başına güvenlik kimlik bilgilerini yapılandırmak ve denetimini kullanarak erişmek için [belirteçleri][lnk-sas-tokens]. Bir IOT çözümündeki bir özel kimlik kayıt defteri ve/veya kimlik doğrulama düzeni zaten varsa, oluşturmayı göz önünde bulundurun bir *belirteç hizmeti* bu altyapı IOT Hub ile tümleştirmek için. Bu şekilde, çözümünüz içinde diğer IOT özelliklerini kullanabilirsiniz.
+IOT hub'ı kullanabilirsiniz [kimlik kayıt defteri] [ lnk-identity-registry] aygıt/modül başına güvenlik kimlik bilgilerini yapılandırmak ve denetimini kullanarak erişmek için [belirteçleri] [ lnk-sas-tokens]. Bir IOT çözümündeki bir özel kimlik kayıt defteri ve/veya kimlik doğrulama düzeni zaten varsa, oluşturmayı göz önünde bulundurun bir *belirteç hizmeti* bu altyapı IOT Hub ile tümleştirmek için. Bu şekilde, çözümünüz içinde diğer IOT özelliklerini kullanabilirsiniz.
 
-Bir belirteci hizmeti bir özel bulut hizmetidir. IOT hub'ı kullanan *paylaşılan erişim ilkesi* ile **DeviceConnect** oluşturma izni *aygıt kapsamlı* belirteçleri. Bu belirteçler IOT hub'ınıza bağlanmak bir aygıt etkinleştirin.
+Bir belirteci hizmeti bir özel bulut hizmetidir. IOT hub'ı kullanan *paylaşılan erişim ilkesi* ile **DeviceConnect** veya **ModuleConnect** oluşturma izni *aygıt kapsamlı* veya *modülü kapsamlı* belirteçleri. Bu belirteçler, aygıt ve IOT hub'ınıza bağlanmak için modülü etkinleştirin.
 
 ![Belirteç Hizmeti deseninin adımları][img-tokenservice]
 
 Belirteç Hizmeti deseninin ana adımlar şunlardır:
 
-1. IOT Hub'ı paylaşılan erişim ilkesi ile oluşturma **DeviceConnect** IOT hub'ınız için izinleri. Bu ilkede oluşturabilirsiniz [Azure portal] [ lnk-management-portal] veya program aracılığıyla. Belirteç hizmetine bu ilkeyi oluşturduğu Belirteçleri imzalamak için kullanır.
-1. Bir cihaz IOT hub'ınızı erişim gerektiğinde, imzalı bir belirteç belirteci Hizmeti'nden ister. Cihaz belirteci hizmeti belirteç oluşturmak için kullandığı cihaz kimliğini belirlemek için özel kimlik kayıt defteri/kimlik doğrulama düzeniyle doğrulayabilir.
-1. Belirteç hizmetine bir belirteci döndürür. Belirteç kullanılarak oluşturulan `/devices/{deviceId}` olarak `resourceURI`, ile `deviceId` kimlik doğrulaması gerçekleştirilen aygıt olarak. Belirteç hizmetine paylaşılan erişim ilkesi belirteç oluşturmak için kullanılır.
-1. Cihaz belirteci doğrudan IOT hub ile kullanır.
+1. IOT Hub'ı paylaşılan erişim ilkesi ile oluşturma **DeviceConnect** veya **ModuleConnect** IOT hub'ınız için izinleri. Bu ilkede oluşturabilirsiniz [Azure portal] [ lnk-management-portal] veya program aracılığıyla. Belirteç hizmetine bu ilkeyi oluşturduğu Belirteçleri imzalamak için kullanır.
+1. Bir aygıt/modül IOT hub'ınızı erişim gerektiğinde, imzalı bir belirteç belirteci Hizmeti'nden ister. Cihaz belirteci hizmeti belirteç oluşturmak için kullandığı cihaz/modülü kimliğini belirlemek için özel kimlik kayıt defteri/kimlik doğrulama düzeniyle doğrulayabilir.
+1. Belirteç hizmetine bir belirteci döndürür. Belirteç kullanılarak oluşturulan `/devices/{deviceId}` veya `/devices/{deviceId}/module/{moduleId}` olarak `resourceURI`, ile `deviceId` kimlik doğrulaması gerçekleştirilen aygıt olarak veya `moduleId` kimlik doğrulaması gerçekleştirilen modül olarak. Belirteç hizmetine paylaşılan erişim ilkesi belirteç oluşturmak için kullanılır.
+1. Aygıt/modülü doğrudan IOT hub ile belirtecini kullanır.
 
 > [!NOTE]
 > Bir .NET sınıfını kullanabilirsiniz [SharedAccessSignatureBuilder] [ lnk-dotnet-sas] veya Java sınıfı [IotHubServiceSasToken] [ lnk-java-sas] bir belirteç oluşturmak için Belirteç Hizmeti.
 
-Belirteç hizmetine belirteci süre sonu istendiği gibi ayarlayabilirsiniz. Belirtecin süresi dolduğunda, IOT hub cihaz bağlantısı sunucularının. Ardından, cihaz belirteci Hizmeti'nden yeni bir belirteç istemeniz gerekir. Kısa süre sonu zamanı hem cihaz hem de belirteç hizmetine üzerindeki yükü artırır.
+Belirteç hizmetine belirteci süre sonu istendiği gibi ayarlayabilirsiniz. Belirtecin süresi dolduğunda, IOT hub cihaz/modülü bağlantı sunucularının. Ardından, cihaz/modülü yeni bir belirteç belirteci Hizmeti'nden istemeniz gerekir. Kısa süre sonu zamanı aygıt/modülü ve belirteç hizmetine üzerindeki yükü artırır.
 
-Hub'ınıza bağlanmak bir aygıt için hala onu IOT Hub kimlik kayıt defterine eklemeniz gerekir — cihaz bir belirteç ve aygıt anahtarı bağlanmak için kullanıyor olsa da. Bu nedenle, etkinleştirme veya cihaz kimliklerini devre dışı bırakarak aygıt başına erişim denetimi kullanmaya devam edebilirsiniz [kimlik kayıt defteri][lnk-identity-registry]. Bu yaklaşım, uzun süre sonu zamanlarında belirteçleri kullanarak riskleri azaltır.
+Bir aygıt/hub'ınıza bağlanmak için modülü, hala onu IOT Hub kimlik kayıt defterine eklemeniz gerekir — BT bir belirteç ve bir anahtar bağlanmak için kullanıyor olsa da. Bu nedenle, etkinleştirme veya aygıt/modülü kimliklerini devre dışı bırakarak başına-aygıt/modül başına erişim denetimi kullanmaya devam edebilirsiniz [kimlik kayıt defteri][lnk-identity-registry]. Bu yaklaşım, uzun süre sonu zamanlarında belirteçleri kullanarak riskleri azaltır.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Özel bir ağ geçidi ile karşılaştırma
 
@@ -431,7 +431,7 @@ Aşağıdaki tabloda, IOT hub'ınıza erişimi denetlemek için kullanabileceği
 | --- | --- |
 | **RegistryRead** |Okuma kimlik kayıt defterine erişim verir. Daha fazla bilgi için bkz: [kimlik kayıt defteri][lnk-identity-registry]. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
 | **RegistryReadWrite** |Verir okuma ve yazma erişimi kimlik kayıt defterine. Daha fazla bilgi için bkz: [kimlik kayıt defteri][lnk-identity-registry]. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
-| **ServiceConnect** |Hizmet dönük iletişim ve uç nokta izleme buluta verir erişin. <br/>Cihaz bulut iletilerini, bulut-cihaz iletilerini göndermek ve karşılık gelen teslim alındı bildirimleri almak için izin verir. <br/>Karşıya yükleme dosyası için teslim bildirimleri almak için izin verir. <br/>Etiketler ve istenen özelliklerini güncelleştirmek için bildirilen özelliklerini almak ve sorguları çalıştırmak için cihaz çiftlerini erişmesine izin verir. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
+| **ServiceConnect** |Hizmet dönük iletişim ve uç nokta izleme buluta verir erişin. <br/>Cihaz bulut iletilerini, bulut-cihaz iletilerini göndermek ve karşılık gelen teslim alındı bildirimleri almak için izin verir. <br/>Karşıya yükleme dosyası için teslim bildirimleri almak için izin verir. <br/>Etiketler ve istenen özelliklerini güncelleştirmek için bildirilen özelliklerini almak ve sorguları çalıştırmak için erişim çiftlerini izin verir. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
 | **DeviceConnect** |Aygıt'te Uç noktalara erişimi verir. <br/>Cihaz bulut iletilerini göndermek ve bulut-cihaz iletilerini izni verir. <br/>Bir CİHAZDAN karşıya dosya yükleme gerçekleştirme izni verir. <br/>Cihaz çifti istenen özellik bildirimleri almak ve cihaz çifti güncelleştirme izni verir özellikleri bildirdi. <br/>Verir dosya gerçekleştirme izni yükler. <br/>Bu izin, cihazlar tarafından kullanılır. |
 
 ## <a name="additional-reference-material"></a>Ek başvuru bilgileri
@@ -482,7 +482,7 @@ Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıda
 [lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: iot-hub-devguide-security.md#supported-x509-certificates
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md

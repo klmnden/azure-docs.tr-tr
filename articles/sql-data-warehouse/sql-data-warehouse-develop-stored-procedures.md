@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5659e8f29d87c48c447a5cb81c836b0be9dabd45
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ad8a599065a44469a3151813972b3d2561782c6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>SQL veri ambarı'nda saklı yordamları kullanma
 Saklı yordamlar çözümleri geliştirmek için Azure SQL Data Warehouse'da uygulamak için ipuçları.
@@ -31,7 +31,7 @@ Saklı yordamlar SQL kodunuzu Kapsüllenen harika bir yöntemdir; verilerinizi v
 
 SQL veri ambarı Basitleştirilmiş ve kolaylaştırılmış saklı yordam uygulamasını sağlar. SQL Server'a karşılaştırma büyük fark saklı yordamı önceden derlenmiş kod olmamasıdır. Veri ambarlarında derleme süresi büyük veri birimlerine karşı sorguları çalıştırmak için geçen süreyi kıyasla küçüktür. Saklı yordam doğru büyük sorgular için en iyileştirilmiş kodda emin olmak daha önemlidir. Saat, dakika ve saniye, değil milisaniye kaydetmek için belirtilir. Bu nedenle saklı yordamlar SQL mantığı için kapsayıcı olarak düşünmek daha yardımcı olur.     
 
-SQL Data Warehouse, saklı yordam yürüttüğünde SQL deyimlerini ayrıştırılır, çevrilen ve çalışma zamanında en iyi duruma getirilmiş. Bu işlem sırasında her deyim dağıtılmış sorgular dönüştürülür. Y veri karşı yürütülen SQL kodunu gönderilen sorgu farklıdır.
+SQL Data Warehouse, saklı yordam yürüttüğünde SQL deyimlerini ayrıştırılır, çevrilen ve çalışma zamanında en iyi duruma getirilmiş. Bu işlem sırasında her deyim dağıtılmış sorgular dönüştürülür. Veri karşı yürütülen SQL kodunu gönderilen sorgu farklıdır.
 
 ## <a name="nesting-stored-procedures"></a>İç içe geçme saklı yordamlar
 Saklı yordamlar diğer saklı yordamları çağırmak ya da dinamik SQL Yürüt ardından iç saklı yordam veya kod çağırma iç içe söylenir.
@@ -76,7 +76,6 @@ Bunlar:
 * numaralandırılmış saklı yordamlar
 * genişletilmiş saklı yordamlar
 * CLR saklı yordamlar
-* 
 * şifreleme seçeneği
 * çoğaltma seçeneği
 * Tablo değerli parametreleri

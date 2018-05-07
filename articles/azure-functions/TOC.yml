@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Performans ve ölçeklendirme
           href: durable-functions-perf-and-scale.md
+        - name: Olağanüstü durum kurtarma ve coğrafi dağıtım
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Geliştirme

@@ -2,19 +2,19 @@
 title: URL yolu tabanlı yönlendirme kuralları ile - Azure PowerShell bir uygulama ağ geçidi oluşturma | Microsoft Docs
 description: URL yolu tabanlı yönlendirme kuralları Azure PowerShell kullanarak bir uygulama ağ geçidi ve sanal makine ölçek oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 6e4e681c9a45e31b13165a2e2e8491fef9bf2fc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: 749d958840d2733537c2fc2bb025ab0becb800c1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Azure PowerShell kullanarak URL yolu tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
@@ -322,7 +322,7 @@ for ($i=1; $i -le 3; $i++)
 ### <a name="install-iis"></a>IIS yükleme
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)

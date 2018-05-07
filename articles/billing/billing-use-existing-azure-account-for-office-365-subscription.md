@@ -1,25 +1,25 @@
 ---
-title: "Kaydolmak için Office 365 ile Azure hesabı | Microsoft Docs"
-description: "Bir Azure hesabı kullanarak bir Office 365 aboneliği oluşturma hakkında bilgi edinin"
-services: 
-documentationcenter: 
+title: Kaydolmak için Office 365 ile Azure hesabı | Microsoft Docs
+description: Bir Azure hesabı kullanarak bir Office 365 aboneliği oluşturma hakkında bilgi edinin
+services: ''
+documentationcenter: ''
 author: JiangChen79
 manager: adpick
-editor: 
+editor: ''
 tags: billing,top-support-issue
-ms.assetid: 
+ms.assetid: ''
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bce4b58d4197eee34be43a4dc852c6f43e0e18b4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Bir Office 365 aboneliğine Azure hesabınızla kaydolun
 Azure abone değilseniz, bir Office 365 aboneliği için kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip kuruluş parçası sizseniz, mevcut Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yönetici izinlerine sahip bir hesabı kullanarak Office 365 için kaydolun. Daha fazla bilgi için bkz: [Azure AD'de my hesap izinlerini denetlemek](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/active-directory-assign-admin-roles-azure-portal.md).

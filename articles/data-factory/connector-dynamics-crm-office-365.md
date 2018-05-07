@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Dynamics 365 (ortak veri hizmeti) veya Dynamics CRM veri kopyalama
 
@@ -276,7 +276,11 @@ Dynamics verileri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | ignoreNullValues | Bir yazma işlemi sırasında (dışında anahtar alanları) giriş verisi null değerleri yoksay gösterir.<br/>İzin verilen değerler **true** ve **false**.<br>- **Doğru**: hedef nesnedeki verileri upsert/güncelleştirme işlemini yaptığınızda değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda tanımlanan varsayılan bir değer ekleyin.<br/>- **Yanlış**: upsert/güncelleştirme işlemi yaptığınızda, hedef nesnenin verileri NULL olarak güncelleştirir. Bir ekleme işlemi yaptığınızda NULL bir değer ekleyin. | Hayır (varsayılan değer false) |
 
 >[!NOTE]
->Havuz writeBatchSize ve kopyalama etkinliği varsayılan değerini [parallelCopies](copy-activity-performance.md#parallel-copy) Dynamics havuz için her iki 10 olan. Bu nedenle, 100 kayıt, Dynamics eşzamanlı olarak gönderilir.
+>Havuz varsayılan değerini "**writeBatchSize**"ve kopyalama etkinliği"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" Dynamics havuz için her iki 10 olan. Bu nedenle, 100 kayıt, Dynamics eşzamanlı olarak gönderilir.
+
+Çevrimiçi Dynamics 365 için bir sınırı yoktur [kuruluş başına 2 eşzamanlı toplu çağrı](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Bu sınır aşılırsa, ilk isteği hiç yürütülmeden önce bir "Sunucu meşgul" hatası atılır. "WriteBatchSize" ya da 10 eşit tutmak gibi eşzamanlı çağrıları azaltma kaçının.
+
+En iyi birleşimi "**writeBatchSize**"ve"**parallelCopies**" varlığınız şema üzerinde örn. sütun, satır boyutu, iş akışları/plugins/akışı etkinliklerini sayfaya numarası sayısına bağlıdır Bu çağrı, vb. için. 10 writeBatchSize varsayılan ayarını * 10 parallelCopies öneri çoğu Dynamics varlık ancak en iyi performansı olmayabilir, işe yaramayacaktır Dynamics hizmet göre değil. Kopya etkinliği ayarlarınızı birlikte ayarlayarak performans ayarlayabilirsiniz.
 
 **Örnek:**
 
@@ -322,12 +326,13 @@ Aşağıdaki eşleme tablosunu kullanarak, kaynağına Dynamics veri türüne g�
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
 | AttributeType.Decimal | Ondalık | ✓ | ✓ |
 | AttributeType.Double | Çift | ✓ | ✓ |
 | AttributeType.EntityName | Dize | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
 | AttributeType.ManagedProperty | Boole | ✓ | |
 | AttributeType.Memo | Dize | ✓ | ✓ |
 | AttributeType.Money | Ondalık | ✓ | ✓ |

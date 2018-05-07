@@ -3,7 +3,7 @@ title: Azure üzerinde Scala ve Spark kullanarak veri bilimi | Microsoft Docs
 description: Denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde Scala kullanılmak üzere nasıl.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 8f8b252d8771dff23d0a8c89e057fc17ba321a65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede Scala için denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde nasıl kullanıldığını gösterir. Oluşturduğunu görevlerinde anlatılmaktadır [veri bilimi işlem](http://aka.ms/datascienceprocess): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, model ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) yanı sıra iki ortak denetimli makine öğrenimi görevlerini içerir:
@@ -261,7 +261,7 @@ Spark verileri aldıktan sonra sonraki veri bilimi işleminde araştırması ve 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Yerel ve SQL Sihirli verileri çizmek için kullanın
 Varsayılan olarak, Jupyter not defteri çalıştırmak herhangi kod parçacığını çıktısını çalışan düğümlerine kalıcı oturum bağlamında kullanılabilir. Her hesaplama çalışan düğümleri için bir seyahat kaydedin ve hesaplama için gereken tüm verileri (Bu baş düğüm) yerel olarak Jupyter sunucu düğümünde kullanılabilir ise, kullanabileceğiniz istiyorsanız `%%local` Sihirli üzerinde Jupyter kod parçacığında çalıştırmak için Sunucu.
 
-* **SQL magic** (`%%sql`). Hdınsight Spark çekirdek SQLContext kolay satır içi HiveQL sorguları destekler. (`-o VARIABLE_NAME`) Bağımsız değişkeni devam ederse SQL sorgusu çıktısını Jupyter sunucuda Pandas veri çerçeve olarak. Başka bir deyişle, yerel modda kullanılabilir olması.
+* **SQL Sihirli** (`%%sql`). Hdınsight Spark çekirdek SQLContext kolay satır içi HiveQL sorguları destekler. (`-o VARIABLE_NAME`) Bağımsız değişkeni devam ederse SQL sorgusu çıktısını Jupyter sunucuda Pandas veri çerçeve olarak. Başka bir deyişle, yerel modda kullanılabilir olması.
 * `%%local` **Sihirli**. `%%local` Sihirli kodu yerel olarak Hdınsight küme baş düğümüne olan Jupyter sunucuda çalışır,. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` ile Sihirli `-o` parametresi. `-o` Parametresi SQL sorgusu yerel olarak çıktısını kalıcı ve ardından `%%local` Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek.
 
 ### <a name="query-the-data-by-using-sql"></a>SQL kullanarak verileri Sorgulama
@@ -883,7 +883,7 @@ Spark ML kullanarak bir GBT regresyon modeli oluşturma `GBTRegressor()` işlev 
 
 **Çıktı:**
 
-Test R-sqr is: 0.7655383534596654
+Test R-sqr olduğu: 0.7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>En iyi duruma getirme için Gelişmiş modelleme yardımcı programları
 Bu bölümde, geliştiricilerin modeli iyileştirme için sık kullandığınız machine learning yardımcı programlarını kullanın. Özellikle, makine öğrenimi modellerini üç farklı yolla parametre Süpürme ve çapraz doğrulama kullanarak en iyi duruma getirebilirsiniz:
@@ -940,7 +940,7 @@ Ardından, veri eğitimi ve doğrulama kümeleri, kullan hyper-model en iyi duru
 
 **Çıktı:**
 
-Test R-sqr is: 0.6226484708501209
+Test R-sqr olduğu: 0.6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Çapraz doğrulama ve parametre hyper Süpürme kullanarak ikili sınıflandırma modeli en iyi duruma getirme
 Bu bölümde bir ikili sınıflandırma modeli çapraz doğrulama ve parametre hyper Süpürme kullanarak iyileştirmek nasıl gösterir. Bu Spark ML kullanır `CrossValidator` işlevi.

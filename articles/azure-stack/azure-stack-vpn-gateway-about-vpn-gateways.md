@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure yığınının VPN gateway hakkında
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -94,7 +94,7 @@ Aşağıdaki tabloda ağ geçidi türleri ve ağ geçidi SKU’suna göre tahmin
 |**Yüksek performanslı SKU** | 200 Mbps    | 5 |
 ***(1)***  VPN verimlilik değil şirket içi bağlantılar için garantili işleme Internet üzerinden. Mümkün olan en yüksek verimlilik ölçümüdür.  
 ***(2)***  Max tüneller sayıdır tüm abonelikler için Azure yığın dağıtımına başına toplam.  
-***(3)***  BGP temel SKU için desteklenmiyor.  
+***(3)***  BGP temel SKU için desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hakkında bilgi edinin [VPN ağ geçitleri için ayarları](azure-stack-vpn-gateway-settings.md) Azure yığınının.

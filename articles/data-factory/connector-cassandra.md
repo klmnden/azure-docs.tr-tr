@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory kullanarak Cassandra verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Aşağıdaki özellikler Cassandra bağlantılı hizmeti için desteklenir:
 
 Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde Cassandra veri kümesi tarafından desteklenen özellikler listesini sağlar.
 
-Cassandra verileri kopyalamak için kümesine tür özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
+Cassandra verileri kopyalamak için kümesine tür özelliği ayarlamak **CassandraTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -175,13 +175,13 @@ Cassandra veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Cassandr
 | BIGINT |Int64 |
 | BLOB |Byte] |
 | BOOLE DEĞERİ |Boole |
-| DECIMAL |Ondalık |
+| ONDALIK |Ondalık |
 | ÇİFT |Çift |
-| KAYAN NOKTA |Bekar |
+| KAYAN NOKTA |Tek |
 | INET |Dize |
 | INT |Int32 |
 | METİN |Dize |
-| TIMESTAMP |DateTime |
+| ZAMAN DAMGASI |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |Dize |
@@ -244,7 +244,7 @@ Aşağıdaki tablolarda listesi, eşleme ve StringSet sütunları verilerden ren
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |t |
+| 3 |S1 |T |
 
 **Tablo "ExampleTable_vt_StringSet":**
 

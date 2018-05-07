@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Ağ İzleyicisi sorun giderme kaynak giriş
 
@@ -146,7 +146,7 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>İptal etti wfpdiag.txt
 
 **Scrubbed wfpdiag.txt** günlük dosyası wfp günlük içerir. Bu günlük paket bırakma ve IKE/AuthIP hataları günlüğe kaydedilmesini içerir.
 
@@ -179,7 +179,7 @@ Aşağıdaki örnek Scrubbed wfpdiag.txt dosyasının içeriğini gösterir. Bu 
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.Sum
 
 **Wfpdiag.txt.sum** arabellek ve işlenen olayların gösteren bir günlük dosyasıdır.
 
@@ -211,7 +211,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-VPN ağ geçitleri ve ağ bağlantıları ziyaret ederek Portalı aracılığıyla tanılamak öğrenin [ağ geçidi sorun giderme - Azure portalında](network-watcher-troubleshoot-manage-portal.md).
+Bir ağ geçidi veya ağ geçidi bağlantısı olan bir sorunu tanılamak öğrenmek için bkz: [ağlar arasında iletişim sorunları tanılamak](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

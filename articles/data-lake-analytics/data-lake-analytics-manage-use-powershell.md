@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 57bc38e6c825f0f62e41d2680e0a39da73d3c4d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -69,7 +69,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="managing-accounts"></a>Hesaplarını yönetme
+## <a name="manage-accounts"></a>Hesapları yönetme
 
 ### <a name="create-a-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 
@@ -91,7 +91,7 @@ Bir Kaynak Grubu ve Data Lake Store hesabı oluşturulduktan sonra Data Lake Ana
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-information-about-an-account"></a>Bir hesap hakkında bilgi edinin
+### <a name="get-acount-information"></a>Hesap bilgileri alma
 
 Bir hesap ayrıntılarını alın.
 
@@ -111,7 +111,7 @@ Belirli bir Data Lake Store hesabı var olup olmadığını denetleyin. Cmdlet d
 Test-AdlStoreAccount -Name $adls
 ```
 
-### <a name="listing-accounts"></a>Hesapları listeleme
+### <a name="list-accounts"></a>Hesapları listeleme
 
 Geçerli abonelik içindeki listesi Data Lake Analytics hesapları.
 
@@ -125,48 +125,7 @@ Belirli bir kaynak grubunun içinde listesi Data Lake Analytics hesapları.
 Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
-## <a name="managing-firewall-rules"></a>Güvenlik duvarı kurallarını yönetme
-
-Güvenlik duvarı kuralları listesi.
-
-```powershell
-Get-AdlAnalyticsFirewallRule -Account $adla
-```
-
-Bir güvenlik duvarı kuralı ekleyin.
-
-```powershell
-$ruleName = "Allow access from on-prem server"
-$startIpAddress = "<start IP address>"
-$endIpAddress = "<end IP address>"
-
-Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Bir güvenlik duvarı kuralı değiştirin.
-
-```powershell
-Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Bir güvenlik duvarı kuralı kaldırın.
-
-```powershell
-Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
-```
-
-Azure IP adreslerini verin.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
-```
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
-```
-
-## <a name="managing-data-sources"></a>Veri kaynaklarını yönetme
+## <a name="manage-data-sources"></a>Veri kaynaklarını yönet
 Azure Data Lake Analytics şu anda aşağıdaki veri kaynaklarını destekler:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
@@ -516,6 +475,48 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
+## <a name="manage-firewall-rules"></a>Güvenlik duvarı kurallarını yönet
+
+### <a name="list-firewall-rules"></a>Liste güvenlik duvarı kuralları
+
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
+
+### <a name="add-a-firewall-rule"></a>Bir güvenlik duvarı kuralı ekleyin
+
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
+
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="change-a-firewall-rule"></a>Bir güvenlik duvarı kuralını değiştirme
+
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="remove-a-firewall-rule"></a>Bir güvenlik duvarı kuralını Kaldır
+
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
+
+### <a name="allow-azure-ip-addresses"></a>Azure IP adreslerini verin.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
 
 ## <a name="working-with-azure"></a>Azure ile çalışma
 

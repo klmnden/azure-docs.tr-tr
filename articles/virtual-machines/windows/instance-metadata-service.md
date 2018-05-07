@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6eef8be28ed7e1a7c4be2316dbf670bde76a637
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -36,7 +36,7 @@ Hizmeti genel olarak kullanılabilir Azure bölgelerde kullanılabilir. Tüm API
 
 Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01, 2017-12-01
+[Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
 [Azure Çin](https://www.azure.cn/)                                                           | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
 [Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
@@ -75,8 +75,8 @@ Aşağıdaki tabloda, API destekleyebilir diğer veri biçimlerini başvurudur.
 
 API | Varsayılan veri biçimi | Diğer biçimlere
 --------|---------------------|--------------
-/instance | json | Metin
-/scheduledevents | json | yok
+/instance | JSON | Metin
+/scheduledevents | JSON | yok
 
 Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
 
@@ -286,7 +286,7 @@ Veriler | Açıklama | Sunulan sürüm
 location | Azure bölgesi VM çalışır durumda | 2017-04-02 
 ad | VM adı | 2017-04-02
 teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur. | 2017-04-02
-publisher | VM görüntüsü yayımcısı | 2017-04-02
+Yayımcı | VM görüntüsü yayımcısı | 2017-04-02
 SKU | VM görüntüsü için belirli SKU | 2017-04-02
 sürüm | VM görüntüsü | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
@@ -300,13 +300,14 @@ resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-o
 placementGroupId | [Yerleştirme grup](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
 vmScaleSetName | [Sanal makine ScaleSet adı] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), sanal makine ölçek kümesi | 2017-12-01
 bölge | [Kullanılabilirlik bölge](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01 
-ipv4/privateIpAddress | VM yerel IPv4 adresi | 2017-04-02
-ipv4/publicIpAddress | VM genel IPv4 adresi | 2017-04-02
+IPv4/privateIpAddress | VM yerel IPv4 adresi | 2017-04-02
+IPv4/Publicıpaddress | VM genel IPv4 adresi | 2017-04-02
 alt ağ/adresi | VM alt ağ adresi | 2017-04-02 
 alt ağ/öneki | Alt ağ öneki, örnek 24 | 2017-04-02 
 ipv6/ipAddress | VM yerel IPv6 adresi | 2017-04-02 
-macAddress | VM mac adresi | 2017-04-02 
+MacAddress | VM mac adresi | 2017-04-02 
 scheduledevents | Bkz: [zamanlanmış olayları](scheduled-events.md) | 2017-08-01
+identity | (Önizleme) Yönetilen hizmet kimliği. Bkz: [bir erişim belirteci alma](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Kullanım için örnek senaryolar  
 

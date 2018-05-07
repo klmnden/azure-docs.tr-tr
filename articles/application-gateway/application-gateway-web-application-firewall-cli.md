@@ -1,31 +1,31 @@
 ---
-title: "Bir web uygulaması güvenlik duvarı ile - Azure CLI bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Azure CLI kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturmayı öğrenin."
+title: Bir web uygulaması güvenlik duvarı ile - Azure CLI bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Azure CLI kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 87125b68c81af07d0ecd9693fdf7e2dc00a93324
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Azure CLI kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
 
 Azure CLI oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) ile bir [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) (WAF) kullanan bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). WAF kullandığı [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) uygulamanızı korumak için kurallar. Bu kurallar SQL ekleme gibi saldırıları, siteler arası komut dosyası saldırıları ve oturumu ele geçirilmesini karşı koruma içerir. 
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ağ kurma
 > * Etkin WAF ile bir uygulama ağ geçidi oluşturma
-> * Bir sanal makine ölçek kümesi oluşturma
+> * Sanal makine ölçek kümesi oluşturma
 > * Bir depolama hesabı oluşturmak ve tanılama Yapılandır
 
 ![Web uygulaması güvenlik duvarı örneği](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -44,7 +44,7 @@ Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mant�
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturun
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
 Sanal ağ ve alt ağları, uygulama ağ geçidi ve onun ilişkili kaynakları için ağ bağlantısı sağlamak için kullanılır. Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağ *myAGSubnet* ile [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create) ve [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı bir ortak IP adresi oluşturma *myAGPublicIPAddress* ile [az ağ genel IP oluşturun](/cli/azure/network/public-ip#az_network_public_ip_create).
 
@@ -100,7 +100,7 @@ Oluşturulacak uygulama ağ geçidi için birkaç dakika sürebilir. Uygulama a�
 - *appGatewayFrontendIP* -atar *myAGPublicIPAddress* için *appGatewayHttpListener*.
 - *Kuralı 1* - ilişkilendirilen kural yönlendirme varsayılan *appGatewayHttpListener*.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi oluşturma
+## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 
 Bu örnekte uygulama ağ geçidi arka uç havuzu için iki sunucu sağlayan bir sanal makine ölçek kümesi oluşturun. Ölçek kümesindeki sanal makineler ilişkili *myBackendSubnet* alt ağ. Ölçek oluşturmak için kullanabileceğiniz [az vmss oluşturma](/cli/azure/vmss#az_vmss_create).
 
@@ -129,7 +129,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Bir depolama hesabı oluşturmak ve tanılama Yapılandır
@@ -163,7 +163,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Uygulama ağ geçidi genel IP adresi almak için [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidi genel IP adresi almak için [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,7 +182,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Ağ kurma
 > * Etkin WAF ile bir uygulama ağ geçidi oluşturma
-> * Bir sanal makine ölçek kümesi oluşturma
+> * Sanal makine ölçek kümesi oluşturma
 > * Bir depolama hesabı oluşturmak ve tanılama Yapılandır
 
 Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.

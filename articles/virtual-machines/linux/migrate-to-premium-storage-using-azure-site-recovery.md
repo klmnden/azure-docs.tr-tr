@@ -1,12 +1,12 @@
 ---
-title: "Linux Vm'lerinizi Azure Site Recovery ile Azure Premium Depolama'ya geçiş | Microsoft Docs"
-description: "Varolan sanal makinelerinizi Site RECOVERY'yi kullanarak Azure Premium depolama alanına geçirin. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar."
+title: Linux Vm'lerinizi Azure Site Recovery ile Azure Premium Depolama'ya geçiş | Microsoft Docs
+description: Varolan sanal makinelerinizi Site RECOVERY'yi kullanarak Azure Premium depolama alanına geçirin. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar.
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Premium depolama için Azure Site Recovery kullanarak geçirme
 
@@ -202,7 +202,7 @@ Site Recovery, aynı veya benzer bir Premium depolama özellikli VM türü olan 
    * Bir VM Klasik dağıtım modeli aracılığıyla oluşturulan için: VM kullanılabilirlik Azure portalında kümesini ekleyin. Ayrıntılı adımlar için Git [var olan bir sanal makine bir kullanılabilirlik kümesine ekleme](../linux/classic/configure-availability-classic.md).
    * Bir VM Resource Manager dağıtım modeli aracılığıyla oluşturulan için: VM yapılandırmanızı kaydetmek ve ardından silin ve kullanılabilirlik kümesindeki sanal makineleri yeniden oluşturun. Bunu yapmak için komut kullanın [Azure Kaynak Yöneticisi'ni VM kullanılabilirlik Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Bu komut dosyasını çalıştırmadan önce kısıtlamalarını denetleyin ve, kapalı kalma süresi planlayın.
 
-2. **Eski VM'ler ve diskleri silme**. Yeni VM'ler VM'ler kaynak ile aynı işlevi gerçekleştirir ve Premium disklerin kaynak diskler ile tutarlı olduğundan emin olun. VM ve Azure portalındaki kaynak depolama hesaplarınızdan diskleri silin. Bir sorun varsa disk olmayan silinmiş VM silinmiş olsa bile, bkz: [VHD'ler sildiğinizde hatalarında sorun giderme](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Eski VM'ler ve diskleri silme**. Yeni VM'ler VM'ler kaynak ile aynı işlevi gerçekleştirir ve Premium disklerin kaynak diskler ile tutarlı olduğundan emin olun. VM ve Azure portalındaki kaynak depolama hesaplarınızdan diskleri silin. Bir sorun varsa disk olmayan silinmiş VM silinmiş olsa bile, bkz: [depolama kaynak silme hatalarıyla ilgili sorunları giderme](storage-resource-deletion-errors.md).
 
 3. **Azure Site Recovery altyapısı temiz**. Site Recovery artık gereksinim duyulmuyorsa, kendi altyapısını temizleyebilirsiniz. Çoğaltılan öğe, yapılandırma sunucusunu ve kurtarma ilkesi silin ve sonra Azure Site Recovery kasası silin.
 

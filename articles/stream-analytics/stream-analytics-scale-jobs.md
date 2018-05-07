@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Bir Azure akış analizi işi verimliliğini artırmak için ölçeklendirme
 Bu makalede akış analizi işleri verimliliğini artırmak için bir akış analizi sorgu ince ayar gösterilmektedir. İşinizi daha yüksek yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarını, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanın.
@@ -31,7 +31,8 @@ Sorgunuz giriş bölümler kendiliğinden tam paralelleştirilebilir ise, aşağ
         - Sorun havuz azaltma nedeniyle ise, çıktı bölümleri sayısını artırmak (ve ayrıca iş tam olarak paralelleştirilebilir tutmak için bölüm girişi), gerekebilir veya (örneğin CosmosDB için birim istek sayısı) havuz kaynaklarının miktarını artırın.
     - İş şemada yoktur bir bölüm biriktirme listesi olay ölçüm her giriş için başına. Biriktirme listesi olay ölçüm artmaya devam ederse, bu da sistem kaynağı (ya da havuz çıkış azaltma veya yüksek CPU nedeniyle) kısıtlı bir göstergesidir.
 4.  6 SU iş ulaşıp ulaşamadığını sınırları belirledikten sonra belirli bölüm "etkin" yapar eğme herhangi bir veri yok varsayılarak daha fazla SUs ekledikçe, doğrusal olarak iş işlem kapasitesini tahmin
->[!Note]
+
+> [!NOTE]
 > Akış birimleri sağ sayısını seçin: her 6 SU eklenen için Stream Analytics işleme düğümü oluşturduğundan, bölümleri düğümler arasında eşit olarak dağıtılabilir giriş bölüm sayısı bölenini düğüm sayısı olmak en iyisidir.
 > Örneğin, 6 ölçülen SU işini 4 MB elde edebileceğiniz/s işleme hızı ve giriş bölümü sayınız 4. İşinizi yaklaşık 8 MB/sn işleme hızını elde etmek için 12 SU veya 16 MB/sn elde etmek için 24 SU ile çalıştırmayı seçebilirsiniz. Ardından zaman hangi değere iş işlevi, giriş oranının olarak SU sayıyı artırmaya karar verebilirsiniz.
 

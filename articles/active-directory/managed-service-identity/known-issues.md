@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f643b1203283d7aac01aa8821a180c898f33ec25
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
 
@@ -119,15 +119,15 @@ VM başladıktan sonra etiket komutu kullanılarak kaldırılabilir:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-preview"></a>Kullanıcı atanan MSI ile ilgili bilinen sorunlar *(Önizleme)*
+## <a name="known-issues-with-user-assigned-identities"></a>Atanan kullanıcı kimlikleri ile ilgili bilinen sorunlar
 
-- MSI'lerini atanan tüm kullanıcı kaldırmanın tek yolu sistem etkinleştirerek MSI atanır. 
+- Kullanıcı kimliği atanmış atamaları yalnızca VM ve VMSS için kullanılabilir olan. Önemli: Atanan kullanıcı kimliğini atamaları gelecek aylarda değiştirin.
+- Atanan kullanıcı kimlikleri aynı VM/VMSS üzerinde yinelenen, başarısız VM/VMSS neden olur. Bu, farklı büyük/küçük harf ile eklenen kimlikleri içerir. Örneğin MyUserAssignedIdentity ve myuserassignedidentity. 
 - Bir VM VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
-- 'Varolmayan' MSI eklemek VM başarısız olmasına neden olur. *Not: Düzeltme MSI yoksa, Ata-identity başarısız toplu genişletme*
-- Azure depolama Öğreticisi yalnızca şu anda merkezi BİZE EUAP içinde kullanılabilir. 
-- MSI adında özel karakterler (örneğin, alt çizgi) ile atanmış bir kullanıcı oluşturma, desteklenmiyor.
-- İkinci bir kullanıcı ekleme kimlik atandığında ClientID belirteçleri istekleri için kullanılamayabilir. Bir azaltma, aşağıdaki iki bash komutlarla MSI VM uzantısı yeniden başlatın:
+- Atanan 'Varolmayan' kullanıcı kimliği eklemek VM başarısız olmasına neden olur. 
+- Özel karakterler (örneğin, alt çizgi) adında bir kimlikle atanmış bir kullanıcı oluşturma, desteklenmiyor.
+- Kullanıcı Kimliği adlarının atanma 24 karakter uçtan uca senaryosu için kısıtlanmış. Kullanıcı atanan kimlikleri 24 karakterden daha uzun adlarıyla atanacak başarısız olur.  
+- İkinci bir kullanıcı ekleme kimlik atandığında ClientID VM uzantısı için istekleri belirteçleri için kullanılamayabilir. Bir azaltma, aşağıdaki iki bash komutlarla MSI VM uzantısı yeniden başlatın:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- VMAgent Windows kullanıcı atanan MSI şu anda desteklemiyor. 
-- MSI atanmış bir kullanıcı bir VM'ye sahip ancak hiçbir sistem MSI atanan, portal UI MSI etkin olarak gösterilir. MSI atanan sistem etkinleştirmek için bir Azure Resource Manager şablonu, Azure CLI veya bir SDK kullanın.
+- Bir kullanıcı kimliği atanır, ancak kimliği atanır hiçbir sistem bir VM'ye sahip olduğu portal UI MSI devre dışı olarak gösterilir. Kimliği atanır sistem etkinleştirmek için bir Azure Resource Manager şablonu, Azure CLI veya bir SDK kullanın.

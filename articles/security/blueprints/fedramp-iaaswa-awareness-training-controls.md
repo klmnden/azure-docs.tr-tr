@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - farkındalık ve eğitim"
-description: "FedRAMP Web uygulamaları Otomasyon - farkındalık ve eğitim"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - farkındalık ve eğitim
+description: FedRAMP Web uygulamaları Otomasyon - farkındalık ve eğitim
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="awareness-and-training-at"></a>Farkındalık ve eğitim (AT)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] güvenlik tanıma ve adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt eğitim İlkesi Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve güvenlik farkındalık ve eğitim ilke ve ilişkili güvenlik farkındalık ve eğitim denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli güvenlik farkındalık ve eğitim İlkesi güncelleştirmeleriyle [atama: kuruluş tarafından tanımlanan sıklığı]; ve güvenlik farkındalık ve eğitim yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.a** yeni kullanıcılar için ilk eğitimi bir parçası olarak kuruluş temel güvenlik tanıma eğitim bilgileri sistem kullanıcılara (Yöneticiler, üst düzey yöneticiler ve yükleniciler dahil) sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.b** kuruluş temel güvenlik tanıma eğitim bilgileri sistem kullanıcılara (Yöneticiler, üst düzey yöneticiler ve yükleniciler dahil) sağlar. bilgi sistem değişiklikleri tarafından gerekli olduğunda.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.c** kuruluş temel güvenlik tanıma eğitim bilgileri sistem kullanıcılara (Yöneticiler, üst düzey yöneticiler ve yükleniciler dahil) sağlar. [atama: kuruluş tarafından tanımlanan sıklığı] bundan sonra.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-2 (2)** kuruluşu aad'nin ve iç tehdidin olası göstergelerini raporlama Eğitim Güvenlik tanıma içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.a** bilgileri sistem erişimi yetkilendirme veya gerçekleştirme görevlerini atanan önce kuruluş atanan güvenlik rolleri ve sorumlulukları personele rol tabanlı güvenlik eğitimi sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.b** kuruluş atanan güvenlik rolleri ve sorumlulukları bilgileri sistem değişiklikleri tarafından istendiğinde sahip personel rol tabanlı güvenlik eğitim sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.c** kuruluş atanan güvenlik rolleri ve sorumlulukları sahip personel rol tabanlı güvenlik eğitim sağlayan [atama: kuruluş tarafından tanımlanan sıklığı] bundan sonra.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-3 (3)** kuruluş, eğitim hedefleri pekiştirmek güvenlik Eğitimi'nde pratik alıştırmaları içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-3 (4)** kuruluş eğitim, personel sağlar [atama: kötü amaçlı kod, kuruluşunuz tarafından tanımlanan göstergeleri] şüpheli iletişimleri ve anormal davranış kuruluş bilgilerini sistemlerinde tanımak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 4.a** temel güvenlik tanıma eğitim ve özel bilgileri sistem güvenlik eğitim dahil olmak üzere kuruluş belgeler ve izleyiciler tek tek bilgi sistem güvenlik eğitim etkinlikleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 4.b** kuruluş için tek tek eğitim kayıtları korur [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

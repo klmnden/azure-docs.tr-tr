@@ -20,7 +20,7 @@
 
 1. Bash veya terminal penceresinde görüntülenen parolayı panoya kopyalayın.
 
-1. Tarayıcınızda gidin `http://localhost:8080`.
+1. Tarayıcınızda `http://localhost:8080` adresine gidin.
 
 1. İçine daha önce aldığınız parolayı yapıştırın **yönetici parolasını** alan ve select **devam**.
 

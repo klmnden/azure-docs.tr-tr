@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Premium depolama için Azure Site Recovery kullanarak geçirme
 
@@ -202,7 +202,7 @@ Site Recovery, aynı veya benzer bir Premium depolama özellikli VM türü olan 
    * Bir VM Klasik dağıtım modeli aracılığıyla oluşturulan için: VM kullanılabilirlik Azure portalında kümesini ekleyin. Ayrıntılı adımlar için Git [var olan bir sanal makine bir kullanılabilirlik kümesine ekleme](../linux/classic/configure-availability-classic.md).
    * Bir VM Resource Manager dağıtım modeli aracılığıyla oluşturulan için: VM yapılandırmanızı kaydetmek ve ardından silin ve kullanılabilirlik kümesindeki sanal makineleri yeniden oluşturun. Bunu yapmak için komut kullanın [Azure Kaynak Yöneticisi'ni VM kullanılabilirlik Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Bu komut dosyasını çalıştırmadan önce kısıtlamalarını denetleyin ve, kapalı kalma süresi planlayın.
 
-2. **Eski VM'ler ve diskleri silme**. Yeni VM'ler VM'ler kaynak ile aynı işlevi gerçekleştirir ve Premium disklerin kaynak diskler ile tutarlı olduğundan emin olun. VM ve Azure portalındaki kaynak depolama hesaplarınızdan diskleri silin. Bir sorun varsa disk olmayan silinmiş VM silinmiş olsa bile, bkz: [VHD'ler sildiğinizde hatalarında sorun giderme](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Eski VM'ler ve diskleri silme**. Yeni VM'ler VM'ler kaynak ile aynı işlevi gerçekleştirir ve Premium disklerin kaynak diskler ile tutarlı olduğundan emin olun. VM ve Azure portalındaki kaynak depolama hesaplarınızdan diskleri silin. Bir sorun varsa disk olmayan silinmiş VM silinmiş olsa bile, bkz: [depolama kaynak silme hatalarıyla ilgili sorunları giderme](storage-resource-deletion-errors.md).
 
 3. **Azure Site Recovery altyapısı temiz**. Site Recovery artık gereksinim duyulmuyorsa, kendi altyapısını temizleyebilirsiniz. Çoğaltılan öğe, yapılandırma sunucusunu ve kurtarma ilkesi silin ve sonra Azure Site Recovery kasası silin.
 

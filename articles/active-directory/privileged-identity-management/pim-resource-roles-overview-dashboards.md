@@ -1,6 +1,6 @@
 ---
-title: Bir erişim incelemesi Privileged Identity Management Azure kaynakları için gerçekleştirme | Microsoft Docs
-description: Bu belge, gerçekleştirmek ve PIM gözden geçirme Azure kaynakları için erişim açıklar.
+title: 'Genel Bakış: bir erişim gözden geçirme Privileged Identity Management için Azure kaynaklarını gerçekleştirmek | Microsoft Docs'
+description: Bu belge, bir erişim gözden geçirme için Azure kaynaklarını PIM içinde gerçekleştirmek açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,20 +14,28 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: f1bcf114b997c3056016b84cafc28253ea1af28e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 61be9873cac462c096599680a6e071e104f3a54c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="resource-dashboards"></a>Kaynak panoları
+# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Bir erişim gözden geçirme gerçekleştirmek için bir kaynak Panosu kullanın
 
-Yönetici görünümünü Pano dört birincil bileşenleri içerir. Kaynak rol etkinleştirme grafik gösterimi son yedi gün içinde. Bu veriler seçilen kaynağa kapsamlı ve en yaygın rolleri (sahibi, katkıda bulunan, kullanıcı erişimi Yöneticisi) ve birleşik tüm roller için etkinleştirme görüntüler.
+Bir kaynak Pano, bir erişim gözden geçirme için Azure kaynaklarını ayrıcalıklı Kimlik Yönetimi (PIM) gerçekleştirmek için kullanabilirsiniz. Yönetici görünümünü Pano üç birincil bileşenden oluşur:
 
-Grafiğin sağ tarafında etkinleştirmeleri için kullanıcılar ve gruplar için atama türü tarafından rol atamalarını dağıtımını görüntülemek iki grafik var. Grafiğin bir dilim seçme değerini yüzde (veya tersi) değiştirir.
+- Kaynak rol etkinleştirme grafik gösterimi.
+- Atamaya göre rol atamalarını dağıtımını görüntülemek iki grafik yazın.
+- Yeni rol atamaları için ilgili bir veri alanı.
 
-![](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Grafikler ve gösteren ekran görüntüsü yönetici görünümünü Panosu](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-Grafikler, yeni rol atamaları olan kullanıcılar ve gruplar sayısı (sol) son 30 gün ve rolleri (Azalan) toplam atamaları göre sıralanan listesini üzerinden bakın.
+![Veri listeleri gösteren ekran görüntüsü yönetici görünümünü Panosu](media/azure-pim-resource-rbac/role-settings.png)
 
-![](media/azure-pim-resource-rbac/role-settings.png)
+Kaynak rol etkinleştirme grafik gösterimi son yedi gün kapsar. Bu veriler seçilen kaynağa kapsamlıdır ve etkinleştirmeler en sık kullanılan rolleri (sahibi, katkıda bulunan, kullanıcı erişimi Yöneticisi) ve birleşik tüm rolleri görüntüler.
+
+Etkinleştirmeleri grafik Sağda iki grafikler, kullanıcılar ve gruplar için atama türü tarafından rol atamalarını dağıtımını görüntüler. Grafiğin bir dilim seçerek bir (veya tersi), değeri değiştirebilirsiniz.
+
+Grafikler, son 30 gün ve toplam atamalara (Azalan) göre sıralanmış rollerin listesini üzerinde yeni rol atamaları olan kullanıcılar ve gruplar sayısı bakın.
+
+

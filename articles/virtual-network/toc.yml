@@ -31,6 +31,8 @@
       href: powershell-samples.md
     - name: Resource Manager şablonları
       href: template-samples.md
+    - name: Azure İlkesi şablonları
+      href: policy-samples.md
 - name: Kavramlar
   items:
     - name: Güvenlik

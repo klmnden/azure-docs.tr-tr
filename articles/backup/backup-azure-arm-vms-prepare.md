@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -56,7 +56,7 @@ Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:
 * Geri yükleme sırasında mevcut bir sanal makinenin değiştirilmesi desteklenmez. VM VM mevcut olduğunda geri yüklemeye geri yükleme işlemi başarısız olur.
 * Çapraz bölge yedeklemek ve geri yükleme desteklenmez.
 * Yukarı geri yapılandırırken, emin **güvenlik duvarları ve sanal ağlar** depolama hesabı ayarlarını tüm ağlardan erişim izni.
-* Seçili ağlar için depolama hesabınız için güvenlik duvarı ve sanal ağ ayarlarını yapılandırdıktan sonra Seç **izin güvenilen bu depolama hesabına erişmek için Microsoft Hizmetleri** Azure Backup hizmeti etkinleştirmek için bir özel durum kısıtlı ağ depolama hesabına erişim.
+* Seçili ağlar için depolama hesabınız için güvenlik duvarı ve sanal ağ ayarlarını yapılandırdıktan sonra Seç **izin güvenilen bu depolama hesabına erişmek için Microsoft Hizmetleri** Azure Backup hizmeti etkinleştirmek için bir özel durum kısıtlı ağ depolama hesabına erişim. Öğe düzeyinde kurtarma kısıtlı ağ depolama hesapları için desteklenmiyor.
 * Tüm ortak bölgelerde Azure sanal makineleri yedekleyebilirsiniz. (Bkz [denetim listesi](https://azure.microsoft.com/regions/#services) desteklenen bölgeler.) Aradığınız bölge bugün desteklenmiyorsa, kasa oluşturma sırasında aşağı açılan listede görünmez.
 * Bir etki alanı denetleyicisini geri multi-DC yapılandırmasının bir parçası olan (DC) VM yalnızca PowerShell aracılığıyla desteklenir. Daha fazla bilgi için bkz: [multi-DC etki alanı denetleyicisini geri](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Aşağıdaki özel ağ yapılandırmalarının sanal makineleri geri yüklenmesi yalnızca PowerShell aracılığıyla desteklenir. Geri yükleme işlemi tamamlandıktan sonra geri yükleme iş akışı içinde UI aracılığıyla oluşturulan sanal makineleri bu ağ yapılandırmaları sahip olmaz. Daha fazla bilgi için bkz: [geri VM'ler özel ağ yapılandırmaları ile](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

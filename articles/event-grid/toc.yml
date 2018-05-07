@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: Olay aboneliklerini sorgulama
       href: query-event-subscriptions.md
+    - name: CloudEvents şeması kullanma
+      href: cloudevents-schema.md
 - name: Başvuru
   items:
     - name: Azure CLI

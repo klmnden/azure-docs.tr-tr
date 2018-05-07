@@ -76,6 +76,8 @@
           href: stream-analytics-high-frequency-trading.md
         - name: IoT akış verilerini işleme
           href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Eşik temelli kurallar
+          href: stream-analytics-threshold-based-rules.md
     - name: İzleme
       items:
         - name: İşleri izleme - Azure portalı

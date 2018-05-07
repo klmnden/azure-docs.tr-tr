@@ -1,11 +1,11 @@
 ---
-title: "Özel araştırma - Azure uygulama ağ geçidi - PowerShell Klasik oluşturun | Microsoft Docs"
-description: "Klasik dağıtım modelinde PowerShell kullanarak uygulama ağ geçidi için özel bir araştırma oluşturmayı öğrenin"
+title: Özel araştırma - Azure uygulama ağ geçidi - PowerShell Klasik oluşturun | Microsoft Docs
+description: Klasik dağıtım modelinde PowerShell kullanarak uygulama ağ geçidi için özel bir araştırma oluşturmayı öğrenin
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Özel bir araştırma için Azure uygulama ağ geçidi (Klasik) PowerShell kullanarak oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Klasik PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -151,8 +151,8 @@ Yapılandırma parametrelerini şunlardır:
 |---|---|
 |**Ad** |Özel araştırma için başvuru adı. |
 * **Protokolü** | Kullanılan protokol (olası değerler HTTP veya HTTPS).|
-| **Ana bilgisayar** ve **yolu** | Örneğinin sistem durumunu belirlemek için uygulama ağ geçidi tarafından çağrılan tam URL yolu. Bir Web sitesi http://contoso.com/ varsa, örneğin, ardından özel araştırma "http://contoso.com/path/custompath.htm" için araştırma denetimleri başarılı bir HTTP yanıt yapılandırılabilir.|
-| **Aralığı** | Yoklama aralığı denetimleri saniye olarak yapılandırır.|
+| **Ana bilgisayar** ve **yolu** | Örneğinin sistem durumunu belirlemek için uygulama ağ geçidi tarafından çağrılan tam URL yolu. Örneğin, bir Web siteniz varsa http://contoso.com/, özel araştırma için yapılandırılabilir sonra "http://contoso.com/path/custompath.htm" başarılı bir HTTP yanıt için araştırma denetimleri için.|
+| **Aralık** | Yoklama aralığı denetimleri saniye olarak yapılandırır.|
 | **Zaman aşımı** | Bir HTTP yanıt denetimi için yoklama zaman aşımını tanımlar.|
 | **UnhealthyThreshold** | Arka uç örneği olarak işaretlemek için gereken başarısız HTTP yanıt sayısı *sağlıksız*.|
 

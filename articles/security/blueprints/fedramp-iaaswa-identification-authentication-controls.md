@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - tanımlama ve kimlik doğrulama"
-description: "FedRAMP Web uygulamaları Otomasyon - tanımlama ve kimlik doğrulama"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - tanımlama ve kimlik doğrulama
+description: FedRAMP Web uygulamaları Otomasyon - tanımlama ve kimlik doğrulama
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Tanımlama ve kimlik doğrulama (IA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim bir tanımlama ve kimlik doğrulama İlkesi Taahhüt, Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve tanımlama ve kimlik doğrulama ilkesini ve ilişkili tanımlama ve kimlik doğrulama denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli tanımlama ve kimlik doğrulama İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve tanımlama ve kimlik doğrulama yordamları [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2** bilgi sistemi benzersiz olarak tanımlayan ve kuruluş kullanıcılar (veya kurumsal kullanıcılar adına hareket işlemleri) kimliğini doğrular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (1)** ayrıcalıklı hesaplara ağ erişimi için çok faktörlü kimlik doğrulama bilgileri sistemi uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (2)** ayrıcalıklı olmayan hesaplar için ağ erişimi için çok faktörlü kimlik doğrulama bilgileri sistemi uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (3)** yerel erişim ayrıcalıklı hesaplar için çok faktörlü kimlik doğrulama bilgileri sistemi uygular.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (4)** yerel erişim ayrıcalıklı olmayan hesaplar için çok faktörlü kimlik doğrulama bilgileri sistemi uygular.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (5)** kuruluşun kişiler bir grup Doğrulayıcısı işe ile tek bir kimlik doğrulayıcı kimliğinin gerektirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (8)** bilgi sistemi yeniden yürütme dayanıklı kimlik doğrulama mekanizmaları ayrıcalıklı hesaplara ağ erişimi için uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (9)** bilgi sistemi yeniden yürütme dayanıklı kimlik doğrulama mekanizmaları ayrıcalıklı olmayan hesaplar için ağ erişimi için uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (11)** ayrıcalıklı için uzaktan erişim için çok faktörlü kimlik doğrulama bilgileri sistem uygular ve ayrıcalıklı olmayan hesapları etkenlerden biri erişimini sisteminden ayrı bir aygıt tarafından sağlanır ve cihaz karşılayan [şekilde Atama: mekanizması gereksinimleri kuruluşunuz tarafından tanımlanan gücünü].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (12)** bilgi sistemi kabul eder ve elektronik olarak kişisel kimlik doğrulama (PIV) kimlik bilgilerini doğrular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-3** bilgi sistemi benzersiz olarak tanımlar ve kimlik doğrulaması [atama: kuruluş tarafından tanımlanan özel ve/veya cihaz türlerini] kurmadan önce bir [seçimi (bir veya daha fazla): yerel; uzaktan; ağ] bağlantısı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.a** onayı alma tarafından kuruluş bilgileri sistem tanımlayıcılarını yönetir [atama: kuruluş tarafından tanımlanan personel ya da roller] bir kişi, Grup, rol ya da cihaz tanımlayıcı atamak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.b** bir kişinin tanımlayan bir tanımlayıcı seçerek bilgileri sistem tanımlayıcılarını kuruluş yönetir grup, rol ya da cihaz.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.c** hedeflenen kişi, Grup, rol veya aygıt tanımlayıcısı atayarak kuruluş bilgileri sistem tanımlayıcılarını yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.d** tanımlayıcıları kullanılmasını engelleyerek kuruluş bilgileri sistem tanımlayıcılarını yönetir [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.e** Tanımlayıcısının sonunda devre dışı bırakarak kuruluş bilgileri sistem tanımlayıcılarını yönetir [atama: kuruluş tanımlı süre etkinlik dışı kalma].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4 (4)** her olarak tanıtan tarafından bireysel tanımlayıcıları kuruluş yönetir [atama: kuruluş tarafından tanımlanan karakteristiğini tek tek durum tanımlama].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.a** , ilk kimlik doğrulayıcı dağıtım, tek tek kimlik, Grup, rol veya doğrulayıcı alma aygıt bir parçası olarak doğrulayarak kuruluş bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.b** kuruluşunuz tarafından tanımlanan doğrulayıcı için ilk kimlik doğrulayıcı içerik oluşturarak kuruluş bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.c** Doğrulayıcı mekanizması kullanım için yeterince güçlü sağlayarak kuruluş bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.d** kuruluş bilgileri sistem Doğrulayıcı oluşturma ve ilk kimlik doğrulayıcı dağıtım, bozuk veya kayıp/riske Doğrulayıcı ve iptal etmek için yönetim yordamları uygulayarak yönetir. Doğrulayıcı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.e** Kuruluş bilgilerini sistem yüklemeden önce Doğrulayıcı varsayılan içeriğini değiştirerek bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.f** minimum ve maksimum ömrü kısıtlamaları ve Doğrulayıcı yeniden kullanım koşulları oluşturarak kuruluş bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.g** değiştirme/Doğrulayıcı yenileyerek kuruluş bilgileri sistem Doğrulayıcı yönetir [atama: kuruluş-süre Doğrulayıcı türü tarafından tanımlanan].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.h** yetkisiz olarak ifşa ve değişiklik Doğrulayıcı içerik koruyarak kuruluş bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.i** yapılacak kişiler gerektirerek kuruluş bilgileri sistem Doğrulayıcı yönetir ve uygulama cihazlara sahip, belirli güvenlik Doğrulayıcı korumak için koruma sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.j** Doğrulayıcısı Grup/rol hesapları için bu üyelik değişiklikleri hesaplarını değiştirerek kuruluş bilgileri sistem Doğrulayıcı yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) bir** bilgi sistemi parola tabanlı kimlik doğrulama için en az parola karmaşıklığını zorlar [atama: büyük küçük harfe duyarlılığın, karakter numarası kuruluşunuz tarafından tanımlanan gereksinimleri karışık büyük harf, küçük harf harf, rakam ve özel karakterler, her tür için en düşük gereksinimleri dahil olmak üzere].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .b** parola tabanlı kimlik doğrulaması için bilgi sistemi zorlar en az şu sayıda değiştirilmiş karakter yeni parolalar oluşturulduğunda: [atama: kuruluş tanımlı sayı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .c** parola tabanlı kimlik doğrulaması için bilgi sistemi depolar ve parolaları yalnızca şifreleme açısından korumalı iletir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .d** parola tabanlı kimlik doğrulaması için bilgi sistemi zorlar parola minimum ve maksimum ömrü kısıtlamaları [atama: kuruluş tarafından tanımlanan numaraları etkin kalma süresi en az, etkin kalma süresi en fazla].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .e** Parola tabanlı kimlik doğrulaması için bilgi sistemi yasaklar için parolayı yeniden [atama: kuruluş tanımlı sayı] nesli.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .f** bilgi sistemi, parola tabanlı kimlik doğrulaması için geçici bir parola kullanmak için sistem oturum kalıcı bir parola için hemen bir değişiklikle sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) bir** bilgi sistemi PKI tabanlı kimlik doğrulaması için sertifikaları oluşturma ve sertifika durum bilgilerinin denetimi dahil olmak üzere bir kabul edilen güven bağlayıcı için bir sertifika yolu doğrulama tarafından doğrular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .b** bilgi sistemi PKI tabanlı kimlik doğrulamayı uygulayan için yetkili karşılık gelen özel anahtar erişimi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .c** bilgi sistemi PKI tabanlı kimlik doğrulaması için tek tek hesabı veya grup için kimlik doğrulaması eşler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .d** PKI tabanlı kimlik doğrulama için bilgi sistemi, yerel bir yol keşfi ve ağ üzerinden iptal bilgilerini erişememe durumu durumunda doğrulama desteklemek üzere iptal veri önbelleği uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (3)** kayıt almak için işlem kuruluşunuza [atama: kuruluş tarafından tanımlanan türlerini ve/veya belirli kimlik doğrulayan] gerçekleştirilen [Seçimi: Kişisel; güvenilen bir üçüncü taraf tarafından] önce [atama: Kuruluşunuz tarafından tanımlanan kayıt yetkilisi] göre yetkilendirme ile [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (4)** kuruluş Parola doğrulayıcı karşılamak için yeterince güçlü olup olmadığını belirlemek için otomatik araçları kullanır [atama: kuruluş tarafından tanımlanan gereksinimleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (6)** kuruluş Doğrulayıcı Doğrulayıcı kullanımını verir erişim bilgileri güvenlik kategorisiyle orantılı korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (7)** kuruluş şifrelenmemiş statik Doğrulayıcı olmayan uygulamaları veya erişim betikleri katıştırılmış veya işlev tuşlarını üzerinde depolanan olduğunu sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (8)** kuruluş Implements [atama: kuruluş tanımlanan güvenlik önlemlerinin] birden çok bilgi systems hesaplarına sahip kişiler nedeniyle güvenliğinin aşılmasına riskini yönetmek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (11)** donanım belirteç tabanlı kimlik doğrulaması, bilgi sistemi karşılamak mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan belirteci kalitesi gereksinimleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (13)** bilgi sistemi sonra önbelleğe alınmış kimlik doğrulayan kullanımını yasaklar [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-6** bilgi sistemi geri bildirim kullanımdan olası kötüye kullanımlara/yetkisiz kişiler tarafından bilgileri korumak için kimlik doğrulama işlemi sırasında kimlik bilgilerinin gizler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-7** bilgi sistemi şifreleme modülü için kimlik doğrulaması için geçerli federal yasalar, Executive siparişler, yönergeleri, ilkeleri, düzenlemeleri, standartlar ve gibi yönelik yönergeler gereksinimlerini karşılamak mekanizmaları uygular kimlik doğrulaması.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8** bilgi sistemi benzersiz olarak tanımlayan ve kuruluş geneli kullanıcılar (veya Kurumsal olmayan kullanıcılar adına hareket işlemleri) kimliğini doğrular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (1)** bilgi sistemi kabul eder ve elektronik olarak federal diğer kurumları kişisel kimlik doğrulama (PIV) kimlik bilgilerini doğrular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (2)** bilgi sistemi yalnızca FICAM onaylı üçüncü taraf kimlik bilgileri kabul eder.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (3)** kuruluş yalnızca FICAM onaylı bilgileri sistem bileşenlerinde kullanır [atama: kuruluş tarafından tanımlanan bilgileri sistemleri] üçüncü taraf kimlik bilgileri kabul etmek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (4)** FICAM verilen profillere bilgi sistemi uyumlu.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

@@ -1,9 +1,9 @@
 ---
-title: "Derleme ve bir Azure VM üzerinde SQL Server kullanarak bir makine öğrenimi modeline dağıtma | Microsoft Docs"
-description: "Gelişmiş analizler işlemi ve eylem teknoloji"
+title: Derleme ve bir Azure VM üzerinde SQL Server kullanarak bir makine öğrenimi modeline dağıtma | Microsoft Docs
+description: Gelişmiş analizler işlemi ve eylem teknoloji
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Eylem takım veri bilimi işleminde: SQL Server kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak bir makine öğrenimi modeline dağıtma işleminde size kılavuzluk-- [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi akışı yordamdan sonraki: alma ve verileri, öğrenme, kolaylaştırmak sonra yapı ve model dağıtmak için mühendislik özellikleri keşfedin.
@@ -75,8 +75,8 @@ Azure veri bilimi ortamınızı ayarlamak için:
    > [!NOTE]
    > Örnek komut dosyaları ve IPython not defterlerini veri bilimi sanal makinenize Kurulum işlemi sırasında yüklenir. VM yükleme sonrası betik tamamlandığında örnekleri VM Belge Kitaplığı'nda olur:  
    > 
-   > * Örnek komut dosyaları:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Örnek IPython dizüstü bilgisayarlar:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Örnek komut dosyaları: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Örnek IPython dizüstü bilgisayarlar: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   Burada `<user_name>` VM Windows oturum açma adıdır. Örnek klasörlere başvurur **örnek betikler** ve **örnek IPython not defterlerini**.
    > 
    > 
@@ -111,7 +111,7 @@ Yükleme ve aktarma büyük miktarlarda verinin bir SQL veritabanı ve sonraki s
    
    * Sol bölmede SQL Server adını sağ tıklatıp **özellikleri**.
      
-       ![SQL Server Properties][14]
+       ![SQL Server özellikleri][14]
    * Seçin **veritabanı ayarlarını** gelen **sayfa Seç** sol listesi.
    * Doğrulayın ve/veya değiştirme **veritabanı varsayılan konumları** için **veri diski** tercih ettiğiniz konumları. Yeni veritabanları varsayılan konumu ayarlarını oluşturduysanız bulunduğu budur.
      
@@ -578,7 +578,7 @@ Bu alıştırmada, biz varsa zaten incelediniz ve SQL Server verileri mühendisl
    
     ![Azure Machine Learning Veri Al][17]
 2. Seçin **Azure SQL veritabanı** olarak **veri kaynağı** içinde **özellikleri** paneli.
-3. Veritabanı DNS adı **veritabanı sunucusu adı** alan. Biçimi:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Veritabanı DNS adı **veritabanı sunucusu adı** alan. Biçimi: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Girin **veritabanı adı** karşılık gelen alandaki.
 5. Girin **SQL kullanıcı adı** içinde ** sunucu kullanıcı aqccount adını ve parolayı **Server kullanıcı hesabı parolasını**.
 7. İçinde **veritabanı sorgusu** metin alanı düzenlemek, gerekli veritabanı alanları (etiketler gibi hesaplanan alanları dahil) ayıklayan sorguyu yapıştırın ve aşağı istenen örnek boyutu için veri örnekleri.
