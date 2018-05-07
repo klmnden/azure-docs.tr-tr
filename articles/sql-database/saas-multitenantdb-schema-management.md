@@ -172,5 +172,5 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Tüm Kiracı veritabanları başvuru verileri güncelleştirme
 > * Tüm kiracı veritabanlarında bir tabloda dizin oluşturma
 
-Ardından, [Geçici raporlama öğretici] deneyin (saas-multitenantdb-geçici-dağıtılmış sorgular arasında Kiracı veritabanları çalıştıran keşfetmek için reporting.md).
+Ardından, [Geçici raporlama öğretici] (saas-multitenantdb-geçici-dağıtılmış sorgular arasında Kiracı veritabanları çalıştıran keşfetmek için reporting.md) deneyin.
 

@@ -33,7 +33,7 @@ Bu bölümde, biz yeniden oluşturuluyor kimlik bilgileri üzerinden Blob Storag
 6. Bul **depolama hesabı anahtarı** alan ve yeni oluşturulan anahtarınızı yapıştırma > tıklatın **kaydetmek**.    
 7. Yaptığınız değişiklikleri kaydederken bir bağlantı testi otomatik olarak başlatılacak, bildirimler sekmesinden görüntüleyebilirsiniz. İki bildirimleri-bir güncelleştirme kaydetmek için karşılık gelen vardır ve diğer bağlantı sınama için karşılık gelir:  
    ![Anahtar düzenleme sonrasında bildirimleri](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. [Son durdurulma saati işinizi başlatmak için] devam (#start-your-job-from-the-last-stopped-time) bölümü.
+8. [Son durdurulma saati işinizi başlatmak için] (#start-your-job-from-the-last-stopped-time) bölümü devam.
 
 ### <a name="event-hubs"></a>Event Hubs
 

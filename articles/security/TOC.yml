@@ -162,44 +162,13 @@
         - name: Azure raporlama araçlarını kullanarak kişisel verileri koruma
           href: protection-personal-data-azure-reporting-tools.md
     - name: FEDRAMP
-      href: ./blueprints/fedramp.md
       items:
-        - name: Güvenlik denetimlerine genel bakış
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: Erişim denetimi
-          href: ./blueprints/fedramp-access-controls.md
-        - name: Denetim ve sorumluluk
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: Tanıma ve eğitim
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: Yapılandırma yönetimi
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: Beklenmedik durum planı yapma
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: Kimlik belirlemesi ve doğrulaması
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: Olay yanıtı
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: Bakım
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: Medya koruması
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: Personel güvenliği
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: Fiziksel koruma ve ortam koruması
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: Planlama
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: Risk değerlendirmesi
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: Güvenlik değerlendirmesi ve yetkilendirme
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: Sistem ve iletişim koruması
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: Sistem ve bilgi bütünlüğü
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: Sistem ve hizmetleri edinme
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: Veri analizi
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Veri ambarı
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:

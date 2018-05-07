@@ -21,7 +21,7 @@ ms.lasthandoff: 04/20/2018
 
 Zaman serisi Öngörüler depolamak, Görselleştirme ve büyük miktarlarda IOT cihazları tarafından oluşturulan gibi zaman serisi veri sorgulama için yerleşik olarak bulunur.  Depolamak, yönetmek, sorgu veya Bulut zaman serisi verileri görselleştirmek istiyorsanız, zaman serisinin Öngörüler sağ sizin için olasıdır.  
 
-! [Zaman serisi Öngörüler akış çizelgesi] (media/overview/time-series-insights-flowchart.png)
+![Zaman serisi Öngörüler akış çizelgesi] (media/overview/time-series-insights-flowchart.png)
 
 Zaman serisi Öngörüler dört anahtar işleri sahiptir:
 

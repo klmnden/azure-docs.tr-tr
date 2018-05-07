@@ -73,7 +73,7 @@ Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri d
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
-> * taşıyan veri depoları şirket içi veya Azure IaaS üzerinde olabilir ve bir şirket içi/Azure IaaS makinesine [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md) yüklemenizi gerektirir.
+> \* taşıyan veri depoları şirket içi veya Azure IaaS üzerinde olabilir ve bir şirket içi/Azure IaaS makinesine [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md) yüklemenizi gerektirir.
 
 ### <a name="supported-file-formats"></a>Desteklenen dosya biçimleri
 Kopyalama etkinliği kullanabilirsiniz **olarak dosyaları kopyalama-olan** iki dosya tabanlı veri depoları arasında atlayabilirsiniz [Biçim bölümü](data-factory-create-datasets.md) girdi ve çıktı veri kümesi tanımlarında. Veriler, tüm serileştirme/seri durumdan çıkarma verimli bir şekilde kopyalanır.
