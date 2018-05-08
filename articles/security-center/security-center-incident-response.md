@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik olaylarını yanıtlama | Microsoft Docs"
-description: "Bu belgede bir olay yanıtı senaryosu için Azure Güvenlik Merkezi’ni kullanma işlemi açıklanmaktadır."
+title: Azure Güvenlik Merkezi'nde güvenlik olaylarını yanıtlama | Microsoft Docs
+description: Bu belgede bir olay yanıtı senaryosu için Azure Güvenlik Merkezi’ni kullanma işlemi açıklanmaktadır.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cca874c0511135b0b041d5d38a3986905b671393
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Olay yanıtı için Azure Güvenlik Merkezi’ni kullanma
 Birçok kuruluş güvenlik olaylarına nasıl yanıt vereceğini ancak bir saldırıya uğradıktan sonra öğrenir. Maliyetini ve zararını azaltmak için bir saldırı gerçekleşmeden önce olay yanıtı planınızın olması önemlidir. Bir olay yanıtının farklı aşamalarında Azure Güvenlik Merkezi’ni kullanabilirsiniz.

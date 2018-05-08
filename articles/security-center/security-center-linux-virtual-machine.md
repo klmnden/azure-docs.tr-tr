@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi ve Linux çalıştıran Azure Sanal Makineleri | Microsoft Belgeleri"
-description: "Bu belge Azure Güvenlik Merkezi’nin Azure Sanal Makinelerinizi nasıl koruduğunu anlamanıza yardımcı olur."
+title: Azure Güvenlik Merkezi ve Linux çalıştıran Azure Sanal Makineleri | Microsoft Belgeleri
+description: Bu belge Azure Güvenlik Merkezi’nin Azure Sanal Makinelerinizi nasıl koruduğunu anlamanıza yardımcı olur.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e08444cbfdb095c79d164de06dda078c6a242b3f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Güvenlik Merkezi ve Linux çalıştıran Azure Sanal Makineleri
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tehditleri önlemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
@@ -32,7 +32,7 @@ Güvenlik Merkezi, sanal makinenizin güvenlik ayarlarını görüntüleme ve te
 * Sistem güvenliği ve eksik olan kritik güncelleştirmeler
 * Uç nokta koruması önerileri
 * Disk şifreleme doğrulaması
-* Ağ tabanlı saldırılar (yalnızca [standart sürümde](https://azure.microsoft.com/en-us/pricing/details/security-center/) mevcuttur)
+* Ağ tabanlı saldırılar (yalnızca [standart sürümde](https://azure.microsoft.com/pricing/details/security-center/) mevcuttur)
 
 Güvenlik Merkezi, Azure VM’lerinizi korumaya yardımcı olmasına ek olarak Cloud Services, Uygulama Hizmetleri, Sanal Ağlar ve daha fazlasına yönelik güvenlik izleme ve yönetimi sağlar. 
 

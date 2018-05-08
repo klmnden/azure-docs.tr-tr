@@ -3,18 +3,18 @@ title: 'Öğretici: Azure portalını kullanarak Stream Analytics işi oluşturm
 description: Bu öğreticide, telefon araması akışındaki sahte aramaların analiz edilmesi için Azure Stream Analytics’in nasıl kullanılacağını gösteren uçtan uca bir resim sağlanır.
 services: stream-analytics
 author: SnehaGunda
+ms.author: sngun
 manager: kfile
 ms.service: stream-analytics
+ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: 0c8fb0430d41babba1eb2bb3edd57d0ad4f3bede
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Telefon araması verilerini analiz etmek ve sonuçları bir Power BI panosunda görselleştirmek için Stream Analytics işi oluşturma
 
@@ -154,7 +154,7 @@ Sonraki adım, işin verileri okuması için bir giriş kaynağı tanımlamaktı
 
    |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
    |---------|---------|---------|
-   |Giriş diğer adı     |  CallStream       |  Girişinizi tanımlayan bir kolay ad girin. Giriş diğer adı alfasayısal karakter, kısa çizgi ve alt çizgi içerebilir, ayrıca 3 ila 63 karakter uzunluğunda olmalıdır.       |
+   |Girdi diğer adı     |  CallStream       |  Girişinizi tanımlayan bir kolay ad girin. Giriş diğer adı alfasayısal karakter, kısa çizgi ve alt çizgi içerebilir, ayrıca 3 ila 63 karakter uzunluğunda olmalıdır.       |
    |Abonelik    |   \<Aboneliğiniz\>      |   Olay hub’ını oluşturduğunuz Azure aboneliğini seçin. Olay hub’ı Stream Analytics işiyle aynı abonelikte veya bundan farklı bir abonelikte olabilir.       |
    |Olay hub’ı ad alanı    |  MyEventHubNS       |  Önceki bölümde oluşturduğunuz olay hub’ı ad alanını seçin. Geçerli aboneliğinizde kullanılabilen tüm olay hub’ı ad alanları açılır menüde listelenir.       |
    |Olay Hub'ı adı    |   MyEventHub      |  Önceki bölümde oluşturduğunuz olay hub’ını seçin. Geçerli aboneliğinizde kullanılabilen tüm olay hub’ları açılır menüde listelenir.       |
@@ -176,7 +176,7 @@ Son adım, işin dönüştürülmüş verileri yazabileceği bir çıkış havuz
 
    |**Ayar**  |**Önerilen değer**  |
    |---------|---------|---------|
-   |Çıkış diğer adı  |  MyPBIoutput  |
+   |Çıktı diğer adı  |  MyPBIoutput  |
    |Veri kümesi adı  |   ASAdataset  | 
    |Tablo adı |  ASATable  | 
 

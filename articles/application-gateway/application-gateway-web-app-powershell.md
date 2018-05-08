@@ -1,23 +1,23 @@
 ---
-title: "Azure Application Gateway ile web uygulamalarını koruma - PowerShell | Microsoft Docs"
-description: "Bu makalede, mevcut veya yeni bir application gateway üzerinde web uygulamalarını arka uç ana bilgisayarları olarak yapılandırmaya ilişkin yönergeler verilmektedir."
+title: Azure Application Gateway ile web uygulamalarını koruma - PowerShell | Microsoft Docs
+description: Bu makalede, mevcut veya yeni bir application gateway üzerinde web uygulamalarını arka uç ana bilgisayarları olarak yapılandırmaya ilişkin yönergeler verilmektedir.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: davidmu
-ms.openlocfilehash: f00ad4c3f2cf08461d0258aa31fcedd7045934d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: victorh
+ms.openlocfilehash: abe48c484a232eff6f7ec1cd68e7010353d488d5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway ile App Service Web Apps’i yapılandırma 
 
