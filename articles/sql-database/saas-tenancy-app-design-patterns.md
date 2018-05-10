@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiralama desenleri
 
@@ -88,7 +88,7 @@ Azure SQL veritabanı yapılandırmak, izlemek ve paylaşımı yönetmek için g
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Kiracı başına veritabanı için işlemler ölçek
 
-Azure SQL veritabanı platform veritabanları ölçekte 100.000 iyi veritabanları gibi çok sayıda yönetim için tasarlanmış birçok yönetim özelliği vardır.  Bu özellikler Kiracı başına veritabanı düzeni yatkýn olun.
+Azure SQL veritabanı platform veritabanları ölçekte 100.000 iyi veritabanları gibi çok sayıda yönetmek üzere tasarlanmış birçok yönetim özelliği vardır.  Bu özellikler Kiracı başına veritabanı düzeni yatkýn olun.
 
 Örneğin, yalnızca bir veritabanı olarak 1000 Kiracı veritabanı bir sistem olduğunu varsayalım.  Veritabanı 20 dizinleri sahip olabilir.  Sistem 1000 tek Kiracı veritabanları zorunda dönüştürür, 20.000 için dizinler miktarı artar.  Bir parçası olarak SQL veritabanında [otomatik ayarlama][docu-sql-db-automatic-tuning-771a], otomatik dizin oluşturma özellikler varsayılan olarak etkindir.  Otomatik dizin oluşturma sizin için tüm 20.000 dizinleri ve bunların devam eden oluşturma ve bırakma iyileştirmeleri yönetir.  Tek bir veritabanının bu otomatik eylemler gerçekleşir ve bunlar değil Eşgüdümlü veya diğer veritabanlarındaki benzer eylemler tarafından kısıtlanmış.  Otomatik dizin oluşturma dizinleri farklı daha az meşgul veritabanı meşgul bir veritabanında değerlendirir.  Bu büyük yönetim görevi el ile yapılması gerekiyordu ise bu tür dizin yönetimi özelleştirme Kiracı başına veritabanı ölçekte pratik olabilir.
 
@@ -127,7 +127,7 @@ En basit çok Kiracı veritabanı düzeni verileri barındırmak için bir tek t
 
 Tek tek kiracılar odaklanmış yönetim işlemlerini çok Kiracı veritabanı uygulamak için daha karmaşıktır.  Ve ölçekte bu işlem edilemeyecek yavaş olabilir.  Zaman içinde nokta geri yükleme yalnızca bir kiracı için verilerin bir örnektir.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. Çok kiracılı uygulama parçalı çok Kiracı veritabanı ile
+## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F Çok kiracılı uygulama parçalı çok Kiracı veritabanı ile
 
 Birçok SaaS uygulamaları aynı anda yalnızca bir kiracı verilere.  Veya bir parça parça, burada herhangi biri için tüm veriler Kiracı yer alan birden çok veritabanı arasında dağıtılacak Kiracı verilerini bu erişim düzeni sağlar.  Çok Kiracı veritabanı deseni ile birleştirildiğinde, neredeyse sınırsız ölçek parçalı bir modeli sağlar.
 
@@ -169,7 +169,7 @@ Bu karma modelde tek Kiracı veritabanları abone kiracılar için Kiracı baş�
 
 Aşağıdaki tabloda ana kiralama modelleri arasındaki farklar özetlenmektedir.
 
-| Ölçüm | Tek başına uygulama | Database-per-tenant | Parçalı çok kiracılı |
+| Ölçüm | Tek başına uygulama | Kiracı başına veritabanı | Parçalı çok kiracılı |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Ölçek | Orta<br />1-100s | Çok yüksek<br />1-100,000s | Sınırsız<br />1-1.000.000'luk bloklar |
 | Kiracı yalıtımı | Çok yüksek | Yüksek | Düşük; (yani bir MT db tek başına) tüm singleton Kiracı dışında. |

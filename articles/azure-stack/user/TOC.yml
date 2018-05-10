@@ -91,10 +91,14 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: KeyVault örnek uygulaması
               href: azure-stack-kv-sample-app.md
+        - name: Çözüm şablonları
+          items:
             - name: Çözüm şablonları
               items:
                 - name: Service Fabric kümesi dağıtma
                   href: azure-stack-solution-template-service-fabric-cluster.md
+                - name: Bir Kubernetes kümesini dağıtma
+                  href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Uygulama oluşturma
       items:
         - name: Azure Stack için geliştirme

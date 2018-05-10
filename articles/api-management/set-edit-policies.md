@@ -1,11 +1,11 @@
 ---
-title: "Nasıl ayarlayacağınız veya Azure API Management ilkeleri düzenleme | Microsoft Docs"
-description: "Bu konu, ayarlama veya Azure API yönetimi ilkelerini düzenleme gösterilmektedir."
+title: Nasıl ayarlayacağınız veya Azure API Management ilkeleri düzenleme | Microsoft Docs
+description: Bu konu, ayarlama veya Azure API yönetimi ilkelerini düzenleme gösterilmektedir.
 services: api-management
-documentationcenter: 
-author: Juliako
+documentationcenter: ''
+author: vladvino
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 409069cbc382610a48139df75f0f64b1682d8ee6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Nasıl ayarlayacağınız veya Azure API Management ilkeleri düzenleme
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 12/04/2017
 
 Ayarlamak veya bir ilke düzenlemek için aşağıdaki adımları izleyin:
 
-1. Oturum açmak için Azure portalında [https://portal.azure.com](https://portal.azure.com).
-2. APIM örneğine göz atın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+2. APIM örneğinize göz atın.
 3. Tıklatın **API'leri** sekmesi.
 4. Daha önce aldığınız API'leri birini seçin.
 5. Seçin **tasarım** sekmesi.
@@ -38,7 +38,7 @@ Ayarlamak veya bir ilke düzenlemek için aşağıdaki adımları izleyin:
 7. Üçgen tıklayın **gelen** veya **giden** Kurşun Kalem.
 8. Seçin **Kod düzenleyicisinde** öğesi.
 
-    ![İlkeyi düzenle](./media/set-edit-policies/set-edit-policies01.png)
+    ![İlkeyi düzenleme](./media/set-edit-policies/set-edit-policies01.png)
 
 9. İstenen ilke kodu uygun blokları birine yapıştırın.
          
@@ -82,7 +82,7 @@ Genel kapsam için yapılandırılmış **tüm API'leri** APIM Örneğinizde.
     ![Genel kapsamlı](./media/api-management-howto-policies/global-scope.png)
 
 3. Üçgen simgesine tıklayın.
-4. Seçin **Kod düzenleyicisinde**.
+4. **Kod düzenleyicisi**’ni seçin.
 5. İlkeleri ekleme veya düzenleme.
 6. Tuşuna **kaydetmek**. 
 
@@ -111,7 +111,7 @@ API kapsam için yapılandırılmış **tüm işlemleri** seçili API.
 
 2. Seçin **tüm işlemleri**
 3. Üçgen simgesine tıklayın.
-4. Seçin **Kod düzenleyicisinde**.
+4. **Kod düzenleyicisi**’ni seçin.
 5. İlkeleri ekleme veya düzenleme.
 6. Tuşuna **kaydetmek**. 
 
@@ -125,7 +125,7 @@ API kapsam için yapılandırılmış **tüm işlemleri** seçili API.
     ![İşlem kapsamı](./media/api-management-howto-policies/operation-scope.png)
 
 3. Üçgen simgesine tıklayın.
-4. Seçin **Kod düzenleyicisinde**.
+4. **Kod düzenleyicisi**’ni seçin.
 5. İlkeleri ekleme veya düzenleme.
 6. Tuşuna **kaydetmek**. 
 

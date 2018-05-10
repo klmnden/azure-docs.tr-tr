@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: PKI sertifikaları doğrula
               href: azure-stack-validate-pki-certs.md
-        - name: Kimlik Tümleştirme
-          href: azure-stack-integrate-identity.md
+            - name: PKI sertifikaları Düzelt
+              href: azure-stack-remediate-certs.md
+            - name: Dağıtım kaynakları
+              items:
+                - name: Start-AzsReadiness cmdlet başvurusu
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: Hazırlık raporunu görüntüle
+                  href: azure-stack-validation-report.md
+            - name: Kimlik Tümleştirme
+              items:
+                - name: Bir kimlik sağlayıcısı seçin
+                  href: azure-stack-integrate-identity.md
+                - name: Azure kimlik doğrulama
+                  href: azure-stack-validate-identity.md
+        - name: Azure kaydı doğrula
+          href: azure-stack-validate-registration.md
         - name: Dış izleme
           href: azure-stack-integrate-monitor.md
         - name: Güvenlik tümleştirme
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: Depolama kapasitesi yönetme
               href: azure-stack-manage-storage-shares.md
-            - name: Azure yığını için fiziksel depolama kapasitesi yönetme
+            - name: Fiziksel bellek kapasitesi yönetme
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Donanım değiştirme
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: Teklif Linux sanal makineleri
               href: azure-stack-linux.md
+            - name: Bir Red Hat sanal makine Ekle
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: Kubernetes küme sunma
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Kullanım ve faturalandırma
           items:
             - name: Genel Bakış

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/08/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd817750d6c6d43ae6973eb38b866b76921f33b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için yapılandırma ve yönetme sorununu: sık sorulan sorular (SSS)
 
@@ -34,6 +34,7 @@ Bu makale için yapılandırması ve yönetimi sorunları hakkında sık sorulan
 - [Nasıl t bir sertifika imzalama isteği (CSR) "RDP-lık" olmadan içinde örneğine oluşturabilir miyim?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Bulut Hizmet Yönetim sertifikası'My süresi doluyor. Yenilemek nasıl?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Ana SSL sertifika(.pfx) ve Ara certificate(.p7b) yüklenmesini otomatikleştirmek için nasıl?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- ["Microsoft Azure hizmet yönetimi için MachineKey" Sertifika amacı nedir?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **İzleme ve günlüğe kaydetme**
 
@@ -103,6 +104,10 @@ Yönetim sertifikaları yenilemek için PowerShell komutlarını kullanabilirsin
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Ana SSL sertifika(.pfx) ve Ara certificate(.p7b) yüklenmesini otomatikleştirmek için nasıl?
 
 Bir başlangıç komut dosyası (toplu işlem/cmd/PowerShell) kullanarak bu görevi otomatikleştirmek ve hizmet tanımı dosyasında bu başlangıç komut dosyasını kaydedin. Başlangıç betiği ve sertifika (.p7b dosyası) başlangıç betiği aynı dizine proje klasöründe ekleyin.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"Microsoft Azure hizmet yönetimi için MachineKey" Sertifika amacı nedir?
+
+Bu sertifika, Azure Web rolleri makine anahtarları şifrelemek için kullanılır. Daha fazla bilgi için bu danışma denetleme [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [Nasıl yapılandırılacağı ve başlangıç görevleri çalıştırmak için bir bulut hizmeti](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

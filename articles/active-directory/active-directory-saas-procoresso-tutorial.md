@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Procore SSO | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Procore SSO arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Procore SSO | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Procore SSO arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,17 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-<<<<<<< HEAD
-ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: c6bae8e24f252a535571308467b428832b542e48
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4cba8aa046b84fe63b17a662990824b1823c1572
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Öğretici: Azure Active Directory Tümleştirme Procore SSO
 
@@ -37,15 +31,7 @@ Procore SSO Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Procore SSO, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Procore SSO.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Procore SSO'su yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -198,7 +184,7 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-procore-sso-test-user"></a>Procore SSO test kullanıcısı oluşturma
 
@@ -218,11 +204,11 @@ Lütfen izleyin kendi tarafında Procore test kullanıcısı oluşturmak için a
 
     b. İçinde **Soyadı** metin kutusuna, türü kullanıcının soyadını gibi **Simon**.
 
-    c. İçinde **e-posta adresi** türü kullanıcının e-posta adresi metin kutusuna, ister  **BrittaSimon@contoso.com** .
+    c. İçinde **e-posta adresi** türü kullanıcının e-posta adresi metin kutusuna, ister **BrittaSimon@contoso.com**.
 
     d. Seçin **izin şablonu** olarak **izin şablonu daha sonra uygulamak**.
 
-    e. **Oluştur**'a tıklayın.
+    e. **Oluştur**’a tıklayın.
 
 4. Kontrol edin ve yeni eklenen kişi ayrıntılarını güncelleştirin.
 

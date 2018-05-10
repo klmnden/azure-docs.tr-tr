@@ -1,25 +1,25 @@
 ---
-title: "Azure AD uygulama proxy'si ile uygulamaları için çoklu oturum açma | Microsoft Docs"
-description: "Tek oturum açma için yayımlanan şirket içi uygulamalarınızı Azure portalında Azure AD uygulama proxy'si ile açın."
+title: Azure AD uygulama proxy'si ile uygulamaları için çoklu oturum açma | Microsoft Docs
+description: Tek oturum açma için yayımlanan şirket içi uygulamalarınızı Azure portalında Azure AD uygulama proxy'si ile açın.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 501017ae416cc8aa473077c98ae0a213db749547
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 3c69450601d84f62d05ca6cc8930fd8e9a8e4203
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Çoklu oturum açma için uygulama proxy'si ile vaulting parola
 

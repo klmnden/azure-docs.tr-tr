@@ -1,11 +1,9 @@
 ---
-title: "Uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme | Microsoft Docs"
-description: "Çoklu oturum açma, uygulamalar arasında etkinleştirmek için ADAL SDK özelliklerini kullanma "
+title: Uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme | Microsoft Docs
+description: 'Çoklu oturum açma, uygulamalar arasında etkinleştirmek için ADAL SDK özelliklerini kullanma '
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: xerners
 manager: mtillman
-editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +13,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c477e7e6fb9ef9a93ceab53c1427b974bab99b37
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme
 Kullanıcıların yalnızca bir kez kimlik bilgilerini girin ve bu kimlik bilgilerini otomatik olarak gerekir böylece çoklu oturum açma (SSO) iş arasında sağlayan uygulamalar artık müşteriler tarafından bekleniyordu. Ekranda bir telefon araması veya ilerideki kodu gibi ek bir etmen (2FA) kez birlikte küçük, genellikle kullanıcı adı ve parola girme zorluk hızlı memnuniyetsizliği kullanıcı sonuçlarında ürününüz için birden fazla kez bunun var.
@@ -160,11 +158,11 @@ Belirteçleri, uygulamalar arasında paylaşmak için izin bilmeniz Microsoft Id
 
 Aynı uygulama kimliği kullanıyorsa, farklı uygulamalar Microsoft Identity hizmetine nasıl kullanacağını merak ediyor olabilirsiniz Yanıt olan **yeniden yönlendirme URI'ler**. Her uygulamanın birden çok yeniden yönlendirme hazırlama Portalı'nda kayıtlı URI'ler olabilir. Her uygulama paketiniz içinde farklı bir yeniden yönlendirme URI'sine sahip olur. Bu sistem, bir örnek aşağıda verilmiştir:
 
-App1 yeniden yönlendirme URİ'si:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+App1 yeniden yönlendirme URİ'si: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-App2 yeniden yönlendirme URİ'si:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+App2 yeniden yönlendirme URİ'si: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-App3 yeniden yönlendirme URİ'si:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+App3 yeniden yönlendirme URİ'si: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 

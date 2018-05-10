@@ -12,37 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 72372a37c4ddcc6135fc7477807e4ff94ae90c77
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory'ı Raporlama API'si erişmek için Önkoşullar
 
 [Azure Active API'leri raporlama Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) verilere bir dizi REST tabanlı API'ler aracılığıyla programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
 
-Raporlama API kullandığı [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) web API'leri erişim yetkisi vermek için. 
+Raporlama API kullandığı [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) web API'leri erişim yetkisi vermek için.
+
+Raporlama API erişiminizi hazırlamak için aktarmanız gerekir:
+
+1. Rolleri Ata
+2. Bir uygulamayı kaydetme
+3. İzin ver
+4. Yapılandırma ayarlarını toplayın
+
+
+
+## <a name="assign-roles"></a>Rolleri Ata
 
 Raporlama verilerini API aracılığıyla erişmek için atanan aşağıdaki rolleri birine sahip olması gerekir:
 
 - Güvenlik Okuyucu
+
 - Güvenlik Yöneticisi
+
 - Genel yönetici
 
 
-Raporlama API erişiminizi hazırlamak için şunları yapmanız gerekir:
 
-1. Bir uygulamayı kaydetme 
-2. İzin ver 
-3. Yapılandırma ayarlarını toplayın 
 
-Sorular, sorunları veya geri bildirim, [bir destek bileti dosya](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## <a name="register-an-azure-active-directory-application"></a>Bir Azure Active Directory uygulamayı kaydetme
+## <a name="register-an-application"></a>Bir uygulamayı kaydetme
 
 Bir komut dosyası kullanarak raporlama API eriştiğiniz olsa bile bir uygulama kaydetmeniz gerekir. Bu size verir bir **uygulama kimliği**, yetkilendirme çağrısı için gerekli olduğu ve belirteçleri almak kodunuzu sağlar.
 
@@ -86,7 +93,7 @@ Erişmek istediğiniz API bağlı olarak, uygulamanızı aşağıdaki izinler ge
 
 | API | İzin |
 | --- | --- |
-| Windows Azure Active Directory | Dizin verilerini okuyun |
+| Windows Azure Active Directory | Dizin verilerini okuma |
 | Microsoft Graph | Tüm denetim günlüğü verilerini okuma |
 
 
@@ -145,11 +152,12 @@ Aşağıdaki bölümde, her iki API için adımlar listelenmektedir. API'ler bir
 
 
 ## <a name="gather-configuration-settings"></a>Yapılandırma ayarlarını toplayın 
+
 Bu bölüm, aşağıdaki ayarları dizininizden alma gösterir:
 
-* Etki alanı adı
-* İstemci Kimliği
-* Gizli anahtar
+- Etki alanı adı
+- İstemci Kimliği
+- Gizli anahtar
 
 Raporlama API çağrıları yapılandırırken bu değerleri gerekir. 
 
@@ -219,6 +227,10 @@ Uygulamanızın istemci parolası mı almak için yeni bir anahtar oluşturun ve
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Verileri Azure AD raporlama API'si programlı bir şekilde erişmek ister misiniz? Kullanıma [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
-* Azure Active Directory raporlama hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).  
+
+- [Azure Active Directory'ı Raporlama API'si ile sertifikaları kullanarak veri almak](active-directory-reporting-api-with-certificates.md).
+
+- [Bir ilk izlenim raporlama API'ları alma](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Kendi çözüm oluşturma](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

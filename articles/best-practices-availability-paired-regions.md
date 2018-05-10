@@ -7,13 +7,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -25,31 +25,30 @@ Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum için
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Şekil 1 – Azure bölgesel çifti diyagramı
+Şekil 1 – Azure Bölgesel çiftleri
 
 | coğrafi konum | Eşleştirilmiş bölgeler |  |
 |:--- |:--- |:--- |
 | Asya |Doğu Asya |Güneydoğu Asya |
 | Avustralya |Avustralya Doğu |Avustralya Güneydoğu |
+| Brezilya |Brezilya Güney (2) |Orta Güney ABD |
 | Kanada |Kanada Orta |Doğu Kanada |
 | Çin |Çin Kuzey |Çin Doğu|
+| Avrupa |Kuzey Avrupa |Batı Avrupa |
+| Almanya |Almanya Orta |Almanya Kuzeydoğu |
 | Hindistan |Orta Hindistan |Güney Hindistan |
 | Hindistan |Batı Hindistan (1) |Güney Hindistan |
 | Japonya |Japonya Doğu |Japonya Batı |
 | Kore |Kore Orta |Kore Güney |
-| Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |
 | Kuzey Amerika |Doğu ABD |Batı ABD |
 | Kuzey Amerika |Doğu ABD 2 |Orta ABD |
-| Kuzey Amerika |Batı ABD 2 |Batı Orta ABD |
-| Avrupa |Kuzey Avrupa |Batı Avrupa |
-| Japonya |Japonya Doğu |Japonya Batı |
-| Brezilya |Brezilya Güney (2) |Orta Güney ABD |
+| Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |
+| Kuzey Amerika |Batı ABD 2 |Batı Orta ABD 
+| UK |Birleşik Krallık Batı |Birleşik Krallık Güney |
+| ABD Savunma Bakanlığı |US DoD Doğu |US DoD Orta |
+| ABD Devleti |ABD Devleti Arizona |ABD Devleti Texas |
 | ABD Devleti |ABD kamu Iowa (3) |ABD Devleti Virginia |
 | ABD Devleti |ABD kamu Virginia (4) |ABD Devleti Texas |
-| ABD Devleti |ABD Devleti Arizona |ABD Devleti Texas |
-| ABD Savunma Bakanlığı |US DoD Doğu |US DoD Orta |
-| BİRLEŞİK KRALLIK |Birleşik Krallık Batı |Birleşik Krallık Güney |
-| Almanya |Almanya Orta |Almanya Kuzeydoğu |
 
 Tablo 1 - Azure bölgesel çiftlerini eşleme
 

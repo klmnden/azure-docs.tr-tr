@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0307b26741a6bbbf29626e670467cdd72697646
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>El ile yeni bir ARM yönetilen Disk sanal makineye bir Klasik VM VHD'den geçirme 
 
@@ -92,6 +92,8 @@ Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapma
 
 Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapmak için geçerli sistemdeki tüm işleme durdurmak zorunda. Ancak bundan sonra yeni platforma geçirebilirsiniz tutarlı durumuna alabilir. Kapalı kalma süresi geçirmek için diskleri veri miktarına bağlıdır.
 
+Azure PowerShell modülü sürümü 6.0.0 bu bölümü gerektirir veya sonraki bir sürümü. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Çalıştırmanız gereken `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+
 
 1.  İlk olarak, ortak parametreleri ayarlayın:
 
@@ -121,11 +123,11 @@ Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapma
 
 2.  Klasik VM VHD'den kullanarak yönetilen bir işletim sistemi diski oluşturun.
 
-    $OsVhdUri parametre OS VHD'ye tam URI'si sağladığınız emin olun. Ayrıca, girin **- AccountType** olarak **PremiumLRS** veya **StandardLRS** temel diskleri (Premium veya standart) türüne için geçirdiğiniz.
+    $OsVhdUri parametre OS VHD'ye tam URI'si sağladığınız emin olun. Ayrıca, girin **- AccountType** olarak **Premium_LRS** veya **Standard_LRS** temel diskleri (Premium veya standart) türüne için geçirdiğiniz.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
     -ResourceGroupName $resourceGroupName
     ```
 
@@ -134,14 +136,14 @@ Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapma
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  Veri VHD dosyasından bir yönetilen veri diski oluşturun ve yeni VM'ye ekleyin.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -AccountType Premium_LRS -Location $location -CreationDataCreateOption Import '
     -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
     
     $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '

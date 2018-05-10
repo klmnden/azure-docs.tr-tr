@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Otomatik olarak süresi ile Azure Cosmos DB koleksiyonlarda verileri süresi dolacak
 Uygulamalar oluşturmak ve çok büyük miktarda veri depolayın. Bu veriler, bazı bilgiler yalnızca sınırlı bir süre için yararlıdır oluşturulan makine olay verileri, günlükler ve kullanıcı oturumu ister. Veri olduktan sonra uygulamanızın gereksinimlerine fazlalık, bu verileri temizlemek ve bir uygulamanın depolama gereksinimlerini azaltmak güvenlidir.
@@ -124,7 +124,7 @@ Belge üzerinde herhangi bir yazma işlemi yaparak belgesinde TTL sıfırlayabil
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>Bir belgeden TTL kaldırma
 TTL bir belgeyi ayarlama ve süresi dolacak şekilde bu belgeyi artık istiyorsanız sonra belgeyi almak, TTL alanı kaldırabileceğiniz ve sunucuda belge değiştirin. TTL alanı belgeden kaldırıldığında, koleksiyon varsayılan uygulanır. Bir belgeden zaman aşımına uğramak durdurup koleksiyondan devralmayan sonra TTL değeri -1 olarak ayarlandığında gerekir.
@@ -136,7 +136,7 @@ TTL bir belgeyi ayarlama ve süresi dolacak şekilde bu belgeyi artık istiyorsa
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>TTL devre dışı bırakma
 TTL bir koleksiyonda tamamen devre dışı bırakın ve koleksiyon DefaultTTL özellikte süresi dolan belgeleri mi arıyorsunuz gelen arka plan işlemi durdurmak için silinmesi gerekir. Bu özellik silme -1 olarak ayarından farklıdır. Koleksiyona eklenen yeni belgeler-1 anlamına gelir ayarına sonsuza kadar Canlı ancak, bu koleksiyondaki belirli belgeleri kılabilirsiniz. Önceki bir varsayılan açıkça silmiş belgeleri olsa bile bu özellik tamamen koleksiyonundan kaldırılması hiçbir belge dolacağını anlamına gelir.

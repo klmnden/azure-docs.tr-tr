@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 33b958b97a5883d585bbfda167db35107c0c5997
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: db0117b0b4ddee002fc69d71e78eca2b9008e4f6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Bir içerik anahtarı yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -58,7 +58,7 @@ Belirteç kısıtlamalı ilkenin seçmek için Seç **BELİRTECİ** düğmesi.
 
 Belirteç kısıtlamalı ilkenin, bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services basit bir web belirteç belirteçleri destekler ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) ve JSON Web Token (JWT) biçimlendirir. Daha fazla bilgi için bkz: [JWT kimlik doğrulama](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Media Services STS sağlamaz. Özel bir STS oluşturun veya Azure erişim denetimi hizmeti sorunu belirteçleri kullanın. STS, belirteç kısıtlamasına yapılandırmasında belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Belirtecin geçerli olduğu ve içerik anahtarı için yapılandırılmış talep belirteci eşleştiğinden, Media Services anahtar teslim hizmeti istemcisi için şifreleme anahtarını döndürür. Daha fazla bilgi için bkz: [kullanım Azure erişim denetimi hizmeti sorunu belirteçleri için](http://mingfeiy.com/acs-with-key-services).
+Media Services STS sağlamaz. Belirteçlerini vermek için özel bir STS oluşturabilirsiniz. STS, belirteç kısıtlamasına yapılandırmasında belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Belirtecin geçerli olduğu ve içerik anahtarı için yapılandırılmış talep belirteci eşleştiğinden, Media Services anahtar teslim hizmeti istemcisi için şifreleme anahtarını döndürür.
 
 Belirteç kısıtlanmış İlkesi yapılandırdığınızda, birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Birincil doğrulama anahtar belirteci ile imzalandığı anahtarı içerir. Verici belirtecini veren STS ' dir. Kaynak belirteci erişimini yetkilendirir veya (bazen kapsam denir) İzleyici belirteç amacı açıklanır. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
 

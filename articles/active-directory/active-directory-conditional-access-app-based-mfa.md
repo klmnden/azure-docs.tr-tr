@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eba67e6fe7d836d7b36d2bcd576eeaf4c70df970
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac43817fb3f253c35cd69a8ecd8931afca50892b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-configure-per-cloud-app-mfa-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişimle MFA bulut uygulaması başına yapılandırma 
 
@@ -64,7 +64,7 @@ Bu bölümde gerekli koşullu erişim ilkesinin nasıl oluşturulacağını gös
 |---     | --- |
 |Kullanıcılar ve gruplar | Britta Simon |
 |Bulut uygulamaları | Microsoft Azure Yönetimi |
-|Erişim İzni Verme | Çok faktörlü kimlik doğrulamasını gerekli kıl |
+|Erişim İzni Verme | Çok faktörlü kimlik doğrulaması gerektir |
  
 
 ![İlke oluşturma](./media/active-directory-conditional-access-app-based-mfa/12.png)
@@ -160,7 +160,7 @@ Aracıyla yapılandırırken **Britta Simon** kullanıcı olarak ve **Microsoft 
 
 1. Üzerinde [koşullu erişim - ilkeleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) sayfasında üst menüsünde tıklatın **ne**.  
  
-    ![Durum](./media/active-directory-conditional-access-app-based-mfa/14.png)
+    ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
 2. Tıklatın **kullanıcılar**seçin **Britta Simon**ve ardından **seçin**.
 

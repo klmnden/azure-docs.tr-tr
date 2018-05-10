@@ -10,13 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 839b248fb6410fd36a1741beb1ae3598fe93b0a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Uzak Masaüstü Ağ Geçidi altyapınızı Azure AD ve ağ ilkesi sunucusu (NPS) uzantısını kullanarak tümleştirme
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Uzak Masaüstü Ağ Geçidi altyapınızı Azure AD ve ağ ilkesi sunucusu (NPS) uzantısını kullanarak tümleştirme
 
 Bu makalede ayrıntıları Uzak Masaüstü Ağ Geçidi altyapınızı Azure çok faktörlü kimlik doğrulama (MFA) ile tümleştirmek için Microsoft Azure için ağ ilkesi sunucusu (NPS) uzantısını kullanarak sağlar. 
 
@@ -144,8 +144,8 @@ Kendi sertifikalarını kullanmak istiyorsanız, üzerinde Azure AD hizmet sorum
 Betik kullanmak için Azure AD yönetici kimlik bilgileriniz ve daha önce kopyaladığınız Azure AD Kiracı kimliği ile uzantısı sağlar. Komut dosyası, NPS uzantısı yüklü olduğu her NPS sunucusunda çalıştırın. Ardından şunları yapın:
 
 1. Bir yönetici Windows PowerShell komut istemini açın.
-2. PowerShell komut isteminde yazın **cd 'c:\Program Files\Microsoft\AzureMfa\Config'** ve basın **ENTER**.
-3. Tür _.\AzureMfsNpsExtnConfigSetup.ps1_ve basın **ENTER**. Azure Active Directory PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklü değilse, komut dosyası modülünü yükler.
+2. PowerShell komut isteminde yazın `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`ve basın **ENTER**.
+3. Tür `.\AzureMfsNpsExtnConfigSetup.ps1`ve basın **ENTER**. Azure Active Directory PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklü değilse, komut dosyası modülünü yükler.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

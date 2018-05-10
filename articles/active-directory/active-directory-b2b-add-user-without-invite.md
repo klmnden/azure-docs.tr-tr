@@ -1,26 +1,21 @@
 ---
-title: "B2B işbirliği kullanıcılar davetsiz Azure Active Directory'ye ekleme | Microsoft Docs"
-description: "Azure Active Directory B2B işbirliği daveti redeeming olmadan diğer Konuk kullanıcılar için Azure AD eklemek Konuk kullanıcı izin verebilirsiniz."
+title: B2B işbirliği kullanıcılar davetsiz Azure Active Directory'ye ekleme | Microsoft Docs
+description: Azure Active Directory B2B işbirliği daveti redeeming olmadan diğer Konuk kullanıcılar için Azure AD eklemek Konuk kullanıcı izin verebilirsiniz.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+documentationcenter: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 68d828b8fb23f7074be5fe691a4250d0fa653ab7
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 656651d067e5685aead65fdd647a0ea500ae7de9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Davetiye olmayan B2B işbirliği Konuk kullanıcılar ekleme
 
@@ -34,16 +29,8 @@ Bunlar ayrıcalıkları ne zaman verin:
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
+- [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Bilgi çalışanları B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-iw-add-users.md)
+- [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md)
+- [Azure Active Directory B2B işbirliği için temsilci davetleri](active-directory-b2b-delegate-invitations.md)
 
-* [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory yöneticileri B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-admin-add-users.md)
-* [Bilgi çalışanları B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-iw-add-users.md)
-* [B2B işbirliği davet e-posta öğeleri](active-directory-b2b-invitation-email.md)
-* [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B işbirliği lisanslama](active-directory-b2b-licensing.md)
-* [Azure Active Directory B2B işbirliği sorunlarını giderme](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B işbirliği sık sorulan sorular (SSS)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B işbirliği API ve özelleştirme](active-directory-b2b-api.md)
-* [B2B işbirliği kullanıcıları için çok faktörlü kimlik doğrulaması](active-directory-b2b-mfa-instructions.md)
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)

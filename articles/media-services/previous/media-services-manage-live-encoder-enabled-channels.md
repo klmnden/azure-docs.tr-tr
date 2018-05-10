@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>Genel Bakış
 Azure Media Services (AMS) bir **kanal** canlı akış içeriğinin işlemek için bir işlem hattını temsil eder. A **kanal** Canlı giriş akışları iki yoldan biriyle alır:
 
-* Şirket içi gerçek zamanlı bir kodlayıcı, Media Services ile şu biçimlerden birinde gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanala tek bit hızlı bir akış gönderir: RTP (MPEG-TS), RTMP veya Kesintisiz Akış (Parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 * Çoklu bit hızlı bir şirket içi gerçek zamanlı Kodlayıcı gönderir **RTMP** veya **kesintisiz akış** (parçalanmış MP4) kanala AMS ile gerçek zamanlı kodlama gerçekleştirmek için etkin değil. Alınan akışların geçirir **kanal**herhangi başka bir işleme olmadan s. Bu yöntem çağrılır **doğrudan**. Çoklu bit hızlı kesintisiz akış çıkışı aşağıdaki gerçek zamanlı Kodlayıcıları kullanabilirsiniz: MediaExcel, Ateme, düşünün iletişimleri, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıkışı: Adobe Flash medya Canlı Kodlayıcı (FMLE), Telestream Wirecast, Haivision, Teradek ve Tricaster kodlayıcılar.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
   
   > [!NOTE]
@@ -79,7 +79,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 Kullanılmayan bir süre için eşik ismen 12 saat olsa da değiştirilebilir.
 
 ## <a name="live-encoding-workflow"></a>Canlı kodlama iş akışı
-Aşağıdaki diyagramda, burada bir kanal alır tek bit hızlı akış aşağıdaki protokollerden birini bir canlı akış iş akışı temsil eder: RTMP, kesintisiz akış veya RTP (MPEG-TS); Ardından, Çoklu bit hızında akışa akışa kodlar. 
+Aşağıdaki diyagramda, burada bir kanal alır tek bit hızlı akış aşağıdaki protokollerden birini bir canlı akış iş akışı temsil eder: RTMP veya kesintisiz akış; Ardından, Çoklu bit hızında akışa akışa kodlar. 
 
 ![Canlı iş akışı][live-overview]
 
@@ -91,7 +91,7 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 > 
 > 
 
-1. Bilgisayara bir video kamera bağlayın. Başlatma ve çıkışı sağlayabilecek bir şirket içi gerçek zamanlı Kodlayıcı yapılandırma bir **tek** hızında akışa aşağıdaki protokollerden birini: RTMP, kesintisiz akış veya RTP (MPEG-TS). 
+1. Bilgisayara bir video kamera bağlayın. Başlatma ve çıkışı sağlayabilecek bir şirket içi gerçek zamanlı Kodlayıcı yapılandırma bir **tek** hızında akışa aşağıdaki protokollerden birini: RTMP veya kesintisiz akış. 
    
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 2. Bir Kanal oluşturup başlatın. 
@@ -125,48 +125,8 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 ### <a id="Ingest_Protocols"></a>Alma Akış Protokolü
 Varsa **Kodlayıcı türü** ayarlanır **standart**, geçerli seçenekler şunlardır:
 
-* **RTP** (MPEG-TS): RTP üzerinden MPEG-2 aktarım akışı.  
 * Tek bit hızlı **RTMP**
 * Tek bit hızlı **parçalanmış MP4** (kesintisiz akış)
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) - RTP üzerinden MPEG-2 aktarım akışı.
-Tipik kullanım örneği: 
-
-Profesyonel yayıncıları genellikle yüksek kaliteli şirket içi gerçek zamanlı kodlayıcılar Elemental teknolojileri, Ericsson, Ateme, Imagine veya Envivio bir akış göndermeye gibi satıcılardan çalışırlar. Genellikle bir BT departmanının ve özel ağlar ile birlikte kullanılır.
-
-Dikkate alınacak noktalar:
-
-* Giriş tek bir program aktarım akışı (SPTS) kullanılması önerilir. 
-* 8 adete kadar ses akışları RTP MPEG-2 TS kullanarak girebilirsiniz. 
-* Video akışına ortalama bir bit hızı 15 Mbps aşağıda olmalıdır
-* Ses akışları, toplam ortalama bit hızı 1 MB/sn olmalıdır
-* Desteklenen codec bileşenleri şunlardır:
-  
-  * MPEG-2 / H.262 Video 
-    
-    * Ana profili (4:2:0)
-    * Yüksek profil (4:2:0, 4:2:2)
-    * 422 profil (4:2:0, 4:2:2)
-  * MPEG-4 AVC / H.264 Video  
-    
-    * Taban çizgisi, ana, yüksek profil (8 bit 4:2:0)
-    * Yüksek 10 profili (10 bit 4:2:0)
-    * Yüksek 422 profili (10 bit 4:2:2)
-  * MPEG-2 AAC-LC ses 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-    * MPEG-2 stili ADTS paketleme
-  * Dolby dijital (AC-3) ses 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-  * MPEG Ses (Katman II ve III) 
-    
-    * Mono, Stereo
-* Önerilen yayın kodlayıcılar içerir:
-  
-  * İletişim Selenio ÇÖZÜCÜ 1 düşünün
-  * İletişim Selenio ÇÖZÜCÜ 2 düşünün
-  * Elemental dinamik
 
 #### <a id="single_bitrate_RTMP"></a>Tek bit hızlı RTMP
 Dikkate alınacak noktalar:
@@ -232,36 +192,21 @@ Veri alma kanal başladıktan sonra akışınızın önizlemesini.
 Bu bölümde nasıl kanal içindeki gerçek zamanlı Kodlayıcı ayarları, ne zaman ayarlanabilir açıklanmaktadır **kodlama türü** bir kanalı kümesine **standart**.
 
 > [!NOTE]
-> Zaman birden çok dil parçaları giriş yapma ve Azure ile gerçek zamanlı kodlama yapılması, yalnızca RTP çok dilli giriş için desteklenir. 8 adete kadar ses akışları RTP MPEG-2 TS kullanarak tanımlayabilirsiniz. RTMP veya kesintisiz akış ile birden çok ses izleri alma şu anda desteklenmiyor. Yaparken ile gerçek zamanlı kodlama [şirket içi Canlı kodlar](media-services-live-streaming-with-onprem-encoders.md), ne olursa olsun AMS için gönderilen bir kanal herhangi başka bir işleme olmadan geçirdiği için böyle bir kısıtlama değil.
+> Katkı akışınıza yalnızca tek bir ses parça – içerebilir birden çok ses izleri alma şu anda desteklenmiyor. Yaparken ile gerçek zamanlı kodlama [şirket içi Canlı kodlar](media-services-live-streaming-with-onprem-encoders.md), akış kesintisiz akış protokol birden çok ses izleri içeren bir katkı gönderebilirsiniz.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Ad işaret kaynağı
 Reklam işaretçi sinyallerinin kaynağını belirtebilirsiniz. Varsayılan değer **API**, gösterir kanal içindeki gerçek zamanlı Kodlayıcı için bir zaman uyumsuz olarak dinleyecek **reklam işaretçisi API'yi**.
 
-Geçerli bir seçenek **Scte35** (yalnızca alma akış protokolüne RTP (MPEG-TS) ayarlanmış olup olmadığını izin verilir. Scte35 belirtildiğinde, gerçek zamanlı Kodlayıcı giriş RTP (MPEG-TS) akışından SCTE-35 sinyalleri ayrıştırılamıyor.
-
 ### <a name="cea-708-closed-captions"></a>CEA 708 kapalı açıklamalı alt yazıları
 CEA 708 resim yazıları verileri yoksayacak şekilde gerçek zamanlı Kodlayıcı belirten isteğe bağlı bir bayrak gelen videoda katıştırılmış. Bayrak (varsayılan) false olarak ayarlandığında, kodlayıcı algılamak ve CEA 708 veri çıkış video akışları yeniden ekleyin.
-
-### <a name="video-stream"></a>Video akışı
-İsteğe bağlı. Giriş video akışı açıklanır. Bu alan belirtilmezse, varsayılan değer kullanılır. Bu ayar yalnızca RTP (MPEG-TS) protokolü akışı giriş ayarlarsanız izin verilir.
-
-#### <a name="index"></a>Dizin oluşturma
-Hangi giriş video akışı kanal içindeki gerçek zamanlı Kodlayıcı tarafından işleneceğini belirtir sıfır tabanlı dizini. Bu ayar yalnızca geçerli alma Protokolü akış RTP (MPEG-TS) kullanılır.
-
-Varsayılan değer sıfır olur. Bir tek bir program aktarım akışı (SPTS) göndermek için önerilir. Giriş akışı birden çok program içeriyorsa, gerçek zamanlı Kodlayıcı giriş Program eşleme tablosu (devresel_ödeme) ayrıştırır, akış türü adı MPEG-2 Video veya H.264 sahip girişleri tanımlar ve bunları ödeme belirtilen sırada düzenler Sıfır tabanlı dizin sonra Bu düzende n. girişini seçmek için kullanılır.
-
-### <a name="audio-stream"></a>Ses akışı
-İsteğe bağlı. Giriş ses akışları açıklar. Bu alan belirtilmezse, belirtilen varsayılan değerleri uygulayın. Bu ayar yalnızca RTP (MPEG-TS) protokolü akışı giriş ayarlarsanız izin verilir.
 
 #### <a name="index"></a>Dizin oluşturma
 Bir tek bir program aktarım akışı (SPTS) göndermek için önerilir. Giriş akışı birden çok program içeriyorsa kanal içindeki gerçek zamanlı Kodlayıcı giriş Program eşleme tablosu (devresel_ödeme) ayrıştırır, MPEG-2 AAC ADTS veya AC-3 sistem A veya Sistem AC-3-B veya MPEG-2 özel PES veya MPEG-1 bir akış türü ada sahip girişleri tanımlar Ses veya MPEG-2 ses ve bunları ödeme belirtilen sırada düzenler Sıfır tabanlı dizin sonra Bu düzende n. girişini seçmek için kullanılır.
 
 #### <a name="language"></a>Dil
 ISO 639-2, Müh gibi uyumludur ses akışı dil tanıtıcısı Yoksa, varsayılan değer (tanımsız) Geri Al ' dir.
-
-Olabilir en fazla 8 ses akışı kümeleri belirtilen giriş kanal RTP MPEG-2 TS olup olmadığını. Ancak, hiçbir iki giriş dizini aynı değere sahip olabilir.
 
 ### <a id="preset"></a>Sistem hazır
 Bu kanal içindeki gerçek zamanlı Kodlayıcı tarafından kullanılmak üzere hazır belirtir. Şu anda yalnızca izin verilen değer **Default720p** (varsayılan).
@@ -387,13 +332,11 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 * Kanalınızı olduğunda, yalnızca faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz [bu](media-services-manage-live-encoder-enabled-channels.md#states) bölümü.
 * Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 * İçinde içerik akışı sağlamak istediğiniz akış uç bulunduğundan emin olun **çalıştıran** durumu.
-* Zaman birden çok dil parçaları giriş yapma ve Azure ile gerçek zamanlı kodlama yapılması, yalnızca RTP çok dilli giriş için desteklenir. 8 adete kadar ses akışları RTP MPEG-2 TS kullanarak tanımlayabilirsiniz. RTMP veya kesintisiz akış ile birden çok ses izleri alma şu anda desteklenmiyor. Yaparken ile gerçek zamanlı kodlama [şirket içi Canlı kodlar](media-services-live-streaming-with-onprem-encoders.md), ne olursa olsun AMS için gönderilen bir kanal herhangi başka bir işleme olmadan geçirdiği için böyle bir kısıtlama değil.
 * Kodlama hazır 30 fps "max kare hızı" kavramı kullanır. Giriş 60 fps ise bunu / 59.97i, giriş çerçeveleri bırakılan/Kaldır-30/29.97 fps interlaced. Giriş 50 fps/50i ise, giriş çerçeveleri bırakılan/Kaldır-25 fps interlaced. Giriş 25 fps ise, çıktı 25 fps ile kalır.
 * STOP YOUR yapıldığında kanala unutmayın. Yapmadığınız takdirde, faturalandırma devam eder.
 
-## <a name="known-issues"></a>Bilinen Sorunlar
+## <a name="known-issues"></a>Bilinen sorunlar
 * Kanal başlama süresi 2 dakika ortalama için iyileştirilmiştir, ancak bazen artan talebi hala en fazla 20 + dakika ele geçirebilir.
-* RTP destek profesyonel yayıncıları catered. Lütfen içinde RTP notları inceleyin [bu](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogu.
 * Slate görüntüleri açıklanan kısıtlamaları uyması [burada](media-services-manage-live-encoder-enabled-channels.md#default_slate). Dener bir kanal oluşturmak 1920 x 1080 büyük bir varsayılan Kurşun ile istek olacak sonunda kullanıma alma hatası.
 * Bir kez daha... İşiniz bittiğinde dur YOUR KANALLARA unutmayın akış. Yapmadığınız takdirde, faturalandırma devam eder.
 

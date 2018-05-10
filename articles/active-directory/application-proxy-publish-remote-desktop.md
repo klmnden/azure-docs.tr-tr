@@ -1,25 +1,25 @@
 ---
-title: "Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama | Microsoft Docs"
-description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır."
+title: Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama | Microsoft Docs
+description: Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama
 
@@ -75,14 +75,14 @@ RDS dağıtımı yönetici olarak bağlanın ve dağıtım için RD Ağ Geçidi 
 1. RD Bağlantı Aracısı rol çalıştıran RDS sunucuya bağlanın.
 2. Başlatma **Sunucu Yöneticisi'ni**.
 3. Seçin **Uzak Masaüstü Hizmetleri** sol bölmesinden.
-4. Seçin **genel bakış**.
+4. **Genel Bakış**’ı seçin.
 5. Dağıtımına genel bakış bölümünde, aşağı açılan menüden seçip **dağıtım özelliklerini düzenleme**.
 6. RD Ağ Geçidi sekmesinde, değiştirmek **sunucu adı** uygulama proxy'si RD konak uç için ayarladığınız dış URL alanı.
 7. Değişiklik **oturum açma yöntemi** alanı **parola kimlik doğrulaması**.
 
   ![Dağıtım özellikleri RDS ekranda](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Her koleksiyon için bu komutu çalıştırın. Değiştir  *\<yourcollectionname\>*  ve  *\<proxyfrontendurl\>*  kendi bilgilerle. Bu komut, çoklu oturum açma RD Web ve RD Ağ Geçidi arasında sağlar ve performansı en iyi duruma getirir:
+8. Her koleksiyon için bu komutu çalıştırın. Değiştir *\<yourcollectionname\>* ve *\<proxyfrontendurl\>* kendi bilgilerle. Bu komut, çoklu oturum açma RD Web ve RD Ağ Geçidi arasında sağlar ve performansı en iyi duruma getirir:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

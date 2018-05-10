@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantılar
 
@@ -119,7 +119,7 @@ Kullanırken [kullanılabilirlik bölgeleri olan standart yük dengeleyici](load
 
 ### <a name="pat"></a>Bağlantı noktası maskelenmiş SNAT (PAT)
 
-Ortak bir yük dengeleyici kaynak VM örnekleriyle ilişkili olduğunda, her giden bağlantı kaynağı yeniden yazılmıştır. Kaynak sanal ağ özel IP adres alanından ön yük dengeleyicinin genel IP adresi yeniden yazılmıştır. Ortak IP adres alanı, 5-tanımlama grubu (kaynak IP adresi, kaynak bağlantı noktası, IP Aktarım Protokolü, hedef IP adresi, hedef bağlantı noktası) akışının benzersiz olması gerekir.  
+Ortak bir yük dengeleyici kaynak VM örnekleriyle ilişkili olduğunda, her giden bağlantı kaynağı yeniden yazılmıştır. Kaynak sanal ağ özel IP adres alanından ön yük dengeleyicinin genel IP adresi yeniden yazılmıştır. Ortak IP adres alanı, 5-tanımlama grubu (kaynak IP adresi, kaynak bağlantı noktası, IP Aktarım Protokolü, hedef IP adresi, hedef bağlantı noktası) akışının benzersiz olması gerekir.  Bağlantı noktası maskelenmiş SNAT TCP veya UDP IP iletişim kuralları ile kullanılabilir.
 
 Kısa ömürlü bağlantı noktaları (SNAT) tek bir ortak IP adresini birden çok akış kaynaklı olduğundan bu özel kaynak IP adresini yeniden yazma işlemi sonra elde etmek için kullanılır. 
 

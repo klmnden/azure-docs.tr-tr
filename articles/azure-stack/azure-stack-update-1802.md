@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -84,6 +84,8 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 - **Rol tabanlı erişim denetimi (RBAC) geliştirmeleri** -AD FS ile Azure yığın dağıtıldığında Evrensel kullanıcı gruplarına izinlere temsilci seçmek için RBAC artık kullanabilirsiniz. RBAC hakkında daha fazla bilgi için bkz: [RBAC yönetme](azure-stack-manage-permissions.md).
 
 - **Birden çok hata etki alanları için ek destek**.  Daha fazla bilgi için bkz: [Azure yığını için yüksek kullanılabilirlik](azure-stack-key-features.md#high-availability-for-azure-stack).
+
+- **Fiziksel bellek yükseltme desteği** -ilk dağıtımınızdan sonra artık Azure tümleşik yığını sistem bellek kapasitesini genişletebilirsiniz. Daha fazla bilgi için bkz: [fiziksel bellek kapasitesi Azure yığınının yönetmek](azure-stack-manage-storage-physical-memory-capacity.md).
 
 - **Çeşitli düzeltmeleri** performans, sağlamlık, güvenlik ve Azure yığını tarafından kullanılan işletim sistemi için.
 

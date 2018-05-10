@@ -1,25 +1,25 @@
 ---
-title: "Azure yığını için planlama azure yığın güvenlik duvarı sistemlerini tümleşik | Microsoft Docs"
-description: "Çok düğümlü dağıtımlar Azure yığın Azure bağlı Azure yığın güvenlik duvarı konuları açıklanmaktadır."
+title: Azure yığını için planlama azure yığın güvenlik duvarı sistemlerini tümleşik | Microsoft Docs
+description: Çok düğümlü dağıtımlar Azure yığın Azure bağlı Azure yığın güvenlik duvarı konuları açıklanmaktadır.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure yığın güvenlik duvarı tümleştirmesi
 Güvenli Azure yığın yardımcı olmak için bir güvenlik duvarı cihazı kullanmanız önerilir. Güvenlik duvarları ile dağıtılmış hizmet engelleme (DDOS) saldırıları, izinsiz giriş algılama ve içerik denetimi gibi yardımcı olmakla birlikte, aynı zamanda BLOB'lar, tablolar ve Kuyruklar gibi Azure storage Hizmetleri için bir işleme ayak haline gelebilir.
@@ -44,7 +44,7 @@ Bazı ortak VIP için NAT kullanarak olumsuzlukları şunlardır:
 Şu anda tüm Azure yığın trafiği SSL şifre çözme devre dışı bırakmak için önerilir. Gelecekteki güncelleştirmeleri destekleniyorsa, SSL şifre çözme Azure yığınının etkinleştirme hakkında yönergeler sağlanacaktır.
 
 ## <a name="edge-firewall-scenario"></a>Sınır güvenlik duvarı senaryosu
-Bir sınır dağıtımında Azure yığın doğrudan sınır yönlendiricisi veya güvenlik duvarının arkasındaysa dağıtılır. Bu senaryolarda, kenarlığın ya da eşit maliyet çoklu yol (ECMP) BGP veya statik yönlendirme ile destekliyorsa, sınır cihazı olarak işlev gören üstünde olacak şekilde Güvenlik Duvarı'nda desteklenmiyor.
+Bir sınır dağıtımında Azure yığın doğrudan sınır yönlendiricisi veya güvenlik duvarının arkasındaysa dağıtılır. Bu senaryolarda, burada Güvenlik Duvarı etkin-etkin ve Etkin-pasif yapılandırmaları veya kenarlık aygıt (Senaryo 2) olarak davranma burada etkin-etkin Güvenlik Duvarı'nı yalnızca destekler destekleyen kenarlık (Senaryo 1) olması için Güvenlik Duvarı için desteklenir üzerinde eşit maliyet çoklu yol (ECMP) BGP veya yük devretme için statik yönlendirme ile bağlı olan yapılandırma.
 
 Genellikle, genel olarak yönlendirilebilir IP adreslerinin dış ağdan ortak VIP havuzu için dağıtım sırasında belirtilir. Bir sınır senaryosunda, bu ortak yönlendirilebilir IP'leri herhangi bir ağ üzerindeki güvenlik amacıyla kullanmak için önerilmez. Bu senaryo bir kullanıcı Azure gibi genel bulut gibi tam Self denetimli bulut deneyimi deneyimi sağlar.  
 

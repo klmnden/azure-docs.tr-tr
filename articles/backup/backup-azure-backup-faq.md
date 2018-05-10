@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/11/2018
+ms.date: 5/9/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -67,12 +67,19 @@ Evet.
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>DPM Sunucumu birden fazla kasaya kaydedebilir miyim? <br/>
 Hayır. DPM veya MABS sunucuları yalnızca bir kasaya kaydedilebilir.
 
-### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>System Center Data Protection Manager’ın hangi sürümü desteklenir? <br/>
-[En son](http://aka.ms/azurebackup_agent) Azure Backup aracısını, System Center Data Protection Manager'ın (DPM) en son güncelleştirme paketi (UR) üzerine yüklemeniz önerilir. Ağustos 2016 itibariyle en son güncelleştirme, Güncelleştirme Paketi 11’dir.
+### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>System Center Data Protection Manager’ın hangi sürümü desteklenir?
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Artık Azure'a yönelik şirket içi uygulama/VM iş yüklerini korumak için Azure Backup aracısıyla çalışmak üzere System Center DPM'yi yükleyebilir miyim? <br/>
-Azure Backup’ı System Center Data Protection Manager (DPM) ile birlikte kullanmak için önce DPM’yi, ardından Azure Backup aracısını yükleyin. Azure Backup bileşenlerinin bu sırada yüklenmesi, Azure Backup aracısının DPM ile çalışmasını sağlar. Azure Backup aracısının DPM yüklenmeden önce yüklenmesi önerilmez veya desteklenmez.
+[En son](http://aka.ms/azurebackup_agent) Azure Backup aracısını, System Center Data Protection Manager'ın (DPM) en son güncelleştirme paketi (UR) üzerine yüklemeniz önerilir. 
+- System Center DPM 2012 R2 için [güncelleştirme toplaması 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) son güncelleştirmesidir.
+- System Center DPM 2016 için [güncelleştirme paketi 2](https://support.microsoft.com/en-us/help/3209593) son güncelleştirmesidir.
 
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Şirket içi uygulama/VM iş yüklerini korumak için System Center DPM yükleyebilir miyim?
+
+Evet. Ancak, Azure Backup System Center Data Protection Manager (DPM) ile kullanmak için DPM ilk yükleyin ve ardından Azure Yedekleme aracısı yükleyin. Azure Backup bileşenlerinin bu sırada yüklenmesi, Azure Backup aracısının DPM ile çalışmasını sağlar. Azure Backup aracısının DPM yüklenmeden önce yüklenmesi önerilmez veya desteklenmez.
+
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Uygulamaları Azure yığınında yedeklemek için DPM kullanabilir miyim?
+
+Hayır. Azure yığın korumak için Azure Yedekleme'yi kullanabilirsiniz ancak Azure yedekleme şu anda Azure yığın uygulama yedeklemek için DPM kullanarak desteklemiyor.
 
 ## <a name="how-azure-backup-works"></a>Azure Backup nasıl çalışır?
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Bir yedekleme işini başlatıldıktan sonra iptal edersem aktarılan yedekleme verileri silinir mi? <br/>

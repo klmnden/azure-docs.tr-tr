@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 4d88004f37b40fa92e617545e1a94656744a7db0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP uç noktasına olayları alma
 
@@ -48,6 +48,8 @@ Azure işlevinizi (sağ çoğu Azure işlevleri portalındaki bölmesinde) yer a
 ## <a name="endpoint-validation"></a>Bitiş noktası doğrulama
 
 İşlemek istediğiniz yapmak için ilk şey. `Microsoft.EventGrid.SubscriptionValidationEvent` olaylar. Her biri bir olaya abone olduğunda, olay kılavuz doğrulama olayı ile uç noktasına gönderir. bir `validationCode` veri yükte. Bu geri yanıt gövdesi içinde Yankı için uç nokta gereklidir [uç nokta geçerli olduğundan ve sizin tarafınızdan ait kanıtlamak](security-authentication.md#webhook-event-delivery). Kullanıyorsanız bir [olay kılavuz tetikleyicisi](../azure-functions/functions-bindings-event-grid.md) işlevi bir Web kancası tetiklenen yerine bitiş noktası doğrulama sizin için işlenir. Bir üçüncü taraf API hizmeti kullanıyorsanız (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama kodu echo mümkün olmayabilir. Bu hizmetler için aboneliği abonelik doğrulama olayı gönderilen doğrulama URL'yi kullanarak el ile doğrulayabilir. Bu URL'yi kopyalayın `validationUrl` özelliği ve gönderme bir GET isteği REST istemcisi ya da web tarayıcınızı yoluyla.
+
+El ile doğrulama önizlemede değil. Kullanmak için bunu yüklemeniz [olay kılavuz uzantısı](/cli/azure/azure-cli-extensions-list) için [AZ CLI 2.0](/cli/azure/install-azure-cli). İle yükleyebilirsiniz `az extension add --name eventgrid`. REST API kullanıyorsanız, kullandığınızdan emin olun `api-version=2018-05-01-preview`.
 
 Program aracılığıyla doğrulama kodu echo için aşağıdaki kodu kullanın:
 

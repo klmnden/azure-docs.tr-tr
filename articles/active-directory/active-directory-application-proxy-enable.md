@@ -1,25 +1,25 @@
 ---
-title: "Azure AD uygulama proxy'si - Başlarken bağlayıcısını yükleme | Microsoft Docs"
-description: "Azure portalında uygulama ara sunucusunu etkinleştirmek ve bağlayıcıları için ters proxy yükleyin."
+title: Azure AD uygulama proxy'si - Başlarken bağlayıcısını yükleme | Microsoft Docs
+description: Azure portalında uygulama ara sunucusunu etkinleştirmek ve bağlayıcıları için ters proxy yükleyin.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4240b4a2aa14a0ac1a78c4faca74950b934955e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Uygulama proxy'si ile başlayın ve Bağlayıcısı'nı yüklemek
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
@@ -57,7 +57,7 @@ Azure AD uygulama proxy'si için ortamınızı hazırlamak için ilk Azure veri 
 
 3. Microsoft, sertifikaları doğrulamak için dört adreslerini kullanır. Diğer ürünler için yapmadıysanız aşağıdaki URL'lere erişim izin ver:
    * mscrl.microsoft.com:80
-   * crl.microsoft.com:80
+   * CRL.microsoft.com:80
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 

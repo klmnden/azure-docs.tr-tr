@@ -7,18 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f26f9b6f1b0ddef348c39df5aa4badc5df93b725
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Yapılandırma ve Azure kurtarma Hizmetleri kasası kullanarak Azure SQL veritabanı uzun vadeli yedekleme bekletme geri yükleme
 
 Azure SQL veritabanı yedeklemelerini depolamak ve Azure portal veya PowerShell kullanarak kasaya korunur yedekleri kullanarak bir veritabanını kurtarmak için Azure kurtarma Hizmetleri kasası yapılandırabilirsiniz.
+
+> [!NOTE]
+> Ekim 2016 uzun vadeli yedekleme bekletme önizlemesini ilk sürümünü bir parçası olarak, Azure kurtarma Hizmetleri kasasına yedekleme depolandı. Bu güncelleştirme bu bağımlılığı kaldırır, ancak geriye dönük uyumluluk için özgün API'si 31 May 2018 kadar desteklenir. Azure Hizmetleri kurtarma kasasında yedeklemeleri etkileşimde gerekiyorsa, bkz: [Azure kurtarma Hizmetleri kasası kullanılarak uzun vadeli yedekleme bekletme](sql-database-long-term-backup-retention-configure-vault.md). 
+
 
 ## <a name="azure-portal"></a>Azure portalına
 

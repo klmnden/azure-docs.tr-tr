@@ -1,45 +1,43 @@
 ---
-title: Program aracılığıyla ilkeleri oluşturma ve Azure ilkesiyle uyumluluk verileri görüntüleme | Microsoft Docs
+title: Program aracılığıyla ilkeleri oluşturun ve Azure ilkesiyle uyumluluk verilerini görüntüleyin
 description: Bu makalede, program aracılığıyla oluşturma ve ilkeleri için Azure ilke yönetme aracılığıyla anlatılmaktadır.
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Program aracılığıyla ilkeleri oluşturma ve uyumluluk verilerini görüntüleme
 
-Bu makalede, program aracılığıyla oluşturma ve ilkelerini yönetme anlatılmaktadır. Ayrıca, kaynak uyumluluk durumlarını görüntülemek nasıl gösterir ve ilkeleri. İlke tanımları kaynaklarınızı farklı kurallar ve Eylemler zorlar. Zorlama kaynakları Kurumsal standartları ve hizmet düzeyi sözleşmeleri ile uyumlu kaldığından emin hale getirir.
+Bu makalede, program aracılığıyla oluşturma ve ilkelerini yönetme anlatılmaktadır. Ayrıca, kaynak uyumluluk durumlarını görüntülemek nasıl gösterir ve ilkeleri. İlke tanımları kaynaklarınızı farklı kurallar ve etkileri zorlar. Zorlama kaynakları Kurumsal standartları ve hizmet düzeyi sözleşmeleri ile uyumlu kaldığından emin hale getirir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 
 1. Henüz yapmadıysanız, yükleme [ARMClient](https://github.com/projectkudu/ARMClient). Azure Resource Manager tabanlı API'ler HTTP istekleri gönderir bir araçtır.
-2. AzureRM PowerShell modülünüzü en son sürüme güncelleştirin. Azure PowerShell'in en son sürümü hakkında daha fazla bilgi için bkz: https://github.com/Azure/azure-powershell/releases.
+2. AzureRM PowerShell modülünüzü en son sürüme güncelleştirin. En son sürümü hakkında daha fazla bilgi için bkz: [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 3. Aboneliğiniz kaynak sağlayıcısı ile birlikte çalıştığından emin olmak için Azure PowerShell kullanarak ilke Insights kaynak sağlayıcı kaydedin. Bir kaynak sağlayıcısını kaydetmek için, kaynak sağlayıcısı kaydetme işlemini gerçekleştirme iznine sahip olmanız gerekir. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   Kaydetme ve kaynak sağlayıcıları görüntüleme hakkında daha fazla bilgi için bkz: [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md).
-4. Henüz yapmadıysanız, Azure CLI yükleyin. En son sürümünü almak [Windows Azure CLI 2.0 yükleme](/azure/install-azure-cli-windows?view=azure-cli-latest).
+4. Henüz yapmadıysanız, Azure CLI yükleyin. En son sürümünü almak [Windows Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Oluşturun ve bir ilke tanımı atayın
 
 İlk kaynaklarınızı daha iyi görünürlüğünü doğru oluşturmak ve kaynaklarınızı ilkeleri atamak için bir adımdır. Program aracılığıyla oluşturma ve bir ilke atama hakkında bilgi edinmek için sonraki adım olacaktır. Örnek İlkesi PowerShell, Azure CLI ve HTTP isteklerini kullanarak tüm ortak ağlara açık olan depolama hesapları denetler.
-
-Aşağıdaki komutlar standart katmanı ilke tanımları oluşturun. Standart katmanı ölçekli yönetimi, uyumluluk değerlendirmesi ve düzeltme yardımcı olur. Fiyatlandırma katmanları hakkında daha fazla bilgi için bkz: [fiyatlandırma Azure İlkesi](https://azure.microsoft.com/pricing/details/azure-policy).
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Oluşturma ve PowerShell ile bir ilke tanımı atama
 
@@ -68,7 +66,7 @@ Aşağıdaki komutlar standart katmanı ilke tanımları oluşturun. Standart ka
 2. AuditStorageAccounts.json dosyası kullanarak bir ilke tanımı oluşturmak için aşağıdaki komutu çalıştırın.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   Adlı bir ilke tanımı komut oluşturur _denetim depolama hesapları açık ortak ağlara_. Kullanabileceğiniz diğer parametreler hakkında daha fazla bilgi için bkz: [yeni AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
@@ -76,10 +74,8 @@ Aşağıdaki komutlar standart katmanı ilke tanımları oluşturun. Standart ka
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   Değiştir _ContosoRG_ , istenen kaynak grubunuzun adını.
@@ -124,7 +120,7 @@ Bir ilke tanımı oluşturmak için aşağıdaki yordamı kullanın.
   armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Preceding_ Değiştir &lt;Subscriptionıd&gt; hedeflenen aboneliğinizi kimliği.
+  Yukarıdaki Değiştir &lt;Subscriptionıd&gt; hedeflenen aboneliğinizi kimliği.
 
 Sorgu yapısı hakkında daha fazla bilgi için bkz: [ilke tanımları – oluştur veya Güncelleştir](/rest/api/resources/policydefinitions/createorupdate).
 
@@ -140,10 +136,6 @@ Bir ilke atamasını oluşturma ve kaynak grubu düzeyinde ilke tanımı atamak 
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +184,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. Bir ilke ataması oluşturmak için aşağıdaki komutu kullanın. Örnek bilgileri yerine &lt; &gt; kendi değerlerinizi sembolleriyle.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 İlke tanım kimliği PowerShell ile aşağıdaki komutu kullanarak elde edebilirsiniz:
@@ -211,38 +203,37 @@ Azure CLI kaynak ilkeleriyle yönetmek hakkında daha fazla bilgi için bkz: [Az
 
 ## <a name="identify-non-compliant-resources"></a>Uyumlu olmayan kaynakları belirleme
 
-Atama, ilke veya girişimi kuralları izlerseniz değil, uyumlu olmayan bir kaynak değildir. Aşağıdaki tabloda, farklı ilke eylemleri gösterilmektedir ortaya çıkan uyumluluk durumu için koşulu değerlendirmesi ile çalışabilir:
+Atama, ilke veya girişimi kuralları izlerseniz değil, uyumlu olmayan bir kaynak değildir. Aşağıdaki tabloda, sonuçta elde edilen uyumluluk durumu için koşulu değerlendirmesi etkileri çalışmak nasıl farklı ilke gösterilmektedir:
 
-| **Kaynak Durumu** | **Eylem** | **İlke Değerlendirmesi** | **Uyumluluk Durumu** |
+| Kaynak durumu | Etki | İlke değerlendirmesi | Uyumluluk durumu |
 | --- | --- | --- | --- |
 | Var | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Uyumlu Değil |
 | Var | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Uyumlu |
 | Yeni | Audit, AuditIfNotExist\* | True | Uyumlu Değil |
 | Yeni | Audit, AuditIfNotExist\* | False | Uyumlu |
 
-\* Append, DeployIfNotExist ve AuditIfNotExist eylemleri IF deyiminin TRUE olmasını gerektirir. Eylemler ayrıca varlık koşulunun uyumlu olmaması için FALSE olmasını gerektirir. TRUE olduğunda, IF koşulu ilgili kaynaklar için varlık koşulunun değerlendirilmesini tetikler.
+\* Ekle, DeployIfNotExist ve AuditIfNotExist efektler olmasını IF deyimi gerektiren TRUE. Etkilerini de varlığı koşulu uyumlu olmayan FALSE olması gerekir. TRUE olduğunda, IF koşulu ilgili kaynaklar için varlık koşulunun değerlendirilmesini tetikler.
 
 Kaynakları nasıl uyumsuz olarak işaretlenmiş daha iyi anlamak için yukarıda oluşturduğunuz ilke ataması örnek kullanalım.
 
 Örneğin, ortak ağlara gösterilen bazı depolama hesapları (kırmızı ile vurgulanan) olan bir kaynak grubu – ContsoRG, olduğunu varsayalım.
 
-![Ortak ağlara gösterilen depolama hesapları](./media/policy-insights/resource-group01.png)
+![Ortak ağlara gösterilen depolama hesapları](media/policy-insights/resource-group01.png)
 
 Bu örnekte, güvenlik risklerini dikkatli olmanız gerekir. Bir ilke atamasını oluşturduğunuza göre ContosoRG kaynak grubundaki tüm depolama hesapları için değerlendirilir. Sonuç olarak durumlarına değiştirme üç uyumlu olmayan depolama hesaplarını denetimleri **uyumsuz.**
 
-![Uyumlu olmayan depolama hesaplarını denetleniyor](./media/policy-insights/resource-group03.png)
+![Uyumlu olmayan depolama hesaplarını denetleniyor](media/policy-insights/resource-group03.png)
 
 İlke atama ile uyumlu olmayan bir kaynak grubu kaynakları tanımlamak için aşağıdaki yordamı kullanın. Örnekte, kaynakları ContosoRG kaynak grubunda depolama hesaplarıdır.
 
 1. İlke ataması kimliği, aşağıdaki komutları çalıştırarak alın:
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  Bir ilke atamanın kimliği alma hakkında daha fazla bilgi için bkz: [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  Bir ilke atamanın kimliği alma hakkında daha fazla bilgi için bkz: [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Bir JSON dosyasına kopyalanır uyumlu olmayan kaynakların kaynak kimlikleri için aşağıdaki komutu çalıştırın:
 
@@ -302,16 +293,6 @@ Sonuçlarınız aşağıdaki örneğe benzer:
 ```
 
 İlkesi durumlar gibi yalnızca HTTP istekleri içeren ilke olayları görüntüleyebilirsiniz. İlke olaylarını sorgulama hakkında daha fazla bilgi için bkz: [ilke olayları](/rest/api/policy-insights/policyevents) başvurusu makalesinde.
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>Fiyatlandırma katmanı değişikliği bir ilke atamasını 's
-
-Kullanabileceğiniz *kümesi AzureRmPolicyAssignment* fiyatlandırma güncelleştirmek için PowerShell cmdlet, var olan bir ilke ataması için standart ya da ücretsiz katmanı. Örneğin:
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-Cmdlet'i hakkında daha fazla bilgi için bkz: [kümesi AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

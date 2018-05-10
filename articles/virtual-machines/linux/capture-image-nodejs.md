@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3b45f46197467dd7b83bd986604338e14daa8107
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Azure üzerinde çalışan Linux sanal makine yakalama
 Generalize ve Resource Manager dağıtım modelinde, Azure Linux sanal makine (VM) yakalamak için bu makaledeki adımları izleyin. VM generalize, kişisel hesap bilgilerini kaldırın ve bir görüntü olarak kullanılacak VM hazırlayın. Ardından VHD'ler, bağlı veri diskleri için işletim sistemi için genelleştirilmiş bir sanal sabit disk (VHD) görüntü yakalama ve [Resource Manager şablonu](../../azure-resource-manager/resource-group-overview.md) yeni VM dağıtımı için. Bu makalede yönetilmeyen diskleri kullanan bir VM için Azure CLI 1.0 ile bir VM görüntüsü yakalama ayrıntılarını verir. Ayrıca [Azure CLI 2.0 ile Azure yönetilen diskleri kullanarak bir VM yakalama](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Yönetilen diskleri Azure platformu tarafından işlenir ve hazırlık veya konum depolamaya gerektirmez. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -44,7 +44,7 @@ Aşağıdaki önkoşulları karşıladığından emin olun:
 * **Azure CLI** -yükleme [Azure CLI](../../cli-install-nodejs.md) yerel bir bilgisayarda.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>1. adım: Azure Linux Aracısı'nı kaldırma
-Öncelikle çalıştırın **waagent** komutunu **deprovision** Linux VM'de parametresi. Bu komut dosyaları ve VM genelleme için hazır hale getirmek için verileri siler. Ayrıntılar için bkz [Azure Linux Aracısı Kullanıcı Kılavuzu](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Öncelikle çalıştırın **waagent** komutunu **deprovision** Linux VM'de parametresi. Bu komut dosyaları ve VM genelleme için hazır hale getirmek için verileri siler. Ayrıntılar için bkz [Azure Linux Aracısı Kullanıcı Kılavuzu](../extensions/agent-windows.md).
 
 1. Bir SSH istemcisi kullanarak Linux VM'NİZDE bağlayın.
 2. SSH penceresinde aşağıdaki komutu yazın:

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9e28184000964564bcf170a2c8015f3b4c220209
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Silinmiş bir kullanıcı Azure Active Directory'de geri yükleme
 
@@ -31,17 +31,15 @@ Bu makale, geri yüklemek veya önceden silinmiş bir kullanıcı kalıcı olara
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Yakın zamanda silinmiş bir kullanıcı geri yükleme
 Kullanıcı son silindiğinde, tüm dizin bilgilerinin korunur. Kullanıcı geri yüklediyseniz, bu bilgileri de geri yüklendi.
 
-1. İçinde [Azure AD Yönetim Merkezi](https://aad.portal.azure.com)seçin **kullanıcılar ve gruplar** &gt; **tüm kullanıcılar**. 
-2. Altında **Göster**, sayfanın göstermek için filtre **son kullanıcılar'ı silinmiş**. 
-3. Bir veya daha fazla yakın zamanda silinen kullanıcılar'ı seçin.
-4. Seçin **geri kullanıcı**.
+1. İçinde [Azure AD Yönetim Merkezi](https://aad.portal.azure.com)seçin **kullanıcılar** &gt; **kullanıcıların silinen**. 
+2. Bir veya daha fazla yakın zamanda silinen kullanıcılar'ı seçin.
+3. Seçin **geri kullanıcı**.
 
 ## <a name="how-to-permanently-delete-a-recently-deleted-user"></a>Yakın zamanda silinmiş bir kullanıcı kalıcı olarak silmek nasıl
 
-1. İçinde [Azure AD Yönetim Merkezi](https://aad.portal.azure.com)seçin **kullanıcılar ve gruplar** &gt; **tüm kullanıcılar**. 
-2. Altında **Göster**, sayfanın göstermek için filtre **son kullanıcılar'ı silinmiş**. 
-3. Bir veya daha fazla yakın zamanda silinen kullanıcılar'ı seçin.
-4. Seçin **kalıcı olarak silmek**.
+1. İçinde [Azure AD Yönetim Merkezi](https://aad.portal.azure.com)seçin **kullanıcılar** &gt; **kullanıcıların silinen**. 
+2. Bir veya daha fazla yakın zamanda silinen kullanıcılar'ı seçin.
+3. Seçin **kalıcı olarak silmek**.
 
 ## <a name="required-permissions"></a>Gerekli izinler
 Aşağıdaki izinler kullanıcı geri yüklemek yeterli değil.

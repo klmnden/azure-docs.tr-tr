@@ -3,23 +3,23 @@ title: Çoklu oturum açma Yönetimi Azure Active Directory'de Kurumsal uygulama
 description: Azure Active Directory Uygulama Galerisi'nden kuruluşunuzdaki kurumsal uygulamalar için çoklu oturum açma ayarları yönetme
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ee8f30bc81d3c3bd0bf4659359a6ca3a9280f734
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamaları için çoklu oturum açmayı yönetme
 
@@ -58,12 +58,12 @@ Uygulama etki alanı ve URL'ler ile ilgili tüm ayrıntıları Azure AD dizinini
 * **Yanıt URL'si** -burada SAML belirteci almak uygulama bekler yanıt URL'dir. Bu aynı zamanda onaylama işlemi tüketici Hizmeti'ni (ACS) URL'si olarak adlandırılır. Bunlar girdikten sonra sonraki ekrana devam etmek için İleri'yi tıklatın. Bu ekran Azure AD'den SAML belirteci kabul etmek üzere etkinleştirmek için uygulama taraftaki yapılandırılması gerekenler hakkında bilgi sağlar.
 * **Geçiş durumunu** -geçiş durumunu uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcı yeniden yönlendirileceği bildirmek yardımcı olabilecek bir isteğe bağlı bir parametredir. Bazı uygulamalar bu alan farklı kullanır ancak genellikle uygulama geçerli bir URL değerdir (Ayrıntılar için uygulamanın tek oturum açma belgelere bakın). Geçiş durumunu ayarlama özelliği, yeni Azure portalına benzersiz olan yeni bir özelliktir.
 
-### <a name="user-attributes"></a>Kullanıcı Öznitelikleri
+### <a name="user-attributes"></a>Kullanıcı öznitelikleri
 Burada admins görüntüleyebilir ve Azure AD uygulama için her verir SAML belirteci zaman kullanıcılar oturum gönderilir öznitelikleri düzenlemenize budur.
 
 Desteklenen yalnızca düzenlenebilir özniteliği **kullanıcı tanımlayıcısı** özniteliği. Bu özniteliğin değeri uygulamadaki her bir kullanıcı olarak tanıtan Azure ad alanıdır. Uygulama "e-posta adresi" kullanıcı adı ve benzersiz tanımlayıcı kullanarak dağıtılmışsa, örneğin, ardından değeri "user.mail" alanına Azure AD'de ayarlanır.
 
-### <a name="saml-signing-certificate"></a>SAML İmzalama Sertifikası
+### <a name="saml-signing-certificate"></a>SAML imzalama sertifikası
 Bu bölümde Azure AD her zaman kullanıcının kimliğini doğrular uygulamaya verilen SAML belirteçleri imzalamak için kullanılan sertifika ayrıntılarını gösterir. Denetlenecek, geçerli sertifikanın özelliklerini sona erme tarihi dahil olmak üzere sağlar.
 
 ### <a name="application-configuration"></a>Uygulama yapılandırması

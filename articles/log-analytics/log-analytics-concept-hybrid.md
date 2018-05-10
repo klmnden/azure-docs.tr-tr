@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -40,7 +40,7 @@ Aracı Linux ve Windows için TCP bağlantı noktası 443 giden günlük analizi
 
 System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, bilgisayarla izliyorsanız veri toplamak ve Hizmeti'ne iletmek ve tarafından izlenmesi için günlük analizi hizmeti ile çok konaklı olabilir [Operations Manager ](log-analytics-om-agents.md). Günlük analizi ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar veri kaynakları ve yönetim grubu ile ileri toplanan veriler için yapılandırma almaz. Linux Aracısı'nı yalnızca tek bir çalışma alanına raporlama desteklerken Windows Aracısı en fazla dört çalışma alanları bildirebilirsiniz.  
 
-Yalnızca günlük Analizi'ne bağlamak için aracı Linux ve Windows için değil, ana bilgisayar karma Runbook çalışanı rolü ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri için Azure Otomasyonu de destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz: [Azure Otomasyon karma Runbook çalışanı](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+Yalnızca günlük Analizi'ne bağlamak için aracı Linux ve Windows için değil, ana bilgisayar karma Runbook çalışanı rolü ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri için Azure Otomasyonu de destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz: [Azure Otomasyon karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce en düşük sistem gereksinimlerini karşıladığını doğrulamak için aşağıdaki ayrıntıları gözden geçirin.

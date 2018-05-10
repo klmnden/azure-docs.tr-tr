@@ -1,25 +1,25 @@
 ---
-title: "Şirket içi uygulamalara güvenli uzaktan erişim sağlama"
-description: "Azure AD uygulama proxy'si, şirket içi uygulamalara güvenli uzaktan erişim sağlamak için kullanmak üzere nasıl ele alınmaktadır."
+title: Şirket içi uygulamalara güvenli uzaktan erişim sağlama
+description: Azure AD uygulama proxy'si, şirket içi uygulamalara güvenli uzaktan erişim sağlamak için kullanmak üzere nasıl ele alınmaktadır.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 819226d0ecace0be617e9a3ebc22942782510ec4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7dc4771d549c84866f073c466beb8399899f3458
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Şirket içi uygulamalara güvenli uzaktan erişim sağlama
 
@@ -45,7 +45,7 @@ Azure AD uygulama proxy'si şöyledir:
 * **Güvenlik**
    * Azure AD uygulama proxy'si kullanarak uygulamalarınızı yayımladığınızda, güvenlik analizi ve zengin yetkilendirme denetimleri Azure'da yararlanabilirsiniz. Bulut ölçekli güvenlik ve koşullu erişim ve iki aşamalı doğrulama gibi Azure güvenlik özellikleri alır.
    * Kullanıcılarınızın uzaktan erişim vermek için güvenlik duvarı üzerinden gelen tüm bağlantıları'nı açmak zorunda değilsiniz. 
-* **Cost-effective**
+* **Uygun maliyetli**
    * Saat ve para kaydedebilmeniz için uygulama proxy'si bulutta çalışır. Şirket içi çözümler genellikle ayarlamak ve DMZ'ler, uç sunucuların veya diğer karmaşık altyapılar sürdürmek gerektirir.  
 
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Ne tür bir uygulama proxy'si ile uygulama iş?

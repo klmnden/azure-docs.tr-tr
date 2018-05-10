@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Bulut init ile kullanılmak üzere var olan bir Linux Azure VM görüntüsünü hazırlama
 Bu makale mevcut bir Azure sanal makine alın ve yeniden dağıtılan ve bulut init kullanıma hazır olması için hazırlama gösterilmektedir. Elde edilen görüntü, yeni bir sanal makine veya sanal makine ölçek kümeleri biri ya da sonra daha fazla bulut-Init dağıtım sırasında özelleştirilebilecek - dağıtmak için kullanılabilir.  Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın. Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)
@@ -136,7 +136,7 @@ Tüm Azure platform görüntüleri Azure Linux aracısı tarafından bulut başl
 sudo waagent -deprovision+user -force
 ```
 
-Azure Linux Aracısı deprovision komutları hakkında daha fazla bilgi için bkz: [Azure Linux Aracısı](agent-user-guide.md) daha fazla ayrıntı için.
+Azure Linux Aracısı deprovision komutları hakkında daha fazla bilgi için bkz: [Azure Linux Aracısı](../extensions/agent-linux.md) daha fazla ayrıntı için.
 
 SSH oturumu çıkın ve ardından, bash kabuğundan ayırması, generalize ve yeni bir Azure VM görüntüsü oluşturmak için aşağıdaki AzureCLI komutları çalıştırın.  Değiştir `myResourceGroup` ve `sourceVmName` , sourceVM yansıtma uygun bilgilerle.
 

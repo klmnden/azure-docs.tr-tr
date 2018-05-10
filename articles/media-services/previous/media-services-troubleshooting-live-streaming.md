@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 7e2fe84c51f93bdeb6cd99e23624d1796aff6c1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Canlı akış sorun giderme kılavuzu
-Bu konuda bazı canlı akış sorunlarını giderme hakkında öneriler sağlar.
+Bu makalede, bazı canlı akış sorunlarını giderme hakkında öneriler sağlar.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Şirket içi kodlayıcılardan ilgili sorunlar
 Bu bölüm, gerçek zamanlı kodlama için etkinleştirilmiş AMS kanallar tek bit hızlı akış göndermek için yapılandırılmış olan şirket içi kodlayıcılardan ilgili sorunları giderme konusunda öneriler sağlar.
@@ -44,23 +44,10 @@ Bu bölüm, gerçek zamanlı kodlama için etkinleştirilmiş AMS kanallar tek b
     **Sorun giderme adımları**: emin olun Kodlayıcı artık gönderilmesi için AMS, durdurmak ve kanal sıfırlayın. Yeniden çalıştırmayı sonra yeni ayarlarla kodlayıcıyı bağlanmayı deneyin. Sorun bu hala gidermezse, tamamen yeni bir kanal oluşturma deneyin, başarısız birkaç denemeden sonra bazen kanalları bozulabilir.  
 * **Olası sorun**: GOP boyutu veya anahtar çerçeve ayarları en uygun değildir. 
   
-    **Sorun giderme adımları**: önerilen GOP boyutu veya ana kare aralığıdır 2 saniye. Başkalarının saniye kullanırken bazı kodlayıcılar çerçeve sayısı bu ayarda hesaplayın. Örneğin: 30 fps alırken GOP boyutu 60 çerçeve 2 saniyeye eşdeğerdir olacaktır.  
+    **Sorun giderme adımları**: önerilen GOP boyutu veya ana kare aralığıdır iki saniye. Başkalarının saniye kullanırken bazı kodlayıcılar çerçeve sayısı bu ayarda hesaplayın. Örneğin: 30 fps alırken GOP boyutu 60 çerçeve 2 saniyeye eşdeğerdir olacaktır.  
 * **Olası sorun**: kapalı bağlantı noktalarını akış engelleme. 
   
-    **Sorun giderme adımları**: RTMP akış, 1935 ve 1936 giden bağlantı noktalarının açık olduğunu onaylamak için güvenlik duvarı ve/veya proxy ayarlarını denetleyin. RTP akış kullanırken, giden bağlantı noktası 2010 açık olduğundan emin olun. 
-
-### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>Sorun: RTP protokolüyle akış kodlayıcıya yapılandırma olduğunda hiçbir girilebileceği bir ana bilgisayar adı.
-* **Olası sorun**: birçok RTP kodlayıcılar ana bilgisayar adları için izin vermez ve bir IP adresi elde edilmesi gerekir.  
-  
-    **Sorun giderme adımları**: IP adresini bulmak için herhangi bir bilgisayarda bir komut istemi açın. Bu Windows yapmak için çalışma Başlatıcısı (WIN + R) açın ve "cmd" yazın açın.  
-  
-    Komut istemi açıldıktan sonra "Ping [AMS ana bilgisayar adı]" yazın. 
-  
-    Ana bilgisayar adı, aşağıdaki örnekte vurgulanmış olarak Azure alım URL'sini bağlantı noktası numarasından kaldırarak türetilmiş olmalıdır: 
-  
-    RTP://Test2-amstest009.RTP.Channel.mediaservices.Windows.NET:2010 / 
-  
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    **Sorun giderme adımları**: RTMP akış, 1935 ve 1936 giden bağlantı noktalarının açık olduğunu onaylamak için güvenlik duvarı ve/veya proxy ayarlarını denetleyin. 
 
 > [!NOTE]
 > Aşağıdaki ise, hala başarıyla akış uygulayamazsınız sorun giderme adımları sonra Azure portalını kullanarak bir destek bileti gönderin.

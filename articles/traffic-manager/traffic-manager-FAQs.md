@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -29,6 +29,10 @@ ms.lasthandoff: 04/16/2018
 İçinde anlatıldığı gibi [nasıl trafik Yöneticisi çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), trafik Yöneticisi DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtlarının gönderir. İstemciler daha sonra hizmet uç noktası için doğrudan, trafik Yöneticisi ile bağlanır.
 
 Bu nedenle, trafik Yöneticisi uç noktası veya bağlanmak istemciler için IP adresi sağlamaz. Hizmetiniz için statik IP adresi istiyorsanız, konuşması değil trafik Yöneticisi'nde yapılandırılmış olması gerekir.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Hangi trafik türlerini gerçekleştirilebileceğini trafik Yöneticisi'ni kullanarak yönlendirilmiş?
+İçinde anlatıldığı gibi [nasıl trafik Yöneticisi çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), içinde veya Azure dışında barındırılan hizmeti Internet'e herhangi bir trafik Yöneticisi uç noktası olabilir. Bu nedenle, trafik Yöneticisi ayrıca Internet karşılıklı olduğunu genel internet'ten bir uç nokta kümesine kaynaklanan trafiği yönlendirebilir. İçinde özel bir ağ uç noktaları varsa (örneğin, bir iç sürümü [Azure yük dengeleyici](../load-balancer/load-balancer-overview.md#internalloadbalancer)) veya kullanıcıların yapmayı DNS istekleri gibi iç ağlardan trafik Yöneticisi bu trafiği için kullanılamaz.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Trafik Yöneticisi, 'Yapışkan' oturumları destekliyor mu?
 

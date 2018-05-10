@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: d539475d376e2c3e38c2cbd38de0a10645fcabe4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
@@ -27,6 +27,8 @@ Azure olay kılavuz üç tür kimlik doğrulama vardır:
 Web kancası Azure olay kılavuzdan olaylarını almak için birçok yolu vardır. Yeni bir olay hazır olduğunda, olay kılavuz Web kancası olay gövdesinde yapılandırılan HTTP uç noktası bir HTTP isteği gönderir.
 
 Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz doğrulamayı geçen henüz Web kancası Uç noktalara olayları teslim değil. Bir üçüncü taraf API hizmeti kullanıyorsanız (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama kodu echo mümkün olmayabilir. Bu hizmetler için aboneliği abonelik doğrulama olayı gönderilen doğrulama URL'yi kullanarak el ile doğrulayabilir. Bu URL'yi kopyalayın ve REST istemcisi ya da web tarayıcınızı yoluyla GET isteği gönderin.
+
+El ile doğrulama önizlemede değil. Kullanmak için bunu yüklemeniz [olay kılavuz uzantısı](/cli/azure/azure-cli-extensions-list) için [AZ CLI 2.0](/cli/azure/install-azure-cli). İle yükleyebilirsiniz `az extension add --name eventgrid`. REST API kullanıyorsanız, kullandığınızdan emin olun `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Doğrulama ayrıntıları
 

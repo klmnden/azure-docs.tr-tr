@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2018
+ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 1a2bb6def032d1790a67e458afb162402c1443a7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulaması (Önizleme) kullanarak Azure Linux sanal makinede oturum açın
 
@@ -43,14 +43,16 @@ Aşağıdaki Linux dağıtımları şu anda bu özellik Önizleme sırasında de
 
 | Dağıtım | Sürüm |
 | --- | --- |
-| Ubuntu Server | Ubuntu 16.04 LTS ve Ubuntu Server 17.10 |
+| CentOS | CentOS 6.9 ve CentOS 7.4 |
+| RedHat Enterprise Linux | RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 ve Ubuntu Server 17.10 |
 
 Aşağıdaki Azure bölgeleri şu anda bu özellik Önizleme sırasında desteklenir:
 
-- Orta Güney ABD
+- Tüm ortak Azure bölgeleri
 
 >[!IMPORTANT]
-> Bu önizleme özelliğini kullanmak için yalnızca desteklenen bir Linux distro dağıtmak ve desteklenen bir Azure bölgesi.
+> Bu önizleme özelliğini kullanmak için yalnızca desteklenen bir Linux distro dağıtmak ve desteklenen bir Azure bölgesi. Özelliği Azure kamu veya sovereign bulut desteklenmez.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +81,7 @@ Bir Linux VM Azure AD kimlik bilgileriyle oturum açmak için Azure Active Direc
 
 ```azurecli-interactive
 az vm extension set \
-    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH.Edp \
+    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH \
     --name AADLoginForLinux \
     --resource-group myResourceGroup \
     --vm-name myVM

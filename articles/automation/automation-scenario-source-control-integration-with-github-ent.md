@@ -5,23 +5,22 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/17/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 65894e40b192c6a5a226fa7a1dfb5cb0cfabb972
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure otomasyonu senaryosu - GitHub kuruluş ile Otomasyon kaynak denetimi tümleştirmesi
 
-Otomasyon runbook'ları GitHub kaynak denetim deponuza Otomasyon hesabınızda ilişkilendirmenizi sağlar kaynak denetimi tümleştirmesi, şu anda destekler. Ancak, dağıtan müşteriler [GitHub Kurumsal](https://enterprise.github.com/home) kendi DevOps uygulamalarını desteklemek için ayrıca iş süreçlerini otomatikleştirmek ve hizmet yönetimi işlemleri için geliştirilen runbook'ları ömrünü yönetmek için kullanmak istiyorsanız.  
+Otomasyon runbook'ları GitHub kaynak denetim deponuza Otomasyon hesabınızda ilişkilendirmenizi sağlar kaynak denetimi tümleştirmesi, şu anda destekler. Ancak, dağıtan müşteriler [GitHub Kurumsal](https://enterprise.github.com/home) kendi DevOps uygulamalarını desteklemek için ayrıca iş süreçlerini otomatikleştirmek ve hizmet yönetimi işlemleri için geliştirilen runbook'ları ömrünü yönetmek için kullanmak istiyorsanız.
 
 Bu senaryoda, veri merkezinizdeki karma Runbook çalışanı Azure Resource Manager modüllerini ve Git araçlarının yüklü olarak yapılandırılmış bir Windows bilgisayarı vardır. Karma çalışanı makinenin bir kopyasını yerel Git deposu vardır. Karma çalışanında runbook çalıştırıldığında, Git dizin eşitlenir ve runbook dosyası içeriği Otomasyon dikkate alınır.
 
-Bu makalede, bu yapılandırma, Azure Automation ortamınızdaki ayarlama açıklar. Otomasyon runbook'ları runbook'ları çalıştırmak ve runbook'ları eşitlemek için GitHub Kurumsal deponuza erişmek için veri merkezinizdeki bu senaryo ve karma Runbook Worker dağıtımını desteklemek için gereken güvenlik tanıtım bilgilerini yapılandırarak Başlat Automation hesabınız ile.  
-
+Bu makalede, bu yapılandırma, Azure Automation ortamınızdaki ayarlama açıklar. Otomasyon runbook'ları runbook'ları çalıştırmak ve runbook'ları eşitlemek için GitHub Kurumsal deponuza erişmek için veri merkezinizdeki bu senaryo ve karma Runbook Worker dağıtımını desteklemek için gereken güvenlik tanıtım bilgilerini yapılandırarak Başlat Automation hesabınız ile.
 
 ## <a name="getting-the-scenario"></a>Senaryoyu alma
 
@@ -29,9 +28,9 @@ Bu senaryo, doğrudan aktarabilirsiniz iki PowerShell runbook'ların oluşur [Ru
 
 ### <a name="runbooks"></a>Runbook'lar
 
-Runbook | Açıklama| 
+Runbook | Açıklama|
 --------|------------|
-Dışarı aktarma RunAsCertificateToHybridWorker | Çalışan runbook'ları Azure ile runbook Otomasyonu dikkate almak için doğrulanabilmesi Runbook için bir karma çalışanı bir Otomasyon hesabının RunAs sertifika verir.| 
+Dışarı aktarma RunAsCertificateToHybridWorker | Çalışan runbook'ları Azure ile runbook Otomasyonu dikkate almak için doğrulanabilmesi Runbook için bir karma çalışanı bir Otomasyon hesabının RunAs sertifika verir.|
 Eşitleme LocalGitFolderToAutomationAccount | Runbook karma makinede yerel Git klasörü eşitlenir ve ardından runbook dosyaları (*.ps1) Otomasyon dikkate alın.|
 
 ### <a name="credentials"></a>Kimlik Bilgileri
@@ -44,12 +43,12 @@ GitHRWCredential | Kimlik bilgisi varlığı kullanıcı adı ve parola karma ç
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-1. Eşitleme LocalGitFolderToAutomationAccount runbook kullanarak kimlik doğrulaması [Azure farklı çalıştır hesabı](automation-sec-configure-azure-runas-account.md). 
+1. Eşitleme LocalGitFolderToAutomationAccount runbook kullanarak kimlik doğrulaması [Azure farklı çalıştır hesabı](automation-sec-configure-azure-runas-account.md).
 
-2. Günlük analizi çalışma alanı etkin ve yapılandırılmış Azure Otomasyon çözümünü ile de gereklidir. Yükleyin ve bu senaryo yapılandırmak için kullanılan Otomasyon hesabı ile ilişkili olan bir yoksa, oluşturulur ve yürüttüğünüzde sizin için yapılandırılmış **yeni OnPremiseHybridWorker.ps1** karma runbook betikten çalışan.        
+2. Günlük analizi çalışma alanı etkin ve yapılandırılmış Azure Otomasyon çözümünü ile de gereklidir. Yükleyin ve bu senaryo yapılandırmak için kullanılan Otomasyon hesabı ile ilişkili olan bir yoksa, oluşturulur ve yürüttüğünüzde sizin için yapılandırılmış **yeni OnPremiseHybridWorker.ps1** karma runbook betikten çalışan.
 
     > [!NOTE]
-    > Şu anda aşağıdaki bölgeler yalnızca Otomasyon günlük analizi ile-tümleştirmeyi **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. 
+    > Şu anda aşağıdaki bölgeler yalnızca Otomasyon günlük analizi ile-tümleştirmeyi **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**.
 
 3. Bir adanmış karma Runbook de GitHub yazılım barındıran çalışan hizmet ve runbook dosyaları korumak bir bilgisayar (*runbook*.ps1) GitHub ve Otomasyonunuz arasında eşitlemek için dosya sisteminde bir kaynak dizin olarak hesabı.
 
@@ -59,26 +58,27 @@ GitHRWCredential | Kimlik bilgisi varlığı kullanıcı adı ve parola karma ç
 
 ### <a name="deploy-and-configure-hybrid-runbook-worker"></a>Dağıtma ve karma Runbook çalışanı yapılandırma
 
-Veri merkezinizde zaten dağıtılmış bir karma Runbook çalışanı yoksa gereksinimleri gözden geçirmeli ve konusundaki yordamı kullanarak otomatik yükleme adımları [Azure Otomasyon karma Runbook çalışanları - otomatikleştirmek yüklemek ve Yapılandırma](automation-hybrid-runbook-worker.md#automated-deployment). Bir bilgisayarda karma çalışanı başarıyla yüklendikten sonra bu senaryoyu desteklemek için yapılandırmasını tamamlamak için aşağıdaki adımları gerçekleştirin.
+Veri merkezinizde zaten dağıtılmış bir karma Runbook çalışanı yoksa gereksinimleri gözden geçirin ve Azure Otomasyon karma Runbook çalışanları - otomatikleştirmek yükleme ve yapılandırma için yordamı kullanarak otomatik yükleme adımları gerekir [Windows](automation-windows-hrw-install.md#automated-deployment) veya [Linux](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker). Bir bilgisayarda karma çalışanı başarıyla yüklendikten sonra bu senaryoyu desteklemek için yapılandırmasını tamamlamak için aşağıdaki adımları gerçekleştirin.
 
 1. Yerel yönetici haklarına sahip bir hesapla karma Runbook çalışanı rolü barındıran bilgisayarda oturum açma ve Git runbook dosyalarını barındıracak bir dizin oluşturun. İç Git deposu dizinine kopyalayın.
-2. Önceden oluşturulmuş bir farklı çalıştır hesabı yok veya yeni bir ayrılmış bu amaçla oluşturmak isterseniz Azure portalından Automation hesaplarına gidin, Otomasyon hesabınızı seçin ve oluşturma bir [kimlik bilgisi varlığı](automation-credentials.md) , Kullanıcı adı ve parola karma çalışanı izinlerine sahip bir kullanıcı için içerir.  
-3. Otomasyon hesabınızdan [runbook'u düzenlemek](automation-edit-textual-runbook.md)**verme RunAsCertificateToHybridWorker** ve değişkeninin değerini değiştirme *$Password* güçlü bir parola ile.  Değer değiştirdikten sonra tıklatın **Yayımla** yayımlanan runbook'un taslak sürümünü sağlamak için. 
-5. Runbook'u başlatmak **verme RunAsCertificateToHybridWorker**hem de **Runbook'u Başlat** seçeneği altında dikey **çalışma ayarları** seçeneğini  **Karma çalışanı** ve aşağı açılan listede daha önce oluşturduğunuz bu senaryo için karma çalışanı grubu seçin.  
+1. Önceden oluşturulmuş bir farklı çalıştır hesabı yok veya yeni bir ayrılmış bu amaçla oluşturmak isterseniz Azure portalından Automation hesaplarına gidin, Otomasyon hesabınızı seçin ve oluşturma bir [kimlik bilgisi varlığı](automation-credentials.md) , Kullanıcı adı ve parola karma çalışanı izinlerine sahip bir kullanıcı için içerir.
+1. Otomasyon hesabınızdan [runbook'u düzenlemek](automation-edit-textual-runbook.md)**verme RunAsCertificateToHybridWorker** ve değişkeninin değerini değiştirme *$Password* güçlü bir parola ile.  Değer değiştirdikten sonra tıklatın **Yayımla** yayımlanan runbook'un taslak sürümünü sağlamak için.
+1. Runbook'u başlatmak **verme RunAsCertificateToHybridWorker**hem de **Runbook'u Başlat** seçeneği altında dikey **çalışma ayarları** seçeneğini  **Karma çalışanı** ve aşağı açılan listede daha önce oluşturduğunuz bu senaryo için karma çalışanı grubu seçin.
 
     Böylece çalışan can runbook'larda (içindeki bu senaryo - alma runbook Otomasyon hesabı için belirli) Azure kaynaklarınızı yönetmek için farklı çalıştır bağlantısı kullanarak Azure ile kimlik doğrulaması Bu karma çalışanı bir sertifika verir.
 
-4. Otomasyon hesabınızdan daha önce oluşturduğunuz karma çalışanı grubu seçin ve [bir RunAs hesabı belirtin](automation-hrw-run-runbooks.md#runas-account) karma çalışanı grubu ve seçtiğiniz yalnızca veya önceden oluşturduğunuz kimlik bilgisi varlığı. Bu, eşitleme runbook Git komutları çalıştırabilirsiniz sağlar. 
-5. Runbook'u başlatmak **eşitleme LocalGitFolderToAutomationAccount**, aşağıdaki gereken giriş parametre değerlerini sağlayın ve **Runbook'u Başlat** seçeneği altında dikey **çalışma ayarları**  seçeneğini **karma çalışanı** ve daha önce oluşturduğunuz bu senaryo için karma çalışanı grubu aşağı açılan listeden seçin:
-    * *Kaynak grubu* -kaynak grubunuzun adını Automation hesabınız ile ilişkili
-    * *AutomationAccountName* -Otomasyon hesabınızın adını
-    * *GitPath* -yerel klasör veya dosya Git ayarlandığı yukarı en son değişiklikleri çekmesini karma Runbook çalışanı üzerinde
+1. Otomasyon hesabınızdan daha önce oluşturduğunuz karma çalışanı grubu seçin ve [bir RunAs hesabı belirtin](automation-hrw-run-runbooks.md#runas-account) karma çalışanı grubu ve seçtiğiniz yalnızca veya önceden oluşturduğunuz kimlik bilgisi varlığı. Bu, eşitleme runbook Git komutları çalıştırabilirsiniz sağlar. 
+1. Runbook'u başlatmak **eşitleme LocalGitFolderToAutomationAccount**, aşağıdaki gereken giriş parametre değerlerini sağlayın ve **Runbook'u Başlat** seçeneği altında dikey **çalışma ayarları**  seçeneğini **karma çalışanı** ve daha önce oluşturduğunuz bu senaryo için karma çalışanı grubu aşağı açılan listeden seçin:
+
+   * *Kaynak grubu* -kaynak grubunuzun adını Automation hesabınız ile ilişkili
+   * *AutomationAccountName* -Otomasyon hesabınızın adını
+   * *GitPath* -yerel klasör veya dosya Git ayarlandığı yukarı en son değişiklikleri çekmesini karma Runbook çalışanı üzerinde
 
     Bu karma çalışan bilgisayarda yerel Git klasörün eşitlenir ve ardından .ps1 dosyaları kaynak dizinden Otomasyon hesabı içeri aktarır.
 
-7. Buradan seçerek runbook için iş Özet ayrıntıları görüntüleyin **Runbook'lar** dikey penceresinde, Automation hesabı ve ardından **işleri** döşeme. Tamamlanmış başarıyla seçerek onaylayın **tüm günlükleri** döşeme ve ayrıntılı günlük akışı gözden geçirme.  
+1. Buradan seçerek runbook için iş Özet ayrıntıları görüntüleyin **Runbook'lar** dikey penceresinde, Automation hesabı ve ardından **işleri** döşeme. Tamamlanmış başarıyla seçerek onaylayın **tüm günlükleri** döşeme ve ayrıntılı günlük akışı gözden geçirme.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
--  Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
--  PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
+* PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

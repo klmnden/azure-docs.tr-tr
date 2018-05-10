@@ -10,13 +10,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 05/08/2018
 ms.author: mbullwin; pharring
-ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 0721fa42a8d770b82a4b18865b513569bcc8807f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
@@ -193,11 +193,12 @@ Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullan
 
 İzin vermek için Ata `Application Insights Snapshot Debugger` anlık görüntüleri araştırmasını kullanıcılara rol. Bu rolü, bireysel kullanıcılar veya gruplar için Application Insights kaynağı hedef abonelik sahipleri tarafından veya kendi kaynak grubuna veya aboneliğe atanabilir.
 
-1. Erişim denetimi (IAM) dikey penceresini açın.
-1. Tıklatın + Ekle düğmesi.
-1. Uygulama Öngörüler anlık görüntü hata ayıklayıcı rolleri aşağı açılan listeden seçin.
+1. Azure portalında Application Insights kaynağı gidin.
+1. Tıklatın **erişim denetimi (IAM)**.
+1. Tıklatın **+ Ekle** düğmesi.
+1. Seçin **uygulama Öngörüler anlık görüntü hata ayıklayıcı** gelen **rolleri** aşağı açılan liste.
 1. Arayın ve eklemek kullanıcı için bir ad girin.
-1. Kullanıcı rolüne eklemek için Kaydet düğmesine tıklayın.
+1. ' I tıklatın **kaydetmek** düğmesi kullanıcı role ekleyin.
 
 
 > [!IMPORTANT]
@@ -267,22 +268,22 @@ Ancak, Azure App Services'de anlık görüntü Toplayıcı deoptimize ve bu da, 
 
 Bu ipuçları anlık görüntü hata ayıklayıcısı ile sorunları gidermenize yardımcı olur.
 
-## <a name="use-the-snapshot-health-check"></a>Anlık görüntü durum denetimi kullanın
-Anlık görüntü için belirli bir durum kullanılabilir görmüyorsanız, tarafından outdate anlık görüntü Toplayıcı sürümleri, günlük eşik isabet dahil olmak üzere çeşitli nedenlerden kaynaklanabilir, anlık görüntü yalnızca karşıya ve benzeri sürüyor. Bu tür sorunları tanılama yardımcı olması için hiç anlık görüntü olmasının uygulamalarınızn çözümlemek için bir anlık görüntü sistem durumu denetimi hizmeti oluşturduğumuz.
+### <a name="use-the-snapshot-health-check"></a>Anlık görüntü durum denetimi kullanın
+Bazı yaygın sorunlar açık hata ayıklama gösterilmiyor anlık görüntü sonuçlanır. Bir tarihi geçmiş anlık görüntü toplayıcısı, örneğin kullanarak; Günlük karşıya yükleme sınıra ulaşması; veya belki de anlık görüntü yalnızca karşıya yüklemek için bir uzun sürüyor. Sık karşılaşılan sorunları gidermek için anlık görüntü sistem durumu denetimi kullanın.
 
-Bir özel durum ile ilişkili anlık görüntüleri görmüyorsanız, olacaktır bağlantı anlık görüntü durum denetimi girmek için uçtan uca izleme Görüntüleyicisi dikey.
+Anlık görüntü sistem durumu denetimi alır uçtan uca izleme görünümünün özel durum bölmesinde bir bağlantı yoktur.
 
 ![Anlık görüntü durum denetimi girin](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
 
-Ardından, hizmetinizin çeşitli en boy üzerindeki sistem durumu denetimi çalıştırılıyor ve bildirimleri sunumu oturum gibi etkileşimli bir sohbet bot görürsünüz.
+Etkileşimli, sohbet benzeri arabirimi için genel sorunlar arar ve bunları düzeltmek için size yol gösterir.
 
 ![Sistem durumu denetimi](./media/app-insights-snapshot-debugger/healthcheck.png)
 
-Ayrıca, anlık görüntü hizmeti tanılamak için yapabileceğiniz birkaç el ile yapılacak adımlar vardır. Lütfen aşağıdaki bölümlere bakın:
+Bu sorunu çözmezse, sorun giderme adımları aşağıdaki kılavuzuna bakın.
 
 ### <a name="verify-the-instrumentation-key"></a>İzleme anahtarını doğrulayın
 
-Yayımlanan uygulamanızda doğru izleme anahtarını kullandığınızdan emin olun. Genellikle, Application Insights izleme anahtarı Applicationınsights.config dosyasını okur. Değer Portalı'nda bkz Application Insights kaynağı izleme anahtarı ile aynı olduğunu doğrulayın.
+Yayımlanan uygulamanızda doğru izleme anahtarını kullandığınızdan emin olun. Genellikle, izleme anahtarını Applicationınsights.config dosyasından okunur. Değer Portalı'nda bkz Application Insights kaynağı izleme anahtarı ile aynı olduğunu doğrulayın.
 
 ### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>NuGet paketi en son sürüme yükseltin
 
@@ -293,7 +294,7 @@ Microsoft.ApplicationInsights.SnapshotCollector en son sürümünü kullandığ�
 Bir anlık görüntü oluşturulduktan sonra bir mini döküm dosyası (.dmp) disk üzerinde oluşturulur. Ayrı yükleyici işlem, mini döküm dosyası oluşturur ve bunu uygulama Öngörüler anlık görüntü hata ayıklayıcı depolama ilişkili tüm pdb birlikte yükler. Mini döküm başarıyla yükledi sonra diskten silinir. Yükleyici işlem için günlük dosyalarını diskte tutulur. Bir uygulama hizmeti ortamı'nda, bu günlükler bulabilirsiniz `D:\Home\LogFiles`. Bu günlük dosyaları bulmak için uygulama hizmeti Kudu yönetim sitesi kullanın.
 
 1. Uygulama hizmeti uygulamanızı Azure Portal'da açın.
-2. Seçin **Gelişmiş Araçlar** dikey veya arama **Kudu**.
+2. Tıklatın **Gelişmiş Araçlar**, veya arama **Kudu**.
 3. tıklatın **Git**.
 4. İçinde **hata ayıklama konsoluna** aşağı açılan liste kutusunda **CMD**.
 5. Tıklatın **LogFiles**.
@@ -401,7 +402,7 @@ Anlık görüntüler için yerel bir özel kaynak, bulut hizmet rolü yapıland�
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Anlık görüntüler istisnalar bulmak için Application Insights arama kullanın
 
-Bir anlık görüntü oluşturulduğunda oluşturma özel durum ile bir anlık görüntü kimliği etiketli Özel durum telemetrisi Application Insights'a bildirildiğinde bu anlık görüntü kimliği bir özel özellik olarak dahil edilir. Arama dikey Application Insights'ta kullanarak, tüm telemetri ile bulabilirsiniz `ai.snapshot.id` özel özellik.
+Bir anlık görüntü oluşturulduğunda oluşturma özel durum ile bir anlık görüntü kimliği etiketli Özel durum telemetrisi Application Insights'a bildirildiğinde bu anlık görüntü kimliği bir özel özellik olarak dahil edilir. Kullanarak **arama** Application Insights'ta tüm telemetri ile bulabilirsiniz `ai.snapshot.id` özel özellik.
 
 1. Azure portalında Application Insights kaynağınıza göz atın.
 2. Tıklatın **arama**.

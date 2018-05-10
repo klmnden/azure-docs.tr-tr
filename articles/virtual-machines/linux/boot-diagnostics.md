@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Linux sanal makineleri azure'da gidermek için önyükleme tanılaması kullanma
 
@@ -44,15 +44,20 @@ Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için des
 - [FSTAB hataları](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Yeni bir sanal makine üzerinde tanılamayı etkinleştir
-1. Önizleme Portalı'ndan yeni bir sanal makine oluştururken dağıtım modeli açılır menüsünde **Azure Resource Manager**’ı seçin:
+1. Yeni bir sanal makine Azure portalından oluştururken seçin **Azure Resource Manager** gelen dağıtım modeli açılır:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Burada bu tanılama dosyalarını yerleştirmek istediğiniz depolama hesabını seçmek için izleme seçeneğini yapılandırın.
+2. İçinde **ayarları**, etkinleştirme **önyükleme tanılama**ve ardından bu tanılama dosyaları yerleştirmek istediğiniz depolama hesabını seçin.
  
-    ![VM oluşturma](./media/boot-diagnostics/screenshot4.jpg)
+    ![VM oluşturma](./media/boot-diagnostics/create-storage-account.png)
 
-3. Bir Azure Resource Manager şablonu dağıtıyorsanız, sanal makine kaynağınıza gidin ve tanılama profili bölümünü ekleyin. "2015-06-15" API sürümü üst bilgisini kullanmayı unutmayın.
+    > [!NOTE]
+    > Premium depolama hesabı önyükleme Tanılama özelliğini desteklemiyor. Premium depolama hesabı için önyükleme tanılaması kullanıyorsanız, VM başlattığınızda StorageAccountTypeNotSupported hatayı alabilirsiniz. 
+    >
+    > 
+
+3. Bir Azure Resource Manager şablonu dağıtıyorsanız, sanal makine kaynağınız gidin ve tanılama profil bölümü ekleyin. "2015-06-15" API sürümü üst bilgisini kullanmayı unutmayın.
 
     ```json
     {
@@ -74,11 +79,19 @@ Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için des
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Mevcut bir sanal makineyi güncelleştirme
+Önyükleme tanılaması etkin bir örnek sanal makine dağıtmak için burada bizim depodaki denetleyin.
 
-Önyükleme tanılaması portalı üzerinden etkinleştirmek için mevcut bir sanal makine Portalı aracılığıyla da güncelleştirebilirsiniz. Önyükleme Tanılaması seçeneğini ve Kaydet’i seçin. Etkili olması için VM'yi yeniden başlatın.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Varolan sanal makinesindeki önyükleme tanılaması etkinleştir 
 
-![Mevcut VM’yi güncelleştirme](./media/boot-diagnostics/screenshot5.png)
+Önyükleme Tanılaması, var olan bir sanal makinede etkinleştirmek için aşağıdaki adımları izleyin:
+
+1. Oturum [Azure portal](https://portal.azure.com)ve ardından sanal makineyi seçin.
+2. İçinde **destek + sorun giderme**seçin **önyükleme tanılama** > **ayarları**, durumunu değiştir **üzerinde**ve ardından bir depolama hesabı seçin. 
+4. Önyükleme tanılama seçeneğinin seçili olduğundan emin olun ve ardından değişikliği kaydedin.
+
+    ![Mevcut VM’yi güncelleştirme](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Etkili olması için VM'yi yeniden başlatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

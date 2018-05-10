@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile profil Canlı Azure web uygulamaları
 
-*Azure Application Insights'ın bu özelliği Azure App Service Web Apps özelliği için genellikle kullanılabilir ve Azure işlem kaynakları önizlemede.*
+*Azure Application Insights'ın bu özelliği Azure App Service Web Apps özelliği için genellikle kullanılabilir ve Azure işlem kaynakları önizlemede. Bilgi için ilgili [şirket içi profil oluşturucu kullanımını](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 Bu makalede kullanırken, canlı web uygulamanızın her bir yöntemin harcanan süreyi ele [Application Insights](app-insights-overview.md). Uygulama Öngörüler Profil Oluşturucu aracı, uygulamanız tarafından sunulduğunu Canlı istekleri ayrıntılı profillerini görüntüler. Profil Oluşturucu vurgular *etkin yolunuzda* en uzun süre kullanır. Çeşitli yanıt sürelerini istekleriyle örnekleme temelinde profili. Çeşitli teknikler kullanarak, uygulama ile ilişkili olan ek yükü en aza indirebilirsiniz.
 
@@ -138,7 +138,7 @@ Profil Oluşturucu iki dakika saatte izlemelerini yakalama için etkinleştirilm
 
 Daha fazla sunucular, daha az profil oluşturucu genel uygulama performansına etkisi uygulamasını barındırmak için kullanılabilir. Herhangi bir anda yalnızca yüzde 5'inden sunucularının çalıştıran profil oluşturucu örnekleme algoritması sonuçlanır olmasıdır. Daha fazla sunucu profil oluşturucu çalıştırarak neden Sunucu yükünü dengelemek için web isteklerine hizmet vermek kullanılabilir.
 
-## <a name="disable-profiler"></a>Profil Oluşturucu devre dışı bırak
+## <a name="disable-profiler"></a>Profiler Devre Dışı Bırak
 Altında tek tek web apps örneği için profil oluşturucu yeniden başlatmak veya durdurmak için **Web işleri**, Web uygulamaları kaynak gidin. Profil Oluşturucu silmek için Git **uzantıları**.
 
 ![Profil Oluşturucu için bir web işi devre dışı bırak][disable-profiler-webjob]

@@ -2,22 +2,19 @@
 title: Yerel olarak yönetilen ortağı hesapları erişim Azure AD B2B kullanıcılar bulut kaynaklarına | Microsoft Docs
 description: Yerel olarak yönetilen dış iş ortakları ve Azure AD B2B işbirliği ile aynı kimlik bilgilerini kullanarak bulut kaynaklarına hem yerel erişim verin.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 04/24/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9abbc5576708468abdda3efeeae4f28376257e32
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dc4c8b3f5cb20eaf76fc0ee47d195aca26d06f90
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği kullanarak bulut kaynaklarına iş ortağı yerel olarak yönetilen hesapları erişim izni ver
 

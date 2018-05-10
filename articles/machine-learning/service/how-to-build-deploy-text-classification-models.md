@@ -9,11 +9,11 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Derleme ve metin sınıflandırma modelleri Azure Machine Learning ile dağıtma
 
@@ -137,7 +137,7 @@ df_test.head()
     <tr style="text-align: right;">
       <th></th>
       <th>Etiket</th>
-      <th>Metin</th>
+      <th>metin</th>
     </tr>
   </thead>
   <tbody>
@@ -420,13 +420,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>İnceleyin ve farklı ardışık düzen adımları parametrelerini ayarlama
 
-Ancak bir scikit sığdırma-modeli öğrenin ön işleme yapılır kullanılarak ardışık düzeni featurizer (dönüştürme) adımları ve önişlemci sığdırma önce. Bu nedenle, Eğitim "ardışık düzen" referansı. Tam ardışık düzen değerlendirme sırasında ön işleme ve scikit dahil olmak üzere-model tahmin öğrenmek, bir sınama veri kümesi için uygulanır.
+Eğitim sırasında metin ve etiket sütuna sahip olmalıdır. Yalnızca metin sütunu tahminleri için gereklidir, ancak. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>İnceleyin ve farklı ardışık düzen adımları parametrelerini ayarlama
+    
+Genellikle, bir model sığacak önce parametrelerini ayarlayın. 
 
 ***Text_word_ngrams ile gösterilen örnek*** 
-
-Genellikle, bir model sığacak önce parametrelerini ayarlayın. 
 
 Aşağıdaki kod örnekleri varsayılan ardışık düzen ve model parametreleri kullanarak modeli eğitmek nasıl gösterir. 
 
@@ -573,7 +574,7 @@ Eğitilmiş metin sınıflandırıcı sınıfı tahminleri oluşturmak için tes
     <tr style="text-align: right;">
       <th></th>
       <th>Etiket</th>
-      <th>Metin</th>
+      <th>metin</th>
       <th>olasılıklar</th>
       <th>Tahmin</th>
     </tr>

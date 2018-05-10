@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Bir Azure Linux VM, hatalar, başarısız olur veya reddedilir SSH bağlantı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya bir Linux sanal makine (VM) bağlanmaya çalıştığınızda SSH reddetti çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI ya da Linux VM erişim uzantısını ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -80,7 +80,7 @@ Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-wat
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
 Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login).
 
-Oluşturulan ve özel Linux disk görüntü karşıya emin olun [Microsoft Azure Linux Aracısı](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sürüm 2.0.5 veya üstü yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklenmiş ve sizin için yapılandırılmış.
+Oluşturulan ve özel Linux disk görüntü karşıya emin olun [Microsoft Azure Linux Aracısı](../extensions/agent-windows.md) sürüm 2.0.5 veya üstü yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklenmiş ve sizin için yapılandırılmış.
 
 ### <a name="reset-ssh-configuration"></a>SSH yapılandırmasını sıfırlayın
 Başlangıçta yapabilecekleriniz SSH yapılandırmasını varsayılan değerlere sıfırlanıyor ve VM SSH sunucusunda yeniden deneyin. Bu kullanıcı hesabı adı, parola veya SSH anahtarları değiştirmez olduğunu unutmayın.
@@ -155,7 +155,7 @@ Henüz yapmadıysanız [Azure CLI 1.0 yükleyin ve Azure aboneliğinize bağlanm
 azure config mode arm
 ```
 
-Oluşturulan ve özel Linux disk görüntü karşıya emin olun [Microsoft Azure Linux Aracısı](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sürüm 2.0.5 veya üstü yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklenmiş ve sizin için yapılandırılmış.
+Oluşturulan ve özel Linux disk görüntü karşıya emin olun [Microsoft Azure Linux Aracısı](../extensions/agent-windows.md) sürüm 2.0.5 veya üstü yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklenmiş ve sizin için yapılandırılmış.
 
 ### <a name="reset-ssh-configuration"></a>SSH yapılandırmasını sıfırlayın
 SSHD yapılandırması yanlış veya hizmet bir hatayla karşılaştı. SSH yapılandırması geçerli olduğundan emin olmak için SSHD sıfırlayabilirsiniz. SSHD sıfırlama aldığınız ilk sorun giderme adımı olmalıdır.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
 
@@ -213,4 +213,4 @@ Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/az
 Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı için DevKit aygıt bağlanmak ve bir e-posta göndermek için SendGrid hizmetini kullanmak nasıl öğrendiniz. Önerilen sonraki adımlar şunlardır:
 
 * [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı genel bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IOT merkezi uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

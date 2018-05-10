@@ -4,21 +4,21 @@ description: Bul ve bulut kullanım ve gölge BT üzerinde işlem yapılabilir b
 services: active-directory
 keywords: cloud app discovery'yi, uygulamaları yönetme
 documentationcenter: ''
-author: curtand
+author: barbkess
 manager: mtillman
 tags: ignite
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.component: users-groups-roles
 ms.topic: article
 ms.date: 04/25/2018
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: nigu
-ms.openlocfilehash: 3e4907cbeaf06a519761d76a41708eacd3843ed4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 4d1e845dee621bf284cbed91ba74177f9fc4acf3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 

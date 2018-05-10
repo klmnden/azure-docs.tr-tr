@@ -1,24 +1,24 @@
 ---
-title: "Azure AD içinde Federasyon sertifikalarını yönetmek | Microsoft Docs"
-description: "Federasyon sertifikalarınızı sona erme tarihini özelleştirmeyi ve süresi yakında dolacak sertifikaları yenilemek nasıl öğrenin."
+title: Azure AD içinde Federasyon sertifikalarını yönetmek | Microsoft Docs
+description: Federasyon sertifikalarınızı sona erme tarihini özelleştirmeyi ve süresi yakında dolacak sertifikaları yenilemek nasıl öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon tek oturum açma için Azure Active Directory'de sertifikaları yönetme
 Bu makale ortak sorular ve Federasyon çoklu oturum açma (SSO) SaaS uygulamalarınıza oluşturmak için Azure Active Directory (Azure AD) oluşturur sertifikalar ilgili bilgiler yer almaktadır. Uygulamaları Azure AD uygulama galerisinde veya bir galeri olmayan uygulama şablonu kullanarak ekleyin. Uygulama, Federasyon SSO seçeneğini kullanarak yapılandırın.
@@ -50,7 +50,7 @@ Ekran görüntüleri Salesforce amacıyla örnek kullanın, ancak tüm Federasyo
 
     ![Yeni bir sertifika oluşturma](./media/active-directory-sso-certs/create_new_certficate.png)
 
-5. **Yeni bir sertifika oluşturmak** bağlantı Takvim denetimi açar. Herhangi bir tarihi ayarlamak ve geçerli tarihten en fazla üç yıl saat. Seçilen tarih ve saat olan yeni sona erme tarihi ve yeni sertifikanızın süresi. **Kaydet** düğmesine tıklayın.
+5. **Yeni bir sertifika oluşturmak** bağlantı Takvim denetimi açar. Herhangi bir tarihi ayarlamak ve geçerli tarihten en fazla üç yıl saat. Seçilen tarih ve saat olan yeni sona erme tarihi ve yeni sertifikanızın süresi. **Kaydet**’e tıklayın.
 
     ![İndirme sonra sertifikasını karşıya yükle](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
 Linux sanal makine (VM) oluşturma komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformu üzerinde performansı iyileştirmek için ayarladığınız emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak, Linux kullanarak sanal makine oluşturabilirsiniz [kendi görüntü şablonları olarak](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -28,7 +28,7 @@ Linux sanal makine (VM) oluşturma komut satırından veya portalından yapmak k
 ## <a name="prerequisites"></a>Önkoşullar
 Bu konu çalışan bir Azure aboneliği zaten sahip varsayar ([ücretsiz deneme sürenizde](https://azure.microsoft.com/pricing/free-trial/)) ve bir VM Azure aboneliğinizde zaten sağlanmış. En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizle oturum açmış [az oturum açma](/cli/azure/reference-index#az_login) , önce [bir VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="azure-os-disk"></a>Azure OS Disk
+## <a name="azure-os-disk"></a>Azure işletim sistemi diski
 Azure'da bir Linux VM oluşturduktan sonra kendisiyle ilişkilendirilmiş iki disk var. **/ dev/sda** , işletim sistemi disk **/dev/sdb** geçici disktir.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize edilen için hızlı VM önyükleme süresi ve iş yükleriniz için iyi bir performans sağlamaz. Kalıcı almak için VM için bir veya daha fazla disk eklemek için kullanmak istediğiniz ve depolama verileriniz için en iyi duruma getirilmiş. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Disk boyutu ve performans hedefleri için ekleme
@@ -132,6 +132,6 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 Ek kaynaklar için bazı yararlı bağlantılar: 
 
 * [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](premium-storage.md)
-* [Azure Linux Aracısı Kullanıcı Kılavuzu](agent-user-guide.md)
+* [Azure Linux Aracısı Kullanıcı Kılavuzu](../extensions/agent-linux.md)
 * [Azure Linux VM'ler MySQL performansı en iyi duruma getirme](classic/optimize-mysql.md)
 * [Yazılım RAID Linux üzerinde yapılandırma](configure-raid.md)

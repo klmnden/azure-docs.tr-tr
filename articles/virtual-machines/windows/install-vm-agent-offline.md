@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: genli
-ms.openlocfilehash: 8b9d1ea3e4b5bf959484a737453d7f6f1f63d1e6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Çevrimdışı modda Azure sanal makine aracısını yükleme 
 
@@ -74,9 +74,9 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 8.  VM sorun gidericisini varolan dosyaların depo olarak VM Aracısı yüklemesi için kullanın. Aşağıdaki adımları tamamlayın:
 
     1. Sorun gidericisini VM, aşağıdaki alt anahtarları (.reg) kayıt defteri biçiminde dışarı aktarın: 
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
         ![Kayıt defteri alt anahtarları dışarı aktarma](./media/install-vm-agent-offline/backup-reg.png)
 
@@ -130,5 +130,5 @@ Ardından çalıştırın `Get-AzureVM` komutu. Dikkat **GuestAgentStatus** öze
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure sanal makine aracısını genel bakış](agent-user-guide.md)
+- [Azure sanal makine aracısını genel bakış](../extensions/agent-windows.md)
 - [Sanal makine uzantıları ve özellikleri Windows için](extensions-features.md)

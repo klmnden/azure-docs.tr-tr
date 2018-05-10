@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -302,7 +302,7 @@ module.exports = function(context) {
 Tanımlamanız gerekir bir `package.json` işlevi uygulamanızın kök dizinindeki dosyasını. Dosya tanımlama aynı önbelleğe alınmış paketleri, en iyi performans sağlayan paylaşmak uygulamasında tüm işlevleri sağlar. Sürüm çakışması ortaya çıkarsa, ekleyerek çözebilmek bir `package.json` belirli bir işlev klasöründe bulunan dosyadır.  
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
-Bir ortam değişkeni veya ayar değeri bir uygulamayı almak için `process.env`aşağıdaki kod örneğinde gösterildiği gibi:
+Bir ortam değişkeni veya ayar değeri bir uygulamayı almak için `process.env`, aşağıda gösterildiği gibi `GetEnvironmentVariable` işlevi:
 
 ```javascript
 module.exports = function (context, myTimer) {

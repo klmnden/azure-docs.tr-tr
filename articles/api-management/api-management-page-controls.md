@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management sayfası denetimleri | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici Portalı şablonlarındaki kullanıma sayfa denetimleri hakkında bilgi edinin."
+title: Azure API Management sayfası denetimleri | Microsoft Docs
+description: Azure API Management'ta Geliştirici Portalı şablonlarındaki kullanıma sayfa denetimleri hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management sayfası denetimleri
 Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici kullanmak için sağlar.  
@@ -43,10 +43,10 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 -   [Abone düğmesi](#subscribe-button)  
 -   [aboneliği iptal etme](#subscription-cancel)  
   
-##  <a name="app-actions"></a>Uygulama eylemleri  
+##  <a name="app-actions"></a> Uygulama eylemleri  
  `app-actions` Denetimi Geliştirici Portalı'ndaki kullanıcı profili sayfasında uygulamalarla etkileşim için bir kullanıcı arabirimi sağlar.  
   
- ![uygulamanın &#45; Eylemler denetim](./media/api-management-page-controls/APIM-app-actions-control.png "APIM uygulama eylemleri denetimi")  
+ ![Uygulama&#45;Eylemler denetimi](./media/api-management-page-controls/APIM-app-actions-control.png "APIM uygulama eylemleri denetimi")  
   
 ### <a name="usage"></a>Kullanım  
   
@@ -65,10 +65,10 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
   
 -   [Uygulamalar](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a>temel oturum açma  
+##  <a name="basic-signin"></a> temel oturum açma  
  `basic-signin` Denetim Geliştirici Portalı'nda oturum açma sayfasındaki kullanıcı oturum açma bilgileri toplamak için bir denetim sağlar.  
   
- ![Basic &#45; oturum açma denetimi](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic oturum açma denetimi")  
+ ![temel&#45;signın denetim](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic oturum açma denetimi")  
   
 ### <a name="usage"></a>Kullanım  
   
@@ -77,14 +77,14 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 ```  
   
 ### <a name="parameters"></a>Parametreler  
- yok.  
+ Yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
  `basic-signin` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Oturum Aç](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a>disk belleği denetimi  
+##  <a name="paging-control"></a> disk belleği denetimi  
  `paging-control` Sayfalama işlevselliğinin Geliştirici öğelerinin bir listesini görüntülemek portal sayfalarına sağlar.  
   
  ![Denetim disk belleği](./media/api-management-page-controls/APIM-paging-control.png "APIM disk belleği denetimi")  
@@ -96,7 +96,7 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 ```  
   
 ### <a name="parameters"></a>Parametreler  
- yok.  
+ Yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
  `paging-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
@@ -107,7 +107,7 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
   
 -   [Ürün Listesi](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a>sağlayıcıları  
+##  <a name="providers"></a> sağlayıcıları  
  `providers` Denetim seçimi Geliştirici Portalı'nda oturum açma sayfasındaki kimlik doğrulama sağlayıcıları için bir denetim sağlar.  
   
  ![sağlayıcıları Denetim](./media/api-management-page-controls/APIM-providers-control.png "APIM sağlayıcıları denetimi")  
@@ -119,14 +119,14 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 ```  
   
 ### <a name="parameters"></a>Parametreler  
- yok.  
+ Yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
  `providers` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Oturum Aç](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a>arama denetimi  
+##  <a name="search-control"></a> arama denetimi  
  `search-control` Arama işlevini Geliştirici öğelerinin bir listesini görüntülemek portal sayfalarına sağlar.  
   
  ![Arama denetim](./media/api-management-page-controls/APIM-search-control.png "APIM arama denetimi")  
@@ -138,7 +138,7 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 ```  
   
 ### <a name="parameters"></a>Parametreler  
- yok.  
+ Yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
  `search-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
@@ -147,10 +147,10 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
   
 -   [Ürün Listesi](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a>Kaydolma  
+##  <a name="sign-up"></a> Kaydolma  
  `sign-up` Denetim Geliştirici Portalı'ndaki kaydolma sayfasında kullanıcı profili bilgileri toplamak için bir denetim sağlar.  
   
- ![oturum &#45; yukarı denetim](./media/api-management-page-controls/APIM-sign-up-control.png "APIM kayıt denetimi")  
+ ![oturum&#45;yukarı denetim](./media/api-management-page-controls/APIM-sign-up-control.png "APIM kayıt denetimi")  
   
 ### <a name="usage"></a>Kullanım  
   
@@ -159,17 +159,17 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 ```  
   
 ### <a name="parameters"></a>Parametreler  
- yok.  
+ Yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
  `sign-up` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Kaydol](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a>Abone düğmesi  
+##  <a name="subscribe-button"></a> Abone düğmesi  
  `subscribe-button` Bir kullanıcı bir ürüne abone olmak için bir denetim sağlar.  
   
- ![Abone &#45; düğme denetimi](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM abone düğmesi denetimi")  
+ ![abone&#45;düğme denetim](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM abone düğmesi denetimi")  
   
 ### <a name="usage"></a>Kullanım  
   
@@ -178,17 +178,17 @@ Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konum
 ```  
   
 ### <a name="parameters"></a>Parametreler  
- yok.  
+ Yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
  `subscribe-button` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Ürün](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a>aboneliği iptal etme  
+##  <a name="subscription-cancel"></a> aboneliği iptal etme  
  `subscription-cancel` Denetim Geliştirici Portalı'ndaki kullanıcı profili sayfasında ürün aboneliği iptal etmek için bir denetim sağlar.  
   
- ![Abonelik &#45; denetim iptal](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM aboneliği iptal denetimi")  
+ ![Abonelik&#45;denetim iptal](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM aboneliği iptal denetimi")  
   
 ### <a name="usage"></a>Kullanım  
   

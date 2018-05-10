@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure sanal Datacenter: Ağ perspektifi
 **Microsoft Azure**: hızlı hareket, tasarruf, şirket içi uygulamaları ve verileri tümleştirme
@@ -192,7 +192,7 @@ Altyapı bileşenlerini aşağıdaki işlevselliği içerir:
 -   [**UDR**][UDR]. Bir sanal ağ trafiğini, varsayılan sistem yönlendirme tablosuna dayalı tarafından yönlendirilir. Bir kullanıcı tanımlamak, ağ yöneticilerinin özel bir yönlendirme tablosu sistem yönlendirme tablosu davranışını üzerine ve sanal ağ içinde bir iletişim yolu tanımlamak için bir veya daha fazla alt ağlara ilişkilendirebilirsiniz yoldur. Belirli özel VM'ler ve/veya ağ sanal Gereçleri ve yük dengeleyici hub ve bağlı bileşen mevcut yoluyla spoke aktarım gelen o çıkış trafiği Udr'ler varlığını güvence altına alır.
 -   [**NSG**][NSG]. Bir ağ güvenlik grubu, trafik IP kaynakları, hedef IP, protokolleri, IP kaynak bağlantı noktaları ve IP hedef bağlantı noktalarına filtreleme gibi davranan güvenlik kuralları listesidir. NSG bir alt ağ, bir Azure VM veya her ikisi ile ilişkili bir sanal NIC kartı uygulanabilir. Nsg'ler hub ve bağlı bileşen doğru akış denetimi uygulamak için gereklidir. NSG tarafından karşılanan güvenlik düzeyini hangi bağlantı noktalarını açmanız ve hangi amaçla bir işlev değil. Müşteriler, ana bilgisayar tabanlı güvenlik duvarları gibi IPtables veya Windows Güvenlik Duvarı ek VM başına filtrelerle uygulamalıdır.
 -   [**DNS**][DNS]. VDC Vnet'lerdeki kaynaklar ad çözümlemesi DNS yoluyla sağlanır. Azure DNS hizmetleri her ikisi için de sağlar [ortak][DNS] ve [özel] [ PrivateDNS] ad çözümlemesi. Özel bölgeler bir sanal ağ içinde hem de sanal ağlar arasındaki ad çözümlemesi sağlar. Sanal ağlar aynı bölgede aynı zamanda bölgeler ve abonelikler arasında özel bölgeler yalnızca aralık olabilir. Ortak çözüm için Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın Azure DNS DNS etki alanı için bir barındırma hizmeti sağlar. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz.
--   [** Abonelik] [ SubMgmt] ve [kaynak grubu Yönetim][RGMgmt]**. Bir abonelik birden çok kaynak grupları oluşturmak için doğal bir sınır tanımlar. Bir Abonelikteki kaynakların kaynak grupları adlı mantıksal kapsayıcılarında birlikte birleştirilir. Kaynak grubu vDC kaynakları düzenlemek için mantıksal bir grubu temsil eder.
+-   [**Abonelik** ] [ SubMgmt] ve [ **kaynak grubu Yönetim**][RGMgmt]. Bir abonelik birden çok kaynak grupları oluşturmak için doğal bir sınır tanımlar. Bir Abonelikteki kaynakların kaynak grupları adlı mantıksal kapsayıcılarında birlikte birleştirilir. Kaynak grubu vDC kaynakları düzenlemek için mantıksal bir grubu temsil eder.
 -   [**RBAC**][RBAC]. RBAC, kullanıcıların yalnızca belirli bir alt kümesi eylemler için sınırlamanıza izin vererek belirli Azure kaynaklarına erişim hakkı birlikte harita Kurumsal rol için mümkündür. RBAC ile kullanıcılar, gruplar ve ilgili kapsam içinde uygulamalar için uygun rolü atayarak erişim izni verebilir. Rol atamasının kapsamı, bir Azure aboneliği, bir kaynak grubu veya tek bir kaynak olabilir. RBAC devralma izin verir. Bir üst kapsamda atanan bir rolü de içerdiği alt öğelerine erişim verir. RBAC kullanarak, görevlerini kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz. Örneğin, bir çalışan başka bir SQL veritabanları aynı abonelik içinde yönetebilirsiniz sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
 -   [**VNet eşlemesi**][VNetPeering]. VDC altyapısı oluşturmak için kullanılan temel VNet eşlemesi, iki sanal ağlar (Vnet'ler) bağlanan bir mekanizma üzerinden Azure veri merkezi ağı veya bölgeler arasında Azure dünya çapında omurga kullanarak aynı bölgede özelliğidir.
 

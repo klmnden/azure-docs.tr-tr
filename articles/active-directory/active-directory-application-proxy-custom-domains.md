@@ -1,29 +1,29 @@
 ---
-title: "Azure AD uygulama proxy'si özel etki alanlarında | Microsoft Docs"
-description: "Uygulama için URL'yi, kullanıcılarınıza eriştiği bakılmaksızın aynı böylece Azure AD uygulama proxy'si özel etki alanlarında yönetin."
+title: Azure AD uygulama proxy'si özel etki alanlarında | Microsoft Docs
+description: Uygulama için URL'yi, kullanıcılarınıza eriştiği bakılmaksızın aynı böylece Azure AD uygulama proxy'si özel etki alanlarında yönetin.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b198c6aba4227e33eae4af49c019bc4012086a51
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 91cb67bb7a8ebcf0b06561a4c647098c577a473a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si özel etki alanları ile çalışma
 
-Azure Active Directory Uygulama proxy'si aracılığıyla uygulama yayımladığınızda, kullanıcılarınız uzaktan çalışırken gitmek için bir dış URL oluşturun. Varsayılan etki alanını bu URL'yi alır *yourtenant.msappproxy.net*. Gider ve Kiracı adlı bir uygulama yayımladıysanız dış URL'yi https://expenses-contoso.msappproxy.net olacaktır sonra Örneğin, Contoso adlı. Kendi etki alanı adınızı kullanmak istiyorsanız, uygulamanız için özel bir etki alanı yapılandırın. 
+Azure Active Directory Uygulama proxy'si aracılığıyla uygulama yayımladığınızda, kullanıcılarınız uzaktan çalışırken gitmek için bir dış URL oluşturun. Varsayılan etki alanını bu URL'yi alır *yourtenant.msappproxy.net*. Örneğin, yayımladığınız uygulama adlı giderleri ve Kiracı Contoso adlı, sonra dış URL'yi olacaktır https://expenses-contoso.msappproxy.net. Kendi etki alanı adınızı kullanmak istiyorsanız, uygulamanız için özel bir etki alanı yapılandırın. 
 
 Mümkün olduğunda, uygulamalarınız için özel etki alanları ayarlamanızı öneririz. Özel etki alanlarını avantajlarından bazıları şunlardır:
 
@@ -32,7 +32,7 @@ Mümkün olduğunda, uygulamalarınız için özel etki alanları ayarlamanızı
 - Marka bilgilerinizi denetlemek ve istediğiniz URL'leri oluşturun. 
 
 
-## <a name="configure-a-custom-domain"></a>Özel bir etki alanı yapılandırma
+## <a name="configure-a-custom-domain"></a>Özel etki alanı yapılandırma
 
 ### <a name="prerequisites"></a>Önkoşullar
 

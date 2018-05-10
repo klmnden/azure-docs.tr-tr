@@ -2,25 +2,19 @@
 title: Azure Active Directory B2B işbirliği sorunlarını giderme | Microsoft Docs
 description: Azure Active Directory B2B işbirliği ile ortak sorunları çözümler
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3ced3319087091242d1250a98cb5baddb7bb1832
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
@@ -84,16 +78,4 @@ Bu senaryo için önemliyse bizim API davet e-posta bastırmak ve tercih ettiği
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
-
-* [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory yöneticileri B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-admin-add-users.md)
-* [Bilgi çalışanları B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-iw-add-users.md)
-* [B2B işbirliği davet e-posta öğeleri](active-directory-b2b-invitation-email.md)
-* [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B işbirliği lisanslama](active-directory-b2b-licensing.md)
-* [Azure Active Directory B2B işbirliği sık sorulan sorular (SSS)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B işbirliği API ve özelleştirme](active-directory-b2b-api.md)
-* [B2B işbirliği kullanıcıları için çok faktörlü kimlik doğrulaması](active-directory-b2b-mfa-instructions.md)
-* [B2B işbirliği kullanıcıları davet olmadan ekleme](active-directory-b2b-add-user-without-invite.md)
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
+- [B2B işbirliği için destek alma](active-directory-b2b-support.md)

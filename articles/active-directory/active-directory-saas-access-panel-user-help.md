@@ -1,11 +1,11 @@
 ---
-title: "Verilere erişme ve Azure Active Directory'de My uygulamaları Portalı'nı kullanarak Yardım alma | Microsoft Docs"
-description: "Oturum açma ve erişim panelinde ortak görevleri gerçekleştirme ile ilgili yardım alın."
+title: Verilere erişme ve Azure Active Directory'de My uygulamaları Portalı'nı kullanarak Yardım alma | Microsoft Docs
+description: Oturum açma ve erişim panelinde ortak görevleri gerçekleştirme ile ilgili yardım alın.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Verilere erişme ve My uygulamaları Portalı'nı kullanarak sorunları giderme
 
@@ -29,7 +29,7 @@ Oturum açma veya My uygulamaları Portalı'nı kullanarak sorunlar yaşıyorsan
 
 Bu genel ipuçları deneyin:
 
-- İlk olarak, onay doğru URL'yi kullanarak görmek için [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- İlk olarak, onay doğru URL'yi kullanarak görmek için [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 - Tarayıcınızın güvenilen siteler için URL eklemeyi deneyin.
 - Parolanızı doğru olduğundan ve süresi geçmemiş emin olun. Daha fazla bilgi için bkz: [iş veya Okul parolanızı sıfırlama](active-directory-passwords-update-your-own-password.md).
 - Kimlik doğrulama iletişim bilgilerinizi en fazla tarih ve erişiminizi engellemediğini olduğundan emin olmak için kontrol edin. Daha fazla bilgi için bkz: [ne Azure çok faktörlü kimlik doğrulaması için beni anlama geliyor?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
@@ -55,7 +55,7 @@ Aşağıdaki tarayıcı gereksinimleri karşıladığından emin olun:
 - **Kenar**: Windows 10 Anniversary Edition veya sonraki sürümlerde.
 - **Chrome**: Windows 7 veya daha sonra ve Mac OS x veya sonraki sürümlerde.
 - **Firefox 26,0 veya üzeri**: Windows XP SP2 veya daha sonra ve Mac OS X 10.6 veya sonraki sürümlerde.
-- **Internet Explorer 8, 9, 10, 11**: Windows 7 veya üzeri (sınırlı destek).
+- **Internet Explorer 11**: Windows 7 veya üzeri (sınırlı destek).
 
 Chrome ve aşağıdaki siteleri doğrudan kenarından uzantısı da yükleyebilirsiniz:
 

@@ -1,19 +1,19 @@
 ---
-title: "Yük devretme için bir Linux ana hedef sunucusu Azure'dan şirket içi yükleyin. | Microsoft Docs"
-description: "Linux sanal makine yeniden korumayı önce bir Linux ana hedef sunucusu gerekir. Bir yüklemeyi öğrenin."
+title: Yük devretme için bir Linux ana hedef sunucusu Azure'dan şirket içi yükleyin. | Microsoft Docs
+description: Linux sanal makine yeniden korumayı önce bir Linux ana hedef sunucusu gerekir. Bir yüklemeyi öğrenin.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Bir Linux ana hedef sunucu yükle
 Azure sanal makineleriniz başarısız olduktan sonra sanal makineler şirket içi siteye geri başarısız olabilir. Yeniden çalışmak için Azure sanal makineden şirket içi siteye koruyun gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -240,18 +240,13 @@ Saklama diskinin oluşturmak için aşağıdaki adımları kullanın:
 
 1. Linux ana hedef sanal makine için yeni bir 1 TB disk ekleyin ve sonra makineyi başlatmak.
 
-2. Kullanım **çok yollu -üm** saklama diskinin çok yollu kimliği öğrenmek için komutu.
-    
-     `multipath -ll`
+2. Kullanım **çok yollu -üm** saklama diskinin çok yollu kimliği öğrenmek için komutu: **çok yollu -üm**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![Çok yollu kimliği](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Sürücüyü biçimlendirmek ve ardından yeni sürücüsünde bir dosya sistemi oluşturun.
-
+3. Sürücüyü biçimlendirmek ve ardından yeni sürücüsünde bir dosya sistemi oluşturun: **mkfs.ext4 /dev/Eşleyici/< bekletme diskin çok yollu kimliği >**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Bir dosya sistemi sürücüsünde oluşturma](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Dosya sistemi](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Dosya sistemi oluşturduktan sonra saklama diskinin bağlayın.
 
@@ -266,7 +261,7 @@ Saklama diskinin oluşturmak için aşağıdaki adımları kullanın:
     
     Seçin **Ekle** Dosya düzenlemeye başlamak için. Yeni bir satır oluşturun ve sonra aşağıdaki metni ekleyin. Önceki komutu vurgulanan çok yollu Kimliğinden temel disk çok yollu kimliği düzenleyin.
 
-     **/dev/Eşleyici/ <Retention disks multipath id> /mnt/bekletme ext4 rw 0 0**
+    **/dev/Eşleyici/ <Retention disks multipath id> /mnt/bekletme ext4 rw 0 0**
 
     Seçin **Esc**ve ardından **: wq** (yazma ve çıkın) Düzenleyicisi penceresini kapatın.
 

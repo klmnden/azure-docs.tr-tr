@@ -14,11 +14,11 @@ ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: fc7a67c644894606b09ed3ad594ff9f87b29f307
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -41,7 +41,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   > [!NOTE]
   > Exchange ActiveSync koşullu erişim ilkesi azure'da dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
-* **CRM Hizmet Yöneticisi**: Bu rol ile kullanıcınız Microsoft CRM hizmet mevcut olduğunda çevrimiçi içinde genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Dynamics 365 Hizmet Yöneticisi**: Bu rol ile kullanıcınız Microsoft CRM hizmet mevcut olduğunda çevrimiçi içinde genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Cihaz yöneticileri**: Bu rolüne sahip kullanıcılar yerel makine Yöneticiler için Azure Active Directory'ye katılmış tüm Windows 10 cihazlarda haline gelir. Azure Active Directory'de cihaz nesnelerini yönetme yeteneği sahip değil.
 
@@ -131,7 +131,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 -------- | ---------
 Azure Information Protection | <li>Genel ve kapsamlı ilkelerinde etiketleri ve ayarlarını yapılandırma<li>Yapılandırma ve koruma şablonlarını yönetme<li>Etkinleştirme veya devre dışı koruması
  
-### <a name="reports-reader"></a>Raporları okuyucusu 
+### <a name="reports-reader"></a>Rapor Okuyucu 
 Yapabilirsiniz | Yapamaz
 ------ | ----------
 Azure AD oturum açma raporları ve Denetim günlükleri görüntüle<br>Şirket ve kullanıcı bilgilerini görüntüleme<br>Erişim Office 365 kullanım Panosu | Oluşturma ve kullanıcı görünümleri yönetme<br>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme<br>Başkalarını yönetici rollerine temsilci seçme<br>Şirket bilgilerini yönetme

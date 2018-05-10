@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -172,7 +172,7 @@ Yedekleme başarıyla etkinleştirdikten sonra yedekleme ilkenizi zamanlamaya g�
 Sanal makine kaydetme sorunları varsa, aşağıdaki bilgileri VM Aracısı'nı yükleme ve ağ bağlantısına bakın. Azure üzerinde oluşturulan sanal makineleri koruyorsanız aşağıdaki bilgileri muhtemelen gerekmez. Ancak, sanal makineleriniz için Azure geçirdiyseniz, VM Aracısı düzgün yüklenmiş ve sanal makinenizi sanal ağ ile iletişim kurabildiğinden emin olun.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı sanal makineye yükleme
-Çalışmak Azure Backup uzantısı [VM Aracısı](../virtual-machines/windows/agent-user-guide.md) Azure sanal makineye yüklenmesi gerekir. VM Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makineye zaten. 
+Çalışmak Azure Backup uzantısı [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Azure sanal makineye yüklenmesi gerekir. VM Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makineye zaten. 
 
 Aşağıdaki bilgiler olduğunuz durumlarda sağlanan *değil* VM kullanılarak oluşturulan Azure Marketi'nde. Örneğin, bir VM bir şirket içi veri merkezinden geçişi. Böyle bir durumda, VM aracısının sanal makineyi korumak için yüklü olması gerekir.
 
@@ -180,9 +180,9 @@ Azure VM'yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı sanal maki
 
 | **İşlem** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM Aracısı yükleme |[Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. |En son yükleme [Linux Aracısı](../virtual-machines/linux/agent-user-guide.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Aracı dağıtım depodan yüklemenizi öneririz. Biz *değil önerilir* doğrudan Github'dan Linux VM Aracısı yükleme.  |
-| VM Aracısı güncelleştir |VM Aracısı'nı güncelleştirme yeniden yüklenmesi yeterlidir [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |Yönergeleri izleyin [Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Dağıtım deponuz Aracıdan güncelleştirme öneririz. Biz *değil önerilir* doğrudan github'dan Linux VM Aracısı'nı güncelleştirme.<br><br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
-| VM Aracısı yüklemesini doğrula |1. Azure VM'de C:\WindowsAzure\Packages klasöre göz atın. <br><br>2. WaAppAgent.exe dosyasını bulun. <br><br>3. Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. **Ürün sürümü** alanı 2.6.1198.718 olmalıdır ya da daha yüksek. |Yok |
+| VM Aracısı'nı yükleme |[Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. |<li> En son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. Aracı dağıtım depodan yüklemenizi öneririz. Biz **değil önerilir** doğrudan github'dan yükleme Linux VM Aracısı.  |
+| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. Aracı dağıtım havuzunuzdan güncelleştirme öneririz. Biz **değil önerilir** doğrudan github'dan güncelleştirme Linux VM Aracısı.<br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
+| VM Aracısı yüklemesini doğrulama |<li>Azure VM'de *C:\WindowsAzure\Packages* klasörüne gidin. <li>Mevcut WaAppAgent.exe dosyasını bulmanız gerekir.<li> Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. Ürün Sürümü alanı 2.6.1198.718 veya üzeri olmalıdır. |Yok |
 
 ### <a name="backup-extension"></a>Backup uzantısı
 VM Aracısı sanal makineye yüklendikten sonra Azure Backup hizmeti yedekleme uzantısını VM Aracısı'na yükler. Yedekleme hizmeti sorunsuz bir şekilde yükseltir ve yedekleme uzantısını düzeltme ekleri.

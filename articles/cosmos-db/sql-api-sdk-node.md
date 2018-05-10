@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Node.js SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="1.14.4"/>1.14.4</a>
+* Sabit npm belgeleri.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Varsayılan deneme bağlantı sorunları için destek eklendi.
+* Koleksiyon değişiklik okumak için destek eklendi akış.
+* Zaman zaman "okuma oturumun kullanılamıyor" neden sabit oturum tutarlılığı hata.
+* Sorgu ölçümleri desteği eklendi.
+* Değiştirilen http aracısının en fazla bağlantı sayısı.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Güncelleştirilmiş belgeleri başvuru Azure DocumentDB yerine Azure Cosmos DB.
@@ -193,6 +203,8 @@ Kullanımdan Kaldırılan SDK Cosmos DB kullanarak herhangi bir istek hizmeti ta
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |03 May 2018 |--- |
+| [1.14.3](#1.14.3) |03 May 2018 |--- |
 | [1.14.2](#1.14.2) |21 aralık 2017 |--- |
 | [1.14.1](#1.14.1) |10 Kasım 2017 |--- |
 | [1.14.0](#1.14.0) |9 Kasım 2017 |--- |

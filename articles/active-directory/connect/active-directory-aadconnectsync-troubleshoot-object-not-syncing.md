@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitliyorsanız değil bir nesne sorun giderme
 
@@ -85,11 +85,11 @@ Bu nesneleri başka bir eşitleme altyapısı veya farklı bir filtreleme yapıl
 
 ### <a name="cs-import"></a>CS alma
 Cs nesnesini açtığınızda, en üstünde birden çok sekme vardır. **Alma** sekmesi bir içeri aktarma işleminden sonra hazırlanan veriler gösterir.  
-![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
+![CS nesnesi](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 **Eski değer** Bağlan'şu anda depolanan gösterir ve **yeni değer** ne kaynak sistemden alınan ve henüz uygulanmadı. Bir nesne üzerinde bir hata varsa, değişiklikler işlenmez.
 
 **Hata**  
-![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
+![CS nesnesi](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 **Eşitleme hatası** sekmesini görülebilir yalnızca nesne ile ilgili bir sorun varsa. Daha fazla bilgi için bkz: [eşitleme hatalarını giderme](#troubleshoot-errors-in-operations-tab).
 
 ### <a name="cs-lineage"></a>CS çizgileri
@@ -139,7 +139,7 @@ Bir bağlayıcı olmalıdır:
 - Her bir Active Directory orman kullanıcı olarak temsil edilir. Bu gösterim foreignSecurityPrincipals ve kişi nesneleri içerebilir.
 - Azure AD'de bağlayıcı.
 
-Azure ad Bağlayıcısı eksikse, ardından okuma [MV öznitelikleri](#MV-attributes) Azure AD'ye sağlanacak ölçütlerini doğrulanamadı.
+Azure ad Bağlayıcısı eksikse, ardından okuma [MV öznitelikleri](#mv-attributes) Azure AD'ye sağlanacak ölçütlerini doğrulanamadı.
 
 Bu sekme ayrıca gitmek sağlar [bağlayıcı alanı nesne](#connector-space-object-properties). Bir satır seçin ve tıklatın **özellikleri**.
 

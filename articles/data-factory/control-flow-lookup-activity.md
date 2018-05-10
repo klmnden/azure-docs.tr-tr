@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
-Okuma veya bir kayıt, tablo adı veya değer herhangi bir dış kaynaktan aramak için arama etkinliği kullanın. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
 
-Arama etkinliği, dinamik olarak dosyaları, kayıt veya Tablo listesini bir yapılandırma dosyası veya bir veri kaynağından almak istediğinizde faydalıdır. Etkinlik çıkışı, daha fazla öğelerden üzerinde işleme belirli gerçekleştirmek için diğer etkinlikler tarafından kullanılabilir.
+Arama etkinliği, bir veri kümesi herhangi ADF desteklenen veri kaynağını almak için kullanılabilir.  Aşağıdaki senaryoda kullanılabilir:
+- (Dosyalar, tablolar vb.) üzerinde nesne adını sabit kodlama yerine bir sonraki etkinlik çalışması için hangi nesnelerin dinamik olarak belirleme
+
+Arama etkinliği okuyun ve içeriği bir yapılandırma dosyası, bir yapılandırma tablo veya bir sorgu veya saklı yordam yürütmenin sonucu döndürür.  Arama etkinlik çıkışı bir tek değer ise bir sonraki kopyalama veya dönüştürme etkinliğine kullanılan veya bir dizi öznitelikleri ise ForEach etkinliğinde kullanılan.
 
 > [!NOTE]
 > Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
@@ -33,7 +35,7 @@ Aşağıdaki veri kaynakları şu anda arama için desteklenir:
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
-Arama etkinlik tarafından döndürülen satır sayısının üst sınırını olan **5000**ve kadar **10MB** boyutu.
+Arama etkinlik tarafından döndürülen satır sayısının üst sınırını olan **5000**ve kadar **2MB** boyutu.
 
 ## <a name="syntax"></a>Sözdizimi
 

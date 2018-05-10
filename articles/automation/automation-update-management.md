@@ -8,17 +8,17 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3bd3c4f6501000f2490bc26cf7c6ff0345d3e7cc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5c76114484d10873eeb2d7a4516d4196b1d8aaf6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
 Güncelleştirme yönetimi çözümü Azure automation'da Azure, şirket içi ortamları veya diğer bulut sağlayıcıları dağıtılmış, Windows ve Linux bilgisayarlar için işletim sistemi güncelleştirmeleri yönetmenize olanak sağlar. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
-[Azure Otomasyonu](automation-offering-get-started.md) hesabınızdan sanal makineleriniz için Güncelleştirme yönetimini etkinleştirebilirsiniz.
+Sanal makineler için güncelleştirme yönetimi doğrudan Azure Otomasyonu hesabınızı etkinleştirebilirsiniz.
 Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini nasıl etkinleştireceğinizi öğrenmek için bkz. [Birden fazla sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md). Güncelleştirme yönetimi, Azure portalında sanal makine sayfasından tek bir sanal makine için de etkinleştirebilirsiniz. Bu senaryo için hem de kullanılabilir [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) ve [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) sanal makineler.
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
@@ -37,6 +37,9 @@ Aşağıdaki diyagramda davranışının kavramsal bir görünüm gösterir ve W
 Bir bilgisayarı güncelleştirme uyumluluğu için bir tarama yapar sonra aracı için günlük analizi toplu bilgi iletir. Window bilgisayarında, uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir. Tarama zamanlaması ek olarak, Microsoft İzleme Aracısı'nı (MMA) yeniden başlatılırsa 15 dakika içinde güncelleştirmeyi yüklemeden önce ve güncelleştirme yüklemesi sonrasında, güncelleştirme uyumluluğu taraması başlatılır. Linux bilgisayarıyla, uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir ve MMA aracısının yeniden başlatılması durumunda 15 dakika içinde uyumluluk taraması başlatılır.
 
 Çözüm, eşitlenmek üzere yapılandırdığınız kaynağa dayanarak bilgisayarınızın ne düzeyde güncel olduğunu raporlar. Windows bilgisayarı WSUS’a raporlayacak şekilde yapılandırıldıysa, WSUS’un Microsoft Update ile en son ne zaman eşitlendiğine bağlı olarak, sonuçlar Microsoft Update tarafından gösterilenlerden farklı olabilir. Bu rapor Yerel Depodaki ortak depodaki karşılaştırması için yapılandırılmış olan Linux bilgisayarlar için aynıdır.
+
+> [!NOTE]
+> Güncelleştirme yönetimi gerektiren belirli URL'lerin ve bağlantı noktalarının doğru hizmete raporlamak için etkinleştirilecek bkz [ağ karma çalışanları için planlama](automation-hybrid-runbook-worker.md#network-planning) Bu gereksinimler hakkında daha fazla bilgi için.
 
 Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin gerekli olduğu bilgisayarlara güncelleştirmeleri dağıtabilir ve yükleyebilirsiniz. *İsteğe Bağlı* olarak sınıflandırılmış güncelleştirmeler Windows bilgisayarları için dağıtım kapsamına alınmaz; yalnızca gerekli güncelleştirmeler alınır. Zamanlanmış dağıtım hangi hedef bilgisayarlara uygulanabilir, açıkça bilgisayar belirtilmesi veya seçerek güncelleştirmelerle tanımlayan bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) belirli bir bilgisayar kümesi günlük aramaları dışına dayanır. Ayrıca, güncelleştirmelerin yüklenmesine izin verilen zaman aralığını onaylamak ve belirlemek için bir zamanlama da belirtebilirsiniz. Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook’ları görüntüleyemezsiniz ve bunlar için herhangi bir yapılandırma gerekmez. Bir Güncelleştirme Dağıtımı oluşturulduğunda, dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook’unu başlatan bir zamanlama oluşturur. Bu ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştiren her aracıda bir alt runbook başlatır.
 
@@ -192,7 +195,7 @@ Tıklayarak yeni bir güncelleştirme dağıtımı oluşturmak **zamanlama günc
 |İşletim Sistemi| Linux veya Windows|
 | Makineleri güncelleştirmek için |Kayıtlı aramayı seçin veya makine açılan listeden seçin ve tek tek makineleri seçin |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin.|
-|Dışlanacak güncelleştirmeleri|'KB' öneki de hariç KB girin|
+|Hariç tutulacak güncelleştirmeler|'KB' öneki de hariç KB girin|
 |Zamanlama ayarları|Başlangıç ve her iki kez seçmek için saati seçin veya yineleme için yinelenen|
 | Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
 
@@ -219,6 +222,17 @@ Aşağıdaki tablolar, güncelleştirme Yönetimi'nde güncelleştirme sınıfla
 |---------|---------|
 |Kritik güncelleştirmeler ve güvenlik güncelleştirmeleri     | Belirli bir sorun veya ürüne özgü, güvenlikle ilgili bir sorun için güncelleştirmeleri.         |
 |Diğer güncelleştirmeler     | Doğası veya güvenlik güncelleştirmeleri kritik olmayan tüm diğer güncelleştirmeleri.        |
+
+## <a name="ports"></a>Bağlantı Noktaları
+
+Aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. Bu adresler için iletişim bağlantı noktası 443 üzerinden yapılır.
+
+* *.ods.opinsights.azure.com
+* *.oms.opinsights.azure.com
+* ods.systemcenteradvisor.com
+* *.blob.core.windows.net
+
+Karma Runbook çalışanı gerektiren bağlantı noktaları hakkında daha fazla bilgi için [karma çalışanı rolü bağlantı noktaları](automation-hybrid-runbook-worker.md#hybrid-worker-role)
 
 ## <a name="search-logs"></a>Arama günlükleri
 
@@ -273,9 +287,9 @@ Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları giderme
 | İleti | Neden | Çözüm |
 |----------|----------|----------|
 | Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>System.InvalidOperationException: {"Message":"Makine zaten</br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Düzeltme Eki Yönetimi için makine kaydedilemedi, kayıt özel durumu ile başarısız</br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---></br>System.Net.WebException: Temel alınan bağlantı</br>kapatıldı: Alma işlemi sırasında</br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:</br>İstemci ve sunucu iletişim kuramıyor,</br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
-| Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
-| Hizmet tarafından sunulan sertifika \<wsid\>. oms.opinsights.azure.com</br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi</br>tarafından verilmemiş. İletişim</br>ağ yöneticinize başvurarak</br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| Düzeltme Eki Yönetimi için makine kaydedilemedi, kayıt özel durumu ile başarısız</br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---></br>System.Net.WebException: Temel alınan bağlantı</br>kapatıldı: Alma işlemi sırasında</br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:</br>İstemci ve sunucu iletişim kuramıyor,</br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-hybrid-runbook-worker.md#network-planning)|
+| Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-hybrid-runbook-worker.md#network-planning)|
+| Hizmet tarafından sunulan sertifika \<wsid\>. oms.opinsights.azure.com</br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi</br>tarafından verilmemiş. İletişim</br>ağ yöneticinize başvurarak</br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-hybrid-runbook-worker.md#network-planning)|
 | Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---></br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının</br>klasöre okuma erişiminin olduğunu doğrulayın:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA **|
 
 ## <a name="next-steps"></a>Sonraki adımlar

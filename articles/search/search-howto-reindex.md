@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 006d04efb0a6bebc424cb005bf63af2b3cd7a42e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f38054eaf2829149a496f840366b6f2f9e03e12b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Azure Search dizini yeniden oluşturmak nasıl
 
@@ -35,8 +35,8 @@ Dizin şemaları flux bir durumda olduğunda plan sık, tam üzerinde etkin geli
 | Değiştirme | Durum yeniden oluşturma|
 |--------------|---------------|
 | Veri türü, bir alanın adını değiştirin veya kendi [dizin öznitelikleri](https://docs.microsoft.com/rest/api/searchservice/create-index) | Bir alan tanımı genellikle değiştirme doğurur bunlar dışında bir yeniden cezası [dizin öznitelikleri](https://docs.microsoft.com/rest/api/searchservice/create-index): alınabilir, SearchAnalyzer, SynonymMaps. Kendi dizini yeniden oluşturmak zorunda kalmadan, varolan bir alana alınabilir, SearchAnalyzer ve SynonymMaps öznitelikler ekleyebilirsiniz.|
-| Bir alan ekleyin | Rebuild üzerinde katı gereksinimi yoktur. Varolan dizinlenmiş belgeleri yeni alan için bir null değer verilir. Gelecekteki bir arat üzerinde kaynak veri değerleri belgeye eklenir. |
-| Bir alanı silme | Rebuild üzerinde katı gereksinimi yoktur. Silinen bir alan kullanılmaz, ancak fiziksel olarak alan tanımı ve içeriği kadar sonraki yeniden dizininde kalır. |
+| Bir alan ekleyin | Rebuild üzerinde katı gereksinimi yoktur. Varolan dizinlenmiş belgeleri yeni alan için bir null değer verilir. Gelecekteki bir arat üzerinde Azure Search tarafından eklenen null değerlere kaynak veri değerleri değiştirin. |
+| Bir alanı silme | Bu gibi durumlarda, bir alanın doğrudan bir Azure Search dizini silemezsiniz. Bunun yerine, Yoksay kullanmadan önlemek için "silinmiş" alanı, uygulamanızın olması gerekir. Fiziksel olarak alan tanımı ve içeriği dizinde söz konusu alan atlar bir şema kullanarak dizininizi yeniden açana kadar kalır.|
 
 > [!Note]
 > Katmanları geçiş yaparsanız yeniden de gereklidir. Belirli bir noktada üzerinde daha fazla kapasite karar verirseniz, hiçbir yerinde yükseltme yoktur. Yeni bir hizmet yeni kapasite noktada oluşturulmalı ve dizinleri sıfırdan yeni hizmette oluşturulmalıdır. 

@@ -1,9 +1,9 @@
 ---
-title: "Akış Azure Event hubs'a veri izleme | Microsoft Docs"
-description: "Tüm Azure izleme verilerinizi bir iş ortağı SIEM verisine veya Analiz aracı almak için bir olay hub'ına akış öğrenin."
+title: Akış Azure Event hubs'a veri izleme | Microsoft Docs
+description: Tüm Azure izleme verilerinizi bir iş ortağı SIEM verisine veya Analiz aracı almak için bir olay hub'ına akış öğrenin.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Bir dış aracı tarafından izleme verileri tüketim için bir olay hub'ına akış Azure
 
@@ -79,7 +79,7 @@ Konuk işletim sistemi izleme verilerini bir event hub'ına göndermek için bir
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Bir olay hub'ına Linux veri akışı
 
-[Linux Azure Tanılama Aracı](../virtual-machines/linux/diagnostic-extension.md) göndermek için kullanılan bir Linux makineden bir olay hub'ına veri izleme. Bu, LAD havuzunda olarak olay hub'ı ekleyerek yapılandırma dosyası korunan ayarları JSON yapabilirsiniz. [Bu makalede Linux Azure tanılama aracınızı olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz:](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+[Linux Azure Tanılama Aracı](../virtual-machines/extensions/diagnostics-linux.md) göndermek için kullanılan bir Linux makineden bir olay hub'ına veri izleme. Bu, LAD havuzunda olarak olay hub'ı ekleyerek yapılandırma dosyası korunan ayarları JSON yapabilirsiniz. [Bu makalede Linux Azure tanılama aracınızı olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz:](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Konuk işletim sistemi izleme verileri portalda bir olay hub'ına akış olarak ayarlanamaz. Bunun yerine, el ile yapılandırma dosyasını düzenlemeniz gerekir.

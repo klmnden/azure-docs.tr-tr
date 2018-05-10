@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 9fa87f8dc0c94ec93e049e35be727c031b4b06ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Bir sanal makine ya da VHD görüntüsü oluşturma
 
@@ -45,7 +45,7 @@ Değerlendirme veya azure'da VM öğrenmeye, test, bu konu, Basitleştirilmiş b
 
 
 ## <a name="step-1-deprovision-the-vm"></a>1. adım: VM yetkisini kaldırma
-Makine belirli dosyaları ve verileri silmek için Azure VM Aracısı'nı kullanarak VM'yi sağlamayı sonlandırın. Kullanım `waagent` komutunu *-deprovision + kullanıcı* kaynağınız Linux VM parametresi. Daha fazla bilgi için bkz. [Azure Linux Aracısı kullanıcı kılavuzu](../windows/agent-user-guide.md).
+Makine belirli dosyaları ve verileri silmek için Azure VM Aracısı'nı kullanarak VM'yi sağlamayı sonlandırın. Kullanım `waagent` komutunu *-deprovision + kullanıcı* kaynağınız Linux VM parametresi. Daha fazla bilgi için bkz. [Azure Linux Aracısı kullanıcı kılavuzu](../extensions/agent-linux.md).
 
 1. Bir SSH istemcisi kullanarak Linux VM'NİZDE bağlayın.
 2. SSH penceresinde aşağıdaki komutu yazın:

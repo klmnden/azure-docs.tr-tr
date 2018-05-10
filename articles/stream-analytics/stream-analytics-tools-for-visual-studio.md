@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçlarını kullanın
 Visual Studio için Azure Stream Analytics araçları artık genel olarak kullanılabilir. Bu araçları yanı sıra gidermek karmaşık sorgular yazmak Stream Analytics kullanıcılar için daha zengin bir deneyim sağlamak ve hatta sorguları yerel olarak yazma. Ayrıca, bir Visual Studio projeye Stream Analytics işi dışa aktarabilirsiniz.
@@ -28,6 +28,20 @@ Bu öğreticiyi tamamladıktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 * İşinizi yerel örnek verilerle yerel olarak test edin.
 * Sorunları gidermek için izleme'yi kullanın.
 * Var olan işleri projelerine verin.
+
+>[!IMPORTANT]
+>
+>Hazırlık için yeni genel veri koruma düzenleme (GDPR) 25 May 2018 üzerinde yürürlüğe giderek Visual Studio için Azure Stream Analytics araçları kullanıcılarının 2.3.3000.5 sürüme yükseltmeniz önerilir veya daha sonra. Bu sürüm, en son veri koruma gereksinimlerine göre değişiklikleri içerir. Önceki sürümler için kullanılabilir değil Not indirin ve kullanım dışı bırakılmıştır. 
+>
+>**Yapmak neler gerekir?**
+>
+>1. Visual Studio için Azure Stream Analytics araçların 2.3.3000.5 daha önceki bir sürümünü kullanıyorsanız denetleyin. 
+>   
+>   ![Onay aracı sürümü](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. Sürümünüz 2.3.3000.5 önceki bir sürümü ise, Azure Data Lake araçları Visual Studio için Yükleme Merkezi'ni ziyaret ederek güncelleştirin: 
+>    - [Visual Studio 2017 için](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Visual Studio 2013 ve 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
@@ -135,9 +149,9 @@ Hakkında daha fazla ayrıntı için okuma [süresi management](https://msdn.mic
 
 Bu klasör, aşağıdaki dosyaları içerir:
 
-* Entry.json
-* Exit.json
-* Registration.json
+* Entry.JSON
+* Exit.JSON
+* Registration.JSON
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Soru: Ücretli Stand girme taşıtlardan sayısı
 Projede çift **Script.asaql** Kod düzenleyicisinde açın. Komut dosyası önceki bölümde düzenleyiciye yapıştırın. Sorgu Düzenleyicisi'ni IntelliSense, söz dizimi renklendirme ve bir hata işaretleyici destekler.
@@ -195,7 +209,7 @@ Devam eden görebilirsiniz **çıkış** penceresi.
    ![İşi Gönder](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
-### <a name="start-the-job"></a>İşi Başlat
+### <a name="start-the-job"></a>İşi başlatma
 İşinizi şimdi oluşturulur ve iş görünümünde otomatik olarak açılır. 
 1. İşlemi başlatmak için yeşil ok düğmesini seçin.
 

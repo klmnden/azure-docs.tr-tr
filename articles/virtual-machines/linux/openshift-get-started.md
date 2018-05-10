@@ -1,25 +1,25 @@
 ---
-title: "Azure genel bakış OpenShift | Microsoft Docs"
-description: "Azure'da OpenShift genel bakış."
+title: Azure genel bakış OpenShift | Microsoft Docs
+description: Azure'da OpenShift genel bakış.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="openshift-in-azure"></a>Azure'da OpenShift
 
@@ -31,14 +31,14 @@ OpenShift Kubernetes kapsayıcı orchestration ve yönetimi için içerir. Etkin
 - Kolay dağıtım ve ölçeklendirme.
 - Uzun vadeli yaşam döngüsü Bakımı ekipleri ve uygulamalar için.
 
-Hangi iki Azure'da çalışması için kullanılabilir olan OpenShift, birden çok sürümü vardır:
+Birden fazla sürümünü OpenShift vardır:
 
 - OpenShift Origin
 - OpenShift Kapsayıcı Platformu
 - Çevrimiçi OpenShift
 - Ayrılmış OpenShift
 
-Bu makalede ele alınan dört sürümleri iki müşterilerin kendi başlarına Azure'da dağıtmak kullanılabilir olan: OpenShift kaynağı ve OpenShift kapsayıcı Platform.
+Dört sürümleri iki müşterilere Azure'da dağıtmak yalnızca bu makalede, kapsamdaki: OpenShift kaynağı ve OpenShift kapsayıcı Platform.
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 

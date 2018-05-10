@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betik (.csx) Geliştirici Başvurusu
 
@@ -335,7 +335,7 @@ Aşağıdaki derlemeler basit adıyla başvurulabilir (örneğin, `#r "AssemblyN
 ## <a name="referencing-custom-assemblies"></a>Özel derlemelere başvurma
 
 Özel bir derlemeyi başvurmak için ya da kullanabilirsiniz bir *paylaşılan* derleme veya *özel* derleme:
-- Paylaşılan derlemeler işlevi uygulamasında tüm işlevleri arasında paylaşılır. Özel bir derlemeyi başvurmak için işlevi uygulamanızı derlemeye gibi yüklemeniz bir `bin` işlevi uygulama kök klasöründe. 
+- Paylaşılan derlemeler işlevi uygulamasında tüm işlevleri arasında paylaşılır. Özel bir derlemeyi başvurmak için derleme adlı bir klasöre karşıya `bin` içinde [işlevi uygulama kök klasörü](functions-reference.md#folder-structure) (wwwroot). 
 - Özel derlemeler verilen işlevin bağlam parçası olan ve dışarıdan farklı sürümlerini destekler. Özel derlemeler karşıya yüklenebilir içinde bir `bin` işlevi dizin klasöründe. Dosya adı gibi kullanarak derlemeler başvuru `#r "MyAssembly.dll"`. 
 
 Bölümüne bakarak işlevi klasörünüze dosyaları karşıya yükleme hakkında daha fazla bilgi için [Yönetim paketini](#using-nuget-packages).

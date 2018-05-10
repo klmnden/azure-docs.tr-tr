@@ -1,66 +1,66 @@
 ---
-title: Azure ilke tanımı yapısı | Microsoft Docs
-description: Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzda kaynaklar için kuralları oluşturmak için Azure ilke tarafından nasıl kullanıldığını açıklar.
+title: Azure İlkesi tanım yapısı
+description: Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi etkili olabilmesi için açıklayarak, kuruluşunuzda kaynaklar için kuralları oluşturmak için Azure ilke tarafından nasıl kullanıldığını açıklar.
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: ba5380813266b3baf981eaf39eda384ad8c91d5a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 3750bc409753868566c91c01cf6093f439c599f9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
-Azure ilke tarafından kullanılan kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzdaki kaynakların kuralları kurmanızı sağlar. Kuralları tanımlayarak, daha kolay kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, sanal makineler yalnızca belirli türdeki izin verildiğini belirtebilirsiniz. Veya, tüm kaynakların belirli bir etikete sahip olması gerekir. İlkeler tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
+Azure ilke tarafından kullanılan kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi etkili olabilmesi için açıklayarak, kuruluşunuzdaki kaynakların kuralları kurmanızı sağlar. Kuralları tanımlayarak, daha kolay kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, sanal makineler yalnızca belirli türdeki izin verildiğini belirtebilirsiniz. Veya, tüm kaynakların belirli bir etikete sahip olması gerekir. İlkeler tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
 
 Azure ilke tarafından kullanılan şema şurada bulunabilir: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:
 
-* mode
-* parametreler
-* Görünen ad
-* açıklama
-* İlke kuralı
-  * mantıksal değerlendirme
-  * Etkisi
+- mode
+- parametreler
+- Görünen ad
+- açıklama
+- İlke kuralı
+  - mantıksal değerlendirme
+  - Etkisi
 
 Örneğin, aşağıdaki JSON kaynakları dağıtıldığı sınırlar bir ilke gösterir:
 
 ```json
 {
-  "properties": {
-    "mode": "all",
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "mode": "all",
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
@@ -69,8 +69,9 @@ Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-
 ## <a name="mode"></a>Mod
 
 **Modu** hangi kaynak türlerinin için bir ilke değerlendirilir belirler. Desteklenen modları şunlardır:
-* `all`: kaynak grupları ve tüm kaynak türleri değerlendir
-* `indexed`: yalnızca etiketlerini ve konumunu destekleyen kaynak türleri değerlendir
+
+- `all`: kaynak grupları ve tüm kaynak türleri değerlendir
+- `indexed`: yalnızca etiketlerini ve konumunu destekleyen kaynak türleri değerlendir
 
 Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtebilirsiniz **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** varsayılan değer `all` Azure PowerShell ve çok `null` Azure CLI'da olduğu eşdeğer `indexed`, için geriye dönük uyumluluk.
 
@@ -82,17 +83,16 @@ Parametreleri ilke tanımları sayısını azaltarak ilke yönetimini basitleşt
 
 Örneğin, kaynakları dağıtıldığı konumları sınırlamak bir kaynak özelliği için bir ilke tanımlayabilirsiniz. Bu durumda, ilke oluşturduğunuzda, aşağıdaki parametreleri bildirin:
 
-
 ```json
 "parameters": {
-  "allowedLocations": {
-    "type": "array",
-    "metadata": {
-      "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations",
-      "strongType": "location"
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+            "description": "The list of allowed locations for resources.",
+            "displayName": "Allowed locations",
+            "strongType": "location"
+        }
     }
-  }
 }
 ```
 
@@ -100,12 +100,12 @@ Bir parametrenin türü string veya dizi olabilir. Meta veri özelliği, Azure p
 
 Meta veri özelliği içinde kullandığınız **strongType** Azure portalı içinde seçeneklerini çoklu seçim listesi temin etmek için.  İzin verilen değerler için **strongType** şu anda içerir:
 
-* `"location"`
-* `"resourceTypes"`
-* `"storageSkus"`
-* `"vmSKUs"`
-* `"existingResourceGroups"`
-* `"omsWorkspace"`
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 İlke kuralı aşağıdaki söz dizimini parametrelerle başvurusu:
 
@@ -115,6 +115,15 @@ Meta veri özelliği içinde kullandığınız **strongType** Azure portalı iç
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+## <a name="definition-location"></a>Tanım konumu
+
+Bir girişim veya ilke tanımı oluşturulurken tanımı konumu belirtmeniz önemlidir.
+
+Tanım konumu için Initiative veya ilke tanımı atanabilir kapsamı belirler. Konum, bir yönetim grubu veya abonelik belirtilebilir.
+
+> [!NOTE]
+> Bu ilke tanımı birden fazla abonelik uygulamayı planlıyorsanız, konumun Initiative ya da ilkeye atayacaktır abonelikleri içeren yönetim grubu olması gerekir.
 
 ## <a name="display-name-and-description"></a>Görünen ad ve açıklama
 
@@ -128,12 +137,12 @@ Kullanabileceğiniz **displayName** ve **açıklama** ilke tanımı tanımlamak 
 
 ```json
 {
-  "if": {
-    <condition> | <logical operator>
-  },
-  "then": {
-    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
-  }
+    "if": {
+        <condition> | <logical operator>
+    },
+    "then": {
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+    }
 }
 ```
 
@@ -141,9 +150,9 @@ Kullanabileceğiniz **displayName** ve **açıklama** ilke tanımı tanımlamak 
 
 Desteklenen mantıksal işleçler şunlardır:
 
-* `"not": {condition  or operator}`
-* `"allOf": [{condition or operator},{condition or operator}]`
-* `"anyOf": [{condition or operator},{condition or operator}]`
+- `"not": {condition  or operator}`
+- `"allOf": [{condition or operator},{condition or operator}]`
+- `"anyOf": [{condition or operator},{condition or operator}]`
 
 **Değil** sözdizimi koşul sonucunu tersine çevirir. **Tümü** sözdizimi (benzer şekilde mantıksal **ve** işlemi) tüm koşulların doğru olmasını gerektirir. **Herhangi** sözdizimi (benzer şekilde mantıksal **veya** işlemi) doğru olması için bir veya birden çok koşul gerektirir.
 
@@ -151,18 +160,17 @@ Mantıksal işleçler yerleştirebilirsiniz. Aşağıdaki örnekte gösterildiğ
 
 ```json
 "if": {
-  "allOf": [
-    {
-      "not": {
-        "field": "tags",
-        "containsKey": "application"
-      }
-    },
-    {
-      "field": "type",
-      "equals": "Microsoft.Storage/storageAccounts"
-    }
-  ]
+    "allOf": [{
+            "not": {
+                "field": "tags",
+                "containsKey": "application"
+            }
+        },
+        {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+        }
+    ]
 },
 ```
 
@@ -170,42 +178,44 @@ Mantıksal işleçler yerleştirebilirsiniz. Aşağıdaki örnekte gösterildiğ
 
 Bir koşulu değerlendirir olup bir **alan** belirli kriterlere uyan. Desteklenen koşullar şunlardır:
 
-* `"equals": "value"`
-* `"notEquals": "value"`
-* `"like": "value"`
-* `"notLike": "value"`
-* `"match": "value"`
-* `"notMatch": "value"`
-* `"contains": "value"`
-* `"notContains": "value"`
-* `"in": ["value1","value2"]`
-* `"notIn": ["value1","value2"]`
-* `"containsKey": "keyName"`
-* `"notContainsKey": "keyName"`
-* `"exists": "bool"`
+- `"equals": "value"`
+- `"notEquals": "value"`
+- `"like": "value"`
+- `"notLike": "value"`
+- `"match": "value"`
+- `"notMatch": "value"`
+- `"contains": "value"`
+- `"notContains": "value"`
+- `"in": ["value1","value2"]`
+- `"notIn": ["value1","value2"]`
+- `"containsKey": "keyName"`
+- `"notContainsKey": "keyName"`
+- `"exists": "bool"`
 
 Kullanırken **gibi** ve **notLike** koşullar, bir joker (*) değer sağlayabilir.
 
 Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [birden çok adı desenleri izin](scripts/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Alanlar
+
 Koşullar alanlar kullanılarak oluşturulur. Bir alan kaynağının durumu tanımlamak için kullanılan kaynak istek yükünde özelliklerini temsil eder.  
 
 Aşağıdaki alanları desteklenir:
 
-* `name`
-* `fullName`
-  * Tüm üst (örneğin "myServer/Veritabanım") dahil olmak üzere kaynak tam adını döndürür
-* `kind`
-* `type`
-* `location`
-* `tags`
-* `tags.tagName`
-* `tags[tagName]`
-  * Nokta içeren etiket adları bu köşeli ayraç sözdizimini destekler
-* özellik diğer adlar - bir listesi için bkz: [diğer adlar](#aliases).
+- `name`
+- `fullName`
+  - Tüm üst (örneğin "myServer/Veritabanım") dahil olmak üzere kaynak tam adını döndürür
+- `kind`
+- `type`
+- `location`
+- `tags`
+- `tags.tagName`
+- `tags[tagName]`
+  - Nokta içeren etiket adları bu köşeli ayraç sözdizimini destekler
+- özellik diğer adlar - bir listesi için bkz: [diğer adlar](#aliases).
 
 ### <a name="alternative-accessors"></a>Alternatif erişimciler
+
 **Alan** olan ilke kurallarında kullanılan birincil erişimcisi. Doğrudan değerlendiriliyor kaynak olup olmadığını denetler. Ancak, diğer bir erişimci İlkesi destekler **kaynak**.
 
 ```json
@@ -215,34 +225,32 @@ Aşağıdaki alanları desteklenir:
 
 **Kaynak** yalnızca bir değeri destekleyen **eylem**. Eylem şu anda değerlendiriliyor isteğinin yetkilendirme eylem döndürür. Yetkilendirme Eylemler yetkilendirme bölümünde açığa [etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
-Ne zaman değerlendirme İlkesi ayarlar arka planda var olan kaynakların **eylem** için bir `/write` kaynağın türünü yetkilendirme eylem.
+İlke arka planda var olan kaynakların değerlendirirken, ayarlar **eylem** için bir `/write` kaynağın türünü yetkilendirme eylem.
 
 ### <a name="effect"></a>Etki
+
 İlke etkili aşağıdaki türlerini destekler:
 
-* **Reddetme**: Denetim günlüğüne bir olay oluşturur ve isteği başarısız olur
-* **Denetim**: Denetim günlüğüne bir uyarı olayı oluşturur ama isteği başarısız değil
-* **Append**: alanları dizi tanımlanmış isteğe ekler
-* **AuditIfNotExists**: kaynak yoksa, denetim sağlar
-* **DeployIfNotExists**: zaten yoksa, bir kaynak dağıtır. Şu anda bu etkiyi yalnızca yerleşik ilkeler aracılığıyla desteklenir.
+- **Reddetme**: Denetim günlüğüne bir olay oluşturur ve isteği başarısız olur
+- **Denetim**: Denetim günlüğüne bir uyarı olayı oluşturur ama isteği başarısız değil
+- **Append**: alanları dizi tanımlanmış isteğe ekler
+- **AuditIfNotExists**: kaynak yoksa, denetim sağlar
+- **DeployIfNotExists**: zaten yoksa, bir kaynak dağıtır. Şu anda bu etkiyi yalnızca yerleşik ilkeler aracılığıyla desteklenir.
 
 İçin **sona**, aşağıdaki ayrıntıları sağlamanız gerekir:
 
 ```json
 "effect": "append",
-"details": [
-  {
+"details": [{
     "field": "field name",
     "value": "value of the field"
-  }
-]
+}]
 ```
 
 Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 
 İle **AuditIfNotExists** ve **DeployIfNotExists** ilişkili bir kaynak varlığını değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, bir Ağ İzleyicisi için tüm sanal ağları dağıtılır gerektirebilir.
 Bir sanal makine uzantısı değil dağıtıldığında denetim bir örnek için bkz: [uzantısı yoksa, Denetim](scripts/audit-ext-not-exist.md).
-
 
 ## <a name="aliases"></a>Diğer adlar
 
@@ -369,7 +377,6 @@ Birkaç Grup girişimleri etkinleştir grup için tek bir öğe olarak çalışm
 
 Aşağıdaki örnekte nasıl iki etiket işlemek için bir girişimi oluşturulacağı gösterilmektedir: `costCenter` ve `productName`. Varsayılan etiket değeri uygulamak için iki yerleşik ilkeleri kullanır.
 
-
 ```json
 {
     "properties": {
@@ -390,8 +397,7 @@ Aşağıdaki örnekte nasıl iki etiket işlemek için bir girişimi oluşturula
                 }
             }
         },
-        "policyDefinitions": [
-            {
+        "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "parameters": {
                     "tagName": {

@@ -1,13 +1,13 @@
 ---
-title: "Hızlı Başlangıç: Tek Örnekli SAP HANA Azure sanal makineler üzerinde el ile yükleme | Microsoft Docs"
-description: "Tek Örnekli SAP HANA el ile yüklenmesi için Azure sanal makineler üzerinde Hızlı Başlangıç Kılavuzu"
+title: 'Hızlı Başlangıç: Tek Örnekli SAP HANA Azure sanal makineler üzerinde el ile yükleme | Microsoft Docs'
+description: Tek Örnekli SAP HANA el ile yüklenmesi için Azure sanal makineler üzerinde Hızlı Başlangıç Kılavuzu
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Azure vm'lerinde Tek Örnekli SAP HANA el ile yükleme
 ## <a name="introduction"></a>Giriş
@@ -29,7 +29,7 @@ Bu kılavuzda, tek örnek SAP HANA Azure sanal makinelerde (VM'ler) SAP NetWeave
 >[!Note]
 >Bu kılavuzda, SAP HANA dağıtımları Azure VM'ler içine açıklanmaktadır. SAP HANA HANA büyük örneği dağıtma hakkında daha fazla bilgi için bkz: [kullanarak SAP Azure sanal makinelerde (VM'ler)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu kılavuz, böyle bir altyapı (ıaas) temel olarak aşina olduğunuzu varsayar:
  * Nasıl sanal makine ya da sanal ağlar Azure portal veya PowerShell aracılığıyla dağıtılır.
  * Azure platformlar arası komut satırı JavaScript nesne gösterimi (JSON) şablonları kullanma seçeneğiniz de dahil olmak üzere arabirimi (CLI).
@@ -251,7 +251,7 @@ SAP HANA standart dosya sistemi düzenini açıklaması için bkz: [SAP HANA sun
 
 SAP NetWeaver SAP uygulamaları 12 Azure galeri görüntüsü için standart bir SLES/SLES yüklediğinizde aşağıdaki ekran görüntüsünde gösterildiği gibi hiçbir takas alanı bildiren bir ileti görüntülenir. Bu iletiyi kapatmak için el ile bir takas dosyası kullanarak ekleyebilirsiniz **GG**, **mkswap**, ve **swapon**. Bilgi edinmek için nasıl arama "takas dosyası el ile ekleme" [YaST Bölümleyici kullanarak](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) SUSE belgelerine bölümü.
 
-Linux VM Aracısı'nı kullanarak takas alanı yapılandırma başka bir seçenektir. Daha fazla bilgi için bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Linux VM Aracısı'nı kullanarak takas alanı yapılandırma başka bir seçenektir. Daha fazla bilgi için bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](../../extensions/agent-linux.md).
 
 ![Yetersiz takas alanı olduğunu bildiren bir açılır ileti](./media/hana-get-started/image010.jpg)
 

@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser
 manager: mtillman
 editor: ''
-ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme
 Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](active-directory-saas-app-provisioning.md).
@@ -45,12 +45,12 @@ Kullanıcı hesabının ayarlarını sağlama seçerek yönetilebilir **sağlama
 Seçme **otomatik** seçeneği, dört bölümlerde bölünmüş bir ekran görüntüler:
 
 ### <a name="admin-credentials"></a>Yönetici Kimlik Bilgileri
-Bu, burada API girilirse uygulamanın kullanıcı yönetimi bağlanmak Azure AD için kimlik bilgileri gerekli değildir. Gerekli giriş uygulamaya bağlı olarak değişir. Kimlik bilgisi türleri ve belirli uygulamaları için gereksinimleri hakkında bilgi edinmek için [, belirli bir uygulama için yapılandırma Öğreticisi](active-directory-saas-app-provisioning.md).
+Bu bölüm, burada API girilirse uygulamanın kullanıcı yönetimi bağlanmak Azure AD için kimlik bilgileri gerekli değildir. Gerekli giriş uygulamaya bağlı olarak değişir. Kimlik bilgisi türleri ve belirli uygulamaları için gereksinimleri hakkında bilgi edinmek için [, belirli bir uygulama için yapılandırma Öğreticisi](active-directory-saas-app-provisioning.md).
 
 Seçme **Bağlantıyı Sına** düğmesi sağlar, kimlik bilgilerinin Azure sağlayarak test etmek uygulamaya bağlanmak için AD girişim sağlanan kimlik bilgilerini kullanarak uygulama sağlama.
 
 ### <a name="mappings"></a>Eşlemeler
-Burada admins görüntüleyebilir ve Azure AD arasında hangi kullanıcı öznitelikleri akışı Düzenle budur ve kullanıcı hesaplarını sağlandığında veya güncelleştirildiğinde, hedef uygulama.
+Bu bölümdür burada admins görüntüleyin ve hangi Azure AD arasındaki kullanıcı öznitelikleri akışını düzenleyin ve kullanıcı hesaplarını sağlandığında veya güncelleştirildiğinde, hedef uygulama.
 
 Önceden yapılandırılmış bir Azure AD kullanıcı ve her SaaS uygulamanın kullanıcı nesneleri arasındaki eşlemeleri kümesi yok. Bazı uygulamalar, diğer grupların veya kişilerin gibi nesne türlerini yönetin. Bu eşlemeler birini tablo gösterir burada bunlar görüntülenebilir ve özelleştirilebilir sağa Eşleme Düzenleyicisi'ni seçerek.
 
@@ -59,13 +59,13 @@ Burada admins görüntüleyebilir ve Azure AD arasında hangi kullanıcı öznit
 Desteklenen özelleştirmeler aşağıdakileri içerir:
 
 * Etkinleştirme ve eşlemeleri SaaS uygulamanın kullanıcı nesnesi için Azure AD kullanıcı nesnesi gibi belirli nesneler için devre dışı bırakma.
-* Hangi özniteliklerin Azure AD kullanıcı nesnesinden uygulamanın kullanıcı nesnesi için akış düzenleme. Özellik eşlemesi hakkında daha fazla bilgi için bkz: [özniteliği eşleme türlerini anlama](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Azure AD hedeflenen uygulamaya bağlı gerçekleştirdiği sağlama eylemleri filtreleyin. Tam eşitleme-nesnelerin Azure AD sahip olmak yerine gerçekleştirilen eylemler sınırlayabilirsiniz. Örneğin, seçerek yalnızca **güncelleştirme**, var olan kullanıcı hesaplarını bir uygulamada ve yenilerini oluşturmaz Azure AD yalnızca güncelleştirmeler. Yalnızca seçerek **oluşturma**, Azure yalnızca yeni kullanıcı hesapları oluşturur ama var olanları güncelleştirmez. Bu özellik, hesap oluşturma için farklı eşlemelerini oluşturmak ve iş akışları güncelleştirmek yöneticilerinin olanak tanır.
+* Uygulamanın kullanıcı nesnesi için Azure AD kullanıcı nesnesinden akış öznitelikleri düzenleme. Özellik eşlemesi hakkında daha fazla bilgi için bkz: [özniteliği eşleme türlerini anlama](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Azure AD hedeflenen uygulamaya bağlı gerçekleştirdiği sağlama eylemleri filtreleyin. Azure AD nesneleri tam eşitleme sahip olmak yerine gerçekleştirilen eylemler sınırlayabilirsiniz. Örneğin, seçerek yalnızca **güncelleştirme**, var olan kullanıcı hesaplarını bir uygulamada ve yenilerini oluşturmaz Azure AD yalnızca güncelleştirmeler. Yalnızca seçerek **oluşturma**, Azure yalnızca yeni kullanıcı hesapları oluşturur ama var olanları güncelleştirmez. Bu özellik, hesap oluşturma için farklı eşlemelerini oluşturmak ve iş akışları güncelleştirmek yöneticilerinin olanak tanır.
 
 ### <a name="settings"></a>Ayarlar
 Bu bölümde yöneticilerinin başlatmak ve seçili uygulama için hizmet sağlama Azure AD yanı sıra isteğe bağlı olarak sağlama önbelleğini temizlemek hizmetini durdurun ve başlatın sağlamasına olanak tanır.
 
-Sağlama için uygulamanın ilk kez etkinleştiriliyor, hizmette değiştirerek kapatma **sağlama durumu** için **üzerinde**. Bu neden olan olarak atanan kullanıcılar bunu okuyan burada bir ilk eşitleme gerçekleştirmek hizmet sağlama Azure AD **kullanıcılar ve gruplar** bölümü, hedef uygulama için bunları sorgular ve Azure AD içinde tanımlıdır sağlama eylemleri gerçekleştirir **eşlemeleri** bölümü. Yönetilmeyen hesapları hiçbir zaman atama kapsamında olan hedef uygulamaların içindeki operations sağlamayı kaldırma özelliklerini tarafından etkilenmez için bu işlem sırasında önbelleğe alınan veriler, yönetmekte olduğu, hangi kullanıcı hesapları hakkında sağlama hizmeti depolar. İlk eşitleme sonrasında sağlama hizmeti otomatik olarak kullanıcı ve Grup nesneleri on dakikalık bir zaman aralığı üzerinde eşitler.
+Sağlama için uygulamanın ilk kez etkinleştiriliyor, hizmette değiştirerek kapatma **sağlama durumu** için **üzerinde**. Bu değişiklik neden olan olarak atanan kullanıcılar bunu okuyan burada bir ilk eşitleme gerçekleştirmek hizmet sağlama Azure AD **kullanıcılar ve gruplar** bölümü, hedef uygulama için bunları sorgular ve sağlama eylemleri gerçekleştirir Azure AD içinde tanımlıdır **eşlemeleri** bölümü. Yönetilmeyen hesapları hiçbir zaman atama kapsamında olan hedef uygulamaların içindeki operations sağlamayı kaldırma özelliklerini tarafından etkilenmez için bu işlem sırasında önbelleğe alınan veriler, yönetmekte olduğu, hangi kullanıcı hesapları hakkında sağlama hizmeti depolar. İlk eşitleme sonrasında sağlama hizmeti on dakikalık bir zaman aralığı üzerinde kullanıcı ve Grup nesneleri otomatik olarak eşitler.
 
 Değiştirme **sağlama durumu** için **kapalı** yalnızca sağlama hizmeti duraklatır. Bu durumda Azure değil oluşturmak, güncelleştirmek veya herhangi bir kullanıcı veya grup nesneleri uygulamada kaldırın. Durumu geri üzerinde değiştirme kaldığı yerden alması hizmetinin neden olur.
 
@@ -74,11 +74,11 @@ Seçme **temizleme geçerli durumu ve eşitlemeyi yeniden başlatma** onay ve ka
 ### <a name="synchronization-details"></a>Eşitleme Ayrıntıları
 Bu bölümde uygulama ve kaç kullanıcı ve Grup nesneleri yönetilmekte olan karşı sağlama hizmeti verdi ilk ve son kez dahil olmak üzere sağlama hizmeti işlemi hakkında ek ayrıntılar sağlar.
 
-Bağlantılar için sağlanan **Etkinlik Raporu sağlama**, tüm kullanıcıların ve grupların güncelleştirilmiş ve arasında kaldırılan Azure AD oluşturulmuş bir günlük sağlar ve hedef uygulama ve **hata raporu sağlama** daha ayrıntılı hata iletilerini kullanıcı ve okumak için oluşturduğunuz grubu nesneler sağlayan güncelleştirilmiş veya kaldırılamaz. 
+Bağlantılar için sağlanan **Etkinlik Raporu sağlama** tüm kullanıcıların ve grupların güncelleştirilmiş ve arasında kaldırılan Azure AD oluşturulmuş bir günlük sağlayan ve hedef uygulama ve **hata raporusağlama** sağlayan daha ayrıntılı hata iletileri okumak, oluşturulan, güncelleştirilmiş veya kaldırılacak kullanıcı ve Grup nesneler için. 
 
 ## <a name="feedback"></a>Geri Bildirim
 
-Azure AD deneyiminizi gibi umuyoruz. Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve şekil, kılavuzlar kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
+Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Her gün harika yeni hizmetler oluşturma hakkında mühendislik ekibi heyecan ve şekil, kılavuzlar kullanın ve sonraki oluşturmak tanımlayın.
 
 
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG

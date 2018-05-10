@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu makalede listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -294,7 +294,7 @@ Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve Cache
 
 Değer|Sonuç
 --|--
-Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/> -Üzerine yazar `Cache-Control` kaynak sunucu tarafından üretilen üstbilgi. <br/>-Ekler `Cache-Control` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
+Üzerine yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/> -Üzerine yazar `Cache-Control` kaynak sunucu tarafından üretilen üstbilgi. <br/>-Ekler `Cache-Control` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
 Doğrudan Geçiş|Sağlar `Cache-Control` dış Max-Age özelliği tarafından üretilen üstbilgi hiçbir zaman yanıta eklenir. <br/> Kaynak sunucu oluşturursa bir `Cache-Control` üstbilgisi, bunu geçirir aracılığıyla son kullanıcıya. <br/> Kaynak sunucu üretmek değil, bir `Cache-Control` üstbilgi sonra bu seçeneği değil içerecek şekilde yanıt üstbilgisi neden olabilir bir `Cache-Control` üstbilgi.
 Eksik varsa ekleyin.|Varsa bir `Cache-Control` üstbilgi kaynak sunucudan alınmadı sonra bu seçeneği ekler `Cache-Control` üstbilgi dış Max-Age özelliği tarafından üretilen. Bu seçenek, tüm varlıklar atanan sağlamak için yararlıdır bir `Cache-Control` üstbilgi.
 Kaldır| Bu seçenek sağlar bir `Cache-Control` başlık üstbilgisi Yanıtla dahil değildir. Varsa bir `Cache-Control` üstbilgi zaten atanmış sonra üstbilgi yanıttan kaldırılır.
@@ -392,7 +392,7 @@ Bu özellik, aşağıdaki seçeneklerden her ikisinin tanımlayarak yapılandır
 Seçenek|Açıklama
 --|--
 Orijinal yol| Göreli yol önbellek anahtarını yeniden yazılmıştır istek türlerini tanımlayın. Göreli bir yol, temel kaynak yolu seçerek ve ardından bir normal ifade deseni tanımlayan tanımlanabilir.
-Yeni bir yol|Yeni önbellek anahtarı için göreli yol tanımlayın. Göreli bir yol, temel kaynak yolu seçerek ve ardından bir normal ifade deseni tanımlayan tanımlanabilir. Bu göreli yol HTTP değişkenleri kullanımı ile dinamik olarak oluşturulabilir
+Yeni bir yol|Yeni önbellek anahtarı için göreli yol tanımlayın. Göreli bir yol, temel kaynak yolu seçerek ve ardından bir normal ifade deseni tanımlayan tanımlanabilir. Bu göreli yol kullanılarak dinamik olarak oluşturulabilir [HTTP değişkenleri](cdn-http-variables.md).
 **Varsayılan davranış:** bir isteğin önbellek anahtar isteğin URI tarafından belirlenir.
 
 [Başa dön](#azure-cdn-rules-engine-features)
@@ -609,7 +609,7 @@ Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve üstb
 
 Değer|Sonuç
 --|--
-Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/>-Üzerine yazar `Expires` kaynak sunucu tarafından üretilen üstbilgi.<br/>-Ekler `Expires` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
+Üzerine yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/>-Üzerine yazar `Expires` kaynak sunucu tarafından üretilen üstbilgi.<br/>-Ekler `Expires` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
 Doğrudan Geçiş|Sağlar `Expires` dış Max-Age özelliği tarafından üretilen üstbilgi hiçbir zaman yanıta eklenir. <br/> Kaynak sunucu oluşturursa bir `Expires` üstbilgisi, onu geçecek aracılığıyla son kullanıcıya. <br/>Kaynak sunucu üretmek değil, bir `Expires` üstbilgi sonra bu seçeneği değil içerecek şekilde yanıt üstbilgisi neden olabilir bir `Expires` üstbilgi.
 Eksik varsa ekleyin.| Varsa bir `Expires` üstbilgi kaynak sunucudan alınmadı sonra bu seçeneği ekler `Expires` üstbilgi dış Max-Age özelliği tarafından üretilen. Bu seçenek, tüm varlıklar atanacak sağlamak için yararlıdır bir `Expires` üstbilgi.
 Kaldır| Sağlar bir `Expires` başlık üstbilgisi Yanıtla dahil değildir. Varsa bir `Expires` üstbilgi zaten atanmış sonra üstbilgi yanıttan kaldırılır.
@@ -884,9 +884,9 @@ Aşağıdaki eylemlerden birini istek üst bilgisinde gerçekleştirilebilir:
 
 Seçenek|Açıklama|Örnek
 -|-|-
-Ekle|Belirtilen değer var olan istek üstbilgi değerinin sonuna eklenir.|**Üstbilgi değeri (istemci) istek:** Value1 <br/> **Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value1Value2
-Üzerine Yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**Üstbilgi değeri (istemci) istek:** Value1 <br/>**Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value2 <br/>
-Sil|Belirtilen istek üstbilgisi siler.|**Üstbilgi değeri (istemci) istek:** Value1 <br/> **İstemci istek üstbilgisi yapılandırmasını Değiştir:** söz konusu istek üstbilgisi silin. <br/>**Sonuç:** belirtilen istek üstbilgisi kaynak sunucusuna iletilen değil.
+Ekle|Belirtilen değer var olan istek üstbilgi değerinin sonuna eklenir.|**İstek üstbilgisi değeri (istemci):**<br/>Değer1<br/>**İstek üstbilgisi değeri (kurallar altyapısı):**<br/>Value2 <br/>**Yeni istek üstbilgi değeri:** <br/>Value1Value2
+Üzerine yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**İstek üstbilgisi değeri (istemci):**<br/>Değer1<br/>**İstek üstbilgisi değeri (kurallar altyapısı):**<br/>Value2<br/>**Yeni istek üstbilgi değeri:**<br/> Value2 <br/>
+Sil|Belirtilen istek üstbilgisi siler.|**İstek üstbilgisi değeri (istemci):**<br/>Değer1<br/>**İstemci isteği üstbilgisi yapılandırmasını değiştirin:**<br/>Söz konusu istek üstbilgisi silin.<br/>**Sonuç:**<br/>Belirtilen istek üstbilgisi kaynak sunucusuna iletilen değil.
 
 Anahtar bilgileri:
 
@@ -922,9 +922,9 @@ Aşağıdaki eylemlerden birini bir yanıt üstbilgisi gerçekleştirilebilir:
 
 Seçenek|Açıklama|Örnek
 -|-|-
-Ekle|Belirtilen değer var olan yanıt üstbilgi değeri sonuna eklenir.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/> **Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value1Value2
-Üzerine Yaz|Yanıt üstbilgi değeri belirtilen değere ayarlanır.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/>**Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value2 <br/>
-Sil|Belirtilen yanıt üst bilgisi siler.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/> **İstemci yanıt üstbilgisi yapılandırmasını Değiştir:** söz konusu yanıt üstbilgisi silin. <br/>**Sonuç:** belirtilen yanıt üst bilgisi istemciye iletilecek değil.
+Ekle|Belirtilen değer var olan yanıt üstbilgi değeri sonuna eklenir.|**Yanıt üstbilgi değeri (istemci):**<br />Değer1<br/>**Yanıt üstbilgi değeri (kurallar altyapısı):**<br/>Value2<br/>**Yeni yanıt üstbilgi değeri:**<br/>Value1Value2
+Üzerine yaz|Yanıt üstbilgi değeri belirtilen değere ayarlanır.|**Yanıt üstbilgi değeri (istemci):**<br/>Değer1<br/>**Yanıt üstbilgi değeri (kurallar altyapısı):**<br/>Value2 <br/>**Yeni yanıt üstbilgi değeri:**<br/>Value2 <br/>
+Sil|Belirtilen yanıt üst bilgisi siler.|**Yanıt üstbilgi değeri (istemci):**<br/>Değer1<br/>**İstemci yanıtı üstbilgisi yapılandırmasını değiştirin:**<br/>Yanıt üst bilgisi söz konusu silin.<br/>**Sonuç:**<br/>Belirtilen yanıt üst bilgisi istemciye iletilecek değil.
 
 Anahtar bilgileri:
 
@@ -998,7 +998,7 @@ Anahtar bilgileri:
 - CDN özel istek üstbilgisi iletilmesini önlemek için üstbilgi listesinin alanına boşlukla ayrılmış listesinden kaldırın.
 
 Aşağıdaki HTTP üst bilgilerine varsayılan listede yer:
-- aracılığıyla
+- Şunun aracılığıyla:
 - X-iletilen-için
 - X iletilen Proto
 - X-ana bilgisayar
@@ -1234,8 +1234,8 @@ Bu özellik yapılandırması, aşağıdaki seçenekleri ayarlama gerektirir:
 Seçenek|Açıklama
 -|-
 Kod|İstemciye döndürülecek yanıt kodu seçin.
-Kaynak & düzeni| Bu ayarları yeniden yönlendirilen istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yönlendirilir: <br/> <br/> **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/> **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> -Daha önce tanımlanan istek URI ölçütlerini (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlı hiçbir eşleşme koşullarla emin olun. <br/> -Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir.
-Hedef| Yukarıdaki istekleri yönlendirilecek URL tanımlayın. <br/> Dinamik olarak bu URL'yi kullanarak oluşturun: <br/> -Bir normal ifade deseni <br/>-HTTP değişkenleri <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. <br/> 
+Kaynak & düzeni| Bu ayarları yeniden yönlendirilen istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yönlendirilir: <br/> <br/> **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/><br/> **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> -Daha önce tanımlanan istek URI ölçütlerini (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlı hiçbir eşleşme koşullarla emin olun. <br/> -Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir.
+Hedef| Yukarıdaki istekleri yönlendirilecek URL tanımlayın. <br/><br/> Dinamik olarak bu URL'yi kullanarak oluşturun: <br/> -Bir normal ifade deseni <br/>- [HTTP değişkenleri](cdn-http-variables.md) <br/><br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. <br/> 
 Mutlak bir URL kullanmak için önerilir. Göreli bir URL kullanımı için geçersiz bir yol CDN URL'leri yönlendirmek.
 
 **Örnek senaryo**
@@ -1276,8 +1276,8 @@ Anahtar bilgileri:
 
 Seçenek|Açıklama
 -|-
- Kaynak & düzeni | Bu ayarları yeniden yazılmıştır istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yazılacaktır: <br/>     - **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/> - **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> Önceden tanımlanmış istek URI ölçütleri (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlanan eşleşme koşullardan herhangi biri ile doğrulayın. Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir. 
- Hedef  |Yukarıdaki istekleri için tarafından yazılacak göreli URL tanımlayın: <br/>    1. Kaynak sunucu tanımlayan bir içerik erişim noktası seçme. <br/>    2. Göreli yolu kullanarak tanımlama: <br/>        -Bir normal ifade deseni <br/>        -HTTP değişkenleri <br/> <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. 
+ Kaynak & düzeni | Bu ayarları yeniden yazılmıştır istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yazılacaktır: <br/><br/>  - **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/><br/> - **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> Önceden tanımlanmış istek URI ölçütleri (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlanan eşleşme koşullardan herhangi biri ile doğrulayın. Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir. 
+ Hedef  |Yukarıdaki istekleri için tarafından yazılacak göreli URL tanımlayın: <br/>    1. Kaynak sunucu tanımlayan bir içerik erişim noktası seçme. <br/>    2. Göreli yolu kullanarak tanımlama: <br/>        -Bir normal ifade deseni <br/>        - [HTTP değişkenleri](cdn-http-variables.md) <br/> <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. 
  Bu özellik, geleneksel bir yeniden yönlendirme yapmadan URL yeniden yazma POP sağlar. Diğer bir deyişle, istek sahibinin yeniden URL istenen gibi aynı yanıt kodu alır.
 
 **Örnek Senaryo 1**

@@ -1,12 +1,12 @@
 ---
-title: "Sessiz yükleme Azure AD uygulama ara sunucusu Bağlayıcısı | Microsoft Docs"
-description: "Şirket içi uygulamalara güvenli uzaktan erişim sağlamak için Azure AD uygulama ara sunucusu Bağlayıcısı katılımsız yüklemesini gerçekleştirmek nasıl ele alınmaktadır."
+title: Sessiz yükleme Azure AD uygulama ara sunucusu Bağlayıcısı | Microsoft Docs
+description: Şirket içi uygulamalara güvenli uzaktan erişim sağlamak için Azure AD uygulama ara sunucusu Bağlayıcısı katılımsız yüklemesini gerçekleştirmek nasıl ele alınmaktadır.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbda2448c5bf2b6998d120a082e036d7e0125a1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33719ea36af3b3b554fc1d32878d7d72e11b7886
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD uygulama ara sunucusu Bağlayıcısı için bir katılımsız yükleme komut dosyası oluşturma
 
@@ -51,7 +51,7 @@ Bağlayıcı kaydetmek için kullanabileceğiniz iki yöntem vardır:
 * Çevrimdışı oluşturan bir belirteç kullanarak bağlayıcı kaydetme
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Bir Windows PowerShell kimlik bilgisi nesnesi kullanarak bağlayıcı kaydetme
-1. Bir Windows PowerShell kimlik bilgilerini nesnesi oluşturmak `$cred` bir yönetici kullanıcı adı ve parola dizininiz için içerir. Aşağıdaki komutu çalıştırın değiştirme  *\<kullanıcıadı\>*  ve  *\<parola\>*:
+1. Bir Windows PowerShell kimlik bilgilerini nesnesi oluşturmak `$cred` bir yönetici kullanıcı adı ve parola dizininiz için içerir. Aşağıdaki komutu çalıştırın değiştirme *\<kullanıcıadı\>* ve  *\<parola\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

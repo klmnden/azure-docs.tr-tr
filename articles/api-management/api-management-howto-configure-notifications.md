@@ -1,11 +1,11 @@
 ---
-title: "Bildirimleri yapılandırmak ve e-posta şablonları Azure API Management | Microsoft Docs"
-description: "Bildirimleri yapılandırma ve Azure API Management şablonlarında e-posta öğrenin."
+title: Bildirimleri yapılandırmak ve e-posta şablonları Azure API Management | Microsoft Docs
+description: Bildirimleri yapılandırma ve Azure API Management şablonlarında e-posta öğrenin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 60788f76dac58ead10e43e892d587a86bdd3fcad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma
 API Management belirli olaylar için bildirimleri yapılandırmak ve yöneticiler ve geliştiriciler API Management örneği ile iletişim kurmak için kullanılan e-posta şablonlarını yapılandırma olanağı sağlar. Bu makale kullanılabilir olayları için bildirimleri yapılandırmak nasıl gösterir ve bu olaylar için kullanılan e-posta şablonlarını yapılandırma genel bir bakış sağlar.
@@ -26,7 +26,7 @@ API Management belirli olaylar için bildirimleri yapılandırmak ve yöneticile
 
 API Management hizmet örneği yoksa, aşağıdaki hızlı başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
-## <a name="publisher-notifications"></a>Bildirimleri yapılandırma
+## <a name="publisher-notifications"> </a>Bildirimleri yapılandırma
 
 1. Seçin, **API MANAGEMENT** örneği.
 2. Tıklatın **bildirimleri** kullanılabilir bildirim görüntülemek için.
@@ -50,7 +50,7 @@ API Management hizmet örneği yoksa, aşağıdaki hızlı başlangıç tamamlam
     ![Bildirim alıcılarını][api-management-email-addresses]
 4. **Ekle**’ye basın.
 
-## <a name="email-templates"></a>Bildirim şablonlarını yapılandırma
+## <a name="email-templates"> </a>Bildirim şablonlarını yapılandırma
 API Management yönetme ve hizmet kullanarak esnasında gönderilen e-posta iletileri için bildirim şablonları sağlar. Aşağıdaki e-posta şablonlarını sağlanır.
 
 * Onaylanan uygulama Galerisi gönderme

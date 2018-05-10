@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: antonfr;mbullwin
-ms.openlocfilehash: c847052134b1d83cd606e0e2b51b63b580f7917c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Dinamik eşikleri (sınırlı genel Önizleme) Azure izleyicisinde uyarıları
 
@@ -85,7 +85,7 @@ Dinamik eşikleri uyarılarla Azure İzleyicisi'nde uyarıları aracılığıyla
 
    Geçici ani tarafından oluşturulan uyarı gürültü azaltmak için "uyarıyı tetikleyecek ihlalleri sayı" ayarlarını kullanmanızı öneririz. Bu işlevsellik yalnızca eşiği ihlal edildiğini değilse bir uyarı almak sağlar X kez art arda ya da son Z nokta dışında Y kez. Örneğin:
 
-    İçin 15 sürekli sorunu dakika, 5 dakika cinsinden belirtilen süre içinde art arda 3 kez bir uyarıyı tetiklemek için aşağıdaki ayarları kullanın:
+    15 dakika boyunca sürekli sorun olduğunda uyarı tetiklemek için 5 dakika cinsinden belirtilen süre içinde art arda 3 kez aşağıdaki ayarları kullanın:
 
    ![Değerlendirme şunu temel alır:](./media/monitoring-alerts-dynamic-thresholds/0008.png)
 

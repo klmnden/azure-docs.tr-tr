@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden çok IP yapılandırmalarını Azure portalını kullanarak yük dengelemenin
 
@@ -120,7 +120,7 @@ Her Web sitesi için (contoso.com ve fabrikam.com), ön uç IP havuzu yük denge
 
 4. Yük Dengeleyici seçin (**mylb**) ön uç IP havuzuna eklemek istediğiniz.
 
-5. Altında **ayarları**seçin **ön uç havuzları**. Üstüne yakın sonraki bölmesinde seçin **Ekle**.
+5. Altında **ayarları**seçin **ön uç IP yapılandırmasını**. Üstüne yakın sonraki bölmesinde seçin **Ekle**.
 
 6. Ön uç IP adresi için bir ad yazın (örneğin, **contosofe** veya **fabrikamfe**).
 
@@ -128,7 +128,7 @@ Her Web sitesi için (contoso.com ve fabrikam.com), ön uç IP havuzu yük denge
 
 8. İkinci ön uç IP adresi tekrarlayarak oluşturma <a href="#step3-3">3. adım</a> aracılığıyla <a href="#step3-7">adım 7</a> bu bölümdeki.
 
-Ön uç havuzu yapılandırıldıktan sonra IP adresleri, yük dengeleyici altında görüntülenen **ön uç IP havuzu** ayarlar. 
+Ön uç havuzu yapılandırıldıktan sonra IP adresleri, yük dengeleyici altında görüntülenen **ön uç IP yapılandırmasını** ayarlar. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Adım 4: arka uç havuzunu yapılandırma
 
@@ -180,7 +180,7 @@ Her Web sitesi için (contoso.com ve fabrikam.com), Yük Dengeleme kuralları ya
 
 4. İçin **bağlantı noktası** ve **arka uç bağlantı noktası**, varsayılan değer tutmak **80**.
 
-5. İçin **kayan IP (doğrudan sunucu dönüşü)**seçin **etkin**.
+5. İçin **kayan IP (doğrudan sunucu dönüşü)** seçin **etkin**.
 
 6. <a name="step6-6"></a>Seçin **Tamam**.
 

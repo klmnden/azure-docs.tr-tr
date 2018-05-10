@@ -1,27 +1,20 @@
 ---
-title: "Bir Azure Active Directory B2B işbirliği kullanıcı role ekleme | Microsoft Docs"
-description: "Azure Active Directory'de bir rolü Konuk kullanıcı ekleme"
+title: Bir Azure Active Directory B2B işbirliği kullanıcı role ekleme | Microsoft Docs
+description: Azure Active Directory'de bir rolü Konuk kullanıcı ekleme
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/08/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/15/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d9889a15bd4e09863640e8c8e7ea03220d23bb23
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızda iş ortağı kuruluşlardan kullanıcıların izinleri verin
 
@@ -41,15 +34,5 @@ Azure Active Directory (Azure AD) B2B işbirliği kullanıcılar dizinine Konuk 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
-
-* [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
-* [B2bB işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
-* [Dinamik gruplar ve B2B işbirliği](active-directory-b2b-dynamic-groups.md)
-* [B2B işbirliği kodu ve PowerShell örnekleri](active-directory-b2b-code-samples.md)
-* [SaaS uygulamaları B2B işbirliği için yapılandırma](active-directory-b2b-configure-saas-apps.md)
-* [B2B işbirliği kullanıcı belirteçleri](active-directory-b2b-user-token.md)
-* [B2B işbirliği kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
-* [Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
-* [B2B işbirliği geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
+- [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)

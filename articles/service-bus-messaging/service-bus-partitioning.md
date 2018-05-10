@@ -1,33 +1,29 @@
 ---
-title: "Bölümlenmiş Azure Service Bus kuyrukları ve konuları oluşturun | Microsoft Docs"
-description: "Birden çok ileti aracıları kullanarak Service Bus kuyrukları ve konularından bölüm açıklar."
+title: Bölümlenmiş Azure Service Bus kuyrukları ve konuları oluşturun | Microsoft Docs
+description: Birden çok ileti aracıları kullanarak Service Bus kuyrukları ve konularından bölüm açıklar.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: a0c7d5a2-4876-42cb-8344-a1fc988746e7
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 05/08/2016
 ms.author: sethm
-ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0759decec9d80f1f836110a8907049213ca1eed6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
-Azure Service Bus iletileri işlemek için birden çok ileti aracıları ve iletileri depolamak için birden çok Mesajlaşma deposu kullanır. Geleneksel kuyruk veya konu tek ileti aracısı tarafından işlenen ve bir Mesajlaşma deposunda depolanır. Hizmet veri yolu *bölümleri* kuyruklar ve konu başlıkları, etkinleştirmek veya *Mesajlaşma*, birden çok ileti aracıları ve mesajlaşma depoları arasında bölümlenecek. Bu, genel üretilen işi bölümlenmiş bir varlığın tek ileti aracısı veya Mesajlaşma deposu performansını tarafından artık sınırlı olduğu anlamına gelir. Ayrıca, bir Mesajlaşma deposu geçici bir kesinti bölümlenmiş kuyruk veya konu kullanılamaz işlemez. Bölümlenmiş kuyrukları ve konularından işlemleri ve oturumlar için destek gibi tüm Gelişmiş Service Bus özellikler içerebilir.
+
+Azure Service Bus iletileri işlemek için birden çok ileti aracıları ve iletileri depolamak için birden çok Mesajlaşma deposu kullanır. Geleneksel kuyruk veya konu tek ileti aracısı tarafından işlenen ve bir Mesajlaşma deposunda depolanır. Hizmet veri yolu *bölümleri* kuyruklar ve konu başlıkları, etkinleştirmek veya *Mesajlaşma*, birden çok ileti aracıları ve mesajlaşma depoları arasında bölümlenecek. Bölümlendirme, genel üretilen işi bölümlenmiş bir varlığın tek ileti aracısı veya Mesajlaşma deposu performansını tarafından artık sınırlı olduğu anlamına gelir. Ayrıca, bir Mesajlaşma deposu geçici bir kesinti bölümlenmiş kuyruk veya konu kullanılamaz işlemez. Bölümlenmiş kuyrukları ve konularından işlemleri ve oturumlar için destek gibi tüm Gelişmiş Service Bus özellikler içerebilir.
 
 Hizmet veri yolu dahili bileşenleri hakkında daha fazla bilgi için bkz: [Service Bus mimarisi] [ Service Bus architecture] makalesi.
 
-Bölümleme varlık oluşturulurken tüm kuyruklar ve konular standart ve Premium, varsayılan olarak etkinleştirilmiştir Mesajlaşma. Standart katmanı bölümleme olmadan Mesajlaşma oluşturabilirsiniz, ancak kuyruklar ve konular Premium ad alanı, her zaman bölümlenmiş; Bu seçenek devre dışı bırakılamaz. 
-
-Olası değil varlık oluşturduğunuzda bölümleme seçeneği olan bir sırayı veya standart veya Premium katmanları konudaki değiştirmek için yalnızca seçeneği ayarlayabilirsiniz.
+> [!NOTE]
+> Bölümlendirme, tüm kuyruklar ve konular temel veya standart SKU'ları, varlık oluşturulurken kullanılabilir. SKU Mesajlaşma Premium için kullanılabilir değildir, ancak tüm mevcut bölümlenen varlıklar Premium içinde beklendiği gibi çalışmaz.
+ 
+Herhangi bir varolan kuyruk veya konu bölümleme seçeneğini değiştirmek mümkün değildir; varlık oluşturduğunuzda seçeneği yalnızca ayarlayabilirsiniz.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
@@ -37,17 +33,17 @@ Bir istemci iletileri tüm parçaları bölümlenmiş bir kuyruktan ya da hizmet
 
 İleti gönderirken ya da bölümlenmiş kuyruk veya konu, bir mesaj alarak ek bir maliyeti yoktur.
 
-## <a name="enable-partitioning"></a>Bölümleme etkinleştir
+## <a name="enable-partitioning"></a>Bölümlemeyi etkinleştir
 
 Bölümlenmiş kuyrukları ve konularından Azure Service Bus ile kullanmak için Azure SDK'ın 2.2 veya sonraki bir sürümü veya belirtin `api-version=2013-10` ya da daha sonra HTTP istekleri.
 
 ### <a name="standard"></a>Standart
 
-Standart Mesajlaşma katmanında Service Bus kuyrukları ve konuları (varsayılan 1 GB'dır) 1, 2, 3, 4 veya 5 GB boyutlarda oluşturabilirsiniz. Etkin bölümlendirme ile Service Bus varlık 16 kopyalarını (16 bölümler) için belirttiğiniz her GB oluşturur. Bu nedenle, 5 GB boyutunda bir sırasına oluşturursanız, en büyük sıra boyutu olan 16 bölümleri olur (5 \* 16) = 80 GB. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal], **genel bakış** dikey penceresinde bu varlık için.
+Standart Mesajlaşma katmanında Service Bus kuyrukları ve 1, 2, 3, 4 veya 5 GB boyutları (varsayılan 1 GB'dır) konularında oluşturabilirsiniz. Etkin bölümlendirme ile Service Bus varlık 16 kopyalarını (16 bölümler) için belirttiğiniz her GB oluşturur. Bu nedenle, 5 GB boyutunda bir sırasına oluşturursanız, en büyük sıra boyutu olan 16 bölümleri olur (5 \* 16) = 80 GB. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal], **genel bakış** dikey penceresinde bu varlık için.
 
 ### <a name="premium"></a>Premium
 
-Premium katmanı ad alanında Service Bus kuyrukları ve konuları (varsayılan 1 GB'dır) 1, 2, 3, 4, 5, 10, 20, 40 veya 80 GB boyutlarda oluşturabilirsiniz. Varsayılan olarak etkin bölümlendirme ile Service Bus varlık başına iki bölüm oluşturur. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal], **genel bakış** dikey penceresinde bu varlık için.
+Premium katmanı ad alanında Service Bus kuyrukları ve 1, 2, 3, 4, 5, 10, 20, 40 veya 80 GB boyutları (varsayılan 1 GB'dır) konularında oluşturabilirsiniz. Varsayılan olarak etkin bölümlendirme ile Service Bus varlık başına iki bölüm oluşturur. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal], **genel bakış** dikey penceresinde bu varlık için.
 
 Premium Mesajlaşma katmanında bölümleme hakkında daha fazla bilgi için bkz: [Service Bus Premium ve standart Mesajlaşma katmanları](service-bus-premium-messaging.md). 
 
@@ -73,11 +69,11 @@ Oturumları veya işlemleri gibi bazı senaryolar belirli parçadaki depolanmas�
 
 Senaryoya bağlı olarak farklı ileti özellikleri bir bölüm anahtarı olarak kullanılır:
 
-**SessionID**: bir ileti sahipse [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] özelliğini ayarlayın, sonra Service Bus, bu özellik bölüm anahtarı olarak kullanır. Bu şekilde aynı oturuma ait tüm iletileri aynı ileti aracısı tarafından işlenir. Bu ileti oturum durumları tutarlılık yanı sıra sıralama güvence altına almak hizmet veri yolu sağlar.
+**SessionID**: bir ileti sahipse [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] özelliğini ayarlayın, sonra Service Bus, bu özellik bölüm anahtarı olarak kullanır. Bu şekilde aynı oturuma ait tüm iletileri aynı ileti aracısı tarafından işlenir. Oturumları oturum durumları tutarlılık yanı sıra sıralama ileti güvence altına almak Service Bus etkinleştirin.
 
 **PartitionKey**: bir ileti sahipse [BrokeredMessage.PartitionKey] [ BrokeredMessage.PartitionKey] özelliği kullanmamayı [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] özelliğini ayarlayın, sonra Service Bus kullanan [PartitionKey] [ PartitionKey] özelliği bölüm anahtarı olarak. İletinin her ikisi de varsa [SessionID] [ SessionId] ve [PartitionKey] [ PartitionKey] özellikler kümesi, her iki özellik aynı olmalıdır. Varsa [PartitionKey] [ PartitionKey] özelliği farklı bir değere ayarlanmış [SessionID] [ SessionId] özelliği, hizmet veri yolu geçersiz işlemi özel durum döndürür. [PartitionKey] [ PartitionKey] özelliği, oturum olmayan farkında işlem iletileri gönderen gönderirse, kullanılmalıdır. Bölüm anahtarı, bir işlem içinde gönderilen tüm iletiler aynı Mesajlaşma aracısı tarafından işlenmesini sağlar.
 
-**MessageID**: kuyruk veya konu varsa [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] özelliğini **true** ve [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] veya [BrokeredMessage.PartitionKey] [ BrokeredMessage.PartitionKey] özellikleri ayarlanmadı, sonra [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] özelliği, bölüm anahtarı olarak hizmet verir. (Gönderen uygulama yoksa Microsoft .NET ve AMQP kitaplıklarını otomatik olarak bir ileti kimliği atamak unutmayın.) Bu durumda, aynı iletiyi tüm kopyalarını aynı ileti aracısı tarafından işlenir. Bu hizmet algılamak ve yinelenen iletileri ortadan kaldırmak veri yolu sağlar. Varsa [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] özelliği ayarlı değil **true**, Service Bus dikkate almaz [MessageID] [ MessageId] bölüm anahtarı olarak özelliği.
+**MessageID**: kuyruk veya konu varsa [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] özelliğini **true** ve [ BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] veya [BrokeredMessage.PartitionKey] [ BrokeredMessage.PartitionKey] özellikleri ayarlanmadı, sonra [ BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] özelliği, bölüm anahtarı olarak hizmet verir. (Gönderen uygulama yoksa Microsoft .NET ve AMQP kitaplıklarını otomatik olarak bir ileti kimliği atayın.) Bu durumda, aynı iletiyi tüm kopyalarını aynı ileti aracısı tarafından işlenir. Bu kimliği algılamak ve yinelenen iletileri ortadan kaldırmak hizmet veri yolu sağlar. Varsa [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] özelliği ayarlı değil **true**, Service Bus dikkate almaz [MessageID] [ MessageId] bölüm anahtarı olarak özelliği.
 
 ### <a name="not-using-a-partition-key"></a>Bir bölüm anahtarının kullanılması değil
 Bölüm anahtarı olmaması durumunda, hizmet veri yolu ileti bölümlenmiş kuyruk veya konu tüm parçaları ile hepsini şekilde dağıtır. Seçilen parça kullanılabilir durumda değilse, hizmet veri yolu ileti için farklı bir parça atar. Bu şekilde, bir Mesajlaşma deposu geçici kullanılamama rağmen gönderme işlemi başarılı olur. Ancak, garantili bölüm anahtarı sağlayan sıralama elde.
@@ -86,10 +82,10 @@ Kullanılabilirlik (bölüm anahtarı) ve (bölüm anahtarı kullanarak) tutarl�
 
 Hizmet veri yolu vermek için yeterli kuyruğa ileti farklı bir parça zaman [MessagingFactorySettings.OperationTimeout] [ MessagingFactorySettings.OperationTimeout] ileti 15 saniyeden büyük olmalıdır gönderir istemci tarafından belirtilen değeri. Ayarladığınız önerilir [OperationTimeout] [ OperationTimeout] özelliğinin varsayılan değeri 60 saniye.
 
-Bölüm anahtarı "belirli bir parça iletiye sabitler," unutmayın. Bu parça tutan Mesajlaşma deposu kullanılamıyorsa, hizmet veri yolu bir hata döndürür. Bölüm anahtarı olmadığında, Service Bus farklı bir parça seçebilir ve işlemi başarılı olur. Bu nedenle, gerekli olmadığı sürece bir bölüm anahtarı sağlamazsanız önerilir.
+Bölüm anahtarı "belirli bir parça iletiye sabitler". Bu parça tutan Mesajlaşma deposu kullanılamıyorsa, hizmet veri yolu bir hata döndürür. Bölüm anahtarı olmadığında, Service Bus farklı bir parça seçebilir ve işlemi başarılı olur. Bu nedenle, gerekli olmadığı sürece bir bölüm anahtarı sağlamazsanız önerilir.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Gelişmiş konular: bölümlenmiş varlıklarıyla işlemleri kullanın
-Bir işlemin bir parçası gönderilen iletileri bir bölüm anahtarı belirtmeniz gerekir. Bu aşağıdaki özelliklerinden biri olabilir: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], veya [BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Aynı işlem bir parçası olarak gönderilen tüm iletiler aynı bölüm anahtarı belirtmeniz gerekir. Bir işlem içinde bölüm anahtarı olmayan bir ileti göndermek çalışırsanız, hizmet veri yolu geçersiz işlemi özel durum döndürür. Aynı işlem içinde farklı bölüm anahtarlara sahip birden fazla ileti göndermeye, hizmet veri yolu geçersiz işlemi özel durum döndürür. Örneğin:
+Bir işlem kapsamında gönderilen iletilerin bölüm anahtarını belirtmesi gerekir. Anahtar aşağıdaki özelliklerinden biri olabilir: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], veya [ BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Aynı işlem bir parçası olarak gönderilen tüm iletiler aynı bölüm anahtarı belirtmeniz gerekir. Bir işlem içinde bölüm anahtarı olmayan bir ileti göndermek çalışırsanız, hizmet veri yolu geçersiz işlemi özel durum döndürür. Aynı işlem içinde farklı bölüm anahtarlara sahip birden fazla ileti göndermeye, hizmet veri yolu geçersiz işlemi özel durum döndürür. Örneğin:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -129,7 +125,7 @@ Service Bus otomatik ileti gelen ya da bölümlenen varlıklar arasında iletme 
 * **Yüksek tutarlılık özellikleri**: bir varlığı oturumları, yinelenen algılama veya bölümlendirme anahtarı açık denetim gibi özellikler kullanan sonra Mesajlaşma işlemleri belirli parçada her zaman yönlendirilecek. Herhangi bir parçasının yüksek trafik deneyimi veya alttaki deponun sağlam değil, bu işlemler başarısız ve kullanılabilirlik azalır. Genel olarak, tutarlılık bölümlenmemiş varlıklar hala çok daha yüksektir; yalnızca bir alt trafik tüm trafiği aksine sorunları yaşıyor. Daha fazla bilgi için bkz [kullanılabilirlik ve tutarlılık tartışma](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Yönetim**: oluşturma, güncelleştirme ve silme gibi işlemleri varlığın tüm parçaları üzerinde gerçekleştirilmesi gerekir. Herhangi bir parça sağlıksız ise, bu işlemler için hataları sonuçlanabilir. İleti sayısı gibi alma işlemi için bilgi tüm parçaları toplanması gerekir. Herhangi bir parça sağlıksız ise, varlık kullanılabilirlik durumunu sınırlı raporlanır.
 * **Düşük birim ileti senaryosu**: Bu senaryolara, özellikle HTTP protokolünü kullanarak birden çok gerçekleştirmeniz gerekebilir tüm iletileri almak için alma işlemleri. Alma istekleri için ön uç üzerinde tüm parçaları alma gerçekleştirir ve alınan tüm yanıtlarını önbelleğe kaydeder. Aynı bağlantı üzerinde bir sonraki alma isteği ve yararlanan bu önbelleğe alınan alma gecikme daha düşük olacaktır. Ancak, birden çok bağlantınız veya HTTP kullanıyorsanız, her istek için yeni bir bağlantı kurar. Bu nedenle, aynı düğümde güden hiçbir garantisi yoktur. Tüm mevcut iletiler kilitli ve içinde başka bir ön uç önbelleğe varsa, alma işlemi döndürür **null**. İletileri sonunda süresi dolacak ve yeniden alırsınız. HTTP Etkin tutmayı önerilir.
-* **Gözat/gözlem iletileri**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) her zaman belirtilen ileti sayısını döndürmüyor [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) özelliği. Bu iki ortak nedenleri vardır. İletileri koleksiyonu toplanmış boyutu 256 KB en fazla boyutu aşıyor bir nedenidir. Kuyruk veya konu varsa olan başka bir nedenle [EnablePartitioning özelliğinin](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) kümesine **doğru**, bir bölüm iletileri istenen sayıda tamamlamak için yeterli iletileri olmayabilir. Bir uygulama belirli sayıda ileti almak istiyorsa, genel olarak, çağırmalıdır [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) sürekli olarak bu ileti sayısını alır veya atmaya daha fazla ileti yok kadar. Kod örnekleri dahil olmak üzere daha fazla bilgi için bkz: [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) veya [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API belgeleri.
+* **Gözat/gözlem iletileri**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) her zaman belirtilen ileti sayısını döndürmüyor [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) özelliği. Bu davranış için iki ortak nedenleri vardır. İletileri koleksiyonu toplanmış boyutu 256 KB en fazla boyutu aşıyor bir nedenidir. Kuyruk veya konu varsa olan başka bir nedenle [EnablePartitioning özelliğinin](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) kümesine **doğru**, bir bölüm iletileri istenen sayıda tamamlamak için yeterli iletileri olmayabilir. Bir uygulama belirli sayıda ileti almak istiyorsa, genel olarak, çağırmalıdır [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) sürekli olarak bu ileti sayısını alır veya atmaya daha fazla ileti yok kadar. Kod örnekleri dahil olmak üzere daha fazla bilgi için bkz: [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) veya [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API belgeleri.
 
 ## <a name="latest-added-features"></a>En son eklenen özellikler
 * Ekleme veya kaldırma kural bölümlenmiş varlıklarıyla artık desteklenmektedir. Bölümlenmiş olmayan varlıklar farklıdır, bu işlemler altında işlemleri desteklenmez. 
@@ -140,7 +136,7 @@ Service Bus otomatik ileti gelen ya da bölümlenen varlıklar arasında iletme 
 Şu anda hizmet veri yolu bölümlenmiş kuyrukları ve konularından aşağıdaki sınırlamalar getirir:
 
 * Bölümlenmiş kuyruklar ve konu başlıkları tek bir işlemde farklı oturumlar ait iletileri gönderme desteklemez.
-* Hizmet veri yolu şu anda en fazla 100 bölümlenmiş sıralar veya ad alanı başına konuları sağlar. Ad alanı (Premium katmanı için geçerli değildir) başına 10.000 varlık kota doğrultusunda her bölümlenmiş kuyruk veya konu sayar.
+* Service Bus şu anda ad alanı başına en çok 100 bölümlenmiş kuyruğa veya konuya izin vermektedir. Ad alanı (Premium katmanı için geçerli değildir) başına 10.000 varlık kota doğrultusunda her bölümlenmiş kuyruk veya konu sayar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 AMQP 1.0 belirtiminde Mesajlaşma temel kavramlar hakkında bilgi [AMQP 1.0 protokolü Kılavuzu](service-bus-amqp-protocol-guide.md).

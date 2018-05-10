@@ -3,23 +3,24 @@ title: Bir uygulamayı Azure Active Directory'de kullanıcı deneyimini Gizle | 
 description: Bir uygulama Azure Active Directory erişimi paneller veya Office 365 launchers kullanıcı deneyimini Gizle yapma.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 7da8c60feed7cbb630e5b48653c657cc8fed9e99
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 564b724ab3971e0566fb2b1dc3a75c2eeac3d391
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Bir uygulamayı Azure Active Directory'de kullanıcı deneyimini Gizle
 
@@ -40,13 +41,13 @@ Bir kullanıcının erişim paneli ve Office 365 uygulama launchers bir uygulama
 1.  Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 2.  Seçin **tüm hizmetleri**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
 3.  Üzerinde **Azure Active Directory - *directoryname***  ekran (diğer bir deyişle, Azure AD ekranı yönettiğiniz dizin için), seçin **kurumsal uygulamalar**.
-![Kurumsal uygulamaları](media/active-directory-coreapps-hide-third-party-app/app1.png)
+![Kurumsal uygulamalar](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  Üzerinde **kurumsal uygulamalar** ekran, select **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
 5.  Üzerinde **kurumsal uygulamalar - tüm uygulamaları** ekranında, bir uygulama seçin.</br>
-![Kurumsal uygulamaları](media/active-directory-coreapps-hide-third-party-app/app2.png)
+![Kurumsal uygulamalar](media/active-directory-coreapps-hide-third-party-app/app2.png)
 6.  Üzerinde ***appname*** ekran (diğer bir deyişle ekran başlığında seçilen uygulamanın adını) özellikleri seçin.
 7.  Üzerinde  ***appname* -özellikleri** ekran, select **Evet** için **kullanıcılara görünür?**.
-![Kurumsal uygulamaları](media/active-directory-coreapps-hide-third-party-app/app3.png)
+![Kurumsal uygulamalar](media/active-directory-coreapps-hide-third-party-app/app3.png)
 8.  Seçin **kaydetmek** komutu.
 
 ### <a name="how-do-i-hide-office-365-applications-from-users-access-panel"></a>Kullanıcının erişim paneli uygulamalardan Office 365 nasıl Gizle?

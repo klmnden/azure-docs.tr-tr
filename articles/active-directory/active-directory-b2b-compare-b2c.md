@@ -2,25 +2,19 @@
 title: B2B işbirliği ve Azure Active Directory B2C karşılaştırma | Microsoft Docs
 description: Azure Active Directory B2B işbirliği ve Azure AD B2C arasındaki fark nedir?
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e8781fcf2710b00ba352bff29a370cbb73e0648
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>B2B işbirliği ve Azure Active Directory B2C ile karşılaştırın
 
@@ -41,16 +35,6 @@ Daha fazla bilgi: [Blog Gönderisi](https://blogs.technet.microsoft.com/enterpri
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
+- [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
 
-* [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
-* [Bir role B2B işbirliği kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
-* [B2B işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
-* [Dinamik gruplar ve B2B işbirliği](active-directory-b2b-dynamic-groups.md)
-* [SaaS uygulamaları B2B işbirliği için yapılandırma](active-directory-b2b-configure-saas-apps.md)
-* [B2B işbirliği kullanıcı belirteçleri](active-directory-b2b-user-token.md)
-* [B2B işbirliği kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
-* [Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
-* [B2B işbirliği geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
-* [B2B işbirliği için destek alma](active-directory-b2b-support.md)

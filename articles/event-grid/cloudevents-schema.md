@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84581de2819ec062a537d4a302f242085a4b3c2c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Olay kılavuzla CloudEvents şeması kullanma
 
@@ -23,6 +23,8 @@ Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik Clo
 CloudEvents yapı birkaç tarafından olan [ortak](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, aracılığıyla dahil [bulut yerel işlem Foundation](https://www.cncf.io/). Sürüm 0.1 şu anda kullanılabilir değil.
 
 Bu makalede, olay kılavuzla CloudEvents şema kullanmayı açıklar.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>CloudEvent şeması
 
@@ -73,12 +75,6 @@ Daha fazla bilgi için bkz: [CloudEvents spec](https://github.com/cloudevents/sp
 ## <a name="configure-event-grid-for-cloudevents"></a>Olay kılavuz CloudEvents için yapılandırma
 
 Şu anda Azure olay kılavuz desteklemek için CloudEvents JSON biçimi giriş ve çıkış içinde önizleme sahip **Batı Orta ABD**, **Orta ABD**, ve **Kuzey Avrupa**.
-
-CloudEvent kullanmak için bir uzantı için Azure CLI etkinleştirmeniz gerekir:
-
-```azurecli
-az extension add –-name eventgrid
-```
 
 Giriş ve çıkış CloudEvents şemasında olayların olay kılavuzunu kullanabilirsiniz. Blob Storage olayları ve IOT hub'ı olayları ve özel olaylar gibi sistem olayları için CloudEvents kullanabilirsiniz. Ayrıca, olaylar ve geriye hattaki de dönüştürebilirsiniz.
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 91ef3f9f15797c8c0c599e8c01070369e1af0b58
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Meta veri etkinliği Azure Data Factory'de Al
 GetMetadata etkinlik almak için kullanılabilir **meta veri** tüm verilerin Azure veri fabrikası'nda. Bu etkinlik yalnızca sürüm 2, veri oluşturucuları için desteklenir. Aşağıdaki senaryolarda kullanılabilir:
@@ -74,7 +74,10 @@ Aşağıdaki meta veri türleri almak için GetMetadata etkinlik alan listesinde
 | contentMD5 | MD5 dosyasının. Yalnızca dosya için geçerli. |
 | yapısı | Dosya veya ilişkisel veritabanı tablosu içindeki veri yapısı. Çıkış değeri, sütun adını ve sütun türü listesidir. |
 | ColumnCount | Dosya veya ilişkisel tablo içindeki sütun sayısı. |
-| var| Bir dosya/klasör/tablosu veya varolup. Not "var" sürece bile değil (dosya/klasör/tablosu) öğe varsa, etkinlik başarısız olmaz GetaMetadata alan listesinde belirtilir; Bunun yerine, döndürür `exists: false` çıkışı. |
+| var| Bir dosya/klasör/tablosu veya varolup. "Var" GetaMetadata alan listesindeki belirtilirse, bile değil (dosya/klasör/tablosu) öğe varsa, etkinlik başarısız olmaz unutmayın; Bunun yerine, döndürür `exists: false` çıkışı. |
+
+>[!TIP]
+>Bir dosya/klasör/tablosu veya varsa doğrulamak istediğiniz zaman belirtmek `exists` GetMetadata etkinlik alan listesindeki sonra göz atabilirsiniz `exists: true/false` neden etkinlik çıkışı. Varsa `exists` nesne bulunamadığında etkinlik başarısız olur GetMetadata alan listesindeki yapılandırılmamış.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -107,10 +110,9 @@ Aşağıdaki meta veri türleri almak için GetMetadata etkinlik alan listesinde
         },
         "typeProperties": {
             "folderPath":"container/folder",
-            "Filename": "file.json",
+            "filename": "file.json",
             "format":{
                 "type":"JsonFormat"
-                "nestedSeperator": ","
             }
         }
     }
@@ -123,12 +125,12 @@ Aşağıdaki meta veri türleri almak için GetMetadata etkinlik alan listesinde
 
 Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
-alan listesi | Gerekli meta veri bilgileri türlerini listeler. Ayrıntıları görmek [meta veri seçenekleri](#metadata-options) desteklenen meta veri bölümü. | Hayır 
+alan listesi | Gerekli meta veri bilgileri türlerini listeler. Ayrıntıları görmek [meta veri seçenekleri](#metadata-options) desteklenen meta veri bölümü. | Evet 
 Veri kümesi | Başvuru dataset, meta veri GetMetadata etkinlik tarafından alınmasına izin etkinliktir. Bkz: [desteklenen yetenekler](#supported-capabilities) bölümünde üzerinde desteklenen bağlayıcılar ve veri kümesi sözdizimi ayrıntıları bağlayıcı konusuna bakın. | Evet
 
 ## <a name="sample-output"></a>Örnek çıktı
 
-GetMetadata sonuç etkinlik çıkışı gösterilir. Alan listesinden başvuru olarak seçilen kapsamlı meta verileri seçeneklerle iki örnek aşağıda verilmiştir:
+GetMetadata sonuç etkinlik çıkışı gösterilir. Alan listesinden başvuru olarak seçilen kapsamlı meta verileri seçeneklerle iki örnek aşağıda verilmiştir. Sonuç izleyen bir etkinlikte, desenini kullanmayı `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### <a name="get-a-files-metadata"></a>Bir dosyanın meta verileri alma
 

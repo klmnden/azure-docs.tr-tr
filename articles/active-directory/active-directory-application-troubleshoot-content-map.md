@@ -1,22 +1,23 @@
 ---
-title: "Azure Active Directory Uygulama Yönetimi ve geliştirme sorun giderme"
-description: "Azure Active Directory Uygulama Yönetimi ve geliştirme ile ilgili en yaygın sorunları çözün"
+title: Azure Active Directory Uygulama Yönetimi ve geliştirme sorun giderme
+description: Azure Active Directory Uygulama Yönetimi ve geliştirme ile ilgili en yaygın sorunları çözün
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 5869120350ccfeacabaa79037ae57c1ee0fd8e5d
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: ccba2f485d8879cae485b0097a2e3213ff15533d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Azure Active Directory Uygulama Yönetimi ve geliştirme sorun giderme
 Bu makalede, ilgili bazı en yaygın sorunları ele yönetimiyle ilgili sorun giderme için yararlı belgeleri bulmak için yardımcı olur **kurumsal uygulamalar** ve ile yeni uygulamaları geliştirme **uygulama kayıt defteri**.

@@ -1,32 +1,36 @@
 ---
-title: "Azure Active Directory denetim API Başvurusu | Microsoft Docs"
-description: "Azure Active Directory denetim API'si ile çalışmaya nasıl başlayacağınız"
+title: Azure Active Directory denetim API Başvurusu | Microsoft Docs
+description: Azure Active Directory denetim API'si ile çalışmaya nasıl başlayacağınız
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 1bf86a9190039cdf0fe8dc435bdee4308b28cf29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory denetim API Başvurusu
-Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.  
-Azure AD raporlama kodu veya ilgili araçları kullanarak denetim veri erişmenizi sağlayan bir API ile sağlar.
-Hakkında başvuru bilgileri sağlamak için bu konunun kapsamı olan **API denetim**.
 
-Bkz.:
+> [!TIP] 
+> Yeni Microsoft Graph API'si kullanıma [raporlama](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), hangi sonunda yerini alacak bu API. 
+
+
+Bu makalede Azure Active Directory (Azure AD) ilgili makaleler koleksiyonu API Raporlama'nın bir parçasıdır. Azure AD raporlama kodu veya ilgili araçları kullanarak denetim veri erişmenizi sağlayan bir API ile sağlar.
+Hakkında başvuru bilgileri sağlamak için bu makalenin kapsamı olan **API denetim**.
+
+Bkz:
 
 * [Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için
 
@@ -35,37 +39,36 @@ Bkz.:
 
 İçin:
 
-- Sık sorulan sorular, okuma bizim [SSS](active-directory-reporting-faq.md) 
+- Sık sorulan sorular, okuma [SSS](active-directory-reporting-faq.md) 
 
-- Sorunları, lütfen [bir destek bileti dosya](active-directory-troubleshooting-support-howto.md) 
+- Sorunları, [bir destek bileti dosya](active-directory-troubleshooting-support-howto.md) 
 
 
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 * Güvenlik Yöneticisi veya Güvenlik Okuyucusu rolündeki kullanıcılar
 * Genel Yöneticiler
-* API erişme yetkisi olan herhangi bir uygulama (app yetkilendirme olabilir Kurulum genel yöneticinin iznine dayanılarak yalnızca)
+* API erişme yetkisi olan herhangi bir uygulama (app yetkilendirme ayarlanabilir genel yöneticinin iznine dayanılarak yalnızca)
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu rapor raporlama API'si erişmek için sahip olmanız gerekir:
+Bu rapor raporlama API'si erişmek için şunlara sahip olmalısınız:
 
 * Bir [Azure Active Directory ücretsiz ya da daha iyi edition](active-directory-editions.md)
 * Tamamlanan [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>API erişme
-Bu API aracılığıyla da erişebilirsiniz [Graph Explorer'a](https://graphexplorer2.cloudapp.net) veya program aracılığıyla, örneğin, PowerShell kullanarak. AAD grafik REST çağrılarında kullanılan OData filtresi sözdizimi doğru şekilde yorumlamaya PowerShell sırayla backtick kullanmanız gerekir (diğer adıyla: Vurgu) "$ karakterini atlamak için" karakter. Backtick karakter gören [PowerShell'in kaçış karakteri](https://technet.microsoft.com/library/hh847755.aspx), sabit bir $ karakteri yorumu yapın ve PowerShell değişken adı olarak kafa karıştırıcı önlemek PowerShell izin verme (IE: $filter).
+Bu API aracılığıyla da erişebilirsiniz [Graph Explorer'a](https://graphexplorer2.cloudapp.net) veya program aracılığıyla, örneğin, PowerShell kullanarak. Backtick kullanın (diğer adıyla: Vurgu) "PowerShell AAD grafik REST çağrılarında kullanılan OData filtresi sözdizimini çevirebilir emin olmak için $ karakterini atlamak için" karakter. Backtick karakter gören [PowerShell'in kaçış karakteri](https://technet.microsoft.com/library/hh847755.aspx), sabit bir $ karakteri yorumu yapın ve bir PowerShell değişken adını (örneğin, $filter) kafa karıştırıcı önlemek PowerShell izin verme.
 
-Bu konunun odak Graph Explorer'a noktasıdır. Bu PowerShell örnek için bkz [PowerShell Betiği](active-directory-reporting-api-audit-samples.md#powershell-script).
+Bu makaleyi odağını Graph Explorer'a ' dir. Bu PowerShell örnek için bkz [PowerShell Betiği](active-directory-reporting-api-audit-samples.md#powershell-script).
 
-## <a name="api-endpoint"></a>API Endpoint
+## <a name="api-endpoint"></a>API uç noktası
+
 Bu API aşağıdaki URI'ı kullanarak erişebilirsiniz:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-(OData sayfalandırma kullanarak) Azure AD denetim API'si tarafından döndürülen kayıt sayısı sınırı yoktur.
-Bekletme sınırları veri raporlama, kullanıma [raporlama bekletme ilkeleri](active-directory-reporting-retention.md).
+(OData sayfalandırma kullanarak) Azure AD denetim API'si tarafından döndürülen kayıt sayısı için bir sınır yoktur. Raporlama verilerini bekletme sınırları için bkz: [raporlama bekletme ilkeleri](active-directory-reporting-retention.md).
 
-Bu çağrı verileri toplu olarak döndürür. Her toplu işlem en fazla 1000 kaydı var.  
-Sonraki toplu kayıt almak için sonraki bağlantıyı kullanın. Döndürülen kayıtları ilk kümesinden skiptoken bilgi alın. Atla belirteci sonucu sonunda ayarlanır.  
+Çağrı verileri toplu olarak döndürür. Her toplu işlem en fazla 1000 kaydı var. Sonraki toplu kayıt almak için **sonraki** bağlantı. Atla belirteci bilgi döndürülen kayıtları ilk kümesinden alın. Atla belirteci sonucu sonunda ayarlanır.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,14 +76,15 @@ Sonraki toplu kayıt almak için sonraki bağlantıyı kullanın. Döndürülen 
 
 
 ## <a name="supported-filters"></a>Desteklenen filtreler
-Bir API tarafından döndürülen kayıt sayısını daraltabilirsiniz bir filtre formda çağırın.  
-Oturum açma için API ilgili verileri, aşağıdaki filtreleri desteklenir:
 
-* **$top =\<döndürülecek kayıtları numara\>**  - döndürülen kayıt sayısını sınırlamak için. Bu pahalı bir işlemdir. Binlerce nesneyi dönmek istiyorsanız, bu filtre kullanmamanız gerekir.     
+Döndürülen kayıt sayısını daraltabilirsiniz bir API çağrısı bir filtre ile.  
+Oturum açma API ile ilgili veriler için aşağıdaki filtreleri desteklenir:
+
+* **$top =\<döndürülecek kayıtları numara\>**  - döndürülen kayıt sayısını sınırlamak için. Bu pahalı bir işlemdir. Binlerce nesneyi dönmek istiyorsanız, bu filtre kullanmayın.     
 * **$filter =\<filtre ifadesi\>**  -, desteklenen filtre alanları temel alarak çok önem verdiğiniz kayıtları türünü belirtmek için
 
 ## <a name="supported-filter-fields-and-operators"></a>Desteklenen filtre alanları ve işleçleri
-İlgilendiğiniz kayıtları türünü belirtmek için bir ya da aşağıdaki filtre alanlarını bileşimini içerebilir bir filtre ifadesi oluşturabilirsiniz:
+İlgilendiğiniz kayıtları türünü belirtmek için bir filtre ifadesi biri ya da aşağıdaki filtre alanlarını birleşimi ile oluşturabilirsiniz:
 
 * [Tarihi](#activitydate) -bir tarih veya tarih aralığı tanımlar
 * [Kategori](#category) -filtre uygulamak istediğiniz kategori tanımlar.
@@ -95,7 +99,7 @@ Oturum açma için API ilgili verileri, aşağıdaki filtreleri desteklenir:
 * [Hedef/upn](#targetupn) -aktör aktör'ın kullanıcı asıl adı (UPN) biçiminde tanımlar   
 
 - - -
-### <a name="activitydate"></a>activityDate
+### <a name="activitydate"></a>Tarihi
 **İşleçler desteklenen**: eq, ge, le, gt, lt
 
 **Örnek**:
@@ -182,7 +186,7 @@ büyük küçük harfe duyarlı
 Büyük küçük harfe duyarsızdır
 
 - - -
-### <a name="actorobjectid"></a>actor/objectId
+### <a name="actorobjectid"></a>Aktör/objectID
 **İşleçler desteklenen**: eq
 
 **Örnek**:
@@ -213,10 +217,10 @@ Büyük küçük harfe duyarsızdır
 **Notlar**:
 
 * Büyük küçük harfe duyarsızdır
-* Tam ad alanını Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity sorgulanırken eklemeniz gerekir
+* Tam ad Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity sorgulanırken ekleme
 
 - - -
-### <a name="targetobjectid"></a>target/objectId
+### <a name="targetobjectid"></a>Hedef/objectID
 **İşleçler desteklenen**: eq
 
 **Örnek**:
@@ -234,10 +238,12 @@ Büyük küçük harfe duyarsızdır
 **Notlar**:
 
 * Büyük küçük harfe duyarsızdır 
-* Tam ad alanını Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity sorgulanırken eklemeniz gerekir
+* Tam ad Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity sorgulanırken ekleme
 
 - - -
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Filtrelenmiş sistem faaliyetleri örneklerini görmek istiyor musunuz? Kullanıma [Azure Active Directory denetim API'si örnekleri](active-directory-reporting-api-audit-samples.md).
-* Azure AD raporlama API'si hakkında daha fazla bilgi istiyor musunuz? Bkz: [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
+
+- Filtrelenmiş sistem faaliyetleri örneklerini görmek istiyor musunuz? Kullanıma [Azure Active Directory denetim API'si örnekleri](active-directory-reporting-api-audit-samples.md).
+
+- Azure AD raporlama API'si hakkında daha fazla bilgi istiyor musunuz? Bkz: [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
 

@@ -1,215 +1,443 @@
 ---
-title: "Azure ve Azure uygulamanızı dağıtmak yığını | Microsoft Docs"
-description: "Uygulamaları Azure ve Azure yığını ile karma CI/CD ardışık dağıtmayı öğrenin."
+title: Azure ve Azure uygulamanızı dağıtmak yığını | Microsoft Docs
+description: Uygulamaları Azure ve Azure yığını ile karma CI/CD ardışık dağıtmayı öğrenin.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
-ms.author: jeffgilb
-ms.reviewer: unknown
-ms.custom: mvc
-ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 05/07/2018
+ms.author: mabrigg
+ms.reviewer: Anjay.Ajodha
+ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="deploy-apps-to-azure-and-azure-stack"></a>Azure ve Azure uygulamaları dağıtmak yığını
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure uygulamaları dağıtmak yığını
+
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bir karma [sürekli tümleştirme](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[kesintisiz teslim](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) ardışık düzen oluşturma, sınama ve uygulamanızı dağıtmak için birden çok bulut olanak sağlar.  Bu öğreticide, bir karma CI/CD ardışık size nasıl yardımcı olabileceğini öğrenmek için bir örnek ortamı oluşturun:
+Bir karma sürekli tümleştirme/sürekli teslim (CI/CD) ardışık düzen oluşturma, sınama ve uygulamanızı dağıtmak için birden çok bulut sağlar.  Bu öğreticide, bir örnek ortamı için yapı:
  
 > [!div class="checklist"]
 > * Visual Studio Team Services (VSTS) deponuza kod tamamlama dayalı yeni bir yapı başlatır.
-> * Kullanıcı kabul testi için otomatik olarak yeni oluşturulan kodunuzu Azure'a dağıtın.
-> * Kodunuzu test geçtikten sonra otomatik olarak Azure yığınına dağıtın. 
+> * Otomatik olarak yeni oluşturulan kodunuzu kullanıcı kabul testi için genel Azure dağıtın.
+> * Kodunuzu test geçtikten sonra otomatik olarak Azure yığınına dağıtın.
+
+### <a name="about-the-hybrid-delivery-build-pipe"></a>Karma teslimat hakkında kanal oluşturma
+
+Uygulama dağıtım sürekliliği, güvenlik ve güvenilirlik, kuruluşunuz için önemli ve Geliştirme ekibiniz için kritik. Karma CI/CD ardışık düzen ile şirket içi ortamınız ve genel bulut üzerinden hatlarınızı birleştirebilir. Uygulamanızı geçmeden konumunu değiştirebilirsiniz.
+
+Bu yaklaşım geliştirme araçları tutarlı bir dizi korumanıza olanak sağlar. Azure genel Bulut ve şirket içi Azure yığın ortamınız genelinde tutarlı araçları CI/CD geliştirme uygulama uygulamak için ne kadar kolay olduğunu gösterir. Uygulamaları ve Hizmetleri Azure veya Azure yığın dağıtılmış birbirinin yerine kullanılabilir ve aynı kodu her iki konumda şirket içi, genel bulut özellikleri ve yetenekleri yararlanarak çalıştırabilirsiniz.
+
+Daha fazla bilgi edinin:
+ - [Sürekli Tümleştirme nedir?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
+ - [Kesintisiz teslim nedir?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bazı bileşenler bir karma CI/CD ardışık düzen oluşturmak için gerekli ve hazırlamak için biraz zaman alabilir.  Bu bileşenlerden bazıları zaten varsa başlamadan önce gereksinimleri karşıladığınızdan emin olun.
+
+Karma CI/CD işlem hattı oluşturmak için birkaç bileşenleri sahip olmak gerekir. Bunlar hazırlamak için biraz zaman alabilir.
+ 
+ - Bir Azure OEM/donanım iş ortağı üretim Azure yığın dağıtabileceğiniz ve tüm kullanıcıların bir Azure yığın Geliştirme Seti (ASDK) dağıtabilirsiniz. 
+ - Bir Azure yığın işleç Ayrıca uygulama hizmeti dağıtmak, planları ve teklifleri oluşturmak, bir kiracı aboneliği oluşturmak ve Windows Server 2016 görüntü eklemeniz gerekir.
+
+Bu bileşenlerden bazıları zaten varsa başlamadan önce gereksinimleri karşıladığınızdan emin olun.
 
 Bu konu ayrıca bazı Azure ve Azure yığın bilgisine sahip olduğunuzu varsayar. Devam etmeden önce daha fazla bilgi edinmek istiyorsanız, bu konularda başlatmak emin olun:
 
-- [Azure giriş](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-- [Azure yığın temel kavramları](../azure-stack-key-features.md)
+
+Bu öğretici, ayrıca bazı Azure ve Azure yığın bilgisine sahip olduğunuzu varsayar. 
+
+Devam etmeden önce daha fazla bilgi edinmek istiyorsanız, bu konularda başlatabilirsiniz:
+ - [Azure giriş](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Azure yığın temel kavramları](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
 ### <a name="azure"></a>Azure
+
  - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
- - Oluşturma bir [Web uygulaması](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)ve için yapılandırma [FTP Yayımlama](../../app-service/app-service-deploy-ftp.md).  Daha sonra kullanılmak üzere yeni Web uygulaması URL'sini not edin.
 
+ - Oluşturma bir [Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-overview) azure'da. Daha sonra kullanılmak üzere yeni Web uygulaması URL'sini not edin.
 
-### <a name="azure-stack"></a>Azure Stack
- - [Azure yığın dağıtmak](../azure-stack-run-powershell-script.md).  Yükleme genellikle tamamlamak için bu nedenle uygun şekilde planlamanız birkaç saat sürer.
- - Dağıtma [uygulama hizmeti](../azure-stack-app-service-deploy.md) Azure yığınına PaaS Hizmetleri.
- - Bir Web uygulaması oluşturma ve için yapılandırma [FTP Yayımlama](../azure-stack-app-service-enable-ftp.md).  Daha sonra kullanılmak üzere yeni Web uygulaması URL'sini not edin.  
+Azure Stack
+ - Bir Azure tümleşik yığını sistem kullanın veya Azure yığın Geliştirme Seti (ASDK) aşağıda bağlı dağıtın:
+    - Konumundaki ASDK dağıtma hakkında ayrıntılı yönergeler bulabilirsiniz "[Öğreticisi: Yükleyicisi'ni kullanarak ASDK dağıtmak](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
+    - Çoğu, aşağıdaki PowerShell Betiği ile ASDK dağıtım sonrası adımları otomatikleştirmek [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
+
+    > [!note]  
+    > ASDK yükleme yedi bir tamamlamak için bu nedenle uygun şekilde planlamanız saat sürer.
+
+ - Dağıtma [uygulama hizmeti](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure yığınına PaaS Hizmetleri. 
+ - Oluşturma [planı/teklifleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure yığın ortamında. 
+ - Oluşturma [Kiracı aboneliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure yığın ortamında. 
+ - Kiracı abonelik içindeki bir Web uygulaması oluşturun. Daha sonra kullanmak için yeni Web uygulaması URL'si not edin.
+ - VSTS sanal makine hala Kiracı aboneliği içinde dağıtın.
+ - Windows Server 2016 VM ile .NET 3.5 gerekiyor. Bu VM, Azure yığında özel derleme aracısı olarak oluşturulacak. 
 
 ### <a name="developer-tools"></a>Geliştirici araçları
- - Oluşturma bir [VSTS çalışma](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Kaydolma işlemi "MyFirstProject." adlı bir proje oluşturur  
- - [Visual Studio 2017 yükleme](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [açma VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
+
+ - Oluşturma bir [VSTS çalışma](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). Kayıt işlemini adlı bir proje oluşturur **MyFirstProject**.
+ - [Visual Studio 2017 yükleme](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [açma VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Projeye bağlayın ve [yerel olarak kopyalamak](https://www.visualstudio.com/docs/git/gitquickstart).
- - Oluşturma bir [aracı havuzu](https://www.visualstudio.com/docs/build/concepts/agents/pools-queues#creating-agent-pools-and-queues) VSTS içinde.
- - Visual Studio yükleme ve dağıtma bir [VSTS yapı aracısını](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) bir sanal makineye Azure yığında. 
  
+ > [!note]  
+ > Dağıtılan uygulama hizmeti (Windows Server ve SQL) çalıştıran ve dağıtılmış uygun görüntülerle Azure yığın gerekir.
+ 
+## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Özel derleme ve sürüm aracı Visual Studio Team Services tümleştirme için hazırlama
 
-## <a name="create-app--push-to-vsts"></a>VSTS itme & Uygulama Oluştur
+### <a name="prerequisites"></a>Önkoşullar
 
-### <a name="create-application"></a>Uygulama oluştur
-Bu bölümde, basit bir ASP.NET uygulaması oluşturma ve VSTS gönderme.  Bu adımları normal Geliştirici iş akışını temsil eder ve geliştirici araçları ve diller için uyarlanmış. 
+Visual Studio Team Services (VSTS) bir hizmet sorumlusu kullanarak Azure Resource Manager karşı doğrular. Bir Azure yığın Abonelikteki sağlama kaynaklarına olması VSTS için katkıda bulunan durumu gerektirir.
 
-1.  Visual Studio'yu açın.
-2.  Takım Gezgini alanından ve **çözümleri...**  alanında tıklatın **yeni**.
-3.  Seçin **Visual C#** > **Web** > **ASP.NET Web uygulaması (.NET Framework)**.
-4.  ' A tıklayın ve uygulama için bir ad **Tamam**.
-5.  Sonraki ekranda (Web forms) Varsayılanları tutun ve **Tamam**.
+Bu tür kimlik doğrulamasını etkinleştirmek için yapılandırılması gereken üst düzey adımları şunlardır:
 
-### <a name="commit-and-push-changes-to-vsts"></a>Yürütme ve VSTS değişiklikleri gönderme
-1.  Takım Gezgini, Visual Studio kullanarak, açılır seçin ve tıklatın **değişiklikleri**.
-2.  Yürütme iletiyi sağlayın ve seçin **Tümünü Yürüt**. İstenebilir çözüm dosyasını kaydetmek için tüm kaydetmek için Evet'i tıklatın.
-3.  Tamamlandıktan sonra değişiklikleri projenize eşitlemek Visual Studio sunar. **Eşitle**’yi seçin.
+1. Hizmet sorumlusu oluşturulmalıdır veya mevcut bir kullanılabilir.
+2. Kimlik doğrulama anahtarları için hizmet sorumlusu oluşturulması gerekir.
+3. Azure yığın abonelik SPN katkıda bulunanlar rolünün bir parçası olarak izin vermek için rol tabanlı erişim denetimi doğrulanması gerekiyor.
+4. VSTS yeni bir hizmet tanımında SPN bilgi yanı sıra Azure yığın uç noktaları kullanılarak oluşturulması gerekir.
 
-    ![yürütme tamamlandıktan sonra tamamlama ekran gösteren görüntü](./media/azure-stack-solution-pipeline/image1.png)
+### <a name="service-principal-creation"></a>Hizmet sorumlusu oluşturma
 
-4.  Eşitleme sekmesindeki altında *giden*, yeni tamamlama bakın.  Seçin **anında** VSTS değişikliği eşitlenecek.
+Başvurmak [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) yönergeleri bir hizmet sorumlusu oluşturma ve uygulama türü için Web uygulaması/API'ı seçin.
 
-    ![Görüntü gösteren eşitleme adımları](./media/azure-stack-solution-pipeline/image2.png)
+### <a name="access-key-creation"></a>Erişim anahtarı oluşturma
 
-### <a name="review-code-in-vsts"></a>VSTS kod gözden geçirme
-Bir kez bir değişiklik kaydedilen ve VSTS için gönderilen VSTS portal kodunuzdan denetleyin.  Seçin **kod**ve ardından **dosyaları** açılan menüden.  Oluşturduğunuz çözüm görebilirsiniz.
+Bir hizmet asıl anahtar kimlik doğrulaması için gereklidir, bir anahtar oluşturmak için bu bölümdeki adımları izleyin.
 
-## <a name="create-build-definition"></a>Yapı tanımı oluşturun
-Derleme işlemi, uygulamanızın nasıl oluşturulur ve kod değişiklikleri her yürütme üzerinde dağıtım için paketlenmiş tanımlar. Bu yapılandırma, uygulamaya bağlı olarak uyarlanmış olabilir ancak Bizim örneğimizde, biz dahil derleme işlemi, bir ASP.NET uygulaması için yapılandırmak için şablonu kullanın.
 
-1.  VSTS alanınıza bir web tarayıcısından oturum açın.
-2.  Reklam, seçin **yapı & yayın** ve ardından **derlemeler**.
-3.  Tıklatın **+ yeni tanımı**.
-4.  Şablonları listesinden seçin **ASP.NET (Önizleme)** seçip **Uygula**.
-5.  Değiştirme *MSBuild bağımsız değişkenleri* alanındaki *yapı çözümü* için adım:
+1. Azure Active Directory'deki **Uygulama kayıtları**'nda uygulamanızı seçin.
 
-    `/p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeployDefaultTarget=WebPublish /p:publishUrl="$(build.artifactstagingdirectory)\\"`
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-6.  Seçin **seçenekleri** sekmesini tıklatın ve dağıtılan bir sanal makineye Azure yığında derleme aracısı için aracı sıra seçin. 
-7.  Seçin **Tetikleyicileri** sekmesini tıklatın ve etkinleştirme **sürekli tümleştirme**.
-7.  Tıklatın **sıraya & Kaydet** ve ardından **kaydetmek** gelen açılır. 
+2.  Değerini not edin **uygulama kimliği**. Hizmet uç noktası VSTS yapılandırırken bu değeri kullanır.
 
-## <a name="create-release-definition"></a>Yayın tanımı oluşturun
-Yayın işlem, önceki adımdan derlemeleri bir ortama nasıl dağıtıldığını tanımlar.  Bu öğreticide, size bir Azure Web uygulaması için ASP.NET uygulamamıza FTP ile yayımlayın. Bir yayın Azure yapılandırmak için aşağıdaki adımları kullanın:
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
-1.  VSTS reklam seçin **yapı & yayın** ve ardından **sürümleri**.
-2.  Yeşil tıklatın **+ yeni tanımı**.
-3.  Seçin **boş** tıklatıp **sonraki**.
-4.  Onay kutusunu için *sürekli dağıtım*ve ardından **oluşturma**.
+3. Kimlik doğrulama anahtarını oluşturmak için **Ayarlar**'ı seçin.
 
-Boş yayın tanımını oluşturdu ve yapı bağlı göre şu adımları Azure ortamı için ekleyin:
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_03.png)
 
-1.  Yeşil tıklatın  **+**  görevler eklemek için.
-2.  Seçin **tüm**ve ardından listeden ekleyin **FTP Karşıya** seçip **Kapat**.
-3.  Seçin **FTP Karşıya** , yeni eklenen görev ve aşağıdaki parametreleri yapılandırın:
+4. Kimlik doğrulama anahtarını oluşturmak için **Anahtarlar**'ı seçin.
+ 
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+
+5. Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
+ 
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+
+    Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Bu değeri kopyalayın çünkü daha sonra anahtarı alamazsınız. Sağladığınız **anahtar değerini** uygulaması olarak oturum açmak için uygulama kimliği. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+
+### <a name="get-tenant-id"></a>Kiracı kimliğini alma
+
+Hizmet uç noktası yapılandırmasının bir parçası olarak VSTS gerektirir **Kiracı kimliği** karşılık gelen Azure yığın damganız dağıtılmış olan bir AAD dizini. Kiracı kimliğini toplamak için bu bölümdeki adımları izleyin
+
+1. **Azure Active Directory**'yi seçin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+
+2. Kiracı kimliğini almak için Azure AD kiracınızda **Özellikler**'i seçin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+ 
+3. **Dizin kimliği**'ni kopyalayın. Bu değer kiracı kimliğinizdir.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+
+### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Azure yığın aboneliğindeki kaynaklar dağıtmak için hizmet asıl haklar 
+
+Aboneliğinizde kaynaklara erişmek için bir rol uygulamaya atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir rolleri hakkında bilgi edinmek için [RBAC: yerleşik roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+
+Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubu ve içerdiği tüm kaynaklar okuyabilir anlamına gelir.
+
+1. Uygulamaya atamak istediğiniz kapsam düzeyine gidin. Örneğin, abonelik kapsamında bir rol atamak için seçin **abonelikleri**. Bunun yerine, bir kaynak grubu veya kaynak seçebilirsiniz.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+
+2. Seçin **abonelik** (kaynak grubu veya kaynak) uygulamaya atayın.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+
+3. Seçin **erişim denetimi (IAM)**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+
+4. **Add (Ekle)** seçeneğini belirleyin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+
+5. Uygulamaya atamak istediğiniz rolü seçin. Aşağıdaki resimde gösterildiği **sahibi** rol.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+
+6. Varsayılan olarak, Azure Active Directory uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için şunları yapmanız gerekir **ad** arama alanında. Bunu seçin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+
+7. Seçin **kaydetmek** rol atama tamamlamak için. Listenin uygulamanızda bu kapsam için bir rolüne atanan kullanıcıların bakın.
+
+### <a name="role-based-access-control"></a>Rol Tabanlı Access Control
+
+Azure rol tabanlı erişim denetimi (RBAC) Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz: [Azure abonelik kaynaklarına erişimi yönetme](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
+
+### <a name="vsts-agent-pools"></a>VSTS aracısı havuzları
+
+Her bir aracının ayrı ayrı yönetmek yerine, aracıları aracı havuzu halinde düzenleyin. Bir aracı havuzu paylaşım sınır havuzda tüm aracılar için tanımlar. VSTS içinde aracısı havuzları VSTS hesabına kapsamındaki; Bu nedenle bir aracı havuzu ekip projeleri arasında paylaşabilirsiniz. Daha fazla bilgi ve VSTS aracısı havuzları oluşturma hakkında bir öğretici için bkz: [aracısı havuzları oluşturmak ve kuyruklar](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+
+### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Kişisel erişim belirteci (PAT) için Azure yığın ekleme
+
+1. VSTS hesabınızda oturum açın ve hesabınızın profil adını seçin.
+2. Seçin **Güvenliği Yönet** erişim belirteci oluşturma sayfası.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+
+3. Belirteç kopyalayın.
     
-    | Parametre | Değer |
-    | ----- | ----- |
-    |Kimlik Doğrulama Yöntemi| Kimlik bilgilerini girin|
-    |Sunucu URL'si | Web uygulaması FTP Azure portalından alınan URL'si |
-    |Kullanıcı adı | FTP kimlik bilgileri için Web uygulaması oluştururken yapılandırılmış kullanıcı adı |
-    |Parola | FTP kimlik bilgileri için Web uygulaması kurarken oluşturduğunuz parola|
-    |Kaynak dizini | $(System.DefaultWorkingDirectory)\**\ |
-    |Uzak dizin | /Site/wwwroot / |
-    |Dosya yolları koru | Etkin (işaretli)|
-
-4.  Tıklatın **Kaydet**
-
-Son olarak, aşağıdaki adımları kullanarak dağıtılmış aracı içeren aracı havuzu kullanmak için yayın tanımı yapılandırın:
-1.  Yayın tanımı'nı seçin ve'ı tıklatın **Düzenle**.
-2.  Seçin **aracı üzerinde çalıştığı** Orta sütundan.  Sağ sütunda Azure yığın üzerinde çalışan derleme aracısı içeren aracı sıra seçin.  
-    ![belirli bir kuyruğa kullanmak için yayın tanımı görüntü gösteren yapılandırması](./media/azure-stack-solution-pipeline/image3.png)
-
-
-## <a name="deploy-your-app-to-azure"></a>Uygulamanızı Azure'a dağıtma
-Bu adım, Azure üzerinde bir Web uygulaması için ASP.NET uygulama dağıtmak için yeni oluşturulan CI/CD hattınızı kullanır. 
-
-1.  Reklam VSTS içinde seçin **yapı & yayın**ve ardından **derlemeler**.
-2.  Tıklatın **...**  derleme açıklamasında daha önce oluşturulmuş ve select **sıraya yeni derleme**.
-3.  Varsayılanları kabul edin ve tıklayın **Tamam**.  Yapı başlar ve ilerleme durumunu görüntüler.
-4.  Yapı tamamlandıktan sonra seçerek durumunu izleyebilir **yapı & yayın** ve seçerek **sürümleri**.
-5.  Yapı tamamlandıktan sonra Web uygulaması oluştururken, belirtilen URL'yi kullanarak Web sitesini ziyaret edin.    
-
-
-## <a name="add-azure-stack-to-pipeline"></a>Boru hattı için Azure yığın ekleme
-Azure'a dağıtarak CI/CD hattınızı test ettikten, ardışık düzene Azure yığın ekleme zamanı geldi.  Aşağıdaki adımlarda, yeni bir ortam oluşturmak ve uygulamanızı Azure yığınına dağıtmak için bir FTP Karşıya görev ekleyin.  Ayrıca, "Azure yığın kod sürüme oturum" benzetimini yapmak için bir yol olarak hizmet veren bir yayın onaylayan de ekleyin.  
-
-1.  Yayın tanımı'nda seçin **+ ortama eklemek** ve **oluştur yeni ortam**.
-2.  Seçin **boş**, tıklatın **sonraki**.
-3.  Seçin **belirli kullanıcıları** ve hesabınızı belirtin.  **Oluştur**’u seçin.
-4.  Varolan adını seçip yazarak ortamı yeniden adlandırma *Azure yığın*.
-5.  Şimdi, seçim Azure yığın ortamını seçip **görev ekleme**.
-6.  Seçin **FTP Karşıya** seçin ve görev **Ekle**seçeneğini belirleyip **Kapat**.
-
-
-### <a name="configure-ftp-task"></a>FTP görev yapılandırın
-Bir yayın oluşturduğunuza göre yayımlama Azure yığında Web uygulaması için gerekli olan adımları yapılandıracaksınız.  Yalnızca Azure için FTP Karşıya görev yapılandırılmış gibi Azure yığını için görev yapılandırın:
-
-1.  Seçin **FTP Karşıya** , yeni eklenen görev ve aşağıdaki parametreleri yapılandırın:
+    > [!note]  
+    > Belirteç bilgileri edinin. Bunu yeniden bu ekran bırakarak sonra gösterilmez. 
     
-    | Parametre | Değer |
-    | -----     | ----- |
-    |Kimlik Doğrulama Yöntemi| Kimlik bilgilerini girin|
-    |Sunucu URL'si | Web uygulaması FTP Azure yığın Portalı'ndan alınan URL'si |
-    |Kullanıcı adı | FTP kimlik bilgileri için Web uygulaması oluştururken yapılandırılmış kullanıcı adı |
-    |Parola | FTP kimlik bilgileri için Web uygulaması kurarken oluşturduğunuz parola|
-    |Kaynak dizini | $(System.DefaultWorkingDirectory)\**\ |
-    |Uzak dizin | /Site/wwwroot /|
-    |Dosya yolları koru | Etkin (işaretli)|
-
-2.  Tıklatın **Kaydet**
-
-Son olarak, aşağıdaki adımları kullanarak dağıtılmış aracı içeren aracı havuzu kullanmak için yayın tanımı yapılandırın:
-1.  Yayın tanımı'nı seçin ve'ı tıklatın **Düzenle**
-2.  Seçin **aracı üzerinde çalıştığı** Orta sütundan. Sağ sütunda Azure yığın üzerinde çalışan derleme aracısı içeren aracı sıra seçin.  
-    ![belirli bir kuyruğa kullanmak için yayın tanımı görüntü gösteren yapılandırması](./media/azure-stack-solution-pipeline/image3.png)
-
-## <a name="deploy-new-code"></a>Yeni kod dağıtın
-Şimdi, Azure yığınına yayımlama son adım ile karma CI/CD ardışık test edebilirsiniz.  Bu bölümde, sitenin altbilgi değiştirin ve ardışık düzeninden dağıtım başlatın.  Tamamlandıktan sonra değişikliklerinizi Azure'a gözden geçirilmek üzere dağıtılan görürsünüz ve yayın onayladıktan sonra Azure yığınına yayımlanır.
-
-1. Visual Studio'da açın *site.master* dosya ve bu satırı değiştirin:
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_19.png)
     
-    `
-        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-    `
 
-    şu şekilde:
+### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure yığında VSTS yapı aracısını yükleme yapı sunucu barındırılan
 
-    `
-        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application delivered by VSTS, Azure, and Azure Stack</p>
-    `
-3.  Değişiklikleri ve VSTS eşitleyin.  
-4.  VSTS çalışma alanından seçerek yapı durumu kontrol **yapı & yayın** > **derleme**
-5.  Devam eden bir derleme görürsünüz.  Durum çift tıklayın ve yapı ilerleme durumunu izleyebilirsiniz.  Sürümünden denetlemek "Tamamlanmış derleme" konsolda görebileceğiniz sonra devam **yapı & yayın** > **yayın**.  Yayın çift tıklayın.
-6.  Bir yayın gözden geçirme gerektiren bildirim alırsınız. Web uygulaması URL'si denetleyin ve yeni değişiklikleri mevcut olduğunu doğrulayın.  VSTS sürümde onaylayın.
-    ![belirli bir kuyruğa kullanmak için yayın tanımı görüntü gösteren yapılandırması](./media/azure-stack-solution-pipeline/image4.png)
+1.  Yapı Azure yığın konakta dağıtılan sunucunuza bağlanın.
+
+2.  Karşıdan yükleme ve dağıtma derleme aracısı kişisel kullanarak bir hizmet olarak erişim belirteci (PAT) ve VM yönetici farklı çalıştır hesabı.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+
+3. Ayıklanan derleme aracısı klasörüne gidin. Çalıştırma **run.cmd** yükseltilmiş bir komut istemi dosyasından. 
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+
+4.  Run.cmd tamamladıktan sonra ayıklanan içeriğin bulunduğu klasöre aşağıdaki gibi görünmelidir:
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+
+    VSTS klasöründeki aracı artık görebilirsiniz.
+
+## <a name="endpoint-creation-permissions"></a>Uç nokta oluşturma izinleri
+
+VSTO derlemeleri yığına Azure hizmet uygulamaları dağıtabilmek için kullanıcıları uç noktaları oluşturabilirsiniz. VSTS Azure yığın ile bağlanan derleme aracısı bağlanır. 
+
+![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+
+1. Üzerinde **ayarları** menüsünde, select **güvenlik**.
+2. İçinde **VSTS grupları** solda, select listesi **Endpoint oluşturucuları**. 
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+
+3. Üzerinde **üyeleri** sekmesine **+ Ekle**. 
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+
+4. Bir kullanıcı adı yazın ve listeden kullanıcı seçin.
+5. Tıklatın **değişiklikleri kaydetmek**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+
+6. İçinde **VSTS grupları** solda, select listesi **Endpoint Yöneticiler**.
+7. Üzerinde **üyeleri** sekmesine **+ Ekle**.
+8. Bir kullanıcı adı yazın ve listeden kullanıcı seçin.
+9. Tıklatın **değişiklikleri kaydetmek**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+    Derleme aracısı Azure yığınında Azure yığını ile iletişim için uç nokta bilgileri iletir VSTS gelen yönergeleri kazanır. 
     
-7.  Web uygulaması oluştururken, belirtilen URL'yi kullanarak Web sitesini ziyaret ederek Azure yığın yayımlamayı tamamlandığını doğrulayın.
-    ![ASP gösteren görüntü. Değiştirilen altbilgi ile nEt uygulama](./media/azure-stack-solution-pipeline/image5.png)
+    Azure yığın bağlantı VSTS artık hazırdır.
 
+## <a name="develop-your-application"></a>Uygulamanızı geliştirin
 
-Yeni Karma CI/CD hattınızı bir yapı taşı olarak için diğer karma bulut desenleri artık kullanabilirsiniz.
+Web uygulaması Azure ve Azure yığın dağıtmak için karma CI/CD ayarlama ve Bulutlar hem de otomatik itme değiştirir.
+
+> [!note]  
+> Dağıtılan uygulama hizmeti (Windows Server ve SQL) çalıştıran ve dağıtılmış uygun görüntülerle Azure yığın gerekir. Azure yığın işleci gereksinimleri için uygulama hizmeti belgelerini "Önkoşullar" bölümü gözden geçirin.
+
+### <a name="add-code-to-vsts-project"></a>VSTS projesi için kod ekleme
+
+1. Visual Studio için Azure yığında proje oluşturma haklarına sahip bir hesapla oturum açın.
+
+    Karma CI/CD hem uygulama kodunda hem de altyapı kodu uygulayabilirsiniz. Kullanım [web gibi Azure Resource Manager şablonları ](https://azure.microsoft.com/resources/templates/) uygulama kodundan VSTS Bulutlar hem de.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+
+2. **Depoyu kopyalayın** oluşturarak ve varsayılan web uygulaması açma.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+
+### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Bulutlar hem de uygulama hizmetleri için kendi içinde bulunan web uygulama dağıtımı oluşturma
+
+1. Düzenle **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve ekleme `win10-x64.` daha fazla bilgi için bkz: [kendi içinde bulunan dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri .
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+
+2. Kod Takım Gezgini'ni kullanarak VSTS denetleyin.
+
+3. Uygulama kodu Visual Studio Team Services işaretli olduğunu doğrulayın. 
+
+### <a name="create-the-build-definition"></a>Yapı tanımı oluşturun
+
+1. VSTS derleme tanımları oluşturma yeteneği onaylamak için oturum açın.
+
+2. Ekleme **- r win10-x64** kodu. .Net ile kendi içinde bulunan bir dağıtımı tetiklemek için gereken budur çekirdek. 
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+
+3. Yapı çalıştırın. [Müstakil dağıtım yapı](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) işlemi, Azure ve Azure yığın çalışabilir yapıları yayımlar.
+
+### <a name="using-an-azure-hosted-agent"></a>Bir Azure barındırılan aracı kullanma
+
+VSTS içinde barındırılan bir aracı kullanarak, derleme ve web uygulamaları dağıtmak için kullanışlı bir seçenektir. Bakımı ve yükseltmeler, sürekli, kesintisiz geliştirme, test ve dağıtım etkinleştirme Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
+
+### <a name="manage-and-configure-the-continuous-deployment-cd-process"></a>Yönetme ve sürekli dağıtımı (CD) işlemi yapılandırma
+
+Visual Studio Team Services (VSTS) ve Team Foundation Server (TFS) yüksek oranda yapılandırılabilir ve yönetilebilir bir ardışık düzen geliştirme gibi birden çok ortamlara sürümleri için hazırlama, QA ve üretim ortamlarını sağlar; belirli aşamalarda onayları gerektiren dahil olmak üzere.
+
+### <a name="create-release-definition"></a>Yayın tanımı oluşturun
+
+![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+
+1. Seçin  **\[ +]** altında yeni bir sürüm eklemek için **sürümler sekmesini** VSO derleme ve sürüm sayfasında.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\102.png)
+
+2. Uygulama **Azure uygulama hizmeti dağıtımı** şablonu.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\103.png)
+
+3. Ekleyin yapıt aşağı açılır menüsünde altında **ekleyin yapıt** Azure bulut yapı uygulama.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\104.png)
+
+4. Ardışık Düzen sekmesinde seçin **aşaması**, **görev** bağlantılandırın ortamını ve Azure bulut ortamı değerlerini ayarlayın.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\105.png)
+
+5. Ayarlama **ortam adı** ve Azure seçin **abonelik** Azure bulut uç noktası için.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\106.png)
+
+6. Ortam adı altında gerekli ayarlamak **Azure uygulama hizmeti adını**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\107.png)
+
+7. Girin **barındırılan VS2017** barındırılan Azure bulut ortamı için aracı sıra altında.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\108.png)
+
+8. Azure uygulama hizmeti Dağıt menüde geçerli seçin **paket veya klasör** ortamı için. Seçin **Tamam** için **klasör konumu**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\109.png)
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\110.png)
+
+9. Tüm değişiklikleri kaydetmek ve geri dönüp **yayın ardışık düzen**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\111.png)
+
+10. Ekleme bir **yeni yapı** Azure yığın uygulama için derleme seçme.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\112.png)
+
+11. Bir daha fazla ortam uygulama Ekle **Azure uygulama hizmeti dağıtımı**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\113.png)
+
+12. Yeni ortam adı **Azure yığın**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\114.png)
+
+13. Azure yığın ortamı altında Bul **görev** sekmesi.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\115.png)
+
+14. Seçin **abonelik** Azure yığın uç noktası için.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\116.png)
+
+15. Azure yığın web uygulaması adı olarak ayarlanmış **uygulama hizmet adı**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\117.png)
+
+16. Seçin **Azure yığın Aracısı**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\118.png)
+
+17. Azure uygulama hizmeti Dağıt altında bölümü seçmek geçerli **paket veya klasör** ortamı için. İçin Tamam'ı seçin **klasör konumu**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\119.png)
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\120.png)
+
+18. Değişken sekmesi altında adlı bir değişken Ekle **VSTS_ARM_REST_IGNORE_SSL_ERRORS**, değer olarak ayarlanmış **true**ve için kapsam **Azure yığın**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\121.png)
+
+19. Seçin **sürekli** dağıtımı tetiklemek hem yapıları simgesine ve devam eder dağıtım tetikleyici etkinleştirin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\122.png)
+
+20. Seçin **dağıtım öncesi** koşullar simgesi Azure yığın ortamını ve tetikleyici kümesine **sürümünden sonra**.
+
+21. Tüm değişiklikleri kaydedin.
+
+> [!note]  
+> Görevler için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenleri](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bir şablondan bir yayın tanımı oluşturduğunuzda. Bu ayarlar görev ayarlarında değiştirilemez; Bunun yerine, bu ayarları düzenlemek için üst ortam öğesi seçmelisiniz.
+
+## <a name="create-a-release"></a>Sürüm oluşturma
+
+Yayın tanımı için yapılan değişiklikleri tamamladığınıza göre dağıtım başlangıç zamanı geldi. Bunu yapmak için yayın tanımı sürüm oluşturun. Bir yayın otomatik olarak oluşturulabilir; Örneğin, sürekli dağıtım tetikleyici yayın tanımı'nda ayarlanır. Bu kaynak kodun değiştirilmesiyle yeni bir yapı başlar anlamına gelir ve bundan, yeni bir sürüm. Ancak, bu bölümde, yeni bir sürüm el ile oluşturacaksınız.
+
+1. Açık **yayın** aşağı açılan listesinde ve seçin **sürüm oluşturma**.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\200.png)
+ 
+2. Yayın için bir açıklama girin, doğru yapıları seçilir ve ardından denetleyin **oluşturma**. Birkaç dakika sonra yeni sürüm oluşturulduğunu belirten bir başlık görüntülenir. Bağlantı (yayın adı) seçin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\201.png)
+ 
+3. Yayın Özet sayfasını gösteren yayın ayrıntılarını açar. İçinde **ortamları** bölümünde, "Başarılı" "IN ilerlemesini" Değiştir "Kalite güvence" ortam dağıtım durumunu görürsünüz ve bu noktada, yayın şimdi onay bekliyor belirten bir başlık görüntülenir. Bilgi simgesi, bir ortam için bir dağıtım bekliyor ya da başarısız oldu, mavi (i) gösterilir. Bu nedenle içeren bir açılır pencere görmek için gelin.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\202.png)
+
+Sürümler, listesi gibi diğer görünümleri de görüntü onay belirten bir simge beklemede. Simgenin üzerine ortam adı ve daha fazla ayrıntı içeren bir açılır pencere gösterir. Bu, hangi sürümlerinin tüm sürümleri genel ilerlemesi yanı sıra, onay bekleyen görmek bir yöneticinin kolaylaştırır.
+
+### <a name="monitor-and-track-deployments"></a>İzleyicisi ve izleme dağıtımları
+
+Bu bölümde, nasıl izleyeceğiniz görürsünüz ve dağıtımları - iki Azure App Services Web sitelerine - Bu örnekte önceki bölümde oluşturduğunuz sürümünden izleyebilirsiniz.
+
+1. Özet sayfasında sürüm seçin **günlükleri** bağlantı. Dağıtım işlemi gerçekleşirken, bu sayfayı dinamik günlüğü aracısından ve sol bölmede, göstergesidir her ortam için dağıtım işlemi her bir işlemin durumunu gösterir.
+
+    Simgeyi seçin **eylem** sütun kimin ayrıntılarını görmek dağıtım öncesi veya dağıtım sonrası bir onayı için onaylayan (veya reddeden) dağıtım ve ileti bu kullanıcı tarafından sağlanan.
+
+2. Dağıtım tamamlandıktan sonra tüm günlük dosyasını sağ bölmede görüntülenir. Birini seçin **işlem adımları** yalnızca günlük dosyası içeriği bu adım için göstermek için sol bölmedeki. Bu, izleme ve tek tek parçaları genel dağıtım hatalarını ayıklamak kolaylaştırır. Alternatif olarak, ayrı günlük dosyalarına veya günlük dosyalarının zip simgeler ve sayfasındaki bağlantıları indirir.
+
+    ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\203.png)
+ 
+3. Açık **Özet** yayın genel ayrıntılarını görmek için sekmesini. Derleme ve dağıtılan - dağıtım durumunu ve sürümü hakkında diğer bilgi ile birlikte ortamları ayrıntılarını gösterir.
+
+4. Her birini seçin **ortam bağlantılar** bekleyen dağıtımların o belirli bir ortama ve varolan hakkında daha fazla ayrıntı görmek için. Bu sayfa, aynı yapı için her iki ortama dağıtılan doğrulamak için kullanabilirsiniz.
+
+5. Açık **üretim uygulama** , Gözat içinde. Örneğin, bir Azure App Services Web sitesi URL'den `http://[your-app-name].azurewebsites.net`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir karma oluşturmak öğrendiniz CI/CD kanal:
 
-> [!div class="checklist"]
-> * Başlatır, Visual Studio Team Services (VSTS) deponuza koduna göre yeni bir yapı kaydeder.
-> * Kullanıcı kabul testi için otomatik olarak yeni oluşturulan kodunuzu Azure'a dağıtır.
-> * Kodunuzu test geçtiğinde Azure yığını tarafından otomatik olarak dağıtır. 
-
-Bir karma CI/CD ardışık sahip olduğunuza göre Azure yığın uygulama geliştirmek nasıl öğrenerek devam edin.
-
-> [!div class="nextstepaction"]
-> [Azure Stack için geliştirme](azure-stack-developer.md)
-
-
+- Azure bulut desenleri hakkında daha fazla bilgi için bkz: [bulut tasarım modeli](https://docs.microsoft.com/azure/architecture/patterns).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -27,7 +27,7 @@ Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazılar
 Lütfen şu adresi ziyaret [Azure fiyatlandırma genel bakış](https://azure.microsoft.com/pricing/) Azure fiyatlandırma hakkında daha fazla bilgi edinmek için. Burada, kullanarak maliyetlerinizi tahmin edebilirsiniz [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) veya bir hizmet için fiyatlandırma ayrıntıları sayfasını ziyaret (örneğin, [Windows Vm'lerini](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Maliyetlerinizi yönetmenize yardımcı olmak ipuçları için bkz: [Azure faturalama ve maliyet yönetimi ile beklenmeyen maliyetleri önlemek](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Sınırı veya kotası yukarıdaki yükseltmek istiyorsanız **varsayılan sınır**, [ücretsiz bir çevrimiçi müşteri destek isteği açma](azure-supportability/resource-manager-core-quotas-request.md). Yukarıdaki sınırları yükseltilemez **sınırı** aşağıdaki tabloda gösterilen değeri. Varsa hiçbir **sınırına** sütun sonra kaynak ayarlanabilir sınırlar yok.
+> Sınırı veya kotası yukarıdaki yükseltmek istiyorsanız **varsayılan sınır**, [ücretsiz bir çevrimiçi müşteri destek isteği açma](azure-resource-manager/resource-manager-quota-errors.md). Yukarıdaki sınırları yükseltilemez **sınırı** aşağıdaki tabloda gösterilen değeri. Varsa hiçbir **sınırına** sütun sonra kaynak ayarlanabilir sınırlar yok.
 >
 > [Deneme abonelikleri serbest](https://azure.microsoft.com/offers/ms-azr-0044p) sınırı veya kotası artışları için uygun değilsiniz. Varsa bir [ücretsiz deneme aboneliği](https://azure.microsoft.com/offers/ms-azr-0044p), Yükseltme yapabileceğiniz bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) abonelik. Daha fazla bilgi için bkz: [yükseltme Azure ücretsiz deneme sürümü için Kullandıkça Öde](billing/billing-upgrade-azure-subscription.md) ve [ücretsiz deneme aboneliği SSS](https://azure.microsoft.com/free/free-account-faq).
 >
@@ -53,7 +53,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [Otomasyon](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
-* [Azure eşlemeleri](#azure-maps-limits)
+* [Azure Haritalar](#azure-maps-limits)
 * [Azure Redis Önbelleği](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: c817964ebab358f8e31e7435b7067fc60e9516fa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ Azure AD Graph API aşağıdaki özellikleri sağlar:
 * **Azure AD ile kimlik doğrulaması**: bir JSON Web Token (JWT) isteğinin yetkilendirme üst ekleyerek Azure AD Graph API her isteğin kimliğinin doğrulanması gerekir. Bu belirteç, Azure AD belirteç uç noktası için istekte ve geçerli kimlik bilgilerini sağlayan alınır. OAuth 2.0 istemci kimlik bilgileri akışını kullanabilir veya yetki kodu izin akışı grafiği çağırmak üzere bir belirteç almak üzere. Daha fazla bilgi için [OAuth 2.0 Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * **Rol tabanlı yetkilendirme (RBAC)**: güvenlik grupları, Azure AD grafik API'si RBAC gerçekleştirmek için kullanılır. Örneğin, bir kullanıcının belirli bir kaynağa erişim izni olup olmadığını, uygulamayı çağırabilir belirlemek istiyorsanız [grup üyeliğini denetleyin (Geçişli)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) true veya false döndürür işlemi.
 * **Fark sorgu**: fark sorgu, Azure AD grafik API'sine sık sorguları yapmak zorunda kalmadan iki dönemleri arasında bir dizinde değişiklikleri izlemek sağlar. Bu istek türü yalnızca önceki fark sorgu isteği ve geçerli istek arasında yapılan değişiklikler döndürür. Daha fazla bilgi için bkz: [Azure AD Graph API fark sorgu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Dizin genişletmeleri**: ou ekleyebilirsiniz özel özellikler dizin nesneleri için dış veri deposuna gerek kalmadan. Örneğin, uygulamanız her kullanıcı için Skype ID özelliği gerektiriyorsa, dizinde yeni özellik kaydedebilirsiniz ve her kullanıcı nesnesi üzerinde kullanım için kullanılabilir. Daha fazla bilgi için bkz: [Azure AD Graph API Directory şema uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **Dizin genişletmeleri**: dış veri deposuna gerek kalmadan directory nesnelerine özel özellikleri ekleyebilirsiniz. Örneğin, uygulamanız her kullanıcı için Skype ID özelliği gerektiriyorsa, dizinde yeni özellik kaydedebilirsiniz ve her kullanıcı nesnesi üzerinde kullanım için kullanılabilir. Daha fazla bilgi için bkz: [Azure AD Graph API Directory şema uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **İzin kapsamları tarafından güvenliği sağlanan**: Azure AD Graph API OAuth 2.0 kullanan Azure AD verilere güvenli erişim sağlayan izin kapsamları kullanıma sunar. İstemci uygulama türleri dahil olmak üzere, çeşitli destekler:
   
   * Temsilci yetkilendirme aracılığıyla verilere (temsilci) oturum açmış kullanıcıdan dosyaya erişen kullanıcı arabirimleri

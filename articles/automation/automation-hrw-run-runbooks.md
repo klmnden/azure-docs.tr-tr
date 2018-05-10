@@ -5,20 +5,20 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6fc89469e1a9b2d7142e38f7aea5596fc9adb4e4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1ed82a199fbee44d3cd9df7f5416c4e243d9d191
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde çalışan runbook'ları
 
 Azure Automation ve karma Runbook çalışanı üzerinde çalışacak çalışan runbook'ları yapısını fark yoktur. Her ile kullandığınız runbook'ları kaynakları yerel bilgisayarda veya dağıtıldığı, runbook'ları sırasında yerel ortamında kaynaklara karşı bir karma Runbook çalışanı genellikle hedefleyen runbook'ları yönetmek beri büyük olasılıkla ancak önemli ölçüde farklı Azure Otomasyonu, Azure bulut kaynaklarında genellikle yönetin.
 
-Runbook'ları karma Runbook çalışanı üzerinde çalışacak şekilde yazarken, düzenlemek ve karma çalışanı barındıran makine içindeki runbook'ları test gerekir. Konak makine tüm PowerShell modülleri ve ağ erişimini yönetmek ve yerel kaynaklara erişmek için ihtiyacınız vardır. Bir runbook düzenlenmesi ve karma çalışanı makinede test sonra ardından karma çalışanı çalıştırmak kullanılabilir olduğu bir Azure Otomasyonu ortama karşıya yükleyebilirsiniz. İşlerini küçük farklılıklar bu dikkate alınması gereken bir karma Runbook çalışanı için runbook'ları yazma olduğunda ortaya çıkarabilir ve yerel sistem hesabı altında çalışacak bilmeniz önemlidir.
+Runbook'ları karma Runbook çalışanı üzerinde çalışacak şekilde yazarken, düzenlemek ve karma çalışanı barındıran makine içindeki runbook'ları test gerekir. Konak makine tüm PowerShell modülleri ve ağ erişimini yönetmek ve yerel kaynaklara erişmek için ihtiyacınız vardır. Bir runbook düzenlenmesi ve karma çalışanı makinede test sonra ardından karma çalışanı çalıştırmak kullanılabilir olduğu bir Azure Otomasyonu ortama karşıya yükleyebilirsiniz. İşlerini windows için yerel sistem hesabı veya özel bir kullanıcı hesabı altında çalıştığını bilmeniz önemlidir **nxautomation** Linux üzerinde hangi tanıtmak farklar runbook'lar olmalıdır bir karma Runbook çalışanının yazarken hesaba.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Karma Runbook çalışanını runbook başlatma
 
@@ -28,12 +28,12 @@ Azure portalında bir runbook'u başlattığınızda ile sunulan bir **çalışt
 
 Kullanım **RunOn** parametresi. Windows PowerShell kullanarak MyHybridGroup adlı bir karma Runbook çalışan grubu üzerinde Test-Runbook adlı bir runbook'u başlatmak için aşağıdaki komutu kullanabilirsiniz.
 
-```powershell-interactive
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> **RunOn** parametresi eklendiği **başlangıç AzureAutomationRunbook** 0.9.1 sürümünde Microsoft Azure PowerShell cmdlet'i. Yapmanız gerekenler [en son sürümü karşıdan](https://azure.microsoft.com/downloads/) yüklü daha önceki bir varsa. Yalnızca bir iş istasyonunda burada Windows Powershell'den runbook başlatılıyor bu sürümü yüklemeniz gerekir. Bu bilgisayardan runbook'ları başlatmak düşünmüyorsanız çalışan bilgisayara yüklemeniz gerekmez. Bu Otomasyon hesabınızda yüklenecek Azure Powershell en son sürümünü gerektirir olduğundan başka bir runbook'tan bir karma Runbook çalışanı üzerinde şu anda bir runbook başlatılamıyor. En son sürümü Azure Otomasyonu'nda otomatik olarak güncelleştirilir ve otomatik olarak çalışanlarına en kısa sürede gönderilen.
+> **RunOn** parametresi eklendiği **başlangıç AzureAutomationRunbook** 0.9.1 sürümünde Microsoft Azure PowerShell cmdlet'i. Yapmanız gerekenler [en son sürümü karşıdan](https://azure.microsoft.com/downloads/) yüklü daha önceki bir varsa. Yalnızca bir iş istasyonunda nerede Powershell'den runbook başlatılıyor bu sürümü yüklemeniz gerekir. Bu bilgisayardan runbook'ları başlatmak düşünmüyorsanız çalışan bilgisayara yüklemeniz gerekmez"
 
 ## <a name="runbook-permissions"></a>Runbook izinleri
 
@@ -41,11 +41,11 @@ Bir karma Runbook çalışanı üzerinde çalışan runbook'ları, genellikle Az
 
 ### <a name="runbook-authentication"></a>Runbook kimlik doğrulaması
 
-Eriştiklerinde kaynakları için kendi kimlik doğrulaması sağlamanız gerekir varsayılan olarak, runbook'lar şirket içi bilgisayarda yerel sistem hesabı bağlamında çalışır.
+Varsayılan olarak, Windows ve özel bir kullanıcı hesabı için runbook'ları yerel sistem hesabı bağlamında çalışır **nxautomation** şirket içi bilgisayardaki Linux için böylece gerekir sağladıkları eriştiklerinde kaynakları için kendi kimlik doğrulaması .
 
 Kullanabileceğiniz [kimlik bilgisi](automation-credentials.md) ve [sertifika](automation-certificates.md) varlıklar runbook'unuzda cmdlet'leri farklı kaynaklarda kimlik doğrulaması için kimlik bilgilerini belirtmenizi sağlar. Aşağıdaki örnek, bir bilgisayarı yeniden başlatır bir runbook bir kısmı gösterir. Kimlik bilgilerini bir kimlik bilgisi varlığı ve değişken varlığı bilgisayardan adını alır ve ardından bilgisayarı yeniden başlat cmdlet'iyle bu değerleri kullanır.
 
-```powershell-interactive
+```azurepowershell-interactive
 $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
 $Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
 
@@ -56,7 +56,7 @@ Ayrıca yararlanabilirsiniz [Inlinescript](automation-powershell-workflow.md#inl
 
 ### <a name="runas-account"></a>RunAs hesabı
 
-Belirleyebileceğiniz yerel kaynakları için kendi kimlik doğrulaması runbook'ları sahip olmak yerine bir **RunAs** hesap için bir karma çalışanı grubu. Belirttiğiniz bir [kimlik bilgisi varlığı](automation-credentials.md) yerel kaynaklara erişimi olan ve gruptaki bir karma Runbook çalışanı üzerinde çalışan tüm runbook'ları bu kimlik bilgileri altında çalıştırın.
+Varsayılan olarak yerel sistem Windows için ve özel bir kullanıcı hesabı karma Runbook çalışanı kullanır **nxautomation** runbook'ları yürütmesine Linux için. Belirleyebileceğiniz yerel kaynakları için kendi kimlik doğrulaması runbook'ları sahip olmak yerine bir **RunAs** hesap için bir karma çalışanı grubu. Belirttiğiniz bir [kimlik bilgisi varlığı](automation-credentials.md) yerel kaynaklara erişimi olan ve gruptaki bir karma Runbook çalışanı üzerinde çalışan tüm runbook'ları bu kimlik bilgileri altında çalıştırın.
 
 Kullanıcı adı kimlik bilgisi için aşağıdaki biçimlerden birinde olmalıdır:
 
@@ -79,7 +79,7 @@ Azure'daki kaynakların dağıtımı için otomatik yapı işleminizin bir parç
 
 Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Automation hesabınızdan farklı çalıştır sertifika verir ve indirir ve bunu bir karma yerel makine sertifika deposuna aktarır çalışan aynı hesaba bağlı. Bu adım tamamlandıktan sonra çalışan farklı çalıştır hesabını kullanarak Azure kimlik doğrulamasını başarıyla doğrular.
 
-```powershell-interactive
+```azurepowershell-interactive
 <#PSScriptInfo
 .VERSION 1.0
 .GUID 3a796b9a-623d-499d-86c8-c249f10a6986

@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
 editor: ''
-ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19a1ae7ae7acc6fe09a529dd174363735343027e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
@@ -35,7 +35,7 @@ Bu özellik birlikte "kendi uygulamanızı getir" özelliğine sahip Azure AD ç
 Azure Active Directory'de SCIM'yi kullanma iki kullanım örnekleri şunlardır:
 
 * **Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için sağlama** SCIM'yi 2.0 desteği ve yapılandırma olmadan Azure AD ile kimlik doğrulaması çalışır OAuth taşıyıcı belirteçlerini kullanmak uygulamalar.
-* **Diğer API tabanlı sağlama destekleyen uygulamalar için kendi sağlama çözümü derleme** SCIM'yi olmayan uygulamalar için Azure AD SCIM'yi uç noktası ve uygulama için kullanıcı destekleyen herhangi bir API'yi arasında çevirmek için SCIM'yi uç noktası oluşturabilirsiniz. sağlama. Bir SCIM'yi uç noktası geliştirmenize yardımcı olması için SCIM'yi uç noktası sağlamak ve SCIM'yi iletileri çevirmek nasıl Göster kod örnekleri birlikte ortak dil altyapısı (CLI) kitaplıkları sunuyoruz.  
+* **Uygulamalar için kendi sağlama çözümünü oluşturulmasını desteklemede diğer API tabanlı sağlama** SCIM'yi olmayan uygulamalar için Azure AD SCIM'yi uç noktası ve uygulama desteği herhangi bir API'yi arasında çevirmek için SCIM'yi uç noktası oluşturabilirsiniz. Kullanıcı hazırlama Bir SCIM'yi uç noktası geliştirmenize yardımcı olması için SCIM'yi uç noktası sağlamak ve SCIM'yi iletileri çevirmek nasıl Göster kod örnekleri birlikte ortak dil altyapısı (CLI) kitaplıkları vardır.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için hazırlama
 Azure AD, otomatik olarak sağlama atanan kullanıcılar ve gruplar kullanan uygulamalar için yapılandırılabilir bir [sistemi için etki alanları arası Kimlik Yönetimi 2 (SCIM'yi)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web hizmeti ve kimlik doğrulaması için OAuth taşıyıcı belirteçlerini kabul edin. SCIM'yi 2.0 belirtimi içinde uygulamalar bu gereksinimleri karşılamalıdır:
@@ -56,7 +56,7 @@ Bu makalede açıklanan SCIM'yi profili destekleyen uygulamalar Azure AD uygulam
 **SCIM'yi destekleyen bir uygulama bağlanmak için:**
 
 1. Oturum [Azure portalı](https://portal.azure.com). 
-2. Gözat ** Azure Active Directory > Kurumsal uygulamaları ve select **yeni uygulama > tüm > olmayan galeri uygulama**.
+2. Gözat **Azure Active Directory > Kurumsal uygulamalar**seçip **yeni uygulama > tüm > olmayan galeri uygulama**.
 3. Uygulamanız için bir ad girin ve tıklayın **Ekle** uygulama nesne oluşturmak için simge.
     
   ![][1]
@@ -131,12 +131,12 @@ Azure AD'den sağlama isteklerini kabul edebilir bir SCIM'yi uç noktası uygula
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
 8. Altında Windows'ta **Windows Ayarları > Ağ ve Internet ayarlarını**seçin **Windows Güvenlik Duvarı > Gelişmiş ayarları**ve oluşturma bir **gelen kuralı** 9000 numaralı bağlantı noktasına gelen erişim sağlar.
-9. Windows makine yönlendiricisi arkasında ise, yönlendirici, bağlantı noktası Internet'e açık 9000 ve bağlantı noktası 9000 Windows makinede arasındaki ağ erişim çevirisi gerçekleştirecek şekilde yapılandırılması gerekir. Bu bulutta Bu uç noktasına erişmek Azure AD için gereklidir.
+9. Windows makine yönlendiricisi arkasında ise, yönlendirici, bağlantı noktası Internet'e açık 9000 ve bağlantı noktası 9000 Windows makinede arasındaki ağ erişim çevirisi gerçekleştirecek şekilde yapılandırılması gerekir. Bu yapılandırma Bu uç noktaya bulutta erişebilmeleri Azure AD için gereklidir.
 
 **Azure AD'de örnek SCIM'yi uç noktasını kaydetmek için:**
 
 1. Oturum [Azure portalı](https://portal.azure.com). 
-2. Gözat ** Azure Active Directory > Kurumsal uygulamaları ve select **yeni uygulama > tüm > olmayan galeri uygulama**.
+2. Gözat **Azure Active Directory > Kurumsal uygulamalar**seçip **yeni uygulama > tüm > olmayan galeri uygulama**.
 3. Uygulamanız için bir ad girin ve tıklayın **Ekle** uygulama nesne oluşturmak için simge. Oluşturulan uygulama nesnesi olmaları için sağlama ve çoklu oturum açma için ve yalnızca SCIM'yi uç uygulama hedef uygulama temsil etmek üzere tasarlanmıştır.
 4. Sonuçta elde edilen ekranında şunları seçin **sağlama** sol sütunda sekmesi.
 5. İçinde **sağlama modu** menüsünde, select **otomatik**.
@@ -144,7 +144,7 @@ Azure AD'den sağlama isteklerini kabul edebilir bir SCIM'yi uç noktası uygula
   ![][2]
   *Şekil 4: Azure portalında sağlama yapılandırma*
     
-6. İçinde **Kiracı URL** alanında, Internet kullanıma sunulan URL ve bağlantı noktası SCIM'yi uç noktanızı girin. Bu gibi bir şey olacaktır http://testmachine.contoso.com:9000 veya http://<ip-address>:9000/, burada < IP adresi >, internet sunulan IP adresi.  
+6. İçinde **Kiracı URL** alanında, Internet kullanıma sunulan URL ve bağlantı noktası SCIM'yi uç noktanızı girin. Aşağıdakine benzer bir giriştir http://testmachine.contoso.com:9000 veya http://<ip-address>:9000/, burada < IP adresi >, internet sunulan IP adresi.  
 7. Ardından SCIM'yi uç noktanın bir OAuth taşıyıcı belirtecinden Azure AD dışında bir veren gerektiriyorsa, gerekli OAuth taşıyıcı belirteci isteğe bağlı kopyalamak **gizli belirteci** alan. Bu alan boş bırakılırsa, Azure AD her istek ile Azure AD tarafından verilen bir OAuth taşıyıcı belirteci dahil edilir. Azure AD kimlik sağlayıcısı bu Azure AD doğrulayabilirsiniz olarak kullanan uygulamaları-belirteç.
 8. Tıklatın **Bağlantıyı Sına** SCIM'yi bitiş noktasına bağlanmaya Azure Active Directory için düğmesi. Deneme başarısız olursa hata bilgileri görüntülenir.  
 9. Uygulama başarılı için bağlanmaya çalışırsa sonra tıklatırsanız **kaydetmek** yönetici kimlik bilgilerini kaydetmek için.
@@ -239,7 +239,7 @@ CLI kitaplıkları kullanarak, bu kitaplığı kullanan geliştiriciler kendi Hi
     }
     }
 
-Bu hizmet kök sertifika yetkilisi aşağıdakilerden biri olduğu bir HTTP adresi ve bir sunucu kimlik doğrulama sertifikası olması gerekir: 
+Bu hizmet kök sertifika yetkilisi aşağıdaki adlarından birini olduğu bir HTTP adresi ve bir sunucu kimlik doğrulama sertifikası olması gerekir: 
 
 * CNNIC
 * Comodo
@@ -347,12 +347,12 @@ Geliştiriciler SCIM'yi hizmet oluşturmak için Microsoft tarafından sağlanan
 ## <a name="user-and-group-schema"></a>Kullanıcı ve Grup şeması
 Azure Active Directory iki tür kaynak SCIM'yi web hizmetlerine sağlayabilirsiniz.  Bu kaynakların kullanıcılar ve gruplar türleridir.  
 
-Kullanıcı kaynakları şema tanımlayıcısı, bu protokolü belirtimi içinde bulunan urn: ietf:params:scim:schemas:extension:enterprise:2.0:User tanımlanır: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Azure Active Directory'de kullanıcıları urn: ietf:params:scim:schemas:extension:enterprise:2.0:User kaynakları özniteliklerinin özniteliklerinin varsayılan eşleme Tablo 1, aşağıda verilmiştir.  
+Kullanıcı kaynakları "urn: Bu protokolü belirtimi içinde bulunan ietf:params:scim:schemas:extension:enterprise:2.0:User", şema tanımlayıcısı tarafından tanımlanır: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Varsayılan eşleme "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" kaynakları özniteliklerini Azure Active Directory'de kullanıcılara özniteliklerinin Tablo 1, aşağıda verilmiştir.  
 
 Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tablo aşağıda gösterildiği 2 özniteliklerini Azure Active Directory gruplarına özniteliklerinin varsayılan eşleme http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group kaynakları.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tablo 1: Varsayılan kullanıcı özniteliği eşlemesi
-| Azure Active Directory kullanıcısı | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory kullanıcısı | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |etkin |
 | Görünen adı |Görünen adı |
@@ -534,7 +534,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  Değer öznitelikleri sorgu parametresinin kimliği güveninin, bir kullanıcı nesnesi filtre sorgu parametresi değeri olarak sağlanan ifade karşılayan varsa, ardından hizmeti yalnızca o kaynağın Kimliği özniteliğinin değeri de dahil olmak üzere urn: ietf:params:scim:schemas:core:2.0:User veya urn: ietf:params:scim:schemas:extension:enterprise:2.0:User sahip bir kaynak, yanıt vermesi bekleniyor.  Değeri **kimliği** istek sahibine bilinen öznitelik. Filtre sorgu parametresi değeri içinde bulunur; Filtre ifadesinin olup olmadığına böyle bir nesne var olan bir göstergesi olarak çağıran bir kaynak en az bir gösterimini istemek üzere söylemelisiniz amacı gerçekte var.   
+  Değer öznitelikleri sorgu parametresinin "id" güveninin, bir kullanıcı nesnesi filtre sorgu parametresi değeri olarak sağlanan ifade karşılayan varsa, sonra hizmet yanıt beklenen bir "urn: ietf:params:scim:schemas:core:2.0: Yalnızca bu kaynağın "id" özniteliğinin değeri de dahil olmak üzere kullanıcı"veya"urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"kaynak.  Değeri **kimliği** istek sahibine bilinen öznitelik. Filtre sorgu parametresi değeri içinde bulunur; Filtre ifadesinin olup olmadığına böyle bir nesne var olan bir göstergesi olarak çağıran bir kaynak en az bir gösterimini istemek üzere söylemelisiniz amacı gerçekte var.   
 
   Hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, istek sorgu yöntemi hizmet sağlayıcı için bir çağrı çevrilir. Parametre bağımsız değişkenin değeri sağlanan nesne özelliklerini değeri aşağıdaki gibidir: 
   

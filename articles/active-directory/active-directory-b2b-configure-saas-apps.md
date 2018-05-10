@@ -1,26 +1,20 @@
 ---
-title: "Azure Active Directory'de SaaS uygulamaları B2B işbirliği için yapılandırma | Microsoft Docs"
-description: "Azure Active Directory B2B işbirliği için PowerShell ve kod örnekleri"
+title: Azure Active Directory'de SaaS uygulamaları B2B işbirliği için yapılandırma | Microsoft Docs
+description: Azure Active Directory B2B işbirliği için PowerShell ve kod örnekleri
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e2206ca8ddee867b9ea48911f70793010989ad69
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 36fe82311b180a1dbe4fb81b78f10482cb8bb4ac
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamaları B2B işbirliği için yapılandırma
 
@@ -105,13 +99,8 @@ Dropbox davetlilerin gibi kutusunu davetlilerin Box uygulamasına kendi davetini
 
 Azure AD B2B işbirliği aşağıdaki makalelere bakın:
 
-* [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
-* [Bir role B2B işbirliği kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
-* [B2B işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
-* [Dinamik gruplar ve B2B işbirliği](active-directory-b2b-dynamic-groups.md)
-* [B2B işbirliği kodu ve PowerShell örnekleri](active-directory-b2b-code-samples.md)
-* [B2B işbirliği kullanıcı belirteçleri](active-directory-b2b-user-token.md)
-* [B2B işbirliği kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
-* [Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
-* [B2B işbirliği geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
+- [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Dinamik gruplar ve B2B işbirliği](active-directory-b2b-dynamic-groups.md)
+- [B2B işbirliği kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
+- [Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
+

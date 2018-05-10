@@ -3,23 +3,23 @@ title: Bağlantılar ve URL'leri Azure AD uygulaması Proxy Çevir | Microsoft D
 description: Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5009266dc2cbea360ef9c5dfa69fc2c13225d8cd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: e2057241065ecefbbcd398ddf482961359f51de7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantı yeniden yönlendirme
 
@@ -113,7 +113,7 @@ Bağlantı çevirisi ile çalışmaya başlama düğmesi olarak kadar kolaydır:
 
 Kullanıcıların bu uygulamayı eriştiğinizde, artık, proxy otomatik olarak uygulama proxy'si aracılığıyla Kiracı'yayımlandı iç URL'ler için tarar.
 
-## <a name="send-feedback"></a>Geri bildirim gönderin
+## <a name="send-feedback"></a>Seslenme iber
 
 Bu özellik, uygulamalarınız için iş yapmak için Yardım istiyoruz. 30 etiketleri HTML ve CSS arayın. Çevrildiğini olmayan oluşturulan bağlantıları örneği varsa, bir kod parçacığı göndermeniz [uygulama Proxy geri bildirim](mailto:aadapfeedback@microsoft.com). 
 

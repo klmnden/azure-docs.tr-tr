@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services kavramları
 Bu konu en önemli Media Services kavramları hakkında genel bakış sağlar.
@@ -108,7 +108,7 @@ Desteklenen kodlayıcılar hakkında daha fazla bilgi için bkz: [kodlayıcılar
 Azure Media Services ile bir kanal canlı akış içeriğinin işlemek için bir işlem hattı temsil eder. Bir kanal Canlı giriş akışları iki yoldan biriyle alır:
 
 * Bir şirket içi gerçek zamanlı Kodlayıcı, Çoklu bit hızlı RTMP veya kesintisiz akış (parçalanmış MP4) kanala gönderir. Çoklu bit hızlı kesintisiz akış çıkışı aşağıdaki gerçek zamanlı Kodlayıcıları kullanabilirsiniz: MediaExcel, Ateme, düşünün iletişimleri, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıkışı: Adobe Flash Live Kodlayıcı, Telestream Wirecast, Teradek, Haivision ve Tricaster kodlayıcılar. Alınan akışların kanallardan başka kodlama dönüştürme ve kodlama geçirin. İstendiğinde, Media Services akışı müşterilere teslim eder.
-* Tek bit hızlı akış (aşağıdaki biçimlerden birinde: RTP (MPEG-TS)), RTMP veya kesintisiz akış (parçalanmış MP4)) Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala gönderilir. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Tek bit hızlı akış (aşağıdaki biçimlerden birinde: RTMP veya kesintisiz akış (parçalanmış MP4)) Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala gönderilir. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
 ### <a name="channel"></a>Kanal
 Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s canlı akış içeriğinin işlemekten sorumlu. Bir giriş uç noktası bir kanal sağlar (URL alma) için dinamik bir dönüştürücü ardından sağlayın. Kanal, Canlı giriş akışları Canlı dönüştürücü alır ve bir veya daha fazla Akış akış için kullanılabilir hale getirir. Kanal Önizleme ve başka bir işleme ve teslim önce akışınızı doğrulamak için kullanacağınız bir önizleme uç noktası (Önizleme URL) de sağlar.

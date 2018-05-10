@@ -1,32 +1,35 @@
 ---
-title: "Azure Active Directory oturum açma etkinliği raporu API Başvurusu | Microsoft Docs"
-description: "Azure Active Directory oturum açma etkinliği raporu API Başvurusu"
+title: Azure Active Directory oturum açma etkinliği raporu API Başvurusu | Microsoft Docs
+description: Azure Active Directory oturum açma etkinliği raporu API Başvurusu
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dbb95b5910def55437f05837986e850824fbe741
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory oturum açma etkinliği raporu API Başvurusu
-Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.  
-Azure AD raporlama kodu veya ilgili araçları kullanarak oturum açma etkinliği rapor verilerine erişim sağlayan bir API ile sağlar.
-Hakkında başvuru bilgileri sağlamak için bu konunun kapsamı olan **oturum açma etkinliği raporu API işleminde**.
 
-Bkz.:
+> [!TIP] 
+> Yeni Microsoft Graph API'si kullanıma [raporlama](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), hangi sonunda yerini alacak bu API. 
+
+Bu makalede Azure Active Directory (Azure AD) ilgili makaleler koleksiyonu API Raporlama'nın bir parçasıdır. Azure AD raporlama kodu veya ilgili araçları kullanarak denetim veri erişmenizi sağlayan bir API ile sağlar.
+Hakkında başvuru bilgileri sağlamak için bu makalenin kapsamı olan **API denetim**.
+
+Bkz:
 
 * [Oturum açma etkinliklerini](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için
 * [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) raporlama API'si hakkında daha fazla bilgi için.
@@ -35,7 +38,7 @@ Bkz.:
 ## <a name="who-can-access-the-api-data"></a>API veri erişebilecek mi?
 * Kullanıcılar ve Güvenlik Yöneticisi veya güvenlik okuyucu rolü hizmet asıl adı
 * Genel Yöneticiler
-* API erişme yetkisi olan herhangi bir uygulama (app yetkilendirme olabilir Kurulum genel yöneticinin iznine dayanılarak yalnızca)
+* API erişme yetkisi olan herhangi bir uygulama (app yetkilendirme ayarlanabilir genel yöneticinin iznine dayanılarak yalnızca)
 
 Oturum açma olayları gibi güvenlik API'leri erişmek bir uygulama için erişim yapılandırmak için güvenlik okuyucu rolüne uygulamalara hizmet sorumlusu eklemek için aşağıdaki PowerShell kullanın
 
@@ -53,30 +56,29 @@ Bu rapor raporlama API aracılığıyla erişmek için şunlara sahip olmalısı
 * Tamamlanan [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>API erişme
-Bu API aracılığıyla da erişebilirsiniz [Graph Explorer'a](https://graphexplorer2.cloudapp.net) veya program aracılığıyla, örneğin, PowerShell kullanarak. AAD grafik REST çağrılarında kullanılan OData filtresi sözdizimi doğru şekilde yorumlamaya PowerShell sırayla backtick kullanmanız gerekir (diğer adıyla: Vurgu) "$ karakterini atlamak için" karakter. Backtick karakter gören [PowerShell'in kaçış karakteri](https://technet.microsoft.com/library/hh847755.aspx), sabit bir $ karakteri yorumu yapın ve PowerShell değişken adı olarak kafa karıştırıcı önlemek PowerShell izin verme (IE: $filter).
+Bu API aracılığıyla da erişebilirsiniz [Graph Explorer'a](https://graphexplorer2.cloudapp.net) veya program aracılığıyla, örneğin, PowerShell kullanarak. Backtick kullanın (diğer adıyla: Vurgu) "PowerShell AAD grafik REST çağrılarında kullanılan OData filtresi sözdizimini çevirebilir emin olmak için $ karakterini atlamak için" karakter. Backtick karakter gören [PowerShell'in kaçış karakteri](https://technet.microsoft.com/library/hh847755.aspx), sabit bir $ karakteri yorumu yapın ve bir PowerShell değişken adını (örneğin, $filter) kafa karıştırıcı önlemek PowerShell izin verme.
 
 Bu konunun odak Graph Explorer'a noktasıdır. Bu PowerShell örnek için bkz [PowerShell Betiği](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
-## <a name="api-endpoint"></a>API Endpoint
+## <a name="api-endpoint"></a>API uç noktası
 Bu API aşağıdaki temel URI'yi kullanarak erişebilirsiniz:  
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
 
 
 
-Veri hacmi nedeniyle, bu API bir milyon kayıtları döndürülen bir sınıra sahiptir. 
+Veri hacmi nedeniyle, bu API 1.000.000 döndürülen kayıtları bir sınıra sahiptir. 
 
-Bu çağrı verileri toplu olarak döndürür. Her toplu işlem en fazla 1000 kaydı var.  
-Sonraki toplu kayıt almak için sonraki bağlantıyı kullanın. Alma [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) ilk döndürülen kayıt kümesi bilgileri. Atla belirteci sonucu sonunda ayarlanır.  
+Bu çağrı verileri toplu olarak döndürür. Her toplu işlem en fazla 1000 kaydı var. Sonraki toplu kayıt almak için sonraki bağlantıyı kullanın. Alma [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) ilk döndürülen kayıt kümesi bilgileri. Atla belirteci sonucu sonunda ayarlanır.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Desteklenen filtreler
 Bir API tarafından döndürülen kayıt sayısını daraltabilirsiniz bir filtre formda çağırın.  
-Oturum açma için API ilgili verileri, aşağıdaki filtreleri desteklenir:
+Oturum açma API ile ilgili veriler için aşağıdaki filtreleri desteklenir:
 
-* **$top =\<döndürülecek kayıtları numara\>**  - döndürülen kayıt sayısını sınırlamak için. Bu pahalı bir işlemdir. Binlerce nesneyi dönmek istiyorsanız, bu filtre kullanmamanız gerekir.  
+* **$top =\<döndürülecek kayıtları numara\>**  - döndürülen kayıt sayısını sınırlamak için. Bu pahalı bir işlemdir. Binlerce nesneyi dönmek istiyorsanız, bu filtre kullanmayın.  
 * **$filter =\<filtre ifadesi\>**  -, desteklenen filtre alanları temel alarak çok önem verdiğiniz kayıtları türünü belirtmek için
 
 ## <a name="supported-filter-fields-and-operators"></a>Desteklenen filtre alanları ve işleçleri
@@ -146,7 +148,7 @@ UserId değeri bir dize değeridir
 UserPrincipalName değeri bir dize değeridir
 
 - - -
-### <a name="appid"></a>appId
+### <a name="appid"></a>AppID
 **İşleçler desteklenen**: eq
 
 **Örnek**:

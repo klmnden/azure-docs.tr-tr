@@ -1,24 +1,24 @@
 ---
-title: "Azure AD kullanarak uygulamalara erişimi yönetme | Microsoft Docs"
-description: "Nasıl Azure Active Directory her kullanıcı erişimi olan uygulamaları belirtmek kuruluşların açıklar."
+title: Azure AD kullanarak uygulamalara erişimi yönetme | Microsoft Docs
+description: Nasıl Azure Active Directory her kullanıcı erişimi olan uygulamaları belirtmek kuruluşların açıklar.
 services: active-directory
-documentationcenter: 
-author: femila
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-editor: 
-ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: markvi
-ms.openlocfilehash: 363478cb1bb2637a8c4f9cf36505817b163df781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 41b5eaf0fabcc57349df6694696cd8b8b11b9447
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sisteme tümleştirildikten sonra bir sınama devam etmektedir. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip uygulamalarınıza erişimi yönetme bir devam eden etkin rol gerçekleştirilecek. Bazı durumlarda, atama genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Genellikle, atama karar onaylarını BT yapar önce gerektiren iş karar veren temsilci amaçlanmıştır atama.  Varolan otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi tümleştirme, diğer kuruluşların yatırım. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya raporlama ya da Yönetim yaklaşımını kendi ayrı, pahalı ve karmaşık bir yatırımdır.

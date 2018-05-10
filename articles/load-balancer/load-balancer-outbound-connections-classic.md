@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
 
@@ -37,11 +37,11 @@ Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiğin
 
 Azure giden bağlantı Klasik dağıtımlar ulaşmak için üç farklı yöntem sağlar.  Tüm Klasik dağıtımlar için kullanılabilir tüm üç senaryo vardır:
 
-| Senaryo | Yöntem | Açıklama | Web çalışanı rolü | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. Örnek düzeyinde ortak IP adresi olan VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor |Azure sanal makine atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. | Hayır | Evet |
-| [2. ortak yük dengeli uç nokta](#publiclbendpoint) | Bağlantı noktası (PAT) için genel bir uç nokta maskelemeyi ile SNAT |Azure genel IP adresi ortak uç birden çok özel uç ile paylaşır. Azure PAT için genel bir uç nokta kısa ömürlü bağlantı noktalarını kullanır. | Evet | Evet |
-| [3. Tek başına VM ](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | Azure otomatik olarak snat Uygulamanız için bir ortak IP adresi belirler, bu ortak IP adresi ile tüm dağıtım paylaşımları ve PAT için ortak uç noktası IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryoları için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu yapmanız önerilmez. | Evet | Evet|
+| Senaryo | Yöntem | IP protokolleri | Açıklama | Web çalışanı rolü | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. Örnek düzeyinde ortak IP adresi olan VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP, ICMP, ESP | Azure sanal makine atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. | Hayır | Evet |
+| [2. ortak yük dengeli uç nokta](#publiclbendpoint) | Bağlantı noktası (PAT) için genel bir uç nokta maskelemeyi ile SNAT | TCP VE UDP | Azure genel IP adresi ortak uç birden çok özel uç ile paylaşır. Azure PAT için genel bir uç nokta kısa ömürlü bağlantı noktalarını kullanır. | Evet | Evet |
+| [3. Tek başına VM ](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP VE UDP | Azure otomatik olarak snat Uygulamanız için bir ortak IP adresi belirler, bu ortak IP adresi ile tüm dağıtım paylaşımları ve PAT için ortak uç noktası IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryoları için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu yapmanız önerilmez. | Evet | Evet |
 
 Bu Azure Resource Manager dağıtımları için kullanılabilen giden bağlantı işlevlerinin bir alt kümesidir.  
 

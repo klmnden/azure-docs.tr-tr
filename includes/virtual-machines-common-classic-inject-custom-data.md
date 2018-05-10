@@ -1,19 +1,19 @@
 
 
 
-Bu konuda açıklanmaktadır nasıl yapılır:
+Bu makalede nasıl yapılır:
 
 * Bunu sağlanan zaman veri bir Azure sanal makine (VM) yerleştirir.
 * Windows ve Linux için alın.
 * Özel araçlar kullanılabilir bazı sistemlerinde algılayabilir ve özel verileri otomatik olarak işlemek için kullanın.
 
 > [!NOTE]
-> Bu makalede nasıl özel veri Azure Hizmet Yönetimi API'si ile oluşturulan bir VM'yi kullanarak yerleştirilebilir. Azure kaynak yönetimi API kullanılması hakkında bilgi için bkz: [örnek şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> Bu makalede nasıl özel veri Klasik dağıtım modeli kullanılarak oluşturulmuş bir VM kullanarak yerleştirilebilir. Azure kaynak yönetimi API kullanılması hakkında bilgi için bkz: [örnek şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 > 
 > 
 
 ## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Azure sanal makineniz özel veri injecting
-Bu özellik yalnızca desteklenmekte [Azure komut satırı arabirimi](https://github.com/Azure/azure-xplat-cli). Burada oluşturuyoruz bir `custom-data.txt` bizim veri içeren dosyayı ardından Ekle, VM'ye sağlama sırasında. İçin seçeneklerden birini kullanabilir ancak `azure vm create` komutunu aşağıdaki çok basit bir yaklaşım gösterir:
+Bu özellik yalnızca desteklenmekte [Azure komut satırı arabirimi](https://github.com/Azure/azure-xplat-cli). Burada oluşturuyoruz bir `custom-data.txt` bizim veri içeren dosyayı ardından Ekle, VM'ye sağlama sırasında. İçin seçeneklerden birini kullanabilir ancak `azure vm create` komutu, aşağıdaki örnek, bir temel yaklaşım gösterir:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -36,10 +36,10 @@ Bu özellik yalnızca desteklenmekte [Azure komut satırı arabirimi](https://gi
   * `/var/lib/cloud/instance/user-data.txt` 
 
 ## <a name="cloud-init-on-azure"></a>Azure üzerinde bulut başlatma
-Azure VM Ubuntu veya CoreOS görüntüden ise, bir bulut-config bulut başlatma göndermek için CustomData kullanabilirsiniz. Veya özel veri dosyanızın bir komut dosyası ise, sonra bulut init yalnızca onu çalıştırabilirsiniz.
+Azure VM Ubuntu veya CoreOS görüntüden ise, bir bulut-config bulut başlatma göndermek için CustomData kullanabilirsiniz. Veya özel veri dosyanızın bir komut dosyası ise, sonra bulut init onu çalıştırabilirsiniz.
 
 ### <a name="ubuntu-cloud-images"></a>Ubuntu bulut görüntüleri
-Çoğu Azure Linux görüntülerinde düzenlemek istiyorum "/ etc/waagent.conf" geçici kaynak disk yapılandırma ve dosya değiştirme. Bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) daha fazla bilgi için.
+Çoğu Azure Linux görüntülerinde düzenlemek istiyorum "/ etc/waagent.conf" geçici kaynak disk yapılandırma ve dosya değiştirme. Bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](../articles/virtual-machines/extensions/agent-linux.md) daha fazla bilgi için.
 
 Ancak, Ubuntu bulut görüntülerinde bulut init kaynak disk (diğer bir deyişle, "kısa ömürlü" disk) yapılandırmak için kullanmanız gerekir ve takas bölüm. Daha fazla ayrıntı için Ubuntu Wiki'de aşağıdaki sayfaya bakın: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 

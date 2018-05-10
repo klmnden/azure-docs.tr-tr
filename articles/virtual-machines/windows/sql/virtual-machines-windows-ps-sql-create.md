@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2f0d9c42e32f2dd1181eac8d74c324b5ff2b0c53
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineler sağlamak nasıl
 
@@ -31,7 +31,7 @@ Bu makalede, Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerektiriy
 
 ## <a name="configure-your-subscription"></a>Aboneliğinizi yapılandırın
 
-1. PowerShell'i açın ve Azure hesabınıza erişimi çalıştırarak kurmak **Connect-AzureRmAccount** komutu.
+1. PowerShell'i açıp **Connect-AzureRmAccount** komutunu çalıştırarak Azure hesabınıza erişim sağlayın.
 
    ```PowerShell
    Connect-AzureRmAccount
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Sanal makine için işletim sistemi özelliklerini ayarlama
-Biz sanal makinenin işletim sistemi özellikleri ile ayarlamak artık [kümesi AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) , Windows işletim sisteminin türünü ayarlamak için cmdlet gerektiren [sanal makine aracısını](../agent-user-guide.md) Yüklenecek, cmdlet otomatik güncelleştirme sağlar belirtin ve sanal makine adı, bilgisayar adı ve daha önce başlatılmış değişkenler kullanarak kimlik bilgilerini ayarlayın.
+Biz sanal makinenin işletim sistemi özellikleri ile ayarlamak artık [kümesi AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) , Windows işletim sisteminin türünü ayarlamak için cmdlet gerektiren [sanal makine aracısını](../../extensions/agent-windows.md) Yüklenecek, cmdlet otomatik güncelleştirme sağlar belirtin ve sanal makine adı, bilgisayar adı ve daha önce başlatılmış değişkenler kullanarak kimlik bilgilerini ayarlayın.
 
 Sanal makine için işletim sistemi özelliklerini ayarlamak için aşağıdaki cmdlet'i çalıştırın.
 

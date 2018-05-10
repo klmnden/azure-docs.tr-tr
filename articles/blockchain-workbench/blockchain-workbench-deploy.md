@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 01f396b4a2b8851ce1433a297981d30328c113b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranı dağıtma
 
@@ -79,27 +79,6 @@ Ardından, uygulama bildirimini uygulama rolleri Blockchain çalışma ekranı y
 
 4.  Tıklatın **kaydetmek** uygulama bildirim değişiklikleri kaydedin.
 
-### <a name="add-graph-api-key-to-application"></a>Grafik API'si anahtarı için uygulama ekleme
-
-Blockchain çalışma ekranı blockchain uygulamaları ile etkileşim kullanıcılar için asıl kimlik yönetimi sistemi olarak Azure AD kullanır. Blockchain Azure AD erişim ve adlarını ve e-postalar, gibi kullanıcı bilgilerini almak çalışma ekranı sırada erişim tuşu eklemeniz gerekir. Blockchain çalışma ekranı anahtarı Azure AD ile kimlik doğrulaması yapmak için kullanır.
-
-1. Uygulamanın, kayıtlı seçin **ayarları** kayıtlı uygulama Ayrıntılar bölmesinde.
-2. **Anahtarlar**’ı seçin.
-3. Bir anahtarı belirterek yeni bir anahtar ekleyin **açıklama** ve seçme **süresi** süre değeri. 
-
-    ![Anahtar oluştur](media/blockchain-workbench-deploy/app-key-create.png)
-
-    |Ayar  | Değer  |
-    |---------|---------|
-    | Açıklama | `Service` |
-    | Süre Sonu: | Bir sona erme süresini seçin |
-
-4. **Kaydet**’i seçin. 
-5. Anahtarın değerini kopyalayın ve daha sonra kullanmak üzere saklayın. Bu dağıtım için gerekir.
-
-    > [!IMPORTANT]
-    >  Dağıtım için anahtar kaydetmezseniz, yeni bir anahtar oluşturmak gerekir. Portaldan daha sonra anahtar değeri alınamıyor.
-
 ### <a name="add-graph-api-required-permissions"></a>Grafik API'si gerekli izinleri ekleyin
 
 Dizine erişmek için kullanıcıdan izin istemek API uygulaması gerekir. API uygulaması için aşağıdaki gerekli izinleri ayarlayın:
@@ -121,6 +100,27 @@ Dizine erişmek için kullanıcıdan izin istemek API uygulaması gerekir. API u
    ![İzin ver](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
 
    İzin verme Blockchain dizindeki kullanıcıları erişmek çalışma ekranı sağlar. Arama ve Blockchain çalışma ekranına üye eklemek için okuma izni gereklidir.
+
+### <a name="add-graph-api-key-to-application"></a>Grafik API'si anahtarı için uygulama ekleme
+
+Blockchain çalışma ekranı blockchain uygulamaları ile etkileşim kullanıcılar için asıl kimlik yönetimi sistemi olarak Azure AD kullanır. Blockchain Azure AD erişim ve adlarını ve e-postalar, gibi kullanıcı bilgilerini almak çalışma ekranı sırada erişim tuşu eklemeniz gerekir. Blockchain çalışma ekranı anahtarı Azure AD ile kimlik doğrulaması yapmak için kullanır.
+
+1. Uygulamanın, kayıtlı seçin **ayarları** kayıtlı uygulama Ayrıntılar bölmesinde.
+2. **Anahtarlar**’ı seçin.
+3. Bir anahtarı belirterek yeni bir anahtar ekleyin **açıklama** ve seçme **süresi** süre değeri. 
+
+    ![Anahtar oluştur](media/blockchain-workbench-deploy/app-key-create.png)
+
+    |Ayar  | Değer  |
+    |---------|---------|
+    | Açıklama | `Service` |
+    | Süre Sonu: | Bir sona erme süresini seçin |
+
+4. **Kaydet**’i seçin. 
+5. Anahtarın değerini kopyalayın ve daha sonra kullanmak üzere saklayın. Bu dağıtım için gerekir.
+
+    > [!IMPORTANT]
+    >  Dağıtım için anahtar kaydetmezseniz, yeni bir anahtar oluşturmak gerekir. Portaldan daha sonra anahtar değeri alınamıyor.
 
 ### <a name="get-application-id"></a>Uygulama Kimliği alma
 
@@ -170,6 +170,7 @@ Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet. Seçin **özel
     | Parola | Parola, Vm'lere bağlanması için kullanılır. |
     | SSH | Tek satırlı biçimi başlayarak bir RSA ortak anahtarı kullanmak **ssh-rsa** veya çok satırlı PEM biçimini kullanın. SSH anahtarlarını kullanarak oluşturabileceğiniz `ssh-keygen` Linux ve OS X ya da Windows'da PuTTYGen kullanarak. SSH anahtarları hakkında daha fazla bilgi [SSH kullanma anahtarları azure'da Windows ile](../virtual-machines/linux/ssh-from-windows.md). |
     | Parola veritabanı / veritabanı parolayı onaylayın | Dağıtımın bir parçası oluşturulan veritabanına erişim için kullanılacak parolayı belirtin. |
+    | Dağıtım bölgesi | Blockchain çalışma ekranı kaynakları dağıtmak istediğiniz yeri belirtin. En iyi kullanılabilirlik için bu eşleşmelidir **konumu** ayarı. |
     | Abonelik | Dağıtımınız için kullanmak istediğiniz Azure aboneliği belirtin. |
     | Kaynak grupları | Seçerek yeni bir kaynak grubu oluşturun **Yeni Oluştur** ve benzersiz kaynak grubu adı belirtin. |
     | Konum | Framework dağıtmak istediğiniz bölgeyi belirtin. |
@@ -199,7 +200,7 @@ Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet. Seçin **özel
     | Depolama performansı | Tercih edilen VM depolama performansı blockchain ağınız için seçin. |
     | Sanal makine boyutu | Blockchain ağınız için tercih edilen VM boyutunu seçin. |
 
-10. Tıklatın **Tamam** ağ boyutu ve performans bölümünde tamamlamak için.
+10. Seçin **Tamam** ağ boyutu ve performans bölümünde tamamlamak için.
 
 11. Tamamlamak **Azure İzleyici** ayarlar.
 
@@ -207,9 +208,8 @@ Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet. Seçin **özel
 
     | Ayar | Açıklama  |
     |---------|--------------|
-    | İzleme | Azure blockchain ağınızda izlemek için kullanılan İzleyici isteyip istemediğinizi seçin |
-    | Varolan OMS bağlanın | Var olan bir Operations Management Suite örneğini kullanabilir veya yeni bir tane oluşturmak isteyip istemediğinizi seçin |
-    | OMS çalışma konumu | Bir bölge için OMS çalışma alanını seçin. Bu bölge Blockchain çalışma ekranı konumun eşleşmesi gerekir |
+    | İzleme | Azure blockchain ağınızda izlemek izleyicisini etkinleştirmek isteyip istemediğinizi seçin |
+    | Var olan günlük analizi bağlanın | Varolan bir kullanmak mı istediğinizi günlük analizi örneği veya yeni bir tane oluşturun seçin. Var olan bir örneğini kullanıyorsanız, çalışma alanı kimliği ve birincil anahtarınızı girin. |
 
 12. Tıklatın **Tamam** Azure İzleyici bölüm tamamlamak için.
 

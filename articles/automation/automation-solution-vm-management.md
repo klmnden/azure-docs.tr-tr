@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1a7a711c9b255aabdae76d28908d81f349aebe4a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Otomasyonu (Önizleme) çözümde yoğun olmayan saatlerde sırasında Başlat/Durdur VM'ler
 
@@ -26,7 +26,7 @@ Bu çözüm sunucusuz, düşük maliyetli kaynakları kullanarak maliyetlerini a
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Runbook'lar, [Azure Farklı Çalıştır hesabı](automation-offering-get-started.md#authentication-methods) ile çalışır. Süresi dolacak veya sık sık değişen parola yerine sertifika kimlik doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
+* Runbook'lar, [Azure Farklı Çalıştır hesabı](automation-create-runas-account.md) ile çalışır. Süresi dolacak veya sık sık değişen parola yerine sertifika kimlik doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
 * Bu çözüm, Azure Automation hesabınız ile aynı abonelikte bulunan sanal makineleri yönetir.
 * Bu çözüm yalnızca aşağıdaki Azure bölgeler ile dağıtılır: Avustralya Güneydoğu, Kanada Merkezi, Orta Hindistan, Doğu ABD, Japonya Doğu, Güneydoğu Asya, Birleşik Krallık Güney ve Batı Avrupa.
 
@@ -80,8 +80,8 @@ Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon he
    * Seçin bir **zamanlama**. Bir yinelenen tarih ve saat başlatma ve durdurma hedef kaynak grupları içindeki VM'ler için budur. Varsayılan olarak, zamanlama için UTC saat dilimi yapılandırılır. Farklı bir bölge seçmek kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli saat diliminiz için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedule).
    * Almak için **e-posta bildirimleri** SendGrid varsayılan değerini kabul **Evet** ve geçerli bir eposta adresi belirtin. Seçerseniz **Hayır** ancak daha sonraki bir tarihte karar e-posta bildirimleri almak istediğiniz, güncelleştirebilirsiniz **External_EmailToAddress** değişkeni geçerli bir e-posta adreslerine sahip bir virgülle ayrılmış ve ardından değişkeni değiştirme **External_IsSendEmail** değerle **Evet**.
 
-> [!IMPORTANT]
-> İçin varsayılan değer **hedef kaynak grubu adları** olan bir **&ast;**. Bir Abonelikteki tüm VM'ler hedefler. Aboneliğinizdeki tüm sanal makineleri hedeflemek için çözüm istemiyorsanız bu değeri zamanlamaları etkinleştirilmeden önce kaynak grubu adları listesini için güncelleştirilmesi gerekir.
+    > [!IMPORTANT]
+    > İçin varsayılan değer **hedef kaynak grubu adları** olan bir **&ast;**. Bir Abonelikteki tüm VM'ler hedefler. Aboneliğinizdeki tüm sanal makineleri hedeflemek için çözüm istemiyorsanız bu değeri zamanlamaları etkinleştirilmeden önce kaynak grubu adları listesini için güncelleştirilmesi gerekir.
 
 1. Çözüm için gereken ilk ayarlarını yapılandırdıktan sonra tıklatın **Tamam** kapatmak için **parametreleri** sayfasından seçim yapıp **oluşturma**. Tüm ayarlar doğrulandıktan sonra çözümü aboneliğinize dağıtılır. Bu işlemin tamamlanması birkaç saniye sürebilir ve altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
 
@@ -218,7 +218,7 @@ Tüm senaryolar arasında **External_Start_ResourceGroupNames**, **External_Stop
 
 ### <a name="schedules"></a>Zamanlamalar
 
-Aşağıdaki tabloda her Otomasyon hesabınızda oluşturulan varsayılan zamanlamalar listeler.  Bunları değiştirebilir veya kendi özel zamanlamalar oluşturabilirsiniz. Varsayılan olarak, her birini devre dışı bırakılır dışında **Scheduled_StartVM** ve **Scheduled_StopVM**.
+Aşağıdaki tabloda her Otomasyon hesabınızda oluşturulan varsayılan zamanlamalar listeler. Bunları değiştirebilir veya kendi özel zamanlamalar oluşturabilirsiniz. Varsayılan olarak, her birini devre dışı bırakılır dışında **Scheduled_StartVM** ve **Scheduled_StopVM**.
 
 Bu çakışan zamanlama eylemleri oluşturabilirsiniz çünkü tüm zamanlamalar, etkinleştirmemeniz gerekir. Gerçekleştirmek ve buna uygun olarak değiştirmek için istediğiniz hangi iyileştirmeleri belirlemek en iyisidir. Örnek senaryolar genel bakış bölümünde daha fazla açıklama için bkz.
 
@@ -226,7 +226,7 @@ Bu çakışan zamanlama eylemleri oluşturabilirsiniz çünkü tüm zamanlamalar
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8 saatte bir | Azure Otomasyonu değişken VM tabanlı değerleri External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames ve External_ExcludeVMNames sırayla durdurur AutoStop_CreateAlert_Parent runbook her 8 saatte çalışır. Alternatif olarak, VMList parametresini kullanarak sanal makineleri virgülle ayrılmış bir listesini belirtebilirsiniz.|
 |Scheduled_StopVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır *durdurmak* her gün belirtilen zamanda. Varlık değişkenleri tarafından tanımlanmış kurallarını karşılayan tüm sanal makineleri otomatik olarak durdurur. İlgili zamanlama etkinleştirmelisiniz **zamanlanmış-StartVM**.|
-|Scheduled_StartVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır *Başlat* her gün belirtilen zamanda.  Uygun değişkenleri tarafından tanımlanmış kurallarını karşılayan tüm sanal makineleri otomatik olarak başlar. İlgili zamanlama etkinleştirmelisiniz **zamanlanmış StopVM**.|
+|Scheduled_StartVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır *Başlat* her gün belirtilen zamanda. Uygun değişkenleri tarafından tanımlanmış kurallarını karşılayan tüm sanal makineleri otomatik olarak başlar. İlgili zamanlama etkinleştirmelisiniz **zamanlanmış StopVM**.|
 |Sıralı StopVM | 1: 00'da (UTC), her Cuma | Sequenced_Parent runbook bir parametreyle çalıştırır *durdurmak* her Cuma belirtilen saatte. Sırayla bir etiketi olan tüm VM'ler durdurur (artan) **SequenceStop** uygun değişkenleri tarafından tanımlanmış. Etiket değerlerini ve varlık değişkenleri hakkında daha fazla ayrıntı için runbook'ları bölümüne bakın. İlgili zamanlama etkinleştirmelisiniz **sıralı-StartVM**.|
 |Sıralı StartVM | 1:00 PM (UTC), her Pazartesi | Sequenced_Parent runbook bir parametreyle çalıştırır *Başlat* belirtilen saatte her Pazartesi. Sırayla bir etiketle başlayan tüm sanal makineleri (Azalan) **SequenceStart** uygun değişkenleri tarafından tanımlanmış. Etiket değerlerini ve varlık değişkenleri hakkında daha fazla ayrıntı için runbook'ları bölümüne bakın. İlgili zamanlama etkinleştirmelisiniz **sıralı StopVM**.|
 

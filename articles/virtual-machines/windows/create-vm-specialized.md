@@ -1,11 +1,11 @@
 ---
-title: "Azure özel bir VHD'den bir Windows VM oluşturma | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde kullanarak işletim sistemi diski olarak özel bir yönetilen disk ekleyerek yeni bir Windows VM oluşturun."
+title: Azure özel bir VHD'den bir Windows VM oluşturma | Microsoft Docs
+description: Resource Manager dağıtım modelinde kullanarak işletim sistemi diski olarak özel bir yönetilen disk ekleyerek yeni bir Windows VM oluşturun.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7b1a145040297debe2c348d61f204fc82d2e7d4d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>PowerShell kullanarak özel bir diskten bir Windows VM oluşturma
 
@@ -40,7 +40,7 @@ Bu konuda yönetilen diskleri kullanmayı gösterir. Eski dağıtım varsa gerek
 PowerShell'i kullanırsanız, AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Daha fazla bilgi için bkz: [Azure PowerShell sürüm](/powershell/azure/overview).
 
@@ -137,7 +137,7 @@ Ağ bağlantısı ve VHD dosyasının boyutuna bağlı olarak, bu komutun tamaml
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Yönetilen bir disk VHD'den oluştur
 
-Depolama hesabı kullanarak özel VHD'den yönetilen bir disk oluşturmak [yeni AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Bu örnek kullanır **myOSDisk1** disk adı için disk koyar *StandardLRS* depolama ve kullandığı *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* VHD kaynağı için URI olarak.
+Depolama hesabı kullanarak özel VHD'den yönetilen bir disk oluşturmak [yeni AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Bu örnek kullanır **myOSDisk1** disk adı için disk koyar *Standard_LRS* depolama ve kullandığı *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* VHD kaynağı için URI olarak.
 
 Yeni VM için yeni bir kaynak grubu oluşturun.
 
@@ -153,7 +153,7 @@ Yeni işletim sistemi diski karşıya yüklenen VHD'den oluşturun.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +337,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Kullanarak yapılandırma işletim sistemi diski ekleyin [kümesi AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Bu örnek için disk boyutunu ayarlar *128 GB* ve yönetilen diski olarak bağlayan bir *Windows* işletim sistemi diski.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 

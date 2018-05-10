@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights telemetrisini dışarı aktarma
 Telemetrinize standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özelleştirilmiş bir şekilde işlemek? Sürekli verme bunun için idealdir. Application Insights portalında görmek olayları JSON biçiminde Microsoft Azure depolama alanına aktarılabilir. Buradan, verilerinizi indirin ve size kod yazma işlemesi gerekir.  
 
-Sürekli verme özelliğini kullanarak ek bir ücret maruz kalabilirsiniz. Denetleyin, [fiyatlandırma modeli](http://azure.microsoft.com/pricing/details/application-insights/).
+Sürekli verme özelliğini kullanarak ek bir ücret maruz kalabilirsiniz. Denetleyin, [fiyatlandırma modeli](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Sürekli verme ayarlamadan önce göz önünde bulundurabilirsiniz bazı alternatifleri vardır:
 

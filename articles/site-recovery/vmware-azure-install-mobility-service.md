@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 445a5f10eac0959dab57e10680659c0792ad6fba
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-mobility-service"></a>Mobility hizmetini yükleme 
 
@@ -27,7 +27,7 @@ Azure Site Recovery Mobility hizmeti VMware Vm'lerini ve Azure'a çoğaltmak ist
 
 
 >[!IMPORTANT]
-> Mobility hizmeti sürümü 9.7.0.0, Windows vm'lerinde başlayarak yükleyici de en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın tüm VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar.
+> Mobility hizmeti sürümü 9.7.0.0, Windows vm'lerinde başlayarak yükleyici de en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın tüm VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tamamlayın:
@@ -45,16 +45,16 @@ Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tam
 
 | Yükleyici dosyası şablonu adı| İşletim sistemi |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bit) </br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) </br> Windows Server 2016 (64 bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) </br> CentOS 6.4 6.5, 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64-bit only) </br> CentOS 7.0, 7.1, 7.2, 7.3 (yalnızca 64 bit) |
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
+|Microsoft ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bit) </br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) </br> Windows Server 2016 (64 bit) |
+|Microsoft ASR\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) </br> CentOS 6.4 6.5, 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) |
+|Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (yalnızca 64 bit) </br> CentOS 7.0, 7.1, 7.2, 7.3 (yalnızca 64 bit) |
+|Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (yalnızca 64 bit)|
 |Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (yalnızca 64 bit)|
-|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (yalnızca 64 bit)|
+|Microsoft ASR\_UA\*OL6 64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (yalnızca 64 bit)|
 |Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz | Ubuntu Linux 14.04 (yalnızca 64 bit)|
 |Microsoft ASR\_UA\*UBUNTU 16.04 64\*release.tar.gz | Ubuntu Linux 16.04 LTS sunucu (yalnızca 64 bit)|
-|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (yalnızca 64 bit)|
-|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (yalnızca 64 bit)|
+|Microsoft ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (yalnızca 64 bit)|
+|Microsoft ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8 (yalnızca 64 bit)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI kullanarak Mobility hizmeti el ile yükleyin

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource ile işinizi Büyüt
 Azure Market ve AppSource Microsoft ile birleşik Git Pazar etkinlikler için başlatma noktaları ve iş büyüme flywheel var. Market teklifiniz başlatma yükseltme, isteğe bağlı oluşturma ve satış ve pazarlama Eklem kullanarak bulut iş altyapınız merkez olabilir. Katılım için hiçbir ücretleri vardır. Microsoft müşterileri bizim bulut Pazar her gün işletmelerini artırmanıza yardımcı olmak için hizmetleri ve doğru uygulamaları bulmak için ziyaret edin. Amacımız, Microsoft ve bizim iş ortağı ekosistemi hizmetlerinden ve çözümleri kuruluşlar bağlamaktır. 
@@ -88,7 +88,7 @@ Aşağıdaki tablolarda teklif listenizi çıkışı doldurma her adım ayrınt�
 **StoreFront ayrıntıları - pazarlama yapıları**
 | StoreFront ayarları       | En iyi uygulamalar          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Teklif logo (.png biçimi, 58 x 48)**    | Logonuzun tasarlanmış ve dijital ortamı için en iyi duruma getirilmiş.<br>Teklif ait arama sayfası için PNG biçiminde logosu yükleyin. |
+| **Teklif logo (.png biçimi, 48 x 48)**    | Logonuzun tasarlanmış ve dijital ortamı için en iyi duruma getirilmiş.<br>Teklif ait arama sayfası için PNG biçiminde logosu yükleyin. |
 | **Teklif logo (.png. 216 216 x)**     | Logonuzun tasarlanmış ve dijital ortamı için en iyi duruma getirilmiş. <br>Teklif 's Uygulama Ayrıntıları sayfasında listeleme PNG biçiminde logosu yükleyin. |
 | **Daha fazla bilgi**   | Satış destekleme ve "Daha fazla bilgi," altında varlıklar pazarlama örnek, teknik incelemeler, broşürler, denetim listeleri, PowerPoint ve benzeri için içerir. Tüm dosyaları, PDF biçiminde olmalıdır. Verme satmak, aday bilgilendirin. <br>Tüm belgelerin, uygulama giriş sayfasına bağlantı eklemek ve ziyaretçileri ve denemeler izlemenize yardımcı olması için URL parametreleri ekleyin. |
 | **Videolar**       | En az bir video karşıya yükleme, en fazla dört videolar izin verilir. Videonuzu teklifiniz değerini iletişim kurmanız gerekir. Olası değil şirketiniz Öykü kahramanı olduğundan emin olun. Videonuzu asıl zorlukları ve çekirdek karar maker kişi amaçlarını konuşun. <br>Uzunluk önerilir: 60-90 saniye. Anahtar arama sözcükleri videolar adına dahil.<br>Nasıl yapılır video gibi ek videoları eklemeyi düşünün; bir video veya müşteri referans video Başlarken. |
@@ -98,7 +98,7 @@ Aşağıdaki tablolarda teklif listenizi çıkışı doldurma her adım ayrınt�
 
 Teklifiniz AppSource üzerinde listelendiğinde, Web sitenizde "AppSource kullanılabilir üzerinde" rozet görüntülemek için sağa kazanılan. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource rozet](./media/marketplace-appsource/appsourcebadge.png)
     
 Bu gösterge sitenize ekleme teklifiniz AppSource ve potansiyel müşterilerle doğrudan listeleme sayfasına bağlayabilirsiniz yükseltir. AppSource rozet üç boyut halinde kullanılabilir. Yerinde kullanma hakkında yönergeler birlikte rozet indirebilirsiniz [Microsoft AppSource uygulamanızın kullanılabilirliğine Yükselt](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

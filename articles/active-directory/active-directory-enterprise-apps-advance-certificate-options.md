@@ -1,13 +1,14 @@
 ---
-title: "Gelişmiş Sertifika imzalama Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde seçenekleri | Microsoft Docs"
-description: "Gelişmiş Sertifika imzalama Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde seçenekleri kullanmayı öğrenin"
+title: Gelişmiş Sertifika imzalama Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde seçenekleri | Microsoft Docs
+description: Gelişmiş Sertifika imzalama Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde seçenekleri kullanmayı öğrenin
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c035dcb55af451d0dae71d7a0f5548a6ba3c0ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 05eb175e3d8306308998780ac230d4f44e611294
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Gelişmiş Seçenekleri Azure Active Directory'de galeri uygulamalar için SAML belirtecinde imzalama sertifikası
 Bugün Azure Active Directory (Azure AD) önceden tümleştirilmiş binlerce uygulamasına Azure Active Directory Uygulama galerisinde destekler. Bu sayı SAML 2.0 protokolü kullanarak çoklu oturum açma desteği 500'den fazla uygulama içerir. Bir kullanıcı Azure AD üzerinden bir uygulama SAML kullanarak kimlik doğrulaması gerçekleştirdiğinde, Azure AD bir belirteç (aracılığıyla bir HTTP POST) uygulamaya gönderir. Ardından, uygulama doğrular ve bir kullanıcı adı ve parola istemek yerine kullanıcı oturum belirteci kullanır. Bu SAML belirteçleri, Azure AD'de ve belirli standart algoritmaların tarafından oluşturulan benzersiz sertifikayla imzalanmış.
@@ -28,7 +29,7 @@ Azure AD galeri uygulamalar için bazı varsayılan ayarları kullanır. Varsay�
 
 Azure AD ayarları imzalama Gelişmiş Sertifika destekler. Bu seçenekler seçmek için önce seçin **Göster gelişmiş sertifika imzalama ayarları** onay kutusunu:
 
-![Gelişmiş ayarları imzalama sertifikası Göster][1]
+![Gelişmiş sertifika imzalama ayarlarını göster][1]
 
 Bu onay kutusunu işaretledikten sonra seçenekleri imzalama sertifikası ve sertifika imzalama algoritmasını ayarlayabilirsiniz.
 

@@ -8,15 +8,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: 853e8fbc0c7044dc97a29254bfd4130e7f81bbbd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="what-is-cognitive-search"></a>Bilişsel arama nedir?
 
-Bilişsel arama Azure Search, Orta Güney ABD ve dizin oluşturma iş yükleri için AI ekleyen Batı Avrupa, tüm katmanlarda kullanılabilir bir önizleme özelliğidir. Veri ayıklama, doğal dil işleme ve dizin oluşturma sırasında görüntü işleme yapılandırılmamış veya yapılamayan içeriğinde görünmeyen bilgileri bulur ve Azure Search'te aranabilir hale getirir.
+Bilişsel arama özelliğidir Önizleme [Azure Search](search-what-is-azure-search.md), Orta Güney ABD ve dizin oluşturma iş yükleri için AI ekleyen Batı Avrupa, tüm katmanlarda kullanılabilir. Veri ayıklama, doğal dil işleme ve dizin oluşturma sırasında görüntü işleme yapılandırılmamış veya yapılamayan içeriğinde görünmeyen bilgileri bulur ve Azure Search'te aranabilir hale getirir.
 
 AI tümleştirme olduğu aracılığıyla *bilişsel becerileri* kaynak belgeleri sıralı işlemlerinde, arama dizini yolu üzerinden zenginleştirmek. 
 

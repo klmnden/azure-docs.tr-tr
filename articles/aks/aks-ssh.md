@@ -3,21 +3,35 @@ title: Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH
 description: Bir SSH bağlantısı ile bir Azure Kubernetes hizmet (AKS) küme düğümleri oluşturun.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH
 
 Bazen, bir Azure Kubernetes hizmet (AKS) düğümü bakım, günlük toplama veya diğer sorun giderme işlemleri için erişim gerekebilir. Azure Kubernetes hizmet (AKS) düğümleri Internet'e açık değildir. Bir AKS düğümle bir SSH bağlantısı oluşturmak için bu belgede ayrıntılı adımları kullanın.
+
+## <a name="reset-ssh-keys"></a>SSH anahtarlarını sıfırlama
+
+SSH anahtarları olmadan bir AKS dağıtmış olmanız veya uygun SSH anahtarları erişimi değil, bunlar Azure portalını kullanarak sıfırlanabilir.
+
+AKS kümenize göz atın, AKS düğümü (sanal makine) seçin ve seçin **parola sıfırlama** SSH ortak anahtarını sıfırlamak için.
+
+![Sıfırlama parolası düğmesiyle AKS VM](media/aks-ssh/reset-password.png)
+
+Seçin **sıfırlama SSH ortak anahtarı**, olan AKS küme kullanıcı adı girin **azueruser** varsayılan ve SSH ortak anahtarını kopyalama. Seçin **güncelleştirme** tamamlandığında.
+
+![Sıfırlama parolası düğmesiyle AKS portal VM](media/aks-ssh/reset-password-2.png)
+
+SSH anahtarı sıfırlama sonra karşılık gelen özel anahtarı kullanarak bağlanma bir SSH oluşturabilirsiniz.
 
 ## <a name="get-aks-node-address"></a>AKS düğüm adresi alın
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-SSH anahtarınızı pod kopyalamak, pod adını uygun değerle değiştirin.
+Özel SSH anahtarına pod kopyalayın, pod adını uygun değerle değiştirin.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

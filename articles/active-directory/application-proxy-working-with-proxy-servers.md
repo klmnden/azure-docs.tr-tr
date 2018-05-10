@@ -1,25 +1,25 @@
 ---
-title: "Var olan iş şirket içi proxy sunucuları ve Azure AD | Microsoft Docs"
-description: "Mevcut şirket içi proxy sunucularıyla çalışacak şekilde nasıl ele alınmaktadır."
+title: Var olan iş şirket içi proxy sunucuları ve Azure AD | Microsoft Docs
+description: Mevcut şirket içi proxy sunucularıyla çalışacak şekilde nasıl ele alınmaktadır.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: b88b570585e89c6e450fe9182aaec42160f84efa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
@@ -108,7 +108,7 @@ Giden proxy dikkate alınması gereken dört nokta vardır:
 #### <a name="proxy-outbound-rules"></a>Proxy giden kuralları
 Bağlayıcı hizmeti erişim şu uç noktalar için erişim izni ver:
 
-* *.msappproxy.net
+* *. msappproxy.net
 * *.servicebus.windows.net
 
 İlk kayıt için aşağıdaki uç noktalarına erişime izin ver:

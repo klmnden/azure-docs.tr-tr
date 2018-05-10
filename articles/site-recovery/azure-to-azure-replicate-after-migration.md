@@ -1,17 +1,17 @@
 ---
-title: "Azure Site Recovery ile azure'a geçişten sonra Azure VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs"
-description: "Bu makalede, Azure Site Kurtarma'yı kullanarak Azure geçişten sonra Azure bölgeler arasında olağanüstü durum kurtarma ayarlamak için makineleri hazırlamanın açıklar."
+title: Azure Site Recovery ile azure'a geçişten sonra Azure VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Bu makalede, Azure Site Kurtarma'yı kullanarak Azure geçişten sonra Azure bölgeler arasında olağanüstü durum kurtarma ayarlamak için makineleri hazırlamanın açıklar.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure geçişten sonra Azure VM'ler için olağanüstü durum kurtarma ayarlayın 
 
@@ -30,11 +30,11 @@ Olağanüstü durum kurtarma ayarlamadan önce geçiş beklendiği gibi tamamlan
 
 ## <a name="install-the-azure-vm-agent"></a>Azure VM Aracısı yükleme
 
-Azure [VM Aracısı](../virtual-machines/windows/agent-user-guide.md) Site Recovery çoğaltmak için VM üzerinde yüklü olmalıdır.
+Azure [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Site Recovery çoğaltmak için VM üzerinde yüklü olmalıdır.
 
 
 1. Windows çalıştıran Vm'lerde VM aracısı yüklemek için indirme ve çalıştırma [aracı yükleyici](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için VM üzerinde yönetici ayrıcalıkları gerekir.
-2. Linux çalıştıran sanal makinelerin VM Aracısı'nı yüklemek için en son yükleme [Linux Aracısı](../virtual-machines/linux/agent-user-guide.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Dağıtım depodan yüklemeniz önerilir. Linux VM Aracısı doğrudan Github'dan yüklemenizi öneririz yok. 
+2. Linux çalıştıran sanal makinelerin VM Aracısı'nı yüklemek için en son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Dağıtım depodan yüklemeniz önerilir. Linux VM Aracısı doğrudan Github'dan yüklemenizi öneririz yok. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Windows sanal makineleri üzerinde yüklemeyi doğrulama

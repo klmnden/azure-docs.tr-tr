@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Netezza verilerini
 
@@ -50,6 +50,13 @@ Aşağıdaki özellikler Netezza bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **Netezza** | Evet |
 | connectionString | İçin Netezza bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+Tipik bağlantı dizesi `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | Veri depolama alanı bağlantısı sürücü kullanır (SSL/TLS) güvenlik düzeyi. Örneğin `SecurityLevel=preferredSecured`. Desteklenen değerler şunlardır:<br/>-Yalnızca güvenli olmayan (**onlyUnSecured**): sürücü SSL kullanmaz.<br/>- **Güvenli değil (preferredUnSecured) (varsayılan) tercih edilen**: sunucu bir seçim sağlıyorsa, sürücü SSL kullanmaz. <br/>- **Güvenli (preferredSecured) tercih edilen**: sunucu bir seçim sağlıyorsa, sürücü SSL kullanır. <br/>- **Yalnızca güvenli (onlySecured)**: bir SSL bağlantısı kullanılabilir olmadığı sürece sürücü bağlanmaz | Hayır |
+| CASertifikaDosyası | Sunucu tarafından kullanılan SSL sertifikasının tam yolu. Örneğin `UseSystemTrustStore=<cert path>;`| SSL etkinleştirilmişse, Evet |
 
 **Örnek:**
 

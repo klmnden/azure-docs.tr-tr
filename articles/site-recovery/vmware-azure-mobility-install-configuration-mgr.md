@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Mobility hizmeti yüklemesi System Center Configuration Manager ile otomatikleştirme
 
@@ -49,7 +49,7 @@ Alternatif olarak, Mobility hizmeti yüklemesi ile otomatikleştirebilirsiniz [A
 4. Kopya **MobSvc.passphrase** içine dosya **MobSvcWindows** klasör, ağ paylaşımında.
 5. Yapılandırma sunucusundaki yükleyici deposu için aşağıdaki komutu çalıştırarak göz atın:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopya **Microsoft ASR\_UA\_*sürüm*\_Windows\_GA\_*tarih*\_Release.exe**  için **MobSvcWindows** klasör, ağ paylaşımında.
 7. Aşağıdaki kodu kopyalayın ve kaydedileceği **install.bat** içine **MobSvcWindows** klasör.
@@ -230,14 +230,14 @@ Configuration Manager konsolunu kullanarak dağıtımının ilerleme durumunu iz
 4. Kopya **MobSvc.passphrase** içine dosya **MobSvcLinux** klasör, ağ paylaşımında.
 5. Yapılandırma sunucusundaki yükleyici deponuza komutunu çalıştırarak göz atın:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Aşağıdaki dosyaları kopyalayın **MobSvcLinux** ağ paylaşımınızda klasörü:
-   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
-   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+   * Microsoft ASR\_UA\*RHEL6 64*release.tar.gz
+   * Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz
+   * Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz
    * Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz
-   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
+   * Microsoft ASR\_UA\*OL6 64\*release.tar.gz
    * Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz
 
 

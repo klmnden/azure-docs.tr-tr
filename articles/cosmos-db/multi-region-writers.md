@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Küresel ölçekli çok şablonu Azure Cosmos DB ile 
  
@@ -22,6 +22,25 @@ Genel olarak geliştirmeye verilerin tutarlı görünümlerini dünya çapında 
 ![Birden çok yöneticili mimarisi](./media/multi-region-writers/multi-master-architecture.png)
 
 Azure Cosmos DB birden çok yöneticili desteğiyle kapsayıcılarında (örneğin, koleksiyonlar, grafikler, tablolar) herhangi bir yere dünyada Dağıtılmış veri yazma işlemleri gerçekleştirebilir. Veritabanı hesabınızla ilişkili herhangi bir bölgeyi verileri güncelleştirebilirsiniz. Bu veri güncelleştirmeleri zaman uyumsuz olarak yayabilir. Hızlı erişim ve verilerinize yazma gecikmesi sağlamanın yanı sıra, birden çok ana ayrıca pratik bir çözüm yük devretme ve Yük Dengeleme sorunları sağlar. Özet olarak, Azure Cosmos DB ile yazma gecikme aldığınız < 99 yerindeki world, %99.999 yazma ve okuma kullanılabilirlik world ve her ikisi de ölçeklendirmenizi herhangi bir yere, 10 ms yazma ve dünyanın her yerden verimlilik okuyun.   
+
+> [!IMPORTANT]
+> Birden çok yöneticili desteğidir Önizleme sürümü kullanmak için özel Önizleme'de, [kaydolun](#sign-up-for-multi-master-support) şimdi.
+
+## <a name="sign-up-for-multi-master-support"></a>Birden çok yöneticili desteği için kaydolun
+
+Bir Azure aboneliğiniz zaten varsa, Azure portalında birden çok yöneticili Önizleme programına katılma kaydolabilir. Azure'da yeniyseniz, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free) 12 ay ücretsiz Azure Cosmos DB erişimin nereden. Birden çok yöneticili Önizleme programı'na erişim istemek için aşağıdaki adımları tamamlayın.
+
+1. İçinde [Azure portal](https://portal.azure.com), tıklatın **kaynak oluşturma** > **veritabanları** > **Azure Cosmos DB**.  
+
+2. Yeni hesap sayfası Azure Cosmos DB hesabınız için bir ad, API, abonelik, kaynak grubunu ve konumu seçin.  
+
+3. Ardından **önizlemeye hemen kaydolun** çoklu Mater Önizleme alanı altında.  
+
+   ![Birden çok yöneticili Önizleme için kaydolma](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. İçinde **önizlemeye hemen kaydolun** bölmesinde tıklatın **Tamam**. İsteği gönderdikten sonra durum değişikliklerini **onay bekleyen** hesap oluşturma dikey.  
+
+İsteği gönderdikten sonra isteğiniz onaylandıktan bir e-posta bildirimi alırsınız. İsteği nedeniyle yüksek hacimli bir hafta içinde bildirim almanız gerekir. İsteği tamamlamak için bir destek bileti oluşturun gerekmez. Sıraya alınmış olan istekleri incelenecektir.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Basit bir birden çok yöneticili örnek – içerik yayımlama  
 

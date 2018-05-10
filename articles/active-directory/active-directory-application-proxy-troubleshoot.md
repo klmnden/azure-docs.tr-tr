@@ -1,25 +1,25 @@
 ---
-title: "Uygulama proxy'si sorunlarını giderme | Microsoft Docs"
-description: "Azure AD uygulama proxy'si hataların nasıl giderileceği kapsar."
+title: Uygulama proxy'si sorunlarını giderme | Microsoft Docs
+description: Azure AD uygulama proxy'si hataların nasıl giderileceği kapsar.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54e0ebe60981ef429fdfc97cee1b460b03261a9f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme
 Yayımlanmış bir uygulamanın erişme veya yayımlama uygulamalarda hatalar meydana gelirse, Microsoft Azure AD uygulama proxy'si düzgün çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -34,7 +34,7 @@ Azure AD sorun giderme aracı hakkında daha fazla bilgi için bkz: [bağlayıc�
 ## <a name="the-page-is-not-rendered-correctly"></a>Sayfa doğru işlenmez
 İşleme veya yanlış özel hata iletileri almadan çalışmıyor uygulamanız ile ilgili sorunlar olabilir. Bu makale yolu yayımlanan ancak uygulama dışında yol mevcut içeriği gerektiriyor ortaya çıkabilir.
 
-Örneğin, yol https://yourapp/app yayımlama ancak uygulama içinde https://yourapp/media görüntüleri çağırır, bunlar işlenip olmaz. Tüm ilgili içerik içermesi gereken en yüksek düzey yolu kullanarak uygulama yayımlama emin olun. Bu örnekte, http://yourapp/ olacaktır.
+Örneğin, yol yayımlarsanız https://yourapp/app ancak uygulama görüntüleri çağrıları https://yourapp/media, işlenip olmaz. Tüm ilgili içerik içermesi gereken en yüksek düzey yolu kullanarak uygulama yayımlama emin olun. Bu örnekte, bu olacaktır http://yourapp/.
 
 Başvurulan içerik dahil, ancak yine de daha derin bir bağlantıyı yolunda güden kullanıcılara gerekir, yolunu değiştirirseniz, blog gönderisine bakın [paneli ve Office 365 uygulama Başlatıcı Azure AD uygulama proxy'si uygulamalarda erişmek için doğru bağlantı ayarı](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 

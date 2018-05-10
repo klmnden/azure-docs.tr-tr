@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e1a7c3cec7925c6fb01aafba152dde2383cee442
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
 
@@ -34,7 +34,7 @@ Azure Media Services, bir *kanal* canlı akış içeriği işlemek için bir iş
   > Bir doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur.
 
 
-* Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTP (MPEG-TS), RTMP veya kesintisiz akış (parçalanmış MP4). Kanal gelen tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışına gerçek zamanlı kodlama gerçekleştirir. Media Services akışı isteyen müşteriler için sunar.
+* Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Kanal gelen tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışına gerçek zamanlı kodlama gerçekleştirir. Media Services akışı isteyen müşteriler için sunar.
 
 Bir kanal oluşturduğunuzda Media Services 2.10 sürümünden başlayarak, nasıl kanalınızı Giriş akışı almak istediğinizi belirtebilirsiniz. Canlı akışınızı kodlama gerçekleştirmek için kanal isteyip istemediğinizi de belirtebilirsiniz. İki seçeneğiniz vardır:
 

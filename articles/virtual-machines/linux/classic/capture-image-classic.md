@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29a1d5bc839fcf533973271638bf283d6e48e93b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6071e025352199c5ec559598a580a918c2e9c666
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Klasik bir Linux sanal makinesini görüntü olarak yakalama
 > [!IMPORTANT]
@@ -107,7 +107,7 @@ Görüntü VM'ler oluşturmak için kullanılmak üzere hazırdır. Azure CLI ko
 
 Alternatif olarak, kullanın [Azure portal](http://portal.azure.com) kullanarak özel bir VM oluşturmak için **görüntü** yöntemi ve oluşturduğunuz görüntüsü seçin. Daha fazla bilgi için bkz: [özel VM oluşturma][How to Create a Custom Virtual Machine].
 
-**Ayrıca bkz:** [Azure Linux Aracısı Kullanıcı Kılavuzu](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**Ayrıca bkz:** [Azure Linux Aracısı Kullanıcı Kılavuzu](../../extensions/agent-linux.md)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom-classic.md

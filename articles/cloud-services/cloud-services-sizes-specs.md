@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konu, kullanılabilir boyutları ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekleri açıklar. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtımında dikkat edilecek noktalar sağlar. İçine bir kimliği her boyutuna sahip, [hizmet tanımı dosyası](cloud-services-model-and-package.md#csdef). Fiyatlar her boyutu için kullanılabilir [Cloud Services fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
@@ -62,7 +62,7 @@ Kavram, Azure işlem birimi (Azure SKU'ları üzerinde işlem (CPU) performans k
 | [Küçük ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [A v2](#av2-series) |100 |
+| [Bir v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
@@ -81,21 +81,21 @@ Aşağıdaki tablolarda boyutlara ve sundukları kapasiteye yer verilmiştir.
 * Maksimum ağ bant genişliği, VM türü başına ayrılan ve atanan toplam maksimum bant genişliğidir. Maksimum bant genişliği, yeterli ağ kapasitesinin mevcut olduğundan emin olarak doğru VM'i seçme konusunda yardımcı olur. Düşük, Orta, yüksek ve çok yüksek arasında taşırken uygun şekilde verimliliğini artırır. Gerçek ağ performansı, ağ ve uygulama yüklerinin yanı sıra uygulama ağ ayarları gibi birçok faktöre bağlıdır.
 
 ## <a name="a-series"></a>A Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel HDD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama: Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1/düşük |
-| Küçük           | 1         | 1,75         | 225                  | 1/orta |
-| Orta          | 2         | 3,5 GB       | 490                  | 1/orta |
-| Büyük           | 4         | 7            | 1000                 | 2/yüksek |
-| ExtraLarge      | 8         | 14           | 2040                 | 4/yüksek |
-| A5              | 2         | 14           | 490                  | 1/orta |
-| A6              | 4         | 28           | 1000                 | 2/yüksek |
-| A7              | 8         | 56           | 2040                 | 4/yüksek |
+| Küçük           | 1         | 1,75         | 70                   | 1/orta |
+| Orta          | 2         | 3,5          | 135                  | 1/orta |
+| Büyük           | 4         | 7            | 285                  | 2/yüksek |
+| ExtraLarge      | 8         | 14           | 605                  | 4/yüksek |
+| A5              | 2         | 14           | 135                  | 1/orta |
+| A6              | 4         | 28           | 285                  | 2/yüksek |
+| A7              | 8         | 56           | 605                  | 4/yüksek |
 
 ## <a name="a-series---compute-intensive-instances"></a>A Serisi - Yoğun işlem gücü kullanımlı örnekler
 Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel HDD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama: Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2/yüksek |
 | A9*             |16         | 112          | 1817                 | 4/çok yüksek |
@@ -106,7 +106,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 ## <a name="av2-series"></a>Av2 Serisi
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1/orta                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2/orta                 |
@@ -118,7 +118,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 
 ## <a name="d-series"></a>D Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3,5          | 50                   | 1/orta |
 | Standard_D2     | 2         | 7            | 100                  | 2/yüksek |
@@ -130,7 +130,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 | Standard_D14    | 16        | 112          | 800                  | 8/çok yüksek |
 
 ## <a name="dv2-series"></a>Dv2 Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1/orta |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2/yüksek |
@@ -141,11 +141,11 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/yüksek |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/yüksek |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/aşırı yüksek |
-| Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
+| İçin Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
 
 ## <a name="dv3-series"></a>Dv3 serisi
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB   | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB   | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2/orta |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2/yüksek |
@@ -156,7 +156,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 ## <a name="ev3-series"></a>Ev3 serisi
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB   | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB   | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2/orta |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2/yüksek |
@@ -167,7 +167,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 
 ## <a name="g-series"></a>G Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/yüksek |
 | Standard_G2     | 4         | 56           | 768                  |2/yüksek |
@@ -180,7 +180,7 @@ Azure H Serisi sanal makineler, moleküler modelleme ve hesaplamalı akışkanla
 
 H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşük gecikmeli RDMA ağ iletişimi için farklı seçeneklere ek olarak yoğun bellek kullanımlı işlem gereksinimlerini için çok sayıda bellek yapılandırması sunar.
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8/yüksek |
 | Standard_H16    | 16        | 112          | 2000                 | 8/çok yüksek |

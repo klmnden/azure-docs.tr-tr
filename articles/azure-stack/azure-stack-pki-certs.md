@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -35,7 +35,7 @@ Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler k�
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksinimleri açıklanmaktadır: 
 - Bir iç sertifika yetkilisi veya bir ortak sertifika yetkilisi sertifikaları verilmesi gerekir. Bir ortak sertifika yetkilisi kullanılırsa, temel işletim sistemi görüntüsü Microsoft güvenilir kök yetkilisi programı bir parçası olarak eklenmelidir. Tam listesini burada bulabilirsiniz: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Azure yığın altyapınızı, sertifikaları imzalamak için kullanılan sertifika yetkilisi için ağ erişimi olması gerekir
+- Azure yığın altyapınızı sertifikada yayımlanan sertifika yetkilisinin sertifika iptal listesi (CRL) konumuna ağ erişimi olması gerekir. Bu CRL http uç noktası olması gerekir
 - Sertifikaları döndürme, sertifikalar ya da dağıtım veya herhangi bir ortak sertifika yetkilisi yukarıda verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisi tarafından verilen olmalıdır
 - Otomatik olarak imzalanan sertifikaların kullanımını desteklenmez
 - Sertifika konu alternatif adı (SAN) alanındaki tüm ad alanlarını kapsayan tek bir joker sertifika olabilir. Alternatif olarak, uç noktaları için gibi joker karakterler kullanarak tek tek sertifikaları kullanabilirsiniz **acs** ve bulundukları yerde gerekli anahtar kasası. 
@@ -45,6 +45,7 @@ Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksin
 - Sertifika pfx dosyaları değerleri "Sunucu kimlik doğrulaması (1.3.6.1.5.5.7.3.1)" ve "İstemci kimlik doğrulaması (1.3.6.1.5.5.7.3.2)" "Gelişmiş anahtar kullanımı" alanında olması gerekir.
 - Sertifikanın "verilen:" alan aynı olmamalıdır, "tarafından verilen:" alanı.
 - Tüm sertifika pfx dosyalarını parolaların aynı dağıtım zamanında olmalıdır
+- Sertifika pfx parolası karmaşık bir parola olması gerekir.
 - Konu adları ve tüm sertifikaların konu alternatif adlarını dağıtımları başarısız önlemek için bu makalede açıklanan belirtimleri eşleştiğinden emin olun.
 
 > [!NOTE]
@@ -72,7 +73,7 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Blob Depolama | BLOB. &lt;bölge >. &lt;fqdn > |
 | ACSTable | * .table. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Tablo Depolama | Tablo. &lt;bölge >. &lt;fqdn > |
 | ACSQueue | * .queue. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Kuyruk Depolama | sıra. &lt;bölge >. &lt;fqdn > |
-| KeyVault | * .vault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Anahtar Kasası | Kasa. &lt;bölge >. &lt;fqdn > |
+| KeyVault | * .vault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Key Vault | Kasa. &lt;bölge >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) |  İç Keyvault |  adminvault. &lt;bölge >. &lt;fqdn > |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Öncesi 1803 sürümlerinde Azure yığın ortamı için
@@ -84,7 +85,7 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın
 |Azure Resource Manager genel|yönetimi.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;bölge >. &lt;fqdn >*|
 |Azure Kaynak Yöneticisi'ni yönetici|adminmanagement.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;bölge >. &lt;fqdn >*|
 |ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.BLOB.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Queue.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Table.  *&lt;bölge >.&lt; FQDN >*|Depolama|BLOB.  *&lt;bölge >.&lt; FQDN >*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|
-|KeyVault|&#42;.Vault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|Anahtar Kasası|Kasa.  *&lt;bölge >.&lt; FQDN >*|
+|KeyVault|&#42;.Vault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|Key Vault|Kasa.  *&lt;bölge >.&lt; FQDN >*|
 |KeyVaultInternal|&#42;.adminvault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|İç Keyvault|adminvault.  *&lt;bölge >.&lt; FQDN >*|
 |
 <sup>1</sup> ACS sertifikası üç joker SAN'ları üzerinde tek bir sertifika gerektirir. Tek bir sertifika üzerinde birden fazla joker karakter SANs tüm ortak sertifika yetkilisi tarafından desteklenmiyor olabilir. 
@@ -118,7 +119,7 @@ Aşağıdaki tabloda, SQL ve MySQL bağdaştırıcıları ve uygulama hizmeti i�
 
 <sup>1</sup> birden fazla joker ilgili alternatif adlarına sahip bir sertifika gerektirir. Tek bir sertifika üzerinde birden fazla joker karakter SANs tüm ortak sertifika yetkilisi tarafından desteklenmiyor olabilir 
 
-<sup>2</sup> A &#42;.appservice. *&lt;bölge >. &lt;fqdn >* joker sertifika yerine bu üç sertifikalar kullanılamıyor (api.appservice. *&lt;bölge >. &lt;fqdn >*, ftp.appservice. *&lt;bölge >. &lt;fqdn >*ve sso.appservice. *&lt;bölge >. &lt;fqdn >*. Uygulama hizmeti açıkça Bu uç noktalar için ayrı sertifikaların kullanımını gerektirir. 
+<sup>2</sup> A &#42;.appservice. *&lt;bölge >. &lt;fqdn >* joker sertifika yerine bu üç sertifikalar kullanılamıyor (api.appservice. *&lt;bölge >. &lt;fqdn >*, ftp.appservice. *&lt;bölge >. &lt;fqdn >* ve sso.appservice. *&lt;bölge >. &lt;fqdn >*. Uygulama hizmeti açıkça Bu uç noktalar için ayrı sertifikaların kullanımını gerektirir. 
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 Bilgi edinmek için nasıl [Azure yığın dağıtımı için PKI sertifikalarını oluşturmak](azure-stack-get-pki-certs.md). 

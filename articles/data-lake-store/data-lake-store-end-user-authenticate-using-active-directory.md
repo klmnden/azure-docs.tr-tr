@@ -1,8 +1,8 @@
 ---
-title: "Son kullanıcı kimlik doğrulaması: Data Lake Store Azure Active Directory ile | Microsoft Docs"
-description: "Son kullanıcı kimlik doğrulaması Azure Active Directory'yi kullanarak Data Lake Store ile elde öğrenin"
+title: 'Son kullanıcı kimlik doğrulaması: Data Lake Store Azure Active Directory ile | Microsoft Docs'
+description: Son kullanıcı kimlik doğrulaması Azure Active Directory'yi kullanarak Data Lake Store ile elde öğrenin
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 39ee32ec8b1d005aac12cb88262d7e2f37898721
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Bağlantıyı bölümündeki yönergeleri izleyerek sırasında seçtiğinizden 
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>2. adım: uygulama kimliği alma ve yeniden yönlendirme URI'si
 
-Bkz: [uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) (Azure Klasik Portalı'nda istemci kimliği olarak da bilinir) Azure AD yerel uygulamanın uygulama Kimliğini almak için.
+Bkz: [uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) uygulama kimliğini almak için
 
 Yeniden yönlendirme URI'si almak için aşağıdaki adımları uygulayın.
 
@@ -102,15 +102,15 @@ Yeniden yönlendirme URI'si almak için aşağıdaki adımları uygulayın.
 
 2. Gelen **ayarları** uygulama için dikey tıklayın **gerekli izinleri**ve ardından **Ekle**.
 
-    ![İstemci kimliği](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![istemci kimliği](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. İçinde **API erişimini eklemek** dikey penceresinde tıklatın **bir API seçin**, tıklatın **Azure Data Lake**ve ardından **seçin**.
 
-    ![İstemci kimliği](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![istemci kimliği](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
  
 4.  İçinde **eklemek API erişimini** dikey penceresinde tıklatın **izinler seçeneğini belirleyin**, vermek için bu onay kutusunu seçin **tam erişim Data Lake Store'a**ve ardından **seçin**.
 
-    ![İstemci kimliği](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![istemci kimliği](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
     **Bitti**’ye tıklayın.
 

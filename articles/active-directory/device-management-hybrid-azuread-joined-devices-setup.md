@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -513,7 +513,7 @@ Aşağıdaki ilke ayarlamak **tüm**: **kullanıcıları Azure AD ile cihazları
 
 ### <a name="configure-on-premises-federation-service"></a>Şirket içi Federasyon hizmetini yapılandır 
 
-Şirket içi Federasyon hizmetinizi veren desteklemelidir **authenticationmehod** ve **wiaormultiauthn** aşağıda gösterildiği gibi kodlanmış bir değer resouce_params parametresiyle tutan Azure AD bağlı olan taraf için kimlik doğrulama isteği alırken talepleri:
+Şirket içi Federasyon hizmetinizi veren desteklemelidir **authenticationmethod** ve **wiaormultiauthn** talep tutan Azure AD bağlı olan taraf için kimlik doğrulama isteği alırken bir resouce_params parametre gösterildiği gibi kodlanmış bir değeri olan aşağıdaki:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 

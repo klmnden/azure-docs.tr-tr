@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Yeni bir simülasyon cihazı oluşturun
 
@@ -33,7 +33,7 @@ Aşağıdaki video aygıt benzeticisi mikro özelleştirme seçeneklerine genel 
 | Ad                     | Değerler                      |
 | ------------------------ | --------------------------- |
 | Renk                    | Beyaz, kırmızı, mavi            |
-| Parlaklığını               | 0 ile 100 arası                    |
+| Parlaklığını               | 0'dan 100'e                    |
 | Tahmini kalan kullanım ömrü | Geri sayım 10.000 saat |
 
 *Telemetri*
@@ -258,7 +258,11 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 
 1. İçinde **ortam değişkenleri** bölümünde, değerini Düzenle **bilgisayarları\_IOTHUB\_SQLCOMMAND** değişken IOT Hub bağlantı dizesine olması, daha önce not ettiğiniz. Daha sonra değişikliklerinizi kaydedin.
 
-1. Çözüm Gezgini'nde sağ **aygıt benzetimi** çözüm ve **başlangıç projelerini Ayarla**. Seçin **tek başlangıç projesi** seçip **SimulationAgent**. Daha sonra, **Tamam**'a tıklayın.
+1. Çözüm Gezgini'nde sağ **WebService** seçin, proje **özellikleri**ve ardından **hata ayıklama**.
+
+1. İçinde **ortam değişkenleri** bölümünde, değerini Düzenle **bilgisayarları\_IOTHUB\_SQLCOMMAND** değişken IOT Hub bağlantı dizesine olması, daha önce not ettiğiniz. Daha sonra değişikliklerinizi kaydedin.
+
+1. Çözüm Gezgini'nde sağ **aygıt benzetimi** çözüm ve **başlangıç projelerini Ayarla**. Seçin **tek başlangıç projesi** seçip **WebService**. Daha sonra, **Tamam**'a tıklayın.
 
 1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip **veri/Services/devicemodels** klasör. Çözüm Gezgini'nde kopyalama **Soğutucu** oluşturacak şekilde dosyaları **ampul** dosyaları aşağıdaki tabloda gösterildiği gibi:
 
@@ -294,10 +298,12 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ Test sırasında çözümü arasında bağlantı sanal cihaz sayısını sınır
 
 Şimdi yeni sanal ampul türünüzü aygıt benzetimi projeyi yerel olarak çalıştırarak test etmek hazırsınız.
 
-1. Çözüm Gezgini'nde sağ **SimulationAgent**, seçin **hata ayıklama** ve ardından **başlangıç yeni örnek**.
+1. Çözüm Gezgini'nde sağ **WebService**, seçin **hata ayıklama** ve ardından **başlangıç yeni örnek**.
 
 1. İki sanal cihazlar IOT Hub'ınıza bağlanan denetlemek için tarayıcınızda Azure Portalı'nı açın.
 

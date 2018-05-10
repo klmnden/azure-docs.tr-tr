@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d71f9fc2b69e1a99b518c2317cccde712ab40fec
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure Media Services'i kullanarak canlı akış genel bakış
 
@@ -54,7 +54,7 @@ Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktalar�
   > Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
   > 
   > 
-* Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Azure veri merkezine adanmış bir bağlantıya sahip sağlanan RTP (MPEG-TS) de desteklenir. Şu gerçek zamanlı kodlayıcılar RTMP çıkışı ile bu tür kanallar ile çalışma bilinen: Telestream Wirecast, FMLE. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Şu gerçek zamanlı kodlayıcılar RTMP çıkışı ile bu tür kanallar ile çalışma bilinen: Telestream Wirecast, FMLE. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
 Bir kanal oluşturduğunuzda Media Services 2.10 sürümünden başlayarak, hangi yolla, kanalınızı Giriş akışı almaya ve desteklemediğini kanalın akışınızı gerçek zamanlı kodlama gerçekleştirmek için istiyorsanız belirtebilirsiniz. İki seçeneğiniz vardır:
 
@@ -68,7 +68,7 @@ Aşağıdaki tabloda Media Services ile desteklenen iki kanallı türleri karş�
 | --- | --- | --- |
 | Tek bit hızlı giriş bulutta Çoklu bit içine kodlanmış |Hayır |Evet |
 | Maksimum çözünürlük, Katmanlar sayısı |1080p, 8 Katmanlar 60 + fps |720p, 6 Katmanlar 30 fps |
-| Giriş protokolleri |RTMP, kesintisiz akış |RTMP, kesintisiz akış ve RTP |
+| Giriş protokolleri |RTMP, kesintisiz akış |RTMP, kesintisiz akış |
 | Fiyat |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesini tıklatın |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) |
 | En fazla çalışma süresi |7/24 |8 saat |
 | Maskeleme görüntülerini ekleme desteği |Hayır |Evet |

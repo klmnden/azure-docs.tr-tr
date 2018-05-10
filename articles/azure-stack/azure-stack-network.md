@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makale Azure yığın mevcut ağ ortamınıza en iyi tümleştirmek nasıl karar vermenize yardımcı olacak Azure yığın ağ altyapı bilgileri sağlar. 
@@ -70,7 +70,7 @@ Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bil
 Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, Azure kayıt sırasında ve altyapı yedekleme sırasında ERCS VM Internet erişimi gerektirir. ERCS VM sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
 
 ### <a name="public-vip-network"></a>Ortak VIP ağ
-Ortak VIP ağ Azure yığınında Ağ denetleyicisi atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/32 Kiracı İş yükleri için ağları. Geçiş yönlendirme tablosu üzerinde bu 32 IP'leri BGP aracılığıyla kullanılabilir bir yolu olarak bildirildiğini. Bu ağ, dış erişilebilir veya genel IP adresleri içerir. Kalan Kiracı VM'ler tarafından kullanılırken Azure yığın altyapısı bu ortak VIP ağ 8 adreslerini kullanır. Bu alt ağ boyutu en fazla /22 (1022 konakları) için en az /26 (64 konakları) aralığı, bir/24 için planlama öneririz ağ.
+Ortak VIP ağ Azure yığınında Ağ denetleyicisi atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/32 Kiracı İş yükleri için ağları. Geçiş yönlendirme tablosu üzerinde bu 32 IP'leri BGP aracılığıyla kullanılabilir bir yolu olarak bildirildiğini. Bu ağ, dış erişilebilir veya genel IP adresleri içerir. Kalan Kiracı VM'ler tarafından kullanılırken Azure yığın altyapısı bu ortak VIP ağ ilk 31 adreslerinden ayırır. Bu alt ağ boyutu en fazla /22 (1022 konakları) için en az /26 (64 konakları) aralığı, bir/24 için planlama öneririz ağ.
 
 ### <a name="switch-infrastructure-network"></a>Anahtar altyapı ağı
 Bu/26 ağdır (2 ana bilgisayar IP's) yönlendirilebilir noktadan noktaya IP/30 alt ve ayrılmış geri döngüler içeren alt ağ/32 alt ağlar için bant dışı yönetim ve BGP yönlendirici kimliği geçiş Bu IP adresi aralığı dışarıdan merkeziniz için Azure yığın çözümün yönlendirilebilir olmalıdır, özel veya genel IP'ler olabilir.

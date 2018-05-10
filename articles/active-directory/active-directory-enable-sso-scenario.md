@@ -3,30 +3,30 @@ title: Azure Active Directory ile uygulamaları yönetme | Microsoft Docs
 description: Bu şirket içi, Bulut ve SaaS uygulamaları ile Azure Active Directory Tümleştirme avantajlarını makalesi.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: e05b2d515b997e769306146a5390d4d44fd5cf50
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 041901a6b1ca0707237360bd7943ae950558f138
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory ile uygulamaları yönetme
 Gerçek iş akışı veya içeriği işletmeler tüm uygulamalar için iki temel gereksinimlere sahiptir:
 
 1. Üretkenliği artırmak için uygulamaları bulmak ve erişmek kolay olmalıdır
-2. Güvenlik ve idare etkinleştirmek için kuruluşun denetimi ve Gözetimi kimlerin ve her uygulamanın gerçekten erişiyor üzerinde gerekir
+2. Güvenlik ve idare etkinleştirmek için kuruluşun denetimi ve Gözetimi altında kimlerin erişebileceğini ve kimlerin gerçekte her uygulamaya erişmeyi üzerinden gerekir
 
-Bu en iyi sonucu elde edilebilir denetlemek için kimlik bilgileriniz kullanılarak bulut uygulamalarının dünyada "*KİMİN verilir ne*".
+Bulut uygulamalarını dünyasında bu en iyi denetlemek için kimlik bilgileriniz kullanılarak sağlanabilir "*KİMİN verilir ne*."
 
 Terminolojisi bilgisayar:
 
@@ -38,8 +38,8 @@ Her iki bileşenin birlikte olarak da bilinir *kimlik ve erişim yönetimi (IAM)
 Böylece sorunun ne olduğunu istiyor musunuz? IAM ise *yönetilmiyor* tümleşik bir çözüm ile tek bir yerde:
 
 * Kimlik Yöneticiler sahip tek tek oluşturmak ve kullanıcı hesaplarını tüm uygulamalarda ayrı olarak güncelleştirmek bir yedek ve zaman alıcı etkinlik.
-* Kullanıcıların çalışmak için gereksinim duydukları uygulamalara erişmek için birden çok kimlik bilgisi ezberleme gerekmez. Sonuç olarak, kullanıcılar parolalarını yazmak veya diğer veri güvenlik risklerini de beraberinde getirir diğer parola yönetimi çözümlerini kullanmak için eğilimi gösterir.
-* Yedekli, uzun süren etkinlikler kullanıcılar miktarını azaltın ve yöneticiler işletmenizin alt çizgi artan iş etkinliklerini çalışıyoruz.
+* Kullanıcıların çalışmak için gereksinim duydukları uygulamalara erişmek için birden çok kimlik bilgisi ezberleme gerekmez. Sonuç olarak, kullanıcılar parolalarını yazmak veya diğer parola yönetimi çözümleri kullanmak için eğilimi gösterir. Bu alternatifleri diğer veri güvenliği risk getirir.
+* Kullanıcılar artık, uzun süren etkinlikler azaltın ve yöneticilerin işletmenizin alt çizgi artırmak iş faaliyetlerine üzerinde çalışmaya harcadığı.
 
 Bu nedenle, kuruluşlar tümleşik IAM çözümleri benimsenmesi gelen engeller genellikle ne?
 
@@ -58,11 +58,11 @@ Azure Active Directory ile tüm uygulamalar, iş ortakları için yayımlayın v
 
 Ne uygulama galerisinde henüz listelenmeyen bir uygulama uygulamanız gerekir? Bu uygulama Galerisi uygulamalardan için SSO yapılandırmaktan biraz daha uzun süren olmakla birlikte, Azure AD yapılandırmayla yardımcı olan bir sihirbaz sağlar.
 
-Azure AD değeri "yalnızca" bulut uygulamalarını gider. Ayrıca, ile şirket içi uygulamalara güvenli uzaktan erişim sağlayarak kullanabilirsiniz. Güvenli uzaktan erişim ile ortadan kaldırabileceğiniz gereken VPN veya diğer geleneksel uzaktan erişim yönetimi uygulamaları için.
+Azure AD değeri "yalnızca" bulut uygulamalarını gider. Ayrıca, ile şirket içi uygulamalara güvenli uzaktan erişim sağlayarak kullanabilirsiniz. Güvenli uzaktan erişim VPN veya diğer geleneksel uzaktan erişim yönetimi uygulamaları gereksinimini ortadan kaldırabilirsiniz.
 
-Merkezi erişim yönetimi ve çoklu oturum açma (SSO) için tüm uygulamalarınızı sağlayarak, Azure AD ana veri güvenliği ve üretkenlik soruna çözüm sağlar.
+Merkezi erişim yönetimi ve çoklu oturum açma (SSO) için tüm uygulamalarınızı sağlayarak, Azure AD ana veri güvenliği ve üretkenlik sorunları çözümü sağlar.
 
-* Kullanıcılar daha uzun geliri bitti oluşturma veya iş işlemleri etkinlikleri vermiş üzerinde bir oturum ile birden çok uygulama erişebilir.
+* Kullanıcılar, çoklu uygulamaları bir daha uzun geliri bitti oluşturma veya iş işlemleri etkinlikleri vermiş ile oturum açma erişebilir.
 * Kimlik Yöneticiler tek bir yerde uygulamalara erişimi yönetebilir.
 
 Şirket ve kullanıcı için avantajı açıktır. Bir daha yakından avantajları kimlik yönetici ve kuruluş için bakalım.
@@ -81,7 +81,7 @@ Azure AD uygulamaları yönetmek ve SSO'yu etkinleştirmek için kullanırken:
 Yetkilendirme hedef uygulamanın geçirilmeden şekilde nasıl uygulama Azure AD ile tümleşik bağlı olarak değişir anlamak önemlidir.
 
 * **Uygulama hizmeti sağlayıcısı tarafından önceden tümleştirilmiş** gibi Office 365 ve Azure, bunlar doğrudan Azure AD'de oluşturulmuş ve kapsamlı kimlik ve erişim yönetimi yeteneklerini için ona bağlı olan uygulamalar. Bu uygulamalara erişim dizin bilgilerini ve belirteç verme aracılığıyla etkinleştirilir.
-* **Uygulamalar önceden tümleştirilmiş Microsoft ve özel uygulamalar tarafından** bir iç uygulama dizini kullanır ve Azure AD bağımsız olarak çalışabilir bağımsız bulut uygulamaları şunlardır. Bir uygulama hesabına eşlenen bir uygulama belirli kimlik bilgileri vererek bu uygulamalara erişimi etkindir. Uygulama özellikleri bağlı olarak, bir Federasyon belirteç veya kullanıcı adı ve uygulamanın önceden hazırlanmış olan bir hesap için parola kimlik bilgisi olabilir.
+* **Uygulamalar önceden tümleştirilmiş Microsoft ve özel uygulamalar tarafından** bir iç uygulama dizini kullanır ve Azure AD bağımsız olarak çalışabilir bağımsız bulut uygulamaları şunlardır. Bir uygulama hesabına eşlenen bir uygulamaya özgü kimlik bilgisi vererek bu uygulamalara erişimi etkindir. Uygulama özellikleri bağlı olarak, bir Federasyon belirteç veya kullanıcı adı ve uygulamanın önceden hazırlanmış olan bir hesap için parola kimlik bilgisi olabilir.
 * **Şirket içi uygulamalara** yayımlanan uygulamaları öncelikle şirket içi uygulamalara erişimi etkinleştirme Azure AD uygulama proxy'si aracılığıyla. Bu uygulamaları Windows Server Active Directory gibi bir merkezi şirket içi dizin kullanır. Bu uygulamalara erişim, şirket içi oturum açma gereksinimi uygularken sırasında son kullanıcıya uygulama içerik ulaştırmak için proxy tetikleme tarafından etkinleştirilir.
 
 Örneğin, bir kullanıcı, kuruluşunuzun katılırsa, birincil oturum açma işlemleri için Azure AD'de kullanıcı için bir hesap oluşturmanız gerekir. Bu kullanıcı Salesforce gibi yönetilen bir uygulamaya erişim gerektiriyorsa, Salesforce'ta bu kullanıcı için bir hesap oluşturun ve iş SSO yapmak için Azure hesabınıza bağlamak gerekir. Kullanıcı kuruluşunuzdan ayrıldığında, Azure AD hesabının silmeniz önerilir ve IAM tüm karşılık gelen hesaplarında depolar kullanıcının erişebildiği uygulamalar.
@@ -90,7 +90,7 @@ Yetkilendirme hedef uygulamanın geçirilmeden şekilde nasıl uygulama Azure AD
 Modern kuruluşlarda, BT departmanları kullanılmakta olan tüm bulut uygulamaları tanımaz genellikle. Azure AD Cloud App Discovery ile birlikte, bu uygulamaları algılamak için bir çözüm sağlar.
 
 ## <a name="account-management"></a>Hesap yönetimi
-Geleneksel olarak, çeşitli uygulamaları hesaplarını yönetme tarafından gerçekleştirilen elle yapılan bir işlemdir BT veya destek personeli kuruluşu. Azure AD hesap yönetimi tüm hizmet sağlayıcısı tümleşik uygulamalar ve otomatik kullanıcı sağlamayı veya SAML Just-In-Time sağlama destekleyen Microsoft tarafından önceden tümleştirilmiş uygulamaların tam olarak otomatikleştirir.
+Geleneksel olarak, çeşitli uygulamaları hesaplarını yönetme tarafından gerçekleştirilen elle yapılan bir işlemdir BT veya destek personeli kuruluşu. Azure AD Hesap Yönetimi hizmet sağlayıcıları tarafından tümleşik uygulamalar ve otomatik kullanıcı sağlamayı veya SAML Just-In-Time sağlama destekleyen Microsoft tarafından önceden tümleşik uygulamalar arasında tam olarak otomatikleştirir.
 
 ## <a name="automated-user-provisioning"></a>Otomatik kullanıcı hazırlama
 Bazı uygulamalar Otomasyon arabirimleri oluşturma ve temizleme (veya devre dışı bırakma) hesaplarının sağlayın. Bir sağlayıcı böyle bir arabirim sunuyorsa, Azure AD tarafından yararlanır. Bu yönetim görevlerini otomatik olarak gerçekleşir, işletim maliyetlerini azaltır ve yetkisiz erişim olasılığını azaltır için ortamınızın güvenliğini artırır.
@@ -99,7 +99,7 @@ Bazı uygulamalar Otomasyon arabirimleri oluşturma ve temizleme (veya devre dı
 Azure AD ile tek tek kullanan uygulamalar veya atamaları güdümlü kural erişimi yönetebilirsiniz. Ayrıca temsilci erişim en iyi gözetim sağlamaya ve Yardım Masası üzerindeki yükü azaltarak kuruluşun doğru kişilere yönetimi.
 
 ## <a name="on-premises-applications"></a>Şirket içi uygulamalar
-Yerleşik uygulama proxy, bunun sonucunda, kullanıcılarınıza şirket içi uygulamalarınızı yayımlamak sağlar tutarlı hem Azure AD izleme, raporlama ve güvenlik özelliklerini modern bulut uygulama ve avantajları deneyim erişim.
+Bunun sonucunda, kullanıcılarınıza şirket içi uygulamalarınızı yayımlamak yerleşik uygulama proxy'si sağlar tutarlı hem Azure AD izleme, raporlama ve güvenlik özelliklerini modern bulut uygulama ve avantajları deneyim erişim.
 
 ## <a name="reporting-and-monitoring"></a>Raporlama ve izleme
 Azure AD, önceden tümleştirilmiş raporlama ve izleme bilmeniz sağlayan özellikler ile uygulamalara ve bunlar aslında bunları kullanıldığında erişimi sağlar.

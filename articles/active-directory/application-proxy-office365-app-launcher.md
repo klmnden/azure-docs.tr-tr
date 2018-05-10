@@ -1,25 +1,25 @@
 ---
-title: "Azure AD uygulama proxy'si aracılığıyla yayımlanan uygulamalar için özel bir ana sayfa ayarlama | Microsoft Docs"
-description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır"
+title: Azure AD uygulama proxy'si aracılığıyla yayımlanan uygulamalar için özel bir ana sayfa ayarlama | Microsoft Docs
+description: Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d31100015a11bc57d488f1d6af93db8526e38968
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1627f3590bd92f2460368cffab48d43c5a82d3c4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanan uygulamalar için özel bir ana sayfa ayarlayın
 
@@ -42,7 +42,7 @@ Giriş sayfası URL'si ayarlamadan önce aşağıdaki gereksinimleri göz önün
 
 * Belirttiğiniz yolda kök etki alanı URL'si bir alt etki alanı yolu olduğundan emin olun.
 
-  Kök etki alanı URL'si, örneğin, https://apps.contoso.com/app1/, yapılandırdığınız giriş sayfası URL'si ile https://apps.contoso.com/app1/ başlatmanız gerekir.
+  Kök etki alanı URL'si, örneğin, ise https://apps.contoso.com/app1/, yapılandırdığınız giriş sayfası URL'si ile başlamalıdır https://apps.contoso.com/app1/.
 
 * Yayımlanan uygulama bir değişiklik yaparsanız, değişiklik giriş sayfası URL'si değerini sıfırlayabilir. Giriş sayfası URL'si, uygulama gelecekte yeniden denetle güncelleştirdiğinizde ve gerekirse güncelleştirin.
 
@@ -119,7 +119,7 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Giriş sayfası URL'si istediğiniz değerine ayarlayın. Değer yayımlanan uygulama bir alt yolu olması gerekir. Örneğin, giriş sayfası URL'den değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarınızın doğrudan özel giriş sayfasına git .
+3. Giriş sayfası URL'si istediğiniz değerine ayarlayın. Değer yayımlanan uygulama bir alt yolu olması gerekir. Örneğin, giriş sayfası URL'den değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarınızın doğrudan özel giriş sayfasına gidin.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”

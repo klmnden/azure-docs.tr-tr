@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Ayarlama ve günlük analizi çok müşterili bir SQL veritabanı SaaS uygulaması ile kullanma
 
@@ -65,7 +65,7 @@ Wingtip biletleri SaaS çok müşterili veritabanı komut dosyalarını ve uygul
 
 Günlük analizi yapılandırılmalıdır ayrı bir hizmettir. Günlük analizi günlük verilerini, telemetri ve günlük analizi çalışma alanındaki ölçümleri toplar. Yalnızca diğer kaynaklar gibi Azure günlük analizi çalışma alanı oluşturulması gerekir. Çalışma alanı izlediği uygulamaları ile aynı kaynak grubunda oluşturulması gerekmez. Bu nedenle sık yapılması çoğu ancak mantıklıdır. Wingtip biletleri uygulama için tek bir kaynak grubu çalışma alanında uygulama ile silinir emin olmak için kullanın.
 
-1. PowerShell ISE açmak *... \\WingtipTicketsSaaS MultiTenantDb ana\\modülleri öğrenme\\performans izleme ve Yönetim\\oturum Analytics\\** Demo LogAnalytics.ps1***.
+1. PowerShell ISE açmak *... \\WingtipTicketsSaaS MultiTenantDb ana\\modülleri öğrenme\\performans izleme ve Yönetim\\oturum Analytics\\Demo LogAnalytics.ps1*.
 2. Komut dosyasını çalıştırmak için F5 tuşuna basın.
 
 Şimdi Azure portal ya da Operations Management Suite portalına günlük analizi açabilirsiniz. Günlük analizi çalışma alanındaki telemetri toplamak ve görünür yapmak için birkaç dakika sürer. Uzun daha ilginç deneyimidir tanılama verilerini toplama sistem bırakın. 
@@ -90,7 +90,7 @@ Bu alıştırmada, veritabanları ve havuzları için toplanan telemetri bakmak 
 
 4. Seçin **Azure SQL analizi** açmak için kutucuğa.
 
-    ![Genel Bakış kutucuğu](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Genle bakış kutucuğu](media/saas-dbpertenant-log-analytics/overview.png)
 
 5. Çözüm görünümleri betiklerdeki kendi iç kaydırma çubuğunun altındaki ile kaydırın. Gerekirse, sayfayı yenileyin.
 

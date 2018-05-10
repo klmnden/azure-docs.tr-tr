@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -22,7 +22,7 @@ Bu makalede desteklenen bileşenleri ve VMware Vm'lerini olağanüstü durum kur
 
 **Senaryo** | **Ayrıntılar**
 --- | ---
-VMware Sanal Makineleri | Şirket içi VMware Vm'lerini azure'a çoğaltma. Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
+VMware Sanal Makineleri | Şirket içi VMware Vm'lerini azure'a çoğaltma. Bu senaryo Azure portalında veya kullanarak dağıtabilirsiniz [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Fiziksel sunucuları | Şirket içi Windows/Linux fiziksel serversto Azure çoğaltma. Bu senaryo Azure portalında dağıtabilirsiniz.
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
@@ -101,7 +101,6 @@ Debian 8 | 9.14, 9.15 | 3.16.0-5-amd64, 4.9.0-0.bpo.5-amd64 4.9.0-0.bpo.4-amd64 
 --- | ---
 Dosya sistemleri | ext3, ext4, XFS.
 Birim Yöneticisi | LVM2.
-Çok yollu yazılım | Cihaz Eşleştiricisi.
 Paravirtualized depolama aygıtları | Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 G/ç cihazların çok sıra engelle | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
@@ -162,7 +161,7 @@ Konuk/sunucu diski 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
 Konuk/sunucu - depolama alanları | Hayır
 Konuk/sunucu sık kullanılan Ekle/Kaldır disk | Hayır
 Konuk/sunucu - exclude disk | Evet
-Konuk/sunucu çok yollu (MPIO) | Yok
+Konuk/sunucu çok yollu (MPIO) | Hayır
 
 > [!NOTE]
 > UEFI VMware sanal makineleri Windows Server 2012 çalıştıran önyükleme veya Azure'a daha sonra geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir:
