@@ -174,10 +174,6 @@
 #### [Anlık görüntü raporları oluşturma](cloudappdiscovery-set-up-snapshots.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Aracı tabanlı bulma
-##### [Cloud App Discovery nedir?](active-directory-cloudappdiscovery-whatis.md)
-##### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)
@@ -328,7 +324,7 @@
 #### [SSS](active-directory-identity-protection-faqs.md)
 #### [Sözlük](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Diğer hizmetleri Azure AD ile tümleştirme]()
 ### [LinkedIn ile tümleştirmeyi etkinleştirme](linkedin-integration.md)

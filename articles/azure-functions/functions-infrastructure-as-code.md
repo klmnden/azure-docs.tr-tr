@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevlerinde bir işlev uygulaması için kaynak dağıtım otomatikleştirmek | Microsoft Docs"
-description: "İşlev uygulamanızı dağıtan bir Azure Resource Manager şablonu oluşturmayı öğrenin."
+title: Azure işlevlerinde bir işlev uygulaması için kaynak dağıtım otomatikleştirmek | Microsoft Docs
+description: İşlev uygulamanızı dağıtan bir Azure Resource Manager şablonu oluşturmayı öğrenin.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, sunucusuz mimarisi, kod, azure kaynak yöneticisi olarak altyapısı"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, sunucusuz mimarisi, kod, azure kaynak yöneticisi olarak altyapısı
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure işlevleri işlev uygulamanız için kaynak dağıtımı otomatik hale getir
 
@@ -56,7 +56,9 @@ Bir Azure depolama hesabı için bir işlev uygulaması gereklidir. BLOB'lar, ta
 }
 ```
 
-Ayrıca, özellikleri `AzureWebJobsStorage` ve `AzureWebJobsDashboard` uygulama ayarları site yapılandırması olarak belirtilmelidir. Azure işlevleri çalışma zamanı kullanır `AzureWebJobsStorage` iç kuyruk oluşturmak için bağlantı dizesi. Bağlantı dizesi `AzureWebJobsDashboard` Azure Table depolama ve güç oturum açmak için kullandığınız **İzleyici** portal sekmesindedir.
+Buna ek olarak, özellik `AzureWebJobsStorage` site yapılandırmasında bir uygulama ayarı olarak belirtilmelidir. İşlev uygulaması Application Insights izleme için kullanmayan varsa, bu da belirtmeniz gerekir `AzureWebJobsDashboard` bir uygulama ayarı olarak.
+
+Azure işlevleri çalışma zamanı kullanır `AzureWebJobsStorage` iç kuyruk oluşturmak için bağlantı dizesi.  Application Insights etkin değil, çalışma zamanı kullanır `AzureWebJobsDashboard` oturum Azure tablo depolaması ve güç için bağlantı dizesi **İzleyici** portal sekmesindedir.
 
 Bu özellikleri belirtilen `appSettings` koleksiyonunda `siteConfig` nesnesi:
 
@@ -260,7 +262,7 @@ Bir işlev uygulaması, uygulama ayarları ve kaynak denetimi seçenekleri de da
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portalı](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Azure düğmesine dağıtma

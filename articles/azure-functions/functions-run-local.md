@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 2273a39f1c9da57072ca027e34c4acd6d86ea61a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -235,13 +235,13 @@ func new
 Örneğin, bir JavaScript HTTP tetikleyicisi oluşturmak için çalıştırın:
 
 ```
-func new --language JavaScript --template "HttpTrigger" --name MyHttpTrigger
+func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 Sıra tetiklenen bir işlev oluşturmak için çalıştırın:
 
 ```
-func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
+func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
 ```
 <a name="start"></a>
 ## <a name="run-functions-locally"></a>İşlevler yerel olarak çalıştırma

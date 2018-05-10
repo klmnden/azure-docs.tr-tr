@@ -208,7 +208,7 @@
         - name: Azure VM aracısı
           items:
             - name: Genel Bakış
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: Aracı güncelleştirmesi
               href: update-agent.md
         - name: Planlı bakım
@@ -434,7 +434,7 @@
         - name: VMAccess Uzantısı
           href: using-vmaccess-extension.md
         - name: Uzantı yüklemesini kısıtlama
-          href: extensions-rmpolicy-howto-cli.md
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: VM’leri geçirme
       items:
         - name: AWS’Den ve şirket içi VM’lerden geçiş

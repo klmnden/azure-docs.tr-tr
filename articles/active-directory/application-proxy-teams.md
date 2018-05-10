@@ -1,25 +1,25 @@
 ---
-title: "Erişim takımlar Azure AD uygulama proxy'si uygulamalarında | Microsoft Docs"
-description: "Şirket içi uygulamanızı Microsoft Teams erişmek için Azure AD uygulama proxy'si kullanın."
+title: Erişim takımlar Azure AD uygulama proxy'si uygulamalarında | Microsoft Docs
+description: Şirket içi uygulamanızı Microsoft Teams erişmek için Azure AD uygulama proxy'si kullanın.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 66fdc03d2945b84615ee39dcbcc9bc71ddb06711
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Şirket içi uygulamalarınızı Microsoft Teams erişme
 
@@ -38,7 +38,7 @@ Zaten varsa yayımlanan uygulamalarınızı ancak bunların dış URL'ler hatır
 
 Uygulama proxy'si aracılığıyla uygulama yayımladıktan sonra bunlar bir sekmede doğrudan kendi takımlar kanalları olarak ekleyebilir ve sonra uygulama için kullanılacak ekipteki herkesin kullanılabilir biliyorsanız, kullanıcılarınızın olanak tanır. Bunları aşağıdaki üç adımı izleyin vardır:
 
-1. Bu uygulamayı eklemek ve seçmek için istediğiniz takımlar kanal gidin  **+**  bir sekme eklemek için.
+1. Bu uygulamayı eklemek ve seçmek için istediğiniz takımlar kanal gidin **+** bir sekme eklemek için.
 
    ![Sekme Ekle seçin](./media/application-proxy-teams/add-tab.png)
 

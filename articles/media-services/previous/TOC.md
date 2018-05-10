@@ -118,7 +118,6 @@
 #### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Şirket içi kodlayıcıları bulut kodlayıcıyla kullanılmak üzere yapılandırma](media-services-live-encoders-overview.md)
-#### [Elemental Live kodlayıcı](media-services-configure-elemental-live-encoder.md)
 #### [FMLE kodlayıcı](media-services-configure-fmle-live-encoder.md)
 #### [Haivision KB kodlayıcı](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster kodlayıcı](media-services-configure-tricaster-live-encoder.md)

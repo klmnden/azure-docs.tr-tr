@@ -105,7 +105,11 @@
         - name: Yazma hızlandırıcıyı etkinleştirme
           href: how-to-enable-write-accelerator.md
         - name: Ekli VHD’lerde sorun giderme
-          href: troubleshoot-vhds.md
+          items:
+            - name: Depolama kaynağı silme hataları
+              href: storage-resource-deletion-errors.md
+            - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
+              href: unexpected-reboots-attached-vhds.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -202,7 +206,7 @@
         - name: Şablon indirme
           href: download-template.md
         - name: Azure VM aracısı
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Planlı bakım
           href: maintenance-notifications.md
         - name: Kurgusal yürütmeyi azaltma
@@ -365,7 +369,7 @@
         - name: Ağ İzleyicisi Aracısı
           href: extensions-nwa.md
         - name: Uzantı yüklemesini kısıtlama
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: VM’leri geçirme
       items:
         - name: AWS’Den ve şirket içi VM’lerden geçiş
