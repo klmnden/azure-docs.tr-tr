@@ -54,6 +54,12 @@
 ### [.NET 2.0’a geçiş](key-vault-dotnet2api-release-notes.md)
 ### [Web Uygulaması gizli dizilerini kaydetme](vs-secure-secret-appsettings.md)
 ### [.NET kullanarak hizmet kimlik doğrulaması](service-to-service-authentication.md)
+### Visual Studio ile çalışma
+#### [Key Vault Bağlı Hizmetini kullanma](vs-key-vault-add-connected-service.md)
+#### [ASP.NET projeleriyle çalışmaya başlama](vs-key-vault-aspnet-get-started.md)
+#### [ASP.NET projeme ne oldu?](vs-key-vault-aspnet-what-happened.md)
+#### [ASP.NET Core projeleriyle çalışmaya başlama](vs-key-vault-aspnet-core-get-started.md)
+#### [ASP.NET Core projeme ne oldu?](vs-key-vault-aspnet-core-what-happened.md)
 
 # Kaynaklar
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/key-vault/)

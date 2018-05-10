@@ -6,18 +6,17 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 9ab59033fd032cfccd2602a1a518e51a08e09581
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft uygulamaları ve Hizmetleri için LinkedIn hesap bağlantıları
 Bu makalede, Azure Active Directory (Azure AD) Yönetim Merkezi'nden kiracınız için LinkedIn hesap bağlantıları yönetmek nasıl öğrenebilirsiniz. 
@@ -26,7 +25,7 @@ Bu makalede, Azure Active Directory (Azure AD) Yönetim Merkezi'nden kiracınız
 > LinkedIn hesabı bağlantıları işlevi şu anda Azure AD kiracıları için Alınmakta. Kiracınız için toplu Bu, varsayılan olarak etkindir. Avustralya, Kanada, Çin, Fransa, Almanya, Hindistan, Güney Kore, İngiltere, Japonya ve Güney Afrika barındırılan Exchange Online posta kutularıyla ABD hükümeti müşterileri ve kuruluşlar için kullanılamaz. Bu posta kutusu konumları desteği yakında geliyor.  Ürün bilgileri güncel bir görünümü için bkz: [Office 365 yol haritası](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) sayfası.
 
 ## <a name="benefit-to-users"></a>Kullanıcılara yararlanabilir
-Kullanıcılar kendi LinkedIn hesabına bağlandıktan sonra LinkedIn bilgiler çeşitli Microsoft uygulamaları veya hizmetleri kişiselleştirilmiş bilgileri ve özellikleri göstermek için kullanılır. Bu, kuruluşunuzun kişilerle olsa bile kullanıcılar ile Microsoft profil kartı çalıştıkları Öngörüler kişilerle ilgili görebilirsiniz. Zaman içinde daha ilgili ve işlerine uyarlanmış LinkedIn deneyimlerini de olur. Örneğin, LinkedIn dayalı yeni bağlantıları önerebilir kullanıcılar çalışmak veya kişilerle ilgili Öngörüler kendi takvimde o gün bağlı.
+Kullanıcılar kendi LinkedIn hesabına bağlandıktan sonra LinkedIn bilgiler çeşitli Microsoft uygulamaları veya hizmetleri kişiselleştirilmiş bilgileri ve özellikleri göstermek için kullanılır. Bu, kuruluşunuzun kişilerle olsa bile kullanıcılar ile Microsoft profil kartı çalıştıkları Öngörüler kişilerle ilgili görebilirsiniz. Zaman içinde daha ilgili ve işlerine uyarlanmış LinkedIn deneyimlerini de olur. Örneğin, LinkedIn dayalı yeni bağlantıları önerebilir kullanıcılar ile çalışan veya kendi takvimde o gün kişilerle ilgili yüzey Öngörüler.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Nasıl LinkedIn hesap bağlantılar kullanıcıya görünür
 Bazı Microsoft uygulamalarını içinde ortak LinkedIn profil bilgilerini görmek kullanıcıların LinkedIn hesap bağlantıları sağlar. Kiracı kullanıcılar LinkedIn ve Microsoft iş bağlanmak veya Okul hesapları ek LinkedIn profil bilgilerini görmek için seçebilirsiniz. Daha fazla bilgi için bkz: [LinkedIn bilgileri ve Microsoft uygulamaları ve Hizmetleri özellikleri](https://go.microsoft.com/fwlink/?linkid=850740).

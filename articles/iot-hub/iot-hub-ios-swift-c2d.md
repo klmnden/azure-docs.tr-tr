@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IOT hub'ı (iOS) sahip bulut-cihaz iletilerini gönder
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -47,8 +47,8 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 - Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 - Azure active IOT hub. 
 - Kod örnekten [Azure örneklerinden](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) .
-- En son sürümünü [XCode](https://developer.apple.com/xcode/), iOS SDK'ın en son sürümünü çalıştıran. Bu Hızlı Başlangıç, XCode 9.3 iOS 11,3 inç ile test edilmiştir.
-- En son sürümünü [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+- En son iOS SDK sürümünü çalıştıran en yeni [XCode](https://developer.apple.com/xcode/) sürümü. Bu hızlı başlangıç XCode 9.3 ve iOS 11.3 ile test edilmiştir.
+- [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)'un en son sürümü.
 
 
 ## <a name="simulate-an-iot-device"></a>IOT cihaz benzetimi
@@ -56,23 +56,23 @@ Bu bölümde IOT hub'ından bulut cihaz iletileri almak için hızlı bir uygula
 
 Bu makalede, oluşturduğunuz örnek örnek cihazdır [Gönder telemetri bir CİHAZDAN bir IOT hub'ına]. Çalıştıran zaten varsa, bu bölümü atlayabilirsiniz.
 
-### <a name="install-cocoapods"></a>CocoaPods yükleyin
+### <a name="install-cocoapods"></a>CocoaPods yükleme
 
-CocoaPods, üçüncü taraf kitaplıklar kullanan iOS projeleri için bağımlılıkları yönetin.
+CocoaPods, üçüncü taraf kitaplıklar kullanan iOS projeleri için bağımlılıkları yönetir.
 
-Bir terminal penceresi Önkoşullar indirdiğiniz Azure-IOT-Samples-iOS klasöre gidin. Ardından, örnek projesine gidin:
+Bir terminal penceresinde, önkoşulların bir parçası olarak indirdiğiniz Azure-IoT-Samples-iOS klasörüne gidin. Ardından örnek projeye gidin:
 
 ```sh
 cd quickstart/sample-device
 ```
 
-XCode kapalı olduğundan emin olun ve ardından içinde bildirilen CocoaPods yüklemek için aşağıdaki komutu çalıştırın **podfile** dosyası:
+XCode’un kapalı olduğundan emin olun ve **podfile** dosyasında bildirilen CocoaPods’u yüklemek üzere aşağıdaki komutu çalıştırın:
 
 ```sh
 pod install
 ```
 
-Projeniz için gereken pod'ları yüklemeden yanı sıra, yükleme komutunu da bağımlılıkları pod'ları kullanmak için yapılandırılmış bir XCode çalışma alanı dosyası oluşturuldu. 
+Yükleme komutu, projeniz için gereken podları yüklemeye ek olarak bağımlılıklar için podları kullanacak şekilde önceden yapılandırılmış bir XCode çalışma alanı dosyası da oluşturmuştur. 
 
 ### <a name="run-the-sample-device-application"></a>Örnek cihaz uygulamayı çalıştırın 
 
@@ -82,28 +82,28 @@ Projeniz için gereken pod'ları yüklemeden yanı sıra, yükleme komutunu da b
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
     ```
 
-1. Örnek çalışma Xcode'da açın.
+1. Örnek çalışma alanını XCode'da açın.
 
    ```sh
    open "MQTT Client Sample.xcworkspace"
    ```
 
 2. Genişletme **MQTT istemci örnek** proje ve klasörü aynı ada sahip.  
-3. Açık **ViewController.swift** Xcode'da düzenlemek için. 
+3. XCode’da düzenlemek üzere **ViewController.swift** dosyasını açın. 
 4. Arama **connectionString** değişkeni ve değeri cihaz bağlantısı ile güncelleştirin, ilk adımda kopyaladığınız dize.
 5. Yaptığınız değişiklikleri kaydedin. 
-6. Proje aygıt öykünücü ile çalıştırmanız **derleme ve çalıştırma** düğmesini veya tuş birleşimine **komutu + r**. 
+6. **Derle ve çalıştır** düğmesi ya da **command + r** tuş birleşimi ile projeyi cihaz öykünücüsünde çalıştırın. 
 
-   ![Projeyi çalıştırın](media/quickstart-send-telemetry-ios/run-sample.png)
+   ![Projeyi çalıştırma](media/quickstart-send-telemetry-ios/run-sample.png)
 
 
 ## <a name="simulate-a-service-device"></a>Bir hizmet cihazının benzetimini
 
 Bu bölümde IOT hub'ı aracılığıyla bulut-cihaz iletilerini gönderir hızlı bir uygulama olan ikinci bir iOS cihaz benzetimi. Bu yapılandırma için IOT senaryolarını yararlıdır iOS cihazları bir iPhone veya iPad için diğer bir denetleyicisi olarak işlev olduğu bir IOT hub'ına bağlı. 
 
-### <a name="install-cocoapods"></a>CocoaPods yükleyin
+### <a name="install-cocoapods"></a>CocoaPods yükleme
 
-CocoaPods, üçüncü taraf kitaplıklar kullanan iOS projeleri için bağımlılıkları yönetin.
+CocoaPods, üçüncü taraf kitaplıklar kullanan iOS projeleri için bağımlılıkları yönetir.
 
 Önkoşullar indirdiğiniz Azure IOT iOS örnekleri klasöre gidin. Ardından, örnek hizmet projesine gidin:
 
@@ -111,13 +111,13 @@ CocoaPods, üçüncü taraf kitaplıklar kullanan iOS projeleri için bağımlı
 cd quickstart/sample-service
 ```
 
-XCode kapalı olduğundan emin olun ve ardından içinde bildirilen CocoaPods yüklemek için aşağıdaki komutu çalıştırın **podfile** dosyası:
+XCode’un kapalı olduğundan emin olun ve **podfile** dosyasında bildirilen CocoaPods’u yüklemek üzere aşağıdaki komutu çalıştırın:
 
 ```sh
 pod install
 ```
 
-Projeniz için gereken pod'ları yüklemeden yanı sıra, yükleme komutunu da bağımlılıkları pod'ları kullanmak için yapılandırılmış bir XCode çalışma alanı dosyası oluşturuldu.
+Yükleme komutu, projeniz için gereken podları yüklemeye ek olarak bağımlılıklar için podları kullanacak şekilde önceden yapılandırılmış bir XCode çalışma alanı dosyası da oluşturmuştur.
 
 ### <a name="run-the-sample-service-application"></a>Örnek hizmet uygulamayı çalıştırın
 
@@ -127,14 +127,14 @@ Projeniz için gereken pod'ları yüklemeden yanı sıra, yükleme komutunu da b
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
     ```
 
-2. Örnek çalışma Xcode'da açın.
+2. Örnek çalışma alanını XCode'da açın.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
    ```
 
 3. Genişletme **AzureIoTServiceSample** proje ve sonra aynı ada sahip klasörünü genişletin.  
-4. Açık **ViewController.swift** Xcode'da düzenlemek için. 
+4. XCode’da düzenlemek üzere **ViewController.swift** dosyasını açın. 
 5. Arama **connectionString** değişkeni ve değeri, daha önce kopyaladığınız hizmeti bağlantı dizesini ile güncelleştirin.
 6. Yaptığınız değişiklikleri kaydedin. 
 7. Xcode'da, farklı iOS cihazı IOT cihaz çalıştırmak için kullanılan daha öykünücüsü ayarlarını değiştirin. XCode aynı türde birden fazla Öykünücüler çalıştırılamıyor. 
@@ -143,7 +143,7 @@ Projeniz için gereken pod'ları yüklemeden yanı sıra, yükleme komutunu da b
 
 8. Proje aygıt öykünücü ile çalıştırmanız **derleme ve çalıştırma** düğmesini veya tuş birleşimine **komutu + r**. 
 
-   ![Projeyi çalıştırın](media/iot-hub-ios-swift-c2d/run-app.png)
+   ![Projeyi çalıştırma](media/iot-hub-ios-swift-c2d/run-app.png)
 
 
 ## <a name="send-a-cloud-to-device-message"></a>Bulut cihaza ileti gönderme
@@ -166,7 +166,7 @@ Gönder'i hemen çeşitli eylemler gerçekleşir. Hizmet örneği, IOT hub'ı, a
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğretici kapsamında, bulut cihaza ileti gönderme ve alma öğrendiniz. 
 
-IOT hub'ı kullanan tam uçtan uca çözümler örnekleri görmek için bkz: [Azure IOT paketi].
+IOT hub'ı kullanan tam uçtan uca çözümler örnekleri görmek için bkz: [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı].
 
 IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT Hub Geliştirici Kılavuzu].
 
@@ -185,4 +185,4 @@ IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IOT paketi]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı]: https://azure.microsoft.com/documentation/suites/iot-suite/

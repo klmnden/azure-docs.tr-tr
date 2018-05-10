@@ -1,22 +1,22 @@
 ---
-title: "Uzaktan izleme çözümünde - Azure cihaz Yönetimi | Microsoft Docs"
-description: "Bu öğretici, Uzaktan izleme çözümüne bağlı cihazların nasıl yönetileceğini gösterir."
-services: 
+title: Uzaktan izleme çözümünde - Azure cihaz Yönetimi | Microsoft Docs
+description: Bu öğretici, Uzaktan izleme çözümüne bağlı cihazların nasıl yönetileceğini gösterir.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Yönetmek ve cihazlarınızı yapılandırmak
 
@@ -24,7 +24,7 @@ Bu öğretici cihaza Uzaktan izleme çözümü yönetim özelliklerini gösterir
 
 Contoso bir çıktı artırmak için kendi olanaklarının genişletmek için yeni makineler sıralı. Teslim edilecek yeni makineler için beklerken çözümünüzün davranışını doğrulamak için bir benzetimi çalıştırmak istediğiniz. Bir operatör olarak, yönetmek ve cihazlar Uzaktan izleme çözümünde yapılandırmak istiyorsunuz.
 
-Yönetmek ve cihazları yapılandırmak için genişletilebilir bir yol sağlamak için Uzaktan izleme çözümü IOT Hub özellikleri gibi kullanır, [işleri](../iot-hub/iot-hub-devguide-jobs.md) ve [doğrudan yöntemleri](../iot-hub/iot-hub-devguide-direct-methods.md). Bir aygıt Geliştirici yöntemleri fiziksel cihazda nasıl uyguladığını bilgi edinmek için [önceden yapılandırılmış Uzaktan izleme çözümü özelleştirme](iot-suite-remote-monitoring-customize.md).
+Yönetmek ve cihazları yapılandırmak için genişletilebilir bir yol sağlamak için Uzaktan izleme çözümü IOT Hub özellikleri gibi kullanır, [işleri](../iot-hub/iot-hub-devguide-jobs.md) ve [doğrudan yöntemleri](../iot-hub/iot-hub-devguide-direct-methods.md). Bir aygıt Geliştirici yöntemleri fiziksel cihazda nasıl uyguladığını bilgi edinmek için [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](iot-suite-remote-monitoring-customize.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="add-a-simulated-device"></a>Bir sanal cihaz ekleme
 
@@ -50,7 +50,7 @@ Kümesine sağlamak için aygıt sayısını bırakın **1**. Seçin **hatalı a
 
 ![Benzetimli altyapısı cihazı hazırlama](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-Sağlama konusunda bilgi almak için bir *fiziksel* aygıtı bkz [Cihazınızı Uzaktan izleme önceden yapılandırılmış çözümü arasında bağlantı](iot-suite-connecting-devices-node.md).
+Sağlama konusunda bilgi almak için bir *fiziksel* aygıtı bkz [Cihazınızı Uzaktan izleme Çözüm Hızlandırıcısı bağlama](iot-suite-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Sanal cihaz test
 
@@ -68,11 +68,11 @@ Ayrıntılı tanılama görüntülemek için kaydırma görmek üzere **tanılam
 
 ## <a name="act-on-a-device"></a>Bir cihazda hareket
 
-Bir veya daha fazla aygıtlar üzerinde çalışmak için aygıt listesinden seçin ve ardından **zamanlama**. **Altyapısı** cihaz modeli belirtir dört yöntem bir aygıtı desteklemesi gerekir:
+Bir veya daha fazla aygıtlar üzerinde çalışmak için aygıt listesinden seçin ve ardından **işleri**. **Altyapısı** cihaz modeli belirtir üç yöntem bir aygıtı desteklemesi gerekir:
 
 ![Altyapısı yöntemleri](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Seçin **yeniden**, iş adı ayarlamak **RestartEngine**ve ardından **Uygula**:
+Seçin **FillTank**, iş adı ayarlamak **FillEngineTank**ve ardından **Uygula**:
 
 ![Zamanlama yeniden başlatma yöntemi](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -84,11 +84,11 @@ Seçin **yeniden**, iş adı ayarlamak **RestartEngine**ve ardından **Uygula**:
 
 Farklı sanal cihaz türleri için araştırırken, diğer cihaz türleri farklı yöntemi destekler bakın. Fiziksel aygıtların bir dağıtımda cihaz modeli cihaz desteklemelidir yöntemlerini belirtir. Genellikle, aygıt Geliştirici hareket aygıt yanıt yöntem çağrısı olarak yapar kodu geliştirmek için sorumludur.
 
-Birden fazla cihazda çalıştırmak için bir yöntem zamanlamak için birden çok aygıt listesinde üzerinde seçebilirsiniz **aygıtları** sayfası. **Zamanlama** paneli yöntemi türleri seçilen tüm aygıtlarda ortak gösterir.
+Birden fazla cihazda çalıştırmak için bir yöntem zamanlamak için birden çok aygıt listesinde üzerinde seçebilirsiniz **aygıtları** sayfası. **İşleri** paneli yöntemi türleri seçilen tüm aygıtlarda ortak gösterir.
 
 ## <a name="reconfigure-a-device"></a>Bir aygıt yeniden yapılandırın
 
-Bir aygıt yapılandırmasını değiştirmek için aygıt listesinde seçin **aygıtları** sayfasında ve ardından **yeniden**. RECONFIGURE paneli değiştirebileceğiniz seçili cihaz için özellik değerlerini gösterir:
+Bir aygıt yapılandırmasını değiştirmek için aygıt listesinde seçin **aygıtları** sayfa'ı seçin **işleri**ve ardından **yeniden**. İşlerini paneli değiştirebileceğiniz seçili cihaz için özellik değerlerini gösterir:
 
 ![Bir aygıt yeniden yapılandırın](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
@@ -113,6 +113,6 @@ Cihazlarınızı yönetmek öğrendiniz, bilgi edinmek için önerilen sonraki a
 
 * [Aygıt sorunlarını gidermek ve](iot-suite-remote-monitoring-maintain.md).
 * [Sanal cihazlar ile çözümünüzü test](iot-suite-remote-monitoring-test.md).
-* [Cihazınızı Uzaktan izleme önceden yapılandırılmış çözümü arasında bağlantı](iot-suite-connecting-devices-node.md).
+* [Uzaktan izleme Çözüm Hızlandırıcısı Cihazınızı bağlama](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

@@ -1,12 +1,12 @@
 ---
-title: Azure IOT paketi ve Azure Active Directory | Microsoft Docs
-description: "Azure IoT Paketinin izinleri yönetmek için Azure Active Directory’i nasıl kullandığını açıklar."
-services: 
+title: Azure IOT çözüm hızlandırıcıları ve Azure Active Directory | Microsoft Docs
+description: Azure IOT Çözüm Hızlandırıcıları kullanma Azure Active Directory izinleri yönetmek için açıklar.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com sitesindeki izinler
 
@@ -29,35 +29,35 @@ ms.lasthandoff: 12/18/2017
 
 1. İlk olarak, kullanıcı adınızın yanında görülen kiracılar listesini doldurmak için site Azure'dan hangi AAD kiracılarına ait olduğunuz öğrenir. Şu anda, site aynı anda yalnızca bir kiracı için kullanıcı belirteçleri alabilir. Sağ üst köşedeki açılır menüyü kullanarak kiracılar geçiş yaptığınızda, bu nedenle, site size ilgili kiracının belirteçlerini almak için bu kiracıda kaydeder.
 
-2. Site daha sonra, seçilen kiracı ile hangi aboneliğin ilişkilendirildiğini Azure’dan öğrenir. Önceden yapılandırılmış yeni bir çözüm oluşturduğunuzda kullanılabilir abonelikleri görürsünüz.
+2. Site daha sonra, seçilen kiracı ile hangi aboneliğin ilişkilendirildiğini Azure’dan öğrenir. Yeni bir çözüm Hızlandırıcısı oluşturduğunuzda kullanılabilir abonelikleri görürsünüz.
 
-3. Site son olarak önceden yapılandırılmış çözümler olarak etiketlenmiş abonelikler ve kaynak gruplarındaki tüm kaynakları alır ve giriş sayfasındaki kutucukları doldurur.
+3. Son olarak, site tüm kaynakları abonelikler ve kaynak grupları Çözüm Hızlandırıcıları etiketlenir ve giriş sayfasındaki kutucukları doldurur alır.
 
-Aşağıdaki bölümlerde önceden yapılandırılmış çözümlere erişimi denetleyen roller açıklanmıştır.
+Aşağıdaki bölümlerde erişimi denetleyen roller açıklanmıştır Çözüm Hızlandırıcıları için.
 
 ## <a name="aad-roles"></a>AAD rolleri
 
-AAD rolleri önceden yapılandırılmış çözümleri sağlama özelliğini denetler ve önceden yapılandırılmış bir çözümdeki kullanıcıları yönetir.
+AAD rolleri yeteneği sağlamak Çözüm Hızlandırıcıları denetlemek ve Çözüm Hızlandırıcısı kullanıcılar yönetin.
 
-AAD'de yönetici rolleri hakkında daha fazla bilgi bulabilirsiniz [Azure AD'de yönetici rolleri atama][lnk-aad-admin]. Geçerli makaleyi odaklanır **genel yönetici** ve **kullanıcı** olarak önceden yapılandırılmış çözümler tarafından kullanılan directory rolleri.
+AAD'de yönetici rolleri hakkında daha fazla bilgi bulabilirsiniz [Azure AD'de yönetici rolleri atama][lnk-aad-admin]. Geçerli makaleyi odaklanır **genel yönetici** ve **kullanıcı** olarak Çözüm Hızlandırıcıları tarafından kullanılan directory rolleri.
 
 ### <a name="global-administrator"></a>Genel yönetici
 
 AAD kiracısı başına çok sayıda genel yönetici olabilir:
 
 * Bir AAD kiracısı oluşturduğunuzda varsayılan olarak bu kiracının genel yöneticisi olursunuz.
-* Genel yönetici temel ve standart bir önceden yapılandırılmış çözümü sağlayabilirsiniz.
+* Genel yönetici temel ve standart Çözüm Hızlandırıcıları sağlayabilirsiniz.
 
 ### <a name="domain-user"></a>Etki alanı kullanıcısı
 
 AAD kiracısı başına çok sayıda etki alanı kullanıcı olabilir:
 
-* Bir etki alanı kullanıcısı üzerinden temel önceden yapılandırılmış bir çözüm sağlayabilir [azureiotsuite.com] [ lnk-azureiotsuite] site.
-* Bir etki alanı kullanıcısı CLI kullanarak temel önceden yapılandırılmış bir çözüm oluşturabilirsiniz.
+* Bir etki alanı kullanıcısı temel Çözüm Hızlandırıcısı aracılığıyla sağlayabilirsiniz [azureiotsuite.com] [ lnk-azureiotsuite] site.
+* Bir etki alanı kullanıcısı CLI kullanarak bir temel Çözüm Hızlandırıcısı oluşturabilirsiniz.
 
 ### <a name="guest-user"></a>Konuk kullanıcı
 
-AAD kiracısı başına çok sayıda Konuk kullanıcı olabilir. Konuk kullanıcılar AAD kiracısında sınırlı bir haklar kümesine sahiptir. Sonuç olarak, konuk kullanıcılar AAD kiracısında önceden yapılandırılmış bir çözüm sağlayamaz.
+AAD kiracısı başına çok sayıda Konuk kullanıcı olabilir. Konuk kullanıcılar AAD kiracısında sınırlı bir haklar kümesine sahiptir. Sonuç olarak, Konuk kullanıcılar AAD kiracısında Çözüm Hızlandırıcısı sağlayamazsınız.
 
 Kullanıcılar ve roller aad'de hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
@@ -94,7 +94,7 @@ Yönergeler için aşağıdaki çizime bakın:
 Bir Azure aboneliğinizin olduğundan eminseniz aboneliğinizin kiracı eşlemesini doğrulayın ve açılır menüden doğru kiracının seçildiğinden emin olun. Doğrulanacak istenilen kiracının doğru olduğunu, yukarıdaki diyagramı izleyin ve aboneliğiniz ile bu AAD kiracısının eşlemesini doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IOT paketi hakkında bilgi almaya devam etmek için işlemine bakın [önceden yapılandırılmış çözümü özelleştirme][lnk-customize].
+IOT Çözüm Hızlandırıcıları hakkında bilgi almaya devam etmek için bkz nasıl [bir çözüm Hızlandırıcısı özelleştirme][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

@@ -3,7 +3,7 @@ title: Azure Application Insights .NET uygulamaları için hata ayıklayıcı an
 description: Hata ayıklama anlık görüntüleri otomatik olarak üretim .NET uygulamaları özel durumlar, toplanan
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.author: mbullwin; pharring
+ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
 Özel durum oluştuğunda, hata ayıklama anlık görüntü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü özel durumu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Anlık görüntü ayıklayıcıda (Önizleme) [Azure Application Insights](app-insights-overview.md) özel durum, web uygulamanızın telemetrisinden izler. Böylece üretim sorunları tanılamak için gereken bilgileri sahip anlık görüntüleri, üst atma özel durumlarını toplar. Dahil [anlık görüntü Toplayıcı NuGet paketi](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Anlık görüntüler görünmez [özel durumları](app-insights-asp-net-exceptions.md) Application Insights portalında.
 
-Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Kaynak kodu ile daha güçlü bir hata ayıklama deneyimini almak için anlık görüntüleri olan açık Visual Studio 2017 kuruluş tarafından [Visual Studio için anlık görüntü hata ayıklayıcısı uzantısı yükleme](https://aka.ms/snapshotdebugger). Visual Studio'da şunları da yapabilirsiniz [etkileşimli olarak anlık görüntülerini almak için Snappoints ayarlamak](https://aka.ms/snappoint) olmadan için bir özel durum bekleniyor.
+Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Kaynak kodu ile daha güçlü bir hata ayıklama deneyimini almak için anlık görüntüleri olan açık Visual Studio 2017 kuruluş tarafından [Visual Studio için anlık görüntü hata ayıklayıcısı uzantısı yükleme](https://aka.ms/snapshotdebugger). Visual Studio'da, şunları da yapabilirsiniz [etkileşimli olarak anlık görüntülerini almak için Snappoints ayarlamak](https://aka.ms/snappoint) olmadan için bir özel durum bekleniyor.
 
 Anlık görüntü koleksiyonu için kullanılabilir:
 * .NET framework ve ASP.NET uygulamaları .NET Framework 4.5 veya sonraki sürümlerini çalıştırıyor.
@@ -55,7 +55,7 @@ Aşağıdaki ortamlarda desteklenir:
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -146,8 +146,8 @@ Aşağıdaki ortamlarda desteklenir:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
@@ -213,7 +213,7 @@ Anlık görüntü hata ayıklama Görünümü'nde, çağrı yığını ve deği�
 
 ![Hata ayıklama görünümü anlık portalında](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Varsayılan olarak görüntülenebilir olmadıkları ve anlık görüntüleri hassas bilgiler içerebilir. Anlık görüntüler görüntülemek için bilmeniz gereken `Application Insights Snapshot Debugger` rolü size atanmış.
+Anlık görüntüler hassas bilgiler içerebilir ve görüntülenebilir olmayan varsayılan olarak. Anlık görüntüler görüntülemek için bilmeniz gereken `Application Insights Snapshot Debugger` rolü size atanmış.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise sahip anlık görüntüleri hata ayıklama
 1. Tıklatın **karşıdan anlık görüntü** karşıdan yüklemek için düğmeyi bir `.diagsession` Visual Studio 2017 kuruluş tarafından açılabilir dosya.
@@ -228,7 +228,22 @@ Varsayılan olarak görüntülenebilir olmadıkları ve anlık görüntüleri ha
 
 ## <a name="how-snapshots-work"></a>Anlık görüntüler nasıl çalışır
 
-Uygulamanız başladığında, ayrı anlık görüntü yükleyici işlemi, uygulamanız için anlık görüntü istekleri izleyen oluşturulur. Bir anlık görüntü istendiğinde, bir çalışan işlemi gölge kopyasını yaklaşık 10 ila 20 milisaniye cinsinden yapılır. Gölge işleminin ardından analiz ve çalıştırmanız ve kullanıcılar için trafiği hizmet ana işlem devam ederken bir anlık görüntüsü oluşturulur. Anlık görüntü, ardından Application Insights'a anlık görüntüyü görüntülemek için gereken ilgili simge (.pdb) dosyalarla birlikte yüklenir.
+Anlık görüntü Toplayıcı olarak uygulanan bir [uygulama Insights Telemetri İşlemci](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Uygulamanızı çalıştığında, anlık görüntü Toplayıcı Telemetri işlemci uygulamanızın telemetri ardışık düzenine eklenen.
+Her zaman uygulama çağrılarınızı [TrackException](app-insights-asp-net-exceptions.md#exceptions), anlık görüntü Toplayıcı oluşturulan özel durum ve oluşturma yöntemini türünden sorun kimliği hesaplar.
+Uygulamanızı TrackException, çağıran her zaman uygun sorun kimliği için bir sayaç artırılır Sayaç ulaştığında `ThresholdForSnapshotting` değeri, sorun kimliği bir koleksiyon planı'na eklenir.
+
+Abone tarafından oluşturulan gibi anlık görüntü Toplayıcı özel durumlar da izler. [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) olay. Bu olay başlatıldığında, özel durumun sorun kimliği hesaplanan ve koleksiyon planında sorun kimlikleri karşı karşılaştırılır.
+Bir eşleşme varsa, bir anlık görüntü çalışan işleminin oluşturulur. Anlık görüntü benzersiz bir tanımlayıcı atanır ve özel durum bu tanımlayıcı ile damgalandı. FirstChanceException işleyici döndükten sonra oluşturulan özel durum normal olarak işlenir. Sonuç olarak, özel durum, burada, anlık görüntü tanımlayıcısı birlikte Application Insights'a bildirilen TrackException yöntemini tekrar ulaşır.
+
+Ana işlem çalıştırın ve trafik az kesintisine yol açan kullanıcılara hizmet devam eder. Bu sırada, anlık görüntü kapatmak için anlık görüntü yükleyici işlem karmalayan. Anlık görüntü karşıya yükleyen bir mini döküm oluşturur ve Application Insights'a ilgili simge (.pdb) dosyalarla birlikte yükler.
+
+> [!TIP]
+> - Çalışan işlemi askıya alınmış bir kopyasını işlem anlık görüntüsüdür.
+> - Anlık görüntü oluşturmak yaklaşık 10 ila 20 milisaniye alır.
+> - İçin varsayılan değer `ThresholdForSnapshotting` 1'dir. Ayrıca en düşük değer budur. Bu nedenle, aynı özel durum tetiklemek uygulamanızı sahip **iki kez** bir anlık görüntü oluşturulmadan önce.
+> - Ayarlama `IsEnabledInDeveloperMode` Visual Studio'da hata ayıklarken anlık görüntüleri oluşturmak istiyorsanız True.
+> - Anlık görüntü oluşturma oranı sınırlıdır `SnapshotsPerTenMinutesLimit` ayarı. Varsayılan olarak, bir anlık görüntü her on dakika sınırıdır.
+> - Gün başına en fazla 50 Snapshot karşıya olabilir.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
@@ -242,22 +257,42 @@ Anlık görüntü hata ayıklayıcı değişkenleri kod çözme ve Visual Studio
 Azure işlem ve diğer türleri için simge dosyaları ana uygulama .dll aynı klasörde olduğundan emin olun (genellikle `wwwroot/bin`) ya da geçerli yolda kullanılabilir.
 
 ### <a name="optimized-builds"></a>En iyi duruma getirilmiş derlemeleri
-Bazı durumlarda, yerel değişkenleri oluşturma işlemi sırasında uygulanan en iyi duruma getirme nedeniyle yayın derlemelerde görüntülenemiyor.
+Bazı durumlarda, yerel değişkenleri JIT Derleyici tarafından uygulanan en iyi duruma getirme nedeniyle yayın derlemelerde görüntülenemiyor.
+Ancak, Azure App Services'de anlık görüntü Toplayıcı deoptimize ve bu da, koleksiyon planı parçası olan oluşturma yöntemleri.
+
+> [!TIP]
+> Uygulama Öngörüler Site uzantısı deoptimization destek almak için App Service içinde yükleyin.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Bu ipuçları anlık görüntü hata ayıklayıcısı ile sorunları gidermenize yardımcı olur.
 
+## <a name="use-the-snapshot-health-check"></a>Anlık görüntü durum denetimi kullanın
+Anlık görüntü için belirli bir durum kullanılabilir görmüyorsanız, tarafından outdate anlık görüntü Toplayıcı sürümleri, günlük eşik isabet dahil olmak üzere çeşitli nedenlerden kaynaklanabilir, anlık görüntü yalnızca karşıya ve benzeri sürüyor. Bu tür sorunları tanılama yardımcı olması için hiç anlık görüntü olmasının uygulamalarınızn çözümlemek için bir anlık görüntü sistem durumu denetimi hizmeti oluşturduğumuz.
+
+Bir özel durum ile ilişkili anlık görüntüleri görmüyorsanız, olacaktır bağlantı anlık görüntü durum denetimi girmek için uçtan uca izleme Görüntüleyicisi dikey.
+
+![Anlık görüntü durum denetimi girin](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+Ardından, hizmetinizin çeşitli en boy üzerindeki sistem durumu denetimi çalıştırılıyor ve bildirimleri sunumu oturum gibi etkileşimli bir sohbet bot görürsünüz.
+
+![Sistem durumu denetimi](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+Ayrıca, anlık görüntü hizmeti tanılamak için yapabileceğiniz birkaç el ile yapılacak adımlar vardır. Lütfen aşağıdaki bölümlere bakın:
+
 ### <a name="verify-the-instrumentation-key"></a>İzleme anahtarını doğrulayın
 
 Yayımlanan uygulamanızda doğru izleme anahtarını kullandığınızdan emin olun. Genellikle, Application Insights izleme anahtarı Applicationınsights.config dosyasını okur. Değer Portalı'nda bkz Application Insights kaynağı izleme anahtarı ile aynı olduğunu doğrulayın.
 
+### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>NuGet paketi en son sürüme yükseltin
+
+Microsoft.ApplicationInsights.SnapshotCollector en son sürümünü kullandığınızdan emin olmak için Visual Studio'nun NuGet paket yöneticisini kullanın. Sürüm Notları konumunda bulunabilir https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+
 ### <a name="check-the-uploader-logs"></a>Yükleyici günlüklerini kontrol edin
 
-Bir anlık görüntü oluşturulduktan sonra bir mini döküm dosyası (.dmp) disk üzerinde oluşturulur. Ayrı yükleyici işlem, mini döküm dosyası alır ve bunu uygulama Öngörüler anlık görüntü hata ayıklayıcı depolama ilişkili tüm pdb birlikte yükler. Mini döküm başarıyla yükledi sonra diskten silinir. Yükleyici işlem için günlük dosyalarını diskte korunur. Bir uygulama hizmeti ortamı'nda, bu günlükler bulabilirsiniz `D:\Home\LogFiles`. Bu günlük dosyaları bulmak için uygulama hizmeti Kudu yönetim sitesi kullanın.
+Bir anlık görüntü oluşturulduktan sonra bir mini döküm dosyası (.dmp) disk üzerinde oluşturulur. Ayrı yükleyici işlem, mini döküm dosyası oluşturur ve bunu uygulama Öngörüler anlık görüntü hata ayıklayıcı depolama ilişkili tüm pdb birlikte yükler. Mini döküm başarıyla yükledi sonra diskten silinir. Yükleyici işlem için günlük dosyalarını diskte tutulur. Bir uygulama hizmeti ortamı'nda, bu günlükler bulabilirsiniz `D:\Home\LogFiles`. Bu günlük dosyaları bulmak için uygulama hizmeti Kudu yönetim sitesi kullanın.
 
 1. Uygulama hizmeti uygulamanızı Azure Portal'da açın.
-
 2. Seçin **Gelişmiş Araçlar** dikey veya arama **Kudu**.
 3. tıklatın **Git**.
 4. İçinde **hata ayıklama konsoluna** aşağı açılan liste kutusunda **CMD**.
@@ -292,7 +327,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> Yukarıdaki örnekte Microsoft.ApplicationInsights.SnapshotCollector Nuget Paketi 1.2.0 sürümüne ait değil. Önceki sürümlerde, yükleyici işlem adlı `MinidumpUploader.exe` ve günlük daha az ayrıntılı olarak anlatılmaktadır.
+> Yukarıdaki örnekte Microsoft.ApplicationInsights.SnapshotCollector NuGet Paketi 1.2.0 sürümüne ait değil. Önceki sürümlerde, yükleyici işlem adlı `MinidumpUploader.exe` ve günlük daha az ayrıntılı olarak anlatılmaktadır.
 
 İzleme anahtarını önceki örnekte olduğu `c12a605e73c44346a984e00000000000`. Bu değer, uygulamanız için izleme anahtarını eşleşmelidir.
 Mini döküm Kimliğine sahip bir anlık görüntüsü ile ilişkili `139e411a23934dc0b9ea08a626db16c5`. Daha sonra uygulama Öngörüler analizleri ilişkili özel durum telemetrisi bulmak için bu kodu kullanabilirsiniz.
@@ -316,7 +351,7 @@ Uygulamalar için _değil_ App Service içinde barındırılan, yükleyici Mini 
 Bulut Hizmetleri rolleri için varsayılan geçici klasör kayıp anlık görüntüler için önde gelen mini döküm dosyası tutamayacak kadar küçük olabilir.
 İhtiyaç duyulan alanı uygulamanızı eşzamanlı anlık görüntü sayısı ve toplam çalışma kümesine bağlıdır.
 Çalışma 32-bit ASP.NET web rolü genellikle 200 MB ve 500 MB arasında kümesidir.
-En az iki eşzamanlı anlık görüntüler için izin vermelidir.
+En az iki eşzamanlı anlık görüntüler için izin verir.
 Örneğin, uygulamanızın toplam çalışma kümesinin 1 GB kullanıyorsa, en az 2 anlık görüntüleri saklamak için GB disk alanı olduğundan emin olmanız gerekir.
 Anlık görüntüler için yerel bir özel kaynak, bulut hizmet rolü yapılandırmak için aşağıdaki adımları izleyin.
 
@@ -366,7 +401,7 @@ Anlık görüntüler için yerel bir özel kaynak, bulut hizmet rolü yapıland�
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Anlık görüntüler istisnalar bulmak için Application Insights arama kullanın
 
-Bir anlık görüntü oluşturulduğunda oluşturma özel durum ile bir anlık görüntü kimliği etiketli Ne zaman özel durum telemetrisi Application Insights için anlık görüntü kimliği bir özel özellik olarak dahil olduğunu bildirdi. Arama dikey Application Insights'ta kullanarak, tüm telemetri ile bulabilirsiniz `ai.snapshot.id` özel özellik.
+Bir anlık görüntü oluşturulduğunda oluşturma özel durum ile bir anlık görüntü kimliği etiketli Özel durum telemetrisi Application Insights'a bildirildiğinde bu anlık görüntü kimliği bir özel özellik olarak dahil edilir. Arama dikey Application Insights'ta kullanarak, tüm telemetri ile bulabilirsiniz `ai.snapshot.id` özel özellik.
 
 1. Azure portalında Application Insights kaynağınıza göz atın.
 2. Tıklatın **arama**.
@@ -383,6 +418,10 @@ Yükleyici günlüklerini belirli bir anlık görüntüye Kimliğinden aramak i�
 2. Zaman damgası yükleyici günlüğündeki kullanarak, bu zaman aralığı karşılamak üzere arama zaman aralığı filtre ayarlayın.
 
 Bu anlık görüntü Kimliğine sahip bir özel durum hala göremiyorsanız, özel durum telemetrisi Application Insights'a bildirilen değildi. Bu durum, anlık görüntü sürdü sonra uygulamanızın kilitlendi, ancak özel durum telemetrisi bildirilen önce gerçekleşebilir. Bu durumda, altında uygulama hizmeti günlüklerini kontrol `Diagnose and solve problems` beklenmeyen yeniden başlatmalar olup olmadığını görmek için veya işlenmeyen özel durum.
+
+### <a name="edit-network-proxy-or-firewall-rules"></a>Ağ proxy veya güvenlik duvarı kuralları Düzenle
+
+Uygulamanızı bir proxy veya bir güvenlik duvarı üzerinden internet bağlanıyorsa, anlık görüntü hata ayıklayıcı hizmeti ile iletişim kurmak, uygulamanızın izin veren kuralları Düzenle gerekebilir. Burada [IP adresleri ve anlık görüntü hata ayıklayıcı tarafından kullanılan bağlantı noktaları listesi](app-insights-ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

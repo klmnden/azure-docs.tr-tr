@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB'ye genel bakış | Microsoft Docs"
-description: "Azure portalındaki Azure Cosmos DB'ye genel bakış için yardım içeriği"
+title: Azure Cosmos DB'ye genel bakış | Microsoft Docs
+description: Azure portalındaki Azure Cosmos DB'ye genel bakış için yardım içeriği
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -8,11 +8,11 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 13fe8d81c656aeb07947fcd8b2c8a9157b810ca6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-documentation"></a>Azure Cosmos DB Belgeleri
 
@@ -50,7 +50,7 @@ Azure Cosmos DB, esnek ve bağımsız olarak kapsamlı bir SLA ile herhangi bir 
 
 Azure Cosmos DB kullanarak uygulama geliştirmeyi öğrenin:
 
-- Cosmos DB ile uygulama geliştirme: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Tablo](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graf](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Cosmos DB ile uygulama geliştirme: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb-nodejs) | [Tablo](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graf](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Verileri Cosmos DB'ye aktarma: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
 - Cosmos DB ile veri sorgulama: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Tablo](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
 - Cosmos DB ile genel veritabanı çoğaltması: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tablo](/azure/cosmos-db/tutorial-global-distribution-table | [Graf](/azure/cosmos-db/tutorial-global-distribution-graph)

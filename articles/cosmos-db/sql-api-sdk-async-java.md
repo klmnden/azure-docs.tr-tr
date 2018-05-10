@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: b80ad9837939af5406989d08e18f6f3d9fe3064f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Cosmos DB zaman uyumsuz Java için Azure SDK SQL API: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Kaynak Sağlayıcısı](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sını farklı [Netty Kitaplığı](http://netty.io/). Önceden varolan [SQL API Java SDK'sını](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
 
@@ -63,7 +63,7 @@ SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağ
 * Oturum belirteci ana kaynaklar okunurken geçirmemek düzeltin.
 * Daha fazla örnek eklendi.
 * Daha fazla Kıyaslama senaryoları eklenir.
-* Sabit Java üstbilgi dosyaları uygun javadoc oluşturma için.
+* Sabit Java üstbilgi dosyaları uygun java belge oluşturma için.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK engelleyici olmayan g/ç kullanarak uçtan uca desteği ile [Netty Kitaplığı](http://netty.io/) ağ geçidi modunda. 
@@ -71,7 +71,7 @@ SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağ
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
 Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
 
-Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, olduğundan bu nedenle önerilir, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz.
+Yalnızca yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sına eklenir. Bu nedenle, her zaman en son SDK sürüm olabildiğince erken yükseltmeniz önerilir.
 
 Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir istek hizmeti tarafından reddedilir.
 

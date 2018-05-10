@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/05/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 Okuma veya bir kayıt, tablo adı veya değer herhangi bir dış kaynaktan aramak için arama etkinliği kullanın. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
@@ -31,22 +31,7 @@ Arama etkinliği, dinamik olarak dosyaları, kayıt veya Tablo listesini bir yap
 
 Aşağıdaki veri kaynakları şu anda arama için desteklenir:
 
-- Amazon Redshift
-- Azure Blob depolama
-- Azure Cosmos DB
-- Azure Data Lake Store
-- Azure dosya depolama
-- Azure SQL Database
-- Azure SQL Veri Ambarı
-- Azure Tablo depolama
-- Dynamics 365
-- Dynamics CRM
-- Dosya Sistemi
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 Arama etkinlik tarafından döndürülen satır sayısının üst sınırını olan **5000**ve kadar **10MB** boyutu.
 
@@ -74,7 +59,7 @@ Arama etkinlik tarafından döndürülen satır sayısının üst sınırını o
 Ad | Açıklama | Tür | Gerekli mi?
 ---- | ----------- | ---- | --------
 Veri kümesi | Veri kümesi başvurusu için arama sağlar. Karşılık gelen her bağlayıcı makalede "Veri kümesi özellikleri" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
-kaynak | Kopya etkinliği kaynak ile aynı veri kümesi-özel kaynak özelliklerini içerir. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
+source | Kopya etkinliği kaynak ile aynı veri kümesi-özel kaynak özelliklerini içerir. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
 firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole | Hayır. `true` varsayılan değerdir.
 
 Aşağıdaki noktalara dikkat edin:
@@ -285,7 +270,7 @@ Bu Azure SQL veritabanı örneğinde Blob depolama alanına kopyalanacak veriler
 }
 ```
 
-### <a name="sourcetablejson"></a>sourcetable.json
+### <a name="sourcetablejson"></a>SourceTable.JSON
 
 #### <a name="set-of-objects"></a>Nesne kümesini
 

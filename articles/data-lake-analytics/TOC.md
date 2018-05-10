@@ -13,12 +13,14 @@
 
 ## Data Lake Analytics'i yönetme
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK'sı](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Komut satırı
+#### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDK’lar
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [İlkeler](data-lake-analytics-policies.md)
 ### [Tanılama günlüklerine erişim](data-lake-analytics-diagnostic-logs.md)
 ### [Kota sınırlarını ayarlama](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [Programlama kılavuzu](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Yükleme](data-lake-analytics-data-lake-tools-install.md)
 #### [İşlere gözatma ve bunları görüntüleme](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Özel C# kodunda hata ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Yinelenen işlerde sorun giderme](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

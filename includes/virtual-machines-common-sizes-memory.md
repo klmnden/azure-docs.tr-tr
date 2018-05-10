@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bellek içi analizi için harika bir yüksek bellek CPU oranı VM boyutları teklif en iyi duruma getirilmiş. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
@@ -26,9 +26,9 @@ Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bell
 
 * Ev3-serisi özellikleri E5-2673 v4 2.3 GHz (Broadwell) işlemci en genel amaçlı iş yükleri için daha iyi bir değer teklifinde sağlayarak ve hizalamasını çoğu bulut genel amaçlı VM'ler ile Ev3 getiren bir hiper iş parçacıklı yapılandırmada.  Disk ve ağ sınırlarını hiper iş parçacığı Git hizalamak için bir çekirdek başına temelinde ayarlanmış durumdayken bellek (Başlangıç 7 Gib'den/vCPU için 8 Gib'den/vCPU) genişletilmiştir.  Ev3 D/Dv2 aileleri yüksek bellek VM boyutlarını kadar izleyin ' dir.
 
-## <a name="esv3-series-sup1sup"></a>Esv3-serisi <sup>1</sup>
+## <a name="esv3-series"></a>Esv3-serisi 
 
-ACU: 160-190
+ACU: 160-190 <sup>1</sup>
 
 ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır, Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir ve premium depolama kullanır. Ev3 serisi örnekleri, yoğun bellek kullanımlı kurumsal uygulamalar için idealdir.
 
@@ -51,9 +51,9 @@ ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 <sup>3</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 
 
-## <a name="ev3-series-sup1sup"></a>Ev3-serisi <sup>1</sup>
+## <a name="ev3-series"></a>Ev3 serisi 
 
-ACU: 160-190 
+ACU: 160-190 <sup>1</sup>
 
 Ev3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir. Ev3 serisi örnekleri, yoğun bellek kullanımlı kurumsal uygulamalar için idealdir.
 
@@ -75,9 +75,9 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 <sup>2</sup> kısıtlı çekirdek boyutları kullanılabilir. 
 
 
-## <a name="m-series-sup1sup"></a>M-serisi <sup>1</sup>
+## <a name="m-series"></a>M serisi 
 
-ACU: 160-180
+ACU: 160-180 <sup>1</sup>
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +95,9 @@ ACU: 160-180
 <sup>4</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS serisi <sup>1</sup>
+## <a name="gs-series"></a>GS serisi 
 
-ACU: 180 - 240
+ACU: 180-240 <sup>1</sup>
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +131,9 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2 serisi <sup>1</sup>
+## <a name="dsv2-series"></a>DSv2 serisi 
 
-ACU: 210 - 250
+ACU: 210-250 <sup>1</sup>
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +174,9 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS serisi <sup>1</sup>
+## <a name="ds-series"></a>DS serisi 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

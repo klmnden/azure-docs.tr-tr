@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı hizmeti (AKS) ile bir Apache Spark işini çalıştır
-description: Azure kapsayıcı hizmeti (AKS) bir Apache Spark işi çalıştırmak için kullanın
+title: Azure Kubernetes hizmet (AKS) ile bir Apache Spark işini çalıştır
+description: Bir Apache Spark işi çalıştırmak için Azure Kubernetes hizmet (AKS) kullanın
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 627cb80a055fb4b66fcc428a1de87d754af6991e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: fbeddb60ce968ff0d32e2ddb6a4f62d2036d80aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS üzerinde Apache Spark işleri çalıştırma
 
-[Apache Spark] [ apache-spark] büyük ölçekli veri işleme için hızlı bir altyapıdır. Sürümünden başlayarak [Spark 2.3.0 sürüm][spark-latest-release], Apache Spark Kubernetes kümeleri ile yerel tümleştirme destekler. Azure kapsayıcı hizmeti (AKS), Azure'da çalışan yönetilen bir Kubernetes ortamıdır. Bu belge hazırlama ve bir Azure kapsayıcı hizmeti (AKS) kümede çalışan Apache Spark iş ayrıntıları.
+[Apache Spark] [ apache-spark] büyük ölçekli veri işleme için hızlı bir altyapıdır. Sürümünden başlayarak [Spark 2.3.0 sürüm][spark-latest-release], Apache Spark Kubernetes kümeleri ile yerel tümleştirme destekler. Azure Kubernetes hizmet (AKS), Azure'da çalışan yönetilen bir Kubernetes ortamıdır. Bu belge hazırlama ve bir Azure Kubernetes hizmet (AKS) kümede çalışan Apache Spark iş ayrıntıları.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -32,7 +32,7 @@ Bu makalede içindeki adımları tamamlamak için aşağıdakiler gerekir.
 
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
-Spark büyük ölçekli veri işleme için kullanılır ve Kubernetes düğümleri Spark kaynak gereksinimlerini karşılamak için boyutlandırılır gerektirir. En az bir boyutunu öneririz `Standard_D3_v2` , Azure kapsayıcı hizmeti (AKS) düğümleri için.
+Spark büyük ölçekli veri işleme için kullanılır ve Kubernetes düğümleri Spark kaynak gereksinimlerini karşılamak için boyutlandırılır gerektirir. En az bir boyutunu öneririz `Standard_D3_v2` Azure Kubernetes hizmet (AKS) düğümleri için.
 
 Bu en az öneri karşılayan bir AKS küme gerekiyorsa, aşağıdaki komutları çalıştırın.
 

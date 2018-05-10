@@ -1,25 +1,25 @@
 ---
-title: "Packer ile Linux Azure VM görüntülerini oluşturmak | Microsoft Docs"
-description: "Linux sanal makineleri görüntülerini oluşturmak için Packer kullanmayı öğrenin"
+title: Packer ile Linux Azure VM görüntülerini oluşturmak | Microsoft Docs
+description: Linux sanal makineleri görüntülerini oluşturmak için Packer kullanmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Linux sanal makine görüntülerini oluşturmak için Packer kullanma
 Her sanal makine (VM) Azure Linux dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturmak veya en yaygın dağıtımları ve uygulama ortamları için Azure Marketi birçok ilk ve üçüncü taraf görüntüleri sağlar. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -72,7 +72,7 @@ Adlı bir dosya oluşturun *ubuntu.json* ve aşağıdaki içeriği yapıştırı
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | İlk satırı çıktısı `az ad sp` Oluştur komutu - *AppID* |
 | *client_secret*                     | İkinci satır çıktısı `az ad sp` Oluştur komutu - *parola* |
-| *tenant_id*                         | Üçüncü satır çıktısı `az ad sp` Oluştur komutu - *Kiracı* |
+| *Tenant_id*                         | Üçüncü satır çıktısı `az ad sp` Oluştur komutu - *Kiracı* |
 | *subscription_id*                   | Çıktı `az account show` komutu |
 | *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
 | *managed_image_name*                | Oluşturulan yönetilen disk görüntüsü için adı |
@@ -211,9 +211,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
+Farklı bir kaynak grubunda veya Packer görüntünüzü bölgesinden VM'ler oluşturmak isterseniz, görüntü adı yerine görüntü kimliği belirtin. Görüntü Kimliğiyle edinebilirsiniz [az resim Göster](/cli/azure/image#az-image-show).
+
 VM oluşturmak için birkaç dakika sürer. VM oluşturulduktan sonra not edin `publicIpAddress` Azure CLI tarafından görüntülenir. Bu adresi bir web tarayıcısı aracılığıyla NGINX sitesine erişmek için kullanılır.
 
-Bağlantı noktası 80 Internet'ten açın, VM ulaşmak web trafiğe izin verecek şekilde [az vm Aç-port](/cli/azure/vm#open-port):
+Web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#open-port) komutuyla İnternet’te 80 numaralı bağlantı noktasını açın:
 
 ```azurecli
 az vm open-port \
@@ -223,7 +225,7 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Test VM ve NGINX
-Bir web tarayıcısı açın ve girin artık `http://publicIpAddress` adres çubuğundaki. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Varsayılan NGINX sayfası aşağıdaki örnekte olduğu gibi görüntülenir:
+Artık bir web tarayıcısı açıp adres çubuğuna `http://publicIpAddress` ifadesini girebilirsiniz. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Varsayılan NGINX sayfası aşağıdaki örnekte olduğu gibi görüntülenir:
 
 ![Varsayılan NGINX sitesi](./media/build-image-with-packer/nginx.png) 
 

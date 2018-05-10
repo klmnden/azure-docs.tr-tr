@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="secure-your-iot-deployment"></a>IoT dağıtımınızın güvenliğini sağlama
 
 Bu makalede, Azure IOT tabanlı nesnelerin interneti (IOT) altyapısı güvenliğini sağlamak için sonraki ayrıntı düzeyi sağlar. Yapılandırma ve dağıtma her bileşen için uygulama düzeyi ayrıntılarını bağlar. Karşılaştırmaları ve çeşitli rakip yöntemleri arasında seçenekleri de sağlar.
@@ -12,7 +28,7 @@ Azure IOT dağıtım güvenli hale getirme, aşağıdaki üç güvenlik alanlara
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Güvenli aygıt sağlama ve kimlik doğrulama
 
-Azure IOT paketi, aşağıdaki iki yöntemle IOT cihazları güvenliğini sağlar:
+IOT Çözüm Hızlandırıcıları IOT cihazları aşağıdaki iki yöntemle güvenli:
 
 * IOT Hub ile iletişim kurmak için aygıt tarafından kullanılan her aygıt için benzersiz kimlik anahtarı (güvenlik belirteçleri) sağlayarak.
 * Bir aygıt kullanarak [X.509 sertifikası] [ lnk-x509] ve cihazın IOT hub'ına kimlik doğrulaması için bir yol olarak özel anahtar. Bu kimlik doğrulama yöntemi, aygıtta özel anahtar cihaz dışında herhangi bir zamanda, daha yüksek düzeyde güvenlik sağlayan bilinmediğini sağlar.

@@ -4,17 +4,17 @@
   expanded: true
   items:
     - name: Azure Machine Learning hakkında
-      href: ../desktop-workbench/overview-what-is-azure-ml.md
+      href: overview-what-is-azure-ml.md
     - name: Model Yönetimi’ne genel bakış
       href: ../desktop-workbench/model-management-overview.md
     - name: Diğer ML ürünleri
-      href: ../desktop-workbench/overview-more-machine-learning.md
+      href: overview-more-machine-learning.md
     - name: Yenilikler
       href: ../desktop-workbench/azure-machine-learning-release-notes.md
 - name: Hızlı Başlangıçlar
   items:
     - name: Yükleme ve başlama
-      href: ../desktop-workbench/quickstart-installation.md
+      href: quickstart-installation.md
 - name: Öğreticiler
   items:
     - name: '1: Verileri hazırlama'
@@ -29,6 +29,8 @@
   items:
     - name: Önemli kavramlar
       href: ../desktop-workbench/overview-general-concepts.md
+    - name: FPGA hızlandırma
+      href: concept-accelerate-with-fpgas.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: En sık kullanılan CLI görevleri
@@ -92,8 +94,10 @@
           href: ../desktop-workbench/how-to-read-write-files.md
         - name: MMLSpark kitaplığı kullanma
           href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: Modelleri kullanıma hazır hale getirin
+    - name: Modelleri dağıtma ve kullanma
       items:
+        - name: Modelleri FPGA’lara dağıtma
+          href: how-to-deploy-fpga-web-service.md
         - name: Model Yönetimi’ni ayarlama
           href: ../desktop-workbench/deployment-setup-configuration.md
         - name: Kümeleri ve hizmetleri ölçeklendirme
@@ -142,6 +146,31 @@
           href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Başvuru
   items:
+    - name: Python paketleri
+      href: reference-python-package-overview.md
+      items:
+        - name: Görüntü işleme
+          items:
+            - name: Pakete genel bakış ve yükleme
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
+            - name: Görüntü sınıflandırma modellerini derleme ve dağıtma
+              href: how-to-build-deploy-image-classification-models.md
+            - name: Model doğruluğu
+              href: how-to-improve-accuracy-for-computer-vision-models.md
+        - name: Tahmin etme
+          items:
+            - name: Genel bakış ve yükleme
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview'
+            - name: Tahmin modellerini derleme ve dağıtma
+              href: how-to-build-deploy-forecast-models.md
+        - name: FPGA hızlandırma
+          href: reference-fpga-package-overview.md
+        - name: Metin analizi
+          items:
+            - name: Genel bakış ve yükleme
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics'
+            - name: Metin sınıflandırma modellerini derleme ve dağıtma
+              href: how-to-build-deploy-text-classification-models.md
     - name: Veri hazırlama
       items:
         - name: Veri hazırlama için Python uzantıları
@@ -191,13 +220,13 @@
     - name: Sık sorulan sorular
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Sorunlar ve sorun giderme
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+      href: known-issues-and-troubleshooting-guide.md
     - name: Destek ve eğitim
-      href: ../desktop-workbench/support-for-aml-services.md
+      href: support-for-aml-services.md
     - name: Azure yol haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma
-      href: ../desktop-workbench/aml-pricing.md
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Bölge kullanılabilirliği
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Team Data Science Process

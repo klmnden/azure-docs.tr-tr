@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50be809df0938272a3e1d710b879ca3dd5de9428
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bdc7820910540b789fd11533389f79aa9f297f5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Azure Cosmos SQL API'yi kullanarak DB'de bölümlendirme
 
@@ -43,7 +43,7 @@ Kodu ile çalışmaya başlamak için projesinden indirmeniz [Azure Cosmos DB pe
 
 ## <a name="partition-keys"></a>Bölüm anahtarlarını
 
-SQL API bölüm anahtar tanımı JSON yolu biçiminde belirtin. Aşağıdaki tabloda bölüm temel tanımları ve her birine karşılık gelen değerleri örnekleri gösterilmektedir. Bölüm anahtarı örneğin bir yolu olarak belirtilen `/department` özelliği departmanı temsil eder. 
+SQL API bölüm anahtar tanımı JSON yolu biçiminde belirtin. Aşağıdaki tabloda bölüm temel tanımları ve her birine karşılık gelen değerleri örnekleri gösterilmektedir. Bölüm anahtarı örneğin, bir yolu olarak belirtilen `/department` özelliği departmanı temsil eder. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -81,9 +81,9 @@ Bölüm anahtarı seçimi, uygulamanızın performansını nasıl etkilediğini 
 Azure Cosmos DB ile otomatik bölümleme için destek eklenmiştir [REST API sürümü 2015-12-16](/rest/api/cosmos-db/). Bölümlenmiş kapsayıcıları oluşturmak için SDK sürümleri 1.6.0 karşıdan ya da daha yeni bir desteklenen SDK'sı platformlar (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Kapsayıcıları oluşturma
-Aşağıdaki örnek, üretilen iş saniye başına 20.000 istek birimlerinin cihaz telemetri verilerini depolamak için bir kapsayıcı oluşturmak için bir .NET parçacığı gösterir. SDK OfferThroughput değeri ayarlar (hangi sırayla ayarlar `x-ms-offer-throughput` REST API istek üstbilgisinde). Burada `/deviceId` bölüm anahtarı olarak. Bölüm anahtarı seçimi kapsayıcı meta veri adı ve dizin oluşturma ilkesini gibi rest birlikte kaydedilir.
+Aşağıdaki örnek, üretilen iş saniye başına 20.000 istek birimlerinin cihaz telemetri verilerini depolamak için bir kapsayıcı oluşturmak için bir .NET parçacığı gösterir. SDK OfferThroughput değeri ayarlar (hangi sırayla ayarlar `x-ms-offer-throughput` REST API istek üstbilgisinde). Burada ayarladığınız `/deviceId` bölüm anahtarı olarak. Bölüm anahtarı seçimi kapsayıcı meta veri adı ve dizin oluşturma ilkesini gibi rest birlikte kaydedilir.
 
-Bu örnek için biz çekilen `deviceId` (a) olduğundan çok sayıda aygıtlar, biliyoruz olduğundan, yazma dağıtılabilir bölümleri arasında eşit olarak ve bize izin vererek büyük miktarda veriyi almak için veritabanı ölçeklendirme ve (b) birçok cihazı için en son okuma getirme gibi istekleri için tek bir DeviceID kapsamlı ve tek bir bölümün dışında alınabilir.
+Bu örnek için seçtiğiniz `deviceId` , (a) çok sayıda aygıt olduğunu biliyor olduğundan, dağıtılabilir bölümleri arasında eşit olarak yazar ve büyük miktarda veri ve (b) alma veritabanına ölçeklendirmenizi getirme gibi istekleri çoğunu izin verme bir aygıt için en son okumak için tek bir DeviceID kapsamlı ve tek bir bölümün dışında alınabilir.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -102,10 +102,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-Bu yöntem Cosmos DB çağrısı bir REST API yapar ve hizmet istenen işlemeyi temel alan bölüm sayısı hazırlayacağınız. Performansınızı gelişmesi gerektiği bir kapsayıcı verimini değiştirebilirsiniz. 
+Bu yöntem Cosmos DB çağrısı bir REST API yapar ve hizmet istenen işlemeyi temel alan bölüm sayısı hazırlayacağınız. Performansınızı gelişmesi gerektiği bir kapsayıcı verimini veya bir dizi kapsayıcıları değiştirebilirsiniz. 
 
 ### <a name="reading-and-writing-items"></a>Okuma ve yazma öğeleri
-Şimdi, şimdi Cosmos Veritabanına veri ekleyin. İşte, okuma cihaz içeren bir örnek sınıf ve Documentclient bir kapsayıcıya okuma yeni aygıt eklemek için bir çağrı. Bu, SQL API'yi yararlanan bir örnektir:
+Şimdi, şimdi Cosmos Veritabanına veri ekleyin. İşte, okuma cihaz içeren bir örnek sınıf ve Documentclient bir kapsayıcıya okuma yeni aygıt eklemek için bir çağrı. SQL API'yı kullanan bir örnek kod bloğu verilmiştir:
 
 ```csharp
 public class DeviceReading
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Şimdi öğe kimliği ve bölüm anahtarı tarafından okunur, güncelleştirebilir ve son adım olarak kimliği ve bölüm anahtarı ile silin. Okumaların bir PartitionKey değeri (REST API'de `x-ms-documentdb-partitionkey` istek üst bilgisine karşılık gelir) içerdiğine dikkat edin.
+Şimdi öğe kimliği ve bölüm anahtarı tarafından okunur, güncelleştirebilir ve son adım olarak kimliği ve bölüm anahtarı ile silin. Okuma PartitionKey değeri içeren (karşılık gelen `x-ms-documentdb-partitionkey` REST API istek üstbilgisinde).
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -178,7 +178,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-Aşağıdaki sorgunun bölüm anahtarında (DeviceId) filtresi yoktur ve bölümün dizinine göre yürütüldüğü tüm bölümleri yayılır. SDK'nın bölümler arasında sorgu yürütmesini sağlamak için EnableCrossPartitionQuery (REST API'de `x-ms-documentdb-query-enablecrosspartition`) belirtmeniz gerektiğini aklınızda bulundurun.
+Aşağıdaki sorgunun bölüm anahtarında (DeviceId) filtresi yoktur ve bölümün dizinine göre yürütüldüğü tüm bölümleri yayılır. EnableCrossPartitionQuery belirtmeniz gerekir (`x-ms-documentdb-query-enablecrosspartition` REST API'sindeki) SDK'sını bölümler bir sorguyu çalıştırmak için.
 
 ```csharp
 // Query across partition keys
@@ -188,7 +188,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB destekleyen [toplama işlevlerinin](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` ve `AVG` üzerinden ve üstü SDK'ları 1.12.0 ile başlayan SQL kullanarak kapsayıcıları bölümlenmiş. Sorguları tek bir toplama işleci içermelidir ve projeksiyon tek bir değer içermelidir.
+Cosmos DB destekleyen [toplama işlevlerinin](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`,, ve `AVG` üzerinden ve üstü SDK'ları 1.12.0 ile başlayan SQL kullanarak kapsayıcıları bölümlenmiş. Sorguları tek bir toplama işleci içermelidir ve projeksiyon tek bir değer içermelidir.
 
 ### <a name="parallel-query-execution"></a>Paralel sorgu yürütme
 Cosmos DB SDK'ları 1.9.0 ve hatta bunlar çok sayıda bölüm touch gerektiğinde bölümlenmiş koleksiyonlar, düşük gecikme süresi sorguları gerçekleştirmesine izin destek paralel sorgu yürütme seçenekleri üstünde. Örneğin, aşağıdaki sorgu bölümler arasında paralel çalıştırılacak şekilde yapılandırılmıştır.
@@ -204,13 +204,13 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     
 Aşağıdaki parametreleri ayarlayarak paralel sorgu yürütme işlemini yönetebilirsiniz:
 
-* Ayarlayarak `MaxDegreeOfParallelism`, yani, en fazla eşzamanlı ağ bağlantı sayısı kapsayıcının bölümlere paralellik derecesini kontrol edebilirsiniz. Bunu -1 olarak ayarlarsanız, paralellik derecesi SDK tarafından yönetilir. Varsa `MaxDegreeOfParallelism` varsayılan değer, belirtilen veya ayarlanmış 0 değil, tek bir ağ bağlantısı kapsayıcının bölümlere olacaktır.
-* `MaxBufferedItemCount` parametresini ayarlayarak, sorgu gecikme süresiyle istemci tarafı bellek kullanımını dengeleyebilirsiniz. Bu parametreyi atlarsanız veya -1 olarak ayarlarsanız, paralel sorgu yürütme işlemi sırasında arabelleğe alınan öğelerin sayısı SDK tarafından yönetilir.
+* Ayarlayarak `MaxDegreeOfParallelism`, paralellik derecesini kontrol edebilirsiniz diğer bir deyişle, en fazla eşzamanlı ağ bağlantı kapsayıcının bölümlere sayısı. Bu özelliği -1 olarak ayarlarsanız, paralellik derecesini SDK tarafından yönetilir. Varsa `MaxDegreeOfParallelism` varsayılan değer, belirtilen veya ayarlanmış 0 değil, tek bir ağ bağlantısı kapsayıcının bölümlere olacaktır.
+* `MaxBufferedItemCount` parametresini ayarlayarak, sorgu gecikme süresiyle istemci tarafı bellek kullanımını dengeleyebilirsiniz. Bu parametreyi veya bu özelliği -1 olarak ayarlayın, paralel sorgu yürütme sırasında arabelleğe alınan öğe sayısı SDK tarafından yönetilir.
 
 Koleksiyonun durumu aynı olduğunda, paralel sorgu sonuçları seri yürütme ile aynı sırada döndürür. (ORDER BY ve/veya üst) sıralama içeren bir çapraz bölüm sorgusu gerçekleştirirken Azure Cosmos DB SDK'sı paralel sorguda bölümler sorunları ve genel olarak sipariş edilen sonuçlar için istemci tarafı kısmen sıralanmış sonuçları birleştirir.
 
 ### <a name="executing-stored-procedures"></a>Saklı yordamları çalıştırma
-Örneğin aynı cihaz kimliği belgelerle karşı atomik işlemleri yürütebilir toplamalar veya tek bir öğe bir aygıtta en son durumunu koruma durumunda. 
+Toplamalar veya tek bir öğe bir aygıtta en son durumunu koruma, örneğin, aynı aygıt kimliği belgelerle karşı atomik işlemleri de yürütebilir. 
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -222,7 +222,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Sonraki bölümde, nasıl bölümlenmiş kapsayıcılara tek bölümlü kapsayıcılardan taşıyabilir arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, SQL API ile Azure Cosmos DB kapsayıcıların bölümlendirme ile çalışmak nasıl bir genel bakış sağlanır. Ayrıca bkz. [bölümlendirme ve yatay ölçekleme](../cosmos-db/partition-data.md) genel bir bakış kavramları ve tüm Azure Cosmos DB API'si ile bölümleme için en iyi uygulamalar için. 
+Bu makalede SQL API ile Azure Cosmos DB kapsayıcıların bölümlendirme ile çalışmak nasıl bir genel bakış sağlanır. Ayrıca bkz. [bölümlendirme ve yatay ölçekleme](../cosmos-db/partition-data.md) genel bir bakış kavramları ve tüm Azure Cosmos DB API'si ile bölümleme için en iyi uygulamalar için. 
 
 * Ölçek ve performans ile Azure Cosmos DB testi gerçekleştirin. Bkz: [performans ve ölçek testi Azure Cosmos DB ile](performance-testing.md) bir örnek için.
 * Kodlama ile çalışmaya başlama [SDK'ları](sql-api-sdk-dotnet.md) veya [REST API'si](/rest/api/cosmos-db/)

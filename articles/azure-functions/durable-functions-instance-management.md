@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) durumlarda yönetme
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-.NET olmayan diller için işlevi çıktı bağlama yeni örnekleri başlatmak için kullanılabilir. Bu durumda, yukarıdaki üç parametre alanları olan herhangi bir JSON serileştirilebilir nesnenin kullanılabilir. Örneğin, aşağıdaki Node.js işlevi göz önünde bulundurun:
+.NET olmayan diller için işlevi çıktı bağlama yeni örnekleri başlatmak için kullanılabilir. Bu durumda, yukarıdaki üç parametre alanları olan herhangi bir JSON serileştirilebilir nesnenin kullanılabilir. Örneğin, aşağıdaki JavaScript işlevi göz önünde bulundurun:
 
 ```js
 module.exports = function (context, input) {
@@ -100,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Örnek sorgu şu anda yalnızca C# orchestrator işlevleri için desteklenir.
-
 ## <a name="terminating-instances"></a>Sonlandırma örnekleri
 
 Çalışan bir orchestration örneği kullanarak sonlandırılabilir [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. İki parametreler bir `instanceId` ve `reason` günlükleri ve örnek durum yazılır dize. Sonlandırılmış bir örneği sonraki ulaştığında hemen sonra çalışmayı durdurur `await` zaten açık değilse, nokta veya hemen sonlandırılacak bir `await`. 
@@ -117,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Örnek sonlandırma şu anda yalnızca C# orchestrator işlevleri için desteklenir.
 
 > [!NOTE]
 > Örnek sonlandırma şu anda dağıtılmaz. Etkinlik işlevler ve alt düzenlemelerin tamamlanma olup onları adlı orchestration örneği sonlandırıldı bağımsız olarak çalışır.
@@ -146,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Olaylar oluşturma, şu anda yalnızca C# orchestrator işlevleri için desteklenir.
 
 > [!WARNING]
 > Belirtilen orchestration örneği yok ise *kimliği örneği* veya örnek belirtilen değil bekliyorsa *olay adı*, olay iletisi göz ardı edilir. Bu davranış hakkında daha fazla bilgi için bkz: [GitHub sorunu](https://github.com/Azure/azure-functions-durable-extension/issues/29).

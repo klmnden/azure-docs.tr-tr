@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Tanılama dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/03/2018
 
 [Application Insights](../application-insights/app-insights-overview.md) tanılama ve Azure işlevleri izleme yapmak için önerilen yoldur. Aynı dayanıklı işlevleri için geçerlidir. İşlevi uygulamanıza Application Insights yararlanmak nasıl genel bakış için bkz: [İzleyici Azure işlevleri](functions-monitoring.md).
 
-Azure işlevleri dayanıklı uzantısı da yayar *olayları izleme* bir orchestration uçtan uca yürütmeyi izlemesini sağlar. Bu bulunabilir ve kullanarak sorgulanan [uygulama Öngörüler Analytics](../application-insights/app-insights-analytics.md) Azure portalında aracı.
+Azure işlevleri dayanıklı uzantısı da yayar *olayları izleme* bir orchestration uçtan uca yürütmeyi izlemesini izin verir. Bu bulunabilir ve kullanarak sorgulanan [uygulama Öngörüler Analytics](../application-insights/app-insights-analytics.md) Azure portalında aracı.
 
 ### <a name="tracking-data"></a>İzleme verileri
 
@@ -68,7 +68,7 @@ Her yaşam döngüsü olay orchestration örneğinin yazılması bir izleme olay
 
 Varsayılan olarak, tüm izleme olaylarını gösterilen. Veri birimi ayarlayarak azaltılabilir `Host.Triggers.DurableTask` için `"Warning"` veya `"Error"` ; bu durumda olayları izleme yalnızca olağanüstü durumlar için yayınlaması.
 
-> [!WARNING]
+> [!NOTE]
 > Varsayılan olarak, Application Insights telemetri verileri çok sık yayma önlemek için Azure işlevleri çalışma zamanı tarafından örneklenen. Bu izleme bilgilerini kısa bir süre içinde birçok yaşam döngüsü olaylar meydana geldiğinde kaybolmasına neden olabilir. [Azure işlevleri izleme makale](functions-monitoring.md#configure-sampling) bu davranışı yapılandırmak açıklanmaktadır.
 
 ### <a name="single-instance-query"></a>Tek örnek sorgu
@@ -124,6 +124,8 @@ traces
 
 Orchestrator günlükleri doğrudan bir orchestrator işlevinden yazarken yeniden yürütme davranışı göz önünde bulundurmanız önemlidir. Örneğin, aşağıdaki orchestrator işlevi göz önünde bulundurun:
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -137,6 +139,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 Sonuçta elde edilen günlük verilerini aşağıdaki gibi bir şeyi aramak için geçiyor:
@@ -181,6 +199,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> `IsReplaying` Özelliği henüz JavaScript'te kullanılabilir değil.
+
+## <a name="custom-status"></a>Özel durumu
+
+Özel orchestration durumu, orchestrator işlevi için bir özel durum değeri ayarlamanıza olanak tanır. Bu durum HTTP durum sorgusu API sağlanır veya `DurableOrchestrationClient.GetStatusAsync` API. Özel orchestration durum daha zengin orchestrator işlevler için izlemeyi etkinleştirir. Örneğin, orchestrator işlev kodu içerebilir `DurableOrchestrationContext.SetCustomStatus` uzun süre çalışan işlemi için ilerleme durumunu güncelleştirmek için çağrıları. Bir web sayfası veya diğer dış sistem gibi bir istemci, HTTP durum sorgu API'leri daha zengin ilerleme durumu bilgileri için düzenli aralıklarla sorgulayabilir. Kullanarak bir örnek `DurableOrchestrationContext.SetCustomStatus` aşağıda verilmiştir:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+Orchestration çalışırken, dış istemcilere bu özel durum getirebilirsiniz:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+İstemcileri şu yanıtı alırsınız: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  Bir Azure Table Storage sütuna sığmayacak kadar gerektiği için özel durum yükü UTF-16 JSON metnin 16 KB ile sınırlıdır. Daha büyük yük gerekirse harici depolama kullanabilirsiniz.
 
 ## <a name="debugging"></a>Hata ayıklama
 

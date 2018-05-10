@@ -1,6 +1,6 @@
 ---
-title: Bir Azure kapsayıcı hizmeti (AKS) iç yük dengeleyici oluşturma
-description: Bir iç yük dengeleyici Azure kapsayıcı hizmeti (AKS) kullanın.
+title: Bir Azure Kubernetes hizmet (AKS) iç yük dengeleyici oluşturma
+description: Bir iç yük dengeleyici Azure Kubernetes hizmet (AKS) kullanın.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) bir iç yük dengeleyici kullanın
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Bir iç yük dengeleyici Azure Kubernetes hizmet (AKS) kullanın
 
-İç Yük Dengeleme Kubernetes hizmet Kubernetes kümesi olarak aynı sanal ağda çalışan uygulamalar için erişilebilir hale getirir. Bu belge, Azure kapsayıcı hizmeti (AKS) bir iç yük dengeleyici oluşturma ayrıntıları.
+İç Yük Dengeleme Kubernetes hizmet Kubernetes kümesi olarak aynı sanal ağda çalışan uygulamalar için erişilebilir hale getirir. Bu belge, Azure Kubernetes hizmet (AKS) bir iç yük dengeleyici oluşturma ayrıntıları.
 
 ## <a name="create-internal-load-balancer"></a>İç yük dengeleyici oluşturma
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-Uygulama dağıtıldıktan sonra bir Azure yük dengeleyici oluşturulur ve AKS kümesi olarak aynı sanal ağda kullanılabilir. 
+Uygulama dağıtıldıktan sonra bir Azure yük dengeleyici oluşturulur ve AKS kümesi olarak aynı sanal ağda kullanılabilir.
 
 ![AKS iç yük dengeleyici görüntüsü](media/internal-lb/internal-lb.png)
 
-Ne zaman hizmeti alma ayrıntıları, IP adresi `EXTERNAL-IP` sütun iç yük dengeleyicisi IP adresidir. 
+Ne zaman hizmeti alma ayrıntıları, IP adresi `EXTERNAL-IP` sütun iç yük dengeleyicisi IP adresidir.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-Hizmet Ayrıntıları alırken, IP adresi `EXTERNAL-IP` belirtilen IP adresi yansıtmalıdır. 
+Hizmet Ayrıntıları alırken, IP adresi `EXTERNAL-IP` belirtilen IP adresi yansıtmalıdır.
 
 ```console
 $ kubectl get service azure-vote-front

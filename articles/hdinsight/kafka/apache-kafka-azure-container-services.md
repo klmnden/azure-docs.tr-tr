@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı hizmeti hdınsight'ta Kafka ile kullanma | Microsoft Docs
-description: Azure kapsayıcı hizmeti (AKS) barındırılan kapsayıcı görüntülerden Hdınsight'ta Kafka kullanmayı öğrenin.
+title: Hdınsight'ta Kafka ile Azure Kubernetes hizmeti kullanma | Microsoft Docs
+description: Azure Kubernetes hizmet (AKS) barındırılan kapsayıcı görüntülerden Hdınsight'ta Kafka kullanmayı öğrenin.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2018
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Hdınsight üzerinde Kafka ile Azure kapsayıcı hizmetlerini kullanma
+# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Hdınsight üzerinde Kafka ile Azure Kubernetes hizmeti kullanma
 
-Azure kapsayıcı Hizmetleri (AKS) ile Kafka Hdınsight kümesinde kullanmayı öğrenin. Bu belgede yer alan adımlar AKS içinde barındırılan bir Node.js uygulaması Kafka bağlantılarını doğrulamak için kullanın. Bu uygulamanın kullandığı [kafka düğümlü](https://www.npmjs.com/package/kafka-node) Kafka ile iletişim kurmak için paket. Kullandığı [Socket.IO](https://socket.io/) tarayıcı istemci AKS içinde barındırılan arka uç arasındaki ileti güdümlü olayı için.
+Azure Kubernetes hizmet (AKS) ile Kafka Hdınsight kümesinde kullanmayı öğrenin. Bu belgede yer alan adımlar AKS içinde barındırılan bir Node.js uygulaması Kafka bağlantılarını doğrulamak için kullanın. Bu uygulamanın kullandığı [kafka düğümlü](https://www.npmjs.com/package/kafka-node) Kafka ile iletişim kurmak için paket. Kullandığı [Socket.IO](https://socket.io/) tarayıcı istemci AKS içinde barındırılan arka uç arasındaki ileti güdümlü olayı için.
 
-[Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Azure kapsayıcı hizmeti barındırılan Kubernetes ortamınıza yönetir ve kapsayıcılı uygulamaları dağıtmak kolay ve hızlı hale getirir. Bir Azure sanal ağı kullanarak, iki hizmet bağlanabilir.
+[Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Azure Kubernetes hizmeti barındırılan Kubernetes ortamınıza yönetir ve kapsayıcılı uygulamaları dağıtmak kolay ve hızlı hale getirir. Bir Azure sanal ağı kullanarak, iki hizmet bağlanabilir.
 
 > [!NOTE]
-> Hdınsight üzerinde Kafka ile iletişim kurmak Azure kapsayıcı hizmetlerini etkinleştirmek için gereken adımlar bu belgenin odak noktasıdır. Örnek Yapılandırması çalıştığını göstermek için yalnızca bir temel Kafka istemcidir.
+> Hdınsight üzerinde Kafka ile iletişim kurmak Azure Kubernetes hizmeti etkinleştirmek için gereken adımlar bu belgenin odak noktasıdır. Örnek Yapılandırması çalıştığını göstermek için yalnızca bir temel Kafka istemcidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -37,10 +37,10 @@ Azure kapsayıcı Hizmetleri (AKS) ile Kafka Hdınsight kümesinde kullanmayı �
 Bu belge, oluşturma ve aşağıdaki Azure hizmetlerini kullanma konusunda bilgi sahibi olduğunuzu varsayar:
 
 * HDInsight üzerinde Kafka
-* Azure Container Service
+* Azure Kubernetes hizmeti
 * Azure Sanal Ağları
 
-Bu belgede ayrıca, gitti olduğunu varsayar [Azure kapsayıcı hizmetlerini Öğreticisi](../../aks/tutorial-kubernetes-prepare-app.md). Bu öğretici bir kapsayıcı hizmeti oluşturur, bir kapsayıcı kayıt defteri Kubernetes bir küme oluşturur ve yapılandırır `kubectl` yardımcı programı.
+Bu belgede ayrıca, gitti olduğunu varsayar [Azure Kubernetes Service Öğreticisi](../../aks/tutorial-kubernetes-prepare-app.md). Bu öğretici bir kapsayıcı hizmeti oluşturur, bir kapsayıcı kayıt defteri Kubernetes bir küme oluşturur ve yapılandırır `kubectl` yardımcı programı.
 
 ## <a name="architecture"></a>Mimari
 
@@ -56,12 +56,12 @@ Aşağıdaki diyagram, bu belgede kullanılan ağ topolojisini gösterir:
 > [!IMPORTANT]
 > Ad çözümlemesi IP adresleme kullanılmak üzere eşlenmiş ağlar arasında etkin değil. Varsayılan olarak, hdınsight'ta Kafka, istemciler bağlandığında IP adresi yerine ana bilgisayar adlarını döndürmek için yapılandırılır. Bu belgede yer alan adımlar IP'nin Kafka değiştirmek yerine reklam.
 
-## <a name="create-an-azure-container-service-aks"></a>Bir Azure kapsayıcı hizmeti (AKS) oluşturma
+## <a name="create-an-azure-kubernetes-service-aks"></a>Bir Azure Kubernetes hizmeti (AKS) oluşturma
 
 Bir AKS kümesi zaten yoksa, bir oluşturmayı öğrenmek için aşağıdaki belgeler birini kullanın:
 
-* [Bir Azure kapsayıcı hizmeti (AKS) kümeyi - Portal dağıtma](../../aks/kubernetes-walkthrough-portal.md)
-* [Bir Azure kapsayıcı hizmeti (AKS) kümeyi - CLI dağıtma](../../aks/kubernetes-walkthrough.md)
+* [Bir Azure Kubernetes hizmet (AKS) kümeyi - Portal dağıtma](../../aks/kubernetes-walkthrough-portal.md)
+* [Bir Azure Kubernetes hizmet (AKS) kümeyi - CLI dağıtma](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]
 > AKS yükleme sırasında bir sanal ağ oluşturur. Bu ağ, sonraki bölümde Hdınsight için oluşturulan bir eşlenen.
@@ -154,11 +154,11 @@ IP adresleri etki alanı adları yerine tanıtmak için Kafka yapılandırmak i�
 
 ## <a name="test-the-configuration"></a>Yapılandırmayı test etme
 
-Bu noktada, Kafka ve Azure kapsayıcı hizmeti eşlenen sanal ağlar üzerinden iletişimi arasındadır. Bu bağlantıyı sınamak için aşağıdaki adımları kullanın:
+Bu noktada, eşlenmiş sanal ağlar üzerinden iletişim Kafka ve Azure Kubernetes hizmeti verilebilir. Bu bağlantıyı sınamak için aşağıdaki adımları kullanın:
 
 1. Test uygulama tarafından kullanılan bir Kafka konu oluşturun. Kafka oluşturma konuları hakkında daha fazla bilgi için bkz: [Kafka küme oluşturma](apache-kafka-get-started.md) belge.
 
-2. Örnek uygulamayı indirin [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Örnek uygulamayı indirin [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test).
 
 3. Düzen `index.js` dosya ve aşağıdaki satırları değiştirin:
 
@@ -184,7 +184,7 @@ Bu noktada, Kafka ve Azure kapsayıcı hizmeti eşlenen sanal ağlar üzerinden 
     ```
 
     > [!NOTE]
-    > Azure kapsayıcı kayıt defteri adı veya olan Azure kapsayıcı hizmeti ile çalışmak için Azure CLI kullanma ile tanınmayan bakın bilmiyorsanız [AKS öğreticileri](../../aks/tutorial-kubernetes-prepare-app.md).
+    > Azure kapsayıcı kayıt defteri adı veya olan Azure Kubernetes hizmetiyle çalışmak için Azure CLI kullanma ile tanınmayan bakın bilmiyorsanız [AKS öğreticileri](../../aks/tutorial-kubernetes-prepare-app.md).
 
 6. Yerel etiketi `kafka-aks-test` , ACR loginServer görüntüsüyle. Ayrıca ekleyin `:v1` resim sürümünü belirtmek için bitiş:
 

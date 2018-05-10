@@ -1,24 +1,22 @@
 ---
-title: "Azure AD ile özel bir etki alanı ekleme | Microsoft Docs"
-description: "Azure Active Directory'de özel etki alanı eklemek açıklanmaktadır."
+title: Azure AD ile özel bir etki alanı ekleme | Microsoft Docs
+description: Azure Active Directory'de özel etki alanı eklemek açıklanmaktadır.
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 37890ac856a6b6bd89acc17973327b239a583997
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Hızlı Başlangıç: bir özel etki alanı adını Azure Active Directory'ye ekleme
 
@@ -64,10 +62,10 @@ Artık [özel etki alanı adınızı içeren kullanıcı adları atayabilirsiniz
 ## <a name="troubleshooting"></a>Sorun giderme
 Özel etki alanı adını doğrulayamıyorsanız, aşağıdaki sorun giderme adımlarını deneyin:
 
-1. **Bir saat bekleyin**. Azure AD etki alanı doğrulayabilirsiniz önce DNS kayıtlarını yayılması gerekir. Bu işlem, bir saat veya daha fazla sürebilir.
+1. **Bir saat bekleyin**. Azure AD etki alanı doğrulayabilirsiniz önce DNS kayıtlarını yayılması gerekir. Bu işlem bir saat veya daha fazla sürebilir.
 2. **DNS kaydının girildiğinden ve doğru olduğundan emin olun**. Bu adımı, etki alanının etki alanı adı kayıt şirketine ait web sitesinde tamamlayın. Azure AD etki alanı adı varsa doğrulanamıyor 
   * DNS girişini DNS bölge dosyasında mevcut değil
-  * Azure AD, sağladığınız DNS girişi ile tam bir eşleşme değil. 
+  * Bu, Azure AD’nin size sağladığı DNS girişiyle tam eşleşmiyor. 
   
   Etki alanı adı kayıt şirketinde etki alanının DNS kayıtlarını güncelleştirmek için erişiminiz yoksa, DNS girişini bu erişime sahip olan kişi veya ekip ile paylaşın ve DNS girişini eklemesini isteyin.
 3. **Etki alanı adını Azure AD'deki başka bir dizinden silin**. Bir etki alanı adı yalnızca tek bir dizinde doğrulanabilir. Bir etki alanı adı şu anda farklı bir dizinde doğrulandı, diğer bir silinene kadar yeni dizininizde doğrulanamıyor. Etki alanı adlarını silme hakkında bilgi edinmek için bkz. [Özel etki alanı adlarını yönetme](active-directory-domains-manage-azure-portal.md).    
@@ -85,4 +83,4 @@ Bu hızlı başlangıç Azure AD ile özel bir etki alanı ekleme öğrendiniz.
 Azure portalından Azure AD içinde yeni bir özel etki alanı eklemek için aşağıdaki bağlantıyı kullanın.
 
 > [!div class="nextstepaction"]
-> [Özel bir etki alanı Ekle](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/QuickStart) 
+> [Özel etki alanı ekleme](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/QuickStart) 

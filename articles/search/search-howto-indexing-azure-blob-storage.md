@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Storage belgelerde dizin oluşturma
 Bu makalede Azure Search dizini belgeler için kullanma gösterilmektedir (PDF gibi Microsoft Office belgelerini ve diğer birçok ortak biçimleri) Azure Blob depolama alanına depolanır. İlk olarak, ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, derin keşif davranışı sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -279,7 +279,7 @@ Hataları işleme, BLOB'ları ayrıştırılırken ya da belgeler için bir dizi
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Artımlı dizin oluşturma ve silme algılama
-Bir zamanlamaya göre çalıştırmak için bir blob dizin oluşturucu ayarladığınızda, blob'un tarafından belirlendiği şekilde yalnızca değiştirilen BLOB'lar aşağıdaki yeniden dizinler `LastModified` zaman damgası.
+Bir zamanlamaya göre çalıştırmak için bir blob dizin oluşturucu ayarladığınızda, blob'un tarafından belirlendiği şekilde yalnızca değiştirilen BLOB'lar reindexes `LastModified` zaman damgası.
 
 > [!NOTE]
 > Bir değişiklik algılama İlkesi belirtmeniz gerekmez – Artımlı dizin oluşturma sizin için otomatik olarak etkinleştirilir.

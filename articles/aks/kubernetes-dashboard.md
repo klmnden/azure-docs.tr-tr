@@ -1,6 +1,6 @@
 ---
-title: "Azure Kubernetes küme web kullanıcı Arabirimi ile yönetme"
-description: "İçinde AKS Kubernetes panosunu kullanma"
+title: Azure Kubernetes küme web kullanıcı Arabirimi ile yönetme
+description: İçinde AKS Kubernetes panosunu kullanma
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab137c8397f747ba07475910cd4461d88951d6be
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes Pano Azure kapsayıcı hizmeti (AKS)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes Pano Azure Kubernetes hizmet (AKS)
 
 Azure CLI Kubernetes Pano başlatmak için kullanılabilir. Bu belge Kubernetes Pano Azure CLI ile başlayan aracılığıyla anlatılmaktadır ve ayrıca bazı temel Pano işlemleri aracılığıyla anlatılmaktadır. Kubernetes Pano bakın, daha fazla bilgi için [Kubernetes Web kullanıcı Arabirimi Panosu][kubernetes-dashboard].
 
@@ -43,7 +43,7 @@ Hazır olduğunuzda tıklatın **dağıtma** dağıtımı oluşturun.
 
 ![Kubernetes hizmeti oluşturma iletişim kutusu](./media/container-service-kubernetes-ui/create-deployment.png)
 
-## <a name="view-the-application"></a>Uygulama görüntüleyin
+## <a name="view-the-application"></a>Uygulamayı görüntüleme
 
 Uygulama hakkında durum Kubernetes Panoda görülebilir. Uygulama çalışmaya başladıktan sonra her bileşen yanında yeşil bir onay kutusu sahiptir.
 
@@ -63,13 +63,13 @@ Oluşturma ve görüntüleme uygulamaları ek olarak, Kubernetes panoyu düzenle
 
 Bir dağıtım düzenlemek için tıklatın **dağıtımları** sol taraftaki menüyü ve ardından **NGINX** dağıtım. Son olarak, seçin **Düzenle** üst taraftaki gezinti çubuğunda.
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
+![Kubernetes Düzenle](./media/container-service-kubernetes-ui/view-deployment.png)
 
 Bulun `spec.replica` 1 olmalıdır, değeri 3 olarak bu değerle değiştirin. Bunu yaparken, NGINX dağıtım yineleme sayısı 1'den 3'e artar.
 
 Seçin **güncelleştirme** zaman hazır.
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Kubernetes Düzenle](./media/container-service-kubernetes-ui/edit-deployment.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

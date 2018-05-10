@@ -1,9 +1,9 @@
 ---
 title: Azure Application Insights Power BI verme | Microsoft Docs
-description: "Power BI'da analiz sorguları görüntülenebilir."
+description: Power BI'da analiz sorguları görüntülenebilir.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI Application Insights akış
 [Power BI](http://www.powerbi.com/) , verileri çözümlemek ve paylaşmak Öngörüler yardımcı olan bir iş araçları paketidir. Zengin panolar her cihazda kullanılabilir. Analytics sorgularından dahil olmak üzere pek çok kaynaktan veri birleştirebilirsiniz [Azure Application Insights](app-insights-overview.md).
@@ -121,8 +121,8 @@ Analytics sorgusundan gelen veri kümesi azaltma gereksinimlerinizi karşılamı
 
 1. Oluşturma bir [API anahtarı](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Azure Resource Manager URL Application Insights API'si ile değiştirerek Analytics'ten dışarı Power BI M komut dosyasını güncelleştirin.
-   * Değiştir **https://management.azure.com/subscriptions/...**
-   * ile **https://api.applicationinsights.io/beta/apps/...**
+   * Değiştir  **https://management.azure.com/subscriptions/...**
+   * ile  **https://api.applicationinsights.io/beta/apps/...**
 3. Son olarak, kimlik bilgileri için temel güncelleştirin ve API anahtarınızı kullanın.
   
 

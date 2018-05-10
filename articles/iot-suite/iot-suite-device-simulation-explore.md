@@ -1,6 +1,6 @@
 ---
 title: Cihaz benzetimi çözüm - Azure kullanmaya başlama | Microsoft Docs
-description: IOT paketi benzetimi çözüm geliştirme ve test bir IOT çözüm yardımcı olmak üzere kullanılan bir araçtır. Benzetim, yüklenebilir diğer önceden yapılandırılmış çözümleri ile birlikte veya kendi özel çözümler ile kullanılan sunumu tek başına bir hizmettir.
+description: IOT Çözüm Hızlandırıcıları benzetimi çözüm geliştirme ve test bir IOT çözüm yardımcı olmak üzere kullanılan bir araçtır. Benzetim, yüklenebilir diğer Çözüm Hızlandırıcıları ile birlikte kullanılan veya kendi özel çözümler ile kullanılan sunumu tek başına bir hizmettir.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,15 +12,15 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7dfd56d06e180dd163fa84d4289e6daf4baefc51
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Cihaz benzetimi gözden geçirme
 
-Azure IOT cihaz benzetimi geliştirme ve test bir IOT çözüm yardımcı olmak üzere kullanılan bir araçtır. Cihaz benzetimi, kendi özel çözümler veya diğer önceden yapılandırılmış çözümleri ile birlikte kullanabileceğiniz sunan bir tek başına ' dir.
+Azure IOT cihaz benzetimi geliştirme ve test bir IOT çözüm yardımcı olmak üzere kullanılan bir araçtır. Cihaz benzetimi diğer Çözüm Hızlandırıcıları veya kendi özel çözümler ile birlikte kullanabileceğiniz sunan bir tek başına ' dir.
 
 Bu öğreticide, bazı aygıt benzetimi özellikleri açıklanmaktadır. Size nasıl çalışır ve kendi IOT çözümleriniz test etmek için kullanmanızı sağlayan gösterir.
 
@@ -39,7 +39,7 @@ Cihaz benzetimi dağıtılan henüz henüz tamamlanmış olmalıdır, [dağıtma
 
 ## <a name="configuring-device-simulation"></a>Cihaz benzetimi yapılandırma
 
-Yapılandırın ve Pano içinde tamamen gelen cihaz benzetimi çalıştırın. IOT paketi panoyu açmak [sağlanan çözümleri](https://www.azureiotsuite.com/) sayfası. Tıklatın **başlatma** yeni cihaz benzetimi dağıtımınızı altında.
+Yapılandırın ve Pano içinde tamamen gelen cihaz benzetimi çalıştırın. IOT Çözüm Hızlandırıcıları panoyu açmak [sağlanan çözümleri](https://www.azureiotsuite.com/) sayfası. Tıklatın **başlatma** yeni cihaz benzetimi dağıtımınızı altında.
 
 ### <a name="target-iot-hub"></a>Hedef IOT hub'ı
 

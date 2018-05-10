@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e2af462d6fe0a6a9811e885199d70a182bf145c7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure’da CentOS tabanlı bir sanal makine hazırlama
 * [Azure için CentOS 6.x sanal makineyi hazırlama](#centos-6x)
@@ -195,7 +195,7 @@ Bu makalede, bir CentOS zaten yüklemiş olduğunuz varsayılmaktadır (veya ben
 
 
 - - -
-## <a name="centos-70"></a>CentOS 7.0+
+## <a name="centos-70"></a>CentOS 7.0 +
 **CentOS 7 (ve benzer türevleri) değişiklikleri**
 
 CentOS 7 sanal makine için Azure hazırlanıyor çok benzeyen CentOS 6, ancak eşitlenmeyeceği birkaç önemli farklılıklar vardır:
@@ -305,7 +305,7 @@ CentOS 7 sanal makine için Azure hazırlanıyor çok benzeyen CentOS 6, ancak e
    
    İnitramfs yeniden oluşturun:
    
-        # sudo dracut –f -v
+        # sudo dracut -f -v
 
 11. Azure Linux aracısı ve bağımlılıkları yükleyin:
 

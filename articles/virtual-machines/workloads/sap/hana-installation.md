@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma
 
 Aşağıda, bu kılavuzu okumadan önce bilmeniz bazı önemli tanımları verilmiştir. İçinde [SAP HANA (büyük örnekler) genel bakış ve Azure ile ilgili mimari](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) ile HANA büyük örneği birimlerin farklı iki sınıf gösterdiğimizi:
 
 - S72, S72m, S144, S144m, S192 ve adlandırdığımız 'ı sınıf türü olarak' S192m SKU.
-- S384, S384m, S384xm, S576, S768 ve adlandırdığımız 'Type II sınıfı' SKU'ları S960.
+- S384, S384m, S384xm, S576m, S768m ve adlandırdığımız 'Type II sınıfı' SKU'ları S960m.
 
 Sınıfı tanımlayıcısı HANA büyük örnek belge boyunca sonunda farklı özellikleri ve gereksinimleri HANA büyük örneği SKU'larında dayalı başvurmak için kullanılacak.
 
@@ -53,11 +53,11 @@ Yeniden, özellikle HANA 2.0 yüklemek planlama yaparken denetlemek [SAP destek 
 
 - net.core.rmem_max = 16777216
 - net.core.wmem_max = 16777216
-- net.core.rmem_default = 16777216
-- net.core.wmem_default = 16777216
+- NET.Core.rmem_default 16777216 =
+- NET.Core.wmem_default 16777216 =
 - net.core.optmem_max = 16777216
-- net.ipv4.tcp_rmem = 65536 16777216 16777216
-- net.ipv4.tcp_wmem = 65536 16777216 16777216
+- NET.ipv4.tcp_rmem 65536 16777216 16777216 =
+- NET.ipv4.tcp_wmem 65536 16777216 16777216 =
 
 RHEL 7.2 SLES12 SP1 ile başlayarak, bu parametreler /etc/sysctl.d dizindeki yapılandırma dosyasında ayarlanmalıdır. Örneğin, bir yapılandırma dosyası 91-NetApp-HANA.conf adı ile oluşturulması gerekir. Eski SLES ve RHEL sürümler için bu parametre kümesi in/etc/sysctl.conf olması gerekir.
 
@@ -65,7 +65,7 @@ RHEL 7.2 SLES12 SP1 ile başlayarak, bu parametreler /etc/sysctl.d dizindeki yap
 - sunrpc.tcp_slot_table_entries = 128
 
 parametre in/etc/modprobe.d/sunrpc-local.conf ayarlamanız gerekir. Dosya mevcut değilse, önce aşağıdaki girişini ekleyerek oluşturulmalıdır: 
-- options sunrpc tcp_max_slot_table_entries=128
+- Seçenekler sunrpc tcp_max_slot_table_entries = 128
 
 **Dördüncü adım** HANA büyük örneği biriminiz sistem saati denetlenmesidir. Örnekleri HANA büyük örneği damgası bulunan Azure bölgesi konumunu temsil eden bir sistem saat dilimi ile dağıtılır. Sistem saati veya sahip olduğunuz örnekleri saat dilimini değiştirmek boş. Bunun yapılması ve Kiracı daha fazla örneği sıralama, yeni teslim edilen örnekler saat dilimini uyum gerek hazırlıklı olun. Microsoft operations sistem saat dilimi örnekleriyle sonra handover ayarladığınız hiçbir Öngörüler vardır. Bu nedenle yeni dağıtılan örnekleri için değiştirilmiş bir aynı saat diliminde ayarlanmamış olabilir. Sonuç olarak, denetlemek ve gerekirse karmalayan örnekler saat dilimini uyarlamak için müşteri olarak sizin sorumluluğunuzdadır olur. 
 
@@ -100,11 +100,11 @@ Adlandırma kuralları depolama birimleri aşağıdaki tabloda listelenmiştir:
 
 | Depolama kullanımı | Takma adı | Birim adı | 
 | --- | --- | ---|
-| HANA veri | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA günlük | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
-| HANA günlük yedeği | /hana/log/Backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
-| Paylaşılan HANA | /hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
-| usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA veri | /hana/Data/SID/mnt0000<m> | Depolama IP: / hana_data_SID_mnt00001_tenant_vol |
+| HANA günlük | /hana/log/SID/mnt0000<m> | Depolama IP: / hana_log_SID_mnt00001_tenant_vol |
+| HANA günlük yedeği | /hana/log/Backups | Depolama IP: / hana_log_backups_SID_mnt00001_tenant_vol |
+| Paylaşılan HANA | /hana/Shared/SID | Depolama IP: / hana_shared_SID_mnt00001_tenant_vol/paylaşılan |
+| usr/sap | /usr/SAP/SID | Depolama IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Burada SID HANA örneğinin sistem kimliği = 
 
@@ -234,7 +234,7 @@ Yazılım bakımı ve smt araması YAST içinde gidin. Aşağıda gösterildiği
 ![Yast SMT](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Smtserver yüklemesinde seçimini kabul edin. Bir kez yüklendikten sonra SMT Sunucu Yapılandırması'na gidin ve SUSE müşteri, daha önce aldığınız Merkezi'nden kuruluş kimlik bilgilerini girin. Ayrıca, Azure VM ana bilgisayar adı SMT sunucu URL'sini girin. Bu örnekte, https://smtserver sonraki grafikleri görüntülenen kaydedildi.
+Smtserver yüklemesinde seçimini kabul edin. Bir kez yüklendikten sonra SMT Sunucu Yapılandırması'na gidin ve SUSE müşteri, daha önce aldığınız Merkezi'nden kuruluş kimlik bilgilerini girin. Ayrıca, Azure VM ana bilgisayar adı SMT sunucu URL'sini girin. Bu örnekte olduğu https://smtserver sonraki grafikleri görüntülendiği gibi.
 
 ![SMT sunucusunun yapılandırması](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

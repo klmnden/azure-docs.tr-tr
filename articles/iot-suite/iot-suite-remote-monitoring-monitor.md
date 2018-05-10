@@ -1,7 +1,7 @@
 ---
-title: "Uzaktan izleme çözümünde - Azure izleme Gelişmiş | Microsoft Docs"
-description: "Bu öğretici, cihazları Uzaktan izleme çözüm panosunu ile izleme gösterir."
-services: 
+title: Uzaktan izleme çözümünde - Azure izleme Gelişmiş | Microsoft Docs
+description: Bu öğretici, cihazları Uzaktan izleme çözüm panosunu ile izleme gösterir.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Gelişmiş Uzaktan izleme çözümü kullanarak izleme gerçekleştirme
 
 Bu öğretici Uzaktan izleme Panosu özelliklerini gösterir. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
 
-Bu öğreticide, önceden yapılandırılmış çözüm panosundan aygıtlarınızı izlemek öğrenmek için iki sanal Contoso kamyon cihazlar kullanın. Contoso operatör olarak, konum ve alanında, kamyonlar davranışını izlemeniz gerekir.
+Bu öğreticide, aygıtlarınızı Çözüm Hızlandırıcısı panosundan izlemek öğrenmek için iki sanal Contoso kamyon cihazlar kullanın. Contoso operatör olarak, konum ve alanında, kamyonlar davranışını izlemeniz gerekir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -30,14 +30,14 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Aygıtları panosunda filtreleme
 > * Görünüm gerçek zamanlı telemetri
 > * Cihaz ayrıntıları görüntüle
-> * Görünüm alarmlar cihazlarınızdan
+> * Cihazlarınızdan gelen Uyarıları görüntüle
 > * Sistem KPI'ları görüntüleyin
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="choose-the-devices-to-display"></a>Cihazları görüntülemek için seçin
 
@@ -57,7 +57,7 @@ Oluşturmak için düzenlemek ve filtreleri silmek, seçin **yönetmek filtreler
 
 ## <a name="view-real-time-telemetry"></a>Görünüm gerçek zamanlı telemetri
 
-Önceden yapılandırılmış çözüm üzerinde ayrıntılı gerçek zamanlı telemetri verileri grafiğe çizer **Pano** sayfası. Telemetri grafik geçerli filtre tarafından seçili cihazlar için telemetri bilgileri gösterir:
+Çözüm Hızlandırıcısı üzerinde ayrıntılı gerçek zamanlı telemetri verileri grafiğe çizer **Pano** sayfası. Telemetri grafik geçerli filtre tarafından seçili cihazlar için telemetri bilgileri gösterir:
 
 ![Kamyon telemetri çizim](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,39 +65,41 @@ Görüntülemek için telemetri değerlerini seçmek için grafiğin üstünde t
 
 ![Kamyon telemetri çizim](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-Canlı telemetri görüntüleyip duraklatmak için tercih **Flowing**. Dinamik görüntü yeniden etkinleştirmek için tercih **duraklatma**:
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![Duraklatma ve telemetri görüntü yeniden başlatın](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>Harita kullanın
 
-Harita geçerli filtre tarafından seçilen benzetimli kamyonlar hakkındaki bilgileri görüntüler. Yakınlaştırma ve eşleme konumları fazla veya az ayrıntılı olarak görüntülemek için kaydır. Harita üzerinde aygıt simgelerini herhangi belirtmek **alarmlar** veya **uyarıları** aygıt için etkin olan. Sayısı özetini **alarmlar** ve **uyarıları** harita solunda görüntüler.
+Harita geçerli filtre tarafından seçilen benzetimli kamyonlar hakkındaki bilgileri görüntüler. Yakınlaştırma ve eşleme konumları fazla veya az ayrıntılı olarak görüntülemek için kaydır. Harita üzerinde aygıt simgelerini herhangi belirtmek **uyarıları** veya **uyarıları** aygıt için etkin olan. Sayısı özetini **uyarıları** ve **uyarıları** harita solunda görüntüler.
 
-Cihaz ayrıntılarını görüntülemek için Kaydır ve cihazları bulmak için harita yakınlaştırma ardından harita aygıtta tıklayın. Ayrıntıları içerir:
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* Son telemetri değerleri
-* Aygıt yöntemlerini destekler
-* Cihaz özellikleri
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![Panoda cihaz ayrıntıları görüntüle](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>Görünüm alarmlar cihazlarınızdan
+## <a name="view-alerts-from-your-devices"></a>Cihazlarınızdan gelen Uyarıları görüntüle
 
-Geçerli filtre ile aygıtları harita vurgular **alarmlar** ve **uyarıları**. **Sistem alarmlar** Masası cihazlarınızdan en son alarmlar ilgili ayrıntılı bilgileri görüntüler:
+Geçerli filtre ile aygıtları harita vurgular **uyarıları** ve **uyarıları**. **Uyarıları** Masası cihazlarınızdan en son uyarıların ilgili ayrıntılı bilgileri görüntüler:
 
-![Panoda görünümünü sistem uyarıları](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![Panoda sistem uyarıları görüntüle](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-Kullanabileceğiniz **sistem alarmlar** yeni uyarılar için zaman aralığını ayarlamak için filtre. Varsayılan olarak, son bir saat gelen uyarılar panelinde görüntülenir:
+Kullanabileceğiniz **Pano** son uyarıları için zaman aralığını ayarlamak için filtre. Varsayılan olarak, son bir saat uyarılardan panelinde görüntülenir:
 
-![Alarmlar zamanına göre filtrele](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![Uyarıları zamanına göre filtrele](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## <a name="view-the-system-kpis"></a>Sistem KPI'ları görüntüleyin
 
 **Pano** sayfa sistem KPI'ları görüntüler:
 
-![Alarmlar zamanına göre filtrele](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![Pano KPI'ları](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-Kullanabileceğiniz **sistem KPI** KPI toplama zaman aralığı ayarlamak için filtre. Varsayılan olarak, son saatten fazla toplanan KPI'ları panelinde görüntülenir.
+Kullanabileceğiniz **Pano** KPI toplama zaman aralığı ayarlamak için filtre. Varsayılan olarak, son saatten fazla toplanan KPI'ları panelinde görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -108,7 +110,7 @@ Bu öğretici nasıl kullanılacağı gösterilmiştir **Pano** filtre ve Uzakta
 > * Aygıtları panosunda filtreleme
 > * Görünüm gerçek zamanlı telemetri
 > * Cihaz ayrıntıları görüntüle
-> * Görünüm alarmlar cihazlarınızdan
+> * Cihazlarınızdan gelen Uyarıları görüntüle
 > * Sistem KPI'ları görüntüleyin
 
 Aygıtlarınızı izlemek öğrendiniz, bilgi edinmek için önerilen sonraki adımlar olan nasıl yapılır:

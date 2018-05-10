@@ -289,6 +289,7 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Koşullar](active-directory-conditional-access-conditions.md)
+#### [Konum koşulları](active-directory-conditional-access-locations.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)

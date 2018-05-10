@@ -1,24 +1,24 @@
 ---
-title: "Uzaktan izleme çözümü ile - Azure kullanmaya başlama | Microsoft Docs"
-description: "Bu öğretici, önceden yapılandırılmış Uzaktan izleme çözümü tanıtmak için benzetimli senaryoları kullanır. Bu senaryolar, önceden yapılandırılmış Uzaktan izleme çözümü ilk kez dağıttığınızda oluşturulur."
-services: 
+title: Uzaktan izleme çözümü ile - Azure kullanmaya başlama | Microsoft Docs
+description: Bu öğretici benzetimli senaryoları Uzaktan izleme Çözüm Hızlandırıcısı tanıtmak için kullanır. Uzaktan izleme Çözüm Hızlandırıcısı ilk kez dağıttığınızda bu senaryoları oluşturulur.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelliklerini keşfedin
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı özelliklerini keşfedin
 
 Bu öğretici, Uzaktan izleme çözümü anahtar özelliklerini gösterir. Bu özellikler tanıtmak için müşteri senaryoları Contoso adlı bir şirket için sanal bir IOT uygulaması kullanarak öğreticiyi gösterir.
 
@@ -28,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 >[!div class="checklist"]
 > * Görselleştirme ve Pano cihazlarda filtre
-> * Bir alarm yanıt
+> * Bir uyarıya yanıt
 > * Aygıtlarınızı bellenimi güncelleştirme
 > * Varlıklarınızı düzenleme
 > * Durdurmak ve başlatmak sanal cihazlar
@@ -41,14 +41,14 @@ Aşağıdaki video Uzaktan izleme çözümünün bir kılavuz gösterir:
 
 Bu öğreticiyi tamamlamak için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso örnek IOT dağıtım
 
 Temel senaryoları anlamak için uzaktan Contoso örnek IOT dağıtım kullanabilir izleme çözümü, Giden kutusu sağlar. Bu senaryolar, gerçekçi IOT dağıtımlarında temel alır. Büyük olasılıkla, özel gereksinimlerinizi karşılamak için Uzaktan izleme çözümü özelleştirmek seçeceğiniz, ancak Contoso örnek temel bilgi edinmenize yardımcı olur.
 
 > [!NOTE]
-> Dosya önceden yapılandırılmış çözümü dağıtmak için CLI kullandıysanız `deployment-{your deployment name}-output.json` dağıtılan örneğe erişmek için kullanılan URL gibi dağıtım hakkında bilgi içerir.
+> Çözüm Hızlandırıcısı, dosyayı dağıtmak için CLI kullandıysanız `deployment-{your deployment name}-output.json` dağıtılan örneğe erişmek için kullanılan URL gibi dağıtım hakkında bilgi içerir.
 
 Contoso örnek sanal cihazlar ve bunlar üzerinde hareket için kurallar kümesi sağlar. Temel senaryoları anladığınızda, çözüm özelliklerin daha fazla araştırma sürdürebilirsiniz [Uzaktan izleme çözümü kullanarak cihaz izleme Gelişmiş gerçekleştirme](iot-suite-remote-monitoring-monitor.md).
 
@@ -67,7 +67,7 @@ Aşağıdaki tabloda sağlanan aygıt türlerinin bir özeti gösterilir:
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Soğutucu            | Sıcaklık, nem, baskısı            | Türü, üretici yazılımı sürümüne modeli               | Konum, Floor, Kampüs | Yeniden başlatma, bellenim güncelleştirme, Acil Durum Vana yayın artış baskısı                          |
 | Prototipi oluşturulurken cihaz | Sıcaklık, baskı, coğrafi konum        | Türü, üretici yazılımı sürümüne modeli               | Konum, modu          | Yeniden başlatma, bellenim güncelleştirme taşıma aygıt, Dur aygıt, sıcaklık sürüm, sıcaklık artış |
-| Altyapısı             | Tank yakıt düzeyi, Coolant algılayıcı, Titreşim | Türü, üretici yazılımı sürümüne modeli               | Konum, Floor, Kampüs | Yeniden başlatma, bellenim güncelleştirme boş tank, dolgu tank                                              |
+| Altyapısı             | Tank yakıt düzeyi, Coolant algılayıcı, Titreşim | Türü, üretici yazılımı sürümüne modeli               | Konum, Floor, Kampüs | Üretici yazılımı güncelleştirmesi, boş tank, dolgu tank                                              |
 | Kamyon              | Coğrafi konum, hız, kargo sıcaklık     | Türü, üretici yazılımı sürümüne modeli               | Konum, yükleme          | Daha düşük kargo sıcaklık, artış Kargo sıcaklık, bellenim güncelleştirme                         |
 | Fırsatınızdır           | Floor, Titreşim, sıcaklık              | Tür, üretici yazılımı sürümü, Model, coğrafi konum | Konum, Kampüs        | Stop fırsatınızdır, başlangıç fırsatınızdır, bellenim güncelleştirme                                               |
 
@@ -80,51 +80,43 @@ Contoso'da işleçleri bir aygıtın düzgün çalışıp çalışmadığını b
 
 | Kural Adı | Açıklama | Eşik | Önem Derecesi | Etkilenen cihazlar |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Soğutucu baskısı çok yüksek | Chillers normal baskısı düzeyleri daha yüksek ulaşırsa uyarıları   |P>250 psi       | Kritik | Chillers            |
-| Prototipi oluşturulurken aygıt temp çok yüksek  | Prototipi oluşturulurken aygıtları normal sıcaklık düzeyleri daha yüksek ulaşırsa uyarıları  |T>80&deg; F |Kritik | Prototipi oluşturulurken cihazları |
+| Soğutucu baskısı çok yüksek | Chillers normal baskısı düzeyleri daha yüksek ulaşırsa uyarıları   |P > 250 PSI       | Kritik | Chillers            |
+| Prototipi oluşturulurken aygıt temp çok yüksek  | Prototipi oluşturulurken aygıtları normal sıcaklık düzeyleri daha yüksek ulaşırsa uyarıları  |T &GT; 80&deg; F |Kritik | Prototipi oluşturulurken cihazları |
 | Altyapısı tank boş  | Altyapısı yakıt tank boş kalırsa uyarıları                     | F < 5 galon | Bilgi     | Altyapıları             |
-| Normal Kargo sıcaklık değerinden yüksek | Kamyon'ın Kargo sıcaklık normalden yüksekse uyarıları                 | T<45&deg; F |Uyarı  | Kamyonlar              |
-| Fırsatınızdır titreşimi durduruldu      | Fırsatınızdır tamamen durduğunda uyarıları (Titreşim düzeyine bağlı)                     | V<0.1 mm |Uyarı  | Asansörler           |
+| Normal Kargo sıcaklık değerinden yüksek | Kamyon'ın Kargo sıcaklık normalden yüksekse uyarıları                 | T &LT; 45&deg; F |Uyarı  | Kamyonlar              |
+| Fırsatınızdır titreşimi durduruldu      | Fırsatınızdır tamamen durduğunda uyarıları (Titreşim düzeyine bağlı)                     | V < 0,1 mm |Uyarı  | Asansörler           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Contoso örnek dağıtım çalışmayabilir
 
-Contoso örnekteki ilk Kurulum şimdi gördünüz. Aşağıdaki bölümlerde bir işleç önceden yapılandırılmış çözümün nasıl kullanabileceğinizi üç Contoso örnek senaryoda açıklanmaktadır.
+Contoso örnekteki ilk Kurulum şimdi gördünüz. Aşağıdaki bölümlerde bir işleç Çözüm Hızlandırıcısı nasıl kullanabileceğinizi üç Contoso örnek senaryoda açıklanmaktadır.
 
-## <a name="respond-to-a-pressure-alarm"></a>Bir baskısı alarm yanıt
+## <a name="respond-to-a-pressure-alert"></a>Bir baskısı uyarısını yanıt
 
-Bu senaryo tanımlamak ve Soğutucu aygıt tarafından tetiklenen bir alarm yanıt gösterilmektedir. Soğutucu 43 ' kat 2 oluşturulmasında Redmond içinde bulunur.
+Bu senaryo tanımlamak ve Soğutucu aygıt tarafından tetiklenen uyarı vermesi gösterilmektedir. Soğutucu 43 ' kat 2 oluşturulmasında Redmond içinde bulunur.
 
 Bir operatör olarak panosunda bir Soğutucu baskısı için ilgili bir uyarı olduğunu görürsünüz. Kaydırma ve yakınlaştırma daha fazla ayrıntı için harita üzerinde.
 
-1. Üzerinde **Pano** sayfasında **sistem alarmlar** kılavuz, görebilir **Soğutucu baskısı çok yüksek** uyarısı. Soğutucu de haritada vurgulanmıştır:
+1. Üzerinde **Pano** sayfasında **uyarıları** kılavuz, görebilir **Soğutucu baskısı çok yüksek** uyarı. Soğutucu de haritada vurgulanmıştır:
 
-    ![Pano baskısı alarm ve cihaz haritada gösterir](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![Pano baskısı uyarı ve cihaz haritada gösterir](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. Telemetri ve cihaz ayrıntılarını görüntülemek için harita üzerinde vurgulanan Soğutucu'ı tıklatın. Telemetri bir baskısı ani gösterir:
+1. Gitmek için **Bakım** sayfasında, **Bakım** Gezinti menüsünde. Üzerinde **Bakım** sayfasında Soğutucu baskısı uyarıyı tetikleyen kural ayrıntılarını görüntüleyebilirsiniz.
 
-    ![Cihaz ayrıntıları görüntülemek için harita üzerinde seçin](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
+1. Uyarı listesinden uyarıyı tetikleyen sayısı, bildirimler ve açık ve kapalı uyarıları gösterir:
 
-1. Kapat **aygıt ayrıntı**.
+    ![Bakım Sayfası tetiklemesi uyarıların listesini gösterir](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Gitmek için **Bakım** sayfasında, **Bakım** Gezinti menüsünde.
+1. Son uyarı listesinde en son sunucudur. Tıklatın **Soğutucu baskısı çok yüksek** telemetri ve ilişkili aygıtları görüntülemek için uyarı. Telemetri Soğutucu baskısı ani gösterir:
 
-Üzerinde **Bakım** sayfasında Soğutucu baskısı uyarı tetikleyen kuralı ayrıntılarını görüntüleyebilirsiniz.
-
-1. Bildirimleri listesini uyarı tetikleyen sayısı, bildirimler ve açık ve kapalı uyarıları gösterir:
-
-    ![Bakım Sayfası tetiklemesi alarmlar listesini gösterir](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
-
-1. Listedeki ilk uyarı en son sunucudur. Tıklatın **Soğutucu baskısı çok yüksek** telemetri ve ilişkili aygıtları görüntülemek için uyarı. Telemetri Soğutucu baskısı ani gösterir:
-
-    ![Bakım Sayfası seçilen uyarısı telemetri gösterir](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
+    ![Seçilen uyarı için telemetri Bakım Sayfası gösterir](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
 Şimdi, uyarı ve ilişkili aygıt tetiklenen sorunu tanımladınız. Bir operatör olarak, sonraki adım uyarı onaylamak ve sorunu gidermek için değildir.
 
-1. Artık uyarı üzerinde çalıştığınız belirtmek için değiştirme **Alarm durumu** için **onaylanan**:
+1. Uyarıdaki şimdi çalıştığınız belirtmek için değiştirme **uyarı durumu** için **onaylanan**:
 
     ![Seçin ve uyarı Onayla](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-1. Soğutucu üzerinde çalışmak için onu seçin ve ardından **zamanlama**. Seçin **EmergencyValveRelease**, bir iş adı eklemek **ChillerPressureRelease**ve seçin **Uygula**. Bu ayarlar hemen yürüten bir proje oluşturun:
+1. Soğutucu üzerinde çalışmak için onu seçin ve ardından **işleri**. Seçin **Run yöntemi**, ardından **EmergencyValveRelease**, bir iş adı eklemek **ChillerPressureRelease**ve seçin **Uygula**. Bu ayarlar hemen yürüten bir proje oluşturun:
 
     ![Cihazı seçin ve bir eylem zamanlama](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -134,13 +126,13 @@ Bir operatör olarak panosunda bir Soğutucu baskısı için ilgili bir uyarı o
 
 Son olarak, telemetri değerleri Soğutucu normal olarak olduğunu onaylayın.
 
-1. Alarmlar kılavuz görüntülemek için gidin **Pano** sayfası.
+1. Uyarıları kılavuz görüntülemek için gidin **Pano** sayfası.
 
-1. Cihaz telemetrisi görüntülemek için harita üzerinde özgün uyarısı cihazı seçin ve onaylayın geri için Normal'dir.
+1. Cihaz telemetrisi görüntülemek için harita üzerinde orijinal uyarı cihazı seçin ve onaylayın geri için Normal'dir.
 
-1. Olayı kapatmak için gidin **Bakım** sayfasında uyarı seçin ve durum kümesine **kapalı**:
+1. Olayı kapatmak için gidin **Bakım** sayfasında, uyarıyı seçin ve durum kümesine **kapalı**:
 
-    ![Seçin ve uyarı kapatın](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![Seçin ve uyarıyı Kapat](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## <a name="update-device-firmware"></a>Cihaz üretici yazılımını güncelleştirmek
 
@@ -159,7 +151,7 @@ Gerekli cihaz yönetim görevlerini gerçekleştirmek için kullanın **aygıtla
 
     ![Cihazlar sayfasında bir cihaz seçin](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Tıklatın **zamanlama** düğmesine tıklayın ve ardından **bellenim güncelleştirme**. İçin değerler girin **iş adı**, **bellenim sürümü**, ve **bellenim URI**. Seçin **Uygula** işini şimdi çalıştırmak üzere zamanlamak için:
+1. Tıklatın **işleri** düğmesini tıklatın, seçin **Run yöntemi**ve ardından **bellenim güncelleştirme**. İçin değerler girin **iş adı**, **bellenim sürümü**, ve **bellenim URI**. Seçin **Uygula** işini şimdi çalıştırmak üzere zamanlamak için:
 
     ![Cihazdaki üretici yazılımı güncelleştirmesini zamanla](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -176,17 +168,18 @@ Kullanabileceğiniz **Bakım** çalışırken işi izlemek için sayfa.
 
 1. Oluşturduğunuz proje için ilgili olay bulun. Bellenim güncelleştirme işlemini doğru bir şekilde başlatıldı doğrulayın.
 
-Doğru güncelleştirilmiş bellenim sürümü doğrulamak için bir filtre oluşturabilirsiniz.
+<!-- 05/01 broken 
+You can create a filter to verify the firmware version updated correctly.
 
-1. Bir filtre oluşturmak için gidin **aygıtları** sayfasından seçim yapıp **yönetmek filtreleri**:
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![Aygıt filtreleri yönetme](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Yalnızca yeni üretici yazılımı sürümü ile cihazları içeren bir filtre oluşturun:
+1. Create a filter that includes only devices with the new firmware version:
 
-    ![Aygıt filtresi oluşturma](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Geri dönüp **aygıtları** sayfasında ve cihazın yeni üretici yazılımı sürümüne sahip olduğunu doğrulayın.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## <a name="organize-your-assets"></a>Varlıklarınızı düzenleme
 
@@ -203,7 +196,7 @@ Cihazlarla kullanım için etiket adları oluşturabilirsiniz.
 
     ![Tüm cihazları Göster](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. Seçin **kamyonlar** ve **prototipi oluşturulurken** aygıtlar. Ardından **etiketi**:
+1. Seçin **kamyonlar** ve **prototipi oluşturulurken** aygıtlar. Ardından **işleri**:
 
     ![Prototip ve kamyon cihazları seçin](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -211,19 +204,19 @@ Cihazlarla kullanım için etiket adları oluşturabilirsiniz.
 
     ![Prototip ve kamyon cihazlara etiket ekleme](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. Seçin **Soğutucu**, **fırsatınızdır**, ve **altyapısı** aygıtlar. Ardından **etiketi**:
+1. Seçin **Soğutucu**, **fırsatınızdır**, ve **altyapısı** aygıtlar. Ardından **işleri**:
 
     ![Soğutucu, altyapısı ve fırsatınızdır cihazları seçin](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Seçin **etiketi** ve adlı yeni bir metin etiketi oluşturmak **FieldService** bir değerle **SmartBuilding**. İş için bir ad seçin. Ardından **kaydetmek**:
+1. Seçin **etiketi** ve adlı yeni bir metin etiketi oluşturmak **FieldService** bir değerle **SmartBuilding**. İş için bir ad seçin. Ardından **Uygula**:
 
     ![Soğutucu, altyapısı ve fırsatınızdır cihazlara etiket ekleme](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 Etiket değerlerini filtreleri oluşturmak için kullanabilirsiniz.
 
-1. Üzerinde **aygıtları** sayfasında, **yönetmek filtreleri**:
+1. Üzerinde **aygıtları** sayfasında, **cihaz gruplarını yönetme**:
 
-    ![Aygıt filtreleri yönetme](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Cihaz gruplarını yönetme](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Etiket adı kullanan yeni bir filtre oluşturun **FieldService** ve değer **SmartBuilding**. Filtre olarak Kaydet **akıllı yapı**.
 
@@ -237,9 +230,17 @@ Sanal cihazlar durdurmak için ayarlar menüsünü kullanabilirsiniz. Bu test et
 
 1. Seçin **ayarları** simgesi.
 
-1. Ardından geçiş **çalıştıran** açıp kapatma:
+1. Ardından geçiş **Flowing** açıp kapatma:
 
     ![Ayarlar menüsü](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="customize-the-ui"></a>Kullanıcı arabirimini özelleştirme
+
+Ayarlar menüsünden Uzaktan izleme Çözüm Hızlandırıcısı için temel customisations uygulayabilirsiniz. Şunları yapabilirsiniz:
+
+- Açık ve koyu tema arasında geçiş yapın.
+- Çözüm adını değiştirin.
+- Özel bir logo karşıya yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -247,7 +248,7 @@ Bu öğreticide için öğrenilen:
 
 >[!div class="checklist"]
 > * Görselleştirme ve Pano cihazlarda filtre
-> * Bir alarm yanıt
+> * Bir uyarıya yanıt
 > * Aygıtlarınızı bellenimi güncelleştirme
 > * Varlıklarınızı düzenleme
 > * Durdurmak ve başlatmak sanal cihazlar

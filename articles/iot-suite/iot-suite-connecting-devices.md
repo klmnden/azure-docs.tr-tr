@@ -1,12 +1,12 @@
 ---
-title: "Uzaktan izleme C - Azure için Windows cihazlara sağlamak | Microsoft Docs"
-description: "Windows üzerinde çalışan C yazılmış bir uygulama kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümü bir aygıt bağlanmaya açıklar."
-services: 
+title: Uzaktan izleme C - Azure için Windows cihazlara sağlamak | Microsoft Docs
+description: Windows üzerinde çalışan C yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı bir aygıt bağlanmaya açıklar.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4dafcb939aa59d163e7df7f49906979fb181587c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Cihazınızı bağlama Uzaktan izleme önceden yapılandırılmış çözümü için (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Cihazınızı bağlama Uzaktan izleme Çözüm Hızlandırıcısı için (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme önceden yapılandırılmış çözümü bağlanmak nasıl gösterir.
+Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir.
 
 ## <a name="create-a-c-client-solution-on-windows"></a>Windows üzerinde bir C istemci çözümü oluşturma
 
@@ -121,7 +121,7 @@ Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include`
 
 1. İçinde **Çözüm Gezgini**, sağ **RMDevice** projesi, seçin **hata ayıklama**ve ardından **başlangıç yeni örnek** örneği çalıştırmak için . Konsol iletileri olarak görüntüler:
 
-    * Uygulama, önceden yapılandırılmış çözümü örnek telemetri gönderir.
+    * Uygulama için Çözüm Hızlandırıcısı örnek telemetri gönderir.
     * İstenen özellik değerleri çözüm panosunda alır.
     * Çözüm panodan çağrılan yöntemlerine yanıt verir.
 

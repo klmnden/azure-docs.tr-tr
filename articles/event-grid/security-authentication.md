@@ -6,27 +6,27 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
 Azure olay kılavuz üç tür kimlik doğrulama vardır:
 
 * Olay abonelikleri
-* Olay yayımlama
+* Etkinlik yayımlama
 * Web kancası olay teslimi
 
 ## <a name="webhook-event-delivery"></a>Web kancası olay teslimi
 
 Web kancası Azure olay kılavuzdan olaylarını almak için birçok yolu vardır. Yeni bir olay hazır olduğunda, olay kılavuz Web kancası olay gövdesinde yapılandırılan HTTP uç noktası bir HTTP isteği gönderir.
 
-Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz doğrulamayı geçen henüz Web kancası Uç noktalara olayları teslim değil.
+Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz doğrulamayı geçen henüz Web kancası Uç noktalara olayları teslim değil. Bir üçüncü taraf API hizmeti kullanıyorsanız (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama kodu echo mümkün olmayabilir. Bu hizmetler için aboneliği abonelik doğrulama olayı gönderilen doğrulama URL'yi kullanarak el ile doğrulayabilir. Bu URL'yi kopyalayın ve REST istemcisi ya da web tarayıcınızı yoluyla GET isteği gönderin.
 
 ### <a name="validation-details"></a>Doğrulama ayrıntıları
 
@@ -34,6 +34,7 @@ Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç n
 * Olay bir üstbilgi değeri "Aeg olay türü: SubscriptionValidation" içerir.
 * Olay gövdesi diğer olay kılavuz olaylarla aynı şeması vardır.
 * Olay verileri rastgele oluşturulmuş bir dize olan bir "validationCode" özelliği içerir. Örneğin, "validationCode: acb13...".
+* Olay verileri el ile abonelik doğrulamak için bir URL ile bir "validationUrl" özelliği içerir.
 * Dizi yalnızca doğrulama olayı içerir. Doğrulama kodu geri echo sonra diğer olayları ayrı bir istekte gönderilir.
 
 Örnek SubscriptionValidationEvent aşağıdaki örnekte gösterilmiştir:
@@ -44,7 +45,8 @@ Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç n
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -60,6 +62,9 @@ Uç nokta sahipliği kanıtlamak için geri validationResponse özelliğinde do�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Veya doğrulama URL'si için bir GET isteği göndererek abonelik el ile doğrulayın. Olay aboneliği doğrulanmış kadar bekleme durumunda kalır.
+
 ### <a name="event-delivery-security"></a>Olay teslimi güvenliği
 
 Bir olay abonelik oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek Web kancası uç noktanızı güvenliğini sağlayabilirsiniz. Gizli gibi olması için bu sorgu parametrelerini ayarlayın bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token) Web kancası olay tanımak için kullanabileceğiniz olay kılavuzdan geçerli izinleriyle geliyor. Olay kılavuz her olay teslimi Web kancası için bu sorgu parametrelerini içerir.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS'yi Azure CDN kullanma
 ## <a name="what-is-cors"></a>CORS nedir?
@@ -47,7 +47,7 @@ CORS isteklerini, iki tür vardır *basit istekleri* ve *karmaşık istekleri.*
 
 ### <a name="for-complex-requests"></a>Karmaşık istekleri için:
 
-Karmaşık bir CORS istek göndermek için tarayıcı burada gereken istektir bir *denetim öncesi isteği* (yani ön bir araştırma) fiili CORS isteğini göndermeden önce. Denetim öncesi isteği özgün CORS devam edebilirsiniz ve olduğundan isteği sunucu izni soran bir `OPTIONS` aynı URL'ye isteği.
+Karmaşık bir CORS istek göndermek için tarayıcı burada gereken istektir bir *denetim öncesi isteği* (diğer bir deyişle, ön bir araştırma) fiili CORS isteğini göndermeden önce. Denetim öncesi isteği özgün CORS devam edebilirsiniz ve olduğundan isteği sunucu izni soran bir `OPTIONS` aynı URL'ye isteği.
 
 > [!TIP]
 > CORS akışları ve ortak Tuzaklar hakkında daha fazla ayrıntı için görüntülemek [REST API'leri için CORS kılavuza](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
@@ -57,7 +57,7 @@ Karmaşık bir CORS istek göndermek için tarayıcı burada gereken istektir bi
 ## <a name="wildcard-or-single-origin-scenarios"></a>Joker karakter ya da tek kaynak senaryoları
 CORS'yi Azure CDN üzerinde ek bir yapılandırma olmadan otomatik olarak çalışır, **Access-Control-Allow-Origin** üstbilgi joker karakter (*) veya tek bir kaynak olarak ayarlanmış.  CDN ilk yanıtı önbelleğe alır ve sonraki istekleri aynı başlığını kullanır.
 
-İstek zaten ile CDN üzerinde ayarlanan CORS önce yapılmışsa içerik ile yeniden yüklemek için uç nokta içeriğinizi içeriği temizlenecek gerekir, kaynak **Access-Control-Allow-Origin** üstbilgi.
+İstek zaten CDN kaynağınıza üzerinde ayarlanan CORS önce yapıldı, içerikle yeniden yüklemek için uç nokta içeriğinizi içeriği temizlenecek gerekir **Access-Control-Allow-Origin** üstbilgi.
 
 ## <a name="multiple-origin-scenarios"></a>Birden çok kaynak senaryoları
 Belirli bir listesi için CORS izin verilecek çıkış noktaları yer izin vermeniz gerekiyorsa, biraz daha karmaşık işlerinizi. CDN önbelleğe sorun oluşur **Access-Control-Allow-Origin** ilk CORS çıkış üstbilgisi.  Farklı bir CORS kaynaktan bir sonraki istekte bulunduğunda CDN önbelleğe alınan hizmet **Access-Control-Allow-Origin** eşleşmeyecektir üstbilgi.  Bu sorunu gidermek için birkaç yolu vardır.
@@ -65,9 +65,9 @@ Belirli bir listesi için CORS izin verilecek çıkış noktaları yer izin verm
 ### <a name="azure-cdn-premium-from-verizon"></a>Verizon’dan Azure CDN Premium
 Bu ayarı etkinleştirmek için en iyi yolu kullanmaktır **verizon'dan Azure CDN Premium**, gelişmiş işlevselliği, bazı kullanıma sunar. 
 
-Gerekir [bir kural oluşturmak](cdn-rules-engine.md) denetlemek için **kaynak** isteği üstbilgisi.  Geçerli bir kaynak varsa, kural ayarlar **Access-Control-Allow-Origin** üstbilgi isteğinde sağlanan kaynağına sahip.  Kaynak olarak belirtilmişse **kaynak** üstbilgi izin verilmez, kuralınız atlayın **Access-Control-Allow-Origin** isteğini reddetmek tarayıcı neden olacak üstbilgi. 
+Gerekir [bir kural oluşturmak](cdn-rules-engine.md) denetlemek için **kaynak** isteği üstbilgisi.  Geçerli bir kaynak varsa, kural ayarlar **Access-Control-Allow-Origin** üstbilgi isteğinde sağlanan kaynağına sahip.  Kaynağı olarak belirtilmişse **kaynak** üstbilgi izin verilmez, kuralınız atlayın **Access-Control-Allow-Origin** üst bilgisi isteği reddetmek için tarayıcıyı neden olur. 
 
-Bu kurallar altyapısı ile yapmak için iki yolu vardır.  Her iki durumda da **Access-Control-Allow-Origin** dosyanın kaynak sunucu başlığından tamamen göz ardı, CDN'ın kurallar altyapısı tamamen izin verilen CORS çıkış noktası yönetir.
+Bu kurallar altyapısı ile yapmak için iki yolu vardır. Her iki durumda da **Access-Control-Allow-Origin** dosyanın kaynak sunucu başlığından göz ardı edilir ve CDN'ın kurallar altyapısı tamamen izin verilen CORS çıkış noktası yönetir.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Tüm geçerli kaynaklara sahip bir normal ifade
 Bu durumda, tüm izin vermek istediğiniz kaynakları içerir normal bir ifade oluşturmanız: 
@@ -75,7 +75,7 @@ Bu durumda, tüm izin vermek istediğiniz kaynakları içerir normal bir ifade o
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **Verizon'dan Azure CDN** kullanan [Perl uyumlu normal ifadeler](http://pcre.org/) normal ifadeler için kendi altyapısı olarak bulunabilir.  Gibi bir araç kullanabilirsiniz [normal ifadeler 101](https://regex101.com/) normal ifade doğrulanacak.  "/" Karakterini normal ifadelerde geçerli olduğundan ve kaçış gerekmez, ancak bu karakteri kaçış en iyi yöntem olarak kabul edilir ve bazı regex doğrulayıcıları tarafından beklenen olduğunu unutmayın.
+> **Verizon'dan Azure CDN Premium** kullanan [Perl uyumlu normal ifadeler](http://pcre.org/) normal ifadeler için kendi altyapısı olarak bulunabilir.  Gibi bir araç kullanabilirsiniz [normal ifadeler 101](https://regex101.com/) normal ifade doğrulanacak.  "/" Karakterini normal ifadelerde geçerli olduğundan ve kaçış gerekmez, ancak bu karakteri kaçış en iyi yöntem olarak kabul edilir ve bazı regex doğrulayıcıları tarafından beklenen olduğunu unutmayın.
 > 
 > 
 
@@ -93,6 +93,6 @@ Normal ifadeler yerine, bunun yerine kullanarak izin vermek istediğiniz her kay
 > 
 > 
 
-### <a name="azure-cdn-standard"></a>Azure CDN standart
-Azure CDN standart profilleri, birden çok çıkış joker kaynak kullanımı için izin vermek için tek mekanizması kullanmaktır [sorgu dizesi önbelleğe alma](cdn-query-string.md).  CDN uç noktası için sorgu dizesi ayarı etkinleştirmek ve izin verilen her etki alanı gelen istekleri için bir benzersiz sorgu dizesi kullanmak gerekir. Bunun yapılması her benzersiz sorgu dizesi için ayrı bir nesne önbelleği CDN neden olur. Bu yaklaşım ancak ideal, değil gibi birden çok kopyası üzerinde CDN önbelleğe aynı dosya sonuçlanır.  
+### <a name="azure-cdn-standard-profiles"></a>Azure CDN Standart profiller
+Azure CDN standart profilleri (**Azure CDN standart Microsoft**, **akamai'den Azure CDN standart**, ve **verizon'dan Azure CDN standart**), yalnızca mekanizması joker karakter kaynak kullanımını kullanmaktır olmadan için birden çok kaynaklara izin [sorgu dizesi önbelleğe alma](cdn-query-string.md). CDN uç noktası için sorgu dizesi ayarını etkinleştirin ve izin verilen her etki alanı gelen istekleri için bir benzersiz sorgu dizesini kullanın. Bunun yapılması her benzersiz sorgu dizesi için ayrı bir nesne önbelleği CDN neden olur. Bu yaklaşım ancak ideal, değil gibi birden çok kopyası üzerinde CDN önbelleğe aynı dosya sonuçlanır.  
 

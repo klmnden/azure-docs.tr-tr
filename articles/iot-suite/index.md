@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Paketi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Azure IoT Paketi belgeleri Başlangıç kılavuzlarını, Nasıl Yapılır makalelerini, Öğreticileri ve API Başvurusu’nu içerir."
+title: Azure IoT çözüm hızlandırıcısı belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Azure IoT çözüm hızlandırıcısı belgeleri Başlangıç kılavuzlarını, Nasıl Yapılır makalelerini, Öğreticileri ve API Başvurusu’nu içerir.
 services: iot-suite
 author: czeumault
 manager: carolz
@@ -9,72 +9,81 @@ ms.service: iot-suite
 ms.topic: landing-page
 ms.date: 11/27/2017
 ms.author: carolz
-ms.openlocfilehash: 8cb979f645f0c1405ebd424d39cc2d67c5b59ba0
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 62a414697e5ce217f1533d64020d4ce06c222d10
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="iot-suite-documentation"></a>IoT Paketi Belgeleri
+# <a name="iot-solution-accelerators-documentation"></a>IoT çözüm hızlandırıcısı belgeleri
 
-Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapılandırılmış çözümleri kullanın ve Nesnelerin İnterneti (IoT) çözümünüzün geliştirilmesini hızlandırın. Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok platforma yönelik cihaz SDK’larını kullanarak yeni cihazlar ekleyin ve mevcut cihazlarınızı bağlayın. Yalnızca birkaç sensörden, eşzamanlı olarak bağlanan milyonlarca cihaza kolayca ölçeklendirin ve projeniz ne kadar büyük ya da küçük olursa olsun Azure’un küresel kullanılabilirliğine güvenin.&mdash;
+IoT çözümlerinizi derlemek için IoT çözüm hızlandırıcıları ile hızlıca çalışmaya başlayın. Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok platforma yönelik cihaz SDK’larını kullanarak yeni cihazlar ekleyin ve mevcut cihazlarınızı bağlayın. Yalnızca birkaç sensörden, eşzamanlı olarak bağlanan milyonlarca cihaza kolayca ölçeklendirin ve&mdash;projeniz ne kadar büyük ya da küçük olursa olsun Azure’un küresel kullanılabilirliğine güvenin.
 
-<ul class="panelContent cardsFTitle">
+<h2>Keşfedin</h2>
+<ul class="panelContent cardsW">
     <li>
-        <a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/iot-suite.svg" alt="Learn about IoT Suite" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>IoT Paketi hakkında bilgi edinin</h3>
+                        <p>Çözüm hızlandırıcıları, anahtar senaryolar ve çalışmaya başlama hakkında bilgi edinin</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-what-are-solution-accelerators">Çözüm hızlandırıcılarına genel bakış</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Çözüm hızlandırıcısı dağıtma</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Kullanıma hazır çözüm özellikleri</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">İzleme özellikleri</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-automate">Kural yönetimi özellikleri</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-automate">Cihaz yönetimi özellikleri</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
+</ul> 
+
+---
+
+<h2>Bağlan</h2>
+<ul class="panelContent cardsW">
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="Azure Video Library" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Azure Video Kitaplığı</h3>
+                        <p>Cihazlarınızı bir çözüm hızlandırıcısına bağlamayı öğrenin</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Cihaz modeline genel bakış</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Sanal cihazlarınızı özelleştirme</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Fiziksel cihazları bağlama</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Deploy the remote monitoring preconfigured solution" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Önceden yapılandırılmış uzaktan izleme çözümünü dağıtma</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
 </ul>
+
+---
+
+<h2>Özelleştirme</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Çözüm hızlandırıcısını özelleştirme hakkında bilgi edinin</p>
+                        <ul>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy-local">Çözümü yerel olarak çalıştırma</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-customize#presentation-and-visualization">UX özelleştirme</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul> 
 
 ---
 

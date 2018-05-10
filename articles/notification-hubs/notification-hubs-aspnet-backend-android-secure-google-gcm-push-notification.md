@@ -1,11 +1,11 @@
 ---
-title: "Azure Notification Hubs ile güvenli anında iletme bildirimleri gönderme"
-description: "Azure'dan bir Android uygulamasına güvenli anında iletme bildirimleri göndermek öğrenin. Java ve C# içinde yazılan kod örnekleri."
+title: Azure Notification Hubs ile güvenli anında iletme bildirimleri gönderme
+description: Azure'dan bir Android uygulamasına güvenli anında iletme bildirimleri göndermek öğrenin. Java ve C# içinde yazılan kod örnekleri.
 documentationcenter: android
-keywords: "anında iletme bildirimi, anında iletme bildirimleri, anında iletileri, android anında iletme bildirimleri"
-author: ysxu
-manager: erikre
-editor: 
+keywords: anında iletme bildirimi, anında iletme bildirimleri, anında iletileri, android anında iletme bildirimleri
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: 58f6967c59a5060baa10ff83752b9c6ed08226cb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs ile güvenli anında iletme bildirimleri gönderme
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Yüksek bir düzeyde akışı aşağıdaki gibidir:
    * Android cihaz güvenli yükü isteyen arka uç bağlantı kurar.
    * Uygulama yükü cihaz bildirim olarak gösterebilir.
 
-Önceki akış (ve Bu öğreticide), kullanıcı oturum açtığında sonra cihaz kimlik doğrulama belirtecini yerel depoda sakladığı varsayıyoruz olduğunu dikkate almak önemlidir. Cihaz Bu belirteci kullanarak bildirim 's güvenli yükü alabilir gibi tamamen sorunsuz bir deneyim daha güvence altına alır. Uygulamanızın kimlik doğrulama belirteçleri cihazda depolamaz veya bu belirteçleri süresi, anında iletme bildirimi aldığında gerçekleştireceği cihaz uygulaması uygulamayı başlatmak için kullanıcıdan genel bir bildirim görüntülemelidir. Uygulama kullanıcının kimliğini doğrular ve bildirim yükü gösterir.
+Önceki akış (ve Bu öğreticide), bu kullanıcı oturum açtığında sonra cihaz kimlik doğrulama belirtecini yerel depolama alanında depolar olduğunu kabul edilir dikkate almak önemlidir. Cihaz Bu belirteci kullanarak bildirim 's güvenli yükü alabilir gibi bu yaklaşım sorunsuz bir deneyim garanti eder. Uygulamanızın kimlik doğrulama belirteçleri cihazda depolamaz veya bu belirteçleri süresi, anında iletme bildirimi aldığında gerçekleştireceği cihaz uygulaması uygulamayı başlatmak için kullanıcıdan genel bir bildirim görüntülemelidir. Uygulama kullanıcının kimliğini doğrular ve bildirim yükü gösterir.
 
 Bu öğretici güvenli anında iletme bildirimleri göndermeyi gösterir. Derlemeler [kullanıcılara bildirme](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) henüz yapmadıysanız, bu öğreticide ilk adımları şekilde öğretici.
 
@@ -63,7 +63,7 @@ Bu öğretici güvenli anında iletme bildirimleri göndermeyi gösterir. Derlem
 Uygulama göndermek için uç değiştiren göre yalnızca *kimliği* bir anında iletme bildirimi Android uygulamanızı bu bildirim işlemek ve görüntülenecek güvenli ileti almak için arka uç geri arama için değiştirmeniz gerekir.
 Bu hedefe ulaşmak için Android uygulamanızı anında iletme bildirimleri aldığında kendisi ile arka uç kimlik doğrulaması yapmayı bilir emin olmak zorunda.
 
-Biz şimdi değiştirecek *oturum açma* kimlik doğrulaması üstbilgi değeri, uygulamanızın paylaşılan tercihlerinde kaydetmek için akış. Benzer mekanizmaları uygulama kullanıcı kimlik bilgilerini gerek kalmadan kullanmak zorunda kalırsınız tüm kimlik doğrulama belirteci (örneğin OAuth belirteçlerini) depolamak için kullanılabilir.
+Şimdi değiştir *oturum açma* kimlik doğrulaması üstbilgi değeri, uygulamanızın paylaşılan tercihlerinde kaydetmek için akış. Benzer mekanizmaları uygulama kullanıcı kimlik bilgilerini gerek kalmadan kullanması gereken tüm kimlik doğrulama belirteci (örneğin, OAuth belirteçlerini) depolamak için kullanılabilir.
 
 1. Android uygulaması projenize en üstünde olan aşağıdaki sabitleri ekleyin **MainActivity** sınıfı:
    
@@ -86,7 +86,7 @@ Biz şimdi değiştirecek *oturum açma* kimlik doğrulaması üstbilgi değeri,
    
         import android.content.SharedPreferences;
 
-Şimdi biz bildirim alındığında çağrılan işleyici değiştireceksiniz.
+Şimdi, bildirim alındığında çağrılan işleyici değiştirin.
 
 1. İçinde **MyHandler** sınıf değişiklik `OnReceive()` yöntemi içerir:
    
@@ -126,10 +126,10 @@ Biz şimdi değiştirecek *oturum açma* kimlik doğrulaması üstbilgi değeri,
 
 Bu yöntem, uygulama paylaşılan tercihlerinde saklanan kimlik bilgilerini kullanarak bildirim içerik almak için uç çağırır ve normal bildirim olarak görüntüler. Diğer bir anında iletme bildirimi gibi tam olarak uygulama kullanıcıya bildirim arar.
 
-Arka uç tarafından durumlarında eksik kimlik doğrulama üstbilgisi özelliği ya da reddetme tercih olduğuna dikkat edin. Bu durumlarda belirli işleme çoğunlukla, hedef kullanıcı deneyimi bağlıdır. Gerçek bildirim almak için kullanıcının kimliğini doğrulamak bildirim genel istemiyle görüntüle bir seçenektir.
+Arka uç tarafından durumlarında eksik kimlik doğrulama üstbilgisi özelliği ya da reddetme için tercih edilir. Bu durumlarda belirli işleme çoğunlukla hedef kullanıcı deneyiminizi bağlıdır. Gerçek bildirim almak için kullanıcının kimliğini doğrulamak bildirim genel istemiyle görüntüle bir seçenektir.
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırın
-Uygulamayı çalıştırmak için aşağıdakileri yapın:
+Uygulamayı çalıştırmak için aşağıdaki işlemleri yapın:
 
 1. Emin olun **AppBackend** Azure'da dağıtılır. Visual Studio kullanarak çalıştırırsanız **AppBackend** Web API uygulaması. Bir ASP.NET web sayfası görüntülenir.
 2. Eclipse'te, fiziksel bir Android cihaz veya öykünücü uygulamayı çalıştırın.

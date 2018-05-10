@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services API REST ile erişmek için kimlik doğrulamasını kullan Azure AD | Microsoft Docs"
-description: "Azure Media Services API REST kullanarak Azure Active Directory kimlik doğrulaması ile erişim öğrenin."
+title: Azure Media Services API REST ile erişmek için kimlik doğrulamasını kullan Azure AD | Microsoft Docs
+description: Azure Media Services API REST kullanarak Azure Active Directory kimlik doğrulaması ile erişim öğrenin.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure Media Services API REST ile erişmek için Azure AD kimlik doğrulaması kullanın
 
@@ -59,7 +59,7 @@ Media Services API erişmek için aşağıdaki veri noktaları toplamak gerekir.
 
 |Ayar|Örnek|Açıklama|
 |---|-------|-----|
-|Azure Active Directory kiracı etki alanı|microsoft.onmicrosoft.com|Aşağıdaki biçimi kullanarak bir güvenli belirteç hizmeti (STS) uç noktası olarak Azure AD oluşturulur: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD (bir erişim belirteci) kaynaklara erişmek için JWT verir.|
+|Azure Active Directory kiracı etki alanı|Microsoft.onmicrosoft.com|Aşağıdaki biçimi kullanarak bir güvenli belirteç hizmeti (STS) uç noktası olarak Azure AD oluşturulur: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD (bir erişim belirteci) kaynaklara erişmek için JWT verir.|
 |REST API uç noktası|https://amshelloworld.restv2.westus.media.azure.net/api/|Bu karşı tüm hangi Media Services REST API çağrıları, uygulamanızda yapılan uç noktadır.|
 |İstemci kimliği (uygulama kimliği)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD uygulama (istemci) kimliği İstemci Kimliğini ve erişim belirteci almak için gereklidir. |
 |İstemci Parolası|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD uygulama anahtarları (gizli). İstemci gizli anahtarı erişim belirteci almak için gereklidir.|

@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services ilkesinde önbelleğe alma Azure CDN yönetme | Microsoft Docs"
-description: "Azure Media Services ilkesinde önbelleğe alma Azure CDN yönetmeyi öğrenin."
+title: Azure Media Services ilkesinde önbelleğe alma Azure CDN yönetme | Microsoft Docs
+description: Azure Media Services ilkesinde önbelleğe alma Azure CDN yönetmeyi öğrenin.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: be33aecc-6dbe-43d7-a056-10ba911e0e94
 ms.service: media-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: bcb5a6e118c779e7e13ba8472d5bba510cddeb12
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: dce8d588a78b028223776e3ade737d4abd26094b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure Media Services ilkesinde önbelleğe alma Azure CDN yönetme
 Azure Media Services, Uyarlamalı akış ve aşamalı indirme HTTP tabanlı sağlar. Akışa göre HTTP proxy ve CDN katmanları önbelleğe alma yanı sıra istemci tarafı önbelleğe alma yararları ile yüksek düzeyde ölçeklenebilirdir. Akış uç noktaları genel akış özellikleri ve ayrıca HTTP önbellek üstbilgileri yapılandırmasını sağlar. Akış uç noktaları ayarlar HTTP Cache-Control: Maksimum yaş ve Expires üstbilgileri. Daha fazla bilgi için HTTP önbellek üstbilgileri almak [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -30,14 +30,14 @@ Varsayılan akış uç noktaları 3 gün önbellek üstbilgileri isteğe bağlı
 Azure Media Services sağlar [CDN tümleşik](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) akış uç noktaları için. Cache-control üstbilgileri akış uç noktalarını akış uç noktalarını CDN için etkin olarak aynı şekilde geçerlidir. Akış uç noktası azure CDN kullanan dahili olarak önbelleğe alınan nesnelerin yaşam süresini tanımlamak için önbellek değerleri yapılandırılmış ve aynı zamanda teslim önbellek üstbilgileri ayarlamak için bu değeri kullanır. CDN kullanarak akış uç noktalarını etkinleştirildiğinde küçük önbellek değerlerini ayarlamak için önerilmez. Ayar küçük değerleri performansını düşürebilir ve CDN yararı azaltın. Önbellek üstbilgileri akış uç noktalarını CDN 600 saniye etkin daha küçük ayarlamak için izin verilmiyor.
 
 > [!IMPORTANT]
->Azure Media Services, Azure CDN ile tam tümleştirme vardır. Tek bir tıklatmayla CDN standart ve Premium ürünler dahil olmak üzere, akış uç noktası için tüm kullanılabilir Azure CDN sağlayıcıları (Akamai ve Verizon) tümleştirebilirsiniz. Daha fazla bilgi için bkz [duyuru](https://azure.microsoft.com/blog/standardstreamingendpoint/).
+>Azure Media Services, Azure CDN ile tam tümleştirme vardır. Tek bir tıklatmayla dahil standart ve premium ürünleri, akış uç noktası için kullanılabilir tüm Azure CDN sağlayıcılar tümleştirebilirsiniz. Daha fazla bilgi için bkz [duyuru](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
 > Akış uç noktası için CDN gelen veri ücretlerini yalnızca devre dışı CDN akış uç noktası API'leri veya Azure portal'ın akış uç noktası bölümünü kullanarak üzerinden etkinleştirilirse. El ile tümleştirme veya doğrudan CDN API'leri veya portal bölüm kullanarak bir CDN uç noktası oluşturma, veri ücretlerini devre dışı değil.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Önbellek üstbilgileri Azure Media Services ile yapılandırma
 Önbellek üstbilgi değerlerini yapılandırmak için Azure portal ya da Azure Media Services API'lerini kullanın.
 
-1. Azure portalını kullanarak önbellek üstbilgilerini yapılandırmak için bkz [akış uç noktalarını yönetme nasıl](../media-services/media-services-portal-manage-streaming-endpoints.md) akış uç noktası yapılandırma bölümü.
+1. Azure portalını kullanarak önbellek üstbilgilerini yapılandırmak için bkz [akış uç noktalarını yönetme nasıl](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) akış uç noktası yapılandırma bölümü.
 2. Azure Media Services REST API [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. Azure Media Services .NET SDK'sı [StreamingEndpointCacheControl özellikleri](http://go.microsoft.com/fwlink/?LinkId=615302).
 

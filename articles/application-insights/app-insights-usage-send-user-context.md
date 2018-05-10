@@ -1,9 +1,9 @@
 ---
-title: "Kullanıcı bağlamı kullanımını etkinleştirmek için kimlikleri karşılaştığında Azure Application Insights'ta gönderme | Microsoft Docs"
-description: "Bunların her biri benzersiz, kalıcı bir kimlik dizesi Application ınsights'ta atayarak kullanıcıların hizmeti aracılığıyla nasıl hareket izler."
+title: Kullanıcı bağlamı kullanımını etkinleştirmek için kimlikleri karşılaştığında Azure Application Insights'ta gönderme | Microsoft Docs
+description: Bunların her biri benzersiz, kalıcı bir kimlik dizesi Application ınsights'ta atayarak kullanıcıların hizmeti aracılığıyla nasıl hareket izler.
 services: application-insights
-documentationcenter: 
-author: abgreg
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: mbullwin
-ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin;abgreg
+ms.openlocfilehash: 196eeb7b5a817ff932f99c7db86ead5625b5f206
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Kullanıcı bağlamı Azure Application Insights kullanımı deneyimleri etkinleştirmek için kimlikleri Gönder
 
@@ -26,7 +26,7 @@ Application Insights izleme ve kullanıcılarınızın ürün kullanım araçlar
 * [Kullanıcılar, Oturumlar, Etkinlikler](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 * [Huniler](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 * [Bekletme](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-* Cohorts
+* Kohortlar
 * [Çalışma kitapları](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
 Zaman içinde bir kullanıcının ne yaptığını izlemek için her kullanıcı veya oturum için bir kimlik Application Insights gerekir. Aşağıdaki kimlikleri her özel olay veya sayfa görünümünde içerir.

@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 05/07/2018
 ms.author: sngun
-ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Ayarlama ve verimlilik için Azure Cosmos DB kapsayıcılar alma
 
-Azure portalında veya istemci SDK'ları kullanarak, Azure Cosmos DB kapsayıcıları için işleme ayarlayabilirsiniz. 
+Azure Cosmos DB kapsayıcılarınızı veya Azure portalında veya istemci SDK'ları kullanarak kapsayıcıları kümesi için işleme ayarlayabilirsiniz. 
 
 Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir listelenmektedir:
 
@@ -31,15 +31,18 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
             <td valign="top"><p></p></td>
             <td valign="top"><p><strong>Tek bir bölüm kapsayıcısı</strong></p></td>
             <td valign="top"><p><strong>Bölümlenmiş kapsayıcısı</strong></p></td>
+            <td valign="top"><p><strong>Kapsayıcıları kümesi</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>En düşük işleme</p></td>
             <td valign="top"><p>saniye başına 400 istek birimleri</p></td>
-            <td valign="top"><p>saniye başına 1000 isteği birim</p></td>
+            <td valign="top"><p>saniye başına 1000 istek birimleri</p></td>
+            <td valign="top"><p>saniye başına 50.000 istek birimleri</p></td>
         </tr>
         <tr>
             <td valign="top"><p>En yüksek verimlilik</p></td>
             <td valign="top"><p>saniye başına 10.000 istek birimleri</p></td>
+            <td valign="top"><p>Sınırsız</p></td>
             <td valign="top"><p>Sınırsız</p></td>
         </tr>
     </tbody>
@@ -62,6 +65,7 @@ Aşağıdaki kod parçacığını geçerli işleme alır ve 500 RU/s değiştiri
 
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
+// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -82,6 +86,7 @@ Aşağıdaki kod parçacığını geçerli işleme alır ve 500 RU/s değiştiri
 
 ```Java
 // find offer associated with this collection
+// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
 Iterator < Offer > it = client.queryOffers(
     String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
 assertThat(it.hasNext(), equalTo(true));
@@ -131,7 +136,7 @@ En basit yolu MongoDB API veritabanınızı kullanmak için bir iyi isteğinin b
 ![MongoDB API portal ölçümleri][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API aşan ayrılmış işleme sınırları
-Tüketim oranını sağlanan işleme hızının altına düşene kadar bir kapsayıcı için sağlanan işleme aşan uygulamalar oranı sınırlı olur. Bir hızını sınırlama ortaya çıktığında, arka uç istekle erken önlem sona erer bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Birçok alıyorsanız `Too Many Requests` hata kodları, ya da yeniden deneme mantığı, uygulamanızın hata yordamları işleme ekleme düşünmek isteyebilirsiniz veya [kapsayıcı sağlanan verimliliğini artırmak](set-throughput.md).
+Tüketim oranını sağlanan işleme hızının altına düşene kadar bir kapsayıcı veya kapsayıcıları kümesi için sağlanan işleme aşan uygulamalar oranı sınırlı olur. Bir hızını sınırlama ortaya çıktığında, arka uç istekle erken önlem sona erer bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Birçok alıyorsanız `Too Many Requests` hata kodları, ya da yeniden deneme mantığı, uygulamanızın hata yordamları işleme ekleme düşünmek isteyebilirsiniz veya [kapsayıcı sağlanan verimliliğini artırmak](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Üretilen iş ile ilgili SSS
 
@@ -139,7 +144,7 @@ Tüketim oranını sağlanan işleme hızının altına düşene kadar bir kapsa
 
 400 RU/s (1000 RU/s bölümlenmiş kapsayıcıları için en düşük gereksinimdir) Cosmos DB tek bölüm kapsayıcılarında kullanılabilir en düşük işleme ' dir. İstek birimleri 100 RU/s aralıklarla ayarlanmış, ancak işleme 100 RU/s veya herhangi bir değer 400 RU/s küçük olacak şekilde ayarlanamaz. Geliştirmek ve Cosmos DB sınamak için uygun maliyetli bir yöntem arıyorsanız, ücretsiz kullanabileceğiniz [Azure Cosmos DB öykünücüsü](local-emulator.md), hangi hiçbir ücret yerel olarak dağıtabilirsiniz. 
 
-**MongoDB API kullanarak througput nasıl ayarlarım?**
+**MongoDB API kullanarak verimlilik nasıl ayarlarım?**
 
 Üretilen iş ayarlamak için MongoDB API uzantısı yok. SQL API kullanan gösterildiği gibi önerilir [.NET için SQL API'yi kullanarak üretilen işi ayarlamak için](#set-throughput-sdk).
 

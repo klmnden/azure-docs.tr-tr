@@ -1,3 +1,6 @@
+## <a name="automatic-device-management"></a>Otomatik cihaz Yönetimi
+Azure IOT Hub'ındaki otomatik aygıt yönetimi birçok büyük cihaz fleets kendi ömürleri tamamen yönetme yinelenen ve karmaşık görevleri otomatik hale getirir. İle otomatik cihaz yönetimi, cihaz özelliklerine göre kümesini hedef, istenen yapılandırma tanımlayın ve IOT Hub'ın kapsam içine geldikleri her aygıtları güncelleştirmesi sağlayabilirsiniz.  Oluşan [otomatik cihaz yapılandırmalarını](/articles/iot-hub/iot-hub-auto-device-config.md) ve [IOT kenar otomatik dağıtımları](/articles/iot-edge/how-to-deploy-monitor.md).
+
 ## <a name="iot-edge"></a>IoT Edge
 Azure IOT kenar bulut tabanlı dağıtım Azure hizmetlerinin ve şirket içi cihazlar için çözüm özgü kodu sağlar. Verileri buluta gönderilmeden önce IOT sınır cihazları diğer bilgi işlem gerçekleştirmek için cihazlar ve analizi veri toplayabilirsiniz. Daha fazla bilgi için lütfen bkz [Azure IOT kenar](https://docs.microsoft.com/azure/iot-edge/).
 
@@ -7,8 +10,8 @@ IOT kenar çalışma zamanı dağıtma ve modülleri izleme sorumlu parçası.
 ## <a name="iot-edge-device"></a>IoT Edge cihazı
 IOT sınır cihazları IOT çalışma zamanı yüklü ve cihaz Ayrıntıları "IOT sınır cihazı" olarak işaretlenen kenar sahip. Bilgi edinmek için nasıl [Linux sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
-## <a name="iot-edge-deployment"></a>IOT kenar dağıtım
-Bir IOT kenar dağıtım modülleri IOT kenar kümesini çalıştırmak için IOT sınır cihazları hedef kümesini yapılandırır. Her dağıtım, hedef durumu eşleşen tüm aygıtları modülleri belirtilen kümesi çalıştıran, bile yeni aygıtları oluşturulan ya da hedef durumu eşleşecek şekilde değiştirilmiş sürekli olarak sağlar. Her IOT sınır cihazı, yalnızca hedef durumu karşıladığından en yüksek öncelikli dağıtım alır. Daha fazla bilgi edinmek [IOT kenar dağıtım](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+## <a name="iot-edge-automatic-deployment"></a>IOT kenar otomatik dağıtım
+Bir IOT kenar otomatik dağıtım modülleri IOT kenar kümesini çalıştırmak için IOT sınır cihazları hedef kümesini yapılandırır. Her dağıtım, hedef durumu eşleşen tüm aygıtları modülleri belirtilen kümesi çalıştıran, bile yeni aygıtları oluşturulan ya da hedef durumu eşleşecek şekilde değiştirilmiş sürekli olarak sağlar. Her IOT sınır cihazı, yalnızca hedef durumu karşıladığından en yüksek öncelikli dağıtım alır. Daha fazla bilgi edinmek [IOT kenar otomatik dağıtım](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## <a name="iot-edge-deployment-manifest"></a>IOT kenar dağıtım bildirimi
 Modüller, yolları ve ilişkili modül kümesini dağıtmak için bir veya daha fazla IOT sınır cihazları modülü twin(s) içinde kopyalanacak bilgileri içeren bir Json belgesi özelliklerini istenen.

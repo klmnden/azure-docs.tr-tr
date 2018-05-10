@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8a3eedb5a3d96eedd1a64d85afdb58f8961df272
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure yük dengeleyici nedir?
 
@@ -73,9 +73,9 @@ Yük Dengeleyici TCP ve UDP uygulamalar için aşağıdaki temel yetenekleri sa�
 
 * **Belirsiz ve şeffaf uygulama**
 
-    Yük Dengeleyici doğrudan TCP veya UDP veya uygulama katmanı ve tüm TCP ile etkileşime girmez veya UDP tabanlı uygulama senaryosu desteklenmiyor.  Yük Dengeleyici yok sonlandırmak veya akışları kaynaklanan, etkileşimde akış yükü hiçbir uygulama katmanı ağ geçidi işlevi sağlar ve protokolü el sıkışmaları her zaman meydana doğrudan istemci ve arka uç havuzu örnek arasında.  Gelen bir akış yanıt her zaman bir sanal makineden bir yanıt olan.  Sanal makinede akış geldiğinde, özgün kaynak IP adresini de korunur.  Daha fazla saydamlık göstermek için örnekler birkaç:
-    - Bir TCP anlaşması her zaman istemci ve seçilen arka uç VM arasında oluşur. Bir ön uç isteğine yanıt arka uç VM tarafından üretilen bir yanıt olan. Bu senaryo için bağlanabilirliği doğrulamak için TCP ping kullanmanız gerekir.  Kullanım [psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) veya [nmap](https://nmap.org) sağlıklı bir sanal makineyle bir anlaşması başarılı olup olmadığını denetlemek için. Lütfen ICMP farklı bir IP protokol UDP veya TCP değerinden olmadığını ve bu amaç için desteklenmeyen unutmayın.
-    - Uygulama yükü yük dengeleyici ve tüm UDP saydam veya TCP tabanlı uygulama desteklenebilir. Yük dengeleyici gibi bir katman 7 kullandığınız her HTTP istek işleme ya da (örneğin HTTP URL'lerini ayrıştırma), uygulama katmanı yüklerini işlenmesini gerektiren iş yükleri için [uygulama ağ geçidi](https://azure.microsoft.com/en-us/services/application-gateway).
+    Yük Dengeleyici doğrudan TCP veya UDP veya uygulama katmanı ve tüm TCP ile etkileşime girmez veya UDP uygulama senaryosu desteklenmiyor.  Yük Dengeleyici yok sonlandırmak veya akışları kaynaklanan, etkileşimde akış yükü hiçbir uygulama katmanı ağ geçidi işlevi sağlar ve protokolü el sıkışmaları her zaman meydana doğrudan istemci ve arka uç havuzu örnek arasında.  Gelen bir akış yanıt her zaman bir sanal makineden bir yanıt olan.  Sanal makinede akış geldiğinde, özgün kaynak IP adresini de korunur.  Daha fazla saydamlık göstermek için örnekler birkaç:
+    - Tüm uç yalnızca bir VM tarafından yanıt verdi.  Örneğin, bir TCP anlaşması her zaman istemci ve seçilen arka uç VM arasında oluşur.  Bir ön uç isteğine yanıt arka uç VM tarafından üretilen bir yanıt olan. Bir ön uç bağlantısı başarıyla doğruladığınızda en az bir arka uç sanal makine için uçtan uca bağlantı özelliklerini doğrulama.
+    - Uygulama yükü yük dengeleyici ve tüm UDP saydam veya TCP uygulama desteklenebilir. HTTP istek işleme veya uygulama katmanı yüklerini işlenmesini gerektiren iş yükleri için (örneğin, HTTP URL'lerini ayrıştırma), bir katman 7 yük dengeleyici gibi kullanması gereken [uygulama ağ geçidi](https://azure.microsoft.com/en-us/services/application-gateway).
     - Yük Dengeleyici TCP yükü belirsiz olduğundan ve TLS Boşaltması ("SSL") sağlanmaz, yük dengeleyici kullanarak uçtan uca şifrelenmiş senaryolar yapı ve VM TLS bağlantıda sonlandırarak TLS uygulamalar için büyük ölçeklendirme elde.  Örneğin, TLS oturumunuz kapasite anahtarlama yalnızca arka uç havuzuna eklemek VM'lerin sayısını ve türünü sınırlıdır.  "SSL boşaltma", uygulama katmanı işleme veya Azure sertifika yönetimi temsilci istiyorsanız gerektiriyorsa, Azure'nın katman 7 yük dengeleyici kullanması gereken [uygulama ağ geçidi](https://azure.microsoft.com/en-us/services/application-gateway) yerine.
         
 
@@ -93,14 +93,14 @@ Yük Dengeleyici TCP ve UDP uygulamalar için aşağıdaki temel yetenekleri sa�
 
     - **TCP özel araştırma**: tanımlı araştırma noktasına başarılı bir TCP oturumu oluşturma Bu araştırma kullanır. Belirtilen dinleyici VM'de var olduğu sürece, bu araştırma başarılı olur. Bağlantıyı reddetti araştırma başarısız olur. Bu araştırma varsayılan Konuk aracı araştırması geçersiz kılar.
 
-    - **Konuk Aracısı araştırma (platformunda yalnızca bir hizmet [PaaS] vm'lerle)**: yük dengeleyici ayrıca VM Konuk Aracısı'nı kullanabilir. Konuk Aracısı dinler ve yalnızca örnek hazır durumda olduğunda bir HTTP 200 Tamam yanıt ile yanıt verir. Aracı bir HTTP 200 Tamam ile yanıt vermiyorsa, yük dengeleyici örneği yanıt olarak işaretler ve trafiği için bu örneği göndermeye durdurur. Yük Dengeleyici örneği ulaşmaya çalışır devam eder. Yük Dengeleyici trafiği için bu örneği ile bir HTTP 200 Konuk aracısı yanıt verirse, yeniden gönderir. Konuk Aracısı araştırmalar son çare olan ve HTTP veya TCP özel araştırma yapılandırmaları mümkün olduğunda kullanılmamalıdır. 
+    - **Konuk Aracısı araştırma (platformunda yalnızca bir hizmet [PaaS] vm'lerle)**: yük dengeleyici ayrıca VM Konuk Aracısı'nı kullanabilir. Konuk Aracısı dinler ve yalnızca örnek hazır durumda olduğunda bir HTTP 200 Tamam yanıt ile yanıt verir. Aracı bir HTTP 200 Tamam ile yanıt vermiyorsa, yük dengeleyici örneği yanıt olarak işaretler ve trafiği için bu örneği göndermeye durdurur. Yük Dengeleyici örneği ulaşmaya çalışır devam eder. Yük Dengeleyici trafiği için bu örneği ile bir HTTP 200 Konuk aracısı yanıt verirse, yeniden gönderir. Konuk Aracısı araştırmalar son çare olan ve HTTP veya TCP özel araştırma yapılandırmaları mümkün olduğunda önerilmez. 
     
-* **Giden bağlantılar (kaynak NAT)**
+* **Giden bağlantılar (SNAT)**
 
-    Sanal ağınızdaki özel IP adreslerinden tüm giden trafik akışları Internet'teki ortak IP adresleri için yük dengeleyici için bir ön uç IP adresi çevrilebilir. Ortak bir ön uç, Yük Dengeleme kuralı yapmamanız bir arka uç VM durdurduğunda Azure genel ön uç IP adresi için otomatik olarak çevrilecek giden bağlantılar programlar. Bu kaynak NAT (SNAT) olarak da adlandırılır. SNAT önemli avantajları sağlar:
+    Sanal ağınızdaki özel IP adreslerinden tüm giden trafik akışları Internet'teki ortak IP adresleri için yük dengeleyici için bir ön uç IP adresi çevrilebilir. Ortak bir ön uç, Yük Dengeleme kuralı yapmamanız bir arka uç VM durdurduğunda Azure genel ön uç IP adresi için otomatik olarak çevrilecek giden bağlantılar programlar.
 
-    * Ön uç hizmetinin başka bir örneğine dinamik olarak eşlenebilir çünkü kolay yükseltme ve hizmetlerin, olağanüstü durum kurtarma sağlar.
-    * Erişim denetimi listesi (ACL) yönetimini kolaylaştırır. Ön uç IP'leri bakımından ifade ACL Hizmetleri ölçek yukarı veya aşağı değiştirmeyin veya imzalanmasını.
+    * Ön uç hizmetinin başka bir örneğine dinamik olarak eşlenebilir çünkü kolay yükseltme ve olağanüstü durum kurtarma hizmetlerinin etkinleştirin.
+    * Daha kolay erişim denetimi listesi (ACL) yönetimi için. Ön uç IP'leri bakımından ifade ACL Hizmetleri ölçek yukarı veya aşağı değiştirmeyin veya imzalanmasını.  Makineler uygulamaları güvenilir listeye almayı yükünü azaltabilir daha küçük bir IP adresi sayısı giden bağlantılara çevirme.
 
     Daha fazla bilgi için bkz: [giden bağlantılar](load-balancer-outbound-connections.md).
 
@@ -115,7 +115,7 @@ Ancak, seçtiğiniz SKU bağlı olarak, tam senaryo yapılandırması biraz fark
 >[!NOTE]
 > Daha yeni bir tasarım senaryo kullanıyorsanız, standart yük dengeleyici kullanmayı düşünün. 
 
-Tek başına VM'ler, kullanılabilirlik kümeleri ve VM ölçek kümesi yalnızca bir SKU'ya, hiçbir zaman hem de bağlanabilir. Ortak IP adresleri ile kullandığınız zaman, yük dengeleyici ve genel IP adresi SKU eşleşmesi gerekir. Yük Dengeleyici ve ortak IP SKU'ları değişebilir değildir.
+Tek başına VM'ler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri yalnızca bir SKU'ya, hiçbir zaman hem de bağlanabilir. Ortak IP adresleri ile kullandığınız zaman, yük dengeleyici ve genel IP adresi SKU eşleşmesi gerekir. Yük Dengeleyici ve ortak IP SKU'ları değişebilir değildir.
 
 _Henüz zorunlu olmasa da SKU'ları açıkça belirtmek için en iyi bir uygulamadır._  Şu anda gerekli değişiklikleri en az olarak tutulduğunu. Bir SKU belirtilmezse, temel SKU 2017-08-01 API sürümü kullanmak için bir amaç yorumlanır.
 
@@ -125,7 +125,7 @@ _Henüz zorunlu olmasa da SKU'ları açıkça belirtmek için en iyi bir uygulam
 | | [Standart SKU](load-balancer-standard-overview.md) | Temel SKU |
 | --- | --- | --- |
 | Arka uç havuzu boyutu | En fazla 1000 örnekleri. | En fazla 100 örnekleri. |
-| Arka uç havuzu uç noktaları | Tüm VM harmanlama VM'ler, kullanılabilirlik kümeleri ve VM ölçek kümesi de dahil olmak üzere tek bir sanal ağda. | Sanal makineleri tek kullanılabilirlik kümesi veya VM ölçek kümesi. |
+| Arka uç havuzu uç noktaları | Tüm VM harmanlama VM'ler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri dahil olmak üzere tek bir sanal ağda. | Sanal makineleri tek bir kullanılabilirlik kümesi veya sanal makine ölçek kümesi. |
 | Azure Kullanılabilirlik Alanları | Bölge olarak yedekli ve zonal ön uçları için gelen ve giden, giden akış eşlemeleri bölge hatası varlığını sürdürmesini, çapraz bölge Yük Dengeleme. | / |
 | Tanılama | Azure İzleyici bayt ve paket sayaçları, sistem durumu da dahil olmak üzere çok boyutlu ölçümleri durumu, bağlantı denemeleri (TCP Eşitlemeye), giden bağlantı durumu (SNAT başarılı ve başarısız akışları), etkin veri düzlemi ölçümleri araştırma. | Azure Log Analytics public için yük dengeleyici yalnızca, SNAT tükenmesi Uyarısı, arka uç havuzu durum sayısı. |
 | HA bağlantı noktaları | İç yük dengeleyici. | / |
@@ -177,6 +177,11 @@ Temel yük dengeleyici ücretsiz olarak sunulur.
 ## <a name="sla"></a>SLA
 
 Standart yük dengeleyici SLA hakkında daha fazla bilgi için Git [yük dengeleyici SLA](https://aka.ms/lbsla) sayfası. 
+
+## <a name="limitations"></a>Sınırlamalar
+
+- Yük Dengeleyici Yük Dengeleme ve bu belirli IP protokolleri için bağlantı noktası iletme için TCP veya UDP bir üründür.  Yük Dengeleme kuralları ve gelen NAT kuralları TCP ve UDP için desteklenen ve ICMP dahil olmak üzere diğer IP protokolleri için desteklenmiyor. Yük Dengeleyici sonlandırmak değil, yanıt veya aksi halde bir UDP veya TCP akışı yükü ile etkileşim. Bir proxy değil. Bir ön uç bağlantısı doğrulama başarılı bir Yük Dengeleme veya gelen NAT kuralı (TCP veya UDP) kullanılan aynı protokol ile bant yer almalıdır _ve_ , sanal makineleriniz en az biri gerekir oluşturmak yanıt için bir istemci bir ön uç bağlantı noktasından yanıt görmek için.  Ön uç yük Dengeleyiciden bir bant dışı yanıt almadıktan hiçbir sanal makine yanıt verebilmesini gösterir.  Yük Dengeleyici sanal makine yanıt verebilmesini ön uç ile etkileşim kurmak mümkün değildir.  Bu durum giden bağlantılar için de geçerlidir nerede [bağlantı noktası maskeli SNAT](load-balancer-outbound-connections.md#snat) olduğu TCP ve UDP; için desteklenen yalnızca ICMP dahil olmak üzere diğer IP protokolleri de başarısız olacak.  Azaltmak için bir örnek düzeyinde ortak IP adresi atayın.
+- Sağlayan ortak yük Dengeleyiciler aksine [giden bağlantılar](load-balancer-outbound-connections.md) sanal ağ içindeki özel IP adresleri için ortak IP adresleri geçiş, iç yük dengeleyici giden Çevir değil kaynaklanan ön uç için bir iç yük dengeleyici her ikisi de olarak özel IP adres alanı bağlantılardır.  Bu, burada çeviri gerekli değildir, benzersiz, iç IP adresi alanı içindeki SNAT Tükenme olası önler.  Giden bir akışı bir VM'den arka uç havuzundaki hangi havuzda bulunduğu iç yük dengeleyici ön uç bir akışa çalışırsa olan yan etkisi _ve_ eşlenmiş geri bu kendisini iki Bacak akışının eşleşmiyorsa ve akış başarısız olur .  Akış uç akışına oluşturulan arka uç havuzundaki aynı VM dön eşleyemiyorsanız akışı başarılı olur.   Akış geri kendisine eşler, giden akış sanal makineden ön uç için kaynaklanacak şekilde, karşılık gelen akış sanal makineden kendisine kaynaklanacak şekilde görüntülenir. Konuk işletim sistemlerine açısından bakıldığında, sanal makinenin içinde aynı akışın gelen ve giden bölümleri eşleşmiyor. TCP yığınına, kaynak ve hedef eşleşmeyen gibi aynı akışının parçası olacak şekilde bu yarıları aynı akışın tanımaz.  Akış için arka uç havuzundaki başka bir VM eşlendiği akış yarısının eşleşir ve VM akışına başarılı bir şekilde yanıt verebilir.  Bu senaryo için belirti aralıklı zaman aşımları olmasıdır. Bu senaryo güvenilir bir şekilde elde etmek için birkaç ortak geçici çözüm vardır (arka uç arka uç havuzundan akışlarına kaynak havuzları ilgili iç yük dengeleyici ön uç) aşağıdakileri içeren bir üçüncü taraf proxy'nin arkasında iç yük ya da ekleme Dengeleyici veya [DSR stil kurallarını kullanarak](load-balancer-multivip-overview.md).  Azaltmak için bir genel yük dengeleyiciye kullanabilirken, sonuçta elde edilen yatkın senaryodur [SNAT Tükenme](load-balancer-outbound-connections.md#snat) ve dikkatle yönetilen sürece kaçınılmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

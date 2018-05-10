@@ -1,26 +1,24 @@
 ---
-title: "SaaS uygulamalarına erişimi yönetmek için bir grup kullanma | Microsoft Docs"
-description: "Azure Active Directory Premium veya Basic grupları Azure Active Directory ile tümleşik SaaS uygulamalarına erişimi atamak için nasıl kullanılacağını."
+title: SaaS uygulamalarına erişimi yönetmek için bir grup kullanma | Microsoft Docs
+description: Azure Active Directory Premium veya Basic grupları Azure Active Directory ile tümleşik SaaS uygulamalarına erişimi atamak için nasıl kullanılacağını.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: ab8dee63-bedc-46ca-8852-234f5c16ae98
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 4aee5b28fd42be98fac8f9c7d61538319e3efd9a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bdcda54d4e43c81bde587b949cdc12a0237469a9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>SaaS uygulamalarına erişimi yönetmek için grup kullanma
 Bir Azure AD Premium veya Azure AD temel lisansı ile Azure Active Directory (Azure AD) kullanarak Azure AD ile tümleşik bir SaaS uygulaması erişim atamak için grupları kullanabilirsiniz. Örneğin, beş farklı SaaS uygulamaları kullanmak pazarlama departmanı için erişim atamak istiyorsanız, pazarlama departmanındaki kullanıcılar içeren bir grup oluşturabilir ve tarafından gerekli olan bu beş SaaS uygulamaları için o grubun atayın Pazarlama departmanı. Bu şekilde, tek bir yerde pazarlama departmanı üyeliğini yöneterek zaman tasarrufu sağlar. Kullanıcılar daha sonra uygulamaya pazarlama grubunun bir üyesi olarak eklenir ve pazarlama gruptan kaldırdığınızda atamalarını uygulamasından kaldırmış atanır. Bu özellik, Azure AD uygulama galerisinde içinde ekleyebilirsiniz uygulamaları yüzlerce kullanılabilir.

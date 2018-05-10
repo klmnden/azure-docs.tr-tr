@@ -1,36 +1,36 @@
 ---
-title: "Azure bildirim hub'ları bildirim tanılama bırakıldı"
-description: "Azure Notification Hubs bırakılan bildirimler ile ilgili genel sorunları tanılamak öğrenin."
+title: Azure bildirim hub'ları bildirim tanılama bırakıldı
+description: Azure Notification Hubs bırakılan bildirimler ile ilgili genel sorunları tanılamak öğrenin.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Bildirim hub'ları bırakılan bildirimler tanılama
 
 Azure Notification Hubs müşterilerden en yaygın sorular bir uygulamadan gönderilen bildirimleri istemci aygıtlarda görünmüyor sorunu gidermek nasıl biridir. Bunlar nerede ve neden bildirimleri bırakıldı ve sorun gidermeye yönelik bilmek ister. Bu makalede, bildirimleri bırakılan veya cihazlar tarafından alınmayan neden tanımlar. Analiz etmek ve kök nedenini belirlemek öğrenin. 
 
-İlk bildirim hub'ları bildirimleri bir aygıta nasıl iter anlaşılması önemlidir.
+İlk bildirim hub'ları service bildirimleri bir aygıta nasıl iter anlaşılması önemlidir.
 
 ![Bildirim hub'ları mimarisi][0]
 
 Tipik gönderme bildirim akışı ileti gönderilen *uygulama arka ucu* bildirim hub'ları için. Bildirim hub'ları tüm kayıtlar üzerinde bir işlem yapar. Yapılandırılmış etiketleri ve "hedefleri." belirlemek için etiket ifadeleri işleme dikkate alır Hedefleri anında iletme bildirimi alması gereken tüm kayıtlar ' dir. Bu kayıtlar herhangi yayılabilir veya bizim desteklenen tüm platformlar: iOS, Google, Windows, Windows Phone, Kindle ve Baidu Çin Android için.
 
-Bildirimleri göndermek için Notification Hubs kurulan hedefleri ile iter *anında bildirim hizmeti* cihaz platformu için. Apple anında iletilen bildirim servisi (APNs) Apple ve Firebase bulut Mesajlaşma (FCM) için Google için örnekler. Bildirim hub'ları gönderim bildirimlerini kayıtlar birden çok toplu işlemi bölün. Bildirim hub'ları kimliğini doğrular Azure portalında altında ayarlanan kimlik bilgilerine göre ilgili anında bildirim hizmeti ile **bildirim Hub'ı yapılandırma**. Anında iletme bildirimi hizmet ardından ileten ilgili bildirimlere *istemci cihazları*. 
+Bildirimleri göndermek için Notification Hubs hizmeti kurulan hedefleri ile iter *anında bildirim hizmeti* cihaz platformu için. Apple anında iletilen bildirim servisi (APNs) Apple ve Firebase bulut Mesajlaşma (FCM) için Google için örnekler. Bildirim hub'ları gönderim bildirimlerini kayıtlar birden çok toplu işlemi bölün. Bildirim hub'ları kimliğini doğrular Azure portalında altında ayarlanan kimlik bilgilerine göre ilgili anında bildirim hizmeti ile **bildirim Hub'ı yapılandırma**. Anında iletme bildirimi hizmet ardından ileten ilgili bildirimlere *istemci cihazları*. 
 
 Son Bacak bildirim teslimi için platform anında bildirim hizmeti ve aygıt arasında yer alır. Anında iletme bildirimi işleminde (istemci, uygulama arka ucu, bildirim hub'ları ve platform anında bildirim hizmeti) dört ana bileşen hiçbirini bildirimleri bırakılmasına neden olabilir. Bildirim hub'ları mimarisi hakkında daha fazla bilgi için bkz: [Notification Hubs'a genel bakış].
 
@@ -39,7 +39,7 @@ Bildirimleri göndermeyi hata sırasında ilk oluşabilir test/hazırlama aşama
 Sonraki bölümde, bildirimler, ortak daha seyrek değişen bırakılabilir senaryoları bakar.
 
 ## <a name="notification-hubs-misconfiguration"></a>Bildirim hub'ları yanlış yapılandırma
-Başarıyla ilgili anında bildirim hizmeti bildirimleri göndermek için geliştiricinin uygulama bağlamında kendi kimliğini doğrulamak Notification Hubs gerekir. Bunun gerçekleşmesi için geliştirici ilgili platformun (Google, Apple, Windows ve benzeri) bir geliştirici hesabı oluşturur. Ardından, geliştirici kendi uygulama kimlik bilgileri nereden platformuyla kaydeder. 
+Başarıyla ilgili anında bildirim hizmeti bildirimleri göndermek için geliştiricinin uygulama bağlamında kendi kimliğini doğrulamak Notification Hubs hizmeti gerekir. Bunun gerçekleşmesi için geliştirici ilgili platformun (Google, Apple, Windows ve benzeri) bir geliştirici hesabı oluşturur. Ardından, geliştirici kendi uygulama kimlik bilgileri nereden platformuyla kaydeder. 
 
 Azure portalına platform kimlik bilgilerini eklemeniz gerekir. Hiçbir bildirim aygıtı ulaşıyor, doğru kimlik bilgilerini Notification Hubs ' yapılandırıldığından emin olmak için ilk adım olmalıdır. Kimlik bilgileri bir platforma özgü Geliştirici hesabı altında oluşturulan uygulama eşleşmesi gerekir. 
 
@@ -88,7 +88,7 @@ Bazı ortak yapılandırma hataları denetlemek için şunlardır:
 
 * **Geçersiz kayıtlar**
 
-    Bildirim hub'ı doğru bir şekilde yapılandırdıysanız ve herhangi bir etiket veya etiket ifadeleri doğru kullanıldıysa, geçerli hedef bulunamadı. Bildirimleri bu hedefe gönderilmelidir. Bildirim hub'ları sonra birkaç işlem toplu paralel olarak devre dışı etkinleşir. Her toplu kayıt kümesine iletileri gönderir. 
+    Bildirim hub'ı doğru bir şekilde yapılandırdıysanız ve herhangi bir etiket veya etiket ifadeleri doğru kullanıldıysa, geçerli hedef bulunamadı. Bildirimleri bu hedefe gönderilmelidir. Bildirim hub'ları service sonra birkaç işlem toplu paralel olarak devre dışı etkinleşir. Her toplu kayıt kümesine iletileri gönderir. 
 
     > [!NOTE]
     > Paralel işleme gerçekleştirildiğinden, bildirimleri teslim edilir sırayı garanti edilmez. 
@@ -102,7 +102,7 @@ Bazı ortak yapılandırma hataları denetlemek için şunlardır:
     Bir kayıt karşı başarısız teslim girişimi hakkında daha fazla hata bilgi almak için bildirim hub'ları REST API'ler kullanabilirsiniz [başına ileti Telemetri: bildirim iletisi Telemetri almak](https://msdn.microsoft.com/library/azure/mt608135.aspx) ve [PNS geri bildirim](https://msdn.microsoft.com/library/azure/mt705560.aspx). Örnek kod için bkz: [Gönder REST örnek](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Anında bildirim hizmeti sorunları
-Bu bildirim iletisi platform anında bildirim hizmeti tarafından alınan sonra cihaza bildirimi teslim etmek anında bildirim hizmeti sorumluluğundadır. Bu noktada, bildirim hub'ları dışında resim ve veya bildirim cihaza teslim olsa üzerinde denetimi yoktur. 
+Bu bildirim iletisi platform anında bildirim hizmeti tarafından alınan sonra cihaza bildirimi teslim etmek anında bildirim hizmeti sorumluluğundadır. Bu noktada, bildirim hub'ları hizmeti dışında resim ve veya bildirim cihaza teslim olsa üzerinde denetimi yoktur. 
 
 Platform Bildirim Hizmetleri sağlam olduğundan, birkaç saniye içinde anında iletme bildirimi hizmetinden cihazlara ulaşmak için bildirimler eğilimlidir. Anında bildirim hizmeti azaltma, bildirim hub'ları bir üstel geri alma stratejisi geçerlidir. Anında bildirim hizmeti 30 dakika boyunca ulaşılamaz kalırsa, biz süresinin dolmasını ve bu iletileri kalıcı olarak bırakma yerinde bir ilkeye sahip. 
 
@@ -120,7 +120,7 @@ Bildirim hub'ları bırakılan bildirimler kök nedenini tanılamak için yollar
    
     (APNs, FCM, Windows bildirim hizmeti vb.) ilgili anında iletme bildirimi Hizmet Geliştirici Portalı'nda kimlik bilgilerini doğrulayın. Daha fazla bilgi için bkz: [Azure Notification Hubs ile çalışmaya başlama].
 
-* **Azure portalı**
+* **Azure Portal**
    
     Gözden geçirmek ve kimlik bilgilerinin anında bildirim hizmeti Geliştirici Portalı, Azure portalında edindiğiniz olanla eşleşmesi için Git **erişim ilkeleri** sekmesi. 
    
@@ -146,7 +146,7 @@ Bildirim hub'ları bırakılan bildirimler kök nedenini tanılamak için yollar
     Birçok müşteri kullanmak [hizmet veri yolu Gezgini] görüntüleme ve kendi bildirim hub'ı yönetme. Hizmet veri yolu Gezgini açık kaynaklı bir projedir. Örnekler için bkz: [hizmet veri yolu Gezgini kod].
 
 ### <a name="verify-message-notifications"></a>İleti bildirimlerini doğrulayın
-* **Azure portalı**
+* **Azure Portal**
    
     Bir hizmet arka uç çalışır, altında gerek kalmadan istemcilerinize bir test bildirimi göndermek için **destek + sorun giderme**seçin **Test gönderimi**. 
    
@@ -226,7 +226,7 @@ Bu ileti ya da geçersiz kimlik bilgileri bildirim hub'ları içinde yapılandı
    
         ![Bildirim hub'ları Genel Bakış Panosu][5]
    
-    2. Üzerinde **İzleyici** sekmesinde daha derinlikli bir bakış için diğer birçok platforma özgü ölçümleri ekleyebilirsiniz. Bildirim hub'ları için anında iletilen bildirim servisi Bildirim göndermeye çalıştığında döndürülen anında iletme bildirimi hizmeti ile ilgili özellikle hataları bakabilirsiniz. 
+    2. Üzerinde **İzleyici** sekmesinde daha derinlikli bir bakış için diğer birçok platforma özgü ölçümleri ekleyebilirsiniz. Bildirim hub'ları service için anında iletilen bildirim servisi Bildirim göndermeye çalıştığında döndürülen anında iletme bildirimi hizmeti ile ilgili özellikle hataları bakabilirsiniz. 
    
         ![Azure portal etkinlik günlüğü][6]
    

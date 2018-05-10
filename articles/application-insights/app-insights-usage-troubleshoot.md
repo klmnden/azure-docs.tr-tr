@@ -1,9 +1,9 @@
 ---
-title: "Azure Application ınsights'ta kullanım analizi sorunlarını giderme"
-description: "Sorun giderme kılavuzu - Application Insights ile site ve uygulama kullanımını analiz etme."
+title: Azure Application ınsights'ta kullanım analizi sorunlarını giderme
+description: Sorun giderme kılavuzu - Application Insights ile site ve uygulama kullanımını analiz etme.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Application ınsights'ta kullanım analizi sorunlarını giderme
 Hakkında sorularınız [kullanım analiz araçları Application ınsights'ta](app-insights-usage-overview.md): [kullanıcıları, oturumlar, olayları](app-insights-usage-segmentation.md), [Funnels](usage-funnels.md), [kullanıcı akar](app-insights-usage-flows.md), [Bekletme](app-insights-usage-retention.md), veya Cohorts? Burada bazı yanıtlar bulunmaktadır.
@@ -37,7 +37,7 @@ Kullanım analiz araçları sayım kullanıcılar veya anonim kullanıcı kimli�
 ## <a name="naming-events"></a>Adlandırma olayları
 **Uygulamam binlerce farklı sayfa görünümü ve özel olay adları var. Bunlar arasında ayrım yapmak zor ve kullanım analiz araçları genellikle yanıt veremez duruma gelebilir. Bu adlandırma sorunları nasıl çözebilir mi?**
 
-Sayfa görünümü ve özel olay adları kullanım analiz araçları kullanılır. Olayları adlandırması da bu Araçları'ndan değer almak için önemlidir. Arasında bir denge hedeftir sahip çok az, aşırı genel adları ("tıklattınız Button") ve çok sayıda, aşırı belirli adları ("http://www.contoso.com/index üzerinde tıkladığınız Düzenle düğmesi") sahip.
+Sayfa görünümü ve özel olay adları kullanım analiz araçları kullanılır. Olayları adlandırması da bu Araçları'ndan değer almak için önemlidir. Arasında bir denge hedeftir sahip çok az, aşırı genel adları ("tıklattınız Button") ve çok sayıda, aşırı belirli adları sahip ("Düzenle düğmesi tıkladığınız http://www.contoso.com/index").
 
 Değişiklik sayfa görünümü ve uygulamanızı gönderme özel olay adları için uygulamanızın kaynak kodunu ve yeniden dağıtın değiştirmeniz gerekir. **Application Insights verilerde 90 gün süreyle depolanır ve silinemez tüm telemetri**, olay adları için yaptığınız değişiklikler tam listesi için 90 gün sürer. 90 ad değişiklikleri yaptıktan sonra gün için eski ve yeni olay adlarını, telemetri görünmesini, böylece sorguları ayarlamak ve ekipleriniz içinde uygun şekilde iletişim.
 

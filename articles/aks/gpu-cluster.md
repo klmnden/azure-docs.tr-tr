@@ -1,6 +1,6 @@
 ---
-title: GPU Azure kapsayıcı hizmeti (AKS)
-description: GPU Azure kapsayıcı hizmeti (AKS) kullanın
+title: GPU Azure Kubernetes Service (AKS)
+description: GPU Azure Kubernetes hizmette (AKS) kullanın
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="using-gpus-on-aks"></a>GPU AKS üzerinde kullanma
+# <a name="using-gpus-on-aks"></a>AKS üzerinde GPU kullanma
 
 AKS GPU etkin düğüm havuzları oluşturmayı destekler. Birden çok GPU VM'ler etkin veya Azure şu anda tek sağlar. GPU VM'ler etkin işlem yoğunluklu, grafik yoğun ve görselleştirme iş yükleri için tasarlanmıştır. GPU listesini VM'ler etkin bulunabilir [burada](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
 GPU genellikle grafik yoğun gibi yoğun iş yükleri ve görselleştirme iş yükleri için gereklidir. Aşağıdaki başvuru [belge](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) iş yükü sağ VM boyutunu belirlemek için.
-En az bir boyutunu öneririz `Standard_NC6` , Azure kapsayıcı hizmeti (AKS) düğümleri için.
+En az bir boyutunu öneririz `Standard_NC6` Azure Kubernetes hizmet (AKS) düğümleri için.
 
 > [!NOTE]
 > GPU etkin VM'ler daha yüksek fiyatlandırma ve bölge kullanılabilirlik tabi olan özel bir donanım içerir. Daha fazla bilgi için bkz: [fiyatlandırma](https://azure.microsoft.com/pricing/) aracı ve [bölge kullanılabilirliği](https://azure.microsoft.com/global-infrastructure/services/) daha fazla bilgi için site.
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>GPU zamanlanabilir onaylayın
 
-GPU Kubernetes zamanlanabilir onaylamak için aşağıdaki komutları çalıştırın. 
+GPU Kubernetes zamanlanabilir onaylamak için aşağıdaki komutları çalıştırın.
 
 Geçerli düğüm listesi alınamadı.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Kullanım [kubectl oluşturma] [ kubectl-create] işi çalıştırmak için komutu. Bu komut, bildirim dosyasını ayrıştırır ve tanımlanmış Kubernetes nesnelerini oluşturur.

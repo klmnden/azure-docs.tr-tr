@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub cihaz çiftlerini (.NET/.NET) ile çalışmaya başlama | Microsoft Docs"
-description: "Azure IOT Hub cihaz çiftlerini etiket ekleyebilir ve IOT Hub sorgusuyla kullanmak için nasıl kullanılacağını. Sanal cihaz uygulamasının ve Azure IOT hizmeti SDK'sını etiketleri ekler ve IOT hub'ı sorgu çalışan bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın."
+title: Azure IOT Hub cihaz çiftlerini (.NET/.NET) ile çalışmaya başlama | Microsoft Docs
+description: Azure IOT Hub cihaz çiftlerini etiket ekleyebilir ve IOT Hub sorgusuyla kullanmak için nasıl kullanılacağını. Sanal cihaz uygulamasının ve Azure IOT hizmeti SDK'sını etiketleri ekler ve IOT hub'ı sorgu çalışan bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
 services: iot-hub
 documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: 6073d594117e69676b753a1e3af25fffa3583a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b337e463ac4aefd7e4644af4c2cdcad4f3c5300a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Cihaz çiftlerini (.NET/.NET) ile çalışmaya başlama
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -42,8 +42,6 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
-Bunun yerine cihaz kimliğini program aracılığıyla oluşturmak istiyorsanız, ilgili bölümünü okuyun [.NET kullanarak IOT hub'ınıza sanal Cihazınızı bağlamak] [ lnk-device-identity-csharp] makalesi.
 
 ## <a name="create-the-service-app"></a>Hizmet Uygulaması Oluştur
 Bu bölümde, konum meta verileri ile ilişkili cihaz çifti ekler (C# kullanarak) bir .NET konsol uygulaması oluşturma **myDeviceId**. Ardından, IOT hub'ı ABD, ardından bir cep telefonu bağlantı bildirilen olanları içinde bulunan aygıtları seçerek depolanan cihaz çiftlerini sorgular.
@@ -99,7 +97,7 @@ Bu bölümde, konum meta verileri ile ilişkili cihaz çifti ekler (C# kullanara
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
-1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **AddTagsAndQuery** projedir **Başlat**. Çözümü oluşturun.
+1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **AddTagsAndQuery** projedir **Başlat**. Çözümü derleyin.
 1. Üzerinde sağ tıklayarak bu uygulamayı çalıştırmak **AddTagsAndQuery** proje ve seçerek **hata ayıklama**, ardından **başlangıç yeni örnek**. Bulunan tüm cihazlar için sorgu soran bir cihazda sonuçlarında görmelisiniz **Redmond43** ve sonuçları bir cep telefonu şebekesi kullanan cihazlar için sınırlar sorgu için yok.
    
     ![Sorgu Sonuçları penceresinde][img-addtagapp]
@@ -187,7 +185,7 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
        Console.WriteLine("Press Enter to exit.");
        Console.ReadLine();
 
-1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **ReportConnectivity** projedir **Başlat**. Çözümü oluşturun.
+1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **ReportConnectivity** projedir **Başlat**. Çözümü derleyin.
 1. Üzerinde sağ tıklayarak bu uygulamayı çalıştırmak **ReportConnectivity** proje ve seçerek **hata ayıklama**, ardından **başlangıç yeni örnek**. Twin bilgi alma ve sonra bağlantı olarak gönderme görmelisiniz bir *özelliği bildirilen*.
    
     ![Rapor bağlantısı cihaz uygulamayı çalıştırma][img-rundeviceapp]

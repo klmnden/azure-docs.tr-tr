@@ -1,10 +1,26 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Nesnelerin interneti güvenlik sıfırdan
 
 Nesnelerin interneti (IOT) işletmelere dünya çapındaki benzersiz güvenlik, gizlilik ve uyumluluk sorunları doğurur. Bu sorunları yazılım ve nasıl uygulandığı burada Uzayda Döndür geleneksel siber teknolojisi farklı olarak, sanal ve fiziksel dünyaları yakınsama ne olur IOT ilgilidir. IOT çözümleri koruma cihazları, bu cihazlar ve Bulut ve işleme ve depolama sırasında bulutta güvenli veri koruması arasında güvenli bağlantı güvenli sağlanmasını sağlama gerektirir. Bu tür işlevselliği karşı çalışan, ancak, kaynak kısıtlı cihazları, dağıtımları coğrafi dağıtılması ve aygıtları bir çözüm içinde çok sayıda değildir.
 
-Bu makalede, Microsoft Azure IOT paketi güvenli ve özel bir nesnelerin interneti bulut çözümünün nasıl sağladığını araştırır. Azure IOT paketi eksiksiz bir uçtan uca çözüm sıfırdan her aşamada yerleşik güvenlik sunar. Microsoft, güvenli yazılım geliştirme Microsoft'un on yılları kökü yazılım mühendislik uygulama parçası olan uzun deneyimi güvenli yazılım geliştirme. Bu, güvenlik geliştirme yaşam döngüsü (SDL) bir ana bilgisayar işletimsel güvenlik güvencesi (OSA) ve Microsoft dijital Suçlar Birimi'nin, Microsoft Security Response Center ve Microsoft Malware Protection Center gibi altyapı düzeyinde güvenlik hizmetleri ile birlikte temel geliştirme metodolojisini sağlamaktır.
+Bu makalede IOT Çözüm Hızlandırıcıları güvenli ve özel bir nesnelerin interneti bulut çözümünün nasıl sağladığını açıklar. Çözüm Hızlandırıcıları eksiksiz bir uçtan uca çözüm sıfırdan her aşamada yerleşik güvenlik sunar. Microsoft, güvenli yazılım geliştirme Microsoft'un on yılları kökü yazılım mühendislik uygulama parçası olan uzun deneyimi güvenli yazılım geliştirme. Bu, güvenlik geliştirme yaşam döngüsü (SDL) bir ana bilgisayar işletimsel güvenlik güvencesi (OSA) ve Microsoft dijital Suçlar Birimi'nin, Microsoft Security Response Center ve Microsoft Malware Protection Center gibi altyapı düzeyinde güvenlik hizmetleri ile birlikte temel geliştirme metodolojisini sağlamaktır.
 
-Azure IOT paketi benzersiz özellikleri sağlama yapma, bağlanma ve IOT aygıtlardan kolay ve saydam veri depolama sunar ve en önemlisi, güvenli. Bu makale Azure IOT Paketi güvenlik özelliklerini inceler ve güvenlik, gizlilik ve uyumluluk sorunları emin olmak için dağıtım stratejilerini ele alınmıştır.
+Sağlama yapma, bağlanma ve IOT aygıtlardan kolay ve saydam veri depolama çözümü Hızlandırıcıları benzersiz özellikler sunar ve en önemlisi, güvenli. Bu makale Azure IOT Çözüm Hızlandırıcıları güvenlik özelliklerini inceler ve güvenlik, gizlilik ve uyumluluk sorunları emin olmak için dağıtım stratejilerini ele alınmıştır.
 
 ## <a name="introduction"></a>Giriş
 
@@ -26,17 +42,17 @@ Microsoft Azure tam bulut çözüm, sürekli büyüyen bir tümleşik bulut hizm
 
 Microsoft'un sistemleri sürekli izinsiz giriş algılama ve önleme, hizmet saldırı önleme, normal sızma test ve tanımlamak ve tehditlerin azaltılmasına yardımcı adli araçlar sağlar. [Çok faktörlü kimlik doğrulaması](../articles/active-directory/authentication/multi-factor-authentication.md) fazladan bir ağa erişmek son kullanıcılar için güvenlik katmanı sağlar. Ve Microsoft uygulaması ve ana bilgisayar sağlayıcısı için erişim denetimi, izleme, kötü amaçlı yazılım, güvenlik açığı taraması, düzeltme ekleri ve yapılandırma yönetimi sunar.
 
-Microsoft Azure IOT paketi için güvenlik ve gizlilik Azure platformu SDL ve OSA işlemleri için güvenli geliştirme ve tüm Microsoft yazılım işlemi ile birlikte yerleşik yararlanır. Bu yordamları altyapı koruma, ağ koruması ve herhangi bir çözüm güvenlik için temel kimlik ve yönetim özellikleri sağlar.
+Çözüm Hızlandırıcıları için güvenlik ve gizlilik Azure platformu SDL ve OSA işlemleri için güvenli geliştirme ve tüm Microsoft yazılım işlemi ile birlikte yerleşik yararlanın. Bu yordamları altyapı koruma, ağ koruması ve herhangi bir çözüm güvenlik için temel kimlik ve yönetim özellikleri sağlar.
 
-[Azure IOT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) içinde [IOT paketi](../articles/iot-suite/iot-suite-what-is-azure-iot.md) gibi IOT cihazları ve Azure hizmetleri arasında güvenilir ve güvenli çift yönlü iletişim sağlayan tam olarak yönetilen bir hizmet sunar [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) ve [Azure akış analizi](../articles/stream-analytics/stream-analytics-introduction.md) cihaz başına güvenlik kimlik ve erişim denetimi kullanarak.
+[Azure IOT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) içinde [IOT Çözüm Hızlandırıcıları](../articles/iot-suite/iot-suite-what-is-azure-iot.md) gibi IOT cihazları ve Azure hizmetleri arasında güvenilir ve güvenli çift yönlü iletişim sağlayan tam olarak yönetilen bir hizmet sunar [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) ve [Azure akış analizi](../articles/stream-analytics/stream-analytics-introduction.md) cihaz başına güvenlik kimlik ve erişim denetimi kullanarak.
 
-En iyi güvenlik ve gizlilik özellikleri Azure IOT paketine yerleşik iletişim kurmak için bu makalede üç birincil güvenlik alanları pakete aşağı keser.
+En iyi güvenlik ve gizlilik özellikleri Azure IOT Çözüm Hızlandırıcıları yerleşik iletişim kurmak için bu makalede üç birincil güvenlik alanları pakete aşağı keser.
 
-![Azure IoT Paketi](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Azure IoT çözüm hızlandırıcıları](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Güvenli aygıt sağlama ve kimlik doğrulama
 
-Azure IOT paketi çıkışı alanında IOT altyapısı tarafından çalışıyorken aygıtla iletişim kurmak için kullanılan her aygıt için benzersiz kimlik anahtarı sağlayarak oldukları sırada cihazların güvenliğini sağlar. Hızlı ve kolay kurulum işlemidir. Oluşturulan anahtarı bir kullanıcı tarafından seçilen cihaz kimliği ile Azure IOT hub'ı ile cihaz arasındaki tüm iletişimi kullanılan belirtecin temelini oluşturur.
+Out alanında IOT altyapısı tarafından çalışıyorken aygıtla iletişim kurmak için kullanılan her aygıt için benzersiz kimlik anahtarı sağlayarak oldukları sırada Çözüm Hızlandırıcıları aygıtları güvenliğini sağlayın. Hızlı ve kolay kurulum işlemidir. Oluşturulan anahtarı bir kullanıcı tarafından seçilen cihaz kimliği ile Azure IOT hub'ı ile cihaz arasındaki tüm iletişimi kullanılan belirtecin temelini oluşturur.
 
 Cihaz kimlikleri (yani bir donanım güven modülünde Flash yazma ile yüklenen olan) üretim sırasında bir aygıtla ilişkili olabilir veya mevcut bir proxy (örneğin CPU seri numaraları) kimlik sabit kullanabilirsiniz. Bu tanımlayıcı bilgileri aygıtın değiştirme basit olmadığından, temel alınan aygıt Donanım değişikliklerini ancak mantıksal aygıt kalır durumda aynı mantıksal aygıt kimlikleri tanıtmak önemlidir. Bazı durumlarda, bir cihaz kimliği ilişkisini aygıt dağıtım sırasında olabilir (örneğin, kimliği doğrulanmış alan mühendisin fiziksel olarak yeni bir cihaz çözüm arka ucuyla iletişim kurulurken yapılandırır). [Azure IOT Hub kimlik kayıt defteri](../articles/iot-hub/iot-hub-devguide.md) cihaz kimliklerini ve güvenlik anahtarlarını bir çözüm için güvenli olarak depolanmasını sağlar. Tek tek veya grup cihaz kimlikleri bir izin verilenler listesi veya Engellenenler listesi, cihaz erişimi üzerinde tam denetimi etkinleştirme eklenebilir.
 
@@ -64,9 +80,9 @@ Ek bağlantı güvenlik özellikleri içerir:
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>İşleme ve depolama bulutta güvenli
 
-Şifrelenmiş iletişimlerinden bulutta veriler işlenirken Azure IOT paketi, verileri güvenli tutmaya yardımcı olur. Ek şifreleme ve güvenlik anahtar yönetimi uygulamak için esneklik sağlar.
+Şifrelenmiş iletişimlerinden bulutta veriler işlenirken Çözüm Hızlandırıcıları verilerinin güvende tutulmasına yardımcı olur. Ek şifreleme ve güvenlik anahtar yönetimi uygulamak için esneklik sağlar.
 
-Kullanıcı kimlik doğrulaması ve yetkilendirme için Azure Active Directory (AAD) kullanarak, Azure IOT paketi bir ilke tabanlı bir yetkilendirme modeli için verileri bulutta, denetlenen ve gözden kolay erişim yönetimini etkinleştirme sağlayabilirsiniz. Bu model, ayrıca neredeyse anında iptal bulut veri erişimi ve Azure IOT paketi bağlı aygıtları sağlar.
+Kullanıcı kimlik doğrulaması ve yetkilendirme için Azure Active Directory (AAD) kullanarak Azure IOT Çözüm Hızlandırıcıları bulutta, denetlenen ve gözden kolay erişim yönetimini etkinleştirme verileri için bir ilke tabanlı bir yetkilendirme modeli sağlayabilir. Bu model, ayrıca neredeyse anında iptal bulut veri erişimi ve Azure IOT Çözüm Hızlandırıcıları için bağlı aygıtlar sağlar.
 
 Verileri bulutta eklendiğinde, işlenen ve hiçbir kullanıcı tarafından tanımlanan iş akışı içinde depolanır. Her veri parçası için erişim Azure Active Directory ile kullanılan depolama hizmeti bağlı olarak denetlenir.
 
@@ -76,11 +92,11 @@ IOT altyapısı tarafından kullanılan tüm anahtarları anahtarları sağlama 
 
 Nesnelerin interneti, olguları başlatır — işletmeler için en önemli noktalar. IOT inanılmaz değeri maliyetlerini azaltma gelir artırma ve iş dönüştürme için bir iş sunabilir. Bu dönüşüm başarısını büyük ölçüde sağ IOT yazılım ve hizmet sağlayıcısı seçme bağlıdır. Yalnızca bu dönüşüm anlama iş gereksinimlerine göre catalyzes, ancak Ayrıca, hizmetleri ve güvenlik, gizlilik, saydamlık ve önemli tasarım konuları olarak uyum ile oluşturulan yazılım sağlar bir sağlayıcı bulma anlamına gelir. Microsoft geliştirme ve güvenli yazılım ve Hizmetleri dağıtma ile geniş kapsamlı deneyimlerden ve öncü bu yeni nesnelerin interneti geçerlilik süresi içinde olacak şekilde devam eder.
 
-Microsoft Azure IOT paketi, güvenli varlıkları verimliliği, yenilik etkinleştirmek ve işletmeler dönüştürmek için Gelişmiş veri analizi kullanımlar için sürücü işletimsel performansı artırmak için izlemeyi etkinleştirme, tasarım gereği, güvenlik önlemleri oluşturur. Güvenlik, birden çok güvenlik özellikleri ve tasarım desenleri doğrultusunda, katmanlı yaklaşımın ile Azure IOT paketi herhangi bir işletme dönüştürmek için güvenilen bir altyapıyı yardımcı olur.
+Çözüm Hızlandırıcıları işletmeler dönüştürmek için güvenli, verimliliklerini varlıklar izlemeyi etkinleştirme tasarım gereği, sürücü işletimsel performansı yenilik etkinleştirmek ve gelişmiş veri analizi kullanımlar için güvenlik önlemleri oluşturun. Güvenlik, birden çok güvenlik özellikleri ve tasarım desenleri doğrultusunda, katmanlı yaklaşımın ile Çözüm Hızlandırıcıları herhangi bir işletme dönüştürmek için güvenilen bir altyapı dağıtımına yardımcı olur.
 
 ## <a name="additional-information"></a>Ek bilgiler
 
-Her Azure IOT paketi önceden yapılandırılmış çözümü Azure Hizmetleri örneklerini gibi oluşturur:
+Her Çözüm Hızlandırıcısı gibi Azure hizmetlerini örneklerini oluşturur:
 
 * [**Azure IOT Hub**](https://azure.microsoft.com/services/iot-hub/): Bulut aygıtına bağlayan ağ geçidiniz. Hub ve işlem büyük miktarda veriyi başına bağlantı milyonlarca cihaz başına kimlik doğrulama desteği çözümünüzün güvenliğini sağlamanıza yardımcı ölçeklendirebilirsiniz.
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): cihazlar için meta verileri yönetir yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizine veritabanı hizmeti, öznitelikler, yapılandırma ve güvenlik özellikleri gibi sağlamanız. Azure Cosmos DB yüksek performanslı ve yüksek verimlilik işleme, veri ve zengin bir SQL sorgu arabirimi şema belirsiz dizin sunar.

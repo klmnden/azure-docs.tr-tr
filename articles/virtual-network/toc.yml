@@ -46,7 +46,7 @@
     - name: Azure hizmetleri için sanal ağ
       href: virtual-network-for-azure-services.md
     - name: Kapsayıcı ağ iletişimi
-      href: container-networking.md
+      href: ../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: İş sürekliliği
       href: virtual-network-disaster-recovery-guidance.md
     - name: IP adresi

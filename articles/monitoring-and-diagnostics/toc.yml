@@ -65,14 +65,20 @@
           href: insights-alerts-command-line-interface.md
         - name: Azure PowerShell ile klasik uyarıları yapılandırma
           href: insights-alerts-powershell.md
+        - name: Klasik bir ölçüm uyarısının bir web kancasını çağırmasını sağlama
+          href: insights-webhooks-alerts.md
         - name: Günlük uyarıları için web kancası eylemleri
           href: monitor-alerts-unified-log-webhook.md
+        - name: Resource Manager şablonu ile günlük uyarısı oluşturma
+          href: monitor-alerts-unified-log-template.md
         - name: Resource Manager şablonu ile daha yeni bir ölçüm uyarısı oluşturma
           href: monitoring-create-metric-alerts-with-templates.md
         - name: Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
           href: monitoring-enable-alerts-using-template.md
         - name: Uyarıları OMS portalından Azure portalına kopyalama
           href: monitoring-alerts-extend-tool.md
+        - name: Dinamik eşikler ile uyarılar
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: Eylem gruplarını uyarılarla kullanma
       items:
         - name: Web kancası şeması hakkında bilgi edinme
@@ -83,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: Resource Manager ile eylem grupları oluşturma
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Bir Mantıksal Uygulama eylemi gerçekleştirme
+          href: monitoring-action-groups-logic-app.md
     - name: Tanılama günlüklerini kullanma
       items:
         - name: Arşiv
@@ -123,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: Azure Tanılama uzantısı kullanma
       items:
+        - name: Azure Depolama’ya gönderme
+          href: azure-diagnostics-storage.md
         - name: Application Insights’a gönderme
           href: azure-diagnostics-configure-application-insights.md
         - name: Event Hubs’a gönderme
@@ -173,6 +183,13 @@
       href: monitoring-activity-log-schema.md
     - name: Azure Tanılama uzantı şeması
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 ve üzeri
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

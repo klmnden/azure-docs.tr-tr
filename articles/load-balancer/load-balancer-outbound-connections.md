@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantılar
 
@@ -40,11 +40,11 @@ Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiğin
 
 Azure yük dengeleyici ve ilgili kaynakları açıkça tanımlanmış kullanırken [Azure Resource Manager](#arm).  Azure şu anda Azure Resource Manager kaynakları için giden bağlantı ulaşmak için üç farklı yöntem sağlar. 
 
-| Senaryo | Yöntem | Açıklama |
-| --- | --- | --- |
-| [1. Örnek düzeyinde ortak IP adresi (ile veya yük dengeleyici olmadan) olan VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor |Azure örneğin NIC IP yapılandırması için atanan ortak IP kullanır Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. |
-| [2. Bir VM'yi (örneği üzerinde örnek düzeyinde ortak IP adres yok) ile ilişkili ortak yük dengeleyici](#lb) | Yük Dengeleyici ön uçlar bağlantı noktası (PAT) maskelemeyi ile SNAT kullanma |Azure ortak yük dengeleyici ön uçlar genel IP adresi ile birden çok özel IP adresleri paylaşır. Azure PAT için ön uçlar kısa ömürlü bağlantı noktalarını kullanır. |
-| [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | Azure otomatik olarak snat Uygulamanız için bir ortak IP adresi atar, bu ortak IP adresi birden fazla özel IP adreslerini kullanılabilirlik kümesi ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryoları için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu yapmanız önerilmez. |
+| Senaryo | Yöntem | IP protokolleri | Açıklama |
+| --- | --- | --- | --- |
+| [1. Örnek düzeyinde ortak IP adresi (ile veya yük dengeleyici olmadan) olan VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP, ICMP, ESP | Azure örneğin NIC IP yapılandırması için atanan ortak IP kullanır Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. |
+| [2. Bir VM'yi (örneği üzerinde örnek düzeyinde ortak IP adres yok) ile ilişkili ortak yük dengeleyici](#lb) | Yük Dengeleyici ön uçlar bağlantı noktası (PAT) maskelemeyi ile SNAT kullanma | TCP VE UDP |Azure ortak yük dengeleyici ön uçlar genel IP adresi ile birden çok özel IP adresleri paylaşır. Azure PAT için ön uçlar kısa ömürlü bağlantı noktalarını kullanır. |
+| [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP VE UDP | Azure otomatik olarak snat Uygulamanız için bir ortak IP adresi atar, bu ortak IP adresi birden fazla özel IP adreslerini kullanılabilirlik kümesi ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryoları için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu yapmanız önerilmez. |
 
 Azure ortak IP adres alanındaki dışında uç noktalar ile iletişim kurmak için bir VM istemiyorsanız, gerektiğinde erişimi engellemek için ağ güvenlik grupları (Nsg'ler) kullanabilirsiniz. Bölüm [giden bağlantıyı engelliyor](#preventoutbound) Nsg'ler daha ayrıntılı olarak anlatılmaktadır. Tasarım Kılavuzu, uygulama, herhangi bir giden erişim olmadan bir sanal ağ yönetme bu makalenin kapsamı dışındadır ise.
 
@@ -243,7 +243,7 @@ Bir NSG'yi sistem durumu araştırma AZURE_LOADBALANCER varsayılan etiket istek
 
 ## <a name="limitations"></a>Sınırlamalar
 - Bir Yük Dengeleme kuralı portalında yapılandırırken DisableOutboundSnat bir seçenek olarak kullanılabilir değil.  REST, şablonu veya istemci araçlarını kullanın.
-- Yalnızca bir iç standart yük dengeleyici nasıl gelen bir yan etkisi nedeniyle kullanıldığında, Web çalışanı rolleri bir sanal ağ dışında erişilebilir olabilir öncesi VNet Hizmetleri işlevi. Hayır bu ilgili hizmet olarak kendisine veya arka plandaki dayanması gerekir platform bildirilmeksizin değişebilir. Her zaman bir iç standart yük dengeleyici yalnızca kullanırken isterseniz giden bağlantı açıkça oluşturmanıza gerek varsayalım gerekir. 
+- Yalnızca bir iç standart yük dengeleyici öncesi VNet Hizmetleri ve diğer platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle kullanıldığında, web çalışanı rolleri VNet ve diğer Microsoft platform hizmetlerinin olmadan erişilebilir. İlgili hizmet kendisini veya temel olarak, bu yan etkisi kalmamanız gerekir platform bildirilmeksizin değişebilir. Her zaman bir iç standart yük dengeleyici yalnızca kullanırken isterseniz giden bağlantı açıkça oluşturmanıza gerek varsayalım gerekir. [SNAT varsayılan](#defaultsnat) senaryo bu makalede açıklanan 3 kullanılabilir değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

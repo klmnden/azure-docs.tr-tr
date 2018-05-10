@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>SAP HANA Azure sanal makinelerde (VM), yüksek kullanılabilirlik
 
@@ -319,7 +319,7 @@ SAP HANA sistem çoğaltma yüklemek için Bölüm 4 SAP HANA SR performansı en
     * Yükleme -> için 1 ek bileşenleri seçin
     * Yükleme yolu [paylaşılan / hana /] girin: ENTER ->
     * Yerel ana bilgisayar adı [.] girin: ENTER ->
-    * Ek ana bilgisayar sistemine eklemek istiyor musunuz? (y/n) [n]: -> ENTER
+    * Ek ana bilgisayar sistemine eklemek istiyor musunuz? (e/h) [n]: ENTER ->
     * SAP HANA sistem Kimliğini girin: <SID of HANA e.g. HN1>
     * Örnek [00] girin:   
   HANA örneği sayısı. Azure şablonu kullanılan ya da el ile dağıtım ve ardından 03 kullanın
@@ -502,7 +502,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    
    sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
    
-   sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 2000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
+   sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
      msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
    
    sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \

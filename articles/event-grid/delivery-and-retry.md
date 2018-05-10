@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Olay kılavuz ileti teslimi ve yeniden deneyin 
 
@@ -35,7 +35,7 @@ Aşağıdaki HTTP yanıt kodları, bir olay, Web kancası başarıyla teslim old
 
 ### <a name="failure-codes"></a>Hata kodları
 
-Aşağıdaki HTTP yanıt kodları, bir olay teslim girişimi başarısız olduğunu gösterir. Olay kılavuz olay göndermek yeniden çalışır. 
+Aşağıdaki HTTP yanıt kodları, bir olay teslim girişimi başarısız olduğunu gösterir. 
 
 - 400 Hatalı istek
 - 401 Yetkisiz
@@ -46,9 +46,9 @@ Aşağıdaki HTTP yanıt kodları, bir olay teslim girişimi başarısız olduğ
 - 503 Hizmet Kullanılamıyor
 - 504 Ağ Geçidi Zaman Aşımı
 
-Diğer bir yanıt kodu veya bir yanıt eksikliği hata gösterir. Olay kılavuz teslim yeniden dener. 
+Olay kılavuz uç noktası kullanılamıyor belirten bir hata alırsa, olay göndermek yeniden çalışır. 
 
-## <a name="retry-intervals"></a>Aralıkları yeniden deneyin
+## <a name="retry-intervals-and-duration"></a>Yeniden deneme aralıkları ve süresi
 
 Olay kılavuz üstel geri alma yeniden deneme ilkesi olay teslimi için kullanır. Web kancası yanıt vermiyor veya bir hata kodu döndürüyor, olay kılavuz şu zamanlamaya göre teslim yeniden deneme:
 
@@ -62,9 +62,7 @@ Olay kılavuz üstel geri alma yeniden deneme ilkesi olay teslimi için kullanı
 
 Olay kılavuz, küçük rasgele tüm yeniden deneme aralıkları ekler. Bir saat sonra saatte bir olay teslimi denenir.
 
-## <a name="retry-duration"></a>Süre yeniden deneyin
-
-Azure olay kılavuz 24 saat içinde teslim edilmedi tüm olayları süresi dolar.
+Varsayılan olarak, 24 saat içinde teslim edilmedi tüm olayları olay kılavuz süresi dolar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

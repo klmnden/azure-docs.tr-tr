@@ -1,7 +1,7 @@
 ---
 title: Uzaktan izleme Node.js - Azure içinde aygıtlara sağlamak | Microsoft Docs
-description: Node.js içinde yazılmış bir uygulaması kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümü bir aygıt bağlanmaya açıklar.
-services: ''
+description: Node.js içinde yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı bir aygıt bağlanmaya açıklar.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: df89150867a3c95116ba8ca8cd684af4b32a36de
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0edc2d71d5f2ceac9c631fedaa160ca7291e9d6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Cihazınızı Uzaktan izleme önceden yapılandırılmış çözümü (Node.js) bağlanma
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Cihazınızı Uzaktan izleme Çözüm Hızlandırıcısı için (Node.js) bağlanma
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme önceden yapılandırılmış çözümü bağlanmak nasıl gösterir. Bu öğreticide, en az kaynak kısıtlamaları ortamlar için iyi bir seçenek olan Node.js kullanın.
+Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir. Bu öğreticide, en az kaynak kısıtlamaları ortamlar için iyi bir seçenek olan Node.js kullanın.
 
 ## <a name="create-a-nodejs-solution"></a>Bir Node.js çözümü oluşturma
 
@@ -175,7 +175,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
 
 1. İşlemek için aşağıdaki işlevi ekleyin **FirmwareUpdate** doğrudan çözümden yöntem çağrıları. İşlev doğrudan yöntemi yükünde geçirilen parametreler doğrular ve bellenim güncelleştirme benzetimi zaman uyumsuz olarak çalışır:
 
-    ```node.js
+    ```nodejs
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -204,7 +204,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
 
 1. İlerleme durumu geri çözüme raporları bir uzun süre çalışan bellenim güncelleştirme akış benzetimini yapmak için aşağıdaki işlevi ekleyin:
 
-    ```node.js
+    ```nodejs
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -282,7 +282,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
 
 1. Çözüme telemetri verileri göndermek için aşağıdaki kodu ekleyin. İstemci uygulama ileti şeması tanımlamak için iletiye özellikleri ekler:
 
-    ```node.js
+    ```nodejs
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();

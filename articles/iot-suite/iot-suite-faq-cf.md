@@ -1,13 +1,13 @@
 ---
-title: "Fabrika çözüm SSS - Azure bağlı | Microsoft Docs"
-description: "IOT paketi bağlı fabrikası için sık sorulan sorular"
-services: 
+title: Fabrika çözüm SSS - Azure bağlı | Microsoft Docs
+description: Bağlı Fabrika Çözüm Hızlandırıcısı için sık sorulan sorular
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IOT paketi bağlı fabrikası için sık sorulan sorular önceden yapılandırılmış çözümü
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika Çözüm Hızlandırıcısı için sık sorulan sorular
 
-Ayrıca bkz.: Genel [SSS](iot-suite-faq.md) IOT paketi için.
+Ayrıca bkz.: Genel [SSS](iot-suite-faq.md) IOT Çözüm Hızlandırıcıları için.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>Önceden yapılandırılmış çözüm için kaynak kodunu nereden bulabilirim?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Çözüm Hızlandırıcısı için kaynak kodunu nereden bulabilirim?
 
 Kaynak kodu aşağıdaki GitHub deposunda depolanır:
 
-* [Bağlı Fabrika önceden yapılandırılmış çözümü](https://github.com/Azure/azure-iot-connected-factory)
+* [Bağlı Fabrika Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>OPC UA nedir?
 
 OPC birleşik mimarisi (2008'de serbest UA), bir platformdan bağımsız, hizmet odaklı birlikte çalışabilirlik standart ' dir. OPC UA çeşitli endüstriyel sistemleri ve cihazların endüstri PC'ler, PLC ve algılayıcılar gibi tarafından kullanılır. OPC UA OPC Klasik belirtimleri işlevselliğini bir Genişletilebilir Framework'e yerleşik güvenlik ile tümleşir. OPC Foundation tarafından yönetilen bir standarttır. [OPC Foundation](http://opcfoundation.org/) kar için not kuruluşunuzun birden fazla 440 üyelere sahip. Kuruluş amacı çok satıcı, çok platformlu, güvenli ve güvenilir birlikte çalışabilirliği aracılığıyla kolaylaştırmak için OPC belirtimleri kullanmaktır:
 
 * Altyapı
-* Belirtimleri
+* Belirtimler
 * Teknoloji
 * İşlemler
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Neden Microsoft OPC UA bağlı Fabrika önceden yapılandırılmış çözümü seçin?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Neden Microsoft OPC UA seçebilir ve bu da için Fabrika bağlı Çözüm Hızlandırıcısı?
 
 Bir açık, olmayan-özel, platform bağımsız, endüstri tanınan ve kanıtlanmış standart olduğu için Microsoft OPC UA seçtiniz. Geniş bir üretim işlemleri kümesi ile donanım arasında birlikte çalışabilirlik sağlama Industrie 4.0 (RAMI4.0) başvuru mimarisi çözümleri için gerekli değildir. Microsoft, müşterilerinin Industrie 4.0 çözümleri oluşturmak üzere talep görür. OPC UA desteği engel müşterilerin hedeflerine ulaşması alt yardımcı olur ve onları hemen iş değerine sağlar.
 
@@ -74,7 +74,7 @@ Www.azureiotsuite.com çözümden dağıttıysanız VM oturum açamaz. ' De, ç�
 1. Kullanılacak kullanıcı adı: `docker`.
 1. Kullanılacak parolayı dağıtmak için kullanılan sürümüne bağlıdır:
     * 1 Haziran 2017 önce build.ps1 komut dosyası kullanılarak dağıtılan çözümleri için bir paroladır: `Passw0rd`.
-    * 1 Haziran 2017 sonra build.ps1 komut dosyası kullanılarak dağıtılan çözümleri için parolayı bulabilirsiniz `<name of your deployment>.config.user` dosya. Parola depolanan **VmAdminPassword** ayarı. Kullanarak belirtmediğiniz sürece parolayı rastgele dağıtım sırasında oluşturulan `build.ps1` parametresi komut dosyası`-VmAdminPassword`
+    * 1 Haziran 2017 sonra build.ps1 komut dosyası kullanılarak dağıtılan çözümleri için parolayı bulabilirsiniz `<name of your deployment>.config.user` dosya. Parola depolanan **VmAdminPassword** ayarı. Kullanarak belirtmediğiniz sürece parolayı rastgele dağıtım sırasında oluşturulan `build.ps1` parametresi komut dosyası `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Nasıl durdurun ve tüm docker işlemleri benzetimi VM başlatma?
 
@@ -104,14 +104,14 @@ Azure Portalı'nı kullanarak bağlantı dizesini de bulabilirsiniz. Kaynak grub
 
 Benzetim self aşağıdaki cihazları kaydeder:
 
-* proxy.beijing.corp.contoso
-* proxy.capetown.corp.contoso
-* proxy.mumbai.corp.contoso
-* proxy.munich0.corp.contoso
-* proxy.rio.corp.contoso
+* Proxy.Beijing.corp.contoso
+* Proxy.capetown.corp.contoso
+* Proxy.Mumbai.corp.contoso
+* Proxy.munich0.corp.contoso
+* Proxy.Rio.corp.contoso
 * proxy.seattle.corp.contoso
-* publisher.beijing.corp.contoso
-* publisher.capetown.corp.contoso
+* Publisher.Beijing.corp.contoso
+* Publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
 * publisher.munich0.corp.contoso
 * publisher.rio.corp.contoso
@@ -135,8 +135,8 @@ Alternatif olarak VM SSH aracılığıyla oturum açın ve çalışma zamanında
 
 Yayımcı aygıtlardan biri tarafından gönderilen verileri inceleyin:
 
-* publisher.beijing.corp.contoso
-* publisher.capetown.corp.contoso
+* Publisher.Beijing.corp.contoso
+* Publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
 * publisher.munich0.corp.contoso
 * publisher.rio.corp.contoso
@@ -150,7 +150,7 @@ Etkileşimli bir harita bağlı Fabrika çözümünüzdeki etkinleştirmek için
 
 Gelen dağıtırken [www.azureiotsuite.com](http://www.azureiotsuite.com), dağıtım işlemi aboneliğiniz Kurumsal planı için etkinleştirilmiş bir Bing haritaları API'si sahiptir ve etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtan doğrular. Bu durumda değilse, hala etkileşimli bir harita dağıtımınızda şu şekilde etkinleştirebilirsiniz:
 
-Dağıttığınızda kullanarak `build.ps1` GitHub deposunu bağlı fabrikada komut dosyası ve kurumsal planı için Bing haritaları API'si sahip, ortam değişkeni `$env:MapApiQueryKey` sorgu anahtarı planınız için derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
+Dağıttığınızda kullanarak `build.ps1` betik bağlı Fabrika github depo ve kurumsal planı için Bing haritaları API'si sahip, ortam değişkeni `$env:MapApiQueryKey` sorgu anahtarı planınız için derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
 
 Kurumsal planı için Bing haritaları API'si yoksa, bağlı Fabrika çözümden dağıtmak [www.azureiotsuite.com](http://www.azureiotsuite.com) veya kullanarak `build.ps1` komut dosyası. Daha sonra kurumsal planı için Bing haritaları API'si açıklandığı gibi aboneliğinize eklediğiniz [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Açıklandığı gibi bu hesabın sorgu anahtarını arayın [Kurumsal QueryKey için Bing haritaları API'nizi edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtar kaydedin. Azure Portalı'na gidin ve bağlı Fabrika dağıtımınızdaki uygulama hizmeti kaynağa erişim. Gidin **uygulama ayarları**, bir bölümü nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** aldığınız sorgu anahtarı. Ayarları kaydetmek ve ardından gidin **genel bakış** ve uygulama hizmetini yeniden başlatın.
 
@@ -182,7 +182,7 @@ Yerel olarak hata ayıklarken etkileşimli harita etkinleştirmek için ayarın 
 
 Pano giriş sayfası GÇ gösterilen statik görüntü değiştirmek için görüntünün yerini `WebApp\Content\img\world.jpg`. Daha sonra yeniden oluşturun ve WebApp yeniden dağıtın.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Bağlı factory ile nasıl olmayan OPC UA cihazlar kullanıyor?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Bağlı Fabrika ile nasıl olmayan OPC UA cihazlar kullanıyor?
 
 Telemetri verileri olmayan OPC UA aygıtları bağlı Fabrika göndermek için:
 
@@ -204,14 +204,14 @@ Telemetri verileri olmayan OPC UA aygıtları bağlı Fabrika göndermek için:
     ]
     ```
 
-1. Biçimi `<timestamp>` değil:`2017-12-08T19:24:51.886753Z`
+1. Biçimi `<timestamp>` değil: `2017-12-08T19:24:51.886753Z`
 
-1. Bağlı Fabrika uygulama hizmeti yeniden başlatın.
+1. Bağlı Fabrika uygulama hizmetini yeniden başlatın.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+Ayrıca bazı başka özelliklerini ve yeteneklerini IOT Çözüm Hızlandırıcıları da gözden geçirebilirsiniz:
 
-* [Önceden yapılandırılmış Tahmine dayalı bakım çözümüne genel bakış](iot-suite-predictive-overview.md)
-* [Önceden yapılandırılmış bağlı Fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
+* [Tahmine dayalı bakım Çözüm Hızlandırıcısı genel bakış](iot-suite-predictive-overview.md)
+* [Bağlı Fabrika Çözüm Hızlandırıcısı genel bakış](iot-suite-connected-factory-overview.md)
 * [IOT güvenlik sıfırdan](securing-iot-ground-up.md)

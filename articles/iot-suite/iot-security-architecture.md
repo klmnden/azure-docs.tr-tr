@@ -1,12 +1,12 @@
 ---
-title: "IOT güvenlik mimarisi | Microsoft Docs"
-description: "IOT güvenlik mimarisi yönergeleri ve ilgili önemli noktalar"
-services: 
+title: IOT güvenlik mimarisi | Microsoft Docs
+description: IOT güvenlik mimarisi yönergeleri ve ilgili önemli noktalar
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 18ed3eb0-9406-44e1-8a3a-93dc6726c7ac
 ms.service: iot-suite
 ms.devlang: na
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: a1000fb64b614a0393406fb6227922ed85e54406
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 362f21ad80de3cc9f95fec3c7b4399923567f17f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
 IOT çözümünüzün güvenliğini sağlama hakkında daha fazla bilgi için bkz: [, IOT dağıtımınızın güvenliğini][lnk-security-deployment].
 
-Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+Ayrıca bazı başka özelliklerini ve yeteneklerini IOT Çözüm Hızlandırıcıları da gözden geçirebilirsiniz:
 
-* [Önceden yapılandırılmış Tahmine dayalı bakım çözümüne genel bakış][lnk-predictive-overview]
-* [IoT Paketi için sık sorulan sorular][lnk-faq]
+* [Tahmine dayalı bakım Çözüm Hızlandırıcısı genel bakış][lnk-predictive-overview]
+* [IOT Çözüm Hızlandırıcıları için sık sorulan sorular][lnk-faq]
 
 IOT hub'ı güvenlik konusunda okuyabilirsiniz [IOT Hub'ına erişim denetim] [ lnk-devguide-security] IOT Hub Geliştirici Kılavuzu'nda.
 

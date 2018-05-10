@@ -1,229 +1,354 @@
 ---
 title: İş akışı tetikleyiciler ve Eylemler - Azure Logic Apps | Microsoft Docs
-description: Tetikleyiciler ve logic apps ile otomatik iş akışları ve işlemleri oluşturmak için Eylemler hakkında bilgi edinin
+description: Tetikleyiciler ve Eylemler Azure mantıksal uygulamaları için iş akışı tanımları hakkında bilgi edinin
 services: logic-apps
-author: divyaswarnkar
-manager: anneta
+author: kevinlam1
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 10/13/2017
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: reference
+ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="triggers-and-actions-for-logic-app-workflows"></a>Tetikleyiciler ve Eylemler mantığı uygulama iş akışları için
+# <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Tetikleyiciler ve Eylemler Azure Logic Apps içinde iş akışı tanımları
 
-Tüm mantıksal uygulamalar eylemleri tarafından izlenen bir tetikleyici ile başlayın. Bu makalede, tetikleyiciler ve sistem tümleştirmeler oluşturma ve logic apps oluşturarak iş iş akışları veya işlemleri otomatikleştirmek için kullanabileceğiniz eylemleri türleri açıklanmaktadır. 
-  
-## <a name="triggers-overview"></a>Tetikleyiciler genel bakış 
+İçinde [Azure Logic Apps](../logic-apps/logic-apps-overview.md), Tetikleyicileri eylemleri tarafından izlenen tüm mantığı uygulama iş akışları başlayın. Bu makalede tetikleyiciler ve otomatik otomatikleştirme iş iş akışları veya tümleştirme çözümleri işlemlerin mantıksal uygulamalar oluşturmak için kullanabileceğiniz eylemleri açıklar. Logic apps Logic Apps Tasarımcısı ile görsel olarak ya da temel iş akışı tanımları ile doğrudan yazarak yapı [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md). Azure portal ya da Visual Studio kullanabilirsiniz. Bilgi nasıl [works tetikleyiciler ve Eylemler için fiyatlandırma](../logic-apps/logic-apps-pricing.md).
 
-Tüm mantıksal uygulamaları çalıştırmak bir mantıksal uygulama başlatabilirsiniz çağrıları belirten bir tetikleyici ile başlayın. Kullanabileceğiniz tetikleyici türleri şunlardır:
+<a name="triggers-overview"></a>
+
+## <a name="triggers-overview"></a>Tetikleyiciler genel bakış
+
+Tüm mantıksal uygulamalar oluşturmak ve bir mantıksal uygulama iş akışı başlatmalarını çağrıları tanımlayan bir tetikleyici ile başlayın. Kullanabileceğiniz tetikleyici türleri şunlardır:
 
 * A *yoklama* düzenli aralıklarla bir hizmetin HTTP uç noktası denetler tetikleyici
 * A *itme* tetiklemek, çağıran [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows)
-  
-Tüm Tetikleyicileri bu üst düzey öğeleri içerir:  
+ 
+Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri tüm Tetikleyicileri vardır:  
   
 ```json
-"<myTriggerName>": {
-    "type": "<triggerType>",
-    "inputs": { <callSettings> },
-    "recurrence": {  
-        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-        "interval": "<recurrence-interval-based-on-frequency>"
-    },
-    "conditions": [ <array-with-required-conditions> ],
-    "splitOn": "<property-used-for-creating-runs>",
-    "operationOptions": "<options-for-operations-on-the-trigger>"
+"<triggerName>": {
+   "type": "<triggerType>",
+   "inputs": { "<trigger-behavior-settings>" },
+   "recurrence": { 
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "conditions": [ <array-with-required-conditions> ],
+   "splitOn": "<property-used-for-creating-runs>",
+   "operationOptions": "<optional-trigger-operations>"
 }
 ```
 
-## <a name="trigger-types-and-inputs"></a>Tetikleyici türleri ve girişleri  
+*Gerekli*
 
-Her tetikleyici türünün farklı bir arabirim vardır ve farklı *girişleri* davranışını tanımlar. 
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| <*tetikleyiciadı*> | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici yazın, örneğin: "Http" veya "ApiConnection" | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
+| frequency | Dize | Ne sıklıkta tetiği harekete açıklar zaman biriminin: "Saniye", "dakika", "Saat", "Gün", "Hafta" veya "Ay" | 
+| interval | Tamsayı | Ne sıklıkta tetiği harekete açıklar pozitif bir tamsayı sıklığı temel alarak. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
+|||| 
+
+*İsteğe bağlı*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| [Koşullar](#trigger-conditions) | Dizi | İş akışını çalıştırmak gerekip gerekmediğini belirlemek bir veya daha fazla koşulları | 
+| [splitOn](#split-on-debatch) | Dize | Yukarı böler bir deyim veya *debatches*, işleme için birden çok iş akışı örneği içine öğeleri dizisi. Bu seçenek, bir dizi döndürecek Tetikleyiciler için kullanılabilir ve yalnızca doğrudan kod görünümünde çalışırken. | 
+| [operationOptions](#trigger-operation-options) | Dize | Bazı tetikleyiciler varsayılan tetikleyici davranışını değiştirmenize izin ek seçenekler sağlar | 
+||||| 
+
+## <a name="trigger-types-and-details"></a>Tetikleyici türleri ve ayrıntıları  
+
+Her tetikleyici türü farklı bir arabirim ve tetikleyici davranışını tanımlayın girişleri sahiptir. 
 
 | Tetikleyici türü | Açıklama | 
 | ------------ | ----------- | 
-| **Yineleme** | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve Bu tetikleyici tetikleme süresi ayarlayabilirsiniz. Sıklığı temel alarak, kez da belirtebilirsiniz ve iş akışını çalıştırmak için gün. | 
-| **İstek**  | Mantıksal uygulamanızı çağırabilirsiniz, bir uç nokta "manual" bir tetikleyici olarak da bilinir hale getirir. | 
-| **HTTP** | Denetimleri, veya *yoklamalar*, bir HTTP web uç noktası. HTTP uç noktası "202" zaman uyumsuz desen kullanarak veya bir dizi dönerek, belirli bir tetikleme sözleşmesine uygun olmalıdır. | 
-| **ApiConnection** | Yoklar gibi bir HTTP tetikleyicisi, ancak kullanan [Microsoft tarafından yönetilen API](../connectors/apis-list.md). | 
-| **HTTPWebhook** | Mantıksal uygulamanızı gibi aranabilir bir uç nokta yapar **isteği** tetiklemek, ancak belirtilen URL kaydetme ve kaydını kaldırmak için çağırır. |
-| **ApiConnectionWebhook** | Gibi çalışır **HTTPWebhook** tetikleyicisi, ancak Microsoft tarafından yönetilen API kullanır. | 
+| [**Yineleme**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve Bu tetikleyici tetikleme süresi ayarlayabilirsiniz. Sıklığı temel alarak, kez da belirtebilirsiniz ve iş akışını çalıştırmak için gün. | 
+| [**İstek**](#request-trigger)  | Mantıksal uygulamanızı bir aranabilir uç noktada, "manual" bir tetikleyici olarak da bilinir hale getirir. Örneğin, [çağrısı, tetikleyici veya HTTP uç noktaları iş akışlarıyla iç içe](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**HTTP**](#http-trigger) | Denetimleri, veya *yoklamalar*, bir HTTP web uç noktası. HTTP uç noktası "202" zaman uyumsuz desen kullanarak veya bir dizi dönerek, belirli tetikleyici sözleşmesine uygun olmalıdır. | 
+| [**ApiConnection**](#apiconnection-trigger) | HTTP tetikleyicisini gibi çalışır, ancak kullanan [Microsoft tarafından yönetilen API](../connectors/apis-list.md). | 
+| [**HTTPWebhook**](#httpwebhook-trigger) | İstek tetikleyici gibi çalışır, ancak belirtilen URL kaydetme ve kaydını kaldırmak için çağırır. |
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | HTTPWebhook tetikleyici gibi çalışır, ancak kullanan [Microsoft tarafından yönetilen API](../connectors/apis-list.md). | 
 ||| 
-
-Daha fazla bilgi için bkz: [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 <a name="recurrence-trigger"></a>
 
 ## <a name="recurrence-trigger"></a>Yineleme tetikleyici  
 
-Bu tetikleyici yinelenme ve zamanlama belirttiğiniz göre çalışır ve düzenli olarak iş akışını çalıştırmak için kolay bir yol sağlar. 
+Bu tetikleyici, belirtilen yinelenme ve zamanlamaya göre çalışır ve düzenli olarak iş akışını çalıştırmak için kolay bir yol sağlar. 
 
-Her gün çalışır bir temel yinelenme tetikleyici örneği aşağıdadır:
+Tetikleyici tanımı aşağıda verilmiştir:
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month",
+      "interval": <recurrence-interval-based-on-frequency>,
+      "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+      "timeZone": "<time-zone>",
+      "schedule": {
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "hours": [ <one-or-more-hour-marks> ], 
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "minutes": [ <one-or-more-minute-marks> ], 
+         // Applies only when frequency is Week. Separate values with commas.
+         "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
+      }
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+*Gerekli*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| Yineleme | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici türü olan "Recurrence" | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
+| frequency | Dize | Ne sıklıkta tetiği harekete açıklar zaman biriminin: "Saniye", "dakika", "Saat", "Gün", "Hafta" veya "Ay" | 
+| interval | Tamsayı | Ne sıklıkta tetiği harekete açıklar pozitif bir tamsayı sıklığı temel alarak. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
+|||| 
+
+*İsteğe bağlı*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| startTime | Dize | Başlangıç tarihi ve saati şu biçimde: <p>YYYY-MM-ddTHH saat dilimini belirtirseniz, <p>-veya- <p>YYYY-MM-saat dilimi belirtmezseniz: ssZ <p>2: 00'dan 18 Eylül 2017 istiyorsanız, bu nedenle örneğin sonra belirtin "2017-09-18T14:00:00" ve "Pasifik Standart Saati" gibi bir saat dilimini belirtin ya da belirtin "2017-09-18T14:00:00Z" bir saat dilimi olmadan. <p>**Not:** bu başlangıç saati izlemelisiniz [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi belirtmezseniz, boşluk olmadan sonunda harf "Z" eklemeniz gerekir. Bu "Z" eşdeğer başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlama için başlangıç saatini ilk oluşum olduğu sırada karmaşık zamanlamalar, tetikleyici herhangi erken başlangıç saatinden harekete değil. Başlangıç tarih ve saat hakkında daha fazla bilgi için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md). | 
+| timeZone | Dize | Bu tetikleyici kabul etmez olduğundan yalnızca bir başlangıç saati belirttiğinizde uygulanır [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini belirtin. | 
+| hours | Tamsayı veya tamsayı dizisi | İçin "Gün" veya "Hafta" belirtirseniz, `frequency`, bir veya daha fazla tamsayılara 0'dan 23, iş akışını çalıştırmak istediğinizde gün saat virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10'da, 12 PM ve 2 PM saat işaretleri olarak alırsınız. | 
+| minutes | Tamsayı veya tamsayı dizisi | İçin "Gün" veya "Hafta" belirtirseniz, `frequency`, bir veya daha fazla tamsayılara 0'dan 59, iş akışını çalıştırmak istediğinizde saat dakika virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "30" olarak dakika işaretle belirtebilirsiniz ve 10:30:00, almak için günün saati önceki örneği kullanarak 12:30 Şöyle ve 2:30 PM. | 
+| weekDays | Dize veya dize dizisi | İçin "Hafta" belirtirseniz `frequency`, iş akışını çalıştırmak istediğinizde, virgülle ayrılmış bir veya daha fazla gün belirtebilirsiniz: "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi" ve "Pazar" | 
+| Eşzamanlılık | JSON nesnesi | Bu nesne için yinelenen ve yoklama tetikleyicileri, aynı anda çalıştırabilirsiniz iş akışı örneği en fazla sayısını belirtir. Arka uç sistemleri alma isteklerini sınırlamak için bu değeri kullanın. <p>Örneğin, bu değer 10 örneklerine eşzamanlılık sınırını ayarlar: `"concurrency": { "runs": 10 }` | 
+| operationOptions | Dize | `singleInstance` Seçeneği, yalnızca tüm etkin metinler sona erdikten sonra tetikleyici ateşlenir belirtir. Bkz: [Tetikleyicileri: yalnızca etkin bitiş çalıştıktan sonra yangın](#single-instance). | 
+|||| 
+
+*Örnek 1*
+
+Bu temel yinelenme tetikleyici her gün çalışır:
+
+```json
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Ayrıca, bir başlangıç tarihi ve saati tetikleyici tetikleme için zamanlayabilirsiniz. Örneğin, haftalık bir rapor her Pazartesi başlatmak için bu örnek gibi belirli Pazartesi başlatmak için mantıksal uygulama zamanlayabilirsiniz: 
+*Örnek 2*
+
+Bir başlangıç tarihi ve saati tetikleyici tetikleme için belirtebilirsiniz. Bu yinelenme tetikleyici belirtilen tarihte başlar ve günlük başlatılır:
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": "1",
-        "startTime": "2017-09-18T00:00:00Z"
-    }
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1,
+      "startTime": "2017-09-18T00:00:00Z"
+   }
 }
 ```
 
-Bu tetikleyicinin tanımı aşağıda verilmiştir:
+*Örnek 3*
 
-```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "second|minute|hour|day|week|month",
-        "interval": <recurrence-interval-based-on-frequency>,
-        "schedule": {
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ <one-or-more-hour-marks> ], 
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ <one-or-more-minute-marks> ], 
-            // Applies only when frequency is Week. Separate values with commas.
-            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
-        },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<specify-time-zone>"
-    }
-}
-```
-
-| Öğe adı | Gerekli | Tür | Açıklama | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | Evet | Dize | Ne sıklıkta tetiği harekete için zaman birimi. Bu değerlerden yalnızca birini kullanın: "ikinci", "dakika", "saat", "gün", "hafta" veya "ay" | 
-| interval | Evet | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
-| timeZone | Hayır | Dize | Bu tetikleyici kabul etmez olduğundan yalnızca bir başlangıç saati belirttiğinizde uygulanır [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini belirtin. | 
-| startTime | Hayır | Dize | Başlangıç tarihi ve saati bu biçimde belirtin: <p>YYYY-MM-ddTHH saat dilimini belirtirseniz, <p>-veya- <p>YYYY-MM-saat dilimi belirtmezseniz: ssZ <p>2: 00'dan 18 Eylül 2017 istiyorsanız, bu nedenle örneğin sonra belirtin "2017-09-18T14:00:00" ve "Pasifik Standart Saati" gibi bir saat dilimini belirtin. Ya da belirtin "2017-09-18T14:00:00Z" bir saat dilimi olmadan. <p>**Not:** bu başlangıç saati izlemelisiniz [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi belirtmezseniz, boşluk olmadan sonunda harf "Z" eklemeniz gerekir. Bu "Z" eşdeğer başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlama için başlangıç saatini ilk oluşum olduğu sırada karmaşık zamanlamalar, tetikleyici herhangi erken başlangıç saatinden harekete değil. Başlangıç tarih ve saat hakkında daha fazla bilgi için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md). | 
-| weekDays | Hayır | Dize veya dize dizisi | İçin "Hafta" belirtirseniz `frequency`, iş akışını çalıştırmak istediğinizde, virgülle ayrılmış bir veya daha fazla gün belirtebilirsiniz: "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi" ve "Pazar" | 
-| hours | Hayır | Tamsayı veya tamsayı dizisi | İçin "Gün" veya "Hafta" belirtirseniz, `frequency`, bir veya daha fazla tamsayılara 0'dan 23, iş akışını çalıştırmak istediğinizde gün saat virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10'da, 12 PM ve 2 PM saat işaretleri olarak alırsınız. | 
-| minutes | Hayır | Tamsayı veya tamsayı dizisi | İçin "Gün" veya "Hafta" belirtirseniz, `frequency`, bir veya daha fazla tamsayılara 0'dan 59, iş akışını çalıştırmak istediğinizde saat dakika virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "30" olarak dakika işaretle belirtebilirsiniz ve 10:30:00, almak için günün saati önceki örneği kullanarak 12:30 Şöyle ve 2:30 PM. | 
-||||| 
-
-Örneğin, bu yineleme tetikleyici mantıksal uygulamanızı 10: 30'de, haftalık her Pazartesi çalıştıracağını belirtir 12:30 Şöyle ve 2:30 PM 9 Eylül 2017 2: 00'dan, daha önce başlangıç Pasifik Standart Saati:
+Bu yinelenme tetikleyici 9 Eylül 2017 2: 00'dan başlar ve her Pazartesi haftalık 10: 30'da, harekete 12:30 Şöyle ve 2:30 PM Pasifik Standart Saati:
 
 ``` json
 "myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": 1,
-        "schedule": {
-            "hours": [
-                10,
-                12,
-                14
-            ],
-            "minutes": [
-                30
-            ],
-            "weekDays": [
-                "Monday"
-            ]
-        },
-       "startTime": "2017-09-07T14:00:00",
-       "timeZone": "Pacific Standard Time"
-    }
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "hours": [ 10, 12, 14 ],
+         "minutes": [ 30 ],
+         "weekDays": [ "Monday" ]
+      },
+      "startTime": "2017-09-07T14:00:00",
+      "timeZone": "Pacific Standard Time"
+   }
 }
 ```
 
-Yineleme ve başlangıç saati örnekler Bu tetikleyici için daha fazla bilgi için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md).
+Daha fazla bilgi ayrıca bu tetikleyicinin örnekler için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md).
+
+<a name="request-trigger"></a>
 
 ## <a name="request-trigger"></a>Tetikleyici isteği
 
-Bu tetikleyici mantıksal uygulamanızı bir HTTP isteği aracılığıyla çağırmak için kullanabileceğiniz bir uç nokta olarak görev yapar. Bir istek tetikleyici aşağıdaki gibi görünür:  
-  
+Bu tetikleyici, gelen HTTP isteklerini kabul edebilecek bir uç nokta oluşturarak mantıksal uygulamanızı aranabilir yapar. Bu tetikleyici çağırmak için kullanmanız gerekir `listCallbackUrl` API [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows). Bu tetikleyici bir HTTP uç noktası olarak kullanmayı öğrenmek için bkz: [çağrısı, tetikleyici veya HTTP uç noktaları iş akışlarıyla iç içe](../logic-apps/logic-apps-http-endpoint.md).
+
 ```json
-"myRequestTrigger": {
-    "type": "Request",
-    "kind": "Http",
-    "inputs": {
-        "schema": {
-            "type": "Object",
-            "properties": {
-                "myInputProperty1": { "type" : "string" },
-                "myInputProperty2": { "type" : "number" }
-            },
-            "required": [ "myInputProperty1" ]
-        }
-    }
-} 
-```
-
-Bu tetikleyici adlı isteğe bağlı bir özellik olan `schema`:
-  
-| Öğe adı | Gerekli | Tür | Açıklama |
-| ------------ | -------- | ---- | ----------- |
-| Şema | Hayır | Nesne | JSON şeması gelen isteği doğrular. Sonraki iş akışı adımları başvurmak için hangi özelliklerin bilmeniz yardımcı olmak için kullanışlıdır. | 
-||||| 
-
-Bu tetikleyici bir uç nokta olarak çağrılacak çağırması gerekir `listCallbackUrl` API. Bkz: [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows).
-
-## <a name="http-trigger"></a>HTTP tetikleyicisi  
-
-Bu tetikleyici belirtilen uç nokta yoklar ve iş akışı veya çalıştırılması gerekip gerekmediğini belirlemek için yanıtı denetler. Burada, `inputs` nesnesini bir HTTP çağrısıyla oluşturmak için gereken bu parametreleri alır: 
-
-| Öğe adı | Gerekli | Tür | Açıklama | 
-| ------------ | -------- | ---- | ----------- | 
-| method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
-| uri | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
-| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
-||||| 
-
-A *yeniden deneme ilkesi* 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için geçerlidir. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
-  
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"manual": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "relativePath": "<relative-path-for-accepted-parameter>",
+      "schema": {
+         "type": "object",
+         "properties": { 
+            "<propertyName>": {
+               "type": "<property-type>"
+            }
+         },
+         "required": [ "<required-properties>" ]
+      }
+   }
 }
 ```
 
-İyi mantığı uygulamanızın üzerinde çalışmak için belirli bir desen ile uygun olması HTTP API HTTP tetikleyicisi gerektirir. Tetikleyici bu özellikleri tanır:  
+*Gerekli*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| El ile | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici türü olan "İstek" | 
+| türü | Dize | "Http" istek türü | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+|||| 
+
+*İsteğe bağlı*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| method | Dize | Tetikleyici çağırmak için istekleri kullanmalıdır yöntemi: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" |
+| RelativePath | Dize | HTTP uç noktanın URL'sini kabul parametresi için göreli yolu | 
+| Şema | JSON nesnesi | Açıklayan ve yükü doğrular JSON Şeması veya tetikleyici gelen istekte alan girişleri. Bu şemayı başvurmak için özellikler bilmeniz sonraki iş akışı eylemlerinin yardımcı olur. | 
+| properties | JSON nesnesi | Bir veya daha fazla özelliklerinde yükü tanımlayan JSON şeması | 
+| Gerekli | Dizi | Değerleri için gereken bir veya daha fazla özellikleri | 
+|||| 
+
+*Örnek*
+
+Bu istek tetikleyici gelen istek tetikleyici ve gelen istek girişini doğrulayan bir şema çağırmak için HTTP POST yöntemini kullandığını belirtir: 
+
+```json
+"myRequestTrigger": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "POST",
+      "schema": {
+         "type": "Object",
+         "properties": {
+            "customerName": {
+               "type": "String"
+            },
+            "customerAddress": { 
+               "type": "Object",
+               "properties": {
+                  "streetAddress": {
+                     "type": "String"
+                  },
+                  "city": {
+                     "type": "String"
+                  }
+               }
+            }
+         }
+      }
+   }
+} 
+```
+
+<a name="http-trigger"></a>
+
+## <a name="http-trigger"></a>HTTP tetikleyicisi  
+
+Bu tetikleyici belirtilen uç nokta yoklar ve yanıt denetler. Yanıt, iş akışı veya çalıştırılması gerekip gerekmediğini belirler. `inputs` JSON nesnesi içerir ve gerektirir `method` ve `uri` HTTP çağrısıyla oluşturmak için gerekli parametreleri:
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": <recurrence-interval-based-on-frequency>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+
+*Gerekli*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| HTTP | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici türü olan "Http" | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| method | Evet | Dize | Belirtilen uç nokta yoklama için HTTP yöntemini: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" | 
+| uri | Evet| Dize | Tetikleyici ya da yoklar HTTP veya HTTPS uç noktası URL'si <p>Maksimum dize boyutu: 2 KB | 
+| yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
+| frequency | Dize | Ne sıklıkta tetiği harekete açıklar zaman biriminin: "Saniye", "dakika", "Saat", "Gün", "Hafta" veya "Ay" | 
+| interval | Tamsayı | Ne sıklıkta tetiği harekete açıklar pozitif bir tamsayı sıklığı temel alarak. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
+|||| 
+
+*İsteğe bağlı*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| sorgu | JSON nesnesi | URL ile dahil etmek istediğiniz tüm sorgu parametreleri <p>Örneğin, bu öğeyi ekler `?api-version=2015-02-01` sorgu URL dizesi: <p>`"queries": { "api-version": "2015-02-01" }` <p>Sonuç: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON nesnesi | İsteği göndermek için bir veya daha fazla üstbilgileri <p>Örneğin, dil ve bir istek türünü ayarlamak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON nesnesi | Uç noktasına gönderilecek yükünü (veriler) | 
+| kimlik doğrulaması | JSON nesnesi | Gelen istek kimlik doğrulaması için kullanması gereken yöntem. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). Zamanlayıcı, ötesinde `authority` özelliği desteklenir. Belirtilmediğinde, varsayılan değer: `https://login.windows.net`, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
+| retryPolicy | JSON nesnesi | Bu nesne 4xx veya 5xx durum kodları sahip aralıklı hatalar için yeniden deneme davranışı özelleştirir. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
+| Eşzamanlılık | JSON nesnesi | Bu nesne için yinelenen ve yoklama tetikleyicileri, aynı anda çalıştırabilirsiniz iş akışı örneği en fazla sayısını belirtir. Arka uç sistemleri alma isteklerini sınırlamak için bu değeri kullanın. <p>Örneğin, bu değer 10 örneklerine eşzamanlılık sınırını ayarlar: <p>`"concurrency": { "runs": 10 }` | 
+| operationOptions | Dize | `singleInstance` Seçeneği, yalnızca tüm etkin metinler sona erdikten sonra tetikleyici ateşlenir belirtir. Bkz: [Tetikleyicileri: yalnızca etkin bitiş çalıştıktan sonra yangın](#single-instance). | 
+|||| 
+
+İyi mantığı uygulamanızın üzerinde çalışmak için HTTP API için belirli bir desen uygun HTTP tetikleyicisi gerektirir. HTTP tetikleyicisi bu özellikleri tanır:  
   
 | Yanıt | Gerekli | Açıklama | 
 | -------- | -------- | ----------- |  
-| Durum kodu | Evet | Durum kodu 200 ("Tamam"), bir Farklı Çalıştır neden olur. Diğer bir durum kodu bir Farklı Çalıştır neden olmaz. | 
-| Yeniden deneme sonrasında üstbilgisi | Hayır | Mantıksal uygulama uç nokta yeniden yoklar kadar saniye sayısı. | 
+| Durum kodu | Evet | "200 Tamam" durum kodu bir farklı çalıştır başlatır. Diğer bir durum kodu bir farklı çalıştır başlamıyor. | 
+| Yeniden deneme sonrasında üstbilgisi | Hayır | Mantıksal uygulama uç nokta yeniden yoklar kadar saniye sayısı | 
 | Konum üstbilgisi | Hayır | Sonraki yoklama zaman aralığını çağrısı için URL. Belirtilmezse, özgün URL'si kullanılır. | 
 |||| 
 
-Farklı türde istekleri için bazı örnek davranışları şunlardır:
-  
-| Yanıt kodu | Süre sonunda yeniden dene | Davranış | 
-| ------------- | ----------- | -------- | 
+*Farklı istekleri için örnek davranışları*
+
+| Durum kodu | Süre sonunda yeniden dene | Davranış | 
+| ----------- | ----------- | -------- | 
 | 200 | {none} | İş akışı çalıştırın, sonra için daha fazla veri tanımlanmış yinelenme sonra yeniden denetleyin. | 
 | 200 | 10 saniye | İş akışı çalıştırın, sonra daha fazla veri için 10 saniye sonra yeniden denetleyin. |  
 | 202 | 60 saniye | İş akışını tetikleyen yok. Sonraki girişiminde tanımlı yinelenme tabi bir dakika içinde gerçekleşir. Tanımlanan yineleme bir dakikadan az ise, yeniden deneme sonrasında üstbilgi önceliklidir. Aksi halde, tanımlanmış yinelenme kullanılır. | 
@@ -231,181 +356,314 @@ Farklı türde istekleri için bazı örnek davranışları şunlardır:
 | 500 | {none}| Sunucu hatası, iş akışını çalıştırma. Öyle değilse `retryPolicy` tanımlanır, varsayılan ilke kullanılır. Yeniden deneme sayısı üst sınırına ulaşıldı sonra tetikleyici verileri için tanımlanan yineleme sonra yeniden denetler. | 
 |||| 
 
-HTTP tetikleyicisi çıkışları şunlardır: 
-  
+### <a name="http-trigger-outputs"></a>HTTP tetikleyicisini çıkarır
+
 | Öğe adı | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| headers | Nesne | HTTP yanıtı üstbilgileri | 
-| body | Nesne | HTTP yanıt gövdesi | 
+| headers | JSON nesnesi | HTTP yanıtı üstbilgileri | 
+| body | JSON nesnesi | HTTP yanıtı gövdesinden | 
 |||| 
 
 <a name="apiconnection-trigger"></a>
 
 ## <a name="apiconnection-trigger"></a>APIConnection tetikleyici  
 
-Temel işlevleri, bu tetikleyici HTTP tetikleyicisini gibi çalışır. Bununla birlikte, eylem tanımlamak için farklı parametreleridir. Örnek aşağıda verilmiştir:   
-  
+Bu tetikleyici gibi çalışır [HTTP tetikleyicisini](#http-trigger), ancak kullanır [Microsoft tarafından yönetilen API](../connectors/apis-list.md) Bu tetikleyici parametrelerini farklı şekilde. 
+
+Tetikleyici davranışı bölümleri dahil olup olmadığı hakkında dolayısıyla birçok bölümleri isteğe bağlıdır ancak tetikleyicinizin tanımını şöyledir:
+
 ```json
-"myDailyReportTrigger": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://myarticles.example.com/"
-            }
-        },
-        "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
-        }
-    },  
-    "method": "POST",
-    "body": {
-        "category": "myCategory"
-    }
+"<APIConnectionTriggerName>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "<managed-API-endpoint-URL>"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         },
+      },
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
-| Öğe adı | Gerekli | Tür | Açıklama | 
-| ------------ | -------- | ---- | ----------- | 
-| konak | Evet | Nesne | Barındırılan ağ geçidi ve API uygulaması için kimliği | 
-| method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
-| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). | 
-||||| 
+*Gerekli*
 
-İçin `host` nesne özellikleri şunlardır:  
-  
-| Öğe adı | Gerekli | Açıklama | 
-| ------------ | -------- | ----------- | 
-| API runtimeUrl | Evet | Yönetilen API uç noktası | 
-| Bağlantı adı |  | İş akışının kullandığı yönetilen API bağlantı adı. Adlı bir parametre başvurmalıdır `$connection`. |
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| *APIConnectionTriggerName* | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici türü olan "ApiConnection" | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| konak | JSON nesnesi | Kimliği ve ana bilgisayar ağ geçidi için yönetilen API tanımlayan JSON nesnesinin <p>`host` JSON nesnesi bu öğeleri sahiptir: `api` ve `connection` | 
+| api | JSON nesnesi | Yönetilen API uç noktası URL'si: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
+| bağlantı | JSON nesnesi | Bağlantı için ad, adlı bir parametre için bir başvuru içermelidir iş akışının kullandığı, yönetilen API `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| method | Dize | Yönetilen API'si ile iletişim kurmak için HTTP yöntemini: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" | 
+| yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
+| frequency | Dize | Ne sıklıkta tetiği harekete açıklar zaman biriminin: "Saniye", "dakika", "Saat", "Gün", "Hafta" veya "Ay" | 
+| interval | Tamsayı | Ne sıklıkta tetiği harekete açıklar pozitif bir tamsayı sıklığı temel alarak. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
 |||| 
 
-A *yeniden deneme ilkesi* 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için geçerlidir. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
-  
+*İsteğe bağlı*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| sorgu | JSON nesnesi | URL ile dahil etmek istediğiniz tüm sorgu parametreleri <p>Örneğin, bu öğeyi ekler `?api-version=2015-02-01` sorgu URL dizesi: <p>`"queries": { "api-version": "2015-02-01" }` <p>Sonuç: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON nesnesi | İsteği göndermek için bir veya daha fazla üstbilgileri <p>Örneğin, dil ve bir istek türünü ayarlamak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON nesnesi | Yönetilen API'sine göndermek için (veri) yükü tanımlayan JSON nesnesi | 
+| kimlik doğrulaması | JSON nesnesi | Gelen istek kimlik doğrulaması için kullanması gereken yöntem. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON nesnesi | Bu nesne 4xx veya 5xx durum kodları sahip aralıklı hatalar için yeniden deneme davranışı özelleştirir: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
+| Eşzamanlılık | JSON nesnesi | Bu nesne için yinelenen ve yoklama tetikleyicileri, aynı anda çalıştırabilirsiniz iş akışı örneği en fazla sayısını belirtir. Arka uç sistemleri alma isteklerini sınırlamak için bu değeri kullanın. <p>Örneğin, bu değer 10 örneklerine eşzamanlılık sınırını ayarlar: `"concurrency": { "runs": 10 }` | 
+| operationOptions | Dize | `singleInstance` Seçeneği, yalnızca tüm etkin metinler sona erdikten sonra tetikleyici ateşlenir belirtir. Bkz: [Tetikleyicileri: yalnızca etkin bitiş çalıştıktan sonra yangın](#single-instance). | 
+||||
+
+*Örnek*
+
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"Create_daily_report": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         }     
+      },
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Bir API bağlantısı tetikleyicisi çıktıların şunlardır:
-  
+### <a name="apiconnection-trigger-outputs"></a>APIConnection tetikleyici çıkarır
+ 
 | Öğe adı | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| headers | Nesne | HTTP yanıtı üstbilgileri | 
-| body | Nesne | HTTP yanıt gövdesi | 
+| headers | JSON nesnesi | HTTP yanıtı üstbilgileri | 
+| body | JSON nesnesi | HTTP yanıtı gövdesinden | 
 |||| 
 
-Daha fazla bilgi edinmek [nasıl çalışır API bağlantısı için fiyatlandırma tetikler](../logic-apps/logic-apps-pricing.md#triggers).
+<a name="httpwebhook-trigger"></a>
 
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook tetikleyici  
 
-Bir uç nokta, benzer şekilde Bu tetikleyici sağlar `Request` tetikleyicisi ancak HTTPWebhook tetikleyici de çağırır belirtilen URL kaydetme ve kaydını kaldırmak için. Bir HTTPWebhook tetikleyicisi aşağıdaki gibi görünmelidir örneği şöyledir:
+Bu tetikleyici gibi çalışır [isteği tetikleyici](#request-trigger) mantığı uygulamanız için çağrılabilir bir uç noktası oluşturarak. Ancak, bu tetikleyici de belirtilen uç nokta URL'si kaydetme veya bir abonelik kaydı için çağırır. Aynı şekilde bir Web kancası tetikleyici sınırları belirtebilirsiniz [HTTP zaman uyumsuz sınırları](#asynchronous-limits). 
+
+İşte tetikleyicinizin tanımını birçok bölümleri isteğe bağlıdır ancak ve tetikleyici davranışı kullanın veya atlayın bölümleri bağlıdır:
 
 ```json
-"myAppsSpotTrigger": {
+"HTTP_Webhook": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
             "method": "POST",
-            "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": {},
+            "uri": "<subscribe-to-endpoint-URL>",
+            "headers": { "<headers-for-request>" },
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {},
             "retryPolicy": {}
         },
         "unsubscribe": {
             "method": "POST",
-            "url": "https://pubsubhubbub.appspot.com/subscribe",
+            "url": "<unsubscribe-from-endpoint-URL>",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {}
         }
     },
-    "conditions": []
 }
 ```
 
-Bu bölümler çoğunu isteğe bağlıdır ve HTTPWebhook tetikleyici davranışı sağlayan veya atlayın bölümleri bağlıdır. HTTPWebhook tetikleyici özellikleri şunlardır:
-  
-| Öğe adı | Gerekli | Açıklama | 
-| ------------ | -------- | ----------- |  
-| abone olma | Hayır | Tetikleyici oluşturulduğunda ve ilk kaydı gerçekleştiren çağırmak için giden isteğini belirtir. | 
-| Aboneliği Kaldır | Hayır | Tetikleyici silindiğinde çağırmak için giden isteğini belirtir. | 
+*Gerekli*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| HTTP_Webhook | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici türü olan "HttpWebhook" | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| abone olma | JSON nesnesi| Giden istek çağırın ve tetikleyici oluşturduğunuzda ilk kaydı gerçekleştirmek için. Tetikleyici olayları uç noktada dinleme başlayabilmeniz için bu çağrı yapılır. Daha fazla bilgi için bkz: [abone olma ve aboneliği](#subscribe-unsubscribe). | 
+| method | Dize | Abonelik istek için kullanılan HTTP yöntemini: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" | 
+| uri | Dize | Abonelik isteğinin gönderileceği yeri için uç nokta URL'si | 
 |||| 
 
-Aynı şekilde bir Web kancası tetikleyici sınırları belirtebilirsiniz [HTTP zaman uyumsuz sınırları](#asynchronous-limits). Hakkında daha fazla bilgi aşağıdadır `subscribe` ve `unsubscribe` eylemler:
+*İsteğe bağlı*
 
-* `subscribe` Tetikleyici olaylarını dinleme başlayabilmeniz için çağrılır. Standart HTTP Eylemler aynı parametrelerle bu giden çağrı başlatır. Bu çağrı, iş akışı herhangi bir şekilde, örneğin, kimlik bilgileri alınır veya tetikleyici giriş parametreleri değiştirdiğinizde değiştiğinde gerçekleşir. 
-  
-  Bu çağrı desteklemek için `@listCallbackUrl()` işlevi iş akışı içinde bu belirli tetikleyici için benzersiz bir URL döndürür. Bu URL hizmetin REST API kullanan uç noktaları için benzersiz tanımlayıcıyı temsil eder.
-  
-* `unsubscribe` bir işlem Bu tetikleyici geçersiz, bu işlemler de dahil olmak üzere işler olduğunda otomatik olarak çağrılır:
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| Aboneliği Kaldır | JSON nesnesi | Giden istek otomatik olarak çağırmak ve bir işlem tetikleyici geçersiz yaptığında, aboneliği iptal et. Daha fazla bilgi için bkz: [abone olma ve aboneliği](#subscribe-unsubscribe). | 
+| method | Dize | İptal isteği için kullanılacak HTTP yöntemi: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" | 
+| uri | Dize | İptal isteğini gönderileceği yeri için uç nokta URL'si | 
+| body | JSON nesnesi | Abonelik veya iptal isteği yükünü (veri) tanımlayan JSON nesnesinin | 
+| kimlik doğrulaması | JSON nesnesi | Gelen istek kimlik doğrulaması için kullanması gereken yöntem. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON nesnesi | Bu nesne 4xx veya 5xx durum kodları sahip aralıklı hatalar için yeniden deneme davranışı özelleştirir: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
+|||| 
 
-  * Silme veya tetikleyici devre dışı bırakma. 
-  * Silme veya iş akışını devre dışı bırakma. 
-  * Silme veya abonelik devre dışı bırakma. 
-  
-  Bu işlev parametrelerini HTTP tetikleyicisini ile aynıdır.
+*Örnek*
 
-HTTPWebhook çıkışlarından tetikleyebilir ve gelen istek içeriği şunlardır:
-  
+```json
+"myAppSpotTrigger": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "headers": {},
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      }
+   },
+}
+```
+
+<a name="subscribe-unsubscribe"></a>
+
+### <a name="subscribe-and-unsubscribe"></a>`subscribe` ve `unsubscribe`
+
+`subscribe` Çağrısı, iş akışı herhangi bir şekilde, örneğin, kimlik bilgileri yenilenmesi veya tetikleyici parametreleri değişiklik giriş değiştiğinde gerçekleşir. Çağrı aynı parametreleri standart HTTP eylem olarak kullanır. 
+ 
+`unsubscribe` Çağrısı bir işlem HTTPWebhook tetikleyici örneğin geçersiz yaptığında, otomatik olarak gerçekleşir:
+
+* Silme veya tetikleyici devre dışı bırakma. 
+* Silme veya iş akışını devre dışı bırakma. 
+* Silme veya abonelik devre dışı bırakma. 
+
+Bu çağrı desteklemek için `@listCallbackUrl()` işlevi döndürür benzersiz bu tetikleyicinin "geri çağırma URL'si". Bu URL hizmetin REST API kullanan uç noktaları için benzersiz bir tanımlayıcı temsil eder. Bu işlev parametrelerini HTTP tetikleyicisini ile aynıdır.
+
+### <a name="httpwebhook-trigger-outputs"></a>HTTPWebhook tetikleyici çıkarır
+
 | Öğe adı | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| headers | Nesne | HTTP yanıtı üstbilgileri | 
-| body | Nesne | HTTP yanıt gövdesi | 
+| headers | JSON nesnesi | HTTP yanıtı üstbilgileri | 
+| body | JSON nesnesi | HTTP yanıtı gövdesinden | 
 |||| 
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+## <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook tetikleyici
+
+Bu tetikleyici gibi çalışır [HTTPWebhook tetikleyici](#httpwebhook-trigger), ancak kullanır [Microsoft tarafından yönetilen API](../connectors/apis-list.md). 
+
+Tetikleyici tanımı aşağıda verilmiştir:
+
+```json
+"<ApiConnectionWebhookTriggerName>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },        
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "queries": "<query-parameters>"
+   }
+}
+```
+
+*Gerekli*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| <*ApiConnectionWebhookTriggerName*> | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
+| type | Dize | Tetikleyici türü olan "ApiConnectionWebhook" | 
+| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| konak | JSON nesnesi | Kimliği ve ana bilgisayar ağ geçidi için yönetilen API tanımlayan JSON nesnesinin <p>`host` JSON nesnesi bu öğeleri sahiptir: `api` ve `connection` | 
+| bağlantı | JSON nesnesi | Bağlantı için ad, adlı bir parametre için bir başvuru içermelidir iş akışının kullandığı, yönetilen API `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
+| body | JSON nesnesi | Yönetilen API'sine göndermek için (veri) yükü tanımlayan JSON nesnesi | 
+| NotificationUrl | Dize | Benzersiz bir döndürür yönetilen API'sini kullanabilirsiniz Bu tetikleyicinin "geri çağırma URL'si" | 
+|||| 
+
+*İsteğe bağlı*
+
+| Öğe adı | Tür | Açıklama | 
+| ------------ | ---- | ----------- | 
+| sorgu | JSON nesnesi | URL ile dahil etmek istediğiniz tüm sorgu parametreleri <p>Örneğin, bu öğeyi ekler `?folderPath=Inbox` sorgu URL dizesi: <p>`"queries": { "folderPath": "Inbox" }` <p>Sonuç: `https://<managed-API-URL>?folderPath=Inbox` | 
+|||| 
+
+<a name="trigger-conditions"></a>
 
 ## <a name="triggers-conditions"></a>Tetikleyiciler: koşulları
 
-Herhangi bir tetikleyici için iş akışı veya çalıştırılması gerekip gerekmediğini belirlemek için bir veya daha fazla koşulları kullanabilirsiniz. Bu örnekte, rapor yalnızca Tetikleyicileri iken iş akışı `sendReports` parametrenin ayarlanmış true. 
+Herhangi bir tetikleyici için bir dizi iş akışı veya çalıştırılması gerekip gerekmediğini belirlemek bir veya daha fazla koşulları ile ekleyebilirsiniz. Bu örnekte, rapor tetiği harekete yalnızca iş akışı `sendReports` parametrenin ayarlanmış true. 
 
 ```json
 "myDailyReportTrigger": {
-    "type": "Recurrence",
-    "conditions": [ 
-        {
-            "expression": "@parameters('sendReports')"
-        } 
-    ],
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+   "type": "Recurrence",
+   "conditions": [ {
+      "expression": "@parameters('sendReports')"
+   } ],
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Son olarak, koşullar tetikleyici durum kodunu başvuruda bulunabilir. Örneğin, yalnızca Web sitenizin bir durum kodu 500 döndürdüğünde bir iş akışı başlatabilirsiniz:
-  
+Ayrıca, koşullar tetikleyici durum kodu başvuruda bulunabilir. Örneğin, yalnızca Web sitenizin bir "500" durum kodu döndürdüğünde bir iş akışı başlatmak istediğinizi varsayalım:
+
 ``` json
-"conditions": [ 
-    {  
-      "expression": "@equals(triggers().code, 'InternalServerError')"  
-    }  
-]  
+"conditions": [ {
+   "expression": "@equals(triggers().code, 'InternalServerError')"  
+} ]  
 ```  
 
 > [!NOTE]
-> Varsayılan olarak, bir tetikleyici harekete yalnızca alan tarafta bir "200 Tamam" yanıt. Bir ifadenin bir tetikleyicinin durum kodu herhangi bir şekilde başvurduğunda tetikleyici varsayılan davranışı değiştirilir. Bu nedenle, birden fazla durum kodları, örneğin temel yangın, durum kodu 200 ve 201 durum kodunu tetikleyicinin isterseniz, bu deyimi, koşul olarak şunları içermelidir: 
+> Varsayılan olarak, bir tetikleyici harekete yalnızca alan tarafta bir "200 Tamam" yanıt. Bir ifadenin bir tetikleyicinin durum kodu herhangi bir şekilde başvurduğunda tetikleyici varsayılan davranışı değiştirilir. Bu nedenle, birden fazla durum kodu için örneğin, durum kodu 200 ve durum kodu 201, tetiklenecek tetikleyicinin isterseniz, bu deyimi, koşul olarak şunları içermelidir: 
 >
 > `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="triggers-process-an-array-with-multiple-runs"></a>Tetikleyicileri: birden çok çalıştırır sahip bir dizi işlem
+## <a name="triggers-split-an-array-into-multiple-runs"></a>Tetikleyicileri: Bölünmüş bir diziye birden çok çalıştırır
 
 Bazen, tetikleyici mantıksal uygulamanızı işlemek için bir dizi döndürürse, bir "için her" döngü her dizi öğesi işlemesi çok uzun sürebilir. Bunun yerine, kullanabileceğiniz **SplitOn** , tetikleyici özelliğinde *debatch* dizi. 
 
@@ -442,7 +700,7 @@ Mantıksal uygulamanızı içerikten yeterlidir `Rows`, böylece bu örnek gibi 
     "type": "Http",
     "recurrence": {
         "frequency": "Second",
-        "interval": "1"
+        "interval": 1
     },
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
@@ -476,21 +734,36 @@ Mantıksal uygulamanızı içerikten yeterlidir `Rows`, böylece bu örnek gibi 
     }
 }
 ```
-  
-## <a name="triggers-fire-only-after-all-active-runs-finish"></a>Tetikleyicileri: yalnızca tüm etkin çalıştırır son yangın
 
-Yalnızca tüm etkin metinler tamamladığınızda yangın yinelenme Tetikleyicileri yapılandırabilirsiniz. Bu ayarı yapılandırmak için ayarlanmış `operationOptions` özelliğine `singleInstance`:
+<a name="trigger-operation-options"></a>
+
+## <a name="triggers-operation-options"></a>Tetikleyicileri: İşlem seçenekleri
+
+Bu tetikleyicileri varsayılan davranışını değiştirmenize izin daha fazla seçenekler sağlar.
+
+| Tetikleyici | İşlemi seçeneği | Açıklama |
+|---------|------------------|-------------|
+| [Yineleme](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | daıtmaktadır | Yalnızca tüm etkin tetikleyici çalıştıran yangın tamamlandı. |
+||||
+
+<a name="single-instance"></a>
+
+### <a name="triggers-fire-only-after-active-runs-finish"></a>Tetikleyicileri: yalnızca etkin bitiş çalıştıktan ateşle
+
+Yinelenme ayarlayabileceğiniz Tetikleyiciler için tetikleyici yangın yalnızca tüm etkin çalıştırır bitirdikten belirtebilirsiniz. Bir iş akışı örneği çalışırken zamanlanmış bir yinelenme olursa, tetikleyici atlar ve zamanlanan bir sonraki yeniden denetlemeden önce yinelenme kadar bekler. Örneğin:
 
 ```json
-"myTrigger": {
-    "type": "Http",
-    "inputs": { },
-    "recurrence": { },
+"myRecurringTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+    },
     "operationOptions": "singleInstance"
 }
 ```
 
-Bir iş akışı örneği çalışırken zamanlanmış bir yinelenme olursa, tetikleyici atlar ve yeniden denetlemek için bir sonraki zamanlanmış yinelenme aralığı kadar bekler.
+<a name="actions-overview"></a>
 
 ## <a name="actions-overview"></a>Eylemler genel bakış
 
@@ -548,12 +821,12 @@ Burada, `inputs` nesnesini bir HTTP çağrısıyla oluşturmak için gereken bu 
 | ------------ | -------- | ---- | ----------- | 
 | method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | uri | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
+| sorgu | Hayır | JSON nesnesi | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
+| headers | Hayır | JSON nesnesi | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | JSON nesnesi | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | JSON nesnesi | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
-| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
+| kimlik doğrulaması | Hayır | JSON nesnesi | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
 ||||| 
 
 HTTP eylemleri ve Destek APIConnection Eylemler *ilkeleri yeniden*. 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için bir yeniden deneme ilkesi uygulanır. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
@@ -649,15 +922,15 @@ Bu eylem geçerli bir bağlantı ve API ve parametreleri hakkında bilgi için b
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| konak | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
+| konak | Evet | JSON nesnesi | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
 | method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | yol | Evet | Dize | API işlem için yolu | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
+| sorgu | Hayır | JSON nesnesi | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
+| headers | Hayır | JSON nesnesi | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | JSON nesnesi | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | JSON nesnesi | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
-| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
+| kimlik doğrulaması | Hayır | JSON nesnesi | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için bir yeniden deneme ilkesi uygulanır. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
@@ -703,14 +976,14 @@ Microsoft tarafından yönetilen bir bağlayıcı APIConnectionWebhook eylem ba�
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| konak | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
+| konak | Evet | JSON nesnesi | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
 | yol | Evet | Dize | API işlem için yolu | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
+| sorgu | Hayır | JSON nesnesi | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
+| headers | Hayır | JSON nesnesi | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | JSON nesnesi | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | JSON nesnesi | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
-| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
+| kimlik doğrulaması | Hayır | JSON nesnesi | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Yanıt eylemi  
@@ -794,9 +1067,9 @@ Bu eylemi temsil eder ve çağrı sağlayan bir [Azure işlevi](../azure-functio
 | ------------ | -------- | ---- | ----------- |  
 | İşlev kimliği | Evet | Dize | Aramak istediğiniz Azure işlevi için kaynak kimliği. | 
 | method | Hayır | Dize | Bir işlevi çağırmak için kullanılan HTTP yöntemi. Belirtilmezse, "POST" varsayılan yöntemdir. | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| sorgu | Hayır | JSON nesnesi | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
+| headers | Hayır | JSON nesnesi | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | JSON nesnesi | Uç noktasına gönderilen yükünü temsil eder. | 
 |||||
 
 Mantıksal uygulamanızı kaydettiğinizde, Logic Apps altyapısı başvurulan işlev üzerinde bazı denetimler gerçekleştirir:
@@ -853,7 +1126,7 @@ Bu eylem, devam eden herhangi bir eylem iptal etme ve kalan herhangi bir eylem a
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | Evet | Dize | Hedef çalıştırma olan durumu kullanıcının `Failed` veya `Cancelled` |
-| runError | Hayır | Nesne | Hata ayrıntıları. Desteklenen tek zaman `runStatus` ayarlanır `Failed`. |
+| runError | Hayır | JSON nesnesi | Hata ayrıntıları. Desteklenen tek zaman `runStatus` ayarlanır `Failed`. |
 | runError kodu | Hayır | Dize | Çalışmanın hata kodu |
 | runError iletisi | Hayır | Dize | Çalışmanın hata iletisi | 
 ||||| 
@@ -990,9 +1263,9 @@ Alternatif olarak, zaman içinde belirli bir süre kadar beklemek için bu örne
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| geçerliliği: | Hayır | Nesne | Zaman içinde bir noktadaki dayalı bekleme süresi | 
+| geçerliliği: | Hayır | JSON nesnesi | Zaman içinde bir noktadaki dayalı bekleme süresi | 
 | zaman damgası kadar | Evet | Dize | Zamanda nokta [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) bekleme süresi dolduğunda | 
-| interval | Hayır | Nesne | Aralığı birimi ve sayısı bağlı bekleme süresi | 
+| interval | Hayır | JSON nesnesi | Aralığı birimi ve sayısı bağlı bekleme süresi | 
 | aralığı birimi | Evet | Dize | Zaman birimi. Bu değerlerden yalnızca birini kullanın: "ikinci", "dakika", "saat", "gün", "hafta" veya "ay" | 
 | Aralık sayısı | Evet | Tamsayı | Bekleme süresi için kullanılan aralık birim sayısını temsil eden pozitif bir tamsayı | 
 ||||| 
@@ -1029,9 +1302,9 @@ Bu eylem, bir iş akışı iç içe sağlar. Logic Apps altyapısı alt iş akı
 | ------------ | -------- | ---- | ----------- |  
 | ana bilgisayar kimliği | Evet | Dize| Aramak istediğiniz iş akışı için kaynak kimliği | 
 | ana bilgisayar tetikleyiciadı | Evet | Dize | Çağrılacak istediğiniz Tetikleyici adı | 
-| Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| sorgu | Hayır | JSON nesnesi | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
+| headers | Hayır | JSON nesnesi | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | JSON nesnesi | Uç noktasına gönderilen yükünü temsil eder. | 
 ||||| 
 
 Bu eylemin çıkış ne de tanımladığınız üzerinde dayalı `Response` alt iş akışı için eylem. Alt iş akışını tanımlamıyorsa bir `Response` eylem çıkışları boş.
@@ -1042,7 +1315,7 @@ Yardımcı olmak için iş akışı yürütme denetlemek, koleksiyon eylemler di
 
 ## <a name="if-action"></a>Eylem
 
-Koşullu bir açıklamadır, bu eylem, bir durumu değerlendirin ve doğru olarak değerlendirir üzerinde ifade tabanlı bir dal yürütme sağlar. Koşul başarılı bir şekilde doğru olarak değerlendirilirse, koşul "Başarılı" işaretlenir. Bulunan Eylemler `actions` veya `else` nesneleri değerlendirmek için bu değerleri:
+Koşullu bir açıklamadır, bu eylem, bir durumu değerlendirin ve doğru olarak değerlendirir üzerinde ifade tabanlı bir dal yürütme sağlar. Koşul başarılı bir şekilde doğru olarak değerlendirilirse, koşul "Başarılı" durumu ile işaretlenir. Bulunan Eylemler `actions` veya `else` nesneleri değerlendirmek için bu değerleri:
 
 * "Çalıştırın ve başarılı olduğunda başarılı oldu"
 * "Çalıştırdığınızda ve başarısız başarısız oldu"
@@ -1076,9 +1349,9 @@ Daha fazla bilgi edinmek [logic apps koşullu ifadeler](../logic-apps/logic-apps
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
-| Eylemler | Evet | Nesne | Ne zaman çalışması için iç Eylemler `expression` değerlendiren `true` | 
+| Eylemler | Evet | JSON nesnesi | Ne zaman çalışması için iç Eylemler `expression` değerlendiren `true` | 
 | ifade | Evet | Dize | Değerlendirilecek ifade |
-| else | Hayır | Nesne | Ne zaman çalışması için iç Eylemler `expression` değerlendiren `false` |
+| else | Hayır | JSON nesnesi | Ne zaman çalışması için iç Eylemler `expression` değerlendiren `false` |
 ||||| 
 
 Örneğin:
@@ -1133,14 +1406,14 @@ Switch deyimi Bu eylem, bir nesne, ifade ya da belirteci belirli değerlerine g�
    "type": "Switch",
    "expression": "<evaluate-this-object-expression-token>",
    "cases": {
-      "myCase1" : {
-         "actions" : {
+      "myCase1": {
+         "actions": {
            "myAction1": {}
          },
          "case": "<result1>"
       },
       "myCase2": {
-         "actions" : {
+         "actions": {
            "myAction2": {}
          },
          "case": "<result2>"
@@ -1158,10 +1431,10 @@ Switch deyimi Bu eylem, bir nesne, ifade ya da belirteci belirli değerlerine g�
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
 | ifade | Evet | Dize | Nesne, ifade ya da değerlendirmek için belirteci | 
-| Durumları | Evet | Nesne | İfade sonucuna göre çalıştır iç Eylemler kümesi içerir. | 
+| Durumları | Evet | JSON nesnesi | İfade sonucuna göre çalıştır iç Eylemler kümesi içerir. | 
 | Durumu | Evet | Dize | Sonucu ile eşleşecek değer | 
-| Eylemler | Evet | Nesne | Deyimin sonucu eşleşen çalışması için çalıştırma iç eylemleri | 
-| varsayılan | Hayır | Nesne | Hiçbir örnek sonucu eşleştiğinde çalışacak iç eylemleri | 
+| Eylemler | Evet | JSON nesnesi | Deyimin sonucu eşleşen çalışması için çalıştırma iç eylemleri | 
+| varsayılan | Hayır | JSON nesnesi | Hiçbir örnek sonucu eşleştiğinde çalışacak iç eylemleri | 
 ||||| 
 
 Örneğin:
@@ -1172,13 +1445,13 @@ Switch deyimi Bu eylem, bir nesne, ifade ya da belirteci belirli değerlerine g�
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
-         "actions" : {
+         "actions": {
            "Send_an_email": {...}
          },
          "case": "Approve"
       },
       "Case_2": {
-         "actions" : {
+         "actions": {
            "Send_an_email_2": {...}
          },
          "case": "Reject"
@@ -1219,7 +1492,7 @@ Bu döngü eylem bir dizisini yineler ve her bir dizi öğede iç eylemleri ger�
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
-| Eylemler | Evet | Nesne | Döngünün içinde çalıştırmak için iç eylemleri | 
+| Eylemler | Evet | JSON nesnesi | Döngünün içinde çalıştırmak için iç eylemleri | 
 | foreach | Evet | Dize | Dizi yinelemek için | 
 | operationOptions | Hayır | Dize | Özelleştirme davranışı için herhangi bir işlemi seçeneği belirtir. Şu anda yalnızca destekler `Sequential` varsayılan davranışı paralel olduğu yineleme sırayla çalıştırmak için. |
 ||||| 
@@ -1279,9 +1552,9 @@ Bir koşul doğru olarak değerlendirir kadar bu döngü eylem iç eylemleri ça
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
-| Eylemler | Evet | Nesne | Döngünün içinde çalıştırmak için iç eylemleri | 
+| Eylemler | Evet | JSON nesnesi | Döngünün içinde çalıştırmak için iç eylemleri | 
 | ifade | Evet | Dize | Her yinelemeden sonra değerlendirilecek ifade | 
-| Sınırı | Evet | Nesne | Döngünün sınırlar. En az bir sınır tanımlamanız gerekir. | 
+| Sınırı | Evet | JSON nesnesi | Döngünün sınırlar. En az bir sınır tanımlamanız gerekir. | 
 | sayı | Hayır | Tamsayı | Gerçekleştirmek için yineleme sayısı sınırı | 
 | timeout | Hayır | Dize | Zaman aşımı sınırını [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601) ne kadar döngü çalışması gerektiğini belirtir |
 ||||| 
@@ -1332,7 +1605,7 @@ Bu eylem mantıksal Grup eylemleri bir iş akışında sağlar. Kapsam Ayrıca k
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- |  
-| Eylemler | Evet | Nesne | Kapsam içinde çalıştırmak için iç eylemleri |
+| Eylemler | Evet | JSON nesnesi | Kapsam içinde çalıştırmak için iç eylemleri |
 ||||| 
 
 ## <a name="next-steps"></a>Sonraki adımlar

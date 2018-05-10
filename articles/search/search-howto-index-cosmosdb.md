@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Azure Search'te dizin oluşturucular kullanma Cosmos DB bağlanma
 
@@ -271,7 +271,7 @@ Bu ilkeyi kullanarak iyi dizin oluşturucu performans sağlamak için önerilir.
 
 <a name="IncrementalProgress"></a>
 ### <a name="incremental-progress-and-custom-queries"></a>Artımlı ilerleme ve özel sorgular
-Dizin oluşturma sırasında artımlı ilerleme dizin oluşturucusu yürütme geçici hataları veya yürütme süresi sınırını kesintiye uğrarsa, dizin oluşturucu, tüm koleksiyon en baştan yeniden dizin gerek kalmadan yerine İleri çalıştırıldığında kaldığı yerden yukarı seçim yapabilirsiniz sağlar. Bu büyük topluluklara dizin oluştururken özellikle önemlidir. 
+Dizin oluşturma sırasında artımlı ilerleme dizin oluşturucusu yürütme geçici hataları veya yürütme süresi sınırını kesintiye uğrarsa, dizin oluşturucu, tüm koleksiyon en baştan yeniden dizin oluşturma gerek kalmadan yerine İleri çalıştırıldığında kaldığı yerden yukarı seçim yapabilirsiniz sağlar. Bu büyük topluluklara dizin oluştururken özellikle önemlidir. 
 
 Özel bir sorgu kullanarak artımlı ilerleme etkinleştirmek için sorgu sonuçlarına göre sıralar olun `_ts` sütun. Bu, Dönemsel onay hataları varlığında artımlı ilerleme sağlamak için Azure Search kullanan dönük sağlar.   
 

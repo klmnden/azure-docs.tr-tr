@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Kaynak Sağlayıcısı](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -48,6 +50,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * İstikrara yönelik iyileştirmeler.
+  * İşlemek için yol açabilecek iptal edilen görevleri sorun için düzeltme gözlemcilerin bazı bölümlerinde durduruldu.
 * El ile denetim noktası oluşturma desteği.
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21 ve üstü.
 
@@ -70,7 +73,14 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="pre-release-builds"></a>Yayın öncesi derlemeleri
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Küçük API değişiklikler:
+  * Kullanımdan kaldırılmış olarak işaretlenmiş ChangeFeedProcessorOptions.IsAutoCheckpointEnabled kaldırıldı.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Kararlılık iyileştirmeleri:
+  * Daha iyi işleme kira deposu başlatma. Bir işlemci örneği başlatmak yalnızca bir kira deposu boş olduğunda da, diğerlerinin bekler.
+  * Daha fazla kararlı/verimli kira yenileme/sürüm. Yenileme ve bir kira bir bölüm serbest bırakma başkalarının yenilemesi bağımsızdır. V1, sıralı olarak tüm bölümler için gerçekleştirilir.
 * Yeni v2 API:
   * İşlemci, Esnek yapımı için oluşturucu deseni: ChangeFeedProcessorBuilder sınıfı.
     * Herhangi bir bileşimini parametreleri alabilir.
@@ -83,6 +93,7 @@ ms.lasthandoff: 04/28/2018
     * IPartitionProcessor - bir bölüme özel işleme değişiklikleri için.
 * Günlüğü - kullanan [LibLog](https://github.com/damianh/LibLog) kitaplığı.
 * % 100 v1 API ile geriye dönük uyumlu.
+* Yeni kod tabanını.
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21.1 ve üstü.
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri

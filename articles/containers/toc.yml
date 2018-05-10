@@ -1,7 +1,7 @@
 - name: Kapsayıcılar için Azure
   href: index.yml
   items:
-    - name: Container Service (AKS)
+    - name: Kubernetes Hizmeti (AKS)
       href: 'https://docs.microsoft.com/azure/aks/'
       expanded: true
       items:

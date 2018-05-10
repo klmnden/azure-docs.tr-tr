@@ -1,8 +1,8 @@
 ---
-title: "Azure Portal kullanarak Azure Data Lake Analytics işlerini sorunlarını giderme | Microsoft Docs"
+title: Azure Portal kullanarak Azure Data Lake Analytics işleri izleme | Microsoft Docs
 description: "Data Lake Analytics işlerini gidermek için Azure Portalı'nı kullanmayı öğrenin. "
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,42 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure portalını kullanarak Azure Data Lake Analytics işlerini sorun giderme
-Data Lake Analytics işlerini gidermek için Azure portalını kullanmayı öğrenin.
-
-Bu öğreticide, eksik bir kaynak dosyası sorunu ayarlayın ve sorun giderme için Azure Portalı'nı kullanın.
-
-## <a name="submit-a-data-lake-analytics-job"></a>Data Lake Analytics işi gönderme
-
-Aşağıdaki U-SQL işi gönder:
-
-```
-@searchlog =
-   EXTRACT UserId          int,
-           Start           DateTime,
-           Region          string,
-           Query           string,
-           Duration        int?,
-           Urls            string,
-           ClickedUrls     string
-   FROM "/Samples/Data/SearchLog.tsv1"
-   USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
-   USING Outputters.Csv();
-```
-    
-Komut dosyasında tanımlı kaynak dosyası **/Samples/Data/SearchLog.tsv1**, burada olmalıdır **/Samples/Data/SearchLog.tsv**.
-
-
-## <a name="troubleshoot-the-job"></a>İş sorunlarını giderme
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal kullanarak Azure Data Lake Analytics işlerini izleme
 
 **Tüm işleri görmek için**
 
@@ -81,5 +52,4 @@ Komut dosyasında tanımlı kaynak dosyası **/Samples/Data/SearchLog.tsv1**, bu
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
 * [Azure Data Lake Azure PowerShell kullanarak Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
-* [Azure Data Lake Analytics ve U-SQL Visual Studio kullanarak kullanmaya başlama](data-lake-analytics-u-sql-get-started.md)
 * [Azure Data Lake Analytics'i Azure portalını kullanarak yönetme](data-lake-analytics-manage-use-portal.md)

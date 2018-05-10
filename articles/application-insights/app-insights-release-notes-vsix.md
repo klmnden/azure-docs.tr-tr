@@ -1,9 +1,9 @@
 ---
-title: "Geliştirici analiz için Visual Studio uzantısı için sürüm notları"
-description: "Geliştirici analiz için Visual Studio Araçları için en son güncelleştirmeleri."
+title: Geliştirici analiz için Visual Studio uzantısı için sürüm notları
+description: Geliştirici analiz için Visual Studio Araçları için en son güncelleştirmeleri.
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Geliştirici Analizi Araçları Sürüm Notları
 
@@ -247,7 +247,7 @@ Kullanıcı, Olay Ayrıntıları sekmesini yanındaki görüntüleyen telemetri 
 ### <a name="forward-and-back-history-in-search"></a>İleri ve geri arama geçmişinde
 Şimdi arama sonuçları arasında ileri ve geri dönebilirsiniz.
 
-![Geri Git](./media/app-insights-release-notes-vsix/GoBAck.png)
+![Geri dön](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ## <a name="version-41"></a>Sürümü 4.1
 Bu sürüm, çok sayıda yeni özellikler ve Güncelleştirmeler ile birlikte gelir. Güncelleştirme 1'in bu sürümü yüklemeyi yüklü olması gerekir.
@@ -289,8 +289,3 @@ Artık, projenizi, yoluyla Application Insights paketleri eklemek için Azure'da
 
 ![Yeni Proje iletişim kutusu](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Cihaz desteği
-Konumundaki *Connect();* 2015, biz [duyurdu](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) cihazlar için mobil geliştirici deneyimi bizim HockeyApp olduğunu. HockeyApp beta derlemeleri, Test edenlere dağıtabilir, toplamak ve tüm çökme (Crash) uygulamanızdan çözümlemenize ve müşterilerden doğrudan görüş toplamak yardımcı olur.
-HockeyApp uygulamanız yoksa, iOS, Android veya Windows veya Xamarin, Cordova ve Unity gibi bir platformlar arası çözümü mı, oluşturmak için seçin hangi platformunda destekler.
-
-Gelecekte Application Insights uzantısını sürümleri, biz HockeyApp ve Visual Studio arasında daha tümleşik bir deneyim eklemeniz. Şu an için NuGet başvuru ekleyerek HockeyApp ile başlayabilirsiniz. Bkz: [belgelerine](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) daha fazla bilgi için.

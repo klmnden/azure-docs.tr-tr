@@ -1,27 +1,32 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: HDInsight’ta Spark
+- name: Genel Bakış
   items:
-    - name: Genel Bakış
+    - name: HDInsight’ta Spark Hakkında
       href: apache-spark-overview.md
     - name: HDInsight üzerindeki Hadoop bileşenleri
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: başlarken
+- name: Hızlı Başlangıçlar
   items:
-    - name: Spark kümesi oluşturma
+    - name: Spark kümesi oluşturma - Portal
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Spark kümesi oluşturma - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Spark kümesi oluşturma - Şablon
       href: apache-spark-jupyter-spark-sql.md
+- name: Öğreticiler
+  items:
     - name: Bir Spark kümesinde sorgu çalıştırma
       href: apache-spark-load-data-run-query.md
     - name: BI araçlarını kullanarak verileri analiz etme
       href: apache-spark-use-bi-tools.md
-    - name: Küme kaynaklarını yönetme
-      href: apache-spark-resource-manager.md
-    - name: Spark işlerinde hata ayıklama
-      href: apache-spark-job-debugging.md
-    - name: HDInsight uygulamaları yükleme
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Akış işi çalıştırma
+      href: apache-spark-eventhub-streaming.md
+    - name: Makine öğrenimi uygulaması oluşturma
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: IntelliJ kullanarak spark uygulaması oluşturma
+      href: apache-spark-create-standalone-application.md
 - name: Nasıl yapılır
   items:
     - name: Küme depolama alanını kullanma
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: Geliştirme
       items:
-        - name: Tek başına uygulama oluşturma
-          href: apache-spark-create-standalone-application.md
         - name: Etkileşimli bir Spark Shell kullanma
           href: apache-spark-shell.md
         - name: Livy ile uzak işler
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark ve Machine Learning
       items:
-        - name: HVAC performansını tahmin etme
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Gıda denetimi sonuçlarını tahmin etme
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Web sitesi günlüklerini çözümleme
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: Yönetme
       items:
+        - name: Küme kaynaklarını yönetme
+          href: apache-spark-resource-manager.md
         - name: Spark ayarlarını yapılandırma
           href: apache-spark-settings.md
         - name: Spark işlerini en iyi duruma getirme
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: Sorun giderme
       items:
+        - name: Spark işlerinde hata ayıklama
+          href: apache-spark-job-debugging.md
         - name: Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

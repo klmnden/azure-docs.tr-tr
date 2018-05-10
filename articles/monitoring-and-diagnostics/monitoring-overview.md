@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure uygulamaları ve kaynakları izleme
 
@@ -60,7 +60,7 @@ Günlük analizi veri dışa aktarabilirsiniz [Power BI](https://docs.microsoft.
 
 Ölçümleri kullanılabilir farklı kaynaklar ve hatta bir sanal makine içinde işletim sistemi performans istatistiklerini sağlayan. Azure portalında gezginler biri ile bu verileri görüntüleme ve bu ölçümleri temel uyarılar oluşturabilir. Azure İzleyicisi süresi kritik uyarılar ve bildirimler için kullanmalısınız şekilde hızlı ölçümleri (1 dakika kadar 5 dakika), potansiyel satış sağlar.
 
-Bu ölçümleri ve oluşturan eğilim ve ayrıntılı çözümleme için Azure günlük analizi günlükleri göndermek veya proaktif olarak size, analiz sonucunda kritik sorunları bildirmek için ek uyarı kuralları oluşturun.  
+Bu ölçümleri ve günlükleri oluşturan eğilim ve ayrıntılı çözümleme için Azure günlük Analizi'ne göndermek veya proaktif olarak size, analiz sonucunda kritik sorunları bildirmek için ek uyarı kuralları oluşturun.  
 
 > [!NOTE]
 > Çok boyutlu ölçümleri günlük analizi için tanılama ayarları gönderme şu anda desteklenmiyor. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.

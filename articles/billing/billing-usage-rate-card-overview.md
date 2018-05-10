@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
 ms.author: mobandyo
-ms.openlocfilehash: 7b573c906ee4ced803369606c3e318fd452a426a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d94536bd0ab10c3e380855b66bc10dc9af6195a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Program aracılığıyla Azure kullanımınızı bir anlayış almak için Azure faturalama API'lerini kullanın
 Azure faturalama API'leri kullanımı ve kaynak veri çekmek için tercih edilen veri analizi araçlarınızı kullanın. Azure kaynak kullanımı ve RateCard API'leri doğru şekilde tahmin etmek ve maliyetlerinizi yönetmenize yardımcı olabilir. API'ler bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API ailesinin bir parçası olarak uygulanır.  
@@ -73,5 +73,5 @@ Kullanım ve RateCard API'leri birleşimiyle olası hale getirilen senaryolardan
 
 * Azure Kaynak Yöneticisi hakkında daha fazla bilgi edinmek için [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md). 
 
-* Bulut bir anlayış yardımcı olmak gerekli araçları paketi hakkında daha fazla bilgi için harcadıkları, Gartner makalesine bakın [BT Finansal Yönetimi (ITFM) araçları için Pazar Kılavuzu](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+
 

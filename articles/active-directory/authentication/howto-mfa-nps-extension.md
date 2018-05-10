@@ -1,25 +1,20 @@
 ---
 title: Azure MFA yetenekleri sağlamak için mevcut NPS sunucuları kullanın | Microsoft Docs
-description: Azure çok faktörlü kimlik doğrulaması için ağ ilkesi sunucusu uzantısı, var olan kimlik doğrulama altyapınız için bulut tabanlı iki aşamalı vericiation özellikleri eklemek için basit bir çözümdür.
+description: Varolan kimlik doğrulama altyapınız için bulut tabanlı iki aşamalı vericiation yetenekleri ekleme
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 

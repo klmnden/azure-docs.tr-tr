@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Genişletilebilir bir bulut platformu olan Media Services ile güvenli bir biçimde yayın kalitesindeki videoların isteğe bağlı veya canlı akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
+title: Azure Media Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Genişletilebilir bir bulut platformu olan Media Services ile güvenli bir biçimde yayın kalitesindeki videoların isteğe bağlı veya canlı akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası.
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="media-services-documentation"></a>Media Services Belgeleri
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f3952ce87394270051bd37fae271162abc04a675
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) için bağlamaları
 
@@ -36,17 +36,12 @@ Orchestrator işlevleri (örneğin, Azure portalında) komut dosyası dillerde y
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` orchestration adıdır. Bu orchestrator işlevi yeni örneğini başlatmak istediğinizde, istemcileri kullanması gereken değer budur. Bu özellik isteğe bağlıdır. Belirtilmezse, işlevin adı kullanılır.
-* `version` orchestration, sürüm etiketi belirtin. Bir düzenleme yeni bir örneğini başlatılan istemcilere eşleşen sürüm etiketi eklemeniz gerekir. Bu özellik isteğe bağlıdır. Belirtilmezse, boş dize kullanılır. Sürüm oluşturma hakkında daha fazla bilgi için bkz: [sürüm](durable-functions-versioning.md).
-
-> [!NOTE]
-> Ayar değerleri için `orchestration` veya `version` özellikleri şu anda önerilmez.
 
 Dahili olarak bir dizi işlev uygulaması için varsayılan depolama hesabı kuyruklarda Bu tetikleyici bağlama yoklar. Bu kuyruklar açıkça bağlama özelliklerinde yapılandırılmamış neden olan uzantının iç uygulama ayrıntılar verilmektedir.
 
@@ -69,12 +64,11 @@ Destekler bağlama orchestration tetikleyici girdi hem çıkarır. Girişi hakk�
 * **girişleri** -Orchestration işlevlerini destekleyen yalnızca [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) parametre türü. Seri durumdan çıkarma işlevi imzada doğrudan girdi desteklenmiyor. Kod kullanmalıdır [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) işlevi girişleri orchestrator getirmek yöntemi. Bu girdi, JSON seri hale getirilebilir türler olmalıdır.
 * **çıkarır** -Orchestration Tetikleyicileri çıkış değerlerinin yanı sıra girişleri destekler. İşlevinin dönüş değeri çıkış değeri atamak için kullanılır ve JSON Serileştirilebilir olmalıdır. Bir işlev döndürürse `Task` veya `void`, `null` değeri çıktısı olarak kaydedilir.
 
-> [!NOTE]
-> Orchestration Tetikleyicileri yalnızca C# ' de şu anda desteklenir.
-
 ### <a name="trigger-sample"></a>Tetikleyici örnek
 
-En basit "Hello World" C# orchestrator işlevi aşağıdaki gibi görünmelidir bir örnek verilmiştir:
+En basit "Hello World" orchestrator işlevi aşağıdaki gibi görünmelidir bir örnek verilmiştir:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,7 +79,23 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> JavaScript orchestrators kullanması gereken `return`. `durable-functions` Kitaplığı çağırmadan mvc'deki `context.done` yöntemi.
+
 Burada olacak şekilde bir etkinlik işlevi çağırmak nasıl oluşturulduğunu gösteren bir "Hello World" örnek etkinlik İşlevler, çoğu orchestrator işlevleri arayın:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -96,6 +106,18 @@ public static async Task<string> Run(
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Etkinlik Tetikleyicileri
@@ -110,17 +132,12 @@ Geliştirme için Azure portalını kullanıyorsanız, etkinlik tetikleyici aşa
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` Etkinlik adıdır. Bu etkinlik işlevi çağırmak için orchestrator işlevlerini kullanmanızı değer budur. Bu özellik isteğe bağlıdır. Belirtilmezse, işlevin adı kullanılır.
-* `version` Etkinliğin sürüm etiketi belirtin. Bir etkinlik çağırma orchestrator işlevleri eşleşen sürüm etiketi eklemeniz gerekir. Bu özellik isteğe bağlıdır. Belirtilmezse, boş dize kullanılır. Daha fazla bilgi için bkz: [sürüm](durable-functions-versioning.md).
-
-> [!NOTE]
-> Ayar değerleri için `activity` veya `version` özellikleri şu anda önerilmez.
 
 Dahili olarak Bu tetikleyici bağlama işlev uygulaması için varsayılan depolama hesabı kuyrukta yoklar. Bir iç uygulama ayrıntılarını bağlama özelliklerinde açıkça yapılandırılmamış neden olan uzantısı'nın sırasıdır.
 
@@ -144,12 +161,11 @@ Destekler bağlama etkinlik tetikleyici girdi hem, yalnızca orchestration tetik
 * **çıkarır** -çıktı değerlerinin yanı sıra girişleri desteği etkinliği çalışır. İşlevinin dönüş değeri çıkış değeri atamak için kullanılır ve JSON Serileştirilebilir olmalıdır. Bir işlev döndürürse `Task` veya `void`, `null` değeri çıktısı olarak kaydedilir.
 * **meta veri** -etkinlik işlevleri için bağlayabilirsiniz bir `string instanceId` parametresi üst orchestration örnek kimliği alınamıyor.
 
-> [!NOTE]
-> Etkinlik Tetikleyicileri Node.js işlevlerde şu anda desteklenmemektedir.
-
 ### <a name="trigger-sample"></a>Tetikleyici örnek
 
-Basit bir "Hello World" C# etkinlik işlevi aşağıdaki gibi görünmelidir bir örnek verilmiştir:
+Basit bir "Hello World" etkinliği işlevi aşağıdaki gibi görünmelidir bir örnek verilmiştir:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,7 +176,17 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 İçin varsayılan parametre türü `ActivityTriggerAttribute` bağlama `DurableActivityContext`. Ancak, böylece aynı işlevi olarak basit de doğrudan JSON-serializeable için bağlama desteği (ilkel dahil olmak üzere) türleri, etkinlik Tetikleyicileri aşağıdaki gibidir:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -168,6 +194,14 @@ public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
 ```
 
 ### <a name="passing-multiple-parameters"></a>Birden çok parametreleri geçirme 
@@ -302,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Node.js örneği
+#### <a name="javascript-sample"></a>JavaScript örneği
 
-Aşağıdaki örnek yeni bir işlev örnek bir Node.js işlevinden başlatmak için bağlama dayanıklı orchestration istemcisi kullanmayı gösterir:
+Aşağıdaki örnek yeni bir işlev örnek bir JavaScript işlevinden başlatmak için bağlama dayanıklı orchestration istemcisi kullanmayı gösterir:
 
 ```js
 module.exports = function (context, input) {

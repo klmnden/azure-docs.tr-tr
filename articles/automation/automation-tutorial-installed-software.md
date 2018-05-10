@@ -1,20 +1,20 @@
 ---
-title: "Azure Otomasyonu ile makinelerinizde yüklü olan yazılımları keşfetme | Microsoft Docs"
-description: "Ortamınızdaki makinelerde yüklü olan yazılımları keşfetmek için Stok özelliğinden faydalanın."
+title: Azure Otomasyonu ile makinelerinizde yüklü olan yazılımları keşfetme | Microsoft Docs
+description: Ortamınızdaki makinelerde yüklü olan yazılımları keşfetmek için Stok özelliğinden faydalanın.
 services: automation
-keywords: "stok, otomasyon, değişiklik, izleme"
+keywords: stok, otomasyon, değişiklik, izleme
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 04/11/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bd9fdc237a3c6f1c2a57ddf0f4448d7c3402a798
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure ve Azure harici makinelerinizde yüklü olan yazılımları keşfetme
 
@@ -23,7 +23,9 @@ Bu öğreticide ortamınızda yüklü olan yazılımları keşfetmeyi öğrenece
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * VM'de Değişiklik İzleme ve Stok özelliklerini etkinleştirme
+> * Çözümü etkinleştirme
+> * Bir Azure VM ekleme
+> * Azure olmayan bir VM ekleme
 > * Yüklü olan yazılımları görüntüleme
 > * Yüklü olan yazılımların stok günlüklerinde arama yapma
 
@@ -32,23 +34,24 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da [ücretsiz hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) için kaydolabilirsiniz.
-* İzleyiciyi, eylem runbook'larını ve İzleyici Görevi'ni barındıracak bir [Otomasyon hesabı](automation-offering-get-started.md).
+* İzleyiciyi, eylem runbook'larını ve İzleyici Görevi'ni barındıracak bir [Otomasyon Hesabı](automation-offering-get-started.md).
 * Sisteme eklenecek bir [sanal makine](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com sayfasından Azure portalda oturum açın.
+http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzleme ve Stok özelliklerini etkinleştirme
 
-Bu öğreticide ilk yapmanız gereken VM'inizde Değişiklik İzleme ve Stok özelliklerini etkinleştirmektir. Daha önce bu sanal makineniz için başka bir **Değişiklik İzleme** çözümünü etkinleştirdiyseniz bu adımı atlayabilirsiniz.
+Bu öğreticide ilk yapmanız gereken Değişiklik İzleme ve Stok özelliklerini etkinleştirmektir. Daha önce **Değişiklik İzleme** çözümünü etkinleştirdiyseniz bu adımı atlayabilirsiniz.
 
-1. Soldaki menüden **Sanal makineler**'i ve listedeki VM'lerden birini seçin
-2. Soldaki menünün **İşlemler** bölümünde **Stok**'a tıklayın. **Değişiklik İzlemeyi ve Stoku Etkinleştir** sayfası açılır.
+Otomasyon Hesabınıza gidin ve **YAPILANDIRMA YÖNETİMİ** altında **Stok**’u seçin.
+
+Çözümü etkinleştirmek için Log Analytics çalışma alanını ve Otomasyon Hesabını seçip **Etkinleştir**’e tıklayın. Çözümün etkinleştirilmesi 15 dakika sürer.
 
 ![Stok devreye alma yapılandırma başlığı](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Çözümü etkinleştirmek için, kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**’e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
+Çözümü etkinleştirmek için, kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon Hesabını yapılandırdıktan sonra **Etkinleştir**’e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon Hesabının kullanılması gerekir.
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı, Stok gibi özellikler ve hizmetler tarafından oluşturulan verileri toplamak için kullanılır.
 Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar.
@@ -57,11 +60,27 @@ Bu öğreticide ilk yapmanız gereken VM'inizde Değişiklik İzleme ve Stok öz
 Çözüm etkinleştirildikten sonra VM üzerine yüklenen yazılımlar ve yapılan değişiklikler hakkında bilgiler Log Analytics'e aktarılır.
 Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sürebilir.
 
+## <a name="onboard-a-vm"></a>VM ekleme
+
+Otomasyon Hesabınızda, **YAPILANDIRMA YÖNETİMİ** altında **Stok**’a gidin.
+
+**+ Azure VM ekle**’yi seçin, bu **Sanal makineler** sayfasını açarak listeden mevcut bir VM seçmenize olanak sağlar. Eklemek istediğiniz sanal makineyi seçin. Açılan sayfada, VM’de çözümü etkinleştirmek için **Etkinleştir**’e tıklayın. Microsoft Yönetim Aracısı VM’ye dağıtılır ve aracıyı çözümü etkinleştirirken yapılandırdığınız Log Analytics çalışma alanıyla iletişim kurması için yapılandırır. Ekleme işleminin tamamlanması birkaç dakika sürebilir. Bu noktada, listeden yeni bir VM seçebilir ve başka bir VM ekleyebilirsiniz.
+
+## <a name="onboard-a-non-azure-machine"></a>Azure olmayan bir makine ekleme
+
+Azure olmayan makineler eklemek için, işletin sisteminize bağlı olarak [Windows](../log-analytics/log-analytics-agent-windows.md) veya [Linux](automation-linux-hrw-install.md) için aracıyı yükleyin. Aracı yüklendiğinde, Otomasyon Hesabınıza gidin ve **YAPILANDIRMA YÖNETİMİ** altında **Stok**’a gidin. **Makineleri Yönet**’e tıkladığınızda, Log Analytics çalışma alanınıza raporlayan çözüm etkinleştirilmemiş makinelerin bir listesini görürsünüz. Ortamınız için uygun seçeneği belirleyin.
+
+* **Kullanılabilir tüm makinelerde etkinleştir** - Bu seçenek, çözümü şu anda Log Analytics çalışma alanınıza raporlayan tüm makinelerde etkinleştirir.
+* **tüm kullanılabilir makinelerde ve gelecekteki makinelerde etkinleştir** - Bu seçenek, çözümü Log Analytics çalışma alanınıza raporlayan tüm makinelerde ve daha sonra çalışma alanına eklenen tüm gelecek makinelerde etkinleştirir.
+* **Seçili makinelerde etkinleştir** - Bu seçenek çözümü yalnızca seçtiğiniz makinelerde etkinleştirir.
+
+![Makineleri Yönetme](./media/automation-tutorial-installed-software/manage-machines.png)
+
 ## <a name="view-installed-software"></a>Yüklü olan yazılımları görüntüleme
 
 Değişiklik izleme ve Stok çözümünü etkinleştirdikten sonra sonuçları **Stok** sayfasında görüntüleyebilirsiniz.
 
-VM'nizin içinde **İŞLEMLER** bölümünden **Stok**'u seçin.
+Otomasyon Hesabınızdan, **YAPILANDIRMA YÖNETİMİ** altında **Stok**’u seçin.
 
 **Stok** sayfasında **Yazılım** sekmesine tıklayın.
 
@@ -83,28 +102,29 @@ Filtre yazılım adı, sürümü veya yayımcı ile arama yapmanızı sağlar.
 Stok özelliği ile oluşturulan günlük verileri Log Analytics'e gönderilir. Sorgu çalıştırarak günlüklerde arama yapmak için **Stok** penceresinin en üstünde bulunan **Log Analytics**'i seçin.
 
 Stok verileri **ConfigurationData** türü altında depolanır.
-Aşağıdaki örnek Log Analytics sorgusu, içinde "Microsoft" geçen Yayımcıları ve her Yayımcı için Yazılım kaydı sayısını (Yazılım Adı ve Bilgisayar ölçütlerine göre gruplara ayrılmış) döndürür.
+Aşağıdaki örnek Log Analytics sorgusu Yayıncının "Microsoft Corporation" değerine eşit olduğu envanter sonuçlarını döndürür.
 
-```
+```loganalytics
 ConfigurationData
-| summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 | where ConfigDataType == "Software"
-| search Publisher:"Microsoft"
-| summarize count() by Publisher
+| where Publisher == "Microsoft Corporation"
+| summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
 Log Analytics'te sorgu çalıştırma ve günlük dosyalarında arama yapma hakkında daha fazla bilgi edinmek için bkz. [Azure Log Analytics](https://docs.loganalytics.io/index).
 
 ### <a name="single-machine-inventory"></a>Tek makine stoku
 
-Tek bir makinenin yazılım stokunu görmek için Azure VM kaynak sayfasından Stok özelliğine erişebilir veya Log Analytics ile ilgili makineyi filtreleyebilirsiniz. Aşağıdaki örnek Log Analytics sorgusu, ContosoVM adlı bir makinedeki yazılımların listesini döndürür.
+Tek bir makinenin yazılım stokunu görmek için Azure VM kaynak sayfasından Stok özelliğine erişebilir veya Log Analytics ile ilgili makineyi filtreleyebilirsiniz.
+Aşağıdaki örnek Log Analytics sorgusu, ContosoVM adlı bir makinedeki yazılımların listesini döndürür.
 
-```
+```loganalytics
 ConfigurationData
-| where ConfigDataType == "Software" 
+| where ConfigDataType == "Software"
 | summarize arg_max(TimeGenerated, *) by SoftwareName, CurrentVersion
 | where Computer =="ContosoVM"
 | render table
+| summarize by Publisher, SoftwareName
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -112,7 +132,9 @@ ConfigurationData
 Bu öğreticide aşağıdakiler de dahil olmak üzere yazılım stok bilgisini görüntülemeyi öğrendiniz:
 
 > [!div class="checklist"]
-> * VM'de Değişiklik İzleme ve Stok özelliklerini etkinleştirme
+> * Çözümü etkinleştirme
+> * Bir Azure VM ekleme
+> * Azure olmayan bir VM ekleme
 > * Yüklü olan yazılımları görüntüleme
 > * Yüklü olan yazılımların stok günlüklerinde arama yapma
 

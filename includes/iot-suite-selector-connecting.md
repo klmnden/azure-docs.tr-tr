@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [Linux üzerinde C](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
@@ -5,7 +21,7 @@
 > * [Raspberry Pi üzerinde Node.js](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [Raspberry Pi üzerinde C](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [önceden yapılandırılmış çözüm](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
+Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [Çözüm Hızlandırıcısı](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
 
 * Sıcaklık
 * baskısı
@@ -23,11 +39,11 @@ Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Cihazınız için herhangi bir kod yazmadan önce Uzaktan izleme önceden yapılandırılmış çözümünüzü dağıtmak ve yeni bir fiziksel aygıt ekleyin.
+Cihazınız için herhangi bir kod yazmadan önce Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak ve yeni bir fiziksel aygıt ekleyin.
 
-### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Uzaktan izleme önceden yapılandırılmış çözümünüzü dağıtma
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı dağıtma
 
-**Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) çözüm önceden yapılandırılmış. Azure hesabınızda önceden yapılandırılmış Uzaktan izleme çözümü sağlanan yüklemediyseniz, bkz: [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+**Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) Çözüm Hızlandırıcısı. Azure hesabınızda Uzaktan izleme Çözüm Hızlandırıcısı sağlanan yüklemediyseniz, bkz: [Uzaktan izleme Çözüm Hızlandırıcısı dağıtma](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
 Dağıtım işlemi Uzaktan izleme çözümü sona için tıklattığınızda **başlatma** tarayıcınızda çözüm panosunu açın.
 
@@ -38,7 +54,7 @@ Dağıtım işlemi Uzaktan izleme çözümü sona için tıklattığınızda **b
 > [!NOTE]
 > Çözümünüze bir aygıt zaten eklediyseniz, bu adımı atlayabilirsiniz. Ancak, sonraki adım, aygıt bağlantı dizesi gerektirir. Bir aygıtın bağlantı dizesinden alabilir [Azure portal](https://portal.azure.com) veya kullanarak [az IOT](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI aracı.
 
-Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Çözüm cihazı eklediğinizde, bu kimlik bilgileri içeren cihaz bağlantı dizesini kaydedin bildirme fırsatı bulabilirsiniz. Bu öğreticide daha sonra istemci uygulamanızda cihaz bağlantı dizesini içerir.
+Bir aygıt için Çözüm Hızlandırıcısı bağlanmak, kendi IOT hub'a geçerli kimlik bilgilerini kullanarak tanımlamanız gerekir. Çözüm cihazı eklediğinizde, bu kimlik bilgileri içeren cihaz bağlantı dizesini kaydedin bildirme fırsatı bulabilirsiniz. Bu öğreticide daha sonra istemci uygulamanızda cihaz bağlantı dizesini içerir.
 
 Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adımları tamamlayın **aygıtları** çözümü sayfasında:
 
@@ -54,9 +70,9 @@ Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adıml
 
     ![Kimlik bilgilerini alma](media/iot-suite-selector-connecting/credentials.png)
 
-Artık fiziksel bir aygıtı için Uzaktan izleme önceden yapılandırılmış çözümü eklendi ve kendi cihaz bağlantı dizesini not ettiğiniz. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz bağlantı dizesini kullanır istemci uygulaması yürütürsünüz.
+Artık fiziksel bir aygıtı Uzaktan izleme Çözüm Hızlandırıcısı eklenir ve kendi cihaz bağlantı dizesini Not. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz bağlantı dizesini kullanır istemci uygulaması yürütürsünüz.
 
-İstemci uygulaması yerleşik uygulayan **Soğutucu** cihaz modeli. Önceden yapılandırılmış çözüm cihaz modeli bir cihaz hakkında aşağıdakileri belirtir:
+İstemci uygulaması yerleşik uygulayan **Soğutucu** cihaz modeli. Bir Çözüm Hızlandırıcısı cihaz modeli bir cihaz hakkında aşağıdakileri belirtir:
 
 * Çözüme raporları cihazı özellikleri. Örneğin, bir **Soğutucu** aygıt, bellenim ve konumu hakkında bilgi raporlar.
 * Telemetri türlerini cihaz çözüme gönderir. Örneğin, bir **Soğutucu** cihaz sıcaklık ve nem baskısı değerleri gönderir.

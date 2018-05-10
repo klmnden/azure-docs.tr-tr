@@ -1,9 +1,9 @@
 ---
-title: "Azure ödeme işleme şeması - İlkesi gereksinimleri"
+title: Azure ödeme işleme şeması - İlkesi gereksinimleri
 description: PCI DSS gereksinim 12
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için ilke gereksinimlerini  
 ## <a name="pci-dss-requirement-12"></a>PCI DSS gereksinim 12
@@ -39,7 +39,7 @@ Güçlü bir güvenlik ilkesi güvenlik sesi tüm varlık için ayarlar ve bunla
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, oluşturma ve bir bilgi güvenlik ilkesini sürdürme sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, oluşturma ve bir bilgi güvenlik ilkesini sürdürme sorumludur.|
 
 
 
@@ -52,7 +52,7 @@ Güçlü bir güvenlik ilkesi güvenlik sesi tüm varlık için ayarlar ve bunla
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, bilgi güvenlik ilkelerini en az yıllık güncelleştirme veya kart sahibi veri ortamlarına (CDE) değişiklik olduğunda sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, bilgi güvenlik ilkelerini en az yıllık güncelleştirme veya kart sahibi veri ortamlarına (CDE) değişiklik olduğunda sorumludur.|
 
 
 
@@ -69,7 +69,7 @@ Güçlü bir güvenlik ilkesi güvenlik sesi tüm varlık için ayarlar ve bunla
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, gereksinim 12.2 içinde listelenen tüm tehditler adresleri bir risk değerlendirmesi işlemi uygulamak için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, gereksinim 12.2 içinde listelenen tüm tehditler adresleri bir risk değerlendirmesi işlemi uygulamak için sorumludur.|
 
 
 
@@ -86,7 +86,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -99,7 +99,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -112,7 +112,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -125,7 +125,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -138,7 +138,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -151,7 +151,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -164,7 +164,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, bulut tabanlı VM'ler, depolama ve destekleyici hizmetler için kabul edilebilir ağ konumlarını belirlemek için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, bulut tabanlı VM'ler, depolama ve destekleyici hizmetler için kabul edilebilir ağ konumlarını belirlemek için sorumludur.|
 
 
 
@@ -177,7 +177,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, bulut tabanlı VM'ler, depolama ve destekleyici hizmetler için kabul edilebilir ağ konumlarını belirlemek için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, bulut tabanlı VM'ler, depolama ve destekleyici hizmetler için kabul edilebilir ağ konumlarını belirlemek için sorumludur.|
 
 
 
@@ -190,7 +190,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure oturumu kilit aşımı ayarlarına bir süre işlem yapılmadığında zorlar Microsoft Kurumsal AD oturum kilidi işlevi kullanır. Ağ bağlantıları 30 dakika işlem yapılmadığında sonlandırılır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -203,7 +203,7 @@ Bu kullanım ilkeleri aşağıdakileri gerektirir emin olun.
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -217,7 +217,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, uzaktan erişim teknolojileri aracılığıyla kart sahibi verilere personel kopyalama, taşıma ve kart sahibi veri yerel sabit sürücüler ve elektronik çıkarılabilir depolama açıkça yetki sürece yasaklandığı sağlamaktan sorumludur tanımlı iş gereksinimini.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, uzaktan erişim teknolojileri aracılığıyla kart sahibi verilere personel kopyalama, taşıma ve kart sahibi veri yerel sabit sürücüler ve elektronik çıkarılabilir depolama açıkça yetki sürece yasaklandığı sağlamaktan sorumludur tanımlı iş gereksinimini.|
 
 
 
@@ -230,7 +230,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -248,7 +248,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Hizmet sağlayıcıları kullanmaya başlayan müşteriler kendi PCI uyumluluk program belgelemesinden sorumlu.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Hizmet sağlayıcıları kullanmaya başlayan müşteriler kendi PCI uyumluluk program belgelemesinden sorumlu.|
 
 
 
@@ -261,7 +261,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bilgi çalışanları güvenlik Sorumluluklar atamak için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bilgi çalışanları güvenlik Sorumluluklar atamak için sorumludur.|
 
 
 
@@ -274,7 +274,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bilgi çalışanları güvenlik Sorumluluklar atamak için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bilgi çalışanları güvenlik Sorumluluklar atamak için sorumludur.|
 
 
 
@@ -287,7 +287,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bilgi çalışanları güvenlik Sorumluluklar atamak için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bilgi çalışanları güvenlik Sorumluluklar atamak için sorumludur.|
 
 
 
@@ -300,7 +300,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -313,7 +313,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -326,7 +326,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve uygun kullanım, uygulama ve bunların CDE içinde kritik teknolojileri için kimlik doğrulama dikte ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -339,7 +339,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Oluşturma ve güvenlik tanıma CDE erişimi olan bir ekibin çevreleyen ilkelerinin korunması müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Oluşturma ve güvenlik tanıma CDE erişimi olan bir ekibin çevreleyen ilkelerinin korunması müşterileri sorumludur.|
 
 
 
@@ -355,7 +355,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler personel sağlayan almak ve bilgi güvenliği ve en az yıllık eğitim PCI-DSS tanıma kabul.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler personel sağlayan almak ve bilgi güvenliği ve en az yıllık eğitim PCI-DSS tanıma kabul.|
 
 
 
@@ -368,7 +368,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler personel sağlayan almak ve bilgi güvenliği ve en az yıllık eğitim PCI-DSS tanıma kabul.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler personel sağlayan almak ve bilgi güvenliği ve en az yıllık eğitim PCI-DSS tanıma kabul.|
 
 
 
@@ -384,7 +384,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler Personel erişim sağlayan CDE için kapsamlı bir arka plan kontrollerinden geçmelerini.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler Personel erişim sağlayan CDE için kapsamlı bir arka plan kontrollerinden geçmelerini.|
 
 
 
@@ -397,7 +397,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri kimle paylaşıldığı kart sahibi veri paylaşılan veya CDE güvenliğini etkileyebilecek hizmet sağlayıcıları için PCI uyumluluğunu izleme için sorumludur. Müşteriler gerekir korumak tüm hizmet listesini, kullanılan içinde kendi CDE sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri kimle paylaşıldığı kart sahibi veri paylaşılan veya CDE güvenliğini etkileyebilecek hizmet sağlayıcıları için PCI uyumluluğunu izleme için sorumludur. Müşteriler gerekir korumak tüm hizmet listesini, kullanılan içinde kendi CDE sağlar.|
 
 
 
@@ -411,7 +411,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri kimle paylaşıldığı kart sahibi veri paylaşılan veya CDE güvenliğini etkileyebilecek hizmet sağlayıcıları için PCI uyumluluğunu izleme için sorumludur. Müşteriler gerekir korumak tüm hizmet listesini, kullanılan içinde kendi CDE sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri kimle paylaşıldığı kart sahibi veri paylaşılan veya CDE güvenliğini etkileyebilecek hizmet sağlayıcıları için PCI uyumluluğunu izleme için sorumludur. Müşteriler gerekir korumak tüm hizmet listesini, kullanılan içinde kendi CDE sağlar.|
 
 
 
@@ -427,7 +427,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Kart sahibi verilerin güvenliğini korumak için sorumluluk aktarımının hizmet sağlayıcıları ile yazılmış anlaşmaları bakımından sorumlu müşterilerdir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Kart sahibi verilerin güvenliğini korumak için sorumluluk aktarımının hizmet sağlayıcıları ile yazılmış anlaşmaları bakımından sorumlu müşterilerdir.|
 
 
 
@@ -440,7 +440,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler için katılım tespitlerini önceki uygun dahil olmak üzere hizmet sağlayıcıları çekici bir kurulan işlem sağlamaktan sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler için katılım tespitlerini önceki uygun dahil olmak üzere hizmet sağlayıcıları çekici bir kurulan işlem sağlamaktan sorumludur.|
 
 
 
@@ -453,7 +453,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler en az yıllık hizmet sağlayıcıları PCI DSS uyumluluk durumunu izlemek için bir program bakımından sorumlu.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler en az yıllık hizmet sağlayıcıları PCI DSS uyumluluk durumunu izlemek için bir program bakımından sorumlu.|
 
 
 
@@ -466,7 +466,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris](https://aka.ms/pciblueprintcrm32), müşteri ve Microsoft Azure sorumluluğunda olan olanlar sorumluluğundadır PCI DSS gereksinimleri özetlenmektedir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris](https://aka.ms/pciblueprintcrm32), müşteri ve Microsoft Azure sorumluluğunda olan olanlar sorumluluğundadır PCI DSS gereksinimleri özetlenmektedir.|
 
 
 
@@ -482,7 +482,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Hizmet sağlayıcıları olan müşteriler için PCI uyumluluğunu korumak için sorumluluklarını aktarımının sorumludur. |
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Hizmet sağlayıcıları olan müşteriler için PCI uyumluluğunu korumak için sorumluluklarını aktarımının sorumludur. |
 
 
 
@@ -495,7 +495,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -515,7 +515,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -529,7 +529,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -542,7 +542,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -555,7 +555,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -568,7 +568,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -581,7 +581,7 @@ Bir yetkili iş gereksinimlerini olduğunda, veriler, tüm geçerli PCI DSS gere
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri IR planı geliştirmek için sorumludur ve paylaşılan dokunma noktaları ve Azure'nın altyapı yararlanarak herhangi bir müşteri uygulama işlemeyle ilgili herhangi bir müşteri denetim sınama göz önünde bulundurur. Bu, kendi uygulama ya da veri etkileyebilir kendilerine bildirilecek bir olay gerekiyor durumunda Azure'a doğru kişi bilgilerini sağlamak için Müşteri'nin sorumluluğundadır.|
 
 
 
@@ -604,7 +604,7 @@ Gözden geçirmeler aşağıdaki işlemler kapsamalıdır:
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Hizmet sağlayıcıları kullanmaya başlayan müşteriler kendi incelemeler PCI uyumluluk denetimi performansını onayladığınız için işlemlerin belgelemesinden sorumlu.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Hizmet sağlayıcıları kullanmaya başlayan müşteriler kendi incelemeler PCI uyumluluk denetimi performansını onayladığınız için işlemlerin belgelemesinden sorumlu.|
 
 
 
@@ -623,7 +623,7 @@ Gözden geçirmeler aşağıdaki işlemler kapsamalıdır:
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Hizmet sağlayıcıları kullanmaya başlayan müşteriler kendi incelemeler PCI uyumluluk denetimi performansını onayladığınız için işlemlerin belgelemesinden sorumlu.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Hizmet sağlayıcıları kullanmaya başlayan müşteriler kendi incelemeler PCI uyumluluk denetimi performansını onayladığınız için işlemlerin belgelemesinden sorumlu.|
 
 
 

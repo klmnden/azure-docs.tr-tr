@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı hizmeti (AKS) küme düğümleri içine SSH
-description: Bir SSH bağlantısı ile bir Azure kapsayıcı hizmeti (AKS) küme düğümleri oluşturun.
+title: Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH
+description: Bir SSH bağlantısı ile bir Azure Kubernetes hizmet (AKS) küme düğümleri oluşturun.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Azure kapsayıcı hizmeti (AKS) küme düğümleri içine SSH
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH
 
-Bazen, bir Azure kapsayıcı hizmeti (AKS) düğümü bakım, günlük toplama veya diğer sorun giderme işlemleri için erişim gerekebilir. Azure kapsayıcı hizmeti (AKS) düğümleri Internet'e açık değildir. Bir AKS düğümle bir SSH bağlantısı oluşturmak için bu belgede ayrıntılı adımları kullanın.
+Bazen, bir Azure Kubernetes hizmet (AKS) düğümü bakım, günlük toplama veya diğer sorun giderme işlemleri için erişim gerekebilir. Azure Kubernetes hizmet (AKS) düğümleri Internet'e açık değildir. Bir AKS düğümle bir SSH bağlantısı oluşturmak için bu belgede ayrıntılı adımları kullanın.
 
 ## <a name="get-aks-node-address"></a>AKS düğüm adresi alın
 

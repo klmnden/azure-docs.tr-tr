@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Cihazınızı IOT hub'ı (.NET) ile buluttan iletileri gönder
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -176,7 +176,7 @@ Bu bölümde, değişiklik **SendCloudToDevice** geri bildirim istemek ve IOT Hu
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğretici kapsamında, bulut cihaza ileti gönderme ve alma öğrendiniz. 
 
-IOT hub'ı kullanan tam uçtan uca çözümler örnekleri görmek için bkz: [Azure IOT paketi].
+IOT hub'ı kullanan tam uçtan uca çözümler örnekleri görmek için bkz: [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı].
 
 IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT Hub Geliştirici Kılavuzu].
 
@@ -195,5 +195,5 @@ IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT 
 [IOT Hub Geliştirici Kılavuzu]: iot-hub-devguide.md
 [IOT Hub ile çalışmaya başlama]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IOT paketi]: https://docs.microsoft.com/azure/iot-suite/
+[Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IOT cihaz SDK'ları]: iot-hub-devguide-sdks.md

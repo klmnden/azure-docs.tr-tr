@@ -8,8 +8,10 @@
 ## [Ad alanı oluşturma](relay-create-namespace-portal.md)
 ## [Karma şirket içi/bulut uygulaması oluşturma](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Karma Bağlantılar
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [.NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [Node Websockets](relay-hybrid-connections-node-get-started.md)
+### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [WCF Geçişi](relay-wcf-dotnet-get-started.md)
 ## [WCF Geçişi öğreticisi](service-bus-relay-tutorial.md)
 ## [WCF Geçişi REST öğreticisi](service-bus-relay-rest-tutorial.md)

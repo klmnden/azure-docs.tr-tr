@@ -1,8 +1,8 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: HDInsight'ta Hadoop
+- name: Genel Bakış
   items:
-    - name: Genel Bakış
+    - name: HDInsight'ta Hadoop hakkında
       href: apache-hadoop-introduction.md
     - name: HDInsight’ta Hadoop mimarisi
       href: ../hdinsight-hadoop-architecture.md
@@ -10,20 +10,32 @@
     - name: HDInsight üzerindeki Hadoop bileşenleri
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: başlarken
+- name: Hızlı Başlangıç
   items:
-    - name: Hadoop’u kullanmaya başlama
+    - name: Hadoop kümesi oluşturma - Portal
+      href: apache-hadoop-linux-create-cluster-get-started-portal.md
+    - name: Hadoop kümesi oluşturma - Resource Manager
       href: apache-hadoop-linux-tutorial-get-started.md
-    - name: Hadoop korumalı alanı
-      href: apache-hadoop-emulator-get-started.md
-    - name: HDInsight uygulamaları yükleme
-      href: ../hdinsight-apps-install-applications.md
+- name: Öğreticiler
+  items:
+    - name: ETL işlemleri gerçekleştirme
+      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: İsteğe bağlı kümeler oluşturma
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+- name: Kavramlar
+  items:
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Kullanılabilirlik ve güvenilirlik
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
 - name: Nasıl yapılır
   items:
+    - name: Hadoop korumalı alanını kullanma
+      href: apache-hadoop-emulator-get-started.md
     - name: Küme depolama alanını kullanma
       items:
         - name: Azure Depolama’yı kullanma
@@ -144,9 +156,6 @@
         - name: Depolanan tweetleri çözümleme
           href: ../hdinsight-analyze-twitter-data-linux.md
           maintainContext: true
-        - name: Uçuş gecikme verilerini çözümleme
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
-          maintainContext: true
         - name: Mahout ile öneriler oluşturma
           href: apache-hadoop-mahout-linux-mac.md
         - name: Hive ile web sitesi günlüklerini çözümleme
@@ -164,6 +173,9 @@
           maintainContext: true
     - name: Kümeleri genişletme
       items:
+        - name: HDInsight uygulamaları yükleme
+          href: ../hdinsight-apps-install-applications.md
+          maintainContext: true
         - name: Bootstrap ile kümeleri özelleştirme
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
@@ -260,9 +272,6 @@
             - name: Azure Resource Manager şablonlarını kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: İsteğe bağlı kümeler oluşturma
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: Hadoop kümelerini yönetme
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
@@ -329,9 +338,6 @@
           maintainContext: true
         - name: Resource Manager geliştirme araçlarına geçiş
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: Kullanılabilirlik ve güvenilirlik
-          href: ../hdinsight-high-availability-linux.md
           maintainContext: true
         - name: HDInsight kümesini yeni bir sürüme yükseltme
           href: ../hdinsight-upgrade-cluster.md

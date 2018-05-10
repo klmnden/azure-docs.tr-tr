@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Promapp | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Promapp arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Promapp | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Promapp arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a0630bf015361833ed3a6949ea7b29450d53701
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b8a15143d38b7d835f85b8d196af5f33f5de18b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Öğretici: Azure Active Directory Tümleştirme Promapp ile
 
@@ -31,7 +31,7 @@ Promapp Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Promapp ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -113,23 +113,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
     |--|
-    | `https://demo.promapp.com/TENANTNAME`|
-    | `https://go.promapp.com/TENANTNAME`|
-    | `https://demoau.promapp.com/TENANTNAME`|
-    | `https://au.promapp.com/TENANTNAME`|
-    | `https://demous.promapp.com/TENANTNAME`|
-    | `https://us.promapp.com/TENANTNAME`|
-    | `https://dev.promapp.com/TENANTNAME`|
-    | `https://test.promapp.com/TENANTNAME`|
-    | `https://staging.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME/`|
+    | `https://au.promapp.com/TENANTNAME/`|
+    | `https://us.promapp.com/TENANTNAME/`|
+    | `https://eu.promapp.com/TENANTNAME/`|
+    | `https://ca.promapp.com/TENANTNAME/`|
     
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
+    > [!NOTE] 
+    > Şu anda Promapp ile Azure AD tümleştirme yalnızca ör Promapp URL'sine giderek hizmeti başlatılan kimlik doğrulama kimlik doğrulama işlemi başlattığı için yapılandırıldı. Ancak yanıt URL'si gerekli bir alandır.
+    
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerleri gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. Kişi [Promapp istemci destek ekibi](https://www.promapp.com/about-us/contact-us/) bu değerleri almak için.
@@ -202,7 +201,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-promapp-test-user"></a>Promapp test kullanıcısı oluşturma
 
@@ -240,11 +239,7 @@ Bu bölümde, Britta Promapp için erişim vererek, Azure çoklu oturum açma ku
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
-
-Uygulamanızı test etmek için **IDP** erişim paneli Promapp parçasında, otomatik olarak imzalanmış-Promapp uygulamanız tıkladığınızda başlatılan modu.
-
-Uygulamanızı test etmek için **SP** başlatılan modu, kimlik doğrulama Promapp sitenizden başlatmak gerekir. Bu parola alanı boş adımında açarken bırakarak yapılabilir **isteğe bağlı** modu etkinleştirildi.
+Uygulamanızı test etmek için **SP** başlatılan modu, kimlik doğrulama Promapp sitenizden başlatmak gerekir. Bu oturum açma sayfanızda 'Çoklu oturum açma ile oturum açma' düğmesini tıklatarak yapılabilir adımında **isteğe bağlı** modu etkinleştirildi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

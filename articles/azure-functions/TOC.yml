@@ -83,6 +83,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+    - name: Tanılama
+      href: ../app-service/app-service-diagnostics.md
     - name: Performansla ilgili önemli noktalar
       href: functions-best-practices.md
     - name: İşlevler Proxy’leri
@@ -187,6 +189,8 @@
           href: durable-functions-unit-testing.md
         - name: Etkinlik yayımlama
           href: durable-functions-event-publishing.md
+        - name: Web İşleri SDK’sını kullanma
+          href: durable-functions-webjobs-sdk.md
 - name: Başvuru
   items:
     - name: Bağlamalar

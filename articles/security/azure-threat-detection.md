@@ -1,12 +1,12 @@
 ---
-title: "Azure Gelişmiş tehdit algılama | Microsoft Docs"
-description: "Kimlik koruması ve yeteneklerini öğrenin."
+title: Azure Gelişmiş tehdit algılama | Microsoft Docs
+description: Kimlik koruması ve yeteneklerini öğrenin.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 ## <a name="introduction"></a>Giriş
@@ -56,7 +56,7 @@ Bu teknik incelemede Azure platformu ve müşteri dönük denetimlerin teknoloji
 
 [Azure Active Directory kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) özelliğidir [Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition risk olaylarına ve olası güvenlik açıklarını kuruluşunuzdaki kimlikleri etkileyen genel bir bakış sağlar. İçin bulut tabanlı kimlikleri on Microsoft güvenliğini sağlama ve Azure AD kimlik koruması ile Microsoft bu aynı koruma sistemleri kullanılabilir Kurumsal müşteriler için yapılmasıdır. Kimlik koruması kullanan mevcut Azure AD anomali algılama özellikleri aracılığıyla kullanılabilen [Azure AD anormal etkinlik raporları](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)ve gerçek zamanlı anormallikleri algılayabilir yeni risk olayı türleri sunar.
 
-Kimlik koruması anormallikleri algılayıp Kimlikteki tehlikede olduğunu gösterebilecek olayları risk Uyarlamalı machine learning algoritmaları ve buluşsal yöntemler kullanır. Bu verileri kullanarak, kimlik koruması, raporlar ve bu risk olayları araştırmanıza ve uygun düzeltme veya azaltma eylemi alın etkinleştirmek uyarılar oluşturur.
+Kimlik koruması, kimliğin gizliliğinin bozulduğunu gösteriyor olabilecek anormallikleri ve risk olaylarını algılamak için uyarlamalı makine öğrenme algoritmaları ve buluşsal yöntemler kullanır. Bu verileri kullanarak, kimlik koruması, raporlar ve bu risk olayları araştırmanıza ve uygun düzeltme veya azaltma eylemi alın etkinleştirmek uyarılar oluşturur.
 
 Ancak Azure Active Directory kimlik koruması birden çok bir izleme ve raporlama aracıdır. Risk olaylara göre risk tabanlı ilkeleri, kuruluşunuzun kimlikleri otomatik olarak korunacak yapılandırmanızı sağlayacak şekilde her bir kullanıcı için bir kullanıcı risk düzeyi kimlik koruması hesaplar.
 
@@ -126,10 +126,10 @@ OMS Güvenlik ve Denetim panosu dört ana kategoride düzenlenmiştir:
 
 -   **Genel güvenlik sorgular:** bu seçenek, ortamınızı izlemek için kullanabileceğiniz en yaygın güvenlik sorguları listesini sağlar. Bu sorguları birine tıkladığınızda, bu sorgu için sonuçlarla arama dikey pencere açılır.
 
-### <a name="insight-and-analytics"></a>Insight and Analytics
+### <a name="insight-and-analytics"></a>İçgörü ve Analiz
 Ortasındaki [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) Azure bulutta barındırılan OMS deposu.
 
-![Insight and Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
+![İçgörü ve Analiz](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Veriler, veri kaynakları yapılandırılarak ve aboneliğinize çözümler eklenerek bağlı kaynaklardan depoya toplanır.
 
@@ -213,7 +213,7 @@ Bazı örnekler:
 
 -   **Giden saldırılar:** saldırganlar genellikle bulut kaynaklarını ek saldırılar yerleştirmek üzere bu kaynakları kullanan amacı hedefleyin. Diğer sanal makinelere karşı deneme yanılma saldırıları başlatmak, istenmeyen posta göndermek veya açık bağlantı noktalarını ve Internet üzerindeki diğer cihazları taramak için riskli sanal makineler, örneğin, kullanılıyor olabilir. Ağ trafiğine machine learning uygulayan Güvenlik Merkezi giden ağ iletişimlerinin normu aştığını algılayabilir. Ne zaman istenmeyen posta, Güvenlik Merkezi ayrıca karşılık gelen olağandışı e-posta trafiğini posta büyük olasılıkla olup olmadığını belirlemek için Office 365'ten ile alınan veya bir meşru e-posta kampanyasının sonucu.
 
-### <a name="anomaly-detection"></a>Anomali algılama
+### <a name="anomaly-detection"></a>Anomali Algılama
 
 Azure Güvenlik Merkezi, tehditleri tanımlamak için anormallik algılamayı da kullanır. Davranış analizinden (büyük veri kümelerinden türetilmiş bilinen modellere bağlıdır) farklı olarak anormallik algılama daha fazla “kişiselleştirilmiştir” ve dağıtımlarınıza özel taban çizgilerine odaklanır. Dağıtımlarınızın normal etkinliğini belirlemek için machine learning uygulanır ve sonra bir güvenlik olayını gösterebilecek aykırı değer koşullarını tanımlamak üzere kurallar oluşturulur. Bir örneği aşağıda verilmiştir:
 

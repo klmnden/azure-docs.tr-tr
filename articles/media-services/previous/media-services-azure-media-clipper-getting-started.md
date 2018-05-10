@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Kırpıcıyı ile çalışmaya başlama | Microsoft Docs"
-description: "Azure Media Kırpıcıyı, video klip AMS varlıklarından oluşturmak için bir aracı ile çalışmaya başlama"
+title: Azure Media Kırpıcıyı ile çalışmaya başlama | Microsoft Docs
+description: Azure Media Kırpıcıyı, video klip AMS varlıklarından oluşturmak için bir aracı ile çalışmaya başlama
 services: media-services
-keywords: "küçük; subclip; kodlama; ortam"
+keywords: küçük; subclip; kodlama; ortam
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Kırpıcıyı ile Klip Oluştur
 Bu bölümde Azure medya Kırpıcıyı ile çalışmaya başlama temel adımları gösterir. İzleyen bölümlerde Azure medya Kırpıcıyı yapılandırma konusunda özellikleri sağlar.
@@ -87,24 +87,24 @@ var subclipper = new subclipper({
 ```
 
 Başlatma yöntemi çağrısı için Parametreler şunlardır:
-- `selector`{GEREKLİ, dize}: CSS Seçici burada pencere öğesi çizilir eşleşen HTML öğesi.
-- `restVersion`{GEREKLİ, dize}: hedef için Azure Media Services REST API sürümü. REST sürüm pencere öğesi tarafından oluşturulan çıktı biçimi tanımlar. Şu anda yalnızca 2.0 desteklenir.
-- `submitSubclipCallback`{GEREKLİ promise} Pencere öğesinin "gönderme" düğmesine tıklandığında çağrılan geri çağırma işlevi. Geri çağırma işlevi (bir işleme iş yapılandırma veya bir filtre tanımını) pencere tarafından oluşturulan çıktı beklemelisiniz. Daha fazla bilgi için bkz: gönderme subclip geri çağırma.
-- `logLevel`{İsteğe bağlı, {'bilgi', 'Uyar', 'error'}}: tarayıcının konsolunda görüntülenmesi için günlüğe kaydetme düzeyi. Varsayılan değer: hata
-- `minimumMarkerGap`{İsteğe bağlı, int}: (saniye cinsinden) subclip minimum boyutu. Not: değer Ayrıca varsayılan ayar olan 6, eşit veya daha büyük olmalıdır.
-- `singleBitrateMp4Profile`{İsteğe bağlı, JSON nesnesi} Pencere öğesi tarafından oluşturulan işleme iş yapılandırması için kullanılacak tek bit hızlı mp4 profili. Sağlanmazsa, kullanan [varsayılan tek bit hızlı MP4 profil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
-- `multiBitrateMp4Profile`{İsteğe bağlı, JSON nesnesi} Kullanılmak üzere Çoklu bit hızlı mp4 profili pencere öğesi tarafından oluşturulan iş yapılandırma işlenemiyor. Sağlanmazsa, kullanan [varsayılan Çoklu bit hızlı MP4 profil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
-- `keymap`{İsteğe bağlı, json nesnesi} Pencere öğesinin klavye kısayollarını özelleştirme sağlar. Daha fazla bilgi için bkz: [özelleştirilebilir klavye kısayolları](media-services-azure-media-clipper-keyboard-shortcuts.md).
-- `assetsPanelLoaderCallback`{İsteğe bağlı, promise} Kullanıcı bölmesinde en alta kadar kaydırın kayar her zaman yeni bir sayfa varlıklarını varlıklar bölmesine (zaman uyumsuz olarak) yüklemek için çağrılan geri çağırma işlevi. Varlık bölmesinde yükleyicisi geri çağırma daha fazla bilgi için bkz.
-- `height`{İsteğe bağlı, number} Pencere öğesi toplam yüksekliği (en küçük yükseklik olduğu 600 piksel varlıklar bölmesinde ve 850 olmadan varlıklar bölmesiyle piksel).
-- `subclippingMode`(İsteğe bağlı, {'all', 'Oluştur', 'Filtrele'}): izin verilen subclipping modları. Tüm varsayılan değerdir.
-- `filterAssetsTypes`(İsteğe bağlı, bool): filterAssetsTypes varlıklar bölmesinden filtreleri açılır Göster/Gizle olanak sağlar. Varsayılan değer true olur.
-- `speedLevels`(İsteğe bağlı, dizi): speedLevels sağlayan video oynatıcı için farklı hızı düzeylerini ayarlama, bkz: [Azure Media Player belgelerine](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) daha fazla bilgi için.
-- `resetOnJobDone`(İsteğe bağlı, bool): resetOnJobDone bir işi başarıyla gönderildiğinde subclipper ilk durumuna sıfırlamak Kırpıcıyı sağlar.
-- `autoplayVideo`(İsteğe bağlı, bool): autoplayVideo video yükleme için Otomatik Yürüt'ü Kırpıcıyı sağlar. Varsayılan değer true olur.
-- `language`{İsteğe bağlı, dize}: dili pencere öğesi dili ayarlar. Belirtilmezse, pencere öğesi tarayıcı diline dayalı iletileri yerelleştirme dener. Hiçbir dil tarayıcıda algılanırsa, İngilizce'ye pencere öğesi varsayılan olarak ayarlanır. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
-- `languages`{İsteğe bağlı, JSON}: kullanıcı tarafından tanımlanan özel bir sözlük ile dilleri varsayılan sözlüğü dilleri parametre değiştirir. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
-- `extraLanguages`(İsteğe bağlı, JSON): extraLanaguages parametresi yeni dilleri varsayılan sözlüğe ekler. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
+- `selector` {GEREKLİ, dize}: CSS Seçici burada pencere öğesi çizilir eşleşen HTML öğesi.
+- `restVersion` {GEREKLİ, dize}: hedef için Azure Media Services REST API sürümü. REST sürüm pencere öğesi tarafından oluşturulan çıktı biçimi tanımlar. Şu anda yalnızca 2.0 desteklenir.
+- `submitSubclipCallback` {GEREKLİ promise} Pencere öğesinin "gönderme" düğmesine tıklandığında çağrılan geri çağırma işlevi. Geri çağırma işlevi (bir işleme iş yapılandırma veya bir filtre tanımını) pencere tarafından oluşturulan çıktı beklemelisiniz. Daha fazla bilgi için bkz: gönderme subclip geri çağırma.
+- `logLevel` {İsteğe bağlı, {'bilgi', 'Uyar', 'error'}}: tarayıcının konsolunda görüntülenmesi için günlüğe kaydetme düzeyi. Varsayılan değer: hata
+- `minimumMarkerGap` {İsteğe bağlı, int}: (saniye cinsinden) subclip minimum boyutu. Not: değer Ayrıca varsayılan ayar olan 6, eşit veya daha büyük olmalıdır.
+- `singleBitrateMp4Profile` {İsteğe bağlı, JSON nesnesi} Pencere öğesi tarafından oluşturulan işleme iş yapılandırması için kullanılacak tek bit hızlı mp4 profili. Sağlanmazsa, kullanan [varsayılan tek bit hızlı MP4 profil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
+- `multiBitrateMp4Profile` {İsteğe bağlı, JSON nesnesi} Kullanılmak üzere Çoklu bit hızlı mp4 profili pencere öğesi tarafından oluşturulan iş yapılandırma işlenemiyor. Sağlanmazsa, kullanan [varsayılan Çoklu bit hızlı MP4 profil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
+- `keymap` {İsteğe bağlı, json nesnesi} Pencere öğesinin klavye kısayollarını özelleştirme sağlar. Daha fazla bilgi için bkz: [özelleştirilebilir klavye kısayolları](media-services-azure-media-clipper-keyboard-shortcuts.md).
+- `assetsPanelLoaderCallback` {İsteğe bağlı, promise} Kullanıcı bölmesinde en alta kadar kaydırın kayar her zaman yeni bir sayfa varlıklarını varlıklar bölmesine (zaman uyumsuz olarak) yüklemek için çağrılan geri çağırma işlevi. Varlık bölmesinde yükleyicisi geri çağırma daha fazla bilgi için bkz.
+- `height` {İsteğe bağlı, number} Pencere öğesi toplam yüksekliği (en küçük yükseklik olduğu 600 piksel varlıklar bölmesinde ve 850 olmadan varlıklar bölmesiyle piksel).
+- `subclippingMode` (İsteğe bağlı, {'all', 'Oluştur', 'Filtrele'}): izin verilen subclipping modları. Tüm varsayılan değerdir.
+- `filterAssetsTypes` (İsteğe bağlı, bool): filterAssetsTypes varlıklar bölmesinden filtreleri açılır Göster/Gizle olanak sağlar. Varsayılan değer true olur.
+- `speedLevels` (İsteğe bağlı, dizi): speedLevels sağlayan video oynatıcı için farklı hızı düzeylerini ayarlama, bkz: [Azure Media Player belgelerine](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) daha fazla bilgi için.
+- `resetOnJobDone` (İsteğe bağlı, bool): resetOnJobDone bir işi başarıyla gönderildiğinde subclipper ilk durumuna sıfırlamak Kırpıcıyı sağlar.
+- `autoplayVideo` (İsteğe bağlı, bool): autoplayVideo video yükleme için Otomatik Yürüt'ü Kırpıcıyı sağlar. Varsayılan değer true olur.
+- `language` {İsteğe bağlı, dize}: dili pencere öğesi dili ayarlar. Belirtilmezse, pencere öğesi tarayıcı diline dayalı iletileri yerelleştirme dener. Hiçbir dil tarayıcıda algılanırsa, İngilizce'ye pencere öğesi varsayılan olarak ayarlanır. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
+- `languages` {İsteğe bağlı, JSON}: kullanıcı tarafından tanımlanan özel bir sözlük ile dilleri varsayılan sözlüğü dilleri parametre değiştirir. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
+- `extraLanguages` (İsteğe bağlı, JSON): extraLanaguages parametresi yeni dilleri varsayılan sözlüğe ekler. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
 
 ## <a name="typescript-definition"></a>TypeScript tanım
 A [TypeScript](https://www.typescriptlang.org/) Kırpıcıyı tanım dosyasını bulunabilir [burada](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).

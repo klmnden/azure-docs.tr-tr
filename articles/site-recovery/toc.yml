@@ -145,6 +145,12 @@
           items:
             - name: Azure-Azure arası çoğaltma sorunlarını giderme
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Azure Site Recovery uzantı sorunlarını giderme
+              href: site-recovery-extension-troubleshoot.md
+        - name: Yönetme
+          items:
+            - name: Mobility hizmeti uzantısının otomatik güncelleştirilmesi
+              href: azure-to-azure-autoupdate.md
     - name: VMware’dan/fizikselden Azure’a
       items:
         - name: Ağ
@@ -171,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Olağanüstü durum kurtarma
           items:
-            - name: Birden çok kiracı desteğine ve CSP'ye sahip VMware VM’lerinin olağanüstü durum kurtarması
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: PowerShell kullanarak VMware sanal makinelerini Azure’a çoğaltma
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
@@ -193,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: VMware VM çoğaltmayı etkinleştirme
               href: vmware-azure-enable-replication.md
+            - name: VMWare sanal makineleri için CSP ile çok kiracılı yapı
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Mobility hizmetini dağıtma
           items:
+            - name: Mobility hizmetine genel bakış
+              href: vmware-azure-install-mobility-service.md
             - name: System Center Configuration Manager ile Mobility hizmetini dağıtma
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Azure Automation DSC ile Mobility hizmetini dağıtma
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Yük devretme ve yeniden çalışma
           items:
             - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma

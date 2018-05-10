@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure uygulama hizmeti ortamı'nı kullanma"
-description: "Oluşturma, yayımlama ve uygulamaları Azure uygulama hizmeti ortamı ölçeklendirme"
+title: Bir Azure uygulama hizmeti ortamı'nı kullanma
+description: Oluşturma, yayımlama ve uygulamaları Azure uygulama hizmeti ortamı ölçeklendirme
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>Bir uygulama hizmeti ortamı'nı kullanma #
 
@@ -58,19 +58,28 @@ ASE'de bir web uygulaması oluşturmak için:
 
 4. Yeni bir kaynak grubu için bir ad girin veya seçin **var olanı kullan** ve aşağı açılan listeden birini seçin.
 
+5. İşletim sisteminizde seçin. 
+
+    * Linux uygulamaları üretim iş yükleri çalışmakta olan bir ana eklemeyin önerdiğimiz bir ana Linux uygulamada barındırma yeni bir önizleme özelliği olduğundan. 
+    * Bir ana Linux uygulama ekleme ana önizleme modunda da olacağı anlamına gelir. 
+
 5. Var olan bir uygulama hizmeti planı, ana seçin veya aşağıdaki adımları izleyerek yeni bir tane oluşturun:
 
     a. Seçin **Yeni Oluştur**.
 
     b. Uygulama hizmeti planınız için adı girin.
 
-    c. Ana seçin **konumu** aşağı açılan liste.
+    c. Ana seçin **konumu** aşağı açılan liste. Bir ana Linux uygulamada barındırma yalnızca etkin 6 bölgelerde, şu anda: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** 
 
     d. Seçin bir **Isolated** fiyatlandırma katmanı. Seçin **seçin**.
 
     e. **Tamam**’ı seçin.
     
     ![Yalıtılmış fiyatlandırma katmanları][2]
+
+    > [!NOTE]
+    > Linux web uygulamaları ve Windows web uygulamalarını aynı uygulama hizmeti planı'nda olamaz, ancak aynı uygulama hizmeti ortamı'nda olabilir. 
+    >
 
 6. **Oluştur**’u seçin.
 
@@ -109,8 +118,8 @@ URL contoso.scm.external ase.p.azurewebsites.net Kudu konsoluna erişmesini veya
 
 ILB ASE'de dağıtım sırasında etki alanı belirler. Bir ILB ana oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma bir ILB ana][MakeILBASE]. Etki alanı adı belirtirseniz, _ılb ase.info_, o ana uygulamalarda uygulama oluşturma sırasında bu etki alanı kullanın. Adlı uygulama için _contoso_, URL'ler:
 
-- contoso.ilb-ase.info
-- contoso.scm.ilb-ase.info
+- contoso.ilb ase.info
+- contoso.SCM.ilb ase.info
 
 ## <a name="publishing"></a>Yayımlama ##
 

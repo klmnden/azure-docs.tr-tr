@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: d8b144eb52400a76395096a2577fb9ecf28e01c1
-  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+  ms.openlocfilehash: 80c88340e31ef6650dee13819dda316b4d9bcb4d
+  ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/03/2018
+  ms.lasthandoff: 05/08/2018
 abstract:
   description: Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Azure IoT, Azure üzerinde uçtan uca IoT uygulamalar oluşturmanıza yardımcı olmak amacıyla tasarlanmış kapsamlı bir hizmet ve çözüm koleksiyonudur. Azure IoT, tam olarak barındırılan ve yönetilen Hizmet Olarak Yazılım (SaaS) çözümlerinden ayrı ve özel Hizmet Olarak Platform (PaaS) teklifleri ile akıllı uç oluşturmaya yönelik teknolojilere kadar birçok alanda sektörel gereksinimlerinizin yanı sıra şirketinizin becerilerine ve kaynaklarına uyarlanmış zengin bir seçenek ve araç kümesi sunar.
 sections:
@@ -29,19 +29,19 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/iot-central/quick-deploy-iot-central">Yeni bir Azure IoT Central uygulaması oluşturmayı öğrenin.</a>
-    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Önceden yapılandırılmış uzaktan izleme çözümünü dağıtmayı öğrenin.</a>
+    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Uzaktan izleme çözüm hızlandırıcısını dağıtmayı öğrenin.</a>
     - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">IoT hub oluşturma ve Azure’a ilk simülasyon cihazınızı bağlamayı öğrenin (Node.js).</a>
     - html: <a href="/azure/iot-edge/quickstart-linux">Windows, Linux veya Mac’te ilk IoT Edge modülünüzü dağıtın ve bir simülasyon cihazında veri işleyin.</a>
-    - html: <a href="/azure/location-based-services/quick-demo-map-app">Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir harita arama uygulaması başlatma.</a>
+    - html: <a href="/azure/azure-maps/quick-demo-map-app">Azure Haritalar’ı kullanarak bir harita arama uygulaması başlatın.</a>
     - html: <a href="/azure/time-series-insights/time-series-quickstart">Time Series Insights’ı keşfedin.</a>
 - title: Teknolojiler ve çözümler
   items:
   - type: paragraph
-    text: Önceden yapılandırılmış çözümler ve SaaS teklifleri ile hızla çalışmaya başlayın.
+    text: Çözüm hızlandırıcıları ve SaaS teklifleriyle hızlıca çalışmaya başlayın.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/iot-suite">IoT Suite</a>
+    - html: <a href="/azure/iot-suite">IoT çözüm hızlandırıcıları</a>
     - html: <a href="/azure/iot-central">IoT Central</a>
   - type: paragraph
     text: Hizmet Olarak Platform (PaaS) teklifleri üzerinde oluşturun.
@@ -50,7 +50,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub">IoT Hub’ı</a>
     - html: <a href="/azure/iot-dps">IoT Hub Cihazı Sağlama Hizmetleri</a>
-    - html: <a href="/azure/location-based-services">Azure Konum Tabanlı Hizmetler</a>
+    - html: <a href="/azure/azure-maps">Azure Haritalar</a>
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Hizmet SDK'ları</a>
   - type: paragraph
@@ -100,4 +100,4 @@ sections:
     - title: Diller
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">.Net, C, Java, Node.js, Python için Azure IoT SDK'ları</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">IoT Hub’ı</a></p><p><a href="/rest/api/iot-dps">IoT Hub Cihazı Sağlama Hizmeti</a></p><p><a href="/rest/api/location-based-services-management/">Konum Tabanlı Hizmetler yönetimi</a></p><p><a href="/rest/api/location-based-services/">Konum Tabanlı Hizmetler işlevsel</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights yönetimi</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
+      html: <p><a href="/rest/api/iothub">IoT Hub’ı</a></p><p><a href="/rest/api/iot-dps">IoT Hub Cihazı Sağlama Hizmeti</a></p><p><a href="/rest/api/location-based-services-management/">Harita yönetimi</a></p><p><a href="/rest/api/location-based-services/">Harita işlevleri</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights yönetimi</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

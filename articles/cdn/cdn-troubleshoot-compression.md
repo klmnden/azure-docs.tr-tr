@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN dosya sıkıştırma sorunlarını giderme | Microsoft Docs"
-description: "Azure CDN dosya sıkıştırma ile ilgili sorunları giderin."
+title: Azure CDN dosya sıkıştırma sorunlarını giderme | Microsoft Docs
+description: Azure CDN dosya sıkıştırma ile ilgili sorunları giderin.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN dosya sıkıştırma sorunlarını giderme
 Bu makale ile ilgili sorunları gidermenize yardımcı [CDN dosya sıkıştırma](cdn-improve-performance.md).
@@ -61,9 +61,9 @@ Dahil birkaç olası nedenleri şunlardır:
 
 ![CDN istek üstbilgileri](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Sıkıştırma ayarları (standart CDN profili) doğrulayın
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Sıkıştırma ayarları (standart CDN profilleri) doğrulayın
 > [!NOTE]
-> CDN profilinizi ise bu adım yalnızca geçerli bir **verizon'dan Azure CDN standart** veya **akamai'den Azure CDN standart** profili. 
+> Bu adım yalnızca CDN profilinizi ise geçerlidir bir **Azure CDN standart Microsoft**, **verizon'dan Azure CDN standart**, veya **akamai'den Azure CDN standart** profili. 
 > 
 > 
 
@@ -74,9 +74,9 @@ Uç noktanız gidin [Azure portal](https://portal.azure.com) tıklatıp **yapıl
 
 ![CDN sıkıştırma ayarları](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Sıkıştırma ayarları (Premium CDN profili) doğrulayın
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Sıkıştırma ayarları (Premium CDN profilleri) doğrulayın
 > [!NOTE]
-> CDN profilinizi ise bu adım yalnızca geçerli bir **verizon'dan Azure CDN Premium** profili.
+> Bu adım yalnızca CDN profilinizi ise geçerlidir bir **verizon'dan Azure CDN Premium** profili.
 > 
 > 
 
@@ -88,9 +88,9 @@ Uç noktanız gidin [Azure portal](https://portal.azure.com) tıklatıp **Yönet
 
 ![CDN premium sıkıştırma ayarları](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>İçerik önbelleğe doğrulayın
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>İçeriği önbelleğe alınmış (Verizon CDN profilleri) olduğunu doğrulayın
 > [!NOTE]
-> CDN profilinizi ise bu adım yalnızca geçerli bir **verizon'dan Azure CDN** profil (standart veya Premium).
+> Bu adım yalnızca CDN profilinizi ise geçerlidir bir **verizon'dan Azure CDN standart** veya **verizon'dan Azure CDN Premium** profili.
 > 
 > 
 
@@ -101,9 +101,9 @@ Tarayıcınızın Geliştirici Araçları'nı kullanarak dosyanın nereye istenm
 
 ![CDN yanıt üstbilgileri](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Dosya boyutu gereksinimleri karşıladığını doğrulayın
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Dosya boyutu gereksinimleri (Verizon CDN profilleri) karşıladığını doğrulayın
 > [!NOTE]
-> CDN profilinizi ise bu adım yalnızca geçerli bir **verizon'dan Azure CDN** profil (standart veya Premium).
+> Bu adım yalnızca CDN profilinizi ise geçerlidir bir **verizon'dan Azure CDN standart** veya **verizon'dan Azure CDN Premium** profili.
 > 
 > 
 

@@ -179,6 +179,8 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
           href: automation-deploy-template-runbook.md
+        - name: Azure Otomasyonu’nu Event Grid ve Microsoft Teams ile tümleştirme
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
     - name: İzleme
       items:
         - name: Azure Otomasyonu iş verilerini Log Analytics’e iletme

@@ -1,24 +1,24 @@
 ---
-title: "Farkları ve sanal makineleri Azure yığınında dikkate alınacak noktalar | Microsoft Docs"
-description: "Farklar ve konuları Azure yığınında sanal makinelerle çalışırken öğrenin."
+title: Farkları ve sanal makineleri Azure yığınında dikkate alınacak noktalar | Microsoft Docs
+description: Farklar ve konuları Azure yığınında sanal makinelerle çalışırken öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
 
@@ -61,7 +61,7 @@ Aşağıdaki tabloda Azure yığında yapılandırmalarını yanı sıra destekl
 |Bellek için iyileştirilmiş|Dv2 Serisi     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Bellek için iyileştirilmiş|DSv2 serisi-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Örneğin, bu tutarlılık çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun bellek miktarını içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
+Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Bu tutarlılık çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun bellek miktarını içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
 
 ## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
@@ -93,6 +93,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 Bulut operatörü, Azure yığın ortamınızı daha yeni bir sürüme güncelleştirir, desteklenen kaynak türleri ve API sürümleri listesini farklılık gösterebilir.
+
+## <a name="windows-activation"></a>Windows etkinleştirme
+
+Windows ürünlerinin ürün kullanım hakları ve Microsoft Lisans Koşulları'nı uygun olarak kullanılmalıdır. Azure yığınını kullanan [otomatik VM etkinleştirme](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) Windows Server sanal makineleri (VM'ler) etkinleştirme (AVMA). 
+ - Azure yığın konak AVMA anahtarları ile Windows Server 2016 için etkinleştirir. olduğundan, tüm sanal makineler, Windows Server 2012 çalıştıran veya daha sonra otomatik olarak etkinleştirilir.
+ - Çalışma Windows Server 2008 R2'in otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmelidir VM'ler [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx). 
+
+Microsoft Azure Windows sanal makineleri etkinleştirme için KMS etkinleştirme kullanır. Bir VM Azure yığından Azure ve karşılaştığınız sorunları etkinleştirme taşırsanız, bkz: [sorun giderme Azure Windows sanal makine etkinleştirme sorunlarını](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Ek bilgiler bulunabilir [sorun giderme Windows etkinleştirme hataları Azure vm'lerinde](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure destek ekibi Blog Gönderisi.
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

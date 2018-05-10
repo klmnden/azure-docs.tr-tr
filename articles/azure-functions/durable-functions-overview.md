@@ -1,26 +1,26 @@
 ---
-title: "Dayanıklı işlevlerine genel bakış - Azure (Önizleme)"
-description: "Azure işlevleri dayanıklı işlevleri uzantısı için giriş."
+title: Dayanıklı işlevlerine genel bakış - Azure
+description: Azure işlevleri dayanıklı işlevleri uzantısı için giriş.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>Dayanıklı işlevlerine genel bakış (Önizleme)
+# <a name="durable-functions-overview"></a>Dayanıklı işlevlerine genel bakış
 
 *Dayanıklı işlevleri* uzantısıdır [Azure işlevleri](functions-overview.md) ve [Azure Web işleri](../app-service/web-sites-create-web-jobs.md) olanak tanıyan sunucusuz bir ortamda durum bilgisi olan işlevler yazma. Uzantı durumu, kontrol noktaları ve yeniden başlatmalar sizin için yönetir.
 
@@ -31,7 +31,7 @@ Uzantı, durum bilgisi olan iş akışları işlevi adlı yeni bir tür tanımla
 * Bunlar otomatik olarak denetim noktası işlevi bekler her kendi devam ediyor. Yerel durumu, hiçbir zaman işlemi geri dönüştürüldüğünde veya VM yeniden kaybolur.
 
 > [!NOTE]
-> Dayanıklı işlevleri Önizleme aşamasındadır ve tüm uygulamalar için uygun değil Azure işlevleri için Gelişmiş bir uzantısıdır. Bu makalenin geri kalanında, güçlü bir aşina sahibi olduğunuzu varsayar [Azure işlevleri](functions-overview.md) kavramları ve sorunları söz konusu sunucusuz bir uygulama geliştirme.
+> Dayanıklı işlevleri tüm uygulamalar için uygun değil Azure işlevleri için Gelişmiş bir uzantı var. Bu makalenin geri kalanında, güçlü bir aşina sahibi olduğunuzu varsayar [Azure işlevleri](functions-overview.md) kavramları ve sorunları söz konusu sunucusuz bir uygulama geliştirme.
 
 Dayanıklı işlevler için birincil kullanım durumu sunucusuz uygulamalardaki karmaşık, durum bilgisi olan koordinasyon sorunları basitleştirir. Aşağıdaki bölümlerde dayanıklı işlevlerinden yararlanabilirsiniz bazı tipik uygulama düzenleri açıklanmaktadır.
 
@@ -42,6 +42,8 @@ Dayanıklı işlevler için birincil kullanım durumu sunucusuz uygulamalardaki 
 ![İşlev zincirleme diyagramı](media/durable-functions-overview/function-chaining.png)
 
 Dayanıklı işlevleri sağlar. Bu deseni yönelik olarak kısaca koda uygulanması.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 "F1", "F2", "F3" ve "F4" işlev uygulaması diğer işlevlerin adları değerlerdir. Denetim akışı normal kesinliği yapıları kodlama kullanılarak uygulanır. Diğer bir deyişle, kod yukarıdan aşağı yürütür ve mevcut dil denetim akışı semantiği, koşulları ve döngüleri gibi içerebilir.  Hata işleme mantığı try/catch/finally bloğu dahil edilebilir.
 
 `ctx` Parametre ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) parametreleri geçirme, ada göre diğer işlevleri yürütmesini ve işlevi çıktı döndürmek için yöntemleri sağlar. Her zaman kodu çağrıları `await`, dayanıklı işlevleri framework *kontrol noktaları* geçerli işlevi örneğinin ilerleme. Yarıda yürütme aracılığıyla işlem ya da VM dönüştürülürse, işlev örneğini önceki sürdürür `await` çağırın. Bunun hakkında daha fazla daha sonra yeniden başlatma davranışı.
@@ -71,6 +86,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ![Fan-dışarı/fan-arada diyagramı](media/durable-functions-overview/fan-out-fan-in.png)
 
 Normal işlevleriyle fanning bir sıraya birden çok ileti gönderme işlevi sağlayarak yapılabilir. Ancak, geri fanning çok daha zordur. Sıra tetiklemeli işlevleri sonlandırmak ve işlev çıkışları depolamak izlemek için kod yazmanız gerekir. Dayanıklı işlevleri uzantısını bu deseni oldukça basit kod ile işler.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 Yayma iş işlevi birden çok örneğini dağıtılmış `F2`, ve iş görevleri dinamik bir listesini kullanarak izlenir. .NET `Task.WhenAll` API tüm çağrılan işlevlerin tamamlanması için beklenecek çağrılır. Ardından `F2`işlevi çıkarır dinamik görev listesinden toplanır ve oturum geçirilen `F3` işlevi.
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametredir arasında bir değer `orchestrationClient` bağlama, dayanıklı işlevleri uzantısı'nın parçası olduğu çıktı. İçin başlangıç gönderen olaylar için sonlandırma ve yeni veya var olan orchestrator işlevi örnekleri için sorgulama yöntemleri sağlar. Yukarıdaki örnekte, bir HTTP tetiklenen-işlevi alır bir `functionName` gelen URL ve değeri geçişleri değerinden [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Bu bağlama API ardından içeren bir yanıt döndürür bir `Location` üstbilgi ve daha sonra aramak için kullanılabilecek örnek hakkında ek bilgi yukarı başlatılan örneğinin durumunu veya sonlandırmak.
+[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametredir arasında bir değer `orchestrationClient` bağlama, dayanıklı işlevleri uzantısı'nın parçası olduğu çıktı. İçin başlangıç gönderen olaylar için sonlandırma ve yeni veya var olan orchestrator işlevi örnekleri için sorgulama yöntemleri sağlar. Önceki örnekte, bir HTTP tetiklenen-işlevi alır bir `functionName` gelen URL ve değeri geçişleri değerinden [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Bu bağlama API ardından içeren bir yanıt döndürür bir `Location` üstbilgi ve daha sonra aramak için kullanılabilecek örnek hakkında ek bilgi yukarı başlatılan örneğinin durumunu veya sonlandırmak.
 
 ## <a name="pattern-4-monitoring"></a>Desen #4: izleme
 
@@ -162,6 +201,8 @@ Bir örnek, önceki zaman uyumsuz HTTP API senaryo ters. Uzun süre çalışan i
 ![İzleyici diyagramı](media/durable-functions-overview/monitor.png)
 
 Dayanıklı işlevleri kullanarak, birkaç kod satırıyla, rasgele uç noktaları inceleyin birden çok monitör oluşturulabilir. Bazı koşul karşılanır ya da tarafından sonlandırılacak izleyiciler yürütme sona erdirebilirsiniz [DurableOrchestrationClient](durable-functions-instance-management.md), ve bunların bekleme aralığı belli bir koşul (yani üstel geri alma.) göre değiştirilebilir. Aşağıdaki kod bir temel izleme uygular.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 Bir istek alındığında, bu iş kimliği için bir yeni orchestration örneği oluşturulur Örnek bir koşula uyulup uyulmadığını ve döngü çıkıldı kadar durumu yoklar. Dayanıklı bir süreölçer yoklama aralığı denetlemek için kullanılır. Orchestration sonlandırabilir veya daha fazla iş sonra gerçekleştirilebilir. Zaman `ctx.CurrentUtcDateTime` aşıyor `expiryTime`, İzleyici sona erer.
 
 ## <a name="pattern-5-human-interaction"></a>Desen #5: İnsan etkileşimi
@@ -200,6 +269,8 @@ Bir insan etkileşimi içeren bir iş sürecinin bir onay işlemi örnektir. Ör
 ![İnsan etkileşimi diyagramı](media/durable-functions-overview/approval.png)
 
 Bu deseni orchestrator işlevi kullanılarak uygulanabilir. Orchestrator kullanmak istediğiniz bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) onay istemek ve zaman aşımı durumunda ilerletmek için. Beklemeniz bir [dış olay](durable-functions-external-events.md), bazı insan etkileşimi tarafından oluşturulan bildirim olacaktır.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 Dayanıklı Zamanlayıcı çağrılarak oluşturulan `ctx.CreateTimer`. Bildirim tarafından alınan `ctx.WaitForExternalEvent`. Ve `Task.WhenAny` ilerletmek karar vermek için çağrılır (ilk zaman aşımı gerçekleşir) veya işlem onay (zaman aşımından önce onay alındı).
+
+Bir dış istemcinin kullanarak bekleme orchestrator işlevi için olay bildirimi teslim [yerleşik HTTP API'leri](durable-functions-http-api.md#raise-event) veya kullanarak [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API'SİNDEN başka bir işlev:
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>Teknoloji
 
@@ -244,7 +347,7 @@ Yeniden yürütme davranışı bir orchestrator işlevinde yazılan kod türün�
 
 ## <a name="language-support"></a>Dil desteği
 
-Şu anda C# yalnızca desteklenen dayanıklı işlevler için dilidir. Bu, orchestrator işlevlerini ve etkinlik işlevlerini içerir. Azure işlevlerini destekleyen tüm diller için destek gelecekte ekleyeceğiz. Azure işlevleri bkz [GitHub depo sorunlar listesine](https://github.com/Azure/azure-functions-durable-extension/issues) işi desteklemek bizim ek dil en son durumunu görmek için.
+Şu anda C# (işlevleri v1 ve v2) ve JavaScript (yalnızca işlevler v2) için desteklenen diller yalnızca dayanıklı işlevlerdir. Bu, orchestrator işlevlerini ve etkinlik işlevlerini içerir. Azure işlevlerini destekleyen tüm diller için destek gelecekte ekleyeceğiz. Azure işlevleri bkz [GitHub depo sorunlar listesine](https://github.com/Azure/azure-functions-durable-extension/issues) işi desteklemek bizim ek dil en son durumunu görmek için.
 
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 
@@ -275,7 +378,7 @@ Tablo depolama orchestrator hesaplar için yürütme geçmişini depolamak için
 
 ## <a name="known-issues-and-faq"></a>Bilinen sorunlar ve SSS
 
-Genel olarak, tüm bilinen sorunlar, izlenmesi gereken [GitHub sorunları](https://github.com/Azure/azure-functions-durable-extension/issues) listesi. Bir sorunla karşılaşırsanız ve sorunu Github'da bulunamıyor, yeni bir sorun açın ve ayrıntılı sorun açıklamasını içerir. Yalnızca bir soru sormak istiyorsanız, bile GitHub sorunu açın ve bir soru olarak etiketlemek çekinmeyin.
+Tüm bilinen sorunların izlenmesi gereken [GitHub sorunları](https://github.com/Azure/azure-functions-durable-extension/issues) listesi. Bir sorunla karşılaşırsanız ve sorunu Github'da bulunamıyor, yeni bir sorun açın ve ayrıntılı sorun açıklamasını içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

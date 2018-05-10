@@ -4,7 +4,7 @@ description: Bu makalede Azure özellikleri yerleşik güvenlik ağ kullanmaya y
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0aaf49aaa31a022e040fc7019a2f115f92555010
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Azure ağı en iyi güvenlik uygulamaları
 Microsoft Azure sanal makineleri ve cihazları diğer ağ bağlantılı cihazlar için Azure sanal ağlarda koyarak bağlamanıza olanak sağlar. Bir Azure sanal ağı etkin ağ aygıtları arasındaki TCP tabanlı iletişime izin vermek için sanal bir ağa sanal ağ arabirim kartları bağlanmanıza olanak sağlayan bir yapıdır. Bir Azure sanal ağına bağlı Azure sanal makineleri aynı Azure sanal ağı, farklı Azure sanal ağlar, Internet'te veya kendi şirket içi ağlarda bile cihazlarda bağlanabilir.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevleri - Hello sırası örneği zincirleme işlevi
 
@@ -35,9 +35,13 @@ Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
 * `E1_HelloSequence`: Çağırır bir orchestrator işlevi `E1_SayHello` birden çok kez sırayla. Çıkışlarından depolar `E1_SayHello` çağıran ve sonuçları kaydeder.
 * `E1_SayHello`: "Hello" dizesiyle başına bir etkinlik işlevi.
 
-Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
- 
-## <a name="functionjson-file"></a>Function.JSON dosyası
+Aşağıdaki bölümlerde, scripting C# ve JavaScript için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+
+> [!NOTE]
+> Dayanıklı işlevleri v2 işlevleri çalışma zamanında yalnızca JavaScript'te mevcut değil.
+
+## <a name="e1hellosequence"></a>E1_HelloSequence
+### <a name="functionjson-file"></a>Function.JSON dosyası
 
 Geliştirme için Visual Studio Code veya Azure portalını kullanıyorsanız, içeriği işte *function.json* orchestrator işlevi için dosya. Çoğu orchestrator *function.json* dosyaları neredeyse tam olarak şöyle arayın.
 
@@ -48,7 +52,7 @@ Geliştirme için Visual Studio Code veya Azure portalını kullanıyorsanız, i
 > [!WARNING]
 > Orchestrator işlevleri "hiçbir g/ç" kuralı tarafından uymanız için olmayan herhangi bir giriş kullanın veya bağlamaları kullanırken çıktı `orchestrationTrigger` tetiklemek bağlama.  Diğer giriş veya çıkış bağlamaları gereklidir, bunlar bunun yerine bağlamında kullanılmalıdır `activityTrigger` orchestrator tarafından çağrılan işlev.
 
-## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# betik (Visual Studio Code ve Azure portal örnek kodu) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# betik (Visual Studio Code ve Azure portal örnek kodu) 
 
 Kaynak kod aşağıdaki gibidir:
 
@@ -57,6 +61,23 @@ Kaynak kod aşağıdaki gibidir:
 Tüm C# orchestration işlevleri türünde bir parametresi olmalıdır `DurableOrchestrationContext`, içinde bulunduğu `Microsoft.Azure.WebJobs.Extensions.DurableTask` derleme. C# betiği kullanıyorsanız, derleme kullanarak başvurulabilir `#r` gösterimi. Bu bağlam nesnesinin diğer çağrı olanak sağlayan *etkinlik* işlevler ve giriş parametreleri kullanarak kendi [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) yöntemi.
 
 Kod çağrıları `E1_SayHello` üç kez sırayla farklı parametre değerleri. Her çağrısının dönüş değeri eklenen `outputs` işlevi sonunda döndürülen listesi.
+
+### <a name="javascript"></a>Javascript
+
+Kaynak kod aşağıdaki gibidir:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+Tüm JavaScript orchestration işlevleri içermelidir `durable-functions` modülü. Bu işlem dışı diller için dayanıklı'nın yürütme Protokolü orchestration işlevin eylemlere çeviren bir JavaScript kitaplıktır. Orchestration işlevi ve diğer JavaScript işlevleri arasında üç önemli farklılıklar vardır:
+
+1. İşlev bir [oluşturucu işlevi.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+2. İşlev çağrısı paketlenir `durable-functions` Modülü (burada `df`).
+3. İşlev çağrısı yaparak sona erer `return`değil `context.done`.
+
+`context` Nesnesini içeren bir `df` nesne diğer çağrı olanak tanır *etkinlik* işlevler ve giriş parametreleri kullanarak kendi `callActivityAsync` yöntemi. Kod çağrıları `E1_SayHello` üç kez dizisindeki kullanarak farklı parametre değerleri ile `yield` yürütme döndürülecek zaman uyumsuz etkinlik işlev çağrılarını beklemesi gereken belirtmek için. Her çağrısının dönüş değeri eklenen `outputs` işlevi sonunda döndürülen listesi.
+
+## <a name="e1sayhello"></a>E1_SayHello
+### <a name="functionjson-file"></a>Function.JSON dosyası
 
 *Function.json* etkinlik işlevi için dosya `E1_SayHello` olarak benzer `E1_HelloSequence` kullanır ancak bu bir `activityTrigger` bağlama türü yerine bir `orchestrationTrigger` bağlama türü.
 
@@ -67,9 +88,17 @@ Kod çağrıları `E1_SayHello` üç kez sırayla farklı parametre değerleri. 
 
 Uygulaması `E1_SayHello` işlemini biçimlendirme oldukça basit bir dize.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 Bu işlev türünde bir parametreye sahiptir [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), orchestrator işlev çağrısı tarafından kendisine geçirilen giriş almak için kullandığı [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### <a name="javascript"></a>JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+JavaScript orchestration işlevinden farklı olarak, hiçbir özel kurulum bir JavaScript etkinlik işlevi gerekir. Orchestrator işlevi tarafından geçirilen giriş bulunan `context.bindings` nesne adı altında `activitytrigger` bağlama - bu durumda, `context.bindings.name`. Örnek kod yaptığı olduğu bağlama adı verilen işlevi parametre olarak ayarlanmış olabilir ve doğrudan erişilebilir.
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 

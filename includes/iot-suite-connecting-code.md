@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: c835b5594676edc39b85a1b10cc04afc7486731d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>IoT cihazının davranışını belirtme
 
 IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletilerin biçimini belirtmek için bir model kullanır.
@@ -78,7 +94,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 Şimdi modelde tanımlanan davranışı uygulayan kodu ekleyin.
 
-1. Cihaz önceden yapılandırılmış çözüme yeni bildirilen özellik değerleri gönderdiğinde çalışan aşağıdaki geri çağırma işleyiciyi ekleyin:
+1. Aygıt yeni bildirilen özellik değerleri Çözüm Hızlandırıcısı gönderildiğinde çalıştırılan aşağıdaki geri çağırma işleyicisini ekleyin:
 
     ```c
     /* Callback after sending reported properties */
@@ -221,7 +237,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
     }
     ```
 
-1. Önceden yapılandırılmış çözümü özellikleri içeren bir ileti gönderir aşağıdaki işlevi ekleyin:
+1. Çözüm Hızlandırıcısı özellikleri içeren bir ileti gönderir aşağıdaki işlevi ekleyin:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +276,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
     }
     ```
 
-1. Cihazınızı buluttaki önceden yapılandırılmış çözüme bağlamak ve veri alışverişi yapmak için aşağıdaki işlevi ekleyin. Bu işlev aşağıdaki adımları gerçekleştirir:
+1. Bulut Çözüm Hızlandırıcısı Cihazınızı bağlanmak için aşağıdaki işlevi ekleyin ve veri değişimi. Bu işlev aşağıdaki adımları gerçekleştirir:
 
     - Platform başlatır.
     - Contoso ad alanını serileştirme kitaplığına kaydeder.
@@ -396,7 +412,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
     }
     ```
 
-    Önceden yapılandırılmış çözüme gönderilen örnek bir **Telemetri** iletisi başvuru amacıyla aşağıda verilmiştir:
+    Başvuru için örnek bir işte **Telemetri** Çözüm Hızlandırıcısı gönderilen ileti:
 
     ```
     Device: [myCDevice],

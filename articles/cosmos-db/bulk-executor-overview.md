@@ -1,0 +1,56 @@
+---
+title: Azure Cosmos DB BulkExecutor kitaplığına genel bakış | Microsoft Docs
+description: Azure Cosmos DB BulkExecutor kitaplığı, kitaplık ve mimarisinin kullanmanın yararları hakkında bilgi edinin.
+keywords: Java toplu Yürütücü
+services: cosmos-db
+author: tknandu
+manager: kfile
+ms.service: cosmos-db
+ms.workload: data-services
+ms.topic: article
+ms.date: 05/07/2018
+ms.author: ramkris
+ms.openlocfilehash: d395376ad6cf191f8f355f6308f27e525da2911f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
+# <a name="azure-cosmos-db-bulkexecutor-library-overview"></a>Azure Cosmos DB BulkExecutor kitaplığına genel bakış
+ 
+Azure Cosmos DB üzere özellikler esnek ölçeklendirme desteklemek üzere tasarlanmış bir hızlı, esnek ve genel olarak dağıtılmış veritabanı hizmetidir.: 
+
+* Büyük okuma ve kapatma (saniye başına milyonlarca) yazma.  
+* Yüksek hacim rakamlarına (yüzlerce terabayt ya da daha da) depolama tahmin edilebilir milisaniyelik gecikme süresi ile işlem ve işletimsel verileri.  
+
+BulkExecutor kitaplığı, bu çok büyük verim ve depolama yararlanan yardımcı olur, BulkExecutor kitaplığı toplu gerçekleştirmenize olanak sağlayan Azure Cosmos DB işlemlerinde toplu içeri aktarma ve toplu güncelleştirme API'leri. Daha fazla bilgiyi aşağıdaki bölümlerdeki BulkExecutor kitaplığı özellikleri hakkında. 
+
+> [!NOTE] 
+> Şu anda içeri aktarma Bulkxecutor kitaplığı destekler ve bu kitaplığa ve güncelleştirme işlemleri yalnızca Azure Cosmos DB SQL API hesapları tarafından desteklenir. Bkz: [.NET](sql-api-sdk-bulk-executor-dot-net.md) ve [Java](sql-api-sdk-bulk-executor-java.md) kitaplığına herhangi bir güncelleştirme için sürüm notları.
+ 
+## <a name="key-features-of-the-bulkexecutor-library"></a>BulkExecutor kitaplığın temel özellikleri  
+ 
+* Ayrıca bir kapsayıcıya ayrılmış işleme saturate için gerekli olan istemci tarafı işlem kaynaklarını önemli ölçüde azaltır. Verileri kullanarak toplu içeri aktarma API'si 10 başarır yazan tek iş parçacıklı uygulama verileri paralel olarak istemci kapasitesini doldurmaktan sırasında makinenin CPU Yazar çok iş parçacıklı bir uygulamaya kıyasla daha büyük yazma üretimi zaman.  
+
+* Hemen verimli bir şekilde bunları kitaplığın içinden işleyerek istek azaltma, istek zaman aşımları ve diğer geçici özel durumları işlemek için uygulama mantığını yazma can sıkıcı görevleri de soyutlar.  
+
+* Ölçeği genişletme uygulamalar toplu işlemleri gerçekleştirmek için basitleştirilmiş bir mekanizma sağlar. Bir Azure VM çalıştıran tek bir BulkExecutor örnek 500 K RU/s büyük tüketebileceği ve sanal makineleri tek tek istemcide ek örnekleri ekleyerek daha büyük verimi elde edebilirsiniz.  
+ 
+* Bunu terabayt verilerin birden çok alma bir saat içinde genişleme mimarisi kullanarak toplu düzenleyebilirsiniz.  
+
+* Güncelleştirme mevcut verileri Azure Cosmos DB kapsayıcılarında düzeltme ekleri olarak toplu düzenleyebilirsiniz. 
+ 
+## <a name="how-does-the-bulk-executor-operate"></a>Toplu Yürütücü nasıl çalışır? 
+
+Toplu işlem varlık ile içe aktarmak ya da belgeleri güncelleştirmek için bir toplu işlemin tetiklendiğinde bunların başlangıçta kendi Azure Cosmos DB bölüm anahtarı aralığının karşılık gelen demet içine karışık. Bir bölüm anahtarı aralığının karşılık gelen her demet içinde bunlar mini toplu ve her kısa toplu act halinde sunucu tarafında kaydedilen bir yükü olarak bölünür. BulkExecutor kitaplığı iyileştirmeler bu mini-toplu hem içinde hem de bölüm anahtar aralıklarına üzerinden eşzamanlı yürütülmesi için yerleşik. Aşağıdaki görüntüde nasıl BulkExecutory veri farklı bölüm anahtarlarının toplu işlemleri gösterilmektedir:  
+
+![Toplu Yürütücü mimarisi](./media/bulk-executor-overview/bulk-executor-architecture.png)
+
+Toplu Yürütücü kitaplığı bir koleksiyona ayrılmış işleme maximally kullanmaya emin olur. Kullandığı bir [AIMD stili Tıkanıklık denetimi mekanizmasını](https://tools.ietf.org/html/rfc5681) her Azure Cosmos DB azaltma verimli bir şekilde işlemek için anahtar aralık ve zaman aşımlarına bölüm. 
+
+## <a name="next-steps"></a>Sonraki Adımlar 
+  
+* Toplu Yürütücü Kitaplığı'nda kullanan örnek uygulamaları çıkışı deneyerek daha fazla bilgi edinin [.NET](bulk-executor-dot-net.md) ve [Java](bulk-executor-java.md).  
+* BulkExecutor SDK bilgileri ve sürüm notları kullanıma [.NET](sql-api-sdk-bulk-executor-dot-net.md) ve [Java](sql-api-sdk-bulk-executor-java.md).
+* Toplu Yürütücü kitaplığı Cosmos DB Spark bağlayıcısına tümleşik, daha fazla bilgi için bkz: [Azure Cosmos DB Spark bağlayıcı](spark-connector.md) makalesi.  
+* BulkExecutor kitaplığı da yeni bir sürümüne tümleşik [Azure Cosmos DB bağlayıcı](https://aka.ms/bulkexecutor-adf-v2) verileri kopyalamak Azure Data Factory için.

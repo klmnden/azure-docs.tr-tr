@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Günlük analizi bilgisayar gruplarında aramaları oturum
 
@@ -56,14 +56,6 @@ Azure portalında bir günlük aramadan bir bilgisayar grubu oluşturmak için a
 2. Açık **günlük arama** ve ardından **kayıtlı aramaları** ekranın üstünde.
 3. Tıklatın **Ekle** ve bilgisayar grubu için her bir özellik için değerler sağlayın.
 4. Seçin **bu sorguyu bir bilgisayar grubu olarak kaydetmek** tıklatıp **Tamam**.
-
-
-Günlük arama OMS portalında bir bilgisayar grubu oluşturmak için aşağıdaki yordamı kullanın.
-
-1. Açık **günlük arama** ve bilgisayar grubu için günlük arama oluşturun.  
-2. Tıklatın **kaydetmek** ekranın üstündeki düğmesi.
-3. Seçin **Evet** için **bu sorguyu bir bilgisayar grubu olarak kaydetmek**.
-5. Bilgisayar grubu için her bir özellik için değerleri girin. 
 
 
 
@@ -136,7 +128,7 @@ Active Directory veya WSUS oluşturulan her bilgisayar grubu üyeliği için gü
 | Bilgisayar |Üye bilgisayar adıdır. |
 | Grup |Grubun adı. |
 | GroupFullName |Kaynak ve kaynak adı dahil olmak üzere Grup tam yolu. |
-| GroupSource |Bu grup kaynak gelen toplanan oluştu. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| GroupSource |Bu grup kaynak gelen toplanan oluştu. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
 | GroupSourceName |Grup toplandığı kaynağının adı.  Active Directory'de, bu etki alanı adıdır. |
 | ManagementGroupName |SCOM aracıları için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
 | TimeGenerated |Tarih ve saat bilgisayar grubu oluşturulurken veya güncelleştirilirken. |

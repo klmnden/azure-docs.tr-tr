@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery ile (VMM ile) Hyper-V VM çoğaltması için Ağ eşlemesi hakkında | Microsoft Docs"
-description: "Azure Site Recovery ile VMM bulutlarında yönetilen Hyper-V Vm'lerini çoğaltma için Ağ eşlemesi ayarlamak açıklar."
+title: Azure Site Recovery ile (VMM ile) Hyper-V VM çoğaltması için Ağ eşlemesi hakkında | Microsoft Docs
+description: Azure Site Recovery ile VMM bulutlarında yönetilen Hyper-V Vm'lerini çoğaltma için Ağ eşlemesi ayarlamak açıklar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f7c6e3eeb8db75a3857e687fecc9ee2748e92696
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
 
@@ -55,10 +55,10 @@ Burada, bu mekanizma göstermek için bir örnek verilmiştir. New York ve Şika
 
 **Konum** | **VMM sunucusu** | **VM ağları** | **Eşlenen**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1-NewYork | VMNetwork1 Şikago'eşlenmiş
+New York | VMM NewYork| VMNetwork1-NewYork | VMNetwork1 Şikago'eşlenmiş
  |  | VMNetwork2-NewYork | Eşlenmedi
-Chicago | VMM Chicago| VMNetwork1-Chicago | VMNetwork1-NewYork eşlenmiş
- | | VMNetwork1-Chicago | Eşlenmedi
+Chicago | VMM Chicago| VMNetwork1 Chicago | VMNetwork1-NewYork eşlenmiş
+ | | VMNetwork1 Chicago | Eşlenmedi
 
 Bu örnekte:
 
@@ -73,16 +73,16 @@ Bu örnekte:
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1 Chicago</p>
-SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1 Chicago</p>
+GoldCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
+SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Mantıksal ve VM ağ ayarları
 
 **Konum** | **Mantıksal ağ** | **İlişkili bir VM ağı**
 ---|---|---
-New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
-Chicago | LogicalNetwork1 Chicago | VMNetwork1-Chicago
- | LogicalNetwork2Chicago | VMNetwork2-Chicago
+New York | LogicalNetwork1 NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
+ | LogicalNetwork2Chicago | VMNetwork2 Chicago
 
 ### <a name="target-network-settings"></a>Hedef ağ ayarları
 
@@ -90,9 +90,9 @@ Hedef VM ağ seçeneğini belirlediğinizde bu ayarları temel alarak, aşağıd
 
 **Seç** | **Korumalı bulut** | **Bulut koruma** | **Hedef ağ yok**
 ---|---|---|---
-VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Kullanılabilir
+VMNetwork1 Chicago | SilverCloud1 | SilverCloud2 | Kullanılabilir
  | GoldCloud1 | GoldCloud2 | Kullanılabilir
-VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Kullanılamıyor
+VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Kullanılamıyor
  | GoldCloud1 | GoldCloud2 | Kullanılabilir
 
 
@@ -106,8 +106,8 @@ Yeniden çalışma (çoğaltmayı tersine çevirme) söz konusu olduğunda neler
 
 **VM** | **VM ağına bağlı**
 ---|---
-VM1 | VMNetwork1-Network
-VM2 (VM1 çoğaltma) | VMNetwork1-Chicago
+VM1 | VMNetwork1 ağ
+VM2 (VM1 çoğaltma) | VMNetwork1 Chicago
 
 Şimdi bu ayarlarla olası senaryolar birkaç içinde neler gözden geçirin.
 

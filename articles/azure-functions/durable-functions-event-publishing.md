@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6e7fdd4faa4213681813733aa8afe81d56835862
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 50e517e5719fb102fd91072abe59d3908176278e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Dayanıklı Azure olay kılavuzuna (Önizleme) yayımlama işlevleri
 
@@ -220,7 +220,7 @@ Azure portalında oluşturduğunuz işlevden günlüklerine bakın.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 0
+        "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:19.6492068Z",
@@ -239,7 +239,7 @@ Azure portalında oluşturduğunuz işlevden günlüklerine bakın.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 1
+        "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:36.5061317Z",
@@ -261,7 +261,7 @@ Aşağıdaki listede yaşam döngüsü olayları şema açıklanmaktadır:
     * **functionName**: Orchestrator işlev adı.
     * **InstanceId**: dayanıklı işlevleri InstanceId'si.
     * **neden**: izleme olayla ilişkili ek veriler. Daha fazla bilgi için bkz: [tanılama dayanıklı işlevlerinde (Azure işlevleri)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
-    * **eventType**: Orchestration çalışma zamanı durumu. 0: çalışan, 1: tamamlandı, 2: ContinuedAsNew, 3: başarısız oldu, 4: iptal edildi, 5: sonlandırıldı, 6: beklemede. 
+    * **runtimeStatus**: Orchestration çalışma zamanı durumu. Çalıştığından, tamamlandı, başarısız, iptal edildi. 
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Olay saati (UTC).
 * **dataVersion**: yaşam döngüsü olay şema sürümü.

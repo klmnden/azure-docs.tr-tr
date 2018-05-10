@@ -1,12 +1,12 @@
 ---
-title: "Azure service fabric güvenlik denetim listesi | Microsoft Docs"
-description: "Bu makalede, bir dizi denetim listesi için Azure doku güvenlik güvenlik sağlar."
+title: Azure service fabric güvenlik denetim listesi | Microsoft Docs
+description: Bu makalede, bir dizi denetim listesi için Azure doku güvenlik güvenlik sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 526f10bab30b7d0fae796e47f5a27a58428b9a3b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric güvenlik denetim listesi
 Bu makale Azure Service Fabric ortamınızın güvenliğini sağlamanıza yardımcı olacak bir kullanımı kolay denetim sağlar.
@@ -43,7 +43,7 @@ Yönetim ve yapılandırma, güvenli Azure Service Fabric çözümünün önemli
 |ClientCertificateThumbprints| <ul><li>Kimliği doğrulanmış istemcilerde yüklemek istediğiniz sertifika kümesidir. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>İlk istemci sertifikasının ortak adı için CertificateCommonName ayarlayın. Bu sertifika verenin parmak izini CertificateIssuerThumbprint olur. </li></ul>|
 |ReverseProxyCertificate| <ul><li>Bu, olabilir, isteğe bağlı bir sertifikadır güvenli isteyip istemediğinizi belirtilen, [Ters Proxy](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
-|Anahtar Kasası| <ul><li>Azure Service Fabric kümeleri sertifikalarını yönetmek için kullanılır.  </li></ul>|
+|Key Vault| <ul><li>Azure Service Fabric kümeleri sertifikalarını yönetmek için kullanılır.  </li></ul>|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,38 +1,37 @@
 ---
-title: "PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme"
-description: "Oluşturma ve Otomasyon için PowerShell kullanarak bildirim hub'ları yönetme"
+title: PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme
+description: Oluşturma ve Otomasyon için PowerShell kullanarak bildirim hub'ları yönetme
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme
 ## <a name="overview"></a>Genel Bakış
 Bu makalede oluşturma ve yönetme Azure bildirim PowerShell kullanarak hub'ları nasıl kullanılacağı gösterilmektedir. Bu konuda aşağıdaki ortak Otomasyon görevler gösterilmektedir.
 
 * Bildirim hub'ı Oluştur
-* Kimlik bilgilerini ayarlayın
+* Kimlik Bilgilerini Ayarla
 
 Ayrıca, bildirim hub'larınız için yeni bir hizmet veri yolu ad alanı oluşturmanız gerekiyorsa, bkz: [PowerShell ile yönetme Service Bus](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
 Bildirim hub'ları yönetme, doğrudan Azure PowerShell ile dahil edilen cmdlet'ler tarafından desteklenmiyor. En iyi powershell'den Microsoft.Azure.NotificationHubs.dll derleme başvurusu yaklaşımdır. Derleme ile dağıtılmış [Microsoft Azure bildirim hub'ları NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Ön koşullar
-Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği. Azure abonelik tabanlı bir platformdur. Bir aboneliği edinme hakkında daha fazla bilgi için bkz: [satın alma seçenekleri], [üye teklifleri], veya [ücretsiz deneme].
 * Azure PowerShell ile bir bilgisayar. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma].
@@ -73,7 +72,7 @@ catch [System.Exception]
 ## <a name="create-the-namespacemanager-class"></a>NamespaceManager sınıfı oluşturma
 Bildirim hub'ları sağlamak için bir örneğini oluşturmak [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) SDK sınıfından. 
 
-Kullanabileceğiniz [Get-AzureSBAuthorizationRule] bir bağlantı dizesi sağlamak için kullanılan bir yetkilendirme kuralı almak için Azure PowerShell ile dahil cmdlet'i. Bir başvuru depolarız `NamespaceManager` örneğini `$NamespaceManager` değişkeni. Kullanacağız `$NamespaceManager` bir bildirim hub'ı sağlamak için.
+Kullanabileceğiniz [Get-AzureSBAuthorizationRule] bir bağlantı dizesi sağlamak için kullanılan bir yetkilendirme kuralı almak için Azure PowerShell ile dahil cmdlet'i. Bir başvuru `NamespaceManager` örneği depolanır `$NamespaceManager` değişkeni. `$NamespaceManager` bildirim hub'ı sağlamak için kullanılır.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -87,17 +86,17 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 ## <a name="provisioning-a-new-notification-hub"></a>Yeni bir Notification Hub sağlama
 Yeni bir notification hub sağlamak için kullanmanız [bildirim hub'ları için .NET API].
 
-Bu komut dosyasının parçası dört yerel değişkenleri ayarlayın. 
+Bu komut dosyası bölümünde dört yerel değişkenleri ayarlayın. 
 
-1. `$Namespace`: Bu ad alanı için bir bildirim hub'ı oluşturmak istediğiniz kümesinin adı.
-2. `$Path`: Bu yol yeni bildirim hub'ı adına ayarlayın.  Örneğin, "MyHub".    
-3. `$WnsPackageSid`: Bu, paket SID'si Windows uygulamadan koymak [Windows Geliştirme Merkezi](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: Bu gizli anahtarı için Windows uygulamadan ayarladığınız [Windows Geliştirme Merkezi](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace` : Bu ad alanı için bir bildirim hub'ı oluşturmak istediğiniz kümesinin adı.
+2. `$Path` : Bu yol yeni bildirim hub'ı adına ayarlayın.  Örneğin, "MyHub".    
+3. `$WnsPackageSid` : Bu paket SID'si Windows uygulamanız için koymak gelen [Windows Geliştirme Merkezi](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey`: Bu gizli anahtarı için Windows uygulamanızdan Ayarla [Windows Geliştirme Merkezi](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
 Bu değişkenler ad alanınıza bağlanın ve bir Windows uygulaması için WNS kimlik bilgilerine sahip Windows Bildirim Hizmetleri (WNS) bildirimleri işlemek üzere yapılandırılmış yeni bir Notification Hub oluşturmak için kullanılır. Paket alma hakkında bilgi için SID ve gizli anahtar bakın, [Notification Hubs ile çalışmaya başlama](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) Öğreticisi. 
 
 * Kod parçacığı kullanan `NamespaceManager` bildirim hub'ı tarafından tanımlanan olmadığını görmek için nesne `$Path` bulunmaktadır.
-* Yoksa, betik oluşturacak bir `NotificationHubDescription` WNS ile kimlik bilgileri ve olarak geçirin `NamespaceManager` sınıfı `CreateNotificationHub` yöntemi.
+* Yoksa, komut dosyası oluşturur `NotificationHubDescription` WNS ile kimlik bilgileri ve olarak geçirin `NamespaceManager` sınıfı `CreateNotificationHub` yöntemi.
 
 ``` powershell
 

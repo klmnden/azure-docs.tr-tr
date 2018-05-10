@@ -1,4 +1,4 @@
-- name: Azure Container Kayıt Defteri
+- name: Azure Container Registry
   href: ./index.yml
 - name: Genel Bakış
   items:
@@ -17,7 +17,7 @@
   items:
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (AKS)
+    - name: Azure Kubernetes Hizmeti (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
@@ -29,7 +29,7 @@
           href: container-registry-tutorial-build-task.md
         - name: 3 - Temel görüntü güncelleştirme derlemeleri
           href: container-registry-tutorial-base-image-update.md
-    - name: Coğrafi Çoğaltma (önizleme)
+    - name: Coğrafi çoğaltma
       items:
         - name: 1 - Kapsayıcı kayıt defterini hazırlama
           href: container-registry-tutorial-prepare-registry.md
@@ -45,7 +45,7 @@
       href: container-registry-storage.md
     - name: ACR Derlemesi ile derleme ve yama yapma
       href: container-registry-build-overview.md
-    - name: Coğrafi Çoğaltma (önizleme)
+    - name: Coğrafi çoğaltma
       href: container-registry-geo-replication.md
     - name: En iyi kayıt defteri uygulamalar
       href: container-registry-best-practices.md

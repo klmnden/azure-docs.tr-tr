@@ -1,11 +1,11 @@
 ---
-title: "Tek bit hızlı bir canlı akışı Azure'a göndermek için Haivision KB Kodlayıcı yapılandırma | Microsoft Docs"
-description: "Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için etkinleştirilmiş AMS kanallar göndermek için Haivision KB gerçek zamanlı Kodlayıcı yapılandırma gösterilmektedir."
+title: Tek bit hızlı bir canlı akışı Azure'a göndermek için Haivision KB Kodlayıcı yapılandırma | Microsoft Docs
+description: Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için etkinleştirilmiş AMS kanallar göndermek için Haivision KB gerçek zamanlı Kodlayıcı yapılandırma gösterilmektedir.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Tek bit hızlı bir canlı akışı göndermek için Haivision KB gerçek zamanlı Kodlayıcı kullanın
 > [!div class="op_single_selector"]
 > * [Elemental dinamik](media-services-configure-elemental-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [tricaster](media-services-configure-tricaster-live-encoder.md)
+> * [wirecast](media-services-configure-wirecast-live-encoder.md)
 
 Bu konuda nasıl yapılandırılacağını göstermektedir [Havision KB gerçek zamanlı Kodlayıcı](https://www.haivision.com/products/kb-series/) AMS bir tek bit hızlı akışın kanallar göndermek için Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 

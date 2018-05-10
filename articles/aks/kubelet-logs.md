@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti (AKS) kubelet günlüklerini alma"
-description: "Azure kapsayıcı hizmeti (AKS) küme düğümlerinden kubelet günlüklerini alma"
+title: Azure Kubernetes hizmet (AKS) kubelet günlüklerini alma
+description: Azure Kubernetes hizmet (AKS) küme düğümlerinden kubelet günlüklerini alma
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 56e20a9f9d17eac01e6f85007db41dcc417f83e4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0467be7e91fdbf4685fc41a375ea86a503e26009
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-kubelet-logs-from-azure-container-service-aks-cluster-nodes"></a>Azure kapsayıcı hizmeti (AKS) küme düğümlerinden kubelet günlüklerini alma
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes hizmet (AKS) küme düğümlerinden kubelet günlüklerini alma
 
-Bazen, sorun giderme amacıyla bir Azure kapsayıcı hizmeti (AKS) düğümden kubelet günlükleri yapmanız gerekebilir. Bu belgede, bu günlükler çekmek için bir seçenek ayrıntıları verilmektedir.
+Bazen, sorun giderme amacıyla bir Azure Kubernetes hizmet (AKS) düğümden kubelet günlükleri yapmanız gerekebilir. Bu belgede, bu günlükler çekmek için bir seçenek ayrıntıları verilmektedir.
 
 ## <a name="create-an-ssh-connection"></a>Bir SSH bağlantısı oluşturma
 
-İlk olarak, bir SSH bağlantısı kubelet günlüklerini gerek düğümle oluşturun. Bu işlem içinde ayrıntılı [Azure kapsayıcı hizmeti (AKS) küme düğümleri içine SSH] [ aks-ssh] belge.
+İlk olarak, bir SSH bağlantısı kubelet günlüklerini gerek düğümle oluşturun. Bu işlem içinde ayrıntılı [Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH] [ aks-ssh] belge.
 
 ## <a name="get-kubelet-logs"></a>Kubelet günlüklerini alma
 

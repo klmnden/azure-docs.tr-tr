@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 2c6f5cf2d89da0c2418ac58ca5d47a8aa05e732f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-best-practices"></a>En iyi güvenlik uygulamalarını, nesnelerin interneti
 
 Bir nesnelerin interneti (IOT) altyapısını koruma sıkı güvenlik derinlemesine stratejisi gerektirir. Bu strateji buluttaki verilerin güvenli, ortak internet üzerinden aktarım sırasında veri bütünlüğü korumak ve güvenli bir şekilde cihazlara sağlamak gerektirir. Her katman genel altyapısında daha yüksek güvenlik güvencesi oluşturur.
@@ -7,7 +23,7 @@ Bir nesnelerin interneti (IOT) altyapısını koruma sıkı güvenlik derinlemes
 Bu güvenlik derinlemesine strateji geliştirilmiş ve üretim, geliştirme ve IOT cihazları ve altyapı dağıtımı ile ilgili çeşitli Yürütücü etkin bir katılım ile yürütüldü. Bu oynatıcıları üst düzey bir açıklaması verilmiştir.
 
 * **IOT donanım üreticisinin/Tümleştirici**: genellikle bu oynatıcıları çeşitli üreticileri ya da bir IOT dağıtım için donanım sağlama Üreticiler donanım atayarak tümleştiricileri dağıtılan IOT donanım üreticileri yayımlanır üretilen veya başka üreticiler tarafından tümleşik.
-* **IOT çözüm geliştirici**: bir IOT çözüm geliştirme genellikle bir çözüm geliştirici tarafından yapılır. Bu Geliştirici parçası bir şirket içi team ya da bu etkinlikte uzmanlaşmış bir sistem Tümleştirici (SI). IOT çözüm geliştirici sıfırdan IOT çözüm çeşitli bileşenleri geliştirmek, çeşitli piyasada veya açık kaynak bileşenlerini tümleştirmek veya ikincil uyarlama önceden yapılandırılmış çözümlerle benimsemeyi.
+* **IOT çözüm geliştirici**: bir IOT çözüm geliştirme genellikle bir çözüm geliştirici tarafından yapılır. Bu Geliştirici parçası bir şirket içi team ya da bu etkinlikte uzmanlaşmış bir sistem Tümleştirici (SI). IOT çözüm geliştirici sıfırdan IOT çözüm çeşitli bileşenleri geliştirmek, çeşitli piyasada veya açık kaynak bileşenlerini tümleştirmek veya ikincil uyarlama ile Çözüm Hızlandırıcıları benimsemeyi.
 * **IOT çözüm dağıtıcı**: sonra bir IOT çözüm geliştirilmiş, alanında dağıtılması gerekir. Bu işlem donanım, cihaz bağlantısı ve donanım aygıtları çözümlerinde veya Bulut dağıtımını dağıtımını içerir.
 * **IOT çözüm işleci**: sonra IOT çözüm dağıtılırsa, uzun vadeli işlemleri, izleme, yükseltme ve bakım gerektirir. Bu görevler, bilgi teknolojisi uzmanları, donanım işlemler ve Bakım ekipleri ve genel IOT altyapı doğru davranışını izlemek etki alanı uzmanlarıyla içeren bir şirket içi ekibi tarafından yapılabilir.
 

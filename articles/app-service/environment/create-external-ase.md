@@ -1,6 +1,6 @@
 ---
-title: "Dış Azure uygulama hizmeti ortamı oluşturma"
-description: "Bir uygulama ya da tek başına oluştururken bir uygulama hizmeti ortamının nasıl oluşturulacağı açıklanmaktadır"
+title: Dış Azure uygulama hizmeti ortamı oluşturma
+description: Bir uygulama ya da tek başına oluştururken bir uygulama hizmeti ortamının nasıl oluşturulacağı açıklanmaktadır
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: debfff03ea9a4de4fb2cd69779d58709a6a3a34f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış uygulama hizmeti ortamı oluşturun #
 
@@ -55,7 +55,7 @@ Bir dış ana ana uygulamalarında tüm HTTP/HTTPS trafiğini internet'ten eriş
 
 ## <a name="create-an-ase-and-an-app-service-plan-together"></a>Bir ana ve bir uygulama hizmeti planı birlikte oluşturma ##
 
-Uygulama hizmeti planı, uygulamaların bir kapsayıcıdır. App Service içinde bir uygulama oluşturduğunuzda, seçin veya bir uygulama hizmeti planı oluşturun. Uygulama hizmeti planları kapsayıcı modeli ortamları tutun ve uygulama hizmeti planları uygulamaları basılı tutun.
+Uygulama hizmeti planı, uygulamaların bir kapsayıcıdır. App Service içinde bir uygulama oluşturduğunuzda, seçin veya bir uygulama hizmeti planı oluşturun. Uygulama hizmeti ortamları uygulama hizmeti planları basılı tutun ve uygulama hizmeti planları uygulamaları tutun.
 
 Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
@@ -67,13 +67,66 @@ Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
 3. Kaynak grubunu seçin veya oluşturun. Kaynak gruplarıyla ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, aynı zamanda, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluşturmak olduğunda yararlıdır. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış][ARMOverview].
 
-4. Uygulama hizmeti planı seçin ve ardından **Yeni Oluştur**.
+4. İşletim sisteminizde seçin. 
+
+    * Linux uygulamaları üretim iş yükleri çalışmakta olan bir ana eklemeyin önerdiğimiz bir ana Linux uygulamada barındırma yeni bir önizleme özelliği olduğundan. 
+    * Bir ana Linux uygulama ekleme ana önizleme modunda da olacağı anlamına gelir. 
+
+5. Uygulama hizmeti planı seçin ve ardından **Yeni Oluştur**. Linux web uygulamaları ve Windows web uygulamalarını aynı uygulama hizmeti planı'nda olamaz, ancak aynı uygulama hizmeti ortamı'nda olabilir. 
 
     ![Yeni App Service planı][2]
 
+6. İçinde **konumu** aşağı açılan listesinde, istediğiniz bölgeyi seçin ana oluşturun. Varolan bir ana seçerseniz, yeni bir ana oluşturulmaz. Uygulama hizmeti planı, seçili ana içinde oluşturulur. 
+
+    > [!NOTE]
+    > Ana Linux'ta 6 bölgelerde, şu anda etkin yalnızca: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** Ana Linux'ta bir önizleme özelliği olduğundan, bu Önizleme önce oluşturmuştunuz bir ana seçmeyin.
+    >
+
+7. Seçin **fiyatlandırma katmanı**ve aşağıdakilerden birini seçin **Isolated** SKU'ları fiyatlandırması. İsterseniz bir **Isolated** SKU kartı ve bir ana değil bir konum, yeni bir ana oluşturuldu. konumda. Bir ana oluşturma işlemini başlatmak için **seçin**. **Isolated** SKU yalnızca bir ana ile birlikte kullanılabilir. Ayrıca diğer fiyatlandırma SKU ASE'de dışında kullanamazsınız **Isolated**. 
+
+    * Ana Önizleme Linux'ta için % 50 indirimlidir yalıtılmış (olacaktır iskonto ana için düz masrafları) SKU uygulanır.
+
+    ![Fiyatlandırma katmanı seçimi][3]
+
+8. ANA adını girin. Bu ad adreslenebilir ad uygulamalarınız için kullanılır. ANA adı ise _appsvcenvdemo_, etki alanı adı *. appsvcenvdemo.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız, *mytestapp*, mytestapp.appsvcenvdemo.p.azurewebsites.net adreslenebilir. Adında boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, etki alanı adı toplam küçük harfli sürümünü adıdır.
+
+    ![Yeni uygulama hizmeti planının adı][4]
+
+9. Azure, sanal ağ ayrıntıları belirtin. Şunlardan birini seçin **Yeni Oluştur** veya **Varolanı seç**. Var olan bir VNet seçmek için seçenek yalnızca seçili bölgede bir VNet varsa kullanılabilir. Seçerseniz **Yeni Oluştur**, sanal ağ için bir ad girin. Bu ada sahip yeni bir Resource Manager Vnet'i oluşturulur. Adres alanı kullanan `192.168.250.0/23` seçili bölgede. Seçerseniz **var olanı Seç**, gerekir:
+
+    a. Birden fazla varsa VNet adres bloğu seçin.
+
+    b. Yeni bir alt ağ adı girin.
+
+    c. Alt ağ boyutunu seçin. *ANA, Gelecekteki büyümeyi barındırmak için büyük bir boyutu seçmek unutmayın.* Öneririz `/25`, 128 adresi olduğunu ve en büyük ölçekli bir ana işleyebilir. Öneririz yok `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir durumdadır. En az yedi adreslerini altyapısını kullanır ve Azure ağ başka bir 5 kullanır. İçinde bir `/28` alt bıraktığınız uygulama hizmeti planı örnekleri için bir ILB ana en dış ana 4 uygulama hizmeti planı örneklerinin ölçekleme ve yalnızca 3.
+
+    d. Alt ağ IP aralığını seçin.
+
+10. Seçin **oluşturma** ana oluşturmak için. Bu işlem, uygulama hizmeti planı ve uygulamayı da oluşturur. ANA uygulama hizmeti planı ve uygulama olduğundan tüm aynı abonelik altında ve ayrıca aynı kaynak grubunda. Ayrı kaynak grubu, ana alması gerekiyorsa veya bir ILB ana ihtiyacınız varsa, tek başına bir ana oluşturmak için aşağıdaki adımları izleyin.
+
+## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Bir ana ve özel Docker görüntü birlikte kullanarak bir Linux web uygulaması oluşturma
+
+1. İçinde [Azure portal](https://portal.azure.com/), **kaynak oluşturma** > **Web + mobil** > **kapsayıcıları için Web uygulaması.** 
+
+    ![Web uygulaması oluşturma][7]
+
+2. Aboneliğinizi seçin. Uygulama ve ana aynı Aboneliklerde oluşturulur.
+
+3. Kaynak grubunu seçin veya oluşturun. Kaynak gruplarıyla ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, aynı zamanda, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluşturmak olduğunda yararlıdır. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış][ARMOverview].
+
+4. Uygulama hizmeti planı seçin ve ardından **Yeni Oluştur**. Linux web uygulamaları ve Windows web uygulamalarını aynı uygulama hizmeti planı'nda olamaz, ancak aynı uygulama hizmeti ortamı'nda olabilir. 
+
+    ![Yeni App Service planı][8]
+
 5. İçinde **konumu** aşağı açılan listesinde, istediğiniz bölgeyi seçin ana oluşturun. Varolan bir ana seçerseniz, yeni bir ana oluşturulmaz. Uygulama hizmeti planı, seçili ana içinde oluşturulur. 
 
-6. Seçin **fiyatlandırma katmanı**ve aşağıdakilerden birini seçin **Isolated** SKU'ları fiyatlandırması. İsterseniz bir **Isolated** SKU kartı ve bir ana değil bir konum, yeni bir ana oluşturuldu. konumda. Bir ana oluşturma işlemini başlatmak için **seçin**. **Isolated** SKU yalnızca bir ana ile birlikte kullanılabilir. Ayrıca diğer fiyatlandırma SKU ASE'de dışında kullanamazsınız **Isolated**.
+    > [!NOTE]
+    > Ana Linux'ta 6 bölgelerde, şu anda etkin yalnızca: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** Ana Linux'ta bir önizleme özelliği olduğundan, bu Önizleme önce oluşturmuştunuz bir ana seçmeyin.
+    >
+
+6. Seçin **fiyatlandırma katmanı**ve aşağıdakilerden birini seçin **Isolated** SKU'ları fiyatlandırması. İsterseniz bir **Isolated** SKU kartı ve bir ana değil bir konum, yeni bir ana oluşturuldu. konumda. Bir ana oluşturma işlemini başlatmak için **seçin**. **Isolated** SKU yalnızca bir ana ile birlikte kullanılabilir. Ayrıca diğer fiyatlandırma SKU ASE'de dışında kullanamazsınız **Isolated**. 
+
+    * Ana Önizleme Linux'ta için % 50 indirimlidir yalıtılmış (olacaktır iskonto ana için düz masrafları) SKU uygulanır.
 
     ![Fiyatlandırma katmanı seçimi][3]
 
@@ -91,7 +144,13 @@ Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
     d. Alt ağ IP aralığını seçin.
 
-9. Seçin **oluşturma** ana oluşturmak için. Bu işlem, uygulama hizmeti planı ve uygulamayı da oluşturur. ANA uygulama hizmeti planı ve uygulama olduğundan tüm aynı abonelik altında ve ayrıca aynı kaynak grubunda. Ayrı kaynak grubu, ana alması gerekiyorsa veya bir ILB ana ihtiyacınız varsa, tek başına bir ana oluşturmak için aşağıdaki adımları izleyin.
+9.  "Kapsayıcı yapılandırın." seçin
+    * Özel görüntü adınızı (Azure kapsayıcı kayıt defteri, Docker hub'a ve kendi özel kayıt defteri kullanabilirsiniz) girin. Kendi özel kapsayıcısını kullanmak istemiyorsanız, yalnızca kodunuzu getirin ve yukarıdaki yönergeleri kullanarak Linux'ta uygulama hizmeti ile yerleşik bir görüntü kullanın. 
+
+    ! [Kapsayıcı yapılandırmak] [9]
+
+10. Seçin **oluşturma** ana oluşturmak için. Bu işlem, uygulama hizmeti planı ve uygulamayı da oluşturur. ANA uygulama hizmeti planı ve uygulama olduğundan tüm aynı abonelik altında ve ayrıca aynı kaynak grubunda. Ayrı kaynak grubu, ana alması gerekiyorsa veya bir ILB ana ihtiyacınız varsa, tek başına bir ana oluşturmak için aşağıdaki adımları izleyin.
+
 
 ## <a name="create-an-ase-by-itself"></a>Tek başına bir ana oluşturma ##
 
@@ -111,7 +170,9 @@ Bir ana tek başına oluşturursanız, hiçbir şey var. Boş bir ana hala altya
 
 5. VNet ve konumunu seçin. Yeni bir VNet oluşturun veya varolan bir sanal ağ seçin: 
 
-    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Yeni sanal ağ adres aralığı 192.168.250.0/23 ve varsayılan adlı bir alt ağ vardır. Alt ağ 192.168.250.0/24 tanımlanır. Yalnızca Resource Manager Vnet'i seçebilirsiniz. **VIP türü** seçimi, ana doğrudan (harici) Internet üzerinden erişilebiliyorsa veya bir ILB kullanıyorsa belirler. Bu seçenekler hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma uygulama hizmeti ortamı olan bir iç yük dengeleyici][MakeILBASE]. 
+    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Bu ana Linux uygulamaları barındırmak istiyorsanız, yalnızca bu 6 bölgeler şu anda desteklenen: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** 
+    
+    * Yeni sanal ağ adres aralığı 192.168.250.0/23 ve varsayılan adlı bir alt ağ vardır. Alt ağ 192.168.250.0/24 tanımlanır. Yalnızca Resource Manager Vnet'i seçebilirsiniz. **VIP türü** seçimi, ana doğrudan (harici) Internet üzerinden erişilebiliyorsa veya bir ILB kullanıyorsa belirler. Bu seçenekler hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma uygulama hizmeti ortamı olan bir iç yük dengeleyici][MakeILBASE]. 
 
       * Seçerseniz **dış** için **VIP türü**, sistem oluşturulur ile IP tabanlı SSL amaçlar için kaç tane dış IP adreslerini seçebilirsiniz. 
     
@@ -132,6 +193,9 @@ ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş]
 [4]: ./media/how_to_create_an_external_app_service_environment/createexternalase-embeddedcreate.png
 [5]: ./media/how_to_create_an_external_app_service_environment/createexternalase-standalonecreate.png
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
+[7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
+[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
+[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

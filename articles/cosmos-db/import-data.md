@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -433,7 +433,7 @@ Tek bir koleksiyon almak için verileri içeri aktarılır ve Ekle düğmesine b
 Koleksiyon adları belirledikten sonra istenen üretimini collection(s) (250.000 RUs için 400 RUs) seçin. En iyi alma performans için daha fazla üretilen işi seçin. Performans düzeyleri hakkında daha fazla bilgi için bkz: [Azure Cosmos veritabanı performans düzeyleri](performance-levels.md). Tüm alma işleme sahip koleksiyonları > 10.000 RUs bölüm anahtarı gerektirir. Birden fazla 250.000 RUs tercih ediyorsanız, artan, hesabınızın olması için portalında bir istek dosya gerekir.
 
 > [!NOTE]
-> Üretilen iş ayar yalnızca koleksiyon oluşturma için geçerlidir. Belirtilen koleksiyon zaten varsa, üretilen iş değiştirilmeyecek.
+> Üretilen iş ayarı yalnızca toplama veya veritabanı oluşturma geçerlidir. Belirtilen koleksiyon zaten varsa, üretilen iş değiştirilmeyecek.
 > 
 > 
 

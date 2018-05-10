@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -190,7 +190,7 @@ Ortak MongoDB hata kodları ek olarak, kendi özel hata kodlarını MongoDB API 
 
 | Hata               | Kod  | Açıklama  | Çözüm  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Koleksiyon için sağlanan istek birimi oranı aştı ve daraltıldı tüketilen istek birimleri toplam sayısı. | Azure portalı koleksiyonundan verimini ölçekleme veya yeniden denemeden göz önünde bulundurun. |
+| TooManyRequests     | 16500 | Koleksiyon için sağlanan istek birimi oranı aştı ve daraltıldı tüketilen istek birimleri toplam sayısı. | Bir kapsayıcı veya bir dizi kapsayıcıları Azure portal veya yeniden deneniyor yeniden atanan verimlilik ölçeklendirme göz önünde bulundurun. |
 | ExceededMemoryLimit | 16501 | Çok kiracılı bir hizmet işlemi istemcinin bellek birimi aştı. | İşlem daha kısıtlayıcı sorgu ölçütlerini aracılığıyla kapsamını azaltmak veya başvurun Destek'ten [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Örnek:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {adı: "Herkesi"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {yaş: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Tablo API ile geliştirme
@@ -386,7 +386,7 @@ Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB ay
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Tablo API için zaman TableThroughput değiştiririm?
 Aşağıdaki koşullardan herhangi biri geçerli olduğu durumlarda TableThroughput değiştirmeniz gerekir:
 * Ayıklama, dönüştürme ve yükleme (ETL) veri gerçekleştiriyorsunuz veya kısa sürede çok miktarda veri yüklemek istediğiniz. 
-* Daha fazla verimlilik arka uçtaki kapsayıcısından gerekir. Örneğin, kullanılan işleme sağlanan işleme büyük ve, kısıtlanan bakın. Daha fazla bilgi için bkz: [Azure Cosmos DB kapsayıcıları için kümesi işleme](set-throughput.md).
+* Daha fazla verimlilik kapsayıcı ya da arka uçta kapsayıcıları kümesi gerekir. Örneğin, kullanılan işleme sağlanan işleme büyük ve, kısıtlanan bakın. Daha fazla bilgi için bkz: [Azure Cosmos DB kapsayıcıları için kümesi işleme](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Ölçeği artırma veya miyim my tablo API tablosunun işleme ölçeğini? 
 Evet, üretilen iş ölçeklendirmek için Azure Cosmos DB Portalı'nın ölçek bölmesini kullanabilirsiniz. Daha fazla bilgi için bkz: [kümesi işleme](set-throughput.md).
@@ -401,7 +401,7 @@ Yok. Var olan Azure Table depolama müşterileri için fiyatı değişiklik yokt
 Fiyat üzerinde ayrılmış TableThroughput bağlıdır. 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Tablo API teklifi tablolarda herhangi azaltma nasıl işleneceğini? 
-Sağlanan işleme kapasitesi temeldeki kapsayıcısı için istek oranı aşarsa, bir hata alıyorsunuz ve yeniden deneme ilkesi uygulayarak SDK çağrı yeniden dener.
+İstek oranı temel kapsayıcısı için sağlanan işleme kapasitesi veya kapsayıcıları kümesi aşarsa, bir hata alıyorsunuz ve yeniden deneme ilkesi uygulayarak SDK çağrı yeniden dener.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Üretilen iş PartitionKey ve RowKey Azure Cosmos DB tablo API sunulması yararlanmak için dışında seçmek neden gerekiyor mu?
 App.config dosyasında ya da Portalı aracılığıyla belirtmezseniz, azure Cosmos DB, kapsayıcı için bir varsayılan işleme ayarlar. 

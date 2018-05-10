@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz ve Event Hubs ile tümleştirme"
-description: "Bir SQL Data Warehouse'a veri taşımak için Azure olay kılavuz ve olay hub'ları kullanmayı açıklar"
+title: Azure olay kılavuz ve Event Hubs ile tümleştirme
+description: Bir SQL Data Warehouse'a veri taşımak için Azure olay kılavuz ve olay hub'ları kullanmayı açıklar
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Bir veri ambarında büyük veri akışı
 
@@ -66,7 +66,7 @@ Olay kılavuz olay verilerini abonelere dağıtır. Aşağıdaki örnek, bir yak
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için şunlara sahip olmalısınız:
+Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 * [Visual studio 2017 sürüm 15.3.2 veya daha büyük](https://www.visualstudio.com/vs/) iş yükleri için ile: .NET masaüstü geliştirme, Azure geliştirme, ASP.NET ve web geliştirme, Node.js geliştirme ve Python geliştirme.
@@ -118,67 +118,41 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Açık [EventHubsCaptureEventGridDemo örnek proje](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) Visual Studio 2017'ın (15.3.2 veya daha büyük).
 
-2. Çözüm Gezgini'nde sağ **FunctionDWDumper**seçip **Yayımla**.
+1. Çözüm Gezgini'nde sağ **FunctionEGDWDumper**seçip **Yayımla**.
 
    ![İşlev uygulaması yayımlama](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Seçin **Azure işlev uygulaması** ve **Varolanı seç**. **Tamam**’ı seçin.
+1. Seçin **Azure işlev uygulaması** ve **Varolanı seç**. Seçin **yayımlama**.
 
    ![Hedef işlev uygulaması](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Şablonu aracılığıyla dağıtılan işlev uygulaması seçin. **Tamam**’ı seçin.
+1. Şablonu aracılığıyla dağıtılan işlev uygulaması seçin. **Tamam**’ı seçin.
 
    ![İşlev uygulaması seçin](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. Visual Studio profil şekilde yapılandırdığında seçin **Yayımla**.
+1. Visual Studio profil şekilde yapılandırdığında seçin **Yayımla**.
 
    ![Select yayımlama](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. İşlev yayımlandıktan sonra Git [Azure portal](https://portal.azure.com/). Kaynak grubu ve işlev uygulamanızı seçin.
-
-   ![İşlev uygulamayı görüntüle](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. İşlevi seçin.
-
-   ![SELECT işlevi](media/event-grid-event-hubs-integration/select-function.png)
-
-8. URL işlevi için alın. Bu URL, olay abonelik oluştururken gerekir.
-
-   ![İşlev URL'sini al](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Değerini kopyalayın.
-
-   ![URL'yi kopyalayın](media/event-grid-event-hubs-integration/copy-url.png)
+İşlev yayımlandıktan sonra olaya abone olmak hazırsınız.
 
 ## <a name="subscribe-to-the-event"></a>Olaya abone olma
 
-Olaya abone olmak için Azure CLI veya Portalı'nı kullanabilirsiniz. Bu makalede her iki yaklaşımın gösterilmektedir.
+1. [Azure Portal](https://portal.azure.com/) gidin. Kaynak grubu ve işlev uygulamanızı seçin.
 
-### <a name="portal"></a>Portal
+   ![İşlev uygulamayı görüntüle](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. Olay hub'ları ad alanından seçin **olay kılavuz** soldaki.
+1. İşlevi seçin.
 
-   ![Olay kılavuz seçin](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![SELECT işlevi](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Bir olay aboneliği ekleyin.
+1. Seçin **ekleme olay kılavuz abonelik**.
 
-   ![Olay aboneliği Ekle](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Abonelik ekleme](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Olay aboneliği için değerler sağlayın. Kopyaladığınız Azure işlevleri URL kullanın. **Oluştur**’u seçin.
+9. Olay kılavuz abonelik bir ad verin. Kullanım **olay hub'ları ad alanları** olay türü. Olay hub'ları ad alanı örneğiniz seçmek için değerler sağlayın. Abone uç noktası sağlanan değer bırakın. **Oluştur**’u seçin.
 
-   ![Abonelik değerleri sağlayın](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Azure CLI
-
-Olaya abone olmak için aşağıdaki komutları çalıştırın (sürüm 2.0.24 gerektiren veya Azure CLI sonraki):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Abonelik oluşturma](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Verileri oluşturmak için uygulama çalıştırma
 
@@ -198,14 +172,14 @@ Olay hub'ı, SQL data warehouse, Azure işlev uygulaması ve olay aboneliği aya
 
 4. Visual Studio projenizi geri dönün. WindTurbineDataGenerator projeyi açın **program.cs**.
 
-5. İki sabit değerleri değiştirin. Kopyalanan değeri kullanmak **EventHubConnectionString**. Olay hub adını kullanmak **EventHubName**.
+5. İki sabit değerleri değiştirin. Kopyalanan değeri kullanmak **EventHubConnectionString**. Kullanım **hubdatamigration** olay hub'ı adı.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Çözümü oluşturun. WindTurbineGenerator.exe uygulamayı çalıştırın. Birkaç dakika sonra geçirilen veriler için veri ambarınız tabloda sorgu.
+6. Çözümü derleyin. WindTurbineGenerator.exe uygulamayı çalıştırın. Birkaç dakika sonra geçirilen veriler için veri ambarınız tabloda sorgu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

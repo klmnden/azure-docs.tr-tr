@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure yığın 1803 güncelleştirme
 
@@ -40,8 +40,18 @@ Azure yığın 1803 güncelleştirme yapı numarası **20180329.1**.
 
 
 ### <a name="prerequisites"></a>Önkoşullar
-- Azure yığın yükleme [1802 güncelleştirme](azure-stack-update-1802.md) Azure yığın 1803 güncelleştirmeyi uygulamadan önce.    
+- Azure yığın yükleme [1802 güncelleştirme](azure-stack-update-1802.md) Azure yığın 1803 güncelleştirmeyi uygulamadan önce.   
 
+- Yükleme **AzS düzeltmesi – 1.0.180312.1-yapı 20180222.2** Azure yığın 1803 güncelleştirmeyi uygulamadan önce. Bu düzeltme, Windows Defender güncelleştirir ve Azure yığını için güncelleştirmeler olduğunda kullanılabilir.
+
+  Düzeltmeyi yüklemek için normal yordamları izleyin [Azure yığını için güncelleştirmeleri yükleme](azure-stack-apply-updates.md). Güncelleştirme adı olarak görünür **AzS düzeltmesi – 1.0.180312.1**ve aşağıdaki dosyaları içerir: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.XML
+
+  Bu dosyaları bir depolama hesabı ve kapsayıcı dosyalarını karşıya yükledikten sonra Yönetim Portalı'nda güncelleştirme döşeme yükleme çalıştırın. 
+  
+  Azure yığınına yönelik güncelleştirmeler, bu güncelleştirmeyi yüklemeden Azure yığın sürümünü değiştirmez. Bu güncelleştirmenin yüklendiğini doğrulamak için listesini görüntülemek **yüklü güncelleştirmeleri**.
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 - 1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).

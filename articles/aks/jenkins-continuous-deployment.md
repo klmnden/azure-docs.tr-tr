@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı Hizmeti'nde Kubernetes ile Jenkins sürekli dağıtımı
-description: Jenkins dağıtmak ve Kubernetes Azure kapsayıcı Hizmeti'nde bir kapsayıcılı uygulamasını yükseltmek için sürekli dağıtım işlemine otomatikleştirme
+title: Jenkins sürekli dağıtımı Azure Kubernetes hizmetindeki Kubernetes ile
+description: Jenkins dağıtmak ve Azure Kubernetes hizmetindeki Kubernetes kapsayıcılı bir uygulamasını yükseltmek için sürekli dağıtım işlemine otomatikleştirme
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Jenkins ve Azure kapsayıcı hizmeti ile sürekli dağıtımı
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Jenkins ve Azure Kubernetes hizmetiyle sürekli dağıtım
 
-Bu belge, temel sürekli dağıtımı iş akışı Jenkins ve Azure kapsayıcı hizmeti (AKS) kümesini arasında kurmak gösterilmiştir.
+Bu belge, temel sürekli dağıtımı iş akışı Jenkins ve Azure Kubernetes hizmet (AKS) kümesini arasında kurmak gösterilmiştir.
 
 Örnek iş akışı aşağıdaki adımları içerir:
 
@@ -33,7 +33,7 @@ Bu belge, temel sürekli dağıtımı iş akışı Jenkins ve Azure kapsayıcı 
 Aşağıdaki öğeler, bu makaledeki adımları tamamlamak için gerekir.
 
 - Temel bilgilere Kubernetes, Git, CI/CD ve Azure kapsayıcı kayıt defteri (ACR).
-- Bir [Azure kapsayıcı hizmeti (AKS) küme] [ aks-quickstart] ve [AKS kimlik bilgileriyle] [ aks-credentials] geliştirme sisteminizde.
+- Bir [Azure Kubernetes hizmet (AKS) küme] [ aks-quickstart] ve [AKS kimlik bilgileriyle] [ aks-credentials] geliştirme sisteminizde.
 - Bir [Azure kapsayıcı kayıt defteri (ACR) kayıt defteri][acr-quickstart], ACR oturum açma sunucusu adı ve [ACR kimlik] [ acr-authentication] anında iletme ve çekme erişim.
 - Azure CLI geliştirme sisteminizde yüklü.
 - Geliştirme sisteminizde docker.

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 324b578a7736719eb953cab4eca4e9a3e9bfa35d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-the-webjobs-sdk"></a>WebJobs SDK ile çalışmaya başlama
 
@@ -293,7 +293,7 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
 ## <a name="add-application-insights-logging"></a>Application Insights günlüğü ekleme
 
-Projeyi Azure içinde çalıştığında, konsol çıktısı görüntüleyerek işlevi yürütme izleyemez. Tavsiye ederiz izleme çözümü [Application Insights](../application-insights/app-insights-overview.md). Telemetri verilerini görüntülemek için yordamlar benzer [Azure işlevleri izleme](../azure-functions/functions-monitoring.md#view-telemetry-data).
+Projeyi Azure içinde çalıştığında, konsol çıktısı görüntüleyerek işlevi yürütme izleyemez. Tavsiye ederiz izleme çözümü [Application Insights](../application-insights/app-insights-overview.md). Daha fazla bilgi için bkz: [İzleyici Azure işlevleri](../azure-functions/functions-monitoring.md).
 
 Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama için aşağıdaki görevleri yapın:
 

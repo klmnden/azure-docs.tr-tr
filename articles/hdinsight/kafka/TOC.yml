@@ -1,19 +1,34 @@
 - name: Azure HDInsight belgeleri
   href: /azure/hdinsight
-- name: HDInsight üzerinde Kafka
+- name: Genel Bakış
   items:
-    - name: Genel Bakış
+    - name: HDInsight üzerinde Kafka hakkında
       href: apache-kafka-introduction.md
     - name: Bileşen sürümü oluşturma
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: başlarken
+- name: Hızlı Başlangıçlar
   items:
-    - name: Kafka kümesi oluşturma
+    - name: Kafka kümesi oluşturma - Portal
       href: apache-kafka-get-started.md
-    - name: HDInsight uygulamaları yükleme
-      href: ../hdinsight-apps-install-applications.md
+    - name: Kafka kümesi oluşturma - PowerShell
+      href: apache-kafka-quickstart-powershell.md
+    - name: Kafka kümesi oluşturma - Şablon
+      href: apache-kafka-quickstart-resource-manager-template.md
+- name: Öğreticiler
+  items:
+    - name: Kafka ve Spark
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
+    - name: Kafka ve Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
+      maintainContext: true
+    - name: Kafka Üretici ve Tüketici API’si
+      href: apache-kafka-producer-consumer-api.md
+    - name: Kafka Akışlar API’si
+      href: apache-kafka-streams-api.md
+- name: Kavramlar
+  items:
     - name: Kapasite planlaması
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -23,6 +38,11 @@
       href: apache-kafka-high-availability.md
 - name: Nasıl yapılır
   items:
+    - name: Otomatik konu oluşturmayı etkinleştirme
+      href: apache-kafka-auto-create-topics.md
+    - name: HDInsight uygulamaları yükleme
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Sanal ağda Kafka kullanma
       href: apache-kafka-connect-vpn-gateway.md
     - name: Kafka verilerini çoğaltma
@@ -31,17 +51,11 @@
       href: apache-kafka-log-analytics-operations-management.md
     - name: Akış işlem hatları oluşturma
       items:
-        - name: Kafka ve Spark (Structured Streaming)
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-          maintainContext: true
-        - name: Kafka’dan Azure Cosmos DB’ye yapılandırılmış akış
+        - name: 'Spark, Kafka ve Azure Cosmos DB'
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka ve Spark (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
-        - name: Kafka ve Storm
-          href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
         - name: Kafka’yı Azure Container Service ile kullanma
           href: apache-kafka-azure-container-services.md
@@ -49,10 +63,6 @@
           href: apache-kafka-azure-functions.md
     - name: Geliştirme
       items:
-        - name: Kafka Üretici ve Tüketici API’sini kullanma
-          href: apache-kafka-producer-consumer-api.md
-        - name: Kafka Streams API’sini kullanma
-          href: apache-kafka-streams-api.md
         - name: Boş kenar düğümlerini kullanma
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

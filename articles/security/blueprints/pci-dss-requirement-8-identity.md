@@ -1,9 +1,9 @@
 ---
-title: "Azure ödeme işleme şeması - kimlik gereksinimleri"
+title: Azure ödeme işleme şeması - kimlik gereksinimleri
 description: PCI DSS gereksinim 8
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için kimlik gereksinimleri 
 ## <a name="pci-dss-requirement-8"></a>PCI DSS gereksinim 8
@@ -43,7 +43,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore örnek dağıtımı için kullanılan bir örnek ve yöneticilerin doğru kullanım için bir açıklama sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore örnek dağıtımı için kullanılan bir örnek ve yöneticilerin doğru kullanım için bir açıklama sağlar.|
 
 
 
@@ -56,7 +56,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Azure Active Directory Contoso Webstore uygular ve Azure Active Directory Role-Based erişim denetimi (RBAC), tüm kullanıcıların emin olmak için benzersiz bir kimliği olan Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Azure Active Directory Contoso Webstore uygular ve Azure Active Directory Role-Based erişim denetimi (RBAC), tüm kullanıcıların emin olmak için benzersiz bir kimliği olan Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -69,7 +69,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Azure Active Directory Contoso Webstore uygular ve Azure Active Directory Role-Based erişim denetimi (RBAC), tüm kullanıcıların emin olmak için benzersiz bir kimliği olan Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Azure Active Directory Contoso Webstore uygular ve Azure Active Directory Role-Based erişim denetimi (RBAC), tüm kullanıcıların emin olmak için benzersiz bir kimliği olan Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -82,7 +82,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanıcı yönetimi için Azure Active Directory kullanır. Active Directory'de kullanıcı iptal yapılabilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanıcı yönetimi için Azure Active Directory kullanır. Active Directory'de kullanıcı iptal yapılabilir.|
 
 
 
@@ -95,7 +95,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanıcı yönetimi için Azure Active Directory kullanır. `-enableADDomainPasswordPolicy` Seçeneği, parolaların süreleri 90 gün içinde emin olmak için ayarlanabilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanıcı yönetimi için Azure Active Directory kullanır. `-enableADDomainPasswordPolicy` Seçeneği, parolaların süreleri 90 gün içinde emin olmak için ayarlanabilir.|
 
 
 
@@ -110,7 +110,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure geçerli şirket ve kuruluş güvenlik ilkeleri, bilgi güvenlik ilkesi de dahil olmak üzere benimsemiştir. İlkeleri onaylanan yayımlanan ve Microsoft Azure için iletilen. Bilgi güvenlik ilkesi verilebilmesi için Microsoft Azure varlıklara erişimi varlık sahibinin yetkilendirme ile iş gerekçesinin dayalı ve temel alınarak "gerek bilme" ve "en az ayrıcalıklı" ilkeleri sınırlı olmasını gerektirir. Ayrıca, İlkesi de dahil erişim sağlama, kimlik doğrulama, erişim yetkilendirme access Yönetimi yaşam döngüsü gereksinimlerini ele alır, temizleme erişim haklarını ve düzenli erişim gözden geçirme. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore demo Azure Active Directory ve Azure Active Directory Role-Based erişim denetimi yükleme için kullanıcı erişimi yönetmek üzere uyguladı. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore demo Azure Active Directory ve Azure Active Directory Role-Based erişim denetimi yükleme için kullanıcı erişimi yönetmek üzere uyguladı. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -123,7 +123,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore görevlerini (Çimle KAPLA) demo tüm kullanıcıları için açıkça ayrılması uyguladı. Daha fazla bilgi için ""Azure Active Directory kimlik koruması"konumundaki [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore görevlerini (Çimle KAPLA) demo tüm kullanıcıları için açıkça ayrılması uyguladı. Daha fazla bilgi için ""Azure Active Directory kimlik koruması"konumundaki [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -136,7 +136,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, oluşturma, zorlama ve PCI DSS gereksinimleriyle uyumlu bir parola ilkesi izleme sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, oluşturma, zorlama ve PCI DSS gereksinimleriyle uyumlu bir parola ilkesi izleme sorumludur.|
 
 
 
@@ -149,7 +149,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, oluşturma, zorlama ve PCI DSS gereksinimleriyle uyumlu bir parola ilkesi izleme sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, oluşturma, zorlama ve PCI DSS gereksinimleriyle uyumlu bir parola ilkesi izleme sorumludur.|
 
 
 
@@ -165,7 +165,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Gösteri için kullanım kolaylığı sağlamak üzere Contoso Webstore uygulama çok faktörlü kimlik doğrulaması için devre dışı bırakıldı. Çok faktörlü kimlik doğrulaması kullanılarak uygulanabilir [Azure çok faktörlü kimlik doğrulaması](https://azure.microsoft.com/services/multi-factor-authentication/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Gösteri için kullanım kolaylığı sağlamak üzere Contoso Webstore uygulama çok faktörlü kimlik doğrulaması için devre dışı bırakıldı. Çok faktörlü kimlik doğrulaması kullanılarak uygulanabilir [Azure çok faktörlü kimlik doğrulaması](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -178,7 +178,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure (örn., oluşturma, dağıtım, iptal) yaşam döngüleri boyunca şifreleme anahtarlarını yönetmek için anahtar yönetimi yordamları oluşturmuştur. Microsoft Azure Microsoft'un Kurumsal PKI altyapısı kullanır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - şifreleme](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - şifreleme](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -192,7 +192,7 @@ Bir parola verimliliğini büyük ölçüde tasarım ve uygulama kimlik doğrula
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure (örn., oluşturma, dağıtım, iptal) yaşam döngüleri boyunca şifreleme anahtarlarını yönetmek için anahtar yönetimi yordamları oluşturmuştur. Microsoft Azure Microsoft'un Kurumsal PKI altyapısı kullanır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - şifreleme](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - şifreleme](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -208,7 +208,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar.|
 
 
 
@@ -221,7 +221,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanıcı yönetimi için Azure Active Directory kullanır. `-enableADDomainPasswordPolicy` Seçeneği, parolaların süreleri 90 günde bir en az bir kez emin olmak için ayarlanabilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanıcı yönetimi için Azure Active Directory kullanır. `-enableADDomainPasswordPolicy` Seçeneği, parolaların süreleri 90 günde bir en az bir kez emin olmak için ayarlanabilir.|
 
 
 
@@ -234,7 +234,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -247,7 +247,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore güçlü parolalar, Dağıtım Kılavuzu'nda açıklandığı zorlar. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -264,7 +264,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure yöneticileri Bakım ve yönetim sunucuları ve Azure sistemler için gerçekleştirirken erişmek için çok faktörlü kimlik doğrulaması kullanmak için gereklidir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
 
 
 
@@ -280,7 +280,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure yöneticileri Bakım ve yönetim sunucuları ve Azure sistemler için gerçekleştirirken erişmek için çok faktörlü kimlik doğrulaması kullanmak için gereklidir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
 
 
 
@@ -294,7 +294,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure yöneticileri Bakım ve yönetim sunucuları ve Azure sistemler için gerçekleştirirken erişmek için çok faktörlü kimlik doğrulaması kullanmak için gereklidir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
 
 
 
@@ -311,7 +311,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Aşağıdaki yönergeler ve belgeleme ve kimlik doğrulama yordamları ve tüm kullanıcılara ilkeleri iletişim için müşterileri sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Aşağıdaki yönergeler ve belgeleme ve kimlik doğrulama yordamları ve tüm kullanıcılara ilkeleri iletişim için müşterileri sorumludur.|
 
 
 
@@ -327,7 +327,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı.|
 
 
 
@@ -343,7 +343,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure müşteriler için geçerli değildir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Microsoft Azure müşteriler için geçerli değildir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Microsoft Azure müşteriler için geçerli değildir.|
 
 
 
@@ -358,7 +358,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı. Aracılığıyla yönetilen tüm erişim [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/), şifreleme anahtarları ve gizli anahtarları bulut uygulamalar ve hizmetler tarafından kullanılan yardımcı olan koruyun. |
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Çok faktörlü kimlik doğrulaması için demo uygulanmadı. Aracılığıyla yönetilen tüm erişim [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/), şifreleme anahtarları ve gizli anahtarları bulut uygulamalar ve hizmetler tarafından kullanılan yardımcı olan koruyun. |
 
 
 
@@ -374,7 +374,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore Azure anahtar kasası ile tüm kart sahibi verilerinizi korur ve kayıtların şifreleme dağıtım belgelerinde. Daha fazla bilgi için bkz: [PCI Kılavuzu - şifreleme](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure anahtar kasası ile tüm kart sahibi verilerinizi korur ve kayıtların şifreleme dağıtım belgelerinde. Daha fazla bilgi için bkz: [PCI Kılavuzu - şifreleme](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -387,7 +387,7 @@ Alternatif olarak, parolalar/parolanın karmaşıklık ve yukarıda belirtilen p
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, güvenlik ilkeleri ve tanımlama ve kimlik doğrulama için işlem yordamlarını, kullanımda, belgelenmiş ve tüm etkilenen taraflara bilinen sağlamaktan sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, güvenlik ilkeleri ve tanımlama ve kimlik doğrulama için işlem yordamlarını, kullanımda, belgelenmiş ve tüm etkilenen taraflara bilinen sağlamaktan sorumludur.|
 
 
 

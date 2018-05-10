@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -59,7 +59,7 @@ Standart yük dengeleyici ve temel yük dengeleyici arasındaki farklar genel bi
 | HA bağlantı noktaları | İç yük dengeleyici | / |
 | Varsayılan olarak güvenli | ortak IP ve yük dengeleyici uç noktaları ve ağ güvenlik grubu için kapalı varsayılan açıkça güvenilir listeye trafiği için akış için kullanılması gerekir | Varsayılan açın, ağ güvenlik grubu isteğe bağlı |
 | Giden bağlantılar | Kural başına birden çok ön uçlar ile çevirin. Giden bir senaryo _gerekir_ açıkça oluşturulabilir giden bağlantı kullanabilmek sanal makine için.  [VNet Hizmeti uç noktalarını](../virtual-network/virtual-network-service-endpoints-overview.md) giden bağlantısı olmadan erişilebilir ve doğru işlenen veri sayılmaz.  VNet Hizmeti uç noktalar olarak kullanılamaz Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden ulaşılmalıdır. Bir iç yük dengeleyici yalnızca bir sanal makine hizmet veren, varsayılan SNAT aracılığıyla giden bağlantılar kullanılamaz. Giden SNAT programlama gelen Yük Dengeleme kuralını protokolünü temel aktarım belirli protokolüdür. | Birden çok ön uçlar mevcut olduğunda rastgele seçili tek bir ön uç.  Bir sanal makine yalnızca iç yük dengeleyici hizmet veren, varsayılan SNAT kullanılır. |
-| Birden çok ön Uçlar | Gelen ve giden | Yalnızca gelen |
+| Birden çok ön uç | Gelen ve giden | Yalnızca gelen |
 | Yönetim işlemleri | Çoğu işlemleri < 30 saniye | 60-90 saniye tipik |
 | SLA | iki sağlıklı sanal makinelerle veri yolu için % 99,99 | VM SLA örtülü | 
 | Fiyatlandırma | İşlenen veri kuralları sayısına göre gelen veya giden kaynakla ilişkili ücret  | Ücret ödemeden |
@@ -137,7 +137,7 @@ Bu, standart yük dengeleyici ile çalışırken anımsaması anahtar tenets şu
 - Giden senaryoları açık ve bu belirtilmiş kadar giden bağlantı yok.
 - Yük Dengeleme kuralları nasıl SNAT programlanmış Infer. Yük Dengeleme Protokolü belirli kurallardır. SNAT belirli bir protokoldür ve yapılandırma bu yansıtacak yerine bir yan etkisi oluşturun.
 
-#### <a name="multiple-frontends"></a>Birden çok ön Uçlar
+#### <a name="multiple-frontends"></a>Birden çok ön uç
 Bekliyorsanız veya zaten giden bağlantılar için çok fazla istek yaşayan olan olduğundan daha fazla SNAT bağlantı noktalarını istiyorsanız da artımlı SNAT bağlantı noktası stok ek ön uçlar, kuralları ve arka uç havuzu aynı sanal makineye yapılandırarak ekleyebilirsiniz kaynaklar.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Hangi ön uç için kullanıldığından denetim giden
@@ -218,11 +218,12 @@ Standart yük dengeleyici Yük Dengeleme kuralları yapılandırılmış ve işl
 
 ## <a name="limitations"></a>Sınırlamalar
 
-- Yük Dengeleyici arka uç örnekleri şu anda eşlenen sanal ağlarda yer alamaz. Arka uç hepsinin aynı bölgede olması gerekir.
 - SKU'ları değişebilir değildir. Mevcut bir kaynağı SKU'su değiştiremeyebilir.
 - Bir tek başına sanal makine kaynağı kaynak kullanılabilirlik kümesi veya sanal makine ölçek kümesi kaynağı hiçbir zaman hem de bir SKU başvuruda bulunabilir.
-- [Azure uyarıları izleme](../monitoring-and-diagnostics/monitoring-overview-alerts.md) şu anda desteklenmiyor.
+- Bir yük dengeleyici kuralı iki sanal ağlara yayılamaz.  Ön uçlar ve ilgili arka uç örneklerini aynı sanal ağda bulunması gerekir.  
+- Yük Dengeleyici ön uçlar genel sanal ağ eşlemesi üzerinden erişilebilir değil.
 - [Taşıma abonelik işlemlerini](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynakları için desteklenmiyor.
+- Yalnızca bir iç standart yük dengeleyici öncesi VNet Hizmetleri ve diğer platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle kullanıldığında, web çalışanı rolleri VNet ve diğer Microsoft platform hizmetlerinin olmadan erişilebilir. İlgili hizmet kendisini veya temel olarak, bu bilgisayarda kalmamanız gerekir platform bildirilmeksizin değiştirebilirsiniz. Oluşturmanız her zaman varsayın gerekir [giden bağlantı](load-balancer-outbound-connections.md) açıkça bir iç standart yük dengeleyici yalnızca kullanırken isterseniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

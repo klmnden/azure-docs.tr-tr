@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Kırpıcıyı kırpma işleri gönderme | Microsoft Docs"
-description: "Azure Media Kırpıcıyı kırpma işleri göndermek için adımları"
+title: Azure Media Kırpıcıyı kırpma işleri gönderme | Microsoft Docs
+description: Azure Media Kırpıcıyı kırpma işleri göndermek için adımları
 services: media-services
-keywords: "küçük; subclip; kodlama; ortam"
+keywords: küçük; subclip; kodlama; ortam
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Kırpıcıyı kırpma işlerini gönderme
 Azure Media Kırpıcıyı gerektiren bir **submitSubclipCallback** kırpma iş gönderme işlemek için uygulanacak yöntemi. Bu işlev bir web hizmetine Kırpıcıyı çıktının bir HTTP POST uygulamak için kullanılır. Kodlama işinin gönderebileceği bu web hizmetidir. Kırpıcıyı çıktısını ya da bir medya Kodlayıcı işlenmiş işleri için hazır ya da dinamik bildirim filtresi çağrıları için REST API yükü kodlama standarttır. Media services hesap kimlik bilgilerini istemcinin tarayıcıda güvenli olmadığından bu geçiş modeli gereklidir.

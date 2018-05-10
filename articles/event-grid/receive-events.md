@@ -1,18 +1,18 @@
 ---
-title: "Bir HTTP uç noktası için Azure olay kılavuzdan olayları alma"
-description: "Bir HTTP uç noktası doğrulamak sonra alma ve Azure olay kılavuz olaylarından seri durumdan açıklar"
+title: Bir HTTP uç noktası için Azure olay kılavuzdan olayları alma
+description: Bir HTTP uç noktası doğrulamak sonra alma ve Azure olay kılavuz olaylarından seri durumdan açıklar
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: MT
+ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP uç noktasına olayları alma
 
@@ -27,9 +27,9 @@ Bu makalede nasıl [bir HTTP uç noktası doğrulamak](security-authentication.m
 
 ## <a name="add-dependencies"></a>Bağımlılıkları ekleyin.
 
-.Net ile geliştiriyorsanız [bir bağımlılık ekleme](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) işlevi için için `Microsoft.Azure.EventGrid` [Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Diğer dillere yönelik SDK aracılığıyla kullanılabilen [yayımlama SDK'ları](./sdk-overview.md#publish-sdks) başvuru. Bu paketleri gibi yerel olay türleri modellerini içeren `EventGridEvent`, `StorageBlobCreatedEventData`, ve `EventHubCaptureFileCreatedEventData`.
+.NET ile geliştiriyorsanız [bir bağımlılık ekleme](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) işlevi için için `Microsoft.Azure.EventGrid` [Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Diğer dillere yönelik SDK aracılığıyla kullanılabilen [yayımlama SDK'ları](./sdk-overview.md#data-plane-sdks) başvuru. Bu paketleri gibi yerel olay türleri modellerini içeren `EventGridEvent`, `StorageBlobCreatedEventData`, ve `EventHubCaptureFileCreatedEventData`.
 
-Bunu yapmak için Azure işlevinizi (sağ çoğu Azure işlevleri portalındaki bölmesinde) yer alan "Dosyaları Görüntüle" bağlantısını tıklatın ve project.json adlı bir dosya oluşturun. Aşağıdaki içerikleri ekleyin `project.json` dosya ve kaydedin:
+Azure işlevinizi (sağ çoğu Azure işlevleri portalındaki bölmesinde) yer alan "Dosyaları Görüntüle" bağlantısını tıklatın ve project.json adlı bir dosya oluşturun. Aşağıdaki içerikleri ekleyin `project.json` dosya ve kaydedin:
 
  ```json
 {
@@ -41,19 +41,17 @@ Bunu yapmak için Azure işlevinizi (sağ çoğu Azure işlevleri portalındaki 
     }
    }
 }
-
 ```
 
-![Eklenen Nuget paketi](./media/receive-events/add-dependencies.png)
+![Eklenen NuGet paketi](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>Bitiş noktası doğrulama
 
-Tanıtıcı istiyoruz yapmak için ilk şey. `Microsoft.EventGrid.SubscriptionValidationEvent` olaylar. Yeni bir olay aboneliği her oluşturulduğunda olay kılavuz uç noktası için bir doğrulama olay gönderir bir `validationCode` veri yükte. Bu geri yanıt gövdesi içinde Yankı için uç nokta gereklidir [uç nokta geçerli olduğundan ve sizin tarafınızdan ait kanıtlamak](security-authentication.md#webhook-event-delivery). Kullanıyorsanız bir [olay kılavuz tetikleyicisi](../azure-functions/functions-bindings-event-grid.md) işlevi bir Web kancası tetiklenen yerine bitiş noktası doğrulama sizin için işlenir.
+İşlemek istediğiniz yapmak için ilk şey. `Microsoft.EventGrid.SubscriptionValidationEvent` olaylar. Her biri bir olaya abone olduğunda, olay kılavuz doğrulama olayı ile uç noktasına gönderir. bir `validationCode` veri yükte. Bu geri yanıt gövdesi içinde Yankı için uç nokta gereklidir [uç nokta geçerli olduğundan ve sizin tarafınızdan ait kanıtlamak](security-authentication.md#webhook-event-delivery). Kullanıyorsanız bir [olay kılavuz tetikleyicisi](../azure-functions/functions-bindings-event-grid.md) işlevi bir Web kancası tetiklenen yerine bitiş noktası doğrulama sizin için işlenir. Bir üçüncü taraf API hizmeti kullanıyorsanız (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama kodu echo mümkün olmayabilir. Bu hizmetler için aboneliği abonelik doğrulama olayı gönderilen doğrulama URL'yi kullanarak el ile doğrulayabilir. Bu URL'yi kopyalayın `validationUrl` özelliği ve gönderme bir GET isteği REST istemcisi ya da web tarayıcınızı yoluyla.
 
-Abonelik doğrulama işlemek için aşağıdaki kodu kullanabilirsiniz:
+Program aracılığıyla doğrulama kodu echo için aşağıdaki kodu kullanın:
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +100,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +119,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>Test doğrulama yanıtı
@@ -130,7 +126,6 @@ module.exports = function (context, req) {
 İşlevi test alanına örnek olayı yapıştırılarak doğrulama yanıt işlevi test edin:
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +138,6 @@ module.exports = function (context, req) {
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 Çalıştır'ı tıklattığınızda çıktısı 200 Tamam olmalıdır ve `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` gövdesinde:
@@ -152,10 +146,9 @@ module.exports = function (context, req) {
 
 ## <a name="handle-blob-storage-events"></a>BLOB Depolama olayları işlemek
 
-Biz şimdi işlemek için işlev genişletebilirsiniz `Microsoft.Storage.BlobCreated`:
+Şimdi, şimdi işlemek için işlevini genişletmek `Microsoft.Storage.BlobCreated`:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +204,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +237,6 @@ module.exports = function (context, req) {
 Koyarak işlevi yeni işlevselliğini sınamak bir [Blob Depolama olay](./event-schema-blob-storage.md#example-event) çalıştırma ve test alanı içine:
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +260,21 @@ Koyarak işlevi yeni işlevselliğini sınamak bir [Blob Depolama olay](./event-
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 İşlevi günlüğünde blob URL'si çıktı görmeniz gerekir:
 
 ![Çıkış günlüğü](./media/receive-events/blob-event-response.png)
 
-Ayrıca, bir Blob storage hesabı veya genel amaçlı V2 oluşturarak bu giden Canlı sınayabilirsiniz (GPv2) depolama hesabı [ekleme ve olay aboneliği](../storage/blobs/storage-blob-event-quickstart.md)ve uç nokta işlevi URL olarak ayarlayarak:
+Blob storage hesabı veya genel amaçlı V2 oluşturarak ayrıca test edebilirsiniz (GPv2) depolama hesabı [ekleme ve olay aboneliği](../storage/blobs/storage-blob-event-quickstart.md)ve uç nokta işlevi URL olarak ayarlayarak:
 
 ![İşlev URL'si](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Özel olayları işlemek
 
-Son olarak, böylece özel olaylar işleyebilir işlevini kez daha genişletmek olanak sağlar. Kendi olayı için bir onay eklediğimiz `Contoso.Items.ItemReceived`. Son kodunuzu aşağıdaki gibi görünmelidir:
+Son olarak, böylece özel olaylar işleyebilir işlevini kez daha genişletmek olanak sağlar. Olayınızın denetle eklemek `Contoso.Items.ItemReceived`. Son kodunuzu gibi görünmelidir:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +343,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +389,6 @@ module.exports = function (context, req) {
 Son olarak, ICB'nin işlevinizi özel olay türünüz şimdi işleyebileceğini test edin:
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,7 +402,6 @@ Son olarak, ICB'nin işlevinizi özel olay türünüz şimdi işleyebileceğini 
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 Bu işlev tarafından Canlı test edebilirsiniz [portaldan CURL ile özel bir olay gönderme](./custom-event-quickstart-portal.md) veya [için özel bir konu nakil](./post-to-custom-topic.md) herhangi bir hizmet veya gibibiruçnoktaiçinNAKLEDEBİLİRSİNİZuygulamakullanarak[Postman](https://www.getpostman.com/). İşlev URL'si olarak ayarlamak uç noktası ile özel bir konu ve bir olay aboneliği oluşturun.

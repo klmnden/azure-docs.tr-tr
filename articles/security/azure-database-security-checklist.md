@@ -1,12 +1,12 @@
 ---
-title: "Azure veritabanı güvenlik denetim listesi | Microsoft Docs"
-description: "Bu makalede, bir dizi denetim listesi için Azure veritabanı güvenlik sağlar."
+title: Azure veritabanı güvenlik denetim listesi | Microsoft Docs
+description: Bu makalede, bir dizi denetim listesi için Azure veritabanı güvenlik sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-checklist"></a>Azure veritabanı güvenlik denetim listesi
 
@@ -32,7 +32,7 @@ Bunlar:
 -   Güvenli bağlantı dizeleri kullanılarak veritabanınıza güvenli bağlantı
 -   Access management kullanma
 -   Veri şifrelemesi
--   SQL veritabanı denetimi
+-   SQL Veritabanı denetimi
 -   SQL veritabanı tehdit algılama
 
 ## <a name="introduction"></a>Giriş
@@ -58,7 +58,7 @@ Okumanızı öneririz [Azure veritabanı en iyi güvenlik uygulamaları](https:/
 Azure veritabanı birçok kuruluş ve yasal uyumluluk gereksinimlerinin karşılanmasına güvenlik özelliklerinin tam aralıklı bir sağlam veritabanı platformudur. Verilerinizi fiziksel erişimi denetleme ve dosya, sütun veya satır düzeyinde saydam veri şifreleme, hücre düzeyi şifreleme veya satır düzeyi güvenlik, veri güvenliği için çeşitli seçenekler kullanarak verileri kolayca koruyabilir. Her zaman şifreli ayrıca işlemlerini şifrelenmiş veriler karşı uygulama güncelleştirmeleri işlemini basitleştirme sağlar. Buna karşılık, SQL veritabanı etkinliği günlükleri denetim erişimi verileri nasıl ve ne zaman eriştiği bilmeleri sağlayarak gereken bilgileri sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veritabanınızı kötü amaçlı kullanıcılar ya da yalnızca birkaç basit adımla yetkisiz erişime karşı koruma artırabilir. Bu öğreticide, öğrenin:
+Yalnızca birkaç basit adımda kötü amaçlı kullanıcılara ya da yetkisiz erişime karşı veritabanınızın korumasını artırabilirsiniz. Bu öğreticide şunları öğrenirsiniz:
 
 - Ayarlanan [güvenlik duvarı kuralları](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) sunucu ve veya veritabanı için.
 - Verilerinizin korunmasına [şifreleme](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).

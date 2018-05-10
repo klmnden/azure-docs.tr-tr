@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevleri - bulut yedekleme örneği
 
@@ -57,7 +57,13 @@ Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C
 
 Orchestrator işlevi uygulayan kod aşağıdaki gibidir:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
 Bu orchestrator işlevi temelde şunları yapar:
 
@@ -67,9 +73,11 @@ Bu orchestrator işlevi temelde şunları yapar:
 4. Tamamlamak tüm yüklemeler için bekler.
 5. Azure Blob Depolama birimine yüklenen Toplamı toplam bayt döndürür.
 
-Bildirim `await Task.WhenAll(tasks);` satır. Tüm çağrıların `E2_CopyFileToBlob` işlevi olan *değil* beklemenin. Bu paralel olarak çalıştırılmasına izin vermeniz için bilinen bir durumdur. Bu görevler dizisi iletmek biz `Task.WhenAll`, Geri Al biz tamamlamak olmaz bir görevi *tüm kopyalama işlemleri tamamlanana kadar*. İle görev paralel kitaplığı (TPL) .NET içinde bilgi sahibi değilseniz, ardından bu size yeni değildir. Bu görevleri birden çok sanal makine aynı anda çalışması olasıdır ve dayanıklı işlevleri uzantısı uçtan uca yürütme işlem geri dönüştürme için dayanıklı olmasını sağlar farktır.
+Bildirim `await Task.WhenAll(tasks);` (C#) ve `yield context.df.Task.all(tasks);` (JS) satır. Tüm çağrıların `E2_CopyFileToBlob` işlevi olan *değil* beklemenin. Bu paralel olarak çalıştırılmasına izin vermeniz için bilinen bir durumdur. Bu görevler dizisi iletmek biz `Task.WhenAll`, Geri Al biz tamamlamak olmaz bir görevi *tüm kopyalama işlemleri tamamlanana kadar*. İle görev paralel kitaplığı (TPL) .NET içinde bilgi sahibi değilseniz, ardından bu size yeni değildir. Bu görevleri birden çok sanal makine aynı anda çalışması olasıdır ve dayanıklı işlevleri uzantısı uçtan uca yürütme işlem geri dönüştürme için dayanıklı olmasını sağlar farktır.
 
-Gelen bekleyen sonra `Task.WhenAll`, tüm işlev çağrılarını tamamladınız ve değerleri bize geri döndürülen biliyoruz. Her çağrı `E2_CopyFileToBlob` bayt sayısı karşıya, sum toplam bayt sayısı hesaplama sağlasa da, bunlar tüm dönüş değerleri birlikte ekleme olacak şekilde döndürür.
+Görevler öneriler JavaScript kavramı çok benzer. Ancak, `Promise.all` arasındaki bazı farklar vardır `Task.WhenAll`. Kavramı `Task.WhenAll` üzerinden bir parçası olarak bağlantı noktası kurulmuş `durable-functions` JavaScript modülü ve kendisine özeldir.
+
+Gelen bekleyen sonra `Task.WhenAll` (veya gelen sağlayan `context.df.Task.all`), tüm işlev çağrılarını tamamladınız ve değerleri bize geri döndürülen biliyoruz. Her çağrı `E2_CopyFileToBlob` bayt sayısı karşıya, sum toplam bayt sayısı hesaplama sağlasa da, bunlar tüm dönüş değerleri birlikte ekleme olacak şekilde döndürür.
 
 ## <a name="helper-activity-functions"></a>Yardımcı etkinlik işlevleri
 
@@ -79,7 +87,15 @@ Yardımcı etkinlik işlevleri başka bir örnek olduğu gibi kullandığınız 
 
 Ve uygulama şöyledir:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+JavaScript uygulamasını `E2_GetFileList` kullanan `readdirp` yinelemeli olarak modülüne dizin yapısını okuyun.
 
 > [!NOTE]
 > Neden henüz bu kodu doğrudan orchestrator işlevi koyduğunuz uygulanamadı merak ediyor olabilirsiniz. Olabilir, ancak bu bir orchestrator İşlevler, bunlar hiç dahil olmak üzere yerel dosya sistemi erişimi g/ç yapmalısınız olan temel kurallarının bölün.
@@ -88,9 +104,17 @@ Ve uygulama şöyledir:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-Uygulama aynı zamanda oldukça basittir. Bazı kullanmak için Azure işlevleri bağlamaları özelliklerini Gelişmiş olur (diğer bir deyişle, kullanımını `Binder` parametresi), ancak bu kılavuzda amacıyla bu ayrıntıları hakkında endişelenmeniz gerekmez.
+C# uygulaması da oldukça basittir. Bazı kullanmak için Azure işlevleri bağlamaları özelliklerini Gelişmiş olur (diğer bir deyişle, kullanımını `Binder` parametresi), ancak bu kılavuzda amacıyla bu ayrıntıları hakkında endişelenmeniz gerekmez.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+JavaScript uygulamasını erişimi yok `Binder` Özelliği Azure işlevleri, böylece [düğümü için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-node) yerini alır. SDK'sı gerektirir Not bir `AZURE_STORAGE_CONNECTION_STRING` uygulama ayarı.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 Uygulama diskten dosyayı yükler ve zaman uyumsuz olarak "yedekleme" kapsayıcısında aynı ada sahip bir blob içine içeriği akışlarını. Dönüş değeri birleşik toplam hesaplamak için orchestrator işlevi tarafından sonra kullanılan depolama birimine kopyalanan bayt sayısıdır.
 

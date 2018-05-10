@@ -1,0 +1,73 @@
+- name: Media Services Belgeleri
+  href: ./index.yml
+- name: Genel Bakış
+  items:
+    - name: Media Services hakkında
+      href: media-services-overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: .NET ile video dosyalarını akışla aktarma
+      href: stream-files-dotnet-quickstart.md
+- name: Öğreticiler
+  items:
+    - name: 'Karşıya yükleme, kodlama ve akışla aktarma'
+      href: stream-files-tutorial-with-api.md
+    - name: Videonuzu analiz etme
+      href: analyze-videos-tutorial-with-api.md
+- name: Örnekler
+  items:
+    - name: Azure kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: Azure CLI
+      href: cli-samples.md
+- name: Kavramlar
+  items:
+    - name: Varlıklar
+      href: assets-concept.md
+    - name: Autogen uyarlamalı bit hızı merdiveni
+      href: autogen-bitrate-ladder.md
+    - name: Medya zekası
+      href: intelligence-concept.md
+    - name: Depolama hesapları
+      href: storage-account-concept.md
+    - name: Dönüşümler ve işler
+      href: transform-concept.md
+    - name: Olaylara tepki verme
+      href: reacting-to-media-services-events.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Hesap oluşturma - CLI
+      href: create-account-cli-how-to.md
+    - name: API'lere erişim - CLI
+      href: access-api-cli-how-to.md
+    - name: İş durumu olayları - CLI
+      href: job-state-events-cli-how-to.md
+    - name: İçerik yükleme - .NET
+      items:
+        - name: HTTP(s)’den
+          href: job-input-from-http-how-to.md
+        - name: Yerel bir dosyadan
+          href: job-input-from-local-file-how-to.md
+- name: Başvuru
+  items:
+    - name: Azure CLI 2.0
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: Olay şemaları
+      href: media-services-event-schemas.md
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Sürüm notları
+      href: release-notes.md
+    - name: Kotalar ve sınırlamalar
+      href: limits-quotas-constraints.md

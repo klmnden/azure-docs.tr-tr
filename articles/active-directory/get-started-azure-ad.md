@@ -8,18 +8,16 @@ ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: ''
-ms.assetid: ''
+ms.component: users-groups-roles
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc6cc88cabab1bc56b0a04ce8778823647c5b2bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD’yi kullanmaya başlama
 Modern Kimlik Yönetimi, uygulamaların ve hizmetlerin yalnızca kimliği doğrulanmış kullanıcılar için kullanılabilirliği sağlamak için ölçeklenebilir, tutarlı reliablity gerektirir. Yeterli bir hizmet (SaaS) uygulamaları olarak onaylanan, Genel yazılım erişim sağlamak için bir yol kullanıcılar, BT ihtiyaçlarını kimlik yönetimi gereksinimlerini desteklemek için ana bilgisayar iç iş kolu uygulamaları için bir yol, geliştirmek için bile yolları şirket içi ve uygulama geliştirme ve kullanım. Tüm bu gereksinimlerin bir bulut tabanlı kimlik yönetimi çözümü gereksinimi için gelin.      

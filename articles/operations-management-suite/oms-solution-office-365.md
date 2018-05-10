@@ -1,37 +1,37 @@
 ---
-title: "Office 365 çözümü Operations Management Suite (OMS) | Microsoft Docs"
-description: "Bu makalede, yapılandırması ve OMS Office 365 çözümde kullanımı hakkında ayrıntılar sağlar.  Günlük analizi oluşturulan Office 365 kayıtları ayrıntılı açıklamasını içerir."
+title: Azure'da Office 365 yönetim çözümü | Microsoft Docs
+description: Bu makalede, yapılandırması ve Azure Office 365 çözümde kullanımı hakkında ayrıntılar sağlar.  Günlük analizi oluşturulan Office 365 kayıtları ayrıntılı açıklamasını içerir.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Office 365 çözümü Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Office 365 yönetim çözümü Azure (Önizleme)
 
 ![Office 365 logosu](media/oms-solution-office-365/icon.png)
 
-Office 365 çözümü Operations Management Suite (OMS) için günlük analizi, Office 365 ortamınızda izlemenize olanak tanır.  
+Office 365 yönetim çözümü, Office 365 ortamınızda günlük analizi izlemenize olanak tanır.
 
 - Office 365 hesaplarınızın yanı sıra kullanım desenlerini analiz davranış eğilimleri belirlemek için kullanıcı etkinliklerini izler. Örneğin, kuruluşunuzun veya en popüler SharePoint siteleri dışında paylaşılan dosyaları gibi belirli kullanım senaryoları ayıklayabilirsiniz.
 - Yapılandırma değişikliklerini veya yüksek ayrıcalıklı işlemleri izlemek için yönetici etkinliklerini izler.
 - Algılama ve kuruluş gereksinimlerinize göre özelleştirilmiş istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, Denetim ve uyumluluk işlemiyle Yardım gizli dosyalar üzerinde dosya erişim işlemleri izleyebilirsiniz.
-- OMS arama en üstünde, kuruluşunuzun Office 365 etkinlik verileri kullanarak işlemsel sorun giderme gerçekleştirir.
+- Kullanarak işlemsel sorun giderme gerçekleştirir [oturum aramaları](../log-analytics/log-analytics-log-search.md) , kuruluşunuzun Office 365 etkinlik verileri üstünde.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki yüklenmiş ve yapılandırılmış bu çözümü olan önce gereklidir.
 
 - Kuruluş Office 365 aboneliği.
@@ -47,7 +47,7 @@ Bu çözüm, bağlı yönetim gruplarında herhangi bir Yönetim Paketi yükleme
 ## <a name="configuration"></a>Yapılandırma
 Bir kez, [Office 365 çözümü, aboneliğinize eklediğiniz](../log-analytics/log-analytics-add-solutions.md), Office 365 aboneliğinize bağlanması gerekir.
 
-1. Uyarı yönetimi çözümü açıklanan işlemi kullanarak OMS çalışma alanınıza ekleyin [çözümleri Ekle](../log-analytics/log-analytics-add-solutions.md).
+1. Uyarı yönetimi çözümü açıklanan işlemi kullanarak günlük analizi çalışma alanınıza ekleyin [çözümleri Ekle](../log-analytics/log-analytics-add-solutions.md).
 2. Git **ayarları** OMS portalında.
 3. Altında **bağlı kaynakları**seçin **Office 365**.
 4. Tıklayın **Office 365 bağlanmak**.<br>![Bağlantı Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +63,7 @@ Office 365 çözümü veri birinden almıyorsa [OMS Aracısı](../log-analytics/
 Office 365 gönderir bir [Web kancası bildirim](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) ayrıntılı verilerle günlük analizi için her zaman bir kayıt oluşturulur.
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
-Office 365 çözümü, OMS çalışma alanına eklediğinizde **Office 365** döşeme OMS panonuz eklenir. Bu kutucukta, ortamınızdaki bilgisayarların sayısına ve güncelleştirme uyumluluğuna ilişkin bir sayı ve grafik gösterimi görüntülenir.<br><br>
+Office 365 çözümü, günlük analizi çalışma alanına eklediğinizde **Office 365** döşeme panonuza eklenir. Bu kutucukta, ortamınızdaki bilgisayarların sayısına ve güncelleştirme uyumluluğuna ilişkin bir sayı ve grafik gösterimi görüntülenir.<br><br>
 ![Office 365 Özet kutucuğu](media/oms-solution-office-365/tile.png)  
 
 Tıklayın **Office 365** açmak için kutucuğa **Office 365** Pano.
@@ -100,7 +100,7 @@ Aşağıdaki özellikleri için tüm Office 365 kayıtları yaygındır.
 | ResultStatus | (İşlemi özelliğinde belirtilen) eylem başarılı olup olmadığını gösterir. Olası değerler, başarılı, PartiallySucceded veya başarısız olur. Exchange yönetici etkinliği için değer her iki true'dur ya da yanlış. |
 | Kullanıcı Kimliği | (Kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlandı eylemi gerçekleştiren kullanıcının UPN'sini; Örneğin, my_name@my_domain_name. Sistem hesapları (örneğin, SHAREPOINT\system veya ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtlarını da dahil olduğunu unutmayın. | 
 | UserKey | UserId özelliğinde belirtilen kullanıcı için alternatif bir kimliği.  Örneğin, bu özellik, iş ve Exchange için SharePoint, OneDrive bulunan kullanıcılar tarafından gerçekleştirilen olaylar için passport benzersiz kimliği (PUID) ile doldurulur. Bu özellik, diğer hizmetleri ve sistem hesapları tarafından gerçekleştirilen etkinlikleri içinde gerçekleşen olayların UserId özelliği olarak aynı değeri de belirtebilir|
-| UserType | İşlem gerçekleştirilirken kullanıcı türü.<br><br>Yönetici<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
+| UserType | İşlem gerçekleştirilirken kullanıcı türü.<br><br>Yönetim Bölgesi<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory temel
@@ -280,9 +280,9 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Office 365 aboneliğinizin tüm işlemlerinin sayısı |Tür = OfficeActivity &#124; İşlem tarafından ölçü Count() işlevi |
-|SharePoint siteleri kullanımı|Tür OfficeActivity OfficeWorkload = = sharepoint &#124; SiteUrl &#124;bazında sayı olarak Count() ölçmek; Count asc sıralama|
-|Kullanıcı türüne göre dosya erişim işlemleri|Tür OfficeActivity OfficeWorkload = sharepoint işlemi = = FileAccessed &#124; Ölçü count() UserType tarafından|
+|Office 365 aboneliğinizin tüm işlemlerinin sayısı |Tür OfficeActivity = &#124; count() işlemi göre ölçün |
+|SharePoint siteleri kullanımı|Tür OfficeActivity OfficeWorkload = sharepoint = &#124; count() SiteUrl bazında sayı olarak ölçmek &#124; sayısı asc sıralama|
+|Kullanıcı türüne göre dosya erişim işlemleri|Tür OfficeActivity OfficeWorkload = sharepoint işlemi = FileAccessed = &#124; count() UserType göre ölçün|
 |Belirli bir anahtar sözcük ile arama|Tür OfficeActivity OfficeWorkload = azureactivedirectory "MyTest" =|
 |Exchange dış eylemlerini izleme|Tür OfficeActivity OfficeWorkload = exchange ExternalAccess = = true|
 
@@ -294,9 +294,9 @@ Office 365 çözümünüzü veri beklendiği gibi topluyor değil, OMS portalın
 
 | Durum | Açıklama |
 |:--|:--|
-| Etkin | Office 365 aboneliğinizin etkin olduğunu ve iş yükü, OMS çalışma alanınızla başarıyla bağlandı. |
-| Beklemede | Office 365 aboneliğinizin etkin olduğunu, ancak iş yükü henüz, OMS çalışma alanınızla başarıyla bağlı değil. Başarıyla bağlanıldı kadar Office 365 aboneliği bağlanmak ilk kez bu durum tüm iş yükleri olacaktır. Lütfen etkin geçiş yapmak tüm iş yükleri için 24 saat bekleyin. |
-| Etkin olmayan | Office 365 abonelik etkin olmayan bir durumda. Ayrıntılar için Office 365 Yönetici sayfanızı denetleyin. Office 365 aboneliğinize etkinleştirdikten sonra OMS çalışma alanından bağlantısını ve veri alma yeniden başlatmak için bağlayabilirsiniz. |
+| Etkin | Office 365 aboneliğinizin etkin olduğunu ve iş yükü için günlük analizi çalışma alanınız başarıyla bağlandı. |
+| Beklemede | Office 365 aboneliğinizin etkin olduğunu, ancak iş yükü henüz için günlük analizi çalışma alanınız başarıyla bağlı değil. Başarıyla bağlanıldı kadar Office 365 aboneliği bağlanmak ilk kez bu durum tüm iş yükleri olacaktır. Lütfen etkin geçiş yapmak tüm iş yükleri için 24 saat bekleyin. |
+| Devre dışı | Office 365 abonelik etkin olmayan bir durumda. Ayrıntılar için Office 365 Yönetici sayfanızı denetleyin. Office 365 aboneliğinize etkinleştirdikten sonra günlük analizi çalışma alanından bağlantısını ve veri alma yeniden başlatmak için bağlayabilirsiniz. |
 
 
 

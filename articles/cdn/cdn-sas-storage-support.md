@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09efd5cd54fbd05d85939b3ae08bfbb37e91058d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
 
@@ -49,7 +49,7 @@ Parametreleri ayarlama hakkında daha fazla bilgi için bkz: [SAS parametre konu
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Seçenek 1: SAS ile doğrudan blob depolama Azure CDN kullanarak
 
-Bu seçenek en kolayıdır ve Azure CDN ' kaynak sunucunun geçirilen tek bir SAS belirteci kullanır. Tarafından desteklenen **verizon'dan Azure CDN** ve **akamai'den Azure CDN**. 
+Bu seçenek en kolayıdır ve Azure CDN ' kaynak sunucunun geçirilen tek bir SAS belirteci kullanır. Tarafından desteklenen **verizon'dan Azure CDN standart** ve **akamai'den Azure CDN standart** profilleri. 
  
 1. Bir uç nokta seçin, **kuralları önbelleğe alma**seçeneğini belirleyip **her benzersiz URL'yi önbelleğe** gelen **sorgu dizesini önbelleğe alma** listesi.
 

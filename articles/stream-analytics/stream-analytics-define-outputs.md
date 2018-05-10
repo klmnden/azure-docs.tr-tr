@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 05/07/2018
+ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışlarından anlama
 Bu makalede Azure akış analizi işi için çıktıların farklı türleri açıklanmaktadır. Çıkışları depolamak ve Stream Analytics işi sonuçlarını kaydetmenize olanak tanır. Çıktı verileri kullanarak bunu yapabilirsiniz daha fazla İş analizi ve verilerinizi veri ambarı. 
@@ -59,7 +59,7 @@ Yetkilendirme, yenilemek için **durdurmak** işinizi > gidin, Data Lake Store �
 
 ![Data Lake Store yetkilendirmek](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
-## <a name="sql-database"></a>SQL Database
+## <a name="sql-database"></a>SQL Veritabanı
 [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) çıkış olarak kendiliğinden ilişkisel veriler için veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar için kullanılabilir. Akış analizi işleri, bir Azure SQL veritabanında var olan bir tabloya yazma.  Tablo şemasını alanları ve işinizi çıktısını olan türlerinin tam olarak eşleşmelidir. Bir [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) SQL veritabanı output seçeneği de aracılığıyla bir çıktı olarak da belirtilebilir. Aşağıdaki tablo özellik adları ve SQL veritabanı çıktı oluşturmak için bunların açıklaması listelenmektedir.
 
 | Özellik adı | Açıklama |
@@ -86,7 +86,7 @@ BLOB storage bulutta büyük miktarda yapılandırılmamış veriyi depolamak i�
 | Depolama Hesabı | Burada, Çıkış göndermeyi depolama hesabı adı. |
 | Depolama Hesabı Anahtarı | Depolama hesabıyla ilişkili gizli anahtar. |
 | Depolama kapsayıcısı | Kapsayıcılar Microsoft Azure Blob hizmetinde depolanan BLOB'lar için mantıksal bir gruplandırmasını sağlar. Blob hizmeti için bir blob karşıya yüklediğinde, o blob için bir kapsayıcı belirtmeniz gerekir. |
-| Yol deseni | İsteğe bağlı. Belirtilen kapsayıcı içinde bloblarınızın yazmak için kullanılan dosya yolu deseni. </br> Yol deseninde BLOB'lar yazılır sıklığını belirtmek için şu 2 değişkenin bir veya daha fazla örneğinin kullanılacağını seçebilirsiniz: </br> {date} {time} </br> Örnek 1: cluster1/logs / {date} / {time} </br> Örnek 2: cluster1/logs / {date} <BR> <BR> Dosya adlandırma aşağıdaki kuralını aşağıdaki gibidir: </br> {Yol öneki Pattern}/schemaHashcode_Guid_Number.extension </br></br> Örnek çıktı dosyaları: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Yol deseni | İsteğe bağlı. Belirtilen kapsayıcı içinde bloblarınızın yazmak için kullanılan dosya yolu deseni. </br></br> Yol deseninde BLOB'lar yazılır sıklığını belirtmek için tarih saat değişkenin bir veya daha fazla örneğini kullanmayı seçebilirsiniz: </br> {date} {time} </br> </br>Ayrıca bir alan {sütunu} adı verilerinizden bölüm BLOB'lar için alan adı alfasayısal olduğu tarafından belirtebilir ve boşluk, kısa çizgi ve alt çizgi içerebilir. Özel alanları kısıtlamaları aşağıdakileri içerir: <ul><li>(Sütun "ID" ve "id" sütun arasında farklı olamaz) büyük/küçük duyarsızlığı durumda</li><li>İç içe alanlar izin verilmiyor (Bunun yerine bir diğer ad iş sorguda düzleştirmek"alanı için" kullanma)</li><li>İfadeler bir alan adı kullanılamaz</li></ul>Örnekler: <ul><li>Örnek 1: cluster1/logs / {date} / {time}</li><li>Örnek 2: cluster1/logs / {date}</li><li>Örnek 3: cluster1 / {client_id} / {date} / {time}</li><li>Örnek 4: cluster1 / {myField} sorgu olduğu: SELECT data.myField AS alanım gelen giriş;</li></ul><BR> Dosya adlandırma aşağıdaki kuralını aşağıdaki gibidir: </br> {Yol öneki Pattern}/schemaHashcode_Guid_Number.extension </br></br> Örnek çıktı dosyaları: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Tarih biçimi | İsteğe bağlı. Bir tarih belirteci önek yolunda kullanılırsa, dosyalarınızı organize edilmiştir tarih biçimi seçebilirsiniz. Örnek: YYYY/AA/GG |
 | Saat biçimi | İsteğe bağlı. Zaman belirteci önek yolunda kullanılırsa, dosyalarınızı düzenlenmiş zaman biçimini belirtin. Şu anda desteklenen tek değer HH ' dir. |
 | Olay serileştirme biçimi | Çıkış verileri seri hale getirme biçimi.  JSON, CSV ve Avro desteklenir.
@@ -96,12 +96,14 @@ BLOB storage bulutta büyük miktarda yapılandırılmamış veriyi depolamak i�
 
 BLOB Depolama çıkış olarak kullanırken, aşağıdaki durumlarda blob yeni bir dosya oluşturulur:
 
-* Dosya izin verilen blokları üst sınırını aşarsa. En fazla izin verilen blob boyutu erişmeden blokları izin verilen maksimum sayısı üst sınırına. Örneğin, çıkış oranı yüksekse, blok başına daha fazla bayt görebilirsiniz ve dosya boyutu. Çıkış oranı düşükse, her bloğu daha az veri vardır ve dosya boyutu küçüktür.
+* Dosya izin verilen blokları (şu anda 50.000) üst sınırını aşarsa. En fazla izin verilen blob boyutu erişmeden blokları izin verilen maksimum sayısı üst sınırına. Örneğin, çıkış oranı yüksekse, blok başına daha fazla bayt görebilirsiniz ve dosya boyutu. Çıkış oranı düşükse, her bloğu daha az veri vardır ve dosya boyutu küçüktür.
 * Varsa çıktıda bir şema değişikliği vardır ve çıkış biçimi sabit şemasına (CSV ve Avro) gerektirir.  
-* Bir iş yeniden başlatılırsa herhangi bir harici veya dahili bir işi yeniden.  
+* Bir iş, durdurma ve makineyi başlatmayı harici olarak bir kullanıcı tarafından veya dahili sistem bakımı veya hata kurtarma için yeniden durumunda.  
 * Sorgu tam olarak bölümlenmiş, yeni dosya her çıktı bölümü için oluşturulur.  
 * Bir dosya veya bir kapsayıcı depolama hesabının kullanıcı tarafından silindi.  
 * Çıkış yolu önek deseni kullanarak bölümlenmiş saat ise, sorgu sonraki saat taşındığında yeni blob kullanılır.
+* Çıktı özel bir alan tarafından bölümlenmişse henüz yoksa yeni bir blob bölüm anahtarı oluşturulur.
+*   Çıktı nerede partition anahtar önemliliği 8000 aşıyor özel bir alan tarafından bölümlenmişse yeni blob bölüm anahtarı oluşturulabilir.
 
 ## <a name="event-hub"></a>Olay Hub'ı
 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) hizmetidir'ın yüksek düzeyde ölçeklenebilir yayımlama-abone olma olay yutucu. Saniye başına milyonlarca olayı toplayabilirsiniz. Akış analizi işi çıktısını başka bir iş akışında girişi olduğunda bir olay hub'ı çıktı olarak kullanılır.

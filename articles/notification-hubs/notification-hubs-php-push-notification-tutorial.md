@@ -1,24 +1,24 @@
 ---
-title: "PHP ile bildirim hub'ları kullanma"
-description: "Bir PHP arka ucunu Azure bildirim hub'ları kullanmayı öğrenin."
+title: PHP ile bildirim hub'ları kullanma
+description: Bir PHP arka ucunu Azure bildirim hub'ları kullanmayı öğrenin.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 06/07/2016
-ms.author: yuaxu
-ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Php'den Notification Hubs kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -31,7 +31,7 @@ Bu konudaki gösteriyoruz nasıl yapılır:
 * İzleyin [Get öğreticisinde](notification-hubs-ios-apple-push-notification-apns-get-started.md) seçim için mobil platformda, arka uç bölümü PHP ile uygulama.
 
 ## <a name="client-interface"></a>İstemci arabirimi
-Ana istemci arabirimi bulunan aynı yöntemleri sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx), bu öğreticiler ve bu site şu anda kullanılabilir örnekleri doğrudan Çevir olanak sağlar ve katkıda bulunan Internet üzerindeki topluluğu.
+Ana istemci arabirimi bulunan aynı yöntemleri sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx), hangi öğreticiler ve bu site şu anda kullanılabilir örnekleri doğrudan çevirmenizi sağlar ve katkıda bulunan internet üzerindeki bir topluluk.
 
 Kullanılabilir tüm kod Bul [PHP REST sarmalayıcı örnek].
 
@@ -45,10 +45,10 @@ Bir iOS yerel bildirim göndermek için:
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Uygulama
-Zaten yaptıysanız Lütfen izleyin bizim [Get öğreticisinde] son uç uygulamak için sahip olduğu bölüm yukarı.
+Henüz kaldırdıysanız, izleyin [Get öğreticisinde] son uç uygulamak için sahip olduğu bölüm yukarı.
 Ayrıca, isterseniz koddan kullanabilirsiniz [PHP REST sarmalayıcı örnek] ve doğrudan gitmek [öğreticiye](#complete-tutorial) bölümü.
 
-Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde biz PHP uygulaması bildirim hub'ları REST uç noktalarını erişmek için gerekli ana adım anlatmaktadır:
+Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde, PHP uygulaması bildirim hub'ları REST uç noktalarını erişmek için gerekli ana adımlar açıklanmaktadır:
 
 1. Bağlantı dizesini ayrıştırma
 2. Yetkilendirme belirteci oluştur
@@ -132,9 +132,9 @@ Eklenecek aşağıdaki yöntemi sahip **NotificationHub** geçerli istek ve kiml
         }
     }
 
-Bu sınıf bir yerel bildirim gövdesi veya bir şablon bildirim durumunun özellikleri kümesi ve biçimini (yerel platform veya şablon) ve (örneğin, Apple sona erme özelliği ve WNS platforma özgü özellikleri içeren bir üstbilgi kümesi için bir kapsayıcıdır üst bilgiler).
+Bu sınıf bir yerel bildirim gövdesi veya biçimi (yerel platform veya şablon) ve (örneğin, Apple sona erme özelliği ve WNS platforma özgü özellikleri içeren bir dizi üst bilgiler ve bir şablon bildirim durumunun özellikleri kümesi için bir kapsayıcıdır üst bilgiler).
 
-Lütfen [bildirim hub'ları REST API belgelerine](http://msdn.microsoft.com/library/dn495827.aspx) ve kullanabileceğiniz tüm seçenekler için belirli bildirim platformları biçimleri.
+Başvurmak [bildirim hub'ları REST API belgelerine](http://msdn.microsoft.com/library/dn495827.aspx) ve kullanabileceğiniz tüm seçenekler için belirli bildirim platformları biçimleri.
 
 Bu sınıfla çağrılmak, biz Şimdi Gönder içinde bildirim yöntemleri yazabilirsiniz **NotificationHub** sınıfı.
 
@@ -243,7 +243,7 @@ Ardından, hedef mobil platforma bağlı olarak gönderme kodu ekleyin.
 PHP kodunuzu çalıştırmaya şimdi, hedef cihazda görünen bir bildirim üretir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu konuda size bildirim hub'ları için basit bir Java REST istemcisi nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
+Bu konuda, biz basit bir Java REST istemci bildirim hub'ları için nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
 
 * Tam karşıdan [PHP REST sarmalayıcı örnek], yukarıdaki tüm kodunu içerir.
 * Bildirim hub'ları özelliği [çiğnemekten haber öğreticide] etiketleme hakkında bilgi almaya devam etmek

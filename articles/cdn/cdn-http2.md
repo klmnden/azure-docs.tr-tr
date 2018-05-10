@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN HTTP/2 desteği
 
@@ -29,7 +29,7 @@ HTTP/2 avantajları şunlardır:
 
 *   **Çoğullama ve eşzamanlılık**
 
-    HTTP 1.1 kullanarak, birden çok birden çok kaynak istekleri birden fazla TCP bağlantısı gerektirir ve her bağlantı ile ilişkili performans yüke sahiptir. HTTP/2 tek bir TCP bağlantı üzerinde istenmesi için birden çok kaynak sağlar.
+    HTTP 1.1 kullanarak, birden çok kaynak istekleri yapan birden fazla TCP bağlantısı gerektirir ve her bağlantı ile ilişkili performans yüke sahiptir. HTTP/2 tek bir TCP bağlantı üzerinde istenmesi için birden çok kaynak sağlar.
 
 *   **Üstbilgi sıkıştırma**
 
@@ -37,12 +37,12 @@ HTTP/2 avantajları şunlardır:
 
 *   **Akış bağımlılıkları**
 
-    Akış bağımlılıkları sunucuya göstermek istemci önceliğe sahip olduğunuz kaynakların izin verin.
+    Akış bağımlılıkları hangi kaynaklara önceliğe sahip sunucunun göstermek istemci izin verin.
 
 
 ## <a name="http2-browser-support"></a>HTTP/2 tarayıcı desteği
 
-Tüm önde gelen tarayıcılar HTTP/2 desteği geçerli sürümlerine uyguladık. HTTP/1.1 için otomatik olarak geri dönüş desteklenmeyen tarayıcılar olacaktır.
+Tüm önde gelen tarayıcılar HTTP/2 desteği geçerli sürümlerine uyguladık. Tarayıcılar HTTP/1.1 için otomatik olarak geri dönüş olmayan desteklenir.
 
 |Tarayıcı|En düşük sürüm|
 |-------------|------------|
@@ -54,7 +54,7 @@ Tüm önde gelen tarayıcılar HTTP/2 desteği geçerli sürümlerine uyguladık
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Azure CDN HTTP/2 desteğini etkinleştirme
 
-HTTP/2 desteği şu anda etkin mi **akamai'den Azure CDN** ve **verizon'dan Azure CDN** profilleri. Başka bir eylem müşterilerden gereklidir.
+Şu anda, HTTP/2 desteği tüm Azure CDN profilleri için etkin değil. Başka bir eylem müşterilerden gereklidir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

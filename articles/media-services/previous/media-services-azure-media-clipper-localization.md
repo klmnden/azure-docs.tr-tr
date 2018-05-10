@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Kırpıcıyı yerelleştirme yapılandırma | Microsoft Docs"
-description: "Azure Media Kırpıcıyı desteklenen diller ve yerelleştirme desteği hakkında bilgi edinin"
+title: Azure Media Kırpıcıyı yerelleştirme yapılandırma | Microsoft Docs
+description: Azure Media Kırpıcıyı desteklenen diller ve yerelleştirme desteği hakkında bilgi edinin
 services: media-services
-keywords: "küçük; subclip; kodlama; ortam"
+keywords: küçük; subclip; kodlama; ortam
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>Yerelleştirme yapılandırın
 Azure Media Kırpıcıyı 18 dillerde mevcuttur. Pencere öğesi dilini ayarlamak amacıyla, tanımlamalısınız `language` başlatma sırasında parametre. Aşağıdaki listeden istenen dil kodu dizesinde geçirin:

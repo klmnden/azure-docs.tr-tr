@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: Denetim akışı
       items:
-        - name: If Condition Etkinliği
-          href: control-flow-if-condition-activity.md
-        - name: Until Etkinliği
-          href: control-flow-until-activity.md
-        - name: Web Etkinliği
-          href: control-flow-web-activity.md
-        - name: Arama Etkinliği
-          href: control-flow-lookup-activity.md
-        - name: Meta Veri Alma Etkinliği
-          href: control-flow-get-metadata-activity.md
         - name: İşlem Hattı Çalıştırma Etkinliği
           href: control-flow-execute-pipeline-activity.md
+        - name: Filtre Etkinliği
+          href: control-flow-filter-activity.md
         - name: Her Bir Etkinlik için
           href: control-flow-for-each-activity.md
+        - name: Meta Veri Alma Etkinliği
+          href: control-flow-get-metadata-activity.md
+        - name: If Condition Etkinliği
+          href: control-flow-if-condition-activity.md
+        - name: Arama Etkinliği
+          href: control-flow-lookup-activity.md
+        - name: Until Etkinliği
+          href: control-flow-until-activity.md
         - name: Wait Etkinliği
           href: control-flow-wait-activity.md
+        - name: Web Etkinliği
+          href: control-flow-web-activity.md
         - name: İfade Dili
           href: control-flow-expression-language-functions.md
         - name: Sistem değişkenleri

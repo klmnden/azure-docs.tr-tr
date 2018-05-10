@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Media Services v3 (önizleme) Belgeleri
+metadata:
+  document_id: 
+  title: Azure Media Services v3 Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+  meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
+  services: media-services
+  author: Juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03-20-2018
+  ms.author: juliako
+  ms.openlocfilehash: 1ac829c8d9643401cada1f7cd558a39b63da87c2
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Media Services ile talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'Bir Media Services hesabı oluşturma, videolarınızı kodlamaya başlama ve Azure Media Player’ı kullanarak yürütme hakkında bilgi edinin:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/media-services.svg
+      text: Video dosyalarını akışla aktarma
+      href: /azure/media-services/latest/stream-files-dotnet-quickstart
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: Media Services ile dosyaları akışla aktarma ve videolarınızı analiz etme hakkında bilgi edinin.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/media-services/latest/stream-files-tutorial-with-api">Videoları karşıya yükleme, kodlama ve akışla aktarma</a>
+    - html: <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">Videolarınızı analiz etme</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Komut Satırı
+      html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/media/">REST API</a></p>

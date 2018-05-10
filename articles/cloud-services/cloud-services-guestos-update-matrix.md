@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: b4206d90ddd65f58bcdb92661f64d005a5e40563
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -42,6 +42,9 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizme
 Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş nasıl Yayımları? Okuma [bu](#how-it-works) bölümü.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+###### <a name="may-4-2018"></a>**4 Mayıs 2018**
+Nisan konuk işletim sistemi yayımladı.
+
 ###### <a name="april-6-2018"></a>**6 Nisan 2018**
 Mart konuk işletim sistemi yayımladı.
 
@@ -69,14 +72,6 @@ Eylül konuk işletim sistemi yayımladı. Windows Server 2016 Eylül sürüm i�
 ###### <a name="september-14-2017"></a>**14 Eylül 2017**
 Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahmini sürümü vardır.
 
-###### <a name="august-24-2017"></a>**24 Ağustos 2017**
-Ağustos konuk işletim sistemi yayımladı.
-
-###### <a name="august-3-2017"></a>**3 Ağustos 2017**
-Temmuz konuk işletim sistemi yayımladı.
-
-###### <a name="july-19-2017"></a>**19 Temmuz 2017**
-Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos tahmini sürümü vardır.
 
 
 ## <a name="releases"></a>Sürümleri
@@ -93,8 +88,9 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.18_201804-01 |4 Mayıs 2018 |POST 5.20 |TBD |
 | WA-GUEST-OS-5.17_201803-01 |6 Nisan 2018 |POST 5.19 |TBD |
-| WA-GUEST-OS-5.16_201802-01 |12 Mart 2018 |POST 5.18 |TBD |
+|~~WA-GUEST-OS-5.16_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 Aralık 2017 |4 Ocak 2018|TBD |
@@ -105,8 +101,7 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-5.5_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |10 Ocak 2017 |5 Haziran 2017|TBD |
+
 
 ## <a name="family-4-releases"></a>Aile 4 serbest bırakır
 **Windows Server 2012 R2**
@@ -120,8 +115,9 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.53_201804-01 |4 Mayıs 2018 |POST 4.55 |TBD |
 | WA-GUEST-OS-4.52_201803-01 |6 Nisan 2018 |POST 4.54 |TBD |
-| WA-GUEST-OS-4.51_201802-01 |12 Mart 2018 |POST 4.53 |TBD |
+|~~WA-GUEST-OS-4.51_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 Aralık 2017 |4 Ocak 2018 |TBD |
@@ -132,8 +128,7 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-4.40_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
+
 
 ## <a name="family-3-releases"></a>Aile 3 serbest bırakır
 **Windows Server 2012**
@@ -147,8 +142,9 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.60_201804-01 |4 Mayıs 2018 |POST 3.62 |TBD |
 | WA-GUEST-OS-3.59_201803-01 |6 Nisan 2018 |POST 3.61 |TBD |
-| WA-GUEST-OS-3.58_201802-01 |19 Mart 2018 |POST 3.60 |TBD |
+|~~WA-GUEST-OS-3.58_201802-01~~ |19 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |29 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 Ocak 2018 |19 Mart 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 Aralık 2017 |29 Ocak 2018 |TBD |
@@ -159,8 +155,7 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-3.47_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
+
 
 ## <a name="family-2-releases"></a>Ailesi 2 sürümleri
 **Windows Server 2008 R2 SP1**
@@ -174,8 +169,9 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.73_201804-01 |4 Mayıs 2018 |POST 2,75 |TBD |
 | WA-GUEST-OS-2.72_201803-01 |6 Nisan 2018 |POST 2.74 |TBD |
-| WA-GUEST-OS-2.71_201802-01 |12 Mart 2018 |POST 2,73 |TBD |
+|~~WA-GUEST-OS-2.71_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |29 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 Aralık 2017 |29 Ocak 2018 |TBD |
@@ -187,8 +183,6 @@ Temmuz konuk işletim sistemi dağıtımı Temmuz 19 başlatıyor ve 8 Ağustos 
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |10 Ocak 2017 |9 May 2017|TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC düzeltme eki güncelleştirmeleri

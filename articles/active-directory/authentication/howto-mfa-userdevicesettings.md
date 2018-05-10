@@ -1,27 +1,23 @@
 ---
 title: Yöneticileri, kullanıcılar ve aygıtlar - Azure MFA yönetme | Microsoft Docs
 description: Bu güçlü işlem yeniden yapmak için kullanıcıların zorlama gibi kullanıcı ayarlarının nasıl değiştirileceğini açıklar.
-documentationcenter: ''
 services: multi-factor-authentication
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 9a570740b84ee2016ae7a4882c87c9544ea66a88
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure multi-Factor Authentication ile kullanıcı ayarlarını yönetme
+
 Yönetici olarak, aşağıdaki kullanıcı ve aygıt ayarlarını yönetebilirsiniz:
 
 * Kullanıcıların iletişim yöntemlerini yeniden belirtmelerini iste

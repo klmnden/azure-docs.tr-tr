@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff059b27dc2bdcbfa8cecad1e46e9c2f268ef8c7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Öğretici: Azure Active Directory Tümleştirme Adobe oturum
 
@@ -103,7 +103,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. Üzerinde **Adobe oturum etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -115,8 +115,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) bu değerleri almak için. 
- 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) bu değerleri almak için.
+
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -127,15 +127,34 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. Üzerinde **Adobe oturum yapılandırma** 'yi tıklatın **yapılandırma Adobe oturum** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. Farklı web tarayıcısı penceresinde Adobe oturum şirket sitenize yönetici olarak oturum açın.
+7. Önce yapılandırma başvurmanız gerekir. [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) güvenilir listeye Adobe oturum etki alanınızda. İzleyin etki alanına eklemek için aşağıdaki adımları:
 
-8. SAML menüye tıklayın **hesap ayarlarını**ve ardından **SAML ayarları**.
+    a. [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) rastgele oluşturulmuş bir belirteci gönderir. Etki alanınız için belirteç gibi olur: **adobe oturum doğrulama xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
+
+    b. Doğrulama belirteci bir DNS metin kayıtta yayımlama ve bildirim gerekecek [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html).
+    
+    > [!NOTE]
+    > Bu birkaç gün veya belki de daha uzun sürebileceğini bekleyebilirsiniz. Bir saat veya daha fazla bilgi için bir değer DNS'de yayımlanan DNS yayma gecikmeleri anlamına Not görünmeyebilir. BT yöneticiniz bu belirteci bir DNS metin kayıtta yayımlama hakkında bilgili bekliyoruz.
+    
+    c. Size bildirecek sonra [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) destek bileti belirteç yayımlandıktan sonra bunlar etki alanı doğrulanamıyor ve hesabınıza ekleme.
+    
+    d. Bir DNS kaydı - belirteçte yayımlamak için atabileceğiniz genel adımlar
+
+    * Etki alanı hesabınızla oturum açın
+    * DNS kaydını güncelleştirmek için sayfasını bulun. Bu sayfada, DNS Yönetimi, ad sunucusu yönetimi veya Gelişmiş ayarları çağrılabilir.
+    * TXT kayıtlarının etki alanınız için bulun.
+    * Adobe tarafından sağlanan tam belirteç değeri ile bir TXT kaydı ekleyin
+    * Yaptığınız değişiklikleri kaydedin.
+
+8. Farklı web tarayıcısı penceresinde Adobe oturum şirket sitenize yönetici olarak oturum açın.
+
+9. SAML menüye tıklayın **hesap ayarlarını**ve ardından **SAML ayarları**.
    
     ![Hesap](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "hesabı")
 
-9. İçinde **SAML ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+10. İçinde **SAML ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
   
     ![SAML ayarları](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML ayarları")
    
@@ -265,4 +284,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

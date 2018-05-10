@@ -1,24 +1,24 @@
 ---
-title: "Kullanıcılara Azure bildirim hub'ları (ASP.NET) ile platformlar arası bildirimleri gönderin"
-description: "Bildirim hub'ları şablonları, tek bir istekte, tüm platformlar hedefleyen bir platform belirsiz bildirim göndermek için nasıl kullanılacağını öğrenin."
+title: Kullanıcılara Azure bildirim hub'ları (ASP.NET) ile platformlar arası bildirimleri gönderin
+description: Bildirim hub'ları şablonları, tek bir istekte, tüm platformlar hedefleyen bir platform belirsiz bildirim göndermek için nasıl kullanılacağını öğrenin.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3c6dde338cb154f0cbe02642e4ff0f81d070aa25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Kullanıcılara Notification Hubs ile platformlar arası bildirimleri gönderin
 Bir önceki öğreticideki [Notification Hubs kullanıcılara bildirme], belirli bir kimliği doğrulanmış kullanıcı için kaydedilen tüm cihazlara anında iletme bildirimleri öğrendiniz. Bu öğreticide, birden çok istek her desteklenen istemci platformu için bir bildirim gönderecek gerekirdi. Azure bildirim hub'ları ile belirli bir aygıt nasıl bildirimlerini almak istediği belirtebileceğiniz şablonları destekler. Bu yöntem, platformlar arası bildirimleri gönderme basitleştirir. 
@@ -81,14 +81,14 @@ Bu makalede, tek bir istekte, tüm platformlar hedefleyen bir platform belirsiz 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    Bu kod bir bildirim tüm platformlar için aynı anda yerel yükü belirtmek zorunda kalmadan gönderir. Hub oluşturur ve sağlanan ile her aygıt için doğru yükü teslim bildirim *etiketi* kayıtlı şablonları belirtildiği gibi bir değer.
+    Yerel bir yükü belirtmek zorunda olmadan bu kodu aynı anda tüm platformlar için bir bildirim gönderir. Hub oluşturur ve sağlanan ile her aygıt için doğru yükü teslim bildirim *etiketi* kayıtlı şablonları belirtildiği gibi bir değer.
 
 4. Webapı arka uç projeniz yeniden yayımlayın.
 
 5. İstemci uygulamasını yeniden çalıştırın ve kaydın başarılı olduğunu doğrulayın.
 
 6. (İsteğe bağlı) İkinci bir cihaz istemci uygulamasını dağıtın ve ardından uygulamayı çalıştırın.
-    Bir bildirim her cihazda görüntülendiğine dikkat edin.
+    Her cihazda bir bildirim görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticiyi tamamladığınıza göre bildirim hub'ları ve bu konularda şablonları hakkında daha fazla bilgi:

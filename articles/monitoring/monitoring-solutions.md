@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Azure yönetim çözümleri
 Yönetim çözümleri belirli bir uygulama veya hizmet işlemi hakkındaki ek bilgiler sağlamak üzere Azure hizmetlerinde yararlanın. Bu makale, kullanma ve bunları yükleme Azure ve ayrıntıları yönetim çözümlerine kısa bir genel bakış sağlar.
 
 Yönetim çözümleri genellikle günlük analizi bilgi toplamak ve günlük arar ve toplanan verileri çözümlemek için görünümleri sağlar. Bunlar uygulama veya hizmet ile ilgili eylemler gerçekleştirmek için Azure Otomasyonu gibi başka hizmetleri da.
 
-Azure aboneliğiniz tüm uygulamaları ve kullandığınız Hizmetleri için yönetim çözümleri ekleyebilirsiniz. Bunlar genellikle, kullanım ücretleri çağıramadı hiçbir maliyet ancak toplama verileri kullanılabilir. Microsoft tarafından sağlanan çözümler ek olarak, iş ortakları ve müşterileri için [yönetim çözümleri oluşturma](../operations-management-suite/operations-management-suite-solutions-creating.md) kendi ortamında kullanılan veya topluluk aracılığıyla müşteriler için kullanılabilir.
+Azure aboneliğiniz tüm uygulamaları ve kullandığınız Hizmetleri için yönetim çözümleri ekleyebilirsiniz. Bunlar genellikle, kullanım ücretleri çağıramadı hiçbir maliyet ancak toplama verileri kullanılabilir. Microsoft tarafından sağlanan çözümler ek olarak, iş ortakları ve müşterileri için [yönetim çözümleri oluşturma](../monitoring/monitoring-solutions-creating.md) kendi ortamında kullanılan veya topluluk aracılığıyla müşteriler için kullanılabilir.
 
 ## <a name="using-management-solutions"></a>Yönetim çözümleri kullanma
 **Genel bakış** her günlük analizi çalışma alanı çalışma alanında yüklü her bir çözüm için bir kutucuğu görüntüler için sayfa. Daha ayrıntılı bir analiz içeren görünümünü açmak çözüm için döşeme toplanan verileri tıklayın.

@@ -1,25 +1,23 @@
 ---
-title: "Bir kullanıcı Azure Active Directory'de yönetici rolleri atamak | Microsoft Docs"
-description: "Azure Active Directory'de kullanıcı yönetim bilgilerini değiştirmek açıklanmaktadır"
+title: Bir kullanıcı Azure Active Directory'de yönetici rolleri atamak | Microsoft Docs
+description: Azure Active Directory'de kullanıcı yönetim bilgilerini değiştirmek açıklanmaktadır
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: a1ca1a53-50d8-4bf0-ae8f-73fa1253e2d9
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: dcb52e9de98d881474007410f3db599682e151ce
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 61662acb10a6f2085d297eae473e1330c619d48d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de yönetici rolleri atama
 Bu makalede, Azure Active Directory'de (Azure AD) kullanıcıya bir yönetici rolü atama açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-users-create-azure-portal.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
@@ -43,4 +41,4 @@ Bu makalede, Azure Active Directory'de (Azure AD) kullanıcıya bir yönetici ro
 * [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 * [Başka bir dizinden Konuk kullanıcılar ekleme](active-directory-b2b-what-is-azure-ad-b2b.md) 
 * [Bir kullanıcı, Azure AD'de rol atama](active-directory-users-assign-role-azure-portal.md)
-* [Silinmiş bir kullanıcı geri yükleme](active-directory-users-restore.md)
+* [Silinen bir kullanıcıyı geri yükleme](active-directory-users-restore.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: rli; v-deasim
-ms.openlocfilehash: 3f475c5cc9b766ea9aa5bd39d4a378e8deed5e35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 61fbe6e29df787048a9694138d3c9095f5cba76b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN kullanım biçimlerini çözümleme
 
@@ -26,7 +26,7 @@ Uygulamanız için CDN etkinleştirdikten sonra CDN kullanımını izlemek, tesl
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Temel analiz aracılığıyla Azure tanılama günlükleri
 
-Temel analiz Verizon (standart ve Premium) ve Akamai (standart) CDN profilleri ait tüm CDN uç noktası için kullanılabilir. Azure tanılama günlükleri temel analiz Azure depolama, olay hub'ları veya günlük analizi verilmesine izin verin. Günlük analizi kullanıcı tarafından yapılandırılabilir ve özelleştirilebilir grafikleri ile bir çözüm sunar. Daha fazla bilgi için bkz: [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md).
+Temel analiz tüm fiyatlandırma katmanlarına için CDN uç noktaları için kullanılabilir. Azure tanılama günlükleri temel analiz Azure depolama, olay hub'ları veya Azure günlük analizi verilmesine izin verin. Azure günlük analizi kullanıcı tarafından yapılandırılabilir ve özelleştirilebilir grafikleri ile bir çözüm sunar. Azure tanılama günlükleri hakkında daha fazla bilgi için bkz: [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Verizon çekirdek raporları
 
@@ -36,7 +36,7 @@ Bir Azure CDN kullanıcı olarak bir **verizon'dan Azure CDN standart** veya **v
 
 Bir Azure CDN kullanıcı olarak bir **verizon'dan Azure CDN standart** veya **verizon'dan Azure CDN Premium** profili Verizon ek portalda Verizon özel raporları görüntüleyebilirsiniz. Verizon özel raporlar yoluyla erişilebilir **Yönet** Azure portalından seçeneği. Her biri için aktarılan isabet veya veri sayısı Verizon özel raporlar sayfa gösterir bir Azure CDN profili ait CName kenar. Verileri bir süre boyunca HTTP yanıtı kodu veya önbellek duruma göre gruplandırılabilir. Daha fazla bilgi için bkz: [özel raporlar verizon'dan](cdn-verizon-custom-reports.md).
 
-## <a name="verizon-premium-reports"></a>Verizon premium raporları
+## <a name="azure-cdn-premium-from-verizon-reports"></a>Verizon'dan Azure CDN Premium raporları
 
 İle **verizon'dan Azure CDN Premium**, aşağıdaki raporları da erişebilirsiniz:
    * [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md)

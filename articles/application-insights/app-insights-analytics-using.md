@@ -1,9 +1,9 @@
 ---
-title: "Analizi - Azure Application Insights güçlü arama aracını kullanarak | Microsoft Docs"
-description: "Analizi, Application Insights, güçlü tanılama arama aracını kullanma. "
+title: Analizi - Azure Application Insights güçlü arama aracını kullanarak | Microsoft Docs
+description: 'Analizi, Application Insights, güçlü tanılama arama aracını kullanma. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights'ta Analytics kullanma
 [Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
@@ -109,7 +109,7 @@ Beklediğiniz tüm sonuçları görmüyorsanız düşünüyorsanız, birkaç ola
 
   * [zaman damgası tarafından ilk 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
   * [100 alın](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-  * [summarize ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [Özetle ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [Burada zaman damgası > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (10'dan fazla k satırları istiyorsunuz? Kullanmayı [sürekli verme](app-insights-export-telemetry.md) yerine. Analytics alınırken ham verileri yerine analiz için tasarlanmıştır.)
@@ -205,7 +205,7 @@ Bir CSV dosyasından veri içeri aktarabilirsiniz. Tablolarla, telemetrisinden k
 ### <a name="define-your-data-schema"></a>Veri şemanızı tanımlayın
 
 1. Tıklatın **ayarları** (sol üst) ve ardından **veri kaynakları**. 
-2. Yönergeleri izleyerek bir veri kaynağı ekleyin. En az on satır içermelidir veri örneği sağlamanız istenir. Sonra şema de düzeltin.
+2. Yönergeleri izleyerek bir veri kaynağı ekleyin. En az 10 satır içermelidir veri örneği sağlamanız istenir. Sonra şema de düzeltin.
 
 Bundan sonra tek tek tablolar almak için kullanabileceğiniz bir veri kaynağı tanımlar.
 

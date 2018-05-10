@@ -1,9 +1,9 @@
 ---
-title: "Araştırmak ve kullanım verilerini Azure Application Insights etkileşimli çalışma kitaplarında paylaşma | Microsoft docs"
-description: "Kullanıcılar, web uygulamanızın demografik analizini."
+title: Araştırmak ve kullanım verilerini Azure Application Insights etkileşimli çalışma kitaplarında paylaşma | Microsoft docs
+description: Kullanıcılar, web uygulamanızın demografik analizini.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3edaefa942b834a070c55fe28daf60c74ea9f59d
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.author: mbullwin; daviste
+ms.openlocfilehash: a871378b3e2cc0b34c925593c6f01952de3aa08e
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Araştırmak ve kullanım verilerini Application Insights etkileşimli çalışma kitaplarında paylaşın
 

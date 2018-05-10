@@ -1,5 +1,5 @@
 ---
-title: Tarayıcıda JavaScript ve HTML kullanarak Azure Depolama ile blobları karşıya yükleme, listeleme ve silme
+title: Azure Hızlı Başlangıç - Tarayıcıda HTML ve JavaScript kullanarak nesne depolamada blob oluşturma
 description: Bir HTML sayfasında JavaScript kullanarak blobları karşıya yüklemek, listelemek ve silmek için bir BlobService örneğini kullanma hakkında bilgi edinin.
 services: storage
 keywords: depolama, javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>Hızlı başlangıç: Tarayıcıda JavaScript/HTML kullanarak Azure Depolama ile blobları karşıya yükleme, listeleme ve silme
-Bu hızlı başlangıçta tamamen tarayıcıda çalışan koddan blobları yönetme ve blob depolama hesabınıza korumalı erişim sağlamak için gerekli güvenlik önlemleri hakkında bilgi verilmektedir. Bu hızlı başlangıcı tamamlamak bir [Azure aboneliğinizin](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) olması gerekir.
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Hızlı Başlangıç: Tarayıcıda JavaScript/HTML kullanarak blobları karşıya yükleme, listeleme ve silme
+Bu hızlı başlangıçta, tamamen tarayıcıdan çalıştırılan koddan blobların nasıl yönetileceği gösterilmektedir. Burada kullanılan yaklaşım, blob depolama hesabınıza korumalı erişimi güvence altına almak için gerekli güvenlik önlemlerinin nasıl kullanılacağını göstermektedir. Bu hızlı başlangıcı tamamlamak bir [Azure aboneliğinizin](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) olması gerekir.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>Güvenlik ayarlarını kopyalama
-Bu hızlı başlangıç boyunca bir güvenlik belirteci oluşturmak için güvenlikle ilgili birkaç değer gerekli olacaktır. Portaldan değerleri daha sonra kullanmak üzere bir metin düzenleyicisine kopyalayabilirsiniz. 
-
-Portalda depolama hesabını seçin **Ayarlar** bölümünü bulun. Ayarlar altında **Erişim anahtarları**’nı seçin ve **Depolama hesabı adı** ile **Anahtar** değerini **key1** başlığının altına ayırın. (Değeri panonuza kopyalamak için giriş kutusunun hemen sağ tarafında bulunan "kopyala" düğmesini kullanabilirsiniz.)
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Depolama hesabı CORS kurallarını ayarlama 
 Web uygulamanızın istemciden bir blob depolamaya erişebilmesi için hesabın [çıkış noktaları arası kaynak paylaşma](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) veya CORS özelliğini etkinleştirecek şekilde yapılandırılmış olması gerekir. 
@@ -55,7 +50,7 @@ Bundan sonra, Azure Cloud Shell hizmetini kullanarak bir güvenlik belirteci olu
 ## <a name="create-a-shared-access-signature"></a>Paylaşılan Erişim İmzası oluşturma
 Paylaşılan erişim imzası (SAS), Blob depolama alanına gönderilen isteklerin kimliğini doğrulamak için tarayıcıda çalışan kod tarafından kullanılır. İstemci, SAS kullanarak hesap erişim anahtarı veya bağlantı dizesine sahip olmadan kimlik doğrulaması yapabilir. SAS hakkında daha fazla bilgi edinmek için bkz. [Paylaşılan erişim imzaları (SAS) kullanma](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-Azure Cloud Shell aracılığıyla Azure CLI kullanarak bir SAS oluşturabilirsiniz. Aşağıdaki tabloda bir SAS oluşturmak için değer sağlamanız gereken parametreler açıklanmıştır.
+Azure Cloud Shell aracılığıyla veya Azure Depolama Gezgini ile Azure CLI kullanarak bir SAS oluşturabilirsiniz. Aşağıdaki tabloda, CLI ile bir SAS oluşturmak için değer sağlamanız gereken parametreler açıklanmıştır.
 
 | Parametre      |Açıklama  | Yer tutucu |
 |----------------|-------------|-------------|
@@ -121,7 +116,7 @@ Son olarak, komut isteminde `npm start` girerek web sunucusunu başlatın:
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Blob depolama istemci betiklerini alma
+### <a name="get-the-blob-storage-client-library"></a>Blob depolama istemci kitaplığını alma
 [JavaScript istemci kitaplıklarını indirin](https://aka.ms/downloadazurestoragejs), zip dosyasının içeriğini ayıklayın ve *bundle* klasöründeki betik dosyalarını *scripts* adlı bir klasöre yerleştirin.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>İstemci betik başvurusunu sayfaya ekleme
@@ -153,7 +148,7 @@ Bu işaretleme, sayfaya aşağıdakileri ekler:
 - bir dosyayı karşıya yüklemek için kullanılan *INPUT* öğesi
 - depolamaya özgü kod için bir yer tutucu
 
-### <a name="create-a-blob-service"></a>Blob hizmeti oluşturma 
+### <a name="create-an-instance-of-blobservice"></a>BlobService örneği oluşturma 
 [BlobService](https://azure.github.io/azure-storage-node/BlobService.html), Azure Blob Depolama hizmeti için bir arabirim sağlar. Hizmetin bir örneğini oluşturmak için, önceki bir adımda oluşturulan depolama hesabı adını ve SAS’yi sağlamanız gerekir.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Blobu karşıya yükleme
-Bir blobu HTML formundan karşıya yüklemek için öncelikle *type* değeri *file* olarak ayarlanmış bir *INPUT* öğesinin `files` dizisi aracılığıyla seçili dosyanın başvurusunu alırsınız.
+Bir HTML formundan blob karşıya yüklemek için, *INPUT* öğesinden seçilen dosyaya bir başvuru alırsınız. Öğenin *türü* *dosya* olarak ayarlandığında, seçilen dosya `files` dizisi aracılığıyla kullanılabilir.
 
 Betikten HTML öğesine başvurabilir ve seçili dosyayı blob hizmetine geçirebilirsiniz.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+*listBlobsSegmented* yöntemi, blob’ların koleksiyonunu döndürür. Varsayılan olarak koleksiyon miktarı 5000 blobdur, ancak bu değeri gereksinimlerinize uyacak şekilde ayarlayabilirsiniz. [Devamlılık örneği](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132), çok sayıda blob ile nasıl çalışılacağını ve istemci kitaplığının sayfalamayı nasıl desteklediğini göstermektedir. 
+
 
 ### <a name="delete-blobs"></a>Blob’ları silme
 Karşıya yüklediğiniz blobu, [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor) öğesini çağırarak silebilirsiniz.

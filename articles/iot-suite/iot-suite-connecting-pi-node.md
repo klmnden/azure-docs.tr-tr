@@ -1,6 +1,6 @@
 ---
 title: Sağlama Node.js - Azure Uzaktan izleme için Böğürtlenli Pi | Microsoft Docs
-description: Node.js içinde yazılmış bir uygulaması kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümü Raspberry Pi'yi aygıt bağlanmaya açıklar.
+description: Node.js içinde yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı Raspberry Pi'yi aygıt bağlanmaya açıklar.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 7f489a6b26edb9a58b21d318785d3804197b33cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a47cc34e6791ae03f4da968e3d44660b47e1214d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Uzaktan izleme önceden yapılandırılmış çözümü (Node.js) Raspberry Pi'yi Cihazınızı bağlama
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uzaktan izleme Çözüm Hızlandırıcısı için (Node.js) Raspberry Pi'yi Cihazınızı bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme önceden yapılandırılmış çözümü bağlanmak nasıl gösterir. Bu öğreticide, en az kaynak kısıtlamaları ortamlar için iyi bir seçenek olan Node.js kullanın.
+Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir. Bu öğreticide, en az kaynak kısıtlamaları ortamlar için iyi bir seçenek olan Node.js kullanın.
 
 ### <a name="required-hardware"></a>Gerekli donanım
 
@@ -33,7 +33,7 @@ Komut satırı Raspberry Pi'yi üzerinde uzaktan bağlanmak etkinleştirmek içi
 
 [Microsoft IOT Starter Kit Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) veya eşdeğer bileşenleri. Bu öğretici Seti'nden aşağıdaki öğeleri kullanır:
 
-- Raspberry Pi 3
+- Böğürtlenli Pi 3
 - MicroSD kartı (ile NOOBS)
 - Bir USB Mini kablosu
 - Ethernet kablosu

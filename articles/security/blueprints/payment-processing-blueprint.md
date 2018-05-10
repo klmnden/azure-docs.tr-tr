@@ -3,7 +3,7 @@ title: Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken
 description: Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 
@@ -43,7 +43,7 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 - **Dağıtım şablonları**. Bu dağıtımda [Azure Resource Manager şablonları](/azure/azure-resource-manager/resource-group-overview#template-deployment) Kurulum sırasında yapılandırma parametrelerini belirterek mimarisinin bileşenlerine Microsoft Azure otomatik olarak dağıtmak için kullanılan.
 - **Dağıtım betikleri otomatik**. Bu komut dosyaları, uçtan uca çözüm dağıtımına yardımcı olur. Komut dosyaları oluşur:
     - Bir modül yükleme ve [genel yönetici](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Kurulum komut dosyası yükleyin ve gerekli PowerShell modülleri ve genel yönetici rolleri doğru şekilde yapılandırıldığını doğrulamak için kullanılır.
-    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample). İçerik. Bu çözüm için kaynak kodunu Gözden Geçirilmeye hazır olduğunu [ şeması kod deposu][code-repo]. 
+    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample). İçerik. Bu çözüm için kaynak kodunu [şeması kod deposu] Gözden Geçirilmeye hazır olduğunu [kodu-repo]. 
 
 ## <a name="architectural-diagram"></a>Mimari diyagramı
 
@@ -299,7 +299,7 @@ Varsayılan dağıtım Güvenlik Merkezi önerilerini, sağlıklı ve güvenli y
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
-Bu çözümü dağıtmak için kullanılabilir bileşenleridir [PCI şeması kod deposu][code-repo]. Temel mimari dağıtımını Microsoft PowerShell v5 yürütülen birkaç adımı gerektirir. Web sitesine bağlanmak için bir özel etki alanı adı (örneğin, contoso.com) sağlamanız gerekir. Bu kullanılarak belirtilir `-customHostName` 2. adımda geçiş yapın. Daha fazla bilgi için bkz: [Azure Web uygulamaları için özel etki alanı adı satın](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Özel etki alanı adı başarıyla dağıtmak ve çözümü çalıştırmak için gerekli değildir, ancak tanıtım amacıyla Web sitesine bağlanamadı olacaktır.
+Bu çözümü dağıtmak için [PCI şeması kod depo] içinde kullanılabilir bileşenleridir [kodu-repo]. Temel mimari dağıtımını Microsoft PowerShell v5 yürütülen birkaç adımı gerektirir. Web sitesine bağlanmak için bir özel etki alanı adı (örneğin, contoso.com) sağlamanız gerekir. Bu kullanılarak belirtilir `-customHostName` 2. adımda geçiş yapın. Daha fazla bilgi için bkz: [Azure Web uygulamaları için özel etki alanı adı satın](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Özel etki alanı adı başarıyla dağıtmak ve çözümü çalıştırmak için gerekli değildir, ancak tanıtım amacıyla Web sitesine bağlanamadı olacaktır.
 
 Komut dosyalarını belirttiğiniz Azure AD Kiracı etki alanı kullanıcıları ekleyin. Yeni bir oluşturmanızı öneririz bir test olarak kullanmak için Azure AD kiracısı.
 
@@ -384,11 +384,3 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 - Tüm müşteri adları, işlem kayıtlarını ve ilgili tüm verileri bu sayfada bu temel mimari amacıyla oluşturulur ve yalnızca gösterim amacıyla sağlanan hayali. Gerçek bir ilişki veya bağlantı yöneliktir ve hiçbiri çıkarılmamalıdır.  
 - Bu çözüm, Microsoft ve Avyan danışmanlık tarafından ortaklaşa geliştirilmiştir ve altında kullanılabilir [MIT lisansı](https://opensource.org/licenses/MIT).
 - Bu çözüm Coalfire, Microsoft'un PCI-DSS denetçi gözden geçirildi. [PCI uyumluluk gözden](https://aka.ms/pciblueprintcrm32) bağımsız, üçüncü taraf bir gözden geçirme ve çözüm ele alınması gereken bileşenleri sağlar. 
-
-### <a name="document-authors"></a>Belge yazarları
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan danışmanlık)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Kod deposu"

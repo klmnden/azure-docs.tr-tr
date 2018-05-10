@@ -1,12 +1,12 @@
 ---
-title: "Bağlı Fabrika gateway - Azure dağıtımı | Microsoft Docs"
-description: "Bir ağ geçidi bağlı Fabrika bağlantıyı etkinleştirmek için Windows veya Linux üzerinde dağıtma önceden yapılandırılmış çözümü."
-services: 
+title: Fabrika bağlı ağ geçidiniz - Azure dağıtma | Microsoft Docs
+description: Nasıl bir ağ geçidi bağlı Fabrika Çözüm Hızlandırıcısı bağlantıyı etkinleştirmek için Windows veya Linux üzerinde dağıtılır.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Bir sınır ağ geçidi Windows veya Linux bağlı Fabrika önceden yapılandırılmış çözümü dağıtma
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Windows veya Linux bağlı Fabrika Çözüm Hızlandırıcısı için bir sınır ağ geçidi dağıtma
 
-İki yazılım bileşenleri için bir sınır ağ geçidi dağıtmak için gereken *bağlı Fabrika* önceden yapılandırılmış çözüm:
+İki yazılım bileşenleri için bir sınır ağ geçidi dağıtmak için gereken *bağlı Fabrika* Çözüm Hızlandırıcısı:
 
 - *OPC Proxy* bağlı Fabrika bir bağlantı kurar. OPC Proxy sonra komut ve Denetim iletileri bağlı Fabrika çözüm Portalı'nda çalışan tümleşik OPC tarayıcıdan bekler.
 
@@ -32,12 +32,12 @@ Her iki bileşenler açık kaynaklı ve GitHub kaynağına ve DockerHub Docker k
 
 | GitHub | DockerHub |
 | ------ | --------- |
-| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
+| [OPC yayımcı](https://github.com/Azure/iot-edge-opc-publisher) | [OPC yayımcı](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
 | [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
 Ya da bileşen için genel kullanıma yönelik IP adresini veya ağ geçidi Güvenlik Duvarı'nda Aç gelen bağlantı noktalarının gerekmez. OPC Proxy ve OPC yayımcı bileşenleri, yalnızca giden bağlantı noktası 443'ü kullanın.
 
-Bu makaledeki adımları Windows ya da Linux Docker kullanarak bir sınır ağ geçidi dağıtılacağı gösterilmektedir. Ağ geçidi bağlı Fabrika önceden yapılandırılmış çözüm bağlantısı sağlar. Bağlı Fabrika bileşenleri de kullanabilirsiniz.
+Bu makaledeki adımları Windows ya da Linux Docker kullanarak bir sınır ağ geçidi dağıtılacağı gösterilmektedir. Ağ geçidi bağlı Fabrika Çözüm Hızlandırıcısı bağlantı sağlar. Bağlı Fabrika bileşenleri de kullanabilirsiniz.
 
 > [!NOTE]
 > Her iki bileşenin modülleri olarak kullanılabilir [Azure IOT kenar](https://github.com/Azure/iot-edge).
@@ -75,7 +75,7 @@ Daha fazla bilgi için bkz: [birimler kullanmak](https://docs.docker.com/engine/
 
 OPC bileşenlerini yüklemeden önce ortamınızı hazırlamak için aşağıdaki adımları tamamlayın:
 
-1. Ağ geçidi dağıtımını tamamlamak için ihtiyacınız **iothubowner** bağlı Fabrika dağıtımınızdaki IOT hub bağlantı dizesi. İçinde [Azure portal](http://portal.azure.com/), IOT Hub'ınıza bağlı Fabrika çözümü dağıttığınızda oluşturduğunuz kaynak grubunda gidin. Tıklatın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
+1. Ağ geçidi dağıtımını tamamlamak için ihtiyacınız **iothubowner** bağlı Fabrika dağıtımınızdaki IOT hub bağlantı dizesi. İçinde [Azure portal](http://portal.azure.com/), IOT hub'ınıza bağlı Fabrika çözümü dağıttığınızda oluşturulan kaynak grubunda gidin. Tıklatın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
 
     ![IOT Hub bağlantı dizesini bulun](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
@@ -143,9 +143,9 @@ OPC Proxy bağlantı dizesi yükleme sırasında kaydeder. Sonraki çalışır b
 
 ## <a name="enable-your-gateway"></a>Ağ geçidini etkinleştir
 
-Ağ geçidiniz bağlı Fabrika önceden yapılandırılmış çözümde etkinleştirmek için aşağıdaki adımları tamamlayın:
+Bağlı Fabrika Çözüm Hızlandırıcısı, ağ geçidi etkinleştirmek için aşağıdaki adımları tamamlayın:
 
-1. Her iki bileşenin çalıştırırken, Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Bu sayfa yalnızca çözümde yöneticiler tarafından kullanılabilir. Yayımcı uç noktasının URL'sini girin (opc.tcp://publisher: 62222) tıklatıp **Bağlan**.
+1. Hem bileşenleri çalıştırırken, Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Bu sayfa yalnızca çözümde yöneticiler tarafından kullanılabilir. Yayımcı uç noktasının URL'sini girin (opc.tcp://publisher: 62222) tıklatıp **Bağlan**.
 
 1. OPC yayımcı ve bağlı Fabrika portal arasında bir güven ilişkisi oluşturun. Bir sertifika uyarısı gördüğünüzde, tıklatın **İlerle**. Ardından, OPC yayımcı UA Web istemcisi güvenilir olmayan bir hata görürsünüz. Bu hatayı gidermek için kopyalama **UA Web istemcisi** gelen sertifika `<SharedFolder>/CertificateStores/rejected/certs` klasörüne `<SharedFolder>/CertificateStores/trusted/certs` ağ geçidinde klasör. Ağ geçidi yeniden başlatmanız gerekmez.
 
@@ -153,14 +153,14 @@ Ağ geçidi buluttan şimdi bağlanabilir ve çözüme OPC UA sunucuları ekleme
 
 ## <a name="add-your-own-opc-ua-servers"></a>Kendi OPC UA sunucuları ekleme
 
-Bağlı Fabrika kendi OPC UA sunucuları eklemek için önceden yapılandırılmış çözüm:
+Bağlı Fabrika Çözüm Hızlandırıcısı için kendi OPC UA sunucuları eklemek için:
 
 1. Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası.
 
     1. Bağlanmak istediğiniz sunucunun OPC UA başlatın. OPC UA sunucunuz OPC yayımcı ve OPC kapsayıcıda çalışan Proxy ulaşılabildiğinden emin olun (önceki açıklamaları ad çözümlemesi hakkında bakın).
     1. OPC UA sunucunuzun uç nokta URL'sini girin (`opc.tcp://<host>:<port>`) tıklatıp **Bağlan**.
     1. Bağlantı kurulumunun bir parçası olarak, bağlı Fabrika portal (OPC UA istemci) ve bağlanmaya çalıştığınız OPC UA sunucu arasında bir güven ilişkisi oluşturulur. Bağlı Fabrika Panoda size bir **bağlanmak istediğiniz sunucunun sertifikasının doğrulanamıyor** uyarı. Bir sertifika uyarısı gördüğünüzde, tıklatın **İlerle**.
-    1. Bağlanmaya çalıştığınız OPC UA sunucusunun sertifika yapılandırması için Kurulum daha zordur. PC tabanlı OPC UA sunucuları için yalnızca bir uyarı iletişim kutusu kabul panosunda elde edebilirsiniz. Katıştırılmış OPC UA server sistemleri için bu görevi nasıl yapıldığını aramak için OPC UA sunucunuzun belgelerine bakın. Bu görevi tamamlamak için bağlı Fabrika portal'ın OPC UA istemci sertifikasını gerekebilir. Bir yönetici üzerinde bu sertifikayı indirebilirsiniz **kendi OPC UA sunucusuna** sayfa:
+    1. Bağlanmaya çalıştığınız OPC UA sunucusunun sertifika yapılandırması için Kurulum daha zordur. PC tabanlı OPC UA sunucuları için yalnızca bir uyarı iletişim kutusu kabul panosunda elde edebilirsiniz. Katıştırılmış OPC UA server sistemleri için bu görevi nasıl yapıldığını aramak için OPC UA sunucunuzun belgelerine bakın. Bu görevi tamamlamak için Fabrika bağlı portal'ın OPC UA istemci sertifikasını gerekebilir. Bir yönetici üzerinde bu sertifikayı indirebilirsiniz **kendi OPC UA sunucusuna** sayfa:
 
         ![Çözüm portalı](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
@@ -170,6 +170,6 @@ Bağlı Fabrika kendi OPC UA sunucuları eklemek için önceden yapılandırılm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bağlı Fabrika önceden yapılandırılmış çözüm mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika önceden yapılandırılmış çözüm izlenecek](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Bağlı Fabrika Çözüm Hızlandırıcısı mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika Çözüm Hızlandırıcısı izlenecek](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
 Hakkında bilgi edinin [OPC yayımcı başvuru uygulaması](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

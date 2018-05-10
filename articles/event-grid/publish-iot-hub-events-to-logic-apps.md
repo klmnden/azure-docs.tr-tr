@@ -1,22 +1,22 @@
 ---
-title: "Tetikleyici Azure Logic Apps için IOT hub'ı olaylarını kullanma | Microsoft Docs"
-description: "Azure olay kılavuzunun olay yönlendirme hizmeti kullanarak, IOT hub'ı olaylara dayanarak Azure mantıksal uygulamalar eylemleri gerçekleştirmek için otomatik işlemleri oluşturun."
+title: Tetikleyici Azure Logic Apps için IOT hub'ı olaylarını kullanma | Microsoft Docs
+description: Azure olay kılavuzunun olay yönlendirme hizmeti kullanarak, IOT hub'ı olaylara dayanarak Azure mantıksal uygulamalar eylemleri gerçekleştirmek için otomatik işlemleri oluşturun.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 4fed42a45f8d291bd3ba1e4fd5d636b7d0b0fbfc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönder
 
@@ -51,7 +51,7 @@ Bu makalede, IOT Hub ve olay kılavuz kullanan örnek bir yapılandırma anlatı
 
 4. Altında mantığı Uygulama Tasarımcısı'nda **şablonları**, seçin **boş mantıksal uygulama** böylece mantıksal uygulamanızı sıfırdan oluşturabilir.
 
-## <a name="select-a-trigger"></a>Tetikleyici seçin
+## <a name="select-a-trigger"></a>Bir tetikleyici seçin
 
 Bir tetikleyici mantıksal uygulamanızı başlayan belirli bir olaydır. Bu öğretici için iş akışını devre dışı ayarlar tetikleyici isteği HTTP üzerinden alıyor.  
 
@@ -156,7 +156,7 @@ Logic Apps Tasarımcısı çıkmadan önce mantıksal uygulamalarınızı dinlem
 Bu bölümde, bunlar ortaya çıktığında olayları yayımlamak için IOT Hub'ınızı yapılandırın. 
 
 1. Azure portalında IOT hub'ına gidin. 
-2. Seçin **olay kılavuz**.
+2. Seçin **olayları**.
 
    ![Olay kılavuz Ayrıntıları'nı açın](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 

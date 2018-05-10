@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
 Hive sağlar Hadoop MapReduce işleri adlı bir SQL benzeri komut dosyası dili ile çalışan bir  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetlemeye doğrultusunda, sorgulama, ve büyük miktarda veriyi analiz etme.
@@ -259,7 +259,8 @@ Veri dosyası ve HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendi
     <tr><td>Dönem filtre</td><td>Ocak</td></tr>
     <tr><td>Alanlar</td><td>*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID*, *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *taşınmaya*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</td></tr>
     </table>
-3. Tıklatın **karşıdan**.
+
+3. **İndir**’e tıklayın.
 4. Dosyanın sıkıştırmasını açın **C:\Tutorials\FlightDelay\2013Data** klasör. Her dosya, bir CSV dosyası ve yaklaşık 60 GB boyutunda.
 5. Dosya verilerini içeren ayın adını yeniden adlandırın. Örneğin, Ocak verilerini içeren dosyayı adlı *January.csv*.
 6. 2 ve her 12 ay 2013'te bir dosyayı indirmek için 5. adımları yineleyin. Öğretici çalıştırmak için bir dosya en az gerekir.
@@ -273,6 +274,7 @@ Veri dosyası ve HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendi
     <tr><td>$storageAccountName</td><td>Verileri karşıya yüklemek istediğiniz Azure depolama hesabı.</td></tr>
     <tr><td>$blobContainerName</td><td>Verileri karşıya yüklemek istediğiniz Blob kapsayıcısı.</td></tr>
     </table>
+    
 2. Azure PowerShell ISE açın.
 3. Aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:
 

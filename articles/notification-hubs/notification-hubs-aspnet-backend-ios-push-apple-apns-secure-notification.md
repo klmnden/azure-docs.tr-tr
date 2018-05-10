@@ -1,10 +1,10 @@
 ---
-title: "Azure Notification Hubs güvenli bildirme"
-description: "Azure'dan bir iOS uygulamasının güvenli anında iletme bildirimleri göndermek öğrenin. Objective-C ve C# içinde yazılan kod örnekleri."
+title: Azure Notification Hubs güvenli bildirme
+description: Azure'dan bir iOS uygulamasının güvenli anında iletme bildirimleri göndermek öğrenin. Objective-C ve C# içinde yazılan kod örnekleri.
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs güvenli bildirme
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Yüksek bir düzeyde akışı aşağıdaki gibidir:
    * Cihaz güvenli yükü isteyen arka uç bağlantı kurar.
    * Uygulama yükü cihaz bildirim olarak gösterebilir.
 
-Önceki akış (ve Bu öğreticide), kullanıcı oturum açtığında sonra cihaz kimlik doğrulama belirtecini yerel depoda sakladığı varsayıyoruz olduğunu dikkate almak önemlidir. Cihaz Bu belirteci kullanarak bildirim 's güvenli yükü alabilir gibi tamamen sorunsuz bir deneyim daha güvence altına alır. Uygulamanızın kimlik doğrulama belirteçleri cihazda depolamaz veya bu belirteçleri süresi, bildirim alma sırasında cihaz uygulaması uygulamayı başlatmak için kullanıcıdan genel bir bildirim görüntülemelidir. Uygulama kullanıcının kimliğini doğrular ve bildirim yükü gösterir.
+Önceki akış (ve Bu öğreticide), kullanıcı oturum açtığında sonra cihaz kimlik doğrulama belirtecini yerel depoda sakladığı varsayıyoruz olduğunu dikkate almak önemlidir. Cihaz Bu belirteci kullanarak bildirim 's güvenli yükü alabilir gibi sorunsuz bir deneyim daha güvence altına alır. Uygulamanızın kimlik doğrulama belirteçleri cihazda depolamaz veya bu belirteçleri süresi, bildirim alma sırasında cihaz uygulaması uygulamayı başlatmak için kullanıcıdan genel bir bildirim görüntülemelidir. Uygulama kullanıcının kimliğini doğrular ve bildirim yükü gösterir.
 
 Bu güvenli itme öğretici güvenli bir şekilde bir anında iletme bildirimi göndermek nasıl gösterir. Öğretici derlemeler [kullanıcılara bildirme](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) önce bu öğreticide adımları tamamlanmalıdır şekilde öğretici.
 
@@ -58,7 +58,7 @@ Uygulama göndermek için uç değiştiren göre yalnızca *kimliği* ilişkin b
 
 Bu hedefe ulaşmak için şu uygulama arka ucunu güvenli içeriği almak için mantığı yazmak zorunda.
 
-1. İçinde **AppDelegate.m**, emin olun uygulama kaydeder sessiz bildirimleri için gönderilen arka ucundan bildirim kimliği işler şekilde. Ekleme **UIRemoteNotificationTypeNewsstandContentAvailability** didFinishLaunchingWithOptions seçeneği:
+1. İçinde **AppDelegate.m**, bildirim kimliği işler şekilde sessiz bildirimleri için uygulama kaydeder gönderilen arka ucundan emin olun. Ekleme **UIRemoteNotificationTypeNewsstandContentAvailability** didFinishLaunchingWithOptions seçeneği:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 2. İçinde **AppDelegate.m** en üstünde şu bildirimi ile bir uygulama bölümüne ekleyin:

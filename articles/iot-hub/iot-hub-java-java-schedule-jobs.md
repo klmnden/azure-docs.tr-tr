@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Zamanlama ve yayın işleri (Java)
 
@@ -64,7 +64,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Cihaz kimliği programlı olarak oluşturmayı tercih ederseniz karşılık gelen bölümünde okuma [Cihazınızı Java kullanarak IOT hub'ınıza bağlanmak](iot-hub-java-java-getstarted.md#create-a-device-identity) makalesi. Aynı zamanda [IOT uzantısı için Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) bir cihaz IOT hub'ınıza eklemek için aracı.
+Aynı zamanda [IOT uzantısı için Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) bir cihaz IOT hub'ınıza eklemek için aracı.
 
 ## <a name="create-the-service-app"></a>Hizmet Uygulaması Oluştur
 

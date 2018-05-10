@@ -1,12 +1,12 @@
 ---
-title: "Bağlı Fabrika topolojisini yapılandırma | Microsoft Docs"
-description: "Bağlı bir Fabrika topolojisini yapılandırmak nasıl önceden yapılandırılmış çözümü."
-services: 
+title: Bağlı Fabrika topolojisini yapılandırma | Microsoft Docs
+description: Bir bağlı Fabrika Çözüm Hızlandırıcısı topolojisini yapılandırmak nasıl.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>Bağlı Fabrika önceden yapılandırılmış çözümünüzü yapılandırma
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika Çözüm Hızlandırıcısı yapılandırın
 
-Bağlı Fabrika önceden yapılandırılmış çözüm kurgusal bir şirket Contoso için sanal bir Pano gösterir. Bu şirket oluşturucuları genel çok sayıda genel konumlarda sahiptir.
+Bağlı Fabrika Çözüm Hızlandırıcısı, kurgusal bir şirket Contoso için sanal bir Pano gösterir. Bu şirket oluşturucuları genel çok sayıda genel konumlarda sahiptir.
 
 Bu makalede Contoso bağlı Fabrika çözüm topolojisini yapılandırmak nasıl açıklamak için örnek olarak kullanır.
 
@@ -114,13 +114,13 @@ Ortak özelliklerini `<global_configuration>`, `<factory_configuration>`, `<prod
 
   Topoloji düğümü benzersiz olarak tanımlar.
 
-`<factory_configuration>`bir özelliğe sahiptir:
+`<factory_configuration>` bir özelliğe sahiptir:
 
 * **Konum** (tür `<location_definition>`)
 
   Fabrika nerede olduğunu belirtir.
 
-`<station_configuration>`özelliklere sahiptir:
+`<station_configuration>` özelliklere sahiptir:
 
 * **OpcUri** (dizeyi yazın)
 
@@ -129,7 +129,7 @@ Ortak özelliklerini `<global_configuration>`, `<factory_configuration>`, `<prod
 
 * **OpcNodes**, bir dizi OPC UA düğümlerinin olduğu (tür `<opc_node_description>`)
 
-`<location_definition>`özelliklere sahiptir:
+`<location_definition>` özelliklere sahiptir:
 
 * **Şehir** (dizeyi yazın)
 
@@ -147,7 +147,7 @@ Ortak özelliklerini `<global_configuration>`, `<factory_configuration>`, `<prod
 
   Boylam konumu
 
-`<performance_definition>`özelliklere sahiptir:
+`<performance_definition>` özelliklere sahiptir:
 
 * **Minimum** (tür double)
 
@@ -193,7 +193,7 @@ Ortak özelliklerini `<global_configuration>`, `<factory_configuration>`, `<prod
   * **CallOpcMethod**: "NodeId üst düğümün çağırmak için URI OPC UA sunucusunun nodeId yönteminin." biçiminde çağrılacak OPC UA yöntem parametreleri ve düğüm bilgi
   * **OpenWebPage**: tarayıcı penceresinde göstermek için URL.
 
-`<opc_node_description>`OPC UA düğümler istasyon (OPC UA sunucu) hakkında bilgi içerir. Varolan OPC UA düğüm temsil eder, ancak bağlı Factory hesaplama mantığındaki depolama alanı olarak kullanılan düğümleri da geçerlidir. Aşağıdaki özelliklere sahiptir:
+`<opc_node_description>` OPC UA düğümler istasyon (OPC UA sunucu) hakkında bilgi içerir. Varolan OPC UA düğüm temsil eder, ancak depolama hesaplama mantığında Factory bağlı olarak kullanılan düğümleri da geçerlidir. Aşağıdaki özelliklere sahiptir:
 
 * **NodeId** (dizeyi yazın)
 
@@ -287,7 +287,7 @@ Bağlı Fabrika benzetimi OEE/KPI rakamlarını tarafından parametreli:
 * OPC UA düğümü hesaplamadaki dahil edilecek değerleri.
 * Şekil, telemetri değerleri nasıl hesaplanır.
 
-Bağlı Fabrika OEE formüller http://oeeindustrystandard.oeefoundation.org tarafından yayınlanan olarak kullanır.
+Bağlı Fabrika kullanan OEE formüller tarafından yayınlanan olarak http://oeeindustrystandard.oeefoundation.org.
 
 OPC UA düğüm nesneleri istasyonları OEE/KPI hesaplama kullanım için etiketleme etkinleştirin. **İlgi** özelliği için hangi OEE/KPI şekil OPC UA düğüm değerinin kullanılması gerektiğini gösterir. **OpCode** özelliği tanımlar değeri hesaplamanın nasıl eklenir.
 
@@ -308,17 +308,17 @@ Son değer görselleştirme veya zaman serisi Insight sorgular oluşturma gibi b
 
   Tanımlar (genel benzersiz) OPC UA sunucunun telemetri gelir. Alınan iletileri, bu özellik olarak gönderilen **ApplicationUri**.
 
-* **NodeId**
+* **nodeId**
 
   OPC UA Server'daki düğüm değerini tanımlar. Özelliğin biçimi olmalıdır OPC UA belirtiminde belirtildiği gibi. Alınan iletileri, bu özellik olarak gönderilen **nodeId**.
 
-Denetleme [bu](https://github.com/Azure/iot-edge-opc-publisher) telemetri verilerini OPC Publisher'ı kullanarak bağlı fabrika ayarlarına nasıl alınan hakkında daha fazla bilgi için GitHub sayfası.
+Denetleme [bu](https://github.com/Azure/iot-edge-opc-publisher) telemetri verilerini bağlı OPC Publisher'ı kullanarak fabrika ayarlarına nasıl alınan hakkında daha fazla bilgi için GitHub sayfası.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Örnek: KPI1 hesaplanan nasıl
 
 Yapılandırmada `ContosoTopologyDescription.json` dosyası denetler OEE/KPI rakamları nasıl hesaplanır. Aşağıdaki örnek, bu dosya özelliklerinde KPI1 hesaplama nasıl kontrol gösterir.
 
-Bağlı, son bir saatte ürünleri KPI1 sayısını başarıyla ölçmek için kullanılan Üreteç üretilmiştir. Her istasyon (OPC UA sunucusu) bağlı Fabrika benzetimde OPC UA düğümü sağlar (`NodeId: "ns=2;i=385"`), bu KPI hesaplamak için telemetri sağlar.
+Fabrika KPI1 bağlı, son bir saat içinde başarıyla üretilen ürünleri sayısını ölçmek için kullanılır. Her istasyon (OPC UA sunucusu) bağlı Fabrika benzetimde OPC UA düğümü sağlar (`NodeId: "ns=2;i=385"`), bu KPI hesaplamak için telemetri sağlar.
 
 Bu OPC UA düğüm yapılandırması aşağıdaki kod parçacığını gibi görünür:
 
@@ -339,10 +339,10 @@ Bu yapılandırma, zaman serisinin kullanarak bu düğümün telemetri değerler
 * Tüm değerlerin ortalamasını.
 * Tümü için tüm değerlerin toplamını benzersiz **OpcUri** (**ApplicationUri**), **nodeId** çiftler halinde belirli bir timespan.
 
-Bir özelliği **NumberOfManufactureredProducts** düğümü değerdir yalnızca artırır. Süre içinde üretilen ürünleri sayısını hesaplamak için Fabrika kullanan bağlı **OpCode** **SubMaxMin**. Hesaplamanın en düşük değer timespan başlangıcında ve en büyük değer timespan sonunda alır.
+Bir özelliği **NumberOfManufactureredProducts** düğümü değerdir yalnızca artırır. Timespan üretilen ürünleri sayısını hesaplamak için Fabrika bağlı kullanan **OpCode** **SubMaxMin**. Hesaplamanın en düşük değer timespan başlangıcında ve en büyük değer timespan sonunda alır.
 
 **OpCode** maksimum ve minimum değer fark sonucunu hesaplamak için hesaplama mantık yapılandırmada yapılandırır. Daha sonra bu sonuçlar olan alt kök (Genel) düzeyinde kadar birikmiş ve panosunda gösterilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-A önerilen sonraki adımdır öğrenmek için nasıl [bağlı Fabrika önceden yapılandırılmış çözüm için Windows veya Linux üzerinde bir ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md).
+A önerilen sonraki adımdır öğrenmek için nasıl [bağlı Fabrika Çözüm Hızlandırıcısı için Windows veya Linux üzerinde bir ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md).

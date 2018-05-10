@@ -1,24 +1,24 @@
 ---
-title: "Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
+title: Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Microsoft Belgeleri
+description: Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
 services: notification-hubs
 documentationcenter: android
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 08/29/2017
-ms.author: kapiteir
-ms.openlocfilehash: 91f20a6e0ff6c2dd512879e9ab3c9369dab5d8ff
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Google Play ve FCM (Firebase Cloud Messaging) Çin'de mevcut değildir ve farkl�
 Bu öğretici için aşağıdakiler gereklidir:
 
 * <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Android Studio kullanacağınız varsayılır)
-* [Baidu Anında İletme Android SDK'sını]
+* [Baidu Anında İletme Android SDK’sı]
 
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
@@ -159,7 +159,7 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.  [Baidu Anında İletme Android SDK'sını] indirin ve açın. `pushservice-x.y.z jar` dosyasını libs klasörüne kopyalayın. Ardından `.so` dosyalarını Android uygulamanızın `src/main/jniLibs` (yeni bir klasör oluşturun) klasörlerine kopyalayın.
+6.  [Baidu Anında İletme Android SDK’sı] indirin ve açın. `pushservice-x.y.z jar` dosyasını libs klasörüne kopyalayın. Ardından `.so` dosyalarını Android uygulamanızın `src/main/jniLibs` (yeni bir klasör oluşturun) klasörlerine kopyalayın.
 
     ![Azure Notification Hubs - Baidu SDK Kitaplıkları](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -531,6 +531,6 @@ Bir test bildirimi göndermek için [Azure portalındaki] hata ayıklama sekmesi
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Anında İletme Android SDK'sını]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Baidu Anında İletme Android SDK’sı]: http://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure portalındaki]: https://portal.azure.com/
 [Baidu portalında]: http://www.baidu.com/

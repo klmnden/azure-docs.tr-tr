@@ -1,25 +1,25 @@
 ---
-title: "Azure bildirim hub'ları ve Node.js ile anında iletme bildirimleri gönderme"
-description: "Bir Node.js uygulamasından anında iletme bildirimleri göndermek için bildirim hub'ları kullanmayı öğrenin."
-keywords: "anında iletme bildirimi, anında iletme notifications,node.js itme ios anında iletme"
+title: Azure bildirim hub'ları ve Node.js ile anında iletme bildirimleri gönderme
+description: Bir Node.js uygulamasından anında iletme bildirimleri göndermek için bildirim hub'ları kullanmayı öğrenin.
+keywords: anında iletme bildirimi, anında iletme notifications,node.js itme ios anında iletme
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure bildirim hub'ları ve Node.js ile anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/12/2017
 > 
 > 
 
-Bu kılavuz bir Node.js uygulamasından doğrudan Azure Notification Hubs Yardım ile anında iletme bildirimleri göndermek nasıl yapacağınızı gösterir. 
+Bu kılavuz bir Node.js uygulamasından doğrudan Azure Notification Hubs Yardım ile anında iletme bildirimleri göndermeyi gösterir. 
 
 Aşağıdaki platformlarda uygulamalarına anında iletme bildirimleri gönderme kapsamdaki senaryolar şunlardır:
 
@@ -65,19 +65,19 @@ Bir metin düzenleyicisi kullanarak, en üstüne aşağıdakileri ekleyin **serv
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>Azure bildirim hub'ı bağlantısı kurma
-**NotificationHubService** nesne notification hubs ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir **NotificationHubService** adlı nofication hub'ına yönelik nesne **hubname**. Üst kısmına ekleyin **server.js** azure modülü içeri aktarmak için deyimi sonra dosyayı:
+### <a name="set-up-an-azure-notification-hub-connection"></a>Azure bildirim hub'ı bağlantı kurma
+**NotificationHubService** nesne notification hubs ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir **NotificationHubService** nesne adlı bildirim hub'ı **hubname**. Üst kısmına ekleyin **server.js** azure modülü içeri aktarmak için deyimi sonra dosyayı:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Bağlantı **connectionstring** değeri elde edilebilir gelen [Azure Portal] aşağıdaki adımları gerçekleştirerek:
+Bağlantı **connectionstring** değeri elde edilebilir gelen [Azure portal] aşağıdaki adımları gerçekleştirerek:
 
 1. Sol gezinti bölmesinde **Gözat**.
 2. Seçin **bildirim hub'ları**, örnek için kullanmak istediğiniz hub'ı bulun. Başvurabilirsiniz [Windows mağazası Başlarken Öğreticisi](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) yeni bir bildirim hub'ı oluşturma yardıma gereksinim duyarsanız.
 3. Seçin **ayarları**.
-4. Tıklayın **erişim ilkeleri**. Her iki paylaşılan ve tam erişim bağlantı dizeleri görürsünüz.
+4. Tıklayın **erişim ilkeleri**. Her iki paylaşılan ve tam erişim bağlantı dizeleri bakın.
 
-![Azure Portal - bildirim hub'ları](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
+![Azure portal - bildirim hub'ları](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
 > Kullanarak bağlantı dizenizi alabilirsiniz **Get-AzureSbNamespace** tarafından sağlanan cmdlet [Azure PowerShell](/powershell/azureps-cmdlets-docs) veya **azure sb ad alanı göster** komutunu [Azure komut satırı arabirimi (Azure CLI)](../cli-install-nodejs.md).
@@ -139,7 +139,7 @@ Aşağıdaki kod **ApnsService** örneği kullanıma sunulan **NotificationHubSe
 
 * **Etiketler** -etiketi tanımlayıcısı. Hiçbir etiketi sağlanırsa, tüm istemcilere bildirim gönderilir.
 * **Yükü** -ileti XML yükü.
-* **TargetName**  -  `toast` bildirimleri için. `token`Döşeme bildirimleri için.
+* **TargetName**  -  `toast` bildirimleri için. `token` Döşeme bildirimleri için.
 * **NotificationClass** -bildirim önceliğini. Bkz: **HTTP üstbilgi öğelerini** bölümünü [anında iletme bildirimleri bir sunucudan](http://msdn.microsoft.com/library/hh221551.aspx) belge için geçerli değerler.
 * **Seçenekler** - isteğe bağlı istek üstbilgileri.
 * **Geri çağırma** -geri çağırma işlevi.

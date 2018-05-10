@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 8bcc1b2c76ff1e312d1435997ef6d677656510d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Sallama Tweet için sallama--Azure işlevleri içeren bir Twitter ileti almak!
 
@@ -188,6 +188,6 @@ Diğer sorunlar yaşıyorsanız başvurmak [SSS](https://microsoft.github.io/azu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT paketi DevKit aygıt bağlanmak ve tweet almak öğrendiniz, önerilen sonraki adımlar şunlardır:
+Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı için DevKit aygıt bağlanmak ve tweet almak öğrendiniz, önerilen sonraki adımlar şunlardır:
 
-* [Azure IOT Paketi'ne Genel Bakış](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı genel bakış](https://docs.microsoft.com/azure/iot-suite/)

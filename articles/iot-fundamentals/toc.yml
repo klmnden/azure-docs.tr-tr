@@ -8,21 +8,21 @@
       href: iot-services-and-technologies.md
 - name: Çözümler
   items:
-    - name: IoT Paketi Önceden Yapılandırılmış Çözümler
+    - name: IoT çözüm hızlandırıcıları
       href: /azure/iot-suite
     - name: IoT Central
       href: 'https://docs.microsoft.com/microsoft-iot-central/'
 - name: Platform hizmetleri
   items:
-    - name: IoT Hub’ı
+    - name: IoT Hub
       href: /azure/iot-hub
     - name: IoT Hub Cihazı Sağlama Hizmeti
       href: /azure/iot-dps
-    - name: Konum Tabanlı Hizmetler
-      href: /azure/location-based-services
+    - name: Azure Haritalar
+      href: /azure/azure-maps
     - name: Hizmet SDK'ları
       href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-    - name: Zaman Serisi Öngörüleri
+    - name: Time Series Insights
       href: /azure/time-series-insights
 - name: Edge
   items:

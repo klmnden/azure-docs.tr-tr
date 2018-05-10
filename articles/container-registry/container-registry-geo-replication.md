@@ -6,23 +6,17 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry’de coğrafi çoğaltma
 
-Birden çok Azure bölgelerinden hizmetlerini çalıştırmak yerel bir varlık veya bir dinamik yedek isteyen şirketler seçin. En iyi uygulama, ağ Kapat işlemlerine, hızlı ve güvenilir görüntü katman aktarımları etkinleştirme görüntüleri çalıştırdığı her bölgede bir kapsayıcı kayıt defteri yerleştirme izin verir.
-
-Coğrafi çoğaltma, tek bir kayıt defteri çalışması bir Azure kapsayıcı kayıt defteri birden çok yöneticili bölgesel kayıt defterleri ile birden çok bölgeye hizmet sağlar.
-
-> [!IMPORTANT]
-> Azure Container Registry’nin coğrafi çoğaltma özelliği şu anda **önizleme** aşamasındadır. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
->
+Birden çok Azure bölgelerinden hizmetlerini çalıştırmak yerel bir varlık veya bir dinamik yedek isteyen şirketler seçin. En iyi uygulama, ağ Kapat işlemlerine, hızlı ve güvenilir görüntü katman aktarımları etkinleştirme görüntüleri çalıştırdığı her bölgede bir kapsayıcı kayıt defteri yerleştirme izin verir. Coğrafi çoğaltma, tek bir kayıt defteri çalışması bir Azure kapsayıcı kayıt defteri birden çok yöneticili bölgesel kayıt defterleri ile birden çok bölgeye hizmet sağlar.
 
 Coğrafi olarak çoğaltılmış bir kayıt defteri aşağıdaki avantajları sağlar:
 

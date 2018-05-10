@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: 30019a733bd4869d22c060d0793423b71b0df166
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0ac4dd450f1aca1da916ff3c95f5429e50cba4fd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
@@ -99,7 +99,7 @@ Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin v
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Kimlik koruması</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Koşullu erişim</a><br/>
-                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged identity management</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged identity management</a>
                         </p>
                     </div>
                 </div>

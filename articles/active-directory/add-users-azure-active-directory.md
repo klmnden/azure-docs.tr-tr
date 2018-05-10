@@ -1,25 +1,23 @@
 ---
-title: "Ekleme veya Azure Active Directory'de kullanıcıları silme | Microsoft Docs"
-description: "Yeni kullanıcı ekleme ya da Azure Active Directory'de mevcut kullanıcıları silmek açıklanmaktadır"
+title: Ekleme veya Azure Active Directory'de kullanıcıları silme | Microsoft Docs
+description: Yeni kullanıcı ekleme ya da Azure Active Directory'de mevcut kullanıcıları silmek açıklanmaktadır
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3e8b7061e57c1baf222e5f565a5b7efc6b997507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'ye yeni kullanıcı ekleme
 Bu makalede silin veya, kuruluşunuzda Azure portalını kullanarak orgnization kullanıcının Azure Active Directory (Azure AD) Kiracı veya şirket içi Windows Server AD kullanıcı hesabı verilerinizi eşitleyerek kullanıcıların nasıl ekleneceğini açıklar. 
@@ -50,7 +48,7 @@ Bu makalede silin veya, kuruluşunuzda Azure portalını kullanarak orgnization 
 * [Başka bir dizinden Konuk kullanıcılar ekleme](active-directory-b2b-what-is-azure-ad-b2b.md) 
 * [Bir kullanıcı, Azure AD'de rol atama](active-directory-users-assign-role-azure-portal.md)
 * [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
-* [Silinmiş bir kullanıcı geri yükleme](active-directory-users-restore.md)
+* [Silinen bir kullanıcıyı geri yükleme](active-directory-users-restore.md)
 
 
 

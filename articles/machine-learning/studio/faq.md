@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
@@ -372,7 +372,7 @@ Machine Learning Ücretsiz katmanı ayrı depolama gerektirmez veya sağlamaz. M
 
 **Machine Learning yüksek kullanılabilirliği destekler mi?**
 
-Evet. Ayrıntılı bilgi edinmek ve hizmet düzeyi sözleşmesinin (SLA) açıklamasını görmek için bkz. [Machine Learning Fiyatlandırması](https://azure.microsoft.com/en-us/pricing/details/machine-learning/).
+Evet. Ayrıntılı bilgi edinmek ve hizmet düzeyi sözleşmesinin (SLA) açıklamasını görmek için bkz. [Machine Learning Fiyatlandırması](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Üretim API'si çağrılarım, hangi belirli türdeki işlem kaynakları üzerinde çalıştırılır?**
 

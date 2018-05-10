@@ -1,12 +1,12 @@
 ---
-title: "Kontrol noktalarına ve yeniden yürütme dayanıklı işlevlerinde - Azure"
-description: "Denetim noktası oluşturma ve yanıt işleyişi dayanıklı işlevleri uzantısı'nda Azure işlevleri için öğrenin."
+title: Kontrol noktalarına ve yeniden yürütme dayanıklı işlevlerinde - Azure
+description: Denetim noktası oluşturma ve yanıt işleyişi dayanıklı işlevleri uzantısı'nda Azure işlevleri için öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -28,7 +28,9 @@ Bu tüm dayanıklı işlevleri düzenlemelerin güvenilir bir biçimde yürütü
 
 ## <a name="orchestration-history"></a>Orchestration geçmişi
 
-Aşağıdaki orchestrator işlevi olduğunu varsayalım.
+Aşağıdaki orchestrator işlevi olduğunu varsayalım:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Her `await` deyimi, dayanıklı görev Framework kontrol noktalarını tablo depolama alanına işlevi yürütme durumu. Ne olarak adlandırılmıştır bu durumda *orchestration geçmişi*.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+Her `await` (C#) veya `yield` (JavaScript) deyimi, dayanıklı görev Framework kontrol noktalarını tablo depolama alanına işlevi yürütme durumu. Ne olarak adlandırılmıştır bu durumda *orchestration geçmişi*.
 
 ## <a name="history-table"></a>Geçmiş tablosu
 
@@ -66,7 +83,7 @@ Tamamlandığında, daha önce gösterilen işlevi geçmişini aşağıdakine be
 | PartitionKey (InstanceId)                     | Olay türü             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null   | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 

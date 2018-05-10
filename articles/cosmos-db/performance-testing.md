@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Performansı ve ölçeği Azure Cosmos DB ile test etme
 
@@ -96,7 +96,7 @@ Başlamak için en hızlı derlemek ve .NET örneği çalıştırmak için aşa�
     Press any key to exit...
 
 
-**(Gerekiyorsa) 4. adım:** bildirilen üretilen işi (RU/s) aracından aynı olması gerekir ya da daha yüksek sağlanan işleme koleksiyonu. Değilse, küçük artışlarla DegreeOfParallelism artırma sınırına ulaştığında yardımcı olabilir. İstemci uygulamanızı akışından plateaus, uygulamanın birden çok örneğini ek istemci makineleri başlatın. Bu adım yardıma gereksinim duyarsanız, e-posta askcosmosdb@microsoft.com veya bir destek bileti gelen dosya [Azure portal](https://portal.azure.com).
+**(Gerekiyorsa) 4. adım:** bildirilen üretilen işi (RU/s) aracından aynı olması gerekir ya da daha yüksek sağlanan işleme koleksiyonunun veya koleksiyonları kümesi. Değilse, küçük artışlarla DegreeOfParallelism artırma sınırına ulaştığında yardımcı olabilir. İstemci uygulamanızı akışından plateaus, uygulamanın birden çok örneğini ek istemci makineleri başlatın. Bu adım yardıma gereksinim duyarsanız, e-posta askcosmosdb@microsoft.com veya bir destek bileti gelen dosya [Azure portal](https://portal.azure.com).
 
 Uygulamayı oluşturduktan sonra farklı deneyebilirsiniz [ilkeleri dizin](indexing-policies.md) ve [tutarlılık düzeylerini](consistency-levels.md) üretilen iş ve gecikmeyi üzerindeki etkilerini anlamak için. Kaynak kodu gözden geçirmek ve kendi test paketleri ya da üretim uygulamaları için benzer yapılandırmaları uygulamak.
 

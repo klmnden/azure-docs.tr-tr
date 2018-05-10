@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
@@ -49,6 +49,8 @@ Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir
 | Twin güncelleştirmeleri (aygıt ve modül)<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
 | İşlerini işlemleri<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | İşlerini aygıt başına işlemi işleme<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+| Yapılandırmalar ve kenar dağıtımları<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 0.33/sec/Unit (min/20/birim) | 0.33/sec/Unit (min/20/birim) | 0.33/sec/Unit (min/20/birim) |
+
 
 <sup>1</sup>bu özellik IOT Hub'ın temel katmanında kullanılabilir değil. Daha fazla bilgi için bkz: [sağ IOT hub'ı seçme](iot-hub-scaling.md). <br/><sup>2</sup>olan 8 KB ölçer boyutunu azaltma.
 
@@ -76,6 +78,9 @@ IOT hub'ı diğer işlemsel sınırları uygular:
 | Cihaz bulut Mesajlaşma | Maksimum ileti boyutu 256 KB |
 | Bulut cihaz Mesajlaşma<sup>1</sup> | Maksimum ileti boyutu 64 KB. İletiler teslim için bekleyen maksimum 50'dir. |
 | Doğrudan yöntemi<sup>1</sup> | En fazla doğrudan yöntemi yükü boyutu 128 KB'tır. |
+| Yapılandırmalar | 20 yapılandırmalar hub başına. |
+| Edge dağıtımları | hub başına 20 dağıtımları. 20 modülleri her dağıtım. |
+| Çiftlerini | 8 KB twin bölümüne (etiketleri, istenen özellikleri, bildirilen özellikleri) başına en büyük boyut: |
 
 <sup>1</sup>bu özellik IOT Hub'ın temel katmanında kullanılabilir değil. Daha fazla bilgi için bkz: [sağ IOT hub'ı seçme](iot-hub-scaling.md).
 

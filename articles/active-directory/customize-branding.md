@@ -1,25 +1,24 @@
 ---
-title: "Azure Active Directory kiracınızın için oturum açma sayfasını özelleştirme | Microsoft Docs"
-description: "Şirket Azure oturum açma sayfasına markası ekleyeceğiniz hakkında bilgi edinin"
+title: Azure Active Directory kiracınızın için oturum açma sayfasını özelleştirme | Microsoft Docs
+description: Şirket Azure oturum açma sayfasına markası ekleyeceğiniz hakkında bilgi edinin
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Hızlı Başlangıç: Şirket Azure AD'de, oturum açma sayfasına markası ekleme
 Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve web sitelerinde tutarlı bir genel görünüm uygulamak ister. Azure Active Directory (Azure AD), şirket Logonuzla ve özel renk düzenleri ile oturum açma sayfasının görünümünü özelleştirmenize olanak tanıyarak bu yeteneği sağlar. Azure AD kimlik sağlayıcınız olarak kullanan web tabanlı uygulamalara Office 365 gibi oturum açtığında oturum açma sayfası görüntülenir. Kimlik bilgilerinizi girmek için bu sayfayı ile etkileşim.
@@ -33,7 +32,7 @@ Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve w
 
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
-Kullanıcılar bir kiracıya özgü URL gibi eriştiğinde marka özelleştirmeleri görünür Azure AD oturum açma sayfasında şirket [ *https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+Kullanıcılar bir kiracıya özgü URL gibi eriştiğinde marka özelleştirmeleri görünür Azure AD oturum açma sayfasında şirket [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com).
 
 Örneğin, kullanıcılar www.office.com ziyaret ettiğinizde, oturum açma sayfasında kullanıcının henüz kimlik bilgilerini girdiği değil çünkü özelleştirmeler markalama şirket göstermez. Bir kullanıcı kendi kullanıcı Kimliğini girer veya kullanıcı kutucuğunu seçer sonra şirket markası görüntüler.
 

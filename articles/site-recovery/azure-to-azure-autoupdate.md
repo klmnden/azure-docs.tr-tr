@@ -8,15 +8,15 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: rajanaki
-ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma Mobility hizmeti uzantı otomatik güncelleştirilmesi
 
-Azure Site Recovery, var olan özellikleri iyileştirme veya yenilerini eklenir ve bilinen sorunlar varsa sabit bir aylık bir yayın tempoyla sahiptir. Bu hizmetle geçerli kalmasını sağlamak için aylık bir tempoyla üzerinde bu düzeltme ekleri dağıtımı için plan gerektiğini anlamına gelir. Yükseltme işlemine ilişkili üzerinden head önlemek için kullanıcıların bunun yerine güncelleştirmeleri bileşenlerini yönetmek Site Recovery izin vermeyi seçebilirsiniz. İçinde ayrıntılı olarak [mimarisi referans](azure-to-azure-architecture.md) Azure için Azure olağanüstü durum kurtarma için Mobility hizmeti için çoğaltma etkin bir Azure sanal makineleri çoğaltılırken tüm Azure sanal makinelerinde yüklü başka bir bölge. Bu belge aşağıdaki Ayrıntılar verilmiştir:
+Azure Site Recovery, var olan özellikleri iyileştirme veya yenilerini eklenir ve bilinen sorunlar varsa sabit bir aylık bir yayın tempoyla sahiptir. Bu hizmetle geçerli kalmasını sağlamak için dağıtımı bu düzeltme ekleri için aylık plan gerektiğini anlamına gelir. Yükseltme işlemine ilişkili üzerinden head önlemek için kullanıcıların bunun yerine güncelleştirmeleri bileşenlerini yönetmek Site Recovery izin vermeyi seçebilirsiniz. İçinde ayrıntılı olarak [mimarisi referans](azure-to-azure-architecture.md) Azure için Azure olağanüstü durum kurtarma için Mobility hizmeti için çoğaltma etkin bir Azure sanal makineleri çoğaltılırken tüm Azure sanal makinelerinde yüklü başka bir bölge. Otomatik güncelleştirme etkinleştirdiğinizde, Mobility hizmeti uzantı her yeni sürümde güncelleştirilir. Bu belge aşağıdaki Ayrıntılar verilmiştir:
 
 - Otomatik Güncelleştirme nasıl çalışır?
 - Otomatik güncelleştirmeleri etkinleştirmek
@@ -25,6 +25,9 @@ Azure Site Recovery, var olan özellikleri iyileştirme veya yenilerini eklenir 
 ## <a name="how-does-automatic-update-work"></a>Otomatik Güncelleştirme nasıl çalışır
 
 Güncelleştirmelerini yönetmek Site Recovery izin sonra (hangi Azure Hizmetleri tarafından kullanılır) genel bir runbook kasa ile aynı abonelikte oluşturulan bir Otomasyon hesabı aracılığıyla dağıtılır. Bir Otomasyon hesabı için belirli bir kasa kullanılır. Runbook her VM için Otomatik Güncelleştirmeler açık bir kasa içinde olup olmadığını denetler ve yeni bir sürümü varsa Mobility hizmeti uzantı yükseltmesini başlatır. Varsayılan zamanlama her gün şu saatte 12: 00'da çoğaltılan sanal makinenin coğrafi saat dilimini göredir runbook recurrs olan. Runbook zamanlama da Otomasyon hesabı kullanıcı tarafından gerekirse değiştirilebilir. 
+
+> [!NOTE]
+> Otomatik güncelleştirmeler etkinleştirildiğinde Azure Vm'leriniz yeniden gerektirmez ve devam eden çoğaltma etkilemez.
 
 ## <a name="enable-automatic-updates"></a>Otomatik güncelleştirmeleri etkinleştirmek
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure Hizmetleri için sanal ağ | Microsoft Docs"
-description: "Bir sanal ağa dağıtma kaynakları avantajları hakkında bilgi edinin. Sanal ağlarda bulunan Kaynaklar birbirleri ile iletişim kurabilir ve kaynakları, Internet geçen trafik şirket."
+title: Azure Hizmetleri için sanal ağ | Microsoft Docs
+description: Bir sanal ağa dağıtma kaynakları avantajları hakkında bilgi edinin. Sanal ağlarda bulunan Kaynaklar birbirleri ile iletişim kurabilir ve kaynakları, Internet geçen trafik şirket.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure Hizmetleri için sanal ağ tümleştirme
 
@@ -56,7 +56,8 @@ Sanal ağa doğrudan dağıtılan her bir hizmet yönlendirmesi için belirli ge
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Uygulama ağ geçidi (iç)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure kapsayıcı Hizmeti altyapısının](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): Azure kapsayıcı hizmeti bir varsayılan sanal ağ oluşturur. İle kullanılmak üzere özel bir sanal ağ oluşturabilirsiniz [Azure kapsayıcı Hizmeti altyapısının](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
+- [Azure Kubernetes hizmeti (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure kapsayıcı Hizmeti altyapısının](https://github.com/Azure/acs-engine) Azure sanal ağ CNI ile [eklentisi](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
 - [Azure Active Directory etki alanı Hizmetleri](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): sanal ağ (Klasik) yalnızca
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Bulut Hizmetleri](https://msdn.microsoft.com/library/azure/jj156091): sanal ağ (Klasik) yalnızca

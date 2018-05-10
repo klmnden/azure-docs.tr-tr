@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Azure Kubernetes Hizmeti (AKS)
   href: ./index.yml
 - name: Genel Bakış
   items:
@@ -25,9 +25,7 @@
       href: tutorial-kubernetes-scale.md
     - name: 6 - Uygulamayı güncelleştirme
       href: tutorial-kubernetes-app-update.md
-    - name: 7 - Log Analytics ile izleme
-      href: tutorial-kubernetes-monitor.md
-    - name: 8 - Kümeyi yükseltme
+    - name: 7 - Kümeyi yükseltme
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Kavramlar
   items:
@@ -57,12 +55,16 @@
           href: azure-files-dynamic-pv.md
     - name: Ağ yapılandırması
       items:
+        - name: Ağlara genel bakış
+          href: networking-overview.md
         - name: Statik IP adresi
           href: static-ip.md
         - name: İç yük dengeleyici
           href: internal-lb.md
         - name: Giriş ve TLS
           href: ingress.md
+        - name: HTTP uygulaması yönlendirme
+          href: http-application-routing.md
     - name: Güvenlik ve kimlik doğrulaması
       items:
         - name: Hizmet sorumlusu oluşturma

@@ -1,31 +1,23 @@
 ---
-title: "Azure portalında Azure Active Directory kullanıcı etkinlik raporları bulmak | Microsoft Docs"
-description: "Azure portalında Azure Active Directory kullanıcı etkinlik raporları nerede olduğunu öğrenin."
+title: Azure portalında Azure Active Directory kullanıcı etkinlik raporları bulmak | Microsoft Docs
+description: Azure portalında Azure Active Directory kullanıcı etkinlik raporları nerede olduğunu öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
+editor: ''
 ms.service: active-directory
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: 
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: dhanyahk
-<<<<<<< HEAD
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında etkinlik raporları Bul
 
@@ -101,7 +93,7 @@ Aşağıdaki tablo listeleri Azure AD anormal bir etkinliğin güvenlik raporlar
 
 | Azure AD anormal Etkinlik Raporu |  Kimlik koruması risk olay türü|
 | :--- | :--- |
-| Sızan kimlik bilgilerine sahip kullanıcılar | Sızan kimlik bilgileri |
+| Sızan kimlik bilgilerine sahip kullanıcılar | Sızdırılan kimlik bilgileri |
 | Düzensiz oturum açma etkinliği | Alışılmadık konumlara imkansız seyahat |
 | Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri | Bulaşma olan cihazlardan oturum açma işlemleri|
 | Bilinmeyen kaynaklardan gerçekleştirilen oturum açma işlemleri | Anonim IP adreslerinden oturum açma işlemleri |

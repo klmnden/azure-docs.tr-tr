@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Hazırlık Azure App Service ortamları ayarlama
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Web uygulaması, Linux, mobil arka uç ve API uygulaması için web uygulaması 
 * Bir uygulama için bir yuva ilk dağıtma ve üretim ile değiştirmeden yuva tüm örneklerini üretime takas önce warmed olduğunu sağlar. Uygulamanızı dağıttığınızda bu kapalı kalma süresini ortadan kaldırır. Trafik yeniden yönlendirmesi sorunsuzdur ve değiştirme işlemleri sonucunda hiçbir istek bırakılır. Yapılandırarak bu iş akışının tamamı otomatikleştirilebilir [otomatik takas](#Auto-Swap) zaman öncesi takas doğrulama gerekli değildir.
 * Değiştirme işleminden sonra önceden hazırlanmış uygulama yuvasıyla artık önceki üretim uygulamasına sahiptir. Beklendiği gibi üretim yuvasına değişiklikleri varsa, "son bilinen iyi sitenizi" hemen almak için aynı değiştirme işlemini gerçekleştirebilirsiniz geri.
 
-Her uygulama hizmeti planı katmanı dağıtım yuvaları farklı sayıda destekler. Out sayısını bulmak için uygulamanızın katmanı destekler yuvası için bkz: [uygulama hizmet sınırları](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
-
-* Uygulamanız birden çok yuvası olduğunda, katmanı değiştirilemiyor.
-* Ölçeklendirme için üretim dışı yuvası kullanılabilir değil.
-* Bağlantılı kaynak yönetimi için üretim dışı yuvası desteklenmiyor. İçinde [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) üretim dışı yuvası geçici olarak farklı bir uygulama hizmeti planı katmana taşıyarak bu olası etkisini üretim yuvasına yalnızca önleyebilirsiniz. İki yuvaları takas önce üretim dışı yuvası yine aynı katmanı üretim yuvasıyla paylaşmalıdır olduğunu unutmayın.
+Her uygulama hizmeti planı katmanı dağıtım yuvaları farklı sayıda destekler. Out sayısını bulmak için uygulamanızın katmanı destekler yuvası için bkz: [uygulama hizmet sınırları](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Farklı bir katmana uygulamanıza ölçeklendirmek için hedef katmanı uygulamanızı zaten kullanıyor yuva sayısı desteklemesi gerekir. Uygulamanızı 5'ten fazla yuvaları varsa, örneğin, ona aşağı ölçeklendirmek olamaz **standart** , çünkü katmanı **standart** katmanı yalnızca 5 dağıtım yuvası destekler.
 
 <a name="Add"></a>
 

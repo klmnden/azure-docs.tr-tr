@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6d440a49cb30210d3c0eed7d24e4811cc56925b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure portalında Azure Hizmetleri için yeni ölçüm uyarıları
 Azure İzleyici artık yeni bir ölçüm uyarı türü destekler. Yeni uyarılar farklı [Klasik ölçüm uyarıları](insights-alerts-portal.md) birkaç şekilde:
@@ -35,7 +35,7 @@ Azure portalında yeni bir ölçüm uyarı oluşturmayı öğrenmek için bkz: [
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell'i, CLI, REST
-Şu anda yalnızca Azure portalında yeni ölçüm uyarılar oluşturabilirsiniz [REST API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell kullanarak yeni uyarıları yapılandırmak için destek ve Azure komut satırı arabirimi (Azure CLI 2.0) yakında çıkıyor.
+Şu anda yalnızca Azure portalında yeni ölçüm uyarılar oluşturabilirsiniz [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell kullanarak yeni uyarıları yapılandırmak için destek ve Azure komut satırı arabirimi (Azure CLI 2.0) yakında çıkıyor.
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümleri ve desteklenen boyutlar
 Yeni ölçüm uyarılar için Boyutlar kullanmak ölçümleri uyarı destekler. Boyutları, ölçüm sağ düzeyine filtrelemek için kullanabilirsiniz. Geçerli boyutlar yanı sıra tüm desteklenen ölçümleri incelediniz ve gelen görselleştirilen [Azure İzleyicisi - ölçüm Gezgini (Önizleme)](monitoring-metric-charts.md).

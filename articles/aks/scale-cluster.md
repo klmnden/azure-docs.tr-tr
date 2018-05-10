@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service (AKS) kümesini ölçeklendirme"
-description: "Azure Container Service (AKS) kümesini ölçeklendirin."
+title: Bir Azure Kubernetes hizmet (AKS) küme ölçeklendirme
+description: Bir Azure Kubernetes hizmet (AKS) küme ölçeklendirme.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 37f949e1e043e62b8bd8f73a2b40d0549f77adc3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini ölçeklendirme
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Bir Azure Kubernetes hizmet (AKS) küme ölçeklendirme
 
 AKS kümesini farklı bir düğüm sayısına ölçeklendirmek kolaydır.  İstenen düğüm sayısını seçip `az aks scale` komutunu çalıştırın.  Ölçeklendirme, düğümleri dikkatle olacak [cordoned ve boşaltmış] [ kubernetes-drain] çalışan uygulamalar engellemeyi en aza indirmek için.  Ölçeği artırma sırasında, `az` komutu düğümler Kubernetes kümesi tarafından `Ready` olarak işaretlenene kadar bekler.
 

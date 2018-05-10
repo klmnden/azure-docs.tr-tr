@@ -3,8 +3,8 @@ title: Azure tanılama günlüklerini | Microsoft Docs
 description: Müşteri, Günlük çözümlemesi için Azure CDN etkinleştirebilirsiniz.
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -28,7 +28,7 @@ Azure tanılama günlükleri, temel analiz görüntülemek ve bunları dahil olm
  - Azure Event Hubs
  - [Günlük analizi çalışma alanı](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Bu özellik, Verizon (standart ve Premium) ve Akamai (standart) CDN profilleri ait tüm CDN uç noktası için kullanılabilir. 
+Bu özellik, tüm fiyatlandırma katmanlarına CDN uç noktalarda kullanılabilir. 
 
 Azure tanılama günlükleri, özelleştirilmiş bir biçimde tüketebileceği temel kullanım ölçümlerini CDN uç noktasından çeşitli kaynakları dışa olanak tanır. Örneğin, aşağıdaki veri verme türlerini yapabilirsiniz:
 
@@ -156,10 +156,10 @@ Temel analiz verileri Azure depolama hesabından erişebilmeniz için önce bir 
 
 **Alanları açıklaması:**
 
-|değer|açıklama|
+|Değer|Açıklama|
 |-------|---------|
 |Abonelik Kimliği    |GUID biçiminde Azure abonelik kimliği.|
-|Kaynak |Grup adı CDN kaynaklara ait olduğu kaynak grubu.|
+|Kaynak grubu adı |CDN kaynaklara ait olduğu kaynak grubu adı.|
 |Profil adı |CDN profili adı|
 |Uç nokta adı |CDN uç noktası adı|
 |Yıl|  4 rakamlı yıl, örneğin, 2017 gösterimi|
@@ -276,47 +276,49 @@ Sürükleme ve grafik türleri bırakma ve analiz etmek istediğiniz veri ayrın
     
 ## <a name="log-data-delays"></a>Günlük verileri gecikmeleri
 
-Verizon günlük veri gecikmeleri | Akamai günlük veri gecikmeleri
---- | ---
-Verizon günlük verilerini 1 saat Gecikmeli ve uç nokta yayma işlemi tamamlandıktan sonra görünen başlatmak için 2 saat sürebilir. | Akamai günlük verilerini tarafından 24 saat ertelendi; 24 saatten daha önce oluşturulmuş olsa bile, görünen başlatmak için 2 saat sürer. Yeni oluşturulduysa, görünen başlatmak günlükleri 25 saate kadar sürebilir.
+Aşağıdaki tabloda günlük için veri gecikmeler gösterilmektedir **Azure CDN standart Microsoft**, **akamai'den Azure CDN standart**, ve **Azure CDN standart/Premium verizon'dan**.
+
+Microsoft günlük veri gecikmeleri | Verizon günlük veri gecikmeleri | Akamai günlük veri gecikmeleri
+--- | --- | ---
+1 saatlik olarak ertelendi. | 1 saatlik olarak Gecikmeli ve uç nokta yayma işlemi tamamlandıktan sonra görünen başlatmak için 2 saat sürebilir. | 24 saat Gecikmeli; 24 saatten daha önce oluşturulmuş olsa bile, görünen başlatmak için 2 saat sürer. Yeni oluşturulduysa, görünen başlatmak günlükleri 25 saate kadar sürebilir.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>CDN temel analiz için tanılama günlük türleri
 
 HTTP yanıtı istatistiklerinin ve görülen çıkış istatistikleri CDN POP/kenarlarından gösteren ölçümleri içeren yalnızca çekirdek analiz günlükleri, şu anda sunuyoruz.
 
 ### <a name="core-analytics-metrics-details"></a>Çekirdek analytics ölçümleri ayrıntıları
-Aşağıdaki tabloda ölçümleri çekirdek analytics günlükleri'nde bulunan bir listesini gösterir. Bu farklara en az olmasına rağmen tüm ölçümleri tüm sağlayıcılardan kullanılabilir. Aşağıdaki tabloda, ayrıca belirli bir metrik sağlayıcıdan kullanılabilir olup olmadığını gösterir. Ölçümleri trafiği üzerlerinde sahip CDN uç için kullanılabilir olduğunu unutmayın.
+Aşağıdaki tabloda, analiz günlükleri için çekirdek kullanılabilir ölçümleri listesini gösterir **Azure CDN standart Microsoft**, **akamai'den Azure CDN standart**, ve **Azure CDN standart/Premium verizon'dan**. Bu farklara en az olmasına rağmen tüm ölçümleri tüm sağlayıcılardan kullanılabilir. Belirli bir metrik sağlayıcıdan kullanılabilir olup olmadığını tabloyu de görüntüler. Ölçümleri trafiği üzerlerinde sahip CDN uç için kullanılabilir olduğunu unutmayın.
 
 
-|Ölçüm                     | Açıklama   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Bu süre boyunca isteği isabet toplam sayısı| Evet  |Evet   |
-| RequestCountHttpStatus2xx |Bir 2xx HTTP kod (örneğin, 200, 202) sonuçlandı tüm isteklerin sayısı              | Evet  |Evet   |
-| RequestCountHttpStatus3xx | Bir 3xx HTTP kod (örneğin, 300, 302) sonuçlandı tüm isteklerin sayısı              | Evet  |Evet   |
-| RequestCountHttpStatus4xx |Bir 4xx HTTP kod (örneğin, 400, 404) sonuçlandı tüm isteklerin sayısı               | Evet   |Evet   |
-| RequestCountHttpStatus5xx | Bir 5xx HTTP kod (örneğin, 500, 504) sonuçlandı tüm isteklerin sayısı              | Evet  |Evet   |
-| RequestCountHttpStatusOthers |  Diğer tüm HTTP kodları (dışında 2xx-5xx) sayısı | Evet  |Evet   |
-| RequestCountHttpStatus200 | 200 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı              |Hayır   |Evet   |
-| RequestCountHttpStatus206 | 206 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı              |Hayır   |Evet   |
-| RequestCountHttpStatus302 | Bir 302 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı              |Hayır   |Evet   |
-| RequestCountHttpStatus304 |  304 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı             |Hayır   |Evet   |
-| RequestCountHttpStatus404 | 404 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı              |Hayır   |Evet   |
-| RequestCountCacheHit |Önbelleği isabet sonuçlandı tüm isteklerin sayısı. Varlık doğrudan POP istemciye sunulduğu.               | Evet  |Hayır   |
-| RequestCountCacheMiss | Önbellek isabetsizliği sonuçlandı tüm isteklerin sayısı. Bu varlık istemcinin en yakın POP bulunamadı ve bu nedenle kaynaktan alınan anlamına gelir.              |Evet   | Hayır  |
-| RequestCountCacheNoCache | Bir varlık için bir kullanıcı yapılandırmasını kenar nedeniyle önbelleğe engellenir tüm isteklerin sayısı.              |Evet   | Hayır  |
-| RequestCountCacheUncacheable | Varlığın Cache-Control ve onu POP veya HTTP istemci tarafından önbelleğe alınması gereken değil olduğunu belirtmek Expires üstbilgileri tarafından önbelleğe engellenir varlıklar için tüm isteklerin sayısı                |Evet   |Hayır   |
-| RequestCountCacheOthers | Tarafından yukarıda kapsanmayan önbellek durumundaki tüm isteklerin sayısı.              |Evet   | Hayır  |
-| EgressTotal | Giden veri aktarımı GB              |Evet   |Evet   |
-| EgressHttpStatus2xx | Giden veri aktarımı * 2xx HTTP durum kodları GB ile yanıtlar için            |Evet   |Hayır   |
-| EgressHttpStatus3xx | 3xx HTTP durum kodları GB ile yanıtlar için giden veri aktarımı              |Evet   |Hayır   |
-| EgressHttpStatus4xx | 4xx HTTP durum kodları GB ile yanıtlar için giden veri aktarımı               |Evet   | Hayır  |
-| EgressHttpStatus5xx | 5xx HTTP durum kodları GB ile yanıtlar için giden veri aktarımı               |Evet   |  Hayır |
-| EgressHttpStatusOthers | Giden veri aktarımı için diğer HTTP durum kodları GB yanıtları                |Evet   |Hayır   |
-| EgressCacheHit |  Giden veri teslim edilen yanıtlar için doğrudan CDN önbellekten CDN POP/kenarları aktarımı  |Evet   |  Hayır |
-| EgressCacheMiss | Giden veri aktarımı sırasında değil en yakın POP sunucusunda bulunan ve kaynak sunucudan alınan yanıt için              |Evet   |  Hayır |
-| EgressCacheNoCache | Bir kullanıcı yapılandırmasını kenar nedeniyle önbelleğe engellenir varlıklar için giden veri aktarımı.                |Evet   |Hayır   |
-| EgressCacheUncacheable | Varlığın Cache-Control ve/veya Expires üstbilgileri tarafından önbelleğe engellenir varlıklar için giden veri aktarımı. Bu POP veya HTTP istemci tarafından önbelleğe alınması gereken değil olduğunu gösterir.                   |Evet   | Hayır  |
-| EgressCacheOthers |  Giden veri diğer önbellek senaryolar için aktarır.             |Evet   | Hayır  |
+|Ölçüm                     | Açıklama | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Bu süre boyunca isteği isabet toplam sayısı. | Evet | Evet |Evet |
+| RequestCountHttpStatus2xx | Bir 2xx HTTP kod (örneğin, 200, 202) sonuçlandı tüm isteklerin sayısı. | Evet | Evet |Evet |
+| RequestCountHttpStatus3xx | Bir 3xx HTTP kod (örneğin, 300, 302) sonuçlandı tüm isteklerin sayısı. | Evet | Evet |Evet |
+| RequestCountHttpStatus4xx | Bir 4xx HTTP kod (örneğin, 400, 404) sonuçlandı tüm isteklerin sayısı. | Evet | Evet |Evet |
+| RequestCountHttpStatus5xx | Bir 5xx HTTP kod (örneğin, 500, 504) sonuçlandı tüm isteklerin sayısı. | Evet | Evet |Evet |
+| RequestCountHttpStatusOthers | Diğer tüm HTTP kodları (dışında 2xx-5xx) sayısı. | Evet | Evet |Evet |
+| RequestCountHttpStatus200 | 200 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı. | Evet | Hayır  |Evet |
+| RequestCountHttpStatus206 | 206 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı. | Evet | Hayır  |Evet |
+| RequestCountHttpStatus302 | Bir 302 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı. | Evet | Hayır  |Evet |
+| RequestCountHttpStatus304 | 304 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı. | Evet | Hayır  |Evet |
+| RequestCountHttpStatus404 | 404 HTTP kod yanıtıyla sonuçlanan tüm isteklerin sayısı. | Evet | Hayır  |Evet |
+| RequestCountCacheHit | Önbelleği isabet sonuçlandı tüm isteklerin sayısı. Varlık doğrudan POP istemciye sunulduğu. | Evet | Evet | Hayır  |
+| RequestCountCacheMiss | Önbellek isabetsizliği sonuçlandı tüm isteklerin sayısı. Bu varlık istemcinin en yakın POP bulunamadı ve bu nedenle kaynaktan alınan anlamına gelir. | Evet | Evet | Hayır |
+| RequestCountCacheNoCache | Bir varlık için bir kullanıcı yapılandırmasını kenar nedeniyle önbelleğe engellenir tüm isteklerin sayısı. | Evet | Evet | Hayır |
+| RequestCountCacheUncacheable | Varlığın Cache-Control ve onu POP veya HTTP istemci tarafından önbelleğe alınması gereken değil olduğunu belirtmek Expires üstbilgileri tarafından önbelleğe engellenir varlıklar için tüm isteklerin sayısı. | Evet | Evet | Hayır |
+| RequestCountCacheOthers | Tarafından yukarıda kapsanmayan önbellek durumundaki tüm isteklerin sayısı. | Hayır | Evet | Hayır  |
+| EgressTotal | Giden veri aktarımı GB | Evet |Evet |Evet |
+| EgressHttpStatus2xx | Giden veri aktarımı * 2xx HTTP durum kodları GB ile yanıtlar için. | Evet | Evet | Hayır  |
+| EgressHttpStatus3xx | Giden veri yanıtları 3xx HTTP durum kodları GB ile aktarın. | Evet | Evet | Hayır  |
+| EgressHttpStatus4xx | Giden veri yanıtları 4xx HTTP durum kodları GB ile aktarın. | Evet | Evet | Hayır  |
+| EgressHttpStatus5xx | Giden veri yanıtları 5xx HTTP durum kodları GB ile aktarın. | Evet | Evet | Hayır |
+| EgressHttpStatusOthers | Giden veri yanıtları diğer HTTP durum kodları GB ile aktarın. | Evet | Evet | Hayır  |
+| EgressCacheHit | Giden veri teslim edilen yanıtlar için CDN POP/kenarları doğrudan CDN önbellekten aktarın. | Evet | Evet | Hayır |
+| EgressCacheMiss. | Giden veri sırasında değil en yakın POP sunucusunda bulunan ve kaynak sunucudan alınan yanıt aktarın. | Evet | Evet | Hayır |
+| EgressCacheNoCache | Bir kullanıcı yapılandırmasını kenar nedeniyle önbelleğe engellenir varlıklar için giden veri aktarımı. | Evet | Evet | Hayır |
+| EgressCacheUncacheable | Varlığın Cache-Control ve/veya Expires üstbilgileri tarafından önbelleğe engellenir varlıklar için giden veri aktarımı. Bu POP veya HTTP istemci tarafından önbelleğe alınması gereken değil olduğunu gösterir. | Evet | Evet | Hayır |
+| EgressCacheOthers | Giden veri diğer önbellek senaryolar için aktarır. | Hayır | Evet | Hayır |
 
 * Giden veri aktarımı trafiği CDN POP sunucularından istemcisine teslim ifade eder.
 
@@ -368,7 +370,7 @@ Tüm günlükler, JSON biçiminde depolanır ve her bir giriş alanlarına göre
 }
 ```
 
-Burada 'saati' istatistikleri bildirilen saat sınır Başlangıç saati gösterir. Ölçüm çift veya tamsayı değeri yerine bir CDN sağlayıcı tarafından desteklenmediğinde bir null değer yoktur. Bu null değer, bir ölçüm olmadığını gösteren ve 0 değerinden farklı. Bu ölçümleri noktadaki yapılandırılmış etki alanı başına bir dizi yoktur.
+Burada *zaman* istatistikleri rapor edilen saat sınır başlangıç saatini gösterir. Ölçüm çift veya tamsayı değeri yerine bir CDN sağlayıcı tarafından desteklenmediğinde bir null değer yoktur. Bu null değer, bir ölçüm olmadığını gösteren ve 0 değerinden farklı. Bu ölçümleri noktadaki yapılandırılmış etki alanı başına bir dizi yoktur.
 
 Örnek özellikleri:
 

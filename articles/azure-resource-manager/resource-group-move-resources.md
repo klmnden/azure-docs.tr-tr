@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8ad73132839aaa77166c115feff9a70db864ba12
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -53,7 +53,7 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimliklerini karşılaştırmak için aşağıdaki yöntemleri kullanın: 
+  Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimliklerini karşılaştırmak için aşağıdaki yöntemleri kullanın:
 
   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
   * [İlişkilendirme veya bir Azure aboneliğinin Azure Active Directory'ye ekleme](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -118,7 +118,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Bing Haritalar
 * CDN
 * Bulut Hizmetleri - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
-* Bilişsel hizmetler
+* Bilişsel Hizmetler
 * Content Moderator
 * Veri Kataloğu
 * Veri Fabrikası - V1 olabilir taşınması, ancak V2 taşıma (Önizleme) desteklenmiyor
@@ -128,7 +128,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Event Hubs
 * Bkz: Hdınsight kümeleri - [Hdınsight sınırlamaları](#hdinsight-limitations)
 * IoT Hub
-* Anahtar Kasası
+* Key Vault
 * Yük Dengeleyici - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri için bir kaynak grubunda aynı abonelik ancak farklı bir abonelik taşınabilir. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
@@ -139,7 +139,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Operations Management
 * Power BI
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
-* Redis Önbelleği
+* Redis Cache
 * Scheduler
 * Arama
 * Sunucu Yönetimi
@@ -166,7 +166,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * MySQL için Azure Veritabanı
 * BizTalk Services
 * Sertifikalar - uygulama hizmeti sertifikaları taşınabilir, ancak yüklenen sertifikalara sahip [sınırlamalar](#app-service-limitations).
-* Kapsayıcı Hizmeti
+* Kubernetes hizmeti
 * DevTest Labs - taşıma aynı Abonelikteki yeni kaynak grubu için etkinleştirildi, ancak çapraz abonelik taşıma etkin değil.
 * Dynamics LCS
 * Express Route
@@ -203,13 +203,13 @@ Sanal ağ alt ağı kaynak Gezinti bağlantılarıyla içeriyorsa, bir sanal ağ
 
 ## <a name="app-service-limitations"></a>App Service sınırlamalar
 
-Uygulama hizmeti kaynakları taşıma sınırlamalarını taşıdığınız bir abonelik içindeki veya yeni bir abonelik için kaynaklara göre farklılık gösterir. 
+Uygulama hizmeti kaynakları taşıma sınırlamalarını taşıdığınız bir abonelik içindeki veya yeni bir abonelik için kaynaklara göre farklılık gösterir.
 
 Bu bölümlerde açıklanan sınırlamalar karşıya yüklenen sertifikalar, uygulama hizmeti sertifikaları uygulanır. Yeni kaynak grubu veya abonelik kısıtlamaları olmadan, uygulama hizmeti sertifikaları taşıyabilirsiniz. Tüm web uygulamaları taşıyın aynı uygulama hizmet sertifikası kullanan birden çok web uygulamaları varsa sertifikayı taşıyın.
 
 ### <a name="moving-within-the-same-subscription"></a>Aynı abonelik içinde taşıma
 
-Bir Web uygulaması taşınırken _aynı abonelik içindeki_, karşıya yüklenen SSL sertifikalarını taşıyamazsınız. Ancak, karşıya yüklenen SSL sertifikasını taşımadan yeni kaynak grubu için bir Web uygulaması taşıyabilirsiniz ve uygulamanızın SSL işlevselliği hala çalışmaktadır. 
+Bir Web uygulaması taşınırken _aynı abonelik içindeki_, karşıya yüklenen SSL sertifikalarını taşıyamazsınız. Ancak, karşıya yüklenen SSL sertifikasını taşımadan yeni kaynak grubu için bir Web uygulaması taşıyabilirsiniz ve uygulamanızın SSL işlevselliği hala çalışmaktadır.
 
 Web uygulaması ile SSL sertifikası taşımak istiyorsanız, aşağıdaki adımları izleyin:
 
@@ -227,7 +227,7 @@ Bir Web uygulaması taşınırken _Aboneliklerdeki_, aşağıdaki sınırlamalar
     - Karşıya yüklenen veya alınan SSL sertifikaları
     - App Service ortamları
 - Kaynak grubundaki tüm uygulama hizmeti kaynaklar birlikte taşınmalıdır.
-- Uygulama hizmeti kaynaklar yalnızca bunlar ilk olarak oluşturulduğu kaynak grubundan taşınabilir. Bir uygulama hizmeti kaynak artık kendi özgün kaynak grubunda değilse, bunu geri, özgün kaynak grubuna ilk taşınmalıdır ve ardından abonelikler arasında taşınabilmesi. 
+- Uygulama hizmeti kaynaklar yalnızca bunlar ilk olarak oluşturulduğu kaynak grubundan taşınabilir. Bir uygulama hizmeti kaynak artık kendi özgün kaynak grubunda değilse, bunu geri, özgün kaynak grubuna ilk taşınmalıdır ve ardından abonelikler arasında taşınabilmesi.
 
 ## <a name="classic-deployment-limitations"></a>Klasik dağıtım sınırlamaları
 

@@ -1,25 +1,23 @@
 ---
-title: "Azure Active Directory'de özel etki alanı adlarını yönetme | Microsoft Docs"
-description: "Yönetim Kavramları ve Azure Active Directory'de bir etki alanı adı yönetmek için nasıl yapılır?"
+title: Azure Active Directory'de özel etki alanı adlarını yönetme | Microsoft Docs
+description: Yönetim Kavramları ve Azure Active Directory'de bir etki alanı adı yönetmek için nasıl yapılır?
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81c2371d5dbb17399071c80ff4e8b81813ed014c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 Bir etki alanı adı tanımlayıcının birçok dizin kaynaklar için önemli bir parçasıdır: kullanıcı, bir grup adresi parçası için bir kullanıcı adı veya e-posta adresi bir parçasıdır ve bir uygulama için uygulama kimliği URI'SİNİN parçası olabilir. Azure Active Directory'de (Azure AD) bir kaynak, kaynak içeren dizine ait olarak zaten doğrulanmış bir etki alanı adı ekleyebilirsiniz. Yalnızca genel yönetici Azure AD etki alanı yönetimi görevlerini gerçekleştirebilir.
@@ -28,7 +26,7 @@ Bir etki alanı adı tanımlayıcının birçok dizin kaynaklar için önemli bi
 Dizininizi oluşturulduğunda 'contoso.onmicrosoft.com,' gibi bir ilk etki alanı adı da birincil etki alanı adıdır. Yeni bir kullanıcı oluşturduğunuzda, birincil etki alanı varsayılan etki alanı için yeni bir kullanıcı adıdır. Bir birincil etki alanı adı ayarlama Portalı'nda yeni kullanıcılar oluşturmak bir yöneticinin işlemini kolaylaştırır. Birincil etki alanı adını değiştirmek için:
 
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **Azure Active Directory**.
+2. **Azure Active Directory**'yi seçin.
 3. Seçin **özel etki alanı adları**.
      
    ![Açılış kullanıcı yönetimi](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
@@ -122,7 +122,7 @@ Kaç tane işlev çağrılarını belirtir ne zaman bir araya getirilir [için A
 
 İşlev çağrılarını toplanan ilk iki sınırları ulaşıldı.
 
-## <a name="applicationinsights"></a>applicationInsights
+## <a name="applicationinsights"></a>Applicationınsights
 
 Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md#configure-sampling).
 
@@ -139,10 +139,50 @@ Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|isEnabled|true|Etkinleştirir veya örnekleme devre dışı bırakır.| 
+|IsEnabled|true|Etkinleştirir veya örnekleme devre dışı bırakır.| 
 |maxTelemetryItemsPerSecond|5|Hangi örnekleme eşiğine başlar.| 
 
-## <a name="eventhub"></a>eventHub
+## <a name="durabletask"></a>durableTask
+
+Yapılandırma ayarları [dayanıklı işlevleri](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Görev hub adları bir harfle başlamalı ve yalnızca harf ve sayılardan oluşur. Belirtilmezse, bir işlev uygulaması için varsayılan görev hub adı. **DurableFunctionsHub**. Daha fazla bilgi için bkz: [görev hub](durable-functions-task-hubs.md).
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------|
+|hubName|DurableFunctionsHub|Alternatif [görev hub](durable-functions-task-hubs.md) adları kullanılabilir birden çok dayanıklı işlevleri uygulamaları birbirinden ayırmak için aynı depolama arka ucu kullanıyorsanız bile.|
+|ControlQueueBatchSize|32|Aynı anda Denetim sıradan çıkarmak için iletilerinin sayısı.|
+|bölüm sayısı |4|Denetim sıranın bölüm sayısı. 1 ile 16 arasında bir pozitif tamsayı olması olabilir.|
+|ControlQueueVisibilityTimeout |5 dakika|Kuyruktan çıkarıldı denetim iletileri görünürlük zaman aşımı.|
+|WorkItemQueueVisibilityTimeout |5 dakika|Kuyruktan çıkarıldı çalışma öğesi kuyruk iletileri görünürlük zaman aşımı.|
+|MaxConcurrentActivityFunctions |Geçerli makineye işlemci sayısını x 10|Bir tek ana bilgisayar örneği üzerinde eşzamanlı olarak işlenebilecek etkinlik işlevleri maksimum sayısı.|
+|MaxConcurrentOrchestratorFunctions |Geçerli makineye işlemci sayısını x 10|Bir tek ana bilgisayar örneği üzerinde eşzamanlı olarak işlenebilecek etkinlik işlevleri maksimum sayısı.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Temel alınan Azure depolama kaynaklarını yönetmek için kullanılan Azure depolama bağlantı dizesi uygulama ayarı adı.|
+|TraceInputsAndOutputs |false|İzleme girişleri ve çıkışları işlev çağrılarını tutulmayacağını gösteren bir değer. Varsayılan davranış işlevi yürütme olayları izleme serileştirilmiş girişleri ve çıkışları işlev çağrıları için bayt sayısı eklemektir. Bu girişleri ve çıkışları günlükleri fazla büyümesini veya günlükleri için hassas bilgileri yanlışlıkla açığa olmadan nasıl göründüğünü hakkında en düşük miktarda bilgiyi sağlar. Bu özellik tüm içeriğini işlevi girişleri ve çıkışları oturum varsayılan işlevi günlüğü ayarlanması true neden olur.|
+|EventGridTopicEndpoint ||Bir Azure olay kılavuz özel konu uç nokta URL'si. Bu özellik ayarladığınızda, orchestration yaşam döngüsü bildirim olayları Bu uç noktaya yayınlanır.|
+|EventGridKeySettingName ||Azure olay kılavuz özel konu ile kimlik doğrulaması için kullanılan anahtarı içeren uygulama ayarı adı `EventGridTopicEndpoint`.
+
+Bunların çoğu, performansı iyileştirmek için bulunur. Daha fazla bilgi için bkz: [performansı ve ölçeği](durable-functions-perf-and-scale.md).
+
+## <a name="eventhub"></a>EventHub
 
 Yapılandırma ayarları [olay hub'ı Tetikleyicileri ve bağlamaları](functions-bindings-event-hubs.md).
 
@@ -150,7 +190,7 @@ Yapılandırma ayarları [olay hub'ı Tetikleyicileri ve bağlamaları](function
 
 ## <a name="functions"></a>işlevler
 
-İş konak çalışacak işlevlerin listesi.  Boş bir dizi tüm işlevleri çalıştırmak anlamına gelir.  Kullanılmaya yalnızca [yerel olarak çalışan](functions-run-local.md). İşlev uygulamalarında kullanma *function.json* `disabled` bu özellikte yerine özelliği *host.json*.
+İş konak çalışacak işlevlerin listesi. Boş bir dizi tüm işlevleri çalıştırmak anlamına gelir. Kullanılmaya yalnızca [yerel olarak çalışan](functions-run-local.md). İşlev uygulamalarında kullanma *function.json* `disabled` bu özellikte yerine özelliği *host.json*.
 
 ```json
 {
@@ -190,7 +230,7 @@ Yapılandırma ayarları [ana bilgisayar sistem durumu İzleyicisi](https://gith
 |healthCheckInterval|10 saniye|Düzenli arka plan sistem arasındaki zaman aralığını denetler. | 
 |healthCheckWindow|2 dakika|İle birlikte kullanılan kayan bir zaman penceresi `healthCheckThreshold` ayarı.| 
 |healthCheckThreshold|6|Bir ana bilgisayar geri dönüşüm başlatılmadan önce en fazla kaç kez sistem durumu denetimi başarısız olabilir.| 
-|counterThreshold|0.80|Eşik değer, bir performans sayacı sağlıksız olarak kabul edilir.| 
+|counterThreshold|0,80|Eşik değer, bir performans sayacı sağlıksız olarak kabul edilir.| 
 
 ## <a name="http"></a>http
 
@@ -242,7 +282,7 @@ Yapılandırma ayarları [depolama queue Tetikleyicileri ve bağlamaları](funct
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="servicebus"></a>serviceBus
+## <a name="servicebus"></a>ServiceBus
 
 Yapılandırma ayarı [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md).
 
@@ -299,21 +339,6 @@ Bir dizi [kod dizinleri paylaşılan](functions-reference-csharp.md#watched-dire
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[Görev hub](durable-functions-task-hubs.md) adı [dayanıklı işlevleri](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Görev hub adları bir harfle başlamalı ve yalnızca harf ve sayılardan oluşur. Belirtilmezse, bir işlev uygulaması için varsayılan görev hub adı. **DurableFunctionsHub**. Daha fazla bilgi için bkz: [görev hub](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

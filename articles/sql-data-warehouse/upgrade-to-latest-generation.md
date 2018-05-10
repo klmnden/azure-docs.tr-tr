@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ca8156d98932e0e7313375cadc1ace2a3088881
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
 Azure SQL Data Warehouse Azure donanım ve depolama mimarisi yeni nesil yükseltin.
@@ -68,7 +68,13 @@ Bu yükseltme Gen1 veri ambarlarında için geçerlidir.
    
    İkinci adım yükseltme işlemini veri geçiş ("Yükseltme - çevrimiçi") olur. Veri geçişi yavaş sütunlu verileri yerel bir SSD önbellek yararlanarak yeni depolama mimarisi için eski depolama mimarisinden taşır bir çevrimiçi akışla arka plan işlemidir. Bu süre boyunca, veri Ambarınızı sorgulama ve yükleme için çevrimiçi olacaktır. Tüm verilerinizi olup olmadığını geçirildikten bağımsız olarak sorgulamak kullanılabilir. Veri boyutu, performans düzeyi ve, columnstore Segment sayısına bağlı olarak değişen bir hızda veri geçişi yapılır. 
 
-5. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen çalıştırarak veri taşıma zorlamak için önerilir [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) daha büyük bir SLO ve kaynak tüm columnstore tabloları sınıf. Bu akışla arka plan işleme karşılaştırıldığında çevrimdışı bir işlemdir; Ancak, veri geçişi burada daha sonra yeni gelişmiş depolama mimarisi ile yüksek kaliteli rowgroups kez tamamlandı tam anlamıyla alabilir çok daha hızlı olacaktır. 
+5. **Gen2 veri ambarınız Bul** SQL veritabanı Gözat dikey kullanarak. 
+
+> [!NOTE]
+> Var. şu anda bir sorun nerede dikey Gen2 veri ambarları SQL veri ambarında görünmez göz atın. Lütfen yeni yükseltilen Gen2 veri ambarınız bulmak için SQL veritabanı Gözat dikey kullanın. Bu düzeltme etkin bir şekilde çalışıyoruz.
+> 
+
+6. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen çalıştırarak veri taşıma zorlamak için önerilir [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) daha büyük bir SLO ve kaynak tüm columnstore tabloları sınıf. Bu akışla arka plan işleme karşılaştırıldığında çevrimdışı bir işlemdir; Ancak, veri geçişi burada daha sonra yeni gelişmiş depolama mimarisi ile yüksek kaliteli rowgroups kez tamamlandı tam anlamıyla alabilir çok daha hızlı olacaktır. 
 
 Bu aşağıdaki sorguyu veri geçiş işlemi hızlandırmak için gerekli olan Alter Index REBUILD komutları oluşturur:
 

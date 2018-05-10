@@ -1,7 +1,7 @@
 ---
-title: "Uzaktan izleme çözümü - Azure aygıt şemada | Microsoft Docs"
-description: "Bu makalede Uzaktan izleme çözümünde benzetilmiş bir aygıtı tanımlayan JSON şeması açıklanır."
-services: 
+title: Uzaktan izleme çözümü - Azure aygıt şemada | Microsoft Docs
+description: Bu makalede Uzaktan izleme çözümünde benzetilmiş bir aygıtı tanımlayan JSON şeması açıklanır.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 364698a529623958695f93a245bab28a89f6bd4c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 24aeb9c3f73d04a3d05f09ebd2ba0859a38e7ad8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-device-model-schema"></a>Cihaz modeli şeması anlama
 
@@ -29,7 +29,7 @@ Aşağıdaki makaleler geçerli makaleyi ilişkili:
 * [Cihaz modeli davranışı uygulamak](iot-suite-remote-monitoring-device-behavior.md) kullanan bir sanal cihaz davranışını uygulamak için JavaScript dosyaları açıklar.
 * [Yeni bir sanal cihaz oluşturma](iot-suite-remote-monitoring-test.md) hepsini bir araya getirir ve çözümünüz için yeni bir sanal cihaz türü dağıtılacağı gösterilmektedir.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 >[!div class="checklist"]
 > * Bir sanal cihaz modeli tanımlamak için bir JSON dosyası kullanın
@@ -85,8 +85,8 @@ Aşağıdaki bölümlerde, JSON şeması diğer bölümlerinde açıklanmaktadı
 
 Cihaz durumu tanımını iki öğe vardır:
 
-* `InitialState`cihaz durumu nesnenin tüm özelliklerinin ilk değerleri tanımlar.
-* `Script`Aygıt durumunu güncelleştirmek için bir zamanlamaya göre çalışan bir JavaScript dosyası tanımlar. Aygıt tarafından gönderilen telemetriyi değerleri rastgele seçmek için bu komut dosyasını kullanabilirsiniz.
+* `InitialState` cihaz durumu nesnenin tüm özelliklerinin ilk değerleri tanımlar.
+* `Script` Aygıt durumunu güncelleştirmek için bir zamanlamaya göre çalışan bir JavaScript dosyası tanımlar. Aygıt tarafından gönderilen telemetriyi değerleri rastgele seçmek için bu komut dosyasını kullanabilirsiniz.
 
 Cihaz durumu nesnesi güncelleştirmeleri JavaScript dosyası hakkında daha fazla bilgi için bkz: [aygıt modeli davranışlarını anlamak](iot-suite-remote-monitoring-device-behavior.md).
 
@@ -104,10 +104,10 @@ Aşağıdaki örnek, bir sanal Soğutucu cihaz için cihaz durumu nesnesinin tan
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -155,9 +155,9 @@ Aşağıdaki örnekte 10 dakikada bir JSON telemetri ileti gönderir `floor`, `v
 ]
 ```
 
-`MessageTemplate`Sanal cihaz tarafından gönderilen JSON ileti yapısını tanımlar. Yer tutucuları `MessageTemplate` söz dizimini kullanın `${NAME}` nerede `NAME` bir anahtarı olan [cihaz durumu nesnesi](#simulation). Tırnak içine alınmış dizeler, numaraları kullanmamalıdır.
+`MessageTemplate` Sanal cihaz tarafından gönderilen JSON ileti yapısını tanımlar. Yer tutucuları `MessageTemplate` söz dizimini kullanın `${NAME}` nerede `NAME` bir anahtarı olan [cihaz durumu nesnesi](#simulation). Tırnak içine alınmış dizeler, numaraları kullanmamalıdır.
 
-`MessageSchema`Sanal cihaz tarafından gönderilen ileti şeması tanımlar. İleti şeması da arka uç uygulamalarının gelen telemetri yorumlamak için bilgileri yeniden etkinleştirmek için IOT Hub'ına yayımlanır.
+`MessageSchema` Sanal cihaz tarafından gönderilen ileti şeması tanımlar. İleti şeması da arka uç uygulamalarının gelen telemetri yorumlamak için bilgileri yeniden etkinleştirmek için IOT Hub'ına yayımlanır.
 
 Şu anda, yalnızca JSON ileti şemaları kullanabilirsiniz. Şemada listelenen alanları aşağıdaki türde olabilir:
 
@@ -167,7 +167,7 @@ Aşağıdaki örnekte 10 dakikada bir JSON telemetri ileti gönderir `floor`, `v
 * Boole
 * Tamsayı
 * Çift
-* Tarih Saat
+* DateTime
 
 Farklı aralıklarla telemetri iletilerini göndermek için birden çok telemetri türlerini eklemek `Telemetry` dizi. Aşağıdaki örnek, her 10 sıcaklık ve nem veri gönderir saniye ve dakikada hafif durumu:
 

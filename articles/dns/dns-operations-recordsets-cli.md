@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 2.0 kullanan Azure DNS'de DNS kayıtlarını yönetme | Microsoft Docs"
-description: "DNS kayıt kümelerini ve Azure DNS kayıtlarını Azure DNS'nin etki alanınızda barındırdığında yönetme. Kayıt kümelerini ve kayıtları işlemleri için tüm CLI 2.0 komutları."
+title: Azure CLI 2.0 kullanan Azure DNS'de DNS kayıtlarını yönetme | Microsoft Docs
+description: DNS kayıt kümelerini ve Azure DNS kayıtlarını Azure DNS'nin etki alanınızda barındırdığında yönetme. Kayıt kümelerini ve kayıtları işlemleri için tüm CLI 2.0 komutları.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: carmonm
+manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
-ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS kayıtlarını ve kayıt kümeleri Azure CLI 2.0 kullanan Azure DNS'de yönetme
 
@@ -223,7 +223,7 @@ Ekle, Kaldır veya değiştiremezsiniz bölgenin tepesinde Ayarla otomatik olara
 
 Çoğu diğer kayıt türlerinin aksine, bir CNAME kayıt kümesi yalnızca tek bir kaydını içerebilir.  Bu nedenle, yeni bir kayıt ekleyerek ve diğer kayıt türleri için olduğu gibi varolan bir kaydı kaldırma geçerli değeri değiştirilemiyor.
 
-Bunun yerine bir CNAME kaydı değiştirmek için kullanın `az network dns record-set cname set-record`. Yardım için bkz.`az network dns record-set cname set-record --help`
+Bunun yerine bir CNAME kaydı değiştirmek için kullanın `az network dns record-set cname set-record`. Yardım için bkz. `az network dns record-set cname set-record --help`
 
 CNAME kayıt kümesi örnek değiştirir *www* bölgesinde *contoso.com*, kaynak grubundaki *MyResourceGroup*, kendi varolan yerine 'www.fabrikam.net' işaret etmek için değer:
 

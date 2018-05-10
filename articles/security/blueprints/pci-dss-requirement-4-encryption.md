@@ -1,9 +1,9 @@
 ---
-title: "Azure ödeme işleme şeması - şifreleme gereksinimleri"
+title: Azure ödeme işleme şeması - şifreleme gereksinimleri
 description: PCI DSS gereksinim 4
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için şifreleme gereksinimleri 
 ## <a name="pci-dss-requirement-4"></a>PCI DSS gereksinim 4
@@ -53,7 +53,7 @@ Hassas bilgileri kötü niyetli kişilere kolayca erişilebilen ağlar üzerinde
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı için güçlü şifreleme gibi uygulayan bir PaaS çözümüdür:<br /><br />Şifrelenmiş veri adresindeki rest gereksinimlerini karşılamak için [Azure Storage](https://azure.microsoft.com/services/storage/) şunları kullanır:<br /><br /><ul><li>[Rest verileri için Azure Storage hizmeti şifreleme (SSE)](/azure/storage/storage-service-encryption)</li><li>SQL veritabanı: PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk şifrelemesi (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Azure anahtar kasası kullanarak Azure kamu, PCI DSS ve HIPAA gereksinimleri ile hizalar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı için güçlü şifreleme gibi uygulayan bir PaaS çözümüdür:<br /><br />Şifrelenmiş veri adresindeki rest gereksinimlerini karşılamak için [Azure Storage](https://azure.microsoft.com/services/storage/) şunları kullanır:<br /><br /><ul><li>[Rest verileri için Azure Storage hizmeti şifreleme (SSE)](/azure/storage/storage-service-encryption)</li><li>SQL veritabanı: PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk şifrelemesi (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Azure anahtar kasası kullanarak Azure kamu, PCI DSS ve HIPAA gereksinimleri ile hizalar.|
 
 
 
@@ -66,7 +66,7 @@ Hassas bilgileri kötü niyetli kişilere kolayca erişilebilen ağlar üzerinde
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
 
 
 
@@ -79,7 +79,7 @@ Hassas bilgileri kötü niyetli kişilere kolayca erişilebilen ağlar üzerinde
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore korumasız birincil hesap numarası (PAN) veri gönderebilir uygulanan tüm Mesajlaşma çözümleri yok.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore korumasız birincil hesap numarası (PAN) veri gönderebilir uygulanan tüm Mesajlaşma çözümleri yok.|
 
 
 
@@ -92,7 +92,7 @@ Hassas bilgileri kötü niyetli kişilere kolayca erişilebilen ağlar üzerinde
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri belgeleme ve kart sahibi verileri içeren iletimleri şifrelemek için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri belgeleme ve kart sahibi verileri içeren iletimleri şifrelemek için sorumludur.|
 
 
 

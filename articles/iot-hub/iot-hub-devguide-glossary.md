@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları listelenmektedir.
 
 ## <a name="advanced-message-queueing-protocol"></a>Gelişmiş Message Queuing protokolü
 [Message Queuing Protokolü (AMQP) Gelişmiş](https://www.amqp.org/) olan bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) aygıtlarıyla iletişim kurmak için destekler. IOT hub'ı destekleyen Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz: [IOT Hub ile iletileri almasına ve göndermesine](iot-hub-devguide-messaging.md).
+
+## <a name="automatic-device-management"></a>Otomatik cihaz Yönetimi
+Azure IOT Hub'ındaki otomatik aygıt yönetimi birçok büyük cihaz fleets kendi ömürleri tamamen yönetme yinelenen ve karmaşık görevleri otomatik hale getirir. İle otomatik cihaz yönetimi, cihaz özelliklerine göre kümesini hedef, istenen yapılandırma tanımlayın ve IOT Hub'ın kapsam içine geldikleri her aygıtları güncelleştirmesi sağlayabilirsiniz.  Oluşan [otomatik cihaz yapılandırmalarını](iot-hub-auto-device-config.md) ve [IOT kenar otomatik dağıtımları](../iot-edge/how-to-deploy-monitor.md).
+
+## <a name="automatic-device-configuration"></a>Otomatik cihaz yapılandırması
+Çözüm arka ucunuz kullanabilirsiniz [otomatik cihaz yapılandırmalarını](iot-hub-auto-device-config.md) istenen özellikleri için bir dizi atamak için [cihaz çiftlerini](#device-twin) ve sistem ölçümleri ve özel ölçümleri kullanarak rapor durumu. 
 
 ## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](../cli-install-nodejs.md) oluşturmak ve Microsoft Azure kaynakları yönetmek için bir platformlar arası, açık kaynaklı, kabuk tabanlı komut bir araçtır. Bu sürümü CLI, Node.js kullanarak uygulanır.
@@ -65,6 +71,9 @@ Bağlantıyı doğrudan bağlanamıyor cihazlar için bir bulut ağ geçidi etki
 
 ## <a name="cloud-to-device"></a>Buluttan cihaza
 Bağlı bir aygıt bir IOT hub'ından gönderilen iletileri gösterir. Genellikle, bu iletiler, bir eylem aygıta yönlendiren komutlardır. Daha fazla bilgi için bkz: [IOT Hub ile iletileri almasına ve göndermesine](iot-hub-devguide-messaging.md).
+
+## <a name="configuration"></a>Yapılandırma
+Bağlamında [otomatik aygıt yapılandırması](iot-hub-auto-device-config.md), bir cihaz kümesi çiftlerini ve rapor durumunu ve ilerlemesini ölçümlere kümesi sağlar istenen yapılandırma IOT Hub içinde bir yapılandırma tanımlar.
 
 ## <a name="connection-string"></a>Bağlantı dizesi
 Bir bitiş noktasına bağlanmak için gereken bilgileri yalıtan uygulama kodunuzda bağlantı dizelerini kullanın. Bir bağlantı dizesi genellikle endpoint ve güvenlik bilgileri, ancak bağlantı dizesi biçimleri hizmetleri arasında farklılık adresini içerir. IOT Hub hizmeti ile ilişkili bağlantı dizesi iki tür vardır:
@@ -169,7 +178,7 @@ Etkileşimli bir ileti bir [bulut cihaz](#cloud-to-device) çözüm arka ucu anl
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>IoT Hub’ı
+## <a name="iot-hub"></a>IoT Hub
 IOT hub'ı milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir Azure hizmeti olduğundan ve bir çözüm arka ucu. Daha fazla bilgi için bkz: [Azure IOT Hub nedir?](iot-hub-what-is-iot-hub.md) Kullanarak, [Azure aboneliği](#subscription), iş yüklerini Mesajlaşma, IOT işlemek için IOT hub'ları oluşturabilirsiniz.
 
 ## <a name="iot-hub-metrics"></a>IOT hub'ı ölçümleri
@@ -181,8 +190,8 @@ IOT hub'ı milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü ile
 ## <a name="iot-hub-resource-provider-rest-api"></a>IOT hub'ı kaynak sağlayıcısı REST API'si
 Kullanabileceğiniz [IOT Hub kaynak sağlayıcısı REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) , IOT hub'ları yönetmek için [Azure aboneliği](#subscription) oluşturma, güncelleştirme ve hub'ları silme gibi işlemleri gerçekleştirme.
 
-## <a name="iot-suite"></a>IoT Paketi
-Azure IOT paketi önceden yapılandırılmış çözümleri birden çok Azure hizmetleriyle birlikte paketler. Bu önceden yapılandırılmış çözümler, ortak IOT senaryolarını uçtan uca uygulamaları ile hızlı bir şekilde başlamak etkinleştirin. Daha fazla bilgi için bkz: [Azure IOT paketi nedir?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları
+Azure IOT Çözüm Hızlandırıcıları birden çok Azure Hizmetleri çözümleriyle birlikte paketi. Bu çözümler, ortak IOT senaryolarını uçtan uca uygulamaları ile hızlı bir şekilde başlamak etkinleştirin. Daha fazla bilgi için bkz: [Azure IOT Çözüm Hızlandırıcıları nelerdir?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 IOT uzantısı
 [Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) platformlar arası, komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry)göndermek ve iletileri ve dosyaları, almasını ve IOT hub işlemlerini izleyebilirsiniz.

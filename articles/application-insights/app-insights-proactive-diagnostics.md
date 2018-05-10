@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights algılama akıllı | Microsoft Docs"
-description: "Application Insights uygulama telemetrinin otomatik derin çözümleme yapar ve olası sorunları sizi uyarır."
+title: Azure Application Insights algılama akıllı | Microsoft Docs
+description: Application Insights uygulama telemetrinin otomatik derin çözümleme yapar ve olası sorunları sizi uyarır.
 services: application-insights
 documentationcenter: windows
-author: rakefetj
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: c15db8451cc1c5380bcf4a29c5e722d09c0a603b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 38a7c5be98440a717eb54092bf7ce0d412619017
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection-in-application-insights"></a>Application ınsights'ta akıllı algılama
  Akıllı algılama, web uygulamanızın olası performans sorunları otomatik olarak sizi uyarır. Uygulamanızı gönderdiği telemetriyi öngörülü analizini gerçekleştirir [Application Insights](app-insights-overview.md). Başarısızlık oranları ani bir artışa veya istemci veya sunucu performans anormal desenlerini ise bir uyarı alırsınız. Bu özellik, herhangi bir yapılandırma gerekir. Uygulamanız yeterli telemetri gönderirse çalışır.

@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights ile web uygulamaları için kullanıcı bekletme analizi | Microsoft docs"
-description: "Kaç kullanıcının uygulamanıza dönüş?"
+title: Azure Application Insights ile web uygulamaları için kullanıcı bekletme analizi | Microsoft docs
+description: Kaç kullanıcının uygulamanıza dönüş?
 services: application-insights
-documentationcenter: 
-author: botatoes
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 03f8bea65e319f357be4ca05fd4aa40da77a3436
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bafe9579cc783dbc5c851e626e3b9bea0c559520
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights ile web uygulamaları için kullanıcı bekletme çözümlemesi
 

@@ -1,26 +1,24 @@
 ---
-title: "Azure Active Directory'deki bir gruba lisans sorunlarını gidermek | Microsoft Docs"
-description: "Tanımlamak ve Azure Active Directory grup tabanlı lisans kullanırken lisans atama sorunları gidermek nasıl"
+title: Azure Active Directory'deki bir gruba lisans sorunlarını gidermek | Microsoft Docs
+description: Tanımlamak ve Azure Active Directory grup tabanlı lisans kullanırken lisans atama sorunları gidermek nasıl
 services: active-directory
 keywords: Azure AD lisanslama
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e91b0a79e7b45ce7e0de1b7cf4aa3123550692af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Belirleyin ve Azure Active Directory'deki bir gruba için lisans atama sorunları çözün
 
@@ -62,7 +60,7 @@ Hangi kullanıcıların ve grupların lisansları kullanıyor görmek için bir 
 
 **PowerShell:** PowerShell cmdlet'leri bu hata olarak rapor _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Çakışan hizmet planları
+## <a name="conflicting-service-plans"></a>Çakışan hizmet planları var
 
 **Sorun:** zaten farklı bir ürün aracılığıyla kullanıcıya atanmış başka bir hizmet planı olan çakışan bir hizmet planı grubunda belirtilen ürünleri içerir. Bazı hizmet planları, bunlar aynı kullanıcıya ilgili başka bir hizmet planı olarak atanamaz şekilde yapılandırılır.
 
@@ -77,7 +75,7 @@ Bu çakışmayı çözmek için iki planları devre dışı bırakmanız gerekir
 
 **PowerShell:** PowerShell cmdlet'leri bu hata olarak rapor _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Bu lisansı diğer ürünleri bağlıdır
+## <a name="other-products-depend-on-this-license"></a>Bu lisansa bağımlı olan başka ürünler var
 
 **Sorun:** işlevi için başka bir ürün içinde başka bir hizmet planı için etkinleştirilmesi gereken bir hizmet planına grubunda belirtilen ürünleri içerir. Azure AD temel alınan hizmet planını kaldırmanız çalıştığında bu hata oluşur. Örneğin, kullanıcıyı gruptan kaldırdığınızda bu durum oluşabilir.
 

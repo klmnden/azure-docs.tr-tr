@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e06db46d5e1d7862f7b47b75e38d0b10df628f48
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanma
 Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure Market birçok ilk ve üçüncü taraf en yaygın işletim sistemi için sağlar ve uygulama ortamları veya gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturabilirsiniz. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -27,7 +27,7 @@ Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tan
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
 Kaynak VM oluştururken oluşturma işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için bu kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Çıktısı Packer oluşturma işlemi, bu kaynak grubunda depolanır.
 
-Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -67,7 +67,7 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Görünüm hizmet asıl kimliği ile `$sp.applicationId` |
 | *client_secret*                     | Belirttiğiniz parola `$securePassword` |
-| *tenant_id*                         | Çıktı `$sub.TenantId` komutu |
+| *Tenant_id*                         | Çıktı `$sub.TenantId` komutu |
 | *subscription_id*                   | Çıktı `$sub.SubscriptionId` komutu |
 | *object_id*                         | Görünüm hizmet asıl nesne kimliği ile `$sp.Id` |
 | *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
@@ -221,6 +221,8 @@ New-AzureRmVm `
     -OpenPorts 80 `
     -Image "myPackerImage"
 ```
+
+Farklı bir kaynak grubunda veya Packer görüntünüzü bölgesinden VM'ler oluşturmak isterseniz, görüntü adı yerine görüntü kimliği belirtin. Görüntü Kimliğiyle edinebilirsiniz [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
 
 VM Packer görüntünüzü oluşturmak için birkaç dakika sürer.
 

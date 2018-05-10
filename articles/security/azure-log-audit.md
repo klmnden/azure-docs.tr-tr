@@ -4,7 +4,7 @@ description: Nasıl verileri günlüğe kaydetmeye uygulamanız hakkında ayrın
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0ca120da27daa7a498f73b9c62530e3af26e539
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlüğe kaydetme ve denetleme
 ## <a name="introduction"></a>Giriş
@@ -128,7 +128,7 @@ Azure tanılama günlükleri, birden çok olan yapılandırma seçenekleri, Powe
 |Application Gatewayler|[Uygulama ağ geçidi için tanılama günlükleri](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
-|Anahtar Kasası|[Azure Anahtar Kasası Günlüğü](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Key Vault|[Azure Anahtar Kasası Günlüğü](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Etkinleştirme ve arama trafiği Analytics kullanma](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |Data Lake Store|[Azure Data Lake Store için tanılama günlüklerine erişme](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Denetim|
 |Data Lake Analytics|[Azure Data Lake Analytics’te tanılama günlüklerine erişim](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Denetim|
@@ -141,7 +141,7 @@ Azure tanılama günlükleri, birden çok olan yapılandırma seçenekleri, Powe
 |||Microsoft.Automation/automationAccounts|JobStreams|
 |Event Hubs|[Azure Event Hubs tanılama günlükleri](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|Akış Analizi|[İş tanılama günlükleri](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Yürütme|
+|Stream Analytics|[İş tanılama günlükleri](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Yürütme|
 |||Microsoft.StreamAnalytics/streamingjobs|Yazma|
 |Service Bus|[Azure Service Bus tanılama günlükleri](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
@@ -364,7 +364,7 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 |Veri Gölü deposu|   Microsoft.DataLakeStore/<br>accounts|   Tanılama|||
 |Olay Hub'ı ad alanı|   Microsoft.EventHub/<br>ad alanları|  Tanılama|    Tanılama||
 |IoT Hub|  Microsoft.Devices/<br>IotHubs||     Tanılama||
-|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Key Vault| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Yük Dengeleyiciler|    Microsoft.Network/<br>loadBalancers|    Tanılama|||
 |Logic Apps|    Microsoft.Logic/<br>İş akışları|  Tanılama|    Tanılama||
 ||Microsoft.Logic/<br>integrationAccounts||||

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/13/2018
 ms.author: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f961f8a6795df156549eece12c2c7e4cc26713ab
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 4bcf4854198e7c5f3861a39484a047adcbc1d797
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
 
@@ -72,7 +72,7 @@ Bu makalenin sonraki bölümlerinde v2.0 uç noktası ile çalışma kitaplıkla
 | .NET Core | ASP.NET Openıd Connect Ara |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[ASP.NET güvenliği (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[MVC uygulama](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |
 | .NET Core | ASP.NET OAuth taşıyıcı ara yazılımı |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[ASP.NET güvenliği (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |  |
 | .NET Core | .NET Core için JWT işleyicisi  |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web uygulaması](active-directory-v2-devquickstarts-node-web.md)| |
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web uygulaması](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs)| |
 
 ## <a name="compatible-client-libraries"></a>Uyumlu istemci kitaplıkları
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: ac0b82c4683f5a1b09d7e6102a7b70361e1fbce2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>IOT DevKit AZ3166 dil Çeviricisi yapmak için Azure işlevi ve Bilişsel hizmetler ile kullanma
 
@@ -140,4 +140,4 @@ Artık IOT DevKit bir Çeviricisi gibi Azure işlevi ve Bilişsel hizmetler kull
 Bilgi edinmek için diğer öğreticileri için ilerleyin:
 
 > [!div class="nextstepaction"]
-> [Azure IOT paketi Uzaktan izleme için IOT DevKit AZ3166 Bağlan](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı IOT DevKit AZ3166 Bağlan](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

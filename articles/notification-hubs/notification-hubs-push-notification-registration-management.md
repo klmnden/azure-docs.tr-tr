@@ -3,22 +3,22 @@ title: Kayıt Yönetimi
 description: Bu konuda, anında iletme bildirimleri almak için notification hubs ile cihazları kaydetmek açıklanmaktadır.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7f9052da066fcc0021151bf3b547484859cf216d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 ## <a name="overview"></a>Genel Bakış
@@ -37,9 +37,9 @@ Yüklemeleri kullanmanın önemli avantajlarından bazıları şunlardır:
 
 * Oluşturma veya bir yüklemeyi güncelleştirme ıdempotent tam değil. Bu nedenle tüm yinelenen kayıtları endişeniz olmadan deneyebilirsiniz.
 * Yükleme modeli tek tek iter - belirli bir aygıtı hedefleme yapılacağı kolaylaştırır. Bir sistem etiketi **"$InstallationId: [InstallationID]"** her bağlı yükleme kaydı otomatik olarak eklenir. Bu nedenle hiçbir ek kodlama yapmak zorunda kalmadan belirli bir aygıt hedeflemek için bu etikete gönderme çağırabilirsiniz.
-* Yüklemeleri kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. Bir düzeltme eki yöntemi kullanılarak ile kısmi güncelleştirme yüklemesinin istenilen [JSON düzeltme eki standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketlerini güncelleştirmek istediğinizde özellikle yararlıdır. Tüm kayıt çekmek ve önceki tüm etiketleri yeniden yeniden gerekmez.
+* Yüklemeleri kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. Bir düzeltme eki yöntemi kullanılarak ile kısmi güncelleştirme yüklemesinin istenilen [JSON düzeltme eki standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketlerini güncelleştirmek istediğinizde kullanışlıdır. Tüm kayıt çekmek ve önceki tüm etiketleri yeniden yeniden gerekmez.
 
-Bir yükleme içerebilir aşağıdaki özellikleri. Yükleme özellikleri hakkında tam listesi için bkz: [oluşturmak veya bir yükleme ile REST API üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Bir yükleme şu özellikler içerebilir. Yükleme özellikleri hakkında tam listesi için bkz: [oluşturmak veya bir yükleme ile REST API üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {,
@@ -82,23 +82,23 @@ Kayıtlar ve varsayılan olarak yüklemeleri artık dolacağını dikkate almak 
 Kayıtlar ve yüklemeleri her cihaz/kanal için geçerli bir PNS tanıtıcısını içermelidir. PNS tanıtıcılarını yalnızca aygıttaki istemci uygulamasında elde edilebilir olduğundan, istemci uygulaması ile bir cihazda doğrudan kaydetmek için bir düzen yöneliktir. Diğer taraftan, güvenlikle ilgili önemli noktalar ve etiketler için ilgili iş mantığı, uygulama arka ucunu cihaz kaydında yönetmenizi gerektirebilir. 
 
 #### <a name="templates"></a>Şablonlar
-Kullanmak istiyorsanız, [şablonları](notification-hubs-templates-cross-platform-push-messages.md), aygıt yüklemesi de JSON bu aygıt ile ilişkili tüm şablonları tutun (Yukarıdaki örnek bakın) biçimlendirin. Şablon adları hedef farklı şablonları aynı aygıt için yardımcı olur.
+Kullanmak istiyorsanız, [şablonları](notification-hubs-templates-cross-platform-push-messages.md), aygıt yüklemesi de JSON bu aygıt ile ilişkili tüm şablonları tutar (Yukarıdaki örnek bakın) biçimlendirin. Şablon adları hedef farklı şablonları aynı aygıt için yardımcı olur.
 
-Her bir şablon adı bir şablon gövde ve isteğe bağlı bir dizi etiketi unutmayın. Ayrıca, her platform ek şablon özelliklere sahip olabilir. Windows Mağazası'nın (WNS kullanarak) ve Windows Phone 8 (MPNS kullanarak) için ek bir üstbilgi kümesi şablonunun parçası olabilir. APNs söz konusu olduğunda, bir süre sonu özelliğini ya da veya şablon ifadesi ayarlayabilirsiniz. Yükleme özellikleri bakın, tam bir listesi için [oluşturmak veya bir yükleme ile REST üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) konu.
+Her bir şablon adı, bir şablon gövde ve isteğe bağlı bir dizi etiketi eşler. Ayrıca, her platform ek şablon özelliklere sahip olabilir. Windows Mağazası'nın (WNS kullanarak) ve Windows Phone 8 (MPNS kullanarak) için ek bir üstbilgi kümesi şablonunun parçası olabilir. APNs söz konusu olduğunda, bir süre sonu özelliğini ya da veya şablon ifadesi ayarlayabilirsiniz. Yükleme özellikleri bakın, tam bir listesi için [oluşturmak veya bir yükleme ile REST üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) konu.
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Windows mağazası uygulamaları için ikincil döşeme
-Windows mağazası istemci uygulamaları için ikincil döşeme bildirimleri gönderme birincil birine göndererek ile aynı olur. Bu ayrıca yüklemelerde desteklenir. İkincil döşeme istemci uygulamanızdan SDK şeffaf bir şekilde işler farklı bir ChannelUri gerektiğini unutmayın.
+Windows mağazası istemci uygulamaları için ikincil döşeme bildirimleri gönderme birincil birine göndererek ile aynı olur. Bu ayrıca yüklemelerde desteklenir. İkincil döşeme istemci uygulamanızdan SDK şeffaf bir şekilde işler farklı bir ChannelUri sahip.
 
 Windows mağazası uygulamanızı SecondaryTiles nesnesi oluşturmak için kullanılan aynı TileId SecondaryTiles sözlük kullanır.
 Birincil ChannelUri gibi ile ikincil döşeme ChannelUris herhangi bir anda değiştirebilirsiniz. Güncelleştirilen bildirim hub'ı yüklemeleri tutmak için aygıt bunları ikincil döşeme geçerli ChannelUris ile yenilemeniz gerekir.
 
 ## <a name="registration-management-from-the-device"></a>Cihaz kayıt yönetimi
-Cihaz kaydı istemci uygulamaları yönetirken, arka uç yalnızca bildirim göndermek için sorumludur. İstemci uygulamaları PNS tanıtıcılarını güncel tutun ve etiketleri kaydedin. Aşağıdaki resimde bu deseni gösterilmektedir.
+Cihaz kaydı istemci uygulamaları yönetirken, arka uç yalnızca bildirim göndermek için sorumludur. İstemci uygulamaları PNS tanıtıcılarını güncel tutmak ve etiketleri kaydedin. Aşağıdaki resimde bu deseni gösterilmektedir.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 Cihaz önce PNS PNS tanıtıcısını alır, sonra bildirim hub'ı ile doğrudan kaydeder. Kayıt başarılı olduktan sonra uygulama arka ucu, kayıt hedefleyen bir bildirim gönderebilirsiniz. Bildirimleri gönderme hakkında daha fazla bilgi için bkz: [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
-Bu durumda, kullanacağınız not yalnızca bildirim hub'larınız aygıttan erişim hakları dinler. Daha fazla bilgi için bkz: [güvenlik](notification-hubs-push-notification-security.md).
+Bu durumda, bildirim hub'larınız aygıttan erişmek için yalnızca dinleme hakları kullanın. Daha fazla bilgi için bkz: [güvenlik](notification-hubs-push-notification-security.md).
 
 Aygıttan kaydetme basit yöntemidir, ancak bazı kısıtlamaları vardır.
 İlk dezavantajı, uygulama etkinken bir istemci uygulaması yalnızca kendi etiketleri güncelleştirebilirsiniz olmasıdır. Bir kullanıcının ilk aygıt bir ek etiketi (örneğin, takımınız) kaydettiğinde Spor takıma ilgili etiketleri kaydetme iki cihazlar varsa, ikinci cihaza uygulamanın kadar Örneğin, ikinci bir cihaz takımınız hakkında bildirimler almaz ikinci kez yürütüldü. Etiketler birden çok aygıt tarafından etkilenir, daha genel olarak, etiketleri arka ucundan yönetme bir arzu seçenektir.

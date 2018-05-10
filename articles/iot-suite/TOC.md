@@ -1,24 +1,24 @@
 # [Azure IoT Temel Konuları](../iot-fundamentals/index.yml)
-# [IoT Paketi Belgeleri](index.md)
+# [IoT çözüm hızlandırıcısı belgeleri](index.md)
 
 # Genel Bakış
 ## [IoT mimarisi kavramları](iot-suite-what-is-azure-iot.md)
 ## [Azure IoT seçeneklerini karşılaştırma](iot-suite-options.md)
-## [Önceden yapılandırılmış çözümlere genel bakış](iot-suite-what-are-preconfigured-solutions.md)
+## [Çözüm hızlandırıcılarına genel bakış](iot-suite-what-are-solution-accelerators.md)
 
 # başlarken
-## Uzaktan izleme
-### [Önceden yapılandırılmış çözümü dağıtma](iot-suite-remote-monitoring-deploy.md)
-### [Önceden yapılandırılmış çözümü çalıştırma](iot-suite-remote-monitoring-explore.md)
+## Uzaktan İzleme
+### [Çözüm hızlandırıcısını dağıtma](iot-suite-remote-monitoring-deploy.md)
+### [Çözüm hızlandırıcısını çalıştırma](iot-suite-remote-monitoring-explore.md)
 
-## Uzaktan izleme (önceki sürüm)
-### [Önceden yapılandırılmış çözümler nelerdir?](iot-suite-v1-what-are-preconfigured-solutions.md)
+## Uzaktan İzleme (önceki sürüm)
+### [Çözüm hızlandırıcısı nedir?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [SSS](iot-suite-v1-faq.md)
 
 ### Başlarken
-#### [Önceden yapılandırılmış çözümleri kullanmaya başlama](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Çözüm hızlandırıcıları ile çalışmaya başlama](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [azureiotsuite.com sitesindeki izinler](iot-suite-v1-permissions.md)
-#### [Uzaktan izleme çözüm kılavuzu](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Uzaktan İzleme çözüm kılavuzu](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Raspberry Pi’ye bağlanma](iot-suite-v1-raspberry-pi-kit-get-started.md)
 ##### C kullanma
 ###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
@@ -36,39 +36,42 @@
 ##### [Linux üzerinde C](iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](iot-suite-v1-connecting-devices-node.md)
 #### [Mantıksal Uygulama’yı uzaktan izleme çözümüne bağlama](iot-suite-v1-logic-apps-tutorial.md)
-#### [Önceden yapılandırılmış bir çözümü özelleştirme](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Çözüm hızlandırıcısını özelleştirme](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [Uzaktan izleme çözümüyle dinamik telemetri kullanma](iot-suite-v1-dynamic-telemetry.md)
 #### [Uzaktan izleme çözümünde özel kural oluşturma](iot-suite-v1-custom-rule.md)
 #### [Uzaktan izleme çözümündeki cihaz bilgileri](iot-suite-v1-remote-monitoring-device-info.md)
 
 
+## Tahmine Dayalı Bakım
+### [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](iot-suite-predictive-overview.md)
+### [Tahmine Dayalı Bakım çözüm hızlandırıcısı kılavuzu](iot-suite-predictive-walkthrough.md)
 
+## Bağlı Fabrika
+### [Bağlı Fabrika nedir?](iot-suite-connected-factory-features.md)
+### [Bağlı Fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
+### [Bağlı Fabrika çözümü kılavuzu](iot-suite-connected-factory-sample-walkthrough.md)
 
-## Tahmine dayalı bakım
-### [Tahmine dayalı bakım çözümüne genel bakış](iot-suite-predictive-overview.md)
-### [Tahmine dayalı bakım çözüm kılavuzu](iot-suite-predictive-walkthrough.md)
-
-## Bağlı fabrika
-### [Bağlı fabrika nedir?](iot-suite-connected-factory-features.md)
-### [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
-### [Bağlı fabrika çözümü kılavuzu](iot-suite-connected-factory-sample-walkthrough.md)
-
-## Cihaz benzetimi
-### [Cihaz benzetimini dağıtma](iot-suite-device-simulation-deploy.md)
-### [Cihaz benzetimini keşfetme](iot-suite-device-simulation-explore.md)
+## Cihaz Benzetimi
+### [Cihaz Benzetimini Dağıtma](iot-suite-device-simulation-deploy.md)
+### [Cihaz Benzetimini Keşfetme](iot-suite-device-simulation-explore.md)
 
 # Nasıl yapılır kılavuzları
-## Uzaktan izleme
+## Uzaktan İzleme
 ### [Gelişmiş izleme gerçekleştirme](iot-suite-remote-monitoring-monitor.md)
 ### [Sorunları algılamak için kuralları kullanma](iot-suite-remote-monitoring-automate.md)
+### [SIM verilerini tümleştirme](iot-suite-remote-monitoring-telefonica-sim.md)
 ### [Cihazlarınızı yönetme](iot-suite-remote-monitoring-manage.md)
 ### [Cihaz sorunlarını giderme](iot-suite-remote-monitoring-maintain.md)
 ### [Cihaz modeli şemasını anlama](iot-suite-remote-monitoring-device-schema.md)
 ### [Cihaz modeli davranışlarını anlama](iot-suite-remote-monitoring-device-behavior.md)
 ### [Yeni bir simülasyon cihazı oluşturma](iot-suite-remote-monitoring-test.md)
-### [Çözümü özelleştirme](iot-suite-remote-monitoring-customize.md)
+### [PowerBI ile görselleştirme](iot-suite-integrate-data-powerbi.md)
+### [Çözüm kullanıcı arabirimini özelleştirme](iot-suite-remote-monitoring-customize.md)
+### [Bir mikro hizmeti özelleştirme ve yeniden dağıtma](iot-suite-microservices-example.md)
 ### [CLI kullanarak dağıtma](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Yerel olarak dağıtma](iot-suite-remote-monitoring-deploy-local.md)
+### [Time Series Insights ile verileri görselleştirme](iot-suite-time-series-insights.md)
+### [Data Lake Store ile tümleştirme](iot-suite-integrate-data-lake.md)
 ### Fiziksel cihaza bağlanma
 #### [Windows üzerinde C](iot-suite-connecting-devices.md)
 #### [Linux üzerinde C](iot-suite-connecting-devices-linux.md)
@@ -77,13 +80,14 @@
 #### [Raspberry Pi üzerinde C](iot-suite-connecting-pi-c.md)
 
 ### Kavramlar
-#### [Uzaktan izleme mimarisi](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Uzaktan İzleme uygulama ayrıntıları](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Uzaktan İzleme mimari seçenekleri](iot-suite-remote-monitoring-architectural-choices.md)
 
-## Bağlı fabrika
-### [Bağlı fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
-### [Özel bağlı fabrika](iot-suite-connected-factory-customize.md)
-### [Bağlı fabrika için OPC yayımcısını kullanma](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Bağlı fabrikayı yapılandırma](iot-suite-connected-factory-configure.md)
+## Bağlı Fabrika
+### [Bağlı Fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
+### [Bağlı Fabrikayı özelleştirme](iot-suite-connected-factory-customize.md)
+### [Bağlı Fabrika için OPC yayımcısını kullanma](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
+### [Bağlı Fabrikayı yapılandırma](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com sitesindeki izinler](iot-suite-permissions.md)
 
 # Başvuru
@@ -102,7 +106,7 @@
 ### [IoT Hub’ı](/azure/iot-hub) 
 ### [IoT Hub Cihazı Sağlama Hizmeti](/azure/iot-dps)
 ### [IoT Hizmet SDK'ları](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
-### [Konum Tabanlı Hizmetler](/azure/location-based-services) 
+### [Eşlemeler](/azure/azure-maps) 
 ### [Time Series Insights](/azure/time-series-insights) 
 ## Edge 
 ### [IoT Edge](/azure/iot-edge) 
@@ -114,7 +118,7 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [SSS](iot-suite-faq.md)
-## [Uzaktan izleme hakkında SSS](iot-suite-faq-rm-v2.md)
-## [Bağlı fabrika hakkında SSS](iot-suite-faq-cf.md)
+## [Uzaktan İzleme hakkında SSS](iot-suite-faq-rm-v2.md)
+## [Bağlı Fabrika hakkında SSS](iot-suite-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
-## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [IoT çözüm hızlandırıcıları öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

@@ -1,0 +1,46 @@
+- name: Azure Blockchain Workbench (genel önizleme)
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure Blockchain Workbench Hakkında
+      href: blockchain-workbench-overview.md
+- name: Kavramlar
+  items:
+    - name: Mimari
+      href: blockchain-workbench-architecture.md
+    - name: Tümleştirme desenleri
+      href: blockchain-workbench-integration-patterns.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Workbench’i dağıtma
+      href: blockchain-workbench-deploy.md
+    - name: Workbench kullanıcılarını yönetme
+      href: blockchain-workbench-manage-users.md
+    - name: Blok zinciri uygulaması oluşturma
+      href: blockchain-workbench-create-app.md
+    - name: Blok zinciri uygulamasını kullanma
+      href: blockchain-workbench-use.md
+    - name: Workbench API’sini kullanma
+      href: blockchain-workbench-use-API.md
+    - name: Sorun giderme uygulamaları
+      href: blockchain-workbench-troubleshooting.md
+    - name: Workbench DB ayrıntılarını alma
+      href: blockchain-workbench-getdb-details.md
+    - name: Workbench SQL DB güvenlik duvarını yapılandırma
+      href: blockchain-workbench-database-firewall.md
+    - name: Workbench verilerini Excel’de kullanma
+      href: blockchain-workbench-data-excel.md
+    - name: Workbench verilerini Power BI’da kullanma
+      href: blockchain-workbench-data-powerbi.md
+    - name: SQL Management Studio'da Workbench verilerini kullanma
+      href: blockchain-workbench-data-sql-management-studio.md
+- name: Başvuru
+  items:
+    - name: Yapılandırma
+      href: blockchain-workbench-configuration-overview.md
+    - name: Veritabanı görünümleri
+      href: blockchain-workbench-database-views.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: Mesajlaşma API’si
+      href: blockchain-workbench-messages-overview.md

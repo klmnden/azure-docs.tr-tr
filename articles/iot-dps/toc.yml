@@ -131,15 +131,15 @@
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
     - name: Platform hizmetleri
       items:
-        - name: IoT Hub’ı
+        - name: IoT Hub
           href: /azure/iot-hub
         - name: IoT Hub Cihazı Sağlama Hizmeti
           href: /azure/iot-dps
-        - name: Konum Tabanlı Hizmetler
-          href: /azure/location-based-services
+        - name: Haritalar
+          href: /azure/azure-maps
         - name: Hizmet SDK'ları
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Zaman Serisi Öngörüleri
+        - name: Time Series Insights
           href: /azure/time-series-insights
     - name: Edge
       items:
@@ -149,7 +149,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Kaynaklar
   items:
-    - name: Azure IoT Hub'ı
+    - name: Azure IoT Hub
       href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: IoT için Azure Sertifikalı cihaz kataloğu
       href: 'https://catalog.azureiotsuite.com/'

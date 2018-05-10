@@ -1,7 +1,7 @@
 ---
-title: "Uzaktan izleme çözümü - Azure aygıt benzetim | Microsoft Docs"
-description: "Bu öğretici ile Uzaktan izleme önceden yapılandırılmış çözümü aygıt benzeticisi kullanmayı gösterir."
-services: 
+title: Uzaktan izleme çözümü - Azure aygıt benzetim | Microsoft Docs
+description: Bu öğretici ile Uzaktan izleme Çözüm Hızlandırıcısı aygıt benzeticisi kullanmayı gösterir.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="create-a-new-simulated-device"></a>Yeni bir sanal cihaz oluşturma
+# <a name="create-a-new-simulated-device"></a>Yeni bir simülasyon cihazı oluşturun
 
-Bu öğretici, önceden yapılandırılmış Uzaktan izleme çözümü, aygıt benzeticisi mikro özelleştirmek nasıl gösterir. Aygıt benzeticisi özelliklerini göstermek için Bu öğretici Contoso IOT uygulamada iki senaryo kullanır.
+Bu öğretici, Uzaktan izleme Çözüm Hızlandırıcısı, aygıt benzeticisi mikro özelleştirmeyi gösterir. Aygıt benzeticisi özelliklerini göstermek için Bu öğretici Contoso IOT uygulamada iki senaryo kullanır.
+
+Aşağıdaki video aygıt benzeticisi mikro özelleştirme seçeneklerine genel bakış sunar:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 İlk senaryoda, Contoso yeni bir akıllı ampul aygıt test istiyor. Testleri gerçekleştirmek için aşağıdaki özelliklere sahip yeni bir sanal cihaz oluşturun:
 
@@ -38,7 +42,7 @@ Aşağıdaki tabloda, bir veri akışı olarak buluta ampul raporları veri gös
 
 | Ad   | Değerler      |
 | ------ | ----------- |
-| Durum | "on", "off" |
+| Durum | "açık", "kapalı" |
 | Sıcaklık | Derece F |
 | Çevrimiçi | TRUE, false |
 
@@ -68,7 +72,7 @@ Aşağıdaki tabloda cihaz ilk durumunu gösterir:
 
 İkinci senaryoda, yeni bir telemetri türü contoso varolan eklemek **Soğutucu** aygıt.
 
-Bu öğretici ile Uzaktan izleme önceden yapılandırılmış çözümü aygıt benzeticisi kullanmayı gösterir:
+Bu öğretici ile Uzaktan izleme Çözüm Hızlandırıcısı aygıt benzeticisi kullanmayı gösterir:
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -86,7 +90,7 @@ Aşağıdaki videoda benzetimli ve gerçek cihazları Uzaktan izleme çözümün
 
 Bu öğreticiyi izleyin, gerekir:
 
-* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
 
 * Visual Studio 2017. Visual Studio yüklü 2017 yoksa, ücretsiz indirebilirsiniz [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) sürümü.
 
@@ -221,7 +225,7 @@ Bu öğreticide, çalıştığınız **aygıt benzetimi** ve **depolama bağdaş
 1. .NET sürümü kopyalamak için **depolama bağdaştırıcısı** deposu, aşağıdaki komutu çalıştırın:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     Cihaz benzetimi hizmeti depolama bağdaştırıcısı hizmeti Azure Cosmos DB hizmete bağlanmak için kullanır. Uzaktan izleme çözümü sanal cihaz yapılandırma verilerini Cosmos DB veritabanında depolar.
@@ -260,7 +264,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 
     | Kaynak                      | Hedef                   |
     | --------------------------- | ----------------------------- |
-    | chiller-01.json             | lightbulb-01.json             |
+    | chiller-01.json             | Ampul 01.json             |
     | komut dosyalarını/Soğutucu-01-state.js | komut dosyalarını/ampul-01-state.js |
     | yeniden başlatma/betikleri-method.js    | SwitchOn/betikleri-method.js    |
 
@@ -289,10 +293,10 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -474,7 +478,7 @@ Test sırasında çözümü arasında bağlantı sanal cihaz sayısını sınır
 
     ![Bağlı aygıt sayısı](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. İki sanal cihazlarınızın sıcaklık grafik görüntüler:
+1. Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. Sanal cihazlarınızın sıcaklık grafik görüntüler:
 
     ![Sıcaklık telemetri](media/iot-suite-remote-monitoring-test/telemetry.png)
 
@@ -532,9 +536,9 @@ Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul
     publish.cmd
     ```
 
-1. Karşıya yükleme doğrulamak için gidin [https://hub.docker.com/](https://hub.docker.com/). Bulun, **ampul** depo ve **ayrıntıları**. Ardından **etiketleri**:
+1. Karşıya yükleme doğrulamak için gidin [ https://hub.docker.com/ ](https://hub.docker.com/). Bulun, **ampul** depo ve **ayrıntıları**. Ardından **etiketleri**:
 
-    ![Docker hub](media/iot-suite-remote-monitoring-test/dockerhub.png)
+    ![Docker hub'a](media/iot-suite-remote-monitoring-test/dockerhub.png)
 
     Eklenen komut dosyaları **sınama** görüntüye etiketi.
 
@@ -607,7 +611,7 @@ Aşağıdaki adımlar yerleşik tanımlama dosyaları bulmak nasıl gösterir **
 1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip `data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** aygıt türü şunlardır:
 
     * **data/devicemodels/chiller-01.json**
-    * **data/devicemodels/scripts/chiller-01-state.js**
+    * **Data/devicemodels/scripts/chiller-01-State.js**
 
 ### <a name="specify-the-new-telemetry-type"></a>Yeni telemetri türünü belirtin
 

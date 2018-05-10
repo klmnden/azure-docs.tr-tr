@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa24c3197af28101b2f3a0acda6d0ae81b9e96d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma
 
@@ -50,7 +50,7 @@ Verilerinizde ilgili çeşitli etkenlere bağlı olarak Azure SQL dizin oluştur
 |----------|---------|
 | Tek bir tablo veya Görünüm veri kaynağı | Veriler arasında birden çok tablo dağılmış, verileri tek bir görünüm oluşturabilirsiniz. Bir görünümü kullanıyorsanız, dizin artımlı değişiklikler ile yenilemek için SQL Server'ın tümleşik değişiklik algılama kullanmanız mümkün olmayacaktır. Daha fazla bilgi için bkz: [yakalama değiştirilen ve silinen satır](#CaptureChangedRows) aşağıda. |
 | Veri türlerinin uyumlu olduğundan | Bir Azure Search dizini çoğu ancak tüm SQL türleri desteklenir. Bir listesi için bkz: [veri türlerini eşleştirme](#TypeMapping). |
-| Gerçek zamanlı veri eşitleme gerekli değil | Bir dizin oluşturucu tablonuz en fazla beş dakikada yeniden dizin oluşturabilirsiniz. Veri değişikliklerini sık sık ve değişiklikleri dizinde saniye ya da tek dakikalar içinde yansıtılması gerekiyorsa kullanmanızı öneririz [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) veya [.NET SDK'sı](search-import-data-dotnet.md) güncelleştirilmiş satırları doğrudan göndermek için. |
+| Gerçek zamanlı veri eşitleme gerekli değil | Bir dizin oluşturucu tablonuz en fazla beş dakikada yeniden dizin oluşturma. Veri değişikliklerini sık sık ve değişiklikleri dizinde saniye ya da tek dakikalar içinde yansıtılması gerekiyorsa kullanmanızı öneririz [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) veya [.NET SDK'sı](search-import-data-dotnet.md) güncelleştirilmiş satırları doğrudan göndermek için. |
 | Artımlı dizin mümkündür | Büyük veri kümesi ve bir zamanlamaya göre dizin oluşturucuyu çalıştırmak için plan varsa, Azure Search verimli bir şekilde yeni, değiştirilen veya silinen satır belirlemek mümkün olması gerekir. İsteğe bağlı (zamanlamada değil) dizin oluşturma veya 100. 000'den az satır dizinini olmayan Artımlı dizin oluşturma işlemi yalnızca izin verilir. Daha fazla bilgi için bkz: [yakalama değiştirilen ve silinen satır](#CaptureChangedRows) aşağıda. |
 
 > [!NOTE] 
@@ -178,7 +178,7 @@ Eklemek, değiştirmek veya varolan bir dizin oluşturucu için bir zamanlama ku
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Yeni, değiştirilen ve silinen satır yakalama
 
-Azure Search kullanan **Artımlı dizin** tüm tabloyu yeniden dizin veya bir dizin oluşturucu her çalıştığında görüntülemek zorunda kalmamak için. Azure arama, iki Artımlı dizin desteklemek için algılama ilkeleri değiştirme sağlar. 
+Azure Search kullanan **Artımlı dizin** tüm tabloyu yeniden dizin oluşturma veya bir dizin oluşturucu her çalıştığında görüntülemek zorunda kalmamak için. Azure arama, iki Artımlı dizin desteklemek için algılama ilkeleri değiştirme sağlar. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL ile tümleştirilen değişiklik izleme ilkesinin
 SQL veritabanınız destekliyorsa [değişiklik izleme](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), kullanmanızı öneririz **SQL tümleşik değişiklik izleme İlkesi**. Bu en verimli bir ilkedir. Ayrıca, bir açık "geçici silme" sütunu tablonuza eklemek zorunda kalmadan silinen satır tanımlamak Azure Search sağlar.

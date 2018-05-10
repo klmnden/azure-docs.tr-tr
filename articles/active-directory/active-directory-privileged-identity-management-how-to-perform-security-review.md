@@ -1,25 +1,23 @@
 ---
-title: "Bir erişim incelemesi gerçekleştirme | Microsoft Docs"
-description: "Azure Privileged Identity Management uygulaması ile incelemesi gerçekleştirme öğrenin."
+title: Bir erişim incelemesi gerçekleştirme | Microsoft Docs
+description: Azure Privileged Identity Management uygulaması ile incelemesi gerçekleştirme öğrenin.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: d9885fc286e31100e14a5c8a1001df079829dcbe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b3cc71fc11a567c0c5c62b220e25be4169bd8348
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management erişim incelemesi gerçekleştirme
 Azure Active Directory (AD) Privileged Identity Management, kuruluşların kaynaklarına Azure AD'de ve Office 365 veya Microsoft Intune gibi diğer Microsoft online services ayrıcalıklı erişimi nasıl yönetmek basitleştirir.  
@@ -33,7 +31,7 @@ Azure AD Privileged Identity Management (PIM) uygulamasında kullanabileceğiniz
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Azure portalı ve burada şunları yapacaksınız, dizin seçin, sağ köşedeki kullanıcı adınıza işletim seçin.
-3. Seçin **tüm hizmetleri** ve aramak için filtre textbox kullanın **Azure AD Privileged Identity Management**.
+3. **Tüm hizmetler** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
 4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
 
 ## <a name="approve-or-deny-access"></a>Onaylamak veya erişim engelle

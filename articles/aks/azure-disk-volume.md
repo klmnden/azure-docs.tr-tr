@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 33d9a01f063ee8ad531a3f7e01dcfbf1c4ba8901
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Azure diskleri birimlerle
 
-Kapsayıcı tabanlı uygulamalara erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek çoğunlukla gerekir. Azure diskleri bu dış veri deposu olarak kullanılabilir. Bir Azure kapsayıcı hizmeti (AKS) kümesindeki Kubernetes birimi olarak Azure bir diski kullanarak bu makale ayrıntıları.
+Kapsayıcı tabanlı uygulamalara erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek çoğunlukla gerekir. Azure diskleri bu dış veri deposu olarak kullanılabilir. Bir Azure Kubernetes hizmet (AKS) kümesindeki Kubernetes birimi olarak Azure bir diski kullanarak bu makale ayrıntıları.
 
 Kubernetes birimleri hakkında daha fazla bilgi için bkz: [Kubernetes birimleri][kubernetes-volumes].
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Kullanım [az disketi] [ az-disk-create] Azure diski oluşturmak için komutu. 
+Kullanım [az disketi] [ az-disk-create] Azure diski oluşturmak için komutu.
 
 Bu örneği kullanarak, güncelleştirme `--resource-group` kaynak grubu adını ve `--name` için tercih ettiğiniz bir ad.
 
@@ -58,7 +58,7 @@ Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir
 
 ## <a name="mount-disk-as-volume"></a>Disk birimi olarak bağlama
 
-Azure diski birim kapsayıcı spec yapılandırarak, pod bağlayın. 
+Azure diski birim kapsayıcı spec yapılandırarak, pod bağlayın.
 
 Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` yeni oluşturulan disk adını ve `diskURI` disk kimliğiyle Ayrıca, not edin `mountPath`, hangi Azure diski takılı pod yolu budur.
 

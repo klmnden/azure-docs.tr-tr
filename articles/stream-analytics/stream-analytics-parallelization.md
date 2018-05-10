@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics içinde sorgu paralelleştirme yararlanın
 Bu makalede Azure akış analizi paralelleştirme yararlanmak nasıl gösterir. Giriş bölümlerini yapılandırma ve analizi sorgu tanımı ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
@@ -35,7 +35,15 @@ Tüm Azure Stream Analytics giriş bölümleme yararlanabilirsiniz:
 
 ### <a name="outputs"></a>Çıkışlar
 
-Akış Analizi ile çalışırken, çoğu çıktı havuzlarını için bölümlendirme, yararlanabilirsiniz. Çıktı bölümleme hakkında daha fazla bilgi edinilebilir [çıkış sayfasının bölümünde bölümleme](stream-analytics-define-outputs.md#partitioning).
+Akış Analizi ile çalışırken, çıktılarında bölümleme yararlanabilirsiniz:
+-   Azure Data Lake Storage
+-   Azure İşlevleri
+-   Azure Tablosu
+-   Blob storage'ı (bölüm anahtarı açıkça ayarlayabilirsiniz)
+-   CosmosDB (bölüm anahtarı açıkça ayarlamak için gereklidir)
+-   EventHub (bölüm anahtarı açıkça ayarlamak için gereklidir)
+-   IOT hub'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
+-   Service Bus
 
 Powerbı, SQL ve SQL veri ambarı çıkışları bölümleme desteklemez. Ancak, yine giriş bölümünde açıklandığı gibi bölüm [Bu bölümde](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ Bir *utandırıcı derecede paralel* iş Azure akış analizi sahibiz en ölçek
 
 3. Bizim çıkış çoğunu bölümleme yararlanabilirsiniz, ancak, bir çıktı türü kullanırsanız, bölümleme desteklemiyor işinizi tam olarak paralel olmayacaktır. Başvurmak [çıkış bölüm](#outputs) daha fazla ayrıntı için.
 
-4. Giriş bölüm sayısı çıktı bölüm sayısı eşit olmalıdır. BLOB Depolama çıkış bölümleri şu anda desteklemiyor. Ancak Yukarı Akış sorgunun bölümleme düzeni devralır Tamam, olmasıdır. Örnek bir tam olarak paralel iş izin bölüm değerler şunlardır:  
+4. Giriş bölüm sayısı çıktı bölüm sayısı eşit olmalıdır. BLOB Depolama çıkış bölümleri destekleyebilir ve Yukarı Akış sorgunun bölümleme düzeni devralır. Blob Depolama belirtilirse, veri için bir bölüm anahtarı giriş bölüm başına bölümlenmiş, böylece hala tam paralel sonucudur. Örnek bir tam olarak paralel iş izin bölüm değerler şunlardır:
 
    * 8 olay hub'ı giriş bölümleri ve 8 olay hub'ı bölümleri çıkış
-   * 8 olay hub'ı giriş bölümleri ve blob depolama çıktı  
-   * 8 IOT hub giriş bölümleri ve 8 olay hub'ı çıkış bölümleri
-   * 8 blob depolama giriş bölümleri ve blob depolama çıkış  
-   * Depolama giriş bölümleri ve 8 olay hub'ı çıkış bölümleri 8 blob  
+   * 8 olay hub'ı giriş bölümleri ve blob depolama çıktı
+   * 8 olay hub'ı giriş bölümleri ve rasgele önem düzeyi ile özel bir alan tarafından bölümlenmiş blob depolama çıktı
+   * 8 blob depolama giriş bölümleri ve blob depolama çıkış
+   * Depolama giriş bölümleri ve 8 olay hub'ı çıkış bölümleri 8 blob
 
 Aşağıdaki bölümlerde utandırıcı derecede paralel bazı örnek senaryolar açıklanmaktadır.
 

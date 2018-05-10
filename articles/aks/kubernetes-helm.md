@@ -1,6 +1,6 @@
 ---
-title: "Azure üzerinde Kubernetes Helm ile kapsayıcıları dağıtın"
-description: "Kapsayıcıları AKS Kubernetes kümesinde dağıtmak için Helm paketleme Aracı'nı kullanın"
+title: Azure üzerinde Kubernetes Helm ile kapsayıcıları dağıtın
+description: Kapsayıcıları AKS Kubernetes kümesinde dağıtmak için Helm paketleme Aracı'nı kullanın
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6a8565c70097b3ac9a419b652a652824adebba88
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c46bd64b3fec06e4ba4050542f27ba3e70862e45
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-helm-with-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) Helm kullanın
+# <a name="use-helm-with-azure-kubernetes-service-aks"></a>Helm Azure Kubernetes hizmeti (AKS) kullanın
 
 [Helm] [ helm] yükleme ve kullanım ömrü boyunca Kubernetes uygulamaları yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır. Linux paketi yöneticileri gibi benzer *APT* ve *Yum*, Helm önceden yapılandırılmış Kubernetes kaynakların paketleri Kubernetes grafikler, yönetmek için kullanılır.
 

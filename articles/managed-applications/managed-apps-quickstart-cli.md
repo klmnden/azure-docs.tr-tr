@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI ile Azure yönetilen uygulaması oluşturma | Microsoft Docs"
-description: "Kuruluşunuzun üyelerine yönelik bir Azure yönetilen uygulaması oluşturmayı gösterir."
+title: Azure CLI ile Azure yönetilen uygulaması oluşturma | Microsoft Docs
+description: Kuruluşunuzun üyelerine yönelik bir Azure yönetilen uygulaması oluşturmayı gösterir.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Azure CLI ile Azure yönetilen uygulaması oluşturma ve dağıtma
 
@@ -75,7 +75,7 @@ Komut tamamlandığında, kaynak grubunuzda bir yönetilen uygulamanız olur.
 Yukarıdaki örnekte kullanılan parametrelerden bazıları şunlardır:
 
 * **resource-group**: Yönetilen uygulama tanımının oluşturulduğu kaynak grubunun adı.
-* **lock-level**: Yönetilen kaynak grubuna yerleştirilen kilit türü. Müşterinin bu kaynak grubunda istenmeyen işlemler gerçekleştirmesini engeller. ReadOnly şu anda desteklenen tek kilit düzeyidir. ReadOnly belirtildiğinde müşteri yalnızca yönetilen kaynak grubunda mevcut olan kaynakları okuyabilir.
+* **lock-level**: Yönetilen kaynak grubuna yerleştirilen kilit türü. Müşterinin bu kaynak grubunda istenmeyen işlemler gerçekleştirmesini engeller. ReadOnly şu anda desteklenen tek kilit düzeyidir. ReadOnly belirtildiğinde müşteri yalnızca yönetilen kaynak grubunda mevcut olan kaynakları okuyabilir. Yönetilen kaynak grubuna erişim izni verilen yayımcı kimlikleri kilitli olmaz.
 * **authorizations**: Yönetilen kaynak grubuna izin vermek için kullanılan sorumlu kimliğini ve rol tanımı kimliğini açıklar. `<principalId>:<roleDefinitionId>` biçiminde belirtilir. Bu özellik için birden çok değer de belirtilebilir. Birden çok değer gerekirse `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>` biçiminde belirtilmelidir. Çoklu değerler boşlukla ayrılır.
 * **package-file-uri**: Gerekli dosyaları içeren .zip paketinin konumu. Paket en azından **mainTemplate.json** ve **createUiDefinition.json** dosyalarını içerir. **mainTemplate.json**, yönetilen uygulamanın bir parçası olarak sağlanan Azure kaynaklarını tanımlar. Şablon normal bir Resource Manager şablonundan farklı değildir. **createUiDefinition.json**, portal üzerinden yönetilen uygulamayı oluşturan kullanıcılar için kullanıcı arabirimi oluşturur.
 

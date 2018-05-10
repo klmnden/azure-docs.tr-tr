@@ -1,9 +1,9 @@
 ---
-title: "Akıllı algılama - performans anormalliklerini | Microsoft Docs"
-description: "Application Insights, uygulama telemetri akıllı çözümleme yapar ve olası sorunları sizi uyarır. Bu özellik Kurulum gerekir."
+title: Akıllı algılama - performans anormalliklerini | Microsoft Docs
+description: Application Insights, uygulama telemetri akıllı çözümleme yapar ve olası sorunları sizi uyarır. Bu özellik Kurulum gerekir.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anormalliklerini
 
@@ -42,7 +42,7 @@ Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelme
 
 ## <a name="how-do-i-fix-it"></a>Bunu nasıl düzeltirim?
 
-Bildirimleri tanılama bilgileri içerir. Örnek aşağıda verilmiştir:
+Bildirimleri tanılama bilgileri içerir. Bir örneği aşağıda verilmiştir:
 
 
 ![Sunucu yanıt süresi düşüşü algılama bir örneği burada verilmiştir](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
@@ -87,7 +87,7 @@ E-postaları akıllı algılamaların performans anormalliklerini hakkında bir 
   * Hayır.  Olağan dışı düşünebilirsiniz her davranışı algılama için yürütme yok.
 
 
-* *Bir anımsatıcı, herhangi bir bildirim yanıtı yapmayın, alacak mıyım?*
+* *Yanıt olarak bir bildirim hiçbir şey yapmayın, anımsatıcı alırsınız?*
   * Hayır, her sorun hakkında bir ileti yalnızca bir kez alın. Sorun devam ederse akıllı dikey akış algılama, güncelleştirilir.
 * *I e-posta kesildi. Portalda bildirimleri nereden bulabilirim?*
   * Uygulamanıza Application Insights bakış tıklatın **akıllı algılama** döşeme. Var. tüm bildirimleri 90 gün geri Bul mümkün olur.
@@ -132,7 +132,7 @@ Yanıt süresi düşüşü bildirimi size bildirir:
 * Sorunu tanılamak yardımcı olması için bağlar.
   * Profil Oluşturucu izlemeleri işlemi zamanın nerede harcandığına görüntülemenize yardımcı olur (bağlantıyı profil oluşturucu izleme örnekler algılama süre boyunca bu işlem için toplanan kullanılabilir). 
   * Performans raporları Gezgini'nde ölçüm burada dilim ve bu işlem için zaman aralığı/filtreleri inin.
-  * Belirli çağrıları özelliklerini görüntülemek bu çağrıları için arama yapın.
+  * Bu çağrı belirli arama özelliklerini görüntülemek arama yapın.
   * Hata raporları - durumunda > 1 Bu anlamına olduğunu hatalar oldu performansın düşmesine katkıda bulunan bu işlemde sayısı.
 
 ## <a name="dependency-duration-degradation"></a>Bağımlılık süresi düşüşü
@@ -152,7 +152,7 @@ Size bildirir dikkat edin:
 * Sorunu tanılamak yardımcı olması için bağlantılar
   * Bu bağımlılığı ölçüm Explorer'da performans raporları
   * Bu bağımlılık çağrılarını çağrıları özelliklerini görüntülemek için arama
-  * Hata raporları - durumunda > 1 vardı bu ortalama süre düşmesine katkıda bulunan algılama dönemde bağımlılık çağrıları başarısız sayısı. 
+  * Hata raporları - süre düşmesine katkıda bulunan algılama dönem sayısı > yani başarısız bağımlılık vardı 1 çağırırsa. 
   * Bu bağımlılık süresi ve sayısını hesaplamak sorgularıyla Analytics açın  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Yavaş gerçekleştirme desenleri akıllı algılama 

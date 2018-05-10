@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme SAP bulut platformu kimlik doğrulama ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve SAP bulut platformu kimlik doğrulama arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme SAP bulut platformu kimlik doğrulama ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve SAP bulut platformu kimlik doğrulama arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 69a8eba2e099e9333d19d139fb5af503fd582dda
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Öğretici: SAP bulut platformu kimlik doğrulama Azure Active Directory Tümleştirme
 
@@ -32,7 +32,7 @@ SAP bulut platformu kimlik doğrulaması Azure AD ile tümleştirdiğinizde, aş
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 SAP bulut platformu kimlik doğrulaması ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -126,21 +126,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Uygulamada yapılandırmak istiyorsanız, **IDP** modunda başlatılan **SAP bulut Platform kimliği kimlik doğrulaması etki alanı ve URL'leri** bölümünde **tanımlayıcısı** kutusunda aşağıdaki desende bir URL yazın: `https://<entity-id>.accounts.ondemand.com`.  
+3. Uygulamada yapılandırmak istiyorsanız, **IDP** modunda başlatılan **SAP bulut Platform kimliği kimlik doğrulaması etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:  
 
     ![SAP bulut Platform kimliği kimlik doğrulama etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek tanımlayıcısı ile güncelleştirin. Kişi [SAP bulut Platform kimliği kimlik doğrulaması istemci destek ekibi](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) bu değeri alınamıyor. Bu değer anlamadığınız, SAP bulut platformu kimlik doğrulama belgeleri hakkında okuyun [Kiracı SAML 2.0 yapılandırma](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+    a. İçinde **tanımlayıcısı** kutusunda, aşağıdaki desende bir URL yazın: `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. Uygulamada yapılandırmak istiyorsanız, **SP** başlatılan modu, select **Göster Gelişmiş URL ayarları**. 
+    b. İçinde **yanıt URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [SAP bulut Platform kimliği kimlik doğrulaması istemci destek ekibi](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) bu değerleri almak için. Tanımlayıcı değeri anlamadığınız, SAP bulut platformu kimlik doğrulama belgeleri hakkında okuyun [Kiracı SAML 2.0 yapılandırma](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+
+4. Uygulamada yapılandırmak istiyorsanız, **SP** başlatılan modu, select **Göster Gelişmiş URL ayarları**.
 
     ![SAP bulut Platform kimliği kimlik doğrulama etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    İçinde **oturum üzerinde URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<entity-id>.accounts.ondemand.com/admin`.
+    İçinde **oturum üzerinde URL'si** kutusunda, aşağıdaki desende bir URL yazın: `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [SAP bulut Platform kimliği kimlik doğrulaması istemci destek ekibi](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) bu değeri alınamıyor.
+    > [!NOTE]
+    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Oturum açma, belirli iş uygulama URL'sini kullanın. Kişi [SAP bulut Platform kimliği kimlik doğrulaması istemci destek ekibi](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) tüm şüpheli varsa.
 
 5. İçinde **SAML imzalama sertifikası** bölümünde, select **meta veri XML**. Ardından meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -289,4 +293,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

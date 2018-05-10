@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric en iyi güvenlik uygulamaları | Microsoft Docs"
-description: "Bu makalede Azure Service Fabric güvenlik için en iyi yöntemler kümesi sağlar."
+title: Azure Service Fabric en iyi güvenlik uygulamaları | Microsoft Docs
+description: Bu makalede Azure Service Fabric güvenlik için en iyi yöntemler kümesi sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric en iyi güvenlik uygulamaları
 Hızlı, kolay ve düşük maliyetli, Azure'da bir uygulamayı dağıtma. Bulut uygulamanızı üretime dağıtmadan önce uygulamanızda güvenli küme uygulamak için önemli ve önerilen en iyi yöntemler bizim listesini gözden geçirin.
@@ -126,7 +126,7 @@ Her aktör .NET türünün bir örneği bir .NET nesnesidir şekilde özdeş bir
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric için SSL yapılandırma
 Sunucu kimlik doğrulama işlemi [kimliğini doğrulayan](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) bir yönetim istemcisi küme yönetim Uç noktalara. Yönetim istemcisi ardından gerçek kümeye Bahsediyor tanır. Bu sertifika ayrıca sağlar bir [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) HTTPS yönetim API'si ve Service Fabric Explorer HTTPS üzerinden.
-Özel etki alanı adı, kümeniz için edinmeniz gerekir. Bir sertifika yetkilisinden bir sertifika istediğinde, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
+Kümeniz için özel bir etki alanı adı edinmeniz gerekir. Bir sertifika yetkilisinden bir sertifika istediğinde, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
 
 Bir uygulama için SSL yapılandırmak için önce bir CA tarafından imzalanmış bir SSL sertifikası edinmeniz gerekir. SSL güvenlik amacıyla sertifikaları veren güvenilen bir üçüncü taraf CA olduğunda. Bir SSL sertifikası yoksa, bir SSL sertifikalarını sattığı bir şirketten edinmeniz gerekir.
 

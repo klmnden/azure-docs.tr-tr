@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: e5b289b2be982653461c4f5b933e1ec444fa9716
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure üzerinde Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makinede (VM) Visual Studio kullanarak herhangi bir şey için bir yukarı ve çalışan geliştirme ortamı gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -29,12 +29,13 @@ Azure’da yeni misiniz? [Ücretsiz bir Azure hesabı oluşturun](https://azure.
 ## <a name="what-configurations-and-versions-are-available"></a>Hangi yapılandırmaları ve sürümleri kullanılabilir?
 Görüntüleri en son ana sürüm, Visual Studio 2017 ve Visual Studio 2015 için Azure Marketi'nde bulunabilir. Her ana sürümü için yayınlanmış (RTW) sürümü ve en son güncelleştirilmiş sürümlerine bakın. Bu sürümlerin her biri, Visual Studio Enterprise ve Visual Studio Community sürümleri sunar. Bu görüntüler en az her ay en son Visual Studio ve Windows güncelleştirmeleri içerecek şekilde güncelleştirildi. Görüntüleri adları aynı kalsa da her görüntünün açıklaması yüklü ürün sürümü ve görüntünün "itibariyle" tarihini içerir.
 
-| Yayın sürümü              | Sürümleri            | Ürün sürümü     |
-|:-----------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: En son (sürüm 15,5) |    Enterprise, Community     |      Sürüm 15.6.0     |
-|         Visual Studio 2017: RTW           |    Enterprise, Community     |      Sürüm 15.0.10    |
-|   Visual Studio 2015: En son (güncelleştirme 3)   |    Enterprise, Community     |  Sürüm 14.0.25431.01  |
-|         Visual Studio 2015: RTW           |              None            | (Bakım için süresi) |
+| Yayın sürümü                                              | Sürümleri                     |     Ürün sürümü     |
+|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017: En son (sürüm 15.7)                    |    Kuruluş, topluluk     |      Sürüm 15.7.0     |
+| Visual Studio 2017: En son Önizleme (sürüm 15,8, Preview 1) |    Kuruluş, topluluk     |      Sürüm 15.8.1     |
+|         Visual Studio 2017: RTW                              |    Kuruluş, topluluk     |      Sürüm 15.0.13    |
+|   Visual Studio 2015: En son (güncelleştirme 3)                      |    Kuruluş, topluluk     |  Sürüm 14.0.25431.01  |
+|         Visual Studio 2015: RTW                              |             None             | (Bakım için süresi) |
 
 > [!NOTE]
 > İlke bakım Microsoft uygun olarak, bakım için Visual Studio 2015 yayınlanan özgün (RTW) sürümünün süresi sona erdi. Visual Studio 2015 güncelleştirme 3, Visual Studio 2015 ürün çizgi sunulan yalnızca kalan sürümüdür.
@@ -46,7 +47,7 @@ Her görüntü önerilen özellik için Visual Studio sürümü kümesini içeri
 
 * Tüm kullanılabilir iş yükleri, her iş yükü de dahil olmak üzere isteğe bağlı bileşenler önerilir
 * .NET 4.6.2 ve 4.7 SDK'lar, hedefleme paketleri ve geliştirici araçları
-* Visual F#
+* Visual F #
 * Visual Studio için GitHub uzantısı
 * LINQ-SQL araçları
 

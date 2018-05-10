@@ -1,12 +1,12 @@
 ---
-title: "Azure işlem güvenliği | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS), hizmetlerinin ve nasıl çalıştığı hakkında bilgi edinin."
+title: Azure işlem güvenliği | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS), hizmetlerinin ve nasıl çalıştığı hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security"></a>Azure işlem güvenliği
 ## <a name="introduction"></a>Giriş
@@ -193,7 +193,7 @@ Bu günlükler bir kaynak tarafından gösterilen ve bu kaynağın işlemi hakk�
 
 Örneğin, Windows olayı sistem günlükleri tanılama günlüğünün VM'ler ve blob, tablo için bir kategori, ve sıra günlükleri tanılama günlüklerini kategorileri depolama hesapları için.
 
-Tanılama günlüklerini farklı [etkinlik günlüğü (önceki adıyla denetim günlüğü veya işlem günlüğü olarak bilinir)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Etkinlik günlüğü aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri işlemleri kaynağınız kendisini gerçekleştirilen bir anlayış sağlar.
+Tanılama günlüklerini farklı [etkinlik günlüğü (önceki adıyla denetim günlüğü veya işlem günlüğü olarak bilinir)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Etkinlik günlüğü aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar.
 
 ### <a name="metrics"></a>Ölçümler
 

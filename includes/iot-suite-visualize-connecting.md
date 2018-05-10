@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 8eada6b88c320396b30ecdeb96c95e4ec61679ce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
 Cihazınızı gönderilen telemetriyi görüntüleyebilir **aygıtları** çözümdeki sayfası.
@@ -41,4 +57,4 @@ Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme ç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Makaleyi [önceden yapılandırılmış Uzaktan izleme çözümü özelleştirme](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) önceden yapılandırılmış çözümü özelleştirme için bazı yollar açıklanmaktadır.
+Makaleyi [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) Çözüm Hızlandırıcısı özelleştirmek için bazı yöntemleri açıklar.

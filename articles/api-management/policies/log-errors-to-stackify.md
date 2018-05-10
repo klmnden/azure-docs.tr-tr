@@ -1,11 +1,11 @@
 ---
-title: "Azure API management ilke örnek - Stackify gönderme hataları günlüğe kaydetme için | Microsoft Docs"
-description: "Azure API management ilke örnek - gösteren hatalar için günlüğü için Stackify göndermek için bir hata günlük kaydı ilkesi ekleme..."
+title: Azure API management ilke örnek - Stackify gönderme hataları günlüğe kaydetme için | Microsoft Docs
+description: Azure API management ilke örnek - gösteren hatalar için günlüğü için Stackify göndermek için bir hata günlük kaydı ilkesi ekleme...
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 34319e43789d0f2c7d3e48a0277926eb598e88fc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 86408e77c7f80a133e514d399cd3ccefe70d0cee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Hatalar için günlüğü Stackify için Gönder
 
@@ -26,8 +26,6 @@ Bu makalede, hatalar için günlüğü için Stackify göndermek için bir hata 
 ## <a name="policy"></a>İlke
 
 Koda Yapıştır **hata** bloğu.
-
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Log errors to Stackify.policy.xml)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

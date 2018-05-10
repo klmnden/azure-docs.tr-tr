@@ -3,7 +3,7 @@ title: Azure Cosmos DB API'si ile mongoimport ve mongorestore MongoDB için kull
 description: Mongoimport ve mongorestore bir API MongoDB hesabı için veri almak için nasıl kullanılacağını öğrenin
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Alma MongoDB veri 
 
@@ -28,7 +28,7 @@ MongoDB’deki verileri, MongoDB’ye yönelik bir API ile kullanılacak bir Azu
 * Ya da indirme *mongoimport.exe* veya *mongorestore.exe* gelen [MongoDB Yükleme Merkezi'nden](https://www.mongodb.com/download-center).
 * [MongoDB için API bağlantı dizenizi](connect-mongodb-account.md) alın.
 
-Veri adresinden aldığınız ve Azure Cosmos DB ile kullanmayı planlıyorsanız, kullanmanız gereken [veri geçiş aracı](import-data.md) veri almak için.
+Veri adresinden aldığınız ve Azure Cosmos DB SQL API'si ile kullanmayı planlıyorsanız, kullanmanız gereken [veri geçiş aracı](import-data.md) veri almak için.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -39,7 +39,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Verimliliğini artırmak: veri geçişinizi süresini ayarladığınız Koleksiyonlarınız için işleme miktarına bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Performansı artırma hakkında daha fazla bilgi için [Azure portal](https://portal.azure.com), bkz: [performans düzeyleri ve Azure Cosmos veritabanı fiyatlandırma katmanlarına](performance-levels.md).
+* Verimliliğini artırmak: ayarladığınız tek tek bir koleksiyon için işleme miktarı veya koleksiyonları kümesi, veri geçiş süresini bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Performansı artırma hakkında daha fazla bilgi için [Azure portal](https://portal.azure.com), bkz: [performans düzeyleri ve Azure Cosmos veritabanı fiyatlandırma katmanlarına](performance-levels.md).
 
 * SSL'yi etkinleştirin: Azure Cosmos DB sıkı güvenlik gereksinimlerine ve standartları vardır. Hesabınız ile etkileşim kurarken SSL'yi emin olun. Makalenin kalanında yordamlarda mongoimport ve mongorestore için SSL etkinleştirmek nasıl içerir.
 
@@ -47,10 +47,11 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 1. İçinde [Azure portal](https://portal.azure.com), sol bölmede **Azure Cosmos DB** girişi.
 2. İçinde **abonelikleri** bölmesinde, hesabınızın adını seçin.
-3. İçinde **bağlantı dizesi** dikey penceresinde tıklatın **bağlantı dizesi**.  
-Sağ bölmede başarıyla hesabınıza bağlanmak için gereken tüm bilgileri içerir.
+3. İçinde **bağlantı dizesi** dikey penceresinde tıklatın **bağlantı dizesi**.
 
-    ![Bağlantı dizesi dikey penceresi](./media/mongodb-migrate/ConnectionStringBlade.png)
+   Sağ bölmede başarıyla hesabınıza bağlanmak için gereken tüm bilgileri içerir.
+
+   ![Bağlantı dizesi dikey penceresi](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Mongoimport kullanarak API MongoDB için Veri Al
 
@@ -80,9 +81,27 @@ Apı'nize MongoDB hesabı için verileri geri yüklemek için alma işlemi yür�
 
 1. Önceden oluşturma ve koleksiyonlarınızı ölçeği:
         
-    * Varsayılan olarak, Azure Cosmos DB 1.000 istek birimleri (RUs) ile yeni bir MongoDB koleksiyon sağlar. Mongoimport, mongorestore veya mongomirror kullanarak Geçişe başlamadan önce tüm koleksiyonlardan önceden oluştur [Azure portal](https://portal.azure.com) veya MongoDB sürücüleri ve araçları. Koleksiyonunuz 10 GB'den büyükse oluşturduğunuzdan emin olun bir [parçalı/bölümlenmiş koleksiyonu](partition-data.md) uygun parça anahtara sahip.
+    * Varsayılan olarak, Azure Cosmos DB 1.000 istek birimleri (RUs/sn) ile yeni bir MongoDB koleksiyon sağlar. Mongoimport, mongorestore veya mongomirror kullanarak Geçişe başlamadan önce tüm koleksiyonlardan önceden oluştur [Azure portal](https://portal.azure.com) veya MongoDB sürücüleri ve araçları. Koleksiyonunuz 10 GB'den büyükse oluşturduğunuzdan emin olun bir [parçalı/bölümlenmiş koleksiyonu](partition-data.md) uygun parça anahtara sahip.
 
-    * Gelen [Azure portal](https://portal.azure.com), tek bölümlü bir koleksiyon için 1.000 RUs ve geçiş için yalnızca parçalı bir koleksiyon için 2.500 RUs koleksiyonlarınızı verimliliğini artırmak. Daha yüksek işleme ile azaltma önlemek ve daha kısa sürede geçirilir. Azure Cosmos DB'de saatlik faturalandırma ile maliyet tasarrufu sağlamak hemen geçişten sonra işleme azaltabilir.
+    * Gelen [Azure portal](https://portal.azure.com), 1.000 RUs saniye başına tek bölümlü bir koleksiyon için ve yalnızca geçiş için parçalı bir koleksiyon için 2.500 RUs/sn, koleksiyonları verimliliğini artırmak. Daha yüksek işleme ile azaltma önlemek ve daha kısa sürede geçirilir. Azure Cosmos DB'de saatlik faturalandırma ile maliyet tasarrufu sağlamak hemen geçişten sonra işleme azaltabilir.
+
+    * Sağlama RUs/sn ek olarak koleksiyon düzeyinde de RU/sn üst veritabanı düzeyinde koleksiyonları kümesi için sağlamanız. Bu, her koleksiyon için bir parça anahtar tanımlama yanı sıra koleksiyonlar ve veritabanını önceden oluşturma gerektirir.
+
+    * Sık kullanılan aracı, sürücü veya SDK aracılığıyla parçalı koleksiyonlar oluşturabilirsiniz. Bu örnekte, parçalı bir koleksiyon oluşturmak için Mongo kabuğunu kullanın:
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Sonuçları:
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. Tek belge yazmak için yaklaşık RU ücret Hesapla:
 
@@ -92,7 +111,7 @@ Apı'nize MongoDB hesabı için verileri geri yüklemek için alma işlemi yür�
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Çalıştırma ```db.runCommand({getLastRequestStatistics: 1})``` ve bunun gibi bir yanıtı alırsınız:
+    c. Çalıştırma ```db.runCommand({getLastRequestStatistics: 1})``` ve aşağıdaki gibi bir yanıtı alırsınız:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -111,7 +130,7 @@ Apı'nize MongoDB hesabı için verileri geri yüklemek için alma işlemi yür�
     
     a. Bu komutu kullanarak MongoDB Kabuğu'ndan ayrıntılı günlük kaydını etkinleştir: ```setVerboseShell(true)```
     
-    b. Basit bir sorgu veritabanına karşı çalışırlar: ```db.coll.find().limit(1)```. Bunun gibi bir yanıtı alırsınız:
+    b. Basit bir sorgu veritabanına karşı çalışırlar: ```db.coll.find().limit(1)```. Aşağıdaki gibi bir yanıtı alırsınız:
 
         ```
         Fetched 1 record(s) in 100(ms)

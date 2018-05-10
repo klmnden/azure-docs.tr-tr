@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -85,7 +85,7 @@ Labs ve geliştirme ortamları için Azure kullanarak kuruluşlarının hemen do
 
 [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) hizmet kullanır [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC). RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gerekli erişim düzeyini vermek rollere görevlerini ekibiniz içinde ayırabilirsiniz. RBAC önceden tanımlı rollerle (sahibi, Laboratuvar kullanıcı ve katkıda bulunan) gelir. Dış iş ortakları hakları atamak ve büyük ölçüde işbirliği basitleştirmek için bu rolleri bile kullanabilirsiniz.
 
-DevTest Labs RBAC kullandığından, bu ek, oluşturmak mümkündür [özel roller](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs yalnızca izinlerin yönetimini basitleştirir, sağlanan ortamları alma işlemini basitleştirir. Ayrıca, geliştirme ve test ortamları üzerinde çalıştığınız takım tipik diğer zorluklar uğraşmanız yardımcı olur. Bazı hazırlık gerektirir, ancak uzun vadede şeyler ekibiniz için kolaylaştırır.
+DevTest Labs RBAC kullandığından, bu ek, oluşturmak mümkündür [özel roller](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs yalnızca izinlerin yönetimini basitleştirir, sağlanan ortamları alma işlemini basitleştirir. Ayrıca, geliştirme ve test ortamları üzerinde çalıştığınız takım tipik diğer zorluklar uğraşmanız yardımcı olur. Bazı hazırlık gerektirir, ancak uzun vadede şeyler ekibiniz için kolaylaştırır.
 
 Azure DevTest Labs özellikleri içerir:
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Günlük analizi çözümüne VMware izleme (Önizleme)
 
@@ -37,7 +37,7 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 * Açıklanan işlemi kullanarak aboneliğinizi VMware izlemesi çözümü eklemek [bir yönetim çözümü eklemek](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Desteklenen VMware ESXi konakları
-vSphere ESXi ana 5.5 ve 6.0
+vSphere ESXi ana 5.5, 6.0 ve 6.5
 
 #### <a name="prepare-a-linux-server"></a>Linux sunucusunu hazırlama
 Linux işletim sistemi ESXi ana bilgisayarlardan tüm syslog verileri almak için VM oluşturun. [OMS Linux Aracısı](log-analytics-linux-agents.md) tüm ESXi syslog verileri barındırmak için koleksiyon noktasıdır. Günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için birden çok ESXi konakları kullanabilirsiniz.  
@@ -45,7 +45,7 @@ Linux işletim sistemi ESXi ana bilgisayarlardan tüm syslog verileri almak içi
    ![Syslog akışı](./media/log-analytics-vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Syslog koleksiyonunu yapılandırma
-1. Syslog iletme VSphere için ayarlayın. Syslog iletme yukarı ayarlamanıza yardımcı olması ayrıntılı bilgi için bkz: [syslog ESXi üzerinde yapılandırma 5.x ve 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Git **ESXi ana bilgisayar yapılandırması** > **yazılım** > **Gelişmiş ayarları** > **Syslog**.
+1. Syslog iletme VSphere için ayarlayın. Syslog iletme yukarı ayarlamanıza yardımcı olması ayrıntılı bilgi için bkz: [syslog ESXi 5.0 ve daha yüksek (2003322) yapılandırma](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Git **ESXi ana bilgisayar yapılandırması** > **yazılım** > **Gelişmiş ayarları** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. İçinde *Syslog.global.logHost* alan, Linux sunucunuza ve bağlantı noktası numarasını ekleyin *1514*. Örneğin, `tcp://hostname:1514` veya `tcp://123.456.789.101:1514`
 3. Syslog ESXi ana bilgisayar Güvenlik Duvarı'nı açın. **ESXi ana bilgisayar yapılandırması** > **yazılım** > **güvenlik profili** > **Güvenlik Duvarı** ve açın**Özellikleri**.  
@@ -154,7 +154,7 @@ Ek ESXi ana VM oluşturma verileri görmek istiyorsanız, bir ESXi ana bilgisaya
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-![Sorguları](./media/log-analytics-vmware/queries.png)
+![sorgu](./media/log-analytics-vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Sorguları Kaydet

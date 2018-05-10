@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: 2ccde1a4eaff391dccf1b5f624257479acb263cb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -69,7 +69,7 @@ Bir Azure Otomasyonu hesabı yoksa, bu adımı'ndaki yönergeleri izleyerek olu�
 
 ### <a name="import-data-factory-modules"></a>Veri Fabrikası modülleri alın
 
-1. Seçin **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve sahip olup olmadığınızı doğrulayın **AzureRM.Profile** ve **AzureRM.DataFactoryV2** modülleri listesinde. Bunlar bir listede değilseniz seçin **Gözat galeri** araç çubuğunda ve aşağıdaki adımlarla devam edin.
+1. Seçin **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve sahip olup olmadığınızı doğrulayın **AzureRM.Profile** ve **AzureRM.DataFactoryV2** modülleri listesinde.
 
     > [!IMPORTANT]
     > Şu anda yalnızca kullanabilirsiniz **AzureRM.DataFactoryV2 0.5.2** ve **AzureRM.Profile 4.5.0** modüller.

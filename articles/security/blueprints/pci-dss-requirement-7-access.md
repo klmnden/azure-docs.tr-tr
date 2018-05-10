@@ -1,9 +1,9 @@
 ---
-title: "Azure ödeme işleme şeması - gerekliliklerini"
+title: Azure ödeme işleme şeması - gerekliliklerini
 description: PCI DSS gereksinim 7
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: ac3afee9-0471-465d-a115-67488a1635a6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 5a3c9eac552fb96309cfa791a2e72a7102662e60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: fb16a7973022421525e13313f53f615120caa38a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="access-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için erişim gereksinimleri 
 ## <a name="pci-dss-requirement-7"></a>PCI DSS gereksinim 7
@@ -41,7 +41,7 @@ Yalnızca en az miktarda veri ve bir işi gerçekleştirmek için gereken ayrıc
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure zorlar Azure sistemi bileşenlerine, erişim denetim etkinliğini doğrulanması Azure Personel erişim ile ilgili, zaman içinde sadece sağlayarak mevcut ISMS ilkeleri yönetim erişimi, artık gerekli ve sağlamayı personel zaman erişimi iptal ediliyor Azure platformu ortamı erişme sahip bir iş gereksinimi. Müşteri ortamlara Azure erişim yüksek oranda kısıtlı ve yalnızca müşteri onay ile izin verilir.<br /><br />Yordamlar, veri merkezi yetkili çalışanlar, satıcılar, Yükleniciler ve ziyaretçiler için fiziksel erişimi kısıtlamak için oluşturulmuştur. Güvenlik doğrulaması ve iade personeli iç veri merkezi tesis geçici erişmesi için gereklidir. Fiziksel erişim günlüklerini her üç Azure ekipleri tarafından incelenen. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri ve kart sahibi verilere yalnızca işleri gibi erişmesi kişiler için sistem bileşenleri erişimi sınırlamak için sorumludur. Bu sınırlama içerir ve Azure Yönetim Portalı'na erişimi kısıtlama hesapları veya rolleri oluşturmak için izni olan belirtme yanı sıra değiştirmek veya PaaS Hizmetleri silin.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri ve kart sahibi verilere yalnızca işleri gibi erişmesi kişiler için sistem bileşenleri erişimi sınırlamak için sorumludur. Bu sınırlama içerir ve Azure Yönetim Portalı'na erişimi kısıtlama hesapları veya rolleri oluşturmak için izni olan belirtme yanı sıra değiştirmek veya PaaS Hizmetleri silin.|
 
 
 
@@ -56,7 +56,7 @@ Yalnızca en az miktarda veri ve bir işi gerçekleştirmek için gereken ayrıc
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bir kullanıcı kimliği onay işlemi belgeleme, en düşük ayrıcalık tanımlama, kart sahibi verilere erişimi kısıtlayarak, benzersiz kimlikler kullanarak, görevlerin ayrılmasını sağlayan ve artık gerekli olduğunda kullanıcı erişimini iptal etmek için sorumludur.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri tanımlama ve bir kullanıcı kimliği onay işlemi belgeleme, en düşük ayrıcalık tanımlama, kart sahibi verilere erişimi kısıtlayarak, benzersiz kimlikler kullanarak, görevlerin ayrılmasını sağlayan ve artık gerekli olduğunda kullanıcı erişimini iptal etmek için sorumludur.|
 
 
 
@@ -69,7 +69,7 @@ Yalnızca en az miktarda veri ve bir işi gerçekleştirmek için gereken ayrıc
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure geçerli şirket ve kuruluş güvenlik ilkeleri, bilgi güvenlik ilkesi de dahil olmak üzere benimsemiştir. İlkeleri alınan onaylanmış, yayımlanan ve Windows Azure için iletilen. Microsoft Azure bilgi Güvenlik İlkesi Microsoft Azure varlıklara erişimi verilen varlık sahibinin yetkilendirme ile iş gerekçesinin dayalı ve "gerek bilme" ve "en az ayrıcalıklı" ilkelerine dayalı olmasını gerektirir. İlkesi de erişim sağlama, erişim yetkilendirmesi, erişim hakları, kimlik doğrulama kaldırılmasını dahil olmak üzere erişim yönetimi yaşam döngüsü gereksinimlerini ele alır ve düzenli erişim inceler. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Kullanıcı rolleri belgelenen demo senaryoyu temel görevlerini sınırlıdır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Kullanıcı rolleri belgelenen demo senaryoyu temel görevlerini sınırlıdır.|
 
 
 
@@ -82,7 +82,7 @@ Yalnızca en az miktarda veri ve bir işi gerçekleştirmek için gereken ayrıc
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Kullanıcı rolleri belgelenen demo senaryoyu temel görevlerini sınırlıdır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı sırasında üç hesapları oluşturur: yönetici, sqladmin ve edna (tanıtım yürütme sırasında web uygulamasına oturum varsayılan kullanıcı). Kullanıcı rolleri belgelenen demo senaryoyu temel görevlerini sınırlıdır.|
 
 
 
@@ -95,7 +95,7 @@ Yalnızca en az miktarda veri ve bir işi gerçekleştirmek için gereken ayrıc
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşterileri ve kart sahibi verilere yalnızca işleri gibi erişmesi kişiler için sistem bileşenleri erişimi sınırlamak için sorumludur. Bu sınırlama içerir ve Azure Yönetim Portalı'na erişimi kısıtlama hesapları veya rolleri oluşturmak için izni olan belirtme yanı sıra değiştirmek veya PaaS Hizmetleri silin.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşterileri ve kart sahibi verilere yalnızca işleri gibi erişmesi kişiler için sistem bileşenleri erişimi sınırlamak için sorumludur. Bu sınırlama içerir ve Azure Yönetim Portalı'na erişimi kısıtlama hesapları veya rolleri oluşturmak için izni olan belirtme yanı sıra değiştirmek veya PaaS Hizmetleri silin.|
 
 
 
@@ -112,7 +112,7 @@ Bu erişim denetimi sistem şunları içermelidir:
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, yalnızca belirtilen kullanıcılar için erişimi kısıtlamak için Azure Active Directory kullanır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, yalnızca belirtilen kullanıcılar için erişimi kısıtlamak için Azure Active Directory kullanır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -125,7 +125,7 @@ Bu erişim denetimi sistem şunları içermelidir:
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore belgelerine kullanım örneği ve CHD kullanan ve CHD nasıl kullanıldığını ile ilgili bir açıklama sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore belgelerine kullanım örneği ve CHD kullanan ve CHD nasıl kullanıldığını ile ilgili bir açıklama sağlar.|
 
 
 

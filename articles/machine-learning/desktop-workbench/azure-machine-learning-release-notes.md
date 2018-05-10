@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning’deki Yenilikler
 
-Bu makalede, yeni sürümleri hakkında bilgi edinin [Azure Machine Learning Hizmetleri](../service/overview-what-is-azure-ml.md). 
+Bu makalede, yeni sürümleri hakkında bilgi edinin [Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
+
+Azure Machine Learning bu sürümle birlikte, şunları yapabilirsiniz:
++ Featurize görüntüleri ResNet 50 quantized sürümü bu özelliklerini temel alarak bir sınıflandırıcı eğitmek ve [modelin Azure üzerinde bir FPGA dağıtmak](../service/how-to-deploy-fpga-web-service.md) son derece düşük gecikme süresi inferencing için.
+
++ Hızlı bir şekilde oluşturmak ve yüksek oranda doğru machine learning ve derin öğrenme modelleri kullanarak dağıtmak [özel Azure Machine Learning paketleri](../service/reference-python-package-overview.md) aşağıdaki etki alanları için:
+  + [Bilgisayar görme](../service/how-to-build-deploy-image-classification-models.md)
+  + [Metin analizi](../service/how-to-build-deploy-text-classification-models.md)
+  + [Tahmin](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
 **Sürüm numarası**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Azure Machine Learning çalışma ekranı beşinci güncelleştirmeye Hoş Geldiniz. Aşağıdaki güncelleştirmeler çoğunu görüşlerinizi doğrudan sonuçları olarak yapılır. Lütfen geliyor kalmalarını!
+Aşağıdaki güncelleştirmeler çoğunu görüşlerinizi doğrudan sonuçları olarak yapılır. Lütfen geliyor kalmalarını!
 
 **Önemli yeni özellikleri ve değişiklikleri**
 

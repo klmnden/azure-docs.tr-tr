@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure olay kılavuzuna giriş
 
@@ -23,12 +23,16 @@ Belirli olayları farklı uç noktalar, birden çok uç nokta için çok noktaya
 Şu anda, olay kılavuz aşağıdaki bölgeler destekler:
 
 * Güneydoğu Asya
-* Asia East
+* Doğu Asya
+* Avustralya Doğu
+* Avustralya Güneydoğu
 * Orta ABD
 *   Doğu ABD
 *   Doğu ABD 2
 * Batı Avrupa
 * Kuzey Avrupa
+* Japonya Doğu
+* Japonya Batı
 *   Batı Orta ABD
 *   Batı ABD
 *   Batı ABD 2
@@ -44,11 +48,14 @@ Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başl
 * Azure abonelikleri (yönetim işlemlerini)
 * Özel konular
 * Event Hubs
-* IoT Hub’ı
+* IoT Hub
+* Media Services
 * Kaynak grupları (yönetim işlemlerini)
 * Service Bus
 * Depolama blobu
 * Depolama genel amaçlı v2 (GPv2)
+
+Her olay kaynağı kullanmayı gösteren makalelerinin bağlantıları için bkz: [olay kaynakları Azure olay kılavuzunda](event-sources.md).
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
@@ -57,11 +64,15 @@ Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başl
 * Azure Otomasyonu
 * Azure İşlevleri
 * Event Hubs
+* Karma Bağlantılar
 * Logic Apps
 * Microsoft Flow
+* Kuyruk Depolama
 * WebHooks
 
 Azure işlevleri işleyici olarak kullanırken, olay kılavuz tetikleyici genel HTTP INSTEAD OF Tetikleyicileri kullanın. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md#webhook-event-delivery) uygulamanız gerekir.
+
+Her olay işleyicisi kullanmayı gösteren makalelerinin bağlantıları için bkz: [olay işleyicileri Azure olay kılavuzunda](event-handlers.md).
 
 ## <a name="concepts"></a>Kavramlar
 

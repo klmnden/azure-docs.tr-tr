@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: DNS bölgesi ve kaydı oluşturma - CLI
       href: dns-getstarted-cli.md
-- name: Örnekler
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Öğreticiler
   items:
     - name: Özel bir DNS bölgesi ve kaydı oluşturma
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Bir web uygulaması için özel DNS kayıtları oluşturma
       href: dns-web-sites-custom-domain.md
+- name: Örnekler
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Kavramlar
   items:
     - name: DNS bölgeleri ve kayıtları

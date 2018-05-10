@@ -1,12 +1,12 @@
 ---
-title: "Alt düzenlemelerin dayanıklı işlev - Azure"
-description: "Azure işlevleri için dayanıklı işlevleri uzantısında düzenlemelerin düzenlemelerin çağırmanıza yapma."
+title: Alt düzenlemelerin dayanıklı işlev - Azure
+description: Azure işlevleri için dayanıklı işlevleri uzantısında düzenlemelerin düzenlemelerin çağırmanıza yapma.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Alt düzenlemelerin dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -27,6 +27,9 @@ Etkinlik işlevleri çağırma ek olarak orchestrator işlevleri diğer orchestr
 Bir orchestrator işlevi başka bir orchestrator işlevini çağırarak çağırabilir [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) veya [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) yöntemi. [Hata işleme ve maaş](durable-functions-error-handling.md#automatic-retry-on-failure) makale otomatik yeniden deneme hakkında daha fazla bilgi sahiptir.
 
 Alt orchestrator işlevleri arayanın açısından etkinlik işlevleri gibi davranır. Bir değer döndürmeleri bir özel durum ve üst orchestrator işleviyle beklemenin.
+
+> [!NOTE]
+> `CallSubOrchestratorAsync` Ve `CallSubOrchestratorWithRetryAsync` yöntemleri henüz JavaScript'te kullanılabilir değildir.
 
 ## <a name="example"></a>Örnek
 

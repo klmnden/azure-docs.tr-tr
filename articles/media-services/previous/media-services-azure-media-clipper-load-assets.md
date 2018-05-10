@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Kırpıcıyı varlıklar yük | Microsoft Docs"
-description: "Azure Media Kırpıcıyı varlıklar yükleme için adımlar"
+title: Azure Media Kırpıcıyı varlıklar yük | Microsoft Docs
+description: Azure Media Kırpıcıyı varlıklar yükleme için adımlar
 services: media-services
-keywords: "küçük; subclip; kodlama; ortam"
+keywords: küçük; subclip; kodlama; ortam
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 6a479218ff8bd5addf4273b23c06380859e0ea08
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Kırpıcıyı varlıklar yükleniyor
 Varlıklar Azure medya Kırpıcıyı iki yöntemle yüklenebilir:

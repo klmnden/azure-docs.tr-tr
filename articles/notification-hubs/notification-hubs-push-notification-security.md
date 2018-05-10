@@ -1,24 +1,24 @@
 ---
-title: "Bildirim hub'ları için güvenlik"
-description: "Bu konu Azure bildirim hub'ları için güvenlik açıklar."
+title: Bildirim hub'ları için güvenlik
+description: Bu konu Azure bildirim hub'ları için güvenlik açıklar.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 9f197a85dfad31ce32d0f9c93127b69d8e33c9ee
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security"></a>Güvenlik
 ## <a name="overview"></a>Genel Bakış
@@ -40,9 +40,9 @@ Benzer diğer varlıklar için bildirim hub'ı işlemleri için üç güvenlik t
 
 | İste | Açıklama | İzin verilen işlemler |
 | --- | --- | --- |
-| Dinleme |Oluştur/güncelleştir, okuma ve tek kayıtları silme |Kayıt oluştur/güncelleştir<br><br>Kayıt okuma<br><br>Tüm kayıtlar için bir tanıtıcı okuma<br><br>Kayıt silme |
-| Gönder |Bildirim hub'ına iletileri gönder |İleti gönderme |
-| Yönet |Bildirim hub'ları (PNS kimlik bilgileri ve güvenlik anahtarları güncelleştirme dahil) ve etiketlere göre okuma kayıtlar cRUDs |Oluşturma/güncelleştirme/okuma/silme bildirim hub'ları<br><br>Etikete göre kayıtları oku |
+| Dinle |Oluştur/güncelleştir, okuma ve tek kayıtları silme |Kayıt oluştur/güncelleştir<br><br>Kayıt okuma<br><br>Tüm kayıtlar için bir tanıtıcı okuma<br><br>Kayıt silme |
+| Gönder |Bildirim hub'ına iletileri gönder |İleti gönder |
+| Yönetme |Bildirim hub'ları (PNS kimlik bilgileri ve güvenlik anahtarları güncelleştirme dahil) ve etiketlere göre okuma kayıtlar cRUDs |Oluşturma/güncelleştirme/okuma/silme bildirim hub'ları<br><br>Etikete göre kayıtları oku |
 
 Bildirim hub'ları doğrudan bildirim hub'ına yapılandırılan paylaşılan anahtarlar ile oluşturulan imza belirteçleri ve Microsoft Azure erişim denetimi belirteçleri tarafından verilen bir talep kabul edin.
 

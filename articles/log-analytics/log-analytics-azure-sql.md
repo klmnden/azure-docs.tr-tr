@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL veritabanı günlük analizi Azure SQL analizi (Önizleme) kullanarak izleme
 
@@ -136,7 +136,8 @@ Sorgu süresi ve sorgu bekler Perspektifler aracılığıyla, sorgu rapor aracı
 
 ### <a name="analyze-data-and-create-alerts"></a>Verileri çözümlemek ve uyarı oluşturma
 
-Uyarılar, Azure SQL veritabanı kaynaklardan gelen veriler ile kolayca oluşturabilirsiniz. İşte bazı yararlı [günlük arama](log-analytics-log-searches.md) uyarmak için kullanabileceğiniz sorgular:
+Kolayca [uyarı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) ile Azure SQL veritabanı kaynaklardan gelen veriler. İşte bazı yararlı [günlük arama](log-analytics-log-searches.md) kullanabileceğiniz sorgular olan günlük uyarı kullanın:
+
 
 
 *Azure SQL veritabanı yüksek DTU*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Bu uyarı tabanlı sorgular, Azure SQL veritabanı ve esnek havuzlar için belirli eşiklere uyarmak için kullanabilirsiniz. Günlük analizi çalışma alanınız için bir uyarı yapılandırmak için:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Çalışma alanınız için bir uyarı yapılandırmak için
-
-1. Git [OMS portalı](http://mms.microsoft.com/) ve oturum açın.
-2. Çözüm için yapılandırdığınız çalışma alanını açın.
-3. Genel bakış sayfasında, tıklatın **Azure SQL analizi (Önizleme)** döşeme.
-4. Örnek sorgular birini çalıştırın.
-5. Günlük aramada tıklatın **uyarı**.  
-![Aramada uyarısı oluştur](./media/log-analytics-azure-sql/create-alert01.png)
-6. Üzerinde **uyarı kuralı Ekle** sayfasında, uygun özellikleri ve istediğiniz ve ardından özel eşikler yapılandırmak **kaydetmek**. 
-![Uyarı kuralı Ekle](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

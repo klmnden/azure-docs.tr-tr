@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -68,7 +68,7 @@ Birkaç ortak tanımları mimari ve teknik dağıtım kılavuzu yaygın olarak k
 - **Kiracı**: HANA büyük örneği damga içinde dağıtılan bir müşteri içine yalıtılmış bir *Kiracı.* Bir kiracı ağı, depolama ve bilgi işlem katmanını diğer kiracıdan yalıtılmış. Farklı kiracıların atanan depolama ve işlem birimleri birbirine bakın veya HANA büyük örneği damga düzeyinde birbirleriyle iletişim. Müşteri dağıtımları farklı kiracıların uygulamasına sahip olmayı seçebilirsiniz. Daha sonra HANA büyük örneği damga düzeyinde kiracılar arasında iletişim yoktur.
 - **SKU kategori**: HANA büyük örneği için aşağıdaki iki kategoriden SKU sunulur:
     - **I sınıf türü**: S72, S72m, S144, S144m, S192 ve S192m
-    - **Tür II sınıfı**: S384, S384m, S384xm, S576, S768 ve S960
+    - **Tür II sınıfı**: S384, S384m, S384xm, S576m, S768m ve S960m
 
 
 Ek kaynaklar çeşitli bulutta bir SAP iş yükü dağıtmak nasıl kullanılabilir. SAP HANA dağıtımını Azure'da yürütme planlıyorsanız, deneyimli ile ve Azure Iaas ilkeleri ve Azure Iaas iş yükünü SAP dağıtımının farkında olmanız gerekir. Devam etmeden önce bkz [kullanım SAP çözümleri Azure sanal makinelerinde](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) daha fazla bilgi için. 
@@ -135,18 +135,18 @@ Temmuz 2017'ten itibaren SAP HANA Azure (büyük örnekler) ile ilgili çeşitli
 
 | SAP çözümü | CPU | Bellek | Depolama | Kullanılabilirlik |
 | --- | --- | --- | --- | --- |
-| OLAP için en iyi duruma getirilmiş: SAP BW, BW/4HANA<br /> veya SAP HANA Genel OLAP iş yükü için | SAP HANA Azure S72 üzerinde<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  768 GB |  3 TB | Kullanılabilir |
-| --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  1,5 TB |  6 TB | Artık sunulmuyor |
-| --- | SAP HANA Azure S192 üzerinde<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları |  2.0 TB |  8 TB | Kullanılabilir |
-| --- | SAP HANA Azure S384 üzerinde<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  4.0 TB |  16 TB | Kullanılabilir |
-| OLTP için en iyi duruma getirilmiş: SAP Business paketi<br /> SAP HANA veya S/4HANA (OLTP)<br /> Genel OLTP | SAP HANA Azure S72m üzerinde<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  1,5 TB |  6 TB | Kullanılabilir |
-|---| SAP HANA Azure S144m üzerinde<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  3.0 TB |  12 TB | Artık sunulmuyor |
-|---| SAP HANA Azure S192m üzerinde<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları  |  4.0 TB |  16 TB | Kullanılabilir |
-|---| SAP HANA Azure S384m üzerinde<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  6.0 TB |  18 TB | Kullanılabilir |
-|---| SAP HANA Azure S384xm üzerinde<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  8.0 TB |  22 TB |  Kullanılabilir |
-|---| SAP HANA Azure S576 üzerinde<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU çekirdekleri ve 576 CPU iş parçacıkları |  12.0 TB |  28 TB | Kullanılabilir |
-|---| SAP HANA Azure S768 üzerinde<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU çekirdekleri ve 768 CPU iş parçacıkları |  16.0 TB |  36 TB | Kullanılabilir |
-|---| SAP HANA Azure S960 üzerinde<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU çekirdekleri ve 960 CPU iş parçacıkları |  20.0 TB |  46 TB | Kullanılabilir |
+| OLAP için en iyi duruma getirilmiş: SAP BW, BW/4HANA<br /> veya SAP HANA Genel OLAP iş yükü için | SAP HANA Azure S72 üzerinde<br /> – 2 x Intel® Xeon İşlemci E7 8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  768 GB |  3 TB | Kullanılabilir |
+| --- | SAP HANA Azure S144 üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  1,5 TB |  6 TB | Artık sunulmuyor |
+| --- | SAP HANA Azure S192 üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları |  2.0 TB |  8 TB | Kullanılabilir |
+| --- | SAP HANA Azure S384 üzerinde<br /> – 8 x Intel® Xeon İşlemci E7 8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  4.0 TB |  16 TB | Kullanılabilir |
+| OLTP için en iyi duruma getirilmiş: SAP Business paketi<br /> SAP HANA veya S/4HANA (OLTP)<br /> Genel OLTP | SAP HANA Azure S72m üzerinde<br /> – 2 x Intel® Xeon İşlemci E7 8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  1,5 TB |  6 TB | Kullanılabilir |
+|---| SAP HANA Azure S144m üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  3.0 TB |  12 TB | Artık sunulmuyor |
+|---| SAP HANA Azure S192m üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları  |  4.0 TB |  16 TB | Kullanılabilir |
+|---| SAP HANA Azure S384m üzerinde<br /> – 8 x Intel® Xeon İşlemci E7 8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  6.0 TB |  18 TB | Kullanılabilir |
+|---| SAP HANA Azure S384xm üzerinde<br /> – 8 x Intel® Xeon İşlemci E7 8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  8.0 TB |  22 TB |  Kullanılabilir |
+|---| SAP HANA Azure S576m üzerinde<br /> – 12 x Intel® Xeon İşlemci E7 8890 v4<br /> 288 CPU çekirdekleri ve 576 CPU iş parçacıkları |  12.0 TB |  28 TB | Kullanılabilir |
+|---| SAP HANA Azure S768m üzerinde<br /> – 16 x Intel® Xeon İşlemci E7 8890 v4<br /> 384 CPU çekirdekleri ve 768 CPU iş parçacıkları |  16,0 TB |  36 TB | Kullanılabilir |
+|---| SAP HANA Azure S960m üzerinde<br /> – 20 x Intel® Xeon İşlemci E7 8890 v4<br /> 480 CPU çekirdekleri ve 960 CPU iş parçacıkları |  20.0 TB |  46 TB | Kullanılabilir |
 
 - CPU çekirdekleri = olmayan-hiper iş parçacıklı CPU çekirdeği sunucusu birimi işlemcileri toplamı toplamı.
 - CPU iş parçacıkları = hiper iş parçacıklı CPU çekirdeği sunucusu birimi işlemcileri toplamı tarafından sağlanan işlem iş parçacıklarının toplamı. Tüm birimlerin varsayılan olarak Hyper-Threading Teknolojisi kullanacak şekilde yapılandırılır.
@@ -157,7 +157,7 @@ Seçilen belirli yapılandırmalar, iş yükü, CPU kaynaklarını ve istenen be
 Tüm teklifleri için temel donanım SAP HANA TDI onaylı. Donanım farklı iki sınıf içine SKU'ları bölün:
 
 - S72, S72m, S144, S144m, S192 ve S192m, "ı sınıf türü olarak" adlandırılan SKU.
-- S384, S384m, S384xm, S576, S768 ve denir S960 "Tür II sınıfı" SKU.
+- S384, S384m, S384xm, S576m, S768m ve denir S960m "Tür II sınıfı" SKU.
 
 Tam HANA büyük örneği damga yalnızca tek bir müşteri için ayrılan değil&#39;s kullanın. Azure üzerinde de dağıtılan ağ yapısı bağlı işlem ve depolama kaynaklarını raflarının olgunun uygular. Azure gibi HANA büyük örneği altyapı, farklı müşteri dağıtır &quot;kiracılar&quot; birbirlerinden aşağıdaki üç düzeyin yalıtılmış olan:
 
@@ -339,14 +339,14 @@ Depolama ayırma bakımından aşağıdaki tabloya bakın. Tablo farklı HANA b�
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
-| S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
-| S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
-| S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
-| S384m | 12.000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
-| S384xm | 16.000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
-| S576 | 20.000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S768 | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S960 | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
+| S192m | 11,520 GB | 1.536 GB | 1,792 GB | 1.536 GB |
+| S384 | 11,520 GB | 1.536 GB | 1,792 GB | 1.536 GB |
+| S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
+| S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
+| S576m | 20.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
+| S768m | 28,000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
+| S960m | 36,000 GB | 4,100 GB | 2.050 GB | 4,100 GB |
 
 
 Gerçek Dağıtılmış birimler dağıtım ve birim boyutlarını göstermek için kullanılan bir aracı göre değişebilir.
@@ -358,7 +358,7 @@ HANA büyük örneği SKU ayırabilir, olası bölme parçaları birkaç örnek 
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
 | 768 | 1,280 GB | 512 GB | 768 GB | 512 GB |
-| 1,024 | 1,792 GB | 640 GB | 1,024 GB | 640 GB |
+| 1,024 | 1,792 GB | 640 GB | 1.024 GB | 640 GB |
 | 1536 | 3,328 GB | 768 GB | 1,280 GB | 768 GB |
 
 

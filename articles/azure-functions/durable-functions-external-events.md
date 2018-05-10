@@ -1,12 +1,12 @@
 ---
-title: "Dayanıklı işlevlerinde - Azure dış olayları işleme"
-description: "Azure işlevleri için dayanıklı işlevleri uzantısında dış olayları işlemek öğrenin."
+title: Dayanıklı işlevlerinde - Azure dış olayları işleme
+description: Azure işlevleri için dayanıklı işlevleri uzantısında dış olayları işlemek öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 77087f04ea641c24a92edd2091432cbcb4329ecd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Dayanıklı işlevlerinde (Azure işlevleri) dış olayları işleme
 
@@ -27,6 +27,8 @@ Orchestrator işlevleri bekleyin ve dış olaylarını dinleyecek seçeneğine s
 ## <a name="wait-for-events"></a>Olayların tamamlanmasını bekleme
 
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) yöntemi zaman uyumsuz olarak bekleyip dış bir olayı dinleme orchestrator işlevi sağlar. Dinleme orchestrator işlev bildirir *adı* olayın ve *veri şekli* almak bekliyor.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,9 +47,26 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const approved = yield context.df.waitForExternalEvent("Approval");
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
+});
+```
+
 Önceki örnekte belirli tek bir olay için dinler ve, alındığında eylemi gerçekleştirir.
 
 Birden çok olaylarını dinleyecek aynı anda üç olası olay bildirimleri biri için bekleyeceği aşağıdaki örnekte, ister.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Select")]
@@ -74,7 +93,30 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const event1 = context.df.waitForExternalEvent("Event1");
+    const event2 = context.df.waitForExternalEvent("Event2");
+    const event3 = context.df.waitForExternalEvent("Event3");
+
+    const winner = yield context.df.Task.any([event1, event2, event3]);
+    if (winner === event1) {
+        // ...
+    } else if (winner === event2) {
+        // ...
+    } else if (winner === event3) {
+        // ...
+    }
+});
+```
+
 Önceki örnekte dinler *herhangi* birden çok olay. Beklemek mümkündür *tüm* olayları.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -94,12 +136,31 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const applicationId = context.df.getInput();
+
+    const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
+    const gate2 = context.df.waitForExternalEvent("FireDeptApproval");
+    const gate3 = context.df.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    yield context.df.Task.all([gate1, gate2, gate3]);
+
+    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+});
+```
+
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) için bazı giriş sonsuza kadar bekler.  İşlev uygulaması bekleme sırasında güvenli bir şekilde yüklenmemiş olabilir. Bir olay için bu orchestration örneği varsa ve geldiğinde, otomatik olarak uyandırdı ve hemen olayını işler.
 
 > [!NOTE]
 > İşlev uygulamanız tüketim planlama kullanıyorsa, orchestrator işlevi görevden bekleyen sırada fatura harcamanız alınan `WaitForExternalEvent`, ne kadar bekleyeceğini olsun.
 
-Beklenen türe dönüştürülemiyor olay yükü `T`, bir özel durum.
+Olay yükünün beklenen tür dönüştürülemiyorsa .NET içinde `T`, bir özel durum.
 
 ## <a name="send-events"></a>Olayları gönderme
 

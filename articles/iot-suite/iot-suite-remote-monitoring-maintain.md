@@ -1,74 +1,74 @@
 ---
-title: "Uzaktan izleme çözümünde - Azure aygıtlarla ilgili sorunları giderme | Microsoft Docs"
-description: "Bu öğretici Uzaktan izleme çözümüne cihaz sorunlarını gidermek ve gösterilmektedir."
-services: 
+title: Uzaktan izleme çözümünde - Azure aygıtlarla ilgili sorunları giderme | Microsoft Docs
+description: Bu öğretici Uzaktan izleme çözümüne cihaz sorunlarını gidermek ve gösterilmektedir.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Aygıt sorunlarını gidermek ve
 
 Bu öğretici nasıl kullanılacağını gösterir **Bakım** sorun giderme ve cihaz sorunlarını düzeltmek için çözümdeki sayfası. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
 
-Contoso yeni sınamak **prototip** alanında aygıt. Contoso operatör olarak, test sırasında fark **prototip** sıcaklık alarm Panoda aygıt tetikleme beklenmedik biçimde. Şimdi bu hatalı davranışını araştırmanız gerekir **prototip** aygıt.
+Contoso yeni sınamak **prototip** alanında aygıt. Contoso operatör olarak, test sırasında fark **prototip** sıcaklık uyarı Panoda aygıt tetikleme beklenmedik biçimde. Şimdi bu hatalı davranışını araştırmanız gerekir **prototip** aygıt.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 >[!div class="checklist"]
-> * Kullanım **Bakım** uyarı araştırmak için sayfası
+> * Kullanım **Bakım** uyarıyı araştırmak için sayfası
 > * Sorunu düzeltmek için bir aygıt yöntemini çağırın
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="use-the-maintenance-dashboard"></a>Bakım Panosu kullanın
 
-Üzerinde **Pano** fark ile ilişkilendirilen kural'ten gelen beklenmeyen sıcaklık alarmlar vardır sayfa **prototip** aygıtları:
+Üzerinde **Pano** fark ile ilişkilendirilen kural'ten gelen beklenmeyen sıcaklık uyarı sayfası **prototip** aygıtları:
 
-![Panoda gösteren uyarılar](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
+![Panoda gösteren uyarıları](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
 
-Sorunu daha fazla araştırmak için seçin **keşfedin Alarm** uyarının yanındaki seçeneği:
+Sorunu daha fazla araştırmak için seçin **keşfedin uyarı** uyarının yanındaki seçeneği:
 
-![Panodan alarm keşfedin](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
+![Uyarı panodan keşfedin](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
 Uyarı ayrıntı görünümünü gösterir:
 
-* Ne zaman uyarı tetiklendi
-* Alarm ile ilişkili cihazlar hakkındaki durum bilgilerini
-* Telemetri alarm ile ilişkilendirilen aygıtlardan
+* Uyarının başlatıldığı zaman
+* Durum bilgisi uyarı ile ilgili aygıtlar hakkında
+* Telemetri uyarı ile ilgili aygıtlardan
 
 ![Uyarı ayrıntıları](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
 
-Uyarı onaylamak için seçin **Alarm oluşum** ve **kabul**. Bu eylem uyarı gördünüz ve üzerinde çalıştığınız görmek diğer işleçler sağlar.
+Uyarı onaylamak için seçin **uyarı oluşum** ve **kabul**. Bu eylem uyarı gördünüz ve üzerinde çalıştığınız görmek diğer işleçler sağlar.
 
-![Alarmlar Onayla](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+![Uyarıları Onayla](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
 Uyarı onayladığınızda oluşum durum değişikliklerini **onaylanan**.
 
-Listede, gördüğünüz **prototip** aygıt sıcaklık alarm tetikleme sorumlu:
+Listede, gördüğünüz **prototip** aygıt sıcaklık uyarı tetikleme sorumlu:
 
-![Uyarı neden cihazlar listesi](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+![Uyarıya neden aygıtların listesi](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
 
 ## <a name="remediate-the-issue"></a>Sorunu düzeltmek
 
 Sorunu düzeltmek için **prototip** aygıtı ihtiyacınız çağırmak **DecreaseTemperature** cihazda yöntemi.
 
-Bir cihaz üzerinde çalışmak için aygıtlar listesinde seçin ve ardından **zamanlama**. **Prototip** cihaz modeli belirtir dört yöntem bir aygıtı desteklemesi gerekir:
+Bir cihaz üzerinde çalışmak için aygıtlar listesinde seçin ve ardından **işleri**. **Prototip** cihaz modeli belirtir altı yöntemi bir aygıtı desteklemesi gerekir:
 
 ![Aygıt destekler yöntemlerini görüntülemek](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -90,7 +90,7 @@ Bu öğreticide gördüğünüz nasıl yapılır:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Kullanım **Bakım** uyarı araştırmak için sayfası
+> * Kullanım **Bakım** uyarıyı araştırmak için sayfası
 > * Sorunu düzeltmek için bir aygıt yöntemini çağırın
 
 Aygıt sorunları nasıl yöneteceğinizi öğrendiniz artık, önerilen sonraki adıma edinmektir nasıl [çözümünüzü sanal cihazlar ile Test](iot-suite-remote-monitoring-test.md).

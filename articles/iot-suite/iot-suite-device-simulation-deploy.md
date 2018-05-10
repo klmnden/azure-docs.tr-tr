@@ -1,6 +1,6 @@
 ---
-title: "Cihaz benzetimi çözüm - Azure dağıtma | Microsoft Docs"
-description: "Bu öğretici azureiotsuite.com aygıt benzetimi çözümden sağlama gösterir."
+title: Cihaz benzetimi çözüm - Azure dağıtma | Microsoft Docs
+description: Bu öğretici azureiotsuite.com aygıt benzetimi çözümden sağlama gösterir.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Azure IOT cihaz benzetimi çözümü dağıtma
 
@@ -39,7 +39,7 @@ Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürüm�
 
 Azure aboneliğinize çözümü dağıtmadan önce bazı yapılandırma seçenekleri seçmeniz gerekir:
 
-1. Oturum [azureiotsuite.com](https://www.azureiotsuite.com) Azure kullanarak hesap kimlik bilgilerini ve tıklatın  **+**  yeni bir çözüm oluşturmak için:
+1. Oturum [azureiotsuite.com](https://www.azureiotsuite.com) Azure kullanarak hesap kimlik bilgilerini ve tıklatın **+** yeni bir çözüm oluşturmak için:
 
     ![Yeni çözüm oluşturma](media/iot-suite-device-simulation-deploy/createnewsolution.png)
 
@@ -47,7 +47,7 @@ Azure aboneliğinize çözümü dağıtmadan önce bazı yapılandırma seçenek
 
     ![Cihaz benzetimi seçin](media/iot-suite-device-simulation-deploy/select.png)
 
-1. Üzerinde **oluşturma cihaz benzetimi çözümü** want bir **çözüm adı** aygıt benzetimi çözümünüz için.
+1. Üzerinde **oluşturma aygıt benzetimi çözüm** want bir **çözüm adı** aygıt benzetimi çözümünüz için.
 
 1. Çözümü hazırlarken kullanmak istediğiniz **Abonelik** ve **Bölge** seçimini yapın.
 

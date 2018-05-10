@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı 
 
 Bu kılavuzu okuduktan önce bazı tanımları önceden. İçinde [SAP HANA (büyük örnekler) genel bakış ve Azure ile ilgili mimari](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) ile HANA büyük örneği birimlerin farklı iki sınıf gösterdiğimizi:
 
 - S72, S72m, S144, S144m, S192 ve adlandırdığımız 'ı sınıf türü olarak' S192m SKU.
-- S384, S384m, S384xm, S576, S768 ve adlandırdığımız 'Type II sınıfı' SKU'ları S960.
+- S384, S384m, S384xm, S576m, S768m ve adlandırdığımız 'Type II sınıfı' SKU'ları S960m.
 
 Sınıfı tanımlayıcıları HANA büyük örnek belge boyunca sonunda farklı özellikleri ve gereksinimleri HANA büyük örneği SKU'larında dayalı kullanılabilir olacak.
 
@@ -213,7 +213,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Bu örnekte, HighPerformance ağ geçidi SKU'su kullanıldı. Seçenekleriniz, SAP HANA azure'da (büyük örnekler) için desteklenen SKU'ları yalnızca ağ geçidi olarak HighPerformance veya UltraPerformance şunlardır.
 
 > [!IMPORTANT]
-> SKU büyük örneklerini HANA S384, S384m, S384xm, S576, S768 ve S960 türleri için (tür II sınıfı SKU) UltraPerformance ağ geçidi SKU'su kullanımını zorunludur.
+> SKU büyük örneklerini HANA S384, S384m, S384xm, S576m, S768m ve S960m türleri için (tür II sınıfı SKU) UltraPerformance ağ geçidi SKU'su kullanımını zorunludur.
 
 ### <a name="linking-vnets"></a>Sanal ağları bağlama
 

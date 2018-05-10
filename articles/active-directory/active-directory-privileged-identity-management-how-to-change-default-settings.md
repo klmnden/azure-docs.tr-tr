@@ -1,25 +1,23 @@
 ---
-title: "Rol etkinleştirme ayarlarını yönetme | Microsoft Docs"
-description: "Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için varsayılan ayarları değiştirmeyi öğrenin."
+title: Rol etkinleştirme ayarlarını yönetme | Microsoft Docs
+description: Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için varsayılan ayarları değiştirmeyi öğrenin.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 2cf361dc879915c316e7ee907b5c70b5907459c2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 972fd1e322e578516073307d01548132473bc52c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ın rol etkinleştirme ayarlarını yönetme
 Ayrıcalıklı Rol Yöneticisi Azure AD Privileged Identity Management (PIM) uygun rol ataması etkinleştirme bir kullanıcı deneyimini değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
@@ -42,23 +40,23 @@ Her rol için Ayarları sayfasında, ayarları yapılandırabileceğiniz bir diz
 * E-postaları için Microsoft hesabına sahip kullanıcıların (genellikle @outlook.com, ancak her zaman) için Azure MFA kaydedilemiyor. Microsoft hesabı olan kullanıcılar için rol atamak istiyorsanız, bunları kalıcı yönetici yapın veya bu rol için MFA devre dışı bırakmak gerekir.
 * MFA için üst düzey ayrıcalıklı rolleri Azure AD için devre dışı bırakamazsınız ve Office365. Bu, bu rolleri dikkatle korunması için bir güvenlik özelliğidir:  
   
-  * Uygulama Yöneticisi
+  * Uygulama yöneticisi
   * Uygulama Proxy sunucusu Yöneticisi
   * Faturalama yöneticisi  
-  * Uyumluluk Yöneticisi  
+  * Uyumluluk yöneticisi  
   * CRM Hizmet Yöneticisi
   * Müşteri kasa erişimi onaylayıcı
   * Directory yazıcısı  
-  * Exchange Yöneticisi  
+  * Exchange yöneticisi  
   * Genel yönetici
-  * Intune Hizmet Yöneticisi
+  * Intune hizmet yöneticisi
   * Posta kutusu Yöneticisi  
-  * İş ortağı tier1 desteği  
-  * İş ortağı tier2 desteği  
-  * Ayrıcalıklı Rol Yöneticisi   
+  * Partner tier1 desteği  
+  * Partner tier2 desteği  
+  * Ayrıcalıklı rol yöneticisi   
   * Güvenlik yöneticisi  
-  * SharePoint Yöneticisi  
-  * İş Yöneticisi Skype  
+  * SharePoint yöneticisi  
+  * Skype Kurumsal yöneticisi  
   * Kullanıcı Hesap Yöneticisi  
 
 MFA ile PIM kullanma hakkında daha fazla bilgi için bkz: [gerektiren MFA nasıl](active-directory-privileged-identity-management-how-to-require-mfa.md).

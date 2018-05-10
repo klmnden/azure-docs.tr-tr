@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: a1d2261eb0d4d57b5bf8b5c7baae792a0ff41862
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9754058869d790f99e3c44db6ddd31b0ecb7a4e4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Öğretici: Dönüm OnDemand otomatik kullanıcı sağlamayı yapılandırın
 
@@ -106,7 +106,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya dönüm k
 
 5. Altında **yönetici kimlik bilgileri** bölümü, giriş **yönetici kullanıcı adı**, **yönetici parolası**, ve **etki alanı** dönüm OnDemand's, hesabı.
 
-    *   İçinde **yönetici kullanıcı adı** alanında, doldurmak dönüm OnDemand Kiracı yönetici hesabı kullanıcı adı. Örnek: yönetici
+    *   İçinde **yönetici kullanıcı adı** alanında, dönüm OnDemand Kiracı Yönetici hesabında etkialanı\kullanıcıadı doldurur. Örnek: contoso\admin.
 
     *   İçinde **yönetici parolası** alanında, yönetici kullanıcı adı için karşılık gelen parola doldurur.
 

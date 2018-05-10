@@ -3,7 +3,7 @@ title: İş akışı tanımlama dili şema - Azure Logic Apps | Microsoft Docs
 description: İş akışı tanımlama dili ile Azure mantıksal uygulamaları için özel iş akışı tanımları yazma
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -12,13 +12,13 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 7c253fd83bcc1f1dde93ac6ef0c26da1fa1a9a4b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>İş akışı tanımlama dili şema Logic Apps iş akışı tanımları
 
@@ -54,7 +54,7 @@ Bir iş akışı tanımı için üst düzey yapısı şöyledir:
 
 ## <a name="parameters"></a>Parametreler
 
-İçinde `parameters` bölümünde, iş akışı çalışma zamanında girdileri kabul tüm parametrelerini tanımlayın. Bu parametreler diğer iş akışı bölümlerinde kullanmadan önce bu bölümlerdeki tüm parametreleri bildirme emin olun.
+İçinde `parameters` bölümünde, girişleri kabul etmek için dağıtım sırasında mantıksal uygulamanızı kullanan tüm iş akışı parametrelerini tanımlayın. Dağıtım sırasında parametre bildirimleri ve parametre değerlerini gereklidir. Bu parametreler diğer iş akışı bölümlerinde kullanmadan önce bu bölümlerdeki tüm parametreleri bildirme emin olun. 
 
 Bir parametre tanımı için genel yapısı şöyledir:  
 
@@ -80,7 +80,7 @@ Bir parametre tanımı için genel yapısı şöyledir:
 | allowedValues | Hayır | Aynı `type` | Bir dizi parametre kabul edebilir değerlerle |  
 | meta veriler | Hayır | JSON nesnesi | Tüm diğer parametre ayrıntıları, örneğin, adı veya mantıksal uygulama veya Visual Studio'ya veya diğer araçları tarafından kullanılan tasarım zamanı verileri için okunabilir bir açıklama |  
 ||||
-  
+
 ## <a name="triggers-and-actions"></a>Tetikleyiciler ve eylemler  
 
 Bir iş akışı tanımında `triggers` ve `actions` bölümler, iş akışınızın yürütme sırasında gerçekleşecek çağrıları tanımlayın. Sözdizimi ve bu bölümleri hakkında daha fazla bilgi için bkz: [iş akışı tetikleyiciler ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
@@ -88,6 +88,9 @@ Bir iş akışı tanımında `triggers` ve `actions` bölümler, iş akışını
 ## <a name="outputs"></a>Çıkışlar 
 
 İçinde `outputs` bölümünde, iş akışınızı bittiğinde dönebilirsiniz veri tanımlama çalışıyor. Örneğin, bir özel durum veya değer her çalıştırma izlemek için iş akışı çıktı verileri döndürür belirtin. 
+
+> [!NOTE]
+> Bir hizmetin REST API öğesinden gelen isteklere yanıt verirken kullanmayın `outputs`. Bunun yerine, kullanın `Response` eylem türü. Daha fazla bilgi için bkz: [iş akışı tetikleyiciler ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 Bir çıkış tanımı için genel yapısı şöyledir: 
 
@@ -108,9 +111,6 @@ Bir çıkış tanımı için genel yapısı şöyledir:
 ||||| 
 
 Çalıştıran bir iş akışından çıkış almak için mantığı uygulamanın çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirmek veya kullanmak [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Panolar oluşturabilmesi için dış sistemlere, örneğin, Powerbı çıkış de geçirebilirsiniz. 
-
-> [!NOTE]
-> Bir hizmetin REST API öğesinden gelen isteklere yanıt verirken kullanmayın `outputs`. Bunun yerine, kullanın `Response` eylem türü. Daha fazla bilgi için bkz: [iş akışı tetikleyiciler ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
 
@@ -219,7 +219,8 @@ Logic Apps Tasarımcısı'nda görsel olarak çalışırken, Deyim Oluşturucusu
 
 ## <a name="functions"></a>İşlevler
 
-Bazı ifadeler bir mantıksal uygulama çalışmaya başladığında henüz var olmayabilir çalışma zamanı Eylemler değerlerini alırlar. Bir başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz *işlevler*. Örneğin, hesaplamalar için matematik işlevleri gibi kullanabilirsiniz [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) tamsayılar veya float toplamını döndürür işlevi. 
+Bazı ifadeler bir mantıksal uygulama çalışmaya başladığında henüz var olmayabilir çalışma zamanı Eylemler değerlerini alırlar. Bir başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz [ *işlevleri*](../logic-apps/workflow-definition-language-functions-reference.md). Örneğin, hesaplamalar için matematik işlevleri gibi kullanabilirsiniz [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) tamsayılar veya float toplamını döndürür işlevi. Her işlevi hakkında ayrıntılı bilgi için bkz: [alfabetik başvurusu makalesinde](../logic-apps/workflow-definition-language-functions-reference.md).
+Veya, kendi genel amacı ve işlevleri hakkında bilgi almaya devam etmek.
 
 İşlevleri ile gerçekleştirebileceğiniz sadece birkaç örnek görevleri şunlardır: 
 

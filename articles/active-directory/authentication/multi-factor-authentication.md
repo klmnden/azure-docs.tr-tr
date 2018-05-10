@@ -1,27 +1,23 @@
 ---
 title: İki aşamalı doğrulama Azure MFA hakkında bilgi edinin | Microsoft Docs
-description: 'Azure multi-Factor Authentication nedir, neden MFA, çok faktörlü kimlik doğrulaması istemci farklı yöntemler ve kullanılabilir sürümlerini hakkında daha fazla bilgi kullanın. '
-keywords: mfa nedir MFA, mfa genel bakış, giriş
+description: Azure multi-Factor Authentication nedir, neden MFA ve farklı yöntemler ve kullanılabilir sürümlerini kullanın.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 74441b5053a9c7c25d94406293828fe92f210bee
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication nedir?
+
 İki aşamalı doğrulama, birden fazla doğrulama yöntemi gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekleyen kimlik doğrulama yöntemidir. Her iki veya daha fazla aşağıdaki doğrulama yöntemlerini isteyerek çalışır:
 
 * (Genellikle parola) bildiğiniz bir şey

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 9e8e1fb918d9cd35b12e71abdd23ca101239ae26
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 026d9f632bdcf4b40163acfeec167fbf22057a64
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşleme kullanarak grubu makineleri
 
@@ -20,18 +20,18 @@ Bu makine için bir grup oluşturmak makalede [Azure geçirmek](migrate-overview
 ## <a name="prepare-machines-for-dependency-mapping"></a>Makineler bağımlılık eşlemesi için hazırlanma
 Makinelerin bağımlılıkları görüntülemek için aracıları değerlendirmek istediğiniz her şirket içi makinede yükleyip gerekir. İnternet bağlantısı makinelerle varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlardaki.
 
-### <a name="download-and-install-the-vm-agents"></a>VM aracıları yükleyip
+### <a name="download-and-install-the-vm-agents"></a>Sanal makine aracılarını indirip yükleme
 1. İçinde **genel bakış**, tıklatın **Yönet** > **makineler**ve gerekli makineyi seçin.
 2. İçinde **bağımlılıkları** sütun tıklatın **aracıları yüklemek**. 
 3. Üzerinde **bağımlılıkları** sayfasında indirin ve değerlendirmek istediğiniz her bir VM üzerinde Microsoft İzleme Aracısı'nı (MMA) ve bağımlılık Aracısı'nı yükleyin.
-4. Çalışma alanı kimliği ve anahtarı kopyalayın. Şirket içi makinede MMA yüklediğinizde bu gerekir.
+4. Çalışma alanı kimliğini ve anahtarını kopyalayın. Şirket içi makinede MMA yüklediğinizde bu gerekir.
 
-### <a name="install-the-mma"></a>MMA yükleyin
+### <a name="install-the-mma"></a>MMA’yı yükleme
 
 Bir Windows makinesinde aracı yüklemek için:
 
-1. İndirilen Aracısı'nı çift tıklatın.
-2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. Üzerinde **Lisans Koşulları'nı** sayfasında, **ediyorum** lisans kabul etmek için.
+1. İndirilen aracıya çift tıklayın.
+2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. **Lisans Koşulları** sayfasında **Kabul Ediyorum**’a tıklayarak lisansı kabul edin.
 3. İçinde **hedef klasörü**, saklamak veya varsayılan yükleme klasörünü değiştirmek > **sonraki**. 
 4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi** > **sonraki**. 
 5. Tıklatın **Ekle** yeni bir günlük analizi çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
@@ -45,13 +45,13 @@ Bir Linux makinesinde aracı yüklemek için:
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
 
-### <a name="install-the-dependency-agent"></a>Bağımlılık Aracısı'nı yükleme
+### <a name="install-the-dependency-agent"></a>Bağımlılık aracısını yükleme
 1. Bir Windows makinesinde bağımlılık Aracısı'nı yüklemek için kurulum dosyasını çift tıklatın ve sihirbazı izleyin.
 2. Bir Linux makinesinde bağımlılık Aracısı'nı yüklemek için aşağıdaki komutu kullanarak kök olarak yükleyin:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Daha fazla bilgi edinin](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) bağımlılık aracısı tarafından desteklenen işletim sistemleri hakkında. 
+[Daha fazla bilgi edinin](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) bağımlılık aracısı tarafından desteklenen işletim sistemleri hakkında. 
 
 ## <a name="create-a-group"></a>Grup oluştur
 

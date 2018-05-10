@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 224cd365e6b3ca4fd963b530dbaa289b763d53ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Azure VM yedekleme yığını için Azure Resource Manager dağıtım modeline yükseltme
 Resource Manager dağıtım modeli için sanal makine (VM) yedekleme yığını yükseltme aşağıdaki özellik geliştirmeleri sağlar:
@@ -45,8 +45,6 @@ Varsayılan olarak, anlık görüntüleri yedi gün boyunca tutulur. Bu özellik
 
 ## <a name="considerations-before-upgrade"></a>Yükseltmeden önce konuları
 * VM yedekleme yığınının bir yükseltmedir yön. Bu nedenle tüm yedeklemeler bu akışına gidin. Abonelik düzeyinde etkinleştirilmiş olduğundan, tüm sanal makineleri bu akışına gidin. Tüm yeni özellik eklemeler aynı yığında temel alır. Bu ilke düzeyinde gelecekte geliyor denetleme olanağı serbest bırakır.
-
-* VM premium diskler, yedekleme sırasında ve ilk kadar tamamlandıktan, depolama hesabında yeterli depolama alanı olduğundan emin olun. VM boyutuna eşit olması gerekir.
 
 * Anlık görüntüler, kurtarma noktası oluşturma artırmak ve geri yükleme hızlandırmak için yerel olarak depolanır. Bu nedenle, anlık görüntüler için yedi günlük dönem boyunca karşılık gelen depolama maliyetleri bakın.
 

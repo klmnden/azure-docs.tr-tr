@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus - Azure Event Grid tümleştirmesi örnekleri
 
@@ -62,7 +62,7 @@ Service Bus konunuza ileti göndermek için herhangi bir yöntemi kullanabilirsi
 
 Senaryonun tamamı üzerinde çalışmadan önce, hata ayıklamak ve hangi olayların akışa alındığını görmek için kullanabileceğiniz en az bir küçük test işlevi ayarlayın.
 
-1. Azure portalında yeni bir Azure İşlevleri uygulaması oluşturun. Azure İşlevlerinin temel bilgilerini öğrenmek için [Azure İşlevleri belgelerine](https://docs.microsoft.com/en-us/azure/azure-functions/) bakın.
+1. Azure portalında yeni bir Azure İşlevleri uygulaması oluşturun. Azure İşlevlerinin temel bilgilerini öğrenmek için [Azure İşlevleri belgelerine](https://docs.microsoft.com/azure/azure-functions/) bakın.
 
 2. Yeni oluşturduğunuz işlevde artı işaretini (+) seçerek bir HTTP tetikleyici işlevi ekleyin:
 

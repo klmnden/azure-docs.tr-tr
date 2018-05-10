@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelleştirme
 
@@ -25,7 +25,8 @@ Bu makalede nasıl özelleştirileceğini gösteren [kimlik doğrulama ve yetkil
 
 Hızlıca başlamak için şu eğitimlerden birine bakın:
 
-* [Öğretici: Kimlik doğrulaması ve kullanıcıların uçtan uca Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)
+* [Öğretici: Kimlik doğrulaması ve kullanıcıların uçtan uca (Windows) Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)
+* [Öğretici: Kimlik doğrulaması ve Linux için kullanıcıların uçtan uca Azure App Service'te yetkilendirme](containers/tutorial-auth-aad.md)
 * [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Tıklatın **Düzenle**, aşağıdaki özelliğini değiştirin ve ardından **P
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Öğretici: Uçtan uca kullanıcıların kimliğini doğrulama ve kullanıcıları yetkilendirme](app-service-web-tutorial-auth-aad.md)
+> [Öğretici: Kimlik doğrulaması ve kullanıcıların uçtan uca (Windows) yetkilendirme](app-service-web-tutorial-auth-aad.md)
+> [Öğreticisi: kimlik doğrulaması ve yetkilendirme kullanıcılar uçtan uca (Linux)](containers/tutorial-auth-aad.md)

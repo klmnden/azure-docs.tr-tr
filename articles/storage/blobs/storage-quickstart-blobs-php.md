@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 03aaa6b3440c1e20028078ee3d45c13cdd16cfea
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 463b6051009ab79013f9bef958fcadec2ef3cd16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için PHP'yi nasıl kullanabileceğinizi öğreneceksiniz. 
@@ -211,7 +211,7 @@ Blob depolama ile PHP geliştirmeye yönelik şu ek kaynaklara bakın:
 Bu hızlı başlangıçta, dosyaları PHP kullanarak yerel bir disk ile Azure blob depolama arasında aktarmayı öğrendiniz. PHP ile çalışma hakkında daha fazla bilgi edinmek için PHP Geliştirici merkezimize devam edin.
 
 > [!div class="nextstepaction"]
-> [PHP Geliştirici Merkezi](https://azure.microsoft.com/en-us/develop/php/)
+> [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/)
 
 
 Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

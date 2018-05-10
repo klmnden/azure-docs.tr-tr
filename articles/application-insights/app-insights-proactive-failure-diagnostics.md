@@ -1,9 +1,9 @@
 ---
-title: "Akıllı algılama - Application ınsights'ta hatası anormallikleri | Microsoft Docs"
-description: "Web uygulamanız için başarısız istekleri oranını olağan dışı değişiklikleri uyarır ve tanılama analizini sağlar. Herhangi bir yapılandırma gerekmez."
+title: Akıllı algılama - Application ınsights'ta hatası anormallikleri | Microsoft Docs
+description: Web uygulamanız için başarısız istekleri oranını olağan dışı değişiklikleri uyarır ve tanılama analizini sağlar. Herhangi bir yapılandırma gerekmez.
 services: application-insights
-documentationcenter: 
-author: yorac
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mbullwin
-ms.openlocfilehash: ca484f4d11cf8ab18db2d0c6152f369a90311f10
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; yossiy
+ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hatası anormallikleri
 [Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızı başarısız istekleri oranını olağan dışı bir artışa karşılaşırsa yakın gerçek zamanlı olarak bildirir. Olağan dışı bir HTTP isteklerini veya başarısız olarak rapor bağımlılık çağrıları oranını artışa algılar. İstekler için başarısız olan istekler genellikle yanıt kodları 400 veya daha yüksek olan dosyalardır. Önceliklendirme ve sorunu tanılamak yardımcı olması için hataları ve ilgili telemetri özelliklerini analizini bildiriminde sağlanır. Daha fazla tanı için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmalarını kullanır gibi özelliğinin hiçbir Kurulum ya da yapılandırması gerekir.
@@ -61,7 +61,7 @@ Ortaya çıkan çözümleme değil yapılandırmadığınız sürece, uyarı ola
 
 Gibi [el ile ayarladığınız uyarıları](app-insights-alerts.md), uyarının durumunu inceleyin ve Application Insights kaynağınıza uyarıları dikey penceresinde yapılandırın. Ancak diğer uyarılar, ayarlayın veya akıllı algılama yapılandırmak gerekmez. İsterseniz, devre dışı bırakın ya da kendi hedef e-posta adreslerini değiştirin.
 
-## <a name="configure-alerts"></a>Uyarıları yapılandırma
+## <a name="configure-alerts"></a>Uyarı yapılandırma
 Akıllı algılama devre dışı bırakmak, e-posta alıcılarını değiştirmek, bir Web kancası oluşturma veya ayrıntılı uyarı iletileri kabul.
 
 Uyarılar sayfasında açın. El ile ayarlayın ve, şu anda uyarı durumunda olup olmadığını görebilirsiniz herhangi bir uyarı birlikte hatası anormallikleri eklenir.

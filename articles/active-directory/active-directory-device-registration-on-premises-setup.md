@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -86,7 +86,7 @@ Denetim etkinleştirmek ve Azure Active Directory cihaz Kayıt Hizmeti'ni yapıl
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3. Kısım: Etkinleştir cihaz geri yazma özelliğini Azure AD
 | Görev | Başvuru |
 | --- | --- |
-| "Etkinleştirme cihaz geri yazma özelliğini Azure AD Connect." iki bölümü tamamlayın Bitirdiğinizde, bu Kılavuzu'na dönün. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](#upgrade-your-active-directory-domain-services-schema) |
+| "Etkinleştirme cihaz geri yazma özelliğini Azure AD Connect." iki bölümü tamamlayın Bitirdiğinizde, bu Kılavuzu'na dönün. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[İsteğe bağlı] 4. Kısım: Etkinleştir çok faktörlü kimlik doğrulaması
 Çok faktörlü kimlik doğrulaması için çeşitli seçenekler birini yapılandırmanız önerilir. Çok faktörlü kimlik doğrulaması gerektiren istiyorsanız, bkz: [çok faktörlü kimlik doğrulaması güvenliği çözümü seçtiğiniz](authentication/concept-mfa-whichversion.md). Her çözüm ve tercih ettiğiniz çözüm yapılandırmanıza yardımcı olması için bağlantıları açıklamasını içerir.

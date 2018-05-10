@@ -1,23 +1,23 @@
 ---
-title: "Belirteç tabanlı (HTTP/2) kimlik doğrulaması için Azure Notification Hubs APNS | Microsoft Docs"
-description: "Bu konuda, yeni belirteç kimlik doğrulama APNS için yararlanacağınızı açıklanmaktadır"
+title: Belirteç tabanlı (HTTP/2) kimlik doğrulaması için Azure Notification Hubs APNS | Microsoft Docs
+description: Bu konuda, yeni belirteç kimlik doğrulama APNS için yararlanacağınızı açıklanmaktadır
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: kapiteir
-ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: ca86130e9c184576fc44119190d6224a363c6561
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>APNS için belirteç tabanlı (HTTP/2) kimlik doğrulaması
 ## <a name="overview"></a>Genel Bakış
@@ -42,7 +42,7 @@ APNS için sertifika kimlik bilgilerini kullanarak geçirdiyseniz dikkat edin:
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Apple'dan kimlik doğrulama bilgilerini alma
 Belirteç tabanlı kimlik doğrulamasını etkinleştirmek için aşağıdaki özellikleri Apple Developer hesabınızdan gerekir:
-### <a name="key-identifier"></a>Anahtarı tanımlayıcısı
+### <a name="key-identifier"></a>Anahtar Tanımlayıcısı
 Apple Geliştirici hesabınızda "Anahtarlar" sayfasından anahtarı tanımlayıcısı alınabilir
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
@@ -75,8 +75,8 @@ Yeni bir özellik – yoktur *kimlik doğrulama modu*. Belirteç seçerek, tüm 
 Kullanabileceğiniz bizim [Yönetimi API'leri](https://msdn.microsoft.com/library/azure/dn495827.aspx) belirteç tabanlı kimlik doğrulamasını kullanmak için bildirim hub'ı güncelleştirmek için.
 Yapılandırmakta uygulamanın (Apple Geliştirici hesabınızda belirtilen) bir korumalı alan veya üretim uygulaması olup bağlı olarak, karşılık gelen uç noktaları birini kullanın:
 
-- Korumalı alan uç noktası: [3/https://api.development.push.apple.com:443/aygıt](https://api.development.push.apple.com:443/3/device)
-- Üretim uç noktası: [3/https://api.push.apple.com:443/aygıt](https://api.push.apple.com:443/3/device)
+- Korumalı alan uç noktası: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+- Üretim uç noktası: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]
 > Belirteç tabanlı kimlik doğrulaması gerektiren bir API sürümü: **2017-04 ya da daha sonra**.

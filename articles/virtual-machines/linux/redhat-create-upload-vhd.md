@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e0e0fdbb3702ec16e9d5a33659c1ddbee589b989
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, Azure kullanmak için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele alınan RHEL sürümleri 6.7 + ve 7.1 +. Bu makalede ele alınan hiper hazırlık için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hat'ın bulut erişimi programına katılmasını için uygunluk gereksinimleri hakkında daha fazla bilgi için bkz: [Red Hat'ın bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -159,7 +159,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
 5. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 6. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
 
@@ -411,7 +411,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
 6. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
-        # chkconfig network on
+        # sudo systemctl enable network
 
 7. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesine olanak sağlamak için Red Hat aboneliğinizi kaydedin:
 
@@ -665,7 +665,7 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 
 3. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 4. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
 

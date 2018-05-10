@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubu silme
 
@@ -34,6 +34,8 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 - Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.28 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
+Hesap oturum açın veya Azure ile bağlanmak için atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
+
 ## <a name="work-with-network-security-groups"></a>Ağ güvenlik grupları ile çalışma
 
 Oluşturabileceğiniz, [tüm görüntüle](#view-all-network-security-groups), [ayrıntılarını görüntülemek](#view-details-of-a-network-security-group), [değiştirme](#change-a-network-security-group), ve [silme](#delete-a-network-security-group) bir ağ güvenlik grubu. Ayrıca [ilişkilendir ya da ilişkilendirmesini](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) bir ağ arabirimi veya alt ağ güvenlik grubu.
@@ -44,7 +46,7 @@ Kaç tane ağ güvenlik grubu Azure konumu ve abonelik oluşturmak için bir sı
 
 1. Portalın sol üst köşede seçin **+ kaynak oluşturma**.
 2. Seçin **ağ**seçeneğini belirleyip **ağ güvenlik grubu**.
-3. Girin bir **adı** için ağ güvenlik grubu seçin, **abonelik**, yeni bir **kaynak grubu**, veya var olan bir kaynak grubunu seçin, bir **Konumu**ve ardından **oluşturma**. 
+3. Girin bir **adı** için ağ güvenlik grubu seçin, **abonelik**, yeni bir **kaynak grubu**, veya var olan bir kaynak grubunu seçin, bir **Konumu**ve ardından **oluşturma**.
 
 **Komutları**
 
@@ -67,7 +69,7 @@ Portal üstündeki arama kutusuna girin *ağ güvenlik grubu*. Zaman **ağ güve
 3. Listelenen ortak Azure ayarları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
     *   [Etkinlik Günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Etiketler](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Etiketler](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Otomasyon komut dosyası](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +213,7 @@ Etiketleri ve mevcut uygulama güvenlik grubu için izinleri gibi bazı ayarlar�
 
 ### <a name="delete-an-application-security-group"></a>Bir uygulama güvenlik grubunu sil
 
-Tüm ağ arabirimlerini sahipse, uygulama güvenlik grubu silinemiyor. Ağ arabirimi ayarlarını değiştirmek veya ağ arabirimleri silme uygulama güvenlik grubundan tüm ağ arabirimleri kaldırmanız gerekir. Ayrıntılar için bkz [Ekle veya Kaldır uygulama güvenlik gruplarının bir ağ arabirimi](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) veya [ağ arabirimini silmek](virtual-network-network-interface.md#delete-a-network-interface).
+Tüm ağ arabirimlerini sahipse, uygulama güvenlik grubu silinemiyor. Tüm ağ arabirimleri, ağ arabirimi ayarlarını değiştirmek veya ağ arabirimleri silme uygulama güvenlik grubundan kaldırın. Ayrıntılar için bkz [Ekle veya Kaldır uygulama güvenlik gruplarının bir ağ arabirimi](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) veya [ağ arabirimini silmek](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Komutları**
 
@@ -220,18 +222,33 @@ Tüm ağ arabirimlerini sahipse, uygulama güvenlik grubu silinemiyor. Ağ arabi
 
 ## <a name="permissions"></a>İzinler
 
-Ağ güvenlik grupları, güvenlik kuralları ve uygulama güvenlik grupları görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atanan rolü Aşağıdaki tabloda listelenen uygun izinleri:
+Ağ güvenlik grupları, güvenlik kuralları ve uygulama güvenlik grupları görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atanan Aşağıdaki tabloda listelenen uygun izinleri:
 
-|İşlem                                                       |   İşlem adı                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Ağ güvenlik grubunu Al                              |
-|Microsoft.Network/ruleTables/write                             |   Ağ güvenlik grubu güncelle                 |
-|Microsoft.Network/ruleTables/delete                            |   Ağ güvenlik grubunu sil                           |
-|Microsoft.Network/ruleTables/join/action                       |   Ağ güvenlik grubuna katılma                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Kuralını Al                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Kuralı oluştur veya güncelleştir                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Kural silme                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Ağ arabirimi etkin ağ güvenlik grubunu Al  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Bir sanal makineden sonraki atlama alır                  |
+### <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-*Ağ güvenlik grubuna Katıl* işlemi, bir alt ağ için ağ güvenlik grubu ilişkilendirmek için gereklidir.
+| Eylem                                                        |   Ad                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Ağ güvenlik grubunu Al                                          |
+| Microsoft.Network/ruleTables/write                            |   Ağ güvenlik grubu güncelle                             |
+| Microsoft.Network/ruleTables/delete                           |   Ağ güvenlik grubunu sil                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Bir alt ağ veya ağ arabirimi için ağ güvenlik grubu ilişkilendirme |
+| Microsoft.Network/ruleTables/rules/read                       |   Kuralını Al                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Kuralı oluştur veya güncelleştir                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Kural silme                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Ağ arabirimi etkin ağ güvenlik grubunu Al              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   Bir sanal makineden sonraki atlama alır                                         |
+
+### <a name="application-security-groups"></a>Uygulama güvenliği grupları
+
+| Eylem                                                                     | Ad                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Bir IP yapılandırması bir uygulama güvenlik grubuna katılma|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Güvenlik kuralı bir uygulama güvenlik grubuna katılma    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Bir uygulama güvenlik grubunu Al                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Uygulama güvenlik grubu güncelle           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Bir uygulama güvenlik grubunu sil                     |
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Bir ağ veya uygulama güvenlik grubunu kullanarak oluşturma [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)
+- Oluşturma ve uygulama [Azure ilke](policy-samples.md) sanal ağlar için

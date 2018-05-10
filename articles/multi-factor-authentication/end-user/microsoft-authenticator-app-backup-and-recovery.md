@@ -14,11 +14,11 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 **Uygulandığı öğe:**
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 Microsoft Authenticator uygulaması, hesapların sırasını gibi ilgili uygulama ayarları ve hesap kimlik bilgileri buluta yedekler. Yedeklemeden sonra uygulama kilitli olasılığı önleme yeni bir cihaz bilgilerinizi kurtarmak için de kullanabilirsiniz ya da hesapları yeniden oluşturmak zorunda.
 
 >[!IMPORTANT]
-> Her yedekleme depolama konumu için bir kişisel Microsoft hesabı ve bir iCloud hesabıyla gerekir. Ancak bu depolama konumu içinde birkaç hesapları yedekleyebilirsiniz. Örneğin, bir kişisel hesap, okul hesabı ve Facebook, Google, gibi bir üçüncü taraf hesabı varsa ve benzeri.<br><br>Kullanıcı adınızı ve Microsoft Authenticator uygulamasıyla, kimliğini kanıtlamak için gerekli olan 8 basamaklı hesabı doğrulama kodu içeren yalnızca hesap bilgileriniz depolanır. E-postalar veya dosyaları dahil olmak üzere, hesaplarıyla ilişkili herhangi bir bilgi depolarız yok. Biz de yok ilişkilendirmek veya hesaplarınızı herhangi bir şekilde veya herhangi bir ürün veya hizmet ile paylaşın. Ve son olarak, BT yöneticiniz bu hesaplardan birini hakkında hiçbir bilgi alamazsınız.
+> Her yedekleme depolama konumu için bir kişisel Microsoft hesabı ve bir iCloud hesabıyla gerekir. Ancak bu depolama konumu içinde birkaç hesapları yedekleyebilirsiniz. Örneğin, bir kişisel hesap, okul hesabı ve Facebook, Google, gibi bir üçüncü taraf hesabı varsa ve benzeri.<br><br>Kullanıcı adınızı ve, kimliğini kanıtlamak için gerekli olan hesabı doğrulama kodu içeren yalnızca kişisel ve 3. taraf hesap bilgileriniz depolanır. E-postalar veya dosyaları dahil olmak üzere, hesaplarıyla ilişkili herhangi bir bilgi depolarız yok. Biz de yok ilişkilendirmek veya hesaplarınızı herhangi bir şekilde veya herhangi bir ürün veya hizmet ile paylaşın. Ve son olarak, BT yöneticiniz bu hesaplardan birini hakkında hiçbir bilgi alamazsınız.
 
 ## <a name="back-up-your-account-credentials"></a>Hesap kimlik bilgilerini yedekle
 Kimlik bilgilerinizi yedeklenmeden önce sahip olmalıdır:

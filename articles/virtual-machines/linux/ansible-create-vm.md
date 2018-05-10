@@ -1,13 +1,13 @@
 ---
-title: "Temel bir Linux VM oluşturmak için Ansible kullanın | Microsoft Docs"
-description: "Ansible oluşturmak ve azure'da temel bir Linux sanal makine yönetmek için nasıl kullanılacağını öğrenin"
+title: Temel bir Linux VM oluşturmak için Ansible kullanın | Microsoft Docs
+description: Ansible oluşturmak ve azure'da temel bir Linux sanal makine yönetmek için nasıl kullanılacağını öğrenin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 80406994402b488f4172069b13dca593c470efe4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a2bf047d5a08bfd3df6a6c76116d2b9b9ab81fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure Ansible ile temel bir sanal makine oluşturun
 Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede Ansible ile temel bir VM oluşturulacağını gösterir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).
@@ -29,7 +29,7 @@ Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikle�
 Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:
 
 - Ansible ve ana bilgisayar sisteminizde yüklü Azure Python SDK'sını modüller.
-    - Ansible yüklemek [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), ve [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
+    - Ansible yüklemek [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), ve [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Azure kimlik ve onları kullanmak üzere yapılandırılmış Ansible.
     - [Azure kimlik bilgileri oluşturun ve Ansible yapılandırın](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI Sürüm 2.0.4 veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. 

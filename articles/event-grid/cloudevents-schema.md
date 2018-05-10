@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: babanisa
-ms.openlocfilehash: a2612d2154ea5b991f549a0678374336e1a95c40
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: MT
+ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Olay kılavuzla CloudEvents şeması kullanma
 
@@ -89,6 +89,8 @@ Giriş ve çıkış CloudEvents şemasında olayların olay kılavuzunu kullanab
 | Olay kılavuz biçimi  | CloudEvents biçimi
 | CloudEvents biçimi | Olay kılavuz biçimi
 | Olay kılavuz biçimi  | Olay kılavuz biçimi
+
+Tüm olay şemaları için bir olay kılavuz konusu yayımlarken ve bir olay abonelik oluştururken doğrulama olay kılavuz gerektirir. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
 
 ### <a name="input-schema"></a>Giriş şemasını
 

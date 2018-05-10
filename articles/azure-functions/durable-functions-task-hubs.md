@@ -1,12 +1,12 @@
 ---
-title: "Görev hub dayanıklı işlevlerinde - Azure"
-description: "Bilgi dayanıklı işlevleri uzantısı Azure işlevleri için hangi görev hub bulunmaktadır. Nasıl yapılandırılacağını öğrenmek görev hub'ları yapılandırın."
+title: Görev hub dayanıklı işlevlerinde - Azure
+description: Bilgi dayanıklı işlevleri uzantısı Azure işlevleri için hangi görev hub bulunmaktadır. Nasıl yapılandırılacağını öğrenmek görev hub'ları yapılandırın.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 563667684accf8b434052cd412bf6e93c77ea63a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Görev hub dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -35,6 +35,7 @@ Bir görev hub'ı aşağıdaki depolama kaynaklarını oluşur:
 * Bir veya daha fazla denetim sıralar.
 * Bir iş öğesi sırası.
 * Bir geçmiş tablosu.
+* Bir örnek tablo.
 * Bir veya daha fazla kira BLOB içeren bir depolama kapsayıcısı.
 
 Orchestrator veya etkinlik işlevleri çalıştırdığınızda veya çalıştırmak için zamanlanan tüm bu kaynaklar varsayılan Azure depolama hesabında otomatik olarak oluşturulur. [Performansı ve ölçeği](durable-functions-perf-and-scale.md) makale, bu kaynakların nasıl kullanıldığını açıklar.

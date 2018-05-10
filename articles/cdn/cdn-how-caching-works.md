@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: rli; v-deasim
-ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/30/2018
+ms.author: v-deasim
+ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-caching-works"></a>Önbelleğe alma nasıl işler?
 
@@ -71,12 +71,13 @@ Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki 
 **Cache-Control:**
 - HTTP 1.1 web yayımcılar içeriklerini üzerinde daha fazla denetime ve sınırlamaları yönelik olarak sunulan `Expires` üstbilgi.
 - Geçersiz kılmaları `Expires` başlığı, her iki onu ve `Cache-Control` tanımlanır.
-- Bir HTTP isteği kullanıldığında `Cache-Control` Azure CDN tarafından varsayılan olarak sayılır.
-- **Verizon'dan Azure CDN** profilleri destekleyen tüm `Cache-Control` bir HTTP yanıtının kullanıldığında yönergeleri.
-- **Akamai'den Azure CDN** profiller, yalnızca aşağıdaki yönergeleri bir HTTP yanıtının kullanıldığında destekler; diğerleri yoksayılır:
-   - `max-age`: Bir önbellek içeriği için belirtilen saniye sayısı depolayabilirsiniz. Örneğin, `Cache-Control: max-age=5`. Bu yönerge içeriği yeni olarak kabul edilir en uzun süreyi belirtir.
-   - `no-cache`: İçeriği önbelleğe ancak içeriği önce önbellekten teslim etmeden her zaman doğrulayın. Eşdeğer `Cache-Control: max-age=0`.
-   - `no-store`: Hiçbir zaman önbellek içeriği. Daha önce depolanmışsa içeriğini kaldırın.
+- İstemci bir HTTP isteği CDN POP kullanıldığında `Cache-Control` tüm Azure CDN profili tarafından varsayılan olarak sayılır.
+- İstemci bir HTTP yanıtının CDN POP kullanıldığında:
+     - **Verizon'dan Azure CDN standart/Premium** ve **Azure CDN standart Microsoft** tüm destek `Cache-Control` yönergeleri.
+     - **Azure CDN standart akamai'den** yalnızca aşağıdakileri destekler `Cache-Control` yönergeleri; tüm diğerleri yoksayılır:
+         - `max-age`: Bir önbellek içeriği için belirtilen saniye sayısı depolayabilirsiniz. Örneğin, `Cache-Control: max-age=5`. Bu yönerge içeriği yeni olarak kabul edilir en uzun süreyi belirtir.
+         - `no-cache`: İçeriği önbelleğe ancak içeriği önce önbellekten teslim etmeden her zaman doğrulayın. Eşdeğer `Cache-Control: max-age=0`.
+         - `no-store`: Hiçbir zaman önbellek içeriği. Daha önce depolanmışsa içeriğini kaldırın.
 
 **Zaman aşımı:**
 - HTTP 1.0 sunulan eski başlığı; Geriye dönük uyumluluk desteklenen.
@@ -92,38 +93,40 @@ Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki 
 
 ## <a name="validators"></a>Doğrulayıcıları
 
-Önbellek eski olduğunda, HTTP önbellek doğrulayıcıları önbelleğe alınan bir dosya sürümü kaynak sunucu sürüm ile karşılaştırmak için kullanılır. **Verizon'dan Azure CDN** destekler `ETag` ve `Last-Modified` varsayılan olarak, doğrulayıcıları sırada **akamai'den Azure CDN** yalnızca destekler `Last-Modified` varsayılan olarak.
+Önbellek eski olduğunda, HTTP önbellek doğrulayıcıları önbelleğe alınan bir dosya sürümü kaynak sunucu sürüm ile karşılaştırmak için kullanılır. **Verizon'dan Azure CDN standart/Premium** destekler `ETag` ve `Last-Modified` varsayılan olarak, doğrulayıcıları sırada **Azure CDN standart Microsoft** ve **akamai'denAzureCDNstandart** yalnızca destekler `Last-Modified` varsayılan olarak.
 
 **ETag:**
-- **Verizon'dan Azure CDN** kullanan `ETag` varsayılan olarak, sırada **akamai'den Azure CDN** desteklemez.
+- **Verizon'dan Azure CDN standart/Premium** destekleyen `ETag` varsayılan olarak, sırada **Azure CDN standart Microsoft** ve **akamai'den Azure CDN standart** desteklemez.
 - `ETag` her dosya ve bir dosya sürümü için benzersiz bir dizeye tanımlar. Örneğin, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - HTTP 1.1 içinde sunulmuştur ve daha güncel `Last-Modified`. Son değiştirilme tarihini belirlemek zor olduğu durumlarda faydalıdır.
 - Güçlü doğrulama ve zayıf doğrulama destekler; Ancak, Azure CDN yalnızca güçlü doğrulama destekler. Güçlü doğrulama için iki kaynak Beyanları bayt için bayt olmalıdır aynı. 
 - Bir önbellek kullanan bir dosyayı doğrular `ETag` göndererek bir `If-None-Match` üstbilgi bir veya daha fazla `ETag` istekte doğrulayıcıları. Örneğin, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Sunucunun sürüm eşleşiyorsa bir `ETag` Doğrulayıcı listesinde, gönderdiği durum kodu 304 (değişiklik) yanıt olarak. Sürüm farklıysa, sunucu durum kodu 200 (Tamam) ve güncelleştirilmiş kaynak yanıt verir.
 
 **Son değiştirilen:**
-- İçin **verizon'dan Azure CDN** yalnızca `Last-Modified` kullanılır `ETag` HTTP yanıtı parçası değil. 
+- İçin **Azure CDN standart/Premium verizon'dan** yalnızca `Last-Modified` kullanılır `ETag` HTTP yanıtı parçası değil. 
 - Kaynak son değiştirilen kaynak sunucunun belirledi saat ve tarihi belirtir. Örneğin, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Bir önbellek dosyası kullanarak doğrular `Last-Modified` göndererek bir `If-Modified-Since` sahip bir tarih ve saat istekteki üstbilgi. Kaynak sunucu, tarihle karşılaştırır `Last-Modified` son kaynak üstbilgisi. Kaynağın belirtilen zamanından bu yana değiştirilmemiş, sunucu durum kodu 304 (değişiklik) yanıt olarak döndürür. Kaynak değiştirilirse sunucu durumu döndürür kod 200 (Tamam) ve güncelleştirilmiş kaynak.
 
 ## <a name="determining-which-files-can-be-cached"></a>Hangi dosyaların önbelleğe belirleme
 
-Tüm kaynaklar önbelleğe alınabilir. Aşağıdaki tabloda, hangi kaynaklara, HTTP yanıtı türüne göre önbelleğe alınabilir gösterir. Tüm bu koşulların uymayan ile HTTP yanıtlarını teslim kaynakları önbelleğe alınamaz. İçin **Azure CDN Verizon Premium'a** yalnızca, bu koşullar bazıları özelleştirmek için kurallar altyapısı kullanabilirsiniz.
+Tüm kaynaklar önbelleğe alınabilir. Aşağıdaki tabloda, hangi kaynaklara, HTTP yanıtı türüne göre önbelleğe alınabilir gösterir. Tüm bu koşulların uymayan ile HTTP yanıtlarını teslim kaynakları önbelleğe alınamaz. İçin **verizon'dan Azure CDN Premium** yalnızca, bu koşullar bazıları özelleştirmek için kurallar altyapısı kullanabilirsiniz.
 
-|                   | Verizon'dan Azure CDN | Akamai'den Azure CDN            |
-|------------------ |------------------------|----------------------------------|
-| HTTP durum kodları | 200                    | 200, 203, 300, 301, 302 ve 401 |
-| HTTP yöntemi       | AL                    | AL                              |
-| Dosya boyutu         | 300 GB                 | -Genel web teslim en iyi duruma getirme: 1,8 GB<br />-En iyi duruma getirme medya: 1,8 GB<br />-Büyük dosya en iyi duruma getirme: 150 GB |
+|                   | Microsoft Azure CDN          | Verizon'dan Azure CDN | Akamai'den Azure CDN        |
+|-------------------|-----------------------------------|------------------------|------------------------------|
+| HTTP durum kodları | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| HTTP yöntemleri      | GET, HEAD                         | GET                    | GET                          |
+| Dosya boyutu sınırları  | 300 GB                            | 300 GB                 | -Genel web teslim en iyi duruma getirme: 1,8 GB<br />-En iyi duruma getirme medya: 1,8 GB<br />-Büyük dosya en iyi duruma getirme: 150 GB |
+
+İçin **Azure CDN standart Microsoft** kaynağın üzerinde çalışmak için önbelleğe alma, kaynak sunucunun tüm HEAD desteklemesi gerekir ve HTTP GET istekleri ve içerik-uzunluk değerleri varlık için HEAD ve GET HTTP yanıtları için aynı olmalıdır. HEAD isteği için kaynak sunucunun HEAD isteği desteklemesi gerekir ve bir GET isteği almış gibi aynı üst bilgilerle yanıt vermelidir.
 
 ## <a name="default-caching-behavior"></a>Varsayılan önbelleğe alma davranışı
 
 Aşağıdaki tabloda, önbelleğe alma davranışı Azure CDN ürünü ve bunların en iyi duruma getirme için varsayılan açıklanmaktadır.
 
-|                    | Verizon: Genel web teslim | Verizon: DSA | Akamai: Genel web teslim | Akamai: DSA | Akamai: büyük dosya indirme | Akamai: genel veya medya VOD akışı |
-|--------------------|--------|------|-----|----|-----|-----|
-| **Uy kaynağı**   | Evet    | Hayır   | Evet | Hayır | Evet | Evet |
-| **CDN önbellek süresi** | 7 gün | Hiçbiri | 7 gün | None | 1 gün | 1 yıl |
+|    | Microsoft: Genel web teslim | Verizon: Genel web teslim | Verizon: DSA | Akamai: Genel web teslim | Akamai: DSA | Akamai: Büyük dosya indirme | Akamai: genel veya medya VOD akışı |
+|------------------------|--------|-------|------|--------|------|-------|--------|
+| **Uy kaynağı**       | Evet    | Evet   | Hayır   | Evet    | Hayır   | Evet   | Evet    |
+| **CDN önbellek süresi** | 2 gün |7 gün | None | 7 gün | None | 1 gün | 1 yıl |
 
 **Kaynak dikkate**: vermenizin belirtir [önbellek yönergesi üstbilgileri desteklenen](#http-cache-directive-headers) kaynak sunucudan HTTP yanıt varsa.
 

@@ -1,25 +1,25 @@
 ---
-title: "Bağlantılar ve URL'leri Azure AD uygulaması Proxy Çevir | Microsoft Docs"
-description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır."
+title: Bağlantılar ve URL'leri Azure AD uygulaması Proxy Çevir | Microsoft Docs
+description: Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: daveba
+ms.date: 05/04/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: MT
+ms.openlocfilehash: 5009266dc2cbea360ef9c5dfa69fc2c13225d8cd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantı yeniden yönlendirme
 
@@ -27,12 +27,43 @@ Azure AD uygulama proxy'si, şirket içi uygulamalarınızı Uzaktan kullanıcı
 
 Bağlantıları aynı hem içinde hem de Şirket ağınızın dışındaki çalıştığından emin olmak için en iyi yolu, kendi iç URL'ler ile aynı olacak şekilde dış URL'ler uygulamalarınızın yapılandırmaktır. Kullanım [özel etki alanlarını](active-directory-application-proxy-custom-domains.md) varsayılan uygulama proxy etki alanı yerine şirket etki alanı adınızı sağlamak için dış URL'ler yapılandırılır.
 
-Özel etki alanlarını kiracınızda kullanamıyorsanız, uygulama proxy'sinin bağlantı çeviri özelliği, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutar. Doğrudan iç uç noktalar veya bağlantı noktası uygulamalar varsa, bu dahili URL'leri yayımlanan dış uygulama Proxy URL'ler eşleyebilirsiniz. Ne zaman bağlantı çevirisi etkin ve kesintisiz bir deneyim kullanıcılarınız alır şekilde yayımlanan iç bağlantılar için uygulama proxy'si aramaları HTML ve CSS aracılığıyla uygulama proxy'si hizmeti bunları çevirir.
 
->[!NOTE]
->Bağlantı çeviri özelliğini ne olursa olsun nedeni için özel etki alanlarını uygulamalarını aynı iç ve dış URL'leri olmasını kullanamazsınız, kiracılar içindir. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md) sizin için çalışabilir.
->
->Veya uygulama yapılandırmak gerekirse bağlantısıyla çeviri SharePoint bkz [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım için.
+Özel etki alanlarını kiracınızda kullanamıyorsanız, bu işlevselliği sağlamak için birkaç seçeneğiniz vardır. Bunların tümü de özel etki alanları ve gerekirse diğer çözümleri yapılandırabilmek için özel etki alanlarını ve birbirlerine ile uyumlu değildir. 
+
+**Seçenek 1: yönetilen tarayıcı kullanmanız** – Bu çözüm yalnızca önerilir veya kullanıcıların Intune yönetilen tarayıcı uygulamaya erişim gerektiren planlıyorsanız geçerlidir. Tüm yayımlanan URL'ler işleyecek. 
+
+**Seçenek 2: MyApps bu uzantıyı kullanan** – kullanıcılar bir istemci-tarafı tarayıcı uzantısı yüklemek bu çözüm gerektiriyor, ancak tüm yayımlanan URL'ler ve en popüler tarayıcılarla çalışır işleyecek. 
+
+**Seçenek 3: bağlantı çeviri ayarı kullanmak** – kullanıcılara görünmezdir bir yönetici yan ayar budur. Ancak, HTML ve CSS URL'lerinde yalnızca işleyecek. JavaScript oluşturulan sabit kodlanmış Dahili URL (örneğin) çalışmaz.  
+
+Bu üç özellik, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutun. Doğrudan iç uç noktalar veya bağlantı noktası uygulamalar varsa, bu dahili URL'leri yayımlanan dış uygulama Proxy URL'ler eşleyebilirsiniz. 
+
+ 
+> [!NOTE]
+> Son seçenek ne olursa olsun nedeni için özel etki alanlarını uygulamalarını aynı iç ve dış URL'leri olmasını kullanamazsınız, kiracılar içindir. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md) sizin için çalışabilir. 
+
+>Veya uygulama yapılandırmak gerekirse bağlantısıyla çeviri SharePoint bkz [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım için. 
+
+ 
+### <a name="option-1-intune-managed-browser-integration"></a>Seçenek 1: Tarayıcı tümleştirme Intune yönetilen 
+
+Uygulama ve içerik daha iyi korumak için Intune yönetilen tarayıcı kullanabilirsiniz. Bu çözümü kullanmak için kullanıcılar erişim Intune yönetilen tarayıcı üzerinden uygulama gerektiren/öneri gerekir. Uygulama Ara sunucusu ile yayımlanan tüm iç URL'leri yönetilen tarayıcı tarafından tanınmıyor ve karşılık gelen bir dış URL'ye yeniden yönlendirildi. Bu, tüm sabit kodlanmış iç URL'leri çalışır ve bir kullanıcı tarayıcıya gider ve doğrudan İç URL türleri, kullanıcı uzak olsa bile, çalıştığı sağlar.  
+
+Bu seçeneği yapılandırmak da dahil olmak üzere daha fazla bilgi için lütfen bkz [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) belgeleri.  
+
+### <a name="option-2-myapps-browser-extension"></a>Seçenek 2: MyApps tarayıcı uzantısı 
+
+MyApps tarayıcı uzantısı ile uygulama ara sunucusu ile yayımlanan tüm iç URL'leri uzantısı tarafından tanınmıyor ve karşılık gelen bir dış URL'ye yeniden yönlendirildi. Bu, tüm sabit kodlanmış iç URL'leri çalışır ve bir kullanıcı tarayıcının adres çubuğuna gider ve doğrudan İç URL türleri, kullanıcı uzak olsa bile, çalıştığı sağlar.  
+
+Bu özelliği kullanmak için kullanıcının uzantısını indirin ve oturum açmanız gerekir. Yöneticiler veya kullanıcılar için gerekli herhangi bir yapılandırma yoktur. 
+
+ 
+
+### <a name="option-3-link-translation-setting"></a>Seçenek 3: Bağlantı çeviri ayarı 
+
+Bağlantı çeviri etkinleştirildiğinde, uygulama proxy'si hizmeti HTML ve CSS yayımlanan iç bağlantıları için arar ve kesintisiz bir deneyim kullanıcılarınız alır şekilde çevirir. 
+
+
 
 ## <a name="how-link-translation-works"></a>Çeviri works nasıl bağlantı
 

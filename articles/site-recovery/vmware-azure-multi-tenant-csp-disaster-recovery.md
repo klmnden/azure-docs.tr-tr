@@ -1,18 +1,18 @@
 ---
-title: "Azure'da VMware çoğaltma işlemini Site kurtarma ve bulut çözümü sağlayıcısı (CSP) programı kullanarak çoklu kiracı ortamında ayarlama | Microsoft Docs"
-description: "Oluşturma ve CSP Kiracı aboneliği yönetme ve çok kiracılı kurulumunda Azure Site Recovery dağıtma açıklar"
+title: Azure'da VMware çoğaltma işlemini Site kurtarma ve bulut çözümü sağlayıcısı (CSP) programı kullanarak çoklu kiracı ortamında ayarlama | Microsoft Docs
+description: Oluşturma ve CSP Kiracı aboneliği yönetme ve çok kiracılı kurulumunda Azure Site Recovery dağıtma açıklar
 services: site-recovery
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/03/2018
 ms.author: manayar
-ms.openlocfilehash: 25591acb3f046744400f5dcf20a7ea651a7bcf54
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a9c77179aa77b7920646d0415ce4d244892215e4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>VMware çoğaltma bulut çözümü sağlayıcısı (CSP) programı ile çoklu kiracı ortamında ayarlama
 
@@ -27,7 +27,7 @@ Bu makalede, nasıl bir iş ortağı olarak oluşturabilir ve bir çok kiracıl�
 VMware çoğaltmayı ayarlama için aşağıdakileri yapmanız gerekir:
 
 - [Hazırlama](tutorial-prepare-azure.md) bir Azure aboneliği, Azure sanal ağı ve bir depolama hesabı gibi Azure kaynakları.
-- [Hazırlama](vmware-azure-tutorial-prepare-on-premises.md) VMware sunucularını ve Vm'leri şirket. 
+- [Hazırlama](vmware-azure-tutorial-prepare-on-premises.md) VMware sunucularını ve Vm'leri şirket.
 - Her bir kiracı için Kiracı VM'ler ile iletişim kurabilen bir ayrı yönetim sunucusu ve vCenter sunucusu oluşturun. Yalnızca bir iş ortağı olarak, bu yönetim sunucusuna erişim hakları olmalıdır. Daha fazla bilgi edinmek [çok kiracılı ortamlarda](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="create-a-tenant-account"></a>Bir kiracı hesabı oluşturun
@@ -35,7 +35,7 @@ VMware çoğaltmayı ayarlama için aşağıdakileri yapmanız gerekir:
 1. Aracılığıyla [Microsoft Partner Center](https://partnercenter.microsoft.com/), CSP hesabınızda oturum açın.
 2. Üzerinde **Pano** menüsünde, select **müşteriler**.
 3. Açılan sayfada tıklatın **Ekle müşteri** düğmesi.
-4. İçinde **yeni müşteri** sayfasında, Kiracı için hesap bilgilerini ayrıntıları doldurun. 
+4. İçinde **yeni müşteri** sayfasında, Kiracı için hesap bilgilerini ayrıntıları doldurun.
 
     ![Hesap bilgileri sayfası](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
@@ -58,47 +58,43 @@ Kiracının abonelik Microsoft iş ortağı merkezi Pano erişebilirsiniz.
 
 4. Üst Azure Active Directory bağlantısını tıklatarak erişim doğrulayabilirsiniz Azure portalının sağ.
 
-    ![Azure Active Directory link](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
+    ![Azure Active Directory bağlantısı](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
 
 Artık gerçekleştirmek ve tüm Site Recovery işlemlerini Azure portalında Kiracı için yönetebilirsiniz. Kiracı aboneliği, yönetilen olağanüstü durum kurtarma için CSP erişmek için yukarıda açıklanan süreci izleyin.
 
-## <a name="deploy-resources-to-the-tenant-subscription"></a>Kaynaklar için Kiracı aboneliği dağıtma
-
-1. Azure portalında bir kaynak grubu oluşturun ve sonra bir kurtarma Hizmetleri kasası normal işlem başına dağıtın.
-2. Kasa kayıt anahtarını indirin.
-3. CS kasa kayıt anahtarını kullanarak Kiracı için kaydedin.
-
-4. VCenter server ve VM erişmek için hesap erişmek için hesabınız iki erişim hesapları için kimlik bilgilerini girin.
-
-    ![Yönetici yapılandırması sunucu hesapları](./media/vmware-azure-multi-tenant-csp-disaster-recovery/config-server-account-display.png)
-
-## <a name="register-servers-in-the-vault"></a>Sunucuları kasaya kaydetmek
-
-1. Azure portalında daha önce oluşturduğunuz kasayı vCenter sunucusu oluşturduğunuz vCenter hesabı kullanarak yapılandırma sunucusuna kaydedin. 
-2. "Altyapıyı Hazırlama" işlemi normal işlem başına Site Recovery için Son'u tıklatın.
-3. Sanal makinelerin çoğaltılması artık hazırsınız. Yalnızca kiracının VM'ler içinde görüntülendiğini doğrulayın **çoğaltmak** > **sanal makine Seç**.
-
-
 ## <a name="assign-tenant-access-to-the-subscription"></a>Aboneliği için Kiracı erişimi atayın
 
-1. Olağanüstü durum kurtarma altyapı kurulduğundan emin olun. CSP portal, olağanüstü durum kurtarma yönetilip, regarless veya Self Servis Kiracı aboneliklerine erişmelisiniz unutmayın. Kasanızı ayarlamak ve Kiracı aboneliklerine altyapısına kaydedin.
-2. Kiracı ile sağlayın [oluşturduğunuz hesabı](#create-a-tenant-account)
+1. Olağanüstü durum kurtarma altyapı kurulduğundan emin olun. İş ortakları, olağanüstü durum kurtarma yönetilip veya Self-Servis bağımsız olarak CSP Portalı aracılığıyla Kiracı aboneliklerine erişin. Kasasını oluşturup ve Kiracı aboneliklerine altyapısına kaydedin.
+2. Kiracı ile sağlayın [oluşturduğunuz hesabı](#create-a-tenant-account).
 3. Yeni bir kullanıcı CSP Portalı aracılığıyla Kiracı aboneliği için aşağıdaki gibi ekleyebilirsiniz:
 
     bir) kiracının CSP aboneliği sayfasına gidin ve ardından **kullanıcılar ve lisansları** seçeneği.
 
-        ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+      ![Kiracının CSP abonelik sayfası](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) şimdi ilgili ayrıntıları girerek ve izinleri seçerek veya bir CSV dosyasındaki kullanıcı listesi yükleyerek yeni bir kullanıcı oluşturun.
+      b) şimdi ilgili ayrıntıları girerek ve izinleri seçerek veya bir CSV dosyasındaki kullanıcı listesi yükleyerek yeni bir kullanıcı oluşturun.
     c) yeni bir kullanıcı oluşturduktan sonra Azure portalına geri dönün. İçinde **abonelik** sayfasında, ilgili aboneliğini seçin.
-    d) select **erişim denetimi (IAM)**ve ardından **Ekle**, ilgili erişim düzeyine sahip bir kullanıcı eklemek için. CSP Portalı aracılığıyla oluşturulmuş olan kullanıcıların otomatik olarak bir erişim düzeyi tıklattığınızda, açılan sayfasında görüntülenir.
+    d) select **erişim denetimi (IAM)** ve ardından **Ekle**, ilgili erişim düzeyine sahip bir kullanıcı eklemek için. CSP Portalı aracılığıyla oluşturulmuş olan kullanıcıların otomatik olarak bir erişim düzeyi tıklattığınızda, açılan sayfasında görüntülenir.
 
-        ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+      ![Kullanıcı ekleme](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - Çoğu yönetim işlemleri için *katkıda bulunan* rolüdür yeterli. Bu erişim düzeyi kullanıcılarla bir abonelikte erişim düzeylerini değiştirme dışında her şeyi yapabilir (kendisi için *sahibi*-düzeyinde erişim gereklidir).
 - Site Recovery de sahip üç [kullanıcı rolleri önceden tanımlanmış](site-recovery-role-based-linked-access-control.md), daha fazla erişim düzeyleri gereken şekilde kısıtlamak için kullanılabilir.
 
+## <a name="multi-tenant-environments"></a>Çok kiracılı ortamlarda
+
+Üç ana çok kiracılı modeli vardır:
+
+* **Barındırma hizmetleri sağlayıcısı (HSP) paylaşılan**: fiziksel altyapı ortak sahibi ve kullandığı paylaşılan kaynakları (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı sanal makineleri barındırmak için aynı altyapı üzerinde. Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir veya iş ortağı olağanüstü durum kurtarma yönetim yönetilen bir hizmet olarak sağlayabilir.
+
+* **Barındırma hizmeti sağlayıcısı ayrılmış**: iş ortağı fiziksel altyapı sahip, ancak ayrı bir altyapı her bir kiracının sanal makineleri barındırmak için özel kaynakları (birden çok Vcenter, fiziksel datastores vb.) kullanır. Kiracı Self Servis bir çözüm olarak sahip olabilir veya iş ortağı olağanüstü durum kurtarma yönetim yönetilen bir hizmet olarak sağlayabilir.
+
+* **Hizmetler Sağlayıcısı (MSP) yönetilen**: Müşteri sanal makineleri barındıran fiziksel altyapı sahibi ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
+
+Bu makalede açıklanan Kiracı aboneliklerine ayarlayarak, ilgili çok kiracılı modellerinden herhangi biri Müşteriler etkinleştirme hızla başlatabilirsiniz. Farklı çok kiracılı modelleri hakkında daha fazla bilgi edinin ve etkinleştirme şirket içi erişim denetimleri [burada](vmware-azure-multi-tenant-overview.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md) Azure Site Recovery dağıtımları yönetmek için rol tabanlı erişim denetimi hakkında.
-- [Daha fazla bilgi edinin](vmware-azure-architecture.md) Azure çoğaltma mimarisi için VMware hakkında.
+- Daha fazla bilgi edinmek [rol tabanlı erişim denetimi](site-recovery-role-based-linked-access-control.md) Azure Site Recovery dağıtımları yönetmek için.
+- VMware Azure hakkında daha fazla bilgi [çoğaltma mimarisi](vmware-azure-architecture.md).
 - [Öğretici gözden](vmware-azure-tutorial.md) VMware Vm'lerini Azure'a çoğaltma için.
+Daha fazla bilgi edinmek [çok kiracılı ortamlarda](vmware-azure-multi-tenant-overview.md) VMware Vm'lerini Azure'a çoğaltma için.

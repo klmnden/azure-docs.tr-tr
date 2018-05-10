@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
@@ -337,7 +337,7 @@ Azure anahtar kasası belgelerine sürüm belirtilmezse, parolanın en son sür�
  
 Yöntem | URL'si
 --- | ---
-AL | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Yerine {*gizli anahtarı adı*} adı ile değiştirin {*gizli sürüm*} almak istediğiniz gizli sürümüyle. Parolanın sürümünü dışarıda. Bu durumda, geçerli sürümü alınır.
   
@@ -450,9 +450,9 @@ Sanal makine ölçek genişletme tanımında ayarlarsanız modeli güncelleştir
 
 Mevcut bir VM'yi hizmet gösteriyor ise, yeniden başlatma görünür ve uzantıları değil yeniden çalıştırın. Bunu yeniden, işletim sistemi sürücüsü kaynak görüntü değiştirme gibi olur. En son modelden uzantıları gibi tüm uzmanlık çalıştırılır.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Bir Azure AD etki alanı için bir sanal makine ölçek nasıl katılacak mısınız?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Bir Active Directory etki alanı için bir sanal makine ölçek nasıl katılacak mısınız?
 
-Bir Azure Active Directory (Azure AD) etki alanı için bir sanal makine ölçek katılmak için bir uzantı tanımlayabilirsiniz. 
+Bir Active Directory (AD) etki alanı için bir sanal makine ölçek katılmak için bir uzantı tanımlayabilirsiniz. 
 
 Uzantı tanımlamak için JsonADDomainExtension özelliğini kullanın:
 

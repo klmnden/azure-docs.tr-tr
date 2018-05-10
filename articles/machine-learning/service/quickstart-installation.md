@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 0a24adb94930024f6eaaa5ac270ae7fc35520132
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Hızlı Başlangıç: Azure Machine Learning hizmetlerini yükleme ve kullanmaya başlama
 Azure Machine Learning hizmetleri (önizleme) tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
@@ -64,7 +64,7 @@ Azure Machine Learning hesaplarınızı sağlamak için Azure portalını kullan
    Kaynak grubu | _Kaynak grubunuz_ | Aboneliğinizde mevcut kaynak gruplarından birini seçin veya bir ad girerek bu deneme hesabı için yeni kaynak grubu oluşturun. 
    Konum | _Kullanıcılarınıza en yakın bölge_ | Kullanıcılarınıza ve veri kaynaklarınıza en yakın konumu seçin.
    Bilgisayar lisansı sayısı | 2 | Bilgisayar lisansı sayısını girin. [Bilgisayar lisansının fiyatı nasıl etkilediğini](https://azure.microsoft.com/pricing/details/machine-learning/) öğrenin.<br/><br/>Bu Hızlı Başlangıç için yalnızca iki bilgisayar lisansına ihtiyacınız vardır. Bilgisayar lisansları gerektiğinde Azure portalından eklenebilir veya kaldırılabilir.
-   Depolama hesabı | _Benzersiz ad_ | [Azure depolama hesabı](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal) oluşturmak için **Yeni oluştur**'u seçin ve bir ad girin. Ad 3 ile 24 karakter arasında olmalı ve yalnızca alfasayısal karakterler içermelidir. Alternatif olarak, **Var olanı kullan**'ı seçin ve açılır listeden var olan depolama hesabını belirleyin. Depolama hesabı gereklidir ve proje yapıtlarını tutmak ve geçmiş verileri çalıştırmak için kullanılır. 
+   Depolama hesabı | _Benzersiz ad_ | [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal) oluşturmak için **Yeni oluştur**'u seçin ve bir ad girin. Ad 3 ile 24 karakter arasında olmalı ve yalnızca alfasayısal karakterler içermelidir. Alternatif olarak, **Var olanı kullan**'ı seçin ve açılır listeden var olan depolama hesabını belirleyin. Depolama hesabı gereklidir ve proje yapıtlarını tutmak ve geçmiş verileri çalıştırmak için kullanılır. 
    Deneme hesabı için çalışma alanı | IrisGarden<br/>(öğreticilerde kullanılan ad) | Bu hesap için çalışma alanına bir ad sağlayın. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.
    Çalışma alanının sahibini atama | _Hesabınız_ | Çalışma alanı sahibi olarak kendi hesabınızı seçin.
    Model Yönetimi Hesabı oluşturma | **işaretle** |Modellerinizi gerçek zamanlı web hizmetleri olarak dağıtmak ve yönetmek istediğinizde bu kaynağın kullanılabilir olması için şimdi bir Model Yönetim hesabı oluşturun. <br/><br/>İsteğe bağlı olsa da, Model Yönetimi hesabını Deneme hesabı ile aynı zamanda oluşturmanız önerilir.

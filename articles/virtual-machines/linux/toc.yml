@@ -113,7 +113,11 @@
         - name: Yazma hızlandırıcıyı etkinleştirme
           href: how-to-enable-write-accelerator.md
         - name: Ekli VHD’lerde sorun giderme
-          href: troubleshoot-vhds.md
+          items:
+            - name: Depolama kaynağı silme hataları
+              href: storage-resource-deletion-errors.md
+            - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
+              href: unexpected-reboots-attached-vhds.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -195,6 +199,8 @@
           href: use-remote-desktop.md
         - name: VM’yi Azure Active Directory’e ekleme
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+        - name: Azure Active Directory kimlik bilgileriyle oturum açma
+          href: login-using-aad.md
         - name: Güncelleştirmeler ve düzeltme ekleri
           items:
             - name: Red Hat Güncelleştirme Altyapısı

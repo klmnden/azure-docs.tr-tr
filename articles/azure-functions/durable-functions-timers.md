@@ -1,28 +1,28 @@
 ---
-title: "Dayanıklı işlevlerinde - Azure zamanlayıcılar"
-description: "Dayanıklı zamanlayıcılar Azure işlevleri için dayanıklı işlevleri uzantısı'nda uygulama hakkında bilgi edinin."
+title: Dayanıklı işlevlerinde - Azure zamanlayıcılar
+description: Dayanıklı zamanlayıcılar Azure işlevleri için dayanıklı işlevleri uzantısı'nda uygulama hakkında bilgi edinin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e29e472860890e3f44af79c42c31ff524acb9276
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4fd86b70965a7be84c72e265af798292819cbe96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Dayanıklı işlevlerinde (Azure işlevleri) zamanlayıcılar
 
-[Dayanıklı işlevleri](durable-functions-overview.md) sağlar *dayanıklı zamanlayıcılar* orchestrator işlevlerinde gecikmelere uygulamak için veya zaman aşımları zaman uyumsuz eylemleri ayarlamak için kullanılacak. Dayanıklı zamanlayıcılar orchestrator işlevleri yerine kullanılmalıdır `Thread.Sleep` veya `Task.Delay`.
+[Dayanıklı işlevleri](durable-functions-overview.md) sağlar *dayanıklı zamanlayıcılar* orchestrator işlevlerinde gecikmelere uygulamak için veya zaman aşımları zaman uyumsuz eylemleri ayarlamak için kullanılacak. Dayanıklı zamanlayıcılar orchestrator işlevleri yerine kullanılmalıdır `Thread.Sleep` ve `Task.Delay` (C#) veya `setTimeout()` ve `setInterval()` (JavaScript).
 
 Çağırarak dayanıklı Zamanlayıcı oluşturma [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) yönteminde [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Yöntemi, belirtilen tarih ve saat sürdürür bir görev döndürür.
 
@@ -30,13 +30,15 @@ ms.lasthandoff: 01/08/2018
 
 Yalnızca 4:30 şöyle görünür hale bir ileti 4:30 şöyle sırasında temel alınan dayanıklı görev Framework enqueues süresi bir süreölçer oluşturduğunuzda. Azure işlevleri tüketim planında çalıştırırken, yeni görünür süreölçer iletisi işlev uygulaması uygun bir VM üzerinde etkinleştirilmiş güvence altına alır.
 
-> [!WARNING]
+> [!NOTE]
 > * Dayanıklı zamanlayıcılar en son Azure storage'da sınırlamaları nedeniyle 7 günden daha uzun olamaz. Üzerinde çalıştığımız bir [zamanlayıcılar 7 gün ötesine genişletmek için özellik isteği](https://github.com/Azure/azure-functions-durable-extension/issues/14).
 > * Her zaman kullanmak [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) yerine `DateTime.UtcNow` dayanıklı Süreölçerde göreli bir son tarih hesaplanırken örnekleri gösterildiği gibi.
 
 ## <a name="usage-for-delay"></a>Gecikme için kullanım
 
 Aşağıdaki örnek dayanıklı zamanlayıcılar yürütme geciktirme için kullanma gösterilmektedir. Örnek bir fatura bildirim on gün boyunca her gün işleniyor.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -47,9 +49,25 @@ public static async Task Run(
     {
         DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(1));
         await context.CreateTimer(deadline, CancellationToken.None);
-        await context.CallFunctionAsync("SendBillingEvent");
+        await context.CallActivityAsync("SendBillingEvent");
     }
 }
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```js
+const df = require("durable-functions");
+const moment = require("moment-js");
+
+module.exports = df(function*(context) {
+    for (let i = 0; i < 10; i++) {
+        const dayOfMonth = context.df.currentUtcDateTime.getDate();
+        const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
+        yield context.df.createTimer(deadline.toDate());
+        yield context.df.callActivityAsync("SendBillingEvent");
+    }
+});
 ```
 
 > [!WARNING]
@@ -58,6 +76,8 @@ public static async Task Run(
 ## <a name="usage-for-timeout"></a>Zaman aşımı için kullanım
 
 Bu örnek dayanıklı zamanlayıcılar zaman aşımları uygulamak için nasıl kullanılacağı gösterilmektedir.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -69,7 +89,7 @@ public static async Task<bool> Run(
 
     using (var cts = new CancellationTokenSource())
     {
-        Task activityTask = context.CallFunctionAsync("GetQuote");
+        Task activityTask = context.CallActivityAsync("GetQuote");
         Task timeoutTask = context.CreateTimer(deadline, cts.Token);
 
         Task winner = await Task.WhenAny(activityTask, timeoutTask);
@@ -88,8 +108,34 @@ public static async Task<bool> Run(
 }
 ```
 
+#### <a name="javascript"></a>JavaScript
+
+```js
+const df = require("durable-functions");
+const moment = require("moment-js");
+
+module.exports = df(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, 's');
+
+    const activityTask = context.df.callActivityAsync("GetQuote");
+    const timeoutTask = context.df.createTimer(deadline);
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    }
+    else
+    {
+        // timeout case
+        return false;
+    }
+});
+```
+
 > [!WARNING]
-> Kullanım bir `CancellationTokenSource` kodunuzu tamamlanmasını bekler değil, sağlam bir süreölçer iptal etmek için. Dayanıklı görev Framework "tamamlandı" Tüm Bekleyen Görevler tamamlandı veya iptal kadar bir orchestration's durumu değiştirmez.
+> Kullanım bir `CancellationTokenSource` dayanıklı Zamanlayıcı (C#) veya Çağrı iptal etmek için `cancel()` döndürülen üzerinde `TimerTask` (kodunuzu tamamlanmasını bekler değil, JavaScript). Dayanıklı görev Framework "tamamlandı" Tüm Bekleyen Görevler tamamlandı veya iptal kadar bir orchestration's durumu değiştirmez.
 
 Bu mekanizma Süren etkinlik işlevi yürütme gerçekten sonlandırmak değil. Bunun yerine, sonuç yoksayıp geçmek orchestrator işlevi yalnızca sağlar. İşlev uygulamanız tüketim planı kullanıyorsa, hala herhangi bir zaman ve terk edilmiş etkinlik işlevi tarafından kullanılan bellek için Fatura edilecek. Varsayılan olarak, beş dakikalık bir zaman aşımı tüketim planında çalıştıran işlevleri sahiptir. Bu sınır aşılırsa, tüm yürütme durdurup kaçak fatura durumu önlemek için Azure işlevleri konak dönüştürülmeden. [İşlevi zaman aşımı yapılandırılabilir](functions-host-json.md#functiontimeout).
 

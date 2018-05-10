@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Uygulama Öngörüler ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
-İşlevler de sahip Application Insights kullanmayan yerleşik izleme. Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından Application Insights öneririz. Yerleşik izleme hakkında daha fazla bilgi için bkz: [bu makalenin en son](#monitoring-without-application-insights).
+İşlevler de sahip [izleme yerleşik Application Insights kullanma değil](#monitoring-without-application-insights). Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından Application Insights öneririz.
 
-## <a name="enable-application-insights-integration"></a>Application Insights tümleştirmeyi etkinleştir
+## <a name="application-insights-pricing-and-limits"></a>Application Insights fiyatlandırma ve sınırlar
 
-Bir işlev uygulaması Application Insights'a veri göndermek, bir Application Insights örneğinin izleme anahtarını bilmesi gerekir. Bu bağlantı kurmak için iki yolla [Azure portal](https://portal.azure.com):
+Application Insights tümleştirme işlevi uygulamalarıyla ücretsiz deneyebilirsiniz. Ancak, ne kadar veri ücretsiz işlenebilen bir günlük sınır yoktur ve test sırasında bu sınırına. , Yaklaşan olduğunda günlük sınırınızı azure portal ve e-posta bildirimleri sağlar.  Ancak bu uyarıları kaçırılması ve sınırına, yeni günlükler Application Insights sorgularda görünmez. Bu nedenle gereksiz sorun giderme süresini önlemek için sınırının unutmayın. Daha fazla bilgi için bkz: [Application Insights fiyatlandırma ve veri biriminde yönetmek](../application-insights/app-insights-pricing.md).
 
-* [İşlev uygulaması oluşturduğunuzda, bağlı bir Application Insights örneği oluşturmayı](#new-function-app).
-* [Varolan bir işlev uygulaması bir Application Insights bağlanın](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>App Insights tümleştirmeyi etkinleştir
+
+Bir işlev uygulaması Application Insights'a veri göndermek, Application Insights kaynağı izleme anahtarını bilmesi gerekir. Anahtarı appınsıghts_ınstrumentatıonkey adlı bir uygulama ayarı sağlanması gerekir.
+
+Bu bağlantıda ayarlayabilirsiniz [Azure portal](https://portal.azure.com):
+
+* [Otomatik olarak yeni bir işlev uygulaması için](#new-function-app)
+* [Bir App Insights kaynağını el ile bağlanma](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>Yeni işlev uygulaması
 
-Application Insights işlev uygulaması üzerinde etkinleştirmek **oluşturma** sayfa:
+1. İşlev uygulaması Git **oluşturma** sayfası.
 
 1. Ayarlama **Application Insights** geçiş **üzerinde**.
 
 2. Seçin bir **uygulama Öngörüler konumu**.
 
+   İşlev uygulamanızın bölgeye en yakın bölgeyi seçin, bir [Azure Coğrafya](https://azure.microsoft.com/global-infrastructure/geographies/) verilerinizi depolanmasını istediğiniz.
+
    ![Bir işlev uygulaması oluşturulurken Application Insights etkinleştir](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>Varolan işlev uygulaması
+3. Diğer gerekli bilgileri girin.
 
-İzleme anahtarı edinme ve bir işlev uygulaması kaydedin:
+1. **Oluştur**’u seçin.
 
-1. Application Insights örneği oluşturun. Uygulama türü ayarlayın **genel**.
+Sonraki adım [yerleşik günlüğünü devre dışı](#disable-built-in-logging).
 
-   ![Genel tür Application Insights örneğini oluşturma](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>Bir App Insights kaynağını el ile bağlanma 
 
-2. İzleme anahtarını kopyalama **Essentials** Application Insights örneğinin sayfası. Almak için görüntülenen anahtar değeri bitiş vurgulu bir **kopyalamak için tıklayın** düğmesi.
+1. Application Insights kaynağı oluşturun. Uygulama türü ayarlayın **genel**.
+
+   ![Genel tür bir Application Insights kaynağı oluşturma](media/functions-monitoring/ai-general.png)
+
+2. İzleme anahtarını kopyalama **Essentials** Application Insights kaynağı sayfasında. Almak için görüntülenen anahtar değeri bitiş vurgulu bir **kopyalamak için tıklayın** düğmesi.
 
    ![Application Insights izleme anahtarını kopyalama](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Application Insights işlev uygulaması üzerinde etkinleştirmek **oluşturma**
 
 Application Insights etkinleştirirseniz, devre dışı bırakmanızı öneririz [Azure depolama kullanan yerleşik günlük](#logging-to-storage). Yerleşik günlük hafif iş yükleri ile test etmek için kullanışlıdır ancak yüksek yük üretim kullanımı için tasarlanmamıştır. Üretim izlemek için Application Insights önerilir. Yerleşik günlük üretimde kullanılırsa, günlük kaydı Azure depolama alanında azaltma nedeniyle eksik olabilir.
 
-Yerleşik günlüğü devre dışı bırakmak için Sil `AzureWebJobsDashboard` uygulama ayarı. Azure portalında uygulama ayarları silme hakkında daha fazla bilgi için bkz: **uygulama ayarları** bölümünü [bir işlev uygulaması yönetme](functions-how-to-use-azure-function-app-settings.md#settings).
+Yerleşik günlüğü devre dışı bırakmak için Sil `AzureWebJobsDashboard` uygulama ayarı. Azure portalında uygulama ayarları silme hakkında daha fazla bilgi için bkz: **uygulama ayarları** bölümünü [bir işlev uygulaması yönetme](functions-how-to-use-azure-function-app-settings.md#settings). Uygulama ayarı silmeden önce aynı işlev uygulaması mevcut hiçbir işlevlerde, Azure Storage Tetikleyicileri veya bağlantılar için kullandığınızdan emin olun.
 
-Application Insights ve devre dışı bırak yerleşik günlük etkinleştirdiğinizde **İzleyici** sekmesi bir işlev Azure portalında Application Insights'a alır.
+## <a name="view-telemetry-in-monitor-tab"></a>Görünümü telemetrisi İzleyici sekmesi
 
-## <a name="view-telemetry-data"></a>Telemetri verileri görüntüleme
+Application Insights tümleştirmesini ayarlama önceki bölümlerde gösterildiği gibi ayarladıktan sonra telemetri verileri görüntüleyebilirsiniz **İzleyici** sekmesi.
 
-Portalda işlevi uygulamasından bağlı Application Insights örneğine gitmek için seçin **Application Insights** işlevi uygulamanın bağlantısını **genel bakış** sayfası.
+1. Application Insights yapılandırılmış ve seçip sonra en az bir kez çalıştıktan bir işlev işlevi uygulama sayfasında seçin **İzleyici** sekmesi.
+
+   ![İzleme sekmesini seçin](media/functions-monitoring/monitor-tab.png)
+
+2. Seçin **yenileme** düzenli aralıklarla işlev çağrılarını listesi görünene kadar.
+
+   Listenin şekilde iletilmesi için sunucu telemetri istemci toplu veri nedeniyle görünmesini 5 dakika kadar sürebilir. (Bu gecikme uygulanmaz [ölçümleri bir canlı akışı](../application-insights/app-insights-live-stream.md). Günlükleri doğrudan sayfasına akışı şekilde sayfa yüklediğinizde bu hizmeti işlevleri ana bilgisayara bağlanır.)
+
+   ![Çağrılarını listesi](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. Belirli bir işlev çağrısını günlüklerinde görmek için seçin **tarih** bu çağrı için sütun bağlantı.
+
+   ![Çağırma Ayrıntılar Bağlantısı](media/functions-monitoring/invocation-details-link-ai.png)
+
+   Bu çağrı için günlük çıktısı, yeni bir sayfa görüntülenir.
+
+   ![Çağrı ayrıntıları](media/functions-monitoring/invocation-details-ai.png)
+
+Her iki sayfa (çağırma listesi ve ayrıntıları) verileri alır uygulama Öngörüler Analytics sorgu Bağla:
+
+![Application Insights'ta çalıştırın](media/functions-monitoring/run-in-ai.png)
+
+![Uygulama Öngörüler Analytics çağırma listesi](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+Bu sorgularından çağırma listenin son 30 gün, 20'den fazla satır sınırlı olduğunu görebilirsiniz (`where timestamp > ago(30d) | take 20`) ve çağırma ayrıntıları son 30 gün sınırsız listesidir.
+
+Daha fazla bilgi için bkz: [sorgu telemetri verileri](#query-telemetry-data) bu makalenin ilerisinde yer.
+
+## <a name="view-telemetry-in-app-insights"></a>App Insights görünümü telemetrisi
+
+Azure portalında işlevi uygulamasından Application Insights'ı açmak için seçin **Application Insights** bağlamak **özellikleri yapılandırılmış** işlevi uygulamanın bölümünü **genelbakış** sayfası.
+
+![Genel bakış sayfasında uygulama Insights bağlantısı](media/functions-monitoring/ai-link.png)
+
 
 Application Insights kullanma hakkında daha fazla bilgi için bkz: [Application Insights belgelerine](https://docs.microsoft.com/azure/application-insights/). Bu bölüm, verileri Application Insights'ta görüntülemenin nasıl bazı örnekler göstermektedir. Application Insights ile bilginiz varsa, doğrudan gidebilirsiniz [yapılandırma ve telemetri verilerini özelleştirme hakkında bölümleri](#configure-categories-and-log-levels).
 
@@ -161,7 +206,7 @@ Azure işlevleri Günlükçü de içeren bir *günlük düzeyi* her günlüğü 
 |Uyarı     | 3 |
 |Hata       | 4 |
 |Kritik    | 5 |
-|Hiçbiri        | 6 |
+|None        | 6 |
 
 Günlük düzeyi `None` sonraki bölümde açıklanmıştır. 
 
@@ -256,7 +301,7 @@ Günlükleri işlevi kodunuz tarafından yazılan "İşlevi" kategorisi vardır 
 
 ## <a name="configure-sampling"></a>Örnekleme yapılandırın
 
-Application Insights sahip bir [örnekleme](../application-insights/app-insights-sampling.md) çok fazla telemetri verilerini bazen yoğun yük oluşturan koruma özelliği. Belirtilen oranla telemetri öğe sayısını aştığında, rastgele gelen öğelerin bazıları yoksaymak Application Insights başlatır. Örnekleme içinde yapılandırabilirsiniz *host.json*.  Bir örneği aşağıda verilmiştir:
+Application Insights sahip bir [örnekleme](../application-insights/app-insights-sampling.md) çok fazla telemetri verilerini bazen yoğun yük oluşturan koruma özelliği. Belirtilen oranla telemetri öğe sayısını aştığında, rastgele gelen öğelerin bazıları yoksaymak Application Insights başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme içinde yapılandırabilirsiniz *host.json*.  Bir örneği aşağıda verilmiştir:
 
 ```json
 {
@@ -489,13 +534,19 @@ Diğer hizmetlere işlevi olan bağımlılıkları otomatik olarak gösterme, an
 
 ## <a name="monitoring-without-application-insights"></a>Application Insights izleme
 
-Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından işlevleri izlemek için Application Insights öneririz. Ancak da günlükleri ve telemetri verilerini Azure portal sayfalarına bir işlev uygulaması için bulabilirsiniz.
+Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından işlevleri izlemek için Application Insights öneririz. Ancak Azure depolama kullanan yerleşik günlük sistemi tercih ediyorsanız, kullanmaya devam edebilirsiniz.
 
 ### <a name="logging-to-storage"></a>Depolama için günlükleri
 
-Yerleşik günlüğü bağlantı dizesinde belirtilen depolama hesabı kullanan `AzureWebJobsDashboard` uygulama ayarı. Bu uygulama ayarı yapılandırıldıysa, Azure portalında günlük verilerini görebilirsiniz. Depolama kaynak dosyaları için işlevi için dosya hizmeti seçin ve ardından gidin Git `LogFiles > Application > Functions > Function > your_function` günlük dosyasını görmek için. Bir işlev uygulaması sayfasında bir işlevi seçin ve ardından **İzleyici** sekmesi ve işlev yürütmeleri listesini alın. Bir işlev yürütme süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmek için seçin.
+Yerleşik günlüğü bağlantı dizesinde belirtilen depolama hesabı kullanan `AzureWebJobsDashboard` uygulama ayarı. Bir işlev uygulaması sayfasında bir işlevi seçin ve ardından **İzleyici** sekmesini tıklatın ve Klasik görünümde tutmak için seçin.
 
-Application Insights kullanın ve varsa [devre dışı yerleşik günlük](#disable-built-in-logging), **İzleyici** sekmesini Application Insights'a alır.
+![Klasik görünümüne geçin](media/functions-monitoring/switch-to-classic-view.png)
+
+ İşlev yürütmeleri listesini alın. Bir işlev yürütme süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmek için seçin.
+
+Application Insights'ı daha önce etkinleştirilmiş ancak geri yerleşik günlük için Application Insights el ile devre dışı bırakın ve ardından gitmek istiyorsanız şimdi **İzleyici** sekmesi. Application Insights tümleştirme devre dışı bırakmak için appınsıghts_ınstrumentatıonkey uygulama ayarı silin.
+
+Olsa bile **İzleyici** sekmesi Application Insights veri gösterir, siz yapmadıysanız, günlük verilerini dosya sistemindeki görebilirsiniz [yerleşik günlüğü devre dışı](#disable-built-in-logging). Depolama kaynak dosyaları için işlevi için dosya hizmeti seçin ve ardından gidin Git `LogFiles > Application > Functions > Function > your_function` günlük dosyasını görmek için.
 
 ### <a name="real-time-monitoring"></a>Gerçek zamanlı izleme
 

@@ -1,11 +1,11 @@
 ---
-title: ".NET ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs"
-description: ".NET için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır."
+title: .NET ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
+description: .NET için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 4362512121ca426fcae6716c74e1f8effa0986f1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Cihazınızı dosyalarından buluta IOT Hub .NET kullanarak karşıya yükle
 
@@ -36,7 +36,7 @@ Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme]
 * Yüksek sıklıkta örneklenen titreşimi veri
 * Önceden işlenmiş veri çeşit
 
-Bu dosyalar genellikle gibi araçları kullanılarak bulutta işlenen toplu olan [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.md) yığını. Bir CİHAZDAN dosyaları karşıya yükleme gerektiğinde, güvenlik ve güvenilirlik IOT Hub'ın kullanmaya devam edebilirsiniz.
+Bu dosyalar genellikle gibi araçları kullanılarak bulutta işlenen toplu olan [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir CİHAZDAN dosyaları karşıya yükleme gerektiğinde, güvenlik ve güvenilirlik IOT Hub'ın kullanmaya devam edebilirsiniz.
 
 Bu öğreticinin sonunda iki .NET konsol uygulamaları çalıştırın:
 

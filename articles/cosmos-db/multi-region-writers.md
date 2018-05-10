@@ -1,322 +1,118 @@
 ---
-title: Azure Cosmos DB ile birden çok ana veritabanı mimarileri | Microsoft Docs
-description: Azure Cosmos DB ile birden çok coğrafi bölgeler arasında yerel okuma ve yazma işlemleri ile uygulama Mimari Tasarım hakkında bilgi edinin.
+title: Küresel ölçekli Azure Cosmos DB ile birden çok yöneticili | Microsoft Docs
+description: ''
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: rimman
 manager: kfile
-ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
-ms.devlang: multiple
+ms.workload: data-services
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/23/2017
-ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 05/07/2018
+ms.author: rimman
+ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Birden çok ana veritabanı mimarileri Azure Cosmos DB ile genel çoğaltılan
-Azure Cosmos DB destekleyen anahtar teslimi [genel çoğaltma](distribute-data-globally.md), iş yükünü başka bir yerindeki düşük gecikme süresi erişimi olan birden çok bölgeye verilerini dağıtmak sağlar. Bu model yayımcı/tüketici iş yükleri için yaygın olarak kullanılan bir yazıcı tek bir coğrafi bölge içinde ve genel olarak dağıtılmış okuyucuları (okuma) diğer bölgelerdeki olduğu. 
+# <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Küresel ölçekli çok şablonu Azure Cosmos DB ile 
+ 
+Genel olarak geliştirmeye verilerin tutarlı görünümlerini dünya çapında koruma zor bir sorundur ancak yerel gecikme ile yanıt uygulamaları dağıtılmış. Veri erişim gecikmesi geliştirmek, yüksek kullanılabilirlik elde etmek ve garantili olağanüstü durum kurtarma ve (4) kullanıcıların iş gereksinimlerini karşılayacak şekilde sağlamak ihtiyaç duydukları çünkü müşterilerin Genel dağıtılmış veritabanları, kullanın. Birden çok ana Azure Cosmos veritabanı yüksek düzeyde kullanılabilirlik (%99.999), veri ve ölçeklenebilirlik yerleşik kapsamlı ve esnek çakışma çözümleme desteğiyle yazmak için tek basamaklı milisaniyelik gecikme süresi sağlar. Bu özellikler, genel olarak dağıtılmış uygulamaların geliştirilmesini önemli ölçüde basitleştirir. Genel olarak dağıtılmış uygulamalar için birden çok yöneticili desteği önemlidir. 
 
-İçinde yazarlar ve okuyucular genel olarak dağıtılan uygulamaları geliştirmek için Azure Cosmos DB'ın genel çoğaltma desteği de kullanabilirsiniz. Bu belgede Azure Cosmos DB kullanarak dağıtılmış yazarların yerel yazma ve yerel okuma erişimi elde sağlayan bir deseni açıklar.
+![Birden çok yöneticili mimarisi](./media/multi-region-writers/multi-master-architecture.png)
 
-## <a id="ExampleScenario"></a>İçerik Yayımlama - örnek bir senaryo
-Genel olarak dağıtılmış çok-region/çok-ana okuma yazma desenleri Azure Cosmos DB ile nasıl kullanabileceğiniz açıklamak için gerçek dünya senaryosu bakalım. Azure Cosmos DB'de yerleşik bir içerik yayımlama platform göz önünde bulundurun. Bu platform için harika kullanıcı deneyimi Yayımcılar ve tüketicileri için uyması gereken bazı gereksinimler şunlardır.
+Azure Cosmos DB birden çok yöneticili desteğiyle kapsayıcılarında (örneğin, koleksiyonlar, grafikler, tablolar) herhangi bir yere dünyada Dağıtılmış veri yazma işlemleri gerçekleştirebilir. Veritabanı hesabınızla ilişkili herhangi bir bölgeyi verileri güncelleştirebilirsiniz. Bu veri güncelleştirmeleri zaman uyumsuz olarak yayabilir. Hızlı erişim ve verilerinize yazma gecikmesi sağlamanın yanı sıra, birden çok ana ayrıca pratik bir çözüm yük devretme ve Yük Dengeleme sorunları sağlar. Özet olarak, Azure Cosmos DB ile yazma gecikme aldığınız < 99 yerindeki world, %99.999 yazma ve okuma kullanılabilirlik world ve her ikisi de ölçeklendirmenizi herhangi bir yere, 10 ms yazma ve dünyanın her yerden verimlilik okuyun.   
 
-* Yazarlar ve abonelerin world yayılır 
-* Yazarlar kendi yerel (en yakın) bölgesine (yazma) makaleleri yayımlamanız gerekir
-* Yazarları okuyucular/dünya çapında dağıtılan aboneleri kendi makalelerin vardır. 
-* Yeni makaleler yayımlandığında aboneleri bir bildirim almanız gerekir.
-* Aboneler kendi yerel bölgesinden makaleleri okuyabilir olması gerekir. Bunlar ayrıca bu makaleler incelemeler eklemeniz mümkün olması gerekir. 
-* Herkes makaleleri yazarı dahil olmak üzere tüm değerlendirmeleri makaleler için yerel bir bölgesinden bağlı mümkün görünümü olmalıdır. 
+## <a name="a-simple-multi-master-example--content-publishing"></a>Basit bir birden çok yöneticili örnek – içerik yayımlama  
 
-Kullanıcıları ve yayımcılarına makaleler, milyarlarca ile milyonlarca varsayılarak yakında biz yere göre erişim güvence altına almak birlikte ölçeği sorunları üstesinden gelir gerekir. Çoğu ölçeklenebilirlik sorunları olduğu gibi ile iyi bölümleme stratejisine içinde çözüm arasındadır. Ardından, makaleler, gözden geçirme ve bildirimleri belgeleri olarak model, Azure Cosmos DB hesaplarını yapılandırın ve veri erişim katmanı uygulama ne bakalım. 
+Azure Cosmos DB ile birden çok yöneticili destek kullanmayı açıklar gerçek dünya senaryoları bakalım. Azure Cosmos DB'de yerleşik bir içerik yayımlama platform göz önünde bulundurun. Bu platform için harika kullanıcı deneyimi Yayımcılar ve tüketicileri için uyması gereken bazı gereksinimler şunlardır. 
 
-Bölümlendirme ve bölüm anahtarları hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [bölümlendirme ve Azure Cosmos DB'de ölçeklendirme](partition-data.md).
+* Yazarlar ve abonelerin tüm dünyadaki yayılır.  
 
-## <a id="ModelingNotifications"></a>Modelleme bildirimleri
-Bildirimler, bir kullanıcı için belirli veri akışları ' dir. Bu nedenle, bildirimler belgeler için erişim düzenlerini her zaman tek bir kullanıcı bağlamında olur. Örneğin, "bir kullanıcıya bir bildirim post" veya "belirli bir kullanıcı için tüm bildirimleri fetch". Bu nedenle, bu türü için anahtar bölümlendirme, en iyi seçenek olacaktır `UserId`.
+* Yazarlar kendi yerel (en yakın) bölgesine (yazma) makaleleri yayımlamanız gerekir.  
 
-    class Notification 
-    { 
-        // Unique ID for Notification. 
-        public string Id { get; set; }
+* Yazarları okuyucular/dünya çapında dağıtılan aboneleri kendi makalelerin vardır.  
 
-        // The user Id for which notification is addressed to. 
-        public string UserId { get; set; }
+* Yeni makaleler yayımlandığında aboneleri bir bildirim almanız gerekir.  
 
-        // The partition Key for the resource. 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.UserId; 
-            }
-        }
+* Aboneler kendi yerel bölgesinden makaleleri okuyabilir olması gerekir. Bunlar ayrıca bu makaleler incelemeler eklemeniz mümkün olması gerekir.  
 
-        // Subscription for which this notification is raised. 
-        public string SubscriptionFilter { get; set; }
+* Herkes makaleleri yazarı dahil olmak üzere tüm değerlendirmeleri makaleler için yerel bir bölgesinden bağlı mümkün görünümü olmalıdır.  
 
-        // Subject of the notification. 
-        public string ArticleId { get; set; } 
-    }
+Kullanıcıları ve yayımcılarına makaleler, milyarlarca ile milyonlarca varsayılarak yakında biz yere göre erişim güvence altına almak birlikte ölçeği sorunları üstesinden gelir gerekir. Bu tür bir kullanım örneği ideal bir aday Azure Cosmos DB çok için yöneticisidir. 
 
-## <a id="ModelingSubscriptions"></a>Modelleme abonelikleri
-Abonelikler, makalelerin ilgi alanı veya belirli bir yayımcı belirli bir kategorideki gibi çeşitli ölçütlerine oluşturulabilir. Bu nedenle `SubscriptionFilter` bölüm anahtarı için iyi bir seçimdir.
+## <a name="benefits-of-having-multi-master-support"></a>Birden çok yöneticili destek sahip avantajları 
 
-    class Subscriptions 
-    { 
-        // Unique ID for Subscription 
-        public string Id { get; set; }
+Birden çok yöneticili Destek genel dağıtılmış uygulamalar için gereklidir. Birden çok ana, oluşan [birden çok ana bölge](distribute-data-globally.md) bir yazma yerde modelde (etkin-etkin desen) eşit katılmak ve veri herhangi bir zamanda ihtiyaç duyacağınız kullanılabilir olduğundan emin olmak için kullanılır. Tek bir bölge için yapılan güncelleştirmeler (hangi sırayla ana bölgelerde kendi) diğer tüm bölgelere zaman uyumsuz olarak yayılır. Birden çok ana yapılandırma olarak ana bölgelerde otomatik olarak çalışan azure Cosmos DB bölgeler çalışma tüm çoğaltmaları veri yakınsamasını ve sağlamak için [genel tutarlılık ve veri bütünlüğü](consistency-levels.md). Aşağıdaki resimde bir tek yöneticili ve mult-master için okuma/yazma çoğaltma gösterir.
 
-        // Subscription source. Could be Author | Category etc. 
-        public string SubscriptionFilter { get; set; }
+![Tek Yönetici ve birden çok yöneticili](./media/multi-region-writers/single-vs-multi-master.png)
 
-        // subscribing User. 
-        public string UserId { get; set; }
+Uygulama çok yöneticisinde kendi yük geliştiricilere ekler. Birden çok ana, kendi uygulamak için deneyin büyük ölçekli müşteriler yapılandırma ve dünya çapında birden çok yöneticili yapılandırmasını sınama saat yüzlerce harcayabilir ve çoğu, tek izlemek ve birden çok asıl korumak için iş mühendisleri ayrılmış bir dizi vardır Çoğaltma. Oluşturma ve kendi birden çok yöneticili Kurulum yönetme uygulamada innovating çıktığınızda kaynakları zaman alır ve çok daha yüksek maliyetlerini sonuçlanır. Azure Cosmos DB birden çok yöneticili desteği "out-of--box" sağlar ve bu yükünü geliştiricilerden kaldırır.  
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.SubscriptionFilter; 
-            } 
-        } 
-    }
+Özet olarak, birden çok ana aşağıdaki avantajları sağlar:
 
-## <a id="ModelingArticles"></a>Modelleme makaleleri
-Bir makale aracılığıyla bildirimleri tanımlandıktan sonra sonraki sorguları genellikle temel alan `Article.Id`. Seçme `Article.Id` bölümü olarak anahtar nedenle makaleleri bir Azure Cosmos DB koleksiyonu içinde depolamak için en iyi dağıtım sağlar. 
+* **Daha iyi olağanüstü durum kurtarma, kullanılabilirliği ve yük devretme yazma**-birden çok ana, büyük ölçüde kritik bir veritabanının yüksek kullanılabilirlik korumak için kullanılabilir. Birincil bölge kesinti veya bölgesel bir olağanüstü durum nedeniyle kullanılamaz hale geldiğinde Örneğin, birden çok ana veritabanına veri bir bölgesinden bir yük devretme bölgeye çoğaltabilirsiniz. Bu tür bir yük devretme bölge uygulamayı desteklemek için bir tam olarak işlevsel ana bölge hizmet verecektir. Bölgeler kalan bir garantili yazma kullanılabilirlik > %99.999 çok yöneticileriyle coğrafi olarak farklı olabilir çünkü çok ana doğal afetler, güç kesintileri veya sabotaj veya her ikisini göre büyük "survivability" koruma sağlar. 
 
-    class Article 
-    { 
-        // Unique ID for Article 
-        public string Id { get; set; }
-        
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.Id; 
-            } 
-        }
-        
-        // Author of the article
-        public string Author { get; set; }
+* **Son kullanıcılar için geliştirilmiş yazma gecikmesi** - yakınsa (sunan), verileri son kullanıcılar için deneyimi daha iyi olacaktır. Örneğin, Avrupa kullanıcılar varsa, ancak veritabanınızı ABD ve Avustralya'da, yaklaşık 140 ms eklenen gecikme olur ve ilgili bölgeler için 300 ms. Gecikmeler başlamak birçok popüler oyunlar, bankacılık gereksinimleri veya etkileşimli uygulamaların (web veya mobil) edilemez. Gecikme süresi içinde yüksek kaliteli deneyimi müşterinin algısına büyük bir bölümü oynar ve bazı belirgin ölçüde kullanıcılara davranışını etkilemeye kanıtlandı. Teknoloji geliştikçe ve özellikle AR, VR ve MR geliştirilirken ile daha derinlikli ve gerçek deneyimleri gerektirme geliştiriciler artık sıkı gecikme gereksinimlerine yazılım sistemleriyle üretmek gerekir. Bu nedenle, yerel olarak kullanılabilir uygulamaları ve verileri (içerik uygulamalar için) sahip daha önemlidir. Birden fazla ile Azure Cosmos veritabanı, performans olarak normal yerel okuma ve yazma gibi hızlı ve coğrafi dağıtım tarafından genel olarak geliştirilmiş yöneticisidir.  
 
-        // Category/genre of the article
-        public string Category { get; set; }
+* **Geliştirilmiş yazma ölçeklenebilirlik ve yazma üretimi** - birden çok ana daha yüksek verimlilik verir ve doğruluk ile birden fazla tutarlılık modeli sunarken fazla kullanımı güvence altına alır ve SLA ile yedeklenir. 
 
-        // Tags associated with the article
-        public string[] Tags { get; set; }
+  ![Birden çok ana ile ölçeklendirme yazma üretimi](./media/multi-region-writers/scale-write-throughput.png)
 
-        // Title of the article
-        public string Title { get; set; }
-        
-        //... 
-    }
+* **Bağlantısı kesilen ortam (örneğin, sınır cihazları) için daha iyi destek** -birden çok ana bağlantısı kesilmiş bir ortamda en yakın bir bölge için bir uç cihazın tüm çoğaltılması ya da bir veri alt kümesini kullanıcılardan sağlar. Bu senaryo tipik bir satış ekibi otomasyon sistemleri, bir veri alt kümesini temsilcisinin ilgili depoladığı bir bireyin dizüstü (bağlantısı kesilmiş bir aygıt). Dünyanın her yerden ana bulut bölgelerde uzak uç aygıtlardan kopyalama hedefi olarak çalışabilir.  
 
-## <a id="ModelingReviews"></a>Modelleme incelemeleri
-Makaleler gibi incelemeler çoğunlukla yazılmış ve makale bağlamında okuyun. Seçme `ArticleId` bir bölümü olarak anahtar en iyi dağıtım ve makalesiyle ilişkilendirilen incelemeleri, etkili erişim sağlar. 
+* **Yük Dengeleme** -birden çok ana ile uygulama arasında yük kullanıcıları/iş yükleri yoğun olarak yüklenen bölgesinden burada yük dengeli bir şekilde dağıtılır bölgelere taşıyarak yeniden dengelenir. Kapasite, yeni bir bölge ekleyerek ve yeni bölge için bazı yazma geçiş yapma kolayca genişletilebilir yazma. 
 
-    class Review 
-    { 
-        // Unique ID for Review 
-        public string Id { get; set; }
+* **Sağlanan kapasitesini daha iyi kullanımı** - çok Yöneticisi, yazma yoğunluklu ve karma iş yükleri için birden çok bölgeler arasında sağlanan kapasite karşılayabilir...  Sağlanacak daha az verimlilik gerektirir şekilde, okuma ve yazma işlemleri daha eşit şekilde, dağıtabilirsiniz bazı durumlarda ve daha fazla tasarruf müşteriler için maliyet müşteri adayları.  
 
-        // Article Id of the review 
-        public string ArticleId { get; set; }
+* **Daha basit ve daha esnektir uygulama mimarileri** -birden çok ana yapılandırma taşıma uygulamaların veri esnekliği garanti.  Tüm karmaşıklık gizleme Azure Cosmos DB ile önemli ölçüde uygulama tasarımı ve mimarisini basitleştirebilirsiniz. 
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.ArticleId; 
-            } 
-        }
-        
-        //Reviewer Id 
-        public string UserId { get; set; }
-        public string ReviewText { get; set; }
-        
-        public int Rating { get; set; } }
-    }
+* **Risk sorunsuz yük devretme sınaması** -yük devretme sınaması sahip olmaz herhangi bir düşüşü yazma üretimi. Birden çok ana ile diğer tüm bölgeler tam yöneticileri olduğundan yük devretme üzerinde yazma üretimi kadar etkili olmaz.  
 
-## <a id="DataAccessMethods"></a>Veri erişim katmanı yöntemleri
-Şimdi ana veri erişim yöntemleri uygulamak için ihtiyacımız bakalım. Yöntemlerin listesi İşte, `ContentPublishDatabase` gerekir:
+* **Toplam Maliyet Ownership(TCO) ve DevOps alt** -toplantı ölçeklenebilirlik, performans, genel dağıtım kurtarma zamanı hedeflerine pahalı eklentileri veya bekleyen olağanüstü durum kadar olan bir yedekleme altyapısı bakım nedeniyle pahalı genellikle sağlar. Endüstri lideri SLA tarafından yedeklenen Azure Cosmos DB çok şablonu ile geliştiriciler artık oluşturma ve "arka uç mantığı Birleştirici" kendilerini koruma gerektirir ve, kritik iş yüklerini çalıştıran içiniz alın. 
 
-    class ContentPublishDatabase 
-    { 
-        public async Task CreateSubscriptionAsync(string userId, string category);
-    
-        public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
-    
-        public async Task<Article> ReadArticleAsync(string articleId);
-    
-        public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
-    
-        public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
-    }
+## <a name="use-cases-where-multi-master-support-is-needed"></a>Kullanım örnekleri birden çok yöneticili destek burada gereklidir
 
-## <a id="Architecture"></a>Azure Cosmos DB hesabı yapılandırması
-Yerel okuma ve yazma, bölüm gerekir güvence altına almak için veri bölüme anahtar, ancak ayrıca temel alınarak coğrafi erişim desenini bölgeleri tam değil. Model bir coğrafi olarak çoğaltılmış Azure Cosmos DB veritabanı hesabı her bölge için sahip kullanır. Örneğin, iki bölgede ile İşte bir kurulum bölgeli yazmalar için:
+Azure Cosmos DB'de çok ana için çok sayıda kullanım örnekleri vardır: 
 
-| Hesap Adı | Yazma Bölgesi | Okuma Bölgesi |
-| --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
+* **IOT** -Azure Cosmos DB çok ana IOT veri işleme Basitleştirilmiş dağıtılmış uygulama için izin verir. İade çakışma serbest kullanan coğrafi olarak dağıtılan kenar dağıtımlar veri türleri genellikle birden çok konumlardan zaman serisi veri izlemeniz gerekiyorsa çoğaltılan. Her aygıt en yakın bölgelerinden birine bağlantılı ve bir aygıtı (örneğin, bir araba) izler ve dinamik olarak başka bir bölgeye yazmak için barındırılması.  
 
-Aşağıdaki diyagramda, okuma ve yazma işlemleri bu kurulum ile tipik bir uygulamada nasıl gerçekleştirilir gösterilmektedir:
+* **E-ticaret** -e-ticaret senaryolarda iyi kullanıcı deneyimini modemlerin yüksek kullanılabilirlik ve esnekliği hatası senaryoları için gerekiyor. Bir bölge başarısız olursa, kullanıcı oturumları, Alışveriş sepetleri, etkin listeleri sorunsuz bir şekilde durumu kaybı olmadan başka bir bölgeye göre çekilmesi gerekir istiyor. Bu arada, kullanıcı tarafından yapılan güncelleştirmeler uygun şekilde ele alınması gerekir (örneğin, ekler ve Alışveriş sepetinden kaldırır üzerinden aktarım gerekir). Birden çok ana ile Azure Cosmos DB bu senaryolara düzgün biçimde, tutarlı bir görünüm kullanıcının açısından koruyarak etkin bölgeler arasında sorunsuz bir geçiş ile işleyebilir. 
 
-![Azure Cosmos DB birden çok yöneticili mimarisi](./media/multi-region-writers/multi-master.png)
+* **Sahtekarlık/Anomali algılama** -genellikle bir kullanıcı etkinliği veya hesap etkinliği izlemek uygulamalar genel olarak dağıtılır ve çeşitli olaylarını aynı anda izlemek gerekir. Oluşturma ve bir kullanıcı için puanlarını bakımı sırasında farklı coğrafi bölgeler Eylemler aynı anda risk ölçümleri satır içi tutmak için puanları güncelleştirmeniz gerekir. Azure Cosmos DB geliştiricilerin uygulama düzeyinde çakışma senaryolarını ele gerekmez güvence altına almak. 
 
-Nasıl çalışır durumda bir DAL istemcilere başlatılacağını gösteren bir kod parçacığı aşağıda verilmiştir `West US` bölge.
-    
-    ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
-    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+* **İşbirliği** - mal satış veya tüketilmesi medyayı gibi makalelerin popülerliği derece dayalı uygulamalar için vs. Telif hakkı özellikle yapılması ücretli veya gerçek zamanı reklam kararları olması gerektiğinde, coğrafi bölgeler arasında popülerliği izleme karmaşık, alabilirsiniz. Derecelendirme, sıralama ve birçok bölgelere dünya çapında, Azure Cosmos DB ile gerçek zamanlı raporlama gecikmeleri üzerinde tehlikeye olmadan ve çok az çaba ile özellikleri sunmak geliştiricilerin sağlar. 
 
-    DocumentClient writeClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-usa.documents.azure.com"), 
-        writeRegionAuthKey,
-        writeClientPolicy);
+* **Ölçüm** - sayım ve kullanım düzenlemek (API çağrıları gibi işlemleri/saniye, dakika kullanılan) ile Azure Cosmos DB çok ana kullanarak Basitlik genel olarak uygulanabilir. Her iki doğruluğu sayısı ve gerçek zamanlı düzenleme, yerleşik bir çakışma çözümü sağlar. 
 
-    ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
-    readClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
+* **Kişiselleştirme** - bağlılık gibi eylemleri tetikleyen coğrafi olarak dağıtılmış sayaçları koruma ödül noktaları veya kişiselleştirilmiş kullanıcı oturumu uygulama görünümleri, yüksek kullanılabilirlik ve coğrafi olarak dağıtılan Basitleştirilmiş Azure Cosmos DB tarafından sağlanan sayım uygulamaları teslim yüksek performanslı kolaylık sağlar. 
 
-    DocumentClient readClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-europe.documents.azure.com"),
-        readRegionAuthKey,
-        readClientPolicy);
+## <a name="conflict-resolution-with-multi-master"></a>Birden çok ana ile çakışma çözümü 
 
-Önceki kurulum ile veri erişim katmanı dağıtıldığı üzerinde dayalı yerel hesap tüm yazma işlemlerini iletebilirsiniz. Okuma okunurken verilerin genel görünümünü almak için her iki hesap tarafından gerçekleştirilir. Bu yaklaşım, gerektiği kadar bölgeler için genişletilebilir. Örneğin, üç coğrafi bölgeler Kurulum'a şöyledir:
+Çok Yöneticisi ile genellikle aynı kaydı iki (veya daha fazla) çoğaltmalarını aynı anda iki veya daha fazla farklı bölgelerdeki farklı yazarlar tarafından güncelleştirilmemiş olabilir iştir. Eşzamanlı yazma aynı kaydı ve yerleşik bir çakışma çözümleme olmadan iki farklı sürümleri neden olabilir ve uygulama bu tutarsızlığı çözmek için çakışma çözümü gerçekleştirmeniz gerekir.  
 
-| Hesap Adı | Yazma Bölgesi | Bölge 1 okuma | Bölge 2 okuma |
-| --- | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
-| `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
+**Örnek** -iki bölgelerde Kalıcılık mağazada alışveriş sepeti uygulaması ve bu uygulama dağıtıldığında, Azure Cosmos DB kullandığınızı varsayalım: Doğu ABD ve Batı ABD.  Yaklaşık aynı anda bir kullanıcı, San Francisco öğeyi kendi alışveriş sepetine (örneğin, bir kitap) Doğu ABD bir stok yönetim işlemi sırasında eklerse farklı bir alışveriş sepeti öğe (örneğin, yeni bir telefon) yanıt olarak bir s aynı o kullanıcı için geçersiz kılar Yayın tarihi Gecikmeli upplier bildirimi. T1 anında, iki bölgede alışveriş sepeti kayıtlarında farklıdır. Veritabanı, çoğaltma ve çakışma çözme mekanizması tutarsızlığı çözmek için kullanır ve alışveriş sepeti iki sürümü biri sonunda seçilir. En sık (örneğin, son yazma WINS) birden çok ana veritabanı tarafından uygulanan çakışma çözümleme buluşsal yöntemlerini kullanarak, kullanıcı veya uygulamanın hangi sürümünün seçili tahmin etmek için mümkün değildir. Her iki durumda da, veri kaybı olmamasına veya beklenmeyen davranışları ortaya çıkabilir. Yeni bir satın alma öğesi (diğer bir deyişle, kitap) kullanıcının seçimini Doğu bölgesi sürümü seçilirse, sonra kaybolur ve Batı bölgesi seçilirse, ardından daha önce seçilen (diğer bir deyişle, telefon) Sepeti hala öğedir. Her iki durumda da bilgiler kaybolur. Son olarak, alışveriş inceleniyor başka bir işlem arasında süreleri de belirleyici olmayan davranışını görmek için T1 ve T2 olduğuna Sepeti. Örneğin, Karşılama ambarı seçer ve maliyetleri sevkiyat Sepeti güncelleştiren bir arka plan işlemi Sepeti nihai içeriğini çakışan sonuçlar üretir. Sepeti yalnızca bir öğe, kitap yakında olsanız bile işlem Batı bölgesinde çalıştığından ve gerçekte alternatif 1 olur, iki öğe sevkiyat maliyetlerini işlem. 
 
-## <a id="DataAccessImplementation"></a>Veri erişim katmanı uygulaması
-Şimdi iki yazılabilir bölgeleri ile bir uygulama için veri erişim katmanı (DAL) uyarlamasını bakalım. DAL, aşağıdaki adımları uygulamanız gerekir:
+Azure Cosmos DB veritabanı altyapısı içinde çakışan yazma işleme mantığı uygular. Azure Cosmos DB sunar **esnek ve kapsamlı çakışma çözümü desteği** çözümleme modeller, otomatik dahil olmak üzere birkaç çakışma teklifi tarafından (iade çakışma serbest çoğaltılan veri türleri), son yazma WINS (LWW) ve özel () Saklı yordam) otomatik çakışma çözümü için. Çakışması çözümleme modelleri doğruluk ve tutarlılık garantileri sağlar ve tutarlılık, kullanılabilirlik, performans, çoğaltma gecikmesine ve olayları coğrafi yük altında karmaşık birleşimlerini hakkında düşünmek için geliştiriciler iş yükünü kaldırın ve çapraz bölge yazma çakışıyor.  
 
-* Birden çok örneğini oluşturma `DocumentClient` her hesap için. İki bölgede ile her DAL örneği varsa `writeClient` ve bir `readClient`. 
-* Uygulama dağıtılan bölgeyi temel alan, uç noktaları için yapılandırma `writeclient` ve `readClient`. DAL Örneğin, dağıtılmış `West US` kullanan `contentpubdatabase-usa.documents.azure.com` yazma işlemlerini gerçekleştirme. DAL dağıtılmış `NorthEurope` kullanan `contentpubdatabase-europ.documents.azure.com` yazmalar için.
+  ![Mult-master çakışma çözümü](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
-Önceki Kurulum'a veri erişimi yöntemleri uygulanabilir. Karşılık gelen yazma işlemleri iletmek yazma `writeClient`.
+Azure Cosmos DB tarafından sunulan çakışma çözüm modellerinin 3 türüne sahip olacaktır. Çakışması çözümleme modelleri semantiği aşağıdaki gibidir: 
 
-    public async Task CreateSubscriptionAsync(string userId, string category)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Subscriptions
-        {
-            UserId = userId,
-            SubscriptionFilter = category
-        });
-    }
+**Otomatik** -varsayılan çakışma çözüm İlkesi budur. Bu ilke belirlenmesi, sunucu tarafında çakışan güncelleştirmeleri otomatik olarak Çözümle ve güçlü nihai-tutarlılığı garanti sağlamak Azure Cosmos DB neden olur. Dahili olarak, Azure Cosmos DB yararlanmayı çakışma-serbest-çoğaltılan-veri türlerinde (CRDTs) veritabanı altyapısı tarafından otomatik çakışma çözümü uygular.  
 
-    public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Review
-        {
-            UserId = userId,
-            ArticleId = articleId,
-            ReviewText = reviewText,
-            Rating = rating
-        });
-    }
+**Son yazma WINS (LWW)** - eşitlenen zaman damgası özelliği bu ilke çakışmaları dayalı üzerinde ya da sistem tarafından tanımlanan çözmenize izni verdiği seçme veya bir özel özellik çakışan kayıtları sürümünde tanımlı. Çakışma çözümü sunucu tarafında gerçekleşir ve en son zaman damgası sürümüyle kazanan seçilir.  
 
-Bildirimler ve incelemeler okumak için bölgeler hem UNION sonuçları aşağıdaki kod parçacığında gösterildiği gibi okumanız gerekir:
+**Özel** -bir saklı yordam kaydederek bir uygulama tanımlı çakışma çözümleme mantığı kaydedebilirsiniz. Veritabanı işlemi, sunucu tarafında himayesinde güncelleştirme çakışması algılandığında saklı yordam çağrılan. Seçeneğini belirleyin, ancak bir saklı yordam kaydı başarısız olursa (veya saklı yordam çalışma zamanında bir özel durum oluşturursa), tüm çakışmaları akış aracılığıyla çakışan sürümlerinin erişebilir ve bunları ayrı ayrı çözümleyebilir.  
 
-    public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
-    {
-        IDocumentQuery<Notification> writeAccountNotification = (
-            from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
-        
-        IDocumentQuery<Notification> readAccountNotification = (
-            from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
+## <a name="next-steps"></a>Sonraki adımlar  
 
-        List<Notification> notifications = new List<Notification>();
+Bu makalede Azure Cosmos DB ile genel dağıtılmış birden çok ana kullanmayı learnt. Ardından, aşağıdaki kaynaklara göz atın: 
 
-        while (writeAccountNotification.HasMoreResults || readAccountNotification.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Notification>>> results = new List<Task<FeedResponse<Notification>>>();
+* [Azure Cosmos DB genel dağıtım nasıl desteklediği hakkında bilgi edinin](distribute-data-globally.md)  
 
-            if (writeAccountNotification.HasMoreResults)
-            {
-                results.Add(writeAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [Otomatik Yük devretme işlemlerini Azure Cosmos veritabanı hakkında bilgi edinin](regional-failover.md)  
 
-            if (readAccountNotification.HasMoreResults)
-            {
-                results.Add(readAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [Azure Cosmos DB ile genel tutarlılık hakkında bilgi edinin](consistency-levels.md)  
 
-            IList<FeedResponse<Notification>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Notification> feed in notificationFeedResult)
-            {
-                notifications.AddRange(feed);
-            }
-        }
-        return notifications;
-    }
-
-    public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
-    {
-        IDocumentQuery<Review> writeAccountReviews = (
-            from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-        
-        IDocumentQuery<Review> readAccountReviews = (
-            from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-
-        List<Review> reviews = new List<Review>();
-        
-        while (writeAccountReviews.HasMoreResults || readAccountReviews.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Review>>> results = new List<Task<FeedResponse<Review>>>();
-
-            if (writeAccountReviews.HasMoreResults)
-            {
-                results.Add(writeAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            if (readAccountReviews.HasMoreResults)
-            {
-                results.Add(readAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            IList<FeedResponse<Review>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Review> feed in notificationFeedResult)
-            {
-                reviews.AddRange(feed);
-            }
-        }
-
-        return reviews;
-    }
-
-Bu nedenle, bir iyi bölümleme anahtar ve hesap tabanlı statik bölümleme seçerek, bölgeli yerel yazma ve okuma Azure Cosmos DB kullanarak elde edebilirsiniz.
-
-## <a id="NextSteps"></a>Sonraki adımlar
-Bu makalede, Azure Cosmos Örnek senaryo olarak içerik yayımlama kullanarak DB ile genel dağıtılmış bölgeli okuma yazma desenleri nasıl kullanabileceğiniz açıklanmaktadır.
-
-* Azure Cosmos DB nasıl desteklediği hakkında bilgi edinin [genel dağıtım](distribute-data-globally.md)
-* Hakkında bilgi edinin [Azure Cosmos veritabanı otomatik ve el ile yük devretme](regional-failover.md)
-* Hakkında bilgi edinin [Azure Cosmos DB ile genel tutarlılık](consistency-levels.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - tablo API](tutorial-global-distribution-table.md)
+* Birden çok bölgesiyle geliştirmek Azure Cosmos DB - kullanarak [SQL API](tutorial-global-distribution-sql-api.md), [MongoDB API](tutorial-global-distribution-mongodb.md), veya [tablo API](tutorial-global-distribution-table.md)  

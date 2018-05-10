@@ -1,12 +1,12 @@
 ---
-title: "Azure uygulama hizmeti Linux üzerinde SSH desteği | Microsoft Docs"
-description: "Azure uygulama hizmeti Linux'ta ile SSH kullanma hakkında bilgi edinin."
-keywords: "Azure uygulama hizmeti, web uygulaması, linux, oss"
+title: Azure uygulama hizmeti Linux üzerinde SSH desteği | Microsoft Docs
+description: Azure uygulama hizmeti Linux'ta ile SSH kullanma hakkında bilgi edinin.
+keywords: Azure uygulama hizmeti, web uygulaması, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Azure uygulama hizmeti Linux üzerinde SSH desteği
 
@@ -30,6 +30,10 @@ Linux üzerinde App Service, her yeni web uygulamaları için çalışma zamanı
 ![Çalışma zamanı yığınları](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 Bu makalede açıklanan yapılandırma ve görüntünün bir parçası olarak SSH sunucusu dahil olmak üzere özel Docker görüntülerinizi ile SSH kullanabilirsiniz.
+
+> [!NOTE] 
+> Doğrudan SSH, SFTP veya Visual Studio Code (dinamik hata ayıklama Node.js uygulamaları için) kullanarak, yerel geliştirme makinesinden uygulama kapsayıcısı da bağlanabilirsiniz. Daha fazla bilgi için bkz: [uzaktan hata ayıklama ve uygulama hizmetinde Linux üzerinde SSH](https://aka.ms/linux-debug).
+>
 
 ## <a name="making-a-client-connection"></a>Bir istemci bağlantısını yapma
 

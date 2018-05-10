@@ -14,18 +14,20 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Standard Load Balancer oluşturma - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
+- name: Öğreticiler
+  items:
+    - name: Sanal makinelerin iç trafiğinde yük dengeleme
+      href: tutorial-load-balancer-basic-internal-portal.md
+    - name: Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    - name: Belirli bir kullanılabilirlik bölgesi içinde VM yükünü dengeleme
+      href: tutorial-load-balancer-standard-public-zonal-portal.md
 - name: Örnekler
   items:
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-- name: Öğreticiler
-  items:
-    - name: Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
-    - name: Belirli bir kullanılabilirlik bölgesi içinde VM yükünü dengeleme
-      href: tutorial-load-balancer-standard-public-zonal-portal.md
 - name: Kavramlar
   items:
     - name: Load Balancer Standard nedir?

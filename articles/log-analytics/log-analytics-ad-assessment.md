@@ -1,11 +1,11 @@
 ---
-title: "Active Directory ortamınızı Azure günlük analizi ile en iyi duruma getirme | Microsoft Docs"
-description: "Düzenli bir aralıkta risk ve ortamlarınızın durumunu değerlendirmek için Active Directory sistem durumu denetimi çözüm kullanabilirsiniz."
+title: Active Directory ortamınızı Azure günlük analizi ile en iyi duruma getirme | Microsoft Docs
+description: Düzenli bir aralıkta risk ve ortamlarınızın durumunu değerlendirmek için Active Directory sistem durumu denetimi çözüm kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 016b5bafdf6543ad43e36a875e6aa68572b35f97
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Active Directory ortamınızı günlük analizi Active Directory sistem durumu denetimi çözümde ile en iyi duruma getirme
 
@@ -54,7 +54,7 @@ Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicileriniz ka
 
 1. Yükleme [Microsoft İzleme Aracısı'nı (MMA)](log-analytics-windows-agent.md) etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izleniyorsa değil.
 2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubu günlük analizi hizmeti ile tümleşik değil, etki alanı denetleyicisi veri toplamak ve iletmek için günlük analizi ile çok konaklı olabilir Hizmet ve Operations Manager tarafından yine izlenmelidir.  
-3. Operations Manager yönetim grubunuzu hizmeti ile tümleşik çalışıyorsa, aksi takdirde, veri toplama için etki alanı denetleyicileri altındaki adımları izleyerek hizmeti tarafından eklemeniz gerekir [aracıyla yönetilen bilgisayarlar eklemek](log-analytics-om-agents.md#connecting-operations-manager-to-oms) etkinleştirdikten sonra Çalışma alanınızı çözümde.  
+3. Operations Manager yönetim grubunuzu hizmeti ile tümleşik çalışıyorsa, aksi takdirde, veri toplama için etki alanı denetleyicileri altındaki adımları izleyerek hizmeti tarafından eklemeniz gerekir [aracıyla yönetilen bilgisayarlar eklemek](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) etkinleştirdikten sonra Çalışma alanınızı çözümde.  
 
 Bir Operations Manager yönetim grubu için hangi raporların toplar, etki alanı denetleyicinizde Aracısı kendi atanmış yönetim sunucusuna iletir ve doğrudan yönetim sunucusundan günlük analizi hizmetine gönderilir.  Verileri Operations Manager veritabanları yazılmaz.  
 
@@ -69,7 +69,7 @@ Active Directory sistem durumu denetimi etkinleştirdiğiniz aracısını kullan
 - Active Directory Hizmeti Arabirimleri (ADSI)
 - Windows PowerShell
 - Dosya verileri
-- Windows Management Instrumentation (WMI)
+- Windows Yönetim Araçları (WMI)
 - DCDIAG aracı API'si
 - Dosya Çoğaltma Hizmeti (NTFRS) API'si
 - Özel C# kodu

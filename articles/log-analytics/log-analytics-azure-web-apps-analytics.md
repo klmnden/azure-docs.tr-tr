@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Tüm Azure Web uygulaması kaynaklarına arasında ölçümleri ilişkin analitik verileri görüntüle
 
@@ -57,7 +57,7 @@ Azure Web uygulamaları analizi (Önizleme) çözümü Öngörüler sunar, [Azur
 Alanlarınızı için Azure Web Apps analiz çözümü yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
 1. Azure Web Apps Analytics çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
-2. [PowerShell kullanarak OMS için Azure kaynak ölçümleri günlük kaydını etkinleştir](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [PowerShell kullanarak günlük analizi için Azure kaynak ölçümleri günlük kaydını etkinleştir](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 Azure Web Apps analiz çözümü Azure'dan iki kümesi ölçümleri toplar:
 
@@ -77,10 +77,6 @@ Azure Web Apps analiz çözümü Azure'dan iki kümesi ölçümleri toplar:
   - Bellek Yüzdesi
 
 Ayrılmış hizmet planı kullanıyorsanız, uygulama hizmeti planı ölçümleri yalnızca toplanır. Bu ücretsiz veya paylaşılan uygulama hizmeti planları için geçerli değil.
-
-OMS Portalı'nı kullanarak çözüm eklerseniz, aşağıdaki kutucuk görürsünüz. Yapmanız [OMS PowerShell kullanarak Azure kaynak ölçümleri günlüğünü etkinleştirme](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Değerlendirme bildirim gerçekleştirme](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 Çözüm yapılandırdıktan sonra verileri 15 dakika içinde alanınıza akan başlamanız gerekir.
 

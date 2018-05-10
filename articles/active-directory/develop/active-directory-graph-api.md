@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c0f5110fe73fb48cf6cf5307de08045bd843cb5a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ Azure AD Graph API aşağıdaki özellikleri sağlar:
 * **İzin kapsamları tarafından güvenliği sağlanan**: Azure AD Graph API OAuth 2.0 kullanan Azure AD verilere güvenli erişim sağlayan izin kapsamları kullanıma sunar. İstemci uygulama türleri dahil olmak üzere, çeşitli destekler:
   
   * Temsilci yetkilendirme aracılığıyla verilere (temsilci) oturum açmış kullanıcıdan dosyaya erişen kullanıcı arabirimleri
-  * oturum açmış kullanıcı olmaksızın arka planda işlem sunmak ve rol tabanlı erişim uygulama tanımlı kullanmak hizmeti/arka plan programı uygulamaları denetleme
+  * var olan bir oturum açmış kullanıcı arka planda çalışır ve uygulama tanımlı rol tabanlı erişim denetimi kullanan hizmeti/arka plan programı uygulamaları
     
     Her ikisi de devredildi ve uygulama izinleri Azure AD grafik API'si tarafından kullanıma sunulan ayrıcalık temsil eder ve uygulama kayıt izinleri özellikleri ile istemci uygulamaları tarafından istenen [Azure portal](https://portal.azure.com). [Azure AD grafik API'si izin kapsamları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) istemci uygulamanız tarafından kullanılabilir nedir bilgi sağlar.
 

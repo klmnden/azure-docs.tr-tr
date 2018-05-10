@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -276,30 +276,30 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdakileri yapar
 
 [Tek düğüm için ağ geçidi]
 1. Ağ geçidi bilgisayarında Windows PowerShell'i başlatın.
-2. C:\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript klasörüne geçin.
+2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasörüne geçin.
 3. (Devre dışı bırakın) özelliğini otomatik güncelleştirme etkinleştirmek için aşağıdaki komutu çalıştırın.   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. Yeniden açmak için:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [Birden çok düğümlü yüksek oranda kullanılabilir ve ölçeklenebilir için ağ geçidi (Önizleme)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Ağ geçidi bilgisayarında Windows PowerShell'i başlatın.
-2. C:\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript klasörüne geçin.
+2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasörüne geçin.
 3. (Devre dışı bırakın) özelliğini otomatik güncelleştirme etkinleştirmek için aşağıdaki komutu çalıştırın.   
 
     Yüksek kullanılabilirlik özelliği (Önizleme) ile ağ geçidi için fazladan bir AuthKey param gereklidir.
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. Yeniden açmak için:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>Configuration Manager

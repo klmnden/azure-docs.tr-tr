@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights gelen akış analizi kullanarak dışarı aktarma | Microsoft Docs"
-description: "Akış analizi sürekli dönüştürme, filtre uygulayabilir ve rota verilerini Application Insights ' dışarı aktar."
+title: Azure Application Insights gelen akış analizi kullanarak dışarı aktarma | Microsoft Docs
+description: Akış analizi sürekli dönüştürme, filtre uygulayabilir ve rota verilerini Application Insights ' dışarı aktar.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c898e43cb1334bf7fb1836554fb92708033d3f7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Application Insights dışarı aktarılan verileri işlemek için Stream Analytics kullanın
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) veri işleme için ideal araçtır [Application Insights ' dışarı](app-insights-export-telemetry.md). Akış analizi, çeşitli kaynaklardan veri çeker. Bu dönüştürme ve verilere filtre ve ardından havuzlarını çeşitli için rota.
@@ -106,10 +106,10 @@ Stream Analytics girdi dosyaları depolama burada bulur önek yol deseni belirti
 
 Bu örnekte:
 
-* `webapplication27`Application Insights kaynağı adı **tüm küçük**.
-* `1234...`Application Insights kaynağı izleme anahtarını olan **tire atlama**. 
-* `PageViews`Analiz etmek istediğiniz veri türüdür. Kullanılabilir türler filtresi sürekli dışarı aktarma ile Ayarla bağlıdır. Diğer kullanılabilir türleri görmek ve görmek için dışarı aktarılan verileri incelemek [veri modeli verme](app-insights-export-data-model.md).
-* `/{date}/{time}`bir desen tam anlamıyla yazılır.
+* `webapplication27` Application Insights kaynağı adı **tüm küçük**.
+* `1234...` Application Insights kaynağı izleme anahtarını olan **tire atlama**. 
+* `PageViews` Analiz etmek istediğiniz veri türüdür. Kullanılabilir türler filtresi sürekli dışarı aktarma ile Ayarla bağlıdır. Diğer kullanılabilir türleri görmek ve görmek için dışarı aktarılan verileri incelemek [veri modeli verme](app-insights-export-data-model.md).
+* `/{date}/{time}` bir desen tam anlamıyla yazılır.
 
 > [!NOTE]
 > Yolun sağ alma emin olmak için depolama inceleyin.

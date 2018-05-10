@@ -1,7 +1,7 @@
 ---
-title: "Benzetimli Uzaktan izleme çözümü - Azure cihaz davranışını | Microsoft Docs"
-description: "Bu makalede Uzaktan izleme çözümünde bir sanal cihaz davranışını tanımlamak için JavaScript kullanmayı açıklar."
-services: 
+title: Benzetimli Uzaktan izleme çözümü - Azure cihaz davranışını | Microsoft Docs
+description: Bu makalede Uzaktan izleme çözümünde bir sanal cihaz davranışını tanımlamak için JavaScript kullanmayı açıklar.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>Cihaz modeli davranışına uygulama
 
@@ -25,7 +25,7 @@ Makaleyi [aygıt model şeması anlamak](iot-suite-remote-monitoring-device-sche
 - **Durum** JavaScript dosyaları, aygıtın iç durumunu güncelleştirmek için sabit aralıklarla çalıştırın.
 - **Yöntem** JavaScript dosyaları çözüm aygıtta bir yöntemi çağırır oluşturulduğunda çalışan.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 >[!div class="checklist"]
 > * Bir sanal cihaz durumunu denetle
@@ -36,8 +36,8 @@ Bu makalede, bilgi nasıl yapılır:
 
 [Benzetimi](iot-suite-remote-monitoring-device-schema.md#simulation) aygıt model şeması bölümünü tanımlayan bir sanal cihaz iç durum:
 
-- `InitialState`cihaz durumu nesnenin tüm özelliklerinin ilk değerleri tanımlar.
-- `Script`Aygıt durumunu güncelleştirmek için bir zamanlamaya göre çalışan bir JavaScript dosyası tanımlar.
+- `InitialState` cihaz durumu nesnenin tüm özelliklerinin ilk değerleri tanımlar.
+- `Script` Aygıt durumunu güncelleştirmek için bir zamanlamaya göre çalışan bir JavaScript dosyası tanımlar.
 
 Aşağıdaki örnek, bir sanal Soğutucu cihaz için cihaz durumu nesnesinin tanımı gösterir:
 
@@ -53,10 +53,10 @@ Aşağıdaki örnek, bir sanal Soğutucu cihaz için cihaz durumu nesnesinin tan
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ Tanımlanan sanal cihaz durumu `InitialState` bölümünde, bellekte benzetimi h
 Aşağıdaki tipik bir özetini gösterir `main` işlevi:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -78,9 +78,9 @@ function main(context, previousState) {
 
 `context` Parametresi aşağıdaki özelliklere sahiptir:
 
-- `currentTime`biçiminde bir dize olarak`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, örneğin`Simulated.Chiller.123`
-- `deviceModel`, örneğin`Chiller`
+- `currentTime` biçiminde bir dize olarak `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, örneğin `Simulated.Chiller.123`
+- `deviceModel`, örneğin `Chiller`
 
 `state` Parametresi aygıt benzetimi hizmeti tarafından tutulan gibi cihaz durumunu içerir. Bu değer `state` önceki çağrısı tarafından döndürülen nesne `main`.
 
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,28 +192,31 @@ Tanımlanan sanal cihaz durumu `InitialState` bölüm şeması, bellekte benzeti
 Aşağıdaki tipik bir özetini gösterir `main` işlevi:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
 
 `context` Parametresi aşağıdaki özelliklere sahiptir:
 
-- `currentTime`biçiminde bir dize olarak`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, örneğin`Simulated.Chiller.123`
-- `deviceModel`, örneğin`Chiller`
+- `currentTime` biçiminde bir dize olarak `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, örneğin `Simulated.Chiller.123`
+- `deviceModel`, örneğin `Chiller`
 
 `state` Parametresi aygıt benzetimi hizmeti tarafından tutulan gibi cihaz durumunu içerir.
 
-Yöntem davranışını uygulamaya yardımcı olmak için kullanabileceğiniz iki genel işlevler şunlardır:
+`properties` Parametresi IOT Hub cihaz çifti için bildirilen özellikleri olarak yazılan baytlar olan cihaz özelliklerini içerir.
 
-- `updateState`benzetim hizmeti tarafından tutulan durumunu güncelleştirmek için.
-- `sleep`uzun süre çalışan bir görev benzetimini yapmak için yürütme duraklatmak için.
+Yöntem davranışını uygulamaya yardımcı olmak için kullanabileceğiniz üç genel işlevler şunlardır:
+
+- `updateState` benzetim hizmeti tarafından tutulan durumunu güncelleştirmek için.
+- `updateProperty` tek bir cihaz özelliği güncelleştirmek için.
+- `sleep` uzun süre çalışan bir görev benzetimini yapmak için yürütme duraklatmak için.
 
 Aşağıdaki örnek, bir kısaltılmış gösterir **IncreasePressure method.js** benzetimli Soğutucu cihazlar tarafından kullanılan komut dosyası:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

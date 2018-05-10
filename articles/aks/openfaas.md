@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı hizmeti (AKS) OpenFaaS kullanın
-description: Dağıtma ve OpenFaaS Azure kapsayıcı hizmeti (AKS) ile kullanma
+title: Azure Kubernetes hizmetle (AKS) OpenFaaS kullanma
+description: Dağıtma ve OpenFaaS Azure Kubernetes hizmet (AKS) ile kullanma
 services: container-service
 author: justindavies
 manager: timlt
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 778fa5ddcdf8006d28c092746e4ac17a497baa5f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Üzerinde AKS OpenFaaS kullanma
 
-[OpenFaaS] [ open-faas] kapsayıcıları üstünde sunucusuz işlevleri oluşturmaya yönelik bir çerçevedir. Açık kaynaklı proje, büyük ölçekli benimseme topluluk içinde kazanmıştır. Bu belge yükleme ve bir Azure kapsayıcı hizmeti (AKS) kümede OpenFaas kullanılarak ayrıntıları.
+[OpenFaaS] [ open-faas] kapsayıcıları üstünde sunucusuz işlevleri oluşturmaya yönelik bir çerçevedir. Açık kaynaklı proje, büyük ölçekli benimseme topluluk içinde kazanmıştır. Bu belge yükleme ve bir Azure Kubernetes hizmet (AKS) kümede OpenFaas kullanılarak ayrıntıları.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede içindeki adımları tamamlamak için aşağıdakiler gerekir.
 
 * Kubernetes ilgili temel bilgilere.
-* Bir Azure kapsayıcı hizmeti (AKS) küme ve geliştirme sisteminizde yapılandırılmış AKS kimlik bilgileri.
+* Bir Azure Kubernetes hizmet (AKS) küme ve geliştirme sisteminizde yapılandırılmış AKS kimlik bilgileri.
 * Azure CLI geliştirme sisteminizde yüklü.
 * Git komut satırı araçlarını, sisteminizde yüklü.
 
@@ -39,7 +39,7 @@ git clone https://github.com/openfaas/faas-netes
 Kopyalanan deposu dizinine değiştirin.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## <a name="deploy-openfaas"></a>OpenFaaS dağıtma
@@ -54,7 +54,7 @@ kubectl create namespace openfaas
 
 OpenFaaS işlevler için ikinci bir ad oluşturun.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -64,7 +64,7 @@ OpenFaaS Helm grafiğinde kopyalanan depoya dahil edilir. Bu grafik OpenFaaS AKS
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 Çıktı:
@@ -95,7 +95,7 @@ Bir ortak IP adresi OpenFaaS ağ geçidi erişmek için oluşturulur. Bu IP adre
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Çıktı. 
+Çıktı.
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -105,7 +105,7 @@ gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP  
 
 OpenFaaS sistem sınamak için Gözat bağlantı noktası 8080 dış IP adresine `http://52.186.64.52:8080` Bu örnekte.
 
-![OpenFaaS UI](media/container-service-serverless/openfaas.png)
+![OpenFaaS kullanıcı Arabirimi](media/container-service-serverless/openfaas.png)
 
 Son olarak, OpenFaaS CLI yükleyin. Bu exmaple brew kullanılan bkz [OpenFaaS CLI belgelerine] [ open-faas-cli] daha fazla seçenek için.
 
@@ -130,8 +130,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 Çıktı:
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -140,7 +140,7 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 
 ## <a name="create-second-function"></a>İkinci bir işlev oluşturun
 
-Şimdi ikinci bir işlev oluşturun. Bu örnek OpenFaaS CLI kullanarak dağıtılır ve bir özel kapsayıcı görüntüsü ve bir Cosmos Veritabanından veri alma içerir. Birden çok öğe işlevi oluşturmadan önce yapılandırılması gerekir. 
+Şimdi ikinci bir işlev oluşturun. Bu örnek OpenFaaS CLI kullanarak dağıtılır ve bir özel kapsayıcı görüntüsü ve bir Cosmos Veritabanından veri alma içerir. Birden çok öğe işlevi oluşturmadan önce yapılandırılması gerekir.
 
 İlk olarak, yeni bir kaynak grubu için Cosmos DB oluşturun.
 
@@ -148,13 +148,13 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 az group create --name serverless-backing --location eastus
 ```
 
-Tür CosmosDB örneğini dağıtmak `MongoDB`. Örnek benzersiz bir adı olmalıdır, güncelleştirme `openfaas-cosmos` ortamınız için benzersiz bir şey. 
+Tür CosmosDB örneğini dağıtmak `MongoDB`. Örnek benzersiz bir adı olmalıdır, güncelleştirme `openfaas-cosmos` ortamınız için benzersiz bir şey.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Cosmos veritabanı bağlantı dizesi alma ve bir değişkende saklayın. 
+Cosmos veritabanı bağlantı dizesi alma ve bir değişkende saklayın.
 
 Değeri güncelleştirme `--resource-group` kaynak grubunuzun adını bağımsız değişken ve `--name` Cosmos DB adı bağımsız değişkeni.
 
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
 }
 ```
 
-Kullanım *mongoimport* verilerle CosmosDB örneğini yükleme aracı. 
+Kullanım *mongoimport* verilerle CosmosDB örneğini yükleme aracı.
 
 Gerekiyorsa, MongoDB araçlarını yükleyin. Aşağıdaki örnek brew kullanarak bu araçların yükler, bkz: [MongoDB belgelerine] [ install-mongo] diğer seçenekler için.
 
@@ -232,7 +232,7 @@ Ayrıca OpenFaaS UI işlevindeki test edebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-OpenFaas varsayılan dağıtımını OpenFaaS ağ geçidi ve işlevleri için kilitli gerekir. [Alex Ellis Blog Gönderisi](https://blog.alexellis.io/lock-down-openfaas/) güvenli yapılandırma seçenekleri hakkında daha fazla ayrıntı yok. 
+OpenFaas varsayılan dağıtımını OpenFaaS ağ geçidi ve işlevleri için kilitli gerekir. [Alex Ellis Blog Gönderisi](https://blog.alexellis.io/lock-down-openfaas/) güvenli yapılandırma seçenekleri hakkında daha fazla ayrıntı yok.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

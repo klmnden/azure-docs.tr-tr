@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve Solr Hdınsight Hadoop kümeleri kullanma
 
@@ -87,7 +87,7 @@ Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardın
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
      > [!IMPORTANT]
-     > Adımları bu belgenin sonraki bölümlerinde SSL tüneli Solr web kullanıcı Arabirimine bağlamak için kullanın. Bu adımları kullanabilmek için bir SSL tünel oluşturmak ve daha sonra kullanmak için tarayıcınızı yapılandırmanız gerekir.
+     > Adımları bu belgenin sonraki bölümlerinde SSH tüneli Solr web kullanıcı Arabirimine bağlamak için kullanın. Bu adımları kullanabilmek için bir SSH tüneli ve daha sonra kullanmak için tarayıcınızı yapılandırmanız gerekir.
      >
      > Daha fazla bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 

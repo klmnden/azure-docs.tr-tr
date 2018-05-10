@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f474921acbd3a5082afea03dd982bcfa9c52dcda
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Taslak Azure kapsayıcı hizmeti (AKS) kullanın
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Taslak Azure Kubernetes hizmeti (AKS) kullanın
 
 Taslak içerir ve bir Kubernetes kümedeki geliştirme döngüsü--"İç döngü" konsantre geliştirme yoğunlaşmak boş bırakarak bu kapsayıcıları dağıtın yardımcı olan bir açık kaynak aracıdır. Taslak kodu geliştirilen gibi ancak sürüm Denetimi'ne gerçekleştirmeden önce çalışır. Kod değişiklikleri ortaya çıktığında taslak ile hızlı bir şekilde Kubernetes uygulamaya yeniden dağıtabilirsiniz. Taslak hakkında daha fazla bilgi için bkz: [taslak belgeler Github üzerinde][draft-documentation].
 
@@ -27,7 +27,7 @@ Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl
 
 Ayrıca özel Docker kayıt defteri Azure kapsayıcı kayıt defteri (ACR) gerekir. ACR örneğini dağıtma ile ilgili yönergeler için bkz: [Azure kapsayıcı kayıt defteri Quickstart][acr-quickstart].
 
-Helm AKS kümenizdeki ayrıca yüklenmesi gerekir. Helm yükleme hakkında daha fazla bilgi için bkz: [kullanım Helm Azure kapsayıcı hizmeti (AKS) ile][aks-helm].
+Helm AKS kümenizdeki ayrıca yüklenmesi gerekir. Helm yükleme hakkında daha fazla bilgi için bkz: [kullanım Helm Azure Kubernetes hizmet (AKS) ile][aks-helm].
 
 Son olarak, yüklemeniz gereken [Docker](https://www.docker.com).
 

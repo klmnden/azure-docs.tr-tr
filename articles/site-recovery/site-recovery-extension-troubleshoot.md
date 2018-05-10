@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: asgang
-ms.openlocfilehash: 44f2016dacf1433cfe3a61058a167c42700e37d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9bfe181b2271f4e8af6f43e1728167712dade8ee
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Azure Site Recovery uzantı hatalarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -31,6 +31,13 @@ Hata kodu: "151076"
 **Neden 2: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3. neden: [güncelleştirmek veya yüklemek Site Recovery uzantısı başarısız](#the-site-recovery-extension-fails-to-update-or-load)**  
 
+Hata iletisi: "Önceki site kurtarma uzantısı işlemi beklenenden daha uzun sürüyor."<br>
+Hata kodu: "150066"<br>
+
+**1. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Neden 2: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**3. neden: [Site Recovery uzantı durumu geçersiz](#the-site-recovery-extension-fails-to-update-or-load)**  
+
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermiyor koruma başarısız olur
 
 Hata iletisi: "Görev Yürütme zaman aşımına uğradı izleme uzantısı işlemin başlatılması sırasında."<br>
@@ -43,7 +50,11 @@ Azure Konuk aracı durumunu kontrol edebilirsiniz [Azure portal](https://portal.
 **Neden 2: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
+Hata iletisi: "Görev Yürütme zaman aşımına uğradı izleme uzantısı işlemin başlatılması sırasında."<br>
+Hata kodu: "151095"<br>
 
+Bu aracı sürümü Linux makinesinde eski olduğunda oluşur. Aşağıdaki sorun giderme adımı tamamlayın.<br>
+  **1. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>VM Aracısı yüklenir, ancak (Windows VM'ler için) yanıt vermiyor

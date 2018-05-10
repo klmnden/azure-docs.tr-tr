@@ -8,18 +8,17 @@ manager: michael.tillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Office 365 grupları Azure Active Directory'de (Önizleme) için adlandırma ilkesini zorunlu kılma
 
@@ -187,7 +186,7 @@ Mobil uygulama grupları | Grupları mobil uygulamasında oluşturulan grupları
 Planner | Planlayıcısı adlandırma ilkesiyle uyumlu. Planlayıcısı adlandırma ilkesi Önizleme plan adı girerken gösterir. Bir kullanıcı özel engellenen word girdiğinde, plan oluştururken bir hata iletisi gösterilir.
 Dynamics 365 müşteri katılım için | Dynamics 365 müşteri katılım için adlandırma ilkesiyle uyumlu. Kullanıcı grubu adı veya Grup e-posta diğer adını yazdığında Dynamics 365 adlandırma ilkesi adı görüntülenir. Kullanıcı bir özel engellenen sözcük girdiğinde, kullanıcıyı kaldırmak için bir hata iletisi engellenen word ile gösterilir.
 Okul veri eşitleme (SDS) | İlke adlandırma ile SDS oluşturulan grupları uyumlu, ancak adlandırma ilkesi otomatik olarak uygulanmaz. Önek ve sonek için gruplar oluşturulur ve SDS için karşıya gereken sınıf adları eklemek SDS Yöneticiler sahiptir. Grup oluşturma veya düzenleme Aksi halde başarısız olur.
-Outlook Customer Manager (OCM) | Outlook müşteri Outlook müşteri Yöneticisi'nde oluşturduğunuz Grup otomatik olarak uygulanan adlandırma ilkesiyle uyumlu yöneticisidir. Özel bir engellenen word algılanırsa, grup oluşturma OCM'deki engellenir ve OCM uygulamayı kullanarak kullanıcı engellendi.
+Outlook müşteri Yöneticisi'ni (OCM) | Outlook müşteri Outlook müşteri Yöneticisi'nde oluşturduğunuz Grup otomatik olarak uygulanan adlandırma ilkesiyle uyumlu yöneticisidir. Özel bir engellenen word algılanırsa, grup oluşturma OCM'deki engellenir ve OCM uygulamayı kullanarak kullanıcı engellendi.
 Sınıf uygulama | Sınıf uygulamasında oluşturulan grupları adlandırma ilkesiyle uyumlu ancak adlandırma ilkesi otomatik olarak uygulanmaz ve bir sınıf adı yazarken, adlandırma ilkesi Önizleme kullanıcılara gösterilen değil. Kullanıcılar, önek ve sonek ile zorlanan sınıf grup adı girmeniz gerekir. Değilse, sınıf grubu oluşturun veya işlemi başarısız hatalarla düzenleyin.
 Power BI | Power BI çalışma alanları adlandırma ilkesiyle uyumlu.    
 Yammer | Bağlı gruplar yapılandırılmış adlandırma ilkesi zorlamaz yammer. Etkin ilke adlandırma ile kuruluşlar için Yammer adlandırma ilkesine uygun olmaz grupları için Office 365'e bağlı olmayan eski Yammer grupları oluşturur.

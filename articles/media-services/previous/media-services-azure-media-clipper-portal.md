@@ -1,8 +1,8 @@
 ---
-title: "Portalda Azure medya Kırpıcıyı kullanın | Microsoft Docs"
-description: "Azure Portal'da Azure medya Kırpıcıyı kullanarak Klip Oluştur"
+title: Portalda Azure medya Kırpıcıyı kullanın | Microsoft Docs
+description: Azure Portal'da Azure medya Kırpıcıyı kullanarak Klip Oluştur
 services: media-services
-keywords: "küçük; subclip; kodlama; ortam"
+keywords: küçük; subclip; kodlama; ortam
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Küçük resimleri portalda Azure medya Kırpıcıyı ile oluşturma
 Portalda Azure medya Kırpıcıyı klipleri varlıklarından media services hesaplarınızı oluşturmak için kullanabilirsiniz. Başlamak için Portalı'nda media services hesabınıza gidin. Ardından, **Subclip** sekmesi.

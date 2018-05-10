@@ -4,14 +4,14 @@ description: Toplayıcı Gereci ve nasıl yapılandırılacağı genel bakış s
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -73,7 +73,7 @@ Buna ek olarak, onay ayrıca aşağıdaki URL'ler bağlantısını doğrulamak �
 *.oneget.org:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
 *.windows.net:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
 *.windowsazure.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
-*.powershellgallery.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
+*. powershellgallery.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
 *.msecnd.net:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
 *.visualstudio.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yükleme başarısız olur. Modülünü el ile yükleyin.
 
@@ -89,7 +89,7 @@ Toplayıcı hizmet isteklerine kimlik doğrulaması sağlamak için Internet saa
 
 Azure geçirmek Toplayıcı hizmetinin makinede çalışıyor olması gerekir. Bu hizmet, makine önyüklendiğinde otomatik olarak başlatılır. Hizmet çalışmıyorsa, başlatabilirsiniz *Azure geçirmek Toplayıcı* Denetim Masası aracılığıyla hizmet. Toplayıcı hizmeti vCenter sunucusuna bağlanmak, makine meta veri ve performans verilerini toplama ve hizmete göndermek için sorumludur.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware Powerclı 6.5
 
 VMware Powerclı powershell modülü Toplayıcı makine ayrıntılarını ve performans verilerini ve vCenter sunucusu ile iletişim kurabilmesi için yüklü olması gerekir. Powershell modülü otomatik olarak indirilir ve önkoşul denetimi bir parçası olarak yüklenir. Otomatik olarak karşıdan yüklenmesi gerekir ya da sağlayan başarısız birkaç URL'leri Güvenilenler listesine, uygulamaları güvenilir listeye almayı tarafından erişmesine veya modül el ile yükleme.
 
@@ -103,7 +103,7 @@ Aşağıdaki adımları kullanarak el ile modülünü yükleyin:
 
 Toplayıcı, vCenter sunucusuna bağlanmak ve sanal makineler, bunların meta verilerini ve bunların performans sayaçlarını sorgulayabilmesi gerekir. Bu veriler proje tarafından bir değerlendirme hesaplamak için kullanılır.
 
-1. VCenter sunucusuna bağlanmak için aşağıdaki tabloda verilen izinleri salt okunur bir hesapla bulma çalıştırmak için kullanılabilir. 
+1. VCenter sunucusuna bağlanmak için aşağıdaki tabloda verilen izinleri salt okunur bir hesapla bulma çalıştırmak için kullanılabilir.
 
     |Görev  |Gerekli rol/hesap  |İzinler  |
     |---------|---------|---------|
@@ -118,13 +118,13 @@ Toplayıcı, vCenter sunucusuna bağlanmak ve sanal makineler, bunların meta ve
 > Yalnızca vCenter Server 5.5, 6.0 ve sürümleri 6.5 resmi olarak desteklenir.
 
 > [!IMPORTANT]
-> Böylece tüm sayaçları doğru toplanan istatistikleri düzeyi için en yüksek ortak düzeyi (3) ayarlamanızı öneririz. Daha düşük düzeyde ayarlamak vCenter varsa, yalnızca birkaç sayaçları tamamen 0 olarak ayarlayın rest ile toplanabilir. Değerlendirme ardından eksik verileri gösterebilir. 
+> Böylece tüm sayaçları doğru toplanan istatistikleri düzeyi için en yüksek ortak düzeyi (3) ayarlamanızı öneririz. Daha düşük düzeyde ayarlamak vCenter varsa, yalnızca birkaç sayaçları tamamen 0 olarak ayarlayın rest ile toplanabilir. Değerlendirme ardından eksik verileri gösterebilir.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Keşfi için kapsamı seçme
 
 VCenter bağlandıktan sonra bulmak için bir kapsamı seçebilirsiniz. Bir kapsam seçerek belirtilen vCenter envanteri yolu tüm sanal makinelerden bulur.
 
-1. Kapsam, bir veri merkezi, bir klasör veya ESXi ana bilgisayar olabilir. 
+1. Kapsam, bir veri merkezi, bir klasör veya ESXi ana bilgisayar olabilir.
 2. Aynı anda yalnızca bir kapsamı seçebilirsiniz. Daha fazla sanal makine seçmek için bir bulma tamamlamak ve yeni bir kapsam ile keşif işlemi yeniden başlatın.
 3. Yalnızca sahip bir kapsamı seçebilirsiniz *değerinden 1500 sanal makineleri*.
 
@@ -141,27 +141,28 @@ Bulma başladıktan sonra vCenter sanal makineler bulunan ve meta verileri ve pe
 
 ### <a name="what-data-is-collected"></a>Hangi veriler toplanır?
 
-Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplama işi bulur. 
+Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplama işi bulur.
 
 1. VM görüntü adına (vCenter)
 2. Sanal makinenin envanteri yolu (ana bilgisayar/klasör vcenter)
 3. IP adresi
 4. MAC adresi
+5. İşletim sistemi
 5. Çekirdek, diskleri, NIC sayısı
-6. RAM, Disk boyutları
-7. Ve VM, Disk ve aşağıdaki tabloda listelendiği gibi ağ performans sayaçları.
+6. Bellek boyutunu, Disk boyutları
+7. Ve VM, disk ve aşağıdaki tabloda listelendiği gibi ağ performans sayaçları.
 
 Aşağıdaki tabloda, toplanan ve ayrıca belirli bir sayaç alınamadı, etkilenen değerlendirme sonuçlarını listeler performans sayaçlarını listeler.
 
 |Sayaç                                  |Düzey    |Aygıt başına düzeyi  |Değerlendirme etkisi                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
-|mem.usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
+|CPU.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
+|mem.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
 |virtualDisk.read.average                 | 2       |2                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.write.average                | 2       |2                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
-|net.received.average                     | 2       |3                 |VM boyutu ve ağ maliyeti                        |
+|NET.Received.average                     | 2       |3                 |VM boyutu ve ağ maliyeti                        |
 |NET.transmitted.average                  | 2       |3                 |VM boyutu ve ağ maliyeti                        |
 
 > [!WARNING]
@@ -190,7 +191,7 @@ Toplayıcı OVA yeniden yüklemeden en son sürüme yükseltebilirsiniz.
 2. İndirilen düzeltme güvenli olduğundan emin olmak için yönetici komut penceresi açın ve ZIP dosyası için karma oluşturmak için aşağıdaki komutu çalıştırın. Üretilen karma karşı belirli sürümü belirtilen karma ile eşleşmesi gerekir:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (örnek kullanım C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. ZIP dosyasının Azure geçirmek Toplayıcı sanal makineye (Toplayıcı Gereci) kopyalayın.
 4. Zip dosyasını sağ tıklatın ve tümünü Ayıkla seçin.

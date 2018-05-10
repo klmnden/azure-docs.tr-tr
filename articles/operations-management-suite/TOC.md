@@ -9,7 +9,7 @@
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Çözümleme
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -32,9 +32,9 @@
 ### [Web temel değerlendirmesi](oms-security-web-baseline-assessment.md)
 
 ## Çözümleri kullanma
-### [Yönetim çözümleri](operations-management-suite-solutions.md)
-### [Hedef çözümler](operations-management-suite-solution-targeting.md)
-### Öngörü ve analiz
+### [Yönetim çözümleri](../monitoring/monitoring-solutions.md)
+### [Hedef çözümler](../monitoring/monitoring-solution-targeting.md)
+### Içgörü ve analiz
 #### [AD Değerlendirmesi](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Çoğaltma Durumu](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Aracı Durumu](oms-solution-agenthealth.md)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analizi](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Hizmet Eşlemesi
-##### [İzlenecek yol](operations-management-suite-walkthrough-servicemap.md)
-##### [Kullanma](operations-management-suite-service-map.md)
-##### [Yapılandırma](operations-management-suite-service-map-configure.md)
-##### [Operations Manager ile tümleştirme](operations-management-suite-service-map-scom.md)
+##### [İzlenecek yol](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [Kullanma](../monitoring/monitoring-service-map.md)
+##### [Yapılandırma](../monitoring/monitoring-service-map-configure.md)
+##### [Operations Manager ile tümleştirme](../monitoring/monitoring-service-map-scom.md)
 #### [SQL Değerlendirmesi](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [Kötü amaçlı yazılımdan koruma değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Çözüm oluşturma
-### [Tasarım ve derleme](operations-management-suite-solutions-creating.md)
-### [Çözüm dosyası](operations-management-suite-solutions-solution-file.md)
-### [Otomasyon kaynakları](operations-management-suite-solutions-resources-automation.md)
-### [Günlük aramaları ve uyarıları](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Görünümler](operations-management-suite-solutions-resources-views.md)
-### [En iyi uygulamalar](operations-management-suite-solutions-best-practices.md)
+### [Tasarım ve derleme](../monitoring/monitoring-solutions-creating.md)
+### [Çözüm dosyası](../monitoring/monitoring-solutions-solution-file.md)
+### [Otomasyon kaynakları](../monitoring/monitoring-solutions-resources-automation.md)
+### [Günlük aramaları ve uyarıları](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [Görünümler](../monitoring/monitoring-solutions-resources-views.md)
+### [En iyi uygulamalar](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Yönetim senaryoları
 ### [Runbook'tan analiz verileri toplama](operations-management-suite-runbook-datacollect.md)

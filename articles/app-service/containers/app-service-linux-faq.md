@@ -1,13 +1,13 @@
 ---
 title: Azure uygulama hizmeti Linux SSS | Microsoft Docs
 description: Azure uygulama hizmeti Linux SSS.
-keywords: "Azure uygulama hizmeti, web uygulaması, SSS, linux, oss"
+keywords: Azure uygulama hizmeti, web uygulaması, SSS, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure uygulama hizmeti Linux SSS
 
@@ -47,6 +47,10 @@ Bu eylem, Docker yeniden başlatma ile aynıdır.
 
 Evet, bunu kaynak denetimi (SCM) yönetim sitesi üzerinden yapabilirsiniz.
 
+> [!NOTE] 
+> Doğrudan SSH, SFTP veya Visual Studio Code (dinamik hata ayıklama Node.js uygulamaları için) kullanarak, yerel geliştirme makinesinden uygulama kapsayıcısı da bağlanabilirsiniz. Daha fazla bilgi için bkz: [uzaktan hata ayıklama ve uygulama hizmetinde Linux üzerinde SSH](https://aka.ms/linux-debug).
+>
+
 **Bir Linux uygulama hizmeti planı bir SDK veya Azure Resource Manager şablonu aracılığıyla nasıl oluşturabilir miyim?**
 
 Ayarlamak gereken **ayrılmış** app Service'e alanını *doğru*.
@@ -71,7 +75,7 @@ Linux web uygulamanızı Git dağıtımı başarısız olursa, uygulama kodunuzu
 
 - Kesintisiz teslim (Önizleme) özelliğini kullanın: bir Team Services Git deposuna ya da Azure kesintisiz teslim kullanmak için GitHub deposuna uygulamanızın kaynak kodunu depolayabilirsiniz. Daha fazla ayrıntı için bkz: [Linux web uygulaması için sürekli teslim yapılandırma](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Kullanmak [ZIP dağıtmak API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API kullanmak için [web uygulamanızı içine SSH](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasörüne gidin. Aşağıdakileri çalıştırın:
+- Kullanmak [ZIP dağıtmak API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API kullanmak için [web uygulamanızı içine SSH](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasörüne gidin. Aşağıdakileri çalıştırın:
 
    ```
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -158,5 +162,5 @@ Bir fikir gönderme [Web Apps geri bildirim Forumunda](https://aka.ms/webapps-us
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
-* [Hazırlık Azure App Service ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Web uygulaması ile sürekli dağıtımın kapsayıcıları için](./app-service-linux-ci-cd.md)

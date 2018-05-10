@@ -55,6 +55,8 @@
       href: app-service-web-tutorial-content-delivery-network.md
     - name: Kullanıcıların kimliklerini doğrulama
       href: app-service-web-tutorial-auth-aad.md
+    - name: VSTS ve CI/CD ile uygulamaları Azure App Service’e dağıtma
+      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: Örnekler
   items:
     - name: Azure CLI
@@ -177,6 +179,8 @@
           href: web-sites-backup.md
         - name: Yedeği geri yükleme
           href: web-sites-restore.md
+        - name: Anlık görüntüyü geri yükleme
+          href: app-service-web-restore-snapshots.md
         - name: Uygulama kopyalama
           href: app-service-web-app-cloning.md
         - name: Kaynakları taşıma

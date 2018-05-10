@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e21a8251cc4a85232b92faa05d01d0f73410e496
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager şablonu işlevleri
 Bu makalede Azure Resource Manager şablonunda kullanabileceğiniz işlevleri açıklanmaktadır.
@@ -28,6 +28,8 @@ Köşeli ayraç içinde yazarak, şablonlarda işlevler eklemek: `[` ve `]`sıra
 Bir şablon ifadesi 24.576 karakterden uzun olamaz.
 
 Şablon işlevleri ve bunların parametrelerini büyük/küçük harf duyarlıdır. Örneğin, Resource Manager çözümler **variables('var1')** ve **VARIABLES('VAR1')** aynı olarak. Değerlendirildiğinde, işlevi açıkça durumda (örneğin, toUpper veya toLower) değiştirir sürece işlevi durum korur. Belirli kaynak türlerine işlevleri nasıl değerlendirildiği yedeklemiş servis talebi gereksinimleri olabilir.
+
+Kendi işlevleri oluşturmak için bkz: [kullanıcı tanımlı işlevler](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />

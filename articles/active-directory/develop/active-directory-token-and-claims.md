@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/22/2018
+ms.date: 05/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 82069b31ee51e0dd60691edca490b1a60384288a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
 Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır. 
@@ -164,6 +164,8 @@ Yenileme belirteçleri geçersiz kılınan veya çeşitli nedenlerle için herha
 
 > [!NOTE]
 >Kimlik doğrulama parolası olmayan yöntemi varsa (Windows Hello, Doğrulayıcı uygulama, bir yazıtipi veya parmak izi gibi biyometrik) belirteç elde etmek için kullanılan, kullanıcının parolasını değiştirme kullanıcının yeniden kimlik doğrulamasını zorla sağlamaz (ancak, Doğrulayıcı uygulama zorlar yeniden kimlik doğrulaması için).  Seçilen kendi kimlik doğrulama giriş olmasıdır (yüz, bir örneğin) değişmedi ve bu nedenle yeniden yeniden kimlik doğrulaması için kullanılabilir.
+>
+> Gizli istemcileri tarafından parola değişikliği iptalleri etkilenmez.  Parola değişikliği daha fazla belirteçleri almak için yenileme belirtecini kullanmak için abl olmaya devam edecek önce verilmiş bir yenileme belirteci gizli istemcisiyle. 
 
 ## <a name="sample-tokens"></a>Örnek belirteçleri
 

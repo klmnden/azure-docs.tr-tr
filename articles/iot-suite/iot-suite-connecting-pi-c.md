@@ -1,12 +1,12 @@
 ---
-title: "Sağlama C - Azure kullanarak Uzaktan izleme için Raspberry Pi'yi | Microsoft Docs"
-description: "C dilinde yazılmış bir uygulaması kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümü Raspberry Pi'yi aygıt bağlanmaya açıklar"
+title: Sağlama C - Azure kullanarak Uzaktan izleme için Raspberry Pi'yi | Microsoft Docs
+description: C dilinde yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı Raspberry Pi'yi aygıt bağlanmaya açıklar
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 79a97dda31308cdd0ffeb1196a8a11e0f431803e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Uzaktan izleme önceden yapılandırılmış çözümü (C) Raspberry Pi'yi Cihazınızı bağlama
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Uzaktan izleme Çözüm Hızlandırıcısı için (C) Raspberry Pi'yi Cihazınızı bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme önceden yapılandırılmış çözümü bağlanmak nasıl gösterir. Kısıtlanmış cihazlarda çalıştırılan en katıştırılmış uygulamalarında olduğu gibi Raspberry Pi'yi cihaz uygulaması için istemci kodu, c dilinde yazılır Bu öğreticide, Raspbian işletim sistemi çalıştıran Raspberry Pi'yi uygulamayı derleyin.
+Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir. Kısıtlanmış cihazlarda çalıştırılan en katıştırılmış uygulamalarında olduğu gibi Raspberry Pi'yi cihaz uygulaması için istemci kodu, c dilinde yazılır Bu öğreticide, Raspbian işletim sistemi çalıştıran Raspberry Pi'yi uygulamayı derleyin.
 
 ### <a name="required-hardware"></a>Gerekli donanım
 
@@ -33,7 +33,7 @@ Komut satırı Raspberry Pi'yi üzerinde uzaktan bağlanmak etkinleştirmek içi
 
 [Microsoft IOT Starter Kit Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) veya eşdeğer bileşenleri. Bu öğretici Seti'nden aşağıdaki öğeleri kullanır:
 
-- Raspberry Pi 3
+- Böğürtlenli Pi 3
 - MicroSD kartı (ile NOOBS)
 - Bir USB Mini kablosu
 - Ethernet kablosu
@@ -49,7 +49,7 @@ Komut satırı Raspberry Pi'yi üzerinde uzaktan erişim sağlamak için Masaüs
 
 Bu makalede, en son sürümünü yüklediğinizden varsayılmaktadır [Raspbian işletim sisteminde Raspberry Pi'yi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-Aşağıdaki adımlar, Raspberry Pi'yi önceden yapılandırılmış çözümü bağlayan bir C uygulaması oluşturmak için hazırlamak nasıl gösterir:
+Aşağıdaki adımlar, Raspberry Pi'yi Çözüm Hızlandırıcısı bağlayan bir C uygulaması oluşturmak için hazırlamak nasıl gösterir:
 
 1. Kullanarak Raspberry Pi'yi bağlanmak **ssh**. Daha fazla bilgi için bkz: [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi'yi Web sitesi](https://www.raspberrypi.org/).
 

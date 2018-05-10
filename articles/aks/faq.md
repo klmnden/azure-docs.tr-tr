@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı hizmeti için sık sorulan sorular
-description: Bazı Azure kapsayıcı hizmeti ilgili sık sorulan soruların yanıtlarını içerir.
+title: Azure Kubernetes hizmeti için sık sorulan sorular
+description: Bazı Azure Kubernetes hizmet hakkında genel soruların yanıtlarını içerir.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,21 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) hakkında sık sorulan sorular
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes hizmet (AKS) hakkında sık sorulan sorular
 
-Bu makale adresleri soruları Azure kapsayıcı hizmeti (AKS) hakkında sık.
+Bu makale adresleri soruları Azure Kubernetes hizmet (AKS) hakkında sık.
 
 > [!IMPORTANT]
-> Azure Container Service (AKS), şu anda **önizleme** aşamasındadır. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+> Azure Kubernetes hizmet (AKS) halen **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Hangi Azure bölgeleri Azure kapsayıcı hizmeti (AKS) Bugün sağlıyor?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Hangi Azure bölgeleri Azure Kubernetes hizmet (AKS) Bugün sağlıyor?
 
 - Orta Kanada
 - Doğu Kanada

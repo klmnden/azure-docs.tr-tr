@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: Sunucusuz veritabanı
         href: serverless-computing-database.md
+      - name: BulkExecutor’a genel bakış
+        href: bulk-executor-overview.md
       - name: Güvenlik
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: Veriye erişimi güvenli hale getirme
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Uygulama alanları
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: Nasıl Yapılır Kılavuzları
             items:
+              - name: BulkExecutor - .NET
+                href: bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: bulk-executor-java.md
               - name: Sorgu
                 items:
                   - name: SQL sorguları gerçekleştirme
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: BulkExecutor - .NET
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: REST Kaynak Sağlayıcısı
@@ -257,8 +265,6 @@ items:
             items:
               - name: Visual Studio Code uzantısı
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: Şemadan bağımsız dizinleme sayfası
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL oyun alanı
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: MongoDB API Belgeleri
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: Güvenlik duvarı desteği
         href: firewall-support.md
+      - name: Sanal ağ hizmeti uç noktasını ayarlama
+        href: vnet-service-endpoint.md
       - name: Ölçümler
         href: use-metrics.md
       - name: SLA’ları izleme
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: Beyzbol örneği ile açıklanan veri tutarlılığı
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Teknik incelemeler
+        href: whitepapers.md

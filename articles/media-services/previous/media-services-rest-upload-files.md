@@ -1,11 +1,11 @@
 ---
-title: "Dosyaları REST kullanarak bir Azure Media Services hesabına veri yükleme | Microsoft Docs"
-description: "Oluşturma ve karşıya varlıklar Media Services'e medya içeriği alma hakkında bilgi."
+title: Dosyaları REST kullanarak bir Azure Media Services hesabına veri yükleme | Microsoft Docs
+description: Oluşturma ve karşıya varlıklar Media Services'e medya içeriği alma hakkında bilgi.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Dosyaları REST kullanarak bir Media Services hesabına veri yükleme
 > [!div class="op_single_selector"]
@@ -53,9 +53,9 @@ Media Services REST API kullanırken aşağıdaki maddeler geçerlidir:
 * Media Services REST API kullanarak varlıkları erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md). <br/>Bu öğreticide kullanılan Postman koleksiyonu alır gereken tüm üstbilgileri gerçekleşmiş olur.
 * Media Services IAssetFile.Name özelliğinin değeri, URL akış içeriğini (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmiyor. Değeri **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
 * Adının uzunluğu 260 karakterden uzun olmamalıdır.
-* Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Bkz: [bu](media-services-quotas-and-limitations.md) dosya boyutu sınırlaması hakkındaki ayrıntılar için makale.
+* Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
 
-## <a name="set-up-postman"></a>Postman ayarlayın
+## <a name="set-up-postman"></a>Postman’i ayarlama
 
 Bu öğretici için Postman ayarlama adımları için bkz: [yapılandırma Postman](media-rest-apis-with-postman.md).
 
@@ -184,7 +184,7 @@ Karşıya yükleme URL'si sahip olduğunuza göre doğrudan SAS kapsayıcıya do
 Karşıya yükleme isteği değil parçası **AzureMedia** koleksiyonu. 
 
 Oluşturun ve yeni bir isteği ayarlamak:
-1. Tuşuna  **+** , yeni bir istek sekme oluşturmak için.
+1. Tuşuna **+**, yeni bir istek sekme oluşturmak için.
 2. Seçin **PUT** işlemi ve Yapıştır **{{UploadURL}}** URL.
 2. Bırakın **yetkilendirme** sekmesinde olduğundan (Bu ayarlanmamışsa **taşıyıcı belirteci**).
 3. İçinde **üstbilgileri** sekmesinde, belirtin: **anahtar**: "x-ms-blob-type" ve **değeri**: "BlockBlob".

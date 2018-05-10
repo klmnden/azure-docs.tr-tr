@@ -1,11 +1,10 @@
 ---
-title: "Dışarı aktarmak için SQL Azure Application Insights | Microsoft Docs"
-description: "Sürekli olarak Application Insights verileri kullanarak Stream Analytics SQL verin."
+title: Dışarı aktarmak için SQL Azure Application Insights | Microsoft Docs
+description: Sürekli olarak Application Insights verileri kullanarak Stream Analytics SQL verin.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
-editor: mrbullwinkle
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e410bb87d017a7659c3eaffbedef378aaf7f5716
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>İzlenecek yol: Uygulama kullanarak Stream Analytics ilişkin bilgiler için SQL dışarı aktarma
 Bu makalede, telemetri verilerini taşıma gösterilmektedir [Azure Application Insights] [ start] kullanarak bir Azure SQL veritabanına [sürekli verme] [ export] ve [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/). 
@@ -32,7 +31,7 @@ Sürekli verme telemetri verileri JSON biçiminde Azure depolama alanına taşı
 Bu örnekte, biz sayfası görünüm verilerini kullanarak, ancak aynı düzeni özel etkinlikler ve özel durumlar gibi diğer veri türleri için kolayca genişletilebilir. 
 
 ## <a name="add-application-insights-to-your-application"></a>Uygulamanıza Application Insights ekleyin
-Başlamak için:
+Kullanmaya başlamak için:
 
 1. [Web sayfalarınız için Application Insights'ı ayarlamak](app-insights-javascript.md). 
    
@@ -171,10 +170,10 @@ Sürekli verme blobundan giriş gerçekleştirecek şekilde ayarlayın:
 
 Bu örnekte:
 
-* `webapplication27`Application Insights kaynağı adı **tüm alt durumda**. 
-* `1234...`Application Insights kaynağı izleme anahtarını olan **kaldırılan çizgilerle**. 
-* `PageViews`Analiz etmek istiyoruz veri türüdür. Kullanılabilir türler filtresi sürekli dışarı aktarma ile Ayarla bağlıdır. Diğer kullanılabilir türleri görmek ve görmek için dışarı aktarılan verileri incelemek [veri modeli verme](app-insights-export-data-model.md).
-* `/{date}/{time}`bir desen tam anlamıyla yazılır.
+* `webapplication27` Application Insights kaynağı adı **tüm alt durumda**. 
+* `1234...` Application Insights kaynağı izleme anahtarını olan **kaldırılan çizgilerle**. 
+* `PageViews` Analiz etmek istiyoruz veri türüdür. Kullanılabilir türler filtresi sürekli dışarı aktarma ile Ayarla bağlıdır. Diğer kullanılabilir türleri görmek ve görmek için dışarı aktarılan verileri incelemek [veri modeli verme](app-insights-export-data-model.md).
+* `/{date}/{time}` bir desen tam anlamıyla yazılır.
 
 Application Insights kaynağınıza iKey ve adını almak için genel bakış sayfasında Essentials açın veya ayarları'nı açın.
 

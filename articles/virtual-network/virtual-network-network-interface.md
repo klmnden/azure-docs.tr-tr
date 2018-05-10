@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimi silme
 
 Oluşturma, ayarlarını değiştirin ve ağ arabirimi silme öğrenin. Bir ağ arabirimi, internet, Azure ve şirket içi kaynakları ile iletişim kurmak için bir Azure sanal makine sağlar. Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Bunun yerine, ağ arabirimleri ile özel ayarları oluşturmak ve oluşturduğunuzda bir veya daha fazla ağ arabirimine bir sanal makineye eklemek seçebilirsiniz. Varolan bir ağ arabirimi için varsayılan ağ arabirimi ayarları değiştirmek isteyebilirsiniz. Bu makalede, bir ağ arabirimi ile özel ayarları oluşturmak, ağ filtre (ağ güvenlik grubu) ataması, alt ağ ataması, DNS sunucusu ayarlarını ve IP iletimini gibi varolan ayarlarını değiştirin ve ağ arabirimini silmek açıklanmaktadır.
 
 Eklemek, değiştirmek veya bir ağ arabirimi için IP adreslerini kaldırın, bkz: [yönetmek IP adresleri](virtual-network-network-interface-addresses.md). Ağ arabirimleri veya ağ arabirimleri sanal makinelerden kaldırmak için bkz: için eklemeniz gerekiyorsa, [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -37,7 +36,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 - Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.28 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
-Aboneliğiniz için ağ katılımcı rolü için en düşük izinleri adresindeki Azure ile içine oturum hesabı atanmalıdır. Rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+Hesap oturum açın veya ile azure'a bağlanmak için atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
 
 ## <a name="create-a-network-interface"></a>Bir ağ arabirimi oluştur
 
@@ -88,7 +87,7 @@ Görüntüleyin ve oluşturulduktan sonra bir ağ arabirimi için çoğu ayarlar
     - **Özellikler:** görüntüler anahtar ayarları var, MAC adresini (ağ arabirimi bir sanal makineye bağlı değil, boş) ve abonelik dahil olmak üzere ağ arabiriminin hakkında.
     - **Etkin güvenlik kuralları:** güvenlik kuralları, ağ arabiriminin çalışan bir sanal makineye bağlı ve bir NSG ağ arabirimi, atanan için alt ağ veya her ikisi de ilişkili ise listelenir. Görüntülenenleri hakkında daha fazla bilgi için bkz: [etkin güvenlik kuralları](#view-effective-security-rules). Nsg'ler hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](security-overview.md).
     - **Etkin yollar:** ağ arabirimi çalışan bir sanal makineye bağlıysa yolları listelenir. Yolları, Azure varsayılan yolların, tüm kullanıcı tanımlı yollar ve ağ arabirimi atandığı alt ağ için bulunabilecek tüm BGP yollarını birleşimidir. Görüntülenenleri hakkında daha fazla bilgi için bkz: [görüntülemek etkili yolları](#view-effective-routes). Azure varsayılan yollar ve kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
-    - **Ortak Azure Resource Manager ayarları:** ortak Azure Resource Manager ayarları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiketleri](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [Otomasyon betiğini](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Ortak Azure Resource Manager ayarları:** ortak Azure Resource Manager ayarları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiketleri](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [Otomasyon betiğini](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Komutları**
 
@@ -204,7 +203,7 @@ Bir ağ arabirimi sildiğinizde, kendisine atanmış MAC veya IP adresi yayınla
 
 ## <a name="resolve-connectivity-issues"></a>Bağlantı sorunlarını gidermek
 
-İçin veya bir sanal makineden iletişim kurmak için güvenlik grubu güvenlik kuralları ağ sorunu yaşıyor veya yolları bir ağ arabirimi için etkili soruna neden Sorunu gidermek için aşağıdaki seçenekleriniz vardır:
+İçin veya bir sanal makine, ağ güvenlik grubu güvenlik kuralları ya da yolların bir ağ arabirimi için etkili iletişim kuramıyor, soruna neden. Sorunu gidermek için aşağıdaki seçenekleriniz vardır:
 
 ### <a name="view-effective-security-rules"></a>Etkin güvenlik kurallarını görüntüle
 
@@ -240,11 +239,30 @@ Azure Ağ İzleyicisi'nin sonraki atlama özelliği yolları bir sanal makine ve
 - Azure CLI: [az ağ NIC Göster-etkin-yol-tablosu](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Sonraki adımlar
-Birden çok ağ arabirimlerine veya IP adresleri ile bir sanal makine oluşturmak için aşağıdaki makalelere bakın:
+## <a name="permissions"></a>İzinler
 
-|Görev|Aracı|
-|---|---|
-|Birden çok NIC ile VM oluşturma|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Birden çok IPv4 adresleriyle tek bir NIC VM oluşturma|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Özel bir IPv6 adresi (arkasında bir Azure yük dengeleyici) ile tek bir NIC VM oluşturma|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager şablonu](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Ağ arabirimlerindeki görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun izinleri atanmış rolü aşağıdaki tabloda listelenen:
+
+| Eylem                                                                     | Ad                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Ağ arabirimi Al                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Ağ arabirimi güncelle                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Bir sanal makineye bir ağ arabirimi ekleyin           |
+| Microsoft.Network/networkInterfaces/delete                                 | Ağ arabirimi silme                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Bir kaynak bir ağ arabirimi bir Hi üzerinden katılmak...     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Ağ arabirimi etkin yönlendirme tablosu alma               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Ağ arabirimi etkin güvenlik grupları alma           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Ağ arabirimi yük dengeleyicilerini Al                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Hizmet ilişkilendirmesini alın                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Bir hizmet ilişkilendirmesini güncelle                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Hizmet ilişkilendirmesini Sil                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Hizmet ilişkilendirmesini doğrula                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Ağ arabirimi IP yapılandırmasını al                    |
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Bir VM ile birden çok NIC kullanarak oluşturma [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Tek bir NIC VM ile birden çok IPv4 adresleri kullanarak oluşturmak [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) veya [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+- Bir özel IPv6 adresini (arkasında bir Azure yük dengeleyici) kullanarak ile tek bir NIC VM oluşturma [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), veya [Azure Resource Manager şablonu](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Kullanarak bir ağ arabirimi oluştur [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)
+- Oluşturma ve uygulama [Azure ilke](policy-samples.md) sanal ağlar için

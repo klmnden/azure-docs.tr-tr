@@ -1,8 +1,8 @@
 ---
-title: "Azure Media Kırpıcıyı ile Klip Oluştur | Microsoft Docs"
-description: "Azure Media Kırpıcıyı, medya klipleri varlıklarından oluşturmaya yönelik bir araç genel bakış"
+title: Azure Media Kırpıcıyı ile Klip Oluştur | Microsoft Docs
+description: Azure Media Kırpıcıyı, medya klipleri varlıklarından oluşturmaya yönelik bir araç genel bakış
 services: media-services
-keywords: "küçük; subclip; kodlama; ortam"
+keywords: küçük; subclip; kodlama; ortam
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Kırpıcıyı ile Klip Oluştur
 Azure Media Kırpıcıyı medya klipleri oluşturmak için kullanıcılar bir arabirim sağlamak web geliştiricileri sağlayan ücretsiz bir JavaScript kitaplığıdır. Bu araç, herhangi bir web sayfasında tümleştirilebilir ve varlıkları yüklenirken ve kırpma işlerini göndermenin için API'ler sağlar.
@@ -33,7 +33,7 @@ Aşağıdaki resimde Kırpıcıyı arabirimi gösterilmektedir: ![Azure medya K�
 
 ## <a name="release-notes"></a>Sürüm notları
 Kırpıcıyı blog yayını, çeşitli bilinen sorunlar ve değişim günlüğü Kırpıcıyı'nın en son sürümü için aşağıdaki listeye bakın:
-- [Blog gönderisi](https://azure.microsoft.com/blog/azure-media-clipper/)
+- [blog gönderisi](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Bilinen sorunlar listesi](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Değişim günlüğü](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

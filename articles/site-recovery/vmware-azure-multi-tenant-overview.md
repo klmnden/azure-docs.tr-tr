@@ -1,25 +1,25 @@
 ---
-title: "VMware VM çoğaltması için Azure (Azure Site RECOVERY'yi kullanarak CSP) çok müşterili desteği'ne genel bakış | Microsoft Docs"
-description: "Azure Site Recovery Destek genel bir bakış Kiracı için CSP program aracılığıyla bir çok kiracılı ortamı Aboneliklerde sağlar."
+title: VMware VM çoğaltması için Azure (Azure Site RECOVERY'yi kullanarak CSP) çok müşterili desteği'ne genel bakış | Microsoft Docs
+description: Azure Site Recovery Destek genel bir bakış Kiracı için CSP program aracılığıyla bir çok kiracılı ortamı Aboneliklerde sağlar.
 services: site-recovery
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/03/2018
 ms.author: manayar
-ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 285086964365339291e9027a7fe8e5ee0083e13b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>CSP ile Azure'da VMware çoğaltma işlemini çok müşterili desteği'ne genel bakış
 
-[Azure Site Recovery](site-recovery-overview.md) Kiracı abonelikler için çok kiracılı ortamlarda destekler. Oluşturulan ve Microsoft bulut çözümü sağlayıcısı (CSP) programı aracılığıyla yönetilen Kiracı abonelikler için çoklu kiracı de destekler. 
+[Azure Site Recovery](site-recovery-overview.md) Kiracı abonelikler için çok kiracılı ortamlarda destekler. Oluşturulan ve Microsoft bulut çözümü sağlayıcısı (CSP) programı aracılığıyla yönetilen Kiracı abonelikler için çoklu kiracı de destekler.
 
-Bu makalede, uygulamayı ve yönetmeyi çok kiracılı VMware Azure çoğaltma için bir genel bakış sağlar. 
+Bu makalede, uygulamayı ve yönetmeyi çok kiracılı VMware Azure çoğaltma için bir genel bakış sağlar.
 
 ## <a name="multi-tenant-environments"></a>Çok kiracılı ortamlarda
 
@@ -33,7 +33,7 @@ Bu makalede, uygulamayı ve yönetmeyi çok kiracılı VMware Azure çoğaltma i
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Paylaşılan barındırma hizmeti sağlayıcısı (HSP)
 
- Diğer iki senaryo paylaşılan barındırma senaryo kümeleridir ve aynı ilkeleri kullanın. Paylaşılan barındırma Kılavuzu sonunda farklar açıklanmaktadır.
+Diğer iki senaryo paylaşılan barındırma senaryo kümeleridir ve aynı ilkeleri kullanın. Paylaşılan barındırma Kılavuzu sonunda farklar açıklanmaktadır.
 
 Temel bir çok kiracılı senaryosunda kiracılar yalıtılmış gereksinimdir. Bir kiracı başka bir kiracı barındırılan gözlemlemek olmamalıdır. İş ortağı tarafından yönetilen bir ortamda, bu gereksinim Burada, kritik olabilir bir Self Servis ortamında, olduğu gibi önemli değil. Bu makalede, Kiracı yalıtımı gerekli olduğunu varsayar.
 
@@ -47,7 +47,7 @@ Diyagramdaki her bir müşteri bir ayrı yönetim sunucusu vardır. Bu yapıland
 
 Veri yalıtımı gereksinim tüm hassas altyapı bilgileri (örneğin, erişim kimlik bilgileri) kiracılar için belirlenmemiş kaldığı anlamına gelir. Bu nedenle, management server'ın tüm bileşenleri iş ortağı özel denetimi altında kalmasını öneririz. Yönetim sunucusu bileşenleri şunlardır:
 
-* Yapılandırma sunucusu)
+* Yapılandırma sunucusu
 * İşlem sunucusu
 * Ana hedef sunucusu
 
@@ -63,7 +63,7 @@ Her yapılandırma sunucusu çoklu kiracı senaryoda iki hesap kullanır:
 
 ## <a name="vcenter-account-requirements"></a>vCenter hesabı gereksinimleri
 
-Kendisine atanmış bir özel rolü olan bir hesap ile yapılandırma sunucusu yapılandırmanız gerekir. 
+Kendisine atanmış bir özel rolü olan bir hesap ile yapılandırma sunucusunu yapılandırın.
 
 - Rol ataması gerekir vCenter erişim hesabını her vCenter nesne için uygulanır ve alt nesnelere yayılan değil. Yanlışlıkla erişim'deki diğer nesnelere erişim yayma sağladığından bu yapılandırmayı Kiracı yalıtımı sağlar.
 
@@ -108,22 +108,36 @@ Yalnızca Yük devretme kadar olağanüstü durum kurtarma işlemlerini kısıtl
 - Atama yerine *Azure_Site_Recovery* vCenter erişim hesabı'nı rol atama yalnızca bir *salt okunur* bu hesaba rol. Bu izin kümesi VM çoğaltma ve yük devretme sağlar ve geri dönme izin vermez.
 - Önceki işleminde bir şey olduğu gibi kalır. Kiracı yalıtımı sağlamak ve VM bulma kısıtlamak için her izni yalnızca nesne düzeyinde atanmıştır ve alt nesneler için yayılan değil.
 
+### <a name="deploy-resources-to-the-tenant-subscription"></a>Kaynaklar için Kiracı aboneliği dağıtma
+
+1. Azure portalında bir kaynak grubu oluşturun ve sonra bir kurtarma Hizmetleri kasası normal işlem başına dağıtın.
+2. Kasa kayıt anahtarını indirin.
+3. CS kasa kayıt anahtarını kullanarak Kiracı için kaydedin.
+4. İki erişim hesapları, vCenter sunucusuna erişmek için hesap ve VM erişim hesabı için kimlik bilgilerini girin.
+
+    ![Yönetici yapılandırması sunucu hesapları](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+
+### <a name="register-servers-in-the-vault"></a>Sunucuları kasaya kaydetmek
+
+1. Azure portalında daha önce oluşturduğunuz kasayı vCenter sunucusu oluşturduğunuz vCenter hesabı kullanarak yapılandırma sunucusuna kaydedin.
+2. "Altyapıyı Hazırlama" işlemi normal işlem başına Site Recovery için Son'u tıklatın.
+3. Sanal makinelerin çoğaltılması artık hazırsınız. Yalnızca kiracının VM'ler içinde görüntülendiğini doğrulayın **çoğaltmak** > **sanal makine Seç**.
 
 ## <a name="dedicated-hosting-solution"></a>Barındırma çözümü ayrılmış
 
-Aşağıdaki çizimde gösterildiği gibi mimari adanmış bir barındırma çözümüne yalnızca Kiracı için her bir kiracının altyapı ayarlandığını farktır. Kiracılar ayrı Vcenter yalıtılmış olduğundan, barındırma sağlayıcısı hala paylaşılan barındırma için sağlanan CSP adımları izlemeniz gerekir, ancak Kiracı yalıtımı hakkında endişelenmeniz gerekmez. CSP Kurulum değişmeden kalır.
+Aşağıdaki çizimde gösterildiği gibi mimari adanmış bir barındırma çözümüne yalnızca Kiracı için her bir kiracının altyapı ayarlandığını farktır.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![Mimari paylaşılan hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Birden çok Vcenter ile ayrılmış barındırma senaryosu**
 
 ## <a name="managed-service-solution"></a>Yönetilen hizmet çözümü
 
-Aşağıdaki çizimde gösterildiği gibi bir yönetilen hizmet çözümüne mimari fark her bir kiracının altyapı ayrıca diğer kiracılar altyapısından ayrı fiziksel olmasıdır. Kiracı altyapı sahibi ve olağanüstü durum kurtarma yönetmek için bir çözüm sağlayıcısı istediğinde bu senaryo genellikle bulunmaktadır. Yeniden, kiracılar farklı altyapılar aracılığıyla fiziksel olarak yalıtılmış olduğundan, CSP adımları izlemek için iş ortağı gereksinimlerini paylaşılan barındırma için sağlanan ancak Kiracı yalıtımı hakkında endişelenmeniz gerekmez. CSP sağlama değişmeden kalır.
+Aşağıdaki çizimde gösterildiği gibi bir yönetilen hizmet çözümüne mimari fark her bir kiracının altyapı ayrıca diğer kiracılar altyapısından ayrı fiziksel olmasıdır. Kiracı altyapı sahibi ve olağanüstü durum kurtarma yönetmek için bir çözüm sağlayıcısı istediğinde bu senaryo genellikle bulunmaktadır.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
+![Mimari paylaşılan hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Birden çok Vcenter hizmet senaryoyla yönetilen**
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md) Site kurtarma rol tabanlı erişim denetimi hakkında.
-Bilgi nasıl [VMware Vm'lerini olağanüstü durum kurtarma Azure ayarlama](vmware-azure-tutorial.md)
-[CSP ile çoklu kiracı olan VMWare VM'ler için olağanüstü durum kurtarma ayarlayın](vmware-azure-multi-tenant-csp-disaster-recovery.md)
+- [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md) Site kurtarma rol tabanlı erişim denetimi hakkında.
+- Bilgi edinmek için nasıl [VMware Vm'lerini olağanüstü durum kurtarma Azure ayarlama](vmware-azure-tutorial.md).
+- Daha fazla bilgi edinmek [VMWare VM'ler için CSP ile çoklu kiracı](vmware-azure-multi-tenant-csp-disaster-recovery.md).
