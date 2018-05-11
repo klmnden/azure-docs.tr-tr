@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Mimecast kişisel portalıyla | Microsoft Docs"
-description: "Çoklu oturum açma Mimecast kişisel Portal ile Azure Active Directory arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Mimecast kişisel portalıyla | Microsoft Docs'
+description: Çoklu oturum açma Mimecast kişisel Portal ile Azure Active Directory arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Öğretici: Azure Active Directory Tümleştirme Mimecast kişisel portalı ile
 
@@ -32,7 +32,7 @@ Mimecast kişisel Portal Azure AD ile tümleştirme ile aşağıdaki avantajlar�
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Mimecast kişisel Portal ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -80,8 +80,6 @@ Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Mimecast kişisel "
 
 Tekli çalışmaya oturum için Azure AD ne karşılık gelen Mimecast kişisel Portalı'nda bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı Mimecast kişisel portalında arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Değeri Mimecast kişisel portalında atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
-
 Yapılandırmak ve Azure AD çoklu oturum açma Mimecast kişisel portalıyla sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
 
 1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
@@ -127,6 +125,16 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | Güney Afrika    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Avustralya       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. İçinde **yanıt URL'si** metin kutusuna, bir URL yazın: 
+
+    | Bölge  |  Değer | 
+    | --------------- | --------------- | 
+    | Avrupa          | `https://eu-api.mimecast.com/login/saml`|
+    | Amerika Birleşik Devletleri   | `https://us-api.mimecast.com/login/saml`|
+    | Güney Afrika    | `https://za-api.mimecast.com/login/saml`|
+    | Avustralya       | `https://au-api.mimecast.com/login/saml`|
+    | Offshore        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > Tanımlayıcı değeri gerçek değil. Değerin gerçek tanımlayıcısı ile güncelleştirin. Kişi [Mimecast kişisel Portal istemci destek ekibi](http://www.mimecast.com/customer-success/technical-support/) değeri alınamıyor. 
@@ -177,11 +185,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     h. Seçin **çoklu oturum açmaya izin verme**.
    
-    ı. **Kaydet** düğmesine tıklayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    i. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -213,7 +217,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-mimecast-personal-portal-test-user"></a>Mimecast kişisel Portal test kullanıcısı oluşturma
 
@@ -241,13 +245,13 @@ Bir etki alanı kullanıcıları oluşturabilmeniz için önce kaydetmeniz gerek
    
     ![Kaydet](./media/active-directory-saas-mimecast-personal-portal-tutorial/ic795006.png "Kaydet")
    
-    a. İçinde **e-posta adresi** metin kutusuna, türü **e-posta adresi** kullanıcının  **BrittaSimon@contoso.com** .
+    a. İçinde **e-posta adresi** metin kutusuna, türü **e-posta adresi** kullanıcının **BrittaSimon@contoso.com**.
     
     b. İçinde **genel adı** metin kutusuna, türü **kullanıcıadı** olarak **BrittaSimon**.
 
     c. İçinde **parola**, ve **parolayı onayla** metin kutuları, türü **parola** kullanıcının.
    
-    b. **Kaydet** düğmesine tıklayın.
+    b. **Kaydet**’e tıklayın.
 
 >[!NOTE]
 >Azure AD kullanıcı hesaplarını sağlamak için herhangi bir Mimecast kişisel Portal kullanıcı hesabı oluşturma araçlarını veya Mimecast kişisel portalı tarafından sağlanan API'leri kullanabilirsiniz.
@@ -282,7 +286,7 @@ Bu bölümde, Britta Mimecast kişisel portalına erişim vererek, Azure çoklu 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 

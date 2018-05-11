@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: sujayt
-ms.openlocfilehash: 215874020395faebd70b6dd15a29f1bf23638a84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -175,7 +175,7 @@ GRS | Desteklenen |
 RA-GRS | Desteklenen |
 ZRS | Desteklenmiyor |  
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Sanal makine disklerini seyrek erişimli ve sık erişimli depolama üzerinde desteklenmez.
-Sanal ağ hizmet uç noktaları (Azure Storage güvenlik duvarları ve sanal ağlar)  | Hayır | Çoğaltılan verileri depolamak için kullanılan önbellek depolama hesaplarında erişimine izin belirli Azure sanal ağlar desteklenmez.
+Azure depolama sanal ağlar için güvenlik duvarları  | Hayır | Çoğaltılan verileri depolamak için kullanılan önbellek depolama hesaplarında erişimine izin belirli Azure sanal ağlar desteklenmez.
 Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek katman) | Hayır | İşlem maliyetleri artış, genel amaçlı önemli ölçüde V1 depolama hesapları ile karşılaştırıldığında.
 
 >[!IMPORTANT]
@@ -200,6 +200,8 @@ Kimliği doğrulanmamış Proxy | Desteklenen | Başvurmak [Ağ Kılavuzu belge.
 Doğrulanmış bir Proxy | Desteklenmiyor | VM için giden bağlantı doğrulanmış bir proxy kullanıyorsa, Azure Site RECOVERY'yi kullanarak yinelenemez.    
 Siteden siteye VPN ile şirket içi (ile veya ExpressRoute olmadan)| Desteklenen | Nsg'ler ve Udr'ler Site kurtarma trafiği şirket içi yönlendirilmedi şekilde yapılandırıldığından emin olun. Başvurmak [Ağ Kılavuzu belge.](site-recovery-azure-to-azure-networking-guidance.md)  
 VNET'e bağlantı | Desteklenen | Başvurmak [Ağ Kılavuzu belge.](site-recovery-azure-to-azure-networking-guidance.md)  
+Sanal Ağ Hizmeti Uç Noktaları | Desteklenen | Azure depolama güvenlik duvarları sanal ağlar için desteklenmez. Çoğaltılan verileri depolamak için kullanılan önbellek depolama hesaplarında erişimine izin belirli Azure sanal ağlar desteklenmez.
+Hızlandırılmış Ağ | Desteklenmiyor | Hızlandırılmış etkin ağ ile VM çoğaltılabilir, ancak yük devretme VM hızlandırılmış etkin ağ sahip olmaz. Hızlandırılmış ağ ayrıca kaynağı VM yeniden çalışma için devre dışı bırakılır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

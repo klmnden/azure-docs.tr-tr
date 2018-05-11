@@ -3,16 +3,17 @@ title: Orchestrator'ı Azure Otomasyonu geçirme
 description: System Center Orchestrator'ı Azure Otomasyonu runbook'ları ve tümleştirme paketleri geçirmeyi açıklar.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 873d234a9ba0ae50b4b11cf65b9630bb79e883e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d692e4dc639cbd290b465980da2319ac590627c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator'ı Azure Otomasyon (Beta) geçirme
 Runbook'ları [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) Azure automation'daki runbook'lar Windows PowerShell tabanlı, özellikle Orchestrator için yazılmış tümleştirme paketleri etkinliklerden dayanır.  [Grafik runbook'lar](automation-runbook-types.md#graphical-runbooks) Azure Otomasyonu'nda PowerShell cmdlet'leri, alt runbook'ları ve varlıkları temsil eden kendi etkinliklerle Orchestrator runbook'ları için benzer bir görünüm vardır.
@@ -93,7 +94,7 @@ Runbook dönüştürücü aşağıdaki günlük dosyalarına dönüştürülmü�
 
 | Dosya | İçindekiler |
 |:--- |:--- |
-| Runbook Converter - Progress.log |Ayrıntılı adımlar başarıyla dönüştürülen her etkinlik için bilgi ve uyarı dönüştürülmez her etkinlik için de dahil olmak üzere dönüştürme. |
+| Runbook dönüştürücü - Progress.log |Ayrıntılı adımlar başarıyla dönüştürülen her etkinlik için bilgi ve uyarı dönüştürülmez her etkinlik için de dahil olmak üzere dönüştürme. |
 | Runbook dönüştürücü - Summary.log |Tüm uyarılar dahil olmak üzere son dönüştürme özeti ve dönüştürülen runbook için gerekli bir değişken oluşturma gibi gerçekleştirmek için gereken görevleri izleyin. |
 
 ### <a name="exporting-runbooks-from-orchestrator"></a>Orchestrator'ı runbook'ları dışarı aktarma

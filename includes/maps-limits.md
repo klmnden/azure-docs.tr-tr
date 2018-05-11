@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 05/07/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 114d35562b3e362f6337a2a43a54304332210f09
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: fc96c66ce0cdda133d8776008874c5518cb80be6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-Azure haritalar hizmeti kullanım kısıtlamaları aşağıdadır. Maliyet hakkında daha fazla bilgi için bkz: [Azure fiyatlandırma ayrıntıları eşlemeleri](https://azure.microsoft.com/pricing/details/azure-maps/).
+Azure haritalar hizmeti kullanım kısıtlamaları aşağıdadır. Maliyet hakkında daha fazla bilgi için bkz: [Azure fiyatlandırma ayrıntıları eşlemeleri](https://azure.microsoft.com/pricing/details/azure-maps/). [Bize Ulaşın](https://azure.microsoft.com/overview/sales-number/) aboneliğiniz için en büyük istek oranı artırmak için.
 
 | Kaynak                              | Sınır |
 |---------------------------------------|:-----:|

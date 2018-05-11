@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 84581de2819ec062a537d4a302f242085a4b3c2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 31af59fd7057bef6e427f08cef695688dc2111d1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Olay kılavuzla CloudEvents şeması kullanma
 
@@ -95,6 +95,10 @@ Konunuzu oluşturduğunuzda CloudEvents özel bir konuya giriş şemasını ayar
 Bir olay kılavuz konusu oluşturmak için kullanın:
 
 ```azurecli
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -112,7 +116,7 @@ Bir olay aboneliği oluşturmak için kullanın:
 
 ```azurecli
 az eventgrid event-subscription create \
-  --name <event_subscription_name> \  
+  --name <event_subscription_name> \
   --topic-name <topic_name> \
   -g gridResourceGroup \
   --endpoint <endpoint_URL> \

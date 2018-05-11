@@ -1,11 +1,11 @@
 ---
-title: "Socket.IO - Azure kullanarak Node.js uygulaması"
-description: "Azure üzerinde barındırılan bir node.js uygulamasında Socket.IO kullanmayı öğrenin."
+title: Socket.IO - Azure kullanarak Node.js uygulaması
+description: Azure üzerinde barındırılan bir node.js uygulamasında Socket.IO kullanmayı öğrenin.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bir Azure bulut hizmeti Socket.IO ile bir Node.js sohbet uygulaması oluşturma
 
@@ -28,7 +28,7 @@ Tamamlanmış uygulamanın bir ekran görüntüsü aşağıda verilmiştir:
 
 ![Azure üzerinde barındırılan hizmet gösteren bir tarayıcı penceresi][completed-app]  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki ürünleri ve sürümleri bu makaledeki örnek başarılı bir şekilde yüklendiğinden emin olun:
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)'yu yükleme
@@ -61,7 +61,7 @@ Bu proje için Sohbet örnekten kullanacağız [Socket.IO GitHub deposunu]. Örn
 
 1. Kullanarak depoyu yerel bir kopyasını oluşturma **kopya** düğmesi. De kullanabilirsiniz **ZIP** düğmesi projenizi indirin.
    
-   ![Vurgulanan ZIP indirme simgesiyle https://github.com/LearnBoost/Socket.io/Tree/master/examples/Chat, görüntüleme bir tarayıcı penceresi][chat-example-view]
+   ![Bir tarayıcı penceresi görüntüleme https://github.com/LearnBoost/socket.io/tree/master/examples/chat, vurgulanan ZIP yükleme simgesi][chat-example-view]
 2. Konumundaki gelmesini kadar yerel deposu dizin yapısını gezinin **örnekler\\sohbet** dizin. Bu dizine içeriğini kopyalayın **C:\\düğümü\\chatapp\\WorkerRole1** daha önce oluşturduğunuz dizin.
    
    ![Örnekler içeriğini görüntüleme explorer\\arşivden ayıklanan sohbet dizini][chat-contents]

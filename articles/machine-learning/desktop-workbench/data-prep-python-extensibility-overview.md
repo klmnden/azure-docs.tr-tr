@@ -4,19 +4,17 @@ description: Bu belge genel bir bakış ve Python kodu veri hazırlığı işlev
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Veriler hazırlıkları Python uzantıları
 Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu olarak Azure Machine Learning veriler hazırlıkları birçok düzeyde genişletilebilirlik içerir. Bu belgede, Python komut dosyası aracılığıyla genişletilebilirlik verilmiştir. 
@@ -24,14 +22,10 @@ Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu ola
 ## <a name="custom-code-steps"></a>Özel kod adımları 
 Veriler hazırlıkları kullanıcılar kod burada yazabilirsiniz aşağıdaki özel adımlar vardır:
 
-* Dosya okuyucu *
-* Yazıcı *
 * Sütun ekleme
 * Gelişmiş Filtre
 * Veri akışı dönüştürme
 * Bölüm dönüştürme
-
-* Bu adımları bir Spark yürütme şu anda desteklenmemektedir.
 
 ## <a name="code-block-types"></a>Kod bloğu türleri 
 Bu adımların her biri için iki kod bloğunun türü destekliyoruz. İlk olarak, olarak yürütülen tam bir Python ifadesi destekliyoruz. İkinci olarak, bilinen bir imza ile belirli bir işlev sağladığınız kodda burada diyoruz bir Python modülü destekler.
@@ -158,74 +152,6 @@ Sütun veri satırdan noktalı gösterim veya anahtar-değer gösterim kullanıl
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>Dosya okuyucusu 
-### <a name="purpose"></a>Amaç 
-Dosya okuyucu uzantı noktası tam denetimi bir veri akışına bir dosya okuma işlemi sağlar. Sistem kodunuzu çağırması ve işlemesi gereken dosyaları listesinde geçirir. Oluşturup Pandas dataframe dönmek kodunuzu gerekir. 
-
->[!NOTE]
->Bu uzantı noktası Spark işe yaramaz. 
-
-
-### <a name="how-to-use"></a>Nasıl kullanılır 
-Bu uzantı noktasından erişmesini **veri kaynağını Aç** Sihirbazı. Seçin **dosya** ilk sayfasında ve dosya konumunuzu seçin. Üzerinde **dosyası parametreleri seçin** sayfasında **dosya türü** aşağı açılan listesinde, seçin **özel dosya (komut)**. 
-
-Kodunuzu "okumak gereken dosyalar hakkında bilgi içeren df" adlı bir Pandas dataframe verilir. Birden çok dosya içeren bir dizinini açın seçerseniz, dataframe birden fazla satır içerir.  
-
-Bu dataframe aşağıdaki sütunları içerir:
-
-- Yol: okumak için dosya.
-- PathHint: dosyasının bulunduğu söyler. Değerler: Yerel AzureBlobStorage ve AzureDataLakeStorage.
-- AuthenticationType: Dosyaya erişmek için kullanılan kimlik doğrulama türü. Değerler: None, SasToken ve OAuthToken.
-- AuthenticationValue: None ya da kullanılacak belirteci içerir.
-
-### <a name="syntax"></a>Sözdizimi 
-İfade 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Modül  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Yazıcı 
-### <a name="purpose"></a>Amaç 
-Yazıcı uzantı noktası denetimi bir veri akışından veri yazma işleminin tamamen sağlar. Sistem kodunuzu çağırması ve bir dataframe geçirir. Kodunuzu dataframe istiyor ancak veri yazmak için kullanabilirsiniz. 
-
->[!NOTE]
->Yazıcı uzantı noktası Spark işe yaramaz.
-
-
-### <a name="how-to-use"></a>Nasıl kullanılır 
-Bu uzantı noktası yazma veri akışı (komut) blok kullanarak ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü.
-
-### <a name="syntax"></a>Sözdizimi 
-İfade
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Modül
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Bu özel yazma bloğu adımlarının bir listesi ortasında bulunabilir. Bir modül kullanırsanız, yazma işlevinizi izleyen adıma giriş dataframe döndürmesi gerekir. 
 
 ## <a name="add-column"></a>Sütun ekleme 
 ### <a name="purpose"></a>Amaç

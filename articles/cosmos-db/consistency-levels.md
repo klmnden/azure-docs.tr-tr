@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>İnce ayarlanabilir veri tutarlılık düzeylerini Azure Cosmos veritabanı
 Azure Cosmos DB sıfırdan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Tahmin edilebilir düşük gecikme süresi garanti ve birden çok iyi tanımlanmış gevşek tutarlılık modelleri sunmak üzere tasarlanmıştır. Şu anda Azure Cosmos DB beş tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve son. En yüksek oranda tutarlı bir model kullanılabilir olan daha az tutarlılık daha güçlü, sağladıkları gibi sınırlanmış eskime durumu, oturum, tutarlı öneki ve nihai olan "gevşek tutarlılık modelleri olarak" gösteriyor. 
@@ -44,7 +44,7 @@ Aşağıdaki tabloda her tutarlılık düzeyinin sunduğu garantiler gösterilme
 | Tutarlılık Düzeyi | Garantiler |
 | --- | --- |
 | Güçlü | Linearizability. Bir öğe en son sürümüne geri dönmek için okuma garanti.|
-| Sınırlanmış Eskime Durumu | Tutarlı Ön Ek. -k ön eklerine veya t aralığına göre yazma işlemlerinin arkasındaki gecikmeyi okur |
+| Sınırlanmış Eskime Durumu | Tutarlı Ön Ek. En fazla k önekleri veya t aralığı yazma arkasında okuma öteleme |
 | Oturum   | Tutarlı Ön Ek. Monoton okuma, monoton yazma, yazdıklarınızı okuma, okuduktan sonra yazma |
 | Tutarlı Ön Ek | Döndürülen güncelleştirmeler, boşluk olmadan tüm güncelleştirmelerin bazı ön ekleridir |
 | Nihai  | Bozuk okumalar |
@@ -120,7 +120,7 @@ Varsayılan olarak, kullanıcı tanımlı, kaynaklar için sorgular için tutarl
 | Dizin oluşturma modu | Okur | Sorgular |
 | --- | --- | --- |
 | CONSISTENT (varsayılan) |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Güçlü, sınırlanmış eskime durumu, seçim oturumu veya son |
-| Lazy |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Nihai |
+| Geç |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Nihai |
 | None |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Uygulanamaz |
 
 Olarak okuma istekleri ile her API belirli sorgu istekte tutarlılık düzeyine düşürebilirsiniz.

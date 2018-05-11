@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Bağlan aynı parolayı kullanarak Bulut ve şirket içi kaynaklara oturum açmalarını sağlar. Bu makalede, Azure AD ile oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -28,6 +28,7 @@ Zaten Azure AD kimlik modeliyle tanıdık ve belirli bir yöntemi hakkında daha
 * [Parola karma eşitlemesi](#password-hash-synchronization) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
 * [Doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
 * [Federasyon SSO (ile Active Directory Federasyon Hizmetleri (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [PingFederate ile Federasyon](#federation-with-pingfederate)
 
 > [!NOTE] 
 > Azure AD için Federasyon yapılandırarak, Azure AD kiracınıza ile Federasyon, etki alanı arasında güven olduğunu unutmamak önemlidir. Bu güven Federasyon etki alanı ile kullanıcılar Kiracı içinde Azure AD bulut kaynaklarına erişebilir.  
@@ -88,6 +89,13 @@ Yeni grubu dağıtma ya da varolan bir grubu kullanarak, gerekir:
 * Sihirbazın diğer makinelere bağlanmak kullanabilmek için çalıştırdığınız makine istediğiniz AD FS veya Web uygulaması proxy'si Windows Uzaktan Yönetimi'ni kullanarak yüklemek.
 
 Daha fazla bilgi için bkz: [AD FS yapılandırma SSO'su](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>PingFederate ile federasyon
+Federasyon ile oturum açma, kullanıcılarınızın şirket içi parolalarını ile Azure AD tabanlı hizmetler için oturum açabilir. Kurumsal ağda olup olmadıklarını olsa da, bunlar bile parolalarını girmeniz gerekmez.
+
+Azure Active Directory ile kullanmak için PingFederate yapılandırma hakkında daha fazla bilgi için bkz: [PingFederate Azure Active Directory ve Office 365 ile tümleştirme](https://www.pingidentity.com/AzureADConnect)
+
+PingFederate kullanarak Azure AD Connect'i ayarlama hakkında daha fazla bilgi için bkz: [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>AD FS veya bir üçüncü taraf çözümü önceki bir sürümünü kullanarak oturum açın
 Zaten bulut oturum açma (örneğin, AD FS 2.0) AD FS veya üçüncü taraf Federasyon sağlayıcısı önceki bir sürümünü kullanarak yapılandırdıysanız, kullanıcı oturum açma yapılandırması Azure AD Connect aracılığı atlamak seçebilirsiniz. Bu, oturum açma için hala var olan çözümünüzü kullanırken son eşitleme ve Azure AD Connect diğer özelliklerini almaya olanak tanır.

@@ -3,8 +3,8 @@ title: Azure sanal makineler için önceden ödeme tarafından paradan tasarruf 
 description: Azure ayrılmış sanal makine, sanal makineleri maliyetlerinizi kaydetmek için örnek hakkında bilgi edinin.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: yashar
+ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf 
 Ayrılmış sanal makine örnekleri, yıllık veya üç yıl kullandığınız sanal makinelerde indirim almak için işlem kapasitesi için önceden ödeme olanak tanır. Sanal makine maliyetlerinizi önemli ölçüde azaltır — yüzde 72 Kullandıkça Öde fiyatları – yıllık veya üç yıllık ön taahhüt ile. Ayrılmış sanal makine örneklerinin bir fatura iskonto ve sanal makineler çalışma zamanı durumunu etkilemez.
@@ -35,6 +35,7 @@ Bu abonelikleri türleri ile Azure müşterilerine ayrılmış bir sanal makine 
 -   Kurumsal Anlaşma abonelik Teklif türü (MS-AZR - 0017P).
 -   [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) abonelik Teklif türü (MS-AZR - 003 P).
 Ayrılmış örnek satın almak için aboneliğe ilişkin "Sahip" rolünde olması gerekir. Bir kurumsal kayıt ayırmalarını satın almak için kuruluş yöneticisi EA portal ayırma alımlar varsayılan ayar etkin olarak etkinleştirmeniz gerekir.
+-   Bulut çözümü sağlayıcısı (CSP) iş ortakları, Azure Yönetim Portalı kullanabilir veya [ortağı Merkezi'nde](https://docs.microsoft.com/partner-center/azure-reservations) ayırmaları satın alın.
 
 ## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>Ayrılmış sanal makine örnekleri satın alma nasıl faturalandırılır?
 Ayırma satın alma, aboneliğe bağlı ödeme yöntemi için ücret kesilir. Bir kurumsal aboneliğiniz varsa ayırma maliyet parasal taahhüt bakiyeniz çıkarılır. Parasal taahhüt bakiyeniz ayırma maliyetini kapsamıyordur, fatura fazla kullanım.
@@ -69,5 +70,7 @@ Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdak
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
 - [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
+- [Ayrılmış örnekler iş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programı](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 Yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.

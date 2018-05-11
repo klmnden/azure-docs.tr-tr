@@ -1,11 +1,11 @@
 ---
-title: "Federasyon tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu | Microsoft Docs"
-description: "Bazı yapılandırma tek federe olduğunda karşılaşabilir yaygın sorunları ele Azure AD uygulama galerisinde listelenen uygulamalar için SAML kullanarak oturum"
+title: Federasyon tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu | Microsoft Docs
+description: Bazı yapılandırma tek federe olduğunda karşılaşabilir yaygın sorunları ele Azure AD uygulama galerisinde listelenen uygulamalar için SAML kullanarak oturum
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 86ddb91ae16da797e32c6e1a8a8b2cd8fca989a8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Federasyon tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu
 
@@ -108,4 +108,4 @@ Azure AD meta verilerini almak için bir URL sağlamaz. Meta veriler yalnızca b
 Uygulamanıza gönderilen SAML öznitelik taleplerini özelleştirmek öğrenmek için bkz: [talep eşleme Azure Active Directory'de](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulamaları Azure Active Directory ile yönetme](active-directory-enable-sso-scenario.md)
+[Uygulamaları Azure Active Directory ile yönetme](manage-apps/what-is-application-management.md)

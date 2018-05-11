@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b59e3dae685c4994c44582d569875637b335bf87
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirme Amazon Web Hizmetleri (AWS)
 
@@ -70,7 +70,7 @@ Azure AD tümleştirmeye Amazon Web Hizmetleri (AWS) yapılandırmak için yöne
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Amazon Web Hizmetleri (AWS)**seçin **Amazon Web Hizmetleri (AWS)** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Amazon Web Hizmetleri (AWS)** seçin **Amazon Web Hizmetleri (AWS)** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
     ![Sonuçlar listesinde Amazon Web Hizmetleri (AWS)](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
@@ -190,7 +190,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
   
     d. Tıklatın **sonraki: izinleri**.
 
-16. Üzerinde **ekleme izinleri ilkeleri** iletişim kutusunda, tıklatın **sonraki: gözden geçirme**.  
+16. Üzerinde **ekleme izinleri ilkeleri** iletişim kutusunda, herhangi bir ilke eklemek gerekmez. Tıklatın **sonraki: gözden geçirme**.  
     
     ![Çoklu oturum açma ilkesini yapılandırma][33]
 
@@ -404,7 +404,7 @@ Bu bölümde, Amazon Web Hizmetleri (AWS) erişim vererek, Azure çoklu oturum a
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 

@@ -1,18 +1,19 @@
 ---
-title: "Azure Automation Runbook türleri"
+title: Azure Automation Runbook türleri
 description: "Azure Automation ve hangi türün kullanılacağını belirlerken dikkate almanız konuları kullanabilirsiniz runbook'ları farklı türleri açıklanmaktadır. "
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f3a6b15891a4a1564073d149a198f6789b407342
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 800380c68e1bb1314021ab60f92ccd3b392dbe32
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbook'ları destekler.  Aşağıdaki bölümlerde zaman her kullanılacağı hakkında dikkat edilecek noktalar dahil olmak üzere her tür hakkında daha fazla bilgi verilmektedir.
@@ -54,11 +55,11 @@ PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Az
 * Kullanamazsınız [kontrol noktaları](automation-powershell-workflow.md#checkpoints) runbook hata durumunda devam etmek için.
 * PowerShell iş akışı runbook'ları ve grafik runbook'lar yalnızca yeni bir iş oluşturur başlangıç AzureAutomationRunbook cmdlet'ini kullanarak alt runbook'lar olarak eklenebilir.
 
-### <a name="known-issues"></a>Bilinen Sorunlar
+### <a name="known-issues"></a>Bilinen sorunlar
 PowerShell runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
 * PowerShell runbook'ları bir şifrelenmemiş alamıyor [değişken varlığı](automation-variables.md) null değerine sahip.
-* PowerShell runbook'ları alamıyor bir [değişken varlığı](automation-variables.md) ile  *~*  adı.
+* PowerShell runbook'ları alamıyor bir [değişken varlığı](automation-variables.md) ile *~* adı.
 * Get-Process döngü olarak bir PowerShell runbook yaklaşık 80 yinelemeden sonra kilitlenebilir. 
 * Çok büyük miktarda veri yazma çıkış akışına aynı anda kullanmaya çalışırsa, bir PowerShell runbook başarısız olabilir.   Bu sorunu çözmek büyük nesneler ile çalışırken gerekli bilgileri kayıt çıkarma genellikle çalışabilir.  Örneğin, aşağıdakine benzer çıktısı yerine *Get-Process*, yalnızca gerekli alanları ile çıkış *Get-Process | İşlem adı, CPU seçin*.
 
@@ -87,7 +88,7 @@ Python runbook'ları Python 2 altında derleyin.  Azure portalında metin düzen
 * Python komut dosyalarıyla bilgi sahibi olmanız gerekir.
 * Yalnızca Python 2 Python 3 belirli işlevleri başarısız olur yani şu anda desteklenmiyor.
 
-### <a name="known-issues"></a>Bilinen Sorunlar
+### <a name="known-issues"></a>Bilinen sorunlar
 Python runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
 * Üçüncü taraf kitaplıklar kullanmak için runbook çalıştırılması gereken bir [Windows karma Runbook çalışanı](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) veya [Linux karma Runbook çalışanı](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) önce makinede zaten yüklü kitaplıkları ile runbook başlatılır.

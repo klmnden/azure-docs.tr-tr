@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineler geri yüklemek için Azure portalını kullanın
 Verilerinizin anlık görüntüleri tanımlanan aralıklarla gerçekleştirerek verilerinizi koruyun. Bu anlık görüntüleri kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarının depolandıkları. Onarmak veya bir sanal makine (VM) yeniden oluşturmak gerekliyse, kaydedilmiş kurtarma noktaları hiçbirini VM geri yükleyebilirsiniz. Bir kurtarma noktası geri yüklediğinizde, şunları yapabilirsiniz:
@@ -90,12 +90,12 @@ Sanal makineden bir VM veya tüm diskleri geri yedekleme iki adımdan oluşur:
 
     **Geri** dikey gösterir geri yükleme noktası ayarlanır.
 
-9. Olduğunuz zaten vardır, giderseniz için **geri** dikey. Emin bir [geri yükleme noktası seçildiğinde](#select-restore-point-for-restore)seçip **geri yükleme yapılandırmasını**. **Geri yükleme yapılandırmasını** dikey pencere açılır.
+9. Olduğunuz zaten vardır, giderseniz için **geri** dikey. Emin bir [geri yükleme noktası seçildiğinde](#select-a-restore-point-for-restore)seçip **geri yükleme yapılandırmasını**. **Geri yükleme yapılandırmasını** dikey pencere açılır.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Bir VM geri yükleme yapılandırmasını seçin
 Geri yükleme noktası seçtikten sonra bir VM geri yükleme yapılandırması seçin. Geri yüklenen VM yapılandırmak için Azure portal veya PowerShell kullanabilirsiniz.
 
-1. Olduğunuz zaten vardır, giderseniz için **geri** dikey. Emin bir [geri yükleme noktası seçildiğinde](#select-restore-point-for-restore)seçip **geri yükleme yapılandırmasını**. **Geri yükleme yapılandırmasını** dikey pencere açılır.
+1. Olduğunuz zaten vardır, giderseniz için **geri** dikey. Emin bir [geri yükleme noktası seçildiğinde](#select-a-restore-point-for-restore)seçip **geri yükleme yapılandırmasını**. **Geri yükleme yapılandırmasını** dikey pencere açılır.
 
     ![Yapılandırma Sihirbazı'nı geri yükleme](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Üzerinde **geri yükleme yapılandırmasını** dikey penceresinde, iki seçeneğiniz vardır:

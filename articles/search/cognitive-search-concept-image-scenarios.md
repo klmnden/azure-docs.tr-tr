@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: cefb5b7157f2fc8672ed419961cd3a90314b95e0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>İşlem ve bilişsel arama senaryolarda görüntülerden bilgi ayıklamak nasıl
 
@@ -32,10 +32,12 @@ Görüntü normalleştirmeyi kapatamazsınız. Görüntüleri yineleme beceriler
 
 | Yapılandırma parametresi | Açıklama |
 |--------------------|-------------|
-| imageAction   | Katıştırılmış Resim veya görüntü dosyaları karşılaştığında hiçbir işlem yapılmadı "hiçbiri" ayarlayın. <br/>Belge çözme bir parçası olarak bir dizi normalleştirilmiş görüntüleri oluşturmak için ya da "generateNormalizedImages" ayarlayın. Bu görüntüleri de sağlanmaktadır *normalized_images* alan. <br/>Varsayılan olarak "yok." kullanılır Bu yapılandırma yalnızca "dataToExtract" "contentAndMetadata" olarak ayarlandığında veri kaynakları, blob ilgili |
+| imageAction   | Katıştırılmış Resim veya görüntü dosyaları karşılaştığında hiçbir işlem yapılmadı "hiçbiri" ayarlayın. <br/>Belge çözme bir parçası olarak bir dizi normalleştirilmiş görüntüleri oluşturmak için "generateNormalizedImages" ayarlayın. Bu görüntüleri de sağlanmaktadır *normalized_images* alan. <br/>Varsayılan olarak "yok." kullanılır Bu yapılandırma yalnızca "dataToExtract" "contentAndMetadata" olarak ayarlandığında veri kaynakları, blob ilgili |
 |  normalizedImageMaxWidth | Oluşturulan normalleştirilmiş görüntüleri için en büyük genişliği (piksel cinsinden). Varsayılan değer 2000'dir.|
 |  normalizedImageMaxHeight | Oluşturulan normalleştirilmiş görüntüleri için maksimum yüksekliği (piksel cinsinden). Varsayılan değer 2000'dir.|
 
+> [!NOTE]
+> Ayarlarsanız *imageAction* özelliği "hiçbiri" dışında her şey için edemeyecek ayarlamak *parsingMode* "varsayılan" dışında bir şey özelliğine.  Yalnızca bu iki özelliklerden biri için varsayılan olmayan bir değer dizin oluşturucu yapılandırmanızda ayarlamanız.
 
 Varsayılan değer 2000 piksel normalleştirilmiş görüntüleri maksimum genişlik ve yükseklik tarafından desteklenen en büyük boyutlar dayanır [OCR yetenek](cognitive-search-skill-ocr.md) ve [görüntü analiz yetenek](cognitive-search-skill-image-analysis.md). Maksimum sınırı artırmak istiyorsanız, işleme büyük görüntülerinde başarısız olabilir.
 

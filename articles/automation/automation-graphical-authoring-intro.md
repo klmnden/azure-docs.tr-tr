@@ -3,16 +3,17 @@ title: Grafik Azure Otomasyonu'nda yazma
 description: Grafik yazma kodu ile çalışma olmadan için Azure Automation runbook'ları oluşturmanızı sağlar. Bu makale, grafik yazma giriş bilgileri ve grafik runbook oluşturmaya başlamak için gerekli tüm ayrıntılar sağlar.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 14e4ac42015aeca3042fac12211b3ddfb7cca774
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc51fabaffd0f9de5c2a460922dadc0abf74577e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafik Azure Otomasyonu'nda yazma
 

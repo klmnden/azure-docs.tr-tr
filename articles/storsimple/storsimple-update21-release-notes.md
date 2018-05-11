@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000 serisi güncelleştirme 2.2 sürüm notları | Microsoft Docs"
-description: "Yeni özellikler, sorunlar ve geçici çözümler için StorSimple 8000 serisi güncelleştirme 2.2 açıklar."
+title: StorSimple 8000 serisi güncelleştirme 2.2 sürüm notları | Microsoft Docs
+description: Yeni özellikler, sorunlar ve geçici çözümler için StorSimple 8000 serisi güncelleştirme 2.2 açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5cf03ea8-2a0f-4552-b6dc-7ea517783d7b
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 06c14bdd24dd24a98b3838a2ba73b657ce56785a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 78be340b4a47fed88f5e8c3f5741ae7024124bd5
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 serisi güncelleştirme 2.2 sürüm notları
-> [!NOTE]
-> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Genel Bakış
 Aşağıdaki sürüm notları, yeni özellikleri açıklar ve kritik açık sorunlar için StorSimple 8000 serisi güncelleştirme 2.2 tanımlayın. Ayrıca bu sürümde dahil StorSimple yazılım güncelleştirmelerinin bir listesini içerir.
@@ -59,7 +57,7 @@ Aşağıdaki tablolarda güncelleştirmeler 2.2 ve 2.1 düzeltilen sorunlardan �
 | 6 |Konak tarafındaki kopyalama |Yazılım önceki sürümlerde, verileri başka bir birime bir birimden kopyalarken ODX zamanlama ilgili sık bir hatayı görüldü. Bu bir denetleyici yük devretme kümesinde neden olur ve sistemin potansiyel olarak kurtarma Modu'na. Bu hata, bu sürümde sabittir. |Evet |Hayır |
 | 7 |Windows Yönetim Araçları (WMI) |Yazılım önceki sürümlerinde, birçok özel web proxy hatası örneklerini vardı "<ManagementException> Sağlayıcı yükleme hatası". Bu hata, WMI bellek sızıntısı için öznitelikli ve şimdi sabit. |Evet |Hayır |
 | 8 |Güncelleştirme |Yazılım, önceki sürümlerinde nadir bazı durumlarda, tarama veya güncelleştirmelerini yüklemeye çalışırken bir "CisPowershellHcsscripterror" kullanıcı aldı. Bu sürümde bu sorun düzeltilmiştir. |Evet |Evet |
-| 9 |Destek Paketi |Bu sürümde, destek paketi toplanan ve karşıya şekilde geliştirmeleri olmuştur. |Evet |Evet |
+| 9 |Destek paketi |Bu sürümde, destek paketi toplanan ve karşıya şekilde geliştirmeleri olmuştur. |Evet |Evet |
 
 ## <a name="known-issues-in-update-22"></a>Güncelleştirme 2.2 bilinen sorunlar
 Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
@@ -74,7 +72,7 @@ Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
 | 6 |Web proxy |Web proxy yapılandırması belirtilen protokol olarak HTTPS varsa, cihazı hizmeti iletişimi etkilenecek ve cihaz çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP sahip olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
 | 7 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızı etkin denetleyicisinde yeniden başlatmanız gerekir. | |Evet |Hayır |
 | 8 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma aygıt birimleri gidin ve g/ç "cihaz hazır değil" hatası ile başarısız. |El ile aygıt denetleyicileri yeniden başlatın veya bu durumdan kurtarmak için bir aygıt yük devretme gerçekleştirmek gerekir. |Evet |Hayır |
-| 9 |Azure PowerShell |StorSimple cmdlet'ini kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmesi için ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet parantez içine aşağıdaki gibi kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - ilk 1 - bekleme** |Evet |Evet |
+| 9 |Azure PowerShell |StorSimple cmdlet'ini kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmesi için ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet parantez içine aşağıdaki gibi kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - First 1 - bekleme** |Evet |Evet |
 | 10 |Geçiş |Geçiş için birden çok birim kapsayıcıları geçirildiğinde ETA son yedekleme için yalnızca ilk birim kapsayıcısı için doğru olur. Ayrıca, ilk birim kapsayıcısı ilk 4 yedeklere geçirildikten sonra paralel geçiş başlar. |Bir kerede bir birim kapsayıcısı geçirmek öneririz. |Evet |Hayır |
 | 11 |Geçiş |Geri yüklendikten sonra yedekleme İlkesi ya da sanal disk grubu birimleri eklenmez. |Yedeklemeler oluşturmak için bir yedekleme İlkesi bu birimleri eklemeniz gerekir. |Evet |Evet |
 | 12 |Geçiş |Geçiş tamamlandıktan sonra 5000/7000 Serisi aygıt geçirilen verileri kapsayıcıları erişmelisiniz değil. |Tam ve kaydedilmiş geçiş tamamlandıktan sonra geçirilen verileri kapsayıcıları silme öneririz. |Evet |Hayır |

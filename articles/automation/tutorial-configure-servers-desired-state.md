@@ -3,16 +3,17 @@ title: Azure Otomasyonu ile sunucuları istenen duruma göre yapılandırma ve k
 description: Öğretici - Azure Otomasyonu DSC sunucu yapılandırmalarını yönetme
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 manager: carmonm
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: b2d7614cf2e857253e0fb230cb514523476def49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a8533e6353e12ee6046eb4d22a3035ce9cd739d6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>İstenilen durumu sunucularına yapılandırma ve kayması yönetme
 

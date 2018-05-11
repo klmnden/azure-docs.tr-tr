@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: be5ecfdd4465d721dee49c4963cb2267b2b0a40a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>satın alma modeli vCore tabanlı Azure SQL veritabanı (Önizleme)
 
@@ -58,7 +58,7 @@ VCore tabanlı satın alma modeli (Önizleme) müşteriler için ödeme içinde:
 
 ## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Hizmet katmanı, hesaplama, bellek, depolama ve g/ç kaynakları seçme
 
-VCore tabanlı satın alma modeli için (Önizleme) dönüştürme bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak tanır. Veritabanı veya esnek havuz vCore 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih veya kapalı kalma süresi ile Azure portal kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli performans ve iş gereksinimleri karşılıyorsa kullanmaya devam etmelidir. DTU modelden vCore modeline dönüştürmeye karar verirseniz, aşağıdaki kural altın kullanarak performans düzeyini seçmeniz gerekir: en az 1 vCore her 100 DTU standart katmanındaki gerektirir ve en az 1 vCore Premium katmanındaki 125 her DTU gerektirir.
+VCore tabanlı satın alma modeli için (Önizleme) dönüştürme bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak tanır. Veritabanı veya esnek havuz vCore 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih veya kapalı kalma süresi ile Azure portal kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli performans ve iş gereksinimleri karşılıyorsa kullanmaya devam etmelidir. DTU modelden vCore modeline dönüştürmeye karar verirseniz, aşağıdaki kural altın kullanarak performans düzeyini seçmeniz gerekir: genel amaçlı katmanındaki; en az 1 vCore her 100 DTU standart katmanındaki gerektirir Premium katmanındaki 125 her DTU iş kritik katmanındaki en az 1 vCore gerektirir.
 
 Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı olur:
 

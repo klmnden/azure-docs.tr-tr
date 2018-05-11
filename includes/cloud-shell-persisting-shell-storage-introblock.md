@@ -11,12 +11,15 @@ Bulut Kabuk oturumlarında dosyaları kalıcı hale getirmek için Azure File st
 
 Temel ayarlar kullanın ve yalnızca bir abonelik seçin, bulut Kabuk üç kaynakları en yakın olan desteklenen bölgede sizin adınıza oluşturur:
 * Kaynak grubu: `cloud-shell-storage-<region>`
-* Depolama hesabı:`cs<uniqueGuid>`
-* Dosya Paylaşımı:`cs-<user>-<domain>-com-<uniqueGuid>`
+* Depolama hesabı: `cs<uniqueGuid>`
+* Dosya Paylaşımı: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![Abonelik ayarı](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
 Dosya Paylaşımı bağladığı olarak `clouddrive` içinde `$Home` dizin. Bu tek seferlik bir işlemdir ve dosya paylaşımı sonraki oturumlarda otomatik olarak bağlar. 
+
+> [!NOTE]
+> Güvenlik için her bir kullanıcı kendi depolama hazırlamanız.  Rol tabanlı erişim denetimi (RBAC) için kullanıcıların katkıda bulunan erişimlerinin olması gerekir veya üstü.
 
 Bash'te, dosya paylaşımı ayrıca sizin için otomatik olarak oluşturulduğu bir 5 GB görüntüsünü içeren veri devam ederse, `$Home` dizin. 
 
@@ -37,7 +40,7 @@ Bulut Kabuğu'nda oluşturduğunuz depolama hesapları ile etiketlenmiş `ms-res
 Atanan bölgenizi bulmak için olabilir:
 * Not "Gelişmiş Depolama ayarları" iletişim kutusunda görüntüleyin
 * Sizin için oluşturulan depolama hesabının adına bakın (örn: `cloud-shell-storage-westus`)
-* Çalıştırma `env` ve değişken bulun`ACC_LOCATION`
+* Çalıştırma `env` ve değişken bulun `ACC_LOCATION`
 
 Bulut Kabuk makine aşağıdaki bölgelerde var:
 |Alan|Bölge|

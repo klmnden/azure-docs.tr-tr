@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl
 
-Bu makale size uygulama kayıt formunda kullanılabilir tüm alanlar kısa bir açıklamasını [Azure portal](https://portal.azure.com).
+Bu makalede, kullanılabilir tüm alanlar uygulama kayıt formunda kısa bir açıklamasını sağlar [Azure portal](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Yeni uygulamayı Kaydet
 
@@ -43,7 +43,7 @@ Bu makale size uygulama kayıt formunda kullanılabilir tüm alanlar kısa bir a
 | |**Yerel**: bir kullanıcının Cihazınızda veya bilgisayarınızda yüklü bir uygulama           |
 | Oturum Açma URL'si      | Burada kullanıcıların uygulamanızı kullanmaya oturum açabilirsiniz URL'si                                  |
 
-Yukarıdaki alanları doldurduktan sonra uygulamayı Azure Portalı'nda kayıtlı olması ve uygulama sayfasına yeniden yönlendirilmeniz. **Ayarları** uygulama bölmesi düğmesinde uygulamanızı özelleştirmenize olanak için daha fazla alan Ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanları açıklar. yalnızca bir alt kümesini, bir web uygulaması veya bir yerel uygulamayı oluşturduğunuz bağlı olarak, bu alanlara görür unutmayın.
+Yukarıdaki alanları doldurduktan sonra uygulama Azure portalında kaydedilir ve uygulama sayfasına yönlendirilirsiniz. **Ayarları** uygulama bölmesi düğmesinde uygulamanızı özelleştirmenize olanak için daha fazla alan Ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanları açıklar. yalnızca bir alt kümesini, bir web uygulaması veya bir yerel uygulamayı oluşturduğunuz bağlı olarak, bu alanlara görür unutmayın.
 
 | Alan           | Açıklama                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,9 +53,9 @@ Yukarıdaki alanları doldurduktan sonra uygulamayı Azure Portalı'nda kayıtl�
 | Giriş sayfası URL'si   | Uygulama kaydı sırasında belirtilen oturum açma URL'si budur.                                                                                                                                                                                                                                              |
 | Oturum Kapatma URL'si      | Bu tek oturum kapatma oturum kapatma URL'si. Kullanıcı Azure AD ile kullanıcıların oturumlarını temizlediğinde azure AD herhangi bir kayıtlı uygulamayı kullanarak bu URL'yi bir oturum kapatma isteği gönderir.                                                                                                                                       |
 | Çok kiracılı  | Bu anahtar, uygulamanın birden çok kiracılar tarafından kullanılıp kullanılamayacağını belirtir. Bu genellikle, dış kuruluşlar kendi Kiracı kaydetme ve kuruluşun verilere erişim izni verme uygulamanızı kullanabileceğiniz anlamına gelir.                                                                   |
-| Yanıt URL'leri      | Yanıt URL'leri burada Azure AD dönüş uygulamanız tarafından istenen herhangi bir belirtece noktalarıdır.                                                                                                                                                                                                          |
-| Yeniden Yönlendirme URI'leri   | Yerel uygulamalar için bu kullanıcının burada olması olduğu için aşağıdaki başarılı yetkilendirme gönderilir. Yeniden yönlendirme URI'si uygulamanız OAuth 2.0 istekte sağlayan azure AD onay Portalı'nda kayıtlı değerlerden biri ile eşleşir.                                                            |
+| Yanıt URL'leri      | Yanıt URL'leri Azure AD uygulamanız tarafından istenen herhangi bir belirtece döndüğü noktalarıdır.                                                                                                                                                                                                          |
+| Yeniden Yönlendirme URI'leri   | Yerel uygulamalar için kullanıcı başarılı yetkilendirme sonrasında burada gönderilen budur. Yeniden yönlendirme URI'si uygulamanız OAuth 2.0 istekte sağlayan azure AD onay Portalı'nda kayıtlı değerlerden biri ile eşleşir.                                                            |
 | Anahtarlar            | Program aracılığıyla erişim Web API'leri herhangi bir kullanıcı etkileşimi olmadan Azure AD tarafından güvenli hale getirilmiş anahtarları oluşturabilir. Gelen \* \*anahtarları\* \* sayfasında, anahtar açıklaması ve sona erme tarihini girin ve anahtarı oluşturmak için kaydedin. Daha sonra erişim açamayacaksınız gibi güvenli bir yere kaydettiğinizden emin olun.             |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulamaları Azure Active Directory ile yönetme](active-directory-enable-sso-scenario.md)
+[Uygulamaları Azure Active Directory ile yönetme](manage-apps/what-is-application-management.md)

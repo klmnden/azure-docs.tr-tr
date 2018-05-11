@@ -15,11 +15,11 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 54e0ebe60981ef429fdfc97cee1b460b03261a9f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 96e7361ce66caaa653706d22f767e1a109fdacf7
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme
 Yayımlanmış bir uygulamanın erişme veya yayımlama uygulamalarda hatalar meydana gelirse, Microsoft Azure AD uygulama proxy'si düzgün çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -88,7 +88,7 @@ Bir hata veya sorun bu sorun giderme Kılavuzu'nda listelenmiyor Azure AD uygula
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Active Directory Uygulama Ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md)
-* [Uygulama proxy'si ile uygulama yayımlama](active-directory-application-proxy-publish.md)
+* [Uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md)
 * [Çoklu oturum açmayı etkinleştir](active-directory-application-proxy-sso-using-kcd.md)
 * [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure dosya eşitleme (Önizleme) sorunlarını giderme | Microsoft Docs"
-description: "Azure dosya eşitleme ile ilgili genel sorunları giderin."
+title: Azure dosya eşitleme (Önizleme) sorunlarını giderme | Microsoft Docs
+description: Azure dosya eşitleme ile ilgili genel sorunları giderin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -28,12 +28,20 @@ Bu makalede ve Azure dosya eşitleme dağıtımınıza karşılaşabileceğiniz 
 1. Bu makalede Açıklamalar bölümüne.
 2. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft destek. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesine **Yardım + Destek** düğmesine tıklayın ve ardından **yeni destek isteği**.
+4. Microsoft Desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesine **Yardım + Destek** düğmesine tıklayın ve ardından **yeni destek isteği**.
 
 ## <a name="storage-sync-service-object-management"></a>Depolama eşitleme hizmeti nesnesi Yönetimi
 Başka bir abonelik için bir abonelikten bir kaynak taşıma yaparsanız, dosya eşitleme (depolama eşitleme hizmeti) kaynaklarını taşınmasını engellenir. 
 
 ## <a name="agent-installation-and-server-registration"></a>Aracı yükleme ve sunucu kaydı
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Sunucu kaydı sırasında alma hatası "terimi 'Bul-AzureRMResource'... adı olarak tanınmıyor"
+Cmdlet Bul AzureRMResource AzureRM v6 değiştirildi sorunudur.  Eşitleme Aracısı'nın sonraki sürümü AzureRM v6 desteklemek için düzeltilecektir.  O zamana kadar bu sorunun geçici çözüm bulabilirsiniz:
+1. Geçerli ServerRegistration.exe taskmgr aracılığıyla Durdur
+2. Yönetici olarak bir PowerShell komut istemi Getir
+3. PS C:\> kaldırma modülü AzureRM
+4. PS C:\> yükleme-module-AzureRM - RequiredVersion 5.7.0 adı
+5. C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe başlatın.
+
 <a id="agent-installation-failures"></a>**Aracı yükleme hatalarını giderme**  
 Yükseltilmiş bir komut isteminde Azure dosya eşitleme aracı yüklemesi başarısız olursa aracı yükleme işlemi sırasında oturum açmak için aşağıdaki komutu çalıştırın:
 

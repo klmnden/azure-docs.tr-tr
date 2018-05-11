@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: f427035f413dde304c2270006c6665120cb3e1e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c60b7df4d766ddf321ce2c807994f3b83046f1ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineler hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineler hakkında bazı sık sorulan soruları giderir. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan bir soru](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -88,27 +88,27 @@ Kullanıcı adları en fazla 20 karakter uzunluğunda olabilir ve bir noktayla b
 Aşağıdaki kullanıcı adları izin verilmiyor:
 <table>
     <tr>
-        <td style="text-align:center">Yönetici </td><td style="text-align:center"> yönetici </td><td style="text-align:center"> kullanıcı </td><td style="text-align:center"> user1</td>
+        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> KULLANICI3</td>
-    </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">adm</td><td style="text-align:center">Yönetici</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+    </tr>   <tr>
+        <td style="text-align:center">Yönetici</td><td style="text-align:center">ASPNET</td><td style="text-align:center">yedekleme</td><td style="text-align:center">console</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">David </td><td style="text-align:center">Konuk</td><td style="text-align:center">John</td><td style="text-align:center">sahip</td>
     </tr>
     <tr>
-        <td style="text-align:center">yedekleme </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> Konuk</td>
+        <td style="text-align:center">kök</td><td style="text-align:center">sunucu</td><td style="text-align:center">SQL</td><td style="text-align:center">destek</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
+        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">Test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">Test2</td><td style="text-align:center">test3</td><td style="text-align:center">kullanıcı</td><td style="text-align:center">Kullanıcı1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">Kullanıcı2</td><td style="text-align:center">KULLANICI3</td><td style="text-align:center">Kullanıcı4</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -124,17 +124,17 @@ Aşağıdaki parolalara izin verilmez:
 
 <table>
     <tr>
-        <td>abc@123 </td>
-        <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
-        <td>Pa$$word </td>
+        <td>abc@123</td>
+        <td>ILOVEYOU veya!</td>
+        <td>P@$$w0rd</td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
-        <td>Parola! </td>
-        <td>Parola1 </td>
-        <td>Password22 </td>
-        <td>ILOVEYOU veya! </td>
+        <td>Pa$$word</td>
+        <td>pass@word1</td>
+        <td>Parola!</td>
+        <td>Parola1</td>
+        <td>Password22</td>
     </tr>
 </table>

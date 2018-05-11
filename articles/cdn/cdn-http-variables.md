@@ -12,10 +12,10 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea7469b1d1c3d1c20beca9b1fb3bef0d4dac9492
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -61,8 +61,8 @@ Aşağıdaki tabloda, desteklenen HTTP değişkenler açıklanmaktadır. Belirli
 | İstek düzeni | % {şeması} | İstek düzenini gösterir. |http |
 | İstek URI'si (göreli) | % {request_urı} | İstek URI'si tanımlanan sorgu dizesi dahil olmak üzere, göreli yol gösterir. | /Marketing/foo.js?loggedin=true |
 | İstek URI'si (göreli sorgu dizesi olmadan) | % {URI} | İstenen içerik göreli yolunu gösterir. <br /><br/>Anahtar bilgileri:<br />-Bu göreli yolu sorgu dizesi dışlar.<br />-Bu göreli yol URL yeniden yazdırmaya yansıtır. Bir URL aşağıdaki koşullar altında yazılacaktır:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL yeniden yazma özelliği: Bu özellik istek URI'si tanımlanan göreli yolu yeniden yazar.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Edge CNAME URL'si: Bu istek türü için karşılık gelen CDN URL'sine yeniden yazılmıştır. |/800001/corigin/rewrittendir/foo.js |
-| İstek URI'si | % {isteği} | İstek açıklar. <br />Sözdizimi: `HTTPMethod RelativePath Protocol` | /Marketing/foo.js?loggedin=true HTTP/1.1 Al |
-| Yanıt üstbilgi değeri | % {resp_&lt;ResponseHeader&gt;} | Tarafından tanımlanan yanıt üstbilgisi karşılık gelen değer verir &lt;ResponseHeader&rt; terim. <br /><br />Yanıt üstbilgisinin adı bir tire (örneğin, User-Agent) içeriyorsa, alt çizgi (örneğin, User_Agent) ile değiştirin. | Örnek Kullanım: % {resp_Content_Length}<br /><br />Örnek değer: 100 |
+| İstek URI'si | % {isteği} | İstek açıklar. <br />Sözdizimi: &lt;HTTP yöntemini&gt; &lt;göreli yol&gt; &lt;HTTP Protokolü&gt; | /Marketing/foo.js?loggedin=true HTTP/1.1 Al |
+| Yanıt üstbilgi değeri | % {resp_&lt;ResponseHeader&gt;} | Tarafından tanımlanan yanıt üstbilgisi karşılık gelen değer verir &lt;ResponseHeader&gt; terim. <br /><br />Yanıt üstbilgisinin adı bir tire (örneğin, User-Agent) içeriyorsa, alt çizgi (örneğin, User_Agent) ile değiştirin. | Örnek Kullanım: % {resp_Content_Length}<br /><br />Örnek değer: 100 |
 
 ## <a name="usage"></a>Kullanım
 Aşağıdaki tabloda bir HTTP değişkeni belirtmek için uygun söz dizimi açıklanmıştır.
@@ -155,19 +155,19 @@ Anahtar bilgileri:
      - Pozitif: Başlangıç karakteri alt dizeyi sağa uzunluğunu belirler.
      - Negatif: Başlangıç karakteri alt dizeyi sol uzunluğunu belirler.
 
-#### <a name="examples"></a>Örnekler:
+#### <a name="example"></a>Örnek:
 
 Aşağıdaki örnekte aşağıdaki örnek istek URL'SİNDE dayanır:
 
-`https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
+https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 Aşağıdaki dizeyi değişkenleri düzenleme için çeşitli yöntemler gösterir:
 
-`https://www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm`
+https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
 Örnek istek URL temel alınarak, yukarıdaki değişken işleme aşağıdaki değeri oluşturur:
 
-`https://www.mydomain.com/mobile/marketing/proposal.htm`
+https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Desen kaldırma
@@ -180,7 +180,7 @@ Belirli bir desenle eşleşen metnin başına veya sonuna kadar bir değişkenin
 
 #### <a name="example"></a>Örnek:
 
-Bu örnek senaryoda request_urı değişkeni ayarlanır:
+Bu örnek senaryoda *request_urı* değişkeni ayarlanır:
 
 `/800001/myorigin/marketing/product.html?language=en-US`
 

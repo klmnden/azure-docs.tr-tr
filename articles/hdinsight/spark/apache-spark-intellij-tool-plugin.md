@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: d663756c52a23096888b9ee568fea23163d33aa9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3d9f9cd835056b61ee72ddde5add285f47665ac1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Intellij için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -86,7 +86,7 @@ Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca
    > ![Depolama Gezgini'nde Intellij](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
 
    
-3. Bir bağlı kümede görebilirsiniz **Hdınsight** giriş bilgilerin doğru olup olmadığını düğümü. Şimdi bu bağlantılı küme uygulamaya gönderebilirsiniz.
+3. Bir bağlı kümede görebilirsiniz **Hdınsight** giriş bilgileri doğru ise, düğüm. Şimdi bu bağlantılı küme uygulamaya gönderebilirsiniz.
 
    ![bağlantılı küme](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -283,11 +283,15 @@ Yığın boyutu çalıştırmak Spark için yeterince büyük olduğundan bu hat
 ![Intellij "VM Seçenekleri" kutusunda seçenekleri ekleme](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>SSS
-Azure Data Lake Store uygulamaya göndermek için tercih **etkileşimli** Azure oturum açma işlemi sırasında modu. Seçerseniz **otomatik** modu, bir hata alabilirsiniz.
+Ne zaman bir küme bağlantı, depolama alanı kimlik bilgileri vermenizi önerebileceğiniz.
 
-![signın etkileşim](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Küme bağlantı, depolama kimlik bilgilerini belirtin](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Şimdi, biz bunu çözümlendi. Uygulamanız herhangi bir oturum açma yöntemi göndermek için bir Azure Data Lake küme seçebilirsiniz.
+İşlerini göndermek için iki mod vardır. Depolama kimlik bilgisi sağlanırsa, toplu iş modunda işi göndermek için kullanılır. Aksi takdirde, etkileşimli modda kullanılır. Küme meşgul ise, aşağıdaki hata alabilirsiniz.
+
+![Intellij hata Al ne zaman meşgul küme](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Intellij hata Al ne zaman meşgul küme](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>Geri bildirim ve bilinen sorunlar
 Şu anda, Spark çıkışları doğrudan görüntüleme desteklenmiyor.

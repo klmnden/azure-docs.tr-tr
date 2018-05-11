@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71d920ea1c143ed65510b77e1804e9c5e38cc180
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/10/2018
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-> [!note]  
+> [!Note]  
 > Azure kapsayıcı Hizmetleri (ACS) Kubernetes Azure yığında özel önizlemede değil. Azure yığın operatörünüze, bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesine erişimi istemeniz gerekir.
 
 Aşağıdaki makalede dağıtmak ve kaynakları için Kubernetes içinde tek ve eşgüdümlü bir işlemle sağlamak için bir Azure Resource Manager çözüm şablonu kullanarak arar. , Azure yığın yüklemesi hakkında gerekli bilgileri toplamak için şablonu oluşturmak ve gerekir, buluta dağıtma.
@@ -121,7 +121,7 @@ Asıl kaynakları oluşturabilmesi için aboneliğiniz için hizmet asıl erişi
 
 6. Girin **ana profili DNS öneki** bölgesine benzersiz. Bu bölge benzersiz bir ad gibi olmalıdır `k8s-12345`. Try için seçtiğiniz aynı kaynak grubu adı en iyi yöntem.
 
-    > [!note]  
+    > [!Note]  
     > Her küme için yeni ve benzersiz ana profili DNS ön ekini kullanın.
 
 7. Aracıları kümedeki girin. Bu değer olarak adlandırılır **aracı havuzu profil sayısı**. 32 için 1'den olabilir

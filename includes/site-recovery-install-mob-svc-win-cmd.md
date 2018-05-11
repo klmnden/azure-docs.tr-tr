@@ -15,7 +15,7 @@
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
 #### <a name="mobility-service-installer-command-line-arguments"></a>Mobility Hizmeti Yükleyici komut satırı bağımsız değişkenleri
@@ -29,7 +29,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 |-|-|-|-|
 |/ Rol|Zorunlu|Mobility hizmetinin (MS) yüklü olmalıdır veya MasterTarget (MT) yüklenmesi gerektiğini belirtir.|MS </br> MT|
 |/InstallLocation|İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konumu.|Bilgisayardaki herhangi bir klasör|
-|/Platform|Zorunlu|Mobility hizmetinin yüklü olduğu platform belirtir. </br> </br>- **VMware**: Mobility hizmeti üzerinde çalışan bir VM'de yüklerseniz, bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları*, ve *fiziksel sunucuları*. </br> - **Azure**: bir Azure Iaas sanal aracıyı yüklerseniz, bu değeri kullanın. | VMware </br> Azure|
+|/ Platform|Zorunlu|Mobility hizmetinin yüklü olduğu platform belirtir. </br> </br>- **VMware**: Mobility hizmeti üzerinde çalışan bir VM'de yüklerseniz, bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları*, ve *fiziksel sunucuları*. </br> - **Azure**: bir Azure Iaas sanal aracıyı yüklerseniz, bu değeri kullanın. | VMware </br> Azure|
 |/ Sessiz|İsteğe bağlı|Yükleyici sessiz modda çalıştırmak için belirtir.| Yok|
 
 >[!TIP]

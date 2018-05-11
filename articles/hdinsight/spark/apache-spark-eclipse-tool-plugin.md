@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -229,13 +229,15 @@ Bu hatayı gidermek için ihtiyacınız [yürütülebilir dosya indirme](http://
    ![Spark uygulama yerel çalıştırma sonucu](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>Bilinen sorunlar
-Azure Data Lake Store uygulamaya göndermek için seçin **etkileşimli** Azure oturum açma işlemi sırasında modu. Seçerseniz **otomatik** modu, bir hata alabilirsiniz.
+Ne zaman bir küme bağlantı, depolama alanı kimlik bilgileri vermenizi önerebileceğiniz.
 
-![Etkileşimli oturum açma](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Etkileşimli oturum açma](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-Uygulamanız herhangi bir oturum açma yöntemi göndermek için bir Azure Data Lake küme seçebilirsiniz.
+İşlerini göndermek için iki mod vardır. Depolama kimlik bilgisi sağlanırsa, toplu iş modunda işi göndermek için kullanılır. Aksi takdirde, etkileşimli modda kullanılır. Küme meşgul ise, aşağıdaki hata alabilirsiniz.
 
-Şu anda, Spark çıkışları doğrudan görüntüleme desteklenmiyor.
+![Eclipse hata Al ne zaman meşgul küme](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![Eclipse hata Al ne zaman meşgul küme](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>Geri Bildirim
 Herhangi bir Geribildiriminiz varsa veya bu aracı kullanırken başka bir sorunla karşılaşırsanız, bize bir e-postası gönderin hdivstool@microsoft.com.

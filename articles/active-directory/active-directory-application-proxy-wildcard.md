@@ -15,15 +15,15 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a5466a0b5027fa8fe0edec3c9663e6cd1aafc9a3
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si joker uygulamaları 
 
-Azure Active Directory'de çok sayıda şirket içi yapılandırma (Azure AD), uygulamaları hızla yönetilemeyen büyüyebilir ve bunların çoğu, aynı ayarları gerekiyorsa yapılandırma hataları gereksiz risklerini de beraberinde getirir. İle [Azure AD uygulama proxy'si](active-directory-application-proxy-get-started.md), yayımlama ve aynı anda birçok uygulamaları yönetmek için joker karakter uygulama yayımlama kullanarak bu sorunu gidermek. Bu, olanak sağlayan bir çözüme.
+Azure Active Directory'de çok sayıda şirket içi yapılandırma (Azure AD), uygulamaları hızla yönetilemeyen büyüyebilir ve bunların çoğu, aynı ayarları gerekiyorsa yapılandırma hataları gereksiz risklerini de beraberinde getirir. İle [Azure AD uygulama proxy'si](manage-apps/application-proxy.md), yayımlama ve aynı anda birçok uygulamaları yönetmek için joker karakter uygulama yayımlama kullanarak bu sorunu gidermek. Bu, olanak sağlayan bir çözüme.
 
 -   Yönetim yükünü basitleştirir
 -   Olası yapılandırma hataları sayısını azaltın

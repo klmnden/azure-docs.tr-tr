@@ -1,11 +1,11 @@
 ---
-title: "Kimlik gereksinimleri için karma kimlik tasarımı Azure bulut | Microsoft Docs"
-description: "Karma kimlik tasarımı gereksinimlerini tanımlamak için yol şirketin işletme gereksinimlerini tanımlama."
-documentationcenter: 
+title: Kimlik gereksinimleri için karma kimlik tasarımı Azure bulut | Microsoft Docs
+description: Karma kimlik tasarımı gereksinimlerini tanımlamak için yol şirketin işletme gereksinimlerini tanımlama.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünü kimlik gereklilikleri
 Karma kimlik çözümü tasarlamanın ilk adımı, bu çözüm yararlanarak iş kuruluş gereksinimlerini belirlemektir.  Karma kimlik (diğer tüm bulut çözümleri kimlik doğrulaması sağlayarak destekler) destekleyen bir rol olarak başlatılır ve kullanıcılar için yeni iş yüklerine kilidini yeni ve ilginç yetenekleri sağlamak için geçer.  Bu iş yükleri veya kullanıcılarınız için benimsemeyi istediğiniz hizmetleri karma kimlik tasarım gereksinimleri benimsendiği belirler.  Her iki şirket içi karma kimlik yararlanmak bu hizmetleri ve iş yükleri gerekir ve bulutta.  
 
 İş ne olduğunu anlamak için bu önemli yönlerinin üzerinde gitmeniz şimdi bir gereksinim ve şirket geleceğe yönelik planlarının ne. Karma kimlik tasarımı için uzun vadeli stratejisi görünürlüğünü yoksa, işleriniz büyür ve değişirken iş gereksinimleri değişirken çözümünüzün ölçeklenebilir olmayacağını kalabilirsiniz.   T bir karma kimlik mimarisi ve kullanıcılar için kilidi iş yükleri örneği kendisinin diyagram gösterilmektedir. Bu yalnızca kilidi açılabilir ve düz karma kimlik stratejisi ile sunulan tüm yeni olanaklar örneğidir. 
 
-Karma kimlik mimarisi parçası olan bazı bileşenleri![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+Karma kimlik mimarisi parçası olan bazı bileşenleri ![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>İş gereksinimlerini belirleme
 Bu şirketler aynı sektörde, gerçek iş gereksinimleri farklılık gösterebilir yer alsa bile her şirketin farklı gereksinimleri vardır. Sektörün en iyi yöntemlerinden yine yararlanabilirsiniz, ancak sonuç olarak, karma kimlik tasarımı gereksinimlerini tanımlamak için yol açacaktır şirketin iş ihtiyaçları olacaktır. 
@@ -56,7 +56,7 @@ Ayrıca şirketinizin olabilir bulut hizmetlerin farkında olmanız gerekir. Ge�
 * Bu tümleştirme şu anda üretimde olan yoksa bir pilot mı?
 
 > [!NOTE]
-> Tüm uygulamalarınızın doğru bir eşleme varsa ve bulut Hizmetleri yok, Cloud App Discovery aracını kullanabilirsiniz. Bu araç, BT departmanınızın tüm kuruluşunuzun iş ve tüketici bulut uygulamalarını görünürlük sağlayabilirsiniz. Bu, kullanım desenleri ve bulut uygulamalarınıza erişen tüm kullanıcılar ile ilgili ayrıntılar dahil olmak üzere kuruluşunuzdaki gölge BT uygulamalarını bulmayı her zamankinden daha kolay hale getirir. Başlatılan bakın almak için [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
+> Tüm uygulamalarınızın doğru bir eşleme varsa ve bulut Hizmetleri yok, Cloud App Discovery aracını kullanabilirsiniz. Bu araç, BT departmanınızın tüm kuruluşunuzun iş ve tüketici bulut uygulamalarını görünürlük sağlayabilirsiniz. Bu, kullanım desenleri ve bulut uygulamalarınıza erişen tüm kullanıcılar ile ilgili ayrıntılar dahil olmak üzere kuruluşunuzdaki gölge BT uygulamalarını bulmayı her zamankinden daha kolay hale getirir. Başlatılan bakın almak için [Cloud app discovery](manage-apps/cloud-app-discovery.md).
 > 
 > 
 
@@ -67,7 +67,7 @@ Ardından kimlik Tümleştirme gereksinimlerini değerlendirmek gerekir. Bu değ
 * Federasyon bir gereksinimdir?  Aşağıdaki nedeniyle:
   * Kerberos tabanlı SSO
   * Şirketiniz SAML veya benzer Federasyon yeteneklerini kullanır (ya da şirket içi veya 3 taraf yerleşik) bir şirket içi uygulamalara sahiptir.
-  * Akıllı kartlar ile MFA. RSA SecurID, etc.
+  * Akıllı kartlar ile MFA. RSA Securıd, vb.
   * Aşağıdaki sorular adres istemci erişim kuralları:
     1. Office 365 istemci IP adresine göre tüm dış erişimi engelleyebilir miyim?
     2. Office 365, Exchange ActiveSync dışında tüm dış erişimi engelleyebilir miyim?

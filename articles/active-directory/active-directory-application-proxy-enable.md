@@ -15,16 +15,16 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 4240b4a2aa14a0ac1a78c4faca74950b934955e6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d636542c788aff43acf9e35583b4c0615fe0c7db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Uygulama proxy'si ile başlayın ve Bağlayıcısı'nı yüklemek
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
 
-Hakkında daha fazla bilgi etmediğinizden henüz kuruluşunuz için güvenlik ve verimlilik avantajlarını farkında uygulama proxy'si getirir, [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](active-directory-application-proxy-get-started.md).
+Hakkında daha fazla bilgi etmediğinizden henüz kuruluşunuz için güvenlik ve verimlilik avantajlarını farkında uygulama proxy'si getirir, [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](manage-apps/application-proxy.md).
 
 ## <a name="application-proxy-prerequisites"></a>Uygulama Ara Sunucusu önkoşulları
 Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara sahip olmanız gerekir:

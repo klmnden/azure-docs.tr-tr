@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Azure Active Directory Tümleştirme ile iş günü
 
@@ -174,19 +174,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![SAML kimlik sağlayıcısı](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML kimlik sağlayıcısı")
    
-    c. Seçin **etkinleştirmek IDP başlatılan oturum kapatma**.
-   
-    d. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **Sign-Out URL** değer ve ardından yapıştırın **oturum kapatma yanıt URL'si** metin kutusu.
+    c. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **Sign-Out URL** değer ve ardından yapıştırın **oturum kapatma yanıt URL'si** metin kutusu.
 
-    e. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **SAML çoklu oturum açma hizmet URL'si** değer ve ardından yapıştırın **IDP SSO hizmet URL'si** metin kutusu.
+    d. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **SAML çoklu oturum açma hizmet URL'si** değer ve ardından yapıştırın **IDP SSO hizmet URL'si** metin kutusu.
 
-    f. İçinde **ortamlar için kullanılan** metin kutusuna, ortam adı seçin.
+    e. İçinde **ortamlar için kullanılan** metin kutusuna, ortam adı seçin.
 
-    g. Tıklatın **kimlik sağlayıcısı ortak anahtar sertifikası**ve ardından **oluşturma**. 
+    f. Tıklatın **kimlik sağlayıcısı ortak anahtar sertifikası**ve ardından **oluşturma**. 
 
     ![Oluşturma](./media/active-directory-saas-workday-tutorial/IC782928.png "oluşturma")
 
-    h. Tıklatın **x509 oluşturma ortak anahtar**. 
+    g. Tıklatın **x509 oluşturma ortak anahtar**. 
 
     ![Oluşturma](./media/active-directory-saas-workday-tutorial/IC782929.png "oluşturma")
 
@@ -293,7 +291,7 @@ Bu bölümde, iş günü için erişim vererek, Azure çoklu oturum açma kullan
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 

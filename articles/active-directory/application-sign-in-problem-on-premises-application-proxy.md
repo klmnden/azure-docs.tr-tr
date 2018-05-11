@@ -1,11 +1,11 @@
 ---
-title: "Azure AD uygulama proxy'si kullanarak bir şirket içi uygulama oturum açma sorunları | Microsoft Docs"
-description: "Azure AD uygulama proxy'si kullanarak Azure AD ile tümleşik bir şirket içi uygulamasında oturum kaldıramadığınızda karşılaştığı yaygın sorunları giderme"
+title: Azure AD uygulama proxy'si kullanarak bir şirket içi uygulama oturum açma sorunları | Microsoft Docs
+description: Azure AD uygulama proxy'si kullanarak Azure AD ile tümleşik bir şirket içi uygulamasında oturum kaldıramadığınızda karşılaştığı yaygın sorunları giderme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e3db08e5615385cbbbc77972f3cc560e9de9957b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: afd5460ef3e286cd3d8b550e7d7e54b3e09f2990
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak bir şirket içi uygulama oturum açma sorunları
 
@@ -56,4 +56,4 @@ Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmen
   * [Uygulama Proxy’si Aracı Bağlayıcısı’nı yüklerken sorun yaşıyorum.](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](active-directory-application-proxy-get-started.md)
+[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](manage-apps/application-proxy.md)

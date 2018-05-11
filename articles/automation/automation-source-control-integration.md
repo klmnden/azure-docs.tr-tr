@@ -1,18 +1,19 @@
 ---
-title: "Azure Automation denetimi tümleştirmesinin kaynağı"
-description: "Bu makalede, Azure automation'da GitHub ile kaynak denetimi tümleştirme açıklanmaktadır."
+title: Azure Automation denetimi tümleştirmesinin kaynağı
+description: Bu makalede, Azure automation'da GitHub ile kaynak denetimi tümleştirme açıklanmaktadır.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 29ec32c933f3dbe07a844bd99a1f5aa3fa57d61b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 Kaynak denetimi tümleştirmesinin Automation hesabınız GitHub kaynak denetim deponuza runbook'larda ilişkilendirmenizi sağlar. Kaynak denetimi kolayca ekibinizle işbirliği, değişiklikleri izlemek ve runbook'larınızın önceki sürümleri geri sağlar. Örneğin, kaynak denetimi geliştirme ortamınızda Otomasyon üretim test kodu Yükselt kolaylaşır, geliştirme, test veya üretim Automation hesapları, kaynak denetimine farklı dallarda eşitleme sağlar hesabı.
@@ -40,7 +41,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
    | Yetkilendirme |Tıklatın **Authorize** düğmesi, GitHub deposunu Azure Otomasyonu erişim vermek için. Zaten başka bir pencerede GitHub hesabınızda oturum açtıysanız, bu hesabı kimlik bilgileri kullanılır. Yetkilendirme başarılı olduktan sonra sayfanın altında GitHub kullanıcı adınızı gösterecektir **yetkilendirme özelliği**. |
    | Depo seçin |GitHub depo kullanılabilir depoları listeden seçin. |
    | Şube seçin |Bir dal kullanılabilir dalları listeden seçin. Yalnızca **ana** şube herhangi dalları oluşturmadıysanız, gösterilir. |
-   | Runbook klasörü yolu |Runbook klasörü yolu İtme veya kodunuzu çekmek istediğiniz GitHub deposunda yolunu belirtir. Şu biçimde girilmelidir **/KlasörAdı/altklasöradı**. Yalnızca runbook klasör yolu runbook Otomasyon hesabınızı senkronize edilir. Runbook klasör yolunun alt klasörlerdeki runbook'ları olacak **değil** işlemleri senkronize edilir. Kullanım  **/**  depo altındaki tüm runbook'lar eşitlenecek. |
+   | Runbook klasörü yolu |Runbook klasörü yolu İtme veya kodunuzu çekmek istediğiniz GitHub deposunda yolunu belirtir. Şu biçimde girilmelidir **/KlasörAdı/altklasöradı**. Yalnızca runbook klasör yolu runbook Otomasyon hesabınızı senkronize edilir. Runbook klasör yolunun alt klasörlerdeki runbook'ları olacak **değil** işlemleri senkronize edilir. Kullanım **/** depo altındaki tüm runbook'lar eşitlenecek. |
 3. Adlı depo varsa, örneğin, **PowerShellScripts** adlı bir klasör içeren **RootFolder**, adında bir klasör içeren **alt**. Her klasör düzeyinde eşitlemek için aşağıdaki dizelerini kullanabilirsiniz:
    
    1. Eşitleme runbook'lardan için **depo**, runbook klasör yolu */*
@@ -92,7 +93,7 @@ Runbook iade kaynak denetimi deponuzun Azure Automation runbook yapmış olduğu
 
 1. Tıkladığınızda **iade**, bir onay iletisi istenir, tıklatın **Evet** devam etmek için.  
    
-    ![İade etme iletisi](media/automation-source-control-integration/automation_07_CheckinMessage.png)
+    ![İade Etme İletisi](media/automation-source-control-integration/automation_07_CheckinMessage.png)
 2. Kaynak denetimini runbook başlatır iade: **eşitleme MicrosoftAzureAutomationAccountToGitHubV1**. Bu runbook için GitHub bağlanır ve değişiklikleri deponuza Azure Otomasyon iter. Checked iş geçmişini görüntülemek için geri dönüp **kaynak denetimi tümleştirmesinin** sekmesine ve depo eşitleme sayfasını açmak için tıklayın. Bu sayfa, kaynak denetimi işi tümünün gösterir.  Görüntülemek istediğiniz ve ayrıntılarını görüntülemek için tıklatın işi seçin.  
    
     ![Runbook iade etme](media/automation-source-control-integration/automation_08_CheckinRunbook.png)

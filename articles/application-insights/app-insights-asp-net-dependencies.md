@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights izleme bağımlılık | Microsoft Docs"
-description: "Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
+title: Azure Application Insights izleme bağımlılık | Microsoft Docs
+description: Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights'ı ayarlayın: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşendir. Bu genellikle HTTP veya bir veritabanı veya bir dosya sistemi kullanılarak adlı bir hizmettir. [Application Insights](app-insights-overview.md) uygulamanız için bağımlılıkları ne kadar bekleyeceğini ve ne sıklıkta bir bağımlılık araması başarısız ölçer. Belirli çağrıları araştırmak ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -43,9 +43,9 @@ Kısmi bağımlılık bilgi tarafından otomatik olarak toplanan [Application In
 
 | Platform | Yükleme |
 | --- | --- |
-| IIS Server |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanız .NET Framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanız .NET Framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
 | Azure Web Uygulaması |Web uygulama Denetim Masası'ndaki [, web uygulama Denetim Masası'nda Application Insights dikey penceresini açmak](app-insights-azure-web-apps.md) ve yükleme istenirse seçin. |
-| Azure Bulut Hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Bağımlılık verileri nerede bulacağını
 * [Uygulama eşlemesi](#application-map) uygulama ve neighbouring bileşenleri arasındaki bağımlılıkları visualizes.
@@ -83,7 +83,7 @@ Performans dikey penceresini sunucu uygulama tarafından oluşturulan bağımlı
 ## <a name="ajax-calls"></a>AJAX çağrıları
 Tarayıcılar dikey penceresinde AJAX çağrılarından süresi ve hata oranını gösterir [web sayfalarında JavaScript](app-insights-javascript.md). Bunlar bağımlılıklar olarak gösterilir.
 
-## <a name="diagnosis"></a>Yavaş istekler tanılama
+## <a name="diagnosis"></a> Yavaş istekler tanılama
 Her istek olayı bağımlılık çağrıları, özel durumlar ve uygulamanızı isteği işlerken izlenen diğer olayları ile ilişkilidir. Bu nedenle bazı istekleri hatalı gerçekleştiriyorsanız, bir bağımlılık yavaş yanıt nedeniyle olup olmadığını bulabilirsiniz.
 
 Şimdi örneği, yol gösterir.
@@ -200,9 +200,12 @@ Standart bağımlılık izleme modülünü devre dışı geçiş yapmak istiyors
 
 *SQL sorgu tam olarak gösterilmez.*
 
-* SDK'ın en son sürüme yükseltin. .NET sürüm 4.6'den az ise:
-  * IIS ana: yükleme [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md) ana bilgisayar sunucuları üzerinde.
-  * Azure web uygulaması: açık Application Insights sekmesinde web uygulama Denetim Masası'nda ve Application Insights yükleyin.
+* Application Insights SDK'sı en son kararlı sürümü yükseltin.
+
+ .NET sürüm 4.6'den az ise:
+
+* IIS ana: yükleme [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md) ana bilgisayar sunucuları üzerinde.
+* Azure web uygulaması: açık Application Insights sekmesinde web uygulama Denetim Masası'nda ve Application Insights yükleyin.
 
 ## <a name="video"></a>Video
 

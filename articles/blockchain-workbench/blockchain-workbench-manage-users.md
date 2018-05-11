@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a426f7f424bc1941890c80a83997d8e08b368884
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranındaki kullanıcıları yönetme
 
@@ -68,20 +68,18 @@ Kullanıcı eklemek için **Yöneticiler** Azure AD dizini grubu:
 
 Blockchain çalışma ekranı uygulama kullanıcıları ve sizin Konsorsiyumu parçası olan kuruluşlar yönetmek için kullanın. Ekleyebilir veya uygulamaları ve rollere kaldırabilirsiniz.
 
-[Blockchain çalışma ekranı açmak](blockchain-workbench-deploy.md#blockchain-workbench-web-url) , tarayıcı ve yönetici olarak oturum açın.
+1. [Blockchain çalışma ekranı açmak](blockchain-workbench-deploy.md#blockchain-workbench-web-url) , tarayıcı ve yönetici olarak oturum açın.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>Uygulamaları yönetme üyeleri
+    Üyeler her uygulamaya eklenir. Üye sözleşmeleri başlatmak veya eylemleri için bir veya daha fazla uygulama rolleri sahip olabilir.
 
-Üyeler her uygulamaya eklenir. Üye sözleşmeleri başlatmak veya eylemleri için bir veya daha fazla uygulama rolleri sahip olabilir.
+2. Bir uygulama için üyeleri yönetmek için bir uygulama parçasında seçin **uygulamaları** bölmesi.
 
-Üyeleri bir uygulama eklemek için bir uygulama parçasında seçin **uygulamaları** bölmesi.
+    Seçili uygulama için ilişkili üye sayısı üyeleri parçasında yansıtılır.
 
-![Uygulama seçme](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Uygulama seçme](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> Seçili uygulama için ilişkili üye sayısı üyeleri parçasında yansıtılır.
 
 #### <a name="add-member-to-application"></a>Üye için uygulama ekleme
 

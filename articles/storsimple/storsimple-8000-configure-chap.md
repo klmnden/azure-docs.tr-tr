@@ -1,24 +1,24 @@
 ---
-title: "StorSimple 8000 serisi aygıt için CHAP yapılandırma | Microsoft Docs"
-description: "Karşılıklı Kimlik Doğrulama Protokolü (CHAP) StorSimple cihazında yapılandırılması açıklanmaktadır."
+title: StorSimple 8000 serisi aygıt için CHAP yapılandırma | Microsoft Docs
+description: Karşılıklı Kimlik Doğrulama Protokolü (CHAP) StorSimple cihazında yapılandırılması açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple cihazınız için CHAP yapılandırma
 
@@ -58,7 +58,7 @@ Tek yönlü kimlik doğrulamada hedef Başlatıcı kimliğini doğrular. Bu kiml
    3. Parolayı onaylayın.
 
        ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+3. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Windows ana bilgisayar sunucusunda tek yönlü kimlik doğrulamasını yapılandırmak için
 1. Windows ana bilgisayarı sunucusunda, iSCSI başlatıcısı başlatın.
@@ -77,9 +77,9 @@ Tek yönlü kimlik doğrulamada hedef Başlatıcı kimliğini doğrular. Bu kiml
 4. İçinde **Gelişmiş ayarları** iletişim kutusunda:
    
    1. Seçin **CHAP'yi etkinleştir oturum** onay kutusu.
-   2. İçinde **adı** alanında, Klasik portalda CHAP başlatıcı için belirtilen kullanıcı adı girin.
-   3. İçinde **hedef gizli** alan, Klasik portalda CHAP başlatıcı için belirtilen parola sağlayın.
-   4. **Tamam** düğmesine tıklayın.
+   2. İçinde **adı** alanında, Azure portalında CHAP başlatıcı için belirtilen kullanıcı adı girin.
+   3. İçinde **hedef gizli** alan, Azure portalında CHAP başlatıcı için belirtilen parola sağlayın.
+   4. **Tamam**’a tıklayın.
       
        ![Gelişmiş ayarlar genel](./media/storsimple-configure-chap/IC740946.png)
 5. Üzerinde **hedefleri** sekmesinde **iSCSI başlatıcısı özellikleri** penceresinde, cihaz durumu olarak görünmelidir **bağlı**. Bir StorSimple 1200 cihaz kullanıyorsanız, her birimin bir iSCSI hedefi olarak bağlı. Bu nedenle, 3-4 arası adımlar, her birim için yinelenmesi gerekir.
@@ -112,7 +112,7 @@ Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilg
    3. Parolayı onaylayın.
 
        ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+4. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Windows ana bilgisayar sunucusunda çift yönlü kimlik doğrulamasını yapılandırmak için
 
@@ -122,7 +122,7 @@ Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilg
 4. İçinde **iSCSI Başlatıcı Karşılıklı CHAP parolası** iletişim kutusunda:
    
    1. Tür **ters CHAP parolası** Azure Portalı'nda yapılandırılmış.
-   2. **Tamam** düğmesine tıklayın.
+   2. **Tamam**’a tıklayın.
       
        ![iSCSI Başlatıcı Karşılıklı CHAP parolası](./media/storsimple-configure-chap/IC740949.png)
 5. Tıklatın **hedefleri** sekmesi.
@@ -131,8 +131,8 @@ Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilg
 8. İçinde **Gelişmiş Özellikler** iletişim kutusunda:
    
    1. Seçin **CHAP'yi etkinleştir oturum** onay kutusu.
-   2. İçinde **adı** alanında, Klasik portalda CHAP başlatıcı için belirtilen kullanıcı adı girin.
-   3. İçinde **hedef gizli** alan, Klasik portalda CHAP başlatıcı için belirtilen parola sağlayın.
+   2. İçinde **adı** alanında, Azure portalında CHAP başlatıcı için belirtilen kullanıcı adı girin.
+   3. İçinde **hedef gizli** alan, Azure portalında CHAP başlatıcı için belirtilen parola sağlayın.
    4. Seçin **gerçekleştirme karşılıklı kimlik doğrulaması** onay kutusu.
       
        ![Gelişmiş ayarlar karşılıklı kimlik doğrulaması](./media/storsimple-configure-chap/IC740950.png)

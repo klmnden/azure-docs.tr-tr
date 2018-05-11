@@ -6,13 +6,13 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/08/2016
+ms.date: 05/10/2016
 ms.author: sethm
-ms.openlocfilehash: 0759decec9d80f1f836110a8907049213ca1eed6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 387801d971a349562c8a6aefc2f8d615edfd2f3a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
@@ -21,7 +21,7 @@ Azure Service Bus iletileri işlemek için birden çok ileti aracıları ve ilet
 Hizmet veri yolu dahili bileşenleri hakkında daha fazla bilgi için bkz: [Service Bus mimarisi] [ Service Bus architecture] makalesi.
 
 > [!NOTE]
-> Bölümlendirme, tüm kuyruklar ve konular temel veya standart SKU'ları, varlık oluşturulurken kullanılabilir. SKU Mesajlaşma Premium için kullanılabilir değildir, ancak tüm mevcut bölümlenen varlıklar Premium içinde beklendiği gibi çalışmaz.
+> Bölümlendirme, tüm kuyruklar ve konular temel veya standart SKU'ları, varlık oluşturulurken kullanılabilir. SKU Mesajlaşma Premium için kullanılabilir değildir, ancak önceden var olan tüm bölümlenen varlıklar Premium ad alanlarında beklendiği gibi çalışmaz.
  
 Herhangi bir varolan kuyruk veya konu bölümleme seçeneğini değiştirmek mümkün değildir; varlık oluşturduğunuzda seçeneği yalnızca ayarlayabilirsiniz.
 
@@ -43,9 +43,7 @@ Standart Mesajlaşma katmanında Service Bus kuyrukları ve 1, 2, 3, 4 veya 5 GB
 
 ### <a name="premium"></a>Premium
 
-Premium katmanı ad alanında Service Bus kuyrukları ve 1, 2, 3, 4, 5, 10, 20, 40 veya 80 GB boyutları (varsayılan 1 GB'dır) konularında oluşturabilirsiniz. Varsayılan olarak etkin bölümlendirme ile Service Bus varlık başına iki bölüm oluşturur. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal], **genel bakış** dikey penceresinde bu varlık için.
-
-Premium Mesajlaşma katmanında bölümleme hakkında daha fazla bilgi için bkz: [Service Bus Premium ve standart Mesajlaşma katmanları](service-bus-premium-messaging.md). 
+Premium katmanı ad alanında bölümleme desteklenmiyor. Ancak, 1, 2, 3, 4, 5, 10, 20, 40 veya 80 GB boyutları (varsayılan 1 GB'dır), Service Bus kuyrukları ve konularından oluşturabilirsiniz. Kendi girdisi bakarak kuyruk veya konu başlığı boyutu görebilirsiniz [Azure portal][Azure portal], **genel bakış** dikey penceresinde bu varlık için.
 
 ### <a name="create-a-partitioned-entity"></a>Bölümlenmiş bir varlık oluştur
 
@@ -59,7 +57,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatif olarak, bölümlenmiş kuyruk veya konudaki oluşturabilirsiniz [Azure portal] [ Azure portal] veya Visual Studio'da. Portalda, kuyruk veya konu oluşturduğunuzda **bölümleme etkinleştirmek** kuyruk veya konu seçeneğinde **oluşturma** iletişim kutusu varsayılan olarak işaretli. Yalnızca standart katmanı varlıktaki bu seçenek devre dışı bırakabilirsiniz; Premium katmanındaki bölümleme her zaman etkindir. Visual Studio'da sırasıyla **etkinleştirmek bölümleme** onay kutusu **yeni kuyruk** veya **yeni konu** iletişim kutusu.
+Alternatif olarak, bölümlenmiş kuyruk veya konudaki oluşturabilirsiniz [Azure portal][Azure portal]. Portalda, kuyruk veya konu oluşturduğunuzda **bölümleme etkinleştirmek** kuyruk veya konu seçeneğinde **oluşturma** iletişim kutusu varsayılan olarak işaretli. Yalnızca standart katmanı varlıktaki bu seçenek devre dışı bırakabilirsiniz; Premium katmanındaki bölümleme desteklenmiyor ve onay kutusu etkisi yoktur. 
 
 ## <a name="use-of-partition-keys"></a>Bölüm anahtarlarını kullanımı
 İleti sıraya alınan bölümlenmiş kuyruk veya konu içine olduğunda, hizmet veri yolu bir bölüm anahtarının varlığını denetler. Bulursa, bu anahtarı temel parça seçer. Bölüm anahtarı bulamazsa, bir iç algoritmadan yola çıkılarak parça seçer.

@@ -8,8 +8,8 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -29,7 +29,7 @@ Fiziksel sunucuları | Şirket içi Windows/Linux fiziksel serversto Azure çoğ
 
 **Sunucu** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 veya 5.5 ya da vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere ana bilgisayarları ve vCenter sunucuları işlem sunucusu olarak aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız bu yapılandırma sunucu, ayarlama ağ olur. 
+VMware | vCenter Server 6.5, 6.0 veya 5.5 ya da vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere ana bilgisayarları ve vCenter sunucuları işlem sunucusu olarak aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız bu yapılandırma sunucu, ayarlama ağ olur.
 Fiziksel | Yok
 
 ## <a name="site-recovery-configuration-server"></a>Site kurtarma yapılandırma sunucusu
@@ -38,19 +38,19 @@ Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu da dahil olmak ü
 
 **Bileşen** | **Gereksinimleri**
 --- |---
-CPU çekirdekleri | 8 
+CPU çekirdekleri | 8
 RAM | 12 GB
 Disk sayısı | 3 diskleri<br/><br/> Diskler, işletim sistemi diski, işlem sunucusu önbellek disk ve yeniden çalışma için bekletme sürücüsü içerir.
 Boş disk alanı | İşlem sunucusunun önbellek için gereken alanı 600 GB.
 Boş disk alanı | Bekletme sürücüsü için gerekli alanı 600 GB.
-İşletim sistemi  | Windows Server 2012 R2 veya Windows Server 2016 | 
-İşletim sistemi yerel ayarı | İngilizce (en-us) 
+İşletim sistemi  | Windows Server 2012 R2 veya Windows Server 2016 |
+İşletim sistemi yerel ayarı | İngilizce (en-us)
 Powerclı | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") yüklü olmalıdır.
 Windows Server rolleri | Etkinleştirme: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
 Grup İlkeleri| Etkinleştirme: <br> -Komut istemi erişimi engelleyin. <br> -Düzenleme araçları kayıt defterine erişim engelleyin. <br> -Dosya ekleri için mantığı güven. <br> -Komut dosyası yürütme açın. <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br> -Etkinleştirin [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştirin [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -443 numaralı bağlantı noktasını dinlemeye önceden var olan Web sitesi/uygulama yok<br>
-NIC türü | (VMware VM olarak dağıtıldığında) VMXNET3 
-IP adresi türü | Statik 
+NIC türü | (VMware VM olarak dağıtıldığında) VMXNET3
+IP adresi türü | Statik
 Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443)<br>Veri taşıma için kullanılan 9443
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
@@ -138,7 +138,8 @@ Multi-NIC | Evet
 Ayrılmış IP adresi | Evet
 IPv4 | Evet
 Kaynak IP adresi koru | Evet
-Azure sanal ağ hizmet uç noktaları<br/><br/> (Azure depolama güvenlik duvarları ve sanal ağlar) | Hayır
+Azure sanal ağ hizmet uç noktaları<br/> (Azure Storage güvenlik duvarları) | Evet
+Hızlandırılmış Ağ | Hayır
 
 ## <a name="storage"></a>Depolama
 **Bileşen** | **Destekleniyor**
@@ -184,7 +185,7 @@ Blok blobları | Hayır
 Bekleyen (depolama hizmeti şifrelemesi) şifreleme| Evet
 Premium depolama | Evet
 İçeri/dışarı aktarma hizmeti | Hayır
-Sanal ağ hizmet uç noktaları<br/><br/> Depolama güvenlik duvarları ve hedef depolama/önbelleği depolama hesabı (çoğaltma verilerini depolamak için kullanılır) üzerinde yapılandırılmış sanal ağları | Hayır
+Azure depolama (çoğaltma verilerini depolamak için kullanılır) hedef depolama/önbelleği depolama hesabında yapılandırılmış sanal ağlar için güvenlik duvarları | Hayır
 Genel amaçlı v2 depolama hesapları (sık erişimli ve seyrek erişimli Katmanlar) | Hayır
 
 ## <a name="azure-compute"></a>Azure işlem
@@ -201,16 +202,16 @@ Yönetilen diskler | Evet
 
 **Bileşen** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated machines). | Onay desteklenmeyen başarısız olur. 
-Konuk işletim sistemi mimarisi | 64-bit. | Onay desteklenmeyen başarısız olur. 
-İşletim sistemi disk boyutu | 2.048 GB'a kadar. | Onay desteklenmeyen başarısız olur. 
+Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated machines). | Onay desteklenmeyen başarısız olur.
+Konuk işletim sistemi mimarisi | 64-bit. | Onay desteklenmeyen başarısız olur.
+İşletim sistemi disk boyutu | 2.048 GB'a kadar. | Onay desteklenmeyen başarısız olur.
 İşletim sistemi disk sayısı | 1 | Onay desteklenmeyen başarısız olur.  
 Veri diski sayısı | 64 veya daha az. | Onay desteklenmeyen başarısız olur.  
-Veri diski boyutu | 4.095 GB'a kadar | Onay desteklenmeyen başarısız olur. 
-Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir. | 
-Paylaşılan VHD | Desteklenmiyor. | Onay desteklenmeyen başarısız olur. 
-FC disk | Desteklenmiyor. | Onay desteklenmeyen başarısız olur. 
-BitLocker | Desteklenmiyor. | Bir makine için çoğaltma etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir. | 
+Veri diski boyutu | 4.095 GB'a kadar | Onay desteklenmeyen başarısız olur.
+Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir. |
+Paylaşılan VHD | Desteklenmiyor. | Onay desteklenmeyen başarısız olur.
+FC disk | Desteklenmiyor. | Onay desteklenmeyen başarısız olur.
+BitLocker | Desteklenmiyor. | Bir makine için çoğaltma etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir. |
 VM adı | 1 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. |  Site Recovery makine özelliklerinde değeri güncelleştirin.
 
 

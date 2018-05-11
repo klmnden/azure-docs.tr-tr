@@ -3,16 +3,17 @@ title: Azure Otomasyonu DSC için günlük analizi veri raporlama ilet
 description: Bu makalede nasıl istenen durum yapılandırması (DSC) ek bilgiler ve Yönetim için günlük analizi veri raporlama göndereceğinizi gösterir.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e87420c6f390d607ce6f0f57df4634a134a93d63
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Azure Otomasyonu DSC için günlük analizi veri raporlama ilet
 
@@ -126,7 +127,7 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki kategorisi oluşturu
 | DscReportStatus |Uyumluluğu denetle olup olmadığını başarıyla çalıştırıldı. |
 | ConfigurationMode | Nasıl yapılandırması düğüme uygulanır. Olası değerler şunlardır: __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma hedef düğüme veya bir sunucudan yeni bir yapılandırma çekilen itildiği sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra DSC önceden yapılandırılmış bir durumdan kayması kontrol etmez. DSC çalışır önce başarılı olana kadar yapılandırmayı uygulamak __ApplyOnly__ etkisi alır. </li><li> __ApplyAndMonitor__: Bu varsayılan değerdir. LCM'yi yeni tüm yapılandırmalar için geçerlidir. Hedef düğüm istenen durumundan drifts yeni yapılandırma ilk uygulamadan sonra günlükleri tutarsızlık DSC bildirir. DSC çalışır önce başarılı olana kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkisi alır.</li><li>__ApplyAndAutoCorrect__: DSC tüm yeni yapılandırmaları uygular. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve geçerli yapılandırmasını yeniden uygular.</li></ul> |
 | HostName_s | Yönetilen düğümünün adı. |
-| IPAddress | Yönetilen düğümü IPv4 adresi. |
+| IP adresi | Yönetilen düğümü IPv4 adresi. |
 | Kategori | DscNodeStatus |
 | Kaynak | Azure Otomasyonu hesabının adı. |
 | Tenant_g | Arayanlar için Kiracı tanımlayan GUID. |
@@ -141,7 +142,7 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki kategorisi oluşturu
 | ResultDescription | Bu işlem açıklaması. |
 | SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
 | ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
+| ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |Uyumluluk raporu bağıntı kimliği GUID. |
 
@@ -172,7 +173,7 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki kategorisi oluşturu
 | ResultDescription | Bu işlem açıklaması. |
 | SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
 | ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
+| ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |Uyumluluk raporu bağıntı kimliği GUID. |
 

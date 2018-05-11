@@ -9,11 +9,11 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdd0ef182e0d18409ca608a645ff4011f00f9fa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -41,13 +41,19 @@ Seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**. S
 
 ![Yerleşik güncelleştirme çözümü](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Kapsam yapılandırması
+## <a name="scope-configuration"></a>Kapsam Yapılandırması
 
 Her çözüm çözümünü edinme bilgisayarları hedeflemek için çalışma alanı içindeki bir kapsam yapılandırması kullanır. Kapsam yapılandırması belirli bilgisayarlara çözüm kapsamını sınırlamak için kullanılan bir veya daha fazla kayıtlı aramaları grubudur. Kapsam yapılandırmalarında Otomasyon hesabınızın altında erişmek için **ilgili kaynaklar**seçin **çalışma**. Ardından altında çalışma alanında **çalışma veri kaynakları**seçin **kapsam yapılandırmaları**.
 
-Varsayılan olarak iki kapsam yapılandırması oluşturuldu **MicrosoftDefaultScopeConfig ChangeTracking** ve **MicrosoftDefaultScopeConfig güncelleştirmeleri**.
+Seçilen çalışma alanı yoksa, güncelleştirme yönetimi veya değişiklik izleme çözümü henüz, aşağıdaki kapsam yapılandırmaları oluşturulur:
 
-## <a name="saved-searches"></a>Kaydedilen aramalar
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig güncelleştirmeleri**
+
+Seçilen çalışma alanı zaten çözümü vardır. Çözümü yeniden dağıtılmadığı ve kapsam yapılandırması için eklenmez.
+
+## <a name="saved-searches"></a>Kayıtlı aramalar
 
 Bir bilgisayarı güncelleştirme yönetimi ya da değişiklik izleme ve stok çözümleri eklendiğinde, iki Kaydedilmiş aramaları çalışma alanınızdaki birine eklenir. Kaydedilen aramalar için bu çözümleri hedeflenen bilgisayarları içeren sorgular var.
 
@@ -60,7 +66,7 @@ Otomasyon hesabınıza gidin ve seçin **kayıtlı aramalar** altında **genel**
 
 Grup doldurmak için kullanılan sorguyu görüntülemek için kaydedilmiş ya da Ara'yı seçin. Aşağıdaki resimde, sorgu ve sonuçları gösterilmektedir:
 
-![Kaydedilen aramalar](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
+![Kayıtlı aramalar](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
 ## <a name="onboard-an-azure-machine"></a>Yerleşik bir Azure machine
 
@@ -68,7 +74,7 @@ Otomasyon hesabı seçin **stok** veya **değişiklik izleme** altında **yapıl
 
 Tıklatın **+ Azure VM eklemek**, VM listeden seçin. Üzerinde **güncelleştirme yönetimi** sayfasında, **etkinleştirmek**. Bu çözüm için arama kayıtlı bilgisayar grubu için geçerli VM ekler.
 
-## <a name="onboard-a-non-azure-machine"></a>Yerleşik bir Azure olmayan makine
+## <a name="onboard-a-non-azure-machine"></a>Azure olmayan bir makine ekleme
 
 Otomasyon hesabı seçin **stok** veya **değişiklik izleme** altında **yapılandırma yönetimi**, veya **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**.
 
@@ -80,7 +86,7 @@ Otomasyon hesabı seçin **stok** veya **değişiklik izleme** altında **yapıl
 
 Seçin **yönetmek makineler**. Bu açılır **yönetmek makineler** sayfası. Bu sayfa, çözüm makineler, tüm kullanılabilir makineler select kümesi üzerinde veya tüm geçerli makineler için çözüm etkinleştirmek ve gelecekteki tüm makinelerde etkinleştirebilirsiniz olanak sağlar.
 
-![Kaydedilen aramalar](media/automation-onboard-solutions-from-automation-account/managemachines.png)
+![Kayıtlı aramalar](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
 ### <a name="selected-machines"></a>Seçilen makineler
 

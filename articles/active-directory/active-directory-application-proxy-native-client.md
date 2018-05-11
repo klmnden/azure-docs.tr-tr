@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbb709ebbecbfd5da7522b17fe837460d50fae11
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a925f8be619d0a4606205eeba5f78b2e8ba8a188
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Proxy uygulamaları ile etkileşim kurmak yerel istemci uygulamaları etkinleştirme
 
@@ -34,7 +34,7 @@ Yerel uygulamalar yayımlamak için Azure AD kimlik doğrulama mvc'deki kimlik d
 Bu makalede, uygulama proxy'si ve Azure AD kimlik doğrulama kitaplığı ile yerel bir uygulamayı yayımlamak için dört adım adım anlatılmaktadır. 
 
 ## <a name="step-1-publish-your-application"></a>1. adım: uygulamanızı yayımlama
-Başka bir uygulama gibi proxy uygulamanızı yayımlamak ve uygulamanızı erişmek için kullanıcıları atayın. Daha fazla bilgi için bkz: [uygulama proxy'si ile uygulama yayımlama](active-directory-application-proxy-publish.md).
+Başka bir uygulama gibi proxy uygulamanızı yayımlamak ve uygulamanızı erişmek için kullanıcıları atayın. Daha fazla bilgi için bkz: [uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>2. adım: uygulamanızı yapılandırma
 Yerel uygulamanız aşağıdaki gibi yapılandırın:

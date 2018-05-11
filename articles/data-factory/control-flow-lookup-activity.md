@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -31,11 +31,9 @@ Arama etkinliği okuyun ve içeriği bir yapılandırma dosyası, bir yapıland�
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Aşağıdaki veri kaynakları şu anda arama için desteklenir:
+Aşağıdaki veri kaynakları için arama desteklenir. Satır sayısının üst sınırını etkinliktir aramasından döndürülebilecek **5000**ve kadar **2MB** boyutu. Ve şu anda en fazla süre arama etkinliğinin zaman aşımından önce bir saattir.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
-
-Arama etkinlik tarafından döndürülen satır sayısının üst sınırını olan **5000**ve kadar **2MB** boyutu.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -64,10 +62,11 @@ Veri kümesi | Veri kümesi başvurusu için arama sağlar. Karşılık gelen he
 source | Kopya etkinliği kaynak ile aynı veri kümesi-özel kaynak özelliklerini içerir. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
 firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole | Hayır. `true` varsayılan değerdir.
 
-Aşağıdaki noktalara dikkat edin:
+**Aşağıdaki noktalara dikkat edin:**
 
 1. Kaynak sütunu ByteArray türü desteklenmiyor.
 2. Yapı, veri kümesi tanımında desteklenmiyor. Metin biçimi dosyaları için özellikle, sütun adı sağlamak için üstbilgi satırını kullanabilir.
+3. Arama kaynağınız JSON dosyaları ise `jsonPathDefinition` JSON nesnesi yeniden şekillendirme desteklenmiyor ayarı, tüm nesneleri alınamıyor.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Arama etkinlik sonuç izleyen bir etkinlikte kullanma
 

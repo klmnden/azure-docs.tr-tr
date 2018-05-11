@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 7657f27e25af62f13371a9216596f142dc2491dd
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -394,6 +394,6 @@ Tüm URL'leri uzantısı uzak makinede erişebilmesini geçerli konumlara çözm
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hakkında bilgi edinin [ayarlar Azure DSC uzantısı ile sanal makine ölçek kullanarak](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- İlgili diğer ayrıntıları bulmak [DSC'SİNİN güvenli kimlik bilgileri yönetimi](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Alma bir [Azure DSC uzantısı işleyici giriş](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- İlgili diğer ayrıntıları bulmak [DSC'SİNİN güvenli kimlik bilgileri yönetimi](dsc-credentials.md).
+- Alma bir [Azure DSC uzantısı işleyici giriş](dsc-overview.md).
 - PowerShell DSC hakkında daha fazla bilgi için Git [PowerShell Belge Merkezi](/powershell/dsc/overview).

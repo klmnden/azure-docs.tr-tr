@@ -3,16 +3,17 @@ title: Azure Otomasyonu iş verilerini Log Analytics’e iletme
 description: Bu makalede, iş durumunu ve runbook ek bilgiler ve yönetim sağlamak üzere Azure günlük analizi için iş akışlarını göndermek gösterilmiştir.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f96419ea1e6cb8a6f15ba67948b2a139f647dd6c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
 Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
@@ -98,7 +99,7 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
 | SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
 | ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
+| ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 
@@ -121,7 +122,7 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
 | SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
 | ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
+| ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Günlük analizi günlüklerini Otomasyon görüntüleme

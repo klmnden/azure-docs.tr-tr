@@ -13,16 +13,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 5/9/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 905f6b13928d11243202059af0ad255971102da8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a907335ace1f6ea9ec427327d28ca9be5ce02fcc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Dosyalar ve uygulamalar Azure yığında yedekleme
 Koruma (veya yedeklemek için) Azure Yedekleme'yi kullanabilirsiniz dosyalar ve uygulamalar Azure yığında. Dosya ve uygulamaların yedeklemek için Azure yığın üzerinde çalışan bir sanal makine olarak Microsoft Azure yedekleme sunucusu yükleyin. Azure yedekleme sunucusu kez yüklediğiniz, kısa vadeli yedekleme verileri için kullanılabilir yerel depolama artırmak için Azure disk ekleyin. Azure yedekleme sunucusu uzun vadeli bekletme için Azure storage kullanır.
+
+> [!NOTE]
+> Azure yedekleme sunucusu ve System Center Data Protection Manager (DPM) benzer olmakla birlikte, DPM Azure yığını ile kullanım için desteklenmez.
+>
+
 
 ## <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 Azure yedekleme sunucusu aşağıdaki Azure yığın sanal makine iş yüklerini korur.
@@ -49,7 +54,7 @@ Bir Azure yığın sanal makineye Azure yedekleme sunucusu yüklemek için bkz [
 Azure yedekleme sunucusu bir Azure yığın sanal makine üzerinde çalıştırılacak boyutunu A2 kullanın veya daha büyük. Bir sanal makine boyutu seçerken Yardım almak için indirin [Azure yığın VM boyutu hesaplayıcı](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Azure yığın sanal makinelerde sanal ağlar
-Bir Azure yığın iş yükü kullanılan tüm sanal makineler aynı Azure sanal ağı ve Azure aboneliğine ait olmalıdır. 
+Bir Azure yığın iş yükü kullanılan tüm sanal makineler aynı Azure sanal ağı ve Azure aboneliğine ait olmalıdır.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Yerel disk ve Azure yedekleme veri depolama
 Azure Backup sunucusu işletimsel kurtarma için sanal makineye bağlı Azure disklerde yedek verileri depolar. Diskler ve depolama alanı sanal makineye bağlı sonra Azure yedekleme sunucusu depolama yönetir. Yedek veri depolama alanı miktarı sayısını ve her birine bağlı disklerin boyutunu bağlıdır [Azure yığın sanal makine](../azure-stack/user/azure-stack-storage-overview.md). Her Azure yığın VM boyutu en fazla sayıda sanal makineye bağlı diskler vardır. Örneğin, A2 dört diskler ' dir. A3 sekiz diskler ' dir. A4 16 disk ' dir. Yeniden disk sayısı ve boyutu, toplam yedekleme depolama havuzunu belirler.
@@ -82,9 +87,9 @@ Dağıtımınız ölçeklendirmek istiyorsanız aşağıdaki seçenekleriniz var
 
 ## <a name="bare-metal-recovery-for-azure-stack-vm"></a>Azure yığın VM için tam kurtarma
 
-Tam kurtarma (BMR) yedekleme işletim sistemi dosyalarını ve kullanıcı verileri hariç tüm kritik birim verilerini korur. Bir BMR yedeklemesi, sistem durumu yedeklemesi içerir. Aşağıdaki yordamlar, BMR verileri geri yüklemek açıklanmaktadır. 
+Tam kurtarma (BMR) yedekleme işletim sistemi dosyalarını ve kullanıcı verileri hariç tüm kritik birim verilerini korur. Bir BMR yedeklemesi, sistem durumu yedeklemesi içerir. Aşağıdaki yordamlar, BMR verileri geri yüklemek açıklanmaktadır.
 
-### <a name="run-recovery-on-the-azure-backup-server"></a>Kurtarma Azure yedekleme sunucusunda çalıştırın 
+### <a name="run-recovery-on-the-azure-backup-server"></a>Kurtarma Azure yedekleme sunucusunda çalıştırın
 
 Azure Yedekleme Sunucusu konsolunu açın.
 
@@ -102,9 +107,9 @@ Azure yedekleme sunucusu konsolunda:
 
 ### <a name="restore-the-machine"></a>Makineyi geri yükleme
 
-1. BMR geri yüklemek istediğiniz sanal makinedeki bir yükseltilmiş komut istemi açın ve aşağıdaki komutları yazın. **/bootore** Windows RE sistem başlangıç otomatik olarak başlatıldığında başlar belirtir.
+1. BMR geri yüklemek istediğiniz sanal makinedeki bir yükseltilmiş komut istemi açın ve aşağıdaki komutları yazın. **/boottore** Windows RE sistem başlangıç otomatik olarak başlatıldığında başlar belirtir.
 ```
-Reagent /boottore
+Reagentc /boottore
 shutdown /r /t 0
 ```
 

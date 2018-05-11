@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning için Azure SQL Veritabanına veri taşıma
 Bu konu, verileri düz dosyalardan (CSV veya TSV biçimleri) veya bir Azure SQL veritabanı için bir şirket içi SQL Server'da depolanan veri taşıma seçeneklerini özetler. Verileri buluta taşımak için bu görevleri takım veri bilimi işleminin bir parçasıdır.
@@ -33,8 +33,8 @@ Bir Azure SQL veritabanına veri taşıma seçenekleri aşağıdaki tabloda öze
 
 | <b>KAYNAK</b> | <b>Hedef: Azure SQL veritabanı</b> |
 | --- | --- |
-| <b>Düz dosya (CSV ya da biçimlendirilmiş TSV)</b> |<a href="#bulk-insert-sql-query">Toplu ekleme SQL sorgusu |
-| <b>Şirket içi SQL Server</b> |1. <a href="#export-flat-file">Düz dosya dışarı aktarma<br> 2. <a href="#insert-tables-bcp">SQL veritabanı Geçiş Sihirbazı<br> 3. <a href="#db-migration">Yukarı geri veritabanı ve geri yükleme<br> 4. <a href="#adf">Azure veri fabrikası |
+| <b>Düz dosya (CSV ya da biçimlendirilmiş TSV)</b> |[Toplu ekleme SQL sorgusu](#bulk-insert-sql-query) |
+| <b>Şirket içi SQL Server</b> |1.[düz dosyasına dışarı aktarma](#export-flat-file)<br> 2. [SQL veritabanı Geçiş Sihirbazı](#insert-tables-bcp)<br> 3. [Yukarı geri veritabanı ve geri yükleme](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Önkoşullar
 Burada gösterilen yordamları sahip olması gerekir:

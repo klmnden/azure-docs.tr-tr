@@ -15,15 +15,15 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb341c5700f573e61cdbbe992aa0b0eb99389b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f480553e6a8ca09872cd638537bc6fb98e793d8b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Uygulama proxy'si ve PingAccess ile çoklu oturum açma için üstbilgi tabanlı kimlik doğrulaması
 
-Azure Active Directory Uygulama proxy'si ve PingAccess Azure Active Directory müşteriler daha fazla uygulama bile erişimle sağlamak üzere birlikte ortaklık. PingAccess genişletir [varolan uygulama proxy'si teklifleri](active-directory-application-proxy-get-started.md) üstbilgileri için kimlik doğrulaması kullanan uygulamalar için çoklu oturum açma erişimini eklenecek.
+Azure Active Directory Uygulama proxy'si ve PingAccess Azure Active Directory müşteriler daha fazla uygulama bile erişimle sağlamak üzere birlikte ortaklık. PingAccess genişletir [varolan uygulama proxy'si teklifleri](manage-apps/application-proxy.md) üstbilgileri için kimlik doğrulaması kullanan uygulamalar için çoklu oturum açma erişimini eklenecek.
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD için PingAccess nedir?
 

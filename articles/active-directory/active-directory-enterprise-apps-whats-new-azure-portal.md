@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler 
 
@@ -34,11 +34,11 @@ Aşağıdaki Azure AD'de için bazı iyileştirmeler olan [Azure portal](https:/
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde geliştirmeleri
 
-Gelen olup, sık kullanılan uygulamalar eklemek [uygulama Galerisi](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), buluta genişletme özel uygulamalar veya yeni uygulamalar geliştirme.  Bu yeni deneyim, başlayabiliriz tıklayarak **Ekle** üzerinde **kurumsal uygulamalar** genel bakış veya **tüm uygulamaları** dikey pencereleri.
+Gelen olup, sık kullanılan uygulamalar eklemek [uygulama Galerisi](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), buluta genişletme özel uygulamalar veya yeni uygulamalar geliştirme.  Bu yeni deneyim, başlayabiliriz tıklayarak **Ekle** altında **kurumsal uygulamalar** veya **tüm uygulamaları**.
  
   ![Bir uygulama ekleme](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-Bir kez Galerisi'nde kullanıcı sağlamayı destekleyen tüm bizim öne çıkan uygulamaları Ön Orta görüntülendiğini göreceksiniz.  İlgilendiğiniz uygulamaları incelemek için farklı kategoriler her türlü göz atabilir veya hızlı bir şekilde tümleştirmek istediğiniz uygulamaları bulmak için arama deneyimini kullanabilirsiniz.
+Bir kez Galerisi'nde kullanıcı sağlamayı desteklemeyen öne çıkan uygulamaları Ön Orta görüntülendiğini göreceksiniz. İlgilendiğiniz uygulamaları incelemek için farklı kategoriler her türlü göz atabilir veya hızlı bir şekilde tümleştirmek istediğiniz uygulamaları bulmak için arama deneyimini kullanabilirsiniz.
 
   ![Uygulama Galerisi](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -64,7 +64,7 @@ Bir kez Galerisi'nde kullanıcı sağlamayı destekleyen tüm bizim öne çıkan
 ### <a name="developing-new-applications"></a>Yeni uygulamaları geliştirme
 
 1. Yeni bir uygulama geliştiriyorsanız, uygulama kayıt defterine Galeriden sağ almanız için kolay bir yol vardır:
-2. Tıklayın **kendi eklemek** uygulama Galerisi, select seçeneğinden **varolan uygulama geliştirme** seçim ve uygulama Ekle deneyimi sağdan hızlı bir bağlantı göreceksiniz.
+2. Tıklatın **kendi eklemek** uygulama galerisinden Seç seçeneği **varolan uygulama geliştirme**, hızlı bağlantı uygulama Ekle deneyimi sağ görürsünüz.
 
   ![Birkaç tıklama ile yeni geliştirilen bir uygulama ekleme](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -75,11 +75,11 @@ Bir kez Galerisi'nde kullanıcı sağlamayı destekleyen tüm bizim öne çıkan
   ![Kuruluş uygulamaları altında yeni uygulamanıza erişimi yönetme](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Hızlı Başlangıç: yeni uygulamanızla birlikte hemen kullanmaya başlamak 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>Hızlı Başlangıç: yeni uygulamanızla birlikte hemen kullanmaya başlamak 
 
 Bir uygulama, önceden tümleştirilmiş veya kendi uygulamanızı ekledikten sonra yeni uygulamalar deneyimi hızla topraklanmış almak için özel bir hızlı başlangıç deneyimi oluşturduk. Her seçenek sistematik olarak izlerseniz, biz, kullanıcı Arabirimi aracılığıyla yol ve yeni uygulamanızın bir pilot mümkün olan en kısa sürede yapmalarını gösterilmektedir. 
  
-  ![Deneyimi yeni uygulamalar Hızlı Başlat](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
+  ![Yeni uygulamalar hızlı başlangıç deneyimi](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
  Tıklayarak herhangi bir zamanda ve herhangi bir uygulama için yeni Bu hızlı başlangıç deneyimi ziyaret edebilirsiniz **Hızlı Başlangıç** uygulama sol gezinti menüsünde.
 
@@ -87,13 +87,13 @@ Bir uygulama, önceden tümleştirilmiş veya kendi uygulamanızı ekledikten so
 ## <a name="updated-application-proxy-configuration"></a>Güncelleştirilmiş uygulama proxy yapılandırması
 Artık, şirket içi ortamınızda say eklediğiniz yeni uygulamalardan biri şimdi çalışıyor ve Azure AD ile tümleştirmek istediğiniz.  Yeni uygulama yapılandırma deneyimi hakkında harika yeni özelliklerinden biri yeni Azure AD portalı, uygulamanın oturum açma modundan uygulama proxy yapılandırmasını bölerek, şimdi kolayca parola SSO açmasıdır veya Federasyon şirket ağınızda birden çok uygulama örneğini oluşturmak zorunda kalmadan buluta sağ çalışan uygulamaları.
 
-Buna ek olarak, şimdi de, yerel Windows kimlik doğrulama deneyimleri destekleyen uygulamalar da dahil olmak üzere yeni portalı, Azure AD uygulama proxy'si sağa ile kullanılmak üzere eklediğiniz yeni uygulamalardan herhangi biri yapılandırabilirsiniz.
+Ayrıca, yerel Windows kimlik doğrulama deneyimleri destekleyen uygulamalar da dahil olmak üzere yeni portalı, Azure AD uygulama proxy'si sağa ile kullanılmak üzere eklediğiniz yeni uygulamalardan herhangi biri de yapılandırabilirsiniz.
 
   ![Oturum açma tümleşik Windows kimlik doğrulaması seçeneği kullanmak için uygulamayı yapılandırma](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 Uygulama Ara sunucusu ile bir yerel Windows kimlik doğrulama uygulaması yapılandırmaya başlamak için:
-1. Üzerinde çoklu oturum açma Gezinti öğesi'ı tıklatın ve seçin **tümleşik Windows kimlik doğrulaması** oturum açma ayarlar dikey penceresinden ve, istediğiniz ayarları yapılandırın.
+1. Üzerinde çoklu oturum açma Gezinti öğesi'ı tıklatın ve seçin **tümleşik Windows kimlik doğrulaması** oturum açma ayarları altında ve, istediğiniz ayarları yapılandırın.
 2. Bu yeni kimlik doğrulama modları destekleyen en üstünde, şimdi de güvenli uç noktaları kuruluşunuz içinde çalışan uygulamaları desteklemek için özel etki alanlarını sertifikaları karşıya yükleyebilirsiniz.  
  
    ![Uygulama Ara sunucusu ile kullanılacak bir sertifika karşıya yükleniyor](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +102,28 @@ Uygulama Ara sunucusu ile bir yerel Windows kimlik doğrulama uygulaması yapıl
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Federasyon tek oturum açma Gelişmiş Yapılandırma
 
-Bu Federasyon uygulamalarına bugün kullananlar vardır birçok yeni özellik SAML tabanlı oturum açma yapılandırma dikey penceresinde. İle başlamak artık tam olarak özelleştirmek, eklemek, kaldırmak ve SAML belirteçleri Taleplerde olarak verilen varolan kullanıcı öznitelikleri eşlemek kullanabilirsiniz.
+Bu Federasyon uygulamalarına bugün kullananlar vardır birçok yeni özellik SAML tabanlı oturum açma yapılandırmada. İle başlamak artık tam olarak özelleştirmek, eklemek, kaldırmak ve SAML belirteçleri Taleplerde olarak verilen varolan kullanıcı öznitelikleri eşlemek kullanabilirsiniz.
  
   ![Geçirilen bir federasyon uygulaması SAML belirteci kullanıcı özniteliklerini özelleştirme](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 Yeni SSO yapılandırma federe olduğunu denetlemek için:
-1. Bir Federasyon uygulamanın açmak **çoklu oturum açma** emin olun ve sol gezinti menüsü dikey penceresinde '*SAML tabanlı oturum açma** modu seçilidir. 
+1. Bir Federasyon uygulamanın açmak **çoklu oturum açma** emin olun ve sol gezinti menüden '*SAML tabanlı oturum açma** modu seçilidir. 
 2. Kez altındaki onay kutusunu, etkinleştirme **kullanıcı öznitelikleri** başlık tüm SAML belirtecine eklenen özniteliklerini değiştirmek için bu uygulamaya geçirildi.
 
-De oluşturma, aktarma ve Federasyon çoklu oturum açma için kullanılan sertifikaları yönetme yanı Düzenle sertifikanızı dolmak üzere olduğunda kimin bildirim. Bu yeni seçenekleri altında görürsünüz **sertifikaları** aynı tek oturum açma dikey penceresinde başlığı.
+De oluşturma, aktarma ve Federasyon çoklu oturum açma için kullanılan sertifikaları yönetme yanı Düzenle sertifikanızı dolmak üzere olduğunda kimin bildirim. Bu yeni seçenekleri altında görürsünüz **sertifikaları** aynı tek oturum açma bölmesinde başlığı.
  
   ![Süre sonu bildirim e-posta ve seçenekleri imzalama sertifikası özelleştirme yeni bir sertifika oluşturma](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>Geçiş durumunu paramenter
-Son olarak, biz de dahil etmek için desteklediğimiz SAML URL parametrelerinin Genişletilmiş **geçiş durumunu parametresi**, kullanıcılarınızın güden üzerinde bir federasyon uygulaması içinde oturum açma tamamlandıktan sonra sayfa olduğu. Kullanıcılarınızın bunları hızlı bir şekilde giderek almak için uygulama içinde belirli bir yere göndermek istiyorsanız yapılandırmak için çok kullanışlı ayar budur.
+### <a name="relay-state-parameter"></a>Geçiş durumu parametresi
+Son olarak, biz de dahil etmek için desteklediğimiz SAML URL parametrelerinin Genişletilmiş **geçiş durumunu parametresi**, kullanıcılarınızın güden üzerinde bir federasyon uygulaması içinde oturum açma tamamlandıktan sonra sayfa olduğu. Bu, kullanıcılarınızın bunları hızlı bir şekilde giderek almak için uygulama içinde belirli bir yere göndermek istiyorsanız yapılandırmak için yararlı bir ayardır.
 
   ![SAML geçiş durumunu parametre ayarı](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **Geçiş durumu parametresini ayarlama**:
 
-1. Etkinleştirme **Göster Gelişmiş URL ayarları** altındaki onay kutusunu **etki alanı ve URL'leri** çoklu oturum açma yapılandırma dikey penceresi başlığı. 
-2. Bunu yaptıktan sonra bu ve diğer SAML URL ayarları ayarlamanıza olanak sağlayacak kutuları görüntülenir yeni URL bir dizi giriş görürsünüz.
+1. Etkinleştirme **Göster Gelişmiş URL ayarları** altındaki onay kutusunu **etki alanı ve URL'leri** çoklu oturum açma yapılandırma bölmesi başlığı. 
+2. Yeni URL kümesi görünen kutuları, bu parametre ve diğer SAML URL ayarları ayarlamanıza izin girin.
 
 ## <a name="bring-your-own-password-sso-applications"></a>SSO uygulamaları kendi parolanızı Getir
 
@@ -133,7 +133,8 @@ Her uygulama kutunun sağ dışında Federasyon desteklediğini biliyoruz. Örne
 
 **'Kendi uygulamalarınızı Yap' özelliği denetlemek için**:
 
-1. Yeni özel bir uygulama için tek oturum açma modu ayarlandıktan sonra ekledik **parola tabanlı oturum açma**, uygulamanın, oturum açma ekranı burada işler URL'sini girin ve tıklayın **kaydetmek**.  
+1. Yeni özel bir uygulama için tek oturum açma modu ayarlandıktan sonra ekledik **parola tabanlı oturum açma**, uygulamanın, oturum açma ekranı burada işler URL'sini girin ve 
+2. **Kaydet**’e tıklayın.  
 2. Bunu gerçekleştirdikten sonra biz otomatik olarak bir kullanıcı adı için bu URL'yi scrape ve parola giriş kutusu ve Azure AD erişim paneli tarayıcı uzantısı kullanarak bu uygulamaya parolaları güvenli bir şekilde iletmek için kullanmanızı sağlar.
 
 ## <a name="configure-self-service-application-access"></a>Self Servis uygulama erişimi yapılandırma
@@ -153,7 +154,7 @@ Geliştirilmiş kullanarak gibi umuyoruz Azure AD deneyimi. Gelen geri bildirim 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla ayrıntı için bkz: [Azure Active Directory ile uygulamaları yönetme](active-directory-enable-sso-scenario.md).
+Daha fazla ayrıntı için bkz: [Azure Active Directory ile uygulamaları yönetme](manage-apps/what-is-application-management.md).
 
 
 

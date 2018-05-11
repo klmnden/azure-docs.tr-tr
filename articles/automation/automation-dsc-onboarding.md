@@ -3,16 +3,17 @@ title: Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 description: Azure Otomasyonu DSC ile yönetim için makineleri ayarlama
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1090751db4df54e36e5263c4036d447c95d7b50
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 
@@ -62,6 +63,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -111,6 +113,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> DSC düğüm yapılandırması adları portalda büyük küçük harfe duyarlı. Eşleşmeyen durumda düğüm DSC düğümleri altında göstermez.
 
 ## <a name="azure-virtual-machines"></a>Azure sanal makineleri
 
@@ -205,6 +210,9 @@ Genel olarak yerleşik herhangi bir Azure Otomasyonu DSC için makine bir [DSC m
 1. Yerel ortamınızdaki bir makinede PowerShell ISE'yi yönetici olarak açın. Makinede en son sürümü yüklü olmalıdır [WMF 5](http://aka.ms/wmf5latest) yüklü.
 2. Aşağıdaki komut dosyasını yerel olarak kopyalayın. Bu komut dosyası metaconfigurations ve devre dışı meta yapılandırmasını oluşturma kazandırın için bir komut oluşturmak için PowerShell DSC yapılandırması içerir.
 
+> [!NOTE]
+> DSC düğüm yapılandırması adları portalda büyük küçük harfe duyarlı. Eşleşmeyen durumda düğüm DSC düğümleri altında göstermez.
+
     ```powershell
     # The DSC configuration that will generate metaconfigurations
     [DscLocalConfigurationManager()]
@@ -296,6 +304,7 @@ Genel olarak yerleşik herhangi bir Azure Otomasyonu DSC için makine bir [DSC m
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';
@@ -383,7 +392,7 @@ Bir Azure Otomasyonu DSC DSC düğüm olarak bir makine kaydolduktan sonra pek �
 
 Yeniden kayıt işlemi, düğüm başlangıçta, bu belgede açıklanan ekleme yöntemlerden birini kullanarak kayıtlı aynı şekilde gerçekleştirilebilir. Azure Otomasyonu DSC düğüm yeniden önce kaydı gerekmez.
 
-## <a name="related-articles"></a>İlgili Makaleler
+## <a name="related-articles"></a>İlgili makaleler
 
 * [Azure Otomasyonu DSC genel bakış](automation-dsc-overview.md)
 * [Azure Otomasyonu DSC cmdlet'leri](/powershell/module/azurerm.automation/#automation)

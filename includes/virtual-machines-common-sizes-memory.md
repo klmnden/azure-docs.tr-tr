@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bellek içi analizi için harika bir yüksek bellek CPU oranı VM boyutları teklif en iyi duruma getirilmiş. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
@@ -25,6 +25,8 @@ Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bell
 * Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Üzerinde en son oluşturma dayalı 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) veya E5-2673 v4 2.3 GHz (Broadwell) işlemcileri ve Intel Turbo artırma teknolojisi 2.0 ile 3.1 GHz gidebilirsiniz. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
 * Ev3-serisi özellikleri E5-2673 v4 2.3 GHz (Broadwell) işlemci en genel amaçlı iş yükleri için daha iyi bir değer teklifinde sağlayarak ve hizalamasını çoğu bulut genel amaçlı VM'ler ile Ev3 getiren bir hiper iş parçacıklı yapılandırmada.  Disk ve ağ sınırlarını hiper iş parçacığı Git hizalamak için bir çekirdek başına temelinde ayarlanmış durumdayken bellek (Başlangıç 7 Gib'den/vCPU için 8 Gib'den/vCPU) genişletilmiştir.  Ev3 D/Dv2 aileleri yüksek bellek VM boyutlarını kadar izleyin ' dir.
+
+* Azure işlem sunar sanal makine boyutları olan Isolated belirli donanım türlerine ve tek bir müşteriye ayrılmış.  Bu sanal makine boyutlarını uyumluluk ve Mevzuat gereklilikleri gibi öğeleri içeren iş yükleri için yüksek derecede diğer müşterilerden yalıtım gerektiren iş yükleri için uygundur.  Müşterileri de seçebilirsiniz daha fazla kullanarak bu yalıtılmış sanal makinelerin kaynakları ayırabilir [iç içe geçmiş sanal makineler için Azure desteği](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Yalıtılmış VM seçeneklerinizi için sanal makine aileleri tablolara bakın.
 
 ## <a name="esv3-series"></a>Esv3-serisi 
 

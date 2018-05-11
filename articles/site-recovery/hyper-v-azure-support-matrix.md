@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V çoğaltma Azure için destek matrisi
 
@@ -23,9 +23,9 @@ Bu makalede desteklenen bileşenleri ve şirket içi Hyper-V sanal makineleri ol
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
 **Senaryo** | **Ayrıntılar**
---- | --- 
+--- | ---
 Hyper-V sanal makine Yöneticisi ile | System Center Virtual Machine Manager yapıda yönetilen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.<br/><br/> Hyper-V konakları Virtual Machine Manager tarafından yönetildiğinde, aynı zamanda bir ikincil şirket içi siteye olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo hakkında daha fazla bilgi için okuma [Bu öğretici](tutorial-vmm-to-vmm.md).
-Hyper-V olmadan Sanal Makine Yöneticisi | Virtual Machine Manager tarafından yönetilmeyen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz. 
+Hyper-V olmadan Sanal Makine Yöneticisi | Virtual Machine Manager tarafından yönetilmeyen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
 
 
 ## <a name="on-premises-servers"></a>Şirket içi sunucular
@@ -39,7 +39,7 @@ Hyper-V (Virtual Machine Manager ile çalıştıran) | Virtual Machine Manager 2
 ## <a name="replicated-vms"></a>Çoğaltılan VM'ler
 
 
-VM desteği aşağıdaki tabloda özetlenmiştir. Site Recovery, desteklenen bir işletim sisteminde çalışan tüm iş yüklerini destekler. 
+VM desteği aşağıdaki tabloda özetlenmiştir. Site Recovery, desteklenen bir işletim sisteminde çalışan tüm iş yüklerini destekler.
 
  **Bileşen** | **Ayrıntılar**
 --- | ---
@@ -78,7 +78,8 @@ Multi-NIC | Evet | Evet
 Ayrılmış IP | Evet | Evet
 IPv4 | Evet | Evet
 Kaynak IP adresi koru | Evet | Evet
-Azure sanal ağ hizmet uç noktaları<br/><br/> (Azure depolama güvenlik duvarları ve sanal ağlar) | Hayır | Hayır
+Azure sanal ağ hizmet uç noktaları<br/> (Azure Storage güvenlik duvarları) | Evet | Evet
+Hızlandırılmış Ağ | Hayır | Hayır
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V konağı depolama
@@ -125,7 +126,7 @@ Blok blobları | Hayır | Hayır
 Bekleyen (SSE) şifreleme| Evet | Evet
 Premium depolama | Evet | Evet
 İçeri/dışarı aktarma hizmeti | Hayır | Hayır
-Azure sanal ağ hizmet uç noktaları (Azure Storage güvenlik duvarları ve sanal ağlar) hedef çoğaltma verileri için kullanılan önbellek depolama hesabı | Hayır | Hayır
+Azure depolama (çoğaltma verilerini depolamak için kullanılır) hedef depolama/önbelleği depolama hesabında yapılandırılmış sanal ağlar için güvenlik duvarları | Hayır | Hayır
 
 
 ## <a name="azure-compute-features"></a>Azure işlem özellikleri
@@ -159,9 +160,9 @@ VM türü | 1. nesil<br/><br/> Nesil 2--Windows | 2. nesil sanal makineleri (VHD
 ## <a name="recovery-services-vault-actions"></a>Kurtarma Hizmetleri kasası eylemleri
 
 **Eylem** |  **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
---- | --- | --- 
-Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır | Hayır 
-Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır | Hayır 
+--- | --- | ---
+Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır | Hayır
+Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır | Hayır
 
 
 ## <a name="provider-and-agent"></a>Sağlayıcı ve aracı
@@ -179,4 +180,4 @@ Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V sanal makineleri ve Azur
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bilgi nasıl [Azure hazırlama](tutorial-prepare-azure.md) şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarması için. 
+Bilgi nasıl [Azure hazırlama](tutorial-prepare-azure.md) şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarması için.

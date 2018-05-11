@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 98d285bf8ec92e7b6baf709d4796ce2f4420c4f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure yığınında Ruby ile API sürümü profilleri kullanma
 
@@ -36,7 +36,7 @@ Bir API profili, kaynak sağlayıcıları ve hizmet sürümleri birleşimidir. B
  - Son API sürümü, bir hizmetin kullanmak için **son** belirli gem profili. Örneğin, son API sürümü işlem hizmetinin tek başına kullanmak istiyorsanız, kullanmak **son** profilini **işlem** gem.
  - Bir hizmet için belirli bir API sürümü kullanmak için gem içinde tanımlanmış özel API sürümü kullanın.
 
-> [!note] 
+> [!Note]   
 > Aynı uygulama seçeneklerin tümü birleştirebilirsiniz.
 
 ## <a name="install-the-azure-ruby-sdk"></a>Azure Söyleniş SDK'sını yükleyin
@@ -88,7 +88,7 @@ Ruby Azure SDK'sı Azure yığın ile kullanmak için aşağıdaki değerleri sa
 | Kiracı Kimliği | AZURE_TENANT_ID | Azure yığın değerini [kimliği Kiracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | İstemci Kimliği | AZURE_CLIENT_ID | Hizmet sorumlusu, bu belgenin önceki bölümünde bulunan oluşturulduğunda asıl uygulama kimliği kaydedilmiş hizmeti.  |
 | Abonelik Kimliği | AZURE_SUBSCRIPTION_ID | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) teklifleri nasıl eriştiği Azure yığınında. |
-| İstemci Parolası | AZURE_CLIENT_SECRET | Hizmet sorumlusu oluşturulduğu sırada hizmet asıl uygulama gizli anahtarı kaydedildi. |
+| İstemci Gizli Anahtarı | AZURE_CLIENT_SECRET | Hizmet sorumlusu oluşturulduğu sırada hizmet asıl uygulama gizli anahtarı kaydedildi. |
 | Kaynak Yöneticisi uç noktası | ARM_ENDPOINT | Bkz: [Azure yığın Kaynak Yöneticisi endpoin](#The-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure yığın Kaynak Yöneticisi uç noktası
@@ -96,7 +96,8 @@ Ruby Azure SDK'sı Azure yığın ile kullanmak için aşağıdaki değerleri sa
 Microsoft Azure Resource Manager yöneticilerin dağıtmak, yönetmek ve Azure kaynaklarını izlemenize olanak sağlayan bir yönetim çerçevedir. Azure Resource Manager, bir grup olarak yerine tek tek tek bir işlemde bu görevleri işleyebilir.
 
 Resource Manager uç noktasından meta veri bilgilerini alabilirsiniz. Uç nokta kodunuzu çalıştırmak için gerekli bilgileri bir JSON dosyası döndürür.
-  > [!note]  
+
+  > [!Note]  
   > **ResourceManagerUrl** Azure yığın Geliştirme Seti (ASDK) olan: `https://management.local.azurestack.external/`  
   > **ResourceManagerUrl** tümleşik sistemlerindeki: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -208,7 +209,7 @@ Kullanabileceğiniz aşağıdaki örnekler, Ruby ve Azure yığını API'si prof
 
 Örneği çalıştırmak için Ruby yüklediğinizden emin olun. Visual Studio Code kullanıyorsanız, bir uzantı Ruby SDK'sını indirin. 
 
-> [!note]  
+> [!Note]  
 > Örnek: için depo elde edebilirsiniz "[yönetmek Azure kaynakları ve kaynak gruplarıyla Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)".
 
 1. Depoyu kopyalayın.
@@ -231,7 +232,7 @@ Kullanabileceğiniz aşağıdaki örnekler, Ruby ve Azure yığını API'si prof
   Gerekli değerler şunlardır:
   - Kiracı Kimliği
   - İstemci Kimliği
-  - İstemci Parolası
+  - İstemci Gizli Anahtarı
   - Abonelik Kimliği
   - Kaynak Yöneticisi uç noktası
 
@@ -243,7 +244,7 @@ Kullanabileceğiniz aşağıdaki örnekler, Ruby ve Azure yığını API'si prof
   - AZURE_SUBSCRIPTION_ID ver = {abonelik kimliğiniz}
   - ARM_ENDPOINT verme {AzureStack Kaynak Yöneticisi URL'nizi} =
 
-  > [!note]  
+  > [!Note]  
   > Windows üzerinde yerine verme kümesi kullanın.
 
 4. Konum değişkeni AzureStack konumunuza ayarlandığından emin olun. Örneğin yerel "yerel" =

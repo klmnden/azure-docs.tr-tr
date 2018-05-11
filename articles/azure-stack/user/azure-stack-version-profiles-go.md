@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure yığınında Git ile API sürümü profilleri kullanma
 
@@ -61,7 +61,8 @@ Azure Resource Manager Uç noktalara REST istekleri göndermek için Azure Git-A
 Azure yığında Git kod örneği çalıştırmak için:
   1. Git ve bağımlılıkları için Azure SDK'sını yükleyin. Yönerge için önceki bölüm bakın [Git için Azure SDK yüklemek](#install-azure-sdk-for-go).
   2. Meta veri bilgileri Resource Manager uç noktasından alır. Uç nokta Git kodunuzu çalıştırmak için gerekli bilgileri bir JSON dosyası döndürür.
-  > [!note]  
+
+  > [!Note]  
   > **ResourceManagerUrl** Azure yığın Geliştirme Seti (ASDK) olan: `https://management.local.azurestack.external/`  
   > **ResourceManagerUrl** tümleşik sistemlerindeki: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ Bu bölümde, istemci kimlik bilgilerini kullanarak Azure yığında Yetkilendir
 ## <a name="example"></a>Örnek
 
 Bu bölümde Azure yığında sanal ağ oluşturmak için Git kodu örneği gösterir. Git SDK tam örnekleri görmek için [Azure SDK'sını Git örnekleri depo](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Karma altında Azure yığın örnekleri kullanılabilir / hizmet klasörleri depo içinde yolu.
-> [!note]  
+
+> [!Note]  
 > Bu örnekte kodu çalıştırmak için kullanılan abonelikle sahip olduğunu doğrulayın **ağ** kaynak sağlayıcısı olarak listelenen **kayıtlı**. Bunu doğrulamak için Azure yığın portal abonelikte arayın ve tıklayın **kaynak sağlayıcıları.**
 
 1. Kodunuzda gerekli paketleri içeri aktarın. Ağ modülü içeri aktarmak için Azure yığında en son kullanılabilir profil kullanmanız gerekir. 
@@ -194,7 +196,7 @@ Bu bölümde Azure yığında sanal ağ oluşturmak için Git kodu örneği gös
   )
   ````
 
-2. Ortam değişkenleri tanımlayın. Bir sanal ağ oluşturmak için bir kaynak grubu olması gerektiğini unutmayın. 
+2. Ortam değişkenleri tanımlayın. Bir sanal ağ oluşturmak için bir kaynak grubu olması gerekir. 
 
   ````go
   var (

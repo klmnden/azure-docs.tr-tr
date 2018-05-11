@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b1a145040297debe2c348d61f204fc82d2e7d4d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -367,5 +367,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yeni sanal makinede oturum açmak için Gözat VM [portal](https://portal.azure.com), tıklatın **Bağlan**ve Uzak Masaüstü RDP dosyasını açın. Yeni sanal makinede oturum açmak için özgün sanal makine hesabı kimlik bilgilerini kullanın. Daha fazla bilgi için bkz: [bağlanmayı ve Windows çalıştıran Azure sanal makinesi için oturum](connect-logon.md).
+Yeni sanal makine için oturum açın. Daha fazla bilgi için bkz: [bağlanmayı ve Windows çalıştıran Azure sanal makinesi için oturum](connect-logon.md).
 

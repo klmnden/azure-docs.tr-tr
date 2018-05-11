@@ -2,24 +2,17 @@
 title: include dosyası
 description: include dosyası
 services: active-directory
-documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/04/2018
+ms.date: 05/08/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 1c51d70a3747da6a8f51c5fc6341c1975cebbdb7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5d3af1800e18e3686e69d4a25131c68d3bdc805b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 ## <a name="set-up-your-project"></a>Projenizin kurulumunu
 
@@ -29,7 +22,7 @@ Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ar
 
 ### <a name="create-your-aspnet-project"></a>ASP.NET projesi oluşturma
 
-1. Visual Studio'da: `File` > `New` > `Project`<br/>
+1. Visual Studio'da: `File` > `New` > `Project`
 2. Altında *Visual C# \Web*seçin `ASP.NET Web Application (.NET Framework)`.
 3. Uygulamanızı adlandırın ve tıklayın *Tamam*
 4. Seçin `Empty` eklemek için onay kutusunu seçip `MVC` başvuruları
@@ -40,11 +33,11 @@ Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ar
 2. Ekleme *OWIN ara yazılımı NuGet paketlerini* Paket Yöneticisi konsolu penceresinde aşağıdakileri yazarak:
 
     ```powershell
-    Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 3.1.0
-    Install-Package Microsoft.Owin.Security.Cookies -Version 3.1.0
-    Install-Package Microsoft.Owin.Host.SystemWeb -Version 3.1.0
+    Install-Package Microsoft.Owin.Security.OpenIdConnect
+    Install-Package Microsoft.Owin.Security.Cookies
+    Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Bu kitaplıklar hakkında
 >Çoklu oturum tanımlama bilgisi tabanlı kimlik doğrulaması Openıd Connect kullanarak açma (SSO) yukarıdaki kitaplıkları etkinleştirin. Kimlik doğrulama tamamlandıktan sonra kullanıcıyı temsil eden simge uygulamanıza gönderilir, OWIN ara yazılımı bir oturum tanımlama bilgisi oluşturur. Tarayıcı daha sonra bu tanımlama bilgisi sonraki isteklerde kullanıcının parolayı yeniden yazması gerekmez ve hiçbir ek doğrulama gerektiği şekilde kullanır.
@@ -54,20 +47,19 @@ Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ar
 Aşağıdaki adımlar, bir OWIN ara yazılımı Openıd Connect kimlik doğrulamasını yapılandırmak için başlangıç sınıfı oluşturmak için kullanılır. Bu sınıf, IIS işlemi başladığında otomatik olarak yürütülür.
 
 > [!TIP]
-> Projenizi yoksa, bir `Startup.cs` dosyası kök klasöründe:<br/>
-> 1. Projenin kök klasörü sağ tıklatın: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Adlandırın `Startup.cs`<br/>
+> Projenizi yoksa, bir `Startup.cs` dosyası kök klasöründe:
+> 1. Projenin kök klasörü sağ tıklatın: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Adlandırın `Startup.cs`
 >
 >> OWIN başlangıç sınıfı ve değil bir standart C# sınıf seçilen sınıf olduğundan emin olun. Bu görürseniz denetleyerek doğrulayabilirsiniz `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` ad alanı üzerinde.
 
-1. Ekleme *OWIN* ve *Microsoft.IdentityModel* başvurular `Startup.cs` böylece kullanarak bildirimleri aşağıdaki olur:
+1. Ekleme *OWIN* ve *Microsoft.IdentityModel* başvurular `Startup.cs`:
 
     ```csharp
-    using System;
-    using System.Threading.Tasks;
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
@@ -100,7 +92,7 @@ Aşağıdaki adımlar, bir OWIN ara yazılımı Openıd Connect kimlik doğrulam
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -109,13 +101,16 @@ Aşağıdaki adımlar, bir OWIN ara yazılımı Openıd Connect kimlik doğrulam
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -137,9 +132,7 @@ Aşağıdaki adımlar, bir OWIN ara yazılımı Openıd Connect kimlik doğrulam
             return Task.FromResult(0);
         }
     }
-
     ```
-
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Daha Fazla Bilgi

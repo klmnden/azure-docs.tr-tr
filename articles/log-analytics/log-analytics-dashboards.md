@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi özel bir pano oluşturun | Microsoft Docs"
-description: "Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur."
+title: Azure günlük analizi özel bir pano oluşturun | Microsoft Docs
+description: Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Günlük analizi kullanmak için özel bir pano oluşturun
 
 Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), var olan düzenleyemezsiniz sonra **My Pano**. Çalışma alanınızı herhangi değilse **My Pano** eklenen görmezsiniz sonra döşeme **My Pano** yükseltilmiş alanınızdaki. 
+> Var olan artık düzenleyebilirsiniz **My Pano**. Bu özellik kullanım dışı sürecinde olur.
 
 ![Örnek Pano](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
@@ -70,8 +70,8 @@ Aralarından seçim yapabileceğiniz döşeme görselleştirmeleri üç tür var
 | grafik türü | ne yapar |
 | --- | --- |
 | ![Çubuk grafiği](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Günlük arama sonuçları bir alana göre veya toplar, kaydedilmiş günlük aramanın sonuçları bir zaman çizelgesi olarak bir çubuk grafik veya bağlı olarak bir alana göre sonuçlarının bir listesini görüntüler. |
-| ![Ölçüm](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Toplam günlük arama sonucu isabet döşeme içinde bir sayı olarak görüntüler. Ölçüm döşeme Eşiğe ulaşıldığında döşeme vurgular bir eşiği ayarlamanıza olanak sağlar. |
-| ![Satır](./media/log-analytics-dashboards/oms-dashboards-line.png) |Bir zaman çizelgesi, kaydedilmiş günlük arama sonucu isabet değerleri içeren bir çizgi grafiği görüntüler. |
+| ![ölçüm](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Toplam günlük arama sonucu isabet döşeme içinde bir sayı olarak görüntüler. Ölçüm döşeme Eşiğe ulaşıldığında döşeme vurgular bir eşiği ayarlamanıza olanak sağlar. |
+| ![satır](./media/log-analytics-dashboards/oms-dashboards-line.png) |Bir zaman çizelgesi, kaydedilmiş günlük arama sonucu isabet değerleri içeren bir çizgi grafiği görüntüler. |
 
 ### <a name="threshold"></a>Eşik
 Ölçüm görselleştirme kullanarak bir kutucuğu bir eşik oluşturabilirsiniz. Bir eşik değeri kutucuğu oluşturmak için seçin. Değerin üzerinde veya seçilen eşiğin altında sonra eşik değerini ayarlayın döşeme vurgulamak seçin.

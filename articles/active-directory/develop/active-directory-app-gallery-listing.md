@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 05/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5140d25119729a391b21735ab9110c216afda669
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -49,9 +49,27 @@ Bir uygulamayı Azure AD uygulama galerisinde listelemek için ilk Azure AD tara
 
 *   **Openıd Connect**: çok kiracılı uygulama Azure AD oluşturma ve uygulama [Azure AD onay framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteriye uygulama onay ve böylece ortak bir uç oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcı UPN göre kullanıcı erişimi denetleyebilirsiniz. Uygulamanızı Azure AD ile tümleştirmek için izleyin [geliştiricilerinin yönergeleri](active-directory-authentication-scenarios.md).
 
+    ![Galeri Openıd Connect uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/openid.png)
+
+    * Openıd Connect, select kullanarak galerisinde uygulamanızı listesine eklemek istiyorsanız **Openıd Connect ve OAuth 2.0** olarak yukarıdaki.
+
+    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** veya **WS-Fed**: uygulamanızı SP veya IDP modunda SAML/WS-Fed SSO tümleştirme yapmak için özelliği olması gerekir. Uygulamanızı SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
 
+    ![Galeri SAML 2.0 veya WS-Fed uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/saml.png)
+
+    * Galeri kullanarak uygulamanızı listesine eklemek isteyip istemediğinizi **SAML 2.0** veya **WS-Fed**seçin **SAMl 2.0/WS-Fed** olarak yukarıdaki.
+
+    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../active-directory-appssoaccess-whatis.md). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır.
+
+    ![Galeri parola SSO uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * Parola SSO, select kullanarak galerisinde uygulamanızı listesine eklemek istiyorsanız **parola SSO** olarak yukarıdaki.
+
+    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Güncelleştirme veya varolan listeleme Kaldır
 
@@ -60,7 +78,7 @@ Güncelleştirmek veya Azure AD uygulama galerisinde varolan bir uygulamayı kal
 * Uygun seçeneği seçin görüntüsünün altındaki
 
     ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * Var olan bir uygulamayı güncelleştirmek isteyip istemediğinizi seçin **varolan uygulama listeleme güncelleştirme**.
 
     * Azure AD Galeriden var olan bir uygulamayı kaldırmak isteyip istemediğinizi seçin **varolan uygulama listeleme Kaldır**
@@ -86,6 +104,10 @@ SAML 2.0 veya WS-Fed uygulama galerisinde listeleme işlemi için zaman çizelge
 Bir Openıd Connect uygulama galerisinde listeleme işlemi için zaman çizelgesi 2-5 iş günü verilir.
 
    ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/timeline2.png)
+
+Destek sağlama kullanıcı uygulamayla galerisinde listeleme işlemi için zaman çizelgesi 40-45 iş gündür.
+
+   ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Çözümler
 

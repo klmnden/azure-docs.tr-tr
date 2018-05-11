@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: bbb62a5f47c2fda6e24a204f30939e43676b33a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 373095d1783a8e6e52d43e80377c01b448706fbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Kısaltması tarafından Azure CDN POP konumları
 > [!div class="op_single_selector"]
 > * [Bölgeye göre POP konumları](cdn-pop-locations.md)
-> * [Kısaltması tarafından POP konumları](cdn-pop-abbreviations.md)
+> * [Kısaltmaya göre POP konumları](cdn-pop-abbreviations.md)
 > 
 
 
@@ -31,46 +31,48 @@ POP konumları için POP kısaltması göre sıralanmış, bu makalede listelenm
 
 Kısaltma | Konum | Bölge
 | --- | --- | --- |
-AGA | Atlanta, Georgia, USA | Kuzey Amerika: Doğu Yakası ABD
-AGB | Atlanta, Georgia, USA | Kuzey Amerika: Doğu Yakası ABD
+AGA | Atlanta, Georgia, ABD | Kuzey Amerika: Doğu Yakası ABD
+AGB | Atlanta, Georgia, ABD | Kuzey Amerika: Doğu Yakası ABD
 AKL | Auckland, Yeni Zelanda | Asya
 AMA | Amsterdam, Hollanda | Avrupa
+AMB | Amsterdam, Hollanda | Avrupa
 AMS | Amsterdam, Hollanda | Avrupa
-ARN | Stokholm, İsveç | Avrupa
-ATL | Atlanta, Georgia, USA | Kuzey Amerika: Doğu Yakası ABD
-BAQ | Barranquilla, Colombia | Latin Amerika
+DAHA | Stokholm, İsveç | Avrupa
+ATL | Atlanta, Georgia, ABD | Kuzey Amerika: Doğu Yakası ABD
+BAQ | Barranquilla, Kolombiya | Latin Amerika
+BLR | Bangalore, Hindistan | Asya
 BNJ | Newark, hatay, ABD | Kuzey Amerika: Doğu Yakası ABD
-BOS | Boston, Massachusetts, ABD | Kuzey Amerika: Doğu Yakası ABD
+BOŞ | Boston, Massachusetts, ABD | Kuzey Amerika: Doğu Yakası ABD
 BTH | Batam, Endonezya | Asya
-BUE | Buenos Aires, Argentina | Latin Amerika
+BUE | Buenos Aires, Arjantin | Latin Amerika
 BUR | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
 CDG | Paris, Fransa | Avrupa
 CGH | Sao Paulo, Brezilya | Latin Amerika
 CGK | Cakarta, Endonezya | Asya
-CHA | Chicago, Illinois, USA | Kuzey Amerika: Doğu Yakası ABD
-CHB | Chicago, Illinois, USA | Kuzey Amerika: Doğu Yakası ABD
-CJB | Bangalore, Hindistan | Asya
+DEĞİŞTİR | Chicago, Illinois, ABD | Kuzey Amerika: Doğu Yakası ABD
+CHB | Chicago, Illinois, ABD | Kuzey Amerika: Doğu Yakası ABD
 CNJ | Newark, hatay, ABD | Kuzey Amerika: Doğu Yakası ABD
 CPH | Kopenhag, Danimarka | Avrupa
 CPM | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
+CVA | Ashburn, Virginia, ABD | Kuzey Amerika: Doğu Yakası ABD
 DAA | Dallas, Teksas, ABD'de | Kuzey Amerika: Orta Yakası ABD
 DAB | Dallas, Teksas, ABD'de | Kuzey Amerika: Orta Yakası ABD
-DCA | Ashburn, Virginia, USA | Kuzey Amerika: Doğu Yakası ABD
-DCB | Ashburn, Virginia, USA | Kuzey Amerika: Doğu Yakası ABD
-DCC | Ashburn, Virginia, USA | Kuzey Amerika: Doğu Yakası ABD
+DCA | Ashburn, Virginia, ABD | Kuzey Amerika: Doğu Yakası ABD
+DCB | Ashburn, Virginia, ABD | Kuzey Amerika: Doğu Yakası ABD
+DCC | Ashburn, Virginia, ABD | Kuzey Amerika: Doğu Yakası ABD
 DEL | Noida, Hindistan | Asya
-DEN | Beyoğlu, Colorado, ABD | Kuzey Amerika: Orta ABD
+BEY | Beyoğlu, Colorado, ABD | Kuzey Amerika: Orta ABD
 DFW | Dallas, Teksas, ABD'de | Kuzey Amerika: Orta ABD
 EWR | New York, New York ABD | Kuzey Amerika: Doğu Yakası ABD
-EZE | Buenos Aires, Argentina | Latin Amerika
+EZE | Buenos Aires, Arjantin | Latin Amerika
 FCN | Frankfurt, Almanya | Avrupa
-FLL | Miami, Florida, USA | Kuzey Amerika: Doğu Yakası ABD
+FLL | Miami, İzmir ', ABD | Kuzey Amerika: Doğu Yakası ABD
 FRA | Frankfurt, Almanya | Avrupa
 FRB | Frankfurt, Almanya | Avrupa
 FRC | Frankfurt, Almanya | Avrupa
 FRF | Frankfurt, Almanya | Avrupa
 FTW | Dallas, Teksas, ABD'de | Kuzey Amerika: Orta ABD
-FTY | Atlanta, Georgia, USA | Kuzey Amerika: Doğu Yakası ABD
+FTY | Atlanta, Georgia, ABD | Kuzey Amerika: Doğu Yakası ABD
 GB | RIO de Janeiro, Brezilya | Latin Amerika
 GRU | Sao Paulo, Brezilya | Latin Amerika
 HEL | Helsinki, Finlandiya | Avrupa
@@ -78,73 +80,77 @@ HHP | Hong Kong | Asya
 HKC | Hong Kong | Asya
 HKG | Hong Kong | Asya
 HND | Tokyo, Japonya | Asya
-IAD | Ashburn, Virginia, USA | Kuzey Amerika: Doğu Yakası ABD
+IAD | Ashburn, Virginia, ABD | Kuzey Amerika: Doğu Yakası ABD
 ICN | Seul, Kore | Asya
-ITM | Osaka, Japan | Asya
+ITM | Osaka, Japonya | Asya
 JFK | New York, New York, ABD | Kuzey Amerika: Doğu Yakası ABD
 JNB | Johannesburg, Güney Afrika | Avrupa
-KHH | Kaohsiung, Taiwan | Asya
-KIX | Osaka, Japan | Asya
+KHH | Kaohsiung, Tayvan | Asya
+KIX | Osaka, Japonya | Asya
 LAA | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
-LAB | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
+LABORATUVAR | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
 LAM | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
 LAN | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
-LAX | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
-LCY | London, UK | Avrupa
+BELİRSİZ | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
+LPB | Londra, İngiltere | Avrupa
 LGA | New York, New York, ABD | Kuzey Amerika: Doğu Yakası ABD
-LHA | London, UK | Avrupa
-LHB | London, UK | Avrupa
-LHM | London, UK | Avrupa
-LHN | London, UK | Avrupa
-LHR | London, UK | Avrupa
+LHA | Londra, İngiltere | Avrupa
+LHB | Londra, İngiltere | Avrupa
+LHM | Londra, İngiltere | Avrupa
+LHN | Londra, İngiltere | Avrupa
+LHR | Londra, İngiltere | Avrupa
 LIM | Lima, Peru | Latin Amerika
 MAA | Chennai, Hindistan | Asya
-MAD | Madrid, Spain | Avrupa
-MDE | Medellin, Colombia | Latin Amerika
-MDW | Chicago, Illinois, USA | Kuzey Amerika: Doğu Yakası ABD
+MAD | Madrid, İspanya | Avrupa
+MDE | Medellin, Kolombiya | Latin Amerika
+MDW | Chicago, Illinois, ABD | Kuzey Amerika: Doğu Yakası ABD
 MEB | Melbourne, Avustralya | Asya
 MEL | Melbourne, Avustralya | Asya
 MEX | Meksika Şehir, Meksika | Kuzey Amerika
-MIA | Miami, Florida, USA | Kuzey Amerika: Doğu Yakası ABD
-MIB | Miami, Florida, USA | Kuzey Amerika: Doğu Yakası ABD
-MIC | Miami, Florida, USA | Kuzey Amerika: Doğu Yakası ABD
+MIA | Miami, İzmir ', ABD | Kuzey Amerika: Doğu Yakası ABD
+MIB | Miami, İzmir ', ABD | Kuzey Amerika: Doğu Yakası ABD
+MIC | Miami, İzmir ', ABD | Kuzey Amerika: Doğu Yakası ABD
+MRS | Marseille, Fransa | Avrupa
 MXP | Milano, İtalya | Avrupa
-NAG | Mumbai, Hindistan | Asya
-NJA | Tokyo, Japonya | Asya
+DIRDIR ETME | Mumbai, Hindistan | Asya
+NDL | Delhi, Hindistan | Asya
 NRT | Tokyo, Japonya | Asya
 NYA | New York, New York, ABD | Kuzey Amerika: Doğu Yakası ABD
 NYB | New York, New York, ABD | Kuzey Amerika: Doğu Yakası ABD
 OMM | Muscat, Umman | Orta Doğu
-SİP | Chicago, Illinois, USA | Kuzey Amerika: Orta ABD
+SİP | Chicago, Illinois, ABD | Kuzey Amerika: Orta ABD
 GEÇMİŞ | Paris, Fransa | Avrupa
 OXR | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
+PAB | Paris, Fransa | Avrupa
 PAE | Seattle, Washington, ABD | Kuzey Amerika: Batı Yakası ABD
 PBC | Puebla, Meksika | Kuzey Amerika
 PHL | Philadelphia, Pennsylvania, ABD | Kuzey Amerika: Doğu Yakası ABD
 PNQ | Mumbai, Hindistan | Asya
 POX | Paris, Fransa | Avrupa
-QRO | Santiago de Querétaro, Mexico | Kuzey Amerika
-RHV | San Jose, California, USA | Kuzey Amerika: Batı Yakası ABD
+QRO | Santiago de Querétaro, Meksika | Kuzey Amerika
+RHV | San Jose, California, ABD | Kuzey Amerika: Batı Yakası ABD
+RIB | RIO de Janeiro, Brezilya | Latin Amerika
 RIX | Riga, Letonya | Avrupa
 RTM | Amsterdam, Hollanda | Avrupa
-SAA | San Jose, California, USA | Kuzey Amerika: Batı Yakası ABD
-SAB | San Jose, California, USA | Kuzey Amerika: Batı Yakası ABD
+SAA | San Jose, California, ABD | Kuzey Amerika: Batı Yakası ABD
+SAB | San Jose, California, ABD | Kuzey Amerika: Batı Yakası ABD
 SCL | Valparaíso, Şili | Latin Amerika
 SEA | Seattle, Washington, ABD | Kuzey Amerika: Batı Yakası ABD
 SEB | Seattle, Washington, ABD | Kuzey Amerika: Batı Yakası ABD
-SEC | Seattle, Washington, ABD | Kuzey Amerika: Batı Yakası ABD
+SN | Seattle, Washington, ABD | Kuzey Amerika: Batı Yakası ABD
+GB | Singapur | Asya
 SIN | Singapur | Asya
-SJC | San Jose, California, USA | Kuzey Amerika: Batı Yakası ABD
-SJO | San Jose, California, USA | Kuzey Amerika: Batı Yakası ABD
-STO | Stokholm, İsveç | Avrupa
+SJC | San Jose, California, ABD | Kuzey Amerika: Batı Yakası ABD
+SJO | San Jose, California, ABD | Kuzey Amerika: Batı Yakası ABD
+DU | Stokholm, İsveç | Avrupa
 SYD | Sydney, Avustralya | Asya
-TEB | New York, New York, ABD | Kuzey Amerika: Doğu Yakası ABD
+TIR | Chennai, Hindistan | Asya
 TKA | Tokyo, Japonya | Asya
 TKB | Tokyo, Japonya | Asya
-TOJ | Madrid, Spain | Avrupa
+TOJ | Madrid, İspanya | Avrupa
 BAE | Fujairah, Birleşik Arap Emirlikleri | Avrupa
 UIO | Droits réservés | Latin Amerika
-VIE | Viyana, Avusturya | Avrupa
+GÖRÜNTÜLE | Viyana, Avusturya | Avrupa
 VNY | Los Angeles, California, ABD | Kuzey Amerika: Batı Yakası ABD
 WAW | Varşova, Polonya | Avrupa
 

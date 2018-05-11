@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 
@@ -48,81 +48,6 @@ Burada Azure Cosmos DB Program Yöneticisi Barış Liu istek birimleri anlatılm
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
-
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>İstek birimi kapasite Azure Cosmos DB'de belirtme
-
-Numarasını belirtebilirsiniz (RU saniye başına) saniyede istek birimlerinin hem tek tek bir kapsayıcı veya bir dizi kapsayıcıları için ayrılmış istiyor. Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB onu büyüdükçe kaldırıldığından ve bölmelerini/rebalances verilerinizi bölümler barındırmak için fiziksel bölümleri ayırır.
-
-Olarak RU/sn tek tek kapsayıcı düzeyinde atarken kapsayıcıları oluşturulabilir *sabit* veya *sınırsız*. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız bir kapsayıcı oluşturmak için en düşük işleme 1.000 RU/s belirtmeniz gerekir ve bir [bölüm anahtarı](partition-data.md). Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/kapsayıcı/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
-
-Bu kümeye ait kapsayıcıları RU/sn kapsayıcıları kümesi boyunca atarken davranılır *sınırsız* kapsayıcıları ve bölüm anahtarı belirtmeniz gerekir.
-
-![İstek birimleri ayrı kapsayıcıları ve kapsayıcıları kümesi için sağlama][6]
-
-> [!NOTE]
-> Bölüm anahtarı mantıksal bir sınır ve fiziksel bir tane ' dir. Bu nedenle, farklı bölüm anahtar değerlerin sayısını sınırlamak gerekmez. Aslında, daha fazla yük dengeleme seçeneklerini Azure Cosmos DB sahip daha farklı bölüm anahtarı değerden daha az olması iyidir.
-
-SQL API'nin .NET SDK kullanarak tek bir kapsayıcı için saniye başına 3000 istek birimleri ile bir kapsayıcı oluşturmak için bir kod parçacığı aşağıda verilmiştir:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Sağlama 100.000 için bir kod parçacığı aşağıda verilmiştir saniye başına birim kapsayıcıları SQL API'nin .NET SDK kullanarak bir dizi arasında iste:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-
-Üretilen iş için bir ayırma modeli Azure Cosmos DB çalıştırır. Diğer bir deyişle, işleme miktarı faturalandırılır *ayrılmış*ne olursa olsun, üretilen işi ne kadarının etkin olduğundan, *kullanılan*. Uygulamanızı olarak kullanıcının, kolayca ölçeklendirilebilir sayısı yukarı ve aşağı yük, veri ve kullanım desenlerini değişiklik ayrılmış RUs üzerinden SDK'ları veya kullanarak [Azure Portal](https://portal.azure.com).
-
-Her kapsayıcı veya kapsayıcıları, kümesi eşlenmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir kapsayıcı verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir:
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Üretilen iş değiştirdiğinizde, kapsayıcı kullanılabilirliğini veya kapsayıcıları, kümesi üzerinde etkisi yoktur. Genellikle yeni ayrılmış işleme yeni işleme, uygulama üzerinde saniye içinde etkili olur.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Genel olarak dağıtılmış veritabanlarında işleme yalıtımı
 
@@ -305,7 +230,7 @@ Aşağıdaki tabloda, bu öğeyi normal işlemleri için birim ücretleri yakla�
 
 | İşlem | İstek birimi ücret |
 | --- | --- |
-| Öğesi oluşturma |~15 RU |
+| Öğe oluştur |~15 RU |
 | Öğe Okuma |~ 1 RU |
 | Sorgu öğesi kimliği |~2.5 RU |
 
@@ -327,7 +252,7 @@ Bu bilgi ile operations ve saniye başına beklediğiniz sorguları sayısını 
 
 | İşlem/sorgu | Saniye başına tahmini sayısı | Gerekli RUs |
 | --- | --- | --- |
-| Öğesi oluşturma |10 |150 |
+| Öğe oluştur |10 |150 |
 | Öğe Okuma |100 |100 |
 | Üretici tarafından foods seçin |25 |175 |
 | Yemek gruplandırma ölçütü seçin |10 |700 |
@@ -347,6 +272,11 @@ Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar 
 Birden fazla istemci isteği hızı üst üste işletim varsa, varsayılan yeniden deneme davranışı değil yeterli olacaktır ve istemci özel durum oluşturacak bir `DocumentClientException` uygulamaya 429 ile durum kodu. Bu gibi durumlarda yeniden deneme davranışı ve uygulamanızın hata yordamları işleme mantığı işleme göz önünde bulundurun veya kapsayıcı (veya kapsayıcıları kümesi) için sağlanan verimliliğini artırmak isteyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+ 
+Ayarlama ve Azure portal ve SDK kullanarak işleme alma hakkında bilgi edinmek için kılavuzuna bakın:
+
+* [Ayarlama ve verimlilik Azure Cosmos DB'de alma](set-throughput.md)
+
 Ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla bilgi edinmek için şu kaynakları araştırın:
 
 * [Cosmos DB Azure fiyatlandırması](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -360,4 +290,4 @@ Azure Cosmos DB hakkında daha fazla bilgi için Azure Cosmos DB bkz [belgelerin
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/provisioning_set_containers.png
+

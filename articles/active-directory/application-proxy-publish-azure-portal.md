@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 22ef129830941ee7001dd5e0be1501bf9d755eb7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -27,7 +27,7 @@ Azure Active Directory (AD) uygulama proxy'si, internet üzerinden erişilebilme
 
 Bu makalede, uygulama ara sunucusu ile bir şirket içi uygulamayı yayımlamak için adım adım anlatılmaktadır. Bu makalede tamamladıktan sonra kullanıcılarınızın uygulamanızın uzaktan erişim kuramaz. Ve uygulamanın çoklu oturum açma, kişiselleştirilmiş bilgileri ve güvenlik gereksinimleri gibi ek özellikleri yapılandırmak hazır olması.
 
-Uygulama proxy'si yeniyseniz, bu özellik ile makalesi hakkında daha fazla bilgi [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](active-directory-application-proxy-get-started.md).
+Uygulama proxy'si yeniyseniz, bu özellik ile makalesi hakkında daha fazla bilgi [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](manage-apps/application-proxy.md).
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Uzaktan erişim için şirket içi uygulama yayımlama

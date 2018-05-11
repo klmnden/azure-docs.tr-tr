@@ -1,11 +1,11 @@
 ---
 title: My uygulamalar listesinde beklenmeyen uygulama | Microsoft Docs
-description: "Kiracınızda bulunan tüm uygulamaları görmek ve uygulamaların kurumsal uygulamalar altındaki tüm uygulamalar listenizde görüntülenme anlama hakkında"
+description: Kiracınızda bulunan tüm uygulamaları görmek ve uygulamaların kurumsal uygulamalar altındaki tüm uygulamalar listenizde görüntülenme anlama hakkında
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: ef04e557aca69e5a15bb38d816ca9f9b9ffaf502
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 75fb5fcb98605a080efa2c9232d186c9a81acf2b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>My uygulamalar listesinde beklenmeyen uygulama
 
@@ -122,4 +122,4 @@ Tüm dizin önlemek için son kullanıcılar için herhangi bir uygulama onaylı
 6.  Tüm gelecekteki kullanıcı onayı işlemleri ayarlayarak devre dışı **kullanıcılar, uygulamaların verilerine erişmesini izin verebilir** geç **Hayır** tıklatıp **kaydetmek** düğmesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulamaları Azure Active Directory ile yönetme](active-directory-enable-sso-scenario.md)
+[Uygulamaları Azure Active Directory ile yönetme](manage-apps/what-is-application-management.md)

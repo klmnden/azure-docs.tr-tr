@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c66b0d7ea5ade90c6bb8f88006f2a09bd407deaa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -77,6 +77,9 @@ Aşağıdaki Ubuntu Server görüntüsü Market'te ekleyin:
     - **SKU**: 16.04 LTS
     - **Sürüm**: 16.04.201802220
 
+    > [!Note]  
+    > Ubuntu Server 16.04 LTS birden fazla sürümünü listelenebilir. Eşleşen sürümünün eklemeniz gerekir. Kubernetes kümesi öğesi'nün tam sürümünü gerektirir.
+
 6. Seçin **indirin.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Linux için özel bir komut dosyası Ekle
@@ -95,6 +98,9 @@ Kubernetes küme marketten ekleyin:
     - **Teklif**: Linux 2.0 için özel bir komut dosyası
     - **Sürüm**: 2.0.3
     - **Yayımcı**: Microsoft Corp
+
+    > [!Note]  
+    > Linux için özel komut dosyası birden fazla sürümünü listelenebilir. Eşleşen sürümünün eklemeniz gerekir. Kubernetes kümesi öğesi'nün tam sürümünü gerektirir.
 
 6. Seçin **indirin.**
 
@@ -138,6 +144,8 @@ Kubernetes küme öğesini kaldırmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure yığınına Kubernetes kümesi dağıtma](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Azure yığınına Kubernetes kümesi dağıtma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Azure yığınında hizmetleri sunan genel bakış](azure-stack-offer-services-overview.md)

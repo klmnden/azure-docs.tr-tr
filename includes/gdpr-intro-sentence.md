@@ -5,4 +5,4 @@ MS.Service: azure ilke ms.topic: ms.date içerir: 24/04/2018 ms.author: lizross 
 ---
 
 >[!Note] 
-> Bu makalede, kişisel verilerinizi CİHAZDAN silmek adımlar sağlar ve GDPR altında sorumlulukları desteklemek için kullanılabilir. GDPR hakkında genel bilgi arıyorsanız bkz [hizmet Güven Merkezi GDPR bölümünü](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+> Bu makalede aygıtın veya hizmetin kişisel verilerini silmek adımlar sağlar ve GDPR altında sorumlulukları desteklemek için kullanılabilir. GDPR hakkında genel bilgi arıyorsanız bkz [Hizmeti'ne güvenen portal GDPR bölümünü](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

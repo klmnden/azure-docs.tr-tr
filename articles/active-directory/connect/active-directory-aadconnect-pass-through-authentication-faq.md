@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sık sorulan sorular doğrudan kimlik doğrulama - | Microsoft Docs"
-description: "Azure Active Directory doğrudan kimlik doğrulaması hakkında sık sorulan soruların yanıtlarını"
+title: 'Azure AD Connect: Sık sorulan sorular doğrudan kimlik doğrulama - | Microsoft Docs'
+description: Azure Active Directory doğrudan kimlik doğrulaması hakkında sık sorulan soruların yanıtlarını
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 7a817092581ef0be0b6be063282f7484c46ff094
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory doğrudan kimlik doğrulaması: Sık sorulan sorular
 
@@ -48,7 +48,7 @@ Evet. Doğrudan kimlik doğrulamasını destekleyen `Alternate ID` içinde Azure
 
 Hayır. Doğrudan kimlik doğrulama _yok_ otomatik olarak parola karması eşitlemesi için yük devretme. Yalnızca bir geri dönüş için görür [doğrudan kimlik doğrulama bugün desteklemiyor senaryoları](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Kullanıcı oturum açma hatalarını önlemek için doğrudan kimlik doğrulaması için yapılandırmalısınız [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Yükleyebilmek için bir [Azure AD uygulama proxy'si](../active-directory-application-proxy-get-started.md) doğrudan kimlik doğrulama Aracısı ile aynı sunucuda bağlayıcı?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Yükleyebilmek için bir [Azure AD uygulama proxy'si](../manage-apps/application-proxy.md) doğrudan kimlik doğrulama Aracısı ile aynı sunucuda bağlayıcı?
 
 Evet. Doğrudan kimlik doğrulama Aracısı sürümü 1.5.193.0 rebranded sürümleri veya daha sonra bu yapılandırmayı desteklemez.
 

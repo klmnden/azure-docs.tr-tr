@@ -3,8 +3,8 @@ title: Azure ayrılmış sanal makine örnekleri indirim uygulama anlama | Micro
 description: Sanal makineleri çalıştıran için Azure ayrılmış VM örnek indirim nasıl uygulandığı hakkında bilgi edinin.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikdesai
+author: yashesvi
+manager: yashar
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
-ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: yashar
+ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama
 Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma miktarı ile eşleşen sanal makinelere otomatik olarak uygulanır. Bir ayırma sanal makinelerinizi altyapı maliyetinden kapsar. Bir ayırma satın aldıktan sonra sanal makine maliyetlerini aşağıdaki tabloda gösterilmektedir. Her durumda, depolama ve ağ aygıtları için ücretlendirilirsiniz normal hızlarında.
 
 | Sanal makine türü  | Ayırma ile ücretleri |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |Ek yazılım olmadan Linux VM'ler | Ayırma VM altyapı maliyetlerini kapsar.|
 |Yazılım giderleri (örneğin, Red Hat) ile Linux VM'ler | Ayırma altyapı maliyetlerini kapsar. Ek yazılım için sizden ücret kesilir.|
 |Windows Vm'lerini ek yazılım olmadan |Ayırma altyapı maliyetlerini kapsar. Windows yazılım için sizden ücret kesilir.|
@@ -53,7 +53,9 @@ Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdak
 - [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
+- [Ayrılmış örnek kullanım CSP aboneliklerinin anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
+
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 

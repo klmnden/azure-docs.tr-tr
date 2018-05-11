@@ -9,11 +9,11 @@ ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 3750bc409753868566c91c01cf6093f439c599f9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -256,120 +256,61 @@ Bir sanal makine uzantısı değil dağıtıldığında denetim bir örnek için
 
 Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adlar kullanın. Diğer adlar hangi değerleri veya koşullara bir özelliği bir kaynak için izin verilen kısıtlamak etkinleştirin. Her bir diğer ad belirli kaynak türlerine yönelik farklı API sürümleri yollarında eşler. İlke değerlendirmesi sırasında ilke altyapısı bu API sürümü için özellik yolu alır.
 
-**Microsoft.Cache/Redis**
+Diğer adlar listesini her zaman artıyor. Hangi diğer adların şu anda Azure ilke tarafından desteklenen bulmak için aşağıdaki yöntemlerden birini kullanın:
 
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Ayarlanmış olup olmadığını ssl olmayan Redis bağlantı noktası (6379) etkindir. |
-| Microsoft.Cache/Redis/shardCount | Premium küme önbelleği üzerinde oluşturulacak parça sayısını ayarlayın.  |
-| Microsoft.Cache/Redis/sku.capacity | Dağıtmak için Redis önbelleği boyutunu ayarlayın.  |
-| Microsoft.Cache/Redis/sku.family | Kullanmak için SKU ailesi ayarlayın. |
-| Microsoft.Cache/Redis/sku.name | Dağıtmak için Redis önbelleği türünü ayarlayın. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Fiyatlandırma katmanı adını ayarlayın. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü teklif ayarlayın. |
-| Microsoft.Compute/imagePublisher | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü yayımcısına ayarlayın. |
-| Microsoft.Compute/imageSku | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü SKU'su ayarlayın. |
-| Microsoft.Compute/imageVersion | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü sürümünü ayarlayın. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Sanal makine oluşturmak için kullanılan görüntü tanıtıcısı ayarlayın. |
-| Microsoft.Compute/imageOffer | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü teklif ayarlayın. |
-| Microsoft.Compute/imagePublisher | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü yayımcısına ayarlayın. |
-| Microsoft.Compute/imageSku | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü SKU'su ayarlayın. |
-| Microsoft.Compute/imageVersion | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü sürümünü ayarlayın. |
-| Microsoft.Compute/licenseType | Görüntü veya disk içi lisanslı ayarlanır. Bu değer yalnızca Windows Server işletim sistemi içeren görüntüler için kullanılır.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü teklif ayarlayın. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü yayımcısına ayarlayın. |
-| Microsoft.Compute/virtualMachines/imageSku | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü SKU'su ayarlayın. |
-| Microsoft.Compute/virtualMachines/imageVersion | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü sürümünü ayarlayın. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Vhd URI ayarlayın. |
-| Microsoft.Compute/virtualMachines/sku.name | Sanal makine boyutunu ayarlayın. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Kullanılabilirlik kimliği sanal makine için ayarlar. |
+- Azure CLI
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Uzantının yayımcının adını ayarlayın. |
-| Microsoft.Compute/virtualMachines/extensions/type | Uzantı türü olarak ayarlayın. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Uzantı sürümü ayarlayın. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- REST API / ARMClient
 
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Sanal makine oluşturmak için kullanılan görüntü tanıtıcısı ayarlayın. |
-| Microsoft.Compute/imageOffer | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü teklif ayarlayın. |
-| Microsoft.Compute/imagePublisher | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü yayımcısına ayarlayın. |
-| Microsoft.Compute/imageSku | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü SKU'su ayarlayın. |
-| Microsoft.Compute/imageVersion | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü sürümünü ayarlayın. |
-| Microsoft.Compute/licenseType | Görüntü veya disk içi lisanslı ayarlanır. Bu değer yalnızca Windows Server işletim sistemi içeren görüntüler için kullanılır. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Tüm sanal makineler için bilgisayar adı öneki ölçek kümesinde ayarlayın. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Kullanıcı görüntüsü blob URI'si ayarlayın. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Ölçek kümesi için işletim sistemi disklerini depolamak için kullanılan kapsayıcı URL'lerini ayarlayın. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Ölçek kümesindeki sanal makinelerin boyutunu ayarlayın. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Sanal makine ölçek kümesindeki kümesi. |
-
-**Microsoft.Network/applicationGateways**
-
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | Ağ geçidi boyutunu ayarlayın. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Bu sanal ağ geçidi türünü ayarlayın. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | Ağ geçidi SKU adına ayarlayın. |
-
-**Microsoft.Sql/servers**
-
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Sunucu sürümü ayarlayın. |
-
-**Microsoft.Sql/databases**
-
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Veritabanı sürümünü ayarlayın. |
-| Microsoft.Sql/servers/databases/elasticPoolName | Esnek havuz veritabanı adını ayarlayın. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Yapılandırılan hizmet düzeyi hedefi kimliği veritabanının ayarlayın. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Yapılandırılan hizmet düzeyi hedefi veritabanının adını ayarlayın.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| sunucuları/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Veritabanı esnek havuz için toplam paylaşılan DTU ayarlayın. |
-| sunucuları/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Esnek havuz sürümünü ayarlayın. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Diğer ad | Açıklama |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Faturalama için kullanılan erişim katmanı ayarlayın. |
-| Microsoft.Storage/storageAccounts/accountType | SKU adına ayarlayın. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Blob depolama hizmetinde depolanan gibi hizmet verileri şifreler gerekip gerekmediğini belirleyin. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Dosya depolama hizmetinde depolanan gibi hizmet verileri şifreler gerekip gerekmediğini belirleyin. |
-| Microsoft.Storage/storageAccounts/sku.name | SKU adına ayarlayın. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Yalnızca depolama hizmeti https trafiğine izin verecek şekilde ayarlayın. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Sanal Ağ Hizmeti uç noktası etkin olup olmadığını denetleyin. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## <a name="initiatives"></a>Girişimler
 

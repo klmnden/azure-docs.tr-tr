@@ -197,8 +197,6 @@
           href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md
         - name: Veri hazırlama işlemini yürütme API’si
           href: ../desktop-workbench/data-prep-python-execution-api.md
-        - name: Veri hazırlama işlemleştirmesi
-          href: ../desktop-workbench/data-prep-operationalization.md
     - name: Deneme
       items:
         - name: Deneme Hizmetini yapılandırma

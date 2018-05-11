@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi güncelleştirme 4 sürüm notları | Microsoft Docs"
-description: "Yeni özellikler, sorunlar ve geçici çözümler için StorSimple 8000 serisi güncelleştirme 4 açıklar."
+title: StorSimple 8000 serisi güncelleştirme 4 sürüm notları | Microsoft Docs
+description: Yeni özellikler, sorunlar ve geçici çözümler için StorSimple 8000 serisi güncelleştirme 4 açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f4db5a49b71b0c384da7af2b90bd5426a4f35c72
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 serisi güncelleştirme 4 sürüm notları
-> [!NOTE]
-> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -72,7 +69,7 @@ Aşağıdaki tabloda, güncelleştirme 4'te düzeltilen sorunlardan özetini sa�
 | --- | --- | --- | --- | --- |
 | 1 |Yük devretme |Önceki sürümde, yük devretme sonrasında müşteri sitesinde gözlenen temizleme ilgili bir sorun oluştu. Bu sürümde bu sorun düzeltilmiştir. |Evet |Evet |
 | 2 |Yerel olarak sabitlenmiş birimleri |Önceki sürümde birim oluşturma hatalarına neden olan yerel olarak sabitlenmiş birimler için ilgili birim oluşturma için bir sorun oluştu. Bu sorun kök neden oldu ve bu sürümde sabit. |Evet |Hayır |
-| 3 |Destek Paketi |Önceki sürümde System.OutOfMemory özel durum ya da diğer hataları destek paketi oluşturma karşılanamamasına neden olacağından destek paketi ile ilgili sorunlar vardı. Bu sürümde bu hatası düzeltilmiştir. |Evet |Evet |
+| 3 |Destek paketi |Önceki sürümde System.OutOfMemory özel durum ya da diğer hataları destek paketi oluşturma karşılanamamasına neden olacağından destek paketi ile ilgili sorunlar vardı. Bu sürümde bu hatası düzeltilmiştir. |Evet |Evet |
 | 4 |İzleme |Birimleri var. sabitlenmiş grafiklerde yerel olarak izleme ile ilgili bir sorunu tüketim EB içinde nerede gösterildi önceki sürümde. Bu hata, bu sürümde çözümlenir. |Evet |Evet |
 | 5 |Geçiş |Önceki sürümde, 5000-7000 Serisi 8000 serisi cihazlar için gelen geçiş güvenilirliğini ilgili çeşitli sorunlar vardı. Bu sorunları bu sürümde giderilmiştir. |Evet |Evet |
 | 6 |Güncelleştirme |Önceki sürümlerde, bir güncelleştirme hatası varsa, denetleyicileri kurtarma moduna geçecek ve bu nedenle kullanıcı güncelleştirmeye devam edilemiyor Microsoft Support iletişim kurmanız. <br> Bu davranış, bu sürümde değiştirildi. İki denetleyiciye de aynı sürüm (güncelleştirme 4) çalıştıran sonra kullanıcı bir güncelleştirme hatası varsa, denetleyicileri kurtarma moduna girmez. Kullanıcı bu hatayla karşılaşırsa için biraz bekleyin ve sonra güncelleştirmeyi yeniden deneyin öneririz. Yeniden deneme başarılı. Daha sonra yeniden deneme başarısız olursa, Microsoft Support başvurmalısınız. |Evet |Evet |

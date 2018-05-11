@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 353762f33da8e5d48f6b70df3b790287eeab7ff9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutunda yalıtımı
 ##  <a name="introduction"></a>Giriş
@@ -38,7 +38,7 @@ Oluşturmanıza veya BT varlıklarına geçirmek, genel bulut hizmeti sağlayıc
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Buna ek olarak, Azure’da çok çeşitli ve yapılandırılabilir güvenlik seçenekleri ile bunlar üzerinde denetim imkanı sunulmaktadır. Böylece, dağıtımlarınıza özel gereksinimleri karşılamak için güvenlik özelliklerini uyarlayabilirsiniz. Bu belge, bu gereksinimleri karşılayan yardımcı olur.
 
-### <a name="abstract"></a>Soyut
+### <a name="abstract"></a>Özet
 
 Microsoft Azure, uygulamalar ve sanal makineleri (VM'ler) paylaşılan fiziksel altyapı üzerinde çalıştırmasına olanak sağlar. Uygulamalar bulut ortamında çalıştırmanın ekonomik prime sözleri de birden çok müşteri arasında paylaşılan kaynakların maliyeti dağıtmak yeteneğidir. Bu yöntem, çok kiracılı çoğullama kaynaklar arasında düşük maliyetler farklı müşterilerine tarafından verimliliği artırır. Ne yazık ki, aynı zamanda fiziksel sunucuları ve diğer altyapı kaynakları duyarlı uygulamalar ve rasgele ve kötü amaçlı bir kullanıcı ait olabilir sanal makineleri çalıştırmak için paylaşımı riski sunar.
 
@@ -124,6 +124,20 @@ Depolama için kullanılan bir disk sürücüsü bir donanım hatası varsa, gü
 
 ## <a name="compute-isolation"></a>Yalıtım işlem
 Microsoft Azure, geniş işlem örnekleri içeren çeşitli bulut tabanlı bilgi işlem hizmetler & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri sağlar. Bu işlem örneğinde ve hizmet yalıtım veri yapılandırma esneklik ödün vermeden, müşterilerinizin talep güvenliğini sağlamak için birden çok düzeyleri sunar.
+
+### <a name="isolated-virtual-machine-sizes"></a>Yalıtılmış sanal makine boyutları
+Azure işlem sunar sanal makine boyutları olan Isolated belirli donanım türlerine ve tek bir müşteriye ayrılmış.  Bu sanal makine boyutlarını uyumluluk ve Mevzuat gereklilikleri gibi öğeleri içeren iş yükleri için yüksek derecede diğer müşterilerden yalıtım gerektiren iş yükleri için uygundur.  Müşterileri de seçebilirsiniz daha fazla kullanarak bu yalıtılmış sanal makinelerin kaynakları ayırabilir [iç içe geçmiş sanal makineler için Azure desteği](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+
+Yalıtılmış bir boyut kullanılarak sanal makineniz bu belirli sunucu örneğinde yalnızca bir çalışan olacağını garanti eder.  Geçerli yalıtılmış sanal makine önerileri şunlardır:
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* İçin Standard_D15_v2
+
+Kullanılabilir her yalıtılmış boyutunu hakkında daha fazla bilgiyi [burada](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Kök VM & Konuk VM'ler arasında Hyper-V & kök işletim sistemi yalıtımı
 Azure işlem platformu makine sanallaştırmayı temel — yani bir Hyper-V sanal makinesinde tüm müşteri kodu yürütür. Her Azure düğümü (veya ağ uç noktası), doğrudan donanımın üzerinde çalışır ve değişken sayıya Konuk sanal makineleri (VM'ler), bir düğüm böler hiper yönetici yoktur.

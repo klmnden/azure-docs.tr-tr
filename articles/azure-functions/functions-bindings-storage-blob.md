@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -31,23 +31,42 @@ Bu makalede Azure Blob Depolama bağlamaları Azure işlevlerinde ile nasıl ça
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> [Yalnızca BLOB Depolama hesapları](../storage/common/storage-create-storage-account.md#blob-storage-accounts) için blob Tetikleyicileri desteklenmez. BLOB Depolama Tetikleyicileri genel amaçlı depolama hesabı gerektirir. Giriş ve çıkış bağlamaları için yalnızca blob depolama hesaplarını kullanabilirsiniz.
-
 ## <a name="packages"></a>Paketler
 
 Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub depo.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Olay kılavuz tetikleyici için yalnızca blob depolama hesapları yüksek ölçekli veya soğuk başlangıç gecikmelerden kaçınmak için Blob Depolama INSTEAD OF tetikleyicisi kullanın. Daha fazla bilgi için aşağıdakilere bakın **tetikleyici** bölümü. 
+
 ## <a name="trigger"></a>Tetikleyici
 
-Yeni veya güncelleştirilmiş bir blob algılandığında bir işlev başlatmak için Blob Depolama tetikleyici kullanın. Blob içeriklerini işleve giriş olarak sağlanır.
+Yeni veya güncelleştirilmiş bir blob algılandığında Blob Depolama tetikleyici bir işlev başlatır. Blob içeriklerini işleve giriş olarak sağlanır.
 
-> [!NOTE]
-> Tüketim plan üzerinde bir blob tetikleyici kullanırken olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti sonra yeni BLOB'lar işleme. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu ilk gecikmeyi önlemek için aşağıdaki seçeneklerden birini göz önünde bulundurun:
-> - Always On özellikli ile bir uygulama hizmeti planını kullan.
-> - Başka bir mekanizma, blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [blob giriş bağlamaları örnek bu makalenin sonraki bölümlerinde](#input---example).
+[Olay kılavuz tetikleyici](functions-bindings-event-grid.md) için yerleşik destek sahip [blob olayları](../storage/blobs/storage-blob-event-overview.md) ve yeni veya güncelleştirilmiş bir blob algılandığında bir işlev başlatmak için de kullanılabilir. Bir örnek için bkz: [resmini yeniden boyutlandırın olay kılavuzla](../event-grid/resize-images-on-storage-blob-upload-event.md) Öğreticisi.
+
+Olay kılavuz, aşağıdaki senaryolar için Blob Depolama INSTEAD OF tetikleyicisi kullanın:
+
+* Yalnızca BLOB Depolama hesapları
+* Yüksek düzeyde ölçekleme
+* Soğuk Başlangıç Gecikmesi
+
+### <a name="blob-only-storage-accounts"></a>Yalnızca BLOB Depolama hesapları
+
+[Yalnızca BLOB Depolama hesapları](../storage/common/storage-create-storage-account.md#blob-storage-accounts) blob giriş için desteklenir ve bağlamaları çıkış blob Tetikleyiciler için değil. BLOB Depolama Tetikleyicileri genel amaçlı depolama hesabı gerektirir.
+
+### <a name="high-scale"></a>Yüksek düzeyde ölçekleme
+
+Yüksek ölçekli geniş tanımlanabilir 100. 000'den fazla BLOB'ları olması kapsayıcı olarak veya depolama hesapları saniyede 100'den fazla blob güncelleştirmelerine sahip.
+
+### <a name="cold-start-delay"></a>Soğuk Başlangıç Gecikmesi
+
+İşlev uygulamanızı tüketim plan üzerinde ise, olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. Bu soğuk başlangıç gecikmeyi önlemek için her zaman etkin açık bir uygulama hizmeti planına geçiş veya farklı tetikleyici türünü kullanın.
+
+### <a name="queue-storage-trigger"></a>Kuyruk depolama tetikleyici
+
+Olay kılavuz yanı sıra kuyruk depolama tetikleyici BLOB'lar işlemek için başka bir alternatifi: ancak blob olaylar için yerleşik destek bulunur. Oluştururken veya güncelleştirirken BLOB'lar kuyruk iletileri oluşturmak zorunda kalırsınız. Yapmış varsayılmaktadır bir örnek için bkz: [blob giriş bağlaması örnek bu makalenin sonraki bölümlerinde](#input---example).
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 
@@ -283,7 +302,7 @@ Dosya adlarındaki süslü ayraçlar aramak için iki küme ayraçları kullanar
 "path": "images/{{20140101}}-{name}",
 ```
 
-Blob ise *{20140101}-soundfile.mp3*, `name` işlevi kodda değişken değeri *soundfile.mp3*. 
+Blob ise  *{20140101}-soundfile.mp3*, `name` işlevi kodda değişken değeri *soundfile.mp3*. 
 
 ## <a name="trigger---metadata"></a>Tetikleyici - meta verileri
 

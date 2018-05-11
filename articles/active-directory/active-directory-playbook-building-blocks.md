@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 702fe812d4ff80c9f18a163af38f883ed3739f12
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -162,7 +162,7 @@ Yaklaşık tam süresi: 60 dakika
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-1. Yukarıdaki [öğretici](active-directory-saas-servicenow-tutorial.md) başvuran eski Azure AD yönetim deneyimi. Ancak PoC temel [Hızlı Başlangıç](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away) karşılaşırsınız.
+1. Yukarıdaki [öğretici](active-directory-saas-servicenow-tutorial.md) başvuran eski Azure AD yönetim deneyimi. Ancak PoC temel [Hızlı Başlangıç](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) karşılaşırsınız.
 2. Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Kurumsal Uygulama Yönetimi Azure Active Directory'deki yenilikler: tek bir yerden özel uygulamalar ekleme](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS parola SSO yapılandırma
@@ -371,7 +371,7 @@ Yaklaşık tam süre: 10 dakika
 
 Seçilen uygulamaların gereksinimlerini sağlama olabilir, bu nedenle hemen uygulamaya giderek bazı hatalara neden olabilir. Seçilen uygulama azure ad ile sağlama destekliyorsa ve yapılandırıldığından, bu bir fırsat olarak uçtan uca çalışan tüm akışını göstermek için kullanabilirsiniz. Yapı bloğu için bkz: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) daha fazla önerileri için
 
-## <a name="self-service-password-reset"></a>Self Servis Parolası Sıfırlama
+## <a name="self-service-password-reset"></a>Self Servis Parola Sıfırlama
 
 Yaklaşık tam süresi: 15 dakika
 

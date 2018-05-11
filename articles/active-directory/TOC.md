@@ -167,16 +167,16 @@
 #### [Karma Azure AD alanına katılmış eski Windows cihazları](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Uygulamaları yönetme
-### [Genel Bakış](active-directory-enable-sso-scenario.md)
-### [Başlarken](active-directory-integrating-applications-getting-started.md)
+### [Genel Bakış](manage-apps/what-is-application-management.md)
+### [Başlarken](manage-apps/plan-an-application-integration.md)
 ### [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Anlık görüntü raporları oluşturma](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Anlık görüntü raporları oluşturma](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)
+### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](manage-apps/application-proxy.md)
 #### başlarken
 ##### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
 ##### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)

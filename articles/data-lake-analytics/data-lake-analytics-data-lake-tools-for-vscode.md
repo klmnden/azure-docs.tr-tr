@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake araçları Visual Studio kodunu kullanın
 
@@ -449,6 +449,10 @@ VS Code'da için Data Lake araçları aşağıdaki özellikleri destekler:
 
     ![Visual Studio Code sözdizimi için Data Lake araçları vurgular](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >Hazırlık için yeni genel veri koruma düzenleme (GDPR) 25 May 2018 üzerinde yürürlüğe giderek Visual Studio Code için Azure Data Lake araçları kullanıcılarının 0.2.13 sürüme yükseltmeniz önerilir veya daha sonra. Bu sürüm, en son veri koruma gereksinimlerine göre değişiklikleri içerir. Önceki sürümler için kullanılabilir değil Not indirin ve kullanım dışı bırakılmıştır. 
+ 
+   
 ## <a name="next-steps"></a>Sonraki adımlar
 - [U-SQL Python, R ve Azure Data Lake Analytics VSCode içinde CSharp ile geliştirme](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)

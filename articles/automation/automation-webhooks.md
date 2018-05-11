@@ -3,16 +3,17 @@ title: Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 description: Bir HTTP çağrısından Azure Otomasyon runbook'u başlatmak bir istemci izin veren bir Web kancası.  Bu makalede, bir Web kancası oluşturma ve bir runbook'u başlatmak için bir çağrı açıklanmaktadır.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4ea7366a02dd95fac5c1a7307e6156a0481fa16d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bb64d0c5d94bb198b6ece2ea50a7fc248b93c7dd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 A *Web kancası* , belirli bir runbook, tek bir HTTP isteği aracılığıyla Azure Otomasyonu'nda başlatmanıza olanak verir. Bu, Visual Studio Team Services, GitHub, Azure Log Analytics veya Azure Otomasyon API'sini kullanarak tam bir çözüm uygulama olmadan runbook'ları başlatmak için özel uygulamalar gibi dış hizmetler sağlar.  
@@ -27,7 +28,7 @@ Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gerekir özellik
 |:--- |:--- |
 | Ad |Bu istemciye gösterilmez bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz.  Yalnızca sizin için Azure Automation runbook tanımlamak için kullanılır. <br>  En iyi uygulama, Web kancası kullanacağı istemcisiyle ilgili bir ad vermeniz gerekir. |
 | URL'si |Web kancası URL'si için Web kancası bağlı runbook'u başlatmak için bir HTTP POST ile bir istemci çağıran benzersiz adrestir.  Web kancası oluşturduğunuzda otomatik olarak oluşturulur.  Özel bir URL belirtemezsiniz. <br> <br>  URL runbook'un başka kimlik doğrulama ile üçüncü taraf sistemleri tarafından çağrılan izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi değerlendirilmelidir.  Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL unutmamalısınız. |
-| Sona erme tarihi |Bir sertifika gibi her Web kancası aynı zamanda bu artık kullanılabilir bir sona erme tarihi vardır.  Web kancası oluşturulduktan sonra bu süre sonu tarihi değiştirilebilir. |
+| Son kullanma tarihi |Bir sertifika gibi her Web kancası aynı zamanda bu artık kullanılabilir bir sona erme tarihi vardır.  Web kancası oluşturulduktan sonra bu süre sonu tarihi değiştirilebilir. |
 | Etkin |Bir Web kancası oluşturulduğunda varsayılan olarak etkindir.  Devre dışı olarak ayarlarsanız, hiçbir istemci kullanmak mümkün olacaktır.  Ayarlayabileceğiniz **etkin** Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda özelliği oluşturulur. |
 
 ### <a name="parameters"></a>Parametreler
@@ -101,7 +102,7 @@ Bir Web kancası oluşturulduktan sonra kullanmak için istemci uygulamanız bir
 | 202 |Kabul Edildi |İstek kabul edildi ve runbook başarıyla sıraya alındı. |
 | 400 |Hatalı İstek |İstek aşağıdaki nedenlerden birinden dolayı kabul edilmedi. <ul> <li>Web kancası süresi doldu.</li> <li>Web kancası devre dışı bırakılır.</li> <li>URL'deki belirteci geçersiz.</li>  </ul> |
 | 404 |Bulunamadı |İstek aşağıdaki nedenlerden birinden dolayı kabul edilmedi. <ul> <li>Web kancası bulunamadı.</li> <li>Runbook bulunamadı.</li> <li>Hesap bulunamadı.</li>  </ul> |
-| 500 |İç sunucu hatası |URL geçerli, ancak bir hata oluştu.  Lütfen isteği yeniden gönderin. |
+| 500 |İç Sunucu Hatası |URL geçerli, ancak bir hata oluştu.  Lütfen isteği yeniden gönderin. |
 
 İstek başarılı olduğunu varsayarak, Web kancası yanıt gibi JSON biçiminde iş kimliğini içerir. Tek iş kimliği yer alır ancak JSON biçimi için gelecekteki olası geliştirmeleri sağlar.
 

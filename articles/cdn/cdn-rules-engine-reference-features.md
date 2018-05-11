@@ -4,7 +4,7 @@ description: Azure CDN başvuru belgelerine altyapısı özellikleri kuralları.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,10 +12,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -1240,25 +1240,25 @@ Mutlak bir URL kullanmak için önerilir. Göreli bir URL kullanımı için geç
 
 **Örnek senaryo**
 
-Bu örnek, bir sınır bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme hakkında gösterir: http://marketing.azureedge.net/brochures
+Bu örnek, bir sınır bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme hakkında gösterir: http:\//marketing.azureedge.net/brochures
 
-Bu temel kenar CNAME URL istekleri uygun yönlendirilir: http://cdn.mydomain.com/resources
+İstekleri uygun bu temel kenar CNAME URL yönlendirilirsiniz: http:\//cdn.mydomain.com/resources
 
-Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![URL yeniden yönlendirme](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Önemli noktaları:**
 
 - İstek URL yeniden yönlendirme özelliğini tanımlar yönlendirilecek URL. Sonuç olarak, ek eşleme koşulları gerekli değildir. Eşleşme koşul "her zaman" tanımlandı ancak yalnızca "broşürler" klasörüne "Pazarlama" Müşteri kaynağındaki istekleri yönlendirilir. 
 - Eşleşen tüm istekleri hedef seçeneğinde CNAME URL tanımlanan ucunu yönlendirilir. 
     - Örnek Senaryo #1: 
-        - Örnek istek (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - İstek URL'si (sonra yeniden yönlendirme): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Örnek istek (CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - (Sonra yeniden yönlendirme) istek URL'si: http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Örnek Senaryo #2: 
-        - Örnek istek (Kenar CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - (Sonra yeniden yönlendirme) istek URL'si: http://cdn.mydomain.com/resources/widgets.pdf örnek senaryosu
+        - Örnek istek (Kenar CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - (Sonra yeniden yönlendirme) istek URL'si: http:\//cdn.mydomain.com/resources/widgets.pdf örnek senaryosu
     - Örnek Senaryo #3: 
-        - Örnek istek (Kenar CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - İstek URL'si (sonra yeniden yönlendirme): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Örnek istek (Kenar CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - (Sonra yeniden yönlendirme) istek URL'si: http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - İsteğin düzenini yeniden yönlendirmeden sonra değişmeden kalmasını sağlar hedef seçeneğinde istek düzeni (% {Şeması}) değişkeni yararlanır.
 - İstekten yakalanan URL kesimleri "$1." aracılığıyla yeni bir URL'ye eklenir
 
@@ -1282,17 +1282,17 @@ Seçenek|Açıklama
 
 **Örnek Senaryo 1**
 
-Bu örnek, bir sınır bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme gösterilmiştir: http://marketing.azureedge.net/brochures/
+Bu örnek bir kenar bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme gösterilmiştir: http:\//marketing.azureedge.net/brochures/
 
-Bu temel kenar CNAME URL istekleri uygun yönlendirilir: http://MyOrigin.azureedge.net/resources/
+İstekleri uygun bu temel kenar CNAME URL yönlendirilirsiniz: http:\//MyOrigin.azureedge.net/resources/
 
-Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![URL yeniden yönlendirme](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Örnek Senaryo 2**
 
 Bu örnekte, normal ifadeler kullanarak küçük büyük harf CNAME URL'den kenar yönlendirmek gösterilmiştir.
 
-Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![URL yeniden yönlendirme](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Önemli noktaları:**

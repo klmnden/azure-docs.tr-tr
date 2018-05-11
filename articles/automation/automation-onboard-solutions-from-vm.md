@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri bir Azure sanal makinenin
 
@@ -38,15 +38,21 @@ Diğer çözümleri gidin ve tıklayın **etkinleştirmek**, günlük analizi ve
 > [!NOTE]
 > **Değişiklik izleme** ve **stok** bir etkinleştirildiğinde aynı çözümü kullanan diğer de etkinleştirilir.
 
-## <a name="scope-configuration"></a>Kapsam yapılandırması
+## <a name="scope-configuration"></a>Kapsam Yapılandırması
 
 Her çözüm çözümünü edinme bilgisayarları hedeflemek için çalışma alanı içindeki bir kapsam yapılandırması kullanır. Kapsam yapılandırması belirli bilgisayarlara çözüm kapsamını sınırlamak için kullanılan bir veya daha fazla kayıtlı aramaları grubudur. Kapsam yapılandırmalarında Otomasyon hesabınızın altında erişmek için **ilgili kaynaklar**seçin **çalışma** altında çalışma alanında sonra **çalışma veri KAYNAKLARINI**, seçin **kapsam yapılandırmaları**.
 
-Varsayılan olarak oluşturulan iki kapsam yapılandırmaları **MicrosoftDefaultScopeConfig ChangeTracking** ve **MicrosoftDefaultScopeConfig güncelleştirmeleri**.
+Seçilen çalışma alanı yoksa, güncelleştirme yönetimi veya değişiklik izleme çözümü henüz, aşağıdaki kapsam yapılandırmaları oluşturulur:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig güncelleştirmeleri**
+
+Seçilen çalışma alanı zaten çözümü vardır. Çözümü yeniden dağıtılmadığı ve kapsam yapılandırması için eklenmez.
 
 Tüm yapılandırmaları seçin ve üç nokta (...) tıklatın **Düzenle**. Üzerinde **Düzen kapsam yapılandırması** sayfasında, **bilgisayar grupları Seç** açmak için **bilgisayar grupları** sayfası. Bu sayfa, kapsam yapılandırması oluşturmak için kullanılan Kaydedilmiş aramaları gösterir.
 
-## <a name="saved-searches"></a>Kaydedilen aramalar
+## <a name="saved-searches"></a>Kayıtlı aramalar
 
 Bir bilgisayarı güncelleştirme yönetimi ya da değişiklik izleme ve stok çözümleri eklendiğinde, iki Kaydedilmiş aramaları çalışma alanınızdaki birine eklenir. Kaydedilen aramalar için bu çözümleri hedeflenen bilgisayarları içeren sorgular var.
 
@@ -59,7 +65,7 @@ Seçin ve çalışma alanına gidin **kayıtlı aramalar** altında **genel**. A
 
 Grup doldurmak için kullanılan sorguyu görüntülemek için kaydedilmiş ya da Ara'yı seçin. Aşağıdaki resimde, sorgu ve sonuçları gösterilmektedir.
 
-![Kaydedilen aramalar](media/automation-onboard-solutions-from-vm/logsearch.png)
+![Kayıtlı aramalar](media/automation-onboard-solutions-from-vm/logsearch.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

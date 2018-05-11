@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: a6cd67e4f3c3ab58b83d2ebadbe1856dd61b0f18
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 666253d16ac51dcc21174211f71794f8b0ede07d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -87,7 +87,7 @@ Bu işlem farklıdır [uzantısı işleyici olmadan güvenli yapılandırmaları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Alma bir [Azure DSC uzantısı işleyici giriş](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- İncelemek [DSC uzantısı için Azure Resource Manager şablonu](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Alma bir [Azure DSC uzantısı işleyici giriş](dsc-overview.md).
+- İncelemek [DSC uzantısı için Azure Resource Manager şablonu](dsc-template.md).
 - PowerShell DSC hakkında daha fazla bilgi için Git [PowerShell Belge Merkezi](/powershell/dsc/overview).
 - PowerShell DSC kullanarak yönetebilmeniz için daha fazla işlevsellik ve daha fazla DSC kaynakları Gözat [PowerShell Galerisi](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

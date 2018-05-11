@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tablolarda istatistikleri güncelleştirmeyi oluşturma
 Öneriler ve örnekleri oluşturma ve Azure SQL Data Warehouse tablolarda sorgu iyileştirme istatistikleri güncelleştirme.
@@ -22,24 +22,46 @@ ms.lasthandoff: 04/19/2018
 ## <a name="why-use-statistics"></a>İstatistikleri neden kullanılır?
 Azure SQL Data Warehouse verilerinizi hakkında daha fazla bilir, o kadar hızlı sorgular çalıştırabilirsiniz. Verilerinizi istatistikleri toplama ve SQL Data Warehouse'a veri yükleme sorgularınızı iyileştirmek için yapabileceğiniz en önemli şeyler biridir. SQL veri ambarı sorgu iyileştiricisi maliyet tabanlı iyileştirici olmasıdır. Çeşitli sorgu planlarını maliyetini karşılaştırır ve çoğu durumda hızlı yürütür planı olan en düşük maliyeti planla seçer. Sorgunuzda filtreleme tarih bir satır döndürülecek iyileştirici tahminleri varsa, seçilen tarihten tahminleri 1 milyon satır döndürür daha Örneğin, onu farklı bir plan seçebilirsiniz.
 
-Oluşturma ve istatistikleri güncelleştirme işlemi şu anda elle yapılan bir işlemdir, ancak yapmak basit bir işlemdir.  En kısa sürede otomatik olarak oluşturabilir ve tek sütunları ve dizinleri istatistikleri güncelleştirme olacaktır.  Aşağıdaki bilgileri kullanarak, verilerinizi istatistikleri yönetimini büyük ölçüde otomatikleştirebilirsiniz. 
+## <a name="automatic-creation-of-statistics"></a>İstatistikleri otomatik olarak oluşturulması
+Otomatik oluşturduğunuzda istatistikleri seçeneği, AUTO_CREATE_STATISTICS, SQL Data Warehouse için istatistikleri eksik olan sütunları tek sütun istatistikleri oluşturulduğu gelen kullanıcı sorgularının analiz eder. Sorgu iyileştiricisi sorgu planı için önem düzeyi tahminleri artırmak için sorgu koşulu veya birleşim koşulu tek tek sütunlarda İstatistikler oluşturur. İstatistikleri otomatik olarak oluşturulması şu anda varsayılan olarak açıktır.
 
-## <a name="scenarios"></a>Senaryolar
-Her sütunda örneklenen istatistikleri oluşturma başlamak için kolay bir yoludur. Güncel olmayan istatistikler için en iyi sorgu performansını sağlama. Ancak, verilerinizi büyüdükçe tüm sütunlarda istatistikleri güncelleştirmeyi bellek kullanabilir. 
+Veri ambarı bu aşağıdaki komutu çalıştırarak yapılandırılmış olup olmadığını denetleyebilirsiniz:
 
-Farklı senaryolar için öneriler şunlardır:
-| **Senaryo** | Öneri |
-|:--- |:--- |
-| **Kullanmaya başlama** | SQL veri ambarı'na taşıdıktan sonra tüm sütunları güncelleştirme |
-| **En önemli sütun istatistikleri için** | Karma dağıtım anahtarı |
-| **İkinci en önemli sütununda istatistikleri** | Bölüm anahtarı |
-| **Diğer önemli sütunlar için istatistikleri** | Tarih, sık birleştirir, GRUPLANDIRMA ölçütü HAVING ve nerede |
-| **İstatistiklerini güncelleştirme sıklığı**  | Koruyucu: günlük <br></br> Yükleme veya veri dönüştürme sonra |
-| **Örnekleme** |  1 milyondan az satırlara varsayılan örnekleme (yüzde 20) kullanın <br></br> 2-yüzde aralığı istatistiklerle 1 milyardan fazla satır ile iyi |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+Veri ambarınız yapılandırılmış AUTO_CREATE_STATISTICS yoksa, aşağıdaki komutu çalıştırarak bu özelliği etkinleştirmek öneririz:
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+Aşağıdaki deyimleri İstatistikleri otomatik olarak oluşturulmasını tetikleyecek: Seç, Ekle seçin, CTAS, güncelleştirme, silme ve açıklama bir birleştirme içerdiğinde veya bir koşul varlığını algılandı. 
+
+> [!NOTE]
+> İstatistikleri otomatik olarak oluşturulmasını, geçici veya dış tablolarda oluşturulmaz.
+> 
+
+Sütunlar için oluşturuldukları istatistikleri zaten yoksa hafif düşürülmüş sorgu performansı maruz kalabilirsiniz şekilde İstatistikleri otomatik olarak oluşturulması zaman uyumlu olarak oluşturulur. İstatistik oluşturma tablo boyutuna bağlı olarak tek bir sütun üzerinde birkaç saniye sürebilir. Ölçme performansı değerlendirmesi, özellikle de performans düşüşünü önlemek için istatistiği sistem profil önce Kıyaslama iş yükü yürüterek ilk oluşturulmuş emin olmalısınız.
+
+> [!NOTE]
+> İstatistikleri oluşturulmasını de kaydedilir [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) farklı bir kullanıcı bağlamında.
+> 
+
+Otomatik istatistik oluşturduğunuzda, formun sürer: _WA_Sys_< onaltılık 8 basamaklı sütun kimliği > _ < onaltılık 8 basamaklı tablo kimliği >. Aşağıdaki komutu çalıştırarak önceden oluşturulmuş istatistiklerini görüntüleyebilirsiniz:
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>İstatistikleri güncelleştirme
 
 Bir en iyi uygulama yeni tarihleri eklendikçe her gün güncelleştirmektir tarih sütunlarının ilgili istatistikler. Her zaman yeni satırlar veri ambarına yüklenir, yeni yükleme veya işlem tarihleri eklenir. Bu, veri dağıtımı değiştirmek ve istatistikleri güncel sağlamak. Değerlerin dağıtım genellikle değişmediğinden buna karşılık, bir müşteri tablosundaki Ülke sütunu istatistiklerle hiçbir zaman güncelleştirilmesi, gerekebilir. Dağıtım müşterileri arasında sabit olduğunu varsayarak, yeni satırlar için tablo değişim ekleme veri dağıtım değiştirmek için adımıdır değil. Ancak, veri Ambarınızı yalnızca bir ülkede varsa ve yeni bir ülkeden verilerde Getir depolanmakta, birden fazla ülkede verilerden sonuçta sonra Ülke sütunu istatistiklerle güncelleştirmeniz gerekir.
+
+İstatistikleri güncelleştirmeyi öneriler şunlardır:
+
+| **İstatistikleri güncelleştirmelerinin sıklığını** | Koruyucu: günlük <br></br> Yükleme veya veri dönüştürme sonra || **Örnekleme** |  1 milyondan az satırlara varsayılan örnekleme (yüzde 20) kullanın <br></br> 2-yüzde aralığı istatistiklerle 1 milyardan fazla satır ile iyi |
 
 Sorgu zaman gidermeye çalışıyorsanız sorulacak ilk sorular biri, **"istatistikleri güncel misiniz?"**
 

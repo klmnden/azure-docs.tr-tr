@@ -76,7 +76,6 @@
         - name: IPv6 ile genel Load Balancer oluşturma (Şablon)
           href: load-balancer-ipv6-internet-template.md
     - name: İç Load Balancer yapılandırma
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: İç Load Balancer yapılandırma (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

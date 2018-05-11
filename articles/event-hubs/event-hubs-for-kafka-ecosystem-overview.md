@@ -9,11 +9,11 @@ ms.service: event-hubs
 ms.workload: na
 ms.date: 05/07/2018
 ms.author: darosa
-ms.openlocfilehash: 72a8dc074cbc0b1e34cbce91c14085124716b44b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 40805c27e7e2eaef1932c967af2d291f67b4192d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-for-kafka-ecosystems"></a>Event Hubs Kafka ekosistemlerini için
 
@@ -65,8 +65,8 @@ Olay hub'ları Kafka ekosistemlerini tümleştirmesi için genel önizlemesi iç
 
 Bu makalede ekosistemlerini Kafka için Event Hubs bir giriş sağlanır. Daha fazla bilgi için aşağıdaki bağlantılara bakın:
 
-* [Olay hub'ları Kafka oluşturma etkin](event-hubs-what-is-event-hubs.md)
-* [Olay hub'ları bir akışa, Kafka uygulamalardan](event-hubs-what-is-event-hubs.md)
+* [Olay hub'ları Kafka oluşturma etkin](event-hubs-create-kafka-enabled.md)
+* [Olay hub'ları bir akışa, Kafka uygulamalardan](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * [Event Hubs öğreticisi](event-hubs-dotnet-standard-getstarted-send.md) ile çalışmaya başlayın
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 

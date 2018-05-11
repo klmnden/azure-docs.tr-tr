@@ -29,6 +29,8 @@
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Şablon](tutorial-autoscale-template.md)
+## Özel Packer görüntüsüyle uygulamaları bir Azure sanal makine ölçek kümesine dağıtma
+### [Azure CLI 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Örnekler
 ## [Azure CLI 2.0](cli-samples.md)

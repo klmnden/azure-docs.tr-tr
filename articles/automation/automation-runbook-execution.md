@@ -3,20 +3,23 @@ title: Azure Otomasyonu Runbook yürütme
 description: Azure automation'da bir runbook nasıl işleneceğini ayrıntılarını açıklar.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 05/08/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 286c23e95f030f92b67e8a505905d11d6ece0297
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a6a429b85e0d7522e5840a0ad020d12f4f4d471e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Otomasyonu Runbook yürütme
 
 Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş bir runbook tek yürütme örneğidir. Bir Azure Otomasyonu çalışan her bir iş çalıştırmak için atanır. Çalışan birden çok Azure paylaştığı olsa da, farklı Automation hesapları işlerden birbirinden yalıtılır. Değil sahip denetim işinizi isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan birden çok iş bulunabilir. Aynı Otomasyon hesabı işlerden yürütme ortamı yeniden kullanılabilir. Azure portalında listesini görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek için her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklaması [iş durumları](#job-statuses).
+
+[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Aşağıdaki diyagramda bir runbook işi için yaşam döngüsü gösterilmektedir [grafik runbook'lar](automation-runbook-types.md#graphical-runbooks) ve [PowerShell iş akışı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -37,7 +40,7 @@ Aşağıdaki tabloda, bir iş için olası farklı durumlarını tanımlar.
 | Tamamlandı |İş başarıyla tamamlandı. |
 | Başarısız |İçin [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md), runbook derlenemedi. İçin [PowerShell Betiği runbook'ları](automation-runbook-types.md), runbook başlatılamadı veya iş bir özel durumla karşılaştı. |
 | Başarısız oldu, kaynaklar bekleniyor |İşi başarısız oldu, ulaştığından [Orta paylaşımı](#fair-share) sınırlamak üç kez ve her zaman aynı denetim noktasından veya runbook'un başından başlatıldı. |
-| Kuyruğa alındı |İş başlatılabilir başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
+| Sıraya Alındı |İş başlatılabilir başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
 | Başlatılıyor |İş bir çalışana atandı ve bunu başlatma işleminde sistemidir. |
 | Sürdürülüyor |Askıya alındıktan sonra işi sürdürme işleminde sistemidir. |
 | Çalışıyor |İşi çalışıyor. |

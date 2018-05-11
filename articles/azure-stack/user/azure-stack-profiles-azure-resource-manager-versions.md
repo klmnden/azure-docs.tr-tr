@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure yığınında profilleri tarafından desteklenen kaynak sağlayıcısı API sürümleri
 
@@ -30,7 +30,7 @@ API profili üç adlandırma kuralları kullanır:
 
 Bir açıklaması API profilleri ve sürüm yayın tempoyla için Azure yığınının bkz [yönetmek API sürümü profilleri Azure yığınında](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > **Son** API profili kaynak sağlayıcısı API sürümü son içeriyor ve bu makalede listelenmez.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>2018-03-01-karma genel bakış
@@ -96,7 +96,7 @@ Rol tabanlı erişim denetimi, kuruluşunuzdaki kullanıcılar üzerindeki kayna
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
-| Kaynak Türü | API sürümü |
+| Kaynak Türü | API Sürümü |
 |----------------------------------|----------------------|
 | Temsilci sağlayıcısı abonelikleri | 2015-06-01 - Önizleme |
 | Temsilci kullanımını toplar | 2015-06-01 - Önizleme |
@@ -109,7 +109,7 @@ Rol tabanlı erişim denetimi, kuruluşunuzdaki kullanıcılar üzerindeki kayna
 
 Azure işlem API'leri sanal makineleri ve destekleyici kaynaklarına programlı erişim verin. Daha fazla bilgi için bkz: [Azure işlem](https://docs.microsoft.com/rest/api/compute/).
 
-| Kaynak Türü | API sürümü |
+| Kaynak Türü | API Sürümü |
 |---------------------------------------------------------------|-------------|
 | Kullanılabilirlik Kümeleri | 2016-03-30 |
 | Konumlar | 2016-03-30 |
@@ -128,7 +128,7 @@ Azure işlem API'leri sanal makineleri ve destekleyici kaynaklarına programlı 
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
-| Kaynak Türü | API sürümü |
+| Kaynak Türü | API Sürümü |
 |------------------|-------------|
 | Seçki | 2015-04-01 |
 | Seçki İçeriği | 2015-04-01 |
@@ -244,7 +244,7 @@ Depolama kaynak Sağlayıcısı'ni (SRP), depolama hesabı ve anahtarları progr
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-| Kaynak Türü | API sürümü |
+| Kaynak Türü | API Sürümü |
 |---------------------------------------------------------------|-------------|
 | Kullanılabilirlik Kümeleri | 2016-03-30 |
 | Konumlar | 2016-03-30 |

@@ -62,7 +62,7 @@
 ### [StorSimple öğrenme haritası](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-8000-security.md)
 ### [Bölge kullanılabilirliği](storsimple-regions.md)
-### [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## başlarken
 
@@ -189,10 +189,11 @@
 ## Sürüm notları
 ### [Güncelleştirme 5 - geçerli](storsimple-update5-release-notes.md)
 ### [Güncelleştirme 4](storsimple-update4-release-notes.md)
-### [Güncelleştirme 3](storsimple-update3-release-notes.md)
-### [Güncelleştirme 2.2](storsimple-update21-release-notes.md)
+
 
 ### Arşiv
+#### [Güncelleştirme 3](storsimple-update3-release-notes.md)
+#### [Güncelleştirme 2.2](storsimple-update21-release-notes.md)
 #### [Güncelleştirme 2](storsimple-update2-release-notes.md)
 #### [Güncelleştirme 1](storsimple-update1-release-notes.md)
 #### [Güncelleştirme 0.3](storsimple-february-2015-release-notes.md)

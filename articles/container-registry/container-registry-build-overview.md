@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>İşletim sistemi ve framework ACR yapısı ile düzeltme eki uygulama otomatikleştirme
 
@@ -20,8 +20,7 @@ Kapsayıcılar sanallaştırma, uygulama ve geliştirici bağımlılıklardan al
 
 **ACR yapı**, Azure kapsayıcı kayıt defteri, özeliklerin dizisi değil yalnızca yerel kapsayıcı görüntü yapı özelliği sağlar, ancak ayrıca otomatikleştirir [işletim sistemi ve framework düzeltme eki uygulama](#automate-os-and-framework-patching) Docker kapsayıcıları için.
 
-> [!IMPORTANT]
-> ACR yapı içinde şu anda önizlemede değil ve yalnızca Azure kapsayıcı defteri girdilerinde tarafından desteklenen **Doğu ABD** ve **Batı Avrupa** bölgeleri. Önizlemeler kullanılabilir hale getirilir size kabul ettiğiniz koşuluyla [ek kullanım koşulları][terms-of-use]. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="what-is-acr-build"></a>ACR yapı nedir?
 
@@ -73,7 +72,6 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR yapı dinamik olarak temel g�
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

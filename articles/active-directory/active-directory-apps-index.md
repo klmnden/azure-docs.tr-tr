@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2180c0da4dc77e854a9b73eb31472feae7c7c3ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -30,9 +30,9 @@ Aşağıdaki makaleleri iyi yalnızca Azure AD uygulama yönetimi özelliklerind
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Azure AD çözdü uygulama yönetimi sorunları giriş |[Azure Active Directory (AD) ile uygulamaları yönetme](active-directory-enable-sso-scenario.md) |
+| Azure AD çözdü uygulama yönetimi sorunları giriş |[Azure Active Directory (AD) ile uygulamaları yönetme](manage-apps/what-is-application-management.md) |
 | Uygulamalara kimlerin erişebileceğini ve kullanıcıların uygulamaları nasıl başlatma tanımlama Azure ad çoklu oturum açma, etkinleştirme ile ilgili çeşitli özelliklere genel bakış |[Uygulama erişimi ve Azure Active Directory'de çoklu oturum açma](active-directory-appssoaccess-whatis.md) |
-| Farklı adımlar uygulamaları Azure AD ile tümleştirdiğinizde bakma |[Azure Active Directory uygulamaları ile tümleştirme](active-directory-integrating-applications-getting-started.md)<br /><br />[Çoklu oturum açma SaaS uygulamaları için etkinleştirme](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md) |
+| Farklı adımlar uygulamaları Azure AD ile tümleştirdiğinizde bakma |[Azure Active Directory uygulamaları ile tümleştirme](manage-apps/plan-an-application-integration.md)<br /><br />[Çoklu oturum açma SaaS uygulamaları için etkinleştirme](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md) |
 | Uygulamaları Azure AD'de nasıl temsil edildiğini bir teknik açıklama |[Neden ve nasıl uygulamaları için Azure AD eklenir](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Sorun giderme makaleleri
@@ -78,8 +78,8 @@ Parola tabanlı çoklu oturum açma için kullanıcı başına en fazla on uygul
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Azure AD uygulama proxy'si ve nasıl çalıştığı genel bakış |[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](active-directory-application-proxy-get-started.md) |
-| Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](active-directory-application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](active-directory-application-proxy-silent-installation.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](active-directory-application-proxy-publish.md)<br /><br />[Kendi etki alanı adınızı kullanma](active-directory-application-proxy-custom-domains.md) |
+| Azure AD uygulama proxy'si ve nasıl çalıştığı genel bakış |[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](manage-apps/application-proxy.md) |
+| Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](active-directory-application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](active-directory-application-proxy-silent-installation.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md)<br /><br />[Kendi etki alanı adınızı kullanma](active-directory-application-proxy-custom-domains.md) |
 | Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](application-proxy-enable-remote-access-sharepoint.md) |
 | Aşağıdaki senaryolar için uygulama proxy'si kullanma hakkında yönergeler |[Yerel istemci uygulamaları destekleme](active-directory-application-proxy-native-client.md)<br /><br />[Talep kullanan uygulama destekleme](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ayrı ağlar ve konumları yayımlanan uygulamalar destekleme](active-directory-application-proxy-connectors-azure-portal.md) |
 | Uygulama proxy'si için sorun giderme kılavuzu |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
@@ -121,7 +121,7 @@ Cloud App Discovery hangi SaaS uygulamaları kuruluş genelinde kullanılan öğ
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Nasıl çalıştığına ilişkin genel bir bakış |[Cloud App Discovery ile bulut uygulamaları tasdik bulma](active-directory-cloudappdiscovery-whatis.md) |
+| Nasıl çalıştığına ilişkin genel bir bakış |[Cloud App Discovery ile bulut uygulamaları tasdik bulma](manage-apps/cloud-app-discovery.md) |
 | Derin Dalış nasıl içine, gizlilik hakkında sorular için yanıtlar ile çalışır |[Güvenlik ve gizlilik konuları](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | Sık Sorulan Sorular |[Cloud App Discovery hakkında SSS](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | Cloud App Discovery dağıtmak için öğreticileri |[Grup İlkesi Dağıtım Kılavuzu](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center Dağıtım Kılavuzu](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Proxy sunucuları özel bağlantı noktaları ile yükleme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |

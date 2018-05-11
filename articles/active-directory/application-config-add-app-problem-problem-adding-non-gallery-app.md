@@ -1,11 +1,11 @@
 ---
 title: Bir galeri olmayan uygulama eklenirken hata | Microsoft Docs
-description: "Sık karşılaşılan sorunları kişiler yüz Özel Galeri olmayan uygulamaları eklerken anlama"
+description: Sık karşılaşılan sorunları kişiler yüz Özel Galeri olmayan uygulamaları eklerken anlama
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 9abc05dd835d2ec803e32351c75534ebe628a8d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3d54a9bccdf3f940959c2cbe3f85bd5fddff68e1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Bir galeri olmayan uygulama eklenirken hata
 
-Bu makale ortak sorunları kişiler yüz eklerken anlamanıza yardımcı **Özel Galeri olmayan uygulamalar** ve bunları gidermek için yapabilirsiniz. 
+Bu makalede, eklerken ortak sorunları kişiler yüzünü anlamanıza yardımcı olur **Özel Galeri olmayan uygulamalar** ve bunları gidermek için yapabilirsiniz. 
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"Ekle" düğmesine tıklandığında ve uygulamamın görünür uzun sürdü
 
-Bazı durumlarda, 1-2 dakika alabilir (ve bazı durumlarda daha uzun) uygulamanın dizininize eklendikten sonra görünür. Bu normal beklenen performans olmamasına karşın, uygulama eklenmesi ediyor tıklayarak görebilirsiniz **bildirimleri** (zil) simgesine sağ üst tarafındaki [Azure Portal](https://portal.azure.com/) ve aramakta bir **sürüyor** veya **tamamlandı** etiketli bildirim **uygulaması oluşturma**.
+Bazı durumlarda, 1-2 dakika alabilir (ve bazı durumlarda daha uzun) uygulamanın dizininize eklendikten sonra görünür. Bu normal beklenen performans olmamasına karşın, uygulama eklenmesi ediyor tıklayarak görebilirsiniz **bildirimleri** (zil) simgesine sağ üst tarafındaki [Azure portal](https://portal.azure.com/) ve aranıyor için bir **sürüyor** veya **tamamlandı** etiketli bildirim **uygulaması oluşturma**.
 
-Uygulamanızı hiçbir zaman eklenir veya tıklatıldığında hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla bilgi edinmek veya destek engingeer ile paylaşmak için hata hakkında daha fazla ayrıntı isterseniz içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirim ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
+Uygulamanızı hiçbir zaman eklenir veya tıklatıldığında hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla bilgi edinmek veya destek mühendisine ile paylaşmak için hata hakkında daha fazla ayrıntı isterseniz içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirim ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>"Ekle" düğmesine tıklandığında ve uygulamamın görünmedi
 
-Bazı durumlarda, geçici sorunlar nedeniyle ağ sorunları veya bir hata, bir uygulama başarısız ekleniyor. Tıkladığınızda böyle anlayabilirsiniz **bildirimleri** (zil) simgesine sağ üst tarafındaki Azure Portalı'nı ve bir kırmızı (!) simgesi yanına bakın, **uygulaması oluşturma** bildirim. Bu, uygulama oluştururken bir hata oluştu gösterir.
+Bazı durumlarda, geçici sorunlar nedeniyle ağ sorunları veya bir hata, bir uygulama başarısız ekleniyor. Tıkladığınızda böyle anlayabilirsiniz **bildirimleri** (zil) simgesine sağ üst tarafındaki Azure portalı ve bir kırmızı (!) simgesi yanına bakın, **uygulaması oluşturma** bildirim. Bu, uygulama oluştururken bir hata oluştu gösterir.
 
-Tıklatıldığında bir hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla bilgi edinmek veya destek engingeer ile paylaşmak için hata hakkında daha fazla ayrıntı isterseniz içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirim ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
+Tıklatıldığında bir hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla bilgi edinmek veya destek mühendisine ile paylaşmak için hata hakkında daha fazla ayrıntı isterseniz içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirim ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Bunu ekledikten sonra my uygulamayı kurmak nasıl çıkılacağını bilmiyoruz
 
@@ -52,9 +52,7 @@ Aşağıdaki adımları izleyerek herhangi bir portal bildirim ayrıntılarını
    >
    >
 
-3.  Bu açık **bildirim ayrıntıları** dikey.
-
-4.  Bu bilgileri kullanın kendinize sorun hakkında daha fazla ayrıntı anlayın.
+4.  Altındaki bilgileri kullanın **bildirim ayrıntıları** sorun hakkında daha fazla ayrıntı anlamak için.
 
 5.  Hala yardıma ihtiyacınız varsa, bu bilgiler sorununuzu Yardım almak için bir destek mühendisine veya ürün grubu ile paylaşabilirsiniz.
 
@@ -66,7 +64,7 @@ Paylaştığınız çok önemlidir **aşağıda listelenen tüm ayrıntıları**
 
 ## <a name="notification-details-explained"></a>Açıklanan bildirim ayrıntıları
 
-Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini örnekleri verir aşağıda açıklanmaktadır.
+Aşağıdaki açıklamaları bildirimleri hakkında daha fazla ayrıntı için bkz.
 
 ### <a name="essential-notification-items"></a>Temel bildirim öğeleri
 
@@ -95,7 +93,7 @@ Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini ö
 
 -   **UPN** – işlemi gerçekleştiren kullanıcı
 
-   *  Örnek –**tperkins@f128.info**
+   *  Örnek – **tperkins@f128.info**
 
 -   **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu Kiracı benzersiz kimliği
 
@@ -121,14 +119,15 @@ Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini ö
 
 -   **Ayrıntılar** – ayrıntılı ne işlem sonucunda oluşan açıklaması
 
-   *  Örnek – **iç url 'http://bing.com/', zaten kullanımda olduğundan geçersiz**
+   *  Örnek – **iç url 'http://bing.com/' zaten kullanımda olduğundan geçerli değil**
 
--   **Kopyalama hatası** – tıklatın **Kopyala simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendislik ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu
+-   **Kopyalama hatası** – tıklatın **Kopyala simgesi** sağındaki **kopyalama hatası** bir destek veya ürün grubu ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu 
+-   Mühendislik
 
-   *  Örnek```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+   *  Örnek ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Active Directory ile uygulamaları yönetme](active-directory-enable-sso-scenario.md)
+[Uygulamaları Azure Active Directory ile yönetme](manage-apps/what-is-application-management.md)
 
 
 

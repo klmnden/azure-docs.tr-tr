@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>Hızlandırıcı yazma
 Hızlandırıcı bir disk özelliği için M-serisi sanal makinelerde (VM'ler) yönetilen Azure disklerle Premium depolama özel olarak yazma. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. Hızlandırıcı ideal burada günlük dosyası güncelleştirmelerini diske modern veritabanları için yüksek oranda kullanıcı şekilde kalıcı hale getirmek için gereken uygun yazma.
@@ -164,6 +164,21 @@ Yazma Hızlandırıcı önbelleğe alma ayarları diskinizin belirlediğiniz Por
 
 ![Azure Portal'da Hızlandırıcı yazma](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### <a name="enabling-through-azure-cli"></a>Azure CLI aracılığıyla etkinleştirme
+Kullanabileceğiniz [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) yazma Hızlandırıcı etkinleştirmek için. 
+
+Varolan bir diske yazma Hızlandırıcı etkinleştirmek için lütfen aşağıda diskName, VMName ve kaynak grubu kendi için değiştirerek komutunu kullanın: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+Disk yazma Hızlandırıcı ile eklemek için kullanım etkin değerlerinizi komutuyla altında:
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+Hızlandırıcı yazma devre dışı bırakmak için özelliğini false olarak ayarlayın: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>REST API'leri aracılığıyla etkinleştirme
 Azure Rest API aracılığıyla dağıtmak için Azure armclient yüklemeniz gerekir

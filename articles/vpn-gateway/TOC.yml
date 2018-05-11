@@ -8,6 +8,8 @@
   items:
     - name: VPN ağ geçidi oluşturma ve yönetme
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+    - name: S2S VPN bağlantıları oluşturma ve yönetme
+      href: vpn-gateway-tutorial-vpnconnection-powershell.md
 - name: Örnekler
   items:
     - name: Azure PowerShell

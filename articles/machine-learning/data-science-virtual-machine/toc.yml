@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: Coğrafi AI Veri Bilimi VM'si kullanma
       href: use-geo-ai-dsvm.md
+- name: Kurumsal kılavuz
+  items:
+    - name: Genel Bakış
+      href: dsvm-enterprise-overview.md
+    - name: Ölçeklendirme
+      href: dsvm-pools.md
+    - name: Active Directory Tümleştirmesi
+      href: dsvm-common-identity.md
+    - name: Kaynak erişim kimlik bilgilerini koruma
+      href: dsvm-secure-access-keys.md
 - name: Başvuru
   expanded: true
   items:

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme O.C. ile Etikan - AppreciateHub | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile O.C. arasında yapılandırmayı öğrenin Etikan - AppreciateHub."
+title: 'Öğretici: Azure Active Directory Tümleştirme O.C. ile Etikan - AppreciateHub | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile O.C. arasında yapılandırmayı öğrenin Etikan - AppreciateHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ae98e6fce3507e023a72cab35894c7c2f7a87656
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d643a9ad6dd2b19fc3b8932b80d416fbc62d7a3
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Öğretici: Azure Active Directory Tümleştirme O.C. ile Etikan - AppreciateHub
 
@@ -31,7 +31,7 @@ O.C. tümleştirme Etikan - AppreciateHub Azure AD ile aşağıdaki faydaları s
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme O.C. ile yapılandırmak için Etikan - AppreciateHub, aşağıdaki öğeleri gerekir:
 
@@ -110,12 +110,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirme ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
+    a. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.octanner.net/sp/ACS.saml2`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer ile gerçek yanıt URL'si güncelleştirin. Kişi [O.C. Etikan - AppreciateHub destek ekibi](mailto:sso@octanner.com) bu değeri alınamıyor.
 
-    b. Aşağıdaki bağlantıyı kullanarak meta veri dosyası açın: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
+    b. Aşağıdaki bağlantıyı kullanarak meta veri dosyası açın: [ https://fed.appreciatehub.com/fed/sp/metadata ](https://fed.appreciatehub.com/fed/sp/metadata).
    
     c. Bulun **md:AssertionConsumerService** düğümü. 
    
@@ -168,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-oc-tanner---appreciatehub-test-user"></a>Bir O.C. oluşturma Etikan - AppreciateHub test kullanıcısı
 

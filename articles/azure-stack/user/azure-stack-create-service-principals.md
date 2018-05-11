@@ -1,6 +1,6 @@
 ---
 title: Azure yığını için bir hizmet sorumlusu oluşturma | Microsoft Docs
-description: Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilecek yeni bir hizmet sorumlusu oluşturmak açıklar.
+description: Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir bir hizmet sorumlusu oluşturmayı açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -11,121 +11,155 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2018
+ms.date: 04/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0517c85c62aaffd1055206120281c7b7de31ad82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Azure yığın uygulama erişim sağlamak
+# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Uygulamaları Azure yığın kaynaklar için hizmet asıl adı oluşturarak erişmenizi
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bir uygulama dağıtmak veya Azure yığınında kaynakları aracılığıyla Azure Kaynak Yöneticisi'ni yapılandırmak için erişim gerektiğinde, uygulamanız için bir kimlik bilgisi olan bir hizmet sorumlusu oluşturun.  Ardından, bu hizmet sorumlusunun yalnızca gerekli izinleri atayabilirsiniz.  
+Bir hizmet asıl Azure Resource Manager kullanan oluşturarak Azure yığın kaynakları için bir uygulama erişim verebilirsiniz. Bir hizmet sorumlusu kullanarak temsilci belirli izinleri sağlar [rol tabanlı erişim denetimi](azure-stack-manage-permissions.md).
 
-Örnek olarak, Azure Resource Manager Azure kaynaklarını stok için kullandığı yapılandırma yönetim aracı olabilir.  Bu senaryoda, bir hizmet sorumlusu oluşturmak, bu hizmet sorumlusunun okuyucu rolüne verin ve yapılandırma Yönetim Aracı'na salt okunur erişimi sınırlamak. 
+En iyi uygulama, uygulamalarınız için hizmet asıl adı kullanmanız gerekir. Hizmet asıl adı aşağıdaki nedenlerle kendi kimlik bilgilerini kullanarak bir uygulamayı çalıştıran için tercih edilir:
 
-Hizmet sorumluları çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
+* Hizmet sorumlusu kendi hesap izinlerini farklı olan izinleri atayabilirsiniz. Genellikle, bir hizmet sorumlusuna ilişkin izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır.
+* Rol veya sorumlulukları uygulamanın kimlik bilgilerini değiştirirseniz gerekmez.
+* Katılımsız betik çalıştırıldığında, kimlik doğrulama otomatikleştirmek için bir sertifika kullanabilirsiniz.
 
-* Hizmet sorumlusu kendi hesap izinlerini farklı olan izinleri atayabilirsiniz. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır.
-* Sizin Sorumluluklarınız uygulamanın kimlik bilgilerini değiştirirseniz gerekmez.
-* Katılımsız betik yürütülürken kimlik doğrulaması otomatikleştirmek için bir sertifika kullanabilirsiniz.  
+## <a name="example-scenario"></a>Örnek senaryo
+
+Azure Resource Manager kullanarak Azure kaynaklarına stok için gereken bir yapılandırma yönetim uygulaması sahip. Bir hizmet sorumlusu oluşturma ve okuyucu rolüne atayın. Bu rol için Azure kaynaklarını uygulama salt okunur erişim sağlar.
 
 ## <a name="getting-started"></a>Başlarken
 
-Nasıl Azure yığın dağıttığınız bağlı olarak, bir hizmet asıl oluşturmaya başlayın.  Bu belge, her ikisi için de bir hizmet sorumlusu oluşturma size rehberlik eder [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) ve [Active Directory Federasyon Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Hizmet sorumlusu oluşturduktan sonra AD FS ile Azure Active Directory için ortak adımlar kümesi için kullanılan [temsilci izinleri](azure-stack-create-service-principals.md#assign-role-to-service-principal) rolü.     
+Bir kılavuz olarak bu makaledeki adımları kullanın:
 
-## <a name="create-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusu oluşturma
+* Uygulamanız için bir hizmet sorumlusu oluşturun.
+* Uygulamanızı kaydetmenizi ve bir kimlik doğrulama anahtarı oluşturun.
+* Uygulamanız için bir rol atayın.
 
-Azure AD kimlik deposu olarak kullanarak Azure yığın dağıttıktan sonra Azure için gibi hizmet asıl adı oluşturabilirsiniz.  Bu bölümde, portal üzerinden adımların nasıl gerçekleştirileceğini gösterir.  Sahip olduğunuz onay [gereken Azure AD izinler](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) başlamadan önce.
+Bir hizmet sorumlusu oluşturma Azure yığını için Active Directory yapılandırılmış şeklini belirler. Aşağıdaki seçeneklerden birini seçin:
+
+* Bir hizmet için asıl oluşturma [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
+* Bir hizmet için asıl oluşturma [Active Directory Federasyon Hizmetleri (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+
+Bir hizmet sorumlusu bir rol aynı Azure için atama adımlarını AD ve AD FS. Hizmet sorumlusu oluşturduktan sonra şunları yapabilirsiniz [temsilci izinleri](azure-stack-create-service-principals.md#assign-role-to-service-principal) rol atama tarafından.
+
+## <a name="create-a-service-principal-for-azure-ad"></a>Azure AD için bir hizmet sorumlusu oluşturma
+
+Azure yığın kimlik deposu olarak Azure AD kullanıyorsa, bir hizmet asıl Azure portalını kullanarak Azure, olduğu gibi aynı adımları kullanarak oluşturabilirsiniz.
+
+>[!NOTE]
+Sahip olduğunuz denetleyin [gereken Azure AD izinler](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) bir hizmet sorumlusu oluşturmaya başlamadan önce.
 
 ### <a name="create-service-principal"></a>Hizmet sorumlusu oluşturma
-Bu bölümde, uygulamanızın temsil edecek Azure AD'de uygulama (hizmet sorumlusu) oluşturma.
+
+Uygulamanız için bir hizmet sorumlusu oluşturmak için:
 
 1. Oturum açtığınızda Azure hesabınız üzerinden [Azure portal](https://portal.azure.com).
-2. Seçin **Azure Active Directory** > **uygulama kayıtlar** > **Ekle**   
+2. Seçin **Azure Active Directory** > **uygulama kayıtlar** > **Ekle**.
 3. Uygulama için bir ad ve URL sağlayın. Şunlardan birini seçin **Web uygulaması / API** veya **yerel** oluşturmak istediğiniz uygulama türü için. Değerleri ayarladıktan sonra Seç **oluşturma**.
 
-Uygulamanız için bir hizmet sorumlusu oluşturdunuz.
+### <a name="get-credentials"></a>Kimlik bilgilerini al
 
-### <a name="get-credentials"></a>Kimlik bilgilerini alma
-Program aracılığıyla oturum açarken uygulamanız ve bir kimlik doğrulama anahtarı kimliği kullanın. Bu değerleri almak için aşağıdaki adımları kullanın:
+Program aracılığıyla oturum açarken kimliği uygulamanız ve bir kimlik doğrulama anahtarı için kullanın. Bu değerleri almak için:
 
 1. Gelen **uygulama kayıtlar** Active Directory'de uygulamanızı seçin.
 
-2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Uygulamalarda [örnek uygulamaları](#sample-applications) istemci kimliği olarak bu değer için bölümüne bakın.
+2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Uygulamalarda [örnek uygulamaları](#sample-applications) kullanmak **istemci kimliği** için söz konusu olduğunda **uygulama kimliği**.
 
-     ![istemci kimliği](./media/azure-stack-create-service-principal/image12.png)
+     ![Uygulama için uygulama kimliği](./media/azure-stack-create-service-principal/image12.png)
 3. Kimlik doğrulama anahtarını oluşturmak için **Anahtarlar**'ı seçin.
 
 4. Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
 
-Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Bu değeri kopyalayın çünkü daha sonra anahtarı alamazsınız. Uygulama kimliği ile uygulama olarak imzalamak için anahtar değeri sağlayın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
+>[!IMPORTANT]
+Anahtar, anahtar kaydettikten sonra **değeri** görüntülenir. Daha sonra anahtar alamadığından bu değeri yazın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
-![kaydedilen anahtar](./media/azure-stack-create-service-principal/image15.png)
+![Anahtar değeri uyarısı için kaydedilen anahtarı.](./media/azure-stack-create-service-principal/image15.png)
 
-
-Tamamlandıktan sonra devam [uygulamanızı rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Son adım [uygulamanızı rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusu oluşturma
-AD FS ile Azure yığın dağıttıysanız, bir hizmet sorumlusu oluşturma, erişim için bir rol atayın ve Powershell'den bu kimliğini kullanarak oturum açmak için PowerShell'i kullanabilirsiniz.
+
+Azure AD FS kimlik deposu olarak kullanarak yığın dağıtılmışsa, aşağıdaki görevler için PowerShell kullanabilirsiniz:
+
+* Bir hizmet sorumlusu oluşturun.
+* Hizmet sorumlusu bir role atayın.
+* Hizmet sorumlusunun kimliğini kullanarak oturum açın.
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
-[Yerel bilgisayarınıza Azure yığın ile çalışmak için gereken araçları indirin.](azure-stack-powershell-download.md)
+[Gereken Azure yığın Araçlar, yerel bilgisayarınıza indirin.](azure-stack-powershell-download.md)
 
 ### <a name="import-the-identity-powershell-module"></a>Kimlik PowerShell modülünü içeri aktarın
-Araçlar indirdikten sonra indirilen klasöre gidin ve aşağıdaki komutu kullanarak kimlik PowerShell modülünü içeri aktarın:
+
+Azure yığın araçları için yükleme klasörüne gidin ve aşağıdaki komutu kullanarak kimlik PowerShell modülünü içeri aktarın:
 
 ```PowerShell
 Import-Module .\Identity\AzureStack.Identity.psm1
 ```
 
-Modül içe aktardığınızda, "AzureStack.Connect.psm1 dijital olarak imzalanmamış. bildiren bir hata iletisi alabilirsiniz Komut dosyası sistemde çalıştırmaz". Bu sorunu gidermek için komut dosyasını yükseltilmiş bir PowerShell oturumunda aşağıdaki komutla çalıştırmaya izin vermek için yürütme ilkesi ayarlayabilirsiniz:
+Kimlik modülü içe aktardığınızda, bu hata iletisini alabilirsiniz: "AzureStack.Connect.psm1 dijital olarak imzalı değil. Komut dosyası sistemde çalıştırmaz".
+
+Bu sorunu gidermek için komut dosyası çalıştırmaya izin vermek için yürütme İlkesi yapılandırmanız gerekir. Yürütme ilkesini ayarlamak için yükseltilmiş bir PowerShell oturumunda aşağıdaki komutu çalıştırın:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
 ```
 
 ### <a name="create-the-service-principal"></a>Hizmet sorumlusunu oluşturma
-Bir hizmet sorumlusu aşağıdaki komutu çalıştırarak güncelleştirmek emin oluşturabileceğiniz *DisplayName* parametre:
+
+Bir hizmet sorumlusu aşağıdaki komutu çalıştırarak güncelleştirmek emin oluşturabileceğiniz **DisplayName** parametre:
+
 ```powershell
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
  -AdminCredential $(Get-Credential) `
  -AdfsMachineName "AZS-ADFS01" `
  -Verbose
-```
-### <a name="assign-a-role"></a>Rol atama
-Hizmet sorumlusu oluşturulduktan sonra şunları yapmalısınız [rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
-### <a name="sign-in-through-powershell"></a>PowerShell aracılığıyla oturum açın
-Bir rolü atadığınız sonra size Azure hizmet sorumlusu aşağıdaki komutla kullanarak yığınına oturum açabilirsiniz:
+```
+
+### <a name="assign-a-role"></a>Rol atama
+
+Hizmet sorumlusu oluşturduktan sonra şunları yapmalısınız [rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+
+### <a name="sign-in-using-powershell"></a>PowerShell kullanarak oturum açın
+
+Azure yığını için aşağıdaki komutu çalıştırarak güncelleştirmek emin oturum **EnvironmentName** parametresini, uygulamanızın adıyla:
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ApplicationId `
  -TenantId $directoryTenantId
 ```
 
-## <a name="assign-role-to-service-principal"></a>Hizmet sorumlusuna rolü atama
+## <a name="assign-the-service-principal-to-a-role"></a>Hizmet sorumlusu rol atama
+
 Aboneliğinizde kaynaklara erişmek için bir rol uygulamaya atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir rolleri hakkında bilgi edinmek için [RBAC: yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
-Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubu ve içerdiği tüm kaynaklar okuyabilir anlamına gelir.
+>[!NOTE]
+Abonelik, bir kaynak grubu veya bir kaynak düzeyinde bir rolün kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. Örneğin, bir kaynak grubu için okuyucu rolüne sahip bir uygulama, uygulama kaynakların kaynak grubunda okuyabilir anlamına gelir.
 
-1. Azure yığın Portalı'nda uygulamaya atamak istediğiniz kapsam düzeyine gidin. Örneğin, abonelik kapsamında bir rol atamak için seçin **abonelikleri**. Bunun yerine, bir kaynak grubu veya kaynak seçebilirsiniz.
+Aşağıdaki adımlar, bir rol için bir hizmet sorumlusu atamak için bir kılavuz olarak kullanın.
 
-2. Belirli bir abonelik (kaynak grubu veya kaynak) uygulama atamak için seçin.
+1. Azure yığın Portalı'nda uygulamaya atamak istediğiniz kapsam düzeyine gidin. Örneğin, abonelik kapsamında bir rol atamak için seçin **abonelikleri**.
 
-     ![atama için abonelik seçin](./media/azure-stack-create-service-principal/image16.png)
+2. Uygulamaya atamak istediğiniz aboneliği seçin. Bu örnekte, abonelik Visual Studio Enterprise ' dir.
 
-3. Seçin **erişim denetimi (IAM)**.
+     ![Atama için Visual Studio Enterprise aboneliği seçin](./media/azure-stack-create-service-principal/image16.png)
 
-     ![erişim seçin](./media/azure-stack-create-service-principal/image17.png)
+3. Seçin **erişim denetimi (IAM)** abonelik için.
+
+     ![Erişim denetimi seçin](./media/azure-stack-create-service-principal/image17.png)
 
 4. **Add (Ekle)** seçeneğini belirleyin.
 
@@ -133,9 +167,9 @@ Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha
 
 6. Uygulamanız için arayın ve seçin.
 
-7. Seçin **Tamam** rol atama tamamlamak için. Listenin uygulamanızda bu kapsam için bir rolüne atanan kullanıcıların bakın.
+7. Seçin **Tamam** rol atama tamamlamak için. Listenin uygulamanızda bu kapsam için bir rolüne atanan kullanıcıların görebilirsiniz.
 
-Bir hizmet sorumlusu oluşturulur ve bir rolü atanmış göre bu Azure yığın kaynaklara erişmek için uygulamanızdaki kullanmaya başlayabilirsiniz.  
+Bir hizmet sorumlusu oluşturulur ve bir rolü atanmış göre uygulamanızı Azure yığın kaynaklara erişebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

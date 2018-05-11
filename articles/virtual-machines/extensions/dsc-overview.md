@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 356356288823c86c77e46fdfba2cf81a7ef11e0d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -59,7 +59,7 @@ WMF yüklemek için yeniden başlatma gerekir. Yeniden başlattıktan sonra beli
 
 ### <a name="default-configuration-script"></a>Varsayılan yapılandırma betiği
 
-Azure DSC uzantısı olmaya yönelik bir varsayılan yapılandırma betiğini içerir kullanılır, yerleşik bir Azure Otomasyonu DSC hizmet VM. Betik parametrelerini yapılandırılabilir özellikleriyle hizalanır [yerel Configuration Manager](/powershell/dsc/metaconfig). Komut parametreleri için bkz: [varsayılan yapılandırma komut dosyası](extensions-dsc-template.md#default-configuration-script) içinde [istenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile](extensions-dsc-template.md). Tam komut dosyası için bkz: [github'da Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+Azure DSC uzantısı olmaya yönelik bir varsayılan yapılandırma betiğini içerir kullanılır, yerleşik bir Azure Otomasyonu DSC hizmet VM. Betik parametrelerini yapılandırılabilir özellikleriyle hizalanır [yerel Configuration Manager](/powershell/dsc/metaconfig). Komut parametreleri için bkz: [varsayılan yapılandırma komut dosyası](dsc-template.md#default-configuration-script) içinde [istenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile](dsc-template.md). Tam komut dosyası için bkz: [github'da Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC uzantı Resource Manager şablonları
 
@@ -155,6 +155,6 @@ Uzantı için günlükleri şu konumda depolanır: `C:\WindowsAzure\Logs\Plugins
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - PowerShell DSC hakkında daha fazla bilgi için Git [PowerShell Belge Merkezi](/powershell/dsc/overview).
-- İncelemek [Resource Manager şablonu DSC uzantısı](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- İncelemek [Resource Manager şablonu DSC uzantısı](dsc-template.md).
 - PowerShell DSC kullanarak yönetebilmeniz için daha fazla işlevsellik ve daha fazla DSC kaynakları Gözat [PowerShell Galerisi](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Yapılandırmaları hassas parametreleri geçirme hakkında daha fazla bilgi için bkz [yönetmek DSC uzantısı işleyici ile güvenli kimlik bilgileri](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Yapılandırmaları hassas parametreleri geçirme hakkında daha fazla bilgi için bkz [yönetmek DSC uzantısı işleyici ile güvenli kimlik bilgileri](dsc-credentials.md).

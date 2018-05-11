@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Nasıl daha önce otomatik-sağlanan aygıtlar yetkisini kaldırma 
 
@@ -29,7 +29,7 @@ Genel olarak, bir cihaz sağlamayı iki adımdan oluşur:
    - Bir aygıt disenroll öğrenmek için bkz: [Azure IOT Hub cihaz hizmeti sağlama aygıttan disenroll nasıl](how-to-revoke-device-access-portal.md).
    - Program aracılığıyla sağlama hizmeti SDK'ları birini kullanarak bir aygıtı disenroll öğrenmek için bkz: [hizmet SDK'ları ile cihaz kayıtlarını yönetme](how-to-manage-enrollments-sdks.md).
 
-2. Gelecekteki iletişim ve veri aktarımını önlemek üzere, IOT Hub CİHAZDAN kaydını silemiyor. Yeniden, geçici olarak devre dışı bırakın ya da nerede sağlandıktan IOT Hub kimlik kayıt defteri girişi cihazın kalıcı olarak silmek. Bkz: [aygıtları devre dışı bırakma](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) disablement hakkında daha fazla bilgi edinmek için. "Aygıt Yönetimi / IOT cihazları" IOT hub'ı kaynağınız için görmek [Azure portal](https://portal.azure.com).
+2. Gelecekteki iletişim ve veri aktarımını önlemek üzere, IOT Hub CİHAZDAN kaydını silemiyor. Yeniden, geçici olarak devre dışı bırakın ya da nerede sağlandıktan IOT Hub kimlik kayıt defteri girişi cihazın kalıcı olarak silmek. Bkz: [aygıtları devre dışı bırakma](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) disablement hakkında daha fazla bilgi edinmek için. "Aygıt Yönetimi / IOT cihazları" IOT hub'ı kaynağınız için görmek [Azure portal](https://portal.azure.com).
 
 Bir aygıt yetkisini kaldırma için uygulayacağınız tam adımlar kanıtlama mekanizması ve sağlama hizmetiniz ile ilgili kayıt girdisini bağlıdır. Aşağıdaki bölümler kayıt ve kanıtlama türüne göre işlemine genel bakış sağlar.
 

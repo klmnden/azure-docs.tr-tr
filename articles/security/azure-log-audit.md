@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c0ca120da27daa7a498f73b9c62530e3af26e539
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlüğe kaydetme ve denetleme
 ## <a name="introduction"></a>Giriş
@@ -40,7 +40,7 @@ Oluşturmanıza veya BT varlıklar için geçiş, bir bulut sağlayıcısı uygu
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Buna ek olarak, Azure’da çok çeşitli ve yapılandırılabilir güvenlik seçenekleri ile bunlar üzerinde denetim imkanı sunulmaktadır. Böylece, dağıtımlarınıza özel gereksinimleri karşılamak için güvenlik özelliklerini uyarlayabilirsiniz. Bu belge yardımcı olur, bu gereksinimleri karşılayan.
 
-### <a name="abstract"></a>Soyut
+### <a name="abstract"></a>Özet
 Denetim ve güvenlikle ilgili olaylar ve ilgili uyarıları günlük kaydını etkili verileri koruma stratejisi, önemli bileşenleridir. Güvenlik günlüklerini ve raporları kuşkulu etkinlikleri ve iç saldırıların yanı sıra ağ, denenen veya başarılı dış sızma gösterebilir desenlerini algılayabilir Yardım elektronik bir kayıtla sağlar. Denetim kullanıcı etkinliği, belge Mevzuat uyumluluğu izlemek, adli analiz gerçekleştirmek için kullanabilirsiniz. Güvenlik olayları oluştuğunda uyarılar anında bildirim sağlar.
 
 Microsoft Azure Hizmetleri ve ürünleriyle denetim ve güvenlik ilkeleri ve mekanizmaları kapsamın açıklarını tanımlamanıza ve ihlallerinden önlemeye yardımcı olmak için bu boşluklar adres yardımcı olmak için seçenekleri günlük yapılandırılabilir güvenlik sağlar. Bazı Microsoft hizmetleri sunar (ve bazı durumlarda, tüm) aşağıdaki seçeneklerden birini: izleme, günlüğe kaydetme ve analiz sistemi sürekli görünürlük; sağlamak üzere merkezi zamanında uyarıları; ve büyük miktarda bilgi cihazları ve Hizmetleri tarafından oluşturulan yönetmenize yardımcı olacak raporlar.
@@ -65,12 +65,12 @@ Azure Azure her hizmet için ayrıntılı günlük kaydını üretir. Bu günlü
 
 Aşağıdaki tabloda Azure içinde kullanılabilir günlük en önemli türünü listeler.
 
-| Günlük kategorisi | Günlük türü | Kullanımları | Tümleştirme |
+| Günlük Kategorisi | Günlük türü | Kullanımları | Tümleştirme |
 | ------------ | -------- | ------ | ----------- |
 |[Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager kaynaklarını denetim düzlemi olayları|   Aboneliğinizi kaynaklarında gerçekleştirilen işlemler hakkında bilgi sağlar.| REST API & [Azure İzleyicisi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Azure Resource Manager kaynaklarını Abonelikteki işlemi hakkında sık veriler| Operations kaynağınız kendisini gerçekleştirilen bir anlayış sağlayın| Azure İzleyici [akış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Günlüklerini ve raporları|Kullanıcı oturum açma etkinliklerini & kullanıcı ve Grup Yönetimi hakkında sistem etkinlik bilgileri|[Graph API'si](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Sanal makine ve bulut Hizmetleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows olay günlüğü & Linux Syslog|    Sistem verileri ve sanal makinelerde günlük verilerini yakalar ve bu verileri tercih ettiğiniz bir depolama hesabına aktarır.|   Windows kullanarak [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics depolama) ve Linux Azure İzleyicisi|
+|[Sanal makine ve bulut Hizmetleri](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows olay günlüğü & Linux Syslog| Sistem verileri ve sanal makinelerde günlük verilerini yakalar ve bu verileri tercih ettiğiniz bir depolama hesabına aktarır.|   Windows kullanarak [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics depolama) ve Linux Azure İzleyicisi|
 |[Depolama Analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğe kaydetme ve ölçüm verileri için bir depolama hesabı sağlar|Insight sağlar trace istekleri, kullanım eğilimlerini çözümleme ve depolama hesabınız ile ilgili sorunları tanılamak.|    REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (ağ güvenlik grubu) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçimi ve bir kural başına temelinde giden ve gelen akışları gösterir|Giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntüleyin|[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -209,7 +209,7 @@ Kimliği doğrulanmış ve anonim istek aşağıdaki türlerini günlüğe kayde
 
 
 
-| Kimliği Doğrulandı  | Anonim|
+| Kimliği Doğrulandı  | Adsız|
 | :------------- | :-------------|
 | Başarılı istekler | Başarılı istekler |
 |İstek zaman aşımı, azaltma, ağ, yetkilendirme ve başka hatalar da dahil olmak üzere, başarısız oldu | Başarılı ve başarısız istekleri dahil olmak üzere paylaşılan erişim imzası (SAS), kullanarak istekleri |
@@ -266,7 +266,7 @@ Günlüğe kaydetme özellikleri önceki yanı sıra Ağ İzleyicisi'ni şu anda
 
 ### <a name="application-insight"></a>Uygulama Insight
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformdaki web geliştiricileri için genişletilebilir bir uygulama performansı Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Bu performans anormalliklerini otomatik olarak algıla olur. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformdaki web geliştiricileri için genişletilebilir bir uygulama performansı Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Ayrıca performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.
 
  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 

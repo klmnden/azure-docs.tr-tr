@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f12cdf2fc8a1aa3b7e8bc3c5eeb338601a8f2ffe
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay kılavuz tetikleyici
 
 Bu makalede nasıl yapılacağını açıklar [olay kılavuz](../event-grid/overview.md) Azure işlevleri olayları.
 
-Olay kılavuz içinde gerçekleşen olayları hakkında bilgilendirmek için HTTP istekleri gönderir bir Azure hizmeti olduğundan *yayımcılar*. Bir yayımcı hizmet veya olay kaynağı kaynak değil. Örneğin, bir Azure blob storage hesabı bir yayımcı ve bir blob karşıya yükleme veya silme bir olaydır. Bazı [Azure hizmetlerine sahip olayları olay kılavuza yayımlamak için yerleşik destek](../event-grid/overview.md#event-sources). 
+Olay kılavuz içinde gerçekleşen olayları hakkında bilgilendirmek için HTTP istekleri gönderir bir Azure hizmeti olduğundan *yayımcılar*. Bir yayımcı hizmet veya olay kaynağı kaynak değil. Örneğin, bir yayımcı bir Azure blob storage hesabı olur ve [bir blob karşıya yükleme veya silme bir olaydır](../storage/blobs/storage-blob-event-overview.md). Bazı [Azure hizmetlerine sahip olayları olay kılavuza yayımlamak için yerleşik destek](../event-grid/overview.md#event-sources). 
 
 Olay *işleyicileri* almak ve işlemek olaylar. Azure işlevleri biridir birkaç [olay kılavuz olayları işlemek için yerleşik destek sahip Azure Hizmetleri](../event-grid/overview.md#event-handlers). Bu makalede, bir olay kılavuz tetikleyicisi bir olay Olay kılavuzdan alındığında bir işlevi çağırmak için nasıl kullanılacağını öğrenin.
 
