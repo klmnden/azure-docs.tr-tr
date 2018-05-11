@@ -63,7 +63,13 @@
 
 # Kaynaklar
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/key-vault/)
-## [Anahtarlar, gizli diziler ve sertifikalar hakkında](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [Anahtarlar, Gizli Diziler ve Sertifikalar Hakkında](about-keys-secrets-and-certificates.md)
+### [Sertifikalar ile çalışmaya başlama](certificate-scenarios.md)
+#### [Sertifika oluşturma yöntemleri](create-certificate.md)
+#### [Sertifika oluşturmayı izleme ve yönetme](create-certificate-scenarios.md)
+## [Kimlik Doğrulaması, İstekler ve Yanıtlar](authentication-requests-and-responses.md)
+## [Ortak parametreler ve üst bilgiler](common-parameters-and-headers.md)
+## [Key Vault Sürümleri](key-vault-versions.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Kod örnekleri](https://www.microsoft.com/download/details.aspx?id=45343)
