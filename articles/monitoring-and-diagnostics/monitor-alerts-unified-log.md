@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 3a4277d2106078136cee09dfe6aefc87a73c4e08
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure İzleyicisi - uyarıları günlük uyarıları 
 Bu makalede, günlük uyarı ayrıntılarını yeni içinde desteklenen uyarı türleri biri olan sağlanmaktadır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların Azure'nın analiz platformu uyarmak için temel olarak kullanmasına izin... Ölçüm günlüklerini kullanarak uyarı ayrıntılarını başvurmak [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
@@ -92,7 +92,7 @@ Burada herhangi bir bilgisayar işlemci kullanımı % 90'ın üç kez üzerinde 
 - **Süre:** 30 dakika<br>
 - **Uyarı sıklığı:** beş dakika<br>
 - **Toplam değer:** 90'dan büyük<br>
-- **Tetikleyici uyarı temel alarak:** toplam ihlal 5'ten büyük<br>
+- **Tetikleyici uyarı temel alarak:** toplam ihlal 2'den büyük<br>
 
 Sorgu her bilgisayar için bir ortalama değer 5 dakikalık aralıklarla oluşturursunuz.  Bu sorguyu her 5 dakikada bir toplanan veriler için önceki 30 dakika boyunca çalışır.  Örnek verileri varsayılan olarak, üç bilgisayarlar için aşağıda gösterilmiştir.
 

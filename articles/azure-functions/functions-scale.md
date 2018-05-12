@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevleri ölçek ve barındırma
 
@@ -95,9 +95,7 @@ Tüketim planında ölçek denetleyicisi otomatik olarak CPU ve bellek kaynaklar
 Barındırma planı tüketimini kullandığınızda işlevi kod dosyaları Azure dosya paylaşımlarının işlevin ana depolama hesabında depolanır. İşlev uygulaması ana depolama hesabına sildiğinizde, işlevi kod dosyaları silinir ve kurtarılamaz.
 
 > [!NOTE]
-> Tüketim plan üzerinde bir blob tetikleyici kullanırken olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu ilk gecikmeyi önlemek için aşağıdaki seçeneklerden birini göz önünde bulundurun:
-> - Always On özellikli ile bir uygulama hizmeti planınız işlev uygulaması barındırır.
-> - Başka bir mekanizma, bir olay kılavuz abonelik veya blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [örnekler blob için girişi bağlamayı](functions-bindings-storage-blob.md#input---example).
+> Tüketim plan üzerinde bir blob tetikleyici kullanırken olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu soğuk başlangıç gecikmeyi önlemek için her zaman etkin açık bir uygulama hizmeti planını kullan veya olay kılavuz tetikleyici kullanın. Daha fazla bilgi için bkz: [blob tetikleyici bağlama başvurusu makalesinde](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Çalışma zamanı ölçeklendirme
 
