@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: Azure PowerShell kullanarak web trafiğini yeniden yönlendirme
       href: tutorial-url-redirect-powershell.md
+    - name: Bölgesel olarak yedekli uygulama ağ geçidi oluşturma
+      href: create-zone-redundant.md
 - name: Başvuru
   items:
     - name: Azure CLI

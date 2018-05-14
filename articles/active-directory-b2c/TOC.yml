@@ -62,34 +62,36 @@
               href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
             - name: Xamarin
               href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
-        - name: Web uygulamaları
-          items:
-            - name: Genel Bakış
-              href: active-directory-b2c-reference-oidc.md
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-            - name: ASP.NET Çekirdeği
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
-            - name: Node.js
-              href: active-directory-b2c-devquickstarts-web-node.md
-        - name: Tek sayfa uygulamalar
-          items:
-            - name: Genel Bakış
-              href: active-directory-b2c-reference-spa.md
-            - name: MSAL kullanarak JavaScript
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
-            - name: Hello kullanarak JavaScript
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
-        - name: Web API'leri
-          items:
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-api-dotnet.md
-            - name: ASP.NET Çekirdeği
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
-            - name: Node.js
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
-            - name: .NET Web API'si çağırma
-              href: active-directory-b2c-devquickstarts-web-api-dotnet.md
+        - name: Kaynak sahibinin parola kimlik bilgileri
+          href: configure-ropc.md
+    - name: Web uygulamaları
+      items:
+        - name: Genel Bakış
+          href: active-directory-b2c-reference-oidc.md
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
+        - name: ASP.NET Çekirdeği
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
+        - name: Node.js
+          href: active-directory-b2c-devquickstarts-web-node.md
+    - name: Tek sayfa uygulamalar
+      items:
+        - name: Genel Bakış
+          href: active-directory-b2c-reference-spa.md
+        - name: MSAL kullanarak JavaScript
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
+        - name: Hello kullanarak JavaScript
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
+    - name: Web API'leri
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-api-dotnet.md
+        - name: ASP.NET Çekirdeği
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
+        - name: Node.js
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
+        - name: .NET Web API'si çağırma
+          href: active-directory-b2c-devquickstarts-web-api-dotnet.md
     - name: Kılavuzlar
       items:
         - name: Kimlik sağlayıcılarını yapılandırma
@@ -143,8 +145,12 @@
           href: active-directory-b2c-reference-usage-reporting-api.md
         - name: Denetim günlüklerine erişme
           href: active-directory-b2c-reference-audit-logs.md
+        - name: Kullanıcı verilerini yönetme
+          href: manage-user-data.md
         - name: Kullanıcıları geçirme
           href: active-directory-b2c-user-migration.md
+        - name: Kullanıcıları sosyal kimlikleriyle geçirme
+          href: active-directory-b2c-social-migration.md
         - name: b2clogin.com kullanma
           href: b2clogin.md
         - name: Geçerlilik süresi geçişi kullanma
@@ -207,6 +213,8 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Oturumumu açık bırak seçeneğini etkinleştirme
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: Kullanıcı erişimini yönetme
+              href: manage-user-access.md
             - name: Sorun giderme
               items:
                 - name: Application Insights’ı kullanarak günlük toplama

@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Karma Runbook Çalışanı
       items:
-        - name: Karma Runbook Çalışanı dağıtma
+        - name: Karma Runbook Çalışanına genel bakış
           href: automation-hybrid-runbook-worker.md
-        - name: Azure Otomasyonu Windows Karma Runbook Çalışanı
+        - name: Windows Karma Runbook Çalışanı dağıtma
           href: automation-windows-hrw-install.md
-        - name: Azure Otomasyonu Linux Karma Runbook Çalışanı
+        - name: Linux Karma Runbook Çalışanı dağıtma
           href: automation-linux-hrw-install.md
-        - name: Çalışan üzerinde runbook çalıştırma
+        - name: Karma Runbook Çalışanı üzerinde runbook çalıştırma
           href: automation-hrw-run-runbooks.md
-        - name: Azure Otomasyonu Karma Runbook Çalışanlarını kaldırma
-          href: automation-remove-hrw.md
     - name: Yapılandırma yönetimi (DSC) dağıtma
       items:
         - name: İstenen Durum Yapılandırması’na (DSC) genel bakış

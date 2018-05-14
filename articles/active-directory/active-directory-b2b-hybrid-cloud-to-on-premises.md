@@ -10,11 +10,11 @@ ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 1c13da977021538651084ec4462cf8bd32f131d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Şirket içi uygulamalarınıza Azure AD erişim ver B2B kullanıcılar
 
@@ -27,7 +27,7 @@ Azure AD iş ortağı kuruluşlardan konuk kullanıcılara davet etmek için Azu
 Şunların ikisini de yapmanız gerekir:
 
 - SAML uygulama Galerisi olmayan uygulaması şablonu kullanılarak açıklandığı gibi tümleştirmek [Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma](active-directory-saas-custom-apps.md). İçin kullandığınız not emin olun **oturum açma URL'si** değeri.
--  İle şirket içi uygulama yayımlamak için Azure AD uygulama proxy'si kullanma **Azure Active Directory** kimlik doğrulaması kaynağı olarak yapılandırılmış. Yönergeler için bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md). 
+-  İle şirket içi uygulama yayımlamak için Azure AD uygulama proxy'si kullanma **Azure Active Directory** kimlik doğrulaması kaynağı olarak yapılandırılmış. Yönergeler için bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md). 
 
    Yapılandırdığınızda **iç Url** ayarı, Galeri olmayan uygulama şablonunda belirtilen oturum açma URL'si kullanın. Bu şekilde, kullanıcılar uygulama kuruluş sınır dışında erişebilir. Uygulama proxy'si SAML çoklu oturum açma için şirket içi uygulama gerçekleştirir.
  
@@ -37,8 +37,8 @@ Azure AD iş ortağı kuruluşlardan konuk kullanıcılara davet etmek için Azu
 
 B2B kullanıcıların tümleşik Windows kimlik doğrulaması ve Kerberos Kısıtlı temsilci ile güvenliği sağlanan şirket içi uygulamalara erişim sağlamak için aşağıdaki bileşenler gerekir:
 
-- **Azure AD uygulama proxy'si aracılığıyla kimlik doğrulaması**. B2B kullanıcıların şirket içi uygulamaya kimlik doğrulaması için olması gerekir. Bunu yapmak için Azure AD uygulama proxy'si aracılığıyla şirket içi uygulama yayımlamanız gerekir. Daha fazla bilgi için bkz: [uygulama ara sunucusu ile başlayın ve Bağlayıcısı'nı yüklemek](active-directory-application-proxy-enable.md) ve [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md).
-- **Şirket içi dizin B2B kullanıcı nesnesinde aracılığıyla yetkilendirme**. Uygulamanın kullanıcı erişim denetimleri gerçekleştirmek ve doğru kaynaklara erişim izni olması gerekir. IWA ve KCD şirket içi Windows Server Active Directory'de bu yetkilendirme tamamlamak için bir kullanıcı nesnesi gerektirir. Bölümünde açıklandığı gibi [nasıl çoklu oturum açma KCD works ile](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), uygulama Proxy kullanıcının kimliğine bürün ve uygulama için bir Kerberos belirteci edinmek için bu kullanıcı nesnesi gerekir. 
+- **Azure AD uygulama proxy'si aracılığıyla kimlik doğrulaması**. B2B kullanıcıların şirket içi uygulamaya kimlik doğrulaması için olması gerekir. Bunu yapmak için Azure AD uygulama proxy'si aracılığıyla şirket içi uygulama yayımlamanız gerekir. Daha fazla bilgi için bkz: [uygulama ara sunucusu ile başlayın ve Bağlayıcısı'nı yüklemek](manage-apps/application-proxy-enable.md) ve [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md).
+- **Şirket içi dizin B2B kullanıcı nesnesinde aracılığıyla yetkilendirme**. Uygulamanın kullanıcı erişim denetimleri gerçekleştirmek ve doğru kaynaklara erişim izni olması gerekir. IWA ve KCD şirket içi Windows Server Active Directory'de bu yetkilendirme tamamlamak için bir kullanıcı nesnesi gerektirir. Bölümünde açıklandığı gibi [nasıl çoklu oturum açma KCD works ile](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), uygulama Proxy kullanıcının kimliğine bürün ve uygulama için bir Kerberos belirteci edinmek için bu kullanıcı nesnesi gerekir. 
 
    B2B kullanıcı senaryosu için şirket içi dizin yetkilendirme için gerekli olan Konuk kullanıcı nesneleri oluşturmak için kullanabileceğiniz iki yöntem vardır:
 

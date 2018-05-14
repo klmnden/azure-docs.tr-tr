@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: Yönlendirme kapsamı
       href: routing-coverage.md
+    - name: Arama kategorileri
+      href: search-categories.md
     - name: Desteklenen diller
       href: supported-languages.md
 - name: Nasıl yapılır kılavuzları

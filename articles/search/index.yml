@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: heidist
-  ms.openlocfilehash: e947f678905e15619577f3dd5feb0287c6a14d54
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: ac99a23ede3a8adbf60d210b74f642ce4b0131a4
+  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 05/10/2018
 abstract:
   description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><b>Yeni bilişsel arama önizlemesi.</b> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynaklar ve örnek veriler</a> ile çalışmaya başlayın veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
   aside:
@@ -56,7 +56,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-get-start-preview">Bilişsel beceriler kullanılarak zenginleştirilmiş dizinleme</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Bilişsel beceriler REST API’lerini öğrenme</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET ile Azure Search kullanma</a>
     - html: <a href="/azure/search/search-indexer-tutorial">.NET ile Azure SQL Veritabanı içeriğini dizinleme</a>
     - html: <a href="/azure/search/search-semi-structured-data">REST ile Azure Blob depolama alanında yarı yapılandırılmış verileri dizinleme</a>

@@ -1,0 +1,95 @@
+- name: VM Uzantıları Belgeleri
+  href: ../index.md
+- name: Genel Bakış
+  items:
+    - name: Azure Uzantıları hakkında
+      href: overview.md
+    - name: Linux VM Aracısı
+      href: agent-linux.md
+    - name: Windows VM Aracısı
+      href: agent-windows.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Özel Betik Uzantısı’nı kullanma
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
+- name: Kavramlar
+  items:
+    - name: Linux
+      href: features-linux.md
+    - name: Windows
+      href: features-windows.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Özel Betik uzantısı
+      items:
+        - name: Linux - sürüm 2
+          href: custom-script-linux.md
+        - name: Linux - sürüm 1 (OSTC)
+          href: custom-script-linuxOstc.md
+        - name: Windows
+          href: custom-script-windows.md
+    - name: OMS Uzantısı
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: Windows
+          href: oms-windows.md
+    - name: Tanılama uzantısı
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: Windows
+          href: diagnostics-windows.md
+        - name: Şablon kullanma
+          href: diagnostics-template.md
+    - name: Ağ İzleyicisi Aracısı
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: Windows
+          href: network-watcher-windows.md
+    - name: PowerShell DSC uzantısı
+      href: dsc-overview.md
+      items:
+        - name: DSC ve Windows
+          href: dsc-windows.md
+        - name: Kimlik bilgilerini işleme
+          href: dsc-credentials.md
+        - name: Şablon kullanma
+          href: dsc-template.md
+    - name: Windows için IaaS kötü amaçlı yazılımdan koruma
+      href: iaas-antimalware-windows.md
+    - name: Key Vault uzantısı
+      href: key-vault-windows.md
+    - name: VM Anlık Görüntü uzantısı
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: Windows
+          href: vmsnapshot-windows.md
+    - name: Üçüncü taraf uzantıları
+      items:
+        - name: Stackify Retrace
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: Kullanım dışı uzantılar
+      items:
+        - name: Günlük Toplayıcı uzantısı
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+    - name: Uzantı yüklemesini kısıtlama
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: Windows
+          href: extensions-rmpolicy-howto-ps.md
+    - name: Linux aracısını güncelleştirme
+      href: update-linux-agent.md
+    - name: Uzantıları dışarı aktarma
+      href: export-templates.md
+    - name: Sorun giderme
+      href: troubleshoot.md

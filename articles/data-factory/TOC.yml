@@ -406,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Kaynaklar
   items:
-    - name: SSS
-      href: frequently-asked-questions.md
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Stack Overflow
+    - name: 'Soru sorun: MSDN forumu'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: 'Soru sorun: Stack Overflow'
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Özellik isteme
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Bölge kullanılabilirliği
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: SSS
+      href: frequently-asked-questions.md
+    - name: Yol Haritası
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Bölgelere göre kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Destek seçenekleri
       href: 'https://azure.microsoft.com/support/options/'

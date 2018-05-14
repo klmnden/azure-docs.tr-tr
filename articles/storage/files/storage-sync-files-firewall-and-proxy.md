@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 81425c6ac4e463bd4242328206bd43ce78a1105a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure dosya eşitleme proxy ve güvenlik duvarı ayarları
+# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme Azure dosyalara çok siteli eşitleme ve bulut özelliklerini katmanlama etkinleştirilmesi, şirket içi sunucularınızı bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlı olmalıdır. Bir BT yöneticisi, Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
 
 Bu makalede belirli gereksinimleri ve başarıyla ve güvenli bir şekilde Azure dosya eşitleme sunucunuza bağlanmak kullanılabilir seçenekler hakkında bilgi sağlar.
+
+> [!Important]
+> Azure dosya eşitleme henüz güvenlik duvarları ve sanal ağlar için bir depolama hesabı desteklemiyor. 
 
 ## <a name="overview"></a>Genel Bakış
 Azure dosya eşitleme, Windows Server, Azure dosya paylaşımı ve diğer Azure hizmetleriyle birkaç eşitleme grubunuzdaki açıklandığı gibi veri eşitlemesine izin arasında orchestration hizmeti olarak görev yapar. Azure dosya düzgün çalışması eşitleme için sunucularınızı aşağıdaki Azure Hizmetleri ile iletişim kurmak için yapılandırmanız gerekir:
@@ -61,7 +64,7 @@ Aşağıdaki tabloda, iletişim için gereken etki alanları açıklanmaktadır:
 | **Azure Resource Manager** | https://management.azure.com | Tüm kullanıcı çağrısıyla (PowerShell) ilk sunucu kayıt çağrısı dahil olmak üzere bu URL için/üzerinden gider. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager çağrıları kimliği doğrulanmış bir kullanıcı tarafından yapılması gerekir. Başarılı olması için bu URL kullanıcı kimlik doğrulaması için kullanılır. |
 | **Azure Active Directory** | https://graph.windows.net/ | Azure dosya eşitleme dağıtma bir parçası olarak bir hizmet sorumlusu aboneliğinin Azure Active Directory'de oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme ilk kurulumu yapan kullanıcının kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklarına sahip olması gerekir. |
-| **Azure Depolama** | &ast;.core.windows.net | Sunucunun bir dosya yüklediğinde, ardından sunucu daha fazla bu veri taşıma verimli depolama hesabındaki Azure dosya paylaşımı için doğrudan konuşurken gerçekleştirir. Sunucu yalnızca hedeflenen dosya paylaşımı erişimi veren bir SAS anahtarı sahiptir. |
+| **Azure Depolama** | &ast;. core.windows.net | Sunucunun bir dosya yüklediğinde, ardından sunucu daha fazla bu veri taşıma verimli depolama hesabındaki Azure dosya paylaşımı için doğrudan konuşurken gerçekleştirir. Sunucu yalnızca hedeflenen dosya paylaşımı erişimi veren bir SAS anahtarı sahiptir. |
 | **Azure dosya eşitleme** | &ast;.one.microsoft.com | İlk sunucu kayıttan sonra sunucu bu bölgede Azure dosya eşitleme hizmet örneği için bölgesel bir URL alır. Sunucunun URL'sini doğrudan ve verimli bir şekilde kendi eşitleme işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
 
 > [!Important]

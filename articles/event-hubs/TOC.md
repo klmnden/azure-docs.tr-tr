@@ -28,6 +28,11 @@
 ### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)
 ### [İşleme birimlerini otomatik ölçeklendirme](event-hubs-auto-inflate.md)
 ### [Apache Spark ile Event Hubs’ı tümleştirme](event-hubs-spark-connector.md)
+## Kafka için Event Hubs
+### [Kafka Ekosistemi için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+### [Kafka etkin Event Hubs oluşturma](event-hubs-create-kafka-enabled.md) 
+### [Kafka Ekosistemi için Azure Event Hubs’a akış oluşturma](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Kafka Ekosistemi için Azure Event Hubs ile Kafka MirrorMaker kullanma](event-hubs-kafka-mirror-maker-tutorial.md)
 ## Geliştirme
 ### [.NET Framework kullanarak olayları gönderme](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
