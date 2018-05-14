@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Hızlı Başlangıç: ilk IOT kenar modülünüzün bir Linux veya Mac aygıta dağıtmak - Önizleme
 
@@ -27,6 +27,15 @@ Bu Hızlı Başlangıç, bilgisayar veya sanal makine bir nesnelerin interneti a
 
 * Python PIP, IOT kenar çalışma zamanı yüklenemedi.
    * Linux: `sudo apt-get install python-pip`.
+      
+      > [!Note]
+      > (Örneğin, Raspbian) belirli dağıtımları üzerinde belirli PIP paketleri yükseltmek ve ek bağımlılıklar yüklemek gerekebilir:
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS: `sudo easy_install pip`.
 * IOT kenar modüllerini çalıştırmak için docker
    * [Linux için Docker yükleme] [ lnk-docker-ubuntu] ve çalışır durumda olduğundan emin olun. 
@@ -95,7 +104,7 @@ sudo docker ps
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
+## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
 Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
 

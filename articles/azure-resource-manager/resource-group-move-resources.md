@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -114,6 +114,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Application Insights
 * Otomasyon
 * Azure Cosmos DB
+* Azure Geçişi
 * Batch
 * Bing Haritalar
 * CDN
@@ -130,6 +131,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * IoT Hub
 * Key Vault
 * Yük Dengeleyici - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
+* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri için bir kaynak grubunda aynı abonelik ancak farklı bir abonelik taşınabilir. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Media Services
@@ -137,7 +139,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Notification Hubs
 * Operasyonel İçgörüler
 * Operations Management
-* Power BI
+* Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
 * Redis Cache
 * Scheduler
@@ -148,7 +150,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Depolama
 * Depolama (Klasik) - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
 * Akış analizi - Stream Analytics işleri de çalıştırırken taşınamaz durumu.
-* SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda bulunmaları gerekir. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu, Azure SQL Database ve Azure SQL veri ambarı veritabanlarını içerir. 
+* SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda bulunmaları gerekir. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL Database ve Azure SQL veri ambarı veritabanları için geçerlidir. 
 * Traffic Manager
 * Sanal makineler - VMs yönetilen disklerle taşınamaz. Bkz: [sanal makineleri sınırlamaları](#virtual-machines-limitations)
 * Sanal makineler (Klasik) - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
@@ -164,6 +166,8 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * AD karma sistem durumu hizmeti
 * Application Gateway
 * MySQL için Azure Veritabanı
+* PostgreSQL için Azure Veritabanı
+* Azure Geçişi
 * BizTalk Services
 * Sertifikalar - uygulama hizmeti sertifikaları taşınabilir, ancak yüklenen sertifikalara sahip [sınırlamalar](#app-service-limitations).
 * Kubernetes hizmeti
@@ -176,7 +180,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
 * Kurtarma Hizmetleri kasası - ayrıca yapın kurtarma Hizmetleri kasası ile ilişkili işlem, ağ ve depolama kaynaklarını taşıyamazsınız bkz [kurtarma Hizmetleri sınırlamaları](#recovery-services-limitations).
 * Güvenlik
-* StorSimple Cihaz Yöneticisi
+* StorSimple cihaz Yöneticisi
 * Bkz: Sanal ağları (Klasik) - [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Sanal makineler sınırlamaları
@@ -188,6 +192,11 @@ Yönetilen diskleri taşıma desteklemez. Bu kısıtlama, bazı ilgili kaynaklar
 * Yönetilen disklerden oluşturulan görüntüler
 * Yönetilen disklerden oluşturulan anlık görüntüler
 * Yönetilen bir diske sahip sanal makinelerle kullanılabilirlik kümeleri
+
+Yönetilen bir disk taşıyamazsınız karşın, bir kopyasını oluşturun ve ardından var olan yönetilen diskten yeni bir sanal makine oluşturun. Daha fazla bilgi için bkz.
+
+* Aynı abonelik ya da farklı bir abonelik ile yönetilen diskleri kopyalama [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) veya [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Mevcut yönetilen işletim sistemi diski ile kullanarak bir sanal makine oluşturma [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) veya [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
 
 Market kaynaklardan bağlı planları ile oluşturulan sanal makineler, kaynak grupları veya abonelikler arasında taşınamaz. Sanal makine geçerli abonelikte yetkisini kaldırma ve yeni abonelikte yeniden dağıtın.
 

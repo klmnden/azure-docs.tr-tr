@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b6de4f1df56d1ec80ed74c98f4e3a1db9d206612
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Uygulamaları Azure Blockchain çalışma ekranı içinde kullanma
 
@@ -74,10 +74,11 @@ Yeni bir sözleşme oluşturmak için bir üyesi olmanız gerekir **AllowedInsta
 
 4. Sözleşme geçerli durumuyla ilgili ayrıntıları Bölmesi'nde görüntülenir. Açılan gerçekleştirmek istediğiniz eylemi seçin. 
 
-    ![İşlem yap](media/blockchain-workbench-use/take-action.png)
+    ![Eylem gerçekleştirin](media/blockchain-workbench-use/take-action.png)
 
 5. Seçin **yürütme** eyleme geçmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Blockchain çalışma ekranı ile ilgili sorunları giderme](blockchain-workbench-troubleshooting.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain çalışma ekranı ile ilgili sorunları giderme](blockchain-workbench-troubleshooting.md)

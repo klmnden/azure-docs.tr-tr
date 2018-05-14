@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulamaya erişim panelinde oturum açmada sorun | Microsoft Docs"
-description: "Sorunları gidermek nasıl uygulama myapps.microsoft.com adresindeki Microsoft Azure AD erişim paneli erişme"
+title: Bir uygulamaya erişim panelinde oturum açmada sorun | Microsoft Docs
+description: Sorunları gidermek nasıl uygulama myapps.microsoft.com adresindeki Microsoft Azure AD erişim paneli erişme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: f73b7929aea35382f7ca684c866b65e070668d5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5765d64fccba69edd0ebe91a6c34694763e6c539
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Bir uygulamaya erişim panelinde oturum açma sorunları
 
@@ -525,5 +525,5 @@ bir destek bileti aşağıdaki bilgilerle varsa açın:
 -   Fiddler izlemeleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)
+[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

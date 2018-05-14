@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Bir Linux ana hedef sunucu yükle
 Azure sanal makineleriniz başarısız olduktan sonra sanal makineler şirket içi siteye geri başarısız olabilir. Yeniden çalışmak için Azure sanal makineden şirket içi siteye koruyun gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -330,9 +330,9 @@ Yükleme tamamlandıktan sonra komut satırını kullanarak yapılandırma sunuc
      Komut dosyası tamamlanana kadar bekleyin. Ana hedef başarıyla kaydedildi, ana hedef listelendiğini **Site Recovery altyapısı** portal sayfası.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Ana hedef sunucusunda VMware Araçları'nı yüklemek
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>VMware Araçları'nı yüklemek / ana hedef sunucusunda açık-vm-Araçlar
 
-Böylece veri depolarına bulabilmesi için ana hedef sunucudaki VMware araçları yüklemeniz gerekir. Araçlar yüklü değilse, yeniden koruma ekran veri depolarında listelenen değil. VMware araçları yüklendikten sonra yeniden başlatmanız gerekir.
+Böylece veri depolarına bulabilmesi için ana hedef sunucudaki VMware araçları veya açık vm araçları yüklemeniz gerekir. Araçlar yüklü değilse, yeniden koruma ekran veri depolarında listelenen değil. VMware araçları yüklendikten sonra yeniden başlatmanız gerekir.
 
 ### <a name="upgrade-the-master-target-server"></a>Ana hedef sunucusunu yükseltme
 

@@ -1,18 +1,24 @@
 ---
-ms.assetid: 
-title: "Azure anahtar Kasası'nı Kılavuzu azaltma | Microsoft Docs"
-ms.service: key-vault
+title: Azure Key Vault azaltma kılavuzu
+description: Anahtar kasası azaltma kaynakların aşırı kullanımı önlemek için eş zamanlı çağrılarının sayısını sınırlar.
+services: key-vault
+documentationcenter: ''
 author: lleonard-msft
-ms.author: alleonar
 manager: mbaldwin
-ms.date: 06/21/2017
-ms.openlocfilehash: cc39a5ee466d2e1661281a32010c3d3201c4a0af
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+tags: ''
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: article
+ms.date: 05/10/2018
+ms.author: alleonar
+ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Azure anahtar Kasası'nı Kılavuzu azaltma
+# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault azaltma kılavuzu
 
 Azaltma kaynakların aşırı kullanımı önlemek için Azure hizmeti eşzamanlı çağrı sayısı sınırlayan başlatma bir işlemdir. Azure anahtar kasası (AKV), yüksek hacimli isteklerini işlemek için tasarlanmıştır. Bunaltıcı bir istek sayısı ortaya çıkarsa, istemcinin istek azaltma en iyi performans ve güvenilirlik AKV hizmetinin korumaya yardımcı olur.
 

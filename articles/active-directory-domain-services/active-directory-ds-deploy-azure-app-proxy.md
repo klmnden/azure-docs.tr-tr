@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 13141549b5b1b77f45dd6fa1c7560b9f9d0e9b72
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -95,7 +95,7 @@ Azure AD uygulama ara sunucusunu ayarlamadıysanız sahip ve Azure AD etki alan�
 
 * **Uygulamalarınızı Azure sanal makineleri geçirme:** yükseltme ve-şirket içi sunucular uygulamalarınızdan Azure sanal makineler için yönetilen etki alanına katılmış kaydırma yapabilirsiniz. Bunun yapılması, çalışmakta olan sunucuları şirket içi altyapı maliyetinden kurtulun yardımcı olur.
 
-* **Azure AD uygulama proxy'si ile uygulama yayımlama:** , Azure Azure AD uygulama proxy'si kullanarak sanal makineleri üzerinde çalışan uygulamaları yayımlama. Daha fazla bilgi için bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](../active-directory/application-proxy-publish-azure-portal.md)
+* **Azure AD uygulama proxy'si ile uygulama yayımlama:** , Azure Azure AD uygulama proxy'si kullanarak sanal makineleri üzerinde çalışan uygulamaları yayımlama. Daha fazla bilgi için bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Dağıtım Not - Azure AD uygulama proxy'si kullanarak yayımlama IWA (tümleşik Windows kimlik doğrulaması) uygulamaları

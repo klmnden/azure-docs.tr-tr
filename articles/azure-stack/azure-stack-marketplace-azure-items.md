@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -220,5 +220,6 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![NooBaa karma AWS S3 uyumlu - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Ortak yayılan ve şirket içi kapasite kaynakları S3 uyumlu depolama hizmeti. | NooBaa |
 | ![PT uygulaması güvenlik duvarı](media/azure-stack-marketplace-azure-items/pt.png) | [PT uygulaması güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT uygulaması güvenlik duvarı bilinen & bilinmeyen güvenlik açıkları algılar ve web uygulamaları üzerinde saldırılarını önler. <b>Her iki PT Market öğesi indirin.</b> | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet kuruluş Azure yığın altyapınızın tüm yaşam döngüsü otomatikleştirmenizi sağlar. <b>Her iki Puppet Market öğesi indirin.</b> | Puppet |
+| ![İsteği Hızlı Kurtarma](media/azure-stack-marketplace-azure-items/quest.png) | [İsteği Hızlı Kurtarma çekirdek](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Veri koruma Gelişmiş Hızlı Kurtarma, yedekleme, çoğaltma ve kurtarma için bir kolay kullanımlı yazılım çözümü birleştirir. | İsteği yazılım |
 | ![SUSE Yöneticisi 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | En iyi sınıf açık kaynak altyapı yönetimi. | SUSE |
 | ![ZeroDown yazılım aracı](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown yazılım |

@@ -1,12 +1,12 @@
 ---
-title: "Dağıtım kaynakları Azure yığın uygulama hizmetleri için yapılandırma | Microsoft Docs"
-description: "Hizmet Yöneticisi Azure yığın uygulama hizmeti için dağıtım kaynakları (Git, GitHub, BitBucket, DropBox ve OneDrive) nasıl yapılandırabileceğiniz"
+title: Dağıtım kaynakları Azure yığın uygulama hizmetleri için yapılandırma | Microsoft Docs
+description: Hizmet Yöneticisi Azure yığın uygulama hizmeti için dağıtım kaynakları (Git, GitHub, BitBucket, DropBox ve OneDrive) nasıl yapılandırabileceğiniz
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 46242fd7ab9e05cfc2edde119afdc6053f129e40
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -32,11 +32,11 @@ Yerel Git ek olarak, aşağıdaki kaynak denetimi sağlayıcısı desteklenir:
 * GitHub
 * BitBucket
 * OneDrive
-* DropBox
+* Açılan kutu
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Uygulama Hizmeti Yönetim görünümü dağıtım kaynakları
 
-1. Azure yığın Yönetim Portalı'na (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
+1. Azure yığın Yönetim Portalı'na oturum açma (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
 2. Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.  ![Uygulama hizmeti kaynak sağlayıcısı yönetici][1]
 3. Tıklatın **kaynak denetimini yapılandırma**.  Burada yapılandırılan tüm dağıtım kaynaklar listesine bakın.
     ![Uygulama hizmeti kaynak sağlayıcısı yönetici kaynak denetimini yapılandırma][2]
@@ -45,15 +45,15 @@ Yerel Git ek olarak, aşağıdaki kaynak denetimi sağlayıcısı desteklenir:
 
 Bu görevi tamamlamak için GitHub hesabı olması gerekir. Kişisel hesabı yerine, kuruluşunuz için bir hesap kullanmak isteyebilirsiniz.
 
-1. GitHub için oturum açma, https://www.github.com/settings/developers için göz atın ve tıklayın **yeni uygulamayı Kaydet**.
+1. GitHub için oturum açma, Gözat https://www.github.com/settings/developers tıklatıp **yeni uygulamayı Kaydet**.
     ![GitHub - kayıt yeni bir uygulama][3]
 2. Girin bir **uygulama adı** örneğin - Azure yığın uygulama hizmeti.
 3. Girin **giriş sayfası URL'si**. Giriş sayfası URL'si Azure yığın Portal adresi olmalıdır. Örneğin, https://portal.local.azurestack.external.
 4. Girin bir **uygulama açıklaması**.
-5. Girin **yetkilendirme geri çağırma URL'si**.  Etki alanınız local.azurestack.external için farklı bir etki alanı yerine altında çalıştırıyorsanız, varsayılan Azure yığın dağıtımında, form https://portal.local.azurestack.external/tokenauthorize içinde URL'dir ![GitHub - yeni bir kayıt doldurulmuş değerlerle uygulama][4]
+5. Girin **yetkilendirme geri çağırma URL'si**.  Varsayılan Azure yığın dağıtımında, Url biçimindedir https://portal.local.azurestack.external/TokenAuthorize, etki alanınız local.azurestack.external için farklı bir etki alanı yerine altında çalışıyorsa,
 6. Tıklatın **kaydetmek uygulama**.  Artık bir sayfa listeyle sunulur **istemci kimliği** ve **gizli** uygulama için.
     ![GitHub - tamamlanan uygulama kaydı][5]
-7.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
+7.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın Yönetim Portalı'na oturum açma (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
 8.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 9. Tıklatın **kaynak denetimini yapılandırma**.
 10. Kopyalama ve yapıştırma **istemci kimliği** ve **gizli** karşılık gelen bir giriş için GitHub kutuları.
@@ -69,14 +69,14 @@ Bu görevi tamamlamak için bir BitBucket hesabınızın olması gerekir. Kişis
     ![BitBucket OAuth tüketicisi ekleyin][8]
 3. Girin bir **adı** tüketici, örneğin Azure yığın uygulama hizmeti için.
 4. Girin bir **açıklama** uygulama için.
-5. Girin **geri çağırma URL'si**.  Etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalıştırıyorsanız, varsayılan Azure yığın dağıtımında, geri çağırma form https://portal.local.azurestack.external/TokenAuthorize içinde URL'dir.  Url, BitBucket tümleştirme başarılı olması burada listelenen gibi büyük harfe izlemeniz gerekir.
-6. Girin **URL** -bu URL'nin Azure yığın portalı URL'si, örneğin https://portal.local.azurestack.external olması gerekir.
+5. Girin **geri çağırma URL'si**.  Varsayılan Azure yığın dağıtımında, geri çağırma URL'si biçimindedir https://portal.local.azurestack.external/TokenAuthorize, etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalışıyorsa.  Url, BitBucket tümleştirme başarılı olması burada listelenen gibi büyük harfe izlemeniz gerekir.
+6. Girin **URL** -bu Url Azure yığın portalı URL'si, örneğin olmalıdır https://portal.local.azurestack.external.
 7. Seçin **izinleri** gerekir:
     - **Depoları**: *okuma*
     - **Web kancası**: *okuma ve yazma*
 8. **Kaydet**’e tıklayın.  Şimdi bu yeni uygulama ile birlikte göreceğiniz **anahtar** ve **gizli** altında **OAuth tüketicileri**.
     ![BitBucket uygulama listeleme][9]
-9.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
+9.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın Yönetim Portalı'na oturum açma (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
 10.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 11. Tıklatın **kaynak denetimini yapılandırma**.
 12. Kopyalama ve yapıştırma **anahtar** içine **istemci kimliği** giriş kutusu ve **gizli** içine **gizli** BitBucket için giriş kutusu.
@@ -90,7 +90,7 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 > [!NOTE]
 > OneDrive iş hesapları için şu anda desteklenmemektedir.
 
-1. Microsoft Account kullanarak göz atın https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm ve günlük.
+1. Gözat https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm ve Microsoft Account kullanarak oturum açın.
 2. Altında **uygulamalarım**, tıklatın **bir uygulama ekleyin**.
 ![OneDrive uygulamalar][10]
 3. Girin bir **adı** yeni uygulama kaydı için girin **Azure yığın uygulama hizmeti**, tıklatıp **uygulaması oluştur**
@@ -98,13 +98,13 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 ![OneDrive uygulama özellikleri][11]
 5. Altında **uygulama parolaları**, tıklatın **yeni bir parola oluşturmak**. Not **oluşturulan yeni bir parola**. Bu, uygulama gizli anahtarı ve tıklattıktan sonra alınabilir değil **Tamam** bu aşamada.
 6. Altında **platformları** tıklatın **eklemek Platform** seçip **Web**.
-7. Girin **yeniden yönlendirme URI'si**.  Etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalışan bir varsayılan Azure yığın dağıtımda, yeniden yönlendirme URI'si form https://portal.local.azurestack.external/tokenauthorize içinde ise ![OneDrive uygulama - Ekle Web Platformu][12]
+7. Girin **yeniden yönlendirme URI'si**.  Varsayılan Azure yığın dağıtımında, yeniden yönlendirme URI'si biçimindedir https://portal.local.azurestack.external/TokenAuthorize, etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalışıyorsa, ![OneDrive uygulama - Web Platformu ekleme][12]
 8. Ekleme **Microsoft Graph izinleri** - **izinleri için temsilci**
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![OneDrive uygulaması - grafik izinleri][13]
 9. **Kaydet**’e tıklayın.
-10.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
+10.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın Yönetim Portalı'na oturum açma (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
 11.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 12. Tıklatın **kaynak denetimini yapılandırma**.
 13. Kopyalama ve yapıştırma **uygulama kimliği** içine **istemci kimliği** giriş kutusu ve **parola** içine **gizli** OneDrive için giriş kutusu.
@@ -115,7 +115,7 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 > [!NOTE]
 > Bu görevi tamamlamak için DropBox hesabınızın olması gerekir.  Kişisel hesabı yerine, kuruluşunuz için bir hesap kullanmak isteyebilirsiniz.
 
-1. DropBox hesabı kullanarak göz atın https://www.dropbox.com/developers/apps ve günlük.
+1. Gözat https://www.dropbox.com/developers/apps ve DropBox hesabınızı kullanarak oturum açın.
 2. Tıklatın **uygulaması oluşturma**.
 
     ![Dropbox uygulamalar][14]
@@ -126,9 +126,9 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 ![Dropbox uygulama kaydı][15]
 6. Tıklatın **uygulaması oluşturma**.  Artık uygulama da dahil olmak üzere ayarları listelendiği bir sayfa görürsünüz **uygulama anahtarı** ve **uygulama gizli anahtarı**.
 7. Denetleme **uygulama klasör adı** ayarlanır **Azure yığın uygulama hizmeti**.
-8. Ayarlama **OAuth 2 yeniden yönlendirme URI'si** tıklatıp **Ekle**.  Etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalışan bir varsayılan Azure yığın dağıtımda, yeniden yönlendirme URI'si form https://portal.local.azurestack.external/tokenauthorize içinde ise.
+8. Ayarlama **OAuth 2 yeniden yönlendirme URI'si** tıklatıp **Ekle**.  Varsayılan Azure yığın dağıtımında, yeniden yönlendirme URI'si biçimindedir https://portal.local.azurestack.external/TokenAuthorize, etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalışıyorsa.
 ![Dropbox uygulama yapılandırması][16]
-9.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
+9.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın Yönetim Portalı'na oturum açma (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
 10.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 11. Tıklatın **kaynak denetimini yapılandırma**.
 12. Kopyalama ve yapıştırma **uygulama anahtarı** içine **istemci kimliği** giriş kutusu ve **uygulama gizli anahtarı** içine **gizli** dropbox giriş kutusu.

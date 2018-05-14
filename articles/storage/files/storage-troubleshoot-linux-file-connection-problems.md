@@ -1,8 +1,8 @@
 ---
-title: "Linux Azure dosyaları sorunlarını giderme | Microsoft Docs"
-description: "Linux Azure dosyaları sorunlarını giderme"
+title: Linux Azure dosyaları sorunlarını giderme | Microsoft Docs
+description: Linux Azure dosyaları sorunlarını giderme
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
 editor: na
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7b5567359e7ca87d26e05d336337b55af364031e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux Azure dosyaları sorunlarını giderme
 
@@ -29,7 +29,7 @@ Bu makalede, Linux istemcilerden bağlandığınızda, Microsoft Azure dosyalar�
 
 Linux aşağıdakine benzer bir hata iletisini alıyorsunuz:
 
-**<filename>[izni reddedildi] Disk kotası aşıldı**
+**<filename> [izni reddedildi] Disk kotası aşıldı**
 
 ### <a name="cause"></a>Nedeni
 
@@ -139,7 +139,7 @@ Bu sorunun olası nedenler şunlardır:
 - Uyumsuz bir Linux dağıtım istemci kullanıyor. Azure dosya paylaşımına bağlanmak için aşağıdaki Linux dağıtımları kullanmanızı öneririz:
 
     - Ubuntu Server 14.04 + 
-    - RHEL 7 + 
+    - RHEL 7+ 
     - CentOS 7 + 
     - Debian 8 
     - openSUSE 13.2 + 

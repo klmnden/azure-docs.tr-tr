@@ -1,24 +1,24 @@
 ---
-title: "Windows için Azure performans tanılama VM uzantısı | Microsoft Docs"
-description: "Windows için Azure performans tanılama VM uzantısı tanıtır."
+title: Windows için Azure performans tanılama VM uzantısı | Microsoft Docs
+description: Windows için Azure performans tanılama VM uzantısı tanıtır.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/29/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ea7f4652aff07282c9c106f3894db807f341210
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
@@ -28,7 +28,7 @@ Azure performans tanılama VM uzantısı, Windows Vm'lerden performans tanılama
 
 Bu uzantı, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016 yüklenebilir. Ayrıca Windows 8.1 ve Windows 10 yüklenebilir.
 
-## <a name="extension-schema"></a>Uzantı Şeması
+## <a name="extension-schema"></a>Uzantı şeması
 Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için gösterir. Bu uzantı adı ve tanılama çıkış ve raporu depolamak için bir depolama hesabı anahtarı gerektirir. Bu değerleri büyük/küçük harfe duyarlıdır. Depolama hesabı anahtarı korumalı ayarını yapılandırma içinde depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve hedef sanal makinede yalnızca şifresi çözülür. Unutmayın **storageAccountName** ve **storageAccountKey** büyük küçük harfe duyarlıdır. Diğer gerekli parametreleri aşağıdaki bölümünde listelenir.
 
 ```JSON
@@ -65,12 +65,12 @@ Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için göste
 |   **Ad**   |**Değer / örnek**|       **Açıklama**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|API sürümü.
-|publisher|Microsoft.Azure.Performance.Diagnostics|Yayımcı için ad alanı uzantı.
+|Yayımcı|Microsoft.Azure.Performance.Diagnostics|Yayımcı için ad alanı uzantı.
 |type|AzurePerformanceDiagnostics|VM uzantısı türü.
 |typeHandlerVersion|1.0|Uzantı işleyicisi sürümü.
 |performanceScenario|temel|Veri yakalamak üzere performans senaryosu. Geçerli değerler: **temel**, **vmslow**, **geçirme**, ve **özel**.
 |traceDurationInSeconds|300|İzleme, izleme seçeneklerinden herhangi birini seçtiyseniz süresi.
-|perfCounterTrace|p|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|perfCounterTrace|P|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |networkTrace|n|Ağ izlemeyi etkinleştirmek için seçeneği. Geçerli değerler **n** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |xperfTrace|x|XPerf'in izlemeyi Etkinleştir seçeneği. Geçerli değerler **x** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |storPortTrace|s|StorPort izlemeyi Etkinleştir seçeneği. Geçerli değerler **s** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.

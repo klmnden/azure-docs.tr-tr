@@ -5,14 +5,14 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 Aşağıdaki tabloda Service Bus Mesajlaşma hizmeti için özel kota bilgileri listeler. Fiyatlandırma hakkında daha fazla bilgi ve diğer Service Bus kotaları için bkz [Service Bus fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/) genel bakış.
 
@@ -20,8 +20,8 @@ Aşağıdaki tabloda Service Bus Mesajlaşma hizmeti için özel kota bilgileri 
 | --- | --- | --- | --- | --- |
 | Temel / standart ad alanları Azure abonelik başına en fazla sayısı |Ad Alanı |Sonraki istekleri ek temel / standart ad alanları için portal tarafından reddedilir. |100|
 | Premium ad Azure abonelik başına en fazla sayısı |Ad Alanı |Sonraki istekleri ek premium ad alanları için portal tarafından reddedilir. |10 |
-| Sıra/konu boyutu |Varlık |Sıra/konu oluşturma sırasında tanımlanır. <br/><br/> Sonraki gelen iletileri reddedilir ve arama kodun bir özel durum aldı. |1, 2, 3, 4 veya 5 GB.<br /><br />Varsa [bölümleme](../articles/service-bus-messaging/service-bus-partitioning.md) olduğundan, en büyük sıra/konu başlığı boyutu 80 GB etkindir. |
-| Bir ad alanında eşzamanlı bağlantı sayısı |Ad Alanı |Sonraki istekleri için ek bağlantıları reddedilir ve arama kodun bir özel durum aldı. REST işlemlerini eşzamanlı TCP bağlantılarını doğru sayılmaz. |NetMessaging: 1,000<br /><br />AMQP: 5,000 |
+| Sıra/konu boyutu |Varlık |Sıra/konu oluşturma sırasında tanımlanır. <br/><br/> Sonraki gelen iletileri reddedilir ve arama kodun bir özel durum aldı. |1, 2, 3, 4 veya 5 GB.<br /><br />Standart yanı sıra Premium SKU, [bölümleme](../articles/service-bus-messaging/service-bus-partitioning.md) en büyük sıra/konu başlığı boyutu 80 GB etkinleştirilmiştir. |
+| Bir ad alanında eşzamanlı bağlantı sayısı |Ad Alanı |Sonraki istekleri için ek bağlantıları reddedilir ve arama kodun bir özel durum aldı. REST işlemlerini eşzamanlı TCP bağlantılarını doğru sayılmaz. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Bir konu/kuyruk/aboneliği varlık isteklerinde alma eşzamanlı sayısı |Varlık |Sonraki alma isteği reddedilir ve arama kodun bir özel durum aldı. Bu kota birleşik uygulanır eşzamanlı sayısı alma işlemlerinin bir konuyla ilgili tüm abonelikleri arasında. |5.000 |
 | Hizmet ad alanı başına konuları/sıraların sayısı |Ad Alanı |Yeni konu ya da hizmet ad alanında kuyruk oluşturma sonraki istekler reddedilir. Aracılığıyla yapılandırdıysanız sonuç olarak, [Azure portal][Azure portal], bir hata iletisi oluşturulur. Yönetim API'si çağırdıysanız, bir özel durum çağrıyı yapan kod tarafından alınır. |10,000<br /><br />Konular artı hizmet ad alanı kuyruklarda toplam sayısı 10. 000'e eşit veya daha az olmalıdır.<br/>Tüm varlıklar bölümlenir gibi bu Premium için geçerli değildir. |
 | Hizmet ad alanı başına bölümlenmiş konuları/sıraların sayısı |Ad Alanı |Yeni bölümlenmiş konu ya da hizmet ad alanında kuyruk oluşturma sonraki istekler reddedilir. Aracılığıyla yapılandırdıysanız sonuç olarak, [Azure portal][Azure portal], bir hata iletisi oluşturulur. Yönetim API'si, çağrıldıklarında bir **QuotaExceededException** çağıran kodla özel durum aldı. |Temel ve standart katmanları - 100<br />[Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) -1.000 (her Mesajlaşma birimi)<br/><br />Ad alanı başına 10.000 varlık kota doğrultusunda her bölümlenmiş kuyruk veya konu sayar. |

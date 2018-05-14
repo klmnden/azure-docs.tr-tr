@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1592e47509f2537bef9cbcefd3cf49618561edcc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluştaki ve Yönetim için Yönetim grupları oluşturma
 Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. İle birlikte kullanılabilen bir etkili ve verimli hiyerarşisi oluşturmak için bu kapsayıcıları oluşturma [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini](../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md). 
@@ -34,7 +34,7 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu oluşturabilirsiniz.
 2. Seçin **tüm hizmetleri** > **Yönetim grupları**.
 3. Ana sayfada seçin **yeni yönetim grubu.** 
 
-    ![Grup Oluşturma](media/management-groups/create_main.png) 
+    ![Ana grubu](media/management-groups/main.png) 
 4.  Yönetim grubu kimliği alanını doldurun. 
     - **Yönetim grubu Tanıtıcısı** bu yönetim grubu komutlarını göndermek için kullanılan dizini benzersiz tanımlayıcısı değil. Bu grup tanımlamak için Azure sistem genelinde kullanıldığı şekilde bu tanımlayıcı oluşturulduktan sonra düzenlenemez. 
     - Görünen ad alanı Azure portalı içinde görüntülenen addır. Yönetim oluştururken, isteğe bağlı bir alan ayrı görünen adı olduğu grup ve herhangi bir zamanda değiştirilebilir.  

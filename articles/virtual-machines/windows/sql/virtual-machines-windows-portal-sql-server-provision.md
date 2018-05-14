@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 05/04/2018
 ms.author: jroth
-ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında Windows SQL Server sanal makine sağlama
 
@@ -114,7 +114,7 @@ Bir SQL Server sanal makinesini yapılandırmak için beş pencere vardır.
 
 ![SQL VM Boyut Seçenekleri](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-Üretim iş yükleri için [Azure Virtual Machines'de SQL Server için en iyi performans uygulamaları](virtual-machines-windows-sql-performance.md)’nda önerilen makine boyutlarına ve yapılandırmalara bakın. Listede olmayan bir makine boyutu gerekiyorsa **Tümünü görüntüle** düğmesine tıklayın.
+Üretim iş yükleri için [Azure Virtual Machines'de SQL Server için en iyi performans uygulamaları](virtual-machines-windows-sql-performance.md)’nda önerilen makine boyutlarına ve yapılandırmalara bakın.
 
 > [!NOTE]
 > Sanal makine boyutları hakkında daha fazla bilgi için bkz. [Sanal makineler için boyutlar](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -130,7 +130,14 @@ Makine boyutunuzu seçin ve ardından **Seç**’e tıklayın.
    > [!NOTE]
    > Microsoft, SQL Server için Yönetilen Diskleri önerir. Yönetilen Diskler, depolama alanını arka planda yönetir. Ayrıca, Yönetilen Disklere sahip sanal makineler aynı kullanılabilirlik kümesinde olduğunda Azure uygun artıklık düzeyini sağlamak için depolama kaynaklarını dağıtır. Daha fazla bilgi için bkz. [Azure yönetilen diskleri genel bakış] [.. / Yönetilen-diskleri-overview.md). Bir kullanılabilirlik kümesindeki yönetilen diskler hakkında daha fazla ayrıntı için bkz. [Kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma](../manage-availability.md).
 
-* **Ağ** altında, otomatik olarak doldurulan değerleri kabul edebilirsiniz. **Sanal ağ**, **Alt ağ**, **Genel IP adresi** ve **Ağ Güvenlik Grubu**’nu el ile yapılandırmak için her bir özelliğe de tıklayabilirsiniz. Bu kılavuzda amaçları doğrultusunda, varsayılan değerleri tutun.
+* Altında **ağ**, tüm gelen seçin, bağlantı noktaları **seçin ortak gelen bağlantı noktalarının** listesi. Örneğin, VM'de oturum için Uzak Masaüstü istiyorsanız seçin **RDP (3389)** bağlantı noktası.
+
+   ![Gelen bağlantı noktaları](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > Seçebileceğiniz **MS SQL (1433)** SQL Server uzaktan erişmek için bağlantı noktası. Ancak, bunu burada, gerekli olmadığından **SQL Server ayarları** adım bu seçenek de sağlar. Bu adımda 1433 numaralı bağlantı noktasını seçerseniz, seçimlerinizi bakılmaksızın açılacak **SQL Server ayarları** adım.
+
+   Ağ ayarları başka değişiklikler yapmak veya varsayılan değerleri tutun.
 
 * Azure varsayılan olarak, VM için belirlenen aynı depolama hesabıyla **İzleme**’yi etkinleştirir. Burada bu ayarları değiştirebilirsiniz.
 

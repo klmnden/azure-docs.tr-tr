@@ -1,8 +1,8 @@
 ---
-title: "Windows Azure dosyaları sorunlarını giderme | Microsoft Docs"
-description: "Windows Azure dosyaları sorunlarını giderme"
+title: Windows Azure dosyaları sorunlarını giderme | Microsoft Docs
+description: Windows Azure dosyaları sorunlarını giderme
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
 editor: na
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 78170df99e9ced304bebd9112d79b5c7e402f218
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -51,15 +51,15 @@ Aşağıdakilerden birini yapan bir istemciden Bağlan:
 
 Bağlantı noktası 445 giden iletişim Azure dosyaları veri merkezine engellenirse, sistem hatası 53 veya sistem hatası 67 ortaya çıkabilir. İzin veren veya bağlantı noktası 445 erişimden izin vermeyecek ISS'ler özetini görmek için Git [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Bu nedenle "Sistem hata 53" iletisi arkasında olup olmadığını anlamak için Portqry TCP:445 endpoint sorgulamak için kullanabilirsiniz. TCP:445 endpoint filtre olarak görüntüleniyorsa, TCP bağlantı noktasını engellendi. Örnek bir sorgu şöyledir:
+Bu nedenle "Sistem hata 53" iletisi arkasında olup olmadığını anlamak için Portqry TCP:445 endpoint sorgulamak için kullanabilirsiniz. TCP:445 endpoint filtre olarak görüntüleniyorsa, TCP bağlantı noktasını engellendi. Örnek bir sorgu aşağıda verilmiştir:
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
-TCP bağlantı noktası 445 ağ yol kuralı tarafından engellenirse aşağıdaki çıktı görürsünüz:
+445 numaralı TCP bağlantı noktası, ağ yolunda bir kural tarafından engellenirse aşağıdaki çıktıyı görürsünüz:
 
   `TCP port 445 (microsoft-ds service): FILTERED`
 
-Portqry kullanma hakkında daha fazla bilgi için bkz: [Portqry.exe komut satırı yardımcı programının açıklaması](https://support.microsoft.com/help/310099).
+Portqry kullanımı hakkında daha fazla bilgi için bkz. [Portqry.exe komut satırı yardımcı programının açıklaması](https://support.microsoft.com/help/310099).
 
 ### <a name="solution-for-cause-2"></a>Neden 2 için çözüm
 
@@ -186,7 +186,7 @@ Ağ üzerinden dosya kopyalamak için önce şifresini gerekir. Aşağıdaki yö
 
 - Kullanım **/d kopyalama** komutu. Hedef konumda şifresi çözülen dosyaları olarak kaydedilecek şifrelenmiş dosyaları sağlar.
 - Aşağıdaki kayıt defteri anahtarını ayarlayın:
-  - Path = HKLM\Software\Policies\Microsoft\Windows\System
+  - Yol HKLM\Software\Policies\Microsoft\Windows\System =
   - Değer türü = DWORD
   - Adı CopyFileAllowDecryptedRemoteDestination =
   - Değer = 1

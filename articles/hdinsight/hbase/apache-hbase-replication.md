@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda HBase kümesi çoğaltmayı ayarlama
 
@@ -52,51 +52,18 @@ Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz
 - İki farklı sanal ağlar aynı bölgede iki HBase kümesi.
 - İki farklı bölgelerde (coğrafi çoğaltma) iki farklı sanal ağlar iki HBase kümesi.
 
+Bu makalede, coğrafi çoğaltma senaryo yer almaktadır.
+
 Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md). Diğer yöntemleri kullanarak ortamları ayarlama tercih ederseniz, bkz:
 
 - [Hdınsight'ta Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Azure sanal ağında HBase kümeleri oluşturma](apache-hbase-provision-vnet.md)
 
-### <a name="set-up-one-virtual-network"></a>Bir sanal ağı ayarlama
-
-Aynı sanal ağda iki HBase kümesi oluşturmak için aşağıdaki resimde seçin. Şablon konumunda depolanan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### <a name="set-up-two-virtual-networks-in-the-same-region"></a>İki sanal ağ aynı bölgede ayarlama
-
-Sanal Ağ eşlemesi aynı bölgedeki iki HBase kümeleri ve iki sanal ağ oluşturmak için aşağıdaki resimde seçin. Şablon konumunda depolanan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-Bu senaryo gerektirir [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md). Sanal Ağ eşlemesi şablonu sağlar.   
-
-HBase çoğaltmayı ZooKeeper vm'lerden IP adreslerini kullanır. Statik IP adresleri için hedef HBase ZooKeeper düğümleri ayarlamanız gerekir.
-
-**Statik IP adresleri yapılandırmak için**
-
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Soldaki menüden seçin **kaynak grupları**.
-3. Hedef HBase kümesi olan kaynak grubunu seçin. Bu ortamı oluşturmak için Resource Manager şablonu kullanıldığında, belirttiğiniz kaynak grubudur. Filtre listesini daraltmak için kullanabilirsiniz. İki sanal ağları içeren kaynakların bir listesini görebilirsiniz.
-4. Hedef HBase kümesi içeren sanal ağı seçin. Örneğin, seçin **xxxx-vnet2'yi**. İle başlayan üç aygıtlarla adları **NIC-zookeepermode -** listelenir. Bu üç ZooKeeper VM'ler aygıtlardır.
-5. ZooKeeper VM'ler birini seçin.
-6. Seçin **IP yapılandırmaları**.
-7. Listeden seçin **ipConfig1**.
-8. Seçin **statik**, kopyalamak ve gerçek IP adresini yazın. Çoğaltmayı etkinleştirmek için betik eylemi çalıştırdığınızda, IP adresi gerekir.
-
-  ![Hdınsight HBase çoğaltmayı ZooKeeper statik IP adresi](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. Diğer iki ZooKeeper düğümleri için statik IP adresi ayarlamak için 6. adımı yineleyin.
-
-Çapraz sanal ağı senaryosu için kullanmanız gerekir **- IP** çağırdığınızda geçiş `hdi_enable_replication.sh` betik eylemi.
-
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>İki farklı bölgelerdeki iki sanal ağ ayarlama
 
-İki farklı bölgelerde ve sanal ağlar arasında VPN bağlantısı iki sanal ağ oluşturmak için aşağıdaki resimde'ı tıklatın. Şablon depolanan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+İki sanal ağ iki farklı bölgeler ve sanal ağlar arasında VPN bağlantısı oluşturmak için oluşturmak için aşağıdaki görüntüyü seçin. Şablon [ortak blob depolama] saklanır] (https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Bazı şablonu sabit kodlanmış değerler:
 
@@ -116,11 +83,6 @@ Bazı şablonu sabit kodlanmış değerler:
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | ağ geçidi IP | vnet1gwip |
-| Küme Adı | &lt;ClusterNamePrefix > 1 |
-| Küme sürümü | 3.6 |
-| Küme türü | hbase |
-| Küme çalışan düğüm sayısı | 2 |
-
 
 **VNet 2**
 
@@ -138,14 +100,176 @@ Bazı şablonu sabit kodlanmış değerler:
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | ağ geçidi IP | vnet1gwip |
-| Küme Adı | &lt;ClusterNamePrefix > 2 |
-| Küme sürümü | 3.6 |
-| Küme türü | hbase |
-| Küme çalışan düğüm sayısı | 2 |
 
-HBase çoğaltmayı ZooKeeper vm'lerden IP adreslerini kullanır. Statik IP adresleri için hedef HBase ZooKeeper düğümleri ayarlamanız gerekir. Statik IP ayarlamak için bkz: [iki sanal ağ aynı bölgede ayarlama](#set-up-two-virtual-networks-in-the-same-region) bu makalede.
+## <a name="setup-dns"></a>DNS Kurulumu
 
-Çapraz sanal ağı senaryosu için kullanmanız gerekir **- IP** çağırdığınızda geçiş `hdi_enable_replication.sh` betik eylemi.
+Son bölümünde her iki sanal ağların bir Ubuntu sanal makine şablonu oluşturur.  Bu bölümde, iki DNS sanal makinelerde bağlama yükleyin ve sonra iki sanal makinelerde DNS iletmeyi yapılandırın.
+
+Bağ yüklemek için yon iki DNS sanal makinelerin genel IP adresi bulmanız gerekir.
+
+1. [Azure portalı](https://portal.azure.com) açın.
+2. DNS sanal makine seçerek açın **kaynak gruplarına > [kaynak grubu adı] > [vnet1DNS]**.  Kaynak grubu adı son yordamda oluşturduğunuz adrestir. Varsayılan DNS sanal makine adları *vnet1DNS* ve *vnet2NDS*.
+3. Seçin **özellikleri** sanal ağ özellikleri sayfasını açın.
+4. Yazma **genel IP adresi**ve ayrıca doğrulayın **özel IP adresi**.  Özel IP adresi tutulamaz **10.1.0.4** vnet1DNS için ve **10.2.0.4** vnet2DNS için.  
+
+Bağ yüklemek için aşağıdaki yordamı kullanın:
+
+1. SSH bağlanmak için kullandığı __genel IP adresi__ DNS sanal makinenin. Aşağıdaki örnek bir sanal makinenin 40.68.254.142 bağlanır:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Değiştir `sshuser` DNS sanal makine oluştururken belirttiğiniz SSH kullanıcı hesabıyla.
+
+    > [!NOTE]
+    > Bir elde etmek için çeşitli yollar vardır `ssh` yardımcı programı. Linux, Unix ve macOS, işletim sisteminin bir parçası sağlanır. Windows kullanıyorsanız, aşağıdaki seçeneklerden birini göz önünde bulundurun:
+    >
+    > * [Azure bulut Kabuğu](../../cloud-shell/quickstart.md)
+    > * [Windows 10 Ubuntu bash](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Git)https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH)https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. Bağ yüklemek için SSH oturumundan aşağıdaki komutları kullanın:
+
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
+    ```
+
+3. Şirket içi DNS sunucunuz için ad çözümleme isteklerini iletmek için bağlama yapılandırmak için aşağıdaki metni içeriğini kullanın `/etc/bind/named.conf.options` dosyası:
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > Değerleri değiştirin `goodclients` iki sanal ağ IP adresi aralığı ile bölüm. Bu bölümde, bu DNS sunucusu gelen istekleri kabul adreslerini tanımlar.
+
+    Bu dosyayı düzenlemek için aşağıdaki komutu kullanın:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    Dosyayı kaydetmek için kullanın __Ctrl + X__, __Y__ve ardından __Enter__.
+
+4. SSH oturumunda aşağıdaki komutu kullanın:
+
+    ```bash
+    hostname -f
+    ```
+
+    Bu komutu aşağıdaki metni benzer bir değer döndürür:
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Metin __DNS soneki__ bu sanal ağ için. Bu değer daha sonra kullanılmak üzere kaydedin.
+
+    Diğer DNS sunucusundaki DNS soneki kullanıma bulmanız gerekir. Sonraki adımda ihtiyaç.
+
+5. Sanal ağ içindeki kaynaklar için DNS adlarını çözümlemek için bağ yapılandırmak için aşağıdaki metni içeriğini kullanın `/etc/bind/named.conf.local` dosyası:
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > Değiştirmeniz gereken `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` bir sanal ağın DNS soneki. Ve iletici IP DNS sunucusunun diğer sanal ağdaki özel IP adresidir.
+
+    Bu dosyayı düzenlemek için aşağıdaki komutu kullanın:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    Dosyayı kaydetmek için kullanın __Ctrl + X__, __Y__ve ardından __Enter__.
+
+6. Bağ başlatmak için aşağıdaki komutu kullanın:
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. Bu bağlama diğer sanal ağ kaynaklarında adlarını çözümleyebildiğini doğrulamak için aşağıdaki komutları kullanın:
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    ```
+
+    > [!IMPORTANT]
+    > Değiştir `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` diğer ağ DNS sanal makinenin tam etki alanı adını (FQDN).
+    >
+    > Değiştir `10.2.0.4` ile __iç IP adresi__ özel DNS sunucunuzun diğer sanal ağ.
+
+    Yanıt aşağıdakine benzer görünür:
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    Şimdiye kadar belirtilen DNS sunucusu IP adresi olmadan diğer ağdan IP adresini bakın olamaz.
+
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Sanal ağ özel DNS sunucusunu kullanacak şekilde yapılandırma
+
+Sanal ağ yerine Azure özyinelemeli çözümleyici özel DNS sunucusunu kullanacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
+
+1. İçinde [Azure portal](https://portal.azure.com)sanal ağı seçin ve ardından __DNS sunucuları__.
+
+2. Seçin __özel__ve girin __iç IP adresi__ özel DNS sunucusu. Son olarak, seçin __kaydetmek__.
+
+6. DNS sunucusu sanal makinesi vnet1 açın ve tıklayın **yeniden**.  Etkili olması için DNS yapılandırmasını yapmak için sanal ağ tüm sanal makineleri yeniden başlatmalısınız.
+7. Adımları yineleyin vnet2'özel DNS sunucusunu yapılandırın.
+
+DNS yapılandırmasını test etmek için iki DNS SSH kullanarak sanal makineleri için bağlanabilir ve ana bilgisayar adını kullanarak bir sanal ağın DNS sunucusu ping işlemi yapın. İşe yaramazsa, DNS durumunu denetlemek için aşağıdaki komutu kullanın:
+
+```bash
+sudo service bind9 status
+```
+
+## <a name="create-hbase-clusters"></a>HBase kümeleri oluşturma
+
+Her iki sanal ağ aşağıdaki yapılandırma ile bir HBase kümesi oluşturun:
+
+- **Kaynak grubu adı**: sanal ağlar oluşturuldu olarak aynı kaynak grubu adı kullanın.
+- **Küme türü**: HBase
+- **Sürüm**: HBase 1.1.2 (HDI 3.6)
+- **Konum**: aynı konumda sanal ağ olarak kullanın.  Varsayılan olarak, vnet1 olan *Batı ABD*, ve vnet2 *Doğu ABD*.
+- **Depolama**: küme için yeni bir depolama hesabı oluşturun.
+- **Sanal ağ** (Gelişmiş ayarlar portalındaki)'dan: son yordamda oluşturduğunuz vnet1 seçin.
+- **Alt ağ**: şablonda kullanılan varsayılan addır **subnet1**.
+
+Ortam doğru yapılandırıldığından emin olmak için iki küme arasındaki headnode ait FQDN ping mümkün olması gerekir.
 
 ## <a name="load-test-data"></a>Yük testi verileri
 
@@ -195,7 +319,6 @@ Gerekli bağımsız değişkenler:
 |-du,--dst ambari kullanıcı | Ambari için yönetici kullanıcı adı hedef HBase kümede belirtir. Varsayılan değer **yönetici**. |
 |-t,--Tablo listesi | Çoğaltılacak tabloları belirtir. Örneğin: – Tablo listesi = "tablo1; tablo2; Tablo3". Tabloları belirtmezseniz, tüm var olan HBase tablolarını çoğaltılır.|
 |-m,--makine | Betik eylemi çalıştığı baş düğüm belirtir. Ya da değerdir **hn1** veya **hn0**. Çünkü **hn0** baş düğüm genellikle yoğun, kullanmanızı öneririz **hn1**. 0 betiği Hdınsight portal ya da Azure PowerShell betik eylemi çalıştırıyorsanız bu seçeneği kullanın.|
-|-IP | İki sanal ağ arasında çoğaltmayı etkinleştirirken gereklidir. Bu bağımsız değişken FQDN adları yerine çoğaltma küme ZooKeeper düğümü statik IP adreslerini kullanmak üzere bir geçiş olarak görev yapar. Çoğaltma etkinleştirmeden önce statik IP adresleri önceden gerekir. |
 |-TP, - copydata | Çoğaltma etkinleştirdiğiniz tablolarda mevcut verilerin geçişini sağlar. |
 |-rpm, - replicate-phoenix-meta | Phoenix sistem tablolarda çoğaltmayı etkinleştirir. <br><br>*Bu seçeneği dikkatli kullanın.* Bu komut dosyasını kullanmadan önce çoğaltma kümeleri Phoenix tablolarda yeniden oluşturmanızı öneririz. |
 |-h,--Yardım | Kullanım bilgilerini görüntüler. |

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory PoC Playbook uygulaması | Microsoft Docs"
-description: "Keşfetmek ve hızlı bir şekilde kimlik ve erişim yönetimi senaryoları uygulayan"
+title: Azure Active Directory PoC Playbook uygulaması | Microsoft Docs
+description: Keşfetmek ve hızlı bir şekilde kimlik ve erişim yönetimi senaryoları uygulayan
 services: active-directory
-keywords: "Azure active directory, playbook, kavram kanıtı, PT"
-documentationcenter: 
+keywords: Azure active directory, playbook, kavram kanıtı, PT
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory Playbook kavram kanıtı: uygulama
 
@@ -87,7 +87,7 @@ Karma kimlik zaten bir şirket içi dizin olan Kurumsal müşteriler çoğunu te
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Şirket içi uygulamalara güvenli uzaktan erişim
 
-1. Bob, Azure AD genel yönetici, çalışanların uzaktan çalışırken giderleri uygulama gibi birkaç yararlı şirket kaynaklarına erişmesini sağlamak için çok sayıda isteği aldı. Müşterinizle izleyen [uygulama proxy'si belgelerine](active-directory-application-proxy-enable.md) bir bağlayıcı yükleyip giderleri uygulama proxy'si uygulama yayımlamak için. 
+1. Bob, Azure AD genel yönetici, çalışanların uzaktan çalışırken giderleri uygulama gibi birkaç yararlı şirket kaynaklarına erişmesini sağlamak için çok sayıda isteği aldı. Müşterinizle izleyen [uygulama proxy'si belgelerine](manage-apps/application-proxy-enable.md) bir bağlayıcı yükleyip giderleri uygulama proxy'si uygulama yayımlamak için. 
 2. Bob dış giderleri uygulama URL'si Susie ile uzaktan erişim gereken çalışanlar birini paylaşır. Aynen bağlantıyı erişir ve AAD karşı kimlik doğrulamasından sonra aynen giderleri uygulama erişebilir ve üretken olmaya devam uzaktan oluştu. 
 3. Bob, aynı işlemi kullanarak ve gerektiğinde kullanıcılara erişim verip ek şirket içi uygulamaları yayımlamak sonra devam eder. Müşterinizle koşullu erişim ve kendisine, ek güvenlik sağlamak için yayımlar daha hassas uygulamalar için çok faktörlü kimlik doğrulaması ekler.
 
@@ -155,7 +155,7 @@ Karma kimlik zaten bir şirket içi dizin olan Kurumsal müşteriler çoğunu te
 | [Self Servis parola sıfırlama](#self-service-password-reset) | [Self Servis parola sıfırlama](active-directory-playbook-building-blocks.md#self-service-password-reset) |
 | [Self Servis uygulamalara erişim](#self-service-access-to-applications) | [Self Servis uygulamalara erişim](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
 
-### <a name="self-service-password-reset"></a>Self Servis parola sıfırlama 
+### <a name="self-service-password-reset"></a>Self Servis Parola Sıfırlama 
 
 1. Bob, Azure AD genel yönetici olan ve bir kullanıcılar alt kümesine Susie dahil olmak üzere, Self Servis parola yönetimi sağlar. 
 2. Myapps portal ve bakın gelecekte parola için kendi güvenlik bilgileri kaydetmek için bir ileti Susie günlüklerinde olayları sıfırlayın.

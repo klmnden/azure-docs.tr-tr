@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 B-serisi VM ailesi, hangi VM boyutu en fazla % 100'ünü Intel® Broadwell E5-2673 v4 CPU performans veri bloğu olanağı, iş yükü için gerekli temel düzey performans sağlar seçmenize olanak verir 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemcisi vCPU.
 
@@ -58,7 +58,8 @@ I kazanılan 120 krediler yoğun olmayan almak ve my yoğun saatlerde için kull
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>S: B-serisi Premium depolama veri diskleri destekliyor mu?
 **A**: Evet, tüm B-serisi boyutları Premium depolama veri disklerini destekler.   
     
-
+### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>S: my kalan kredi bir redepoy veya Durdur/Başlat sonra 0 olarak ayarlanır.
+**A** : olduğunda bir VM olan "REDPLOYED", yani VM başka bir düğüme taşır ve birikmiş kredi kaybolur. VM durduruldu ve başlatıldı, ancak aynı düğümde kalır, VM birikmiş kredi korur. VM bir düğümünde yeni başlattığında, ilk kredi alır, isteğe bağlı olarak Standard_B8ms için 240 dakika olur.
 
     
 

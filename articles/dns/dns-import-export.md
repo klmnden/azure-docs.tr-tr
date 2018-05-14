@@ -3,7 +3,7 @@ title: Alma ve Azure CLI 2.0 kullanan Azure DNS'ye bir etki alanı bölge dosyas
 description: İçeri aktarma ve Azure CLI 2.0 kullanarak Azure DNS'ye bir DNS bölge dosyasına dışarı aktarma hakkında bilgi edinin
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: gwallace
-ms.openlocfilehash: 2bd833ab7eb8c7888228a556acdb8b2a24214cd9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: kumud
+ms.openlocfilehash: 3aee4e20b43d946101e692f0dca76b07e04dbb7a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Alma ve Azure CLI 2.0 kullanan bir DNS bölge dosyasına verme 
 
@@ -172,7 +172,7 @@ Bölge düzgün bir şekilde içeri olduğunu doğruladıktan sonra Azure DNS ad
 Bir DNS bölgesi almak için Azure CLI komut biçimi şöyledir:
 
 ```azurecli
-az network dns zone export -g <resource group> -z <zone name> -f <zone file name>
+az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Değerler:

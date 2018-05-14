@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 5a2a818b6a36fd4dbaf3a18c1ef98d2a13596240
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -80,7 +80,7 @@ Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibi ek uygulamala
 
 Seçilen bir uygulamaya başlar için hizmet sağlama Azure ad yapılandırma  **[Azure portal](https://portal.azure.com)**. İçinde **Azure Active Directory > Kurumsal uygulamalar** bölümünde, select **Ekle**, ardından **tüm**, senaryonuza bağlı olarak aşağıdakilerden birini ekleyin:
 
-* Tüm uygulamalar **özellikli uygulamalara** destek bölümüne otomatik sağlama. [Kullanıcı sağlamayı uygulama öğreticiler listesi] active-directory-saas-öğretici-list.md bakın) ek olanlar.
+* Tüm uygulamalar **özellikli uygulamalara** destek bölümüne otomatik sağlama. Bkz: [kullanıcı sağlamayı uygulama öğreticiler listesi](active-directory-saas-tutorial-list.md) ek olanlar.
 
 * Özel geliştirilmiş SCIM'yi tümleştirmeler için "galeri olmayan uygulama" seçeneğini kullanın
 

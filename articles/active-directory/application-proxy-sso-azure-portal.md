@@ -15,19 +15,19 @@ ms.date: 07/20/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3c69450601d84f62d05ca6cc8930fd8e9a8e4203
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 77e7288060abd2577867023a777eb3bdd4331e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Çoklu oturum açma için uygulama proxy'si ile vaulting parola
 
 Azure Active Directory Uygulama proxy'si uzak çalışanlar güvenli bir şekilde bunları çok erişebilmesi için şirket içi uygulamaları yayımlama üretkenlik geliştirmenize yardımcı olur. Azure portalında, aynı zamanda çoklu oturum açma (SSO) bu uygulamalara ayarlayabilirsiniz. Kullanıcılarınız yalnızca Azure AD ile kimlik doğrulaması yapmanız ve yeniden oturum açmak zorunda kalmadan, Kurumsal uygulama erişebilir.
 
-Uygulama proxy'si destekleyen birkaç [tek oturum açma modları](application-proxy-sso-overview.md). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola bileşimi kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açma yapılandırdığınızda şirket içi uygulamaya bir kez oturum açmak, kullanıcılarınızın sahip. Bundan sonra Azure Active Directory oturum açma bilgileri depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak uygulamaya sağlar. 
+Uygulama proxy'si destekleyen birkaç [tek oturum açma modları](manage-apps/application-proxy-single-sign-on.md). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola bileşimi kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açma yapılandırdığınızda şirket içi uygulamaya bir kez oturum açmak, kullanıcılarınızın sahip. Bundan sonra Azure Active Directory oturum açma bilgileri depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak uygulamaya sağlar. 
 
-Zaten varsa yayımlanan ve uygulama proxy'si ile uygulamanızı test. Aksi takdirde, adımları [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
+Zaten varsa yayımlanan ve uygulama proxy'si ile uygulamanızı test. Aksi takdirde, adımları [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Uygulamanız için vaulting parola ayarlama
 
@@ -55,5 +55,5 @@ Uygulamanız için uzaktan erişim için yapılandırılmış dış URL'ye gidin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Diğer yollarını uygulamak için okuma [uygulama proxy'si ile çoklu oturum açma](application-proxy-sso-overview.md)
+- Diğer yollarını uygulamak için okuma [uygulama proxy'si ile çoklu oturum açma](manage-apps/application-proxy-single-sign-on.md)
 - Hakkında bilgi edinin [uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları](application-proxy-security-considerations.md)

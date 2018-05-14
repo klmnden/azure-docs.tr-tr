@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: d61daede687da077549e4a3e58bb0e5213c6a69b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2eb75fb7159febef4e582006c36bda192a36597f
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Farklı bir teklif Azure Kullandıkça Öde aboneliğinizi değiştirme
 
@@ -29,7 +29,7 @@ Farklı bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p
 
 ## <a name="whats-supported"></a>Ne desteklenir:
 
-| Kaynak | Alıcı |
+| Kimden | Alıcı |
 | --- | --- |
 | Kullandıkça Öde |[Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Kullandıkça Öde |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |

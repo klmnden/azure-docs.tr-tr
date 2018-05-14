@@ -8,15 +8,15 @@ manager: jahogg
 ms.service: storage
 ms.devlang: bash
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Bir dosya sistemi blobfuse (Önizleme) ile olarak BLOB storage nasıl
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Bir dosya sistemi ile blobfuse olarak BLOB storage nasıl
 
 ## <a name="overview"></a>Genel Bakış
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) Linux dosya sistemi aracılığıyla depolama hesabınızdaki varolan blok blobu verilerinize erişmesine izin veren Azure Blob Storage sanal dosya sistemi sürücüsü içindir. Azure Blob Depolama bir nesne depolama hizmeti ve bu nedenle hiyerarşik bir ad alanı yok. Blobfuse bir ayırıcısı olarak '/' eğik çizgi-birini kullanarak sanal dizin şeması kullanarak bu ad alanı sağlar.  

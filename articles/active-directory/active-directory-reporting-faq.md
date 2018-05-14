@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8963dfb3c2d8b81309f44fcdcaab7ddc0b403e7e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -24,14 +24,14 @@ ms.lasthandoff: 05/11/2018
 
 Bu makalede raporlama Azure Active Directory (Azure AD) hakkında sık sorulan soruların yanıtlarını içerir. Daha fazla bilgi için bkz. [Azure Active Directory raporlaması](active-directory-reporting-azure-portal.md). 
 
-**S: kullanıyorum https://graph.windows.net/ &lt;Kiracı adı&gt;API'leri çekme Azure AD denetleme ve tümleşik uygulama kullanımı için Raporlar Raporlama bizim sistemlere program aracılığıyla /reports/ uç noktası. Ne için geçiş yaptığım?**
+**S: kullanıyorum https://graph.windows.net/&lt; Kiracı adı&gt;API'leri çekme Azure AD denetleme ve tümleşik uygulama kullanımı için Raporlar Raporlama bizim sistemlere program aracılığıyla /reports/ uç noktası. Ne için geçiş yaptığım?**
 
 **Y:** aramak [API başvuru belgeleri](https://developer.microsoft.com/graph/) erişmek için yeni API'leri nasıl kullanabileceğinizi görmek için [etkinlik raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Bu uç noktaya eski API uç aldığınız tüm verileri sağlayan iki rapor (Denetim ve oturum açma işlemleri) sahiptir. Bu yeni uç nokta da, uygulama kullanımı, Aygıt kullanımı ve kullanıcı oturum açma bilgilerini almak için kullanabileceğiniz Azure AD Premium lisansı oturum açma işlemleri raporu sahiptir.
 
 
 --- 
 
-**S: kullanıyorum https://graph.windows.net/ &lt;Kiracı adı&gt;/reports/ endpoint Azure AD güvenlik raporları (algılama sızan kimlik veya anonim IP adreslerinden gerçekleştirilen oturum açma işlemleri gibi belirli türleri) raporlama sistemlerinin çekmek için API'ler Program aracılığıyla. Ne için geçiş yaptığım?**
+**S: kullanıyorum https://graph.windows.net/&lt; Kiracı adı&gt;/reports/ endpoint Azure AD güvenlik raporları (algılama sızan kimlik veya anonim IP adreslerinden gerçekleştirilen oturum açma işlemleri gibi belirli türleri) raporlama sistemlerinin çekmek için API'ler Program aracılığıyla. Ne için geçiş yaptığım?**
 
 **Y:** kullanabileceğiniz [kimlik koruması risk olaylarını API](active-directory-identityprotection-graph-getting-started.md) Microsoft Graph üzerinden erişim güvenlik algılamaları için. Bu yeni biçimin nasıl Gelişmiş filtreleme, alan seçimi ve daha fazla ile verileri sorgulayabilir büyük esneklik sağlar ve daha kolay tümleştirme Sıem'lerden ve diğer veri toplama araçları için bir türü içine risk olaylarını standartlaştıran. Verileri farklı bir biçimde olduğundan, yeni bir sorgu eski sorgularınızı yerine geçemez. Ancak, [Microsoft Graph yeni API kullanır](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), bu tür API'leri O365 veya Azure AD olarak Microsoft standart olduğu. İş ya da geçerli MS Graph Yatırımlar veya Yardım genişletebilirsiniz gereken şekilde bu yeni standart platform geçişinizin başlayın.
 
@@ -39,7 +39,7 @@ Bu makalede raporlama Azure Active Directory (Azure AD) hakkında sık sorulan s
 
 **S: veri bekletme etkinlik günlükleri (Denetim ve oturum açma işlemleri) için Azure portalında nedir?** 
 
-**Y:** Lütfen bakın [toplanan verileri ne kadar süreyle depolanır?} (Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) bu yanıtını için.
+**Y:** bkz [toplanan verileri ne kadar süreyle depolanır?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) bu yanıtını için.
 
 --- 
 

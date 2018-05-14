@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -43,6 +43,8 @@ Bu öğretici aşağıdaki görevleri kapsar:
 Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklü olduğundan emin olun:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ya da daha yüksek.
+
+* Verimliliğini artırmak: ayarladığınız tek tek bir koleksiyon için işleme miktarı veya koleksiyonları kümesi, veri geçiş süresini bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Azure portalında verimliliği artırma hakkında daha fazla bilgi için performans düzeyleri ve Azure Cosmos veritabanı fiyatlandırma katmanlarına bakın.
 
 ## <a id="Overviewl"></a>Genel bakış
 Veri Geçiş Aracı, verileri Azure Cosmos DB bir çeşitli kaynaklardan dahil olmak üzere, içe aktaran bir açık kaynak çözümü olmasıdır:

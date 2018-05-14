@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -303,6 +303,8 @@ Bu liste, SAP HANA (büyük örnekler) Azure üzerinde çalıştırmak için ger
    - Red Hat Linux için destek içerir ve hizmet güncelleştirmeleri HANA büyük örneğinin işletim sistemleri için doğru aboneliğin düzeyleri olması gerekiyor. Red Hat önerir Red Hat Enterprise Linux [SAP çözümleri] (https://access.redhat.com/solutions/3082481 abonelik. 
 
 Farklı Linux sürümleri ile farklı SAP HANA sürümleri için destek matrisi bkz [SAP Not #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
+İçin uyumluluk matrisi HLI bellenim/sürücü sürümleri ve işletim sistemine başvurmak [HLI için işletim sistemi yükseltme](os-upgrade-hana-large-instance.md).
 
 
 **Veritabanı**

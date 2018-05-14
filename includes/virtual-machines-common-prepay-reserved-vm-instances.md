@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -13,6 +13,7 @@ Sanal makineler için ön ödeme ve ayrılmış sanal makine örnekleriyle parad
 Ayrılmış sanal makine örnekleri satın alabileceğiniz [Azure portal](https://portal.azure.com). Ayrılmış bir sanal makine örnek satın almak için:
 -   En az bir kuruluş veya Kullandıkça Öde aboneliğine sahip rolünde olması gerekir.
 -   Ayırma satın alma işlemleri Kurumsal abonelikler için etkinleştirilmesi gerekir [EA portal](https://ea.azure.com).
+-   Bulut çözümü sağlayıcısı (CSP) programı için yalnızca yönetim aracıları veya satış aracılarının ayırmaları satın alabilirsiniz.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Ayrılmış sanal makine örneğini satın alın
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
@@ -50,3 +51,4 @@ Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdak
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Ayrılmış örnekler iş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programı](https://docs.microsoft.com/partner-center/azure-reservations)

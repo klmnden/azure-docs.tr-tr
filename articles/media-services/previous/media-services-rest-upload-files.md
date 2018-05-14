@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Dosyaları REST kullanarak bir Media Services hesabına veri yükleme
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ Bu öğretici için Postman ayarlama adımları için bkz: [yapılandırma Postm
     ```
 4. Sol tarafındaki **Postman** penceresinde, tıklatıldığında **1. AAD kimlik doğrulama belirteci alma** -> **alma Azure AD belirteci için hizmet asıl**.
 
-    URL bölümü doldurulup **AzureADSTSEndpoint** (değeri, bu öğreticide daha önce) ortam değişkenini ayarla.
-    
-5. **Gönder**’e basın.
+    URL bölümü doldurulup **AzureADSTSEndpoint** ortam değişkeni (öğreticide daha önce değerlerini ayarlamak [ortam değişkenleri](#configure-the-environment) destekleyen [koleksiyonu](#configure-the-collection)).
 
     ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. **Gönder**’e basın.
 
     "Access_token" içeren yanıt görebilirsiniz. Bu değer "test" komut dosyası alır ve ayarlar **AccessToken** (yukarıda açıklandığı gibi) ortam değişkeni. Ortam değişkenlerini incelerseniz, bu değişken şimdi işlemleri geri kalanı kullanılan erişim belirteci (taşıyıcı belirteci) değeri içeren görürsünüz. 
 

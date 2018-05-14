@@ -12,25 +12,25 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/10/2018
+ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b451ede984d3baa8331ec87575557f845686c01f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d675236f36840858f0f011484392186d355ac6df
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA gerekir. 
 
-Kullanıcılarınız oturum açma deneyimini basitleştirmek için bunları bir kullanıcı adı ve parola kullanarak, bulut uygulamalarınızı oturum açmak izin vermek isteyebilirsiniz. Bununla birlikte, çoğu ortam için daha güçlü bir form çok faktörlü kimlik doğrulaması gibi hesap doğrulama gerektirecek şekilde önerilir; en az birkaç uygulama var. Bu, kuruluşunuzun e-posta sisteminize veya HR uygulamalarınızı erişimi için örnek true için olabilir. Azure Active Directory'de koşullu erişim ilkesi ile bu hedef gerçekleştirebilirsiniz.    
+Kullanıcılarınız oturum açma deneyimini basitleştirmek için bunları bir kullanıcı adı ve parola kullanarak, bulut uygulamalarınızı oturum açmak izin vermek isteyebilirsiniz. Bununla birlikte, çoğu ortam için daha güçlü bir form çok faktörlü kimlik doğrulaması (MFA) gibi hesap doğrulama gerektirecek şekilde önerilir; en az birkaç uygulama var. Bu, kuruluşunuzun e-posta sisteminize veya HR uygulamalarınızı erişimi için örnek true için olabilir. Azure Active Directory (Azure AD), bu hedefi bir koşullu erişim ilkesi ile gerçekleştirebilirsiniz.    
 
-Bu hızlı başlangıç nasıl yapılandırılacağını göstermektedir bir [Azure AD koşullu erişim ilkesi](active-directory-conditional-access-azure-portal.md) seçili bulut uygulamaları, ortamınızdaki bir dizi çok faktörlü kimlik doğrulaması istemek için.
+Bu hızlı başlangıç nasıl yapılandırılacağını göstermektedir bir [Azure AD koşullu erişim ilkesi](active-directory-conditional-access-azure-portal.md) seçili bulut uygulamalarını ortamınızdaki kümesi için çok faktörlü kimlik doğrulaması gerektirir.
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu makalede senaryoda belirli bir kullanıcı için çok faktörlü kimlik doğrulaması gerektiren bir bulut uygulama için yer tutucu olarak Azure Portalı'nı kullanır. Isabella Simonsen, kuruluşunuzdaki bir kullanıcıdır. Azure portalında oturum açtıktan, daha fazla hesabını çok faktörlü kimlik doğrulamasıyla doğrulamak için her istediğinizde.
+Bu makalede senaryoda belirli bir kullanıcı için MFA gerektiren bir bulut uygulama için yer tutucu olarak Azure Portalı'nı kullanır. Isabella Simonsen, kuruluşunuzdaki bir kullanıcıdır. Azure portalında oturum açtıktan, daha fazla MFA ile hesabını doğrulamak için her istediğinizde.
 
 ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
@@ -58,7 +58,7 @@ Bu bölümde gerekli koşullu erişim ilkesinin nasıl oluşturulacağını gös
 |Erişim İzni Verme | Çok faktörlü kimlik doğrulaması gerektir |
  
 
-![İlke oluşturma](./media/active-directory-conditional-access-app-based-mfa/21.png)
+![İlke oluşturma](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Parola tek oturum açma için Azure AD galeri uygulamanın yapılandırma | Microsoft Docs"
-description: "Azure AD uygulama galerisinde zaten listelendiğinde güvenli parola tabanlı çoklu oturum açma için uygulama yapılandırma"
+title: Parola tek oturum açma için Azure AD galeri uygulamanın yapılandırma | Microsoft Docs
+description: Azure AD uygulama galerisinde zaten listelendiğinde güvenli parola tabanlı çoklu oturum açma için uygulama yapılandırma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aa02bfd22a656024d8638226dc1c5551b63e6d42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8e1d8471d2feb838a6ba3eb08eedc3ca4d30ab07
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Parola tek oturum açma için Azure AD galeri uygulama yapılandırma
 
@@ -179,4 +179,4 @@ Bir veya daha fazla grupları doğrudan bir uygulamaya atamak için aşağıdaki
 Kısa bir süre sonra seçtiğiniz kullanıcıların erişim panelinde bu uygulamaları başlatabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)
+[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

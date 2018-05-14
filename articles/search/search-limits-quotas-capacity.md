@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search hizmet sınırları
 Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki **serbest**, **temel**, veya **Standart** fiyatlandırma katmanları.
@@ -87,12 +87,13 @@ Belge boyutu tutun, sorgulanabilir olmayan verileri istekten dışlamak unutmay�
 
 ## <a name="indexer-limits"></a>Dizin Oluşturucu sınırları
 
-Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları ve dizin oluşturucular daha yüksek bir sınıra sahiptir.
+Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları, skillsets ve dizin oluşturucular daha yüksek bir sınıra sahiptir.
 
 | Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |
 | En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |
+| En fazla skillsets |3 |5 veya 15 |50 |200 |200 |Yok |
 | Çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Yok |
 | En fazla çalışma süresini | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |
 | BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |

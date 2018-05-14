@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 702fe812d4ff80c9f18a163af38f883ed3739f12
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -244,7 +244,7 @@ Yaklaşık tam süresi: 20 dakika
 | Bir Microsoft Azure AD basic veya premium aboneliği ve bir genel yönetici olan bir Azure AD dizini | [Azure Active Directory sürümleri](active-directory-editions.md) |
 | Uzaktan erişim için yapılandırmak istediğiniz şirket içi bir web uygulaması barındırılan |  |
 | Uygulama Ara sunucusu Bağlayıcısı'nı yükleyebilmek için Windows Server 2012 R2 veya Windows 8.1 veya sonraki bir sürümü çalıştıran bir sunucu | [Azure AD uygulama proxy'si bağlayıcılar anlama](application-proxy-understand-connectors.md) |
-| Yolda bir güvenlik duvarı varsa, bağlayıcı uygulama ara sunucusuna HTTPS (TCP) istekleri yapabilen, açık olduğundan emin olun | [Azure portalında uygulama ara sunucusunu etkinleştirme: uygulama ara sunucusu önkoşulları](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
+| Yolda bir güvenlik duvarı varsa, bağlayıcı uygulama ara sunucusuna HTTPS (TCP) istekleri yapabilen, açık olduğundan emin olun | [Azure portalında uygulama ara sunucusunu etkinleştirme: uygulama ara sunucusu önkoşulları](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
 | Kuruluşunuzun internet'e bağlanmak için proxy sunucuları kullanıyorsa, Al blog göz sonrası çalışma bunların nasıl yapılandırılacağı hakkında ayrıntılı bilgi için mevcut şirket içi proxy sunucuları ile | [Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-working-with-proxy-servers.md) |
 
 
@@ -252,9 +252,9 @@ Yaklaşık tam süresi: 20 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Bir bağlayıcı sunucuya yükleyin | [Azure portalında uygulama ara sunucusunu etkinleştirme: yükleme ve kaydetme bağlayıcı](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| Azure AD uygulama proxy'si uygulama olarak, şirket içi uygulama yayımlama | [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md) |
-| Test kullanıcıları atayın | [Azure AD uygulama proxy'si ile uygulama yayımlama: bir test kullanıcısı Ekle](application-proxy-publish-azure-portal.md#add-a-test-user) |
+| Bir bağlayıcı sunucuya yükleyin | [Azure portalında uygulama ara sunucusunu etkinleştirme: yükleme ve kaydetme bağlayıcı](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| Azure AD uygulama proxy'si uygulama olarak, şirket içi uygulama yayımlama | [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md) |
+| Test kullanıcıları atayın | [Azure AD uygulama proxy'si ile uygulama yayımlama: bir test kullanıcısı Ekle](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
 | İsteğe bağlı olarak, çoklu oturum açma deneyimini kullanıcılarınız için yapılandırın | [Çoklu oturum açma ile Azure AD uygulama proxy'si sağlayın](application-proxy-sso-azure-portal.md) |
 | MyApps portal atanan kullanıcı olarak oturum açarak uygulamayı test etme | https://myapps.microsoft.com |
 

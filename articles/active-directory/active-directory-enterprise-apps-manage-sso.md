@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ee8f30bc81d3c3bd0bf4659359a6ca3a9280f734
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamaları için çoklu oturum açmayı yönetme
 
@@ -28,13 +28,13 @@ Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.a
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
 Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve Azure portalında yönetilebilir. Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. 
 
-![Kurumsal uygulamalar dikey penceresi][1]
+![Kurumsal uygulamalar dikey penceresi](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 Seçin **tüm uygulamaları** yapılandırılmış tüm uygulamaların bir listesini görüntülemek için. Bir uygulamayı seçerek burada bu uygulama için raporlar görüntülenebilir ve çeşitli ayarları yönetilebilmesi için bu uygulama için kaynakları görüntüler.
 
 Çoklu oturum açma ayarları yönetmek için seçin **çoklu oturum açma**.
 
-![Uygulama kaynağı dikey][2]
+![Uygulama kaynağı dikey](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Çoklu oturum açma modları
 **Çoklu oturum açma** ile başlayan bir **modu** yapılandırılması çoklu oturum açma modu sağlar menüsü. Mevcut seçenekler şunlardır:
@@ -76,24 +76,19 @@ Son bölümü, belgelerine ve/veya Azure Active Directory kimlik sağlayıcısı
 > 
 > 
 
-![Katıştırılmış belgeleri][3]
+![Katıştırılmış belgeleri](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Parola tabanlı oturum açma
 Uygulama için destekleniyorsa, parola tabanlı SSO modu ve seçerek **kaydetmek** anında parola tabanlı SSO yapmak için yapılandırır. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Parola tabanlı oturum açma][4]
+![Parola tabanlı oturum açma](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Bağlantılı oturum açma
 Uygulama için destekleniyorsa, bağlantılı SSO modu seçme Azure AD erişim paneli veya Office 365 kullanıcılar bu uygulamayı üzerinde tıklattığında yönlendirileceği istediğiniz URL'yi girmenizi sağlar. Bağlantılı SSO (eski adıyla "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Bağlantılı oturum açma][5]
+![Bağlantılı oturum açma](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Geri Bildirim
 
 Geliştirilmiş kullanarak gibi umuyoruz Azure AD deneyimi. Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve şekil, kılavuzlar kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

@@ -5,20 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 842446ec0db96b9234fe0c578481ab06e9f0c896
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure portalında Azure Active Directory B2B işbirliği kullanıcı ekleme
 
 Genel yönetici veya sınırlı yönetici dizin rolü atanmış bir kullanıcı olarak, B2B işbirliği kullanıcıları davet için Azure portalını kullanabilirsiniz. Konuk kullanıcılar dizin, bir grup veya uygulama davet edebilirsiniz. Bir kullanıcı bu yöntemlerin herhangi biriyle davet sonra davet edilen kullanıcı hesabı Azure Active Directory (Azure AD), bir kullanıcı türüyle eklenir *Konuk*. Konuk kullanıcı ardından kaynaklara erişmek için kendi davet almak gerekir.
+
+Konuk kullanıcı dizinine ekledikten sonra ya da konuk kullanıcıya doğrudan bir bağlantı için paylaşılan bir uygulama gönderebilirsiniz veya Konuk kullanıcı davet e-posta kullanım URL'de tıklatabilirsiniz. Alma işlemi hakkında daha fazla bilgi için bkz: [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> ' Ndaki adımları izlemeniz gereken [nasıl yapılır: Azure Active Directory'de, kuruluşunuzun gizlilik bilgisi eklemek](https://aka.ms/adprivacystatement) , kuruluşunuzun gizlilik bildirimi URL'si eklemek için. İlk zaman davet Kullanım işleminin bir parçası olarak, bir davet edilen kullanıcı devam etmek için gizlilik koşullarını onaylaması gerekir. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Dizinine Konuk kullanıcılar ekleme
 
@@ -86,7 +91,7 @@ B2B işbirliği kullanıcıları Azure AD yönetici olarak bir uygulama eklemek 
  
 ## <a name="resend-invitations-to-guest-users"></a>Konuk kullanıcılar Davetleri Gönder
 
-Konuk kullanıcı henüz kendi davet kullanılan değil, daveti yeniden gönderebilirsiniz.
+Konuk kullanıcı henüz kendi davet kullanılan değil, davet e-posta yeniden gönderebilirsiniz.
 
 1. Oturum [Azure portal](https://portal.azure.com) Azure AD yönetici olarak.
 2. Gezinti bölmesinde seçin **Azure Active Directory**.
@@ -105,6 +110,4 @@ Konuk kullanıcı henüz kendi davet kullanılan değil, daveti yeniden göndere
 
 - Azure olmayan AD admins B2B Konuk kullanıcılar eklemek için ne öğrenmek için bkz: [nasıl bilgi çalışanları B2B işbirliği kullanıcı ekleme?](active-directory-b2b-iw-add-users.md)
 - Davet e-posta hakkında daha fazla bilgi için bkz: [B2B işbirliği davet e-posta öğelerinden](active-directory-b2b-invitation-email.md).
-- Davet alma işlemi hakkında daha fazla bilgi için bkz: [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md).
-
 

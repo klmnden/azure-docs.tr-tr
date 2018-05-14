@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 667d62f4ad7c8e4853204c238ec889935daf82ba
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4237371073669bd46c0da8f75998157aa54ffbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Sanal makine yapılandırma ölçek kümesi yönetilen hizmet kimliği (MSI) Azure CLI kullanma
 
@@ -179,7 +179,7 @@ Yanıt oluşturulan, aşağıdakine benzer atanan kullanıcı kimliğini ayrınt
 2. Atanan kullanıcı kimliğini kullanarak VMSS Ata [az vmss kimlik atamak](/cli/azure/vmss/identity#az_vm_assign_identity). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlere sahip. `<USER ASSIGNED IDENTITY ID>` Kullanıcıya atanan kimliğin kaynak olacak `id` özelliği, önceki adımda oluşturduğunuz olarak:
 
     ```azurecli-interactive
-    az vmss assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity-assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Bir Azure VMSS kimliği atanır kullanıcıyı kaldırma

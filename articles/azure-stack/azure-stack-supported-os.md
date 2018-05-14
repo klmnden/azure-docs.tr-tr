@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 819d8a9580de435536bf184b10ffbc23c32b247b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure yığında desteklenen konuk işletim sistemleri
 
@@ -70,3 +70,5 @@ Linux dağıtımları markette kullanılabilir olarak listelenen gerekli Windows
 | Ubuntu 18.04-LTS | 64 bit | Canonical | Evet |
 
 Diğer Linux dağıtımları gelecekte desteklenmiyor olabilir.
+
+Red Hat Enterprise Linux destek bilgileri için lütfen [Red Hat ve Azure yığın: sık sorulan sorular](https://access.redhat.com/articles/3413531).

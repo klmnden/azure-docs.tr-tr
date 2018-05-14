@@ -15,8 +15,8 @@ ms.date: 05/02/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cd27bab470b7037087421fac1e9eeabe10957831
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7fa8654e413ac337994d35afdce7bd3478127f64
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -31,7 +31,7 @@ Bu makalede senaryosunda, sahibi olduğunuzu varsayar:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) yapılandırılmış. 
 
-- Bir [uygulama ara sunucusu Bağlayıcısı](active-directory-application-proxy-enable.md) yüklü. 
+- Bir [uygulama ara sunucusu Bağlayıcısı](manage-apps/application-proxy-enable.md) yüklü. 
 
  
 
@@ -54,7 +54,7 @@ Tableau yayımlamak için Azure Portalı'nda bir uygulama yayımlama olmanız ge
 
 İçin:
 
-- Ayrıntılı yönergeler adım 1-8, bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md). 
+- Ayrıntılı yönergeler adım 1-8, bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md). 
 - Uygulama proxy'si alanlar için Tableau değerleri bulma hakkında bilgi Lütfen Tableau belgelerine bakın.  
 
 **Uygulamanızı yayımlamak için**: 

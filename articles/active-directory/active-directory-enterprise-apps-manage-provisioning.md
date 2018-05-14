@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ebc4de2b3a01138a8b48cc637dcab5fc67a68841
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme
 Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](active-directory-saas-app-provisioning.md).
@@ -27,13 +27,13 @@ Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.a
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
 Bir dizindeki çoklu oturum açma kullanarak bir dizin yönetici tarafından yapılandırılan tüm uygulamaları [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), görüntülenebilir ve yönetilen [Azure portal](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır.
 
-![Kuruluş uygulamaları bölmesi][0]
+![Kuruluş uygulamaları bölmesi](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 
 Seçme **tüm uygulamaları** bağlantıyı soldaki, Galeriden eklenen uygulamalar dahil olmak üzere yapılandırılmış tüm uygulamaların bir listesini gösterir. Bir uygulamayı seçerek burada bu uygulama için raporlar görüntülenebilir ve çeşitli ayarları yönetilebilmesi için bu uygulama için kaynak bölmesinde yükler.
 
 Kullanıcı hesabının ayarlarını sağlama seçerek yönetilebilir **sağlama** soldaki.
 
-![Uygulama kaynağı bölmesi][1]
+![Uygulama kaynağı bölmesi](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Sağlama modları
 **Sağlama** Bölmesi ile başlayıp bir **modu** hangi sağlama modları Kurumsal uygulama için desteklenen gösterir ve bunları yapılandırılacak veren menüsü. Mevcut seçenekler şunlardır:
@@ -54,7 +54,7 @@ Bu bölümdür burada admins görüntüleyin ve hangi Azure AD arasındaki kulla
 
 Önceden yapılandırılmış bir Azure AD kullanıcı ve her SaaS uygulamanın kullanıcı nesneleri arasındaki eşlemeleri kümesi yok. Bazı uygulamalar, diğer grupların veya kişilerin gibi nesne türlerini yönetin. Bu eşlemeler birini tablo gösterir burada bunlar görüntülenebilir ve özelleştirilebilir sağa Eşleme Düzenleyicisi'ni seçerek.
 
-![Uygulama kaynağı bölmesi][2]
+![Uygulama kaynağı bölmesi](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.png)
 
 Desteklenen özelleştirmeler aşağıdakileri içerir:
 
@@ -80,7 +80,3 @@ Bağlantılar için sağlanan **Etkinlik Raporu sağlama** tüm kullanıcıları
 
 Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Her gün harika yeni hizmetler oluşturma hakkında mühendislik ekibi heyecan ve şekil, kılavuzlar kullanın ve sonraki oluşturmak tanımlayın.
 
-
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
-[1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

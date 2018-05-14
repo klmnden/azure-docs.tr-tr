@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: aec87625cd00b11b41c248eecf7af650ae57036f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Azure makinelerden bir şirket içi siteye koruyun
 
@@ -79,7 +79,7 @@ Bir ana hedef sunucusu oluşturduktan sonra aşağıdakileri yapın:
     - Windows için varsayılan saklama biriminin R birimdir.
     - Linux için varsayılan saklama biriminin /mnt/retention ' dir.
 - Var olan bir işlem sunucusu/configuration server makine veya bir ölçekte veya bir işlem sunucusu/ana hedef sunucu makinesi kullanıyorsanız, yeni bir sürücü eklemeniz gerekir. Yeni sürücü önceki gereksinimlerini karşılaması. Saklama sürücüsünün mevcut değilse, portal seçimi aşağı açılan listede görünmüyor. Şirket içi ana hedef için bir sürücü ekledikten sonra portal seçimini görünmesi sürücü 15 dakika kadar alır. Sürücü 15 dakika sonra görünmüyorsa, yapılandırma sunucusu de yenileyebilirsiniz.
-- VMware araçları ana hedef sunucuya yükleyin. VMware araçları ana Hedef'in ESXi konağına üzerinde datastores algılanamıyor.
+- VMware araçları veya açık vm araçları ana hedef sunucuya yükleyin. Araçlar olmadan ana Hedef'in ESXi konağına üzerinde datastores algılanamıyor.
 - Ayarlama `disk.EnableUUID=true` VMware ana hedef sanal makine yapılandırma parametrelerini ayarlama. Bu satır mevcut değilse, bunu ekleyin. Bu ayar, böylece doğru bağlar (VMDK) sanal makine diski için tutarlı bir UUID sağlamak için gereklidir.
 - Ana hedef oluşturulduğu ESX konak en az bir VMFS veri deposu bağlı olması gerekir. Varsa none, **veri deposu** yeniden koruma sayfasında giriş boş olacaktır ve devam edemiyor.
 - Ana hedef sunucusu anlık görüntüleri disklerde sahip olamaz. Anlık görüntüler varsa, yükü ve yeniden çalışma başarısız.

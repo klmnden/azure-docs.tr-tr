@@ -1,11 +1,11 @@
 ---
 title: Azure Event Hubs ile ilgili SSS | Microsoft Docs
-description: "Azure Event Hubs sık sorulan sorular (SSS)"
+description: Azure Event Hubs sık sorulan sorular (SSS)
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Olay hub'ları sık sorulan sorular
 
@@ -112,7 +112,7 @@ Olası olay hub'ları özel durumlar listesi için bkz: [özel durumlar genel ba
 İki tür olay hub'ları destekler [tanılama günlükleri](event-hubs-diagnostic-logs.md) -yakalama Hata günlüklerini ve işlem günlüklerini - her ikisi de json'da temsil edilir ve Azure Portalı aracılığıyla açılabilir.
 
 ### <a name="support-and-sla"></a>Destek ve SLA
-Olay hub'ları için teknik destek aracılığıyla kullanılabilir [topluluk forumları](https://social.msdn.microsoft.com/forums/azure/home). Faturalandırma ve abonelik yönetim desteği ücretsiz olarak sunulmaktadır.
+Olay hub'ları için teknik destek aracılığıyla kullanılabilir [topluluk forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Faturalandırma ve abonelik yönetim desteği ücretsiz olarak sunulmaktadır.
 
 Bizim SLA hakkında daha fazla bilgi için bkz: [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/) sayfası.
 

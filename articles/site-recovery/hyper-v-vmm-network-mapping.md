@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: f7c6e3eeb8db75a3857e687fecc9ee2748e92696
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fa596bf4941ac791fa1bc697399a4591d97ba68f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
 
@@ -58,7 +58,7 @@ Burada, bu mekanizma göstermek için bir örnek verilmiştir. New York ve Şika
 New York | VMM NewYork| VMNetwork1-NewYork | VMNetwork1 Şikago'eşlenmiş
  |  | VMNetwork2-NewYork | Eşlenmedi
 Chicago | VMM Chicago| VMNetwork1 Chicago | VMNetwork1-NewYork eşlenmiş
- | | VMNetwork1 Chicago | Eşlenmedi
+ | | VMNetwork2 Chicago | Eşlenmedi
 
 Bu örnekte:
 

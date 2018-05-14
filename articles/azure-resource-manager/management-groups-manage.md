@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim grupları ile kaynaklarınızı yönetmek 
 Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. Değiştirme, silme ve bu kapsayıcıları kullanılabilir hiyerarşileri yönetme [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini (RBAC)](../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md).
@@ -35,10 +35,10 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştireb
 3. Yeniden adlandırmak istediğiniz yönetim grubunu seçin. 
 4. Seçin **grubu Yeniden Adlandır** sayfanın üst kısmındaki seçeneği. 
 
-    ![Grubu yeniden adlandır](media/management-groups/detail_action_small.png)
+    ![Grubu Yeniden Adlandır](media/management-groups/detail_action_small.png)
 5. Menü açıldığında, görüntülenmesini istediğiniz yeni adını girin.
 
-    ![Grubu yeniden adlandır](media/management-groups/rename_context.png) 
+    ![Grubu Yeniden Adlandır](media/management-groups/rename_context.png) 
 4. **Kaydet**’i seçin. 
 
 ### <a name="change-the-name-in-powershell"></a>PowerShell'de adını değiştirin
@@ -103,9 +103,9 @@ Bir doğrudan veya devralınan RBAC rolü sahip herhangi bir yönetim grubu gör
 ### <a name="view-in-the-portal"></a>Portalında görüntüleyin
 1. İçine oturum [Azure portalı](https://portal.azure.com)
 2. Seçin **tüm hizmetleri** > **Yönetim grupları** 
-3. Tüm gruplar için erişimi olmasını görüntülendiği yönetim grubu hiyerarşisi sayfa yükler. 
+3. Yönetim grubu hiyerarşisi burada tüm Yönetim gruplarını ve abonelikleri erişiminiz keşfedebilirsiniz yükleri sayfa. Grup adı seçerek bir düzey hiyerarşide aşağı alır. Dosya Gezgini yaptığı gibi Gezinti aynı şekilde çalışır. 
     ![Ana](media/management-groups/main.png)
-4. Ayrıntılar için bir bireysel yönetim grubu seçin  
+4. Yönetim grubu ayrıntılarını görmek için seçin **(ayrıntı)** yönetim grubunun başlığının yanındaki bağlantı. Bu bağlantıyı kullanılabilir değilse, bu yönetim grubu görüntüleme izniniz yok.  
 
 ### <a name="view-in-powershell"></a>PowerShell görünümünde
 Tüm grupları almak için Get-AzureRmManagementGroup komutunu kullanın.  
@@ -151,7 +151,7 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**.
 6. Açılan menüde seçin **kaynak türü** olduğu taşımak için çalıştığınız öğenin **abonelik**.
 7. Doğru kimliğiyle listesinde aboneliği seçin 
 
-    ![Alt öğeler](media/management-groups/add_context_2.png)
+    ![Alt Öğeler](media/management-groups/add_context_2.png)
 8. "Kaydet" seçin
 
 **Bir abonelik bir yönetim grubundan Kaldır**

@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/11/2018
+ms.openlocfilehash: 030af72951e226d3484706e627bc8b74d5469670
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışlarından anlama
 Bu makalede Azure akış analizi işi için çıktıların farklı türleri açıklanmaktadır. Çıkışları depolamak ve Stream Analytics işi sonuçlarını kaydetmenize olanak tanır. Çıktı verileri kullanarak bunu yapabilirsiniz daha fazla İş analizi ve verilerinizi veri ambarı. 
@@ -86,7 +86,7 @@ BLOB storage bulutta büyük miktarda yapılandırılmamış veriyi depolamak i�
 | Depolama Hesabı | Burada, Çıkış göndermeyi depolama hesabı adı. |
 | Depolama Hesabı Anahtarı | Depolama hesabıyla ilişkili gizli anahtar. |
 | Depolama kapsayıcısı | Kapsayıcılar Microsoft Azure Blob hizmetinde depolanan BLOB'lar için mantıksal bir gruplandırmasını sağlar. Blob hizmeti için bir blob karşıya yüklediğinde, o blob için bir kapsayıcı belirtmeniz gerekir. |
-| Yol deseni | İsteğe bağlı. Belirtilen kapsayıcı içinde bloblarınızın yazmak için kullanılan dosya yolu deseni. </br></br> Yol deseninde BLOB'lar yazılır sıklığını belirtmek için tarih saat değişkenin bir veya daha fazla örneğini kullanmayı seçebilirsiniz: </br> {date} {time} </br> </br>Ayrıca bir alan {sütunu} adı verilerinizden bölüm BLOB'lar için alan adı alfasayısal olduğu tarafından belirtebilir ve boşluk, kısa çizgi ve alt çizgi içerebilir. Özel alanları kısıtlamaları aşağıdakileri içerir: <ul><li>(Sütun "ID" ve "id" sütun arasında farklı olamaz) büyük/küçük duyarsızlığı durumda</li><li>İç içe alanlar izin verilmiyor (Bunun yerine bir diğer ad iş sorguda düzleştirmek"alanı için" kullanma)</li><li>İfadeler bir alan adı kullanılamaz</li></ul>Örnekler: <ul><li>Örnek 1: cluster1/logs / {date} / {time}</li><li>Örnek 2: cluster1/logs / {date}</li><li>Örnek 3: cluster1 / {client_id} / {date} / {time}</li><li>Örnek 4: cluster1 / {myField} sorgu olduğu: SELECT data.myField AS alanım gelen giriş;</li></ul><BR> Dosya adlandırma aşağıdaki kuralını aşağıdaki gibidir: </br> {Yol öneki Pattern}/schemaHashcode_Guid_Number.extension </br></br> Örnek çıktı dosyaları: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Yol deseni | İsteğe bağlı. Belirtilen kapsayıcı içinde bloblarınızın yazmak için kullanılan dosya yolu deseni. </br></br> Yol deseninde BLOB'lar yazılır sıklığını belirtmek için tarih saat değişkenin bir veya daha fazla örneğini kullanmayı seçebilirsiniz: </br> {date} {time} </br> </br>Bir özel {alanı} adı burada alan adı alfasayısal ve boşluk, kısa çizgi ve alt çizgi içerebilir, göre BLOB bölümlemek için olay verilerinizden de belirtebilir. Özel alanları kısıtlamaları aşağıdakileri içerir: <ul><li>(Sütun "ID" ve "id" sütun arasında farklı olamaz) büyük/küçük duyarsızlığı durumda</li><li>İç içe alanlar izin verilmiyor (Bunun yerine bir diğer ad iş sorguda düzleştirmek"alanı için" kullanma)</li><li>İfadeler bir alan adı kullanılamaz</li></ul>Örnekler: <ul><li>Örnek 1: cluster1/logs / {date} / {time}</li><li>Örnek 2: cluster1/logs / {date}</li><li>Örnek 3: cluster1 / {client_id} / {date} / {time}</li><li>Örnek 4: cluster1 / {myField} sorgu olduğu: SELECT data.myField AS alanım gelen giriş;</li></ul><BR> Dosya adlandırma aşağıdaki kuralını aşağıdaki gibidir: </br> {Yol öneki Pattern}/schemaHashcode_Guid_Number.extension </br></br> Örnek çıktı dosyaları: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Tarih biçimi | İsteğe bağlı. Bir tarih belirteci önek yolunda kullanılırsa, dosyalarınızı organize edilmiştir tarih biçimi seçebilirsiniz. Örnek: YYYY/AA/GG |
 | Saat biçimi | İsteğe bağlı. Zaman belirteci önek yolunda kullanılırsa, dosyalarınızı düzenlenmiş zaman biçimini belirtin. Şu anda desteklenen tek değer HH ' dir. |
 | Olay serileştirme biçimi | Çıkış verileri seri hale getirme biçimi.  JSON, CSV ve Avro desteklenir.
@@ -166,7 +166,7 @@ Akış analizi | Power BI
 bigint | Int64
 nvarchar(max) | Dize
 datetime | Tarih saat
-Kayan nokta | Çift
+float | Çift
 Kayıt dizisi | Türü, sabit değer "IRecord" veya "IArray" dize
 
 ### <a name="schema-update"></a>Şema güncelleştirmesi
@@ -289,8 +289,8 @@ Bölüm destek ve her bir çıkış türü için çıktı yazıcılarının say�
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Evet | Kullanım {date} ve {time} belirteçleri yol önek deseni. Gibi YYYY/AA/GG, GG/AA/YYYY-AA-GG-YYYY tarih biçimini seçin. SS saat biçimi için kullanılır. | Giriş için bölümleme izleyen [tam olarak paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Hayır | None | Geçerli değil. | 
-| Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri yol deseni. Gibi YYYY/AA/GG, GG/AA/YYYY-AA-GG-YYYY tarih biçimini seçin. SS saat biçimi için kullanılır. | Giriş için bölümleme izleyen [tam olarak paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
-| Azure Event hub'ı | Evet | Evet | Bölüm hizalama bağlı olarak değişir.</br> Olay hub'ı bölüm sayısı, Event Hub'ı bölüm anahtarı eşit (Yukarı Akış önceki) sorgu adım ile yazıcılarının sayısı hizalanır aynıdır çıkış çıkış. Her yazıcı EventHub'ın kullandığı [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) olayları belirli bir bölüme göndermek için. </br> Çıktı olay hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adım ile yazıcılarının sayısı hizalı değil olduğunda, önceki adımda bölüm sayısı ile aynı. Her yazıcı EventHubClient kullanan [SendBatchAsync sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) tüm çıktı bölümleri olayları göndermek için. |
+| Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri veya yol deseni, olay alanlarındaki tek bir {fieldname}. Gibi YYYY/AA/GG, GG/AA/YYYY-AA-GG-YYYY tarih biçimini seçin. SS saat biçimi için kullanılır. | Giriş için bölümleme izleyen [tam olarak paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
+| Azure Olay Hub'ı | Evet | Evet | Bölüm hizalama bağlı olarak değişir.</br> Olay hub'ı bölüm sayısı, Event Hub'ı bölüm anahtarı eşit (Yukarı Akış önceki) sorgu adım ile yazıcılarının sayısı hizalanır aynıdır çıkış çıkış. Her yazıcı EventHub'ın kullandığı [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) olayları belirli bir bölüme göndermek için. </br> Çıktı olay hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adım ile yazıcılarının sayısı hizalı değil olduğunda, önceki adımda bölüm sayısı ile aynı. Her yazıcı EventHubClient kullanan [SendBatchAsync sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) tüm çıktı bölümleri olayları göndermek için. |
 | Power BI | Hayır | None | Geçerli değil. | 
 | Azure Tablo depolama | Evet | Herhangi bir çıktı sütun.  | Giriş için bölümleme izleyen [tam olarak sorguları paralel birkaç ölçeklendirin](stream-analytics-scale-jobs.md). | 
 | Azure hizmet veri yolu konusu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı her bölüm için benzersiz bir tamsayı değil.| Çıktı konuda bölüm sayısı ile aynıdır.  |
@@ -308,7 +308,7 @@ Aşağıdaki tabloda bazı toplu işleme çıktısını almak için ilgili önem
 | Azure Data Lake Store | Bkz: [Data Lake Storage sınırlar](../azure-subscription-service-limits.md#data-lake-store-limits) | Yazma işlemi başına en fazla 4 MB |
 | Azure SQL Database | Tek toplu başına 10.000 en fazla satır Ekle</br>Tek toplu ekleme başına 100 min satır </br>Ayrıca bkz. [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md) |  Her toplu başlangıçta en büyük toplu iş boyutu ile eklenen toplu olduğu ve toplu yarısı (kadar Min toplu iş boyutu) SQL yeniden denenebilir hatayla göre Böl. |
 | Azure Blob depolama | Bkz: [Azure depolama sınırları](../azure-subscription-service-limits.md#storage-limits) | En fazla Blob blok boyutu 4 MB'tır</br>50000 maksimum Blob bock sayısı: |
-| Azure Event hub'ı   | İleti başına 256 KB </br>Ayrıca bkz. [olay hub'ları sınırlar](../event-hubs/event-hubs-quotas.md) |    Giriş Çıkış bölümleme Hizala değil, her olay ayrı ayrı bir EventData paketlenmiş ve toplu (Premium SKU 1 MB) maksimum ileti boyutu kadar gönderilir. </br></br>  Giriş-Çıkış bölümleme hizalanır, birden çok olay tek bir EventData maksimum ileti boyutu kadar içine paketlenmiş ve gönderilir.    |
+| Azure Olay Hub'ı   | İleti başına 256 KB </br>Ayrıca bkz. [olay hub'ları sınırlar](../event-hubs/event-hubs-quotas.md) |    Giriş Çıkış bölümleme Hizala değil, her olay ayrı ayrı bir EventData paketlenmiş ve toplu (Premium SKU 1 MB) maksimum ileti boyutu kadar gönderilir. </br></br>  Giriş-Çıkış bölümleme hizalanır, birden çok olay tek bir EventData maksimum ileti boyutu kadar içine paketlenmiş ve gönderilir.    |
 | Power BI | Bkz: [Power BI Rest API sınırlar](https://msdn.microsoft.com/library/dn950053.aspx) |
 | Azure Tablo depolama | Bkz: [Azure depolama sınırları](../azure-subscription-service-limits.md#storage-limits) | Varsayılan tek işlem başına 100 varlık olduğu ve gerektiğinde daha küçük bir değer için yapılandırılabilir. |
 | Azure Service Bus kuyruğu   | İleti başına 256 KB</br> Ayrıca bkz. [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md) | İleti başına tek olay |

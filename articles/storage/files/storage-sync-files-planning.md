@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -46,7 +46,14 @@ Azure dosya eşitleme Aracısı'nı Windows Server'ın bir Azure dosya paylaşı
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Sunucusu uç noktası
-Sunucusu uç noktası kayıtlı bir sunucuda, bir sunucu birimdeki bir klasörü gibi belirli bir konuma temsil eder. Kendi ad alanları çakışmıyorsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Şu anda bir birim kök sunucusu uç noktası oluşturmak mümkün değildir (örneğin `F:\` veya `C:\myvolume`, bir birimin bir bağlama noktası olarak bağlı değilse).
+Sunucusu uç noktası kayıtlı bir sunucuda, bir sunucu birimdeki bir klasörü gibi belirli bir konuma temsil eder. Kendi ad alanları çakışmıyorsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. 
+
+Sunucusu uç noktası aracılığıyla bir başlatma noktası oluşturabilirsiniz. Not: bağlama sunucusu uç noktası içinde atlandı.  
+
+Sistem biriminde sunucusu uç noktası oluşturabilirsiniz ancak bunu yaparsanız iki kısıtlamalar şunlardır:
+* Bulut katmanlandırma etkinleştirilemez.
+* (Burada sistem hızlı bir şekilde tüm ad alanı getirir ve içeriği geri çağırma başlar) hızlı ad alanı geri yükleme gerçekleştirilmez.
+
 
 > [!Note]  
 > Yalnızca çıkarılamaz birimleri desteklenir.  Uzak bir paylaşımdan eşlenen sürücüler için bir sunucu bitiş noktası yolu desteklenmez.  Ayrıca, bir sunucu uç noktası bulunabilir sistem birimi rağmen bulut Windows'ta katmanlama sistem biriminde desteklenmiyor.
@@ -105,7 +112,7 @@ Windows Server'ın gelecek sürümleri yayımlanır yayımlanmaz eklenecektir. W
 | ~$\*.\* | Office geçici dosya |
 | \*.tmp | Geçici dosya |
 | \*.laccdb | Dosyayı kilitleme erişim DB|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | İç eşitleme dosya|
 | \\Sistem birimi bilgileri | Birime belirli klasör |
 | $RECYCLE. DEPO| Klasör |
 | \\SyncShareState | Eşitleme için klasör |

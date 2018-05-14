@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Açık kaynak teknolojileri Azure Web uygulamaları için sık sorulan sorular
 
@@ -135,24 +135,24 @@ Django yükleme hakkında daha fazla bilgi için bkz: [bir Django uygulaması Ap
 
 Azure Market ve özel dağıtımlar için:
 
-* Folder location: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Klasör konumu: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * İlgilenilen dosyalar:
     * catalina. *yyyy-aa-gg*.log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
+    * ana bilgisayar-yöneticisi. *yyyy-aa-gg*.log
+    * localhost. *yyyy-aa-gg*.log
     * Yöneticisi. *yyyy-aa-gg*.log
-    * site_access_log.*yyyy-mm-dd*.log
+    * site_access_log. *yyyy-aa-gg*.log
 
 
 Portal için **uygulama ayarları** dağıtımlar:
 
-* Folder location: D:\home\LogFiles
+* Klasör konumu: D:\home\LogFiles
 * İlgilenilen dosyalar:
     * catalina. *yyyy-aa-gg*.log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
+    * ana bilgisayar-yöneticisi. *yyyy-aa-gg*.log
+    * localhost. *yyyy-aa-gg*.log
     * Yöneticisi. *yyyy-aa-gg*.log
-    * site_access_log.*yyyy-mm-dd*.log
+    * site_access_log. *yyyy-aa-gg*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Nasıl JDBC sürücüsü bağlantı hatalarını giderme?
 

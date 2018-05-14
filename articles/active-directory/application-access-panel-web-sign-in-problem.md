@@ -1,11 +1,11 @@
 ---
-title: "Erişim paneli Web sitesine oturum açma sorunu | Microsoft Docs"
-description: "Erişim paneli kullanmak için kaydolun çalışılırken karşılaşabileceğiniz sorunları gidermek için yönergeler"
+title: Erişim paneli Web sitesine oturum açma sorunu | Microsoft Docs
+description: Erişim paneli kullanmak için kaydolun çalışılırken karşılaşabileceğiniz sorunları gidermek için yönergeler
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1820ab1e2295e6e0c7795c9d014d001d294bb337
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Erişim paneli Web sitesine oturum açma sorunu
 
@@ -289,4 +289,4 @@ bir destek bileti aşağıdaki bilgilerle varsa açın:
 -   Fiddler izlemeleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)
+[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

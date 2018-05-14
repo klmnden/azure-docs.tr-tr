@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a925f8be619d0a4606205eeba5f78b2e8ba8a188
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 79ee3aca783d7c29959c2730696a313bf821b3bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -34,7 +34,7 @@ Yerel uygulamalar yayımlamak için Azure AD kimlik doğrulama mvc'deki kimlik d
 Bu makalede, uygulama proxy'si ve Azure AD kimlik doğrulama kitaplığı ile yerel bir uygulamayı yayımlamak için dört adım adım anlatılmaktadır. 
 
 ## <a name="step-1-publish-your-application"></a>1. adım: uygulamanızı yayımlama
-Başka bir uygulama gibi proxy uygulamanızı yayımlamak ve uygulamanızı erişmek için kullanıcıları atayın. Daha fazla bilgi için bkz: [uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md).
+Başka bir uygulama gibi proxy uygulamanızı yayımlamak ve uygulamanızı erişmek için kullanıcıları atayın. Daha fazla bilgi için bkz: [uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>2. adım: uygulamanızı yapılandırma
 Yerel uygulamanız aşağıdaki gibi yapılandırın:
@@ -47,7 +47,7 @@ Yerel uygulamanız aşağıdaki gibi yapılandırın:
    ![Yeni bir uygulama kaydı oluşturma](./media/active-directory-application-proxy-native-client/create.png)
 5. **Oluştur**’u seçin.
 
-Yeni bir uygulama kaydı oluşturma hakkında daha ayrıntılı bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](.//develop/active-directory-integrating-applications.md).
+Yeni bir uygulama kaydı oluşturma hakkında daha ayrıntılı bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](./develop/active-directory-integrating-applications.md).
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>3. adım: Diğer uygulamalara erişim izni ver
@@ -97,4 +97,4 @@ ADAL bu parametrelerle düzenlendikten sonra kullanıcılarınızın bile şirke
 
 Yerel uygulama akışı hakkında daha fazla bilgi için bkz: [Web API'ye yerel uygulama](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Şunları ayarlama hakkında bilgi edinin [çoklu oturum açma için uygulama proxy'si](application-proxy-sso-overview.md)
+Şunları ayarlama hakkında bilgi edinin [çoklu oturum açma için uygulama proxy'si](manage-apps/application-proxy-single-sign-on.md)

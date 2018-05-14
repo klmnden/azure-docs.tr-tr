@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranı dağıtma
 
@@ -254,4 +254,7 @@ Azure Blockchain çalışma ekranı dağıtıldıktan sonra sonraki adım Azure 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Blockchain dağıtılan çalışma ekranı sahip olduğunuza göre sonraki adım olacak [Azure Blockchain çalışma ekranındaki kullanıcıları yönetme](blockchain-workbench-manage-users.md).
+Nasıl yapılır bu makalede, Azure Blockchain çalışma ekranı dağıttıktan sonra. Blockchain uygulama oluşturmayı öğrenmek için sonraki nasıl yapılır makalesi için devam edin.
+
+> [!div class="nextstepaction"]
+> [İçinde Azure Blockchain çalışma ekranı blockchain uygulaması oluşturma](blockchain-workbench-create-app.md)

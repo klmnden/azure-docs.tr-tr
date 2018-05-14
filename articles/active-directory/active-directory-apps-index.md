@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f899e3f45174aef8274810e184cc374bcca2c50
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -79,8 +79,8 @@ Parola tabanlı çoklu oturum açma için kullanıcı başına en fazla on uygul
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Azure AD uygulama proxy'si ve nasıl çalıştığı genel bakış |[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](manage-apps/application-proxy.md) |
-| Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](active-directory-application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](active-directory-application-proxy-silent-installation.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md)<br /><br />[Kendi etki alanı adınızı kullanma](active-directory-application-proxy-custom-domains.md) |
-| Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](application-proxy-enable-remote-access-sharepoint.md) |
+| Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](manage-apps/application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](active-directory-application-proxy-silent-installation.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Kendi etki alanı adınızı kullanma](manage-apps/application-proxy-configure-custom-domain.md) |
+| Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](application-proxy-enable-remote-access-sharepoint.md) |
 | Aşağıdaki senaryolar için uygulama proxy'si kullanma hakkında yönergeler |[Yerel istemci uygulamaları destekleme](active-directory-application-proxy-native-client.md)<br /><br />[Talep kullanan uygulama destekleme](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ayrı ağlar ve konumları yayımlanan uygulamalar destekleme](active-directory-application-proxy-connectors-azure-portal.md) |
 | Uygulama proxy'si için sorun giderme kılavuzu |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
 

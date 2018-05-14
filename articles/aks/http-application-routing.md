@@ -8,13 +8,13 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 1cf1ffc5038b32232b42152e62cca9d20b3cc57b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e5a81742b4a6b21e5cfa28d8e772430f8ae30ba
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="http-application-routing"></a>Uygulama HTTP yönlendirme
+# <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
 Uygulama HTTP yönlendirme çözümü AKS kümenize dağıtılan uygulamalarına erişmek için kolaylaştırır. Etkinleştirildiğinde, çözüm bir giriş denetleyicisi AKS kümenizdeki yapılandırır. Uygulamaları dağıtılan olarak çözüm uygulama uç herkese erişilebilir DNS adlarını da oluşturur.
 
@@ -98,10 +98,10 @@ spec:
         path: /
 ```
 
-Kullanım [kubectl oluşturma] [ kubectl-create] kaynak oluşturmak için komutu.
+Kullanım [kubectl uygulamak] [ kubectl-apply] kaynak oluşturmak için komutu.
 
 ```
-$ kubectl create -f samples-http-application-routing.yaml
+$ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
 service "party-clippy" created
@@ -207,7 +207,7 @@ Bir HTTPS yükleme hakkında bilgi AKS giriş denetleyicisi güvenliği için bk
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/

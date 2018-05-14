@@ -9,8 +9,8 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e23db77a1be1650c0a10e45b8b38d232e41428f6
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: c095576ccce7e32850c3fb2daf8303a0d6e957bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -228,10 +228,11 @@ Aşağıdaki tablolar, güncelleştirme Yönetimi'nde güncelleştirme sınıfla
 
 Aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. Bu adresler için iletişim bağlantı noktası 443 üzerinden yapılır.
 
-* *.ods.opinsights.azure.com
-* *.oms.opinsights.azure.com
-* ods.systemcenteradvisor.com
-* *.blob.core.windows.net
+|Azure genel  |Azure Kamu  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
 
 Karma Runbook çalışanı gerektiren bağlantı noktaları hakkında daha fazla bilgi için [karma çalışanı rolü bağlantı noktaları](automation-hybrid-runbook-worker.md#hybrid-worker-role)
 

@@ -5,16 +5,16 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6160e3e6f23bf4eabb33295fa19323c71c7ed18d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği ile ilgili SSS
 
@@ -31,9 +31,6 @@ Evet. .Csv dosyasını karşıya yükleme özelliğini kullanma hakkında daha f
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>My davet e-postaları nasıl özelleştirebilir miyim?
 Davet eden işlemiyle ilgili neredeyse her şeyi kullanarak özelleştirebileceğiniz [B2B davet API'leri](active-directory-b2b-api.md).
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>Davet edilen bir dış kullanıcı davet edilen sonra kuruluş bırakabilirsiniz?
-Davet kuruluş yönetici kullanıcıların dizinden B2B işbirliği Konuk kullanıcı silebilir, ancak Konuk kullanıcı davet kuruluşunuz dizininizin başlarına bırakamazsınız. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Konuk kullanıcılar kendi çok faktörlü kimlik doğrulama yöntemini sıfırlayabilir?
 Evet. Konuk kullanıcılar kendi çok faktörlü kimlik doğrulama yöntemi, normal kullanıcılara aynı şekilde sıfırlayabilirsiniz.
@@ -99,9 +96,7 @@ Biz, B2B işbirliğinin geliştirmek için geri bildirim için sürekli dinliyor
 Ayrıca fikir ve gelecekteki özellikleri için oy göndermek için davet ediyoruz [B2B işbirliği fikirleri](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Böylece kullanıcı "gitmek yalnızca" hazır otomatik olarak kullanılan, bir davet gönderebiliriz? Veya kullanıcı her zaman kullanım URL'sine tıklatarak sahip mi?
-Davet kuruluşunuzdaki da ortağı kuruluştaki bir üyesi olan bir kullanıcı tarafından gönderilen davetleri B2B kullanıcı tarafından kullanım gerektirmez.
-
-İş ortağı kuruluştan bir kullanıcı davet kuruluşa katılmak için davet öneririz. [Kaynak kuruluşta Konuk davet eden rolüne bu kullanıcıyı eklemek](active-directory-b2b-add-guest-to-role.md). Bu kullanıcı oturum açma kullanıcı arabirimini, PowerShell komut dosyaları kullanarak iş ortağı kuruluştaki diğer kullanıcılar'ı davet edebilirsiniz veya API'leri. Ardından, belirli bir kuruluş B2B işbirliği kullanıcılardan kendi davetleri kullanmak için gerekmez.
+PowerShell komut dosyaları, kullanıcı arabirimini kullanarak iş ortağı kuruluştaki diğer kullanıcılar bir davet eden davet edebilir veya API'leri. Daha sonra davet eden Konuk kullanıcıya paylaşılan bir uygulamaya doğrudan bağlantı gönderebilirsiniz. Çoğu durumda, artık e-posta daveti açın ve kullanım URL'yi tıklatın gerek yoktur. Daha fazla bilgi için bkz: [Azure Active Directory B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Davet edilen iş ortağı kendi şirket içi kimlik doğrulaması eklemek için Federasyon kullanırken, B2B işbirliğinin nasıl çalışır?
 İş ortağı için şirket içi kimlik doğrulaması altyapısı federe bir Azure AD kiracısı varsa, şirket içi çoklu oturum açma (SSO) otomatik olarak sağlanır. İş ortağı Azure AD kiracısı yoksa, yeni kullanıcılar için bir Azure AD hesabı oluşturulur. 

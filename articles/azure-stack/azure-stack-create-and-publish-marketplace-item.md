@@ -1,25 +1,24 @@
 ---
-title: "Oluşturma ve Azure yığınında Market öğesi yayımlama | Microsoft Docs"
-description: "Oluşturma ve Azure yığınında Market öğesi yayımlama."
+title: Oluşturma ve Azure yığınında Market öğesi yayımlama | Microsoft Docs
+description: Oluşturma ve Azure yığınında Market öğesi yayımlama.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
@@ -110,7 +109,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="metadata"></a>Meta Veriler
 | Ad | Gerekli | Tür | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| Görünen adı |X |Dize |Öneri 80 karakter |Portal 80 karakterden uzunsa, öğe adı düzgün biçimde görüntülenmeyebilir. |
+| DisplayName |X |Dize |Öneri 80 karakter |Portal 80 karakterden uzunsa, öğe adı düzgün biçimde görüntülenmeyebilir. |
 | PublisherDisplayName |X |Dize |Öneri 30 karakter |Portal 30 karakterden uzunsa, yayımcı adını düzgün biçimde görüntülenmeyebilir. |
 | PublisherLegalName |X |Dize |En fazla 256 karakter | |
 | Özet |X |Dize |60 ile 100 karakter | |
@@ -122,11 +121,11 @@ Market aşağıdaki simgeler kullanır:
 
 | Ad | Genişlik | Yükseklik | Notlar |
 | --- | --- | --- | --- |
-| Geniş |255 px |115 px |Her zaman gereklidir |
-| Büyük |115 px |115 px |Her zaman gereklidir |
-| Orta |90 px |90 px |Her zaman gereklidir |
-| Küçük |40 px |40 px |Her zaman gereklidir |
-| Ekran görüntüsü |533 px |32 px |İsteğe bağlı |
+| Geniş |255 px |115 piksel |Her zaman gereklidir |
+| Büyük |115 piksel |115 piksel |Her zaman gereklidir |
+| Orta |90 piksel |90 piksel |Her zaman gereklidir |
+| Küçük |40 piksel |40 piksel |Her zaman gereklidir |
+| Ekran görüntüsü |533 piksel |32 piksel |İsteğe bağlı |
 
 ### <a name="categories"></a>Kategoriler
 Her Market öğesi, öğenin UI portalında göründüğü tanımlayan bir kategorisiyle etiketlenmiş. Varolan kategorilerden birini Azure yığınında seçebilirsiniz (işlem, veri + depolama, vb.) veya yeni bir tane seçin.
@@ -136,7 +135,7 @@ Her bir Market öğe çeşitli ek içeriklere bağlantılar içerebilir. Bağlan
 
 | Ad | Gerekli | Tür | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| Görünen adı |X |Dize |En fazla 64 karakter | |
+| DisplayName |X |Dize |En fazla 64 karakter | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Ek Özellikler
@@ -144,7 +143,7 @@ Her bir Market öğe çeşitli ek içeriklere bağlantılar içerebilir. Bağlan
 
 | Ad | Gerekli | Tür | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| Görünen adı |X |Dize |En çok 25 karakter | |
+| DisplayName |X |Dize |En çok 25 karakter | |
 | Değer |X |Dize |En çok 30 karakter | |
 
 ### <a name="html-sanitization"></a>HTML temizleme

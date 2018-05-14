@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8e83eb161f487a73d5984425e2c24993006a08a5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure Kimlik Yönetimi güvenliğine genel bakış
 Microsoft kimlik ve erişim yönetimi çözümlerini Yardım BT doğrulama çok faktörlü kimlik doğrulama ve koşullu erişim gibi ek düzeylerini etkinleştirme uygulamaları ve kaynaklara erişim kurumsal veri merkezi genelinde ve buluta koruma ilkeleri. Raporlama, Denetim ve yardımcı olası güvenlik sorunlarını azaltmak uyarı Gelişmiş Güvenlik ile izleme şüpheli etkinlik. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) çoklu oturum açma bulut binlerce (SaaS) uygulamaları sağlar ve web uygulamaları için şirket içi erişebilirsiniz.
@@ -64,9 +64,9 @@ Azure AD uygulama proxy'si sağlar, şirket içi uygulamalar gibi yayımlama [Sh
 
 Daha fazla bilgi edinin:
 
-* [Azure AD uygulama ara sunucusunu etkinleştirme](../active-directory/active-directory-application-proxy-enable.md)
+* [Azure AD uygulama ara sunucusunu etkinleştirme](../active-directory/manage-apps/application-proxy-enable.md)
 * [Azure AD uygulama proxy'si ile uygulama yayımlama](../active-directory/active-directory-application-proxy-publish.md)
-* [Çoklu oturum açma uygulama proxy'si ile uygulama](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
+* [Çoklu oturum açma uygulama proxy'si ile uygulama](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Koşullu erişim ile çalışma](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-factor authentication

@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5670414cd6c58743d30246681594526544cb128b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e8f292f41c61ef208c316325f768dbdeaac88d84
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar
 
@@ -172,7 +172,7 @@ Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Olasıl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Uygulama Ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md)
-- [Çoklu oturum açmayı etkinleştirme](active-directory-application-proxy-sso-using-kcd.md)
+- [Uygulama Ara sunucusunu etkinleştirme](manage-apps/application-proxy-enable.md)
+- [Çoklu oturum açmayı etkinleştirme](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 - [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md)
 - [Uygulama Ara sunucusu ile ilgili sorunları giderme](active-directory-application-proxy-troubleshoot.md)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: aea78c98d85fe9bc21b61d3c963a5bdd7e1c20b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-gpus-on-aks"></a>AKS üzerinde GPU kullanma
 
@@ -168,9 +168,9 @@ spec:
             path: /usr/local/nvidia
 ```
 
-Kullanım [kubectl oluşturma] [ kubectl-create] işi çalıştırmak için komutu. Bu komut, bildirim dosyasını ayrıştırır ve tanımlanmış Kubernetes nesnelerini oluşturur.
+Kullanım [kubectl uygulamak] [ kubectl-apply] işi çalıştırmak için komutu. Bu komut, bildirim dosyasını ayrıştırır ve tanımlanmış Kubernetes nesnelerini oluşturur.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -279,6 +279,6 @@ Machine Learning iş yükleri üzerinde Kubernetes çalışır durumda ilginizi 
 > [Kubeflow Laboratuvarları][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubeflow-labs]: https://github.com/Azure/kubeflow-labs

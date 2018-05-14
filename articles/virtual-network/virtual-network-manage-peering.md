@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e2fa997876444fa52c419eb46d2b2d87b74fa8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 11726b274d72f263ff3defeb7eb7b80594681e15
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesi silme
 
@@ -125,7 +125,7 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
   Hiçbir VirtualNetwork1 ve VirtualNetwork3 VirtualNetwork2 aracılığıyla arasında eşleme yoktur. VirtualNetwork1 ve VirtualNetwork3 arasında eşleme sanal ağ oluşturmak istiyorsanız, bir VirtualNetwork1 ve VirtualNetwork3 arasında eşleme oluşturmanız gerekir.
 - Varsayılan Azure ad çözümlemesi kullanarak eşlenen sanal ağları adlarında çözümlenemiyor. Diğer sanal ağlar adları çözümlemek için kullanmanız gerekir [özel etki alanları için Azure DNS](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya özel DNS sunucusudur. Kendi DNS sunucusunu ayarlama hakkında bilgi edinmek için bkz: [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Aynı sanal ağda değilmiş gibi aynı bölgede eşlenen sanal ağlarda bulunan Kaynaklar birbirleri ile aynı bant genişliği ve gecikme süresi ile iletişim kurabilir. Her sanal makine boyutu ancak kendi maksimum ağ bant genişliği vardır. Başka bir sanal makine boyutları için en fazla ağ bant genişliği hakkında daha fazla bilgi için bkz: [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine boyutları.
-- Her iki sanal ağ eşlemesi içindeki bulunan abonelikleri olmalıdır aynı Azure Active Directory Kiracı ilişkili. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracılar ilişkilendirilen farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
+- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Sanal ağlar farklı Aboneliklerde olduğunda, her iki aboneliğin aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracıları için ilişkili farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
 - Bir sanal ağ, başka bir sanal ağa eşlenen ve ayrıca bir Azure sanal ağ geçidi ile başka bir sanal ağa bağlı olması. Sanal ağlar eşliği ve ağ geçidi bağlandığında, sanal ağlar arasında trafiği ağ geçidi yerine eşleme yapılandırmasını akar.
 - Sanal ağ eşlemesi kullanan girdi ve çıktı trafiği için nominal bir ücret uygulanır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
 * <a name="cross-region"></a>Sanal ağlar aynı bölgede ya da farklı bölgelerde eş. Her iki sanal ağ içinde olduğunda aşağıdaki kısıtlamalar uygulamayın *aynı* bölge, ancak sanal ağlar genel eşlendikleri olduğunda geçerlidir: 

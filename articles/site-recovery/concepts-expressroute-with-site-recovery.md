@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: ffdceeba829cc77d506236274ec1d1cc160eb525
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 7cc4c84ebae7ade4169f8d85a2d5cc11f1df6f87
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery ile Azure ExpressRoute
 
@@ -46,11 +46,11 @@ Birleşik senaryo aşağıdaki çizimde gösterilen: ![şirket içi-Azure'a Expr
 
 Azure Site kurtarma sağlayan olağanüstü durum kurtarma [Azure sanal makineleri](azure-to-azure-architecture.md). Kullanım olup, Azure sanal makineleri bağlı olarak [Azure yönetilen diskleri](../virtual-machines/windows/managed-disks-overview.md), çoğaltma verilerinin bir Azure depolama hesabı ya da çoğaltma hedef Azure bölgesi yönetilen diskte gönderilir. Çoğaltma uç noktaları ortak olsa da, varsayılan olarak, Azure VM çoğaltma için çoğaltma trafiğini bağımsız olarak Azure bölgesi kaynak sanal ağ içinde bulunduğu Internet'e erişmez. 0.0.0.0/0 adres ön eki ile için Azure'un varsayılan sistem yolu geçersiz bir [özel rota](../virtual-network/virtual-networks-udr-overview.md#custom-routes) ve bir şirket içi ağ sanal gereç (NVA) VM trafiğine yönlendir, ancak bu yapılandırma için Site Recovery önerilmez Çoğaltma. Özel yollar kullanıyorsanız yapmanız gerekenler [bir sanal ağ hizmet uç noktası oluşturma](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) , sanal ağ "Depolama için" böylece çoğaltma trafiğini Azure sınır bırakmaz.
 
-Çoğaltma verilerini Azure sınır bırakmaz sürece Azure VM olağanüstü durum kurtarma için ExpressRoute çoğaltma için gerekli değildir. Sanal makineler hedef Azure bölgesi yük devri sonra bunları erişebilirsiniz kullanarak [özel eşleme](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Azure VM olağanüstü durum kurtarma için varsayılan olarak, ExpressRoute çoğaltma için gerekli değildir. Sanal makineler hedef Azure bölgesi yük devri sonra bunları erişebilirsiniz kullanarak [özel eşleme](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
 Şirket içi veri merkezinden kaynak bölge Azure Vm'lerinde bağlanmak için ExpressRoute zaten kullanıyorsanız, yük devretme hedef bölgesi, ExpressRoute bağlantı yeniden kurmak için planlayabilirsiniz. Yeni bir sanal ağ bağlantısı üzerinden hedef bölgesi bağlanmak veya ayrı expressroute bağlantı hattı ve olağanüstü durum kurtarma için bağlantı kullanmak için aynı expressroute bağlantı hattı kullanabilirsiniz. Farklı olası senaryolar açıklanan [burada](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
 
-Ayrıntılı olarak aynı coğrafi kümedeki herhangi bir Azure bölgesine Azure sanal makineleri çoğaltabilirsiniz [burada](../site-recovery/azure-to-azure-support-matrix.md#region-support). Seçilen hedef Azure bölgesi kaynağı olarak aynı coğrafi bölge içindeki değilse, ExpressRoute Premium etkinleştirmeniz gerekebilir. Daha fazla ayrıntı için [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+Ayrıntılı olarak aynı coğrafi kümedeki herhangi bir Azure bölgesine Azure sanal makineleri çoğaltabilirsiniz [burada](../site-recovery/azure-to-azure-support-matrix.md#region-support). Seçilen hedef Azure bölgesi kaynağı olarak aynı coğrafi bölge içindeki değilse, ExpressRoute Premium etkinleştirmeniz gerekebilir. Daha fazla ayrıntı için [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [ExpressRoute bağlantı hatları](../expressroute/expressroute-circuit-peerings.md).

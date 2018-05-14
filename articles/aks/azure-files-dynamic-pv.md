@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbd1b171185bf49ed5e633153938d3e7ba81387d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
 
@@ -66,10 +66,10 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Depolama sınıfı oluşturmak [kubectl oluşturma] [ kubectl-create] komutu.
+Depolama sınıfı oluşturmak [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl apply -f azure-file-sc.yaml
 ```
 
 ## <a name="create-persistent-volume-claim"></a>Kalıcı birim oluşturma
@@ -94,10 +94,10 @@ spec:
       storage: 5Gi
 ```
 
-Kalıcı birim taleple oluşturma [kubectl oluşturma] [ kubectl-create] komutu.
+Kalıcı birim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
-kubectl create -f azure-file-pvc.yaml
+kubectl apply -f azure-file-pvc.yaml
 ```
 
 Tamamlandığında, dosya paylaşımı oluşturulur. Kubernetes gizli bağlantı bilgilerini ve kimlik bilgilerini içeren da oluşturulur.
@@ -126,10 +126,10 @@ spec:
         claimName: azurefile
 ```
 
-İle pod oluşturma [kubectl oluşturma] [ kubectl-create] komutu.
+İle pod oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-files.yaml
+kubectl apply -f azure-pvc-files.yaml
 ```
 
 Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Bu yapılandırma, pod aracılığıyla incelerken görülebilir `kubectl describe pod mypod`.
@@ -174,7 +174,7 @@ Azure dosyaları kullanarak Kubernetes kalıcı birimleri hakkında daha fazla b
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/

@@ -3,7 +3,7 @@ title: Bir Azure Linux VM erişimi sıfırlama | Microsoft Docs
 description: Yönetici kullanıcıları yönetme ve Linux VM'ler VMAccess uzantısını ve Azure CLI 2.0 kullanarak erişimi sıfırlama
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: danielsollondon
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,19 +13,39 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: danlep
-ms.openlocfilehash: a364d3c8c0297d988bc6a31b31921b49e70394bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/10/2018
+ms.author: danis
+ms.openlocfilehash: b90b7948d10ff91f3c63b772bc302b1def416f2b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya Azure CLI 2.0 ile VMAccess uzantısını kullanarak Linux VM'ler disklerde onarın
+
+## <a name="overview"></a>Genel Bakış
+
 Linux VM diskte hata gösteriliyor. Şekilde Linux VM için kök parola sıfırlama veya yanlışlıkla SSH özel anahtarınızı silinemez. Veri Merkezi gün sonra yeniden oluştuysa, sürücü vardır ve sunucu konsolunda almak için KVM açmak gerekir. Azure VMAccess uzantısını erişim için Linux sıfırlamak veya disk düzeyinde bakım gerçekleştirmek için konsol erişmenize olanak tanır, KVM anahtar düşünün.
 
-Bu makalede Azure VMAccess uzantısını denetleyin veya bir disk onarım, kullanıcı erişimi sıfırlama, yönetici kullanıcı hesaplarını yönetme veya Linux üzerinde SSH yapılandırmasını güncelleştirmek için nasıl kullanılacağı gösterilmektedir. Bu adımları [Azure CLI 1.0](../linux/using-vmaccess-extension-nodejs.md) ile de gerçekleştirebilirsiniz.
+Bu makalede Azure VMAccess uzantısını denetleyin veya bir disk onarmak için kullanın, kullanıcı erişimi sıfırlama, yönetici kullanıcı hesaplarını yönetme veya Azure Resource Manager sanal makine olarak çalıştırırken Linux üzerinde SSH yapılandırmasını güncelleştirmek gösterilmektedir. Klasik sanal makineleri - yönetmeniz gerekiyorsa bulunan yönergeleri takip edebilirsiniz [Klasik VM belgelerine](../linux/classic/reset-access-classic.md). 
 
+## <a name="prerequisites"></a>Önkoşullar
+
+### <a name="operating-system"></a>İşletim sistemi
+
+VM erişim uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz:
+
+
+| Dağıtım | Sürüm |
+|---|---|
+| Ubuntu | 16.04 LTS, 14.04 LTS ve 12.04 LTS |
+| Debian | Debian 7,9 +, 8.2 + |
+| RedHat | RHEL 6.7 + 7.1 + |
+| Oracle Linux | 6.4+, 7.0+ |
+| SuSE | 11 ve 12 |
+| OpenSuse | openSUSE artık 42.2 + |
+| CentOS | CentOS 6.3 + 7.0 + |
+| CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>VMAccess uzantısını kullanmanın yolları
 Linux Vm'leriniz VMAccess uzantısını kullanmanın iki yolu vardır:

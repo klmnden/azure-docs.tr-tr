@@ -1,24 +1,25 @@
 ---
-title: "Altyapı Backup hizmeti en iyi uygulamalar Azure yığınının | Microsoft Docs"
-description: "Azure yığın yıkıcı bir hata varsa veri kaybı azaltmaya yardımcı olmak için veri merkezinizde yönetmek ve dağıttığınızda en iyi yöntemler kümesi izleyebilirsiniz."
+title: Altyapı Backup hizmeti en iyi uygulamalar Azure yığınının | Microsoft Docs
+description: Azure yığın yıkıcı bir hata varsa veri kaybı azaltmaya yardımcı olmak için veri merkezinizde yönetmek ve dağıttığınızda en iyi yöntemler kümesi izleyebilirsiniz.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: b9438f3bab92f40a5c79ce7b7a572195c182be45
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.reviewer: hectorl
+ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Altyapı Backup hizmeti en iyi uygulamalar
 

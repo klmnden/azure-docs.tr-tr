@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/1/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitleme ile nesne eşitleme sorunlarını giderme
 Bu belge, sorun giderme görevini kullanarak nesne eşitleme ile ilgili sorunları gidermek adımlar sağlar.
@@ -34,6 +34,7 @@ Sorun giderme görevi Sihirbazı'nı çalıştırmak için aşağıdaki adımlar
 4.  Ek Görevler sayfasına gidin, sorun giderme seçin ve İleri'yi tıklatın.
 5.  Sorun giderme sayfasında, sorun giderme menü PowerShell'de başlatmak için Başlat'ı tıklatın.
 6.  Ana menüde nesne eşitleme sorunlarını giderme seçin.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Sorun giderme giriş parametreleri
 Aşağıdaki giriş parametreleri sorun giderme görev tarafından gerekir:
@@ -47,6 +48,8 @@ Sorun giderme görev aşağıdaki denetimleri gerçekleştirir:
 1.  Nesne Azure Active Directory'ye eşitlenen varsa UPN uyuşmazlığı Algıla
 2.  Nesne etki alanı filtreleme nedeniyle filtre uygulanmış olup olmadığını denetleyin
 3.  Nesnenin son OU filtreleme için filtre uygulanmış olup olmadığını denetleyin
+4.  Nesne eşitleme nedeniyle bağlı bir posta kutusu bloke edilmiş olup olmadığını denetleyin
+5. Nesne eşitlenmesi gerektiği dinamik dağıtım grubu olup olmadığını denetleyin
 
 Bu bölümde rest görev tarafından döndürülen belirli sonuçlarını açıklar. Her durumda, görev sorunu gidermek üzere önerilen eylemler tarafından izlenen bir analizini sağlar.
 
@@ -76,9 +79,17 @@ Nesne yapılandırılmamış etki alanı nedeniyle kapsamı dışındadır. Ait 
 Etki alanı olmadığından nesne kapsam dışında profilleri/çalıştırma adımları çalıştırılır. Ait olduğu etki alanı için tam çalıştırma profili içe çalışma adımları eksik gibi aşağıdaki örnekte eşitlenmemiş kapsam nesnesidir.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>Nesnenin son OU filtreleme için filtrelenir
-OU filtreleme yapılandırması nedeniyle eşitlenmemiş kapsam nesnesidir. Aşağıdaki örnekte, nesne OU'ya ait NoSync, DC = bvtadwbackdc, DC = com.  Bu OU eşitleme kapsamında yer almaz.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>Nesnenin son OU filtreleme için filtrelenir
+OU filtreleme yapılandırması nedeniyle eşitlenmemiş kapsam nesnesidir. Aşağıdaki örnekte, nesne OU'ya ait NoSync, DC = bvtadwbackdc, DC = com.  Bu OU eşitleme kapsamında yer almaz.</br>
+
+![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Bağlı posta kutusu sorunu
+Bağlı bir posta kutusu başka bir güvenilen hesap ormanda bulunan harici bir yönetici hesabı ile ilişkili olduğu varsayılır. Bu tür dış ana hesabı sonra Azure AD Connect değil kullanıcı eşitleme hesabı Azure AD kiracısı için Exchange ormanında bağlı posta kutusu karşılık gelir.</br>
+![Bağlı posta kutusu](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Dinamik dağıtım grubu sorunu
+Şirket içi çeşitli farklılıkları nedeniyle Active Directory ve Azure Active Directory, Azure AD Connect eşitlenmez Azure AD kiracısı dinamik dağıtım gruplarına.
 
 ## <a name="html-report"></a>HTML raporu
 Nesne çözümlemenin yanı sıra, sorun giderme Görev ayrıca her şeyi nesne hakkında bilinen sahip bir HTML raporu oluşturur. Bu HTML raporu yapmak için destek ekibi ile paylaşılabilir daha fazla sorun giderme, gerekirse.

@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8b4c7bb561d311796f59b94a6e2fbcd9b571d2cd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 44ecbcc51cb53f4d7b68f5c5e24e7d81c5a4208c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Azure sanal makinesi olağanüstü durum kurtarma ile ExpressRoute kullanma
 
@@ -79,7 +79,7 @@ Varsayılan olarak, çoğaltma trafiği Azure sınır bırakmaz. Genellikle, NVA
 
 Azure sanal makineleri farklı bir bölgeye yük devredildi, mevcut kaynak sanal ağ ExpressRoute bağlantısı otomatik olarak hedef sanal ağ üzerinde kurtarma bölge aktarılmaz. Yeni bir bağlantı, ExpressRoute hedef sanal ağa bağlanmak için gereklidir.
 
-Ayrıntılı olarak aynı coğrafi kümedeki herhangi bir Azure bölgesine Azure sanal makineleri çoğaltabilirsiniz [burada](azure-to-azure-support-matrix.md#region-support). Seçilen hedef Azure bölgesi kaynağı olarak aynı coğrafi bölge içindeki değilse, kaynak ve hedef bölgesini bağlantısı için tek bir expressroute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Daha fazla ayrıntı için [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+Ayrıntılı olarak aynı coğrafi kümedeki herhangi bir Azure bölgesine Azure sanal makineleri çoğaltabilirsiniz [burada](azure-to-azure-support-matrix.md#region-support). Seçilen hedef Azure bölgesi kaynağı olarak aynı coğrafi bölge içindeki değilse, kaynak ve hedef bölgesini bağlantısı için tek bir expressroute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Daha fazla ayrıntı için [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>İki farklı konumlarda ExpressRoute eşleme iki ExpressRoute bağlantı hatları
 -   Bu yapılandırma, birincil expressroute bağlantı hattı arızasına karşı ve ayrıca ExpressRoute eşleme konumlarına etkisi ve birincil expressroute bağlantı hattı kesintiye büyük ölçekli bölgesel afetler karşı güvence altına almaya istiyorsanız yararlıdır.

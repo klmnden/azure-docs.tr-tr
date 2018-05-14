@@ -15,17 +15,17 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e2057241065ecefbbcd398ddf482961359f51de7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a96296e8918c658f1dc3ebeadf01bd064e80716a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantı yeniden yönlendirme
 
 Azure AD uygulama proxy'si, şirket içi uygulamalarınızı Uzaktan kullanıcılara veya kendi cihazlarına kullanılabilmesini sağlar. Bazı uygulamalar, ancak, HTML biçiminde katıştırılmış yerel bağlantılar ile geliştirilmiştir. Bu bağlantılar doğru uygulama uzaktan kullanıldığında çalışmaz. Çeşitli şirket içi uygulamalar birbiriyle noktası varsa, kullanıcılarınızın ofiste olmadıklarını olduğunda çalışmaya devam için bağlantıları bekler. 
 
-Bağlantıları aynı hem içinde hem de Şirket ağınızın dışındaki çalıştığından emin olmak için en iyi yolu, kendi iç URL'ler ile aynı olacak şekilde dış URL'ler uygulamalarınızın yapılandırmaktır. Kullanım [özel etki alanlarını](active-directory-application-proxy-custom-domains.md) varsayılan uygulama proxy etki alanı yerine şirket etki alanı adınızı sağlamak için dış URL'ler yapılandırılır.
+Bağlantıları aynı hem içinde hem de Şirket ağınızın dışındaki çalıştığından emin olmak için en iyi yolu, kendi iç URL'ler ile aynı olacak şekilde dış URL'ler uygulamalarınızın yapılandırmaktır. Kullanım [özel etki alanlarını](manage-apps/application-proxy-configure-custom-domain.md) varsayılan uygulama proxy etki alanı yerine şirket etki alanı adınızı sağlamak için dış URL'ler yapılandırılır.
 
 
 Özel etki alanlarını kiracınızda kullanamıyorsanız, bu işlevselliği sağlamak için birkaç seçeneğiniz vardır. Bunların tümü de özel etki alanları ve gerekirse diğer çözümleri yapılandırabilmek için özel etki alanlarını ve birbirlerine ile uyumlu değildir. 
@@ -40,7 +40,7 @@ Bu üç özellik, kullanıcılarınızın nerede olursa olsun çalışma bağlan
 
  
 > [!NOTE]
-> Son seçenek ne olursa olsun nedeni için özel etki alanlarını uygulamalarını aynı iç ve dış URL'leri olmasını kullanamazsınız, kiracılar içindir. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md) sizin için çalışabilir. 
+> Son seçenek ne olursa olsun nedeni için özel etki alanlarını uygulamalarını aynı iç ve dış URL'leri olmasını kullanamazsınız, kiracılar içindir. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](manage-apps/application-proxy-configure-custom-domain.md) sizin için çalışabilir. 
 
 >Veya uygulama yapılandırmak gerekirse bağlantısıyla çeviri SharePoint bkz [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım için. 
 
@@ -118,6 +118,6 @@ Kullanıcıların bu uygulamayı eriştiğinizde, artık, proxy otomatik olarak 
 Bu özellik, uygulamalarınız için iş yapmak için Yardım istiyoruz. 30 etiketleri HTML ve CSS arayın. Çevrildiğini olmayan oluşturulan bağlantıları örneği varsa, bir kod parçacığı göndermeniz [uygulama Proxy geri bildirim](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama proxy'si ile özel etki alanları kullanabilirsiniz](active-directory-application-proxy-custom-domains.md) aynı iç ve dış URL sağlamak için
+[Azure AD uygulama proxy'si ile özel etki alanları kullanabilirsiniz](manage-apps/application-proxy-configure-custom-domain.md) aynı iç ve dış URL sağlamak için
 
 [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırın](https://technet.microsoft.com/library/cc263208.aspx)

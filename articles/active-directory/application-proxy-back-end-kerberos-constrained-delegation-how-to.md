@@ -1,11 +1,11 @@
 ---
-title: "Sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları uygulama proxy'si için | Microsoft Docs"
-description: "Sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları için uygulama proxy'si."
+title: Sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları uygulama proxy'si için | Microsoft Docs
+description: Sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları için uygulama proxy'si.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları için uygulama proxy'si
 
@@ -30,7 +30,7 @@ Bu nedenle, bu makalede tek bir sorun giderme ve bazı görülen en yaygın soru
 
 Bu makalede aşağıdaki varsayımlar yapar:
 
--   Azure uygulaması Proxy dağıtımını [belgelerine](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) ve genel olmayan KCD uygulamalara erişim beklendiği gibi çalıştığını.
+-   Azure uygulaması Proxy dağıtımını [belgelerine](manage-apps/application-proxy-enable.md) ve genel olmayan KCD uygulamalara erişim beklendiği gibi çalıştığını.
 
 -   Yayımlanan hedef uygulama IIS ve Microsoft'un Kerberos üzerinde temel alır.
 
@@ -42,7 +42,7 @@ Bu makalede aşağıdaki varsayımlar yapar:
 
 Azure uygulama proxy'si altyapılarının birçok türlerine dağıtılabilir veya ortamları ve mimarileri kuruluştan kuruluşa Şüphesiz farklılık gösterir. KCD ilgili sorunların en yaygın nedenlerinden biri olmayan ortamlarda kendilerini, ancak yerine basit yanlış yapılandırmaları veya genel gözetim.
 
-Bu nedenle, her zaman içinde düzenlendiği tüm ön koşul karşılanır sağlayarak başlatmak en iyisidir [KCD SSO'su kullanarak uygulama proxy'si makaleyi](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) önce başlatma sorunlarını giderme.
+Bu nedenle, her zaman içinde düzenlendiği tüm ön koşul karşılanır sağlayarak başlatmak en iyisidir [KCD SSO'su kullanarak uygulama proxy'si makaleyi](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) önce başlatma sorunlarını giderme.
 
 Bu önceki sürümlerinde Windows, aynı zamanda bazı başka noktalar oluşturduğunu sırasında KCD yapılandırma temelde farklı bir yaklaşım uygular gibi KCD 2012R2 üzerinde yapılandırma konusunda özellikle bölümü:
 
@@ -68,13 +68,13 @@ tümü aynı belirtisi SSO gerçekleştirmek başarısız olan ve sonuç olarak 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Ardından sorun giderme nasıl sorun ve gözlemlenen Belirtiler bağlıdır. Yararlı bilgiler, henüz gelmiş olabilir üzerinden değil içermesi gibi daha fazla işlenmesini önce aşağıdaki bağlantılardan keşfedin:
+Nasıl sorun giderme, sorun ve gözlemlenen Belirtiler bağlıdır. Yararlı bilgiler, henüz gelmiş olabilir üzerinden değil içermesi gibi daha fazla işlenmesini önce aşağıdaki bağlantılardan keşfedin:
 
--   [Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme](active-directory-application-proxy-troubleshoot.md)
 
--   [Kerberos hataları ve belirtileri](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Kerberos hataları ve belirtileri](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [SSO ile çalışan, şirket içi ve bulut kimlikleri aynı değildir](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [SSO ile çalışan, şirket içi ve bulut kimlikleri aynı değildir](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Ana sorunu kesinlikle şimdiye kadar bu ardından ekranınız varsa bulunmaktadır. Sorun giderme üç ayrı aşamaları akışına ayırarak başlatın.
 
@@ -98,7 +98,7 @@ Ve olay günlüğüne olayları 13019 veya 12027 görülen karşılık gelen gir
 
 -   Bir A kaydı iç DNS sunucunuzun, uygulamanın adresi ve bir CName için kullanın.
 
--   Bağlayıcı ana hedef hesabının SPN ve belirlenen temsilci hakları verilmiş yeniden onayladıktan **herhangi bir kimlik doğrulama protokolünü kullan** seçilir. Bu konu hakkında daha fazla bilgi için bkz: [SSO yapılandırma makale](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Bağlayıcı ana hedef hesabının SPN ve belirlenen temsilci hakları verilmiş yeniden onayladıktan **herhangi bir kimlik doğrulama protokolünü kullan** seçilir. Bu konu hakkında daha fazla bilgi için bkz: [SSO yapılandırma makale](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Olduğunu SPN varlığı ad, tek bir örneğini vererek doğrulayın bir `setspn -x` herhangi bir etki alanı üye ana bir komut isteminden
 
@@ -179,4 +179,4 @@ Hala sorununuzu ilerleme yapamıyorsanız, destek ve buradan devam yardımcı ol
 -   Burada bir uygulama, bir arka uç hem ön uç SQL Reporting Services gibi gerektiren her iki kimlik doğrulama ile katmanlı senaryolarda yaygın olarak kullanılan çift atlama kimlik doğrulaması -.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Yönetilen bir etki alanında kerberos Kısıtlı temsilci (KCD) yapılandırma](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Yönetilen bir etki alanında kerberos Kısıtlı temsilci (KCD) yapılandırma](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

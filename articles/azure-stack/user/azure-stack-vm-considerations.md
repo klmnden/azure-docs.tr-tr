@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Sanal makineleri Azure yığınında kullanma konuları
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azure yığını tarafından sunulan yok. Sanal makineler kullandığınızda, Azure'da kullanılabilen özellikleri ve Azure yığın arasındaki farklar olduğunu anlamanız gerekir. Bu makalede benzersiz konuları sanal makineler ve Azure yığınında özellikleri için genel bir bakış sağlar. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) makalesi.
+Azure yığın sanal makineler, isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları sağlar. Sanal makineler (VM'ler) dağıtmadan önce sanal makine özellikleri Azure yığınında kullanılabilir ve Microsoft Azure arasındaki farkları anlamak gerekir. Bu makalede bu farklılıkları açıklar ve sanal makine dağıtımlarının planlaması için önemli noktalar tanımlar. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) makalesi.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Kopya sayfası: sanal makine farklar
 
@@ -41,10 +41,12 @@ Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azu
 |Sanal makine ölçek kümeleri|Otomatik ölçek desteklenen|Otomatik-ölçek desteklenmiyor.<br>Daha fazla örnek portal, Resource Manager şablonları veya PowerShell kullanılarak ayarlanan bir ölçek ekleyin.
 
 ## <a name="virtual-machine-sizes"></a>Sanal makine boyutları
-Azure kaynak sınırlarını (sunucu yerel ve hizmet düzeyi) kaynakların operasyonda ekstra tüketimi önlemek için çeşitli şekillerde uygular. Kaynakları gürültülü komşu overconsumes zaman bazı sınırlar bir kaynak kiracıların kullanımına koymadan Kiracı deneyimi olumsuz etkilenebilir. 
-- Sanal makineden ağ çıkışı için yerinde bant genişliği vardır. Azure yığınında Caps Azure caps eşleşir.  
-- Depolama kaynakları için Azure yığın depolama erişimi için kiracılar tarafından kaynakların temel operasyonda ekstra tüketimi önlemek için depolama IOPS sınırları uygular. 
-- Birden çok ekli veriler diske sahip VM'ler için her tek tek veri diski en büyük verimi HHDs için 500 IOPS, SSD için 2300 IOPS ise.
+
+Azure yığın kaynaklarının (sunucu yerel ve hizmet düzeyi.) kullanımını önlemek için kaynak sınırları uygular Bu sınırlar, diğer kiracılar tarafından kaynak tüketimini etkisini azaltarak Kiracı deneyimini geliştirmek.
+
+- Sanal makineden ağ çıkışı için yerinde bant genişliği vardır. Azure yığınında Caps caps Azure ile aynıdır.
+- Depolama kaynakları için Azure yığın depolama erişimi için kiracılar tarafından kaynakların temel operasyonda ekstra tüketimi önlemek için depolama IOPS sınırları uygular.
+- Birden çok ekli veriler diske sahip VM'ler için her veri diski en büyük verimi HHDs için 500 IOPS, SSD için 2300 IOPS ise.
 
 Aşağıdaki tabloda Azure yığında yapılandırmalarını yanı sıra desteklenen VM'ler listelenmektedir:
 
@@ -61,11 +63,11 @@ Aşağıdaki tabloda Azure yığında yapılandırmalarını yanı sıra destekl
 |Bellek için iyileştirilmiş|Dv2 Serisi     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Bellek için iyileştirilmiş|DSv2 serisi-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Bu tutarlılık çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun bellek miktarını içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
+Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Bu bellek, çekirdek sayısı ve oluşturulabilmesi için veri diski sayısı/boyutunu miktarını içerir. Ancak, VM'lerin performansını aynı boyutta ile belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
 
 ## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
- Azure yığın uzantıları, küçük bir kümesini içerir. Güncelleştirmeler ve ek uzantıları ve Market dağıtımı kullanılabilir.
+ Azure yığın uzantıları, küçük bir kümesini içerir. Güncelleştirmeleri ve ek uzantıları Market dağıtımı kullanılabilir.
 
 Azure yığın ortamınızda kullanılabilen sanal makine uzantıları listesini almak için aşağıdaki PowerShell betiğini kullanın:
 
@@ -92,18 +94,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 Bulut operatörü, Azure yığın ortamınızı daha yeni bir sürüme güncelleştirir, desteklenen kaynak türleri ve API sürümleri listesini farklılık gösterebilir.
 
 ## <a name="windows-activation"></a>Windows etkinleştirme
 
-Windows ürünlerinin ürün kullanım hakları ve Microsoft Lisans Koşulları'nı uygun olarak kullanılmalıdır. Azure yığınını kullanan [otomatik VM etkinleştirme](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) Windows Server sanal makineleri (VM'ler) etkinleştirme (AVMA). 
- - Azure yığın konak AVMA anahtarları ile Windows Server 2016 için etkinleştirir. olduğundan, tüm sanal makineler, Windows Server 2012 çalıştıran veya daha sonra otomatik olarak etkinleştirilir.
- - Çalışma Windows Server 2008 R2'in otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmelidir VM'ler [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx). 
+Windows ürünlerinin ürün kullanım hakları ve Microsoft Lisans Koşulları'nı uygun olarak kullanılmalıdır. Azure yığınını kullanan [otomatik VM etkinleştirme](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) Windows Server sanal makineleri (VM'ler) etkinleştirme (AVMA).
+
+- Azure yığın ana bilgisayar Windows AVMA anahtarları ile Windows Server 2016 için etkinleştirir. Windows Server 2012 çalıştıran ya da daha sonra otomatik olarak etkinleştirilen tüm sanal makineleri.
+- Çalışma Windows Server 2008 R2'in otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmelidir VM'ler [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx).
 
 Microsoft Azure Windows sanal makineleri etkinleştirme için KMS etkinleştirme kullanır. Bir VM Azure yığından Azure ve karşılaştığınız sorunları etkinleştirme taşırsanız, bkz: [sorun giderme Azure Windows sanal makine etkinleştirme sorunlarını](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Ek bilgiler bulunabilir [sorun giderme Windows etkinleştirme hataları Azure vm'lerinde](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure destek ekibi Blog Gönderisi.
-
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -5,18 +5,18 @@ services: key-vault
 documentationcenter: ''
 author: barclayn
 manager: mbaldwin
-ms.assetid: ''
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4a765b314b9879877bb6ff926e4a6584456b7823
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Öğretici: bir gizli anahtar Kasası'nı okumak için bir Azure web uygulaması yapılandırma
 
@@ -61,22 +61,22 @@ Ardından önceki adımda oluşturduğunuz kaynak grubunda bir anahtar kasası o
 > Bu öğretici boyunca bizim anahtar kasası adı olarak "ContosoKeyVault" kullanılsa da, benzersiz bir ad kullanmanız gerekir.
 
 * Kasa adı **ContosoKeyVault**.
-* Kaynak grubu adı **ContosoResourceGroup**.
-* Konumun **Doğu ABD**.
+* **ContosoResourceGroup** kaynak grubu adı.
+* **Doğu ABD** konumu.
 
 ```azurecli
 az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
 ```
 
-Bu komutun çıktısı, yeni oluşturduğunuz anahtar kasasının özelliklerini gösterir. Aşağıda listelenen iki özellik not edin:
+Bu komutun çıktısı, yeni oluşturduğunuz anahtar kasasının özelliklerini gösterir. Aşağıda listelenen iki özelliği not edin:
 
 * **Kasa Adı**: Örnekte **ContosoKeyVault**'tur. Tüm anahtar kasası komutları için anahtar kasasının adını kullanır.
 * **Kasa URI'si**: https:// budur örnekte<YourKeyVaultName>.vault.azure.net/. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
 
 >[!IMPORTANT]
-> Parametre 'vault_name' da aşağıdaki deseni uygun olmalıdır hata alırsanız: ' ^ [bir-zA-Z0 - 9-] {3,24} $' adı parametre değeri benzersiz değil veya 3 alfa sayısal karakterler-24 uzun oluşan bir dizeye uymuyor.
+> Parametre 'vault_name' da aşağıdaki deseni uygun olmalıdır hata alırsanız: ' ^ [bir-zA-Z0 - 9-]{3,24}$' adı parametre değeri benzersiz değil veya 3 alfa sayısal karakterler-24 uzun oluşan bir dizeye uymuyor.
 
-Bu noktada, Azure hesabınızı bu yeni kasa herhangi bir işlemi gerçekleştirme yetkisine sahip tek bir ' dir.
+Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkili olan tek hesaptır.
 
 ## <a name="add-a-secret-to-key-vault"></a>Bir gizli anahtar Kasası'na ekleyin
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 145cfac02db5aa73e92da8bb281b88b28dc0e22e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bcbafcb5b72fd156f0d8b4a4ddd52aab1d699996
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Azure Cosmos DB erişmek için bir Linux VM MSI kullanın 
 
@@ -73,29 +73,30 @@ MSI etkin bir VM oluşturmak için:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
-## Create a Cosmos DB account 
+## <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma 
 
-If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
+Zaten yoksa, bir Cosmos DB hesabı oluşturun. Bu adımı atlayın ve var olan bir Cosmos DB hesabını kullanın. 
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
-3. Enter an **ID** for the Cosmos DB account, which you use later.  
-4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
-5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.  Select a **Location** where Cosmos DB is available.
-6. Click **Create**.
+1. Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
+2. Tıklatın **veritabanları**, ardından **Azure Cosmos DB**ve yeni bir "yeni hesabı" panel görüntüler.
+3. Girin bir **kimliği** daha sonra kullanmak Cosmos DB hesabı.  
+4. **API** "SQL" olarak ayarlanmalıdır. Bu öğreticide açıklanan yaklaşım diğer kullanılabilir API türleriyle kullanılabilir, ancak bu öğreticideki adımlar SQL API'yi yer almaktadır.
+5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.  Seçin bir **konumu** Cosmos DB burada kullanılabilir.
+6. **Oluştur**’a tıklayın.
 
-## Create a collection in the Cosmos DB account
+## <a name="create-a-collection-in-the-cosmos-db-account"></a>Cosmos DB hesabında bir koleksiyon oluşturma
 
-Next, add a data collection in the Cosmos DB account that you can query in later steps.
+Ardından, sonraki adımlarda sorgulayabilirsiniz Cosmos DB hesabındaki bir veri toplama ekleyin.
 
-1. Navigate to your newly created Cosmos DB account.
-2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
-3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
+1. Yeni oluşturulan Cosmos DB hesabınıza gidin.
+2. Üzerinde **genel bakış** sekmesini tıklatın **+/ topluluk Ekle** düğmesi ve bir "çıkışı slayt panel topluluk Ekle".
+3. Koleksiyon veritabanı kimliği, koleksiyon kimliği, select depolama kapasitesi sağlar, bölüm anahtarı girin, verimlilik değeri girin ve ardından **Tamam**.  Bu öğretici için "Test" koleksiyon kimliği ve veritabanı kimliği seçin olarak sabit depolama kapasitesi ve en düşük işlemesi (400 RU/s) kullanmak yeterli olur.  
 
-## Retrieve the `principalID` of the Linux VM's MSI
+## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>Alma `principalID` Linux VM msi
 
-To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
+Kaynak Yöneticisi'nden aşağıdaki bölümdeki Cosmos DB hesabı erişim anahtarlarını erişmek için almak gereken `principalID` Linux VM msi.  Değiştirdiğinizden emin olun `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (kaynak grubu, VM'nin bulunduğu), ve `<VM NAME>` parametre değerlerini kendi değerlere sahip.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01

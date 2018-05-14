@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure yığın kullanılabilmesini
 
@@ -38,14 +36,15 @@ Azure yığında otomatik ölçek sanal makine ölçek kümeleri desteklemez. Az
    Yükleme ve Azure yığını için yapılandırılmış PowerShell ve Azure yığın araçları. Bkz: [Azure yığınında PowerShell ile başlamak ve çalıştırmak](azure-stack-powershell-configure-quickstart.md).
 
    Azure yığın araçları yüklendikten sonra aşağıdaki PowerShell modülünü içeri aktardığınız emin olun (göreli yolu. \ComputeAdmin AzureStack araçları ana klasöründe):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **İşletim sistemi görüntüsü**
 
    Bir işletim sistemi görüntüsü, Azure yığın Market eklemediyseniz, bkz: [Azure yığın Market Windows Server 2016 VM görüntüsü eklemek](azure-stack-add-default-image.md).
 
-   Linux desteği için Ubuntu Server 16.04 karşıdan yükleyip kullanarak eklemek ```Add-AzsVMImage``` aşağıdaki parametrelerle: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Linux desteği için Ubuntu Server 16.04 karşıdan yükleyip kullanarak eklemek ```Add-AzsPlatformImage``` aşağıdaki parametrelerle: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi Ekle
@@ -54,7 +53,7 @@ Ortamınız için aşağıdaki PowerShell komut dosyasını düzenleyin ve ardı
 
 ``$User`` Yönetici portalı'nı bağlanmak için kullandığınız hesaptır. Örneğin, serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi görüntülerinde güncelleştir 
 Bir sanal makine ölçek kümesini oluşturduktan sonra kullanıcıların yeniden oluşturulması gerek kalmadan ayarlamak ölçek kümesi ölçek görüntülerinde güncelleştirebilirsiniz. İşlemi görüntüyü güncelleştirmek için aşağıdaki senaryoları bağlıdır:
@@ -83,12 +82,14 @@ Bir sanal makine ölçek kümesini oluşturduktan sonra kullanıcıların yenide
 
    Aşağıdaki belirten bir örnektir *son*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Ölçek büyütme yeni bir görüntü kullanmadan önce yeni görüntü karşıdan yüklemeniz gerekir:  
 
@@ -110,12 +111,12 @@ Daha fazla bilgi için bkz: [işletim sistemi diskleri ve görüntüleri](.\user
 
 Bir sanal makineyi kaldırmak için kümesi galeri öğesi ölçeklendirme, aşağıdaki PowerShell komutunu çalıştırın:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > Galeri öğesi hemen kaldırılamaz. Gece, Market görüntüsünden kaldırılmış olarak olan öğeyi gösterir önce portal birkaç kez yenilemeniz gerekir.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure yığını için sık sorulan sorular](azure-stack-faq.md)
-

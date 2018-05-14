@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama
 
@@ -46,7 +46,7 @@ RDS dağıtımında, RD Web rolü ve RD Ağ Geçidi rol Internet'e yönelik maki
 
 - RD Web ve RD Ağ Geçidi uç noktalar aynı makine üzerindeki ve bir ortak kök ile yer alması gerekir. Böylece çoklu oturum açma deneyimini iki uygulama arasındaki sahip RD Web ve RD Ağ Geçidi uygulaması proxy'si ile tek bir uygulama olarak yayımlanır.
 
-- Zaten yüklü olmalıdır [RDS dağıtılan](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), ve [uygulama Proxy etkin](active-directory-application-proxy-enable.md).
+- Zaten yüklü olmalıdır [RDS dağıtılan](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), ve [uygulama Proxy etkin](manage-apps/application-proxy-enable.md).
 
 - Bu senaryo, son kullanıcılarınız RD Web sayfası aracılığıyla bağlanan Windows 7 veya Windows 10 Masaüstü üzerinde Internet Explorer aracılığıyla Git varsayar. Diğer işletim sistemlerinin desteklemeniz gerekiyorsa, bkz: [desteklemek için diğer istemci yapılandırmaları](#support-for-other-client-configurations).
 
@@ -58,7 +58,7 @@ RDS ve ortamınız için Azure AD uygulama proxy'si kurduktan sonra iki çözüm
 
 ### <a name="publish-the-rd-host-endpoint"></a>RD konak endpoint yayımlama
 
-1. [Yeni bir uygulama proxy'si uygulama yayımlama](application-proxy-publish-azure-portal.md) aşağıdaki değerlere sahip:
+1. [Yeni bir uygulama proxy'si uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md) aşağıdaki değerlere sahip:
    - İç URL: https://\<rdhost\>.com / nerede \<rdhost\> RD Web ve RD Ağ geçidi paylaşımı ortak kökü.
    - Dış URL: Bu alan otomatik olarak uygulama adına göre doldurulur, ancak bunu değiştirebilirsiniz. RDS'yi eriştiklerinde, kullanıcılarınızın bu URL'ye Git
    - Ön kimlik doğrulama yöntemi: Azure Active Directory

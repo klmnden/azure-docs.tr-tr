@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
 Kaydetme [Azure yığın](azure-stack-poc.md) Azure ile Azure Market öğesi indirmek ve ticaret veri geri Microsoft'a raporlama ayarlamak için sağlar. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir ve kayıt için kullanılan abonelik altında görebilirsiniz. 
 
 > [!IMPORTANT]
-> Kayıt, ödeme olarak,-kullanımlı fatura modelini seçerseniz zorunludur. Aksi durumda, kullanım raporlanmayacak gibi Azure yığın dağıtımına lisans koşulları ihlal olur.
+> Kayıt Market dağıtım dahil olmak üzere, tam Azure yığın işlevleri desteklemek için gereklidir. Ayrıca, Azure ödeme olarak,-kullanımlı faturalama modeli kullanılırken kaydettirmezseniz koşullarını lisans yığınının ihlali olacaktır. Azure yığını lisanslama modelleri hakkında daha fazla bilgi için lütfen bkz [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure ile Azure yığın kaydetmeden önce şunlara sahip olmalısınız:

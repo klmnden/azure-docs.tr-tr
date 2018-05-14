@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7e4731e150c2d6428fa8c752765780f827c33741
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama proxy'si ve Qlik algılama 
 Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılama dağıtımınız için uzaktan erişim sağlamak için uygulama proxy'si kullanmanız mümkün olduğundan emin olmak için birlikte ortaklık.  
@@ -25,13 +25,13 @@ Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılam
 Bu senaryo geri kalanı, aşağıdaki bitti varsayılır:
  
 - Yapılandırılmış [Qlik algılama](https://community.qlik.com/docs/DOC-19822). 
-- [Bir uygulama Proxy Bağlayıcısı yüklü](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [Bir uygulama Proxy Bağlayıcısı yüklü](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Uygulamalarınızı Azure yayımlama 
 QlikSense yayımlamak için iki uygulama Azure'da yayımlamak gerekir.  
 
 ### <a name="application-1"></a>Uygulama #1: 
-Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izlenecek adımların daha ayrıntılı için [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md). 
+Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izlenecek adımların daha ayrıntılı için [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md). 
 
 
 1. Azure portalına genel yönetici olarak oturum açın. 
@@ -50,7 +50,7 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izle
 Aşağıdaki istisnalar dışında uygulama # 1'için olduğu gibi aynı adımları izleyin: 
 
 **#5. adım**: İç URL QlikSense URL uygulama tarafından kullanılan kimlik doğrulama bağlantı noktası ile artık olması gerekir. Varsayılan değer **4244** HTTPS ve HTTP için 4248. EX: **https&#58;//demo.qlik.com:4244**</br></br> 
-**#10. adım:** yoksa SSO'yu ayarlamak ve bırakın **çoklu oturum devre dışı açma**
+ **#10. adım:** yoksa SSO'yu ayarlamak ve bırakın **çoklu oturum devre dışı açma**
  
  
 ## <a name="testing"></a>Test Etme 
@@ -58,5 +58,5 @@ Artık uygulamanızı test etmek hazırdır. Her iki uygulamalarına atanan bir 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- [Uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md)
+- [Uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)
 - [Uygulama proxy'si bağlayıcıları ile çalışma](active-directory-application-proxy-connectors-azure-portal.md).

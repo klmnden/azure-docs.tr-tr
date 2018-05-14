@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 5569a7608a61b4e79a03264e0ccf62682782264b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain çalışma ekranı yapılandırma başvurusu
 
@@ -41,7 +41,7 @@ Blockchain uygulama kimin hareket veya uygulama içinde katılmak yapılandırma
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | ApplicationName | Benzersiz uygulama adı. Karşılık gelen akıllı sözleşme aynı kullanmalısınız **ApplicationName** geçerli sözleşme sınıfı için.  | Evet |
-| Görünen adı | Uygulama kolay görünen adı. | Evet |
+| DisplayName | Uygulama kolay görünen adı. | Evet |
 | Açıklama | Uygulama açıklaması. | Hayır |
 | ApplicationRoles | Koleksiyonu [ApplicationRoles](#application-roles). Kimin hareket veya uygulama içinde katılmak kullanıcı rolleri.  | Evet |
 | İş akışları | Koleksiyonu [iş akışları](#workflows). Her bir iş akışı, iş mantığı akışını denetlemek için durum makinesinin davranır. | Evet |
@@ -55,7 +55,7 @@ Bir uygulamanın iş mantığı, burada bir durumdan diğerine taşımak için i
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | Benzersiz iş akışının adı. Karşılık gelen akıllı sözleşme aynı kullanmalısınız **adı** geçerli sözleşme sınıfı için. | Evet |
-| Görünen adı | İş akışı kolay görünen adı. | Evet |
+| DisplayName | İş akışı kolay görünen adı. | Evet |
 | Açıklama | İş akışı tanımı. | Hayır |
 | Başlatıcıları | Koleksiyonu [ApplicationRoles](#application-roles). İş akışında sözleşmeleri oluşturmak için yetkili kullanıcılara atanan rolleri. | Evet |
 | StartState | İş akışının İlk durumun adı. | Evet |
@@ -78,7 +78,7 @@ Desteklenen veri türleri.
 | Int      | Integer veri türü |
 | para    | Para veri türü |
 | durum    | İş akışı durumu |
-| string   | Dize veri türü |
+| dize   | Dize veri türü |
 | kullanıcı     | Türü kullanıcının adresi |
 | time     | Saat veri türü |
 |`[ Application Role Name ]`| Uygulama rolünde belirtilen herhangi bir ad. Bu rol türü kullanıcıların sınırlar. |
@@ -124,7 +124,7 @@ Bir iş akışı örneği için giriş parametrelerini tanımlar.
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | İşlev benzersiz adı. Karşılık gelen akıllı sözleşme aynı kullanmalısınız **adı** geçerli işlevi için. | Evet |
-| Görünen adı | İşlev kolay görünen adı. | Evet |
+| DisplayName | İşlev kolay görünen adı. | Evet |
 | Açıklama | İşlev açıklaması | Hayır |
 | Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) işlev parametreleri için karşılık gelen. | Evet |
 
@@ -172,7 +172,7 @@ Bir iş akışındaki benzersiz durumları koleksiyonu. Her bir durum, iş mant�
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | Durumun benzersiz adı. Karşılık gelen akıllı sözleşme aynı kullanmalısınız **adı** geçerli durumu için. | Evet |
-| Görünen adı | Durum kolay görünen adı. | Evet |
+| DisplayName | Durum kolay görünen adı. | Evet |
 | Açıklama | Durum açıklaması. | Hayır |
 | TamamlanmaYüzdesi | İş mantığı denetim akışı içinde ilerleme durumunu göstermek için Blockchain çalışma ekranı kullanıcı arabiriminde görüntülenen bir tamsayı değeri. | Evet |
 | Stil | Durum başarı veya başarısızlık durumu temsil edip etmediğini gösteren görsel ipucu. Geçerli iki değer vardır: `Success` veya `Failure`. | Evet |
@@ -242,7 +242,7 @@ Sonraki durum eylemleri kullanılabilir. Bir veya daha fazla kullanıcı rolü, 
 |-------|-------------|:--------:|
 | AllowedRoles | Geçişi başlatmak için izin verilen uygulamaları rollerin listesini. Belirtilen rolün tüm kullanıcılar eylemi gerçekleştirmek mümkün olabilir. | Hayır |
 | AllowedInstanceRoles | Katılma veya geçiş başlatmasına izin verilmiş akıllı sözleşmede belirtilen kullanıcı rolleri listesi. Örnek rolleriniz tanımlanmış **özellikleri** içinde iş akışları. Bu kullanıcılar kullanıcı katılan temsil veya rol türünün tüm kullanıcılar akıllı sözleşmede belirtilen. | Hayır |
-| Görünen adı | Geçiş kolay görünen adı. | Evet |
+| DisplayName | Geçiş kolay görünen adı. | Evet |
 | Açıklama | Geçişin açıklaması. | Hayır |
 | İşlev | Geçişi başlatmak için işlevin adı. | Evet |
 | NextStates | Olası sonraki durumlarını koleksiyonu başarılı bir geçişten sonra. | Evet |
@@ -309,7 +309,7 @@ Tanımlayıcılar iş akışı özellikleri, oluşturucusu ve işlev parametrele
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | Özellik veya parametre benzersiz adı. Karşılık gelen akıllı sözleşme aynı kullanmalısınız **adı** uygulanabilir özellik veya parametre. | Evet |
-| Görünen adı | Özellik veya parametre kolay görünen adı. | Evet |
+| DisplayName | Özellik veya parametre kolay görünen adı. | Evet |
 | Açıklama | Özellik veya parametre açıklaması. | Hayır |
 
 ### <a name="identifiers-example"></a>Tanımlayıcıları örneği
@@ -491,5 +491,6 @@ Aşağıdaki örnek, bir istek ve bir Yanıtlayıcı isteğine yanıt olarak gö
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Blockchain çalışma ekranı dağıtma](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench’i dağıtma](blockchain-workbench-deploy.md)
 

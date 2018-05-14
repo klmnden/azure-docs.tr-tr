@@ -1,11 +1,11 @@
 ---
-title: "Uygulama proxy'si uygulama yüklemek için çok uzun sürdüğü | Microsoft Docs"
-description: "Azure AD uygulama proxy'si sayfa yükleme performans sorunlarını giderme"
+title: Uygulama proxy'si uygulama yüklemek için çok uzun sürdüğü | Microsoft Docs
+description: Azure AD uygulama proxy'si sayfa yükleme performans sorunlarını giderme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 517f78f811d57e06b4c6e6f0fad24d3b0f96b6e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uygulama proxy'si uygulama yüklemek için çok uzun sürüyor
 
-Bu makalede neden bir Azure AD uygulama proxy'si uygulama yüklemek için bir uzun sürebilir ve bu sorunu çözmek için yapabileceklerinizi anlamanıza yardımcı olur.
+Bu makalede, neden bir Azure AD uygulama proxy'si uygulama yüklemek için uzun bir süre devam edebilir anlamanıza yardımcı olur. Ayrıca, bu sorunu çözmek için yapabileceklerinizi açıklar.
 
 ## <a name="overview"></a>Genel Bakış
-Uygulamalarınızı çalışıyoruz ancak uzun bir gecikme bkz, ağ topolojinizi hızını artırmak için göz önünde bulundurabilirsiniz bazı küçük tweaks olabilir. Farklı topolojilerinin değerlendirme için bkz: [ağ konuları belge](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
+Uygulamalarınızı çalıştığınız olsa da, bunlar uzun bir gecikme yaşayabilirsiniz. Hızını artırmak için yapabileceğiniz ağ topolojisi tweaks olabilir. Farklı topolojilerinin değerlendirme için bkz: [ağ konuları belge](application-proxy-network-topology-considerations.md).
 
-Bu konuları yardımcı olmuyorsa, biz ne yazık ki şu anda yoksa performans ayarlaması için diğer öneriler. Uygulama proxy'si hizmeti için daha yakından daha fazla veri merkezlerine genişletir gibi geliştirilmiş gecikme doğrudan görmek başlayabilir. Azure veri merkezlerinde tam listesini görmek için gördüğünüz [gecikme test sayfası](http://www.azurespeed.com/Azure/Latency). 
+Ağ topolojisi yanı sıra, şu anda performans ayarlaması için daha fazla öneri yok vardır. Uygulama hizmeti genişletir Proxy olarak fiziksel olarak daha yakın olan bir veri merkezi gelebilir. Daha yakın bir yerde konumlandırıldığında gecikmeyle yardımcı olabilir. Azure veri merkezlerinde listesi için bkz: [gecikme test sayfası](http://www.azurespeed.com/Azure/Latency). 
 
 Uygulama proxy'si hizmeti ile veri merkezleri ile bulunabilir [Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Uygulama proxy'si veri merkezi konumlarını geri bildirimi 
-Uygulama proxy'si olarak henüz içerme ancak harika gecikme geliştirme için sizin için sunulmasını Azure veri merkezlerinde olabilir. Veri merkezi konumda <aadapfeedback@microsoft.com> biz görüşlerinizi biz genişletin planla için kullanabilirsiniz.
+Verme henüz uygulama proxy'si içerir, ancak bir harika gecikme geliştirme sizin için sunulmasını Azure veri merkezlerinde olabilir. Veri merkezi bir konuma gönderme aadapfeedback@microsoft.com. Microsoft geri bildirim genişletme planları için kullanır.
 
-Biz şu anda uzun gecikme bkz kiracılar için gecikme geliştirilmesine yardımcı olun bazı ek özellikler üzerinde çalıştığınız ve kullanılabilir bir kez belgeleri paylaşmak emin olun.
+Microsoft, gecikme süresini artırmak için ek özellikler üzerinde çalışmaktadır. Bu geliştirmeler kullanılabilir duruma geldiğinde belgelere güncelleştirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-working-with-proxy-servers.md)

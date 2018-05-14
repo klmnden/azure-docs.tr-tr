@@ -15,8 +15,8 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a5466a0b5027fa8fe0edec3c9663e6cd1aafc9a3
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -48,14 +48,14 @@ Hem, iç ve dış URL aşağıdaki biçimde olması durumunda joker karakterlerl
 
 Farklı yapılandırma ayarlarıyla ek uygulamalarınız varsa, bu özel durumlar için joker karakter kümesi varsayılanlarını geçersiz kılmak için ayrı uygulamalar olarak yayımlamanız gerekir. Joker karakter olmayan uygulamalar joker uygulamalar yerine her zaman önceliklidir. Yapılandırma açısından bakıldığında, bunlar "yalnızca" Normal uygulamalardır.
 
-Joker uygulama oluşturma temel aynı [uygulama yayımlama akışını](application-proxy-publish-azure-portal.md) diğer tüm uygulamalar için kullanılabilir. Tek fark, URL'ler ve büyük olasılıkla SSO yapılandırma içinde bir joker karakter dahil edilir.
+Joker uygulama oluşturma temel aynı [uygulama yayımlama akışını](manage-apps/application-proxy-publish-azure-portal.md) diğer tüm uygulamalar için kullanılabilir. Tek fark, URL'ler ve büyük olasılıkla SSO yapılandırma içinde bir joker karakter dahil edilir.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="custom-domains"></a>Özel etki alanları
 
-Sırada [özel etki alanlarını](active-directory-application-proxy-custom-domains.md) olan joker karakter uygulamalar için bir önkoşul oldukları diğer tüm uygulamaları için isteğe bağlıdır. Özel etki alanları oluşturma şunları gerektirir:
+Sırada [özel etki alanlarını](manage-apps/application-proxy-configure-custom-domain.md) olan joker karakter uygulamalar için bir önkoşul oldukları diğer tüm uygulamaları için isteğe bağlıdır. Özel etki alanları oluşturma şunları gerektirir:
 
 1. Azure içinde doğrulanmış bir etki alanı oluşturma 
 2. Uygulama proxy'niz PFX biçiminde bir SSL sertifikası yükleyin.
@@ -117,7 +117,7 @@ Joker uygulama sadece bir parçasında ile temsil edilen [MyApps Masası](https:
 
 ### <a name="kerberos-constrained-delegation"></a>Kısıtlı Kerberos temsilcisi seçme
 
-Kullanan uygulamalar için [kerberos Kısıtlı temsilci (KCD) SSO yöntemi olarak](active-directory-application-proxy-sso-using-kcd.md), SSO yöntemi de bir joker karakter gerekebilir için SPN listelenen. Örneğin, SPN olabilir: `HTTP/*.adventure-works.com`. Yine de, arka uç sunucuları üzerinde yapılandırılmış tek tek SPN'ler olması gerekiyorsa (örneğin, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Kullanan uygulamalar için [kerberos Kısıtlı temsilci (KCD) SSO yöntemi olarak](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), SSO yöntemi de bir joker karakter gerekebilir için SPN listelenen. Örneğin, SPN olabilir: `HTTP/*.adventure-works.com`. Yine de, arka uç sunucuları üzerinde yapılandırılmış tek tek SPN'ler olması gerekiyorsa (örneğin, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -136,7 +136,7 @@ Bu senaryoda, yayımlamak istediğiniz üç farklı uygulamalar vardır:
 - Aynı özelliklere sahip
 
 
-Özetlenen adımları kullanarak joker uygulama yayımlayabilirsiniz [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md). Bu senaryo varsayar:
+Özetlenen adımları kullanarak joker uygulama yayımlayabilirsiniz [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md). Bu senaryo varsayar:
 
 - Şu kimlikli Kiracı: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -144,7 +144,7 @@ Bu senaryoda, yayımlamak istediğiniz üç farklı uygulamalar vardır:
 
 - A **CNAME** işaret girişi `*.adventure-works.com` için `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` oluşturuldu.
 
-Aşağıdaki [adımları belgelenen](application-proxy-publish-azure-portal.md), kiracınızda yeni bir uygulama proxy uygulaması oluşturun. Bu örnekte, aşağıdaki alanlarda joker karakter kullanılabilir:
+Aşağıdaki [adımları belgelenen](manage-apps/application-proxy-publish-azure-portal.md), kiracınızda yeni bir uygulama proxy uygulaması oluşturun. Bu örnekte, aşağıdaki alanlarda joker karakter kullanılabilir:
 
 - İç URL'si:
 
@@ -183,7 +183,7 @@ Bu senaryoda, ayrıca üç genel için başka bir uygulama, uygulamanız `financ
 
 CNAME kayıtları işaret var olduğundan emin olmanız gerekir `finance.adventure-works.com` uygulama için uygulama proxy'si sayfasında belirtilen uygulama belirli uç. Bu senaryo için `finance.adventure-works.com` işaret `https://finance-awcycles.msappproxy.net/`. 
 
-Aşağıdaki [adımları belgelenen](application-proxy-publish-azure-portal.md), bu senaryo aşağıdaki ayarları gerektirir:
+Aşağıdaki [adımları belgelenen](manage-apps/application-proxy-publish-azure-portal.md), bu senaryo aşağıdaki ayarları gerektirir:
 
 
 - İçinde **İç URL**, ayarladığınız **Finans** yerine bir joker karakter. 
@@ -212,8 +212,8 @@ Birden çok uygulama için finans yayımlanan varsa ve sahip olduğunuz `finance
 
 Hakkında daha fazla bilgi için:
 
-- **Özel etki alanlarını**, bkz: [Azure AD uygulama proxy'si özel etki alanları ile çalışma](active-directory-application-proxy-custom-domains.md).
+- **Özel etki alanlarını**, bkz: [Azure AD uygulama proxy'si özel etki alanları ile çalışma](manage-apps/application-proxy-configure-custom-domain.md).
 
-- **Uygulamaları yayımlama**, bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md)
+- **Uygulamaları yayımlama**, bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)
 
 

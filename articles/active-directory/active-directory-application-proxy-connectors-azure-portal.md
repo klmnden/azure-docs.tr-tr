@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ffc453c98f8d21f1cd6f7025387031bdacf073a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Ayrı ağlarda ve konumları bağlayıcı gruplarını kullanarak uygulama yayımlama
 
@@ -33,7 +33,7 @@ Tüm uygulamaları bir bağlayıcı grubuna atanır. Grupları oluşturmazsanız
 >Büyük bir uygulama proxy'si dağıtımınız varsa, tüm uygulamaları varsayılan bağlayıcı grubuna atamayın. Bir active Bağlayıcısı gruba atanıncaya kadar bu şekilde, tüm dinamik trafik yeni bağlayıcılar almadığınız. Bu yapılandırma bakım kullanıcılarınızın etkilemeden gerçekleştirebilmeleri için bağlayıcıları bir boşta geri varsayılan grubuna taşıyarak moduna sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bağlayıcılar grubuna emin olmak sahip [birden çok bağlayıcı yüklü](active-directory-application-proxy-enable.md). Yeni bir bağlayıcı yüklediğinizde otomatik olarak birleştiren **varsayılan** bağlayıcı grubu.
+Bağlayıcılar grubuna emin olmak sahip [birden çok bağlayıcı yüklü](manage-apps/application-proxy-enable.md). Yeni bir bağlayıcı yüklediğinizde otomatik olarak birleştiren **varsayılan** bağlayıcı grubu.
 
 ## <a name="create-connector-groups"></a>Bağlayıcı grupları oluşturma
 İstediğiniz sayıda bağlayıcı grubu oluşturmak için aşağıdaki adımları kullanın. 
@@ -126,6 +126,6 @@ Aşağıdaki örnekte, iki veri merkezi, A ve B, her site hizmet iki bağlayıc�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure AD uygulama proxy'si bağlayıcılar anlama](application-proxy-understand-connectors.md)
-* [Çoklu oturum açmayı etkinleştirme](application-proxy-sso-overview.md)
+* [Çoklu oturum açmayı etkinleştirme](manage-apps/application-proxy-single-sign-on.md)
 
 

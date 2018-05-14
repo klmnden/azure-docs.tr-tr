@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>İçinde Azure Blockchain çalışma ekranı blockchain uygulaması oluşturma
 
 Çok kişili iş akışlarını yapılandırma ve akıllı sözleşme kodu tarafından tanımlanan temsil blockchain uygulamaları oluşturmak için Azure Blockchain çalışma ekranı kullanabilirsiniz.
 
-Bilgi edineceksiniz nasıl yapılır:
+Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Bir blockchain uygulamasını yapılandırma
@@ -35,6 +35,8 @@ Bilgi edineceksiniz nasıl yapılır:
 * Blockchain çalışma ekranı yönetici hesabı. Daha fazla bilgi için bkz: eklemek [Blockchain çalışma ekranı yöneticileri Azure Blockchain çalışma ekranındaki](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 Şimdi bir istek sahibi bir istek gönderir ve bir Yanıtlayıcı Gönder isteğine yanıt olarak temel bir uygulama oluşturun. Örneğin, bir istek olabilir, "Merhaba, nasıl misiniz?" ve olmalıdır, "Ben harika!" yanıt verebilir. İstek ve yanıt üzerinde temel alınan blockchain kaydedilir. 
+
+Uygulama dosyaları oluşturmak için aşağıdaki adımları izleyin veya yapabilecekleriniz [örnek Github'dan indirdiğinizde](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>Yapılandırma dosyası
 
@@ -398,4 +400,7 @@ Blockchain çalışma ekranı kullanıcıları yönetme hakkında daha fazla bil
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir uygulama oluşturduğunuza göre deneyin [blockchain uygulaması kullanılarak](blockchain-workbench-use.md).
+Nasıl yapılır bu makalede, temel bir istek ve yanıt uygulaması oluşturduğunuzu düşünün. Uygulama kullanmayı öğrenmek için sonraki nasıl yapılır makalesi için devam edin.
+
+> [!div class="nextstepaction"]
+> [Bir blockchain uygulaması kullanma](blockchain-workbench-use.md)

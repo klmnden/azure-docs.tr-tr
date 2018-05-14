@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB tablo API ile kullanmak için veri alma
 
@@ -29,6 +29,10 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Veri Geçiş Aracı ile veri alma
 > * AzCopy ile veri alma
 > * Tablo API için tablo API (Önizleme) geçirme 
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* Verimliliğini artırmak: ayarladığınız tek tek bir koleksiyon için işleme miktarı veya koleksiyonları kümesi, veri geçiş süresini bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Azure portalında verimliliği artırma hakkında daha fazla bilgi için performans düzeyleri ve Azure Cosmos veritabanı fiyatlandırma katmanlarına bakın.
 
 ## <a name="data-migration-tool"></a>Veri Geçiş Aracı
 

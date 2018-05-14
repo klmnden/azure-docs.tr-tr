@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb71bd0bcaae8d7f9cb3ae357e726ea1f1c00b07
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
@@ -51,7 +51,7 @@ Azure AD uygulama proxy'si şöyledir:
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Ne tür bir uygulama proxy'si ile uygulama iş?
 Azure AD uygulama proxy'si ile dahili uygulama farklı türlerine erişebilir:
 
-* Web kullanan uygulamalar [tümleşik Windows kimlik doğrulaması](../active-directory-application-proxy-sso-using-kcd.md) kimlik doğrulaması  
+* Web kullanan uygulamalar [tümleşik Windows kimlik doğrulaması](application-proxy-configure-single-sign-on-with-kcd.md) kimlik doğrulaması  
 * Web form tabanlı kullanan uygulamalar veya [başlığa göre](../application-proxy-ping-access.md) erişim  
 * Web farklı cihazlarda zengin uygulamalar için kullanıma sunmak istediğiniz API'leri  
 * Barındırılan uygulamalara arkasındaki bir [Uzak Masaüstü Ağ Geçidi](../application-proxy-publish-remote-desktop.md)  
@@ -87,14 +87,14 @@ Uygulama proxy'si yapılandırmadan önce desteklenen bir olduğundan emin olun 
 
 Uygulama proxy'si ile iki adımda başlayın:
 
-1. [Uygulama Ara sunucusunu etkinleştirme ve bağlayıcısını](../active-directory-application-proxy-enable.md).    
-2. [Uygulama yayımlama](../application-proxy-publish-azure-portal.md) -yayımlanan ve erişilebilir, şirket içi uygulamalarınızı uzaktan almak için hızlı ve kolay Sihirbazı'nı kullanın.
+1. [Uygulama Ara sunucusunu etkinleştirme ve bağlayıcısını](application-proxy-enable.md).    
+2. [Uygulama yayımlama](application-proxy-publish-azure-portal.md) -yayımlanan ve erişilebilir, şirket içi uygulamalarınızı uzaktan almak için hızlı ve kolay Sihirbazı'nı kullanın.
 
 ## <a name="whats-next"></a>Sırada ne var?
 İlk uygulamanızı yayımladıktan sonra çok daha uygulama proxy'si ile yapabileceğiniz vardır:
 
-* [Çoklu oturum açmayı etkinleştirme](../active-directory-application-proxy-sso-using-kcd.md)
-* [Kendi etki alanı adınızı kullanarak uygulama yayımlama](../active-directory-application-proxy-custom-domains.md)
+* [Çoklu oturum açmayı etkinleştirme](application-proxy-configure-single-sign-on-with-kcd.md)
+* [Kendi etki alanı adınızı kullanarak uygulama yayımlama](application-proxy-configure-custom-domain.md)
 * [Azure AD uygulama proxy'si bağlayıcılar hakkında bilgi edinin](../application-proxy-understand-connectors.md)
 * [Mevcut şirket içi Proxy sunucuları ile çalışma](../application-proxy-working-with-proxy-servers.md) 
 * [Özel bir ana sayfa ayarlama](../application-proxy-office365-app-launcher.md)

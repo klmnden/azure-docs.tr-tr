@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -73,11 +73,11 @@ Aşağıdaki bölümde denetim Azure Portalı'nı kullanarak yapılandırmayı a
 
     ![Gezinti bölmesi][3]
 5. Açmak için **denetim günlüklerini depolama** dikey penceresinde, select **depolama ayrıntıları**. Burada günlükleri kaydedilecek ve Bekletme dönemi seçin Azure depolama hesabı seçin. Eski günlükleri silinir. Daha sonra, **Tamam**'a tıklayın.
-   >[!TIP]
-   >En iyi denetim raporları şablonları almak için denetlenen tüm veritabanları için aynı depolama hesabı kullanın.
+    >[!TIP]
+    >En iyi denetim raporları şablonları almak için denetlenen tüm veritabanları için aynı depolama hesabı kullanın.
 
     <a id="storage-screenshot"></a>![Gezinti Bölmesi][4]
-6. Denetlenen olayları özelleştirmek istiyorsanız, PowerShell veya REST API bunu yapabilirsiniz.
+6. Denetlenen olayları özelleştirmek istiyorsanız, bunu aracılığıyla yapabilirsiniz [PowerShell cmdlet'leri](#subheading-7) veya [REST API](#subheading-9).
 7. Denetim ayarlarını yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları almak için e-postaları yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini öngörülü uyarılar alırsınız. Daha fazla bilgi için bkz: [tehdit algılama ile çalışmaya başlama](sql-database-threat-detection-get-started.md).
 8. **Kaydet**’e tıklayın.
 
@@ -149,8 +149,8 @@ Birincil veritabanında denetim etkinleştirdiğinizde, coğrafi olarak çoğalt
    * Üzerinde BLOB denetimi etkinleştirilmelidir *birincil veritabanının kendisi*, sunucu değil.
    * BLOB denetimi birincil veritabanında etkinleştirildikten sonra aynı zamanda ikincil veritabanı etkin hale.
 
-     >[!IMPORTANT]
-     >Veritabanı düzeyi denetimi ile ikincil veritabanı için depolama ayarlarını çapraz bölge trafiği neden bu birincil veritabanının aynı olacaktır. Yalnızca sunucu düzeyinde denetlemeyi etkinleştirme ve devre dışı tüm veritabanları için veritabanı düzeyinde denetimi bırakın öneririz.
+    >[!IMPORTANT]
+    >Veritabanı düzeyi denetimi ile ikincil veritabanı için depolama ayarlarını çapraz bölge trafiği neden bu birincil veritabanının aynı olacaktır. Yalnızca sunucu düzeyinde denetlemeyi etkinleştirme ve devre dışı tüm veritabanları için veritabanı düzeyinde denetimi bırakın öneririz.
 <br>
 
 ### <a id="subheading-6">Depolama anahtarını yeniden üretme</a>
@@ -165,37 +165,45 @@ Birincil veritabanında denetim etkinleştirdiğinizde, coğrafi olarak çoğalt
 3. Birincil ikincil depolama erişim anahtarı yeniden denetim yapılandırma dikey penceresine, anahtar ve ardından Git **Tamam**. Ardından **kaydetmek** denetim yapılandırma dikey pencerenin üstündeki.
 4. Depolama yapılandırma dikey penceresine geri dönün ve (için Hazırlanmakta sonraki anahtarın yenileme döngüsü) ikincil erişim anahtarını yeniden oluşturma.
 
-## <a name="additional-information"></a>Ek Bilgi
+## <a name="additional-information"></a>Ek Bilgiler
 
 * Günlük hakkındaki ayrıntılar için biçimi, depolama klasör hiyerarşisini ve adlandırma kuralları, bkz: [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
 
-   > [!IMPORTANT]
-   > Azure SQL veritabanı ve denetim 4000 karakter veri karakter alanlar için bir denetim kaydı depolar. Zaman **deyimi** veya **data_sensitivity_information** denetlenebilir bir eylemin getirdiği değerler içeren en çok 4000 karakter, ilk 4000 karakterden ötesinde herhangi bir veriyi olacaktır  **kesilmiş ve değil denetlenen**.
+    > [!IMPORTANT]
+    > Azure SQL veritabanı ve denetim 4000 karakter veri karakter alanlar için bir denetim kaydı depolar. Zaman **deyimi** veya **data_sensitivity_information** denetlenebilir bir eylemin getirdiği değerler içeren en çok 4000 karakter, ilk 4000 karakterden ötesinde herhangi bir veriyi olacaktır  **kesilmiş ve değil denetlenen**.
 
-* Denetim günlükleri için yazılır **ek Bloblarını** , Azure aboneliğinizin üzerinde bir Azure Blob storage'da.
-   * **Premium depolama** şu anda **desteklenmiyor** ek Bloblarını tarafından.
-   * **VNet içinde depolama** şu anda **desteklenmiyor**.
+* Denetim günlükleri için yazılır **ek Bloblarını** , Azure aboneliğinizin üzerinde bir Azure Blob storage'da:
+    * **Premium depolama** şu anda **desteklenmiyor** ek Bloblarını tarafından.
+    * **VNet içinde depolama** şu anda **desteklenmiyor**.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Azure PowerShell kullanarak SQL veritabanı denetimi yönetme
+* Varsayılan Denetim İlkesi, tüm eylemleri ve tüm sorguları ve saklı yordamlar veritabanı yanı sıra karşı başarılı ve başarısız oturum açmalar yürütülen denetleyeceksiniz Eylem grupları aşağıdaki kümesini içerir:
 
-* **PowerShell cmdlet'leri**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    Bölümünde açıklandığı gibi eylemleri ve PowerShell kullanarak eylem grupları farklı türleri için denetimi yapılandırmak [Azure PowerShell kullanarak yönetme SQL veritabanı denetimi](#subheading-7) bölümü.
 
-   Bir komut dosyası örneği için bkz: [denetim ve tehdit algılama PowerShell kullanarak yapılandırmanız](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a id="subheading-7"></a>Azure PowerShell kullanarak SQL veritabanı denetimi yönetme
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>REST API kullanarak SQL veritabanı denetimi yönetme
+**PowerShell cmdlet'leri**:
 
-* **REST API - Blob denetimi**:
+* [Denetim İlkesi (Set-AzureRMSqlDatabaseAuditing) veritabanı Blob güncelle][105]
+* [Denetim İlkesi (Set-AzureRMSqlServerAuditing) sunucu Blob güncelle][106]
+* [Denetim İlkesi veritabanı (Get-AzureRMSqlDatabaseAuditing) Al][101]
+* [Denetim İlkesi Sunucu Blob alın (Get-AzureRMSqlServerAuditing)][102]
 
-   * [Denetim İlkesi veritabanı Blob güncelle](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [Oluşturma veya güncelleştirme sunucusu Blob Denetim İlkesi](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [Denetim İlkesi veritabanı Blob alma](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [Denetim İlkesi Sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [İşlem sonucu denetim sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+Bir komut dosyası örneği için bkz: [denetim ve tehdit algılama PowerShell kullanarak yapılandırmanız](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a id="subheading-9"></a>REST API kullanarak SQL veritabanı denetimi yönetme
+
+**REST API - Blob denetimi**:
+
+* [Denetim İlkesi veritabanı Blob güncelle](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Oluşturma veya güncelleştirme sunucusu Blob Denetim İlkesi](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Denetim İlkesi veritabanı Blob alma](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Denetim İlkesi Sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [İşlem sonucu denetim sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +212,9 @@ Birincil veritabanında denetim etkinleştirdiğinizde, coğrafi olarak çoğalt
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

@@ -15,11 +15,11 @@ ms.date: 10/12/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 14e2b82b5c32e1b36bf730b7b834c9b8ad124629
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama proxy'si bağlayıcılar anlama
 
@@ -33,7 +33,7 @@ Bağlayıcılar, şirket içi yaslanın ve uygulama proxy'si Hizmeti giden bağl
 
 Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla bilgi için büyük esneklik öneririz. Windows Server 2012 R2 veya 2016 makinesinin Bağlayıcısı'nı yükleyin. Bağlayıcı yayımladığınız şirket içi uygulamaların yanı sıra uygulama proxy'si hizmeti ile iletişim kurabilmesi gerekir. 
 
-Bağlayıcı sunucusu için ağ gereksinimleri hakkında daha fazla bilgi için bkz: [uygulama proxy'si ile çalışmaya başlama ve bağlayıcıyı yükleme](active-directory-application-proxy-enable.md).
+Bağlayıcı sunucusu için ağ gereksinimleri hakkında daha fazla bilgi için bkz: [uygulama proxy'si ile çalışmaya başlama ve bağlayıcıyı yükleme](manage-apps/application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Bakım
 Bağlayıcılar ve hizmet, tüm yüksek kullanılabilirlik görevleri dikkatli olun. Bunlar eklenebilir veya dinamik olarak kaldırılmış. Yeni bir istek geldiğinde her zaman, şu anda kullanılabilir bağlayıcılar birine yönlendirilir. Bağlayıcıyı geçici olarak kullanılamıyor, bu trafiği yanıt vermiyor.
@@ -50,7 +50,7 @@ Kullanılmayan bağlayıcıları el ile silmeniz gerekmez. Bir bağlayıcı çal
 
 ## <a name="automatic-updates"></a>Otomatik güncelleştirmeler
 
-Azure AD dağıttığınız tüm bağlayıcıları için otomatik güncelleştirmeler sağlar. Bağlayıcılar Application Proxy Connector Updater çalıştığı sürece, otomatik olarak güncelleştirilir. Sunucunuzda bağlayıcı güncelleştirici hizmetini görmüyorsanız, gerek [Bağlayıcınızı yeniden](active-directory-application-proxy-enable.md) tüm güncelleştirmeleri almak için. 
+Azure AD dağıttığınız tüm bağlayıcıları için otomatik güncelleştirmeler sağlar. Bağlayıcılar Application Proxy Connector Updater çalıştığı sürece, otomatik olarak güncelleştirilir. Sunucunuzda bağlayıcı güncelleştirici hizmetini görmüyorsanız, gerek [Bağlayıcınızı yeniden](manage-apps/application-proxy-enable.md) tüm güncelleştirmeleri almak için. 
 
 Bir otomatik güncelleştirme için Bağlayıcınızı gelmesini beklemek istemiyorsanız, el ile yükseltme gerçekleştirebilirsiniz. Git [Bağlayıcısı indirme sayfası](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) bulunduğu ve select Bağlayıcınızı olduğu sunucuda **karşıdan**. Bu işlem yerel bağlayıcı için bir yükseltme kapalı başlatır. 
 
@@ -123,7 +123,7 @@ Bağlayıcılar, etki alanları veya kısmi güven ormanları ya da salt okunur 
 
 Genellikle, bağlayıcı dağıtım basittir ve özel yapılandırma gerektirmez. Ancak, düşünülmesi gereken bazı benzersiz koşullar vardır:
 
-* Giden trafiğini sınırlandırmak kuruluşlar gerekir [gerekli bağlantı noktalarını açın](active-directory-application-proxy-enable.md#open-your-ports).
+* Giden trafiğini sınırlandırmak kuruluşlar gerekir [gerekli bağlantı noktalarını açın](manage-apps/application-proxy-enable.md#open-your-ports).
 * FIPS uyumlu makineler oluşturmak ve bir sertifika deposu bağlayıcı işlemleri izin vermek için kendi yapılandırmasını değiştirmek için gerekli olabilir.
 * Her iki bağlayıcı Hizmetleri tüm gerekli bağlantı noktaları ve IP'leri erişmek için etkinleştirildiğinden emin olmak ağ istekleri işlemleri temel alan ortamlarına kilitleme kuruluşlar sahip.
 * Bazı durumlarda, giden iletme proxy'leri iki yönlü sertifika kimlik doğrulaması bölme ve iletişimin başarısız olmasına neden.

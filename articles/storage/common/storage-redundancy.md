@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -31,14 +31,14 @@ Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini s
 
 Aşağıdaki tabloda dayanıklılık ve her çoğaltma stratejisi belirli bir türde olay (veya benzer etkisi olay) sağlayacak kullanılabilirlik kapsamını hızlı bir bakış sağlar.
 
-| Senaryo | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Bir veri merkezi içinde düğüm kullanılamazlık |Evet |Evet |Evet |Evet
-| Bütün bir veri merkezi (zonal veya zonal olmayan) kullanılamaz |Hayır |Evet |Evet |Evet |
-| Bir bölge genelinde kesinti |Hayır |Hayır |Evet |Evet |
-| Bölge genelinde olarak kullanım dışı kalması durumunda (bir bölgede uzaktan, coğrafi olarak çoğaltılmış) verilerinize okuma erişimi |Hayır |Hayır |Hayır |Evet |
-| Belirli bir yılda nesnelerin ___ dayanıklılık sağlamak üzere tasarlanmış |en az %99.999999999 (11 9'ın)|en az %99.9999999999 (12 9'ın)|en az %99.99999999999999 (16 9'ın)|en az %99.99999999999999 (16 9'ın)|
-| ___ Depolama hesap türleri için kullanılabilir |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
+| Senaryo                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Bir veri merkezi içinde düğüm kullanılamazlık                                                                 | Evet                             | Evet                              | Evet                                  | Evet                                  |
+| Bütün bir veri merkezi (zonal veya zonal olmayan) kullanılamaz                                           | Hayır                              | Evet                              | Evet                                  | Evet                                  |
+| Bir bölge genelinde kesinti                                                                                     | Hayır                              | Hayır                               | Evet                                  | Evet                                  |
+| Bölge genelinde olarak kullanım dışı kalması durumunda (bir bölgede uzaktan, coğrafi olarak çoğaltılmış) verilerinize okuma erişimi | Hayır                              | Hayır                               | Hayır                                   | Evet                                  |
+| Belirli bir yılda nesnelerin ___ dayanıklılık sağlamak üzere tasarlanmış                                          | en az %99.999999999 (11 9'ın) | en az %99.9999999999 (12 9'ın) | en az %99.99999999999999 (16 9'ın) | en az %99.99999999999999 (16 9'ın) |
+| Desteklenen depolama hesap türleri                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) farklı artıklık seçenekleri hakkında bilgi fiyatlandırma için.
 
@@ -49,7 +49,7 @@ Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/detai
 Biz kullanarak depolama hesabınızın çoğaltma stratejisi değiştirmenize izin [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ya da çok birini [ Azure istemci kitaplıkları](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme süresini neden değil.
 
    > [!NOTE]
-   > Şu anda, hesabınız için ZRS dönüştürmek için Portal veya API kullanamazsınız. Ancak, ZRS genel kullanıma sunulduktan sonra LRS, GRS ve RA-GRS ZRS için geçiş desteği planlıyoruz. Bkz: [bölge olarak yedekli depolama (ZRS)](storage-redundancy-zrs.md) Ayrıntılar için.
+   > Şu anda, hesabınız için ZRS dönüştürmek için Portal veya API kullanamazsınız. Hesabınızın çoğaltma için ZRS dönüştürmek istiyorsanız, bkz: [bölge olarak yedekli depolama (ZRS)](storage-redundancy-zrs.md) Ayrıntılar için.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Hesabımı ait çoğaltma stratejisi değiştirme maliyetlerin var mı?
 Dönüştürme yolda bağlıdır. Ucuz en pahalı artıklık teklifine sıralama LRS, ZRS, GRS ve RA-GRS sunuyoruz. Örneğin, *gelen* herhangi bir şeye LRS, ek ücretlere erişimliye, daha karmaşık bir artıklık düzeyini devam ediyor. Giden *için* GRS veya RA-GRS erişimliye bir çıkış bant genişliği ücret çünkü verilerinizi (bölgenizde birincil) uzaktan, ikincil bölge'ye çoğaltılır. İlk kurulum sırasında tek seferlik bir ücret budur. Verileri kopyaladıktan sonra başka hiçbir dönüştürme ücretleri vardır. Yalnızca herhangi bir yeni çoğaltmak için sizden ücret alınır veya var olan verilere güncelleştirmeler. Bant genişliği ücretleri hakkında daha fazla bilgi için bkz: [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/).
