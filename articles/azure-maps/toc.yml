@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: Desteklenen diller
       href: supported-languages.md
+    - name: Tüketim modeli
+      href: consumption-model.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Haritalar hesaplarını yönetme
@@ -115,7 +117,7 @@
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: Teknik örnek olay incelemeleri
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Videolar

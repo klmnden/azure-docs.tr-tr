@@ -1,10 +1,10 @@
 - name: CDN Belgeleri
-  href: index.md
+  href: index.yml
 - name: Genel Bakış
   items:
     - name: Azure CDN nedir?
       href: cdn-overview.md
-    - name: Azure CDN ürün özellikleri
+    - name: Ürün özelliklerini karşılaştırma
       href: cdn-features.md
 - name: Hızlı Başlangıçlar
   items:
@@ -137,13 +137,13 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Kural altyapısı özellikleri
           href: cdn-rules-engine-reference-features.md
+        - name: HTTP değişkenleri
+          href: cdn-http-variables.md
     - name: Verizon’a özgü HTTP üst bilgileri
       href: cdn-verizon-http-headers.md
       items:
         - name: X-EC-Debug üst bilgileri
           href: cdn-http-debug-headers.md
-    - name: HTTP değişkenleri
-      href: cdn-http-variables.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET
