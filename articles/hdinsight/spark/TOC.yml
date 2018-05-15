@@ -19,6 +19,10 @@
   items:
     - name: Bir Spark kümesinde sorgu çalıştırma
       href: apache-spark-load-data-run-query.md
+    - name: Spark sorgularını çalıştırmak için VSCode kullanma
+      href: ../hdinsight-for-vscode.md
+    - name: Spark sorgularını çalıştırmak için IntelliJ kullanma
+      href: apache-spark-intellij-tool-plugin.md
     - name: BI araçlarını kullanarak verileri analiz etme
       href: apache-spark-use-bi-tools.md
     - name: Akış işi çalıştırma
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: IntelliJ kullanarak uygulama oluşturma
           href: apache-spark-intellij-tool-plugin.md
-        - name: Spark işlerinde VPN üzerinden IntelliJ aracılığıyla uzaktan hata ayıklama
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Spark işlerinde SSH üzerinden IntelliJ aracılığıyla uzaktan hata ayıklama
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Spark işlerinde VPN üzerinden IntelliJ aracılığıyla uzaktan hata ayıklama
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Etkileşimli olmayan kimlik doğrulaması ile çalıştırılan .NET HDInsight uygulamaları oluşturma
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Spark işlerinde hata ayıklama
           href: apache-spark-job-debugging.md
+        - name: Spark işlerinde hata ayıklamak için IntelliJ kullanma
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

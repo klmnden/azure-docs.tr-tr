@@ -1,7 +1,7 @@
 # [Anahtar Kasası Belgeleri](index.yml)
 
 # Genel Bakış
-## [Anahtar Kasasına Genel Bakış](key-vault-overview.md)
+## [Key Vault Hakkında](key-vault-overview.md)
 
 # Hızlı Başlangıçlar
 ## [Anahtar Kasası Oluşturma - CLI](quick-create-cli.md)
@@ -65,8 +65,8 @@
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/key-vault/)
 ## [Anahtarlar, Gizli Diziler ve Sertifikalar Hakkında](about-keys-secrets-and-certificates.md)
 ### [Sertifikalar ile çalışmaya başlama](certificate-scenarios.md)
-#### [Sertifika oluşturma yöntemleri](create-certificate.md)
-#### [Sertifika oluşturmayı izleme ve yönetme](create-certificate-scenarios.md)
+### [Sertifika oluşturma yöntemleri](create-certificate.md)
+### [Sertifika oluşturmayı izleme ve yönetme](create-certificate-scenarios.md)
 ## [Kimlik Doğrulaması, İstekler ve Yanıtlar](authentication-requests-and-responses.md)
 ## [Ortak parametreler ve üst bilgiler](common-parameters-and-headers.md)
 ## [Key Vault Sürümleri](key-vault-versions.md)

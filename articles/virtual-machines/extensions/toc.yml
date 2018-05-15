@@ -22,7 +22,7 @@
       href: features-windows.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Özel Betik uzantısı
+    - name: Özel Betik
       items:
         - name: Linux - sürüm 2
           href: custom-script-linux.md
@@ -30,13 +30,13 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
-    - name: OMS Uzantısı
+    - name: Operations Management Suite
       items:
         - name: Linux
           href: oms-linux.md
         - name: Windows
           href: oms-windows.md
-    - name: Tanılama uzantısı
+    - name: Tanılama
       items:
         - name: Linux
           href: diagnostics-linux.md
@@ -50,7 +50,7 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
-    - name: PowerShell DSC uzantısı
+    - name: PowerShell DSC
       href: dsc-overview.md
       items:
         - name: DSC ve Windows
@@ -61,9 +61,9 @@
           href: dsc-template.md
     - name: Windows için IaaS kötü amaçlı yazılımdan koruma
       href: iaas-antimalware-windows.md
-    - name: Key Vault uzantısı
+    - name: Key Vault
       href: key-vault-windows.md
-    - name: VM Anlık Görüntü uzantısı
+    - name: Sanal Makine Anlık Görüntüsü
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -77,7 +77,7 @@
           href: symantec.md
     - name: Kullanım dışı uzantılar
       items:
-        - name: Günlük Toplayıcı uzantısı
+        - name: Günlük toplayıcı
           href: log-collector.md
         - name: Trend Micro Deep Security
           href: trend.md

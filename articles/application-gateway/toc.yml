@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: URL yeniden yönlendirme
       href: redirect-overview.md
+    - name: Sistem durumunu izleme
+      href: application-gateway-probe-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Uygulama ağ geçidi oluşturma
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: Bölgesel olarak yedekli uygulama ağ geçidi oluşturma
       href: create-zone-redundant.md
+    - name: Özel yoklamalar
+      items:
+        - name: Portal
+          href: application-gateway-create-probe-portal.md
+        - name: Klasik PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Sorun giderme
+      items:
+        - name: Hatalı Ağ Geçidi (502) hatalarında sorun giderme
+          href: application-gateway-troubleshooting-502.md
+        - name: Tanılama
+          href: application-gateway-diagnostics.md
 - name: Başvuru
   items:
     - name: Azure CLI

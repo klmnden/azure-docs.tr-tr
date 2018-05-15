@@ -39,8 +39,8 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Ağ güvenlik grubu görünümü
       href: network-watcher-security-group-view-overview.md
-    - name: Ağ topolojisini görüntüleme
-      href: network-watcher-topology-overview.md
+    - name: Rol tabanlı erişim denetimi izinleri
+      href: required-rbac-permissions.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Ağ İzleyicisi’ni yapılandırma
@@ -150,16 +150,8 @@
           href: network-watcher-monitor-with-azure-automation.md
         - name: VPN Gateway aracılığıyla şirket içi bağlantıyı tanılama
           href: network-watcher-diagnose-on-premises-connectivity.md
-    - name: Ağ topolojinizi görüntüleme
-      items:
-        - name: Azure PowerShell
-          href: network-watcher-topology-powershell.md
-        - name: Azure CLI
-          href: network-watcher-topology-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-topology-cli-nodejs.md
-        - name: REST
-          href: network-watcher-topology-rest.md
+    - name: Ağ topolojisini görüntüleme
+      href: view-network-topology.md
     - name: Bir konum ile Azure bölgesi arasındaki göreli gecikme süresini belirleme
       href: view-relative-latencies.md
 - name: Başvuru

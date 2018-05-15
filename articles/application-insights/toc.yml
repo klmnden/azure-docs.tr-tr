@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: Konsol
           href: application-insights-console.md
+        - name: Uygulama panosu
+          href: app-insights-overview-dashboard.md
     - name: Java uygulamalarını izleme
       items:
         - name: Web uygulamaları
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Azure Logic App ile otomatikleştirme
           href: automate-with-logic-apps.md
+        - name: Özel e-posta raporları
+          href: automate-custom-reports.md
     - name: Geliştirme
       items:
         - name: Özel olaylar ve ölçümler API'si

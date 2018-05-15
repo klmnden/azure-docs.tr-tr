@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Etkinlik günlükleri
       href: change-history-report.md
-    - name: Kiracı yönetici erişimini yükseltme
+    - name: Genel yönetici erişimini yükseltme
       href: elevate-access-global-admin.md
     - name: Sorun giderme
       href: troubleshooting.md

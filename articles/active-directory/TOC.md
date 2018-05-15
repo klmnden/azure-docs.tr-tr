@@ -16,6 +16,7 @@
 ## [Kullanıcıları Azure AD’ye ekleme](add-users-azure-active-directory.md)
 ## [Kullanıcılara lisans atama](license-users-groups.md)
 ## [Self servis parola sıfırlamasını yapılandırma](authentication/quickstart-sspr.md)
+## [Azure AD’ye kuruluşunuzun gizlilik bilgilerini ekleme](active-directory-properties-area.md)
 
 
 # Nasıl yapılır
@@ -58,6 +59,7 @@
 #### [B2B paylaşım ilkeleri](active-directory-b2b-delegate-invitations.md)
 #### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
 #### [Dinamik gruplar ve B2B kullanıcıları](active-directory-b2b-dynamic-groups.md)
+#### [Kuruluştan ayrılma](active-directory-b2b-leave-the-organization.md)
 #### [Denetim ve raporlar](active-directory-b2b-auditing-and-reporting.md)
 #### [Hibrit kuruluşlar için B2B](active-directory-b2b-hybrid-organizations.md)
 ##### [B2B kullanıcılarına yerel uygulama erişimi verme](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](manage-apps/application-proxy.md)
 #### başlarken
-##### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
-##### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)
-##### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
-#### [Çoklu oturum açma](application-proxy-sso-overview.md)
-##### [KCD ile SSO](active-directory-application-proxy-sso-using-kcd.md)
+##### [Uygulama Ara Sunucusu](manage-apps/application-proxy-enable.md)
+##### [Uygulamaları yayımlama](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Özel etki alanları](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Çoklu oturum açma](manage-apps/application-proxy-single-sign-on.md)
+##### [KCD ile SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [Üst bilgi içeren SSO](application-proxy-ping-access.md)
 ##### [Parola kasası oluşturma ile SSO](application-proxy-sso-azure-portal.md)
 #### Kavramlar

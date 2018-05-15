@@ -153,6 +153,8 @@
           href: security-center-events-dashboard.md
         - name: Arama
           href: security-center-search.md
+        - name: Uyumluluğu gözden geçirme (REST)
+          href: security-center-review-policy-compliance.md
     - name: Senaryolar
       items:
         - name: Olay yanıtı
