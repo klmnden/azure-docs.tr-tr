@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: be8c997df5893782c469eefe4e3c79ab698f4c78
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -40,8 +40,8 @@ Kullandığınız sanal makine (VM) uzantıları için güncelleştirmeler oldu�
 | ![Linux VM erişim](media/azure-stack-marketplace-azure-items/cse.png) | [ Linux VM erişim ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Bu güncelleştirme için Linux uzantısı VMAccess yerleşik sürümünü indirin. Bu güncelleştirme, Debian Linux VM'ler kullanmayı planlıyorsanız, önemlidir.</b> | Microsoft | Linux |
 | ![Linux için Acronis yedekleme uzantısı](media/azure-stack-marketplace-azure-items/acronis.png) | [ Linux için Acronis yedekleme uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis uluslararası GmbH. | Linux |
 | ![Windows için Acronis yedekleme uzantısı](media/azure-stack-marketplace-azure-items/acronis.png) | [ Windows için Acronis yedekleme uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis uluslararası GmbH. | Windows |
-| ![Linux için CloudLink SecureVM uzantısı](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Linux için CloudLink SecureVM uzantısı ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izlemek ve kolaylığı ve güven VM'ler şifrelemek. | Dell EMC | Linux |
-| ![Windows için CloudLink SecureVM uzantısı](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Windows için CloudLink SecureVM uzantısı ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izlemek ve kolaylığı ve güven VM'ler şifrelemek. | Dell EMC | Windows |
+| ![Linux için CloudLink SecureVM uzantısı](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Linux için CloudLink SecureVM uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izlemek ve kolaylığı ve güven VM'ler şifrelemek. | Dell EMC | Linux |
+| ![Windows için CloudLink SecureVM uzantısı](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Windows için CloudLink SecureVM uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izlemek ve kolaylığı ve güven VM'ler şifrelemek. | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft sanal makine görüntüleri ve çözüm şablonları
 
@@ -214,7 +214,8 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![Barracuda Web uygulaması Güvenlik Duvarı (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web uygulaması Güvenlik Duvarı (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Güvenlik ve Otomatik & hedeflenen saldırılara karşı DDoS koruması. | Barracuda Networks, Inc. |
 | ![Denetim noktası vSEC güvenlik yönetimi](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Denetim noktası vSEC Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerine karşı korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. <b>Her iki onay noktası vSEC Market öğesi indirin.</b> | Denetim Noktası |
 | ![Chef otomatikleştirme](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef otomatikleştirme](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Derleme, dağıtma ve Chef otomatikleştirmek, sürekli Otomasyon Platform ile yönetin. <b>Her iki Chef Market öğesi indirin</b> | Chef yazılımı, Inc |
-| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izlemek ve kolaylığı ve güven VM'ler şifrelemek. <b>Tüm CloudLink SecureVM öğeleri indirin.<b> | Dell EMC |
+| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izlemek ve kolaylığı ve güven VM'ler şifrelemek. <b>Tüm CloudLink SecureVM öğeleri indirin.<b> | Dell EMC |
+| ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [ F5 Big-IP sanal Edition ](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Gelişmiş Yük Dengeleme, GSLB, ağ güvenlik duvarı, DNS, WAF ve uygulama erişimi. | F5 Networks |
 | ![Hortonworks veri Platformu (HDP) korumalı alan](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks veri Platformu (HDP) korumalı alan](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Tarafından HDP %2,5 100 açık kaynak platform Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari için sağlanmıştır. | Hortonworks |
 | ![KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Katman 4-7 uygulama teslim denetleyici (ADC) yük dengeleyici, içerik anahtarı ve trafik Yöneticisi. | KEMP Technologies Inc. |
 | ![NooBaa karma AWS S3 uyumlu - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Ortak yayılan ve şirket içi kapasite kaynakları S3 uyumlu depolama hizmeti. | NooBaa |

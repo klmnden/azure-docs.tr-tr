@@ -6,121 +6,175 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2017
+ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c886655f0f9469b742532fa940519176a773ad41
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için özel roller oluşturma
-Yerleşik roller hiçbiri belirli erişim gereksinimlerinizi karşılıyorsa özel bir rol Azure rol tabanlı erişim denetimi (RBAC) oluşturun. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](role-assignments-powershell.md), [Azure komut satırı arabirimi](role-assignments-cli.md) (CLI) ve [REST API](role-assignments-rest.md). Yalnızca yerleşik roller gibi kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller Azure AD kiracısı içinde depolanır ve abonelikler arasında paylaşılabilir.
+# <a name="create-custom-roles-in-azure"></a>Özel roller oluşturma
 
-Her bir kiracı en fazla 2000 özel roller oluşturabilirsiniz. 
+Varsa [yerleşik roller](built-in-roles.md) belirli erişim gereksinimlerinizi karşılamadığını, kendi özel roller oluşturabilirsiniz. Yalnızca yerleşik roller gibi kullanıcıları, grupları ve hizmet asıl adı abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) Kiracı depolanır ve abonelikler arasında paylaşılabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API kullanarak oluşturulabilir. Bu makalede PowerShell ve Azure CLI kullanarak özel roller oluşturmaya başlamak nasıl bir örneği.
 
-Aşağıdaki örnek, izleme ve sanal makineleri yeniden başlatmayı için özel bir rol gösterir:
+## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>PowerShell kullanarak destek istekleri açmak için özel bir rol oluşturun
+
+Özel bir rol oluşturmak için sahip yerleşik bir rol Başlat, düzenlemek ve yeni bir rol oluşturmak. Bu örneğin, yerleşik [okuyucu](built-in-roles.md#reader) rol özelleştirilmiş "erişim düzeyi okuyucu destek biletlerini" adlı özel bir rol oluşturmak için. Kullanıcının her şeyi abonelik açık destek istekleri de görüntüleyebilir ve olanak sağlar.
+
+> [!NOTE]
+> Destek isteklerini açmasına izin yalnızca iki yerleşik roller [sahibi](built-in-roles.md#owner) ve [katkıda bulunan](built-in-roles.md#contributor). Destek istekleri açmak bir kullanıcı için tüm destek isteklerini bir Azure aboneliğine yönelik temel alınarak oluşturulur çünkü kendisine abonelik kapsamında bir rol atanmalıdır.
+
+PowerShell'de kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) dışa aktarmak için komutu [okuyucu](built-in-roles.md#reader) JSON biçiminde rol.
+
+```azurepowershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
+```
+
+Aşağıdakiler için JSON çıktısını gösterir [okuyucu](built-in-roles.md#reader) rol. Tipik rol üç ana bölümden oluşan `Actions`, `NotActions`, ve `AssignableScopes`. `Actions` Bölümü rolü için izin verilen tüm işlemleri listeler. İşlemlerinden dışlanacak `Actions`, bunları Ekle `NotActions`. Etkili izinleri hesaplanan çıkarılmasıyla `NotActions` işlemlerinden `Actions` işlemleri.
 
 ```json
 {
-  "Name": "Virtual Machine Operator",
-  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
-    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
-  ]
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
 }
 ```
-## <a name="actions"></a>Eylemler
-**Eylemler** özel bir rol özelliği rol için erişim verir Azure işlemleri belirtir. Azure kaynak sağlayıcıları güvenliği sağlanabilir işlemlerini tanımlayan işlemi dizelerin koleksiyonudur. İşlemi dizeleri izleyin biçimi `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Joker karakterler içeren işlemi dizeleri (\*) işlemi dizeyle eşleşen tüm işlemler için erişim verin. Örneğin:
 
-* `*/read` verir tüm Azure kaynak sağlayıcıları tüm kaynak türleri için okuma erişimi.
-* `Microsoft.Compute/*` tüm işlemler Microsoft.Compute kaynak sağlayıcısındaki tüm kaynak türleri için erişim verir.
-* `Microsoft.Network/*/read` verir Azure Microsoft.Network kaynak Sağlayıcısı'nda tüm kaynak türleri için okuma erişimi.
-* `Microsoft.Compute/virtualMachines/*` verir kaynak türleri için sanal makinelerin ve kendi alt tüm işlemleri erişin.
-* `Microsoft.Web/sites/restart/Action` Web siteleri yeniden başlatmak için verir erişin.
+Ardından, çıkış özel rol oluşturmak için JSON düzenleyin. Bu durumda, destek oluşturmak için anahtarları `Microsoft.Support/*` işlemi eklenmelidir. Her işlem kaynak sağlayıcısından kullanılabilir hale getirilir. Bir kaynak sağlayıcısı için işlemleri listesini almak için kullanabilirsiniz [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) komutunu veya bkz [Azure Resource Manager kaynak sağlayıcısı işlemleri](resource-provider-operations.md).
 
-Kullanım `Get-AzureRmProviderOperation` (PowerShell'de) veya `azure provider operations show` (içinde Azure CLI) Azure kaynak sağlayıcılarının listesi işlemleri için. Bu komutlar bir işlemi dizesi geçerli olduğunu doğrulayın ve joker işlemi dizeleri genişletmek için de kullanabilirsiniz.
+Rolü açık abonelik kimlikleri kullanıldığı içeren zorunludur. Abonelik kimlikleri altında listelenen `AssignableScopes`, aksi takdirde, aboneliğinizi rolünü içeri aktarmak için izin verilmez.
 
-```powershell
-Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
+Son olarak, ayarlamalısınız `IsCustom` özelliğine `true` bu özel bir rol olduğunu belirtmek için.
 
-Get-AzureRMProviderOperation Microsoft.Network/*
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
 ```
 
-![PowerShell ekran görüntüsü - Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
+Yeni özel rol oluşturmak için kullandığınız [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) komut ve güncelleştirilmiş JSON rol tanımı dosyası sağlayın.
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Çalıştırdıktan sonra [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), yeni özel rol Azure portalında kullanılabilir ve kullanıcılara atanabilir.
+
+![Azure portalında içeri özel rol ekran görüntüsü](./media/custom-roles/18.png)
+
+![kullanıcı aynı dizinde özel alınan rol atama işleminin ekran görüntüsü](./media/custom-roles/19.png)
+
+![Özel alınan rol izinlerini ekran görüntüsü](./media/custom-roles/20.png)
+
+Bu özel rolü olan kullanıcılar yeni destek istekleri oluşturabilirsiniz.
+
+![Özel rol destek istekleri oluşturma ekran görüntüsü](./media/custom-roles/21.png)
+
+Bu özel rolü olan kullanıcılar başka eylemler gerçekleştirebilir, gibi VM'ler oluşturulamıyor veya kaynak grupları oluşturun.
+
+![ekran görüntüsü özel rol VM'ler oluşturmak mümkün değil](./media/custom-roles/22.png)
+
+![ekran görüntüsü özel rol yeni RGs oluşturmak mümkün değil](./media/custom-roles/23.png)
+
+## <a name="create-a-custom-role-to-open-support-requests-using-azure-cli"></a>Azure CLI kullanarak destek istekleri açmak için özel bir rol oluşturun
+
+JSON çıktısını farklı olması dışında PowerShell kullanarak Azure CLI kullanarak özel bir rol oluşturmak için aşağıdaki adımları benzerdir.
+
+Bu örnekte, yerleşik ile başlayabilirsiniz [okuyucu](built-in-roles.md#reader) rol. Eylemleri listelemek için [okuyucu](built-in-roles.md#reader) rolü, kullanım [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list) komutu.
 
 ```azurecli
-azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
-
-azure provider operations show "Microsoft.Network/*"
+az role definition list --name "Reader" --output json
 ```
 
-![Azure CLI ekran görüntüsü - azure sağlayıcısı işlemleri göster "Microsoft.Compute/virtualMachines/ \* /eylem" ](./media/custom-roles/1-azure-provider-operations-show.png)
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": [],
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
-## <a name="notactions"></a>NotActions
-Kullanım **NotActions** izin vermek istediğiniz işlem kümesi daha kolay kısıtlı işlemleri hariç tutarak tanımlanmışsa özelliği. Özel bir rol tarafından verilen erişim çıkarılmasıyla hesaplanır **NotActions** işlemlerinden **Eylemler** işlemleri.
+Aşağıdaki biçimde bir JSON dosyası oluşturun. `Microsoft.Support/*` İşlemi eklendi `Actions` bu kullanıcı bir okuyucunun olmasını devam ederken destek istekleri açabileceği bölümler. Burada bu rolü kullanılacak, abonelik kimliği eklemelisiniz `AssignableScopes` bölümü.
 
-> [!NOTE]
-> Bir kullanıcı bir işlemde dışlar bir rolü atanıp atanmadığını **NotActions**ve aynı işlem erişim bu işlemi gerçekleştirmek için kullanıcının izin veren ikinci bir rol atanır. **NotActions** reddetme değil kural – bu belirli işlemleri dışarıda gerektiğinde izin verilen işlem kümesi oluşturmak için yalnızca uygun bir yoldur.
->
->
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-## <a name="assignablescopes"></a>AssignableScopes
-**AssignableScopes** özel rol özelliği, içinde özel rol atama için uygun kapsamları (abonelik, kaynak grupları veya kaynakları) belirtir. Özel rol ataması yalnızca abonelikleri veya gerektiren kaynak grupları kullanımına ve abonelik veya kaynak grupları geri kalanı için kullanıcı deneyimi dağıtmayı değil.
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
+```
 
-Geçerli atanabilir kapsamların örnekleri şunlardır:
+Yeni özel rol oluşturmak için kullanmak [az rol tanımı oluşturma](/cli/azure/role/definition#az_role_definition_create) komutu.
 
-* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/ subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624" - rolü iki Aboneliklerde atama için kullanılabilir hale getirir.
-* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e" - kullanılabilir hale getirir rol ataması tek bir abonelik.
-* "/ abonelikleri/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/ağ" - yalnızca ağ kaynak grubunda rol ataması için kullanılabilir hale getirir.
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
+```
 
-> [!NOTE]
-> En az bir kullanmalısınız abonelik, kaynak grubu veya kaynak kimliği
->
->
+Yeni özel rol Azure portalında kullanılabilir ve bu rolü kullanmak için önceki PowerShell bölüm aynı işlemidir.
 
-## <a name="custom-roles-access-control"></a>Özel roller erişim denetimi
-**AssignableScopes** özel rolünün özelliği de denetimleri kimin görüntüleyin, değiştirin ve rol silin.
+![CLI 1.0 kullanılarak oluşturulan özel rol Azure portal ekran görüntüsü](./media/custom-roles/26.png)
 
-* Kimin özel bir rol oluşturabilir miyim?
-    Sahiplerinin (ve kullanıcı erişim Yöneticileri) Abonelikleri, kaynak grupları ve kaynakları kullanmak için özel roller bu kapsamları oluşturabilirsiniz.
-    Gerçekleştirmek kullanıcı rolü oluşturma gerekir `Microsoft.Authorization/roleDefinition/write` tüm işlemi **AssignableScopes** rolünün.
-* Özel bir rol değiştirebilecekleri?
-    Sahiplerinin (ve kullanıcı erişim Yöneticileri) Abonelikleri, kaynak grupları ve kaynakları bu kapsamları özel rollerinde değiştirebilirsiniz. Kullanıcıların gerekir arayabilmesi `Microsoft.Authorization/roleDefinition/write` tüm işlemi **AssignableScopes** özel bir rol.
-* Kimin özel roller görebilir?
-    Azure RBAC yerleşik rolleri tüm rollerin atama için uygun olmayan görüntüleme izin verin. Gerçekleştirebileceğiniz kullanıcılar `Microsoft.Authorization/roleDefinition/read` bir kapsamda işlemi bu kapsamda atama için kullanılabilir olan RBAC rolü görüntüleyebilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Rol tabanlı erişim denetimi](role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlama.
-* Kullanılabilir işlemleri listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](resource-provider-operations.md).
-* Erişimle yönetmeyi öğrenin:
-  * [PowerShell](role-assignments-powershell.md)
-  * [Azure CLI](role-assignments-cli.md)
-  * [REST API](role-assignments-rest.md)
-* [Yerleşik roller](built-in-roles.md): Get RBAC standart gelen rolleri hakkında ayrıntılar.
+- [Rol tanımları anlayın](role-definitions.md)
+- [Rol tabanlı erişim denetimi AzurePowerShell ile yönetme](role-assignments-powershell.md)
+- [Rol tabanlı erişim denetimini Azure CLI ile yönetme](role-assignments-cli.md)
+- [Rol tabanlı erişim denetimini REST API ile yönetme](role-assignments-rest.md)

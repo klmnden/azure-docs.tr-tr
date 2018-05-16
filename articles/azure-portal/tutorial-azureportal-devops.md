@@ -1,8 +1,8 @@
 ---
-title: "Eğitmen: Azure Portal ile DevOps | Microsoft Belgeleri"
-description: "Azure Portal'daki çeşitli DevOps iş akışları hakkında bilgi edinin."
+title: 'Öğretici: Azure portal ile DevOps | Microsoft Docs'
+description: Azure Portal'daki çeşitli DevOps iş akışları hakkında bilgi edinin.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,17 +11,17 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="tutorial-devops-with-the-azure-portal"></a>Öğretici: Azure Portal ile DevOps
-Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure Portal’ın çalışan uygulamalar geliştirme, test etme, dağıtma, sorun giderme, izleme ve yönetme özelliklerinden nasıl yararlandığını öğreneceksiniz. Bu öğretici aşağıdakilere odaklanır:
+# <a name="tutorial-devops-with-the-azure-portal"></a>Öğretici: Azure portal ile DevOps
+Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide, geliştirme, test, dağıtma, sorun giderme, izlemek ve çalışan uygulamaları yönetmek için Azure portal'ın özelliklerden yararlanacak öğrenin. Bu öğretici aşağıdakilere odaklanır:
 
 1. Bir web uygulaması oluşturma ve sürekli dağıtımı etkinleştirme
 2. Uygulama geliştirme ve test etme
@@ -29,12 +29,12 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
 4. Genel uygulama yönetimi görevleri
 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Bir web uygulaması oluşturma ve sürekli dağıtımı etkinleştirme
-[Azure Uygulama Hizmeti](https://azure.microsoft.com/services/app-service/) ile bu öğreticinin geri kalanında kullanacağınız bir web uygulaması oluşturun. Başlangıçta kaynak kod deponuzdan çalışan Azure ortamımıza sürekli dağıtımı etkinleştirin.
+[Azure Uygulama Hizmeti](https://azure.microsoft.com/services/app-service/) ile bu öğreticinin geri kalanında kullanacağınız bir web uygulaması oluşturun. Başlangıçta sürekli dağıtım kaynak kodu deposundan çalışan Azure ortamınıza etkinleştirmeniz.
 
-1. Azure Portal’da oturum açın
+1. Azure portalında oturum açın
 2. **Uygulama Hizmetleri** &gt; **Simge ekle** seçeneğini belirleyin ve bir ad girin, aboneliğinizi seçin ve hizmetin kapsayıcısı olarak görev yapacak yeni bir kaynak grubu oluşturun.
    
-   Kaynak grupları, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) aracılığıyla çözümün faturalama, dağıtım ve izleme gibi çeşitli bölümlerini tek bir grupta yönetmenize olanak tanır.
+   Kaynak grupları çözüm faturalandırma, dağıtımlar ve aracılığıyla tek bir grup olarak tüm izleme gibi çeşitli yönlerini yönetmenize olanak tanır [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Birkaç dakika sonra uygulama hizmetiniz oluşturulur. Portalda hizmete ilişkin çeşitli menü seçeneklerini keşfetmek için birkaç dakikanızı ayırın.
@@ -43,7 +43,7 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
 4. URL’ye tıklayın. Havuzlar ve depolara yönelik çeşitli mevcut seçeneklere dikkat edin. Ayrıca .NET, Java ve Ruby gibi seçtiğiniz dilleri ve çerçeveleri kullanabilirsiniz.
    
    ![image3][image3]    
-5. Azure portalı sürekli dağıtımı yalnızca birkaç basit adımdan oluşan kolay bir işlem haline getirir. Azure portalında az önce oluşturduğunuz uygulama hizmetine ait simgeden ayarları seçin.
+5. Azure portalı sürekli dağıtımı yalnızca birkaç basit adımdan oluşan kolay bir işlem haline getirir. Azure portalında oluşturduğunuz uygulama hizmeti ait simgeden ayarları seçin.
    
    ![image4][image4]
    
@@ -62,7 +62,7 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
 9. Projenizi ve dalınızı seçtikten sonra Tamam'a tıklayın. Bir dağıtımın bildirimlerini görmeye başlamanız gerekir.
    
    ![image9][image9]
-10. Kaynak denetim deposunu Azure ile tümleştirmek üzere oluşturulan web kancasını görmek için GitHub’a geri gidin. Azure portalı yalnızca birkaç basit adımda GitHub ile tümleştirme olanağı sağlar.
+10. Kaynak denetim deposunu Azure ile tümleştirmek üzere oluşturulan web kancasını görmek için GitHub’a geri gidin. Azure portal yalnızca birkaç basit adımda GitHub ile tümleştirme sağlar.
     
     ![image10][image10]
 11. Sürekli dağıtımı göstermek için depoya bir miktar içeriği hızlıca ekleyin. Basit bir örnek için GitHub deposuna örnek bir metin dosyası ekleyin. App Service ile .NET, Ruby, Python veya başka bir uygulama türü kullanabilirsiniz. Tercih ettiğiniz depoya bir metin dosyası, ASP.NET MVC, Java ya da Ruby uygulaması eklemekten çekinmeyin.
@@ -71,7 +71,7 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
 12. Değişiklikleri deponuza uyguladıktan sonra portal bildirimleri alanında yeni bir dağıtımın başladığını görürsünüz. Değişiklikleri deponuza uyguladıktan sonra hızlıca görmüyorsanız Eşitle’ye tıklayın.
     
     ![image12][image12]
-13. Bu noktada uygulama hizmeti için sayfayı yüklemeyi denerseniz bir 403 hatası alabilirsiniz. Bu örnekte bunun nedeni index.htm veya default.html dosyası gibi sayfa için tipik bir varsayılan belge ayarı olmamasıdır. Azure Portal’daki araçlarla bu sorunu hızlıca çözebilirsiniz.  Azure Portal’da Ayarlar &gt; Uygulama Ayarları’nı seçin.
+13. Bu noktada uygulama hizmeti için sayfayı yüklemeyi denerseniz bir 403 hatası alabilirsiniz. Bu örnekte bunun nedeni index.htm veya default.html dosyası gibi sayfa için tipik bir varsayılan belge ayarı olmamasıdır. Hızlı bir şekilde bu Azure portalında araçları ile çözebilirsiniz.  Azure portalında ayarlarını seçin &gt; uygulama ayarları.
     
      ![image13][image13]
 14. Uygulama ayarları için bir dikey pencere açılır. “SamplePage.html” sayfasının adını girin ve Kaydet’e tıklayın. Birkaç dakika boyunca diğer ayarları keşfedin.
@@ -81,18 +81,18 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
     
     ![image15][image15]
     
-    Azure Portal ile sürekli dağıtımın etkinleştirilmesi kolay bir deneyimdir. Ayrıca daha karmaşık yayın işlem hatları oluşturabilir ve otomatik derleme ile yayın yönetimi sistemlerinden yararlanma dahil olmak üzere var olan kaynak denetimi ve Azure’a dağıtılacak sürekli tümleştirme sistemleri ile diğer birçok tekniği kullanabilirsiniz.
+    Azure portal ile sürekli dağıtımın etkinleştirilmesi kolay bir deneyimdir. Ayrıca daha karmaşık yayın işlem hatları oluşturabilir ve otomatik derleme ile yayın yönetimi sistemlerinden yararlanma dahil olmak üzere var olan kaynak denetimi ve Azure’a dağıtılacak sürekli tümleştirme sistemleri ile diğer birçok tekniği kullanabilirsiniz.
 
 ## <a name="develop-and-test-an-app"></a>Uygulama geliştirme ve test etme
-Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hızlıca dağıtın. Ayrıca web uygulaması için bazı performans testleri ayarlayacaksınız.
+Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hızlıca dağıtın. Ayrıca bazı performans için Web uygulaması testleri ayarlayacaksınız.
 
-1. Azure Portal'da gezinti bölmesinden Uygulama Hizmetleri’ni seçin ve App Service’inizi bulun.
+1. Azure portalında Gezinti bölmesinden uygulama Hizmetleri'ni seçin ve App service'inizi bulun.
    
    ![image16][image16]
 2. Araçlar'a tıklayın
    
    ![image17][image17]
-3. Araçlar altındaki geliştirme kategorisine dikkat edin. Burada, Azure Portal’dan çıkmadan uygulamalarla çalışmamıza olanak sağlayan birkaç faydalı araç vardır. Konsol'a tıklayın.
+3. Araçlar altındaki geliştirme kategorisine dikkat edin. Azure Portal'dan çıkmadan uygulamalarla çalışma etmemizi sağlayan birkaç faydalı araç burada vardır. Konsol'a tıklayın.
    
    ![image18][image18]
 4. Konsol penceresinde uygulamanız için dinamik komutlar verebilirsiniz. Dir komutunu yazın ve enter tuşuna basın. Yükseltilmiş ayrıcalıklar gerektiren komutlar çalışmaz.
@@ -141,7 +141,7 @@ Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hı
     Test tamamlandıktan sonra sonuca tıklandığında daha ayrıntılı bilgi gösterilir.
     
     ![image33][image33]
-16. Bu örnekte küçük bir test çalışması oluşturdunuz; bu nedenle analiz etmek için sınırlı veri olabilir, ancak çeşitli ölçümleri görebilir ve testinizi bu görünümden yeniden çalıştırabilirsiniz. Azure Portal, web performans testleri oluşturmayı, yürütmeyi ve analiz etmeyi kolay bir işlem haline getirir. Aşağıdaki ekran görüntüleri performans verilerini göstermektedir.
+16. Bu örnekte küçük bir test çalışması oluşturdunuz; bu nedenle analiz etmek için sınırlı veri olabilir, ancak çeşitli ölçümleri görebilir ve testinizi bu görünümden yeniden çalıştırabilirsiniz. Oluşturma Azure portal yapar, kolay bir işlem yürütülürken ve web performansını analiz etme test eder. Aşağıdaki ekran görüntüleri performans verilerini göstermektedir.
     
     ![image34][image34]
     
@@ -152,7 +152,7 @@ Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hı
 ## <a name="monitoring-and-troubleshooting-an-app"></a>Bir uygulamayı izleme ve sorunlarını giderme
 Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok sayıda özellik sağlar.
 
-1. Azure Portal’da web uygulamamız için Araçlar’ı seçin.
+1. Web uygulaması için Azure portalında Araçlar'ı seçin.
    
    ![image37][image37]
 2. Sorun Giderme kategorisi altında çalışan bir uygulamayla ilgili olası sorunları gidermek üzere araç kullanma seçeneklerinin çeşitliliğine dikkat edin. Canlı HTTP trafiğini izleme, kendi kendini onarmayı etkinleştirme, günlükleri görüntüleme ve daha fazla işlemi yapabilirsiniz.
@@ -175,7 +175,7 @@ Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok 
    Olası sorunları çözmeye yardımcı olmak üzere, Bellek Dökümü dosyasına tıklayarak bir DebugDiag analiz raporu indirip analiz edebilirsiniz.
    
    ![image43][image43]
-6. Daha fazla veri görüntülemek için ek günlük kaydını etkinleştirmeniz gerekir. Azure Portal’da Web uygulamasına gidin ve Ayarlar’ı seçin.
+6. Daha fazla veri görüntülemek için ek günlük kaydını etkinleştirmeniz gerekir. Azure portalında Web uygulaması'na gidin ve Ayarlar'ı seçin.
    
    ![image44][image44]
 7. Özellikler kategorisine inin ve Tanılama günlükleri’ni seçin.
@@ -193,10 +193,10 @@ Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok 
 11. HTML dosya günlüğüne tıklayarak, daha fazla araştırma için zengin bir tarayıcı tabanlı rapor oluşturabilirsiniz.
     
     ![image49][image49]
-12. Azure Portal’da uygulamaya yönelik araçlar bölümüne geri dönün. Araçlar bölümüne gidin ve İşlem Gezgini'ni seçin.
+12. Geri Araçlar bölümüne Azure portalında uygulama için taşıyın. Araçlar bölümüne gidin ve İşlem Gezgini'ni seçin.
     
     ![image50][image50]
-13. İşlem Gezgini'ni seçerek, çalışan işlemlere ilişkin ayrıntıları görüntüleyebilirsiniz. Aşağıda işlemlerin ayrıntılarına inebilir ve hatta Azure Portal’dan işlemleri tamamen sonlandırabilirsiniz.
+13. İşlem Gezgini'ni seçerek, çalışan işlemlere ilişkin ayrıntıları görüntüleyebilirsiniz. Aşağıda işlemlerin ayrıntılarına inebilir ve hatta Azure portalından tüm işlemleri sonlandırılır.
     
     ![image51][image51]
     
@@ -204,13 +204,13 @@ Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok 
 14. Sol taraftaki Ayarları dikey penceresine geri dönün. Yeni destek isteği’ne tıklayın.
     
     ![image53][image53]
-15. Sağdaki dikey pencereden sorunlara ilişkin ayrıntılı bilgileri doldurabilir, iletişim bilgilerini girebilir ve hatta tanılama verilerini karşıya yükleyebilirsiniz. Azure Portal, Microsoft desteği ile sorunsuzca çalışmayı sağlar.
+15. Sağdaki dikey pencereden sorunlara ilişkin ayrıntılı bilgileri doldurabilir, iletişim bilgilerini girebilir ve hatta tanılama verilerini karşıya yükleyebilirsiniz. Azure portal, Microsoft desteği ile sorunsuzca çalışmayı sağlar.
     
     ![image54][image54]
     
     ![image55][image55]
     
-    Azure Portal, çalışan uygulamalarımızı izlemeye ve sorunlarını gidermeye yardımcı olmak üzere güçlü ve bilindik araç deneyimleri sağlar. Ayrıca işlemleri geri dönüştürme, çeşitli veri koleksiyonlarını etkinleştirme ve devre dışı bırakma ve hatta Microsoft profesyonel desteği ile tümleştirme gibi görevleri gerçekleştirerek hızlıca önlem alabilirsiniz.
+    Azure portalı, güçlü ve bilindik araç deneyimleri İzleyicisi yardımcı olmak ve çalışan uygulamalarla ilgili sorunları gidermek için sağlanmasına yardımcı olur. Ayrıca işlemleri geri dönüştürme, çeşitli veri koleksiyonlarını etkinleştirme ve devre dışı bırakma ve hatta Microsoft profesyonel desteği ile tümleştirme gibi görevleri gerçekleştirerek hızlıca önlem alabilirsiniz.
 
 ## <a name="general-application-management"></a>Genel Uygulama Yönetimi
 Uygulamaları yönetirken çoğunlukla yedekleme stratejilerini yapılandırma, kimlik sağlayıcılarını uygulama ve yönetme ile Rol tabanlı erişim denetimini yapılandırma gibi çok çeşitli etkinlikler gerçekleştirmeniz gerekir. Diğer DevOps deneyimlerinde olduğu gibi Azure platformu da bu görevleri doğrudan portalda tümleştirir.
@@ -230,7 +230,7 @@ Uygulamaları yönetirken çoğunlukla yedekleme stratejilerini yapılandırma, 
 5. Bundan sonra yedeklemelerinizin tutulacağı bir depolama kapsayıcısı oluşturup seçin. Dikey pencerenin alt kısmındaki Oluştur’a tıklayın. Ardından kapsayıcıyı seçin.
    
    ![image60][image60]
-6. Kapsayıcıyı seçtikten sonra zamanlamaları yapılandırabilir ve veritabanlarınızın yedeklerini ayarlayabilirsiniz. Bu senaryo için Kaydet simgesine tıklayın.
+6. Kapsayıcıyı seçtikten sonra zamanlamaları yapılandırmak yanı yedekler veritabanınız için ayarlayın. Bu senaryo için Kaydet simgesine tıklayın.
    
     ![image61][image61]
 7. Kaydettikten sonra Yedeklemeler için soldaki dikey pencereye geri dönün. Uygulamayı yedeklemek için Şimdi Yedekle’ye tıklayın.
@@ -248,13 +248,13 @@ Uygulamaları yönetirken çoğunlukla yedekleme stratejilerini yapılandırma, 
 11. Sağdaki dikey pencereden App Service Kimlik Doğrulaması’nı seçin. Popüler sağlayıcılar ile yapılandırabileceğiniz çeşitli seçeneklere dikkat edin.
     
      ![image66][image66]
-12. Tercih ettiğiniz sağlayıcıyı seçin ve kapsam seçeneklerine dikkat edin. Bir Uygulama Kimliği ve Uygulama Gizli Anahtarı belirtebilir ve uygulama için Facebook kimlik doğrulamasını kolayca etkinleştirebilirsiniz. Azure Portal, kimlik doğrulamasını uygulamalara yönelik hazır bir çözüm olarak sağlar.
+12. Tercih ettiğiniz sağlayıcıyı seçin ve kapsam seçeneklerine dikkat edin. Bir Uygulama Kimliği ve Uygulama Gizli Anahtarı belirtebilir ve uygulama için Facebook kimlik doğrulamasını kolayca etkinleştirebilirsiniz. Azure portal uygulamaları için hazır bir çözüm olarak kimlik doğrulamasını etkinleştirir.
     
      ![image67][image67]
 13. Ayarlar dikey penceresine geri dönün ve Kaynak Yönetimi kategorisi altında Kullanıcılar’ı seçin.
     
      ![image68][image68]
-14. Sağdaki dikey pencerede rol ve kullanıcı eklemeye yönelik çeşitli seçeneklere dikkat edin. Azure Portal, uygulama için RBAC (Rol tabanlı erişim denetimi) özelliğini kolayca denetlemenize imkan tanır.
+14. Sağdaki dikey pencerede rol ve kullanıcı eklemeye yönelik çeşitli seçeneklere dikkat edin. Azure portalında RBAC (rol tabanlı erişim denetimi) uygulama için kolayca denetlemenize olanak tanır.
     
      ![image69][image69]
 

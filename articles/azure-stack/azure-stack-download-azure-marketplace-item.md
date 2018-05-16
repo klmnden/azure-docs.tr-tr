@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9f24dd917f4197f933fd58f7c646c18372da8593
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2e92dc96a69400f689e49b70d1b855c955084362
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Market öğesi Azure'dan Azure yığınına indirin.
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/10/2018
 
 Azure yığın marketi'ndeki eklemek üzere hangi içerik karar gibi Azure Marketi'nden içerik göz önünde bulundurmalısınız. Azure yığında çalıştırmak için önceden sınanmış Azure Market öğesi seçkin listesinden indirebilirsiniz. Yeni öğeler sık bu listeye eklenir, bu nedenle yeni içerik için geri denetlediğinizden emin olun.
 
-## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Market öğesi bağlı senaryosunda (internet bağlantısı ile) yükle
+## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Market öğesi bağlı senaryosunda (Internet bağlantısı ile) yükle
 
 1. Market öğesi indirmek için öncelikle [Azure yığın Azure ile kaydedin](azure-stack-register.md).
 2. Azure yığın Yönetici portalında oturum açın (için ASDK, kullanım https://portal.local.azurestack.external).

@@ -2,23 +2,25 @@
 title: Azure AD uygulaması isteğe bağlı talepler sağlamak öğrenin | Microsoft Docs
 description: Azure Active Directory tarafından yayınlanan SAML 2.0 ve JSON Web belirteçleri (JWT) belirteçleri için özel veya ek talep eklemek için bir kılavuzdur.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f87487c4ee56ae90eb5825b0e77610fac73bd3fa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı Taleplerde Azure AD (Önizleme)
 
@@ -80,7 +82,7 @@ Bu talepler her zaman v1.0 belirteçleri dahil, ancak v2.0 belirteçlerinden ist
 | `pwd_exp`     | Parola son kullanma tarihi        | Parola süresinin dolma datetime.                                                                                    |       |
 | `pwd_url`     | Parola URL'yi Değiştir             | Kullanıcı parolasını değiştirmek için ziyaret edebileceği bir URL.                                                                        |       |
 | `in_corp`     | İç şirket ağı        | İstemcinin kurumsal ağ üzerinden oturum açmayı olmadığını bildirir. Değilse, talep dahil değildir                     |       |
-| `nickname`    | Takma adı                        | Kullanıcı için ek bir ad veya Soyadı adından ayırın.                                                             |       |                                                                                                                |       |
+| `nickname`    | Takma ad                        | Kullanıcı için ek bir ad veya Soyadı adından ayırın.                                                             |       |                                                                                                                |       |
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adını Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" |       |
 | `given_name`  | Ad                      | İlk sağlar ya da "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
 

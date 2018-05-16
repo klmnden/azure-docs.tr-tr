@@ -3,21 +3,21 @@ title: Azure’da Kubernetes öğreticisi - kümeyi güncelleştirme
 description: Azure’da Kubernetes öğreticisi - kümeyi güncelleştirme
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8340ca9d95e7600e2500755de252e7f6c6de9343
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0886d13b62b6b8ad1c0dcd430ce48bcc51d6d465
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Öğretici: Azure Container Service’te (AKS) Kubernetes’i yükseltme
+# <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti’nde (AKS) Kubernetes’i yükseltme
 
-Azure Container Service (AKS) kümesi, Azure CLI kullanılarak yükseltilebilir. Yükseltme işlemi sırasında, çalışan uygulamaların kesintiye uğramasını azaltmak için Kubernetes düğümleri dikkatli bir şekilde [kordonlanır ve boşaltılır][kubernetes-drain].
+Azure Kubernetes Hizmeti (AKS) kümesi, Azure CLI kullanılarak yükseltilebilir. Yükseltme işlemi sırasında, çalışan uygulamaların kesintiye uğramasını azaltmak için Kubernetes düğümleri dikkatli bir şekilde [kordonlanır ve boşaltılır][kubernetes-drain].
 
 Sekiz parçalık bu öğreticinin sekizinci kısmında, bir Kubernetes kümesi yükseltilir. Tamamladığınız görevler şunları içerir:
 

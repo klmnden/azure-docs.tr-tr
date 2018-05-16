@@ -41,7 +41,7 @@
 ### [OAuth 2.0 kimlik doğrulama kodu verme](active-directory-protocols-oauth-code.md)
 ### [OAuth 2.0 örtülü izin](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Rol talebini yapılandırma](active-directory-enterprise-app-role-management.md)
+### [Rol talebini yapılandırma](../active-directory-enterprise-app-role-management.md)
 ### [Talep özelleştirme](active-directory-saml-claims-customization.md)
 ### [SAML tabanlı SSO hata ayıklama](active-directory-saml-debugging.md)
 ### [Çoklu oturum açma SAML protokolü](active-directory-single-sign-on-protocol-reference.md)

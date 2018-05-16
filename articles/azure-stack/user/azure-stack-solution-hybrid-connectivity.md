@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure yığını ile karma bulut bağlantı yapılandırın
 
@@ -93,7 +93,7 @@ Bağlantı özellikleri:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Genel Azure ve Azure yığın bir sanal ağ oluşturma
 
-> [!note]  
+> [!Note]  
 > Azure veya Azure yığını vNet adres alanları IP'leri örtüşmez olduğundan emin olmalısınız. 
 
 Azure Portalı'nı kullanarak Resource Manager dağıtım modelinde bir vNet oluşturmak için. Bu adımları öğretici olarak uyguluyorsanız [örnek değerleri](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) kullanın. Bu adımları öğretici olarak uygulamıyorsanız değerleri kendi değerlerinizle değiştirmeyi unutmayın. 
@@ -129,7 +129,7 @@ Sanal ağınızı bir ağ geçidine bağlamadan önce, bağlamak istediğiniz sa
         - Tıklatın **+ Yeni Oluştur** açmak için **ortak IP adresi oluştur** sayfası.
         - Girin bir **adı** ortak IP adresi için. SKU olarak bırakın **temel**seçeneğini belirleyip **Tamam** yaptığınız değişiklikleri kaydetmek için bu sayfanın sonundaki.
 
-    > [!note]  
+    > [!Note]  
     > VPN ağ geçidi şu anda yalnızca dinamik genel IP adresi ayırma destekler. Ancak, bu durum IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
 
 4. Ayarları doğrulayın. 

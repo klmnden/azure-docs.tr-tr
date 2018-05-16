@@ -1,129 +1,136 @@
 ---
-title: "Azure Notification Hubs ve Bing Uzamsal Veri ile coğrafi bölge sınırlamalı anında iletme bildirimleri | Microsoft Belgeleri"
-description: "Bu öğreticide, Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz."
+title: Azure Notification Hubs ve Bing Uzamsal Veri ile coğrafi bölge sınırlamalı anında iletme bildirimleri | Microsoft Belgeleri
+description: Bu öğreticide, Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz.
 services: notification-hubs
 documentationcenter: windows
-keywords: "anında iletme bildirimi, anında iletme bildirimi"
-author: dend
-manager: yuaxu
-editor: dend
+keywords: anında iletme bildirimi, anında iletme bildirimi
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 09/15/2017
-ms.author: dendeli
-ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 27f978fac1f8aa68aa0eb1a6ffcec4e0e81b0df5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Azure Notification Hubs ve Bing Uzamsal Veri ile bölge sınırlamalı anında iletme bildirimleri
-> [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
-> 
-> 
+# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Öğretici: Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli bildirimler gönderme
+Bu öğreticide, Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz. 
 
-Bu öğreticide, bir Evrensel Windows Platformu uygulaması içinde kullanılan Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz.
+Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+
+> [!div class="checklist"]
+> * Veri kaynağını ayarlama
+> * UWP uygulamasını ayarlama
+> * Arka ucu ayarlama
+> * Evrensel Windows Platformu (UWP) uygulamasında anında iletme bildirimlerini test etme
+
 
 ## <a name="prerequisites"></a>Ön koşullar
-Öncelikle, tüm yazılım ve hizmet önkoşullarına sahip olduğunuzdan emin olun:
 
-* [Visual Studio 2015 Güncelleştirmesi 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) veya üzeri ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) da geçerli olur). 
-* [Azure SDK](https://azure.microsoft.com/downloads/)'nın en son sürümü. 
-* [Bing Haritalar Geliştirme Merkezi hesabı](https://www.bingmapsportal.com/) (ücretsiz bir tane oluşturabilir ve Microsoft hesabınızla ilişkilendirebilirsiniz). 
+- **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+- [Visual Studio 2015 Güncelleştirme 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) veya üzeri ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)). 
+- [Azure SDK](https://azure.microsoft.com/downloads/)'nın en son sürümü. 
+- [Bing Haritalar Geliştirme Merkezi hesabı](https://www.bingmapsportal.com/) (ücretsiz bir tane oluşturabilir ve Microsoft hesabınızla ilişkilendirebilirsiniz). 
 
-## <a name="getting-started"></a>Başlarken
-Projeyi oluşturarak başlayalım. Visual Studio'da **Boş Uygulama (Evrensel Windows)** türü yeni bir proje başlatın.
+## <a name="set-up-the-data-source"></a>Veri kaynağını ayarlama
 
-![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
+1. [Bing Haritalar Geliştirme Merkezi](https://www.bingmapsportal.com/)'nde oturum açın. 
+2. Üst gezinti çubuğunda **Veri kaynakları**'nı ve **Veri Kaynaklarını Yönet**'i seçin. 
 
-Proje oluşturmayı tamamladıktan sonra, uygulamanın kendisi için donanımınız olması gerekir. Şimdi, bölge sınırlama altyapısı için her şeyi ayarlayalım. Bunun için Bing hizmetlerini kullanacağımızdan, belirli konum çerçevelerini sorgulamamıza izin veren bir ortak REST API uç noktası vardır:
+    ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
+3. Bir veri kaynağınız yoksa, veri kaynağı oluşturma bağlantısını görürsünüz. **Veri kaynağı olarak yükle**’yi seçin. Ayrıca **Veri kaynakları** > **Veri yükle** menüsünü kullanabilirsiniz. 
 
-    http://spatial.virtualearth.net/REST/v1/data/
+    ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
-Bunu çalıştırmak için aşağıdaki parametreleri belirtmeniz gerekir:
+4. Sabit diskinizde aşağıdaki içeriğe sahip **NotificationHubsGeofence.pipe** adlı bir dosya oluşturun: Bu öğreticide, San Francisco kıyı bölgesini kapsayan örnek bir kanal temelli dosya kullanacaksınız:
 
-* **Veri Kaynağı Kimliği** ve **Veri Kaynağı Adı**: Veri kaynakları, Bing Haritalar API'sinde konumlar ve çalışma saatleri gibi kümelenmiş çeşitli meta veriler içerir. Burada, bunlar hakkında daha fazla bilgi edinebilirsiniz. 
-* **Varlık Adı**: Bildirim için bir başvuru noktası olarak kullanmak istediğiniz varlık. 
-* **Bing Haritalar API'si Anahtarı**: Bu, daha önce Bing Geliştirme Merkezi hesabı oluşturduğunuzda edindiğiniz anahtardır.
-
-Yukarıdaki öğelerin her biri için kurulumu derinlemesine inceleyelim.
-
-## <a name="setting-up-the-data-source"></a>Veri kaynağını ayarlama
-Veri kaynağını Bing Haritalar Geliştirme Merkezi'nde ayarlayabilirsiniz. Üst gezinti çubuğunda **Veri kaynakları** > **Veri Kaynaklarını Yönet**'i seçin.
-
-![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
-
-Daha önce Bing Haritalar API'si ile çalışmadıysanız büyük olasılıkla herhangi bir veri kaynağı mevcut olmayacaktır. Bu nedenle **Veri kaynağı** > **Veri yükle**'yi seçerek yeni bir tane oluşturabilirsiniz. Tüm gerekli alanları doldurduğunuzdan emin olun:
-
-![](./media/notification-hubs-geofence/bing-maps-create-data.png)
-
-Merak ediyor olabilirsiniz, veri dosyası nedir ve neleri karşıya yüklemeniz gerekir? Bu testin amaçları doğrultusunda, San Francisco rıhtımının belirli bir alanını çevreleyen kanal tabanlı örneği kullanabiliriz.
-
+    ```
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
+    ```
 
-Yukarıdaki dize bu varlığı temsil eder:
+    Kanal dosyası şu varlığı temsil eder:
+    
+    ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
+5. **Veri kaynağını karşıya yükleyin** sayfasında aşağıdaki eylemleri yapın:
+    1. **Veri biçimi** için **kanal**’ı seçin.
+    2. Önceki adımda oluşturduğunuz **NotificationHubGeofence.pipe** dosyasına göz atıp seçin. 
+    3. **Karşıya Yükle** düğmesini seçin. 
+    
+    > [!NOTE]
+    > **Sorgu Anahtarı**'ndan farklı olan **Ana Anahtar** için yeni bir anahtar belirtmeniz istenebilir. Pano aracılığıyla yeni bir anahtar oluşturun ve veri kaynağını karşıya yükleme sayfasını yenileyin.
+6. Veri dosyasını karşıya yükledikten sonra, veri kaynağını yayımladığınızdan emin olmanız gerekir. Daha önce yaptığınız gibi **Veri kaynakları** -> **Veri Kaynaklarını Yönet**’i seçin. 
+7. Listeden veri kaynağınızı seçin ve **Eylemler** sütunundaki **Yayımla** seçeneğini belirleyin. 
 
-![](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![](./media/notification-hubs-geofence/publish-button.png)
+8. **Yayımlanmış Veri Kaynakları** sekmesine geçin ve veri kaynağınızı listede gördüğünüzü onaylayın.
 
-Yukarıdaki dizeyi kopyalayıp yeni bir dosyaya yapıştırın, **NotificationHubsGeofence.pipe** olarak kaydedin ve Bing Geliştirme Merkezi'ne yükleyin.
+    ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-> [!NOTE]
-> **Sorgu Anahtarı**'ndan farklı olan **Ana Anahtar** için yeni bir anahtar belirtmeniz istenebilir. Pano aracılığıyla yeni bir anahtar oluşturun ve veri kaynağını karşıya yükleme sayfasını yenileyin.
-> 
-> 
+9. **Düzenle**’yi seçin. Verilerde sunulan konumları (bir bakışta) göreceksiniz.
 
-Veri dosyasını karşıya yükledikten sonra, veri kaynağını yayımladığınızdan emin olmanız gerekir. 
+    ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-Daha önce yaptığımız gibi **Veri Kaynaklarını Yönet**'e gidin, listede veri kaynağınızı bulun ve **Eylemler** sütununda **Yayımla**'yı seçin. Kısa bir süre içinde, **Yayımlanan Veri Kaynakları** sekmesinde veri kaynağınızı görmeniz gerekir:
+    Bu noktada portal, oluşturduğunuz bölge sınırına ait sınırları göstermez. İhtiyacınız olan tek şey, belirtilen konumun doğru yakın çevrede olduğunun onaylanmasıdır.
+8. Şimdi veri kaynağı için tüm gereksinimlere sahipsiniz. API çağrısının istek URL'si hakkındaki ayrıntıları almak için, Bing Haritalar Geliştirme Merkezi'nde **Veri kaynakları**'nı ve **Veri Kaynağı Bilgisi**'ni seçin.
 
-![](./media/notification-hubs-geofence/bing-maps-published-data.png)
+    ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-**Düzenle**'yi seçerseniz bunun içinde hangi konumları gösterdiğinizi (bir bakışta) görebilirsiniz:
+    **Sorgu URL’si**, cihazın şu anda bir konum sınırları içinde olup olmadığını denetlemek için sorgular çalıştırabileceğiniz uç noktadır. Bu denetimi gerçekleştirmek için, aşağıdaki parametrelerin eklendiği sorgu URL'sinde bir GET çağrısı yapın:
 
-![](./media/notification-hubs-geofence/bing-maps-data-details.png)
-
-Bu noktada portal, oluşturduğunuz bölge sınırına ait sınırları göstermez. İhtiyacınız olan tek şey, belirtilen konumun doğru yakın çevrede olduğunun onaylanmasıdır.
-
-Şimdi veri kaynağı için tüm gereksinimlere sahipsiniz. API çağrısının istek URL'si hakkındaki ayrıntıları almak için, Bing Haritalar Geliştirme Merkezi'nde **Veri kaynakları**'nı ve **Veri Kaynağı Bilgisi**'ni seçin.
-
-![](./media/notification-hubs-geofence/bing-maps-data-info.png)
-
-Burada aradığımız şey **Sorgu URL**'sidir. Bu, cihazın şu anda bir konum sınırları içinde olup olmadığını denetlemek için sorgular çalıştırabileceğimiz uç noktadır. Bu denetimi gerçekleştirmek için, aşağıdaki parametrelerin eklendiği sorgu URL'sinde bir GET çağrısı yapıyoruz:
-
+    ```
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
+    ```
 
-Bu yolla cihazdan aldığımız bir hedef noktasını belirtirsiniz ve Bing Haritalar bu hedef noktasının bölge sınırı içinde olup olmadığını görmek için otomatik olarak hesaplamalar yapar. Bir tarayıcı (veya cURL) aracılığıyla isteği yürüttükten sonra, standart bir JSON yanıtı alırsınız:
+    Bing Haritalar, cihazın bölge sınırı içinde olup olmadığını görmek için hesaplamaları otomatik olarak gerçekleştirir. Bir tarayıcı (veya cURL) aracılığıyla isteği yürüttükten sonra, standart bir JSON yanıtı alırsınız:
 
-![](./media/notification-hubs-geofence/bing-maps-json.png)
+    ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
-Bu yanıt yalnızca, söz konusu nokta belirlenen sınırlar içinde olduğunda gönderilir. Değilse boş bir **sonuçlar** demeti alırsınız:
+    Bu yanıt yalnızca, söz konusu nokta belirlenen sınırlar içinde olduğunda gönderilir. Aksi takdirde boş bir **sonuçlar** demeti alırsınız:
 
-![](./media/notification-hubs-geofence/bing-maps-nores.png)
+    ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-## <a name="setting-up-the-uwp-application"></a>UWP uygulamasını ayarlama
-Şimdi veri kaynağımız hazır olduğuna göre, daha önce önyüklemesini yaptığımız UWP uygulaması üzerinde çalışmaya başlayabiliriz.
+## <a name="set-up-the-uwp-application"></a>UWP uygulamasını ayarlama
 
-Öncelikle, uygulamamız için konum hizmetlerini etkinleştirmemiz gerekir. Bunu yapmak için `Package.appxmanifest` dosyasını **Çözüm Gezgini**'nde açın.
+1. Visual Studio'da **Boş Uygulama (Evrensel Windows)** türü yeni bir proje başlatın.
 
-![](./media/notification-hubs-geofence/vs-package-manifest.png)
+    ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-Açılan paket özellikleri sekmesinde **Özellikler**'i seçin ve **Konum**'u seçtiğinizden emin olun:
+    Proje oluşturmayı tamamladıktan sonra, uygulamanın kendisi için donanımınız olması gerekir. Şimdi, bölge sınırlama altyapısı için her şeyi ayarlayalım. Bu çözüm için Bing hizmetlerini kullanacağınızdan, belirli konum çerçevelerini sorgulamanıza izin veren bir ortak REST API uç noktası vardır:
 
-![](./media/notification-hubs-geofence/vs-package-location.png)
+    http://spatial.virtualearth.net/REST/v1/data/
 
-Konum özelliği bildirildiğine göre, çözümünüz içinde `Core` adlı yeni bir klasör oluşturun ve içine `LocationHelper.cs` adlı yeni bir dosya ekleyin:
+    Çalıştırmak için aşağıdaki parametreleri belirtin:
 
-![](./media/notification-hubs-geofence/vs-location-helper.png)
+    - **Veri Kaynağı Kimliği** ve **Veri Kaynağı Adı**: Veri kaynakları, Bing Haritalar API'sinde konumlar ve çalışma saatleri gibi kümelenmiş çeşitli meta veriler içerir.  
+    - **Varlık Adı**: Bildirim için bir başvuru noktası olarak kullanmak istediğiniz varlık. 
+    - **Bing Haritalar API'si Anahtarı**: Daha önce Bing Geliştirme Merkezi hesabı oluşturduğunuzda edindiğiniz anahtardır.
 
-Bu noktada, `LocationHelper` sınıfı oldukça temel bir işleve sahiptir. Tek yaptığı, sistem API'si aracılığıyla kullanıcı konumunu almamızı sağlamasıdır:
+    Veri kaynağınız hazır olduktan sonra UWP uygulaması üzerinde çalışmaya başlayabilirsiniz.
+2. Uygulamanız için konum hizmetlerini etkinleştirin. **Çözüm Gezgini**'nde `Package.appxmanifest` dosyasını açın.
 
+    ![](./media/notification-hubs-geofence/vs-package-manifest.png)
+3. Açtığınız paket özellikleri sekmesinde **Özellikler** sekmesine geçip **Konum**'u seçin.
+
+    ![](./media/notification-hubs-geofence/vs-package-location.png)
+
+4. Çözümünüz içinde `Core` adlı yeni bir klasör oluşturun ve içine `LocationHelper.cs` adlı yeni bir dosya ekleyin:
+
+    ![](./media/notification-hubs-geofence/vs-location-helper.png)
+
+    `LocationHelper` sınıfı, sistem API'si aracılığıyla kullanıcı konumunu almak için kod içerir:
+
+    ```csharp
     using System;
     using System.Threading.Tasks;
     using Windows.Devices.Geolocation;
@@ -154,19 +161,23 @@ Bu noktada, `LocationHelper` sınıfı oldukça temel bir işleve sahiptir. Tek 
 
         }
     }
+    ```
 
-UWP uygulamalarında kullanıcının konumunu alma hakkında daha fazla bilgi edinmek için resmi [MSDN belgesi](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx)'ne başvurabilirsiniz.
+    UWP uygulamalarında kullanıcının konumunu alma hakkında daha fazla bilgi için bkz. [Kullanıcının konumunu alma](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
 
-Konum almanın çalışıp çalışmadığını denetlemek için ana sayfanızın kod tarafını açın (`MainPage.xaml.cs`). `MainPage` oluşturucusunda `Loaded`olayı için yeni bir olay işleyicisi oluşturun:
+5. Konum almanın çalışıp çalışmadığını denetlemek için ana sayfanızın kod tarafını açın (`MainPage.xaml.cs`). `MainPage` oluşturucusunda `Loaded` olayı için yeni bir olay işleyicisi oluşturun.
 
+    ```csharp
     public MainPage()
     {
         this.InitializeComponent();
         this.Loaded += MainPage_Loaded;
     }
+    ```
 
-Olay işleyicisinin uygulaması aşağıdaki gibidir:
+    Olay işleyicisinin uygulaması aşağıdaki gibidir:
 
+    ```csharp
     private async void MainPage_Loaded(object sender, RoutedEventArgs e)
     {
         var location = await LocationHelper.GetCurrentLocation();
@@ -177,25 +188,24 @@ Olay işleyicisinin uygulaması aşağıdaki gibidir:
                 " ", location.Coordinate.Latitude));
         }
     }
+    ```
+6. Uygulamayı çalıştırın ve konumunuza erişmesine izin verin.
 
-`GetCurrentLocation` beklenebilir olduğu ve bu nedenle zaman uyumsuz bir içerik içinde yürütülmesi gerektiğinden, işleyiciyi zaman uyumsuz olarak bildirdiğimize dikkat edin. Ayrıca, belirli koşullar altında null bir konum alma olasılığımız nedeniyle (örneğin, konum hizmetleri devre dışı bırakıldığında ya da uygulamanın konuma erişim izinleri reddedildiğinde), null denetimi ile isteğin düzgün şekilde işlendiğinden emin olmamız gerekir.
+    ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
+7. Uygulama başlatıldıktan sonra, **Çıkış** penceresinde koordinatları görebilmeniz gerekir:
 
-Uygulamayı çalıştırın. Konum erişimine izin verdiğinizden emin olun:
+    ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
+    Artık konum alma özelliğinin çalıştığını bildiğinize göre, bundan sonra kullanmayacağınız için isterseniz Yüklü olay işleyicisini kaldırabilirsiniz.
+8. Sonraki adım konum değişikliklerini yakalamaktır. `LocationHelper` sınıfında `PositionChanged` için olay işleyicisini ekleyin:
 
-Uygulama başlatıldıktan sonra, **Çıkış** penceresinde koordinatları görebilmeniz gerekir:
-
-![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
-
-Şimdi konum almanın çalıştığını biliyorsunuz. Loaded test olay işleyicisini artık kullanmayacağımız için işleyiciyi kaldırabilirsiniz.
-
-Sonraki adım konum değişikliklerini yakalamaktır. Bunun için `LocationHelper` sınıfına geri dönelim ve `PositionChanged` için olay işleyicisini ekleyelim:
-
+    ```csharp
     geolocator.PositionChanged += Geolocator_PositionChanged;
+    ```
 
-Uygulama, konum koordinatlarını **Çıkış** penceresinde gösterecektir:
+    Uygulama, konum koordinatlarını **Çıkış** penceresinde gösterir:
 
+    ```csharp
     private static async void Geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
     {
         await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -203,22 +213,22 @@ Uygulama, konum koordinatlarını **Çıkış** penceresinde gösterecektir:
             Debug.WriteLine(string.Concat(args.Position.Coordinate.Longitude, " ", args.Position.Coordinate.Latitude));
         });
     }
+    ```
 
-## <a name="setting-up-the-backend"></a>Arka ucu ayarlama
-[GitHub'dan .NET Arka Ucu Örneği](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)'ni indirin. İndirme işlemi tamamlandıktan sonra, `NotifyUsers` klasörünü ve ardından `NotifyUsers.sln` dosyasını açın.
+## <a name="set-up-the-backend"></a>Arka ucu ayarlama
+1. [GitHub'dan .NET Arka Ucu Örneği](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)'ni indirin. 
+2. İndirme işlemi tamamlandıktan sonra `NotifyUsers` klasörünü ve ardından Visual Studio’da `NotifyUsers.sln` dosyasını açın. 
+3. `AppBackend` projesini **Başlangıç Projesi** olarak ayarlayın ve başlatın.
 
-`AppBackend` projesini **Başlangıç Projesi** olarak ayarlayın ve başlatın.
+    ![](./media/notification-hubs-geofence/vs-startup-project.png)
 
-![](./media/notification-hubs-geofence/vs-startup-project.png)
+    Proje hedef cihazlara anında iletme bildirimleri göndermek için zaten yapılandırıldı. Bu nedenle yapmanız gereken yalnızca iki şey var: Bildirim hub'ı için doğru bağlantı dizesini belirtin ve sadece kullanıcı bölge sınırı içinde olduğunda bildirim göndermek için sınır kimliği ekleyin.
+4. Bağlantı dizesini yapılandırmak için `Models` klasöründe `Notifications.cs` öğesini açın. `NotificationHubClient.CreateClientFromConnectionString` işlevi, [Azure portalından](https://portal.azure.com) alabileceğiniz bildirim hub'ınız hakkındaki bilgileri içermelidir (**Ayarlar**'da, **Erişim İlkeleri** sayfasının içine bakın). Güncelleştirilen yapılandırma dosyasını kaydedin.
+5. Bing Haritalar API'si sonucu için bir model oluşturun. Bunu yapmanın en kolay yolu `Models` klasörünü açıp **Ekle** > **Sınıf**'ı seçmektir. Bunu, `GeofenceBoundary.cs` olarak adlandırın. Bunu yaptıktan sonra, birinci bölümde elde ettiğiniz API yanıtından JSON dosyasını kopyalayın. Visual Studio'da **Düzenle** > **Özel Yapıştır** > **JSON’ı Sınıflar Olarak Yapıştır**’ı kullanın. 
 
-Proje hedef cihazlara anında iletme bildirimleri göndermek için zaten yapılandırıldı. Bu nedenle yapmamız gereken yalnızca iki şey var: Bildirim hub'ı için doğru bağlantı dizesini değiştirin ve sadece kullanıcı bölge sınırı içinde olduğunda bildirim göndermek için sınır kimliği ekleyin.
+    Böylece, nesnenin istendiği gibi tamamen seri durumdan çıkarılacağından emin olursunuz. Elde edilen sınıf kümeniz aşağıdaki sınıfa benzemelidir:
 
-Bağlantı dizesini yapılandırmak için `Models` klasöründe `Notifications.cs` öğesini açın. `NotificationHubClient.CreateClientFromConnectionString` işlevi, [Azure Portal](https://portal.azure.com)'dan alabileceğiniz bildirim hub'ınız hakkındaki bilgileri içermelidir (**Ayarlar**'da, **Erişim İlkeleri** dikey penceresinin içine bakın). Güncelleştirilen yapılandırma dosyasını kaydedin.
-
-Şimdi, Bing Haritalar API'si sonucu için bir model oluşturmamız gerekir. Bunu yapmanın en kolay yolu `Models` klasörünü açıp **Ekle** > **Sınıf**'ı seçmektir. Bunu, `GeofenceBoundary.cs` olarak adlandırın. Bunu yaptıktan sonra, ilk bölümde bahsettiğimiz API yanıtından JSON'ı kopyalayın ve Visual Studio'da **Düzenle** > **Özel Yapıştır** > **JSON'ı Sınıflar olarak Yapıştır**'ı kullanın. 
-
-Böylece, nesnenin istendiği gibi tamamen seri durumdan çıkarılacağından emin oluruz. Elde edilen sınıf kümeniz şuna benzemelidir:
-
+    ```csharp
     namespace AppBackend.Models
     {
         public class Rootobject
@@ -253,13 +263,15 @@ Böylece, nesnenin istendiği gibi tamamen seri durumdan çıkarılacağından e
             public string uri { get; set; }
         }
     }
+    ```
+6. Ardından `Controllers` > `NotificationsController.cs` öğesini açın. Hedef enlemini ve boylamını hesaba katmak için Post çağrısını güncelleştirin. Bunu yapmak için işlev imzasına iki dize ekleyin: `latitude` ve `longitude`.
 
-Ardından `Controllers` > `NotificationsController.cs` öğesini açın. Hedef enlemini ve boylamını hesaba katmak için Post çağrısına ince ayar yapmamız gerekir. Bunun için işlev imzasına iki dize eklemeniz yeterlidir: `latitude` ve `longitude`.
-
+    ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag, string latitude, string longitude)
+    ```
+7. Proje içinde `ApiHelper.cs` adlı yeni bir sınıf oluşturun. Bunu, nokta sınır kesişimlerini denetlemek amacıyla Bing'e bağlanmak için kullanacaksınız. Aşağıdaki kodda gösterildiği gibi bir `IsPointWithinBounds` işlevi uygulayın:
 
-Proje içinde `ApiHelper.cs` adlı yeni bir sınıf oluşturun. Bunu, nokta sınır kesişimlerini denetlemek amacıyla Bing'e bağlanmak için kullanacağız. Aşağıdaki şekilde bir `IsPointWithinBounds` işlevini uygulayın:
-
+    ```csharp
     public class ApiHelper
     {
         public static readonly string ApiEndpoint = "{YOUR_QUERY_ENDPOINT}?spatialFilter=intersects(%27POINT%20({0}%20{1})%27)&$format=json&key={2}";
@@ -279,16 +291,15 @@ Proje içinde `ApiHelper.cs` adlı yeni bir sınıf oluşturun. Bunu, nokta sın
             }
         }
     }
+    ```
 
-> [!NOTE]
-> API uç noktasını, daha önce Bing Geliştirme Merkezi'nden edindiğiniz sorgu URL'si ile değiştirdiğinizden emin olun (aynısı API anahtarı için de geçerlidir). 
-> 
-> 
+    > [!IMPORTANT]
+    > API uç noktasını, daha önce Bing Geliştirme Merkezi'nden edindiğiniz sorgu URL'si ile değiştirdiğinizden emin olun (aynısı API anahtarı için de geçerlidir). 
 
-Sorgunun sonuçları getirmesi belirtilen noktanın bölge sınırının içinde olduğu anlamına gelir, bu durumda `true` döndürürüz. Sonuç yoksa Bing bize noktanın arama çerçevesi dışında olduğunu belirtiyor demektir. Bu durumda, `false` döndürürüz.
+    Sorgunun sonuçları getirmesi belirtilen noktanın bölge sınırının içinde olduğu anlamına gelir, bu durumda işlev `true` döndürür. Sonuç yoksa Bing, noktanın arama çerçevesi dışında olduğunu belirtiyor demektir. Bu durumda işlev `false` döndürür.
+8. `NotificationsController.cs` içinde, switch deyiminden hemen önce bir denetim oluşturun:
 
-`NotificationsController.cs` öğesine geri dönün, switch deyiminden hemen önce bir denetim oluşturun:
-
+    ```csharp
     if (ApiHelper.IsPointWithinBounds(longitude, latitude))
     {
         switch (pns.ToLower())
@@ -307,12 +318,13 @@ Sorgunun sonuçları getirmesi belirtilen noktanın bölge sınırının içinde
                 break;
         }
     }
+    ```
 
-Bu şekilde, bildirim yalnızca nokta sınırlar içinde olduğunda gönderilir.
+## <a name="test-push-notifications-in-the-uwp-app"></a>UWP uygulamasında anında iletme bildirimlerini test etme
 
-## <a name="testing-push-notifications-in-the-uwp-app"></a>UWP uygulamasında anında iletme bildirimlerini test etme
-UWP uygulamasında artık bildirimleri test edebilmemiz gerekir. `LocationHelper` sınıfı içinde yeni bir işlev oluşturun (`SendLocationToBackend`):
+1. UWP uygulamasında artık bildirimleri test edebilmeniz gerekir. `LocationHelper` sınıfı içinde yeni bir işlev oluşturun (`SendLocationToBackend`):
 
+    ```csharp
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
     {
         var POST_URL = "http://localhost:8741/api/notifications?pns=" +
@@ -331,34 +343,28 @@ UWP uygulamasında artık bildirimleri test edebilmemiz gerekir. `LocationHelper
             }
         }
     }
+    ```
 
-> [!NOTE]
-> `POST_URL` öğesini önceki bölümde oluşturduğumuz dağıtılmış web uygulamanızın konumuna götürün. Şu an için bunu yerel olarak çalıştırabilirsiniz. Ancak genel bir sürümü dağıtma üzerine çalıştığınızdan, bunu dış sağlayıcı ile barındırmanız gerekir.
-> 
-> 
+    > [!NOTE]
+    > `POST_URL` değerini dağıtılmış web uygulamanızın konumuna ayarlayın. Şu an için bunu yerel olarak çalıştırabilirsiniz. Ancak genel bir sürümü dağıtma üzerine çalıştığınızdan, bunu dış sağlayıcı ile barındırmanız gerekir.
+1. Anında iletme bildirimleri için UWP uygulamanızı kaydedin. Visual Studio'da, **Proje** > **Mağaza** > **Uygulamayı mağaza ile ilişkilendir**'i seçin.
 
-Şimdi, UWP uygulamasını anında iletme bildirimleri için kaydettiğimizden emin olalım. Visual Studio'da, **Proje** > **Mağaza** > **Uygulamayı mağaza ile ilişkilendir**'i seçin.
+    ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
+3. Geliştirici hesabınızda oturum açtıktan sonra, mevcut bir uygulamayı seçtiğinizden emin olun veya yeni bir tane oluşturun ve paketi bununla ilişkilendirin. 
+4. Geliştirme Merkezi'ne gidin ve oluşturduğunuz uygulamayı açın. **Hizmetler** > **Anında İletme Bildirimleri** > **Live Services sitesi**'ni seçin.
 
-![](./media/notification-hubs-geofence/vs-associate-with-store.png)
+    ![](./media/notification-hubs-geofence/ms-live-services.png)
+5. Sitede, **Uygulama Anahtarı** ve **Paket SID**'sini not edin. Azure portalında her ikisine de ihtiyacınız vardır: Bildirim hub'ınızı açın, **Ayarlar** > **Bildirim Hizmetleri** > **Windows (WNS)** seçeneğini belirleyin ve gerekli alanlara bu bilgileri girin.
 
-Geliştirici hesabınızda oturum açtıktan sonra, mevcut bir uygulamayı seçtiğinizden emin olun veya yeni bir tane oluşturun ve paketi bununla ilişkilendirin. 
+    ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
+6. **Kaydet**'i seçin.
+7. **Çözüm Gezgini**'nde **Başvurular**'ı açın ve **NuGet Paketlerini Yönet**'i seçin. **Microsoft Azure Service Bus yönetilen kitaplık**'a bir başvuru ekleyin. `WindowsAzure.Messaging.Managed` için arama yapın ve projenize ekleyin.
 
-Geliştirme Merkezi'ne gidin ve yeni oluşturduğunuz uygulamayı açın. **Hizmetler** > **Anında İletme Bildirimleri** > **Live Services sitesi**'ni seçin.
+    ![](./media/notification-hubs-geofence/vs-nuget.png)
 
-![](./media/notification-hubs-geofence/ms-live-services.png)
+7. Test amacıyla, `MainPage_Loaded` olay işleyicisini yeniden oluşturun ve içine şu kod parçacığını ekleyin:
 
-Sitede, **Uygulama Anahtarı** ve **Paket SID**'sini not edin. Azure Portal'da her ikisine de ihtiyacınız olacak: Bildirim hub'ınızı açın, **Ayarlar** > **Bildirim Hizmetleri** > **Windows (WNS)** seçeneğini belirleyin ve gerekli alanlara bu bilgileri girin.
-
-![](./media/notification-hubs-geofence/notification-hubs-wns.png)
-
-**Kaydet**'i seçin.
-
-**Çözüm Gezgini**'nde **Başvurular**'ı açın ve **NuGet Paketlerini Yönet**'i seçin. **Microsoft Azure Service Bus yönetilen kitaplık**'a bir başvuru eklememiz gerekir. `WindowsAzure.Messaging.Managed` için arama yapın ve bunu projenize ekleyin.
-
-![](./media/notification-hubs-geofence/vs-nuget.png)
-
-Test amacıyla, `MainPage_Loaded` olay işleyicisini yeniden oluşturabilir ve buna şu kod parçacığını ekleyebiliriz:
-
+    ```csharp
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
     var hub = new NotificationHub("HUB_NAME", "HUB_LISTEN_CONNECTION_STRING");
@@ -369,25 +375,25 @@ Test amacıyla, `MainPage_Loaded` olay işleyicisini yeniden oluşturabilir ve b
     {
         Debug.WriteLine("Reg successful.");
     }
+    ```
 
-Yukarıdaki kod parçacığı uygulamayı bildirim hub'ına kaydeder. Artık başlamaya hazırsınız! 
+    Kod, uygulamayı bildirim hub'ına kaydeder. Artık başlamaya hazırsınız! 
+8. `LocationHelper` sınıfındaki `Geolocator_PositionChanged` işleyicisi içine, konumu bölge sınırının içine zorla yerleştirecek bir test kodu parçası ekleyebilirsiniz:
 
-`LocationHelper` sınıfındaki `Geolocator_PositionChanged` işleyicisi içine, konumu bölge sınırının içine zorla yerleştirecek bir test kodu parçası ekleyebilirsiniz:
-
+    ```csharp
     await LocationHelper.SendLocationToBackend("wns", "TEST_USER", "TEST", "37.7746", "-122.3858");
+    ```
 
-Gerçek koordinatları geçirmediğimiz (şu anda sınırlar içinde olmayabilirler) ve önceden tanımlanmış test değerleri kullandığımız için güncelleştirme üzerinde bir bildirim belirdiğini görürüz:
+9. Gerçek koordinatları geçirmediğiniz (şu anda sınırlar içinde olmayabilirler) ve önceden tanımlanmış test değerleri kullandığınız için güncelleştirme üzerinde bir bildirim belirdiğini görürsünüz:
 
-![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
+    ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Çözümün üretime hazır olduğundan emin olmak için, yukarıdakilere ek olarak izlemeniz gerekebilecek birkaç adım vardır.
+Çözümü üretime hazır hale getirmek için izlemeniz gerekebilecek birkaç adım vardır.
 
-Öncelikle, bölge sınırlarının dinamik olduğundan emin olmanız gerekebilir. Bu, yeni sınırları mevcut veri kaynağı içinde karşıya yükleyebilmek için Bing API'si ile bazı ek çalışmalar yapmayı gerektirir. Bu konu hakkında daha fazla bilgi edinmek için [Bing Uzamsal Veri Hizmetleri API belgelerine](https://msdn.microsoft.com/library/ff701734.aspx) başvurun.
+1. İlk olarak, bölge sınırlarının dinamik olduğundan emin olmanız gerekir. Bunun yapılması, yeni sınırları mevcut veri kaynağı içinde karşıya yükleyebilmek için Bing API'si ile bazı ek çalışmalar yapmayı gerektirir. Daha fazla bilgi için bkz. [Bing Uzamsal Veri Hizmetleri API’si belgeleri](https://msdn.microsoft.com/library/ff701734.aspx).
+2. İkinci olarak, teslimin doğru katılımcılara yapıldığından emin olmaya çalıştığınızdan, onları [etiketleme](notification-hubs-tags-segment-push-message.md) yoluyla hedeflemek isteyebilirsiniz.
 
-İkinci olarak, teslimin doğru katılımcılara yapıldığından emin olmaya çalıştığınızdan, onları [etiketleme](notification-hubs-tags-segment-push-message.md) yoluyla hedeflemek isteyebilirsiniz.
+Bu öğreticide gösterilen çözümde, çok çeşitli hedef platformlara sahip olabileceğiniz bir senaryo açıklanmaktadır. Bu nedenle, bölge sınırlamasını sisteme özgü özelliklerle sınırlamaz. Bununla birlikte, Evrensel Windows Platformu [bölge sınırlarını hemen algılayan](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence) özellikler sunar.
 
-Yukarıda gösterilen çözümde, çok çeşitli hedef platformlara sahip olabileceğiniz bir senaryo açıklanmaktadır. Bu nedenle, bölge sınırlamasını sisteme özgü özelliklerle sınırlamadık. Bununla birlikte, Evrensel Windows Platformu [bölge sınırlarını hemen algılayan](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence) özellikler sunar.
-
-Notification Hubs özellikleri hakkında daha ayrıntılı bilgi için [belge portalımıza](https://azure.microsoft.com/documentation/services/notification-hubs/) göz atın.
 

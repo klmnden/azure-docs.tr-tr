@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dc820a95a9ccd0feb8b67c898ecfa8ce9826838a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Azure AD uygulama proxy'si nasıl çoklu oturum açma sağlar?
 
@@ -54,7 +54,7 @@ Bu seçenek iyi bir şirket içi uygulamanız kullanıcıların kimlik doğrulam
 
 Azure Active Directory parola kasası olarak şirket içi uygulamalarınız için kullanmak istiyorsanız, tercih **parola tabanlı oturum açma**. Uygulamanızı erişim belirteçleri veya üstbilgileri yerine bir kullanıcı adı/parola bileşik kimlik doğrulamasını, bu seçenek iyi bir seçimdir. Parola tabanlı ile oturum açma, kullanıcılarınızın erişen uygulama ilk zaman oturum açmanız. Bundan sonra Azure Active Directory kullanıcı adı ve parola kullanıcı adına sağlar. 
 
-Parola tabanlı oturum açmayı ayarlama hakkında daha fazla bilgi için bkz: [tek oturum açma için uygulama proxy'si ile vaulting parola](../application-proxy-sso-azure-portal.md).
+Parola tabanlı oturum açmayı ayarlama hakkında daha fazla bilgi için bkz: [tek oturum açma için uygulama proxy'si ile vaulting parola](application-proxy-configure-single-sign-on-password-vaulting.md).
 
 ## <a name="linked-sign-on"></a>Bağlantılı oturum açma
 
@@ -72,10 +72,10 @@ Tümleşik Windows kimlik doğrulaması ayarlama hakkında daha fazla bilgi içi
 
 Uygulamalarınız için kimlik doğrulama üstbilgileri kullanıyorsa seçin **üstbilgi tabanlı oturum açma**. Bu seçenek ile kullanıcılarınız için kimlik doğrulaması yalnızca Azure Active Directory gerekir. Bir üçüncü taraf kimlik doğrulama hizmetiyle Microsoft iş ortakları, uygulama için bir üstbilgi biçime Azure Active Directory'ye erişim belirteci çevrilen PingAccess çağrılır. 
 
-Üstbilgi tabanlı kimlik doğrulaması ayarlama hakkında daha fazla bilgi için bkz: [üstbilgi tabanlı kimlik doğrulaması için çoklu oturum açma uygulama proxy'si ile](../application-proxy-ping-access.md).
+Üstbilgi tabanlı kimlik doğrulaması ayarlama hakkında daha fazla bilgi için bkz: [üstbilgi tabanlı kimlik doğrulaması için çoklu oturum açma uygulama proxy'si ile](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Çoklu oturum açma için uygulama proxy'si ile vaulting parola](../application-proxy-sso-azure-portal.md)
+- [Çoklu oturum açma için uygulama proxy'si ile vaulting parola](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Kısıtlı temsilci çoklu oturum açma için uygulama proxy'si ile uygulama](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Uygulama proxy'si ile çoklu oturum açma için üstbilgi tabanlı kimlik doğrulaması](../application-proxy-ping-access.md) 
+- [Uygulama proxy'si ile çoklu oturum açma için üstbilgi tabanlı kimlik doğrulaması](application-proxy-configure-single-sign-on-with-ping-access.md) 

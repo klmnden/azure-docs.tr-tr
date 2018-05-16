@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory v2.0 kapsamları, izinler ve onay | Microsoft Docs"
-description: "Kapsam, izinleri ve onay dahil olmak üzere Azure AD v2.0 uç yetkilendirme açıklaması."
+title: Azure Active Directory v2.0 kapsamları, izinler ve onay | Microsoft Docs
+description: Kapsam, izinleri ve onay dahil olmak üzere Azure AD v2.0 uç yetkilendirme açıklaması.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Kapsam, izinleri ve Azure Active Directory v2.0 uç onay
 Azure Active Directory (Azure AD) ile tümleştirme uygulamalarını kullanıcılara bir uygulama verilerini nasıl erişebileceğinizi üzerinde denetim sağlar bir yetkilendirme modelini izler. Yetkilendirme modelini v2.0 uyarlamasını güncelleştirilen ve bir uygulamayı Azure AD ile nasıl etkileşim kurmalıdır değiştirir. Bu makalede, kapsamları, izinler ve onay dahil olmak üzere bu yetkilendirme modelini temel kavramları kapsar.
@@ -40,7 +42,7 @@ Aynı Azure AD ile tümleşik tüm üçüncü taraf kaynaklar için geçerlidir.
 
 * Kullanıcının Takvim okuma
 * Kullanıcının Takvim yazma
-* Bir kullanıcı olarak posta gönderme
+* Kullanıcı olarak posta gönderme
 
 Bu tür izin tanımlayarak, kaynak verilerini ve verilerin açığa hassas denetime sahiptir. Bir üçüncü taraf uygulaması bu izinleri bir uygulama kullanıcıdan isteyebilir. Uygulama kullanıcı, uygulamayı kullanıcının adına işlem yapabileceği önce izinleri onaylamanız gerekir. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için üçüncü taraf uygulamaları derlenebilir. Uygulama kullanıcıların tam olarak bir uygulama verilerini nasıl kullanılacağını bilmeniz ve uygulama ile kötü amaçlı çalışmıyorsa doğrulayabilirse olabilir.
 
@@ -61,7 +63,7 @@ Bir uygulama oturum açma kullanarak gerçekleştirirse [Openıd Connect](active
 ### <a name="email"></a>e-posta
 `email` Kapsam ile kullanılabilir `openid` kapsam ve herhangi diğer. Kullanıcının birincil e-posta adresine biçiminde uygulama erişim sağlayan `email` talep. `email` Yalnızca bir e-posta adresi her zaman bir durum yoksa kullanıcı hesabı ile ilişkili ise talep bir belirteç içine eklenmiştir. Bunu kullanıyorsa `email` kapsamı, uygulamanız hazırlanmış bir durumda işlemek için `email` talep belirteci yok.
 
-### <a name="profile"></a>Profili
+### <a name="profile"></a>profil
 `profile` Kapsam ile kullanılabilir `openid` kapsam ve herhangi diğer. Kullanıcı hakkındaki bilgileri önemli miktarda uygulama erişim sağlar. Erişebilmesi için bilgi içerir, ancak kullanıcının verilen ad, Soyadı, tercih edilen kullanıcı adı ve nesne kimliği için sınırlı değildir Belirli bir kullanıcı için id_tokens parametresinde kullanılabilir profil talepleri tam bir listesi için bkz: [v2.0 belirteçler başvuru](active-directory-v2-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-Sonuçta elde edilen erişim belirteci kaynak HTTP isteklerine kullanabilirsiniz. Güvenilir bir şekilde, kaynağa'nin uygulamanızı belirli bir görevi gerçekleştirmek için uygun izne sahip olduğunu gösterir.  
+Sonuçta elde edilen erişim belirteci kaynak HTTP isteklerine kullanabilirsiniz. Güvenilir bir şekilde, kaynağa'nin uygulamanızı belirli bir görevi gerçekleştirmek için uygun izne sahip olduğunu gösterir. 
 
 OAuth 2.0 protokolünü ve erişim belirteçleri alma hakkında daha fazla bilgi için bkz: [v2.0 uç noktası Protokolü başvurusu](active-directory-v2-protocols.md).

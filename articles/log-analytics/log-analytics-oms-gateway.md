@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 207b7ab0968f775dba99c2f48c1961d74b4f11c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi'ni kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Automation ile iletişimi yapılandırmak açıklar ve günlük doğrudan olduğunda OMS ağ geçidini kullanma analizi bağlı veya izlenen Operations Manager bilgisayarları Internet erişimine sahip değildir.  OMS HTTP BAĞLAMAK komutunu kullanarak HTTP tüneli destekleyen bir HTTP iletme proxy ağ geçidi, veri toplamak ve onların adına Azure Automation ve günlük analizi gönderebilirsiniz.  
@@ -36,7 +36,7 @@ Bir Operations Manager yönetim grubu günlük analizi ile tümleştirildiğinde
 
 Yüksek kullanılabilirlik sağlamak için doğrudan bağlı veya günlük analizi ile ağ geçidi üzerinden iletişim Operations Yönetim grupları, Ağ Yükü Dengeleme yönlendirebilir ve trafik birden fazla ağ geçidi sunucusu arasında dağıtmak için kullanabilirsiniz.  Bir ağ geçidi sunucusu kullanılamaz hale gelirse trafiği kullanılabilir başka bir düğüme yönlendirilir.  
 
-OMS ağ geçidi izlemek ve performans veya olay verileri çözümlemek için OMS ağ geçidi yazılımının çalıştıran bilgisayarda OMS Aracısı'nı yüklemeniz önerilir. Ayrıca, aracı ile iletişim kurması için gereken hizmet uç noktaları tanımlamak OMS Gateway yardımcı olur.
+OMS aracısı için bu iletişim ve kendi performansını veya olay verileri çözümlemek için OMS ağ geçidi izlemek için gereken hizmet uç noktaları tanımlamak OMS ağ geçidi'ni çalıştıran bilgisayar üzerindeki gereklidir.
 
 Aracıları otomatik olarak ağ geçidi veri aktarmasına olanak veren her bir aracının kendi ağ geçidi için ağ bağlantısı olmalıdır. Ağ geçidi etki alanı denetleyicisine yüklenmesi önerilmez.
 
@@ -56,6 +56,7 @@ OMS ağ geçidini çalıştırmak için bir bilgisayara atandığında, bu bilgi
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .NET framework 4.5
 * En az bir 4 çekirdekli işlemci ve 8 GB bellek 
+* Windows için OMS Aracısı 
 
 ### <a name="language-availability"></a>Dil kullanılabilirliği
 
@@ -64,10 +65,10 @@ OMS ağ geçidi aşağıdaki dillerde kullanılabilir:
 - Çince (Basitleştirilmiş)
 - Çince (Geleneksel)
 - Çekçe
-- Hollanda dili
+- Felemenkçe
 - Türkçe
-- Fransızca
-- Almanca
+- Fransızca 
+- Almanca 
 - Macarca
 - İtalyanca
 - Japonca

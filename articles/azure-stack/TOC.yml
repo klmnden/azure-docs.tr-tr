@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: PowerShell - Bulut işlecini yapılandırma
               href: azure-stack-powershell-configure-admin.md
-            - name: PowerShell’i çalıştırma
-              href: azure-stack-powershell-configure-quickstart.md
         - name: Ayrıcalıklı uç noktasına erişme
           href: azure-stack-privileged-endpoint.md
         - name: Güncelleştirmeleri yönetme

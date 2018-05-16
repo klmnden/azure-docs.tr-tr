@@ -1,74 +1,85 @@
 ---
-title: "Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri gönderme | Microsoft Belgeleri"
-description: "Bir Chrome Uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenin."
+title: Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri gönderme | Microsoft Docs
+description: Bir Chrome Uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenin.
 services: notification-hubs
-keywords: "mobil anında iletme bildirimleri,anında iletme bildirimleri,anında iletme bildirimi,chrome anında iletme bildirimleri"
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+keywords: mobil anında iletme bildirimleri,anında iletme bildirimleri,anında iletme bildirimi,chrome anında iletme bildirimleri
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-chrome
 ms.devlang: JavaScript
-ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 33ef17f1556822c78783cc56b8ea7867eef2ec71
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri gönderme
+# <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Bu makalede, Google Chrome tarayıcısı bağlamında görüntülenen bir Chrome Uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağı gösterilir. Bu öğreticide, [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/) kullanarak anında iletme bildirimleri alan bir Chrome uygulaması oluşturursunuz. 
-
-> [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
-> 
-> 
-
-Bu öğretici, anında iletme bildirimlerini etkinleştirmek için şu temel adımlarda size yol gösterir:
-
-* [Google Cloud Messaging'i etkinleştirme](#register)
-* [Bildirim hub'ınızı yapılandırma](#configure-hub)
-* [Chrome Uygulamanızı bildirim hub'ına bağlama](#connect-app)
-* [Chrome Uygulamanıza anında iletme bildirimi gönderme](#send)
-* [Ek işlevler ve özellikler](#next-steps)
+Bu öğreticide, [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/) kullanılarak bir bildirim hub’ı oluşturma ve anında iletme bildirimlerini örnek bir Google Chrome uygulamasına gönderme adımları açıklanmaktadır. Chrome uygulaması bir Google Chrome tarayıcısı bağlamında çalıştırılır ve bildirim hub’ına kaydolur. 
 
 > [!NOTE]
 > Chrome uygulaması anında iletme bildirimleri, genel tarayıcı içi bildirimler olmayıp tarayıcı genişletilebilirlik modeline özgüdür (ayrıntılar için bkz. [Chrome Uygulamalarına Genel Bakış]). Chrome uygulamaları, masaüstü tarayıcısının yanı sıra Apache Cordova aracılığıyla mobil cihazlarda (Android ve iOS) da çalıştırılır. Daha fazla bilgi için bkz. [Mobil Cihazlarda Chrome Uygulamaları].
-> 
-> 
 
-[Google Cloud Messaging for Chrome]'u kullanım dışı bırakıldığı ve aynı GCM artık hem Android cihazları hem Chrome örneklerini desteklediği için GCM ve Azure Notification Hubs yapılandırması Android için yapılandırma ile aynıdır.
+Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+
+> [!div class="checklist"]
+> * [Google Cloud Messaging'i etkinleştirme](#register)
+> * [Bildirim hub'ınızı yapılandırma](#configure-hub)
+> * [Chrome Uygulamanızı bildirim hub'ına bağlama](#connect-app)
+> * [Chrome Uygulamanıza anında iletme bildirimi gönderme](#send)
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a id="register"></a>Google Cloud Messaging'i etkinleştirme
-1. [Google Cloud Console] web sitesine gidin, Google hesabı kimlik bilgilerinizle oturum açın ve ardından **Create Project** (Proje Oluştur) düğmesine tıklayın. Uygun bir **Project Name** (Proje Adı) sağlayın ve ardından **Create** (Oluştur) düğmesine tıklayın.
-   
-    ![Google Cloud Console - Proje Oluşturma][1]
-2. Oluşturduğunuz proje için **Projects** (Projeler) sayfasındaki **Project Number**'ı (Proje Numarası) not edin. Proje numarasını Chrome Uygulamasında GCM'ye kaydı için **GCM Sender ID** (GCM Gönderen Kimliği) olarak kullanırsınız.
-   
-    ![Google Cloud Console - Proje Numarası][2]
-3. Sol bölmede **APIs & auth** (API'ler ve kimlik doğrulama) seçeneğine tıklayın, ardından aşağı kaydırın ve **Google Cloud Messaging for Android**'i etkinleştirmek için iki durumlu düğmeye tıklayın. **Google Cloud Messaging for Chrome**'u etkinleştirmeniz gerekmez.
-   
-    ![Google Cloud Console - Sunucu Anahtarı][3]
-4. Sol bölmede **Credentials (Kimlik Bilgileri)**  > **Create New Key (Yeni Anahtar Oluştur)**  > **Server Key (Sunucu Anahtarı)**  > **Create (Oluştur)** seçeneklerine tıklayın.
-   
-    ![Google Cloud Console - Kimlik Bilgileri][4]
-5. Sunucu **API Key**'ini (API Anahtarı) not edin. Bu değeri, bir sonraki bölümde bildirim hub’ını GCM’ye anında iletme bildirimleri gönderecek şekilde yapılandırmak için kullanırsınız.
-   
-    ![Google Cloud Console - API Anahtarı][5]
+1. [Google Cloud Console](https://console.cloud.google.com/cloud-resource-manager) web sitesine gidin ve Google hesabı kimlik bilgilerinizle oturum açın
+2. Araç çubuğunda **Proje Oluştur**’u seçin. 
 
-## <a id="configure-hub"></a>Bildirim hub'ınızı yapılandırma
+    ![Proje Oluştur düğmesi](media/notification-hubs-chrome-get-started/create-project-button.png)
+1. Uygun bir **Project Name** (Proje Adı) sağlayın ve ardından **Create** (Oluştur) düğmesine tıklayın.
+2. Araç çubuğundaki bildirim simgesini (Zil) seçin ve **Proje Oluştur** iletisini seçin. 
+
+    ![Proje oluşturma bildirimi](media/notification-hubs-chrome-get-started/project-creation-notification.png)
+1. Oluşturduğunuz proje için **Projects** (Projeler) sayfasındaki **Project Number**'ı (Proje Numarası) not edin. Proje numarasını Chrome Uygulamasında GCM'ye kaydı için **GCM Sender ID** (GCM Gönderen Kimliği) olarak kullanırsınız.
+   
+    ![Google Cloud Console - Proje Numarası](media/notification-hubs-chrome-get-started/gcm-project-number.png)
+3. Panoda **API’lerin genel bakışına git** seçeneğini belirleyin. 
+
+    ![API’lerin genel bakışına git düğmesi](media/notification-hubs-chrome-get-started/go-to-apis-overview-button.png)
+1. API ve Hizmetler sayfasında **API’leri ve Hizmetleri Etkinleştir**’i seçin. 
+
+    ![API’leri ve Hizmetleri Etkinleştir](media/notification-hubs-chrome-get-started/enable-apis-and-services.png)
+1. **Bulut mesajlaşması** anahtar sözcüğüyle listede arama yapın. Filtrelenen listede **Google Cloud Messaging**’i seçin. 
+
+    ![Google cloud messaging API’si](media/notification-hubs-chrome-get-started/google-cloud-messaging-api.png)
+1. **Google Cloud Messaging** sayfasında **Etkinleştir**’i seçin.
+
+    ![GCM’yi etkinleştir](media/notification-hubs-chrome-get-started/enable-gcm.png)
+1. **API ve Hizmetler** sayfasında, **Kimlik Bilgileri** sekmesine geçin. **Kimlik bilgilerini oluşturun**’u ve sonra **API anahtarı**’nı seçin. 
+
+    ![API anahtarı oluştur düğmesi](media/notification-hubs-chrome-get-started/create-api-key-button.png)
+1. **API anahtarı oluşturuldu** iletişim kutusunda kopyala düğmesini seçerek anahtarı panoya kopyalayın. Başka bir yere kaydedin. Bir sonraki bölümde bildirim hub’ını GCM’ye anında iletme bildirimleri gönderecek şekilde yapılandırmak için bu değeri kullanırsınız.
+
+    ![API sayfası](media/notification-hubs-chrome-get-started/api-created-page.png)
+12. **API anahtarları** listesinde API anahtarınızı seçin. API anahtarı sayfasında **IP adresleri (web sunucuları, sıralanmış işler vb.)** seçeneğini belirleyin ve IP adresi için **0.0.0.0/0** girip Kaydet’e tıklayın. 
+
+    ![IP adreslerini etkinleştirme](media/notification-hubs-chrome-get-started/enable-ip-addresses.png)
+
+## <a id="configure-hub"></a>Bildirim hub’ınızı oluşturma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-6.   **Settings** (Ayarlar) dikey penceresinde, **Notification Services** (Bildirim Hizmetleri) ve ardından **Google (GCM)** seçeneğini belirleyin. API anahtarını girin ve kaydedin.
+6. **BİLDİRİM AYARLARI** kategorisinde **Google (GCM)** seçeneğini belirleyin, GCM projesi için **API anahtarını** girin ve **Kaydet**’e tıklayın.
 
-        ![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+      ![Azure Notification Hubs - Google (GCM)](media/notification-hubs-chrome-get-started/configure-gcm-api-key.png)
 
 ## <a id="connect-app"></a>Chrome Uygulamanızı bildirim hub'ına bağlama
 Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı anında iletme bildirimleri alması ve göndermesi için kaydetmenizi sağlayan bağlantı dizelerine sahipsiniz.
@@ -101,8 +112,7 @@ Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak 
           "icons": { "128": "gcm_128.png" }
         }
    
-    Bu Chrome Uygulamasının GCM'den anında iletme bildirimleri almasına izin verildiğini belirten `permissions` öğesine dikkat edin. Bunun aynı zamanda, Chrome Uygulamasının kaydetmek için REST çağrısı yapacağı Azure Notification Hubs URI'sini de belirtmesi gerekir.
-    Örnek uygulama ayrıca özgün GCM örneğinden yeniden kullanılan kaynakta bulabileceğiniz bir simge dosyası (`gcm_128.png`) kullanır. Bunu, [simge ölçütleri](https://developer.chrome.com/apps/manifest/icons)'ne uygun herhangi bir görüntü ile değiştirebilirsiniz.
+    Bu Chrome Uygulamasının GCM'den anında iletme bildirimleri almasına izin verildiğini belirten `permissions` öğesine dikkat edin. Örnek uygulama ayrıca özgün GCM örneğinden yeniden kullanılan kaynakta bulabileceğiniz bir simge dosyası (`gcm_128.png`) kullanır. Bunu, [simge ölçütleri](https://developer.chrome.com/apps/manifest/icons)'ne uygun herhangi bir görüntü ile değiştirebilirsiniz.
 4. Aşağıda kod ile `background.js` adlı bir dosya oluşturun:
    
         // Returns a new notification ID used in the notification.
@@ -353,10 +363,10 @@ Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak 
    * **registerWithNH**, Notification Hubs'a kaydedilen ikinci düğme tıklama işleyicisidir. `hubName` ve `connectionString` öğelerini (kullanıcı tarafından belirtilen) alır ve Notification Hubs Kayıt REST API'si çağrısını işler.
    * **splitConnectionString** ve **generateSaSToken**, tüm REST API çağrılarında kullanılması gereken SaS belirteci oluşturma işleminin JavaScript uygulamasını temsil eden yardımcılardır. Daha fazla bilgi için bkz. [Ortak Kavramlar](http://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest**, Azure Notification Hubs'a HTTP REST çağrısı yapan işlevdir.
-   * **registrationPayload** kayıt XML yükünü tanımlar. Daha fazla bilgi için bkz. [Kayıt NH REST API’si oluşturma]. Burada, kayıt kimliğini GCM'den alınan değerle güncelleştirmeniz gerekir.
+   * **registrationPayload** kayıt XML yükünü tanımlar. Daha fazla bilgi için bkz. [Kayıt NH REST API’si oluşturma]. Kayıt kimliğini GCM'den alınan değerle güncelleştirin.
    * **client**, uygulamanın HTTP POST isteğinde bulunmak için kullandığı bir **XMLHttpRequest** örneğidir. `Authorization` üst bilgisini `sasToken` ile güncelleştirin. Bu çağrının başarıyla tamamlanması, bu Chrome Uygulaması örneğinin Azure Notification Hubs'a kaydedilmesini sağlar.
 
-Bu proje için genel klasör yapısı şuna benzemelidir: ![Google Chrome Uygulaması - Klasör Yapısı][21]
+        Bu proje için genel klasör yapısı şuna benzemelidir:    ![Google Chrome Uygulaması - Klasör Yapısı][21]
 
 ### <a name="set-up-and-test-your-chrome-app"></a>Chrome Uygulamanızı ayarlama ve test etme
 1. Chrome tarayıcınızı açın. **Chrome uzantıları**'nı açın ve **Geliştirici modunu** etkinleştirin.
@@ -384,12 +394,12 @@ Test amacıyla, bir .NET konsol uygulaması kullanarak Chrome anında iletme bil
 > 
 
 1. Visual Studio'da, **Dosya** menüsünden **Yeni**'yi ve ardından **Proje**'yi seçin. **Visual C#** altında, **Windows** ve **Konsol Uygulaması**'na, ardından **Tamam**'a tıklayın.  Bu adım, yeni bir konsol uygulama projesi oluşturur.
-2. **Araçlar** menüsünde, **Nuget Paket Yöneticisi**'ne ve ardından **Paket Yöneticisi Konsolu**'na tıklayın. Alttaki pencerede Paket Yöneticisi Konsolu görüntülenir.
+2. **Araçlar** menüsünden **NuGet Paket Yöneticisi**’ne ve ardından **Paket Yöneticisi Konsolu**’na tıklayın. Alttaki pencerede Paket Yöneticisi Konsolu görüntülenir.
 3. Konsol penceresinde aşağıdaki komutu yürütün:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-       This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+   Projeye otomatik olarak <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet paketi ile Azure Service Bus SDK’sına bir başvuru eklenir.</a>
 4. `Program.cs` öğesini açın ve aşağıdaki `using` deyimini ekleyin:
    
         using Microsoft.Azure.NotificationHubs;
@@ -402,12 +412,10 @@ Test amacıyla, bir .NET konsol uygulaması kullanarak Chrome anında iletme bil
             await hub.SendGcmNativeNotificationAsync(message);
         }
    
-       Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
+    `<hub name>` yer tutucusunu, Bildirim Hub’ı sayfanızdaki [portalda](https://portal.azure.com) görünen bildirim hub’ının adıyla değiştirdiğinizden emin olun. Ayrıca, bağlantı dizesi yer tutucusunu, bildirim hub'ı yapılandırma bölümünde edindiğiniz `DefaultFullSharedAccessSignature` adlı bağlantı dizesi ile değiştirin.
    
-   > [!NOTE]
-   > Bağlantı dizesini **Dinleme** erişimi ile değil, **Tam** erişim ile kullandığınızdan emin olun. **Dinleme** erişimi bağlantı dizesi, anında iletme bildirimlerinin gönderilmesi için izin vermez.
-   > 
-   > 
+    > [!NOTE]
+    > Bağlantı dizesini **Dinleme** erişimi ile değil, **Tam** erişim ile kullandığınızdan emin olun. **Dinleme** erişimi bağlantı dizesi, anında iletme bildirimlerinin gönderilmesi için izin vermez.
 6. Aşağıdaki çağrıları `Main` yönteminde ekleyin:
    
          SendNotificationAsync();
@@ -426,15 +434,12 @@ Test amacıyla, bir .NET konsol uygulaması kullanarak Chrome anında iletme bil
 > 
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-[Notification Hubs'a Genel Bakış]'ta Notification Hubs hakkında daha fazla bilgi edinin.
+Bu öğreticide, arka uca kayıtlı olan tüm istemcilere yayın bildirimleri gönderdiniz. Belirli cihazlara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin: 
 
-Belirli kullanıcıları hedeflemek için [Azure Notification Hubs Kullanıcılara Bildirme] öğreticisine bakın. 
-
-Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Azure Notification Hubs son dakika haberleri] öğreticisini izleyebilirsiniz.
+> [!div class="nextstepaction"]
+>[Belirli cihazlara anında iletme bildirimleri gönderme](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
-[2]: ./media/notification-hubs-chrome-get-started/GoogleProjectNumber.png
 [3]: ./media/notification-hubs-chrome-get-started/EnableGCM.png
 [4]: ./media/notification-hubs-chrome-get-started/CreateServerKey.png
 [5]: ./media/notification-hubs-chrome-get-started/ServerKey.png
@@ -457,8 +462,7 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 
 <!-- URLs. -->
 [Chrome Uygulaması Bildirim Hub'ı Örneği]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
-[Google Cloud Console]: http://cloud.google.com/console
-[Notification Hubs'a Genel Bakış]: notification-hubs-push-notification-overview.md
+[Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Chrome Uygulamalarına Genel Bakış]: https://developer.chrome.com/apps/about_apps
 [Chrome Uygulaması GCM Örneği]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
@@ -467,5 +471,5 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 [crypto-js kitaplığı]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Azure Notification Hubs son dakika haberleri]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

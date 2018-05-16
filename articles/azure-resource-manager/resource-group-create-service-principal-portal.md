@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Portal kullanın
 
@@ -83,7 +83,7 @@ Abonelik izinlerinizi denetlemek için:
 
    ![uygulama ekleme](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Uygulama için bir ad ve URL sağlayın. Oluşturmak istediğiniz uygulama türü olarak **Web uygulaması / API**'yi seçin. Kimlik bilgilerini oluşturulamıyor bir [yerel uygulama](../active-directory/active-directory-application-proxy-native-client.md); bu nedenle, türü için otomatik uygulama çalışmaz. Değerleri ayarladıktan sonra Seç **oluşturma**.
+1. Uygulama için bir ad ve URL sağlayın. Oluşturmak istediğiniz uygulama türü olarak **Web uygulaması / API**'yi seçin. Kimlik bilgilerini oluşturulamıyor bir [yerel uygulama](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); bu nedenle, türü için otomatik uygulama çalışmaz. Değerleri ayarladıktan sonra Seç **oluşturma**.
 
    ![uygulamayı adlandırma](./media/resource-group-create-service-principal-portal/create-app.png)
 

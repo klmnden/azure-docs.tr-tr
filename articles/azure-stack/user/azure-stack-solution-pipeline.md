@@ -14,8 +14,8 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2a51169fa74384778d3351d48055d05e387d0ea6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
@@ -71,7 +71,7 @@ Azure Stack
     - Konumundaki ASDK dağıtma hakkında ayrıntılı yönergeler bulabilirsiniz "[Öğreticisi: Yükleyicisi'ni kullanarak ASDK dağıtmak](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
     - Çoğu, aşağıdaki PowerShell Betiği ile ASDK dağıtım sonrası adımları otomatikleştirmek [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
 
-    > [!note]  
+    > [!Note]  
     > ASDK yükleme yedi bir tamamlamak için bu nedenle uygun şekilde planlamanız saat sürer.
 
  - Dağıtma [uygulama hizmeti](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure yığınına PaaS Hizmetleri. 
@@ -87,7 +87,7 @@ Azure Stack
  - [Visual Studio 2017 yükleme](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [açma VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Projeye bağlayın ve [yerel olarak kopyalamak](https://www.visualstudio.com/docs/git/gitquickstart).
  
- > [!note]  
+ > [!Note]  
  > Dağıtılan uygulama hizmeti (Windows Server ve SQL) çalıştıran ve dağıtılmış uygun görüntülerle Azure yığın gerekir.
  
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Özel derleme ve sürüm aracı Visual Studio Team Services tümleştirme için hazırlama
@@ -207,7 +207,7 @@ Her bir aracının ayrı ayrı yönetmek yerine, aracıları aracı havuzu halin
 
 3. Belirteç kopyalayın.
     
-    > [!note]  
+    > [!Note]  
     > Belirteç bilgileri edinin. Bunu yeniden bu ekran bırakarak sonra gösterilmez. 
     
     ![Alternatif metin](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -268,7 +268,7 @@ VSTO derlemeleri yığına Azure hizmet uygulamaları dağıtabilmek için kulla
 
 Web uygulaması Azure ve Azure yığın dağıtmak için karma CI/CD ayarlama ve Bulutlar hem de otomatik itme değiştirir.
 
-> [!note]  
+> [!Note]  
 > Dağıtılan uygulama hizmeti (Windows Server ve SQL) çalıştıran ve dağıtılmış uygun görüntülerle Azure yığın gerekir. Azure yığın işleci gereksinimleri için uygulama hizmeti belgelerini "Önkoşullar" bölümü gözden geçirin.
 
 ### <a name="add-code-to-vsts-project"></a>VSTS projesi için kod ekleme
@@ -399,7 +399,7 @@ Visual Studio Team Services (VSTS) ve Team Foundation Server (TFS) yüksek orand
 
 21. Tüm değişiklikleri kaydedin.
 
-> [!note]  
+> [!Note]  
 > Görevler için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenleri](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bir şablondan bir yayın tanımı oluşturduğunuzda. Bu ayarlar görev ayarlarında değiştirilemez; Bunun yerine, bu ayarları düzenlemek için üst ortam öğesi seçmelisiniz.
 
 ## <a name="create-a-release"></a>Sürüm oluşturma

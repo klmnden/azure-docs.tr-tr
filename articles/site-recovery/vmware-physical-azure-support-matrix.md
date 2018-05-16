@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -145,7 +145,8 @@ Hızlandırılmış Ağ | Hayır
 **Bileşen** | **Destekleniyor**
 --- | ---
 Ana bilgisayar NFS | VMware için Evet<br/><br/> Fiziksel sunucuları için Hayır'ı
-Konak SAN (İSCSI) | Evet
+Konak SAN (iSCSI/FC) | Evet
+Ana bilgisayar vSAN | VMware için Evet<br/><br/> Fiziksel sunucuları için yok
 Ana bilgisayar çok yollu (MPIO) | Evet, CLARiiON için Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM ile test
 Ana bilgisayar sanal birimler (VVols) | VMware için Evet<br/><br/> Fiziksel sunucuları için yok
 Konuk/sunucu VMDK | Evet

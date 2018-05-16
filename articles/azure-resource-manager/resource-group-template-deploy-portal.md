@@ -1,8 +1,8 @@
 ---
-title: "Azure kaynaklarınızı dağıtmak için Azure portalını kullanma | Microsoft Docs"
-description: "Azure portalı ve Azure Resource Manager kaynaklarınızı dağıtmak için kullanın."
+title: Azure kaynaklarınızı dağıtmak için Azure portalını kullanma | Microsoft Docs
+description: Azure portalı ve Azure Resource Manager kaynaklarınızı dağıtmak için kullanın.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: 0174f688cb3fd04fdd41714d54a7371319bae951
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
 
 Bu konuda nasıl kullanılacağını gösterir [Azure portal](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı dağıtmak için. Kaynaklarınızın yönetilmesi hakkında bilgi edinmek için [yönetmek Azure kaynakları portal üzerinden](resource-group-portal.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 

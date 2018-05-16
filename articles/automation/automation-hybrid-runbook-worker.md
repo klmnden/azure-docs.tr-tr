@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 43a3427b05b8e4f1fbaf0f8f5e6b60da9e837a46
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0af8806cdc55b89a9ab87a8059808e4fcc9a1730
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Veri merkezi veya karma Runbook çalışanı ile bulut kaynakları otomatikleştirme
 
@@ -143,28 +143,19 @@ Standart adresleri ve karma Runbook çalışanı gereken bağlantı noktaları e
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Karma Runbook çalışanı çalışan kaydetmek, runbook işlerini almak ve durum raporu için Otomasyon hesabınızın iletişim kurmak için Microsoft Monitoring Agent bağlıdır. Çalışan kaydı başarısız olursa hata bazı olası nedenleri şunlardır:
+Karma Runbook çalışanı çalışan kaydetmek, runbook işlerini almak ve durum raporu için Otomasyon hesabınızın iletişim kurmak için bir aracı bağlıdır. Windows için bu aracı Microsoft Monitoring Agent ' dir. Linux için Linux için OMS aracısının olduğu. Çalışan kaydı başarısız olursa hata bazı olası nedenleri şunlardır:
 
-1. Karma çalışanı bir proxy veya güvenlik duvarı arkasında ' dir.
+### <a name="the-hybrid-worker-is-behind-a-proxy-or-firewall"></a>Karma çalışanı bir proxy veya güvenlik duvarı arkasında olduğunu
 
-   Bilgisayarın, bağlantı noktası 443 üzerinde *.azure automation.net giden erişimi olduğunu doğrulayın.
+Bilgisayarın, bağlantı noktası 443 üzerinde *.azure automation.net giden erişimi olduğunu doğrulayın.
 
-2. Karma çalışanı çalışmakta olduğu bilgisayarın en düşük donanım gereksinimlerini daha azı.
+### <a name="the-computer-the-hybrid-worker-is-running-on-has-less-than-the-minimum-hardware-requirements"></a>Karma çalışanı çalışmakta olduğu bilgisayarın en düşük donanım gereksinimlerini daha azı
 
-   Karma Runbook çalışanı çalıştıran bilgisayarlar, bu özellik barındırmak için atamadan önce en düşük donanım gereksinimlerini karşılamalıdır. Aksi halde, kaynak kullanımı diğer arka plan işlemleri ve yürütme sırasında runbook'lar tarafından neden Çekişme bağlı olarak bilgisayar üzerinde kullanılan olur ve bu runbook işi gecikmeler veya zaman aşımları neden.
+Karma Runbook çalışanı çalıştıran bilgisayarlar, bu özellik barındırmak için atamadan önce en düşük donanım gereksinimlerini karşılamalıdır. Aksi halde, kaynak kullanımı diğer arka plan işlemleri ve yürütme sırasında runbook'lar tarafından neden Çekişme bağlı olarak bilgisayar üzerinde kullanılan olur ve bu runbook işi gecikmeler veya zaman aşımları neden.
 
-   Karma Runbook çalışanı özelliği yürütmek için atanan bilgisayarın en düşük donanım gereksinimlerini karşıladığını onaylayın. Aşması durumunda, karma Runbook çalışanı işlemlerinin performansını ile Windows arasında herhangi bir bağıntı belirlemek için CPU ve bellek kullanımını izleyin. Bellek veya CPU baskısı ise, bu yükseltme veya ek işlemciler ekleme ya da kaynak sorununu giderin ve hatayı gidermek için bellek artırmak için gereken gösteriyor olabilir. Alternatif olarak, iş yükü taleplerini artıştır gerekli belirttiğinizde, ölçek ve en düşük gereksinimleri destekleyebilen farklı işlem kaynak seçin.
+Karma Runbook çalışanı özelliği yürütmek için atanan bilgisayarın en düşük donanım gereksinimlerini karşıladığını onaylayın. Aşması durumunda, karma Runbook çalışanı işlemlerinin performansını ile Windows arasında herhangi bir bağıntı belirlemek için CPU ve bellek kullanımını izleyin. Bellek veya CPU baskısı ise, bu yükseltme veya ek işlemciler ekleme ya da kaynak sorununu giderin ve hatayı gidermek için bellek artırmak için gereken gösteriyor olabilir. Alternatif olarak, iş yükü taleplerini artıştır gerekli belirttiğinizde, ölçek ve en düşük gereksinimleri destekleyebilen farklı işlem kaynak seçin.
 
-3. Microsoft İzleme Aracısı hizmeti çalışmıyor.
-
-   Microsoft İzleme Aracısı Windows hizmeti çalışmıyorsa bu karma Runbook çalışanı Azure Automation ile iletişim kurmasını engeller. Aracı, PowerShell içinde aşağıdaki komutu girerek çalıştığını doğrulayın: `get-service healthservice`. Hizmet durdurulursa, hizmeti başlatmak için PowerShell içinde aşağıdaki komutu girin: `start-service healthservice`.
-
-4. İçinde **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü olay 4502 ve EventMessage içeren gördüğünüz **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**aşağıdaki açıklamasıyla: *hizmeti tarafından sunulan sertifika \<wsid\>. oms.opinsights.azure.com Microsoft Hizmetleri için kullanılan bir sertifika yetkilisi tarafından değil yayınlandı. TLS/SSL iletişimi karşılar bir proxy çalıştırıyorsanız görmek için ağ yöneticinize başvurun. KB3126513 makalesine ek sorun giderme bilgileri için bağlantı sorunları var.*
-    Bu Microsoft Azure iletişimini engelleyen proxy veya ağ güvenlik duvarını neden olabilir. Bilgisayarın, 443 numaralı bağlantı noktalarına *.azure automation.net giden erişimi olduğunu doğrulayın.
-
-Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır. Herhangi bir uyarı veya hata olayları için yazılmış olup olmadığını denetleyebilir **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operations** ve **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü bir bağlantı veya ekleme rolünün bir Azure Otomasyonu veya sorun normal işlemleri gerçekleştirirken etkileyen diğer sorunu gösterir.
-
-Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar için bkz: [güncelleştirme yönetimi - sorun giderme](automation-update-management.md#troubleshooting)
+Belirli bir işletim sistemi için sorun giderme hakkında ek bilgi için bkz: [Linux karma Runbook çalışanı](automation-linux-hrw-install.md#troubleshooting) veya [Windows karma Runbook çalışanı](automation-windows-hrw-install.md#troubleshooting)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

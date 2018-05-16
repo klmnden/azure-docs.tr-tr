@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 7dc4cfe580246b0f34073113f790ca3b5057995d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dc572353c2e27ddfbae2398f1aece56586955e26
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
+<!---Loc Comment: Please, check the comment in coversation section---> 
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Fiziksel bellek kapasitesi Azure yığınının yönetme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 Azure yığın toplam kullanılabilir bellek kapasitesini artırmak için ek bellek ekleyebilirsiniz. Azure yığınında fiziksel sunucu olarak da adlandırılan bir *ölçek birimi düğümü*. Tek ölçek biriminin üyesi olan tüm ölçek birimi düğümleri aynı miktarda bellek olmalıdır.
 
 > [!note]  
-> Devam etmeden önce bir fiziksel bellek yükseltme satıcınıza destekleyip desteklemediğini görmek için donanım üreticisi belgelerinize başvurun. OEM donanım satıcısı destek sözleşmesi fiziksel sunucu rafa yerleştirme ve aygıt üretici yazılımı güncelleştirmesi almanızı gerektirebilir.
+> Devam etmeden önce olmadığını görmek için donanım üreticisinin sağladığı belgelere bir üreticiniz fiziksel bellek yükseltmeyi destekler. OEM donanım satıcısı destek sözleşmesi satıcı fiziksel sunucu rafa yerleştirme ve aygıt üretici yazılımı güncelleştirmesi gerçekleştirmek gerektirebilir.
 
 Aşağıdaki akış diyagramı her ölçek birimi düğüme bellek eklemek için genel süreç gösterilmektedir.
 

@@ -1,24 +1,24 @@
 ---
-title: "Fiyatlandırma ve faturalama - Azure Logic Apps | Microsoft Docs"
-description: "Fiyatlandırma ve faturalama Azure mantıksal uygulamaları için nasıl çalıştığını öğrenin"
-author: kevinlam1
-manager: anneta
-editor: 
+title: Fiyatlandırma ve faturalama - Azure Logic Apps | Microsoft Docs
+description: Fiyatlandırma ve faturalama Azure mantıksal uygulamaları için nasıl çalıştığını öğrenin
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Logic Apps fiyatlandırma modeli
 
@@ -57,7 +57,7 @@ Döngüler içinde çalışan eylemlerin her döngü döngüsünde başına say�
 
 ## <a name="integration-account-usage"></a>Tümleştirme hesabı kullanımı
 
-Tüketim tabanlı kullanımını içeren bir [tümleştirme hesabını](logic-apps-enterprise-integration-create-integration-account.md) geçirebileceğiniz keşfetmek, geliştirmek ve test [B2B/EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) Logic Apps özelliklerini Hayır adresindeki ek bir maliyet. Bu tümleştirme hesapları bölgeye ve 10 sözleşme ve 25 eşlemeleri kadar deposu biri olabilir. Varsa ve sınırsız iş ortakları, şemaları ve sertifikaları karşıya yükleyin.
+Tüketim tabanlı kullanımını içeren bir [tümleştirme hesabını](logic-apps-enterprise-integration-create-integration-account.md) geçirebileceğiniz keşfetmek, geliştirmek ve test [B2B/EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) Hayır Logic Apps içinde özellikleri ek bir maliyet. Bir tümleştirme hesabın bölgeye ve özel kadar deposu olabilir [yapılarının numaraları](../logic-apps/logic-apps-limits-and-config.md)EDI ticari ortaklar ve anlaşmaları, haritalar, şemalar, derlemeleri, sertifikalar ve toplu yapılandırmaları gibi.
 
 Logic Apps, temel ve standart tümleştirme hesapları desteklenen Logic Apps SLA ile de sunar. Temel tümleştirme hesapları, yalnızca ileti işleme kullanmak istediğiniz ya da daha büyük bir iş varlığı ile ticari ortak ilişkisi olan küçük iş ortağı olarak hareket kullanabilirsiniz. Standart tümleştirme hesapları daha karmaşık B2B ilişkileri destekler ve yönetebileceğiniz varlıkların sayısı artar. Daha fazla bilgi için bkz: [Azure fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 

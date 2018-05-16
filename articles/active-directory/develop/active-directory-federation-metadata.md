@@ -1,25 +1,27 @@
 ---
 title: Azure AD Federasyon meta verileri | Microsoft Docs
-description: "Bu makalede, Azure Active Directory belirteçleri kabul Hizmetleri için Azure Active Directory yayımladığı Federasyon meta veri belgesi açıklanmaktadır."
+description: Bu makalede, Azure Active Directory belirteçleri kabul Hizmetleri için Azure Active Directory yayımladığı Federasyon meta veri belgesi açıklanmaktadır.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 58e5f62009e4e8b688108c6098ea8eabe8020e51
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc79b451eafe7dcdd0b8f4285f92714138260bb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="federation-metadata"></a>Federasyon meta verileri
 Azure Active Directory (Azure AD) Azure AD verir güvenlik belirteçleri kabul etmesi için yapılandırılmış bir Federasyon meta veri belgesi Hizmetleri için yayımlar. Federasyon meta veri belgesi biçimi açıklanan [Web Hizmetleri Federasyon dili (WS-Federation) sürüm 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), genişleten [OASISgüvenlikonaylamaişlemibiçimlendirmedili(SAML)v2.0içinmetaveriler](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -41,7 +43,7 @@ Azure AD konumundaki Federasyon meta verilerini yayımlayan `https://login.micro
 
 İçin **Kiracı bağımsız uç noktaları**, `TenantDomainName` olan `common`. Bu belge, login.microsoftonline.com barındırılan tüm Azure AD kiracıları için ortak olan Federasyon meta veri öğeleri listeler.
 
-Örneğin, bir kiracı özel uç noktası olabilir `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Kiracı bağımsız uç noktası [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Bu URL'yi bir tarayıcıda yazarak, Federasyon meta veri belgesi görüntüleyebilirsiniz.
+Örneğin, bir kiracı özel uç noktası olabilir `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Kiracı bağımsız uç noktası [ https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml ](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Bu URL'yi bir tarayıcıda yazarak, Federasyon meta veri belgesi görüntüleyebilirsiniz.
 
 ## <a name="contents-of-federation-metadata"></a>Federasyon meta veri içeriğini
 Aşağıdaki bölümde, Azure AD tarafından yayınlanan belirteçleri tüketen Hizmetleri tarafından gereken bilgileri sağlar.

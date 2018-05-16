@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines-linux, virtual-machines-windows
+author: dlepow
+ms.service: multiple
+ms.topic: include
+ms.date: 05/11/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/12/2018
+---
 Kuruluşların büyük ölçekli bilgi işlem gereksinimleri vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri ve daha fazla bilgi içerir. 
 
 Azure bulut verimli bir şekilde işlem yoğunluklu Linux ve Windows iş yükleri, geleneksel HPC benzetimleri paralel toplu işlerini çalıştırmak için kullanın. HPC çalıştırın ve toplu iş yükleri seçiminizi ile Azure altyapı hizmetleri, kılavuz yöneticileri, Market çözümleri ve satıcı barındırılan (SaaS) uygulamaları işlem. Azure iş dağıtmak ve sanal makineleri veya çekirdek binlerce için ölçeklendirme ve daha az kaynak gerektiğinde de ölçeklendirmeyi azaltın için esnek çözümler sağlar. 
@@ -21,6 +37,7 @@ Azure bulut verimli bir şekilde işlem yoğunluklu Linux ve Windows iş yükler
 * **Bir hizmet olarak Big Compute çözümleri**
     * Özel Big Compute çözümleri ve iş akışlarını kullanarak geliştirme [Azure Batch](#azure-batch) ve ilgili [Azure Hizmetleri](#related-azure-services).
     * Azure etkin mühendislik ve benzetimi çözümlerin de dahil olmak üzere satıcılardan çalıştırılması [Altair](http://www.altair.com/), [yeniden Ölçeklendir](https://www.rescale.com/azure/), ve [Cycle Computing](https://cyclecomputing.com/) (şimdi [ile birleştirilmiş Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
+    * Kullanım bir [Cray Süper bilgisayar](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) Azure üzerinde barındırılan bir hizmet olarak.
 * **Market çözümleri**
     * Ölçek kullanmak [HPC uygulamaları](#hpc-applications) ve [çözümleri](#marketplace-solutions) içinde sunulan [Azure Marketi](https://azuremarketplace.microsoft.com/). 
     
@@ -107,17 +124,18 @@ SaaS sağlayıcısı veya geliştiriciler, HPC uygulamaları veya kapsayıcı i�
 * [Azure Batch kod örnekleri kullanın](https://github.com/Azure/azure-batch-samples)
 * [Düşük öncelikli sanal makineleri Batch ile kullanma](../articles/batch/batch-low-pri-vms.md)
 * [Kapsayıcılı HPC iş yükleri ile toplu Shipyard çalıştırın](https://github.com/Azure/batch-shipyard)
-* [Batch ile R dilini kullanma](https://github.com/Azure/doAzureParallel)
-* [Toplu olarak Azure Dağıtılmış veri mühendislik Toolkit Çalıştır](https://github.com/Azure/aztk)
+* [Paralel R iş yüklerini toplu olarak çalıştırma](https://github.com/Azure/doAzureParallel)
+* [İsteğe bağlı Spark üzerinde toplu işleri çalıştırma](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>İş yükü yöneticileri
 
 Azure altyapısı için çalıştırabilirsiniz küme ve iş yükü yöneticileri örnekleri verilmiştir. Tek başına kümeleri Azure VM'ler veya veri bloğu içinde bir şirket içi kümeden Azure Vm'lerine oluşturun. 
+* [Alces uçuş işlem](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
 * [Açık Küme Yöneticisi](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spektrumun Symphony ve Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) -çalıştırmak için seçenekleri görmek [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM'ler 
+* [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx) -çalıştırmak için seçenekleri görmek [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM'ler 
 
 
 
@@ -127,7 +145,7 @@ Veri depolama ve erişim için geleneksel bulut dosya sistemleri özelliklerini 
 
 Daha fazla bilgi edinin:
 
-* [Azure üzerinde HPC depolama için paralel dosya sistemleri](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Azure sanal dosya sistemlerinde paralel](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/)
 * Yüksek performanslı bulut depolama çözümleri [Avere](http://www.averesystems.com/about-us/about-avere) (şimdi [Microsoft ile birleştirilmiş](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
@@ -144,11 +162,13 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="ai-and-cognitive-services"></a>AI ve bilişsel hizmetler
+### <a name="ai-and-machine-learning"></a>AI ve makine öğrenme
+* [Machine Learning Hizmetleri](../articles/machine-learning/service/overview-what-is-azure-ml.md)
 * [Batch AI](../articles/batch-ai/overview.md)
+* [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Ağ
 * [Sanal Ağ](../articles/virtual-network/virtual-networks-overview.md)
@@ -156,18 +176,20 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 
 ### <a name="containers"></a>Kapsayıcılar
 * [Kapsayıcı Hizmeti](../articles/container-service/dcos-swarm/container-service-intro.md)
+* [Azure Kubernetes hizmeti (AKS)](../articles/aks/intro-kubernetes.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
 
 
 
 ## <a name="customer-stories"></a>Müşteri hikayeleri
 
-İş sorunlarını Azure HPC çözümleri ile Çözüldü müşteriler örnekleri şunlardır:
+İş sorunlarını Azure HPC çözümleri ile Çözüldü müşteriler örnekleri:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA genel P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [d3vıew](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [D3vıew](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
@@ -178,7 +200,7 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Big Compute çözümleri hakkında daha fazla bilgi [benzetimi mühendislik](https://simulation.azure.com/), [işleme](https://simulation.azure.com/), [bankacılık ve büyük harf pazarda](https://finance.azure.com/), ve [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
+* Big Compute çözümleri hakkında daha fazla bilgi [benzetimi mühendislik](https://simulation.azure.com/), [işleme](https://azure.microsoft.com/solutions/big-compute/rendering/), [bankacılık ve büyük harf pazarda](https://finance.azure.com/), ve [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Son duyurular için bkz. [Microsoft HPC ve Batch ekip blogu](http://blogs.technet.com/b/windowshpc/) ve [Azure blogu](https://azure.microsoft.com/blog/tag/hpc/).
 
 * Yönetilen ve ölçeklenebilir Azure kullanmak [toplu](https://azure.microsoft.com/services/batch/) altyapının yönetmek zorunda kalmadan işlem yoğunluklu iş yüklerini çalıştırmak için hizmeti [daha fazla bilgi edinin](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)

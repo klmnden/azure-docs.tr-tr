@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Uyarlamalı Suite ile | Microsoft Docs"
-description: "Çoklu oturum açma Uyarlamalı Suite ile Azure Active Directory arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Uyarlamalı Suite ile | Microsoft Docs'
+description: Çoklu oturum açma Uyarlamalı Suite ile Azure Active Directory arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e128ddf53a93fe30350d8e914657f3539701603
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0932eea407ea6dbb43760c2e64c49be802363360
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Öğretici: Azure Active Directory Tümleştirme Uyarlamalı Suite ile
 
@@ -31,7 +31,7 @@ Uyarlamalı Suite Azure AD ile tümleştirme ile aşağıdaki avantajları sağl
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Uyarlamalı paketiyle yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,11 +110,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
     > Bu değer Uyarlamalı paketinden 's alabilir **SAML SSO ayarları** sayfası.
-    >  
+    >
+    
+    Denetleme **Göster Gelişmiş URL ayarları** kutusu. İçinde **tanımlayıcısı (varlık kimliği)** metin kutusuna, girdiğiniz aynı URL'sini yazın **yanıt URL'si** metin kutusu.
+    
+    >[!NOTE]
+    > Varlık Kimliği her Uyarlamalı Öngörüler etki alanı için kendi yanıt URL'si ile aynıdır.
+    >
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
@@ -158,7 +164,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     * **SAML NameID biçimi**seçin **e-posta adresi**.
     * **SAML'yi etkinleştir**seçin **izin SAML SSO ve doğrudan Uyarlamalı Öngörüler oturum açma**.
     
-    g. **Kaydet** düğmesine tıklayın.
+    g. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +199,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-an-adaptive-suite-test-user"></a>Uyarlamalı Suite test kullanıcısı oluşturma
 

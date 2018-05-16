@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 74ea4753e36da7686ac88d4426391a38dac0b436
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Öğretici: SQL API’sini kullanarak Azure Cosmos DB’yi sorgulama
 
@@ -72,7 +72,7 @@ SQL sorguları hakkında daha fazla bilgi için bkz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide, bir Azure Cosmos DB hesabınız ve koleksiyonunuz olduğu varsayılır. Bunlardan biri yok mu? Bir hesap ve koleksiyon oluşturmak için [5 dakikalık hızlı başlangıç](create-mongodb-nodejs.md) veya [geliştirici öğreticisini](tutorial-develop-mongodb.md) tamamlayın.
+Bu öğreticide, bir Azure Cosmos DB hesabınız ve koleksiyonunuz olduğu varsayılır. Bunlardan biri yok mu? [5 dakikalık hızlı başlangıcı](create-mongodb-nodejs.md) tamamlayın.
 
 ## <a name="example-query-1"></a>Örnek sorgu 1
 

@@ -2,22 +2,24 @@
 title: Oturum açma Azure AD v2.0 uç kullanarak iOS uygulama ekleme | Microsoft Docs
 description: Kullanıcıların hem kişisel Microsoft hesabı ile oturum açtığında bir iOS uygulamasının nasıl oluşturulacağını ve üçüncü taraf kitaplıklar kullanılarak iş veya Okul hesapları.
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5323f9a514c3c1c6134656e41af68e479fd8fdc5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7476417e6585976ea2404a83602a6d9aa77d9c7a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Grafik API'si v2.0 uç noktası kullanarak bir üçüncü taraf kitaplık kullanılarak bir iOS uygulamasına oturum açma ekleme
 Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Geliştiricilerin hizmetlerimizle tümleştirmek istediği herhangi bir kitaplığı kullanabilirsiniz. Geliştiricilerin platformumuzu diğer kitaplıklarla birlikte kullanmak için Microsoft identity platformuna bağlanmak için üçüncü taraf kitaplıklarını yapılandırmak nasıl göstermek için bunun gibi birkaç izlenecek yazdıktan. Uygulayan çoğu kitaplık [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) Microsoft identity platformuna bağlanabilir.
@@ -39,7 +41,7 @@ V2.0 uç noktası, tüm Azure Active Directory senaryolarını ve özelliklerini
 > 
 
 ## <a name="download-code-from-github"></a>Github'dan kodu indirme
-Bu öğretici için kod [GitHub'da](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2) korunur.  İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
+Bu öğretici için kod [GitHub'da](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2) korunur. İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
@@ -52,7 +54,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## <a name="register-an-app"></a>Bir uygulamayı kaydetme
-En yeni bir uygulama oluşturma [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya ayrıntılı adımları izleyin [v2.0 uç noktası ile bir uygulama nasıl](active-directory-v2-app-registration.md).  Emin olun:
+En yeni bir uygulama oluşturma [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya ayrıntılı adımları izleyin [v2.0 uç noktası ile bir uygulama nasıl](active-directory-v2-app-registration.md). Emin olun:
 
 * Kopya **uygulama kimliği** atanan uygulamanıza yakında gerekir çünkü.
 * Ekleme **mobil** uygulamanız için platform.
@@ -122,7 +124,7 @@ NXOAuth2Client kitaplığı bazı değerlerin ayarlanmasını gerektirir. Bu gö
 
 Kod ayrıntılarını bakalım.
 
-İçin ilk dizedir `scopes`.  `User.Read` Değeri, oturum açmış olan kullanıcının temel profil okumanızı sağlar.
+İçin ilk dizedir `scopes`. `User.Read` Değeri, oturum açmış olan kullanıcının temel profil okumanızı sağlar.
 
 Kullanılabilir tüm kapsamların hakkında daha fazla bilgiyi [Microsoft Graph izin kapsamları](https://graph.microsoft.io/docs/authorization/permission_scopes).
 

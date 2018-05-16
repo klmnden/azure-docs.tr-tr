@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -63,6 +63,8 @@ ILB ASE oluşturmak için:
 
 4. Bir VNet seçin veya oluşturun.
 
+    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Bu ASE’de Linux uygulamalarını barındırmayı planlıyorsanız şu anda yalnızca şu 6 bölge desteklenmektedir: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Avustralya Doğu, Güneydoğu Asya.** 
+
 5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 128 adres içeren ve en büyük boyutlu ASE’yi işleyebilen `/25` dosya boyutu önerilir. Seçebileceğiniz en küçük boyut `/28`. Altyapı için gerekirse bu boyut en fazla yalnızca 3 örnek için ölçeklendirilebilir.
 
     * App Service planlarınızda varsayılan 100 örnek üst sınırının ötesine geçin.
@@ -106,7 +108,7 @@ ILB ASE oluşturmak için:
 
 ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturma işlemiyle aynıdır.
 
-1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **Web**, **Mobil** ya da **API Uygulaması** seçeneğini belirleyin.
+1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **Web Uygulaması** seçeneğini belirleyin.
 
 2. Uygulamanın adını girin.
 
@@ -114,9 +116,13 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 4. Kaynak grubunu seçin veya oluşturun.
 
-5. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
+5. İşletim sisteminizi seçin. 
 
-6. **Oluştur**’u seçin. Uygulamanızın panonuzda görünmesini istiyorsanız, **Panoya Sabitle** onay kutusunu seçin.
+    * Özel bir Docker kapsayıcısı kullanarak bir Linux uygulaması oluşturmak istiyorsanız, buradaki yönergeleri izleyerek kendi kapsayıcınızı kullanıma sunabilirsiniz. 
+
+6. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
+
+7. **Oluştur**’u seçin. Uygulamanızın panonuzda görünmesini istiyorsanız, **Panoya Sabitle** onay kutusunu seçin.
 
     ![App Service planı oluşturma][2]
 
@@ -133,7 +139,7 @@ ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gö
 ILB ASE’nizin geçerli bir SSL sertifikası olmalıdır. İç sertifika yetkililerini kullanın, harici bir verenden sertifika satın alın ya da otomatik olarak imzalanan bir sertifika kullanın. SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
 * **Konu**: Bu öznitelik *.your-root-domain-here olarak ayarlanmalıdır.
-* **Konu Diğer Adı**: Bu öznitelik hem *\*.your-root-domain-here* hem de *\*.scm.your-root-domain-here* değerlerini içermelidir. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
+* **Konu Diğer Adı**: Bu öznitelik hem *\ *.your-root-domain-here* hem de *\ *.scm.your-root-domain-here* değerlerini içermelidir. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
 
 SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .pfx dosyası, tüm ara ve kök sertifikaları içermelidir. Bir parola ile güvenli hale getirin.
 

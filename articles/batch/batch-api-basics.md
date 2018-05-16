@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -72,10 +72,7 @@ Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir var
 
 Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da iş yüklerinizi aynı abonelik ve farklı Azure bölgelerindeki Batch hesapları arasında dağıtabilirsiniz.
 
-> [!NOTE]
-> Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık çoğu senaryo için önerilmeyen alternatif **kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Kullanıcı aboneliği modunda bir Batch hesabı oluşturmak için aboneliğinizi Azure Batch hizmetine kaydetmeniz ve hesabı bir Azure Key Vault ile ilişkilendirmeniz de gerekir.
->
-
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 ## <a name="azure-storage-account"></a>Azure Storage hesabı
 

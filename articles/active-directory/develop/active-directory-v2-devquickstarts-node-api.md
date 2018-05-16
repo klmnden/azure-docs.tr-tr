@@ -1,25 +1,27 @@
 ---
-title: "Node.js kullanarak bir Azure Active Directory v2.0 web API güvenliğini | Microsoft Docs"
-description: "Node.js web kişisel bir Microsoft hesabı ve iş belirteçleri kabul eder API'si oluşturma ya da Okul hesapları öğrenin."
+title: Node.js kullanarak bir Azure Active Directory v2.0 web API güvenliğini | Microsoft Docs
+description: Node.js web kişisel bir Microsoft hesabı ve iş belirteçleri kabul eder API'si oluşturma ya da Okul hesapları öğrenin.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f07e421feedf3c82da7be16434891cdbe6069038
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19ad25c7b08ff073097cacf3be359772ca0a327f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Node.js kullanarak bir web API güvenliğini sağlama
 > [!NOTE]
@@ -31,7 +33,7 @@ Azure Active Directory (Azure AD) v2.0 uç noktası kullandığınızda, kullana
 
 *Passport*, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler, Passport sorunsuz bir şekilde bırakılan hiçbir Express tabanlı veya restify web uygulamasına. Passport, bir dizi kapsamlı strateji kimlik doğrulamasını bir kullanıcı adı ve parola, Facebook, Twitter veya diğer seçenekleri kullanarak destekler. Azure AD için bir strateji geliştirdik. Bu makalede, modülünü yüklemek ve Azure AD eklemek nasıl gösteriyoruz `passport-azure-ad` eklentisi.
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs) korunur. Öğreticiyi izlemek için şunları yapabilirsiniz [uygulamanın çatısını bir .zip dosyası karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip), veya çatıyı kopyalayın:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
@@ -139,7 +141,7 @@ Restify DTrace kullanarak REST çağrılarını izleme için güçlü bir mekani
     ```
 
 ## <a name="6-add-passport-azure-ad-to-your-web-api"></a>6: passport azure ad web API ekleme
-Ardından, passport-azuread'i kullanarak OAuth stratejisini ekleyin. `passport-azuread`Azure AD'yi Passport'a bağlayan stratejileri paketidir. Bu REST API'si örneğindeki taşıyıcı belirteçler için bu stratejiyi kullanın.
+Ardından, passport-azuread'i kullanarak OAuth stratejisini ekleyin. `passport-azuread` Azure AD'yi Passport'a bağlayan stratejileri paketidir. Bu REST API'si örneğindeki taşıyıcı belirteçler için bu stratejiyi kullanın.
 
 > [!NOTE]
 > OAuth 2.0 herhangi bir bilinen belirteç türünün verilebilmesi için bir çerçeve sağlasa da, belirli belirteç türleri yaygın olarak kullanılır. Taşıyıcı belirteçlerini uç noktaları korumak için yaygın olarak kullanılır. Taşıyıcı belirteçlerini OAuth 2.0 belirteç en yaygın olarak verilen türüdür. Birçok OAuth 2.0 uygulamaları taşıyıcı belirteçlerini tek belirteç türü olduğunu varsayar.

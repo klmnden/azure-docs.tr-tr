@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN aracılığıyla dinamik site hızlandırma
 
@@ -144,7 +144,7 @@ Bu özellik otomatik olarak ağ kalite izler ve ağ hızları teslim süresini k
 
 Uyarlamalı görüntü sıkıştırma | Dosya uzantıları  
 --- | ---  
-JPEG compression | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
+JPEG sıkıştırma | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Önbelleğe alma
 
@@ -158,7 +158,7 @@ Statik ve dinamik varlıklar karışımını içeren bir Web sitesi varsa, bir k
 
 1. Gelen **CDN profili** sayfasında, ayarları altında select **kuralları önbelleğe alma**.  
     
-    ![Kuralları düğmesini CDN önbelleğe alma](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+    ![CDN Önbelleğe alma kuralları düğmesi](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
     **Kuralları önbelleğe alma** sayfası açılır.
 
@@ -183,9 +183,6 @@ Kurallar altyapısı erişmek için:
 Alternatif olarak, iki CDN uç kullanabilirsiniz: bir uç nokta en iyi duruma getirilmiş dinamik varlıklar ve başka bir uç nokta genel gibi bir statik en iyi duruma getirme türü ile en iyi duruma getirilmiş sunmak için DSA ile teslim alınabilir varlıklar için web teslim. Varlık kullanmayı planladığınız bir CDN uç noktada doğrudan bağlantı oluşturmak için Web sayfası URL'leri değiştirin. 
 
 Örneğin: `mydynamic.azureedge.net/index.html` dinamik bir sayfa ve DSA uç noktasından yüklenir.  Html sayfaya JavaScript kitaplıkları veya statik CDN uç noktasından gibi yüklenen görüntüleri gibi birden çok statik varlıklar başvuruda `mystatic.azureedge.net/banner.jpg` ve `mystatic.azureedge.net/scripts.js`. 
-
-Belirli bir CDN URL yoluyla içerik sunmak için bir ASP.NET web uygulaması denetleyicileri kullanmaya ilişkin bir örnek için bkz: [hizmet denetleyici eylemleri Azure CDN aracılığıyla içerikten](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

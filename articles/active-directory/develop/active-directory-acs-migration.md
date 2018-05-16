@@ -3,22 +3,24 @@ title: Azure erişim denetimi Hizmeti'nden geçirme | Microsoft Docs
 description: Uygulamaları ve Hizmetleri Azure erişim denetimi Hizmeti'nden taşıma seçenekleri
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçirme
 
@@ -150,7 +152,7 @@ Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçene
 | Facebook, Google, Yahoo hesapları | Desteklenen | Yoktur desteklenmiyor |
 | **Protokoller ve SDK uyumluluk** | | |
 | WIF | Desteklenen | Desteklenen, ancak sınırlı yönergeler mevcuttur |
-| WS-Federation | Desteklenen | Desteklenen |
+| WS-Federasyon | Desteklenen | Desteklenen |
 | OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
 | WS-Trust | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
@@ -213,7 +215,7 @@ Aşağıdaki tabloda Azure AD B2C'de kullanılabilir olan web uygulamalarıyla i
 | Facebook, Google, Yahoo hesapları | Desteklenen | Facebook ve Google, Yahoo Openıd Connect Federasyon özel ilkeler kullanılarak desteklenen desteklen |
 | **Protokoller ve SDK uyumluluk** | | |
 | Windows Identity Foundation (WIF) | Desteklenen | Desteklenmiyor |
-| WS-Federation | Desteklenen | Desteklenmiyor |
+| WS-Federasyon | Desteklenen | Desteklenmiyor |
 | OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
 | WS-Trust | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
@@ -252,7 +254,7 @@ Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geç
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için. |
 
 Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 
@@ -277,7 +279,7 @@ Erişim denetimi tarafından yayınlanan belirteçleri ile güvenliği sağlanan
 - Aşağıdaki belirteci biçimleri için destek: JWT, SAML 1.1, SAML 2.0 ve SWT.
 - Basit belirteci dönüştürme kuralları.
 
-Erişim denetimi hizmeti kimliklerini tipik sunucu sunucu kimlik doğrulaması uygulamak için kullanılır.  
+Erişim denetimi hizmeti kimliklerini tipik sunucu sunucu kimlik doğrulaması uygulamak için kullanılır. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory'ye geçirme
 
@@ -291,7 +293,7 @@ OAuth istemci kimlik bilgilerini verme Azure AD uygulaması kullanarak Azure AD 
 | Bir istemci kaydetme | Erişim denetimi Yönetim Portalı'nda bir hizmet kimliği oluşturma | Azure portalında başka bir Azure AD web uygulaması oluşturma |
 | Kullanılan protokolü |-OAuth kaydırma Protokolü<br />-OAuth 2.0 taslak 13 istemci kimlik bilgileri verin | OAuth 2.0 istemci kimlik bilgileri verin |
 | İstemci kimlik doğrulaması yöntemleri |-Basit parola<br />-İmzalı SWT<br />-Bir Federasyon kimlik sağlayıcısından SAML belirteci |-Basit parola<br />-İmzalı JWT |
-| Belirteç biçimleri |-JWT<br />- SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | JWT yalnızca |
+| Belirteç biçimleri |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | JWT yalnızca |
 | Belirteç dönüştürme |-Özel talep ekleme<br />-Basit IF then talep verme mantığı | Özel talep ekleme | 
 | Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir | Desteklenen Microsoft Graph ve Azure AD grafik API'si |
 
@@ -314,7 +316,7 @@ Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geç
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için. |
 
 Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 

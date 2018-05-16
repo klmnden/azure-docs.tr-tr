@@ -1,13 +1,13 @@
 ---
-title: "Bağlı fabrika bakım çözümüne genel bakış - Azure | Microsoft Docs"
-description: "Azure IoT Paketi önceden yapılandırılmış Bağlı fabrika çözümü açıklaması."
-services: 
+title: Bağlı Fabrika çözümüne genel bakış - Azure | Microsoft Docs
+description: Azure IoT Bağlı Fabrika çözüm hızlandırıcısının açıklaması.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c5fe6cf6dff6fd8951a949761739cb12f98834bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Önceden yapılandırılmış bağlı fabrika çözümlerini kullanmaya başlama
+# <a name="get-started-with-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm hızlandırıcısını kullanmaya başlama
 
-Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *Bağlı fabrika* çözümü endüstriyel cihazlarınıza bağlanır ve cihazları izler. Çözümü kullanarak cihazlarınızdan yapılan veri akışını analiz edebilir, operasyonel verimliliği ve karlılığı artırabilirsiniz.
+Azure IoT çözüm hızlandırıcıları [çözüm hızlandırıcıları][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. *Bağlı Fabrika* çözüm hızlandırıcısı, endüstriyel cihazlarınıza bağlanır ve cihazları izler. Çözümü kullanarak cihazlarınızdan yapılan veri akışını analiz edebilir, operasyonel verimliliği ve karlılığı artırabilirsiniz.
 
-Bu öğretici, önceden yapılandırılmış Bağlı fabrika çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış çözümün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözümün bir parçası olarak dağıtılan çözüm *panosundan* erişebilirsiniz:
+Bu öğretici, Bağlı Fabrika çözüm hızlandırıcısının nasıl sağlanacağını gösterir. Ayrıca, çözüm hızlandırıcısının temel özelliklerinde rehberlik de sağlar. Bu özelliklerin birçoğuna çözüm hızlandırıcısının bir parçası olarak dağıtılan çözüm *panosundan* erişebilirsiniz:
 
-![Önceden yapılandırılmış bağlı fabrika çözümü panosu][img-cf-home]
+![Bağlı Fabrika çözüm Hızlandırıcısı panosu][img-cf-home]
 
 Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -37,8 +37,8 @@ Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir
 ## <a name="provision-the-solution"></a>Çözüm sağlama
 
 1. Azure hesabı kimlik bilgilerinizi kullanarak azureiotsuite.com adresinde oturum açın ve çözüm oluşturmak için “**+**” seçeneğine tıklayın.
-2. **Bağlı fabrika** kutucuğunda **Seç**’e tıklayın.
-3. Önceden yapılandırılmış Bağlı fabrika çözümünüz için bir **Çözüm adı** girin.
+2. **Bağlı Fabrika** kutucuğunda **Seç**’e tıklayın.
+3. Bağlı Fabrika çözüm hızlandırıcınız için bir **Çözüm adı** girin.
 4. Çözümü hazırlarken kullanmak istediğiniz **Abonelik** ve **Bölge** seçimini yapın.
 5. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
 
@@ -50,13 +50,13 @@ Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir
 4. Kutucuğa tıkladığınızda sağ bölmede çözümünüzün ayrıntılarını görürsünüz.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümün dağıtımında sorunlarla karşılaşırsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [Connected factory SSS](iot-suite-faq-cf.md). Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
+> Çözüm hızlandırıcısının dağıtımında sorunlarla karşılaşırsanız [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [Bağlı Fabrika SSS](iot-suite-faq-cf.md) sayfalarına göz atın. Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
 
 Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar mı var? [User Voice](https://feedback.azure.com/forums/321918-azure-iot) sitesinde özellik önerilerinde bulunun.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Önceden yapılandırılmış Bağlı fabrika çözümünü dağıttığınızda, genel bir endüstriyel senaryoyu adım adım görmenize olanak sağlayan kaynaklar ile önceden doldurulur. Bu senaryoda, çözüme bağlı çeşitli fabrikalar genel donanım verimliliğini (OEE) ve ana performans göstergelerini (KPI) hesaplamak için gereken veri değerlerini raporlar. Aşağıdaki bölümlerde şunları nasıl yapacağınız açıklanır:
+Bağlı Fabrika çözüm hızlandırıcısını dağıttığınızda, genel bir endüstriyel senaryoyu adım adım görmenize olanak sağlayan kaynaklar ile önceden doldurulur. Bu senaryoda, çözüme bağlı çeşitli fabrikalar genel donanım verimliliğini (OEE) ve ana performans göstergelerini (KPI) hesaplamak için gereken veri değerlerini raporlar. Aşağıdaki bölümlerde şunları nasıl yapacağınız açıklanır:
 
 * Fabrikayı, üretim hatlarını, istasyon OEE ve KPI değerlerini izleme
 * Azure Zaman Serisi Görüşlerini kullanarak bu cihazlardan oluşturulan telemetri verilerini analiz etme
@@ -68,17 +68,17 @@ Bu senaryonun temel bir özelliği, çözüm panosu kullanılarak tüm bu eyleml
 
 Çözüm panosu, dağıtılan çözümü yönetmenizi sağlar. Bu, genel fabrika yapılandırmasının hiyerarşik gösterimidir. Örneğin, OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve alarmları eyleme dönüştürebilirsiniz.
 
-1. Sağlama tamamlandığında ve önceden yapılandırılmış çözümünüzün kutucuğu **Hazır**’ı gösterdiğinde, Bağlı fabrika çözümü portalınızı yeni bir sekmede açmak için **Başlat**’ı seçin.
+1. Sağlama tamamlandığında ve çözüm hızlandırıcınızın kutucuğu **Hazır**’ı gösterdiğinde, Bağlı Fabrika çözüm portalınızı yeni bir sekmede açmak için **Başlat**’ı seçin.
 
-    ![Önceden yapılandırılmış çözümü başlatma][img-launch-solution]
+    ![Çözüm hızlandırıcısını başlatma][img-launch-solution]
 
 1. Varsayılan olarak, çözüm portalı *panoyu* gösterir. Portalın diğer alanlarına gitmek için sayfanın sol tarafındaki menüyü kullanın.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü panosu][cf-img-menu]
+    ![Bağlı Fabrika çözüm Hızlandırıcısı panosu][cf-img-menu]
 
 Pano aşağıdaki bilgileri gösterir:
 
-* Çözümdeki durumu, konumu ve geçerli üretim yapılandırmasını gösteren bir **fabrika konumları** paneli. Çözümü ilk kez çalıştırdığınızda, bir dizi sanal cihaz bulunur. Üretim hattı benzetimi, üretim hattı başına benzetimi yapılan görevleri gerçekleştiren ve verileri paylaşan üç gerçek OPC UA sunucusundan oluşur. OPC UA hakkında daha fazla bilgi için bkz. [Connected factory SSS](iot-suite-faq-cf.md).
+* Çözümdeki durumu, konumu ve geçerli üretim yapılandırmasını gösteren bir **fabrika konumları** paneli. Çözümü ilk kez çalıştırdığınızda, bir dizi sanal cihaz bulunur. Üretim hattı benzetimi, üretim hattı başına benzetimi yapılan görevleri gerçekleştiren ve verileri paylaşan üç gerçek OPC UA sunucusundan oluşur. OPC UA hakkında daha fazla bilgi için bkz. [Bağlı Fabrika SSS](iot-suite-faq-cf.md).
 * Çözüme bağlı olan her cihazın konumunu görüntüleyen bir **harita**. Çözüm, bilgileri haritaya çizmek için Bing Haritalar API’sini kullanabilir. Aboneliğiniz Bing Haritalar Kurumsal API’si için etkinleştirildiyse, bu özellik otomatik olarak kullanılır. Etkinleştirilmediyse, haritayı nasıl dinamik hale getireceğinizi öğrenmek için [SSS][lnk-faq] bölümüne bakın.
 * Telemetri veya OEE/KPI değeri belirli bir eşiği aştığında oluşturulan alarmların gösterildiği **Alarmlar** paneli.
 * Kuruluşun tamamı için veya görüntülediğiniz fabrika/üretim hattı/istasyon için OEE değerlerinin gösterildiği **Genel Donanım Verimliliği** paneli. Bu değer, kurumsal düzeyi bulmak için istasyon görünümünden toplanır. OEE şekli ve bu şekli oluşturan öğeler daha fazla analiz edilebilir.
@@ -88,7 +88,7 @@ Pano aşağıdaki bilgileri gösterir:
 
 *Fabrika Konumları* paneli çözümdeki tüm fabrikaların coğrafi konumunu, durumlarını ve geçerli üretim yapılandırmasını gösterir. Konum listesinden, çözüm hiyerarşisindeki diğer düzeylere gidebilirsiniz. Listedeki satırlar, söz konusu konumdaki üretim hatlarının ayrıntılarına bağlanan birer köprüdür. Böylelikle, üretim hattının detaylarına ve istasyon düzeyi görünümüne gitmek mümkün olur. Ayrıca listeye filtre uygulayabilirsiniz.
 
-![Önceden yapılandırılmış bağlı fabrika çözümü fabrikaları][cf-img-factories]
+![Bağlı Fabrika çözüm hızlandırıcısı fabrikaları][cf-img-factories]
 
 1. **Fabrika paneli**’nde bu çözümün fabrika listesi gösterilir.
 
@@ -106,7 +106,7 @@ Pano aşağıdaki bilgileri gösterir:
 
 Aboneliğinizin Bing Haritalar API’sine erişimi varsa, *Fabrikalar* haritasında size çözümdeki tüm fabrikaların coğrafi konumu ve durumu gösterilir. Konumun detaylarına gitmek için haritada görüntülenen konumlara tıklayın.
 
-![Önceden yapılandırılmış bağlı fabrika çözümü haritası][cf-img-map]
+![Bağlı Fabrika çözüm hızlandırıcısı haritası][cf-img-map]
 
 ## <a name="view-alarms"></a>Uyarıları görüntüleme
 
@@ -121,10 +121,10 @@ Aboneliğinizin Bing Haritalar API’sine erişimi varsa, *Fabrikalar* haritası
 * Cihazda OPC UA metodunu çağırarak alarma olan sorunu giderme.
 * Varsayılan eylemlerin kullanılabilirliğini engelleme.
 
-    ![Önceden yapılandırılmış Bağlı fabrika çözümü alarmları][cf-img-alerts]
+    ![Bağlı Fabrika çözüm hızlandırıcısı alarmları][cf-img-alerts]
 
 > [!NOTE]
-> Bu alarmlar, önceden yapılandırılmış çözümdeki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında alarmlar oluşturur.
+> Bu alarmlar, çözüm hızlandırıcısındaki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında alarmlar oluşturur.
 
 1. **Alarmlar panosunda**, bu çözümde oluşturulan alarmlar gösterilir.
 
@@ -138,23 +138,23 @@ Aboneliğinizin Bing Haritalar API’sine erişimi varsa, *Fabrikalar* haritası
 
 OEE, üretimle ilgili önemli operasyonel parametreleri kullanarak üretim sürecinin verimliliğini derecelendirir. OEE, kullanılabilirlik oranı, performans oranı ve kalite oranının çarpılmasıyla hesaplanan standart bir endüstri ölçümüdür: OEE = kullanılabilirlik x performans x kalite.
 
-![Önceden yapılandırılmış bağlı fabrika çözümü OEE][cf-img-oee]
+![Bağlı Fabrika çözüm hızlandırıcısı OEE][cf-img-oee]
 
 1. Hiyerarşideki herhangi bir düzeyin OEE ölçümünü görüntülemek için, ihtiyacınız olan görünüme gidin. Söz konusu görünümün OEE’si panelde OEE yüzdesini oluşturan öğelerden her biriyle birlikte görüntülenir.
 
 2. Hiyerarşi verilerinin herhangi bir düzeyinde OEE’de daha fazla analiz yapmak için, OEE, kullanılabilirlik, performans veya kalite yüzdesine tıklayın. Son bir saatin, son 24 saatin ve son 7 günün verilerinin gösterildiği, Zaman Serisi Görüşleri ile desteklenen görselleştirmelerle bir bağlam paneli görüntülenir.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü TSI görselleştirmesi][cf-img-tsi-visualization]
+    ![Bağlı Fabrika çözüm hızlandırıcısı TSI görselleştirmesi][cf-img-tsi-visualization]
 
 3. Alarm verilerini daha fazla çözümlemek için, alarm panelindeki grafiğe tıklayın. Bu eylem Zaman Serisi Görüşleri düzenleyici ortamını açar.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü TSI gezgini][cf-img-tsi-explorer]
+    ![Bağlı Fabrika çözüm hızlandırıcısı TSI gezgini][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Önemli Performans Göstergelerini görüntüleme
 
 Çözüm iki önemli performans göstergesi (*saat başına birim sayısı* ve *kWh cinsinden kullanılan enerji*) sağlar.
 
-![Önceden yapılandırılmış bağlı fabrika çözümü KPI][cf-img-kpi]
+![Bağlı Fabrika çözüm hızlandırıcısı KPI][cf-img-kpi]
 
 1. Hiyerarşideki herhangi bir düzeyin saat başına birim sayısını veya kullanılan enerji miktarını görüntülemek için, ihtiyacınız olan görünüme gidin. Saat başına birim sayısı ve kullanılan enerji miktarı panelde görüntülenir.
 
@@ -166,7 +166,7 @@ Bu senaryoda, panoda fabrikalarınızın OEE ve KPI değerlerini izlediniz. Ard�
 
 ## <a name="other-features"></a>Diğer özellikler
 
-Aşağıdaki bölümlerde, Bağlı fabrika çözümünün önceki senaryoda bahsedilmeyen bazı ek özellikleri açıklanmaktadır.
+Aşağıdaki bölümlerde, Bağlı Fabrika çözümünün önceki senaryoda bahsedilmeyen bazı ek özellikleri açıklanmaktadır.
 
 ## <a name="apply-filters"></a>Filtreleri uygulama
 
@@ -174,13 +174,13 @@ Aşağıdaki bölümlerde, Bağlı fabrika çözümünün önceki senaryoda bahs
 
 2. Sizin için filtreler paneli görüntülenir.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü filtreleri][cf-img-alert-filter]
+    ![Bağlı Fabrika çözüm hızlandırıcısı filtreleri][cf-img-alert-filter]
 
 3. Gerek duyduğunuz filtreyi seçin. Filtre alanlarına serbest metin yazmak mümkündür.
 
 4. Ardından filtre sizin için uygulanır. Panoda, fabrikalar ve alarmlar tablolarının içinde görüntülenen bir huni aracılığıyla filtrenin durumu da gösterilir.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü filtreleri][cf-img-alert-filter-funnel]
+    ![Bağlı Fabrika çözüm hızlandırıcısı filtreleri][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Etkin bir filtre görüntülenen OEE ve KPI değerlerini etkilemez; yalnızca liste içeriğini filtreler.
@@ -189,27 +189,27 @@ Aşağıdaki bölümlerde, Bağlı fabrika çözümünün önceki senaryoda bahs
 
 ## <a name="browse-an-opc-ua-server"></a>OPC UA sunucusuna göz atma
 
-Önceden yapılandırılmış çözümü dağıttığınızda, çözüm tarayıcısı üzerinden göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak hazırlarsınız. Bu sunucular, *sanal OPC UA sunucularıdır*. Sanal sunucular herhangi bir gerçek ve fiziksel sunucuya dağıtmaya gerek kalmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır. Çözüme gerçek bir OPC UA sunucusu bağlamak istemiyorsanız [OPC UA cihazınızı önceden yapılandırılmış Bağlı fabrika çözümüne bağlama][lnk-connect-cf] öğreticisine bakın.
+Çözüm hızlandırıcısını dağıttığınızda, çözüm tarayıcısı üzerinden göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak sağlarsınız. Bu sunucular, *sanal OPC UA sunucularıdır*. Sanal sunucular, herhangi bir gerçek ve fiziksel sunucu dağıtmaya gerek kalmadan çözüm hızlandırıcısıyla deneme yapmanızı kolaylaştırır. Çözüme gerçek bir OPC UA sunucusu bağlamak istemiyorsanız [OPC UA cihazınızı Bağlı Fabrika çözüm hızlandırıcısına bağlama][lnk-connect-cf] öğreticisine bakın.
 
 1. Pano gezinti çubuğunda **tarayıcı simgesine** tıklayın.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu tarayıcısı][cf-img-server-browser]
+    ![Bağlı Fabrika çözüm hızlandırıcısı sunucu tarayıcısı][cf-img-server-browser]
 
-2. Önceden yapılandırılmış listedeki sunuculardan birini seçin. Bu listede, önceden yapılandırılmış çözümde sizin için dağıtılan sunucular gösterilir.
+2. Önceden yapılandırılmış listedeki sunuculardan birini seçin. Bu listede, çözüm hızlandırıcısında sizin için dağıtılan sunucular gösterilir.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu seçimi][cf-img-server-choice]
+    ![Bağlı Fabrika çözüm hızlandırıcısı sunucu seçimi][cf-img-server-choice]
 
 3. **Bağlan**’a tıklayın; güvenlik iletişim kutusu görüntülenir. Benzetim için, **Devam Et**’e tıklamak güvenlidir
 
 4. Sunucu ağacındaki düğümlerden herhangi birini genişletmek için düğüme tıklayın. Yayımlama telemetrisi olan düğümlerin yanında bir onay işareti vardır.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu ağacı][cf-img-server-tree]
+    ![Bağlı Fabrika çözüm hızlandırıcısı sunucu ağacı][cf-img-server-tree]
 
 5. Düğümü okumak, yazmak, yayımlamak veya çağırmak için bir öğeye sağ tıklayın. Kullanabileceğiniz eylemler, izinlerinize ve düğümün özniteliklerine bağlıdır. Okuma seçeneği belirli bir düğümün değerini gösteren bağlam panelini görüntüler. Yazma seçeneği yeni değer girebileceğiniz bir bağlam paneli görüntüler. Çağırma seçeneği çağrı için parametreleri girebileceğiniz bir düğüm görüntüler.
 
 ## <a name="publish-a-node"></a>Düğümü yayımlama
 
-*Sanal OPC UA sunucusuna* göz attığınızda, yeni düğümleri yayımlamayı da seçebilirsiniz. Çözümde bu düğümlerden gelen telemetriyi analiz edebilirsiniz. Bu *sanal OPC UA sunucuları* gerçek ve fiziksel cihaza dağıtmaya gerek olmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır.
+*Sanal OPC UA sunucusuna* göz attığınızda, yeni düğümleri yayımlamayı da seçebilirsiniz. Çözümde bu düğümlerden gelen telemetriyi analiz edebilirsiniz. Bu *sanal OPC UA sunucuları*, gerçek ve fiziksel cihazlar dağıtılmadan çözüm hızlandırıcısıyla deneme yapmanızı kolaylaştırır.
 
 1. OPC UA sunucusu tarayıcı ağacında yayımlamak istediğiniz düğüme göz atın.
 
@@ -217,15 +217,15 @@ Aşağıdaki bölümlerde, Bağlı fabrika çözümünün önceki senaryoda bahs
 
 3. **Yayımla**’yı seçin.
 
-    ![Bağlı fabrika yayımlama düğümü][cf-img-publish-node]
+    ![Bağlı Fabrika yayımlama düğümü][cf-img-publish-node]
 
 4. Yayımlama işleminin başarılı olduğunu bildiren bir bağlam paneli görüntülenir. Düğüm, istasyon düzeyi görünümünde yanında bir onay işaretiyle gösterilir.
 
-    ![Önceden yapılandırılmış bağlı fabrika yayımlama başarısı][cf-img-publish-success]
+    ![Önceden yapılandırılmış Bağlı Fabrika yayımlama başarısı][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Komut ve denetim
 
-Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize ve denetlemenize olanak tanır. Cihaz tarafından oluşturulan alarmları yanıtlamak için bu özelliği kullanabilirsiniz. Örneğin, buluttan cihaza bir komut gönderebilirsiniz. Kullanılabilir komutları, OPC UA sunucuları tarayıcı ağacındaki **StationCommands** düğümünde bulabilirsiniz. Bu senaryoda, Münih’teki üretim hattının montaj istasyonundaki basınç tahliye vanasını açıyorsunuz. Kumanda etme ve denetleme işlevselliğini kullanmak için, önceden yapılandırılmış çözüm dağıtımında **Yönetici** rolünde olmanız gerekir.
+Bağlı Fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize ve denetlemenize olanak tanır. Cihaz tarafından oluşturulan alarmları yanıtlamak için bu özelliği kullanabilirsiniz. Örneğin, buluttan cihaza bir komut gönderebilirsiniz. Kullanılabilir komutları, OPC UA sunucuları tarayıcı ağacındaki **StationCommands** düğümünde bulabilirsiniz. Bu senaryoda, Münih’teki üretim hattının montaj istasyonundaki basınç tahliye vanasını açıyorsunuz. Kumanda etme ve denetleme işlevselliğini kullanmak için, çözüm hızlandırıcısı dağıtımında **Yönetici** rolünde olmanız gerekir.
 
 1. OPC UA sunucusu tarayıcı düğümünde **StationCommands** düğümüne göz atın.
 
@@ -235,39 +235,39 @@ Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize 
 
 4. **Çağır**’ı seçin.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü çağır komutu][cf-img-call-command]
+    ![Bağlı Fabrika çözüm hızlandırıcısı çağrı komutu][cf-img-call-command]
 
 5. Çağırmak üzere olduğunuz yöntem ve uygulanabilecek parametre ayrıntıları hakkında bilgi veren bir bağlam paneli açılır.
 
 6. **Çağır**’ı seçin.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü çağrı bağlamı][cf-img-call-context]
+    ![Bağlı Fabrika çözüm hızlandırıcısı çağrı bağlamı][cf-img-call-context]
 
 7. Bağlam paneli, yöntem çağrısının başarılı olduğunu bildirecek şekilde güncelleştirilir. Çağrı sonucu güncelleştirilen basınç düğümünün değerini okuyarak çağrının başarılı olduğunu doğrulayabilirsiniz.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü çağrı başarısı][cf-img-call-success]
+    ![Bağlı Fabrika çözüm hızlandırıcısı çağrı başarısı][cf-img-call-success]
 
 ## <a name="behind-the-scenes"></a>Arka planda
 
-Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
+Bir çözüm hızlandırıcısını dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, çözüm hızlandırıcınız için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
 
-![Azure portalında önceden yapılandırılmış çözüm][img-cf-portal]
+![Azure portalındaki çözüm hızlandırıcısı][img-cf-portal]
 
 Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek görüntüleyebilirsiniz.
 
-Önceden yapılandırılmış çözüm için kaynak kodunu da görüntüleyebilirsiniz. Önceden yapılandırılmış Bağlı fabrika çözümünün kaynak kodu [azure-iot-connected-factory][lnk-cfgithub] GitHub deposundadır:
+Çözüm hızlandırıcısı için kaynak kodu da görüntüleyebilirsiniz. Bağlı Fabrika çözüm hızlandırıcısı kaynak kodu, [azure-iot-connected-factory][lnk-cfgithub] GitHub deposundadır:
 
-İşiniz bittiğinde önceden yapılandırılmış çözümü [azureiotsuite.com][lnk-azureiotsuite] sitesindeki Azure aboneliğinizden silebilirsiniz. Bu site, önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları kolayca silmenize imkan tanır.
+İşiniz bittiğinde [azureiotsuite.com][lnk-azureiotsuite] sitesindeki Azure aboneliğinizden çözüm hızlandırıcısını silebilirsiniz. Bu site, çözüm hızlandırıcısını oluşturduğunuzda sağlanan tüm kaynakları kolayca silmenize imkan tanır.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümle ilgili her şeyi sildiğinizden emin olmak için bu öğeleri [azureiotsuite.com][lnk-azureiotsuite] sitesinde silin. Portalda kaynak grubunu silmeyin.
+> Çözüm hızlandırıcısıyla ilgili her şeyi sildiğinizden emin olmak için bu öğeleri [azureiotsuite.com][lnk-azureiotsuite] sitesinde silin. Portalda kaynak grubunu silmeyin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Çalışan bir önceden yapılandırılmış çözüm dağıttığınıza göre aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
+Çalışan bir çözüm hızlandırıcısı dağıttığınıza göre aşağıdaki makaleleri okuyarak IoT çözüm hızlandırıcılarıyla çalışmaya başlayabilirsiniz:
 
-* [Önceden yapılandırılmış bağlı fabrika çözümü yönergeleri][lnk-rm-walkthrough]
-* [Cihazınızı önceden yapılandırılmış Bağlı fabrika çözümüne bağlama][lnk-connect-cf]
+* [Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu][lnk-rm-walkthrough]
+* [Cihazınızı Bağlı Fabrika çözüm hızlandırıcısına bağlama][lnk-connect-cf]
 * [azureiotsuite.com sitesindeki izinler][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
@@ -293,7 +293,7 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

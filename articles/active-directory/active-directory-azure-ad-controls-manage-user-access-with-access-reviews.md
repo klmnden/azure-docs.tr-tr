@@ -1,11 +1,11 @@
 ---
-title: "Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme| Microsoft Docs"
-description: "Azure Active Directory erişim gözden geçirmeleri ile bir grup üyeliği veya bir uygulamaya atama aracılığıyla kullanıcı erişimini yönetmeyi öğrenin"
+title: Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme| Microsoft Docs
+description: Azure Active Directory erişim gözden geçirmeleri ile bir grup üyeliği veya bir uygulamaya atama aracılığıyla kullanıcı erişimini yönetmeyi öğrenin
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 6a4d25b2eb228cafab48419a0d0eda92bba9f1ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b11f0b2032a102501de1da8315e80df88bfd57d5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) sayesinde kullanıcıların uygun erişime sah
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
-Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md). Bir gözden geçirme oluşturmak, gözden geçirmeye erişmek veya gözden geçirme uygulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir.
+Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-whatis.md). Bir gözden geçirme oluşturmak, gözden geçirmeye erişmek veya gözden geçirme uygulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir.
 
 
 ## <a name="create-and-perform-an-access-review"></a>Erişim gözden geçirmesi oluşturma ve gerçekleştirme

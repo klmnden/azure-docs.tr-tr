@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7e4731e150c2d6428fa8c752765780f827c33741
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama proxy'si ve Qlik algılama 
 Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılama dağıtımınız için uzaktan erişim sağlamak için uygulama proxy'si kullanmanız mümkün olduğundan emin olmak için birlikte ortaklık.  
@@ -59,4 +59,4 @@ Artık uygulamanızı test etmek hazırdır. Her iki uygulamalarına atanan bir 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 - [Uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)
-- [Uygulama proxy'si bağlayıcıları ile çalışma](active-directory-application-proxy-connectors-azure-portal.md).
+- [Uygulama proxy'si bağlayıcıları ile çalışma](manage-apps/application-proxy-connector-groups.md).

@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 227792bcf5776b4fd13c263e02aa462b4d2d104f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Uygulama proxy'si ile başlayın ve Bağlayıcısı'nı yüklemek
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
@@ -33,7 +33,7 @@ Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara
 * Windows Server 2012 R2 veya uygulama Proxy Bağlayıcısı yükleme 2016 çalıştıran bir sunucu. Sunucu uygulama ara sunucusu hizmetlerini Bulut ve yayımladığınız şirket içi uygulamalara bağlanmak gerekir.
   * Çoklu oturum açma için Kerberos Kısıtlı temsilci kullanarak, yayımlanan uygulamalar için bu makine etki alanı-yayımladığınız uygulama ile aynı AD etki alanındaki katılması. Bilgi için bkz: [uygulama proxy'si ile çoklu oturum açma için KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
-Kuruluşunuzun internet'e bağlanmak için proxy sunucuları kullanıyorsa, okuma [varolan çalışma şirket içi proxy sunucuları](../application-proxy-working-with-proxy-servers.md) uygulama proxy'si ile çalışmaya başlamadan önce bunların nasıl yapılandırılacağı hakkında ayrıntılı bilgi için.
+Kuruluşunuzun internet'e bağlanmak için proxy sunucuları kullanıyorsa, okuma [varolan çalışma şirket içi proxy sunucuları](application-proxy-configure-connectors-with-proxy-servers.md) uygulama proxy'si ile çalışmaya başlamadan önce bunların nasıl yapılandırılacağı hakkında ayrıntılı bilgi için.
 
 ## <a name="open-your-ports"></a>Bağlantı noktalarını açın
 
@@ -51,7 +51,7 @@ Azure AD uygulama proxy'si için ortamınızı hazırlamak için ilk Azure veri 
    > [!IMPORTANT]
    > Bağlayıcı sürümleri 1.5.132.0 bağlantı noktası gereksinimleri tablosu yansıtır ve daha yeni. Bağlayıcı sürümün hala varsa, aşağıdaki bağlantı noktaları 80 ve 443: 5671, 8080 yanı sıra etkinleştirmek etmeniz 9090-9091 9350, 9352, 10100 – 10120.
    >
-   >Bağlayıcılar en yeni sürüme güncelleştirme hakkında daha fazla bilgi için bkz: [anlamak Azure AD uygulama proxy'si Bağlayıcılar](../application-proxy-understand-connectors.md#automatic-updates).
+   >Bağlayıcılar en yeni sürüme güncelleştirme hakkında daha fazla bilgi için bkz: [anlamak Azure AD uygulama proxy'si Bağlayıcılar](application-proxy-connectors.md#automatic-updates).
 
 2. Güvenlik Duvarı veya proxy DNS uygulamaları güvenilir listeye almayı izin veriyorsa, msappproxy.net ve servicebus.windows.net beyaz liste bağlantıları kullanabilirsiniz. Erişmesine izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), her hafta güncelleştirilir.
 
@@ -99,10 +99,10 @@ Sunucunuzda, bağlayıcıyı ve connector updater için etkin hizmetlerin listes
 
    ![Uygulama Ara Sunucusu Bağlayıcısı hizmetleri - ekran görüntüsü](./media/application-proxy-enable/app_proxy_services.png)
 
-Bağlayıcılar ve nasıl güncel kalmasını hakkında daha fazla bilgi için bkz: [anlamak Azure AD uygulama proxy'si Bağlayıcılar](../application-proxy-understand-connectors.md).
+Bağlayıcılar ve nasıl güncel kalmasını hakkında daha fazla bilgi için bkz: [anlamak Azure AD uygulama proxy'si Bağlayıcılar](application-proxy-connectors.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık [Uygulama Ara Sunucusu ile uygulamaları yayımlamaya](application-proxy-publish-azure-portal.md) hazırsınız.
 
-Ayrı ağlarda ya da farklı konumlarda uygulamalarınız varsa, farklı bağlayıcılar mantıksal birimler halinde düzenlemek için bağlayıcı gruplarını kullanın. [Uygulama Proxy bağlayıcıları ile çalışma](../active-directory-application-proxy-connectors-azure-portal.md) hakkında daha fazla bilgi edinin.
+Ayrı ağlarda ya da farklı konumlarda uygulamalarınız varsa, farklı bağlayıcılar mantıksal birimler halinde düzenlemek için bağlayıcı gruplarını kullanın. [Uygulama Proxy bağlayıcıları ile çalışma](application-proxy-connector-groups.md) hakkında daha fazla bilgi edinin.

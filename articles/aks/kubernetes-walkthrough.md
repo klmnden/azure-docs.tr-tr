@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d07cf87f736b6df58ed46ef0ae98767d4d8a7a48
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Hızlı başlangıç: Azure Container Service (AKS) kümesini dağıtma
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
 Bu hızlı başlangıçta, Azure CLI kullanılarak AKS kümesi dağıtılır. Ardından web ön ucu ve bir Redis örneğinden oluşan çok kapsayıcılı bir uygulama küme üzerinde çalıştırılır. Tamamlandığında, uygulamaya İnternet üzerinden erişilebilir.
 
@@ -108,9 +108,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Kubernetes bildirim dosyası, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Sağlanan görüntü bir örnek uygulamadır, ancak kendinizinkini kullanmak için [görüntü oluşturma](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) ve [Azure Container Registry’ye dağıtma](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) konularını okuyabilirsiniz.
+Kubernetes bildirim dosyası, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu, biri Azure Vote Python uygulamaları için, diğeri de Redis örneği için olmak üzere iki [Kubernetes dağıtımı][kubernetes-deployment] içerir. Ayrıca, Redis örneği için bir iç hizmet ve İnternet’ten Azure Vote uygulamasına erişmek için bir dış hizmet olmak üzere iki [Kubernetes Hizmeti][kubernetes-service] oluşturulur.
 
-`azure-vote.yaml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML koduna kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir. Yerel olarak çalışıyorsanız, `code azure-vote.yaml` çalıştırarak bu dosyayı oluşturmak için Visual Studio Code kullanabilirsiniz.
+`azure-vote.yaml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML koduna kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -217,7 +217,7 @@ Artık Azure Vote Uygulamasını görmek için dış IP adresine göz atabilirsi
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 
-Kümeye artık ihtiyacınız yoksa [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
+Kümeye artık ihtiyacınız yoksa [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırın.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -242,8 +242,9 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->

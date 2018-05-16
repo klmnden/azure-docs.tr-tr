@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bdc97e9e28dd2af090c82378457b3c93b276cc58
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/28/2018
 
 * Azure aboneliğinizde Katkıda Bulunan rolü ile bir hizmet sorumlusu oluşturma izinleri
 
-* Var olan bir Azure Container Service (AKS) kümesi. Bir AKS kümesi gerekirse [AKS kümesi oluşturma][create-aks-cluster] hızlı başlangıcını izleyin.
+* Mevcut bir Azure Kubernetes Hizmeti (AKS) kümesi. Bir AKS kümesi gerekirse [AKS kümesi oluşturma][create-aks-cluster] hızlı başlangıcını izleyin.
 
 ## <a name="install-service-catalog"></a>Hizmet Kataloğu yükleme
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makaleyi izleyerek, bir Azure Container Service (AKS) kümesine Hizmet Kataloğu dağıttınız. Bu örnekte MySQL için Azure Veritabanı olan Azure tarafından yönetilen hizmetleri kullanan bir WordPress yüklemesi dağıtmak üzere Azure için Açık Hizmet Aracısı kullandınız.
+Bu makaleyi izleyerek, bir Azure Kubernetes Hizmeti (AKS) kümesine Hizmet Kataloğu dağıttınız. Bu örnekte MySQL için Azure Veritabanı olan Azure tarafından yönetilen hizmetleri kullanan bir WordPress yüklemesi dağıtmak üzere Azure için Açık Hizmet Aracısı kullandınız.
 
 Diğer güncelleştirilmiş OSBA tabanlı Helm grafiklerine erişmek için [Azure/helm-charts][helm-charts] deposuna bakın. OSBA ile çalışan kendi grafiklerinizi oluşturmak istiyorsanız bkz. [Yeni Grafik Oluşturma][helm-create-new-chart].
 

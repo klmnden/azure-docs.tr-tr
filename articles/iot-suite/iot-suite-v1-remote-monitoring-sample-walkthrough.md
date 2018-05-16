@@ -1,12 +1,12 @@
 ---
-title: "Önceden yapılandırılmış Uzaktan İzleme çözümünde gezinme | Microsoft Belgeleri"
-description: "Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması."
-services: 
+title: Önceden yapılandırılmış Uzaktan İzleme çözümünde gezinme | Microsoft Belgeleri
+description: Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
 
@@ -35,7 +35,17 @@ Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız i
 
 Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
-![Mantıksal mimari](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Mantıksal mimari](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Mikro Hizmetler ve Docker Kapsayıcıları
+Uzaktan İzleme, mikro hizmetler mimarisinden yararlanmak için sunulmuş önceden yapılandırılmış çözümlerimizin ilkidir. Çözüm, hem [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)’te hem de [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)’da kullanılabilir.
+Mikro hizmetler, geliştirme hızından taviz vermeden ölçek ve esneklik elde etmek için (kapsayıcıların tek tek ölçeklendirilmesine izin vererek) yaygın bir düzen olarak ortaya çıkmıştır.
+Mikro hizmetler, kodu bölümlere ayırıp düzgün tanımlanmış arabirimler sağlayarak çözümün anlaşılmasını kolaylaştırır ve çözümü daha az tek parçalı hale getirir. Para kazandıran tamamlanmış çözümler derlemek için geçerli çözümümüzü genişletmek isteyen iş ortakları için seçenekleri de genişletir.
+
+**Docker Kapsayıcıları hakkında daha fazla bilgi edinin**
+* [Docker'ı yükleyin](https://docs.docker.com/engine/installation/)
+* [Uzaktan İzleme için Yaygın Docker Komutları](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Docker - Başlangıç](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 
@@ -116,7 +126,7 @@ Sanal cihazlar IoT hub aracılığıyla çözüm portalından gönderilen aşağ
 > [!NOTE]
 > Bu komutlar (buluttan cihaza iletiler) ile yöntemlerin (doğrudan yöntemler) bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
 
-## <a name="iot-hub"></a>IoT Hub’ı
+## <a name="iot-hub"></a>IoT Hub
 
 [IoT hub][lnk-iothub], cihazlardan buluta gönderilen verileri alır ve Azure Stream Analytics (ASA) işlerinde kullanılabilir hale getirir. ASA işinin kullandığı her akış, cihazlarınızdaki ileti akışını okumak için ayrı bir IoT Hub tüketici grubu kullanır.
 

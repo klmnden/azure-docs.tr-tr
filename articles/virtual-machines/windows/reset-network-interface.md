@@ -1,24 +1,24 @@
 ---
-title: "Ağ arabirimi için Azure Windows VM sıfırlama | Microsoft Docs"
-description: "Ağ arabirimi için Azure Windows VM sıfırlamak nasıl gösterir"
+title: Ağ arabirimi için Azure Windows VM sıfırlama | Microsoft Docs
+description: Ağ arabirimi için Azure Windows VM sıfırlamak nasıl gösterir
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 6bf5c991e8a96cfdcbad971e0f2ea2dfd01f2893
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7c78c80e5eaceb210a50549e2885e56c0d9ec7f1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Ağ arabirimi için Azure Windows VM sıfırlama 
 
@@ -63,7 +63,7 @@ Makine için Uzak Masaüstü için sonra olası sorunu önlemek için eski NIC'l
 2.  Seçin **Görünüm** > **gizli aygıtları göster**.
 3.  Seçin **ağ bağdaştırıcıları**. 
 4.  "Microsoft Hyper-V ağ bağdaştırıcısı" adlı bağdaştırıcıları denetleyin.
-5.  Gri renkte bağdaştırıcıyı kullanılamaz görebilirsiniz. Bağdaştırıcıyı sağ tıklatın ve ardından Kaldır'ı seçin.
+5.  Kullanılamaz durumdaki gri renkli bir bağdaştırıcı görebilirsiniz. Bağdaştırıcıyı sağ tıklatın ve ardından Kaldır'ı seçin.
 
     ![NIC görüntüsü](media/reset-network-interface/nicpage.png)
 

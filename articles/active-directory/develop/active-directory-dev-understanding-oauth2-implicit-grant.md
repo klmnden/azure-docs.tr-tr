@@ -1,25 +1,27 @@
 ---
-title: "Azure AD içinde izin akışı örtük OAuth2 anlama | Microsoft Docs"
-description: "Akışı vermek örtük OAuth2 Azure Active Directory'nin uygulaması hakkında daha fazla bilgi edinin ve uygulamanız için uygun olup."
+title: Azure AD içinde izin akışı örtük OAuth2 anlama | Microsoft Docs
+description: Akışı vermek örtük OAuth2 Azure Active Directory'nin uygulaması hakkında daha fazla bilgi edinin ve uygulamanız için uygun olup.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 263a093d5cf4b48ed1dadd4a288e548065ddf282
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>OAuth2 örtük grant akış içinde Azure Active Directory (AD) Anlama
 OAuth2 örtük verme OAuth2 belirtimi Güvenlik sorunlarının en uzun listesiyle grant olması için notorious olur. Ve henüz, ADAL JS ve SPA uygulamaları yazarken öneririz biri tarafından uygulanan bir yaklaşımdır. Neler sağlar? Tüm sağlasa da, bileşim olduğu: ve ortaya çıkmıştır gibi örtük grant sizin bir işin peşine düşmek tarayıcıdan JavaScript aracılığıyla bir Web API kullanan uygulamalar için en iyi yaklaşımdır.

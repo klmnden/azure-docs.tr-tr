@@ -11,11 +11,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: omidm
-ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 31b58176a75918cf68cda695f27216031670493e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Etki alanına katılmış Hdınsight kümelerini yönetme
 Kullanıcılar ve roller etki alanına katılmış ve etki alanına katılmış Hdınsight kümelerini yönetme konusunda bilgi edinin.
@@ -101,6 +101,8 @@ Güvenlik ve kullanıcı yalıtımı Kurumsal güvenlik paketi ile bir Hdınsigh
 |Etkileşimli sorgu (LLAP)|Etkileşimli|<ul><li>[Beeline](#beeline)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Herhangi biri|Özel bir uygulama yükleyin|<ul><li>[Betik eylemleri](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
+   > [!NOTE]
+   > Jupyter yüklü/desteklenen Kurumsal güvenlik paketinde değil.
 
 Standart API'lerini kullanarak, güvenlik açısından yardımcı olur. Ayrıca, aşağıdaki faydaları alın:
 

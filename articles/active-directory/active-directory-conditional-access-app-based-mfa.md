@@ -15,24 +15,22 @@ ms.workload: identity
 ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d675236f36840858f0f011484392186d355ac6df
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 475b0229b9e627a56b02d2299ee2e5400aa0ede1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA gerekir. 
 
 Kullanıcılarınız oturum açma deneyimini basitleştirmek için bunları bir kullanıcı adı ve parola kullanarak, bulut uygulamalarınızı oturum açmak izin vermek isteyebilirsiniz. Bununla birlikte, çoğu ortam için daha güçlü bir form çok faktörlü kimlik doğrulaması (MFA) gibi hesap doğrulama gerektirecek şekilde önerilir; en az birkaç uygulama var. Bu, kuruluşunuzun e-posta sisteminize veya HR uygulamalarınızı erişimi için örnek true için olabilir. Azure Active Directory (Azure AD), bu hedefi bir koşullu erişim ilkesi ile gerçekleştirebilirsiniz.    
 
-Bu hızlı başlangıç nasıl yapılandırılacağını göstermektedir bir [Azure AD koşullu erişim ilkesi](active-directory-conditional-access-azure-portal.md) seçili bulut uygulamalarını ortamınızdaki kümesi için çok faktörlü kimlik doğrulaması gerektirir.
+Bu hızlı başlangıç nasıl yapılandırılacağını göstermektedir bir [Azure AD koşullu erişim ilkesi](active-directory-conditional-access-azure-portal.md) seçili bulut uygulamasının ortamınızda çok faktörlü kimlik doğrulaması gerektirir.
+
+![İlke oluşturma](./media/active-directory-conditional-access-app-based-mfa/32.png)
 
 
-## <a name="scenario-description"></a>Senaryo açıklaması
-
-Bu makalede senaryoda belirli bir kullanıcı için MFA gerektiren bir bulut uygulama için yer tutucu olarak Azure Portalı'nı kullanır. Isabella Simonsen, kuruluşunuzdaki bir kullanıcıdır. Azure portalında oturum açtıktan, daha fazla MFA ile hesabını doğrulamak için her istediğinizde.
-
-![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 
 
@@ -40,27 +38,31 @@ Bu makalede senaryoda belirli bir kullanıcı için MFA gerektiren bir bulut uyg
 
 Bu hızlı başlangıç senaryoda tamamlamak için gerekir:
 
-- **Bir Azure AD Premium edition erişimi** -Azure AD koşullu erişimi olan bir Azure AD Premium özelliği. Bir Azure AD Premium edition erişimi yoksa, şunları yapabilirsiniz [bir deneme sürümü için kaydolma](https://azure.microsoft.com/trial/get-started-active-directory/).
+- **Bir Azure AD Premium edition erişimi** -Azure AD koşullu erişimi olan bir Azure AD Premium özelliği. 
 
-- **Bir test hesabı olarak adlandırılan Isabella Simonsen** - sınama hesabı oluşturma, okuma bilmiyorsanız [bu yönergeleri](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+- **Bir test hesabı olarak adlandırılan Isabella Simonsen** - sınama hesabı oluşturma, bkz: bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 
 ## <a name="create-your-conditional-access-policy"></a>Koşullu erişim ilkesi oluşturma 
 
-Bu bölümde gerekli koşullu erişim ilkesinin nasıl oluşturulacağını gösterir.  
-İlkenizde, ayarladığınız:
+Bu bölümde gerekli koşullu erişim ilkesinin nasıl oluşturulacağını gösterir. Bu hızlı başlangıç senaryoda kullanır:
+
+- Azure portalı MFA gerektiren bir bulut uygulama için yer tutucu olarak. 
+- Koşullu erişim ilkesini test etmek için örnek kullanıcı.  
+
+İlkenizde, ayarlayın:
 
 |Ayar |Değer|
 |---     | --- |
 |Kullanıcılar ve gruplar | Isabella Simonsen |
 |Bulut uygulamaları | Microsoft Azure Yönetimi |
-|Erişim İzni Verme | Çok faktörlü kimlik doğrulaması gerektir |
+|Erişim verme | Çok faktörlü kimlik doğrulaması gerektir |
  
 
 ![İlke oluşturma](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
-
+ 
 
 
 **Koşullu erişim ilkesini yapılandırmak için:**
@@ -137,9 +139,19 @@ Bu bölümde gerekli koşullu erişim ilkesinin nasıl oluşturulacağını gös
 13. **Oluştur**’a tıklayın.
 
 
-## <a name="evaluate-your-conditional-access-policy"></a>Koşullu erişim ilkenizi değerlendir
+## <a name="evaluate-a-simulated-sign-in"></a>Bir sanal oturum açma değerlendir
 
-Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla beklendiği gibi çalışıp çalışmadığını bilmek ister. İlk adım olarak, kullandığınız [ne yapmalı koşullu erişim ilkesi aracı](active-directory-conditional-access-whatif.md) bir oturum açma, bir kullanıcının benzetimini yapmak için. Aracıyla yapılandırırken **Isabella Simonsen** kullanıcı olarak ve **Microsoft Azure Management** bulut uygulama olarak, aracı gösterir **Azure portal erişimi için MFA gerektiren** altında **Uygulanacak ilkeleri** ve **çok faktörlü kimlik doğrulaması gerektiren** olarak **verme denetimleri**.
+Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla beklendiği gibi çalışıp çalışmadığını bilmek ister. İlk adım olarak, koşullu erişim ilkesi ne aracı bir oturum açma, test kullanıcısının benzetimini yapmak için kullanın. Bu oturum açma etki ilkelerinizi sahiptir ve benzetimi raporunu oluşturur benzetimi tahmin eder.  
+
+İlke Değerlendirme Aracı ayarlarsanız ne başlatmak için:
+
+- **Isabella Simonsen** kullanıcı olarak 
+- **Microsoft Azure Management** bulut uygulaması olarak
+
+ Tıklatarak **ne** gösteren benzetimi raporunu oluşturur:
+
+- **Azure portal erişimi için MFA'ya gerek** altında **uygulanacak ilkeleri** 
+- **Çok faktörlü kimlik doğrulaması gerektiren** olarak **verme denetimleri**.
 
 ![Ne ilke aracı](./media/active-directory-conditional-access-app-based-mfa/23.png)
 
@@ -174,11 +186,22 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla be
 
 ## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
 
-Önceki bölümde önceki bölümde, 
+Önceki bölümde, bir sanal oturum açma değerlendirmek öğrendiniz. Benzetim yanı sıra, beklendiği gibi çalıştığından emin olmak için koşullu erişim ilkenizi test etmeniz gerekir. 
 
 İlkeniz test etmek için oturum için açma deneyin, [Azure portal](https://portal.azure.com) kullanarak, **Isabella Simonsen** test hesabı. Hesabınızı ek güvenlik doğrulama kaydınızı ayarlamanızı gerektiren bir iletişim kutusu görmeniz gerekir.
 
 ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli olduğunda, test kullanıcısı ve koşullu erişim ilkesini Sil:
+
+- Bir Azure AD kullanıcısının silmek nasıl bilmiyorsanız, bkz: [kullanıcılar Azure AD'den silme](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+
+- İlkeniz silmek için ilkeyi seçin ve ardından **silmek** hızlı erişim araç.
+
+    ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/33.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,11 +15,11 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f31b5be80ae56ffe4d0f570cb8d25da8cc098009
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 974c364588d34631c8214352be7821c69e5f7aa7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Şirket içi uygulamalarınızı Microsoft Teams erişme
 
@@ -54,5 +54,5 @@ Bir ekibin üyesi sekmesi ekler sonra herkesin kanal görüntülersiniz. Uygulam
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [şirket içi SharePoint siteleri yayımlamak](application-proxy-enable-remote-access-sharepoint.md) uygulama proxy'si ile.
+- Bilgi edinmek için nasıl [şirket içi SharePoint siteleri yayımlamak](manage-apps/application-proxy-integrate-with-sharepoint-server.md) uygulama proxy'si ile.
 - Kullanmak için uygulamalarınızı yapılandırmanızı [özel etki alanlarını](manage-apps/application-proxy-configure-custom-domain.md) kendi dış URL. 

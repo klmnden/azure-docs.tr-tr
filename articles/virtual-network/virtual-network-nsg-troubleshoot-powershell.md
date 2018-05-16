@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Ağ güvenlik grupları Azure PowerShell kullanarak sorun giderme
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Bu örnek 3389 numaralı TCP bağlantı noktasını kullanır, ancak herhangi bi
 ## <a name="detailed-troubleshooting-steps"></a>Ayrıntılı sorun giderme adımları
 Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
 
-1. Bir Azure PowerShell oturumu ve Azure oturum açma başlatın. Azure PowerShell ile bilmiyorsanız okuma [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Bir Azure PowerShell oturumu ve Azure oturum açma başlatın. Azure PowerShell ile bilmiyorsanız okuma [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Adlı bir NIC uygulanan tüm NSG kuralları döndürmek için aşağıdaki komutu girin *VM1 nıc1* kaynak grubunda *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

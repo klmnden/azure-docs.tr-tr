@@ -1,7 +1,7 @@
 ---
 title: Derin öğrenme ve AI çerçeveleri - Azure | Microsoft Docs
 description: Derin Öğrenme ve AI çerçeveleri
-keywords: Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar
+keywords: veri bilimi araçları, veri bilimi sanal makinesi, veri bilimi için araçlar, linux veri bilimi
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makine](http://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](http://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz yapay Intelligence (AI) uygulamalarla oluşturmanıza yardımcı olmak üzere derin öğrenme çerçeveleri destekler ve bilişsel özellikleri görüntü ve dil anlama gibi. 
@@ -80,6 +80,7 @@ ms.lasthandoff: 04/20/2018
 | Nedir?   | Derin öğrenme çerçevesi      |
 | Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Caffe yüklü `/opt/caffe`.    |
+| Python 2.7 için geçiş yapma | `source activate root` öğesini çalıştırın |
 | Örnekleri bağlantılar      | Örnekleri dahil edilmiştir `/opt/caffe/examples`.      |
 | DSVM ilgili araçları      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?  
@@ -88,12 +89,15 @@ VM'nize, oturum açma sonra yeni bir terminal başlatmak ve girmek için X2Go ku
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Örnek dizüstü bilgisayarlarla yeni bir tarayıcı penceresi açar.
 
-İkili dosyaları /opt/caffe/build/install/bin yüklenir. 
+İkili dosyaları /opt/caffe/build/install/bin yüklenir.
+
+Caffe yüklü olan sürümü Python 2.7 gerektirir ve Python varsayılan olarak etkinleştirilen 3.5 ile çalışmaz. Çalıştırma `source activate root` Anaconda ortamına geçiş yapmak için. 
 
 ## <a name="caffe2"></a>Caffe2
 

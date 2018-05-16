@@ -3,11 +3,12 @@ title: Azure AD iOS Başlarken | Microsoft Docs
 description: Oturum açma ve Azure AD aramalar için Azure AD ile tümleşen bir iOS uygulamasının nasıl oluşturulacağını, OAuth kullanılarak API'leri korunan.
 services: active-directory
 documentationcenter: ios
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 598771eb12d0608ef424c08401b04191a2cc3ee8
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1ceae59cca5790d9d74f72ce644e31fb0949cd49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -67,12 +68,12 @@ Belirteçleri almak için uygulamanızı ayarlayın için önce Azure AD kiracı
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Yeni bir oluşturmak için istemleri izleyin **yerel istemci uygulaması**.
   * **Adı** uygulamanızı son kullanıcıların uygulamayı açıklar.
-  * **Yeniden yönlendirme URI'si** belirteci yanıtları döndürmek için Azure AD kullanır ve dize şeması bir birleşimidir.  Uygulamanıza özeldir ve önceki yeniden yönlendirme URI'si bilgiyi temel alan bir değer girin.
-6. Azure AD kaydı'nı tamamladıktan sonra uygulamanızı bir benzersiz uygulama kimliği atar.  Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
-7. Gelen **ayarları** sayfasında, **gerekli izinler** ve ardından **Ekle**. Seçin **Microsoft Graph** API olarak ve ardından ekleyin **dizin verilerini okuma** altında izni **izinlere temsilci**.  Bu kullanıcılar için Azure AD Graph API sorgulamak için uygulamanızı ayarlar.
+  * **Yeniden yönlendirme URI'si** belirteci yanıtları döndürmek için Azure AD kullanır ve dize şeması bir birleşimidir. Uygulamanıza özeldir ve önceki yeniden yönlendirme URI'si bilgiyi temel alan bir değer girin.
+6. Azure AD kaydı'nı tamamladıktan sonra uygulamanızı bir benzersiz uygulama kimliği atar. Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
+7. Gelen **ayarları** sayfasında, **gerekli izinler** ve ardından **Ekle**. Seçin **Microsoft Graph** API olarak ve ardından ekleyin **dizin verilerini okuma** altında izni **izinlere temsilci**. Bu kullanıcılar için Azure AD Graph API sorgulamak için uygulamanızı ayarlar.
 
 ## <a name="3-install-and-configure-adal"></a>3. Yükleme ve yapılandırma ADAL
-Azure AD'de bir uygulamanız varsa, ADAL yükleyin ve kimlikle ilgili kodunuzu yazın.  Azure AD ile iletişim kurmak ADAL için uygulama kaydınızı hakkında bazı bilgiler ile sağlamanız gerekir.
+Azure AD'de bir uygulamanız varsa, ADAL yükleyin ve kimlikle ilgili kodunuzu yazın. Azure AD ile iletişim kurmak ADAL için uygulama kaydınızı hakkında bazı bilgiler ile sağlamanız gerekir.
 
 1. CocoaPods kullanarak ADAL DirectorySearcher projeye ekleyerek başlayın.
 
@@ -97,15 +98,15 @@ Azure AD'de bir uygulamanız varsa, ADAL yükleyin ve kimlikle ilgili kodunuzu y
     $ open QuickStart.xcworkspace
     ```
 
-4. Hızlı başlangıç projesi plist dosyasını açın `settings.plist`.  Azure portalında girdiğiniz değerleri yansıtacak şekilde bölümdeki öğelerinin değerlerini değiştirin. ADAL kullandığında kodunuzu bu değerleri başvurur.
+4. Hızlı başlangıç projesi plist dosyasını açın `settings.plist`. Azure portalında girdiğiniz değerleri yansıtacak şekilde bölümdeki öğelerinin değerlerini değiştirin. ADAL kullandığında kodunuzu bu değerleri başvurur.
   * `tenant` Azure AD kiracınız, örneğin, contoso.onmicrosoft.com etki alanıdır.
   * `clientId` Portalından kopyalandığından, uygulamanızın istemci kimliği.
   * `redirectUri` Portalı'nda kayıtlı yeniden yönlendirme URL'si.
 
-## <a name="4----use-adal-to-get-tokens-from-azure-ad"></a>4.    Azure AD'den belirteçleri almak için ADAL'ı kullanın
-Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, bu yalnızca bir completionBlock çağırdığı ilkesidir `+(void) getToken : `, ve ADAL rest yapar.  
+## <a name="4-use-adal-to-get-tokens-from-azure-ad"></a>4. Azure AD'den belirteçleri almak için ADAL'ı kullanın
+Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, bu yalnızca bir completionBlock çağırdığı ilkesidir `+(void) getToken : `, ve ADAL rest yapar. 
 
-1. İçinde `QuickStart` proje, açık `GraphAPICaller.m` ve bulun `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` ilk açıklama.  ADAL burada geçirdiğiniz budur Azure AD ile iletişim kurmak ve belirteçleri önbelleğe almak nasıl bildirmek için bir CompletionBlock aracılığıyla koordinatları.
+1. İçinde `QuickStart` proje, açık `GraphAPICaller.m` ve bulun `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` ilk açıklama. ADAL burada geçirdiğiniz budur Azure AD ile iletişim kurmak ve belirteçleri önbelleğe almak nasıl bildirmek için bir CompletionBlock aracılığıyla koordinatları.
 
     ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -146,7 +147,7 @@ Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, bu
 
     ```
 
-2. Şimdi biz grafikte kullanıcıları aramak için bu belirteci kullanmanız gerekir. Bul `// TODO: implement SearchUsersList` açıklama. Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir GET isteği yapar.  Azure AD Graph API sorgulamak için bir access_token ile eklemeniz gerekir `Authorization` isteği üstbilgisi. ADAL nereden geldiğini budur.
+2. Şimdi biz grafikte kullanıcıları aramak için bu belirteci kullanmanız gerekir. Bul `// TODO: implement SearchUsersList` açıklama. Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir GET isteği yapar. Azure AD Graph API sorgulamak için bir access_token ile eklemeniz gerekir `Authorization` isteği üstbilgisi. ADAL nereden geldiğini budur.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString
@@ -218,7 +219,7 @@ Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, bu
     ```
 
 
-3. Uygulamanızı isteğinde bulunduğunda bir belirteç çağırarak `getToken(...)`, ADAL kullanıcı kimlik bilgilerinin sorulmasına olmadan bir simge döndürür dener.  ADAL kullanıcı bir belirteç almak üzere oturum açmak gerektiğini belirlerse, oturum açma için bir iletişim kutusu görüntüler, kullanıcının kimlik bilgilerini toplamak ve sonra bir belirteç başarılı kimlik doğrulamasından sonra geri dönüp.  ADAL herhangi bir nedenle bir simge döndürür mümkün değilse, oluşturur bir `AdalException`.
+3. Uygulamanızı isteğinde bulunduğunda bir belirteç çağırarak `getToken(...)`, ADAL kullanıcı kimlik bilgilerinin sorulmasına olmadan bir simge döndürür dener. ADAL kullanıcı bir belirteç almak üzere oturum açmak gerektiğini belirlerse, oturum açma için bir iletişim kutusu görüntüler, kullanıcının kimlik bilgilerini toplamak ve sonra bir belirteç başarılı kimlik doğrulamasından sonra geri dönüp. ADAL herhangi bir nedenle bir simge döndürür mümkün değilse, oluşturur bir `AdalException`.
 
 > [!Note] 
 > `AuthenticationResult` Nesnesini içeren bir `tokenCacheStoreItem` uygulamanız gerekebilir bilgi toplamak için kullanılan nesne. Hızlı Başlangıç içinde `tokenCacheStoreItem` kimlik doğrulamanın zaten yapılıp belirlemek için kullanılır.
@@ -226,14 +227,14 @@ Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, bu
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. Uygulamayı derleme ve çalıştırma
-Tebrikler! Artık çalışan bir iOS uygulama kullanıcıların kimlik doğrulaması, güvenli bir şekilde OAuth 2.0 kullanarak Web API'leri çağırmak ve kullanıcı hakkındaki temel bilgileri elde var.  Henüz yapmadıysanız, bazı kullanıcılar ile Kiracı doldurmak için zaman sunulmuştur.  Hızlı Başlangıç uygulamanızı başlatın ve ardından kullanıcılar bir oturum açın.  Diğer kullanıcıların UPN Değerlerinin üzerinde göre arayın.  Uygulamayı kapatın ve yeniden başlatın.  Kullanıcının oturumunu değişmeden kalır dikkat edin.
+Tebrikler! Artık çalışan bir iOS uygulama kullanıcıların kimlik doğrulaması, güvenli bir şekilde OAuth 2.0 kullanarak Web API'leri çağırmak ve kullanıcı hakkındaki temel bilgileri elde var. Henüz yapmadıysanız, bazı kullanıcılar ile Kiracı doldurmak için zaman sunulmuştur. Hızlı Başlangıç uygulamanızı başlatın ve ardından kullanıcılar bir oturum açın. Diğer kullanıcıların UPN Değerlerinin üzerinde göre arayın. Uygulamayı kapatın ve yeniden başlatın. Kullanıcının oturumunu değişmeden kalır dikkat edin.
 
-ADAL, bu ortak kimlik özelliklerin tümü, uygulamanıza eklemenizi kolaylaştırır.  Bu tüm dirty iş sizin için önbellek yönetimi gibi OAuth protokol desteği, kullanıcı oturum açma, için bir kullanıcı Arabirimi ile sunan mvc'deki ve yenileme belirteçleri süresi.  Gerçekten bilmeniz gereken tek şey tek bir API çağrısı `getToken`.
+ADAL, bu ortak kimlik özelliklerin tümü, uygulamanıza eklemenizi kolaylaştırır. Bu tüm dirty iş sizin için önbellek yönetimi gibi OAuth protokol desteği, kullanıcı oturum açma, için bir kullanıcı Arabirimi ile sunan mvc'deki ve yenileme belirteçleri süresi. Gerçekten bilmeniz gereken tek şey tek bir API çağrısı `getToken`.
 
-Başvuru için üzerinde tamamlanan örnek (yapılandırma değerleriniz olmadan) sağlanır [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
+Başvuru için üzerinde tamamlanan örnek (yapılandırma değerleriniz olmadan) sağlanır [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi ilave senaryolar da taşıyabilirsiniz.  Denemek isteyebilirsiniz:
+Şimdi ilave senaryolar da taşıyabilirsiniz. Denemek isteyebilirsiniz:
 
 * [Node.JS Web API'si Azure AD ile güvenli](active-directory-devquickstarts-webapi-nodejs.md)
 * Bilgi [uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme](active-directory-sso-ios.md)  

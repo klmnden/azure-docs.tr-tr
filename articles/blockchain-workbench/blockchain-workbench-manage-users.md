@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 440072a94ff7146ebcdb242a058ab48b434714f9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranındaki kullanıcıları yönetme
 
@@ -43,9 +43,9 @@ Ziyaret [Azure AD](../active-directory/add-users-azure-active-directory.md) içi
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Blockchain çalışma ekranı yöneticilerini Yönet
 
-Kullanıcıların dizine eklendikten sonra sonraki adıma hangi kullanıcıların Blockchain çalışma ekranı yöneticilerdir seçmektir. Kullanıcılar **Yöneticiler** grubu ile ilişkili **yönetici uygulama rolü** Blockchain çalışma ekranındaki. Yöneticiler ekleyin veya kullanıcılar kaldırın, kullanıcılar için belirli senaryolar atama ve yeni uygulamalar oluşturun.
+Kullanıcıların dizine eklendikten sonra sonraki adıma hangi kullanıcıların Blockchain çalışma ekranı yöneticilerdir seçmektir. Kullanıcılar **yönetici** grubu ile ilişkili **yönetici uygulama rolü** Blockchain çalışma ekranındaki. Yöneticiler ekleyin veya kullanıcılar kaldırın, kullanıcılar için belirli senaryolar atama ve yeni uygulamalar oluşturun.
 
-Kullanıcı eklemek için **Yöneticiler** Azure AD dizini grubu:
+Kullanıcı eklemek için **yönetici** Azure AD dizini grubu:
 
 1.  [Azure Portal](https://portal.azure.com) oturum açın.
 2.  Sağ üst köşedeki hesabınızı seçerek Blockchain çalışma ekranına ilişkili Azure AD kiracısı içinde olduğundan emin olun.

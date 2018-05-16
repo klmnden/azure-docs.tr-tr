@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 uç noktası sınırlamaları ve kısıtlamal
 description: Sınırlamalar ve kısıtlamalarla Azure AD v2.0 uç noktası için listesi.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç kullanmalıyım?
 Azure Active Directory ile tümleştirme uygulamalar oluştururken, v2.0 uç noktası ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karar vermeniz gerekir. Azure Active Directory'nin özgün uç nokta hala tam olarak desteklenir ve bazı bakımlardan v2.0'den daha fazla özellik zengin değil. Ancak, v2.0 uç [önemli avantajlar sunar](active-directory-v2-compare.md) geliştiriciler için.
@@ -47,7 +49,7 @@ Aynı uygulama Kimliğine sahip bir istemciden gelen belirteçleri kabul eder bi
 Buna ek olarak, oluşturduğunuz uygulama kayıtlar [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) aşağıdaki uyarılarla vardır:
 
 * Yalnızca iki uygulama sırrı uygulama kimliği izin verilen
-* Kişisel bir Microsoft hesabı olan bir kullanıcı tarafından kaydedilen bir uygulama kaydı görüntülenebilir ve yalnızca bir tek Geliştirici hesabı tarafından yönetilebilir. Birden çok geliştiriciler arasında paylaşılamaz.  Uygulama kaydınızı birden çok geliştiriciler arasında paylaşmak istiyorsanız, bir Azure AD hesabı ile kayıt portalı uygulamasına oturum açarak uygulamayı oluşturabilirsiniz.
+* Kişisel bir Microsoft hesabı olan bir kullanıcı tarafından kaydedilen bir uygulama kaydı görüntülenebilir ve yalnızca bir tek Geliştirici hesabı tarafından yönetilebilir. Birden çok geliştiriciler arasında paylaşılamaz. Uygulama kaydınızı birden çok geliştiriciler arasında paylaşmak istiyorsanız, bir Azure AD hesabı ile kayıt portalı uygulamasına oturum açarak uygulamayı oluşturabilirsiniz.
 * Yeniden yönlendirme izin URI biçimi birkaç kısıtlamalar vardır. Yeniden yönlendirme URI'ler hakkında daha fazla bilgi için sonraki bölüme bakın.
 
 ## <a name="restrictions-on-redirect-uris"></a>Yeniden yönlendirme URI'ler kısıtlamalar
@@ -89,12 +91,12 @@ Uygulama kayıt Portalı'nda uygulama kaydetmeyi öğrenmek için bkz: [v2.0 uç
 Şu anda v2.0 uç noktası için kitaplık desteği sınırlıdır. Bir üretim uygulamasında v2.0 uç kullanmak istiyorsanız, bu seçenekler vardır:
 
 * Bir web uygulaması oluşturuyorsanız, oturum açma ve belirteci doğrulamayı gerçekleştirmek için Microsoft Genel olarak kullanılabilir sunucu tarafı Ara güvenli bir şekilde kullanabilirsiniz. Bunlar, ASP.NET ve Node.js Passport eklenti için Open ID Connect OWIN ara yazılımı içerir. Microsoft Ara kullanmak kod örnekleri için bkz: bizim [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) bölümü.
-* Masaüstü ve mobil uygulama geliştiriyorsanız, önizlememiz Microsoft kimlik doğrulama kitaplıkları (MSAL) birini kullanabilirsiniz.  Bu kitaplıklar üretim desteklenen Önizleme'de, olduğundan, üretim uygulamaları kullanmak güvenlidir. Daha fazla bilgiyi koşullarını Önizleme ve kullanılabilir kitaplıklarında hakkında bizim [kimlik doğrulama kitaplıkları başvuru](active-directory-v2-libraries.md).
+* Masaüstü ve mobil uygulama geliştiriyorsanız, önizlememiz Microsoft kimlik doğrulama kitaplıkları (MSAL) birini kullanabilirsiniz. Bu kitaplıklar üretim desteklenen Önizleme'de, olduğundan, üretim uygulamaları kullanmak güvenlidir. Daha fazla bilgiyi koşullarını Önizleme ve kullanılabilir kitaplıklarında hakkında bizim [kimlik doğrulama kitaplıkları başvuru](active-directory-v2-libraries.md).
 * Microsoft kitaplıkları tarafından kapsanmayan platformları için doğrudan uygulama kodunuzda protokolü ileti alma ve gönderme tarafından v2.0 uç noktası ile tümleştirebilirsiniz. V2.0 Openıd Connect ve OAuth protokollerini [açıkça belgelenmiş](active-directory-v2-protocols.md) bu tür bir tümleştirme gerçekleştirmenize yardımcı olmak için.
 * Son olarak, v2.0 uç noktası ile tümleştirmek için açık kaynak açmak ID Connect ve OAuth kitaplıkları kullanabilirsiniz. V2.0 protokol önemli bir değişiklik yapılmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıklarının kullanılabilirliğini dile ve platforma göre değişir. [Open ID Connect](http://openid.net/connect/) ve [OAuth 2.0](http://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için bkz: [Azure Active Directory v2.0 ve kimlik doğrulama kitaplıkları](active-directory-v2-libraries.md)ve açık kaynak istemci kitaplıkları ve v2.0 uç noktası ile test örnekleri listesi.
 
 ## <a name="restrictions-on-protocols"></a>Protokolleri kısıtlamalar
-V2.0 uç SAML veya WS-Federasyon desteklemiyor; yalnızca, Open ID Connect ve OAuth 2.0 de destekler.  Tüm özellikleri ve yetenekleri OAuth kurallarının v2.0 uç noktası eklenmiştir. Şu anda bu protokolü özellikleri ve yetenekleri olan *kullanılamaz* v2.0 uç noktada:
+V2.0 uç SAML veya WS-Federasyon desteklemiyor; yalnızca, Open ID Connect ve OAuth 2.0 de destekler. Tüm özellikleri ve yetenekleri OAuth kurallarının v2.0 uç noktası eklenmiştir. Şu anda bu protokolü özellikleri ve yetenekleri olan *kullanılamaz* v2.0 uç noktada:
 
 * V2.0 uç noktası tarafından verilen kimlik belirteçlerini içermez bir `email` e-postalarına görüntülemek için kullanıcıdan izin alma olsa bile, kullanıcı için talep.
 * Openıd Connect kullanıcı bilgisi endpoint v2.0 uç noktada uygulanmadı. Ancak, büyük olasılıkla bu uç noktada alacağı tüm kullanıcı profil verileri kullanılabilir Microsoft Graph'tan `/me` uç noktası.

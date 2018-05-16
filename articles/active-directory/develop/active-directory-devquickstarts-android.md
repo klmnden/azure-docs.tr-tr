@@ -3,28 +3,30 @@ title: Azure AD Android Başlarken | Microsoft Docs
 description: Oturum açma ve Azure AD aramalar için Azure AD ile tümleşen bir Android uygulamasının nasıl oluşturulacağını OAuth2.0 kullanarak API'leri korumalı.
 services: active-directory
 documentationcenter: android
-author: danieldobalian
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7af33005d5984dbf76a16a0daa92f5e1ebf85f9e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20618fff8d253bfab195ce2847a8848a28960ae4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-Android uygulama geliştiriyorsanız, Microsoft, basit ve Azure Active Directory (Azure AD) kullanıcılar oturum kolay hale getirir. Azure AD uygulamanızı Microsoft Graph veya kendi korumalı web API'si aracılığıyla kullanıcı verilerine erişim sağlar.  
+Android uygulama geliştiriyorsanız, Microsoft, basit ve Azure Active Directory (Azure AD) kullanıcılar oturum kolay hale getirir. Azure AD uygulamanızı Microsoft Graph veya kendi korumalı web API'si aracılığıyla kullanıcı verilerine erişim sağlar. 
 
 Azure AD Authentication Library (ADAL) Android kitaplığı uygulamanızı kullanmaya başlamak için sağlar [Microsoft Azure bulut](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) destekleyen tarafından [ Microsoft Azure Active Directory hesaplarını](https://azure.microsoft.com/services/active-directory/) endüstri kullanarak standart OAuth2 ve Openıd Connect. Bu örnek dahil olmak üzere, uygulamanızın yaşamazsınız normal ömürleri gösterir:
 
@@ -74,23 +76,23 @@ mAuthResult.getAccessToken()
 Bir yerel istemci uygulaması Microsoft kullanılarak ile kayıtlı olması gerekir [Azure portal](https://portal.azure.com). 
 
 1. Uygulama kayıt alınıyor
-    - [Azure portalına](https://aad.portal.azure.com) gidin.  
+    - [Azure portalına](https://aad.portal.azure.com) gidin. 
     - Seçin ***Azure Active Directory*** > ***uygulama kayıtlar***. 
 
 2. Uygulama oluşturma
-    - **Yeni uygulama kaydı**’nı seçin.  
+    - **Yeni uygulama kaydı**’nı seçin. 
     - Bir uygulama adı girin **adı** alan. 
     - İçinde **uygulama türü** seçin **yerel**. 
-    - İçinde **yeniden yönlendirme URI'si**, girin `http://localhost`.  
+    - İçinde **yeniden yönlendirme URI'si**, girin `http://localhost`. 
 
 3. Microsoft Graph yapılandırın
     - Seçin **ayarlar > gerekli izinleri**.
     - Seçin **Ekle**içine **bir API seçin** seçin ***Microsoft Graph***. 
     - İzni seçin **oturum açın ve kullanıcı profilini okuma**, ardından isabet **seçin** kaydetmek için. 
         - Bu izni eşlendiği `User.Read` kapsam. 
-    - İsteğe bağlı: İç **gerekli izinleri > Windows Azure Active Directory**, seçili iznini kaldırın **oturum açın ve kullanıcı profilini okuma**. Bu izni iki kez listeleme kullanıcı onay sayfasına önler.   
+    - İsteğe bağlı: İç **gerekli izinleri > Windows Azure Active Directory**, seçili iznini kaldırın **oturum açın ve kullanıcı profilini okuma**. Bu izni iki kez listeleme kullanıcı onay sayfasına önler. 
 
-4. Congrats! Uygulamanızı başarıyla yapılandırıldı. Sonraki bölümde ihtiyacınız vardır:
+4. Tebrikler! Uygulamanızı başarıyla yapılandırıldı. Sonraki bölümde ihtiyacınız vardır:
     - `Application ID`
     - `Redirect URI`
 
@@ -105,7 +107,7 @@ Bir yerel istemci uygulaması Microsoft kullanılarak ile kayıtlı olması gere
 
 ### <a name="configure-your-code"></a>Kodunuzu yapılandırın
 
-Bu kod örneği için tüm yapılandırmayı bulabilirsiniz ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosya.  
+Bu kod örneği için tüm yapılandırmayı bulabilirsiniz ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosya. 
 
 1. Sabit Değiştir `CLIENT_ID` ile `ApplicationID`.
 2. Sabit Değiştir `REDIRECT URI` ile `Redirect URI` daha önce yapılandırılmış (`http://localhost`). 
@@ -114,7 +116,7 @@ Bu kod örneği için tüm yapılandırmayı bulabilirsiniz ***src/main/java/com
 
 1. Seçin **Yapı > temiz proje**. 
 2. Seçin **Çalıştır > çalıştırma uygulama**. 
-3. Uygulama oluşturmak ve bazı temel UX Göster Tıkladığınızda `Call Graph API` düğmesi, onu sor oturum açmak için ve sessiz bir şekilde yeni belirteci ile Microsoft Graph API çağrısı.  
+3. Uygulama oluşturmak ve bazı temel UX Göster Tıkladığınızda `Call Graph API` düğmesi, onu sor oturum açmak için ve sessiz bir şekilde yeni belirteci ile Microsoft Graph API çağrısı. 
 
 ## <a name="important-info"></a>Önemli bilgiler
 
@@ -123,10 +125,10 @@ Bu kod örneği için tüm yapılandırmayı bulabilirsiniz ***src/main/java/com
 3. Sorunları bulmak veya istekleri? Bir sorun oluşturabilir veya sonrası Stackoverflow üzerinde etiketiyle `azure-active-directory`. 
 
 ### <a name="cross-app-sso"></a>Uygulamalar arası SSO'nun
-Bilgi [ADAL kullanarak uygulamalar arası SSO'nun android'de etkinleştirmek nasıl](active-directory-sso-android.md).  
+Bilgi [ADAL kullanarak uygulamalar arası SSO'nun android'de etkinleştirmek nasıl](active-directory-sso-android.md). 
 
 ### <a name="auth-telemetry"></a>Kimlik doğrulama telemetri
-ADAL kitaplığını uygulamalarını nasıl davranmakta olduğunu anlamak ve daha iyi deneyimler yapı uygulama geliştiriciler yardımcı olmak için telemetriyi auth kullanıma sunar.  Bu oturum açma başarılı, etkin kullanıcılar ve diğer birçok ilginç Öngörüler yakalamanıza olanak sağlar. Kimlik doğrulama telemetri kullanarak toplama ve olayları depolamak için bir telemetri hizmeti oluşturmak uygulama geliştiriciler gerektirir.
+ADAL kitaplığını uygulamalarını nasıl davranmakta olduğunu anlamak ve daha iyi deneyimler yapı uygulama geliştiriciler yardımcı olmak için telemetriyi auth kullanıma sunar. Bu oturum açma başarılı, etkin kullanıcılar ve diğer birçok ilginç Öngörüler yakalamanıza olanak sağlar. Kimlik doğrulama telemetri kullanarak toplama ve olayları depolamak için bir telemetri hizmeti oluşturmak uygulama geliştiriciler gerektirir.
 
 Kimlik doğrulama telemetri hakkında daha fazla bilgi edinmek için checkout [ADAL Android auth telemetri](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry). 
 

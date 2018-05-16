@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4f899e3f45174aef8274810e184cc374bcca2c50
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -79,9 +79,9 @@ Parola tabanlı çoklu oturum açma için kullanıcı başına en fazla on uygul
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Azure AD uygulama proxy'si ve nasıl çalıştığı genel bakış |[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](manage-apps/application-proxy.md) |
-| Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](manage-apps/application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](active-directory-application-proxy-silent-installation.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Kendi etki alanı adınızı kullanma](manage-apps/application-proxy-configure-custom-domain.md) |
-| Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](application-proxy-enable-remote-access-sharepoint.md) |
-| Aşağıdaki senaryolar için uygulama proxy'si kullanma hakkında yönergeler |[Yerel istemci uygulamaları destekleme](active-directory-application-proxy-native-client.md)<br /><br />[Talep kullanan uygulama destekleme](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ayrı ağlar ve konumları yayımlanan uygulamalar destekleme](active-directory-application-proxy-connectors-azure-portal.md) |
+| Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](manage-apps/application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Kendi etki alanı adınızı kullanma](manage-apps/application-proxy-configure-custom-domain.md) |
+| Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Aşağıdaki senaryolar için uygulama proxy'si kullanma hakkında yönergeler |[Yerel istemci uygulamaları destekleme](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Talep kullanan uygulama destekleme](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Ayrı ağlar ve konumları yayımlanan uygulamalar destekleme](manage-apps/application-proxy-connector-groups.md) |
 | Uygulama proxy'si için sorun giderme kılavuzu |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
 
 Uygulama proxy'si, kullanıcı başına en fazla on uygulamaları için Azure AD'in tüm sürümleri için kullanılabilir. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) sınırsız uygulamaları destekler. Kuruluşunuzun varsa [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) veya [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), yapabilecekleriniz sonra [uygulamalara erişim atama için grupları kullanma](#managing-access-to-applications).
@@ -108,7 +108,7 @@ Azure AD Connect için kullanılabilir [Azure Active Directory'nin tüm sürüml
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Koşullu erişim yetenekleri giriş sunulan Azure AD arasında Office365 ve Intune |[Koşullu erişim ile risk yönetme](active-directory-conditional-access-azure-portal.md) |
-| Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama proxy'si şirket içi uygulamalar için koşullu erişim yayımlanan](application-proxy-enable-remote-access-sharepoint.md) |
+| Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama proxy'si şirket içi uygulamalar için koşullu erişim yayımlanan](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Cihaz temelli koşullu erişim ilkelerini etkinleştirmek için Azure Active Directory ile cihazları kaydetme |[Azure Active Directory cihaz kaydı genel bakış](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Etki alanı için otomatik cihaz kaydını etkinleştirme katılmış Windows cihazlarda](active-directory-conditional-access-automatic-device-registration.md)<br />— [Adımları için Windows 8.1 cihazları](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Adımları için Windows 7 aygıtları](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e4753cf0ffdedcc2ddc694fba67c560363789e3a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6062d8193ce8cf7edaff3187f5c0f7dd9968658b
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning IOT kenar modül olarak dağıtma - Önizleme
 
@@ -33,8 +33,8 @@ Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tar
 
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
 * IOT kenar cihazın bağlandığı IOT hub'ın IOT Hub bağlantı dizesi.
-* Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez.
-* Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
+* Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
+* Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
 Azure Machine Learning modülü ARM işlemcileri desteklemez.
 

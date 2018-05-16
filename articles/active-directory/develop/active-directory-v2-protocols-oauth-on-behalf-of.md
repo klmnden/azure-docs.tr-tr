@@ -3,23 +3,25 @@ title: Azure AD v2.0 OAuth2.0 üzerinde-temsili akış | Microsoft Docs
 description: Bu makalede HTTP iletisi üzerinde-temsili akış OAuth2.0 kullanarak hizmet kimlik doğrulaması uygulamak için nasıl kullanılacağını açıklar.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ccec8df0741870f3dd3ed21be43f96aa8ba90927
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2aa1c33f138619283a8785aaf3772465df6c9aee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 On-Behalf-Of akış
 Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
@@ -30,10 +32,10 @@ Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanı
 >
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
-Kullanıcı bir uygulama kullanarak doğrulandı varsayın [OAuth 2.0 yetkilendirme kodu izin akışı](active-directory-v2-protocols-oauth-code.md).  Bu noktada, uygulamanın bir erişim belirteci var. *API a* (simge A) kullanıcı talepleri ve orta katmanda erişmek için izniniz web API'si (API A). Şimdi, API bir aşağı akış web API'si (API B) kimliği doğrulanmış bir istekte bulunun gerekiyor.
+Kullanıcı bir uygulama kullanarak doğrulandı varsayın [OAuth 2.0 yetkilendirme kodu izin akışı](active-directory-v2-protocols-oauth-code.md). Bu noktada, uygulamanın bir erişim belirteci var. *API a* (simge A) kullanıcı talepleri ve orta katmanda erişmek için izniniz web API'si (API A). Şimdi, API bir aşağı akış web API'si (API B) kimliği doğrulanmış bir istekte bulunun gerekiyor.
 
 > [!IMPORTANT]
-> Belirteçleri kullanarak edinilen [örtük grant](active-directory-v2-protocols-implicit.md) On-temsili akış için kullanılamaz.  İmplcit akışları istemcisinde (örn. bir istemci parolası) doğrulanmaz ve bu nedenle başka bir, büyük olasılıkla daha güçlü belirtece bootstrap izin verilmesi gerektiğini değil.
+> Belirteçleri kullanarak edinilen [örtük grant](active-directory-v2-protocols-implicit.md) On-temsili akış için kullanılamaz. İmplcit akışları istemcisinde (örn. bir istemci parolası) doğrulanmaz ve bu nedenle başka bir, büyük olasılıkla daha güçlü belirtece bootstrap izin verilmesi gerektiğini değil.
 
 Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla açıklanmıştır.
 
@@ -64,12 +66,12 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| client_id |Gerekli | Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
-| client_secret |Gerekli | Uygulama kayıt Portalı'nda, uygulamanız için oluşturulan uygulama gizli anahtarı. |
-| onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
-| scope |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Daha fazla bilgi için bkz: [kapsamları](active-directory-v2-scopes.md).|
-| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
+| grant_type |gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| client_id |gerekli | Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
+| client_secret |gerekli | Uygulama kayıt Portalı'nda, uygulamanız için oluşturulan uygulama gizli anahtarı. |
+| onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
+| scope |gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Daha fazla bilgi için bkz: [kapsamları](active-directory-v2-scopes.md).|
+| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
 
 #### <a name="example"></a>Örnek
 Bir erişim belirteci ve yenileme belirteciyle aşağıdaki HTTP POST istekleri `user.read` için kapsam https://graph.microsoft.com web API'si.
@@ -94,13 +96,13 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| client_id |Gerekli | Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
-| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı.  Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
-| onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
-| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
-| scope |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Daha fazla bilgi için bkz: [kapsamları](active-directory-v2-scopes.md).|
+| grant_type |gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| client_id |gerekli | Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
+| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
+| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
+| scope |gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Daha fazla bilgi için bkz: [kapsamları](active-directory-v2-scopes.md).|
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
@@ -149,7 +151,7 @@ Aşağıdaki örnek, bir başarı isteğine yanıt olarak bir erişim belirteci 
 ```
 
 > [!NOTE]
-> Yukarıdaki erişim belirteci V1 olarak biçimlendirilmiş belirteç olduğuna dikkat edin.  Erişilen kaynak tabanlı belirteç sağlanan olmasıdır.  Bir istemci için Microsoft Graph belirteçleri istediğinde Azure AD V1 erişim belirteçleri üretir şekilde Microsoft Graph V1 belirteçleri ister.  Uygulamalar erişim belirteçleri görünmelidir - istemciler, bunları inceleyin gerekmez. yalnızca. 
+> Yukarıdaki erişim belirteci V1 olarak biçimlendirilmiş belirteç olduğuna dikkat edin. Erişilen kaynak tabanlı belirteç sağlanan olmasıdır. Bir istemci için Microsoft Graph belirteçleri istediğinde Azure AD V1 erişim belirteçleri üretir şekilde Microsoft Graph V1 belirteçleri ister. Uygulamalar erişim belirteçleri görünmelidir - istemciler, bunları inceleyin gerekmez. yalnızca. 
 
 
 ### <a name="error-response-example"></a>Hata yanıtı örneği

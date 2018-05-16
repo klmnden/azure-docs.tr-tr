@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 belirteçler başvurusu | Microsoft Docs
 description: Azure AD v2.0 uç noktası tarafından gösterilen talep ve belirteç türleri
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
 Azure Active Directory (Azure AD) v2.0 uç her güvenlik belirteçleri çeşitli türlerde yayar [kimlik doğrulaması akışı](active-directory-v2-flows.md). Bu başvuru biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklar.
@@ -69,8 +71,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | ad |`name` |`Babe Ruth` |Ad talep belirteci konu tanımlayan okunabilir bir değer sağlar. Değerin benzersiz olması garanti edilmemiştir, değişebilir ve yalnızca görüntüleme amacıyla kullanılmak üzere tasarlanmıştır. `profile` Kapsam bu talebi almak için gereklidir. |
 | e-posta |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Varsa, kullanıcı hesabıyla ilişkili birincil e-posta adresi. Değerini değişebilir ve zaman içinde değişebilir. `email` Kapsam bu talebi almak için gereklidir. |
 | tercih edilen kullanıcı adı |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |V2.0 uç kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası ya da belirtilen biçim olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları için kullanılmamalıdır. `profile` Kapsam bu talebi almak için gereklidir. |
-| Konu |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Hakkında bilgi, bir uygulamanın kullanıcı gibi belirteci onaylar sorumlu. Bu değer sabittir ve yeniden atandığında yeniden ya da silinemez. Belirtecin bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir ve, veritabanı tablolarındaki anahtar olarak kullanılan. Konu her zaman olduğu için Azure AD sorunları, bu değer bir genel amaçlı yetkilendirme sisteminde kullanmanızı öneririz, belirteçleri sunar. Konu, ancak, ikili bir tanımlayıcıdır. - belirli bir uygulama kimliği için benzersizdir  Bu nedenle, iki farklı istemci kimliği kullanarak iki farklı uygulamalarda tek bir kullanıcı oturum açtığında, bu uygulamaları konu talep için iki farklı değerler alır.  Bu olabilir veya mimarisi ve gizlilik gereksinimlerinize bağlı olarak gerekli değildir. |
-| Nesne Kimliği |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Microsoft kimlik sistemi, bu durumda, bir kullanıcı hesabı nesnesi için değişmez tanımlayıcısı.  Ayrıca, veritabanı tablolarında güvenle ve bir anahtar olarak yetkilendirme denetimleri gerçekleştirmek için de kullanılabilir. Bu kimliği kullanıcı uygulamalar arasında benzersiz şekilde tanımlar.-aynı kullanıcı imzalama iki farklı uygulamaları, aynı değeri alacak `oid` talep.  Başka bir deyişle, bu sorguları Microsoft Graph gibi Microsoft online Services yaparken kullanılabilir.  Microsoft Graph bu kimliği olarak döndürülecek `id` özelliği için belirtilen kullanıcı hesabı.  Çünkü `oid` kullanıcılar ilişkilendirmek birden fazla uygulama verir `profile` kapsamı bu talebi almak için gereklidir. Tek bir kullanıcı birden fazla kiracılar varsa, kullanıcının her bir kiracı farklı nesne Kimliğinde içerecek Not - kullanıcı kimlik bilgileriyle her bir hesaba oturum olsa bile farklı hesaplar kabul edilir. |
+| Konu |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Hakkında bilgi, bir uygulamanın kullanıcı gibi belirteci onaylar sorumlu. Bu değer sabittir ve yeniden atandığında yeniden ya da silinemez. Belirtecin bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir ve, veritabanı tablolarındaki anahtar olarak kullanılan. Konu her zaman olduğu için Azure AD sorunları, bu değer bir genel amaçlı yetkilendirme sisteminde kullanmanızı öneririz, belirteçleri sunar. Konu, ancak, ikili bir tanımlayıcıdır. - belirli bir uygulama kimliği için benzersizdir Bu nedenle, iki farklı istemci kimliği kullanarak iki farklı uygulamalarda tek bir kullanıcı oturum açtığında, bu uygulamaları konu talep için iki farklı değerler alır. Bu olabilir veya mimarisi ve gizlilik gereksinimlerinize bağlı olarak gerekli değildir. |
+| Nesne Kimliği |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Microsoft kimlik sistemi, bu durumda, bir kullanıcı hesabı nesnesi için değişmez tanımlayıcısı. Ayrıca, veritabanı tablolarında güvenle ve bir anahtar olarak yetkilendirme denetimleri gerçekleştirmek için de kullanılabilir. Bu kimliği kullanıcı uygulamalar arasında benzersiz şekilde tanımlar.-aynı kullanıcı imzalama iki farklı uygulamaları, aynı değeri alacak `oid` talep. Başka bir deyişle, bu sorguları Microsoft Graph gibi Microsoft online Services yaparken kullanılabilir. Microsoft Graph bu kimliği olarak döndürülecek `id` özelliği için belirtilen kullanıcı hesabı. Çünkü `oid` kullanıcılar ilişkilendirmek birden fazla uygulama verir `profile` kapsamı bu talebi almak için gereklidir. Tek bir kullanıcı birden fazla kiracılar varsa, kullanıcının her bir kiracı farklı nesne Kimliğinde içerecek Not - kullanıcı kimlik bilgileriyle her bir hesaba oturum olsa bile farklı hesaplar kabul edilir. |
 
 ### <a name="access-tokens"></a>Erişim belirteçleri
 
@@ -83,7 +85,7 @@ Yenileme belirteçleri olan bir OAuth 2.0 akışı yeni erişim belirteçleri al
 
 Yenileme belirteçleri çok kaynak. Bir kaynak için bir belirteç isteğini sırasında alınan bir yenileme belirteci erişim belirteçleri tamamen farklı bir kaynak için kullanılan.
 
-Bir yenileme belirteci yanıt olarak almak için uygulamanızı istemelisiniz ve verilmesi `offline_acesss` kapsam. Daha fazla bilgi edinmek için `offline_access` kapsam için bkz: [onay ve kapsamları](active-directory-v2-scopes.md) makale.
+Bir yenileme belirteci yanıt olarak almak için uygulamanızı istemelisiniz ve verilmesi `offline_access` kapsam. Daha fazla bilgi edinmek için `offline_access` kapsam için bkz: [onay ve kapsamları](active-directory-v2-scopes.md) makale.
 
 Yenileme belirteçlerini olan ve her zaman, uygulamanıza tamamen opak olacaktır. Bunlar Azure AD v2.0 uç noktası tarafından verilir ve yalnızca Denetlenmekte ve v2.0 uç noktası tarafından yorumlanır. Uzun süreli, ancak bir yenileme belirteci süre boyunca sürer beklenir uygulamanızı yazılmamalıysa. Yenileme belirteçleri geçersiz kılınan olabilir - Ayrıntılar için çeşitli nedenlerle herhangi bir anda bkz [belirteci iptal](active-directory-token-and-claims.md#token-revocation). Tek bir yenileme belirteci geçerli olup olmadığını bilmek, uygulamanız için bir belirteç isteğini v2.0 uç noktasına yaparak kullanma girişiminde yoludur.
 
@@ -123,7 +125,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Bu meta veri belgesi Openıd Connect kimlik doğrulaması için gereken çeşitli uç noktaları konumu gibi bilgileri, çeşitli yararlı parçalarını içeren bir JSON nesnesidir.  Belge de içeren bir *jwks_uri*, Belirteçleri imzalamak için kullanılan ortak anahtarlar konumunu sağlar. Jwks_uri bulunan JSON belgesi şu anda kullanımda olan tüm ortak anahtar bilgileri yok. Uygulamanızı kullanabilirsiniz `kid` bu belgede hangi ortak anahtarı bir belirteç imzalamak için kullanılan seçmek için JWT üstbilgisinde talep. Ardından, imza doğrulaması'nin doğru ortak anahtar ve belirtilen algoritmasını kullanarak gerçekleştirir.
+Bu meta veri belgesi Openıd Connect kimlik doğrulaması için gereken çeşitli uç noktaları konumu gibi bilgileri, çeşitli yararlı parçalarını içeren bir JSON nesnesidir. Belge de içeren bir *jwks_uri*, Belirteçleri imzalamak için kullanılan ortak anahtarlar konumunu sağlar. Jwks_uri bulunan JSON belgesi şu anda kullanımda olan tüm ortak anahtar bilgileri yok. Uygulamanızı kullanabilirsiniz `kid` bu belgede hangi ortak anahtarı bir belirteç imzalamak için kullanılan seçmek için JWT üstbilgisinde talep. Ardından, imza doğrulaması'nin doğru ortak anahtar ve belirtilen algoritmasını kullanarak gerçekleştirir.
 
 İmza doğrulaması gerçekleştirme, bu belgenin kapsamı dışında olur. Birçok açık kaynak kitaplıkları, bu konuda yardımcı olmak kullanılabilir.
 

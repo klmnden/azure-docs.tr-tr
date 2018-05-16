@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Bir sanal cihaz Windows Azure IOT kenar dağıtın - Önizleme
 
@@ -42,7 +42,7 @@ Bu öğretici, bir bilgisayarı veya Windows çalıştıran sanal makine bir nes
    * Windows 10 
    * Windows Server
 2. Yükleme [Windows için Docker] [ lnk-docker] ve emin olun çalıştığından.
-3. Yükleme [Python 2.7 Windows] [ lnk-python] ve PIP komutunu kullanabilirsiniz emin olun.
+3. Yükleme [Windows Python] [ lnk-python] ve PIP komutunu kullanabilirsiniz emin olun. Bu öğretici Python sürümleri ile test edilmiştir > 2.7.9 = ve > 3.5.4 =.  
 4. IOT kenar denetim komut dosyasını karşıdan yüklemek için aşağıdaki komutu çalıştırın.
 
    ```cmd
@@ -111,7 +111,7 @@ Azure IOT kenar Cihazınızı IOT Hub'ına telemetri verileri gönderecek bir mo
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 
-## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
+## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
 Bu öğreticide, yeni bir IOT sınır cihazı oluşturulur ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
 

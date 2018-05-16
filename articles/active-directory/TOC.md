@@ -185,27 +185,27 @@
 ##### [Özel etki alanları](manage-apps/application-proxy-configure-custom-domain.md)
 #### [Çoklu oturum açma](manage-apps/application-proxy-single-sign-on.md)
 ##### [KCD ile SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [Üst bilgi içeren SSO](application-proxy-ping-access.md)
-##### [Parola kasası oluşturma ile SSO](application-proxy-sso-azure-portal.md)
+##### [Üst bilgi içeren SSO](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [Parola kasası oluşturma ile SSO](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Kavramlar
-##### [Bağlayıcılar](application-proxy-understand-connectors.md)
-##### [Güvenlik](application-proxy-security-considerations.md)
-##### [Ağlar](application-proxy-network-topology-considerations.md)
+##### [Bağlayıcılar](manage-apps/application-proxy-connectors.md)
+##### [Güvenlik](manage-apps/application-proxy-security.md)
+##### [Ağlar](manage-apps/application-proxy-network-topology.md)
 
 
-##### [TMG veya UAG’den yükseltme](application-proxy-transition-from-uag-tmg.md)
+##### [TMG veya UAG’den yükseltme](manage-apps/application-proxy-migration.md)
 
 #### Gelişmiş yapılandırmalar
-##### [Ayrı ağlarda yayımlama](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Ara sunucular](application-proxy-working-with-proxy-servers.md)
-##### [Talep kullanan uygulamalar](active-directory-application-proxy-claims-aware-apps.md)
-##### [Native Client uygulamaları](active-directory-application-proxy-native-client.md)
-##### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
-##### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
-##### [Satır içi bağlantıları çevirme](application-proxy-link-translation.md)
+##### [Ayrı ağlarda yayımlama](manage-apps/application-proxy-connector-groups.md)
+##### [Ara sunucular](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Talep kullanan uygulamalar](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Native Client uygulamaları](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Sessiz yükleme](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Özel giriş sayfası](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Satır içi bağlantıları çevirme](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Adım adım kılavuzlar yayımlama
-##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Uzak Masaüstü](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

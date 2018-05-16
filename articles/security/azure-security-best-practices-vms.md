@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM Güvenlik için en iyi yöntemler
 
@@ -55,7 +55,7 @@ Resource Manager ilkeleri ve VM erişimi denetlemek için RBAC etkinleştirdiği
 
 - [Sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM'ler, ancak bunlar bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
 - [Klasik sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Klasik dağıtım modeli, ancak sanal makineleri bağlı olmayan sanal ağ veya depolama hesabı kullanılarak oluşturulan sanal makineleri yönetebilirsiniz.
-- [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-manager): güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz.
+- [Güvenlik Yönetim](../role-based-access-control/built-in-roles.md#security-admin): güvenlik bileşenleri ve güvenlik ilkelerini yönetebilirsiniz.
 - [DevTest Labs kullanıcı](../role-based-access-control/built-in-roles.md#devtest-labs-user): her şeyi görüntüleyip bağlamak, başlatmak, yeniden başlatın ve sanal makineleri kapatın.
 
 Hesapları ve parolaları Yöneticiler arasında paylaşmayın ve parolaları birden çok kullanıcı hesapları veya hizmetleri, özellikle sosyal medya için parolaları veya diğer yönetim dışı etkinlikler arasında yeniden yok. İdeal olarak, kullanmanız gereken [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) , Vm'leri güvenli bir şekilde ayarlamak için şablonlar. Bu yaklaşımı kullanarak, dağıtım seçenekleriniz güçlendirmek ve güvenlik ayarlarını dağıtım boyunca zorlamak.

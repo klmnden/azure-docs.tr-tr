@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory için sertifikalı AppSource alma | Microsoft Docs"
-description: "Uygulamanız Azure Active Directory için sertifikalı AppSource alma hakkında ayrıntılar."
+title: Azure Active Directory için sertifikalı AppSource alma | Microsoft Docs
+description: Uygulamanız Azure Active Directory için sertifikalı AppSource alma hakkında ayrıntılar.
 services: active-directory
-documentationcenter: 
-author: andretms
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/03/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory AppSource sertifikalı alma
 [Microsoft AppSource](https://appsource.microsoft.com/) bulmak, deneyin ve iş kolu satır SaaS uygulamaları (tek başına SaaS ve var olan Microsoft SaaS ürünlerinde eklentiye) yönetmek İşletme kullanıcıları için bir hedef.
@@ -35,7 +37,7 @@ Oturum açma işlemleri ayrı örneği, yapılandırma veya dağıtım gerek kal
 
 Bu, uygulamanızın üzerinde çoklu kiracı etkinleştirmek için:
 - Ayarlama `Multi-Tenanted` özelliğine `Yes` içindeki uygulama kaydı ait bilgileri [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (varsayılan olarak, Azure Portalı'nda oluşturulan uygulamaların olarak yapılandırılmış *tek Kiracı*)
-- İstekler göndermek için kodunuzu güncelleştirin '`common`' uç noktası (uç noktasından güncelleştirme  *https://login.microsoftonline.com/{yourtenant}*  için  *https://login.microsoftonline.com/common* )
+- İstekler göndermek için kodunuzu güncelleştirin '`common`' uç noktası (uç noktasından güncelleştirme *https://login.microsoftonline.com/{yourtenant}* için *https://login.microsoftonline.com/common*)
 - ASP.NET gibi bazı platformlar için de birden çok verenler kabul etmek için kodunuzu güncelleştirin gerekir
 
 Çoklu kiracı hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory (AD) kullanıcı oturum nasıl](./active-directory-devhowto-multi-tenant-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı verileri bulma & sınıflandırma | Microsoft Docs"
-description: "Azure SQL veritabanı verileri bulma & sınıflandırma"
+title: Azure SQL veritabanı verileri bulma & sınıflandırma | Microsoft Docs
+description: Azure SQL veritabanı verileri bulma & sınıflandırma
 services: sql-database
 author: giladm
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 375142b0e55c741e6ab914e969751833f989d2fb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı verileri bulma ve sınıflandırma
 Veri bulma & sınıflandırma (şu anda önizlemede) Azure SQL veritabanı için yerleşik Gelişmiş özellikleri sağlar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
@@ -22,6 +22,9 @@ Keşfetmek ve en hassas verilerinizi sınıflandırmak (iş, finansal, sağlık 
 * Veri gizliliği standartlarını ve GDPR gibi yasal uyumluluk gereksinimlerini karşılayacak yardımcı olur.
 * (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimin uyarma.
 * Erişimi denetlemek ve yüksek oranda gizli verileri içeren veritabanları güvenlik sağlamlaştırma.
+
+> [!NOTE]
+> Bu belge, Azure SQL veritabanına yalnızca ilişkilendirir. SQL Server (şirket içi) için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Genel bakış
 Veri bulma & sınıflandırma yalnızca veritabanı verileri korumaya yönelik yeni bir SQL Information Protection kip oluşturan bir dizi Gelişmiş Hizmetleri ve yeni SQL özellikleri sunar:
@@ -44,47 +47,47 @@ Sınıflandırma iki meta veri özniteliklerini içerir:
 
 2. Gidin **veri bulma & sınıflandırma (Önizleme)** SQL veritabanınızdaki ayarlama.
 
-    ![Gezinti Bölmesi][1]
+    ![Gezinti bölmesi][1]
 
 3. **Genel bakış** sekmesi yalnızca belirli şema bölümleri, bilgi türleri ve etiketleri görüntülemek için filtreleyebilirsiniz sınıflandırılmış sütun ayrıntılı bir listesi dahil olmak üzere bu veritabanının geçerli sınıflandırma durumu özetini içerir. Herhangi bir sütundan sınıflandırılmış henüz yapmadıysanız, [5. adıma atlayın](#step-5).
 
-    ![Gezinti Bölmesi][2]
+    ![Gezinti bölmesi][2]
 
 4. Bir raporu Excel biçiminde indirmek için tıklayın **verme** penceresinin üst menü seçeneği.
 
-    ![Gezinti Bölmesi][3]
+    ![Gezinti bölmesi][3]
 
 5.  <a id="step-5"></a>Verilerinizi sınıflandırmak başlatmak için tıklatın **sınıflandırma sekmesini** pencerenin üstündeki.
 
-    ![Gezinti Bölmesi][4]
+    ![Gezinti bölmesi][4]
 
 6. Sınıflandırma altyapısı veritabanınız olası hassas verileri içeren sütunlar için tarar ve bir listesini sağlar **sütun sınıflandırmaları önerilen**. Görüntülemek ve sınıflandırma önerileri uygulamak için:
 
     * Pencerenin altındaki önerileri panelindeki önerilen sütun sınıflandırmaları listesini görüntülemek için tıklatın:
 
-        ![Gezinti Bölmesi][5]
+        ![Gezinti bölmesi][5]
 
     * Belirli bir sütun için bir öneri kabul etmek için ilgili satır sol sütunda onay kutusunu işaretleyin önerileri – listesini gözden geçirin. Ayrıca işaretleyebilirsiniz *tüm önerilere* önerileri tablo üstbilgisinde onay kutusunu işaretleyerek kabul gibi.
 
-        ![Gezinti Bölmesi][6]
+        ![Gezinti bölmesi][6]
 
     * Seçili önerileri uygulamak için üzerinde mavi tıklatın **kabul seçili önerileri** düğmesi.
 
-        ![Gezinti Bölmesi][7]
+        ![Gezinti bölmesi][7]
 
 7. Ayrıca **el ile sınıflandırma** sütunları alternatif olarak veya ek olarak, öneri tabanlı sınıflandırma için:
 
     * Tıklayın **sınıflandırma eklemek** penceresinin üst menüde.
 
-        ![Gezinti Bölmesi][8]
+        ![Gezinti bölmesi][8]
 
     * Şemayı açan bağlam penceresinde seçin > Tablo > sınıflandırmak istediğiniz sütun ve bilgi türü ve duyarlılık etiketi. Üzerinde mavi ardından **sınıflandırma eklemek** düğmesi bağlam pencerenin altındaki.
 
-        ![Gezinti Bölmesi][9]
+        ![Gezinti bölmesi][9]
 
 8. Sınıflandırma tamamlamak ve kalıcı olarak (etiketi) veritabanı sütunlarla yeni sınıflandırma meta veri etiketi için tıklayın **kaydetmek** penceresinin üst menüde.
 
-    ![Gezinti Bölmesi][10]
+    ![Gezinti bölmesi][10]
 
 ## <a id="subheading-3"></a>Hassas bilgilere erişimi denetleme
 
@@ -92,7 +95,7 @@ Bir önemli bilgi koruma kip hassas bilgilere erişimi izleme yeteneği yönüd�
 
 [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, tarafından döndürülen gerçek veri duyarlılık sınıflandırmaları (etiketleri) günlüğe kaydeder Sorgu.
 
-![Gezinti Bölmesi][11]
+![Gezinti bölmesi][11]
 
 ## <a id="subheading-4"></a>Sonraki adımlar
 Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) izleme ve, sınıflandırılmış hassas bilgilere erişimi denetleme.

@@ -1,5 +1,5 @@
 ---
-title: Uygulama Öngörüler genel bakış Panosu'na | Microsoft Docs
+title: Azure uygulama Öngörüler genel bakış Panosu'na | Microsoft Docs
 description: Azure Application Insights ve genel bakış Panosu'na işlevselliğiyle uygulamalarını izleyin.
 services: application-insights
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: bccb56ad45d9054a437bf2d85e74a8d81fbc3db1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 89ad96441ca4d519a9f4213ae3353eea1f0a7c37
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="overview-dashboard-preview"></a>Genel Bakış Panosu'na (Önizleme)
+# <a name="application-insights-overview-dashboard-preview"></a>Uygulama Öngörüler genel bakış Panosu'na (Önizleme)
 
-Application Insights her zaman, uygulamanızın sistem durumunu ve performansını hızlı, bir bakışta değerlendirmesi izin vermek için bir Özet genel bakış bölmesinde sağlanan. Yeni bir hızlı daha esnek deneyimi 15 Mayıs 2018 üzerinde başlayan bir önizleme olarak yayınlanacaktır. 29 Mayıs 2018 üzerinde Klasik genel bakış deneyimi kullanımdan kaldırılacaktır.
+Application Insights her zaman, uygulamanızın sistem durumunu ve performansını hızlı, bir bakışta değerlendirmesi izin vermek için bir Özet genel bakış bölmesinde sağlanan. Yeni Önizleme genel bakış Panosu'na daha hızlı bir daha esnek deneyimi sağlar.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Yeni deneyimi test nasıl?
 
-Yeni deneyimi Application Insights altında görünmesine 15 Mayıs başlar: _Araştır_ > _genel bakış (Önizleme)_.
+ Application ınsights'ta altında: _Araştır_ seçin _genel bakış (Önizleme)_.
 
 ![Genel Önizleme](.\media\app-insights-overview-dashboard\01.png)
 
@@ -60,11 +60,3 @@ Bunu istiyorsanız varsayılan görünüm kullanmaya devam edebilir, ancak de ek
 Gezinmek için genel bakış deneyimi geriye yalnızca seçin:
 
 ![Genel Bakış düğmesi](.\media\app-insights-overview-dashboard\07.png)
-
-Ayrıca adlandırılan yeni bir düğme olan _PIN bölümleri_.
-
-![Genel Bakış düğmesi](.\media\app-insights-overview-dashboard\008.png)
-
-Bu eski genel bakış deneyiminde döşeme hiçbirini yapmanıza imkan tanıyan Klasik genel bakış'den az bilinen bir özellik çoğaltır _(uyarıları, kullanılabilirlik, Canlı ölçümleri, kullanım, öngörülü algılama ve uygulama eşlemesi)_ ve bunları özel panolar ekleyin. 
-
-Varsayılan durumunda _uygulama Panosu_ bu kutucuklar zaten ekledik. Ancak ek özel panolar oluşturursanız veya birisi ekibinizin Klasik döşeme siler ve geri eklemek istiyorsanız _PIN bölümleri_ herhangi bu işlevsellik sağlar yeri bulma kolaydır.

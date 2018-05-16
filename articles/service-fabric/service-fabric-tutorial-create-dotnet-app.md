@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/29/2018
+ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7840dc86ec7753980bb2c35f932f132c50d65f9e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 Bu öğretici, bir dizinin birinci bölümüdür.  Verileri depolamak için ASP.NET Core Web API'si ön ucu ve durum bilgisi olan bir arka uç hizmetiyle Azure Service Fabric uygulaması oluşturmayı öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. Oylama uygulamasını el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ve [Oylama örnek uygulamasında izlenecek yol](#walkthrough_anchor) bölümüne atlayabilirsiniz.  İsterseniz, bu öğreticiye ait bir [video kılavuzu](https://channel9.msdn.com/Events/Connect/2017/E100) da izleyebilirsiniz.
@@ -460,13 +460,24 @@ namespace VotingData.Controllers
 }
 ```
 
-
 ## <a name="connect-the-services"></a>Hizmetleri bağlama
 Bu sonraki adımda, iki hizmeti bağlayın ve ön uç Web uygulamasının arka uç hizmetinden oylama bilgilerini almasını ve ayarlamasını sağlayın.
 
 Service Fabric, güvenilir hizmetlerle iletişiminize eksiksiz bir esneklik getirir. Tek bir uygulamanın içinde, TCP üzerinden erişilebilen hizmetleriniz olabilir. Diğer hizmetlere HTTP REST API üzerinden erişilebilir ve yine web yuvaları üzerinden erişilebilen başka hizmetler olabilir. Sağlanan seçeneklerin arka planı ve mevcut alışverişler için, bkz. [Hizmetlerle iletişim kurma](service-fabric-connect-and-communicate-with-services.md).
 
-Bu öğreticide, [ASP.NET Core Web API'si](service-fabric-reliable-services-communication-aspnetcore.md) kullanın.
+Bu öğreticide, ön uç web hizmetinin arka uç veri hizmetiyle iletişim kurabilmesi için [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) ve [Service Fabric ters proxy’sini](service-fabric-reverseproxy.md) kullanın. Ters proxy genellikle 19081 numaralı bağlantı noktasını kullanacak şekilde yapılandırılır. Bağlantı noktası, kümeyi ayarlamak için kullanılan ARM şablonunda ayarlanır. Hangi bağlantı noktasının kullanıldığını bulmak için **Microsoft.ServiceFabric/clusters** kaynağındaki küme şablonuna bakın:
+
+```json
+"nodeTypes": [
+          {
+            ...
+            "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+            "isPrimary": true,
+            "vmInstanceCount": "[parameters('nt0InstanceCount')]",
+            "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]"
+          }
+        ],
+```
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 

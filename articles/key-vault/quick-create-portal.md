@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 942c2bce3a5907917b8d1cc9e8c251b5779542b5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak Key Vault oluşturma
 
@@ -58,7 +58,7 @@ Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi ge
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault’a gizli dizi ekleme
 
-Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu örnekte, bir uygulama tarafından kullanılabilecek bir parola ekleyeceğiz. Parola **ExamoplePassword** şeklindedir ve içinde **Pa$$w0rd** değeri depolanır.
+Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu örnekte, bir uygulama tarafından kullanılabilecek bir parola ekleyeceğiz. Parola **ExamplePassword** şeklindedir ve içinde **Pa$$w0rd** değeri depolanır.
 
 1. Key Vault özellikleri sayfasında **Gizli Diziler**’i seçin.
 2. **Oluştur/İçeri Aktar**’a tıklayın.
@@ -87,4 +87,4 @@ Artık gerek kalmadığında kaynak grubunu silin. Bunu yaptığınızda Key Vau
 Bu hızlı başlangıçta bir Key Vault oluşturdunuz ve bir gizli dizi depoladınız. Key Vault ve bunu uygulamalarınızla nasıl kullanabileceğiniz hakkında daha fazla bilgi almak için, Key Vault ile birlikte çalışan web uygulamalarına yönelik öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Bir Web Uygulamasında Azure Key Vault Kullanma](key-vault-use-from-web-application.md) [Yönetilen hizmet kimliği](/active-directory/managed-service-identity/overview.md) kullanan bir web uygulaması kullanarak Key Vault’tan bir gizli diziyi okuma hakkında bilgi almak için aşağıdaki [Bir Azure web uygulamasını Key Vault’tan gizli dizi okuyacak şekilde yapılandırma](tutorial-web-application-keyvault.md) öğreticisine geçin
+> Yönetilen hizmet kimlikleri kullanan bir web uygulamasındaki Key Vault’tan bir gizli diziyi okuma hakkında bilgi almak için aşağıdaki [Bir Azure web uygulamasını Key Vault’tan gizli dizi okuyacak şekilde yapılandırma](tutorial-web-application-keyvault.md) öğreticisine geçin.

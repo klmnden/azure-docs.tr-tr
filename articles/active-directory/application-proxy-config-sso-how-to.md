@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 09d17f9f70ef352fe8d44a16c0f78323153a8a1a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c090a3fc36c300a108f10f02d0b663dc1e29f986
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Çoklu oturum açma uygulama proxy'si uygulamaya yapılandırma
 
@@ -37,7 +37,7 @@ SSO yapılandırmak için ilk uygulamanızı Azure Active Directory üzerinden �
 
 -   **Tümleşik Windows kimlik doğrulaması**: tümleşik Windows kimlik doğrulaması (IWA) kullanan uygulamalar için çoklu oturum açma Kerberos Kısıtlı temsilci (KCD) aracılığıyla etkinleştirilir. Bu yöntem, kullanıcıların kimliğine ve göndermek ve şirket adına belirteçleri almak için Active Directory'de uygulama Proxy bağlayıcıları izni verir. İçinde KCD yapılandırma hakkında ayrıntılar bulunabilir [çoklu oturum açma KCD belgelerine](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Üstbilgi tabanlı oturum açma**: üstbilgi tabanlı oturum açma ortaklığı etkinleştirilir ve bazı ek yapılandırma gerektirmez. Çoklu oturum açma kimlik doğrulaması için üstbilgiler kullanan bir uygulama için yapılandırmaya yönelik adım adım yönergeler ve ortaklık hakkında daha fazla bilgi için bkz: [PingAccess Azure AD belgeleri için](application-proxy-ping-access.md).
+-   **Üstbilgi tabanlı oturum açma**: üstbilgi tabanlı oturum açma ortaklığı etkinleştirilir ve bazı ek yapılandırma gerektirmez. Çoklu oturum açma kimlik doğrulaması için üstbilgiler kullanan bir uygulama için yapılandırmaya yönelik adım adım yönergeler ve ortaklık hakkında daha fazla bilgi için bkz: [PingAccess Azure AD belgeleri için](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).
 
 Bu seçeneklerin her biri "Kurumsal uygulamalar" uygulamanızda giderek ve açma bulunabilir **çoklu oturum açma** soldaki menüden sayfasında. Uygulamanız eski Portalı'nda oluşturduysanız, tüm bu seçenekler göremeyebilirsiniz unutmayın.
 

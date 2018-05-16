@@ -4,31 +4,31 @@ description: Bu makalede, oluşturma ve Azure portalında panolar düzenleme aç
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: doubeby
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Oluşturma ve Azure portalındaki pano paylaşma
 Birden çok panolar oluşturun ve bunları Azure aboneliklerinize erişimi başkalarıyla paylaşabilir.  Bu makalede oluşturma, düzenleme, yayımlama ve panolar erişimi yönetme temellerini geçer.
 
 ## <a name="create-a-dashboard"></a>Bir pano oluşturun
-Bir Pano oluşturmak için seçin **yeni Pano** geçerli Panodaki adının yanındaki düğmesi.  
+Bir pano oluşturmak için geçerli pano adının yanındaki **Yeni pano** düğmesini seçin.  
 
 ![bir pano oluşturun](./media/azure-portal-dashboards/new-dashboard.png)
 
-Bu eylem, yeni, boş, özel bir Pano oluşturur ve burada panonuzu adlandırın ve ekleyebilir veya kutucukları yeniden özelleştirme moduna geçirir.  Bu modda olduğunda, sol gezinti menüsü daraltılabilir döşeme galeri alır.  Döşeme galeri Azure kaynaklarınızın çeşitli şekillerde döşeme bulmanıza olanak sağlar: tarafından göz atabilirsiniz [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups), göre kaynak türü, göre [etiketi](../azure-resource-manager/resource-group-using-tags.md), ya da kaynak ada göre arayarak.  
+Bu işlem yeni, boş ve özel bir pano oluşturur ve panonuzu adlandırıp kutucuklar ekleyebileceğiniz ya da yeniden düzenleyebileceğiniz özelleştirme modunu açar.  Bu modda olduğunda, sol gezinti menüsü daraltılabilir döşeme galeri alır.  Döşeme galeri Azure kaynaklarınızın çeşitli şekillerde döşeme bulmanıza olanak sağlar: tarafından göz atabilirsiniz [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups), göre kaynak türü, göre [etiketi](../azure-resource-manager/resource-group-using-tags.md), ya da kaynak ada göre arayarak.  
 
 ![Pano özelleştirme](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -71,15 +71,15 @@ Kutucukları yeniden boyutlandırma sonra Pano görüntüleyin.
 Bir Pano özelleştirme bittiğinde seçmeniz yeterlidir **özelleştirme Bitti** çıkmak için özelleştirme moduna veya sağ tıklatın ve seçin **özelleştirme Bitti** ve bağlam menüsünden.
 
 ## <a name="publish-a-dashboard-and-manage-access-control"></a>Bir Pano yayımlayın ve erişim denetimi yönetin
-Bir Pano oluşturduğunuzda, görebileceğiniz tek kişi olduğunuz anlamına gelir varsayılan olarak özeldir.  Başkaları için görünür yapmak için kullanın **paylaşımı** yanı sıra diğer Pano komutları görünür düğmesi.
+Bir pano oluşturulduğunda varsayılan olarak gizlidir, yani onu yalnızca siz görebilirsiniz.  Panoyu başkalarının görebilmesi için, diğer pano komutlarıyla birlikte görünen **Paylaş** düğmesini kullanın.
 
 ![Pano paylaşımı](./media/azure-portal-dashboards/share-dashboard.png)
 
-Abonelik ve kaynak grubu için yayımlanması panonuz için seçim istenir. (Size bir e-posta adresi yazarak paylaşamaz şekilde) sorunsuz bir şekilde panolar ekosistemi tümleştirmek için paylaşılan panoları Azure kaynaklarını uyguladık.  Portal döşemeleri çoğu tarafından görüntülenen bilgilere erişim tarafından yönetilir [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir erişim denetimi açısından bakıldığında, paylaşılan Pano sanal makine ya da bir depolama hesabı hiç farklı değildir.  
+Panonuzun yayımlanması için bir abonelik ve kaynak grubu seçmeniz istenir. (Size bir e-posta adresi yazarak paylaşamaz şekilde) sorunsuz bir şekilde panolar ekosistemi tümleştirmek için paylaşılan panoları Azure kaynaklarını uyguladık.  Portal döşemeleri çoğu tarafından görüntülenen bilgilere erişim tarafından yönetilir [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir erişim denetimi açısından bakıldığında, paylaşılan Pano sanal makine ya da bir depolama hesabı hiç farklı değildir.  
 
 Bir Azure aboneliğiniz varsa ve ekibinizin üyeleri rolleri atanmış düşünelim **sahibi**, **katkıda bulunan**, veya **okuyucu** abonelik.  Sahipler veya katkıda bulunanlar kullanıcılar listesinde, görüntülemek, oluşturmak, değiştirmek veya bu abonelik içindeki panolar silmek kullanabilirsiniz.  Okuyucular kullanıcılar listesi ve görünümü panolarına kullanabilirsiniz ancak değiştirin veya silin.  Okuyucu erişimi olan kullanıcılar bir paylaşılan Pano yerel düzenlemeler yapabilir, ancak bu değişiklikleri geri sunucuya yayımlayın mümkün değildir.  Ancak, bunlar Pano kendi kullanmak için özel bir kopyasını yapabilirsiniz.  Her zaman olduğu gibi tek tek döşeme Panoda için karşılık gelen kaynaklara göre kendi erişim denetim kurallarını uygulayın.  
 
-Kolaylık olması için portal, bir kaynak grubunda panolar nereye bir desen doğru olarak adlandırılan deneyimi kılavuzları yayımlama kullanıcının **panolar**.  
+Kolaylık olması için portalın yayımlama deneyimi, bir kaynak grubuna panoları yerleştirdiğiniz **panolar** adlı bir modelde size kılavuzluk eder.  
 
 ![Pano yayımlama](./media/azure-portal-dashboards/publish-dashboard.png)
 

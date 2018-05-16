@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dbb95b5910def55437f05837986e850824fbe741
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory oturum açma etkinliği raporu API Başvurusu
 
@@ -52,7 +52,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>Önkoşullar
 Bu rapor raporlama API aracılığıyla erişmek için şunlara sahip olmalısınız:
 
-* Bir [Azure Active Directory Premium P1 veya P2 edition](active-directory-editions.md)
+* Bir [Azure Active Directory Premium P1 veya P2 edition](active-directory-whatis.md)
 * Tamamlanan [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>API erişme

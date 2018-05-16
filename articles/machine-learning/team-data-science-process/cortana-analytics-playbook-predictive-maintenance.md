@@ -1,371 +1,444 @@
 ---
-title: Tahmine dayalı bakım çözümleri için Azure AI Playbook | Microsoft Docs
+title: Tahmine dayalı bakım çözümleri için Azure AI Kılavuzu | Microsoft Docs
 description: Birden fazla dikey sektörlerde Tahmine dayalı bakım çözümü'nın temelini oluşturan veri bilimi, kapsamlı bir açıklama.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 581e9d586f007fe0cd28d60b5558594777656ca8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure AI Playbook 
-## <a name="executive-summary"></a>Özet
-Tahmine dayalı bakım en talep edilen maliyet tasarrufları İnanılmaz derecede unarguable yararlar ile Tahmine dayalı analiz uygulamalarının biridir. Bu playbook önemli kullanım örneklerini indirimlere ile Tahmine dayalı bakım çözümler için bir başvuru sağlamaya amaçlar.
-En yaygın iş senaryolarına Tahmine dayalı bakım, zorluklar, iş sorunlarını Tahmine dayalı modelleme teknikleri kullanarak bu tür veri çözümleri oluşturmak üzere bu iş sorunlarını çözmek için gerekli verileri bu tür çözümler için uygun bir anlayış okuyucuya vermek hazır olan ve örnek çözüm mimarileri ile en iyi uygulamalar.
-Tahmine dayalı modelleri ayrıntılarını ayrıca açıklanır özellik mühendisliği gibi geliştirilen modeli geliştirme ve performans değerlendirme. Esas olarak, iş ve başarılı geliştirme ve Tahmine dayalı bakım Çözüm dağıtımı için gerekli analitik yönergeleri Bu playbook araya getirir. Bu yönergeler, uzun vadeli Tahmine dayalı bakım stratejisi başlangıç noktası olarak Cortana Intelligence Suite ve özellikle Azure Machine Learning kullanarak ilk çözümünü oluşturun İzleyici yardımcı olmak için hazırlanır. Cortana Intelligence Suite ve Azure Machine Learning ile ilgili belgelere bulunabilir [Cortana Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) ve [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) sayfaları.
+# <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure AI Kılavuzu
 
-> [!TIP]
-> Bu çözüm şablonu uygulamak için teknik kılavuzu için bkz: [teknik kılavuzu için Tahmine dayalı bakım Cortana Intelligence çözüm şablonuna](cortana-analytics-technical-guide-predictive-maintenance.md).
-> Bu şablon mimari bir genel bakış sağlayan bir diyagram indirmek için bkz: [Cortana Intelligence çözüm şablonu Tahmine dayalı bakım mimarisini](cortana-analytics-architecture-predictive-maintenance.md).
-> 
-> 
+## <a name="summary"></a>Özet
 
-## <a name="playbook-overview-and-target-audience"></a>Playbook genel bakış ve hedef kitle
-Bu playbook teknik ve teknik olmayan İzleyici değişen arka planları ve Tahmine dayalı bakım alanı ilgi yararlanmak için düzenlenmiştir. Playbook iki farklı Tahmine dayalı bakım çözümü türleri ve bunların nasıl uygulanacağını ayrıntılarını üst düzey boyutlarının kapsar. Her ikisi de gereksinimini karşılamak için içerik dengeli yalnızca çözüm alanı ve uygulamaların yanı sıra bu çözümlerin bakarak ve bu nedenle teknik ayrıntılara ilgilendiğiniz olanlar türünü anlamak ilgilenen İzleyici.
+Tahmine dayalı Bakım (**PdM**) birkaç sektörlerde işletmelerde yüksek varlık kullanımı ve işletim maliyetlerini tasarruf yardımcı olabilecek Tahmine dayalı analiz yaygın bir uygulamadır. Bu kılavuz iş ve analitik yönergeleri ve başarıyla geliştirmek ve PdM çözümleri kullanarak dağıtmak için en iyi yöntemler araya getirir [Microsoft Azure AI platform](https://azure.microsoft.com/overview/ai-platform) teknolojisi.
 
-Bu playbook içeriği çoğunluğu önceki veri bilimi bilgi veya uzmanlığı varsaymaz. Ancak, bazı bölümleri playbook biraz uygulama ayrıntılarını izleyin yapabilmek için veri bilimi kavramlarına aşina gerektirir. Giriş düzeyinde veri bilimi becerileri malzeme bu bölümler, tam olarak yararlanmasını gereklidir.
+Yeni başlayanlar, bu kılavuzda sektöre özgü iş senaryolarını ve bu senaryolar için PdM niteleme işlemi sunar. Veri gereksinimleri ve modelleme teknikleri PdM çözümleri oluşturmak üzere de sağlanır. Ana içerik Kılavuzu'nun veri hazırlığı, özellik Mühendisliği, model oluşturma ve model operationalization adımları dahil olmak üzere veri bilimi üzerinde - işlemidir. Bu anahtar kavramları tamamlamak için bu kılavuzu PdM uygulama geliştirme hızlandırmak için çözüm şablonları kümesini listeler. Kılavuzu de yararlı eğitim kaynakları bakış veri bilimi arkasında AI hakkında daha fazla bilgi için işaret eder. 
 
-İş sorununu ayrıntılarla durumlarda Tahmine dayalı bakım nitelemek için çözüm, ortak bir koleksiyonunu kullanmak nasıl playbook kapsar Tahmine dayalı bakım uygulamalarına Giriş bir ilk yarısı, bunlar çevreleyen veri durumları ve bu Tahmine dayalı bakım çözümleri uygulamak iş avantajları kullanın. Bu bölüm Tahmine dayalı analiz etki alanındaki tüm teknik bilgi gerektirmez.
+### <a name="data-science-guide-overview-and-target-audience"></a>Veri bilimi Kılavuzu genel bakış ve hedef kitle
+Bu kılavuzun ilk yarı tipik iş sorunları, bu sorunları gidermek için PdM uygulama yararlarını açıklar ve bazı ortak kullanım durumları listeler. İşletmelerin karar alıcıları (BDMs) bu içeriği yararlı olacaktır. İkinci yarısındaki PdM arkasında veri bilimi açıklanmakta ve bu Kılavuzu'nda gösterilen ilkeleri kullanılarak oluşturulan PdM çözümlerinin listesini sağlar. Öğrenme yolları ve eğitim malzemesi işaretçiler de sağlar. Teknik Karar Alıcılar (TDMs) bu içeriği yararlı bulabilirsiniz.
 
-Playbook ikinci yarısında Tahmine dayalı modelleme teknikleri Tahmine dayalı bakım uygulamalar ve bu modeller playbook ilk yarısında özetlenen kullanım örnekleri örneklerinden aracılığıyla uygulama türlerini kapsar. Bu model verileri etiketleme ve mühendislik, özellik seçimi, eğitim ve sınama ve performansı en iyi yöntemler değerlendirme gibi verileri ön işleme adımları boyunca giderek gösterilmiştir. Bu bölüm, teknik İzleyici için uygundur.
+| İle Başlat... | Kullanıyorsanız... |
+|:---------------|:---------------|
+| [Tahmine dayalı bakım için İş Gerekçesi](#Business-case-for-predictive-maintenance) |kapalı kalma süresi ve işletim maliyetlerini düşürmeye ve donanım kullanımını geliştirmek için arayan bir iş karar veren (BDM) |
+| [Tahmine dayalı bakım için veri bilimi](#Data-Science-for-predictive-maintenance) |benzersiz veri işleme ve Tahmine dayalı bakım AI gereksinimleri anlamak için PdM teknolojileri değerlendiren bir teknik karar veren (TDM) |
+| [Tahmine dayalı bakım çözümü şablonları](#Solution-templates-for-predictive-maintenance)|bir yazılım Mimarı veya AI demo veya bir, kavram hızlı bir şekilde bildirimde isteyen Geliştirici |
+| [Tahmine dayalı bakım için eğitim kaynakları](#Training-resources-for-predictive-maintenance) | Yukarıdaki, bir bölümünü veya tamamını ve veri bilimi, araçları ve teknikleri temel kavramları öğrenin.
 
-## <a name="predictive-maintenance-in-iot"></a>IOT Tahmine dayalı bakım
-Zamanlanmamış ekipman kapalı kalma süresi etkisi işletmeler için son derece zararlı olabilir. Alan donanım kullanımını ve performansını en üst düzeye çıkarmak için çalışan tutmak için çok önemlidir ve pahalı en aza indirerek, zamanlanmamış kapalı kalma süresi. Yalnızca hata oluştuğu için bekleniyor bugünün iş işlemleri Sahne uygun maliyetli değildir. Rekabet kalması için şirketler yaparak varlık performansını en üst düzeye çıkarmak için yeni yollar için Ara verilerin kullanımını toplanan çeşitli kanaldan. Gibi bilgileri analiz etmek için bir önemli gelecekteki sonuçları öngörmek için geçmiş modelleri kullanmanıza Tahmine dayalı analitik teknikleri kullanmaya yoludur. En popüler biri bu çözümler genellikle olabilen Tahmine dayalı bakım adlı olarak tanımlanan ancak böylece varlıkları önceden hataları belirlemek ve hataları oluşmadan önce harekete için izlenen bir varlığı hata olasılığını yakın gelecekte tahmin etmeye için sınırlı değildir. Bu çözümlerin hatasının en yüksek risk altındadır varlıklar belirlemek için hata desenlerini algılayabilir. Bu sorunların erken kimliği sınırlı bakım kaynakları daha düşük maliyetli bir şekilde dağıtmasını ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olur.
+### <a name="prerequisite-knowledge"></a>Önkoşul bilgisi
+BDM içeriği tüm önceki veri bilimi bilgisine sahip okuyucu beklemiyor. TDM içerik için istatistikler ve veri bilimi temel bilgiye yardımcı olur. Azure veri ve AI Hizmetleri, Python, R, XML ve JSON önerilir. AI teknikleri, Python ve R paketlerinde uygulanır. Çözüm şablonları Azure Hizmetleri, geliştirme araçları ve SDK kullanılarak uygulanır.
 
-Nesnelerin interneti (IOT) uygulamalar, bakım dünyasında veri koleksiyonu olarak artan dikkat kazanmasını ve teknolojileri işleme oluşturmak için yeterli olgunlaştığından Tahmine dayalı neden ile iletme, depolamak ve her türlü yığınlardaki veya gerçek zamanlı verileri analiz edin. Bu tür teknolojileri kolay geliştirme ve en büyük avantajı tartışmaya açık bir şekilde sağlayarak Tahmine dayalı bakım çözümleriyle Gelişmiş analiz çözümleri ile uçtan uca çözümler dağıtımını etkinleştirin.
+## <a name="business-case-for-predictive-maintenance"></a>Tahmine dayalı bakım için İş Gerekçesi
 
-İş sorunlarını beklenmeyen hataları ve sorunları karmaşık iş ortamlarında kök nedenini sınırlı bir anlayış nedeniyle işletimsel yüksek riskli Tahmine dayalı bakım etki alanı aralığında. Bu sorunların çoğunu altında aşağıdaki iş sorularını düşmesine kategorilere ayrılabilir:
+İşletmelerin en yüksek verimlilik ve kendi dönüş sermaye yatırımlarına hayata geçirmek için kullanımı çalıştırması için kritik donanım gerektirir. Bu varlıklar uçak motorları, turbines, asansörler veya milyonlarca - her gün cihazları fotokopi makineleri, kahve makineler veya Su coolers gibi aşağıya doğru maliyet endüstriyel chillers - çeşitli işlemleri ifade edebilir.
+- Varsayılan olarak, çoğu işletme Bel _düzeltme Bakım_, burada bölümleri olarak değiştirilir ve bunlar başarısız olduğunda. Düzeltme bakım sağlar bölümleri tamamen kullanılır (Bu nedenle değil İsraf bileşenin ömür), ancak maliyetleri iş kapalı kalma süresi, İşgücü ve zamanlanmamış bakım gereksinimlerini (kapalı, saat, ya da kullanışsız konumları).
+- İleri düzey, işletmelerin uygulama adresindeki _önleyici bakım_, burada bunlar bir bölümü için yararlı kullanım ömrü belirlemek ve korumak veya bir hatadan önce değiştirin. Koruyucu bakım zamanlanmamış ve geri dönülemez hatalarını önler. Ancak zamanlanmış kapalı kalma süresi yüksek maliyetinden, bileşenin tam yaşam süresi kullanın ve işgücü hala önce eksik kullanımı kalır.
+- Amacı _Tahmine dayalı Bakım_ etkinleştirerek, düzeltme ve önleyici bakım arasındaki dengeyi en iyi duruma getirmek için _tam zamanında_ bileşenlerinin değiştirme. Yakın bir hata olduğunda bu yaklaşım yalnızca bu bileşenlerin yerini alır. Bileşen lifespans (koruyucu bakım için karşılaştırıldığında) genişletme tarafından ve zamanlanmamış Bakım ve işgücü maliyetleri (düzeltme bakım) azaltma, işletmelerin maliyet tasarrufu ve rekabet avantajları elde edebilirsiniz.
 
-* Bir donanım parçası yakın gelecekte başarısız olma olasılığını nedir?
-* Kalan kullanım ömrü ekipmanın nedir?
-* Hataları ve bu sorunları gidermek için hangi bakım eylemlerin gerçekleştirilmesi gereken nedenlerini nelerdir?
+## <a name="business-problems-in-pdm"></a>PdM iş sorunları
+İşletmeler yüz beklenmeyen hatalar nedeniyle işletimsel yüksek riskli ve sorunları kök nedenini bir anlayış karmaşık sistemlerinde sınırlı. Anahtar iş sorularını bazıları şunlardır:
 
-Bu soruları yanıtlamak için Tahmine dayalı bakım yararlanarak, işletme yapabilirsiniz:
+- Daha fazla bilgi, donanım ya da sistemin performansını veya işlev açısından algıla.
+- Bir varlık yakın gelecekte başlatılamayabilir olup olmadığını tahmin.
+- Bir malın kalan kullanım ömrü tahmin edin.
+- Bir varlık başarısızlığını ana nedenlerini belirleyin.
+- Bakım işlemleri, zaman tarafından bir varlık üzerinde yapılması gerekenleri belirlemenize.
 
-* İşletimsel riskini azaltmak ve bunlar oluşmadan önce hataları belirleme varlıklar üzerinde geri dönüş oranını artırmak
-* Gereksiz zamana dayalı bakım işlemlerini azaltmak ve bakım maliyetini denetleme
-* Genel marka görüntü geliştirmek, hatalı tanıtım ve sonuçta elde edilen kayıp satış müşteri attrition ortadan kaldırmak.
-* Stok düzeylerini sipariş noktayı tahmin ederek çalışmasını azaltarak stok maliyetleri
-* Çeşitli bakım sorunlarına bağlı desenleri Bul
+Tipik hedef deyimleri PdM gelen şunlardır:
 
-Tahmine dayalı bakım çözüm, gerçek zamanlı varlık koşul, varlıklar, ileriye dönük bakım etkinlikler için öneri ve yedek parçaların için tahmini sipariş tarihleri kalan kullanım ömrü tahmini izlemek için sistem durumu puanları gibi anahtar performans göstergelerinin işletmeler sağlayabilir.
+- Görev kritik ekipmanının işletimsel riskini azaltır.
+- Varlıklar üzerinde geri dönüş oranını ortaya çıkmadan önce hataları tahmin ederek çalışmasını artırın.
+- Yalnızca zaman bakım işlemleri sağlayarak bakım maliyeti kontrol eder.
+- Müşteri attrition alt, marka görüntü ve kaybolan satış geliştirmek.
+- Stok düzeylerini sipariş noktayı tahmin ederek çalışmasını azaltarak daha düşük stok maliyetleri.
+- Çeşitli bakım sorunlarına bağlı desenleri bulur.
+- KPI'ları (ana performans göstergelerini) gibi sistem durumu puanları varlık koşulları belirtin.
+- Kalan kullanım ömrü varlıklarını tahmin edin.
+- Zamanında bakım etkinlikleri öneririz.
+- Yalnızca zaman envanterinde sipariş tarihleri bölümlerinin değiştirmeye tahminlerle etkinleştirin.
 
-## <a name="qualification-criteria-for-predictive-maintenance"></a>Tahmine dayalı bakım için nitelik ölçütleri
-Tüm kullanım veya iş sorunlarını tarafından Tahmine dayalı bakım etkili bir şekilde çözülebilir vurgulamak önemlidir. Önemli sorun önceden ve en önemlisi, algılandığında hatalarını önlemek için eylem açık bir yolu var doğası gereği Tahmine dayalı olup niteliği ölçütünü dahil kullanım örneğini desteklemek için yeterli kalite verilerle kullanılabilir. Burada, biz başarılı Tahmine dayalı bakım çözümü oluşturmak için veri gereksinimleri odaklanılmaktadır.
+Bu hedef deyimleri için başlangıç noktaları şunlardır:
 
-Tahmine dayalı modeller oluştururken, geçmiş verileri, gizli desenleri tanıyabilir ve daha sonraki verilerdeki bu düzenleri tanımlamak modeli eğitmek için kullanırız. Bu modeller özelliklerine ve tahmin hedefi tarafından açıklanan örnekleriyle eğitilmiş olup. Eğitilen model yalnızca yeni örneklerin özelliklerinin bakarak hedef tahminlerde beklenir. Modeli özellik ve öngörü hedefi arasındaki ilişkiyi yakalama önemlidir. Model öğrenme etkili bir makine eğitmek için verilerin doğru tahminler yaptığınızdan beklenir tahmin hedefe ilgili anlamı tahmin hedef doğrultusunda Tahmine dayalı güç olan özellikler içeren eğitim verileri ihtiyacımız var.
+- _Veri bilimcilerine_ analiz ve Tahmine dayalı belirli sorunları çözmek için.
+- _Bulut mimarları ve geliştiricileri_ bir uçtan uca çözüm araya için.
 
-Örneğin, hedef tren Tekerlek hatalarının tahmin etmek için ise, eğitim verileri tekerleği ilgili özelliklerin (Tekerlek mesafe, car yük, vb. sistem durumunu yansıtacak şekilde örneğin telemetri.) içermelidir. Hedef Eğitimi altyapısı hataları tahmin etmek için ise, ancak biz büyük olasılıkla başka bir altyapısı güvenlikle ilgili özellikler sahip eğitim veri kümesi gerekir. Tahmine dayalı modelleri oluşturmadan önce iş verilerini uygunluk için gereksinim anlamak ve ilgili veri alt kümesi analiz için seçmek için gerekli etki alanı bilgi sağlamak için uzman bekliyoruz.
+## <a name="qualifying-problems-for-predictive-maintenance"></a>Tahmine dayalı bakım sorunları niteleme
+Tüm kullanım veya iş sorunlarını etkili bir şekilde PdM tarafından çözülebilir vurgulamak önemlidir. Sorun seçim sırasında ele alınması gereken üç önemli belirleme ölçütlerini vardır:
 
-Biz Tahmine dayalı bakım çözümü için uygun olması için bir iş sorununu uygun olduğunda aramak için üç temel veri kaynağı vardır:
+- Sorun doğası gereği Tahmine dayalı olması gerekir; diğer bir deyişle, olmamalıdır bir hedef veya tahmin etmek için bir sonuç. Sorun de oldukları algılandığında hatalarını önlemek için eylem Temizle yolu olmalıdır.
+- Sorun içeren ekipmanının işletimsel geçmişinin bir kayda sahip olmalıdır _iyi ve hatalı sonuçlar_. Hatalı sonuçları azaltmak için yapılan Eylemler kümesi de kullanılabilir olmalıdır kayıtlarının bir parçası olarak. Hata raporlarını, performans düşüşünü bakım günlüklerini onarın ve Değiştir günlükleri de önemlidir. Ayrıca, bunları ve değiştirme kayıtları geliştirmek için üstlendiği onarım de yararlıdır.
+- Kaydedilen geçmiş yansıtılması _ilgili_ , verileri _yeterli_ kullanım örneğini desteklemek için yeterli kalite. Veri uygunluğu ve sufficiency hakkında daha fazla bilgi için bkz: [Tahmine dayalı bakım için veri gereksinimlerini](#Data-requirements-for-predictive-maintenance).
+- Son olarak, iş sorununun NET bir anlayış sahip etki alanı uzmanlar olması gerekir. Bunlar, iç işlemler ve anlama ve verileri yorumlama analist yardımcı olması için yöntemler farkında olmalıdır. Bunlar ayrıca gerekirse sorunları için doğru verileri topla yardımcı olmak için var olan iş süreçlerini için gerekli değişiklikleri yapın yapabiliyor olmanız gerekir.
 
-1. Hata geçmişi: Genellikle, Tahmine dayalı bakım uygulamalarda hata çok nadir olaylardır. Ancak, hataları tahmin Tahmine dayalı modeller oluştururken, normal işlem düzeni ve bunun yanı sıra eğitim işlemiyle hatası düzeni öğrenmek algoritma gerekiyor. Bu nedenle, eğitim verileri bu iki farklı desenler bilgi almak için her iki kategorileri örneklerde yeterli sayıda içeren gereklidir. Bu nedenle, veri hatası olaylarının yeterli sayıda olmasını gerektirir. Hata olayları bakım kayıtlarında bulunabilir ve bölümleri değiştirme geçmiş veya eğitim verileri içinde anormallikleri de hataları olarak etki alanı uzmanlar tarafından tanımlandığı gibi kullanılabilir.
-2. Bakım/tamir geçmişini: Temel bir Tahmine dayalı bakım çözümleri için veri kaynağını yerini bileşenler hakkında bilgi içeren varlık ayrıntılı bakım geçmişini, önleyici bakım gerçekleştirilen, vb. etkinleştirir. Bu olaylar düşüşü desenleri bu etkiler yakalamak son derece önemlidir ve bu bilgileri yokluğu yanıltıcı sonuçları neden olur.
-3. Makine koşullar: başarısız önce kaç gün daha (saat, mil, işlemler, vb.) bir makine sürer tahmin etmek için bu işlemi sırasında zamanla makinenin sistem durumu düşürür varsayıyoruz. Bu nedenle, düşmesine yol açar, bu eskime düzeni ve tüm anormallikleri yakalama zaman değişen özellikleri içerecek şekilde veri bekliyoruz. IOT uygulamalarında iyi bir örnek farklı algılayıcılar telemetri verilerini temsil eder. Bir makine bir zaman çerçevesi içinde başarısız olacağını varsa tahmin etmek için ideal olarak verilerini düşürmesini eğilimi gerçek hata olayı önce bu zaman dilimi sırasında yakalama.
+## <a name="sample-pdm-use-cases"></a>Örnek PdM kullanım örnekleri
+Bu bölümde Havacılık, yardımcı programlar ve taşıma gibi birkaç sektörlerde PdM kullanım örneklerinden koleksiyonu odaklanır. Her bölümde problemini ile başlar ve PdM, iş sorununu ve son olarak bir PdM çözümü avantajlarını çevreleyen ilgili verilerin avantajları açıklanmıştır.
 
-Ayrıca, işletim koşullarını öngörme hedef varlık için doğrudan ilgili veri gerektirir. Hedef karar hem de iş gereksinimlerinize ve veri kullanılabilirliğine bağlıdır. Tren tekerleği hata tahmini bir örnek olarak alma, biz "tekerleği bir sorununuz yayınlanıyorsa" veya "tüm tren bir sorununuz edecekse" tahmin. İkincisi tren başarısızlığını hedefler ancak ilk daha belirli bir bileşeni hedefler. İkinci bir model oluşturmak daha zor hale getirme ilk olandan çok daha fazla dağınık veri öğeleri gerektirir daha genel bir soru olabilir. Bilgi bileşen düzeyinde içermiyor olarak buna karşılık, yalnızca üst düzey tren koşul verileri bakarak tekerleği hataları tahmin çalışılırken uygun olmayabilir. Genel olarak, belirli hatası olaylarının daha genel olanları daha tahmin etmek daha duyarlı.
+| İş sorununu | PdM gelen avantajları |
+|:-----------------|-------------------|
+|**Aviation**      |                   |
+|_Uçuş gecikmesi ve iptalleri_ mekanik sorunlar nedeniyle. Zamanında onarılamıyor hataları iptal edilmesi uçuşlar neden ve zamanlama ve işlemlerini kesintiye uğratabilir. |PdM çözümleri Gecikmeli veya mekanik hataları nedeniyle iptal Uçağın olasılığını tahmin edebilirsiniz.|
+|_Uçak motoru bölümleri hatası_: Uçak motoru bölümü değişikliklerini olan en sık kullanılan bakım görevlerini uçak endüstri içinde arasında. Bakım çözümleri bileşen stok kullanılabilirliği, teslim ve planlama dikkatli yönetim gerektirir|Bileşen güvenilirlik üzerinde Intelligence önemli ölçüde azalma yatırım maliyetlerinde müşteri adayları toplamak bölümlemeye.|
+|**Finans** |                         |
+|_ATM hatası_ bankacılık endüstri içinde sık karşılaşılan bir sorundur. Buradaki sorun ATM nakit mevzuatı işlem nakit dağıtıcısının kağıt sıkıştı veya bir bölümü hata nedeniyle kesintiye uğrarsa olasılık rapor etmektir. İşlem hataları tahminleri üzerinde bağlı olarak, ATM proaktif olarak hataları oluşmasını önlemek için hizmet verebilir.| Makine yarıda bir işlem üzerinden vermesine izin vermek yerine, istenen hizmetini reddetmek için makine üzerinde tahmin tabanlı program için alternatiftir.|
+|**Enerji** |                          |
+|_Rüzgar Türbin hataları_: Rüzgar turbines çevre sorumlu ülkede ana enerji kaynağı ve yüksek sermaye maliyetlerini içerir. Bir anahtar Rüzgar turbines Oluşturucu motor bileşenidir. kendi hatası Türbin etkisiz işler. Düzeltmek yüksek oranda pahalı olması.|MTTF (saati başarısızlık) gibi KPI'leri tahmin etmeye Türbin hatalarını önlemek ve en düşük kapalı kalma olun enerji şirketleri yardımcı olabilir. Hata olasılıklar büyük olasılıkla yakında başarısız turbines izlemek için teknisyenleri bildirin ve zamana dayalı bakım regimes zamanlayın. Tahmine dayalı modelleri kök sorunlarının olası nedenleri teknisyenleri yardımcı hatası katkıda bulunan farklı Etkenler Öngörüler daha iyi anlamak sağlar.|
+|_Devre kesici hataları_: dağıtımı elektrik ev ve işletmeler için güç satırları enerji teslim güvence altına almak için her zaman çalışır durumda gerektirir. Bağlantı hattı ayırıcıları Yardım sınırlamak veya güç zarar kaçının satırları aşırı yüklemesi sırasında veya olumsuz koşullar hava durumu. İş burada devre kesici hataları tahmin etmek için sorunudur.| PdM çözümleri onarım maliyetlerini azaltma ve bağlantı hattı ayırıcıları gibi donanım Sysprep'in artırmak yardımcı olur. Güç ağ beklenmeyen hataları ve hizmet kesintilerine azaltarak kalitesini yardımcı olurlar.|
+|**Taşıma ve lojistik** |    |
+|_Fırsatınızdır kapı hataları_: büyük fırsatınızdır şirketler dünyanın işlevsel asansörler milyonlarca için tam yığını hizmeti sağlar. Fırsatınızdır güvenlik, güvenilirlik ve çalışır durumda kalma süresi müşterileri için ana sorunları var. Bu şirketler, düzeltme ve önleyici bakım ve yardımcı olmak için algılayıcılar aracılığıyla bu ve diğer çeşitli öznitelikleri izler. Bir fırsatınızdır, en belirgin müşteri sorun fırsatınızdır kapıları düzgün çalışmıyor. Bu durumda iş sorununu kapı hatalarının olası neden tahmin bir Bilgi Bankası Tahmine dayalı uygulaması sağlamaktır.| Asansörler olası bir 20-30 yıllık kullanım ömrü için büyük yatırımlar ' dir. Bu nedenle her bir potansiyel satış son derece rekabetçi olabilir; Bu nedenle hizmet ve destek için beklentiler yüksek. Tahmine dayalı bakım bu şirketler ürünlerinin içinde kendi rakiplere üzerinde bir avantaj sağlar ve hizmet.|
+|_Tekerlek hataları_: tüm yarısı derailments eğitmek ve genel raylar sektör üzerindeki milyarlarca maliyet hataları hesap Tekerlek. Tekerlek hataları de bazen erken bölüneceği raylar neden bozulmasına rayları neden olur. Derailments gibi yıkıcı olaylara raylar sonları sağlama. Bu tür örnekleri önlemek için railways Tekerlek performansını izlemek ve bunları bir önleyici şekilde değiştirin. İş burada tekerleği hataları tahmin sorunudur.| Tekerlek, Tahmine dayalı bakım Tekerlek yalnızca zaman değişikliği ile yardımcı olur |
+|_Yeraltı treni tren kapı hataları_: bir ana Yeraltı treni işlemlerinde gecikmeler tren araba kapı hatalarının nedeni. İş burada tren kapı hataları tahmin etmek için sorunudur.|Kapı hatası ya da bir kapı hatası kadar gün sayısını erken tanıma zamanlamaları bakım kapı eğitmek iş İyileştir yardımcı olur.|
 
-Genellikle hatası geçmiş verileri hakkında sorular bir ortak Soru "nasıl bir model ve kaç tane"yeterli"kabul edilen eğitmek için birçok hata olayları gereklidir? Bu soruya birçok Tahmine dayalı analiz senaryolarında olduğu gibi Temizle yanıt yok, genellikle kabul edilebilir nedir belirleyen veri kalitesi. Veri kümesi hatası tahmin için uygun olan özellikleri içermiyorsa, birçok hata olayları olsa bile sonra iyi bir model oluşturmak mümkün olmayabilir. Ancak, daha iyi modeli daha fazla hata olayları ve kaç tane hata örnekleri gereklidir, kabaca bir tahmin olduğunu çok bağlamını ve veri bağımlı ölçü udur. Bu sorun, burada size yeterli hataları olmaması ile ilgili sorun başa çıkacak şekilde yöntemleri önermek imbalanced veri kümeleri işlemek için bölümünde ele alınmıştır.
+Sonraki bölümde, yukarıda açıklanan PdM faydaları hayata geçirmek nasıl ayrıntılarını içine alır.
 
-## <a name="sample-use-cases"></a>Örnek kullanım durumları
-Bu bölümde, Tahmine dayalı bakım kullanım örneklerinden Havacılık, yardımcı programlar ve taşıma gibi birkaç sektörlerde koleksiyonu odaklanır. Her alt bölümde bu alanlarından toplanan kullanım örnekleri içine ayrıntılı açıklanmıştır ve iş sorununu ve Tahmine dayalı bakım çözümü avantajlarını çevreleyen veri bir iş sorununu ele almaktadır.
+## <a name="data-science-for-predictive-maintenance"></a>Tahmine dayalı bakım için veri bilimi
 
-### <a name="aerospace"></a>Havacılık
-#### <a name="use-case-1-flight-delay-and-cancellations"></a>Kullanım örneği 1: Uçuş gecikmesi ve iptalleri
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-Mekanik sorunları nedeniyle erteleniyor uçuşlar ilişkilendirilmiş önemli maliyetleri airlines yüz olduğu önemli iş sorunlardan biri. Mekanik hatası onarılamıyorsa uçuşlar bile iptal edilebilir. Bu, son derece gecikmeler zamanlama ve işlemleri, nedenleri hatalı saygınlığı ve diğer birçok sorunu birlikte müşteri memnuniyetsizliği sorunları oluştururken maliyetlidir. Airlines, özellikle, böylece uçuş gecikmeler veya iptalleri azaltabilir böyle mekanik hataları önceden tahmin ilgilendiğiniz. Bu durumlarda Tahmine dayalı bakım çözümü Gecikmeli veya iptal edilen, ilgili veri kaynaklarına bakım geçmişi ve uçuş rota bilgilerini gibi temel Uçağın olasılığını tahmin etmek için hedefidir. Bu kullanım durumu için iki önemli veri kaynakları uçuş Bacak ve sayfa günlükleri olur. Uçuş leg veri uçuş rota ayrıntıları tarih ve saat ayrılma ve varış, ayrılma ve varış havaalanları, vb. gibi ilgili veriler içerir. Sayfa günlük verileri bir dizi bakım personeli tarafından kaydedilen hata ve bakım kodları içerir.
+Bu bölüm için PdM veri bilimi ilkeleri ve uygulama genel yönergeleri sağlar. TDM, çözümü Mimarı yardımcı olmayı amaçlar veya bir geliştirici anlamak önkoşulları ve PdM için uçtan uca AI uygulamaları oluşturmak için işlem. Bu bölümde gösterileri gözden birlikte okuyabilir ve kavram kanıtı şablonları listelenen [Tahmine dayalı bakım çözümü şablonları](#Solution-templates-for-predictive-maintenance). Ardından, Azure'da PdM çözümünüzü uygulamak için bu ilkeleri ve en iyi yöntemler kullanabilirsiniz.
 
-##### <a name="business-value-of-the-predictive-model"></a>*Tahmine dayalı bir model iş değeri*
-Kullanılabilir geçmiş verileri kullanarak Tahmine dayalı bir model gecikmesini ya da bir uçuş iptal sonraki 24 saat içinde sonuçlanır mekanik sorun türü tahmin etmek için çok sınıflandırma algoritması kullanılarak oluşturuldu. Bu tahmin yaparak, gerekli bakım Eylemler Uçağın hizmet ederken riskini azaltmak ve böylece olası gecikmeler veya iptalleri önlemek için alınabilir. Azure Machine Learning web hizmetini kullanarak, Tahmine dayalı modelleri sorunsuz bir şekilde ve kolayca airlines var olan işletim platformlarında tümleştirilebilir. 
+> [!NOTE]
+> Bu kılavuz, veri bilimi okuyucu öğretmeyi tasarlanmamıştır. Çeşitli yararlı kaynaklardan bölümünde daha fazla bilgi için sağlanan [Tahmine dayalı bakım için eğitim kaynakları](#Training-resources-for-predictive-maintenance). [Çözüm şablonları](#Solution-templates-for-predictive-maintenance) kılavuzda listelenen bazı AI tekniğin belirli PdM sorunları gösterir.
 
-#### <a name="use-case-2-aircraft-component-failure"></a>Kullanım örneği 2: Uçak bileşeni hatası
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-Uçak motorları ekipman çok hassas ve pahalı parçası ve altyapısı bölümü değişikliklerini uçak sektörde en sık kullanılan bakım görevlerini arasında. Bakım çözümleri airlines için bileşen stok kullanılabilirliği, teslim ve planlama dikkatli yönetim gerektirir. Bileşen güvenilirlik üzerinde Intelligence önemli ölçüde azalma yatırım maliyetlerinde müşteri adayları toplamak bölümlemeye. Algılayıcılar uçak sağlayan bilgi sayısından uçak koşula toplanan telemetri verileri bu kullanım örneği için ana veri kaynağıdır. Bakım kayıtları da zaman bileşen hatalar oluştu ve değişiklik yapıldı belirlemek için kullanıldı.
+## <a name="data-requirements-for-predictive-maintenance"></a>Tahmine dayalı bakım için veri gereksinimleri
 
-##### <a name="business-value-of-the-predictive-model"></a>Tahmine dayalı bir model iş değeri
-Birden çok sınıf sınıflandırma modeli, bir sonraki ay içinde belirli bir bileşeni nedeniyle bir hata olasılığını tahmin oluşturuldu. Bu çözümlerin mimarisi kullanarak airlines bileşen onarım maliyetleri azaltmak, bileşen stok kullanılabilirliğini artırın, ilgili varlıklar stok düzeylerini küçültmek ve Bakım planlama geliştirmek.
+Tüm öğrenme başarısını ne öğrettin (a) kalite ve (b) öğrenen özelliği bağlıdır. Tahmine dayalı modelleri geçmiş verileri modellerinden öğrenmek ve bu gözlemlenen düzenlerini esas alarak belirli olasılık ile gelecekteki sonuçları öngörmek. Tahmine dayalı bir modelin doğruluğunu ilgi, sufficiency ve eğitim ve test veri kalitesi bağlıdır. 'Bu modeli kullanarak puanlanır' yeni veri, eğitim ve test verileri olarak aynı özellikleri ve şema olması gerekir. Yeni veri özelliği özelliklere (türü, yoğunluğu, dağıtım vb.), eğitim ve sınama veri kümesi ile eşleşmesi gerekir. Bu bölümde, bu tür veri gereksinimleri sağlamaktır.
 
-### <a name="utilities"></a>Altyapı Hizmetleri
-#### <a name="use-case-1-atm-cash-dispense-failure"></a>Kullanım örneği 1: ATM nakit hatası etiket.
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-İşlerini birincil işletimsel risk varlıklarına beklenmeyen hatalarının olduğunu Yöneticiler varlık yoğun sektörlerde genellikle durum içinde. Örnek olarak, endüstri bankacılık içinde makineler ATM gibi başarısızlığını sıklıkla ortaya çok yaygın bir sorundur. Bu tür sorunları gibi makine işleçler için Tahmine dayalı bakım çözüm çok istenen olun. Bu kullanım örneğinde tahmin ATM nakit mevzuatı işlem nakit dağıtıcısının kağıt sıkıştı gibi bir hata veya bir bölümü hatası nedeniyle kesintiye uğrarsa olasılık hesaplamak için sorunudur. Ana veri bu durumda nakit notları dispensed sırada ölçümleri toplamak sensör okumaları ve aynı zamanda bakım kayıtları toplanan zamanla kaynaklarıdır. Tamamlanan her işlem başına sensör okumaları ve ayrıca sensör okumaları dispensed her Not başına algılayıcı verilerini dahil. Notlar, kalınlığı arasındaki boşlukları gibi algılayıcı sağlanan okumalar ölçümleri varış uzaklığı vb. unutmayın. Bakım veri, hata kodları ve onarım bilgileri dahil. Bunlar, hata durumlarını tanımlamak için kullanılmıştır.
+### <a name="relevant-data"></a>İlgili veriler
 
-##### <a name="business-value-of-the-predictive-model"></a>*Tahmine dayalı bir model iş değeri*
-İki tahmine dayalı modelleri hataları nakit mevzuatı işlemler ve işlem sırasında dispensed notları tek tek başarısızlık tahmin etmek için oluşturulmuştur. İşlem hataları önceden tahmin etmek erişebildiklerinden, ATM proaktif olarak hataları oluşmasını önlemek için hizmet verebilir. Ayrıca, bir işlem büyük olasılıkla Not nedeniyle tamamlanmadan önce başarısız olması durumunda Not hatası tahmin ile hatası, etiket işlemi durdurur ve tamamlanmamış işlem müşteri yerine Bakım hizmeti bekleniyor büyük müşteri memnuniyetsizliği neden olabilir hata oluştuktan sonra gelmesi uyarmak en iyi yöntem olabilir.
+İlk olarak, verileri olmak zorundadır _sorun ilgili_. Göz önünde bulundurun _Tekerlek hatası_ ele alınan kullanım eğitim verileri tekerleği işlemleriyle ilgili özellikleri yukarıdaki - içermelidir. Sorun başarısızlığını tahmin etmek için ise _traction sistem_, eğitim verileri ait farklı bileşenler için traction sistem kapsayacak şekilde sahiptir. İkinci durumda daha büyük bir alt sistemi başarısızlığını hedefler ancak ilk harfi belirli bir bileşeni hedefler. Genel ikinci daha veri dağınık beri büyük alt sistemleri yerine belirli bileşenleri hakkında öngörü sistemleri tasarlamak için önerilir. Etki alanı Uzman (bkz [sorunlar Tahmine dayalı bakım için uygun](#Qualifying-problems-for-predictive-maintenance)) verilerini analiz için en uygun kümelerine seçilmesinde yardımcı olmalıdır. İlgili veri kaynaklarına daha ayrıntılı olarak ele alınmıştır [Tahmine dayalı bakım için veri hazırlığı](#Data-preparation-for-predictive-maintenance).
 
-#### <a name="use-case-2-wind-turbine-failures"></a>Kullanım örneği 2: Rüzgar Türbin hataları
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-Ortam tanıma olursa, Rüzgar turbines enerji nesil başlıca kaynaklarından biri duruma gelmiş ve bunlar genellikle milyonlarca dolar maliyeti. Rüzgar turbines anahtar bileşenleri bulunur Oluşturucu motor Türbin koşullar ve durumunu izlemek için yardımcı olacak birçok algılayıcılar ile biridir. Sensör okumaları başarısızlık Rüzgar Türbin bileşenleri için ortalama süresi gibi kritik anahtar performans göstergelerini (KPI'lar) tahmin etmek için Tahmine dayalı bir model oluşturmak için kullanılan değerli bilgiler içerir. Bu kullanım örneği için veriler üç farklı grubu konumda bulunan birden çok Rüzgar turbines gelir. Ölçümler yüzlerce algılayıcılar her Türbin gelen yakın 10 dakikada bir yıl için kaydedilmiş. Bu okumalar sıcaklık, oluşturucu hızı, Türbin güç ve oluşturucu sargı gibi ölçüleri içerir.
+### <a name="sufficient-data"></a>Yeterli veri
+İki sık sorulan sorular hatası geçmiş verileri sabittir: (1) "kaç hatası olaylarının bir modeli eğitmek için gerekli midir?" (2) "kaç kayıt olarak kabul"yeterli"?" Hiçbir kesin yanıtlar, ancak yalnızca kuralları altın vardır. (1) için daha hatası olaylarının sayısı model daha iyi. (2) için ve hata olaylarının tam sayı veri ve problem Çözüldü bağlamında bağlıdır. Ancak, bir makine çok sık başarısız olursa Çevir tarafında sonra iş, hangi hatası örnekleri azaltır yerini alır. Burada yeniden Uzman etki alanından Kılavuzu önemlidir. Ancak sorun başa çıkacak şekilde yöntemleri vardır _nadir olayları_. Bölümünde açıklanan [imbalanced veri işleme](#Handling-imbalanced-data).
 
-##### <a name="business-value-of-the-predictive-model"></a>*Tahmine dayalı bir model iş değeri*
-Tahmine dayalı modelleri oluşturucuları ve sıcaklık algılayıcıları için kalan kullanım ömrü tahmin etmek için oluşturulmuştur. Hata olasılığını tahmin ederek çalışmasını bakım teknisyenleri büyük olasılıkla yakında zamana dayalı bakım regimes tamamlamak üzere başarısız olacak şüpheli turbines üzerinde odaklanabilirsiniz.
-Ayrıca, Tahmine dayalı modelleri sorunları kök nedenini daha iyi anlamasına yardımcı olması için iş yardımcı olan bir hata olasılığını farklı faktörlerine katkısı düzeyine Insight getirin.
+### <a name="quality-data"></a>Kalite veri
+Veri Kalitesi kritik - her bir göstergesi olduğu öznitelik değeri olmalıdır _doğru_ hedef değişkeninin değeri ile birlikte. Veri Kalitesi istatistikler ve veriler yönetim iyi studied alanındadır ve bu nedenle out bu kılavuzun kapsamının.
 
-#### <a name="use-case-3-circuit-breaker-failures"></a>Kullanım örneği 3: devre kesici hataları
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-Oluşturma, dağıtım ve elektrik enerji satışının dahil elektrik ve gaz işlemler için ekleyebileceği enerji teslimini güvence altına almak için her zaman güç satırları işletimsel olduğundan emin olmak için bakım önemli miktarda gerektirir. Bu tür işlemler başarısız neredeyse her varlık güç sorunları ortaya bölgelerde parametreden gibi kritik öneme sahiptir. Bağlantı hattı ayırıcıları sorunları ve herhangi bir zarar güç satırlarına oluşmasını önlemek için kısa devreler durumunda elektrik geçerli kesme donanım parçası olarak bu tür işlemler için kritik öneme sahiptir. Verilen bakım günlükleri, komut geçmişi ve teknik belirtimler devre kesici hataları tahmin etmek için bu kullanım örneği için iş sorun değildir.
+> [!NOTE]
+> Çeşitli kaynaklar ve kalite verileri sunmak için Kurumsal ürünleri vardır. Başvuruları örneği aşağıda verilmiştir:
+> - Dasu, T, Johnson, T., Keşif veri araştırma ve verileri, 2003 Wiley, temizleme.
+> - [Keşif veri analizi, Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis)
+> - [Hellerstein, J, nicel veri büyük veritabanları için temizleme](http://db.cs.berkeley.edu/jmh/papers/cleaning-unece.pdf)
+> - [de Jonge, E, van der Ara, M, veri temizleme r giriş](https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf)
 
-Bu durumda üç ana veri kaynağı düzeltme, önleyici ve sistematik eylemlerini içeren bakım günlüklerin, otomatik ve el ile komutları içeren işletimsel veri hattı ayırıcıları açma ve kapama eylemleri ve her devre kesici yıl gibi özellikleri hakkında teknik belirtim verileri için yaptığınız gibi konum, model vb. gönderin.
+## <a name="data-preparation-for-predictive-maintenance"></a>Tahmine dayalı bakım için veri hazırlama
 
-##### <a name="business-value-of-the-predictive-model"></a>*Tahmine dayalı bir model iş değeri*
-Tahmine dayalı bakım çözüm onarım maliyetlerini azaltma ve bağlantı hattı ayırıcıları gibi donanım yaşam döngüsü artırmak yardımcı olur. Ayrıca bu modeller modelleri olan hizmet daha az kesintilerine neden beklenmeyen hataları azaltır uyarıları önceden sağladıklarından dolayı güç ağ kalitesini yardımcı olur.
-
-#### <a name="use-case-4-elevator-door-failures"></a>Kullanım örneği 4: Fırsatınızdır kapı hataları
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-En büyük fırsatınızdır şirketlerin tipik olarak dünyanın çalıştıran asansörler milyonlarca vardır. Rekabet sağlamak için bunların ne müşterilerine en önemli olan güvenilirlik odaklanır. Nesnelerin interneti, olası üzerinde kendi asansörler buluta bağlayarak ve fırsatınızdır algılayıcılar ve sistemlerden, veri toplamayı çizim bunlar artıran çok operations henüz rakiplere için kullanılabilir olan bir şey olmayan Tahmine dayalı ve PreEmptive tarafından bakım sunarak değerli iş zekası verileri dönüştürmek mümkün. Bu durumda iş gereksinimini kapı hatalarının olası neden tahmin bir Bilgi Bankası Tahmine dayalı uygulaması sağlamaktır. Bu uygulama için gerekli verileri kullanım bilgilerini (örneğin sayısı kapı döngüleri, ortalama kapı Kapat zaman, vb.) ve hata geçmişi (yani geçmiş hata kaydeder ve bunların nedenleri) (örneğin tanımlayıcıları sözleşme bakım sıklığı, yapı türü, vb.) fırsatınızdır statik özellikleri olan üç bölümden oluşur.
-
-Bir çok sınıflı Lojistik regresyon modeli tümleşik statik özellikler ve kullanım verileri özellikleri olarak ve geçmiş başarısızlığı kayıtları sınıfı etiket olarak nedenleri ile tahmin sorunu çözmek için Azure Machine Learning ile oluşturuldu. Bu Tahmine dayalı bir model alanı teknisyenleri çalışma verimliliğini artırmaya yardımcı olmak için kullanılan bir mobil cihazda bir uygulama tarafından kullanılır. Bir teknisyen bir fırsatınızdır onarmak site gittiğinde, klasöründe bu uygulama için önerilen nedenleri ve en iyi kurslar bakım eylemlerinin kadar hızlı fırsatınızdır kapıları düzeltmek başvurabilirsiniz.
-
-### <a name="transportation-and-logistics"></a>Taşıma ve lojistik
-#### <a name="use-case-1-brake-disc-failures"></a>Kullanım örneği 1: Fren disk hataları
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-Tipik bakım araçları için düzeltme ve önleyici bakım ilkelerdir. Düzeltme bakım ciddi bir sorundan dolayı beklenmeyen bir arıza sonucunda sürücü neden olabilir bir hata gerçekleştikten sonra araç onarılana ve zaman teknisyenin bir ziyarette küçülttüğü iyi bir şekilde anlamına gelir. Çoğu araçları Ayrıca belirli incelemeleri araba alt sistemleri gerçek koşulunu dikkate almaz bir zamanlamasında gerçekleştirilmesi bir önleyici bakım İlkesi tabidir. Bu yaklaşım hiçbiri tam olarak sorunların giderilmesinde başarılı. Belirli kullanım burada Fren disk hatası tahmin, geçmiş yönlendirmeli desenleri ve araba maruz başka koşullar izler bir araba lastiği sisteminde yüklü algılayıcılar aracılığıyla toplanan verileri temel alan bir durumdur. Bu durumda en önemli veri kaynağı örneği için yürüten uzaklıkları, hız, vb. düzenleri braking ivmelerini ölçmek algılayıcı verilerini ' dir. Bu bilgiler, bağlı diğer statik gibi bilgiler araba özellikleri iyi bir Tahmine dayalı bir model kullanılabilir predictors kümesi Yardım derleme. Başka bir önemli bilgi (araba işlendikçe yedek parça sipariş tarihleri ve sayıları dealerships tutmak için kullanılan) bölümü sipariş veritabanından olayla hatası verileri kümesidir.
-
-##### <a name="business-value-of-the-predictive-model"></a>*Tahmine dayalı bir model iş değeri*
-İş burada Tahmine dayalı bir yaklaşım önemli değeri. Tahmine dayalı bakım sistem Tahmine dayalı bir modeli temelinde dağıtıcı ziyaret zamanlayabilirsiniz. Model, car ve yönlendirmeli geçmişi geçerli durumunu temsil eden sensory bilgiye dayalı olabilir. Bu yaklaşım, sonraki düzenli bakım önce de oluşabilir beklenmeyen arıza riskini en aza indirebilirsiniz.
-Ayrıca, gereksiz önleyici bakım miktarını da azaltabilirsiniz. Sürücü proaktif olarak bölümleri, bir değişiklik birkaç hafta içinde gerekli ve bu bilgilerle dağıtıcı tedarik bilgilendirilmek. Dağıtıcı sonra tek tek bakım paket sürücüsünü önceden hazırlayın.
-
-#### <a name="use-case-2-subway-train-door-failures"></a>Kullanım örneği 2: Yeraltı treni tren kapı hataları
-##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
-Tren araba kapı hatalarının gecikmeleri ve sorunları Yeraltı treni işlemlerini ana nedenlerinden biridir. Tren araba kapı hatası veya sonraki door hatası kasa gün sayısını tahmin mümkün gerekecekse tahmin etmeye son derece önemli öngörü olur. Tren kapı bakım iyileştirmek ve tren'ın aşağı süresini azaltmak olanağı sağlar.
-
-#### <a name="data-sources"></a>Veri kaynakları
-Bu kullanım örneğindeki verilerin üç kaynakları 
-
-* **Olay verileri eğitmek**, geçmiş kayıtlarını tren olayların olduğu 
-* **Bakım verileri** bakım türleri, iş emri türleri ve öncelik kodları gibi  
-* **hataları kayıtlarını**.
-
-##### <a name="business-value-of-the-predictive-model"></a>*Tahmine dayalı bir model iş değeri*
-İki modeli ikili sınıflandırma ve gün regresyon kullanarak hatanın kasa kullanarak sonraki gün hatası olasılığını tahmin etmek için oluşturulmuştur. Önceki durumlarda benzer, modelleri hizmet kalitesini ve düzenli bakım regimes depolamanın tarafından müşteri memnuniyetini artırmak için büyük bir fırsat oluşturun.
-
-## <a name="data-preparation"></a>Veri hazırlama
 ### <a name="data-sources"></a>Veri kaynakları
-Tahmine dayalı bakım sorunları için ortak veri öğeleri şu şekilde özetlenebilir:
 
-* Hata geçmiş: makine ya da makineyi içinde bileşen hatası geçmişi.
-* Bakım geçmişi: Örneğin hata kodları, önceki bakım etkinlikleri veya bileşen değişikliklerini makinenin onarım geçmişi.
-* Makine koşullar ve Kullanım: Makine Örneğin veri işletim koşulları toplanan algılayıcı.
-* Makine özellikler: Örneğin altyapısı boyutu, bir makine özelliklerini marka ve model, konumu.
-* İşleç özellikleri: işleci özelliklerini örneğin cinsiyet, deneyimi.
+Tahmine dayalı bakım ilgili veri kaynaklarına arasında ancak bunlarla sınırlı değildir:
+- Hata geçmişi
+- Bakım/onarma geçmişi
+- Makine işletim koşulları
+- Donanım meta verileri
 
-Bu olası ve genellikle özel hata kodları veya yedek parça sipariş tarihleri biçiminde bakım geçmişi gibi hata geçmişi bulunan durumda olur. Bu gibi durumlarda hataları bakım verilerden ayıklanabilir. Ayrıca, farklı iş etki alanı burada ayrıntısına listelenmeyen hatası desenleri etkileyen diğer veri kaynaklarının çeşitli olabilir. Bu, etki alanı uzmanlar Tahmine dayalı modeller oluştururken danışmanlık tanımlanmalıdır.
+#### <a name="failure-history"></a>Hata geçmişi
+Hata olayları PdM uygulamalarda seyrek kullanılır. Ancak, tahmin modelleri oluştururken, bir bileşenin normal işlem düzeni yanı sıra hakkında kendi hatası desenleri öğrenmek algoritma gerekiyor. Bu nedenle eğitim verileri her iki kategoriden örnekleri yeterli sayıda içermelidir. Bakım kaydeder ve bölümleri değiştirme geçmiş hata olaylarını bulmak için uygun kaynaklardır. Bazı etki alanı bilgi yardımıyla, eğitim verileri içinde anormallikleri hataları olarak tanımlanabilir.
 
-Bazı veri öğeleri yukarıda kullanım örneklerinden örnekler:
+#### <a name="maintenancerepair-history"></a>Bakım/onarma geçmişi
+Bir varlık bakım geçmişini bileşenleri yerine, vb. gerçekleştirilen onarım etkinlikleri hakkındaki ayrıntıları içerir. Bu olaylar düşüşü desenleri kaydedin. Eğitim verileri bu önemli bilgileri yokluğu yanıltıcı modeli sonuçlara yol açabilir. Özel hata kodları veya bölümleri için sipariş tarihleri olarak hatası geçmişi ayrıca bakım geçmişi içinde bulunabilir. Hata desenleri etkilemek ek veri kaynaklarını araştırılan ve etki alanı uzmanlar tarafından sağlanan gerekir.
 
-Hata geçmiş: uçuş gecikme tarihleri, uçak bileşen hatası tarihleri ve türleri, ATM nakit mevzuatı işlem hataları, tren/fırsatınızdır kapı hataları, Fren disk değiştirme sipariş tarihleri, Rüzgar Türbin hatası tarihleri ve devre kesici komutu hataları.
+#### <a name="machine-operating-conditions"></a>Makine işletim koşulları
+İşlemde ekipmanının algılayıcı tabanlı (veya diğer) akış verilerini bir önemli veri kaynağıdır. Bir anahtar PdM, bir makinenin sistem durumu rutin çalışması sırasında zamanla düşüyor varsayılır. Verileri bu eskime düzeni ve düşmesine yol açar anormallikleri yakalama zaman değişen özellikleri içermesi beklenir. Zamana bağlı en boy veri hata ve hatasız örneklerinin zamanla öğrenmek algoritma için gereklidir. Bu veri noktalarında bağlı olarak, daha fazla birim sayısı zaman bir makine başarısız önce çalışmaya devam edebilirsiniz tahmin etmek algoritma öğrenir.
 
-Bakım geçmişi: uçuş hata günlükleri, ATM işlem hata günlüklerini, eğitmek bakım türü, kısa bir açıklama vb. ve devre kesici bakım kayıtları dahil olmak üzere bakım kaydeder.
+#### <a name="static-feature-data"></a>Statik özelliği verileri
+Donanım hakkındaki meta verileri statik özellikleridir. Örnekler Donatım Markası, modeli, üretilen tarihi, başlangıç tarihi hizmetinin, sistem ve diğer teknik özellikleri konumunu.
 
-Makine koşullar ve Kullanım: uçuş yönlendirir ve uçak motorları, ATM işlemleri ait sensör okumaları toplanan algılayıcı verilerini kez, olaylar verilerini, Rüzgar turbines, asansörler ve bağlı araba ait sensör okumaları eğitmek.
+İlgili verileri örnekleri [örnek PdM kullanım](#Sample-PdM-use-cases) aşağıdaki tabloda verilmiştir:
 
-Makine özellikler: Voltaj düzeyleri gibi devre kesici teknik özellikler, marka, model, altyapı gibi coğrafi konuma veya araba özellikleri boyut, lastiği türleri, üretim tesis vb.
+| Kullanım örneği | İlgili veri örnekleri |
+|:---------|---------------------------|
+|_Uçuş gecikmesi ve iptalleri_ | Uçuş rota bilgilerini uçuş ayaktan ve sayfa günlükleri biçiminde. Uçuş leg verileri ayrılma/varış tarih, saat, havaalanı, layovers vb. gibi yönlendirme ayrıntılarını içerir. Sayfa günlük bir dizi başından başlayarak bakım personeli tarafından kaydedilen hata ve bakım kodları içerir.|
+|_Uçak motoru bölümleri hatası_ | Çeşitli bölümlerini koşula bilgilerini uçak algılayıcılar gelen veri toplanmadı. Bakım kayıtları bileşen hataları oluştuğunda ve bunlar değiştirilmiştir tanımlamaya yardımcı olur.|
+|_ATM hatası_ | Sensör okumaları (nakit/onay ürünü) her bir işlem için ve nakit dağıtmak. Bilgi boşluk ölçüm notlar arasında üzerinde Not kalınlığı, Not varış uzaklığı, öznitelikleri vb. denetleyin. Hata kodları, onarım bilgileri, en son nakit dağıtıcısının zaman sağlamak bakım kayıtları refilled.|
+|_Rüzgar Türbin hatası_ | Algılayıcılar sıcaklık, Rüzgar yönü, oluşturulan güç, oluşturucu hızını vb. gibi Türbin koşullar izleyin. Birden çok Rüzgar turbines çeşitli bölgelerde bulunan Rüzgar gruplarından gelen veriler toplanır. Genellikle, her Türbin ölçümler bir sabit bir zaman aralığında geçişini birden çok sensör okumaları sahip olacaktır.|
+|_Devre kesici hataları_ | Düzeltme, önleyici ve sistematik eylemlerini içeren bakım günlüğe kaydedilir. Açık ve kapalı eylemler gibi hattı ayırıcıları gönderilen otomatik ve el ile komutları içerir işletimsel veri. Üretim, konum, model vb. tarihi gibi cihaz meta veriler. Devre kesici belirtimleri voltaj düzeyleri, coğrafi konuma, ortam koşulları gibi.|
+|_Fırsatınızdır kapı hataları_| Tür fırsatınızdır, üretilen tarih, bakım sıklığı, yapı türü vb. gibi fırsatınızdır meta veriler. Kapı döngü, ortalama kapı Kapat saat sayısı gibi işletimsel bilgiler. Hata geçmişi ile neden olur.|
+|_Tekerlek hataları_ | Ölçüler hızlandırma, braking örnekleri, yönlendirmeli uzaklığı, hız vb. Tekerlek algılayıcı verileri. Statik bilgilerini tarih üreticisi gibi Tekerlek üzerinde üretilen. Sipariş tarihleri ve sayıları izleyen parça siparişi veritabanından çıkarımı yapılan hatası verileri.|
+|_Yeraltı treni tren kapı hataları_ | Kapı açma ve kapatma süreleri, tren kapıları geçerli durumu gibi diğer işlemsel veri. Statik verileri varlık tanımlayıcısı, saati ve durum değeri sütunlarında dahildir.|
 
-Yukarıdaki veri kaynakları verildiğinde, biz Tahmine dayalı bakım etki alanında gözlemlemek iki ana veri zamana bağlı veri ve statik veri türleridir.
-Hata geçmişi, makine koşullar, her veri parçası için koleksiyon saati gösteren zaman damgalarını ile gelen geçmişi, neredeyse her zaman kullanım geçmişini onarın. Bunlar genellikle makineler veya işlecin özellikleri teknik özellikleri açıklamak bu yana makine özellikler ve işleci özellikler genel statik. Zaman içinde değiştirmek bu özellikleri mümkündür ve bu durumda veri kaynakları damgalı sürede olunmalıdır.
+### <a name="data-types"></a>Veri türleri
+Yukarıdaki veri kaynakları verildiğinde, PdM etki alanında gözlenen iki ana veri türleri şunlardır:
 
-### <a name="merging-data-sources"></a>Veri Kaynakları birleştirme
-Herhangi bir türde özellik Mühendisliği veya etiketleme işlem almadan önce biz öncelikle verilerimizi özelliklerinden oluşturmak için gereken biçimde hazırlamanız gerekir. Nihai amacıyla öğrenme algoritmasının makinesine beslenecek özellikleri ve etiketleri ile her varlık için her zaman birimi için bir kayıt oluşturmaktır. Temiz son bu veri kümesi hazırlamak için önceden işlem bazı adımlar gerçekleştirilmelidir. Bir varlık için bir zaman birimi her kayıt ait olduğu zaman birimlerine veri toplama süresi bölmek ilk adımdır. Kolaylık sağlamak için zaman birimlerini açıklamaları geri kalanı için kullandığımız ancak veri toplama aynı zamanda diğer birimler gibi eylemler, bölünebilir.
+- _Zamana bağlı veri_: işletimsel telemetri, makine koşullar, iş emri türleri, zaman damgaları kaydını aynı anda sahip öncelik kodları. Ayrıca hata, bakım/onarma ve kullanım geçmişini her olayla ilişkili zaman damgaları sahip olur.
+- _Statik veri_: Makine özellikler ve işleci özellikler genel statik bu yana makineler veya işleci özniteliklerin teknik özellikleri açıklanmaktadır. Bu özellikler zaman içinde değişebilir, ayrıca zaman damgaları ilişkili olmalıdır.
 
-Ölçü birimi kez saniye, dakika, saat, gün, ay, döngü, mil veya veri hazırlığı ve değişiklikleri verimliliğini bağlı olarak hareket zaman biriminden varlık diğer veya diğer etkenlere bağlı koşullar etki alanına özel gözlenen olabilir. Diğer bir deyişle, verileri olduğu gibi birçok veri toplama sıklığını durumlarda aynı herhangi bir birimi farkı diğer gösterilmeyebilir olmasını zaman birimi yok. Sıcaklık değerleri 10 saniyede toplanmakta, örneğin, bir zaman birimi tüm çözümleme için 10 saniye çekme örnekleri sayısı ek bilgileri sağlamadan Şişir. Daha iyi stratejisi, örnek olarak bir saat üzerinden ortalama kullanacak biçimde olacaktır.
+Bir göstergesi olduğu ve hedef değişkenleri ön işlemesi yapılan/dönüştürülmüş olmalıdır [sayısal, kategorik ve diğer veri türleri](https://www.statsdirect.com/help/basics/measurement_scales.htm) bağlı olarak kullanılan algoritma.
 
-Önceki bölümde açıklanan olası veri kaynakları için örnek bir genel veriyi şemaları şunlardır:
+### <a name="data-preprocessing"></a>Verileri ön işleme
+İçin önkoşul olarak _özellik Mühendisliği_, onu olduğu özellikleri oluşturmak kolay bir şema oluşturmak için çeşitli akışları verileri hazırlama. Önce bir kayıt tablosu görselleştirmek. Tablodaki her satır bir eğitim örneği temsil eder ve sütunları temsil _bir göstergesi olduğu_ özellikleri (bağımsız öznitelikler veya değişkenleri olarak da bilinir). Son sütunlara olacak şekilde, verileri düzenlemek _hedef_ (bağımlı değişken). Her bir eğitim örneği için Ata bir _etiket_ bu sütunun değeri olarak.
 
-Bakım kayıtları: Bunlar gerçekleştirilen bakım işlemleri kaydeder. Ham bakım verileri, genellikle bir varlık kimliği ve zaman damgası o anda bakım etkinlikleri gerçekleştirilmiş hakkında bilgi ile birlikte gelir. Bu tür ham veriler durumunda bakım etkinlikleri kategorik sütunlara bir bakım eylemi türüne karşılık gelen her kategorisiyle çevrilmesi gerekir. Temel veri şeması bakım kayıtları için varlık kimliği, saati ve Bakım eylemi sütunları içerir.
+Zamana bağlı verileri için zaman birimlerine algılayıcı verilerini süresini böler. Her bir kaydı bir varlık için bir zaman birimi ait olması gereken _ve farklı bilgi sunması gereken_. Zaman birimleri'nün katları saniye, dakika, saat, gün, iş gereksinimlerinize göre tanımlanan ay, vb. Zaman birimi _veri toplama sıklığı ile aynı olması gerekmez_. Sıklık yüksekse, veri önemli herhangi bir birimi farkı diğer göstermeyebilir. Örneğin, ortam sıcaklık 10 saniyede toplanan varsayın. Eğitim verileri için aynı aralık kullanarak yalnızca örnek sayısı ek bilgileri sağlamadan Şişir. Bu durumda, daha iyi bir stratejisi üzerinde 10 dakika veya bir saat verileri üzerinde iş gerekçesinin göre ortalama kullanmak olabilir.
 
-Hata kaydeder: Bu hataları veya hata nedeni dediğimiz tahmin hedefine ait kayıtlardır. Bu, belirli hata kodları veya hatalar belirli iş koşul tarafından tanımlanan olayları olabilir. Bazı durumlarda, verileri bazıları ilgi hatalarına karşılık gelen birden çok hata kodları içerir. Tüm hataları tahmin hedefi olduğundan, diğer hatalar genellikle hatalarıyla ilişkilendirilebilir özellikleri oluşturmak için kullanılır. Neden olup olmadığını başarısızlığı kayıtları için temel veri şeması varlık kimliği, zaman ve hata veya başarısızlık nedeni sütunları içerir.
+Statik verileri için
+- _Bakım kayıtları_: ham bakım verileri içeren bir varlık tanıtıcısı ve belirli bir anda zamanında gerçekleştirilmiş bakım etkinlikleri hakkında bilgi zaman damgası. Bakım etkinliklerine dönüştürme _kategorik_ sütunları, burada her kategori tanımlayıcısı benzersiz olarak eşleyen bir özel bakım eylemi. Bakım kayıtları için şemayı varlık tanıtıcısı, saat ve Bakım eylemi içerir.
 
-Makine koşul: Bu verilerin çalışma koşullarını ilgili verilerin izlenmesi tercihen gerçek zamanlı. Örneğin, kapı hataları için Kapak açma ve kapatma süreleri iyi kapıları geçerli durumuyla ilgili göstergesidir. Temel veri şeması makine koşulları için varlık kimliği, saati ve durum değeri sütunları içerir.
+- _Hata kayıtları_: belirli hata kodları veya hata olayları belirli iş koşullarına göre tanımlanan olarak hataları veya hatası nedeniyle kaydedilebilir. Donanım birden çok hata kodları sahip olduğu durumlarda, etki alanı Uzman hedef değişkeni ilgili olanları tanımlamaya yardımcı olmalıdır. Kalan hata kodları veya hata koşulları oluşturmak için kullandığı _bir göstergesi olduğu_ bu hata ile ilişkilendirmek özellikleri. Hata kayıtları için şemayı varlık tanımlayıcısı, saat, hata veya hata nedeni - varsa içerir.
 
-Makine and işleci veri: Makine and işleci veri birleştirilmiş hangi varlık varlık ve işleci özelliklerinin yanı sıra hangi işleci tarafından işletilen tanımlamak için bir şema içine. Örneğin, bir araba genellikle yaşı gibi deneyimi vb. yürüten özniteliklere sahip bir sürücü aittir. Bu veriler zamanla değişirse, bu veriler ayrıca bir saat sütunu içermelidir ve özellik oluşturma için veri değişen zaman olarak değerlendirilmelidir. Temel veri şeması makine koşulları için varlık kimliği, varlık özellikleri, operatör kodu ve işleci özellikler içerir.
+- _Makine ve işleci meta verilerini_: bir varlık ilgili öznitelikleriyle birlikte kendi işleci ilişkilendirmek için bir şema makine ve işleci verileri birleştirin. Makine koşulları için şema varlık tanımlayıcısı, varlık özellikleri, işleci tanımlayıcısı ve işleci özellikleri içerir.
 
-Etiketleme ve özellik oluşturma önce son tablo makine koşulları hatası kayıtlarda varlık kimliği ve zaman alanları tabloyla birleştirme sol tarafından oluşturulabilir. Bu tabloda ardından varlık kimliği üzerinde bakım kayıtlarla katılabilir ve zaman alanları ve son olarak makine ve işleçle birlikte varlık kimliği temel özellikleri Makine normal işlemde olduğunda ilk sol birleştirme hatası sütunu için null değerler bırakır, bunlar normal işlem için bir gösterge değeri tarafından imputed. Bu hata sütun etiketleri için Tahmine dayalı bir model oluşturmak için kullanılır.
+Adımları ön işleme diğer verileri içerecek _eksik değerleri işleme_ ve _normalleştirme_ öznitelik değerleri. Ayrıntılı bir tartışma bu kılavuzun kapsamı dışındadır - bazı yararlı başvuruları için sonraki bölüme bakın.
 
-### <a name="feature-engineering"></a>Özellik mühendisliği
-İlk modelleme özellik Mühendisliği adımdır. Özellik nesil kavramsal açıklamak ve zaman için en fazla toplanan geçmiş verileri kullanarak belirli bir zamanda bir makinenin sistem durumu koşulu soyut olur. Sonraki bölümde, Tahmine dayalı Bakım ve etiketleme için her tekniği nasıl yapıldığını için kullanılan teknikleri tür genel bir bakış sağlar. Kullanılması gereken tam teknik verileri ve iş soruna bağlıdır. Ancak, aşağıda açıklanan özelliği mühendislik yöntemleri taban çizgisi olarak özellikleri oluşturmak için kullanılır. Aşağıda, biz, zaman damgaları ve ayrıca statik veri kaynaklarından oluşturulan statik özellikler birlikte gelen veri kaynaklarından oluşturulması ve kullanım örnekleri örneklerinden sağlayan öteleme ele alınmaktadır.
+Veri kaynakları yerinde özellik Mühendisliği varlık tanımlayıcısı ve zaman damgası göre yukarıdaki tabloların katılmak için önce son dönüştürme yukarıdaki ön işlemesi yapılan. Makine normal işlemde olduğunda ortaya çıkan tabloda hatası sütunu için null değerler gerekir. Bu null değerler, normal işlem için bir gösterge tarafından imputed. Bu hata sütun oluşturulacağı _Tahmine dayalı bir model için etiketleri_. Daha fazla bilgi için bölümüne bakarak [teknikler Tahmine dayalı bakım için modelleme](#Modeling-techniques-for-predictive-maintenance).
 
-#### <a name="lag-features"></a>Gecikme özellikleri
-Tahmine dayalı Bakım'ın daha önce belirtildiği gibi geçmiş verileri genellikle her veri parçası için koleksiyon saati gösteren zaman damgalı gelir. Zaman damgalı verilerle birlikte gelen verileri özellikleri oluşturma, birçok yolu vardır. Bu bölümde, Tahmine dayalı bakım için kullanılan bu yöntemlerden bazıları aşağıdakiler ele. Ancak, biz bu yöntemleri sınırlı değildir. Özellik Mühendisliği Tahmine dayalı modelleme en yaratıcı alanlarında biri olarak kabul edilir beri özellikleri oluşturmak için birçok yolu olabilir. Burada, bazı genel teknikleri sunuyoruz.
+## <a name="feature-engineering"></a>Özellik mühendisliği
+Özellik Mühendisliği modelleme verileri önce ilk adımdır. Veri bilimi işleminde rolü [burada açıklanan](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). A _özelliği_ - sıcaklık, baskısı, Titreşim vb. gibi modeli için Tahmine dayalı bir özniteliktir. PdM için özellik Mühendisliği boyutlandırılabilir süresi boyunca toplanan geçmiş veriler üzerinde bir makinenin sistem durumu özetleyen içerir. Bu anlamda eşlerine Uzaktan izleme, anomali algılama ve hata algılama gibi farklı. 
 
-##### <a name="rolling-aggregates"></a>*Toplamalar alınıyor*
-Her bir varlık kayıt için çalışırken bir pencere için geçmiş toplamları hesaplamak için isteriz zaman birimlerinin sayısı olan "w" harfinin boyutunu seçin. Bu kayıt tarihinden önce W dönemlerini kullanarak toplama özellik çalışırken sonra işlem. Toplamalar çalışırken bazı örnek çalışırken sayıları, anlamına gelir, Standart sapmanın, Standart sapmanın dayalı aykırı değerlerini, CUSUM ölçer, pencere için minimum ve maksimum değerleri. Başka bir ilginç teknik eğilim değişiklikler, ani ve anomali algılama algoritmalarını kullanarak verileri anormallikleri algılama algoritmalarını kullanarak düzeyi değişikliklerini yakalamaktır.
+### <a name="time-windows"></a>Zaman pencereleri
+Sürümünden itibaren gerçekleşen olayları raporlama kapsar izleme uzaktan _zaman içinde nokta_. Anomali algılama modelleri zamanında veri noktaları itibariyle bayrağı anormallikleri için gelen akışları (puan) değerlendirin. Hata algılama noktaları zamanında göründüklerinde belirli türlerdeki olmasını hataları sınıflandırır. Buna karşılık, hataları öngörmektir PdM içerir bir _gelecekte süre_üzerinden makine davranışını temsil eden özelliklere göre _geçmiş süre_. PdM için özellik zaman tek tek noktalarından Tahmine dayalı olarak gürültülü verilerdir. Her bir özellik için veri olması gerekir böylece _smoothened_ veri noktaları zaman pencereleri toplama tarafından.
 
-Tanıtımı için bkz: Şekil burada biz zaman mavi çizgili her birim için bir varlık için kaydedilen algılayıcı değerlerini temsil eden ve çalışırken t kayıtları ortalama özellik hesaplama W = 3 işaretlemek 1<sub>1</sub> ve t<sub>2</sub> turuncu tarafından belirtilir ve gruplandırmaları sırasıyla yeşil.
+### <a name="lag-features"></a>Gecikme özellikleri
+İş gereksinimlerini ne kadar geleceğe tahmin etmek model sahip tanımlayın. Buna karşılık, bu süre, 'ne kadar geri model aramak sahip' tanımlamasına yardımcı olur bu Öngörüler yapma. Bu 'geri dönemi arayan' adlı _gecikme_, ve bu gecikme süresi içinde mühendislik özellikler adlandırılır _öteleme özellikleri_. Bu bölümde, zaman damgaları ve özellik oluşturma statik veri kaynaklarından veri kaynaklarından oluşturulan öteleme özellikleri açıklanmaktadır. Gecikme özellikleridir genellikle _sayısal_ yapısı.
 
-![Şekil 1 '. Toplama özellikleri alınıyor](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+> [!IMPORTANT]
+> Pencere boyutunu deneme belirlenir ve bir etki alanı Uzman yardımı ile sonlandırılır. Aynı uyarısıyla seçimi ve gecikme özelliklerini, kendi toplamalar ve Windows'un tür tanımı için tutar.
 
-Şekil 1 '. Toplama özellikleri alınıyor
+#### <a name="rolling-aggregates"></a>Toplamalar alınıyor
+Her bir varlık kayıt için çalışırken bir pencere boyutu "W" toplamları hesaplamak için zaman birimlerini sayı olarak seçilir. Gecikme özellikleri sonra hesaplanan W nokta kullanarak _tarihinden önce_ o kaydın. Şekil 1'de mavi satırlar her zaman birimi için bir varlık için kaydedilen algılayıcı değerlerini gösterir. Bunlar, bir boyut W = 3 pencere üzerinde çalışırken bir özellik değerlerinin ortalamasını gösterir. Ortalama zaman damgalı t aralıktaki tüm kayıtları üzerinden hesaplanır<sub>1</sub> (turuncu içinde) t<sub>2</sub> (yeşil içinde). W genellikle dakika ya da veri yapısına bağlı olarak saat değeridir. Ancak büyük W (12 ay deyin) çekme sorunları, kaydı zamana kadar bir varlık tam geçmişini belirli sağlayabilir.
 
-Örnek olarak, uçak bileşeni hatası için son üç günde ve son günü geçen hafta algılayıcı değerlerini çalışırken anlamına gelir, standart sapma ve toplam özellikleri oluşturmak için kullanılmıştır. Benzer şekilde, üç Standart sapmanın, üst ve alt CUMSUM özellikleri ötesinde aykırı değerlerini sayısı için ATM hataları, ham algılayıcı değerlerini ve çalışırken anlamına gelir, Orta, aralığı, Standart sapmanın kullanılmıştır.
+![Şekil 1. Toplama özellikleri çalışırken](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Şekil 1 '. Toplama özellikleri alınıyor
 
-Uçuş gecikme tahmin için geçen hafta kodlarından özellikleri oluşturmak için kullanılan hata sayar. Tren kapı hataları için olayları sayıları son gün önceki 2 hafta içinde olayların sayısı ve olayları önceki 15 gün sayısı varyansını öteleme özellikleri oluşturmak için kullanılmıştır. Aynı sayım bakım ilgili olayları için kullanıldı.
+Bir zaman penceresi toplamalar çalışırken, örnek sayısı, ortalama, CUMESUM (toplu sum) ölçüler, min/max değerleri verilmiştir. Ayrıca, fark, standart sapma ve N Standart sapmanın ötesinde aykırı değerlerini sayısı genellikle kullanılır. Örnekler için uygulanabilir Toplamaların [kullanım](#Sample-PdM-use-cases) bu kılavuzda aşağıda listelenmiştir. 
+- _Uçuş gecikme_: hata kodları üzerinden geçen gün/hafta sayısı.
+- _Uçak motoru bölümü hata_: anlamına gelir, standart sapma ve toplam çalışırken içinde son gün, hafta vb. Bu ölçüm iş etki alanı ile birlikte Uzman belirlenmesi.
+- _ATM hataları_: çalışırken anlamına gelir, Orta, aralığı, Standart sapmanın, üç Standart sapmanın, üst ve alt CUMESUM ötesinde aykırı değerlerini sayısı.
+- _Yeraltı treni tren kapı hataları_: gün, hafta, iki hafta vb. üzerinden sayısı.
+- _Devre kesici hataları_: hata geçen hafta içinde yıl, üç yıla vb. sayar.
 
-Ayrıca, bir W çekme tarafından çok büyük (örn. Yıl), tüm bakım kayıtları sayım gibi bir varlık tam geçmişini bakmak olası hataları vs. Kayıt süre kadar. Bu yöntem, son üç yıl devre kesici hataları sayım için kullanıldı. Ayrıca tren hataları için tüm bakım olayları kullanarak uzun süreli bakım efektleri yakalamak için bir özellik sayılan.
+Başka bir yararlı PdM içinde eğilim değişiklikler, ani ve anormallikleri verileri algılama algoritmalarını kullanarak düzeyi değişiklikleri yakalamak için tekniğidir.
 
-##### <a name="tumbling-aggregates"></a>*Dönen toplar*
-Bir varlık etiketli her kayıt için kimliğinizi bir pencere boyutunu çekme "W -<sub>k</sub>" k Burada, sayı veya windows "W" boyutunun öteleme özellikleri oluşturmak için istiyoruz. "k", uzun vadeli düşüşü desenleri yakalamak için büyük bir sayı veya kısa vadeli efektleri yakalamak için küçük bir sayı olarak çekilebilir. Ardından k dönen windows W - kullanırız<sub>k</sub> , W -<sub>(k-1)</sub>,..., W -<sub>2</sub> , W -<sub>1</sub> (bkz. Şekil 2) kayıt tarihi ve saati önce süreyle toplama özellikleri oluşturmak için. Bunlar ayrıca windows kayıt düzeyinde yakalanmaz için bir zaman birimi Şekil 2'de geri ancak aynı şekilde, Şekil 1 where fikirdir t<sub>2</sub> çalışırken etkisi göstermek için de kullanılır.
+#### <a name="tumbling-aggregates"></a>Dönen toplar
+Her biri için bir varlık, bir pencere boyutunu kaydının etiketli _W -<sub>k</sub>_  , tanımlandığı _k_ windows boyutunun sayısı _W_. Toplamalar üzerinden oluşturulduktan sonra _k_ _dönen windows_ _W-k, W -<sub>(k-1)</sub>,..., W -<sub>2</sub>, W -<sub>1</sub>_  bir kaydın zaman damgası önce süreyle. _k_ kısa vadeli efektleri yakalamak için küçük bir sayı veya uzun vadeli düşüşü desenleri yakalamak için çok sayıda olabilir. (bkz. Şekil 2).
 
-![Şekil 2. Toplama özellikleri dönen](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+![Şekil 2. Dönen toplama özellikleri](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Şekil 2 '. Toplama özellikleri dönen
 
-Şekil 2. Toplama özellikleri dönen
+W = 1 k ile Rüzgar turbines kullanım örneği oluşturulabilir özellikleri örneğin, öteleme = 3. Bunlar her üst ve alt aykırı değerlerini kullanarak son üç ay için gecikme kapsıyor.
 
-Örnek olarak, Rüzgar turbines, H = 1 ve k = 3 ay öteleme özellikleri her üst ve alt aykırı değerlerini kullanarak son 3 ay için oluşturmak için kullanılmış.
+### <a name="static-features"></a>Statik özellikler
 
-#### <a name="static-features"></a>Statik özellikler
-Üretim tarihi, model numarası, konum vb. gibi ekipmanının teknik özellikleri şunlardır. Öteleme özellikleri genellikle doğası gereği sayısal olsa da, statik özellikleri genellikle modellerindeki kategorik değişkenleri duruma gelir. Bir örnek, voltaj, geçerli gibi devre kesici özellikleri ve güç belirtimleri transformer türleri ile birlikte, güç kaynakları vb. kullanılmıştır. Fren disk hataları için karışımı oldukları veya çelik statik özelliklerden bazıları kullanılmış gibi wheels gibi lastiği türü.
+Üretim, model numarası, konum, tarihi gibi ekipmanının teknik özellikleri statik özelliklerin bazı örnekler verilmiştir. Bunlar kabul _kategorik_ modelleme değişkenleri. Devre kesici kullanım örneği için örnek voltaj, geçerli, güç kapasitesi, transformer türü ve güç kaynağı verilebilir. Tekerlek hataları için örnek lastiği Tekerlek (karışımı vs çelik) türüdür.
 
-Özellik oluşturma sırasında eksik değerleri ve normalleştirme işleme gibi bazı diğer önemli adımlar gerçekleştirilmelidir. Eksik değeri imputation ve ayrıca burada ele alınmamıştır veri normalleştirme çeşitli yöntemler vardır. Ancak, tahmini performans artışı mümkün olup olmadığını görmek için farklı yöntemler denemek faydalıdır.
+Şu ana kadar ele alınan verileri hazırlama çaba aşağıda gösterildiği gibi düzenlenmiş veri neden. Eğitim, test ve doğrulama verileri (Bu örnekte zaman gün birimlerinde gösterir) Bu mantıksal şeması olması gerekir.
 
-Zaman birimi bir gün olduğunda önceki bölümde açıklanan adımları mühendislik özelliği sonra son özellik tablosu aşağıdaki örnek veri şeması benzemelidir:
+| Varlık Kimliği | Zaman | <Feature Columns> | Etiket |
+| ---- | ---- | --- | --- |
+| A123 |Günde 1 | . . . | . |
+| A123 |Gün 2 | . . . | . |
+| ...  |...   | . . . | . |
+| B234 |Günde 1 | . . . | . |
+| B234 |Gün 2 | . . . | . |
+| ...  |...   | . . . | . |
 
-| Varlık Kimliği | Zaman | Özellik sütunları | Etiket |
-| --- | --- | --- | --- |
-| 1 |Günde 1 | | |
-| 1 |Gün 2 | | |
-| ... |... | | |
-| 2 |Günde 1 | | |
-| 2 |Gün 2 | | |
-| ... |... | | |
+Özellik Mühendisliği son adımdır **etiketleme** hedef değişkeni. Bu işlem modelleme tekniği bağlıdır. Buna karşılık, iş sorununu ve kullanılabilir veri yapısını modelleme teknikleri bağlıdır. Etiketleme, sonraki bölümde ele alınmıştır.
 
-## <a name="modeling-techniques"></a>Modelleme teknikleri
-Tahmine dayalı bakım genellikle birçok farklı açılarını Tahmine dayalı modelleme perspektif yaklaşıldığında iş sorularını kullanan çok zengin bir etki alanıdır. Sonraki bölümlerde, Tahmine dayalı bakım çözümleriyle yanıtlanması farklı iş sorularını model oluşturmak için kullanılan ana teknikleri sunuyoruz. Benzerlikler olsa da, her modeli kendi yolunu ayrıntılı olarak açıklanan oluşturma etiket vardır. Eşlik eden bir kaynak olarak Azure Machine Learning içinde sağlanan örnek denemeleri dahil Tahmine dayalı bakım şablonu başvurabilirsiniz. Bu şablon için çevrimiçi malzeme bağlantılar kaynaklar bölümünde verilmiştir. Bazı özellik mühendislik teknikleri yukarıda açıklanan ve Azure Machine Learning kullanarak uçak motoru hataları tahmin etmek için sonraki bölümlerde açıklanan modelleme teknikleri uygulanır nasıl görebilirsiniz.
+> [!IMPORTANT]
+> Veri hazırlama ve özellik Mühendisliği başarılı PdM çözümleri gelmesi teknikleri modelleme olarak önemli. Etki alanı uzman ve bakış doğru özellikler ve modeli için veriler geliş önemli süre yatırım. Özellik Mühendisliği üzerinde birçok kitaplarında küçük bir örnek aşağıda listelenmiştir:
+> - Pyle, veri 1999 (Morgan Kaufmann dizide veri yönetim sistemleri), araştırma için D. veri hazırlama
+> - Zheng, A., Casari, Machine Learning için A. özellik Mühendisliği: ilkeler ve veri Bilimcilerine, O'Reilly, 2018 teknikler.
+> - Dong, G. Liu H. (Düzenleyiciler) özelliği Machine Learning ve veri analizi (Chapman & Hall/CRC veri araştırma ve bilgi bulma serisi) için CRC tuşuna 2018 mühendislik.
 
-### <a name="binary-classification-for-predictive-maintenance"></a>Tahmine dayalı bakım için ikili sınıflandırma
-Tahmine dayalı bakım için ikili Sınıflandırma, gelecekteki bir süre içinde donanım başarısız olma olasılığını tahmin etmek için kullanılır. Süre tarafından belirlenir ve iş kuralları ve veri elinizdeki göre. Bazı ortak dönemleri hasar bileşenleri ya da bu süre içinde oluştuğu sorunu düzeltmek için bakım yordamları gerçekleştirmeye bakım kaynak dağıtmak için gereken süre büyük olasılıkla değiştirmek için yedek parçaların satın almak için gerekli minimum sağlama süresi ' dir. Bu gelecekteki yatay süresi "X" diyoruz.
+## <a name="modeling-techniques-for-predictive-maintenance"></a>Tahmine dayalı bakım modelleme teknikleri
 
-İkili sınıflandırma kullanmak için iki tür pozitif ve negatif dediğimiz örnekler tanımlamak ihtiyacımız. Her örneğin bir zaman birimi kavramsal olarak açıklayan ve o zaman birimi özellik Mühendisliği geçmiş kullanarak ve daha önce açıklanan diğer veri kaynakları aracılığıyla kadar işletim koşullar özetleyen bir varlık için ait olduğu bir kayıttır. Tahmine dayalı bakım için ikili sınıflandırma bağlamında pozitif türde (etiketi 1) hataları gösterir ve negatif tür normal işlemleri gösterir (etiket = 0) etiketleri türü kategorik olduğu. Hedeftir her yeni örnek büyük olasılıkla başarısız ya da sonraki içinde normal olarak çalışmasına olarak tanımlayan bir model bulmak için zaman birimlerini X.
+Bu bölümde, kendi özel etiket oluşturma yöntemlerini birlikte PdM sorunları için ana modelleme teknikleri açıklanmıştır. Tek modelleme teknik farklı endüstriler arasında kullanılabilir dikkat edin. Modelleme teknikleri veri elinizdeki bağlamında yerine veri bilimi sorunu eşleştirilmiş.
 
-#### <a name="label-construction"></a>Etiket oluşturma
-Soruyu yanıtlamak için Tahmine dayalı bir model oluşturmak için "sonraki varlık başarısız olma olasılığını nedir zaman birimleri X?", etiketleme alma X kayıtlar bir varlık ve bunları "için yaklaşık başarısız" olarak etiketleme arıza öncesinde tarafından yapılır (Etiket = 1) "normal" olarak diğer tüm kayıtları etiketleme sırasında (etiket = 0). Bu yöntemde, etiketleri (bkz: Şekil 3) kategorik değişkenlerdir.
+> [!IMPORTANT]
+> Etiketleme stratejisi ve hata durumları için etiketleri seçimi  
+> Uzman etki alanı ile çalışmaya olarak belirlenmesi.
 
-![Şekil 3 '. İkili sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+### <a name="binary-classification"></a>ikili sınıflandırma
+İkili sınıflandırma için kullanılan _ekipman parçasını gelecekteki bir süre içinde başarısız olma olasılığını tahmin_ - çağrılan _gelecekteki yatay dönemi X_. X, Uzman etki alanı ile çalışmaya, iş sorununu ve veri elinizdeki tarafından belirlenir. Örnekler şunlardır:
+- _Minimum sağlama süresi_ bileşenleri değiştirmek için gerekli, bakım kaynakları dağıtmak, o dönemde gerçekleşmesi olası bir sorunu önlemek için bakım gerçekleştirin.
+- _Minimum sayısı_ bir sorun oluşmadan önce oluşabilir.
 
-Şekil 3 '. İkili sınıflandırma etiketleme
+Bu teknik eğitim örnekleri iki tür tanımlanır. Pozitif bir örnek _bir hata gösterir_, etiketle = 1. Normal işlemleri gösterir, negatif bir örnek, etiketle = 0. Hedef değişkeni ve bu nedenle etiket değerlerini olduğunuz _kategorik_. Model, her yeni örnek başarısız veya sonraki zaman birimleri X üzerinden normal olarak çalışmak büyük olasılıkla olarak tanımlamanız gerekir.
 
-Uçuş gecikmeleri ve iptalleri için X gecikmeler sonraki 24 saat içindeki tahmin etmek için bir gün çekilir. Hataları önce 24 saat içinde olan tüm uçuşları 1'ler etiketlenmiş. Hatalar için ATM nakit etiket, iki ikili sınıflandırma modelleri sonraki 10 dakika içinde bir işlem hatası olasılığını tahmin etmek ve dispensed sonraki 100 notları hatası olasılığını tahmin etmek için oluşturulmuş. Hatanın son 10 dakika içinde gerçekleşen tüm işlemleri, ilk model için 1 olarak etiketlenir. Ve bir hatanın son 100 notlarına dispensed tüm notları ikinci modeli için 1 olarak etiketlenmiş. Devre kesici hataları için bir sonraki komut olması durumda X seçilir sonraki devre kesici komutu başarısız olma olasılığını tahmin etmek için bir görevdir. Tren kapı hataları için hataları sonraki 7 gün içinde tahmin etmek için ikili sınıflandırma modeli oluşturuldu. Rüzgar Türbin hataları için X 3 ay seçildi.
+#### <a name="label-construction-for-binary-classification"></a>İkili sınıflandırma için etiket oluşturma
+Soru burada: "varlık sonraki başarısız olur olasılık nedir zaman birimleri X?" Bu soru, etiket X kayıtları "için yaklaşık başarısız" olarak bir varlık arıza öncesinde yanıtlamak için (Etiket = 1) ve "normal" olarak tüm kayıtları etiket (etiket = 0). (bkz. Şekil 3).
 
-Türbin Rüzgar ve durumlarda da aynı verileri kullanarak kullanım ömrü kalan tahmin etmek regresyon çözümlemesi için ancak, sonraki bölümde açıklanan farklı bir etiketleme stratejisi aynı kullanarak kullanılan kapı eğitmek.
+![Şekil 3. İkili sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) Şekil 3 '. İkili sınıflandırma etiketleme
+
+Bazı kullanım durumları için stratejisi etiketleme örnekleri aşağıda listelenmiştir.
+- _Uçuş gecikmeler_: X seçilebilir 1 gün gecikmeler sonraki 24 saat içindeki tahmin etmek için. Ardından hataları önce 24 saat içinde olan tüm uçuşları 1 olarak etiketlenir.
+- _ATM nakit barkod hataları_: bir işlem sonraki bir saat içinde hata olasılığını belirlemek için bir hedef olabilir. Bu durumda, hata son bir saat içinde gerçekleşen tüm işlemleri 1 olarak etiketlenir. Hata olasılığını sonraki N para birimi tahmin etmek için dispensed, notlar hata son N notlarına dispensed tüm notları 1 olarak etiketlenir.
+- _Devre kesici hataları_: sonraki devre kesici komut hatası tahmin etmek için hedef olabilir. Bu durumda, bir sonraki komut olmasını X seçilir.
+- _Eğitmek kapı hataları_: X iki gün olarak seçilebilir.
+- _Rüzgar Türbin hataları_: X iki ay seçilebilir.
 
 ### <a name="regression-for-predictive-maintenance"></a>Tahmine dayalı bakım regresyon
-Tahmine dayalı bakım regresyon modellerinde süreyi sonraki hata gerçekleşmeden önce varlık çalışır durumda tanımlanan bir malın kalan kullanım ömrü (RUL) hesaplamak için kullanılır. İkili sınıflandırma aynı, her bir varlık için bir zaman birimi "Y" ait bir kayıt örnektir. Ancak, regresyon bağlamında, her yeni örnek kalan kullanım ömrü hatasından önce kalan süre olan sürekli bir sayı olarak hesaplar bir model bulmak için hedeftir. Bu süre içinde bazı birden çok y diyoruz. Her örneğin ayrıca sonraki hata vermeden önce bu örneğin kalan süreyi ölçerek hesaplanan bir kalan kullanım ömrü vardır.
+Regresyon modeli için kullanılan _bir malın kalan kullanım ömrü (RUL) işlem_. RUL sonraki hata gerçekleşmeden önce bir varlık çalışır durumda süre miktarını tanımlanır. Bir zaman birimine ait bir kayıt her eğitim örnektir _nY_ bir varlık için burada _n_ katı. Modelin her yeni örnek olarak RUL hesaplamak bir _sürekli numarası_. Bu hatadan önce kalan süreyi gösterir.
 
-#### <a name="label-construction"></a>Etiket oluşturma
-Soru verilen "ekipmanın kalan kullanım ömrü nedir?
-", regresyon modeli arıza öncesinde her kayıt alma ve sonraki hatasından önce kaç saat biriminin kalır hesaplayarak etiketleme tarafından oluşturulan için etiketler. Bu yöntemde, etiketleri sürekli (bkz: Şekil 4) değişkenlerdir.
+#### <a name="label-construction-for-regression"></a>Regresyon etiket oluşturma
+Soru burada: "Ekipmanın kalan kullanım ömrü (RUL) nedir?" Arıza öncesinde her kayıt için sonraki hatasından önce kalan süre birimlerinin sayısı etiketi hesaplayın. Bu yöntemde, etiketleri sürekli değişkenlerdir. (Bkz: Şekil 4)
 
-![Şekil 4 '. Regresyon için etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+![Şekil 4. Regresyon için etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) Şekil 4 '. Regresyon için etiketleme
 
-Şekil 4 '. Regresyon için etiketleme
-
-İkili Sınıflandırma, regresyon, farklı veri herhangi bir hata olmadan varlıklar etiketleme bir hata noktası bağlamında yapılır ve kendi hesaplama ne kadar varlık hatasından önce derdi'bitti bilmeden olası değil olarak modelleme için kullanılamaz. Bu sorunu en iyi hayatta analiz adında başka bir istatistik teknik tarafından ele.
-Biz hayatta analiz bu playbook sık aralıklarla zaman değişen verilerle ilgili Tahmine dayalı bakım kullanım durumları için teknik uygulama işlemi sırasında oluşabilecek olası karışıklıklardan dolayı ele alınacaktır değil.
+Regresyon için etiketleme başvuru içeren bir hata noktası yapılır. Ne kadar varlık hatasından önce derdi bitti bilmeden özelliği, hesaplama mümkün değildir. Bu nedenle zıt ikili sınıflandırma için veri herhangi bir hata olmadan varlıklar modelleme için kullanılamaz. Bu sorunu en iyi adında başka bir istatistik teknik tarafından ele [hayatta analiz](https://en.wikipedia.org/wiki/Survival_analysis). Ancak olası karışıklıklardan sık aralıklarla zaman değişen verilerle ilgili PdM kullanım durumları için bu tekniği uygularken ortaya çıkabilir. Acil ihtiyaç çözümleme hakkında daha fazla bilgi için bkz: [bu bir çağrı](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
 
 ### <a name="multi-class-classification-for-predictive-maintenance"></a>Tahmine dayalı bakım için birden çok sınıf sınıflandırma
-Tahmine dayalı bakım için birden çok sınıf sınıflandırma iki gelecekteki sonuçları öngörmek için kullanılabilir. Birinci birden fazla olası süreler hatasına her varlık için bir zaman aralığı vermek birine bir varlık atamaktır. İkincisi birden çok kök nedenlerden biri nedeniyle gelecekteki bir süre içinde hata olasılığını belirlemektir. Bu bilgiyle sorunları önceden işlemek için donatılmıştır bakım personeli sağlayan. Başka bir çok sınıfı modelleme teknikleri en olası kök nedenini belirlemeye odaklanan bir hata verilir. Bu bir hata çözmek için yapılması üst bakım işlemleri verilecek önerileri sağlar.
-Sahip tarafından kök sıralı bir listesini neden olur ve ilişkili onarım Eylemler,  
-teknisyenler arızalarının ardından ilk onarım eylemlerini alırken daha etkili olabilir.
+Birden çok sınıf sınıflandırma teknikleri PdM çözümleri için iki senaryo kullanılabilir:
+- Tahmin _iki gelecekteki sonuçları_: ilk sonucu olan _başarısızlık zaman aralığı_ bir varlık için. Varlık birden fazla olası süreler biri olarak atanır. İkinci sonucu gelecekteki bir süre nedeniyle hata olasılığını bulunduğu _birden çok kök biri neden_. Bu tahmin belirtileri ve planı bakım takvimleri izlemek bakım ekibi sağlar.
+- Tahmin _en olası kök nedeni_ verilen hata. Bu sonucu bir hata düzeltme için bakım eylemleri doğru yetenek kümesini önerir. Temel nedenler ve önerilen onarım sıralı bir listesini onarım eylemlerini bir hatadan sonra öncelik teknisyenleri yardımcı olabilir.
 
-#### <a name="label-construction"></a>Etiket oluşturma
-Olan iki soruya verilen "bir varlığı zaman sonraki"aZ"birimlerinde başarısız olma olasılığını nedir"a"dönem sayısını burada" ve "sonraki varlık başarısız olma olasılığını nedir sorunu nedeniyle zaman birimleri X" P<sub>ı</sub>"" i"etiketleme, olası nedenlerini sayısı olduğu aşağıdaki şekilde bu teknikler için yapılır.
+#### <a name="label-construction-for-multi-class-classification"></a>Birden çok sınıf sınıflandırması için etiket oluşturma
+Soru burada: "bir varlık sonraki başarısız olur olasılık nedir _nZ_ zaman birimleri nerede _n_ nokta sayısı?" Bu soruyu yanıtlamak için süre (3Z, 2Z, Z) demet kullanarak bir varlık arıza öncesinde nZ kayıtları etiketleyin. Etiket diğer tüm kayıtları "normal" olarak (etiket = 0). Bu yöntemde, hedef değişkeni tutan _kategorik_ değerleri. (Bkz. Şekil 5).
 
-İlk soru için etiketleme bir varlık arıza öncesinde aZ kayıtları almak ve bunları etiketleme yapılır "normal" olarak diğer tüm kayıtları etiketleme sırasında etiketlerine süre (3Z, 2Z, Z) demet kullanarak (etiket = 0). Bu yöntemde, etiket kategorik (bkz: Şekil 5) değişkendir.
+![Şekil 5. İçin hata zaman tahmini çok sınıflı sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Şekil 5. İçin hata zaman tahmini çok sınıfı sınıflandırma etiketleme
 
-![Şekil 5. İçin hata zaman tahmini çok sınıflı sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+Soru burada: "varlık sonraki başarısız olur olasılık nedir kök nedeni/sorunu nedeniyle zaman birimleri X _P<sub>ı</sub>_?" Burada _ı_ olası nedenlerini sayısıdır. Bu soru, bir varlık arıza öncesinde X etiketi kayıtları yanıtlamak için "kök nedenden dolayı başarısız üzere _P<sub>ı</sub>_" (etiket = _P<sub>ı</sub>_). "Normal" olarak tüm kayıtları etiket (etiket = 0). Bu yöntem aynı zamanda, kategorik (bkz: Şekil 6) etiketleridir.
 
-Şekil 5. İçin hata zaman tahmini çok sınıflı sınıflandırma etiketleme
+![Şekil 6. İçin kök nedeni tahmin çok sınıflı sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Şekil 6. İçin kök nedeni tahmin çok sınıfı sınıflandırma etiketleme
 
-İkinci soru için etiketleme alma X kayıtları bir varlık ve bunları olarak etiketleme arıza öncesinde gerçekleştirilir "P sorunu nedeniyle başarısız üzere<sub>ı</sub>" (etiket = P<sub>ı</sub>) diğer tüm kayıtları "normal" olarak etiketleme sırasında (etiket = 0). Bu yöntemde, etiketleri kategorik (bkz: Şekil 6) değişkenlerdir.
+Model hatası olasılığını her nedeniyle atar _P<sub>ı</sub>_  hiçbir hata olasılığını yanı sıra. Bu olasılıklar gelecekte gerçekleşmesi en olası sorunları tahmin izin vermek için büyüklük sıralanabilir.
 
-![Şekil 6. İçin kök nedeni tahmin çok sınıflı sınıflandırma etiketleme](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+Soru burada: "Bakım eylemleri bir hatadan sonra önerilir?" Bu soruyu yanıtlamak için etiketleme _çekilmesi için gelecekteki bir yatay gerektirmez_, model hatası gelecekte tahmin etmektir değil. Bu yalnızca en olası kök nedeni tahmin etmektir _hatası zaten gerçekleştirilmedi sonra_.
 
-Şekil 6. İçin kök nedeni tahmin çok sınıflı sınıflandırma etiketleme
-
-Model hatası olasılığını her P nedeniyle atar<sub>ı</sub> hiçbir hata olasılığını yanı sıra. Bu olasılıklar gelecekte gerçekleşmesi en olası sorunları tahmin izin vermek için büyüklük sıralanabilir. Uçak bileşen hatası kullanım örneği çok sınıflı sınıflandırma sorunu yapılandırılmış. Bu, sonraki ay içinde gerçekleşen iki farklı baskısı vana bileşenleri çalıştırılamadığından olasılıklar tahminini sağlar.
-
-Bakım işlemleri arızalarının ardından önermek için etiketleme çekilmesi için gelecekteki bir yatay gerektirmez. Model hatası gelecekte tahmin etmektir değil, ancak hata zaten gerçekleştirilmedi sonra en olası kök nedeni yalnızca tahmin etmeye nedeni budur. Burada belirtilen koşullar işletim üzerinde geçmiş veri hatanın nedenini tahmin etmek için hedef, üçüncü durumda içine fırsatınızdır kapı hataları ayrılır. Bu model, ardından bir hata gerçekleştikten sonra büyük olasılıkla kök neden tahmin etmek için kullanılır. Bu model önemli yararlarından biri, aksi takdirde yıllık deneyimi gerekir sorunları kolayca tanılayıp deneyimsiz teknisyenlerin yardımcı olur.
-
-## <a name="training-validation-and-testing-methods-in-predictive-maintenance"></a>Eğitim, doğrulama ve Tahmine dayalı bakım test yöntemleri
-Tahmine dayalı bakım, zaman damgalı verileri içeren diğer tüm çözüm alanı için benzer olarak görünmeyen gelecekteki verileri daha iyi zaman çeşitli yönlerini tipik eğitim ve rutin dikkate alması gerekiyor sınama genelleştirin.
+## <a name="training-validation-and-testing-methods-for-predictive-maintenance"></a>Eğitim, doğrulama ve Tahmine dayalı bakım için test yöntemleri
+[Takım veri bilimi işlemi](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) modeli eğitme test doğrulama döngüsü tam kapsamını sağlar. Bu bölümde PdM için benzersiz yönleri açıklanmaktadır.
 
 ### <a name="cross-validation"></a>Çapraz doğrulama
-Çok sayıda makine öğrenimi algoritmalarını modeli performansını önemli ölçüde değiştirebilirsiniz hyperparameters sayısına bağlıdır. Bu hyperparameters en iyi değerlerini otomatik olarak modeli eğitimindeki hesaplanır değil veri Bilimcisi tarafından belirtilmesi gerekir, ancak. Hyperparameters iyi değerlerini bulma birkaç yolu vardır. En yaygın "k-Katlama çapraz hangi örnekler rastgele"k"Katlama böler doğrulama" olur. Her hyperparameters değer kümesi öğrenme algoritmasını çalışma k katıdır. Her yinelemesinde geçerli Katlama örneklerde doğrulama kümesi olarak kullanılan, örnekler geri kalanı, eğitim kümesi olarak kullanılır. Algoritma trenler eğitim örnekleri ve performans ölçümleri üzerinde doğrulama örnekler hesaplanır. Bu döngü her hyperparameter değer kümesi için sonunda k performans ölçümü değerlerinin ortalamasını işlem ve en iyi ortalama performans sahip hyperparameter değerleri seçin.
+Amacı [çapraz doğrulama](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) "model eğitim aşamasında test etmek için" bir veri kümesi tanımlamaktır. Bu veri kümesi olarak adlandırılan _doğrulama kümesi_. Bu teknik yardımcı sınırı sorunları gibi _overfitting_ ve model bağımsız bir veri kümesine nasıl generalize hakkında bilgi verir. Diğer bir deyişle, hangi gerçek bir sorun olabilir bir bilinmeyen bir veri kümesi. PdM için eğitim ve sınama yordamını daha iyi üzerinde görünmeyen gelecekteki veri genelleştirmek için zaman çeşitli yönlerini dikkate almanız gerekir.
 
-Tahmine dayalı bakım sorunları, daha önce belirtildiği gibi verileri çeşitli veri kaynaklarından gelen olayların zaman serisi olarak kaydedilir. Bu kayıtları bir kayıt veya bir örnek etiketleme zaman göre sıralanabilir. Hangi veri kümesi rasgele olarak eğitim ve doğrulama kümesi olarak bölme biz, bu nedenle, bazı eğitim örnekler zamanında doğrulama örnekler bazıları sonraki demektir. Bu model eğitilmiş önce gelen verileri temel alan hyperparameter değerlerin gelecekte performans tahmininde sonuçlanır. Bu tahminler özellikle zaman serisi sabit değildir ve zaman içinde davranışlarını değiştirme aşırı iyimser olabilir. Sonuç olarak, seçilen hyperparameter değerleri iyinin olabilir.
+Çok sayıda makine öğrenimi algoritmalarını modeli performansını önemli ölçüde değiştirebilirsiniz hyperparameters sayısına bağlıdır. Bu hyperparameters en iyi değerlerini otomatik olarak modeli eğitimindeki hesaplanır değil. Veri Bilimcisi tarafından belirtilmelidir. Hyperparameters iyi değerlerini bulma birkaç yolu vardır.
 
-Hyperparameters iyi değerlerini bulma bir daha iyi şekilde tüm doğrulama örnekler tüm eğitim örnekleri zamanında sonraki örnekler eğitim ve bir zamana bağımlı şekilde ayarlanması doğrulama Bölünecek yoludur. Daha sonra her hyperparameters değer kümesi için Eğitim kümesi üzerinden algoritma eğitmek, aynı doğrulama küme üzerinde modelinin performansını ölçmek ve en iyi performansı Göster hyperparameter değerleri seçin. Zaman zaman serisi veri sabit değildir ve zaman içinde daha iyi gelecekteki "modelinin daha performans rastgele çapraz doğrulama tarafından seçilen değerlerle. müşteri adayına bölme tren/doğrulama tarafından seçilen hyperparameter değerleri dönüşmesi
+En sık karşılaşılan biridir _k Katlama çapraz doğrulama_ rastgele içine örnekler böler _k_ Katlama. Öğrenme algoritmasını her hyperparameters değer kümesi çalıştırmak _k_ kez. Her bir yinelemede, örnekler geçerli kat doğrulama kümesi ve örneklerin rest bir eğitim kümesi olarak kullanın. Algoritma eğitim örnekler eğitmek ve performans ölçümleri doğrulama örnekler üzerinde işlem. Bu döngü sonunda, ortalama işlem _k_ performans ölçümleri. Her hyperparameter değer kümesi için en iyi ortalama performans sahip olanları seçin. Hyperparameters seçme genellikle doğası gereği Deneysel bir görevdir.
 
-Son model, eğitim/doğrulama Böl veya çapraz doğrulama kullanarak bulunan en iyi hyperparameter değerleri kullanarak tüm veriler üzerinde bir öğrenme algoritması eğitim tarafından oluşturulur.
+PdM sorunları, verileri çeşitli veri kaynaklarından gelen olayların zaman serisi olarak kaydedilir. Bu kayıtları etiketleme zaman göre sıralı olabilir. Bu nedenle, veri kümesi bölerseniz _rastgele_ eğitim ve doğrulama kümesi içine _eğitim örnekleri bazıları zamanında doğrulama örnekler bazıları sonraki olabilir_. Gelecekte performans hyperparameter değerlerin tahmini gelen bazı verileri alarak _önce_ model eğitildi. Bu tahminler özellikle zaman serisi sabit değildir ve zaman içinde dönüşmesi aşırı iyimser olabilir. Sonuç olarak, seçilen hyperparameter değerler yetersiz olabilir.
+
+Eğitim ve kümesinde doğrulama örnekler Böl için önerilen yoldur bir _zamana bağımlı_ tüm doğrulama örnekler olduğu tüm eğitim örnekleri zamanında sonraki şekilde,. Her hyperparameter değer kümesi algoritma eğitim veri kümesi üzerinde eğitmek. Modelin performans aynı doğrulama küme üzerinde ölçün. En iyi performansı Göster hyperparameter değerleri seçin. Rastgele çapraz doğrulama tarafından seçilen değerlerle daha iyi gelecekteki modeli performans tren/doğrulama bölünmüş sonucu tarafından seçilen Hyperparameter değerleri.
+
+Son modeli en iyi hyperparameter değerleri kullanarak tüm eğitim verilerini bir öğrenme algoritması eğitim tarafından oluşturulabilir.
 
 ### <a name="testing-for-model-performance"></a>Model performansını test etme
-Bir model oluşturduktan sonra size gelecekteki performansını yeni verilerin tahmin etmeniz gerekir. En basit tahmin modeli performansını eğitim verileri içinde olabilir. Ancak performans tahmin etmek için kullanılan veri modeli uyarlanmış çünkü bu tahmin aşırı iyimser. Daha iyi tahmini performans ölçüm hyperparameter değerlerin doğrulama küme üzerinde hesaplanan veya bir ortalama performans ölçümü çapraz doğrulama hesaplanan olabilir. Ancak bu tahminler daha önce belirtildiği gibi aynı nedenlerle hala aşırı iyimser. Model performansını ölçmek için daha gerçekçi yaklaşımlar ihtiyacımız var.
+Bir model oluşturulduktan sonra yeni verilerin gelecekteki kendi performansını tahmini gereklidir. İyi bir performans ölçüm hyperparameter değerlerin doğrulama küme üzerinde hesaplanan veya bir ortalama performans ölçümü çapraz doğrulama hesaplanan tahmin edin. Bu tahminler genellikle aşırı iyimser. İş çoğunlukla bunlar modeli sınama yönteminizi bazı ek yönergeler olabilir.
 
-Verileri eğitim, doğrulama ve test ayarlar rastgele bölünmüş bir yoludur. Eğitim ve doğrulama kümeleri hyperparameters değerini seçin ve onlarla modeli eğitmek için kullanılır. Model performansını test küme üzerinde ölçülür.
+Önerilen PdM doğrulama, eğitim içine örnekler bölüneceği yoludur ve test verilerini ayarlar bir _zamana bağımlı_ şekilde. Tüm test örnekleri tüm eğitim ve doğrulama örnekler zaman içinde daha sonra olmalıdır. Bölünmüş sonra model oluşturmak ve daha önce açıklandığı gibi kendi performansını ölçmek.
 
-Tahmine dayalı bakım için uygun olan başka bir şekilde olduğunu örnekler eğitim, doğrulama ve sınama gruplarını bir zamana bağımlı şekilde bölmek için tüm test örnekleri tüm eğitim ve doğrulama örnekler zamanında sonraki gibi. Bölünmüş sonra model oluşturma ve performans ölçüm gerçekleştirilir aynı daha önce açıklandığı gibi.
-
-Zaman serisi tahmin etmek kolay ve sabit olduğunda her iki yaklaşımın gelecekteki performansını benzer tahminler oluşturur. Ancak zaman serisi ileti örneği olmayan ve/veya tahmin etmek sabit olduğunda ikinci yaklaşımı daha gerçekçi gelecekte performans tahminleri ilk olandan oluşturur.
+Zaman serisi tahmin etmek kolay ve sabit olduğunda rastgele hem zamana bağımlı yaklaşımlar gelecekteki performansını benzer tahminler oluşturur. Ancak zaman serisi ileti örneği olmayan ve/veya tahmin etmek sabit olduğunda, zamana bağlı yaklaşım gelecekteki performansını daha gerçekçi tahminleri oluşturur.
 
 ### <a name="time-dependent-split"></a>Zamana bağlı Böl
-En iyi uygulama, bu bölümde biz yakın nasıl zamana bağımlı bölünmüş uygulanacağını göz atın. Biz zamana bağımlı iki yönlü bölme eğitim ve sınama gruplarını arasındaki ancak tam olarak açıklayan zamana bağımlı için eğitim ve doğrulama kümesi bölmek için aynı mantığı uygulanmalıdır.
+Bu bölümde zamana bağımlı bölünmüş uygulamak için en iyi uygulamaları açıklar. Eğitim ve sınama gruplarını arasında zamana bağımlı iki yönlü bölme aşağıda açıklanmıştır.
 
-Bir akış gibi çeşitli algılayıcılar ölçümler zaman damgalı olayların sahibiz varsayalım. Eğitim ve test örnekleri yanı sıra, bunların etiketlerini özelliklerini birden çok olay içeren üretildikten tanımlanır.
-Örneğin, ikili sınıflandırma özelliği mühendislik ve modelleme teknikleri bölümlerinde açıklandığı gibi özellikleri son olaylarına temel alınarak oluşturulur ve etiketleri içindeki gelecekteki olayları "X" gelecekte zaman birimleri temel alınarak oluşturulur. Bu nedenle, bir örneğin etiketleme zaman çerçevesini daha sonra sonra özelliklerinin bir zaman çerçevesi gelir. Zamana bağlı bölme için hangi biz işaret eden en çok geçmiş verileri kullanarak bizi hyperparameters olan bir modeli eğitmek zaman içinde bir nokta seçin. Eğitim verileri içinde eğitim sonlandırma ötesinde gelecekteki etiketler sızıntısını önlemek için etiketi eğitim örnekleri X olması için en son zaman çerçevesini seçeneğini belirledik birimleri eğitim sonlandırma tarihinden önce. Şekil 7'de bir satır için etiketleri ve özellikleri yukarıda açıklanan yönteme göre hesaplanır son özellik veri kümesindeki her dolu daire temsil eder. Şekil, verilen, eğitim ve ayarlar zamana bağımlı bölünmüş X = 2 ve W = 3 için uygularken test gitmesi kayıtları gösterilmektedir:
+Bir akış gibi çeşitli algılayıcılar ölçümler zaman damgalı olayların varsayalım. Özellikler ve etiketleri eğitim ve test örnekleri birden çok olay içeren aralıklarına tanımlayın. Örneğin, ikili sınıflandırma özellikleri son olaylara dayanarak oluşturun ve "X" gelecekte zaman birimleri içinde gelecekteki olayları temel alan etiketleri oluşturun (bölümlere bakın [özellik Mühendisliği](#Feature-engineering) ve [modelleme teknikleri](#Modeling-techniques-applied-to-PdM-use-cases)). Bu nedenle, bir örneğin etiketleme zaman çerçevesi zaman çerçevesi özellikleri daha sonra gelir.
 
-![Şekil 7. Zamana bağlı için ikili sınıflandırma bölme](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+Zamana bağlı bölme için çekme bir _kesme zamanı T eğitim<sub>c</sub>_  veren hyperparameters T kadar geçmiş verileri kullanarak olarak ayarlanmış olan bir modeli eğitmek<sub>c</sub>. T gelecekteki etiketler sızıntısını önlemek için<sub>c</sub> eğitim verilerini, etiket eğitim örnekleri X olması için en son saati seçin T önce birimleri<sub>c</sub>. Şekil 7'de gösterilen örnekte, her kare burada özellikleri ve etiketleri yukarıda açıklandığı gibi hesaplanır veri kümesindeki bir kaydı temsil eder. Şekilde eğitim ve ayarlar X = 2 ve W = 3 için test gitmesi kayıtları gösterilmektedir:
 
-Şekil 7. Zamana bağlı için ikili sınıflandırma bölme
+![Şekil 7. Zamana bağlı için ikili sınıflandırma bölme](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) Şekil 7. Zamana bağlı için ikili sınıflandırma bölme
 
-Yeşil kareler için eğitim kullanılabilmesi için zaman birimlerini ait kayıtları temsil eder. Daha önce açıklandığı gibi her son özellik tablosu eğitim örnekte bakarak oluşturulan özellik oluşturma ve eğitim gün sonlandırma önce etiketleme 2 gelecekteki dönem için 3 nokta geçti. Biz örnekler kümesini biz eğitim sonlandırma ötesinde görünürlük olmayan varsayıyoruz eğitim sonlandırma 2 gelecekteki dönem, örneğin, herhangi bir parçası olduğu zaman eğitim kullanmayın. Bu sınırlama nedeniyle siyah örnekleri eğitim veri kümesinde kullanılmamalıdır son etiketli veri kümesini kayıtları temsil eder. Bu kayıtları eğitim sonlandırma ve bunların etiketleme önce olduğundan veri ya da test kullanılmayacak üretildikten kısmen bağlı eğitim ve etiket bilgi sızıntısını önlemek için test etme için etiketleme üretildikten tamamen ayrı isteriz gibi durum olmamalıdır eğitim zaman çerçevesi.
+Yeşil kareler için eğitim kullanılabilmesi için zaman birimlerini ait kayıtları temsil eder. Geçmiş dikkate alarak her eğitim örnek oluşturulan özellik oluşturma için üç nokta ve T önce etiketleme iki gelecekteki nokta<sub>c</sub>. İki gelecekteki nokta herhangi bir kısmını T dışında olduğunda<sub>c</sub>, hiçbir görünürlük T varsayıldığından, örnek eğitim veri kümesinden hariç<sub>c</sub>.
 
-Bu teknik eğitim ve eğitim sonlandırma yakın olan örnekler test arasında özellik oluşturma için kullanılan veri örtüşme sağlar. Veri kullanılabilirliğine bağlı olarak daha ciddi bir ayırma herhangi birini W zaman eğitim sonlandırma içinde birimleridir sınama kümesi örneklerde kullanarak değildir gerçekleştirilebilir.
+Siyah kareler yukarıdaki kısıtlaması verilen eğitim veri kümesinde kullanılmamalıdır son etiketli veri kümesinin kayıtları temsil eder. Bu kayıtları aynı zamanda T önce olduğundan veri testinde kullanılmayacak<sub>c</sub>. Ayrıca, kendi etiketleme aralıklarına kısmen eğitim zaman çerçevesi ideal olmayan bağlıdır. Eğitim ve test verileri ayrı etiketleme etiket bilgi sızıntısını önlemek için aralıklarına sahip olması gerekir.
 
-Bizim işten kalan kullanım ömrü etmede kullanılan regresyon modeli daha ciddi bir şekilde sızıntısını sorundan etkilenen ve rastgele bir bölme kullanan aşırı overfitting müşteri adayları bulduk. Benzer şekilde, varlıklar kesilmiş eğitim önce hatalarıyla ait kayıtları Eğitim kümesi ve hataları sonlandırma kümesi test etmek için kullanılması gereken sonra olan varlıklar için kullanılması gereken şekilde regresyon sorunlarını bölme olmalıdır.
+Eğitim ve test T yakın zaman damgaları sahip örnekler arasında örtüşme kadarki açıklanan teknikleri sağlar<sub>c</sub>. W zaman T içinde birimleridir örnekler dışlamak için büyük ayırma elde etmek için bir çözüm olan<sub>c</sub> testten ayarlayın. Ancak agresif bir bölme geniş veri kullanılabilirliğine bağlıdır.
 
-Genel bir yöntem olarak başka bir önemli en iyi bölme verileri eğitim ve test etme için varlık Kimliğine göre bölme kullanabilir, böylece eğitim kullanılan varlıkları hiçbiri yeni bir varlık üzerinde tahminlerde için kullanıldığında, model gerçekçi sonuçları sağladığından emin olmak için test fikir olduğundan test etmek için kullanılan uygulamadır.
+RUL etmede kullanılan regresyon modeli daha ciddi bir şekilde sızıntısını sorundan etkilenen. Rastgele split yöntemini kullanarak aşırı atlayarak sığdırma yol açar. Regresyon sorunları için bölme olmalıdır şekilde T önce hataları olan varlıklar ait kayıtları<sub>c</sub> Eğitim kümesi uygulamasına gidin. Sonra kesme hataları olan varlıklar kayıtlarının test kümesi olarak gidin.
+
+Eğitim ve test için veri bölmek için başka bir en iyi uygulama varlığı kimliğe göre bölme kullanmaktır. Eğitim kümesinde kullanılan varlıklar hiçbiri modeli performans testinde kullanılan şekilde bölme olmalıdır. Bu yaklaşımı kullanarak, bir model ile yeni varlıklar daha gerçekçi sonuçları sağlama şansı vardır.
 
 ### <a name="handling-imbalanced-data"></a>İmbalanced verileri işleme
-' Den bir sınıfın diğer, daha fazla örnek varsa sınıflandırma sorunlarını veri imbalanced olarak kabul edilir. İdeal olarak, her sınıfın yeterli temsilcileri farklı sınıflar arasında ayırt edebilmek için eğitim verilerini sağlamak isteriz. Bir sınıf verilerin % 10'dan az ise, biz verilerin imbalanced ve underrepresented dataset azınlık sınıfı diyoruz söyleyebilirsiniz. Büyük ölçüde, çoğu durumda biz yalnızca veri noktalarının %0,001 oluşturan tarafından başkalarına örneğin karşılaştırıldığında burada bir sınıf ciddi bir şekilde underrepresented imbalanced veri kümeleri bulun. Sınıf dengesizliği hataları genellikle nadir oluşum azınlık sınıfı örnekleri oluşturan ve varlıkları ömrü içinde nerede sahtekarlık algılama, ağ yetkisiz erişim ve Tahmine dayalı bakım gibi birden çok etki alanı içinde bir sorundur.
+' Den bir sınıfın diğer, daha fazla örnek varsa sınıflandırma sorunları, veri kümesi olarak kabul edilir _imbalanced_. İdeal olarak, her sınıfın eğitim verileri içinde yeterli temsilcileri farklı sınıflar arasında ayrım etkinleştirmek için tercih ettiği. Bir sınıf verilerin % 10'dan az ise, veri imbalanced olarak kabul edilir. Underrepresented sınıfı olarak adlandırılan bir _azınlık sınıfı_.
 
-Genel hata oranı en aza hedefleyin gibi sınıfı dengesizliği durumunda çoğu standart learning algoritmaları performansını tehlikeye. Örneğin, % 99 negatif sınıfı örnekleri ve %1 pozitif sınıfı örnekleri ile bir veri kümesi için yalnızca negatif olarak tüm örneklerini etiketleme tarafından biz % 99 doğruluğu alabilirsiniz. Ancak, doğruluk ölçüm çok yüksek olmasına rağmen algoritma yararlı bir nedenle bunu tüm olumlu örnekler misclassifies. Sonuç olarak, hata oranı üzerinde genel doğruluğu gibi geleneksel değerlendirme ölçümleri olmayan durumunda imbalanced öğrenme yeterli. Duyarlık, geri çağırma, F1 puanlarını ve ayarlanmış ROC Eğriler değerlendirme ölçümleri bölümünde anlatılan imbalanced veri kümeleri halinde değerlendirmeleri için kullanılan maliyet gibi diğer ölçümleri.
+Diğer sınıf veya sınıfları için karşılaştırıldığında burada bir sınıf ciddi bir şekilde underrepresented böyle imbalanced veri kümeleri, birçok PdM sorunuyla karşılaşacak. Bazı durumlarda, yalnızca %0,001 toplam veri noktalarının azınlık sınıfı oluşturan. Sınıf dengesizliği PdM için benzersiz değil. Hataları ve anormallikleri nadir oluşum olduğu diğer etki alanlarındaki örnekler, sahtekarlığı önlemek ve ağ yetkisiz erişim için benzer bir sorun karşılaşıyor. Bu hatalar azınlık sınıfı örnekleri olun.
 
-Ancak, sınıf düzeltmek Yardım bazı yöntemler vardır dengesizliği sorun. İki önemli olanları teknikleri örnekleme ve hassas öğrenme maliyeti.
+Genel hata oranı en aza hedefleyin beri verilerde sınıfı dengesizliği ile çoğu standart learning algoritmaları performansını, tehlikeye. % 99 negatif ve %1 pozitif örnekleri ile bir veri kümesi için tüm örnekleri negatif olarak etiketleme tarafından % 99 doğruluğunu sağlamak için bir model gösterilebilir. Ancak model yanlış pozitif örnekleri sınıflandırır; doğruluğunu yüksek olsa bile, bu nedenle algoritması yararlı bir değil. Sonuç olarak, geleneksel değerlendirme ölçümleri gibi _hata oranı üzerinde genel doğruluğu_ imbalanced learning için yeterli değil. İmbalanced veri kümeleriyle karşılaştığı olduğunda, diğer ölçümleri modeli değerlendirmesi için kullanılır:
+- Duyarlılık
+- Geri çekme
+- F1 puanları
+- Ayarlanmış maliyeti ROC (alıcı işletim özellikleri)
+
+Bu ölçümler hakkında daha fazla bilgi için bkz: [model değerlendirme](#Model-evaluation).
+
+Ancak, sınıf düzeltmek Yardım bazı yöntemler vardır dengesizliği sorun. İki önemli olanlardır _teknikleri örnekleme_ ve _hassas öğrenme maliyet_.
 
 #### <a name="sampling-methods"></a>Örnekleme yöntemleri
-İmbalanced öğrenme yöntemlerinde örnekleme kullanımını dataset değiştirilmesini dengeli bir veri kümesi sağlamak için bazı mekanizmaları tarafından oluşur. Çok sayıda farklı örnekleme teknikleri olsa da, çoğu düz iletme rastgele olanlardır oversampling ve altında örnekleme.
+İmbalanced öğrenme dengeli bir veri kümesi için eğitim veri kümesi değiştirmek için yöntemleri örnekleme kullanımını içerir. Örnekleme test kümesine uygulanan değil yöntemleridir. Çeşitli örnekleme teknikler olsa da, çoğu düz iletme olanlardır _rastgele oversampling_ ve _örnekleme altında_.
 
-Yalnızca belirtilen, rastgele oversampling rasgele bir örnek azınlık sınıfından Bu örnekler çoğaltmak ve eğitim veri kümesine ekleme seçmektir. Bu toplam örneklerde azınlık sınıfı sayısını artırır ve sonunda farklı sınıfların örnekleri sayısı dengeleyin. Bir tehlike oversampling, belirli örnekleri birden çok örneğini sınıflandırıcı overfitting için önde gelen çok belirli hale gelmesine neden olabilir ' dir.
-Bu yüksek eğitim doğruluk neden olur, ancak performans verileri test etme görünmeyen üzerinde çok düşük olabilir. Buna karşılık, rastgele örnekleme altında rasgele bir örnek çoğunluğu sınıfı ve bu örnekleri eğitim veri kümesinden kaldırma seçmektir. Ancak, çoğu sınıfından örnekler kaldırma çoğunluğu sınıfına ilgili önemli kavramları kurtulması sınıflandırıcı neden olabilir. Burada azınlık sınıfı fazla örneklenen ve çoğu sınıf altında aynı anda örneklenen karma örnekleme başka bir uygun bir yaklaşımdır. Varsa diğer birçok daha karmaşık örnekleme teknikler kullanılabilir ve etkili örnekleme yöntemleri sınıfı dengesizliği için sabit dikkat ve katkı pek çok kanaldan alma bir popüler araştırma alanı. Üzerinde en etkili olanları karar vermek için farklı teknikleri kullanımı genellikle araştırın ve denemek için veri Bilimcisi bırakılır ve veri özellikleri yüksek oranda bağımlı. Ayrıca, örnekleme yöntemleri yalnızca uygulandığından emin emin olmak için Eğitim kümesi ancak test ayarlamak önemlidir.
+_Rastgele oversampling_ azınlık sınıfından rasgele bir örnek seçerek, bu örnekler çoğaltılması ve eğitim veri kümesine ekleme içerir. Sonuç olarak, azınlık sınıfı örneklerde sayısı artar ve sonunda farklı sınıfların örnekleri sayısını dengelemek. Oversampling dezavantajı, belirli örnekleri birden çok örneğini sınıflandırıcı atlayarak sığdırma önde gelen çok belirli hale gelmesine neden olabilir ' dir. Model yüksek eğitim doğruluğu gösterebilir, ancak kendi performansını görünmeyen test verileri yetersiz olabilir.
+
+Buna karşılık, _örnekleme altında rastgele_ rasgele bir örnek çoğunluğu sınıfından seçme ve bu örnekleri eğitim veri kümesinden kaldırma. Ancak, çoğu sınıfından örnekler kaldırma çoğunluğu sınıfına ilgili önemli kavramları kurtulması sınıflandırıcı neden olabilir. _Karma örnekleme_ burada azınlık sınıfı aşırı örneklenen ve çoğu sınıf altında-aynı anda örneklenen süre başka bir uygun bir yaklaşımdır.
+
+Birçok gelişmiş örnekleme tekniği vardır. Veri özellikleri ve veri Bilimcisi tarafından yinelemeli denemeler sonuçlarını seçilen teknik bağlıdır.
 
 #### <a name="cost-sensitive-learning"></a>Hassas öğrenme maliyet
-Tahmine dayalı bakım azınlık sınıfı oluşturan hataları normal örnekler'den daha fazla ilgi ve böylece odağı üzerinde hatalarda algoritması performansını genellikle odak noktasıdır. Bu genellikle eşit olmayan kaybı veya öğeleri; burada görüntülerle hatalı pozitif negatif olarak tahmin maliyet farklı sınıfların misclassifying asimetrik maliyetlerini denir birden fazla tersi. İstenen sınıflandırıcı çoğunluğu sınıfı doğruluğu üzerinde ciddi bir şekilde ödün vermeden azınlık sınıfı yüksek tahmin doğruluğunu vermek olmalıdır.
+PdM içinde azınlık sınıfı oluşturduğunu normal örnekler'den daha fazla ilgi hatalarıdır. Bu nedenle hatalarda algoritması'nın performansına çoğunlukla odak noktasıdır. Hatalı pozitif bir sınıf negatif bir sınıf olarak tahmin etmeye birden çok tam tersini maliyeti olabilir. Bu durum genellikle farklı sınıflara eşit olmayan kaybı veya yanlış sınıflandırma öğelerini asimetrik maliyetini olarak adlandırılır. İdeal sınıflandırıcı yüksek tahmin doğruluğunu çoğunluğu sınıfı doğruluğu ödün vermeden azınlık sınıfı teslim.
 
-Bu elde birkaç yolu vardır. Eşit olmayan sorun kaybeder azınlık sınıfı misclassification için yüksek Maliyet atama ve genel maliyeti en aza indirmek çalışırken etkili bir şekilde ile ele alınabilir. Pozitif ve negatif örnekler maliyetini eğitim süre boyunca burada birleştirilebilir bu fikir kendiliğinden SVMs (Destek vektör makineler) gibi bazı machine learning algoritmaları kullanın. Benzer şekilde, artırma yöntemleri kullanılır ve genellikle ağaç algoritmalar gibi boosted imbalanced veri karar durumunda iyi bir performans gösterir.
+Bu Bakiye elde etmek için birden çok yolu vardır. Eşit olmayan kaybı sorunu azaltmak için yüksek maliyet azınlık sınıfı hatalı sınıflandırılması atayın ve genel maliyeti en aza indirmek deneyin. Algoritmalar ister _SVMs (Destek vektör makineler)_ eğitim sırasında belirtilmesini pozitif ve negatif örnekler maliyetini izin vererek bu yöntem doğası gereği, benimsemeyi. Benzer şekilde, yöntemleri gibi artırmanın _karar ağaçları boosted_ genellikle iyi bir performans imbalanced verilerle göster.
 
-## <a name="evaluation-metrics"></a>Değerlendirme ölçümleri
-Daha önce belirtildiği gibi sınıfı dengesizliği algoritmaları çoğunluğu sınıfı örnekleri çoğu sınıf doğru etiketli toplam misclassification hata çok artırıldı gibi daha iyi azınlık sınıf örneklerinin gider sınıflandırmak eğilimindedir gibi düşük performans neden olur. Bu, düşük geri çağırma oranları neden olur ve yanlış uyarılar iş maliyetini çok yüksek olduğunda daha büyük bir sorun haline gelir. Doğruluk sınıflandırıcı 's performans tanımlamak için kullanılan en popüler ölçümüdür. Yukarıda açıklandığı şekilde doğruluğu etkisiz ancak ve veri dağıtımları için çok önemli olduğu gibi sınıflandırıcı 's işlevlerin gerçek performans yansıtmaz. Bunun yerine, diğer değerlendirme ölçümleri imbalanced öğrenme sorunları değerlendirmek için kullanılır. Bu durumda, kesinlik, geri çağırma ve F1 puanları Tahmine dayalı bakım modeli performansını değerlendirirken bakmak için başlangıç ölçümlerini olması gerekir. Tahmine dayalı bakım hataları için test kümesi içinde kaç doğru model tarafından tanımlanmış geri çağırma hızlarını gösterir. Yüksek geri çağırma hızları model doğru hatalarını yakalama başarılı olduğu anlamına gelir. Duyarlık ölçüm false nerede yüksek yanlış alarmlar düşük duyarlılık ücretlerin karşılık gelen uyarılar oranı ile ilgilidir. F1 puan hem duyarlık hem de geri çağırma oranları 1 olan ve en kötü 0 olan en iyi değerle göz önünde bulundurur.
+## <a name="model-evaluation"></a>Model değerlendirme
+Hatalı sınıflandırma iş yanlış alarmlar maliyeti yüksek olduğu PdM senaryolar için önemli bir sorundur. Örneğin, hatalı bir altyapı hatası tahmin üzerinde temel Uçağın yerde kararını zamanlamaları kesintiye ve seyahat planları. Bir makine çevrimdışı bir derleme satırından alma gelir kaybına yol açabilir. Bu nedenle yeni test verileri karşı doğru performans ölçümlerle modeli değerlendirme kritik öneme sahiptir.
 
-Ayrıca, ikili Sınıflandırma, decile tabloları ve yükseltme grafikleri performansını değerlendirirken çok bilgilendirici içindir. Bunlar yalnızca pozitif sınıfında (hata) odaklanmanıza ve ne ROC (alıcı işletim karakteristiğini) eğri yalnızca sabit işletim bir noktada bakarak görülür değerinden daha karmaşık bir resim algoritması performans sağlar.
-Decile tabloları, test örnekleri kendi tahmin edilen olasılıklar son etikette karar vermek için hatalar eşik önce modeli tarafından hesaplanan göre sıralama tarafından elde edilir. Sıralı örnekleri deciles (yani % 10 örnekleri ile büyük olasılık ve sonra % 20, % 30 vb.) sonra gruplandırılmıştır. Her decile true pozitif oranını ve rastgele taban (yani 0.1, 0.2..) arasındaki oran bilgi işlem tarafından bir algoritma performans her decile nasıl değiştiğini tahmin edebilirsiniz. Yükseltme grafikler decile true pozitif oranı tüm deciles için rastgele true pozitif oranı çiftleri karşı Çizdirmek tarafından decile değerleri çizmek için kullanılır. Genellikle, burada en büyük kazançlar gösteriliyor bu yana ilk deciles sonuçları odak ' dir. İlk deciles, Tahmine dayalı bakım için kullanıldığında temsili için "riskli" olarak da görülebilir.
+PdM modelleri değerlendirmek için kullanılan normal performans ölçümleri, aşağıda ele alınmıştır:
 
-## <a name="sample-solution-architecture"></a>Örnek çözüm mimarisi
-Tahmine dayalı bakım çözümünü dağıtırken, sürekli bir veri alımı, veri depolama döngüsünü model eğitim, özellik oluşturma, tahmin ve bir uyarı mekanizması Pano izleme bir varlık gibi oluşturan birlikte sonuçlarını görselleştirme için sağlar bir uçtan uca çözüm ilginizi duyuyoruz. Kullanıcıya bir sürekli otomatik şekilde gelecekteki Öngörüler sağlayan veri ardışık istiyoruz. Bu tür bir IOT veri ardışık düzeni için bir örnek Tahmine dayalı bakım mimari Şekil 8'de gösterilmiştir. Mimarisinde, gerçek zamanlı telemetri akış verilerini depolayan bir Event Hub toplanır. Bu veriler, gerçek zamanlı işleme özelliğini oluşturma gibi veri akış analizi tarafından alınan. Özellikleri Tahmine dayalı bir model web hizmetini çağırmak için kullanılır ve sonuçları panosunda görüntülenir. Aynı anda alınan veri ayrıca geçmiş bir veritabanında depolanır ve gibi şirket içi veri modelleme için eğitim örnekleri oluşturmak için taban dış veri kaynakları ile birleştirilir.
-Aynı veri ambarları, toplu işlem örnekleri Puanlama ve yeniden Panoda Tahmine dayalı raporlar sağlamak için kullanılabilecek sonuçlarının depolamak için kullanılabilir.
+- [Doğruluk](https://en.wikipedia.org/wiki/Accuracy_and_precision) olan sınıflandırıcı 's performans tanımlamak için kullanılan en popüler ölçüm. Ancak doğruluğu veri dağıtımları için duyarlıdır ve imbalanced veri kümeleriyle senaryoları için etkisiz ölçüsüdür. Diğer ölçümleri onun yerine kullanılır. Araçlar [karışıklığı matris](https://en.wikipedia.org/wiki/Confusion_matrix) işlem ve modelin doğruluğunu hakkında neden için kullanılır.
+- [Duyarlık](https://en.wikipedia.org/wiki/Precision_and_recall) PdM modelleri yanlış alarmlar oranını ilişkilidir. Modelin düşük duyarlık genellikle false alarmlar daha yüksek bir hızı karşılık gelir.
+- [Geri çağırma](https://en.wikipedia.org/wiki/Precision_and_recall) oranı gösterir hataları için test kümesi içinde kaç doğru model tarafından belirlendi. Yüksek geri çağırma hızları model doğru hataları tanımlamak için başarılı olduğu anlamına gelir.
+- [F1 puan](https://en.wikipedia.org/wiki/F1_score) harmonic duyarlık ve 0 (kötü) 1 (iyi) arasında değişen değeriyle geri çağırma ortalamasıdır.
 
-![Şekil 8'de. Tahmine dayalı bakım için örnek çözümü mimarisi](./media/cortana-analytics-playbook-predictive-maintenance/example-solution-architecture-for-predictive-maintenance.png)
+İkili sınıflandırma için
+- [Eğriler (ROC) işletim alıcı](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) de popüler bir ölçümüdür. ROC Eğriler modeli performans dayalı bir sabit ROC üzerinde işletim noktası olarak yorumlanır.
+- Ancak PdM sorunları _decile tabloları_ ve _grafikleri Yükselt_ daha bilgilendirici şunlardır. Bunlar yalnızca pozitif sınıfında (hata) odaklanmanıza ve daha karmaşık bir algoritma performans resim ROC eğri den sağlayın.
+  - _Decile tabloları_ test örnekleri bir hata olasılıklar azalan sırada kullanılarak oluşturulur. Sıralı örnekleri sonra deciles gruplandırılır (yüksek olasılık ile örnekleri % 10 sonra % %20 30 ve benzeri). Her decile oranı (doğru pozitif hızı) /(random baseline) her decile algoritması performansı tahmin etmenize yardımcı olur. Rastgele temel 0.1, 0.2 ve benzeri değerlerini alır.
+  - [Grafikler Yükselt](http://www2.cs.uregina.ca/~dbd/cs831/notes/lift_chart/lift_chart.html) decile true pozitif oranı tüm deciles rastgele true pozitif oranı karşı çizmek. En büyük kazancı Göster bu yana ilk deciles genellikle sonuçları, odak ' dir. İlk deciles ayrıca "riskli", temsili olarak PdM için kullanıldığında görülebilir.
 
-Şekil 8'de. Tahmine dayalı bakım için örnek çözümü mimarisi
+## <a name="model-operationalization-for-predictive-maintenance"></a>Tahmine dayalı bakım için model operationalization
 
-Daha fazla bilgi mimarisi için bileşenlerinden her biri hakkında bkz [Azure](https://azure.microsoft.com/) belgeleri.
+Yalnızca zaman eğitilen model işletimsel yapılan veri bilimi uygulamadır avantajı gerçekleşmiş. Diğer bir deyişle, yeni, daha önce görünmeyen verilerine dayalı Öngörüler yapmak için iş sistemleri içine model dağıtılması gerekir.  Yeni veriler için tam olarak uymalıdır _modeli imza_ iki yolla eğitilen modeli:
+- tüm özellikler yeni veriler her mantıksal örneğinde (deyin tablodaki satır) mevcut olması gerekir.
+- Yeni verilerin önceden işlenmesi gereken ve özelliklerin her biri, eğitim verileri tam olarak aynı şekilde tasarlanmıştır.
 
+Yukarıdaki işlem akademik ve endüstri belgeleri Birçok bakımdan belirtilir. Ancak tüm aşağıdaki deyimleri aynı anlama gelir:
+- _Yeni veri puan_ modelini kullanma
+- _Model geçerli_ yeni verileri
+- _Faaliyete_ modeli
+- _Dağıtma_ modeli
+- _Modeli Çalıştır_ yeni veri karşı
+
+Daha önce belirtildiği gibi model operationalization PdM için eşlerden farklıdır. Anomali algılama ve hata algılama genellikle içeren senaryoları uygulayan _çevrimiçi Puanlama_ (olarak da bilinir _gerçek zamanlı Puanlama_). Burada, model _puanları_ her gelen kayıt ve tahmin döndürür. Anomali algılama için tahmini bir anomali oluştuğunu göstergesidir (örnek: bir sınıf SVM). Hata algılaması için tür veya hatanın sınıfı olacaktır.
+
+Buna karşılık, PdM içerir _toplu Puanlama_. Model imza uyacak şekilde yeni veriler özelliklerinde eğitim verileri aynı şekilde mühendislik gerekir. Yeni veriler için tipik olan büyük veri kümeleri için özellikleri zaman pencereleri toplanır ve toplu işlemde skoru. Toplu Puanlama genellikle gerçekleştirilir gibi dağıtılmış sistemlerdeki [Spark](http://spark.apache.org/) veya [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Birkaç alternatifleri - yetersiz hem de vardır:
+- Akış veri altyapılar toplama windows bellekte üzerinden desteklemez. Bu nedenle çevrimiçi Puanlama destekledikleri tartışılabilir. Ancak bu sistemler üzerinde daha geniş windows saat veya seyrek öğelerin dar Windows yoğun veri için uygundur. Bunlar iyi yoğun veri için daha geniş zaman pencereleri PdM senaryolarda görülen ölçeklendirme değil.
+- Toplu Puanlama kullanılabilir değilse, aynı anda küçük gruplar halinde yeni verileri işlemek için çevrimiçi Puanlama uyum çözümüdür.
+
+## <a name="solution-templates-for-predictive-maintenance"></a>Tahmine dayalı bakım çözümü şablonları
+
+Bu kılavuzun son bölümü PdM çözüm şablonları, eğitim ve Azure'da uygulanan denemeler listesini sağlar. Bu PdM uygulamalar, bazı durumlarda dakika içinde bir Azure aboneliği içine dağıtılabilir. Kavram kanıtı tanıtımlar alternatifleri ya da gerçek üretim uygulamaları için Hızlandırıcıları denemeniz için korumalı alanlar olarak kullanılabilir. Bu şablonlar bulunan [Azure AI galeri](http://gallery.azure.ai) veya [Azure GitHub](https://github.com/Azure). Bu farklı örnekleri bu çözüm şablonuna zamanla alınacak.
+
+| # | Unvan | Açıklama |
+|--:|:------|-------------|
+| 1 | [Tahmine dayalı bakım Azure Machine Learning örnek](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Sonraki N zaman birimi üzerinde hata tahmin için PdM örnek. Bu örnek bir Azure ML çalışma ekranı projesi olarak yazılır ve PdM için yeni başlayanlar için idealdir. [Ek belgeler](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) Bu örnek için ilgili.|
+| 2 | [Azure Tahmine dayalı bakım çözüm şablonu](https://github.com/Azure/AI-PredictiveMaintenance) | Birden çok PdM senaryolar göstermek için bir uçtan uca çerçevesi. Bu şablon iki senaryo sunar: ilk gerçek zamanlı hata koşulu sınıflandırma yeni bir kullanım örneği değil. Yalnızca bir tümleştirmeye çözüm [1], bu çözüm şablonu ikinci senaryodur. Yeni veya var olan diğer senaryolar eklemek için aynı dağıtılan altyapısını yeniden kullanmak nasıl gösterir.|
+| 3 | [Tahmine dayalı bakım için öğrenme derin](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure not defteri ile Tahmine dayalı bakım için LSTM (uzun kısa vadeli bellek) ağları (yinelenen sinir ağları sınıfı) kullanarak gösteri çözümü olan bir [Bu örneği blog gönderisi](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
+| 4 | [Tahmine dayalı bakım modelleme Kılavuzu'nda R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R kodlarıyla PdM modelleme Kılavuzu|
+| 5 | [Havacılık için Azure Tahmine dayalı bakım](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Azure ML v1.0 uçak bakım göre ilk PdM çözüm şablonlarından birini. Bu projeyi kaynaklanan bu kılavuzu. |
+| 6 | [IOT kenar için Azure AI Araç Seti](https://github.com/Azure/ai-toolkit-iot-edge) | AI TensorFlow kullanarak IOT edge'de; Araç Seti paketleri derin Azure IOT kenar uyumlu Docker kapsayıcıları modellerinde öğrenme ve bu modelleri REST API'leri olarak kullanıma sunar.
+| 7 | [Azure IOT Tahmine dayalı bakım](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IOT paketi PC'leri - önceden yapılandırılmış çözümü. IOT paketi ile uçak bakım PdM şablonu. [Başka bir belge](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) ve [izlenecek](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) aynı projeyle ilgili. |
+| 8 | [SQL Server R Services kullanarak Tahmine dayalı bakım şablonu](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | R hizmetlerini temel alarak kalan kullanım ömrü senaryo Demo. |
+| 9 | [Tahmine dayalı bakım modelleme Kılavuzu](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | R ile kullanarak mühendislik uçak bakım dataset özelliğini [denemeler](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) ve [veri kümeleri](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) ve [Azure not defteri](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) ve [denemeler](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)AzureML v1.0 içinde|
+
+## <a name="training-resources-for-predictive-maintenance"></a>Tahmine dayalı bakım için eğitim kaynakları
+
+[Tahmine dayalı bakım için Azure AI öğrenme yolu](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) , kavramlar ve matematik algoritmalar ve teknikler PdM sorunlarını kullanılan arkasında daha derin bir anlayış için eğitim malzemesi sağlar. 
+
+Microsoft Azure ücretsiz içerik ve eğitim genel AI kavramlar ve yöntem sunar.
+
+| Eğitim kaynak  | Kullanılabilirlik |
+|:-------------------|--------------|
+| [Azure üzerinde AI Geliştirici](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Genel |
+| [Microsoft AI Okul](http://aischool.microsoft.com/learning-paths) | Genel |
+| [Github'dan Azure AI öğrenme](http://azure.github.io/learnanalytics/public) | Genel |
+| [LinkedIn öğrenme](http://www.linkedin.com/learning) | Genel |
+| [Microsoft AI Youtube Web Seminerlerini](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
+| [Microsoft AI Göster](http://channel9.msdn.com/Shows/AI-Show) | Genel |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Microsoft iş ortakları için |
+| [Microsoft iş ortağı ağı](http://learningportal.microsoft.com) | Microsoft iş ortakları için |
+
+Ayrıca, AI MOOCS (açık yoğun çevrimiçi kurslar) boş Stanford ve MIT gibi akademik kurumlarının çevrimiçi sunulan ve diğer eğitim şirketler ' dir.

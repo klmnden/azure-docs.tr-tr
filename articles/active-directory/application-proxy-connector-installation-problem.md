@@ -1,11 +1,11 @@
 ---
-title: "Uygulama Proxy Aracısı Bağlayıcısı yükleme sorunu | Microsoft Docs"
-description: "Uygulama Proxy Aracısı Bağlayıcısı'nı yüklerken yüz sorunlarını giderme"
+title: Uygulama Proxy Aracısı Bağlayıcısı yükleme sorunu | Microsoft Docs
+description: Uygulama Proxy Aracısı Bağlayıcısı'nı yüklerken yüz sorunlarını giderme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama Proxy Aracısı Bağlayıcısı yükleme sorunu
 
@@ -69,4 +69,4 @@ Bağlanmak <https://login.microsoftonline.com> ve aynı kimlik bilgilerini kulla
 Kullanıcı hesabınız, ardından "dizin rolü" elde edilen menüsünden seçin. Seçili rol "Genel yönetici" olduğunu doğrulayın. Adımları boyunca sayfalar erişemiyor varsa, genel bir yönetici değilsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama proxy'si bağlayıcılar anlama](application-proxy-understand-connectors.md)
+[Azure AD uygulama proxy'si bağlayıcılar anlama](manage-apps/application-proxy-connectors.md)

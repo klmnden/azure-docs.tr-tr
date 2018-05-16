@@ -11,14 +11,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 58ecf22fa0f9349a767455fe3ab08fca058d02da
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b4c1e3fb919ab9ad88a15b51a5e204290a7a12cf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="phoenix-performance-best-practices"></a>Phoenix performansı için en iyi yöntemler
 
@@ -36,21 +36,21 @@ Phoenix tablosunda tanımlı birincil anahtarı temel HBase tablo rowkey içinde
 
 Örneğin, kişiler için bir tablo adı, son adı, telefon numarasını ve adresi, hepsinin aynı sütun ailesi sahiptir. Artan bir sıra numarasına dayanan bir birincil anahtar tanımlayabilirsiniz:
 
-|rowkey|       Adres|   Telefon| FirstName| Soyadı|
+|rowkey|       Adres|   telefon| FirstName| Soyadı|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji|
 
 Soyadı tarafından sık Query her sorgu her lastName değerini okumaya tam tablo taraması gerektirdiğinden ancak, bu birincil anahtar da çalışmayabilir. Bunun yerine, birincil anahtar lastName, firstName ve sosyal güvenlik numarası sütunları tanımlayabilirsiniz. Bu son aynı adresinde bir öğe ve son gibi aynı ada sahip iki Satışlar belirsizliğini ortadan kaldırmak için bir sütundur.
 
-|rowkey|       Adres|   Telefon| FirstName| Soyadı| socialSecurityNum |
+|rowkey|       Adres|   telefon| FirstName| Soyadı| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Bu yeni birincil anahtar satır ile Phoenix tarafından üretilen anahtarlar olacaktır:
 
-|rowkey|       Adres|   Telefon| FirstName| Soyadı| socialSecurityNum |
+|rowkey|       Adres|   telefon| FirstName| Soyadı| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole John 111|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji Calvin 222|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -60,7 +60,7 @@ Bu yeni birincil anahtar satır ile Phoenix tarafından üretilen anahtarlar ola
 |rowkey|       anahtar|   değer| 
 |------|--------------------|---|
 |  Dole John 111|Adres |1111 San GABRIEL Dr.|  
-|  Dole John 111|Telefon |1-425-000-0002|  
+|  Dole John 111|telefon |1-425-000-0002|  
 |  Dole John 111|FirstName |John|  
 |  Dole John 111|Soyadı |Dole|  
 |  Dole John 111|socialSecurityNum |111| 
@@ -118,7 +118,7 @@ Kapsanan dizinleri satırın dizini değerleri ek verileri dahil dizinler ' dir.
 
 Örneğin, örnekte yalnızca socialSecurityNum sütunu ikincil bir dizin oluşturabilirsiniz tablo başvurun. Bu ikincil dizini socialSecurityNum değerlerine göre filtre sorguları hızlandırmak, ancak diğer alan değerlerini alma başka bir ana tablo karşı okuma gerektirir.
 
-|rowkey|       Adres|   Telefon| FirstName| Soyadı| socialSecurityNum |
+|rowkey|       Adres|   telefon| FirstName| Soyadı| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole John 111|1111 San GABRIEL Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji Calvin 222|5415 San GABRIEL Dr.|1-230-555-0191|  Calvin|Raji| 222 |

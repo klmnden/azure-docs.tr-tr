@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7c9d49a4135860bce317cd5808d3430af6b49fbd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yolları sorun giderme
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Bu örnek yalnızca sistem yolları kullanır, ancak aynı adımlar herhangi bir
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Bir sanal makine için Görünüm etkili yolları
 Bir VM'ye uygulanan toplama rotaları görmek için aşağıdaki adımları tamamlayın:
 
-1. Azure portalında oturum açma https://portal.azure.com. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Azure portalında oturum açma https://portal.azure.com. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. ' I tıklatın **tüm hizmetleri**, ardından **sanal makineler** listesinde görünür.
 3. Görüntülenen listesinden gidermek için VM seçin ve seçeneklerle bir VM dikey penceresi görünür.
 4. Tıklatın **Tanıla & sorunları** ve ortak bir sorun seçin. Bu örnek için **Windows VM'ime bağlanamıyorum** seçilir.

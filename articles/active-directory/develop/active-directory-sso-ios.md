@@ -2,22 +2,24 @@
 title: Uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme | Microsoft Docs
 description: 'Çoklu oturum açma, uygulamalar arasında etkinleştirmek için ADAL SDK özelliklerini kullanma '
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c477e7e6fb9ef9a93ceab53c1427b974bab99b37
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b0179e217a23d612ddcdc219f589a5d1fbca644e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme
 Kullanıcıların yalnızca bir kez kimlik bilgilerini girin ve bu kimlik bilgilerini otomatik olarak gerekir böylece çoklu oturum açma (SSO) iş arasında sağlayan uygulamalar artık müşteriler tarafından bekleniyordu. Ekranda bir telefon araması veya ilerideki kodu gibi ek bir etmen (2FA) kez birlikte küçük, genellikle kullanıcı adı ve parola girme zorluk hızlı memnuniyetsizliği kullanıcı sonuçlarında ürününüz için birden fazla kez bunun var.
@@ -84,7 +86,7 @@ Microsoft Identity SDK'ları uygulamalarınızı SSO'yu etkinleştirmek için pa
 Aracısı destekli Aracısı uygulama içinde oluşur ve kimlik bilgilerini Microsoft Identity platform uygulanan tüm uygulamalar için cihazda paylaşmak için depolama ve aracının güvenlik kullanan oturum açma deneyimlerini oturumlardır. Bu, uygulamalarınız kullanıcılar Oturum Aracısı kullandığını anlamına gelir. İOS ve Android cihazlarda bu aracıların müşteriler bağımsız olarak yüklemeniz veya kendi kullanıcı aygıt yöneten bir şirket tarafından cihaza gönderilir indirilebilir uygulamaları aracılığıyla sağlanır. İos'ta Microsoft Authenticator uygulama bu tür bir uygulama örneğidir. Windows bu işlevsellik, Web kimlik doğrulama aracısı olarak teknik olarak bilinen işletim sistemi içinde yerleşik bir hesabı seçicide tarafından sağlanır.
 Deneyimi platforma göre değişir ve bazen kullanıcılara işlemleri karışıklığa neden olabilir değilse doğru şekilde yönetilir. Facebook uygulamanın yüklü olması ve başka bir uygulamadan Facebook bağlanmak kullanırsanız bu deseni ile en biliyor. Microsoft Identity platformu aynı düzeni kullanır.
 
-Bu bir "geçiş" Müşteri adayları iOS için kullanıcının oturum açmak istediğiniz hangi hesabı seçmek ön Burada, uygulamanızın Microsoft Authenticator uygulamaları arka gönderilir animasyon gelir.  
+Bu bir "geçiş" Müşteri adayları iOS için kullanıcının oturum açmak istediğiniz hangi hesabı seçmek ön Burada, uygulamanızın Microsoft Authenticator uygulamaları arka gönderilir animasyon gelir. 
 
 Android ve Windows hesabı seçicide kullanıcıya daha az kesintiye uğratan olan, uygulamanızın üzerinde görüntülenir.
 

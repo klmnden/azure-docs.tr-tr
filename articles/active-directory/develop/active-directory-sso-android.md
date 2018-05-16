@@ -1,25 +1,27 @@
 ---
-title: "Uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde etkinleştirme | Microsoft Docs"
-description: "Çoklu oturum açma, uygulamalar arasında etkinleştirmek için ADAL SDK özelliklerini kullanma "
+title: Uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde etkinleştirme | Microsoft Docs
+description: 'Çoklu oturum açma, uygulamalar arasında etkinleştirmek için ADAL SDK özelliklerini kullanma '
 services: active-directory
-documentationcenter: 
-author: danieldobalian
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7d832ecf3e9c64088a75cc88551879b4e09df715
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee27b1d4dcc091ef570e2b0aef32273af986d3f9
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde etkinleştirme
 Kullanıcıların yalnızca bir kez kimlik bilgilerini girin ve bu kimlik bilgilerini otomatik olarak gerekir böylece çoklu oturum açma (SSO) iş arasında sağlayan uygulamalar artık müşteriler tarafından bekleniyordu. Ekranda bir telefon araması veya ilerideki kodu gibi ek bir etmen (2FA) kez birlikte küçük, genellikle kullanıcı adı ve parola girme zorluk hızlı memnuniyetsizliği kullanıcı sonuçlarında ürününüz için birden fazla kez bunun var.
@@ -86,7 +88,7 @@ Microsoft Identity SDK'ları uygulamalarınızı SSO'yu etkinleştirmek için pa
 Aracısı destekli Aracısı uygulama içinde oluşur ve kimlik bilgilerini Microsoft Identity platform uygulanan tüm uygulamalar için cihazda paylaşmak için depolama ve aracının güvenlik kullanan oturum açma deneyimlerini oturumlardır. Bu, uygulamalarınız kullanıcılar Oturum Aracısı kullandığını anlamına gelir. İOS ve Android cihazlarda bu aracıların müşteriler bağımsız olarak yüklemeniz veya kendi kullanıcı aygıt yöneten bir şirket tarafından cihaza gönderilir indirilebilir uygulamaları aracılığıyla sağlanır. İos'ta Microsoft Authenticator uygulama bu tür bir uygulama örneğidir. Windows bu işlevsellik, Web kimlik doğrulama aracısı olarak teknik olarak bilinen işletim sistemi içinde yerleşik bir hesabı seçicide tarafından sağlanır.
 Deneyimi platforma göre değişir ve bazen kullanıcılara işlemleri karışıklığa neden olabilir değilse doğru şekilde yönetilir. Facebook uygulamanın yüklü olması ve başka bir uygulamadan Facebook bağlanmak kullanırsanız bu deseni ile en biliyor. Microsoft Identity platformu aynı düzeni kullanır.
 
-Bu bir "geçiş" Müşteri adayları iOS için kullanıcının oturum açmak istediğiniz hangi hesabı seçmek ön Burada, uygulamanızın Microsoft Authenticator uygulamaları arka gönderilir animasyon gelir.  
+Bu bir "geçiş" Müşteri adayları iOS için kullanıcının oturum açmak istediğiniz hangi hesabı seçmek ön Burada, uygulamanızın Microsoft Authenticator uygulamaları arka gönderilir animasyon gelir. 
 
 Android ve Windows hesabı seçicide kullanıcıya daha az kesintiye uğratan olan, uygulamanızın üzerinde görüntülenir.
 
@@ -160,11 +162,11 @@ Belirteçleri, uygulamalar arasında paylaşmak için izin bilmeniz Microsoft Id
 
 Aynı uygulama kimliği kullanıyorsa, farklı uygulamalar Microsoft Identity hizmetine nasıl kullanacağını merak ediyor olabilirsiniz Yanıt olan **yeniden yönlendirme URI'ler**. Her uygulamanın birden çok yeniden yönlendirme hazırlama Portalı'nda kayıtlı URI'ler olabilir. Her uygulama paketiniz içinde farklı bir yeniden yönlendirme URI'sine sahip olur. Bu sistem, bir örnek aşağıda verilmiştir:
 
-App1 yeniden yönlendirme URİ'si:`msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+App1 yeniden yönlendirme URİ'si: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-App2 yeniden yönlendirme URİ'si:`msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+App2 yeniden yönlendirme URİ'si: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-App3 yeniden yönlendirme URİ'si:`msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+App3 yeniden yönlendirme URİ'si: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 

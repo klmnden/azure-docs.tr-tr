@@ -3,26 +3,28 @@ title: Herhangi bir Azure AD kullanıcı oturum bir uygulama oluşturma
 description: Tüm Azure Active Directory kiracısındaki bir kullanıcı olarak oturum bir çok kiracılı uygulamasının nasıl oluşturulacağını gösterir.
 services: active-directory
 documentationcenter: ''
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
+ms.reviewer: elisol
 ms.custom: aaddev
-ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fd02cde6327cb929d1b4c0c2e3d430d64645ca26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcı içinde imzalama
-Çoğu kuruluş için bir hizmet uygulaması olarak bir yazılım teklifi sunuyorsanız, uygulamanız oturum açmalardan tüm Azure Active Directory (AD) Kiracı kabul edecek şekilde yapılandırabilirsiniz. Bu yapılandırma, uygulama çok kiracılı özelleştirme adı verilir. Tüm Azure AD Kiracı kullanıcılar hesaplarına uygulamanızla birlikte kullanmak için onaylıyorsunuz sonra uygulamanıza oturum açabilir.  
+Çoğu kuruluş için bir hizmet uygulaması olarak bir yazılım teklifi sunuyorsanız, uygulamanız oturum açmalardan tüm Azure Active Directory (AD) Kiracı kabul edecek şekilde yapılandırabilirsiniz. Bu yapılandırma, uygulama çok kiracılı özelleştirme adı verilir. Tüm Azure AD Kiracı kullanıcılar hesaplarına uygulamanızla birlikte kullanmak için onaylıyorsunuz sonra uygulamanıza oturum açabilir. 
 
 Kendi hesabı sistem veya diğer oturum açma işlemleri diğer bulut sağlayıcılardan türünü destekler, var olan bir uygulamanız varsa, ekleme Azure AD oturum açma dikey basit bir işlemdir. Yalnızca uygulamanızı kaydetme, oturum açma kodu OAuth2, Openıd Connect ya da SAML ekleyin ve put bir ["Sign In ile Microsoft" düğmesi] [ AAD-App-Branding] uygulamanızda.
 
@@ -39,19 +41,19 @@ Uygulamanızı Azure AD çoklu kiracı uygulamaya dönüştürmek için dört ba
 Her adım ayrıntılı bakalım. Doğrudan atlayabilirsiniz [bu liste çok kiracılı örnekleri][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Çoklu kiracı güncelleştirme kaydı
-Varsayılan olarak, tek bir kiracı web app/API kayıtlar Azure AD'de etkilenir.  Kaydınızı bularak çok kiracılı yapabileceğiniz **çok kiralanan** anahtarının **özellikleri** uygulama kaydınızı bölmesinde [Azure portal] [ AZURE-portal] ve ayarlamak **Evet**.
+Varsayılan olarak, tek bir kiracı web app/API kayıtlar Azure AD'de etkilenir. Kaydınızı bularak çok kiracılı yapabileceğiniz **çok kiralanan** anahtarının **özellikleri** uygulama kaydınızı bölmesinde [Azure portal] [ AZURE-portal] ve ayarlamak **Evet**.
 
 Çok kiracılı bir uygulama yapılabilmesi için önce Azure AD genel olarak benzersiz olması için uygulamanın uygulama kimliği URI'si gerektirir. Uygulama Kimliği URI'si uygulama protokolü iletilerinde tanımlanan yollardan biridir. Tek kiracılı uygulama için Kiracı içinde benzersiz olması uygulama kimliği URI'si için yeterli olur. Azure AD uygulama tüm kiracılar bulabilmek için çok kiracılı uygulama için genel olarak benzersiz olmalıdır. Genel benzersizlik Azure AD kiracısı doğrulanmış bir etki alanı ile eşleşen bir ana bilgisayar adı uygulama kimliği URI'si gerektirerek zorlanır. Varsayılan olarak, Azure portalı üzerinden oluşturulan uygulamaların uygulaması oluşturma kümesi genel benzersiz bir uygulama kimliği URI'si vardır, ancak bu değeri değiştirebilirsiniz.
 
-Örneğin, contoso.onmicrosoft.com sonra geçerli bir kiracı adı ise, uygulama kimliği URI'si olması `https://contoso.onmicrosoft.com/myapp`.  Kiracı doğrulanmış bir etki alanı varsa `contoso.com`, geçerli bir uygulama kimliği URI'sini de sonra `https://contoso.com/myapp`. Çok kiracılı başarısız olarak bir uygulama ayarı, uygulama kimliği URI'si bu deseni izlemenizi değil
+Örneğin, contoso.onmicrosoft.com sonra geçerli bir kiracı adı ise, uygulama kimliği URI'si olması `https://contoso.onmicrosoft.com/myapp`. Kiracı doğrulanmış bir etki alanı varsa `contoso.com`, geçerli bir uygulama kimliği URI'sini de sonra `https://contoso.com/myapp`. Çok kiracılı başarısız olarak bir uygulama ayarı, uygulama kimliği URI'si bu deseni izlemenizi değil
 
 > [!NOTE] 
-> Yerel istemci kayıtları yanı [v2 uygulamaları](./active-directory-appmodel-v2-overview.md) varsayılan olarak çok kiracılı olduğu.  Bu uygulama kayıtları çok kiracılı yapmak için herhangi bir eylemde bulunmanız gerekmez.
+> Yerel istemci kayıtları yanı [v2 uygulamaları](./active-directory-appmodel-v2-overview.md) varsayılan olarak çok kiracılı olduğu. Bu uygulama kayıtları çok kiracılı yapmak için herhangi bir eylemde bulunmanız gerekmez.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>/ Common için istekleri göndermek için kodunuzu güncelleştirin
 Tek bir kiracı uygulamada oturum açma istekleri kiracının oturum açma uç noktasına gönderilir. Örneğin, contoso.onmicrosoft.com için uç nokta olacaktır: `https://login.microsoftonline.com/contoso.onmicrosoft.com`
 
-Bir kiracının uç noktasına gönderilen istekleri, Kiracı uygulamalara Kiracı, kullanıcılar (veya konuklar) kaydolabilirsiniz. Çok kiracılı uygulama ile uygulamanın kullanıcı arasındadır hangi Kiracı Önden bilmiyor kiracının uç noktasına istek gönderemez.  Bunun yerine, tüm Azure AD kiracılar arasında multiplexes bir uç nokta için istekleri gönderilir: `https://login.microsoftonline.com/common`
+Bir kiracının uç noktasına gönderilen istekleri, Kiracı uygulamalara Kiracı, kullanıcılar (veya konuklar) kaydolabilirsiniz. Çok kiracılı uygulama ile uygulamanın kullanıcı arasındadır hangi Kiracı Önden bilmiyor kiracının uç noktasına istek gönderemez. Bunun yerine, tüm Azure AD kiracılar arasında multiplexes bir uç nokta için istekleri gönderilir: `https://login.microsoftonline.com/common`
 
 Ne zaman Azure AD alır / Common ağda bir istek uç noktası, kullanıcı oturum açtığında ve, sonuç olarak, Kiracı Kullanıcı olduğunu bulur. / Ortak uç nokta çalışır tüm Azure AD tarafından desteklenen kimlik doğrulama protokolleri: Openıd Connect, OAuth 2.0, SAML 2.0 ve WS-Federasyon.
 
@@ -61,12 +63,12 @@ Uygulama oturum açma yanıtı kullanıcıyı temsil eden bir belirteci içeriyo
 > / Ortak uç nokta bir kiracı değil ve bir veren değil, yalnızca çoğaltıcı değildir. / Common kullanırken belirteçleri doğrulamak için uygulamanızın mantık bu dikkate güncelleştirilmesi gerekiyor. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Birden çok veren değerleri işlemek için kodunuzu güncelleştirin
-Web uygulamaları ve web API'leri alır ve Azure AD'den belirteçleri doğrulamak.  
+Web uygulamaları ve web API'leri alır ve Azure AD'den belirteçleri doğrulamak. 
 
 > [!NOTE]
-> Yerel istemci uygulamaları istemek ve Azure AD'den belirteçleri almak olsa da, bunlar burada doğrulandığı API'leri için göndermek için bunu.  Yerel uygulama belirteçleri doğrulamaz ve bunları donuk olarak ele almanız gerekir.
+> Yerel istemci uygulamaları istemek ve Azure AD'den belirteçleri almak olsa da, bunlar burada doğrulandığı API'leri için göndermek için bunu. Yerel uygulama belirteçleri doğrulamaz ve bunları donuk olarak ele almanız gerekir.
 
-Bakalım Uygulama belirteçleri nasıl doğrular Azure AD'den alır.  Tek kiracılı uygulama normalde bir uç nokta değeri gibi alır:
+Bakalım Uygulama belirteçleri nasıl doğrular Azure AD'den alır. Tek kiracılı uygulama normalde bir uç nokta değeri gibi alır:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -86,7 +88,7 @@ Tek kiracılı uygulama bir belirteci doğrular, meta veri belgesi İmzalama ana
 
     https://sts.windows.net/{tenantid}/
 
-Bu nedenle, çok kiracılı uygulama belirteçleri meta verileriyle veren değerinde eşleştirerek doğrulayamıyor `issuer` belirtecin değeri. Çok kiracılı uygulama mantığı hangi veren değerler geçerlidir ve veren değeriyle Kiracı kimliği bölümünü dayanmayan karar vermeniz gerekir.  
+Bu nedenle, çok kiracılı uygulama belirteçleri meta verileriyle veren değerinde eşleştirerek doğrulayamıyor `issuer` belirtecin değeri. Çok kiracılı uygulama mantığı hangi veren değerler geçerlidir ve veren değeriyle Kiracı kimliği bölümünü dayanmayan karar vermeniz gerekir. 
 
 Çok kiracılı uygulama yalnızca kendi hizmet için kaydolup, belirli kiracıdan oturum açma izin veriyorsa, örneğin, sonra veren değeri kullanıma gerekir veya `tid` talep değeri belirteçte o Kiracı kendi aboneleri listesinde olduğundan emin olun. Çok kiracılı uygulama yalnızca kişiler ile ilgilenir ve kiracılar dayanarak hiçbir erişim kararları değil, ardından veren değeriyle tamamen yok sayabilirsiniz.
 
@@ -137,7 +139,7 @@ Bu web API'si örneğinin arayan bir çok katmanlı Yerel İstemcisi'nde göster
 
 **Birden çok Kiracı içinde birden çok katmanları**
 
-Bir uygulamanın farklı katmanlara farklı kiracılar kayıtlı benzer bir durumda olur. Örneğin, Office 365 Exchange Online API çağrılarının yerel istemci uygulaması oluşturmanın bir durum düşünün. Uygulama ve daha sonraki bir müşterinin Kiracı içinde çalıştırmak yerel uygulama için yerel geliştirmek için Exchange Online hizmet sorumlusu mevcut olması gerekir. Bu durumda, müşteri ve geliştirici Exchange Online kiracıları içinde oluşturulacak asıl hizmeti satın almanız gerekir.  
+Bir uygulamanın farklı katmanlara farklı kiracılar kayıtlı benzer bir durumda olur. Örneğin, Office 365 Exchange Online API çağrılarının yerel istemci uygulaması oluşturmanın bir durum düşünün. Uygulama ve daha sonraki bir müşterinin Kiracı içinde çalıştırmak yerel uygulama için yerel geliştirmek için Exchange Online hizmet sorumlusu mevcut olması gerekir. Bu durumda, müşteri ve geliştirici Exchange Online kiracıları içinde oluşturulacak asıl hizmeti satın almanız gerekir. 
 
 Microsoft dışındaki bir kuruluş tarafından oluşturulan bir API söz konusu olduğunda, müşterilerin kiracılar uygulamasına kabul müşterileri için bir yol sağlamak üzere API Geliştirici gerekir. Kaydolma uygulamak için bir web istemcisi olarak çalışabilir, API oluşturmak üçüncü taraf geliştirici için önerilen tasarımdır bakın. Bunu yapmak için:
 

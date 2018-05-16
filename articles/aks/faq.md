@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: d03f906f0cf4d22772388a589424877d8bb2f8ce
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes hizmet (AKS) hakkında sık sorulan sorular
 
@@ -60,7 +60,7 @@ Hayır, RBAC AKS içinde şu anda desteklenmiyor ancak yakında kullanıma sunul
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Varolan sanal ağımla AKS dağıtabilir miyim?
 
-Hayır, henüz kullanılabilir değil ancak yakında kullanıma sunulacaktır.
+Evet, bu aracılığıyla desteklendiğinden [Gelişmiş Ağ özellik](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure anahtar kasası AKS ile tümleştirilir?
 
@@ -68,7 +68,7 @@ Hayır, bu değildir ancak bu tümleştirme planlanmış. Bu arada, aşağıdaki
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server kapsayıcıları AKS üzerinde çalıştırabilir miyim?
 
-Hayır, Windows Server kapsayıcıları çalıştırılamıyor AKS Windows Server tabanlı aracısı düğümleri, şu anda sağlamaz. Windows Server kapsayıcıları Azure Kubernetes çalıştırmak ihtiyacınız varsa, lütfen bkz [acs altyapısı belgelerine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı düğümleri çalıştırmanız gerekir. Windows Server tabanlı düğümleri halen [özel Önizleme](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Windows Server kapsayıcıları Kubernetes Azure Önizleme dışında çalıştırmak ihtiyacınız varsa, lütfen bkz [acs altyapısı belgelerine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Neden iki kaynak grubu ile AKS oluşturulur?
 

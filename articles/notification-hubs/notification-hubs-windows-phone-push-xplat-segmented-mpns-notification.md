@@ -1,40 +1,51 @@
 ---
-title: "(Windows Phone) son dakika haberleri göndermek için Notification Hubs'ı kullanma"
-description: "Azure Notification Hubs etiketi kayıtları bir Windows Phone uygulamasına son dakika haberleri göndermek için kullanın."
+title: Azure Notification Hubs kullanarak belirli Windows phone’lara anında iletme bildirimleri gönderme | Microsoft Docs
+description: Bu öğreticide, uygulama arka ucuna kayıtlı belirli (tümü değil) Windows Phone 8 veya Windows Phone 8.1 cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs’ın nasıl kullanılacağını öğrenirsiniz.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3a6a69bf555c7267d3fbeb03ff6c03054991960f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Son dakika haberleri göndermek için Notification Hubs kullanma
+# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak belirli Windows Phone cihazlara anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Genel Bakış
-Bu konu Azure Notification Hubs son dakika haberi bildirimleri bir Windows Phone 8.0/8.1 Silverlight uygulamasına yayını için nasıl kullanılacağını gösterir. Windows mağazası veya Windows Phone 8.1 uygulama hedefliyorsanız, için lütfen [Windows Evrensel](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) sürümü. Tamamlandığında, ilgilendiğiniz haber kategorileri dökümü için kaydedilecek olması ve yalnızca bu kategorilerin anında iletme bildirimlerini almak. Bu sayıda uygulama için genel bir desen bildirimleri daha önce bunları, örneğin, RSS Okuyucu, müzik fanlar, vb. için uygulamaları ilgi derlendiğinden kullanıcı gruplarını gönderilmesini sahip olduğu bir senaryodur.
+Bu öğreticide, belirli Windows Phone 8 veya Windows Phone 8.1 Scihazlara anında iletme bildirimleri göndermek için Azure Notification Hubs’ın nasıl kullanılacağı gösterilmektedir. Windows Phone 8.1’i (Silverlight olmayan) hedefliyorsanız bu öğreticinin [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) sürümüne bakın.
 
-Yayın senaryoları etkin bir veya daha fazla dahil ederek *etiketleri* bir kayıt bildirim hub'ı oluştururken. Bildirimler için bir etiket gönderildiğinde, kaydettiğiniz tüm etiket cihazlarda bildirim alırsınız. Etiketleri yalnızca dizeleri olduğundan, bunlar önceden hazırlanması gerekmez. Etiketler hakkında daha fazla bilgi için başvurmak [bildirim hub'ları Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
+Bildirim hub’ında bir kayıt oluştururken bir veya daha fazla *etiketi* dahil ederek bu senaryoyu etkinleştirirsiniz. Bir etikete bildirimler gönderildiğinde, etikete kaydolan tüm cihazlar bildirimi alır. Etiketler hakkında daha fazla bilgi için bkz. [Kayıtlardaki etiketler](notification-hubs-tags-segment-push-message.md).
+
+> [!NOTE]
+> Notification Hubs Windows Phone SDK'sı, Windows Anında Bildirim Hizmeti'ni (WNS) Windows Phone 8.1 Silverlight uygulamaları ile kullanmayı desteklemez. WNS’yi (MPNS yerine) Windows Phone 8.1 Silverlight uygulamaları ile kullanmak için REST API’ler kullanan [Notification Hubs - Windows Phone Silverlight öğreticisini] izleyin.
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
+
+> [!div class="checklist"]
+> * Mobil uygulamaya kategori seçimi ekleme
+> * Etiketlerle bildirimlere kaydolma
+> * Etiketli bildirimler gönderme
+> * Uygulamayı test edin
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çalışmaya başlama]. Bu öğreticiye başlamadan önce önce tamamlamış olmalıdır [Notification Hubs ile çalışmaya başlama].
+[Öğretici: Azure Notification Hubs kullanarak Windows Phone uygulamalarına anında iletme bildirimleri gönderme](notification-hubs-windows-mobile-push-notifications-mpns.md) öğreticisini tamamlayın. Bu öğreticide, ilginizi çeken son dakika haberi kategorilerine kaydolabilmeniz ve yalnızca bu kategoriler için anında iletme bildirimleri alabilmeniz için mobil uygulamayı güncelleştirirsiniz. 
 
-## <a name="add-category-selection-to-the-app"></a>Kategori seçimi için uygulama ekleme
-İlk adım, kullanıcı Arabirimi öğeleri kaydetmek için kategoriler seçmesini sağlayan varolan ana sayfanıza eklemektir. Bir kullanıcı tarafından seçilen kategoriler cihazda depolanır. Uygulama başlatıldığında bir aygıt kaydı bildirim hub'ınıza seçili kategorileri etiketler oluşturulur.
+## <a name="add-category-selection-to-the-mobile-app"></a>Mobil uygulamaya kategori seçimi ekleme
+İlk adım, mevcut ana sayfanıza kullanıcının kaydolunacak kategorileri seçmesini sağlayan UI öğeleri eklemektir. Bir kullanıcı tarafından seçilen kategoriler cihazda depolanır. Uygulama başlatıldığında, etiketler olarak seçilen kategorilerle bildirim hub’ınızda bir cihaz kaydı oluşturulur.
 
-1. MainPage.xaml proje dosyasını açın ve sonra değiştirmek **kılavuz** adlı öğe `TitlePanel` ve `ContentPanel` aşağıdaki kod ile:
+1. MainPage.xaml proje dosyasını açın ve sonra `TitlePanel` ve `ContentPanel` adlı **Kılavuz** öğelerini aşağıdaki kodla değiştirin:
    
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
@@ -60,237 +71,239 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
             <CheckBox Name="SportsCheckBox" Grid.Row="2" Grid.Column="1">Sports</CheckBox>
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
-2. Projede adlı yeni bir sınıf oluşturun **bildirimleri**, ekleme **ortak** değiştiricisi sınıf tanımına sonra aşağıdakileri ekleyin **kullanarak** deyimleri için yeni kod dosyası:
+2. Projeye **Bildirimler** adlı bir sınıf ekleyin. Sınıf tanımına **genel** değiştiricisini ekleyin. Ardından yeni kod dosyasına aşağıdaki **using** deyimlerini ekleyin:
    
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
-        using System.IO.IsolatedStorage;
-        using System.Windows;
-3. Aşağıdaki kodu yeni dosyaya kopyalayın **bildirimleri** sınıfı:
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    using System.IO.IsolatedStorage;
+    using System.Windows;
+    ```
+1. Yeni **Notifications** sınıfına aşağıdaki kodu kopyalayın:
    
-        private NotificationHub hub;
-   
-        // Registration task to complete registration in the ChannelUriUpdated event handler
-        private TaskCompletionSource<Registration> registrationTask;
-   
-        public Notifications(string hubName, string listenConnectionString)
+    ```csharp
+    private NotificationHub hub;
+
+    // Registration task to complete registration in the ChannelUriUpdated event handler
+    private TaskCompletionSource<Registration> registrationTask;
+
+    public Notifications(string hubName, string listenConnectionString)
+    {
+        hub = new NotificationHub(hubName, listenConnectionString);
+    }
+
+    public IEnumerable<string> RetrieveCategories()
+    {
+        var categories = (string)IsolatedStorageSettings.ApplicationSettings["categories"];
+        return categories != null ? categories.Split(',') : new string[0];
+    }
+
+    public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+    {
+        var categoriesAsString = string.Join(",", categories);
+        var settings = IsolatedStorageSettings.ApplicationSettings;
+        if (!settings.Contains("categories"))
         {
-            hub = new NotificationHub(hubName, listenConnectionString);
+            settings.Add("categories", categoriesAsString);
         }
-   
-        public IEnumerable<string> RetrieveCategories()
+        else
         {
-            var categories = (string)IsolatedStorageSettings.ApplicationSettings["categories"];
-            return categories != null ? categories.Split(',') : new string[0];
+            settings["categories"] = categoriesAsString;
         }
-   
-        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        settings.Save();
+
+        return await SubscribeToCategories();
+    }
+
+    public async Task<Registration> SubscribeToCategories()
+    {
+        registrationTask = new TaskCompletionSource<Registration>();
+
+        var channel = HttpNotificationChannel.Find("MyPushChannel");
+
+        if (channel == null)
         {
-            var categoriesAsString = string.Join(",", categories);
-            var settings = IsolatedStorageSettings.ApplicationSettings;
-            if (!settings.Contains("categories"))
-            {
-                settings.Add("categories", categoriesAsString);
-            }
-            else
-            {
-                settings["categories"] = categoriesAsString;
-            }
-            settings.Save();
-   
-            return await SubscribeToCategories();
-        }
-   
-        public async Task<Registration> SubscribeToCategories()
-        {
-            registrationTask = new TaskCompletionSource<Registration>();
-   
-            var channel = HttpNotificationChannel.Find("MyPushChannel");
-   
-            if (channel == null)
-            {
-                channel = new HttpNotificationChannel("MyPushChannel");
-                channel.Open();
-                channel.BindToShellToast();
-                channel.ChannelUriUpdated += channel_ChannelUriUpdated;
-   
-                // This is optional, used to receive notifications while the app is running.
-                channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
-            }
-   
-            // If channel.ChannelUri is not null, we will complete the registrationTask here.  
-            // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
-            if (channel.ChannelUri != null)
-            {
-                await RegisterTemplate(channel.ChannelUri);
-            }
-   
-            return await registrationTask.Task;
-        }
-   
-        async void channel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
-        {
-            await RegisterTemplate(e.ChannelUri);
-        }
-   
-        async Task<Registration> RegisterTemplate(Uri channelUri)
-        {
-            // Using a template registration to support notifications across platforms.
-            // Any template notifications that contain messageParam and a corresponding tag expression
-            // will be delivered for this registration.
-   
-            const string templateBodyMPNS = "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                                                "<wp:Toast>" +
-                                                    "<wp:Text1>$(messageParam)</wp:Text1>" +
-                                                "</wp:Toast>" +
-                                            "</wp:Notification>";
-   
-            // The stored categories tags are passed with the template registration.
-   
-            registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
-                templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
-   
-            return await registrationTask.Task;
-        }
-   
-        // This is optional. It is used to receive notifications while the app is running.
-        void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
-        {
-            StringBuilder message = new StringBuilder();
-            string relativeUri = string.Empty;
-   
-            message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
-   
-            // Parse out the information that was part of the message.
-            foreach (string key in e.Collection.Keys)
-            {
-                message.AppendFormat("{0}: {1}\n", key, e.Collection[key]);
-   
-                if (string.Compare(
-                    key,
-                    "wp:Param",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.CompareOptions.IgnoreCase) == 0)
-                {
-                    relativeUri = e.Collection[key];
-                }
-            }
-   
-            // Display a dialog of all the fields in the toast.
-            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
-            { 
-                MessageBox.Show(message.ToString()); 
-            });
+            channel = new HttpNotificationChannel("MyPushChannel");
+            channel.Open();
+            channel.BindToShellToast();
+            channel.ChannelUriUpdated += channel_ChannelUriUpdated;
+
+            // This is optional, used to receive notifications while the app is running.
+            channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
         }
 
-    Bu sınıf yalıtılmış depolama almak için bu cihazı mı haber kategorilerini depolamak için kullanır. Kullanarak bu kategorileri için kaydetmeye yönelik yöntemler de içeren bir [şablonu](notification-hubs-templates-cross-platform-push-messages.md) bildirimi kaydı.
+        // If channel.ChannelUri is not null, complete the registrationTask here.  
+        // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
+        if (channel.ChannelUri != null)
+        {
+            await RegisterTemplate(channel.ChannelUri);
+        }
 
+        return await registrationTask.Task;
+    }
 
-1. App.xaml.cs proje dosyasında aşağıdaki özellik eklemek **uygulama** sınıfı. Değiştir `<hub name>` ve `<connection string with listen access>` , bildirim hub'ı adı ve bağlantı dizesinde yer tutucularını *DefaultListenSharedAccessSignature* daha önce edindiğiniz.
+    async void channel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
+    {
+        await RegisterTemplate(e.ChannelUri);
+    }
+
+    async Task<Registration> RegisterTemplate(Uri channelUri)
+    {
+        // Using a template registration to support notifications across platforms.
+        // Any template notifications that contain messageParam and a corresponding tag expression
+        // will be delivered for this registration.
+
+        const string templateBodyMPNS = "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                                            "<wp:Toast>" +
+                                                "<wp:Text1>$(messageParam)</wp:Text1>" +
+                                            "</wp:Toast>" +
+                                        "</wp:Notification>";
+
+        // The stored categories tags are passed with the template registration.
+
+        registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
+            templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
+
+        return await registrationTask.Task;
+    }
+
+    // This is optional. It is used to receive notifications while the app is running.
+    void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
+    {
+        StringBuilder message = new StringBuilder();
+        string relativeUri = string.Empty;
+
+        message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
+
+        // Parse out the information that was part of the message.
+        foreach (string key in e.Collection.Keys)
+        {
+            message.AppendFormat("{0}: {1}\n", key, e.Collection[key]);
+
+            if (string.Compare(
+                key,
+                "wp:Param",
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.CompareOptions.IgnoreCase) == 0)
+            {
+                relativeUri = e.Collection[key];
+            }
+        }
+
+        // Display a dialog of all the fields in the toast.
+        System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
+        { 
+            MessageBox.Show(message.ToString()); 
+        });
+    }
+    ```
+    
+    Bu sınıf, bu cihazın alacağı haber kategorilerini depolamak için yalıtılmış depolamayı kullanır. Ayrıca bir [şablon](notification-hubs-templates-cross-platform-push-messages.md) bildirim kaydı kullanılarak bu kategorilere kaydolma yöntemlerini de içerir.
+1. App.xaml.cs proje dosyasında, **App** sınıfına aşağıdaki özelliği ekleyin. `<hub name>` ve `<connection string with listen access>` yer tutucularını, daha önce edindiğiniz bildirim hub'ı adınız ve *DefaultListenSharedAccessSignature* bağlantı dizeniz ile değiştirin.
    
-        public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
-   
+    ```csharp
+    public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    ```
+
    > [!NOTE]
-   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığı için istemci uygulamanızı dinleme erişim için anahtar yalnızca dağıtmanız. Bildirimler, ancak var olan kayıtlar için kaydetmek için uygulamanızın değiştirilemez erişimi etkinleştirir dinleyin ve bildirim gönderilemiyor. Tam erişim anahtarı, bir güvenli arka uç hizmetinde bildirimleri gönderme ve var olan kayıtlar değiştirmek için kullanılır.
+   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığından yalnızca istemci uygulamanızla dinleme erişimi için anahtarı dağıtmanız gerekir. Dinleme erişimi, uygulamanızın bildirimlere kaydolmasını sağlar, ancak mevcut kayıtlar değiştirilemez ve bildirimler gönderilemez. Tam erişim anahtarı, güvenli bir arka uç hizmetinde bildirimler göndermek ve mevcut kayıtları değiştirmek için kullanılır.
    > 
    > 
-2. MainPage.xaml.cs dosyasında aşağıdaki satırı ekleyin:
+2. MainPage.xaml.cs dosyanıza aşağıdaki satırı ekleyin:
    
-        using Windows.UI.Popups;
-3. MainPage.xaml.cs proje dosyasında aşağıdaki yöntemi ekleyin:
+    ```csharp
+    using Windows.UI.Popups;
+    ```
+1. MainPage.xaml.cs proje dosyasına aşağıdaki yöntemi ekleyin:
    
-        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-        {
-          var categories = new HashSet<string>();
-          if (WorldCheckBox.IsChecked == true) categories.Add("World");
-          if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
-          if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
-          if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
-          if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
-          if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
-   
-          var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-   
-          MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
-             result.RegistrationId);
-        }
-   
-    Bu yöntem kategorileri ve kullandığı bir liste oluşturur **bildirimleri** listesi yerel depolama alanına depolar ve karşılık gelen kaydetmek için sınıfı, bildirim hub'ınıza etiketler. Kategoriler değiştirildiğinde kaydı yeni kategoriler yeniden oluşturulur.
+    ```csharp
+    private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var categories = new HashSet<string>();
+        if (WorldCheckBox.IsChecked == true) categories.Add("World");
+        if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
+        if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
+        if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
+        if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
+        if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
 
-Uygulamanızı kategorileri kümesi cihazın yerel depolama depolamak ve kullanıcı kategorisi seçimine değiştiğinde bildirim hub'ınızla kaydolmak için sunulmuştur.
+        var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-## <a name="register-for-notifications"></a>Bildirimler için kaydolun
-Yerel depolamada depolanan kategorileri kullanarak başlangıçtaki bildirim hub'ı ile adımları kaydedin.
+        MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
+            result.RegistrationId);
+    }
+    ```
+   
+    Bu yöntem, kategorilerin bir listesini oluşturur ve **Notifications** sınıfını kullanarak listeyi yerel depolama alanında depolar ve ilgili etiketleri bildirim hub’ınıza kaydeder. Kategoriler değiştirildiğinde kayıt yeni kategorilerle yeniden oluşturulur.
+
+Uygulamalarınız artık bir kategori kümesini cihazdaki yerel depolama alanında depolayabilir ve kullanıcının kategori seçimini her değiştirmesinde bildirim hub’ına kaydolabilir.
+
+## <a name="register-for-notifications"></a>Bildirimlere kaydolma
+Bu adımlar, yerel depolama alanında depolanan kategorileri kullanarak başlatma sırasında bildirim hub’ına kaydolur.
 
 > [!NOTE]
-> Microsoft anında iletme bildirimi Hizmeti'ni (MPNS) tarafından atanan URI kanal herhangi bir zamanda değiştiğinden bildirimlerinin sık bildirim hataları önlemek için kayıt olmalıdır. Bu örnek uygulama başladıktan her zaman için bildirimleri kaydeder. Sık çalıştırılan uygulamalar için günde bir kereden fazla, büyük olasılıkla bir günden az itibaren önceki kayıt aktarılırsa bant genişliğinden tasarruf etmek kayıt atlayabilirsiniz.
-> 
-> 
+> Microsoft Anında Bildirim Hizmeti (MPNS) tarafından atanan kanal URI’si her zaman değişebileceğinden, bildirim hatalarını önlemek için sık sık bildirimlere kaydolmanız gerekir. Bu örnek, uygulama her başlatıldığında bildirimlere kaydolur. Sık sık çalıştırılan uygulamalar için, önceki kayıttan bu yana bir günden az zaman geçtiyse bant genişliğini korumak için günde birkaç kere kaydı atlayabilirsiniz.
 
-1. App.xaml.cs dosyasını açın ve eklemek **zaman uyumsuz** değiştiriciyi **Application_Launching** yöntemi ve bildirim hub'ları kayıt, eklenen kod Değiştir [Notification Hubs ile çalışmaya başlama] aşağıdaki kod ile:
+1. App.xaml.cs dosyasını açıp **Application_Launching** yöntemine **async** değiştiricisini ekleyin ve [Notification Hubs’ı kullanmaya başlama] bölümünde eklediğiniz Notification Hubs kayıt kodunu aşağıdaki kodla değiştirin:
    
-        private async void Application_Launching(object sender, LaunchingEventArgs e)
-        {
-            var result = await notifications.SubscribeToCategories();
+    ```csharp
+    private async void Application_Launching(object sender, LaunchingEventArgs e)
+    {
+        var result = await notifications.SubscribeToCategories();
+    
+        if (result != null)
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration Id :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
+    }
+    ```
    
-            if (result != null)
-                System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    MessageBox.Show("Registration Id :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
-                });
-        }
+    Bu kod, uygulama her başlatıldığında uygulamanın yerel depolama alanından kategorileri aldığından ve bu kategorilere kayıt isteğinde bulunduğundan emin olur.
+2. MainPage.xaml.cs proje dosyasına, **OnNavigatedTo** yöntemini uygulayan aşağıdaki kodu ekleyin:
    
-    Bu uygulama her başlatıldığında kategorileri yerel depodan alır ve bu kategorileri için bir kayıt isteklerini emin olur.
-2. MainPage.xaml.cs proje dosyasında uygulayan aşağıdaki kodu ekleyin **OnNavigatedTo** yöntemi:
+    ```csharp
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var categories = ((App)Application.Current).notifications.RetrieveCategories();
+    
+        if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
+        if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
+        if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
+        if (categories.Contains("Technology")) TechnologyCheckBox.IsChecked = true;
+        if (categories.Contains("Science")) ScienceCheckBox.IsChecked = true;
+        if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
+    }
+    ```
    
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var categories = ((App)Application.Current).notifications.RetrieveCategories();
-   
-            if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
-            if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
-            if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
-            if (categories.Contains("Technology")) TechnologyCheckBox.IsChecked = true;
-            if (categories.Contains("Science")) ScienceCheckBox.IsChecked = true;
-            if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
-        }
-   
-    Bu, önceden kaydedilmiş kategorileri durumlarına dayalı ana sayfa güncelleştirir.
+    Bu kod, önceden kaydedilmiş kategorilerin durumuna göre ana sayfayı güncelleştirir.
 
-Uygulama tamamlanmıştır ve kategorileri kümesi kullanıcı kategorisi seçimine değiştiğinde bildirim hub'ınızla kaydolmak için kullanılan aygıt yerel depoda depolayabilirsiniz. Ardından, biz bu uygulamaya kategori bildirimleri gönderebilir bir arka uç tanımlayacaksınız.
+Uygulama artık tamamlanmıştır ve kullanıcının kategori seçimini her değiştirmesinde bildirim hub’ına kaydolmak için kullanılan cihazın yerel depolama alanında bir kategori kümesini depolayabilir. Daha sonra bu uygulamaya kategori bildirimleri gönderebilen bir arka uç tanımlayın.
 
-## <a name="sending-tagged-notifications"></a>Etiketli bildirimleri gönderme
+## <a name="send-tagged-notifications"></a>Etiketli bildirimler gönderme
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Uygulamayı çalıştırın ve bildirimler oluşturma
-1. Visual Studio'da derleme ve uygulamayı başlatmak için F5 tuşuna basın.
+## <a name="test-the-app"></a>Uygulamayı test edin
+1. Visual Studio’da F5 tuşuna basarak uygulamayı derleyin ve başlatın.
    
-    ![][1]
+    ![Kategoriler ile mobil uygulama][1]
    
-    Uygulama kullanıcı Arabirimi sağlayan bir dizi değiştirir sağlar Not abone olmak için kategorilerini seçin.
-2. Bir veya daha fazla kategorileri değiştirir etkinleştirin ve ardından **abone ol**.
+    Uygulama kullanıcı arabirimi, abone olunacak kategorileri seçmenize olanak sağlayan iki durumlu düğmeler sağlar.
+2. Bir veya daha fazla kategori iki durumlu düğmesini etkinleştirin ve **Abone ol**’a tıklayın.
    
-    Uygulama seçili kategorileri etiketlerine dönüştürür ve bildirim hub'ından seçili etiketleri için yeni bir cihaz kaydı ister. Kayıtlı kategorileri döndürülen ve iletişim kutusunda görüntülenir.
+    Uygulama, seçilen kategorileri etiketlere dönüştürür ve bildirim hub’ından seçilen etiketler için yeni bir cihaz kaydı ister. Kayıtlı kategoriler döndürülür ve bir iletişim kutusunda görüntülenir.
    
-    ![][2]
-3. Kategoriler tamamlandı aboneliği olan bir onay aldıktan sonra her kategori için bildirimleri göndermek için konsol uygulamasını çalıştırın. Yalnızca abone olduğunuz kategorileri için bir bildirim alırsınız emin olun.
+    ![Abone olunan ileti][2]
+3. Kategorilerin aboneliğinin tamamlandığına dair bir onay aldıktan sonra, her kategoriye yönelik bildirimler göndermek için konsol uygulamasını çalıştırın. Yalnızca abone olduğunuz kategorileri için bir bildirim aldığınızı doğrulayın.
    
-    ![][3]
+    ![Bildirim iletisi][3]
 
-Bu konuda tamamladınız.
+## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide, kayıtlarıyla ilişkili etiketleri olan belirli cihazlara anında iletme bildirimleri göndermeyi öğrendiniz. Birden fazla cihaz kullanıyor olabilecek belirli kullanıcılara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin: 
 
-<!--##Next steps
+> [!div class="nextstepaction"]
+>[Belirli kullanıcılara anında iletme bildirimleri gönderme](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
-
-+ [Use Notification Hubs to broadcast localized breaking news]
-
-    Learn how to expand the breaking news app to enable sending localized notifications.
-
-+ [Notify users with Notification Hubs]
-
-    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
--->
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -307,7 +320,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 <!-- URLs.-->
-[Notification Hubs ile çalışmaya başlama]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Notification Hubs’ı kullanmaya başlama]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
 [Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
 [Mobile Service]: /develop/mobile/tutorials/get-started

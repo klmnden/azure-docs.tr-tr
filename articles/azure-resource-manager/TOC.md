@@ -102,6 +102,7 @@
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Kişisel verileri yönetme](resource-manager-personal-data.md)
 ## [İstekleri azaltma](resource-manager-request-limits.md)
 ## [Zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

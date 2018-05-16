@@ -1,67 +1,64 @@
 ---
-title: Bir Azure Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme | Microsoft Docs
-description: HDInsight’ta bir Apache Spark kümesi oluşturmaya yönelik HDInsight Spark hızlı başlangıcı.
-keywords: spark hızlı başlangıç,etkileşimli spark,etkileşimli sorgu,hdinsight spark,azure spark
-services: hdinsight
-documentationcenter: ''
+title: 'Öğretici: Azure HDInsight içindeki bir Apache Spark kümesinde veri yükleme ve sorgular çalıştırma | Microsoft Docs'
+description: Azure HDInsight içindeki Spark kümelerinde veri yüklemeyi ve etkileşimli sorgular çalıştırmayı öğrenin.
+services: azure-hdinsight
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/29/2017
+ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.date: 05/07/2018
+ms.openlocfilehash: 63a876dc148129cd2a3eb93ed7ab6baf06a07c62
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Hdınsight'ta Spark kümeleri üzerinde etkileşimli sorgular gerçekleştirme
+# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Öğretici: Azure HDInsight içindeki bir Apache Spark kümesinde veri yükleme ve sorgular çalıştırma
 
-Jupyter not defteri karşı bir Spark kümesi etkileşimli Spark SQL sorguları çalıştırmak için nasıl kullanılacağını öğrenin. 
+Bu öğreticide, bir csv dosyasından nasıl dataframe oluşturulacağını ve Azure HDInsight içindeki bir Apache Spark kümesine karşı etkileşimli Spark SQL sorgularının nasıl çalıştırılacağını öğrenirsiniz. Spark’ta dataframe, adlandırılmış sütunlar halinde düzenlenmiş, dağıtılmış bir veri koleksiyonudur. Dataframe kavramsal olarak, ilişkisel bir veritabanındaki tabloya veya R/Python’daki veri çerçevesine eşdeğerdir.
+ 
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Bir csv dosyasından dataframe oluşturma
+> * Dataframe üzerinde sorgular çalıştırma
 
-[Jupyter not defteri](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) Web Konsolu tabanlı etkileşimli deneyiminin genişleterek tarayıcı tabanlı bir uygulama. HDInsight'ta Spark, ayrıca [Zeppelin Not Defteri](apache-spark-zeppelin-notebook.md)’ni içerir. Jupyter Not Defteri, bu öğreticide kullanılır.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-HDInsight kümelerindeki Jupyter not defterleri üç çekirdek destekliyor - **PySpark**, **PySpark3**, ve **Spark**. **PySpark** çekirdeği bu öğreticide kullanılır. Çekirdekler ve **PySpark** kullanmanın avantajları hakkında daha fazla bilgi için bkz. [HDInsight’ta Apache Spark kümeleri ile Jupyter not defterleri kullanma](apache-spark-jupyter-notebook-kernels.md). Zeppelin not defteri kullanmak için bkz: [Azure Hdınsight'ta Apache Spark kullanmak Zeppelin not defterlerini küme](./apache-spark-zeppelin-notebook.md).
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide, bir csv dosyasındaki verileri sorgulayın. İlk bir dataframe Spark verileri da yüklemeniz gerekir. Ardından, Jupyter Not Defteri kullanarak dataframe üzerinde sorguları çalıştırabilirsiniz. 
+* [Azure HDInsight’ta Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md) bölümünü tamamlayın.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="create-a-dataframe-from-a-csv-file"></a>Bir csv dosyasından dataframe oluşturma
 
-* **Azure Hdınsight Spark kümesinde**. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md).
-* **PySpark kullanarak bir Jupyter not defteri**. Yönergeler için bkz: [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+Uygulamalar, mevcut bir Esnek Dağıtımlı Veri Kümesinden (RDD), bir Hive tablosundan veya SQLContext nesnesini kullanan veri kaynaklarından dataframe’ler oluşturabilir. Aşağıdaki ekran görüntüsünde, bu öğreticide kullanılan HVAC.csv dosyasının bir anlık görüntü gösterilmektedir. Csv dosyası, tüm HDInsight Spark kümeleriyle birlikte gelir. Veriler, bazı binaların sıcaklık varyasyonlarını yakalar.
+    
+![Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsü](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsü")
 
-## <a name="create-a-dataframe-from-a-csv-file"></a>Bir csv dosyasından bir dataframe oluşturma
 
-Bir SQLContext ile varolan bir RDD bir Hive tablosu veya veri kaynaklarının dataframes uygulamalar oluşturabilirsiniz. 
-
-**Bir csv dosyasından bir dataframe oluşturmak için**
-
-1. Yoksa, PySpark kullanarak bir Jupyter not defteri oluşturun. Yönergeler için bkz: [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
-
-2. Aşağıdaki kodu Not Defteri boş bir hücreye yapıştırın ve sonra basın **SHIFT + ENTER** kodu çalıştırmak için. Kod, bu senaryo için gerekli olan türleri içeri aktarır:
+1. Ön koşullar bölümünde oluşturduğunuz Jupyter not defterini açın.
+2. Aşağıdaki kodu, not defterindeki boş bir koda yapıştırın ve sonra kodu çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Kod, bu senaryo için gerekli olan türleri içeri aktarır:
 
     ```PySpark
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
-    Birinci kod hücresini çalıştırdığınızda PySpark çekirdeği kullanarak bir not defteri, Spark oluşturun ve Hive bağlamları otomatik olarak sizin için oluşturulur. Açıkça bir bağlam oluşturmanız gerekmez.
 
-    Etkileşimli bir sorgu Jupyter'de çalıştırırken, web tarayıcısı penceresi veya sekmesinde başlık gösterilir bir **(meşgul)** not defteri başlığı ile birlikte durum. Ayrıca sağ üst köşedeki **PySpark** metninin yanında içi dolu bir daire görürsünüz. İş tamamlandıktan sonra bu simge boş bir daireye dönüşür.
+    Jupyter’de etkileşimli bir sorgu çalıştırılırken web tarayıcısı penceresinde veya sekme açıklamalı alt yazısında not defteri başlığıyla birlikte **(Meşgul)** durumu gösterilir. Ayrıca sağ üst köşedeki **PySpark** metninin yanında içi dolu bir daire görürsünüz. İş tamamlandıktan sonra bu simge boş bir daireye dönüşür.
 
     ![Etkileşimli Spark SQL sorgusunun durumu](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Bir dataframe ve geçici bir tablo oluşturmak için aşağıdaki kodu çalıştırın (**hvac**) aşağıdaki kodu çalıştırarak: kod tüm sütunlarda kullanılabilir CSV dosyasını ayıklamak değil. 
+3. Aşağıdaki kodu çalıştırarak bir dataframe ve geçici bir tablo (**hvac**) oluşturun. Kod, CSV dosyasında bulunan tüm sütunları ayıklamaz. 
 
     ```PySpark
     # Create an RDD from sample data
     hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
     
-    # Create a schema for our data
+    # Create a schema for the data
     Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
     
     # Parse the data and create a schema
@@ -74,44 +71,54 @@ Bir SQLContext ile varolan bir RDD bir Hive tablosu veya veri kaynaklarının da
     dfw = DataFrameWriter(hvacTable)
     dfw.saveAsTable('hvac')
     ```
-    Aşağıdaki ekran görüntüsünde bir anlık görüntü HVAC.csv dosyasının gösterir. Csv dosyası tüm HDInsigt Spark kümeleri ile birlikte gelir. Verileri bir yapı sıcaklık varyasyonları yakalar.
 
-    ![Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsünü](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsünü")
+    > [!NOTE]
+    > Not defteri oluşturmak için PySpark çekirdeği kullanılarak, ilk kod hücresini çalıştırdığınızda sizin için otomatik olarak SQL bağlamları oluşturulur. Belirtik şekilde bir bağlam oluşturmanız gerekmez.
 
-## <a name="run-queries-on-the-dataframe"></a>Üzerinde dataframe sorguları çalıştırma
 
-Tablo oluşturulduktan sonra verileri etkileşimli bir sorgu çalıştırabilirsiniz.
+## <a name="run-queries-on-the-dataframe"></a>Dataframe üzerinde sorgular çalıştırma
 
-**Bir sorguyu çalıştırmak için**
+Tablo oluşturulduktan sonra veriler üzerinde etkileşimli bir sorgu çalıştırabilirsiniz.
 
-1. Aşağıdaki kodu Not Defteri boş bir hücreye çalıştırın:
+1. Not defterinin boş bir hücresinde aşağıdaki kodu çalıştırın:
 
     ```PySpark
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
 
-   PySpark çekirdeği not defterinde kullanıldığından, artık doğrudan etkileşimli bir SQL sorgusu geçici tablosunda çalıştırabilirsiniz **hvac** kullanılarak oluşturulan `%%sql` Sihirli. `%%sql` sihrinin yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler hakkında daha fazla bilgi için bkz. [Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Not defterinde PySpark çekirdeği kullanıldığından, artık doğrudan **hvac** geçici tablosunda etkileşimli bir SQL sorgusu çalıştırabilirsiniz.
 
-   Varsayılan olarak aşağıdaki tablo çıktısı görüntülenir.
+   Aşağıdaki tablo çıktısı görüntülenir.
 
      ![Etkileşimli Spark sorgu sonucunun tablo çıktısı](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-3. Sonuçları diğer görselleştirmelerde de görebilirsiniz. Aynı çıktı için bir alan grafiği görmek için seçin **alanı** sonra diğer değerleri gösterilen şekilde ayarlayın.
+3. Sonuçları diğer görselleştirmelerde de görebilirsiniz. Aynı çıktı için bir alan grafiği görmek için **Alan**’ı seçin ve sonra gösterildiği gibi diğer değerleri ayarlayın.
 
     ![Etkileşimli Spark sorgu sonucunun alan grafiği](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 
-10. Gelen **dosya** dizüstü menüsünde **Kaydet ve denetim noktası**. 
+10. Not defterindeki **Dosya** menüsünden **Kaydet ve Denetim Noktası**’nı seçin. 
 
-11. Başlatıyorsanız [sonraki öğretici](apache-spark-use-bi-tools.md) şimdi, dizüstü bilgisayar açık bırakın. Aksi takdirde, küme kaynakları serbest bırakmak için Not Defteri kapatın: gelen **dosya** dizüstü menüsünde **Kapat ve Durdur**.
+11. [Sonraki öğreticiyi](apache-spark-use-bi-tools.md) şimdi başlatıyorsanız, not defterini açık bırakın. Aksi takdirde, not defterini kapatarak küme kaynaklarını yayınlayın: Not defterindeki **Dosya** menüsünden **Kaydet ve Durdur**’u seçin.
 
-## <a name="next-step"></a>Sonraki adım
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu makalede, Jupyter Not Defteri kullanarak Spark etkileşimli sorgular gerçekleştirme öğrendiniz. Nasıl Spark kayıtlı veri Power BI ve Tableau gibi BI analizi aracını içine alınmasını görmek için sonraki makalede ilerleyin. 
+HDInsight ile verileriniz, Azure Depolama’da veya Azure Data Lake Store’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Sonraki öğretici üzerinde hemen çalışmayı planlıyorsanız, kümeyi tutmak isteyebilirsiniz.
 
+Azure portalında kümeyi açıp **Sil**’i seçin.
+
+![HDInsight kümesini silme](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight kümesini silme")
+
+Kaynak grubu adını seçerek de kaynak grubu sayfasını açabilir ve sonra **Kaynak grubunu sil**’i seçebilirsiniz. Kaynak grubunu silerek hem HDInsight Spark kümesini hem de varsayılan depolama hesabını silersiniz.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
+
+* Spark dataframe oluşturma.
+* Dataframe’e karşı Spark SQL’i çalıştırma.
+
+Spark’a kaydettiğiniz verilerin Power BI gibi bir BI analiz aracına nasıl çekilebileceğini görmek için sonraki makaleye ilerleyin. 
 > [!div class="nextstepaction"]
->[Spark Azure Hdınsight ile verileri görselleştirme araçlarını kullanarak BI](apache-spark-use-bi-tools.md)
-
-
-
+> [BI araçlarını kullanarak verileri analiz etme](apache-spark-use-bi-tools.md)
 

@@ -1,25 +1,26 @@
 ---
-title: Azure Active Directory Geliştirici sözlüğü | Microsoft Docs
+title: Azure Active Directory Geliştirici sözlüğünü | Microsoft Docs
 description: Yaygın olarak kullanılan Azure Active Directory Geliştirici kavramları ve Özellikler koşulları listesi.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
@@ -35,7 +36,7 @@ Erişim belirteçleri "Kullanıcı + uygulama" veya "Uygulama yalnızca", bağl�
 Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
 
 ## <a name="application-id-client-id"></a>Uygulama Kimliği (istemci kimliği)
-Belirli bir uygulama ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD sorunları.  Bu uygulama kimliği ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları geliştirme zamanında sağlanan. Uygulama Kimliği (istemci kimliği) bir gizli anahtar değil. 
+Belirli bir uygulama ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD sorunları. Bu uygulama kimliği ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları geliştirme zamanında sağlanan. Uygulama Kimliği (istemci kimliği) bir gizli anahtar değil. 
 
 ## <a name="application-manifest"></a>Uygulama bildirimi
 Tarafından sağlanan bir özellik [Azure portal][AZURE-portal], uygulamanın kimlik yapılandırması, kendi ilişkili güncelleştirme mekanizması olarak kullanılan bir JSON gösterimini üreten [ Uygulama] [ AAD-Graph-App-Entity] ve [ServicePrincipal] [ AAD-Graph-Sp-Entity] varlıklar. Bkz: [Azure Active Directory Uygulama bildirimini anlama] [ AAD-App-Manifest] daha fazla ayrıntı için.
@@ -85,7 +86,7 @@ A [güvenlik belirteci](#security-token) bir varlık onaylar sağlayan talepleri
 Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
 
 ## <a name="client-application"></a>istemci uygulaması
-Tarafından tanımlanan [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], adına kaynak istekleri yapan bir uygulamada korunan [kaynak sahibi](#resource-owner). "İstemci" terimi (örneğin, olup uygulama bir sunucu, bir masaüstü veya diğer cihazları yürütür) herhangi belirli donanım uygulama özelliklerine göstermez.  
+Tarafından tanımlanan [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], adına kaynak istekleri yapan bir uygulamada korunan [kaynak sahibi](#resource-owner). "İstemci" terimi (örneğin, olup uygulama bir sunucu, bir masaüstü veya diğer cihazları yürütür) herhangi belirli donanım uygulama özelliklerine göstermez. 
 
 Bir istemci uygulaması ister [yetkilendirme](#authorization) 'na katılmak için bir kaynak sahibinden bir [OAuth2 yetkilendirme verme](#authorization-grant) akış ve API/veri kaynak sahibinin adınıza erişebilir. OAuth2 yetkilendirme Framework [iki istemci türlerini tanımlayan][OAuth2-Client-Types], "gizli" ve "Genel", istemcinin kimlik bilgilerini gizliliğini korumak becerisini göre. Uygulamaları uygulayabilirsiniz bir [web istemcisi (gizli)](#web-client) bir web sunucusunda çalışan bir [yerel istemci (Genel)](#native-client) bir aygıtta yüklü veya [kullanıcı aracısı-tabanlı istemci (Genel)](#user-agent-based-client)bir cihazın tarayıcısında çalıştırır.
 
@@ -121,7 +122,7 @@ Tarafından tanımlanan [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], korun
 ## <a name="resource-server"></a>Kaynak sunucusu
 Tarafından tanımlanan [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], ana bilgisayar kaynakları, kabul etme ve yanıtlama özellikli korunan bir sunucu kaynak istekleri tarafından korunan [istemci uygulamaları](#client-application) , mevcut bir [erişim belirteci](#access-token). Olarak da bilinen bir korumalı kaynak sunucuda veya kaynak uygulama.
 
-Kaynak sunucuda API'lerini gösterir ve korumalı kaynaklarına erişimini zorunlu kılar [kapsamları](#scopes) ve [rolleri](#roles), OAuth 2.0 yetkilendirme Framework kullanarak. Örnek, Azure AD Kiracı verilere erişim sağlayan Azure AD Graph API ve posta ve takvim gibi verilere erişim sağlayan Office 365 API'leri verilebilir. Bunların her ikisi de aynı zamanda aracılığıyla erişilebilir [Microsoft Graph API][Microsoft-Graph].  
+Kaynak sunucuda API'lerini gösterir ve korumalı kaynaklarına erişimini zorunlu kılar [kapsamları](#scopes) ve [rolleri](#roles), OAuth 2.0 yetkilendirme Framework kullanarak. Örnek, Azure AD Kiracı verilere erişim sağlayan Azure AD Graph API ve posta ve takvim gibi verilere erişim sağlayan Office 365 API'leri verilebilir. Bunların her ikisi de aynı zamanda aracılığıyla erişilebilir [Microsoft Graph API][Microsoft-Graph]. 
 
 Yalnızca bir istemci uygulaması gibi kaynak uygulamanın kimlik yapılandırması üzerinden kurulur [kayıt](#application-registration) bir Azure AD kiracısında uygulama ve hizmet sorumlusu nesnesi sağlar. Azure AD grafik API'si gibi bazı Microsoft tarafından sağlanan API'leri sağlama işlemi sırasında tüm kiracılar kullanılabilir hale hizmet asıl adı önceden kaydettiniz.
 
@@ -177,7 +178,7 @@ Benzer şekilde bir hizmet sorumlusu nesnesi uygulama örneğini temsil etmek i�
 Bir tür [istemci uygulaması](#client-application) , kimlik bilgileri sunucuda güvenli bir şekilde depolayarak "gizli" istemci olarak çalışması için tüm kodu bir web sunucusunda ve mümkün yürütür. Bkz: [OAuth2 istemci türleri ve profiller] [ OAuth2-Client-Types] daha fazla ayrıntı için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] tüm Azure AD geliştirme için kullanmak için giriş sayfasıdır ilgili konular, genel bir bakış da dahil olmak üzere [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios].  Kod örnekleri & öğreticiler açık ve çalışıyor hızla alma nasıl bulabileceğiniz [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] tüm Azure AD geliştirme için kullanmak için giriş sayfasıdır ilgili konular, genel bir bakış da dahil olmak üzere [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri & öğreticiler açık ve çalışıyor hızla alma nasıl bulabileceğiniz [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Lütfen geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri dahil olmak üzere veya var olanları güncelleştirme bizim içerik şekil yardımcı olmak için aşağıdaki Açıklamalar bölümüne kullanın!
 

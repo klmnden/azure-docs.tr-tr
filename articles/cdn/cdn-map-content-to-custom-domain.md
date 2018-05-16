@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme
 Bu öğreticide bir Azure Content Delivery Network (CDN) uç noktasına özel etki alanı ekleme işlemi gösterilmektedir. İçerik ulaştırmak için bir CDN uç noktası kullandığınızda, CDN URL’nizde kendi etki alanı adınızın görünmesini istiyorsanız özel bir etki alanı gereklidir. Görünür bir etki alanınızın olması, müşterileriniz için kolaylık sağlar ve markalama için faydalıdır. 
@@ -28,9 +27,9 @@ Profilinizde bir CDN uç noktası oluşturduğunuzda, varsayılan olarak CDN iç
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-> - CNAME DNS kaydı oluşturma
-> - Özel etki alanını CDN uç noktanızla ilişkilendirme
-> - Özel etki alanını doğrulama
+> - CNAME DNS kaydı oluşturun.
+> - Özel etki alanını CDN uç noktanızla ilişkilendirin.
+> - Özel etki alanını doğrulayın.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -211,16 +210,16 @@ Yukarıdaki adımlarda bir özel etki alanını CDN uç noktasına eklediniz. U�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğrendikleriniz:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> - CNAME DNS kaydı oluşturuldu
-> - Özel etki alanı CDN uç noktanızla ilişkilendirildi
-> - Özel etki alanı doğrulandı
+> - CNAME DNS kaydı oluşturun.
+> - Özel etki alanını CDN uç noktanızla ilişkilendirin.
+> - Özel etki alanını doğrulayın.
 
 Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Azure CDN özel etki alanı üzerinde HTTPS yapılandırma](cdn-custom-ssl.md)
+> [Öğretici: Azure CDN özel etki alanı üzerinde HTTPS yapılandırma](cdn-custom-ssl.md)
 
 

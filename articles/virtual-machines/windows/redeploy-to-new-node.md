@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: c4115e82e4d5f1ed2b952d9fb8d8d820794133b2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0bda14634e6c8bea5800b9798086fc38279030a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Windows sanal makineyi yeni Azure düğüme yeniden dağıtın
 Uzak Masaüstü (RDP) sorunlarını giderme, sorunlar karşılıklı durumunda VM dağıtarak bağlantı ya da uygulama erişimi Windows tabanlı Azure sanal makine (VM) yardımcı olabilir. Bir VM yeniden dağıtırken VM Azure altyapısı içinde yeni bir düğüme taşır ve tüm yapılandırma seçenekleri ve ilişkili kaynakları geri korur, çalıştırır. Bu makale Azure PowerShell veya Azure portalını kullanarak bir VM'i yeniden gösterilmiştir.

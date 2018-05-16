@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Ağ güvenlik grupları Azure Portalı'nı kullanarak sorun giderme
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
 
 VM'den bir NIC üzerinde etkili güvenlik kuralları tam listesini görüntüleyebilirsiniz. Eklemek, değiştirmek ve bu işlemleri gerçekleştirmek için izinleri varsa NIC ve alt ağ NSG kuralları etkili kuralları dikey penceresinden silin.
 
-1. Azure portalında oturum açma https://portal.azure.com ile bir Azure hesabı. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Azure portalında oturum açma https://portal.azure.com ile bir Azure hesabı. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. ' I tıklatın **tüm hizmetleri**, ardından **sanal makineler** listesinde görünür.
 3. Görüntülenen listesinden gidermek için VM seçin ve seçeneklerle bir VM dikey penceresi görünür.
 4. Tıklatın **Tanıla & sorunları** ve ortak bir sorun seçin. Bu örnek için **Windows VM'ime bağlanamıyorum** seçilir. 

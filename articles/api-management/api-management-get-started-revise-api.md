@@ -3,7 +3,7 @@ title: Azure API Management’ta hataya neden olmayan değişiklikleri güvenli 
 description: API Management’ta revizyonları kullanarak hataya neden olmayan değişiklikler yapmayı öğrenmek için bu öğreticideki adımları uygulayın.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: b4812ea8d93e4bfb784370e3a3196a5d20e47519
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 864c269da61bcea885249021a44fe0259ca83e90
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Hataya neden olmayan değişiklikleri güvenli bir şekilde yapmak için düzeltmeleri kullanma
 API’niz kullanıma hazır olduğunda ve geliştiriciler tarafından kullanılmaya başladığında genellikle bu API’de değişiklikler yapmak ve aynı zamanda API’nizi çağıranları kesintiye uğratmamak için dikkatli olmanız gerekir. Yaptığınız değişiklikleri geliştiricilere bildirmeniz de yararlıdır. Azure API Management’da **düzeltmeleri** kullanarak bunu yapabilirsiniz. Daha fazla bilgi için bkz. [Sürümler ve revizyonlar](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) ve [Azure API Management ile API Sürümü Oluşturma](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 079eb7b89ff3d6c1e4ec0de6136cd934ba3a1f70
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: def1e3f3de25478e51a069bc64c98d650f59072f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux’ta App Service’te Ruby Uygulaması oluşturma
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 veya üzerini yükleyin</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.3 veya üzerini yükleyin</a>
 * <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
 
 ## <a name="download-the-sample"></a>Örneği indirme

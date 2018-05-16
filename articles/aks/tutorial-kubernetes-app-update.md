@@ -3,21 +3,21 @@ title: Azure’da Kubernetes öğreticisi - Uygulamayı güncelleştirme
 description: AKS öğreticisi - Uygulamayı güncelleştirme
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Öğretici: Azure Container Service’te (AKS) bir uygulamayı güncelleştirme
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti’nde (AKS) bir uygulamayı güncelleştirme
 
-Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bu yapıldığında, güncelleştirme, dağıtımın yalnızca bir kısmı eşzamanlı olarak güncelleştirilecek şekilde hazırlanılır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar. 
+Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bu yapıldığında, güncelleştirme, dağıtımın yalnızca bir kısmı eşzamanlı olarak güncelleştirilecek şekilde hazırlanılır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar.
 
 Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygulaması güncelleştirilir. Tamamladığınız görevler şunları içerir:
 
@@ -31,15 +31,15 @@ Sonraki öğreticilerde Kubernetes kümesini izlemek için Log Analytics yapıla
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. Ardından uygulama Kubernetes kümesinde çalıştırıldı. 
+Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. Ardından uygulama Kubernetes kümesinde çalıştırıldı.
 
 Bu öğreticide ayrıca uygulama kaynak kodunu içeren bir uygulama deposu da kopyalandı ve önceden oluşturulmuş bir Docker Compose dosyası kullanıldı. Deponun bir kopyasını oluşturduğunuzu ve dizinleri kopyalanmış dizine değiştirdiğinizi doğrulayın. İçeride `azure-vote` adlı bir dizin ve `docker-compose.yaml` adlı bir dosya bulunuyor.
 
-Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün. 
+Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
 
 ## <a name="update-application"></a>Uygulamayı güncelleştirme
 
-Bu öğreticide, uygulamada bir değişiklik yapıldı ve güncelleştirilmiş uygulama Kubernetes kümesine dağıtıldı. 
+Bu öğreticide, uygulamada bir değişiklik yapıldı ve güncelleştirilmiş uygulama Kubernetes kümesine dağıtıldı.
 
 Uygulama kaynak kodu `azure-vote` dizininde bulunabilir. `config_file.cfg` dosyasını herhangi bir kod ya da metin düzenleyici ile açın. Bu örnekte `vi` kullanıldı.
 
@@ -69,13 +69,13 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Güncelleştirilmiş uygulamayı görüntülemek için http://localhost:8080 konumuna göz atın.
+Güncelleştirilmiş uygulamayı görüntülemek için http://localhost:8080 adresine göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>Görüntüleri etiketleme ve gönderme
 
-`azure-vote-front` görüntüsünü, kapsayıcı kayıt defterinin loginServer’ıyla etiketleyin. 
+`azure-vote-front` görüntüsünü, kapsayıcı kayıt defterinin loginServer’ıyla etiketleyin.
 
 [az acr list](/cli/azure/acr#az_acr_list) komutuyla oturum açma sunucusu adını alın.
 
@@ -164,10 +164,10 @@ Bu öğreticide, bir uygulamayı güncelleştirdiniz ve bu güncelleştirmeyi bi
 > * Kapsayıcı görüntüsü Azure Container Registry’ye gönderildi
 > * Güncelleştirilmiş uygulama dağıtıldı
 
-Log Analytics ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Kubernetes’i yeni bir sürüme yükseltme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Log Analytics ile Kubernetes’i izleme][aks-tutorial-monitor]
+> [Kubernetes’i yükseltme][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +178,5 @@ Log Analytics ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek i
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

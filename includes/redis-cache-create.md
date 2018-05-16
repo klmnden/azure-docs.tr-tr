@@ -1,36 +1,39 @@
-Önbellek oluşturmak için ilk kez oturum açtığınızda için [Azure portal](https://portal.azure.com), tıklatıp **kaynak oluşturma** > **veritabanları** > **Redis önbelleği** .
-
-> [!NOTE]
-> Azure hesabınız yoksa, yalnızca birkaç dakika içinde [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
-> 
-> 
+---
+title: include dosyası
+description: include dosyası
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: include file
+ms.openlocfilehash: 55bc2bd4e065c301f11a5fc4d3b58aa443b83e2d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2018
+---
+Önbellek oluşturmak için ilk olarak [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak oluştur** > **Veritabanları** > **Redis Cache**’ye tıklayın.
 
 ![Yeni önbellek](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-> [!NOTE]
-> Önbellekleri Azure portalında oluşturabileceğiniz gibi, Resource Manager şablonlarını, PowerShell'i veya Azure CLI'sini kullanarak da oluşturabilirsiniz.
-> 
-> * Resource Manager şablonlarını kullanarak bir önbellek oluşturmak için bkz. [Şablon kullanarak Redis Cache oluşturma](../articles/redis-cache/cache-redis-cache-arm-provision.md).
-> * Azure PowerShell kullanarak önbellek oluşturmak için bkz. [Azure PowerShell ile Azure Redis Cache’i Yönetme](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
-> * Azure CLI kullanarak önbellek oluşturmak için bkz. [Azure Komut Satırı Arabirimi (CLI Azure) kullanarak Azure Redis Cache oluşturma ve yönetme](../articles/redis-cache/cache-manage-cli.md).
-> 
-> 
+**Yeni Redis Cache**’de yeni önbelleğinizin ayarlarını yapılandırın.
 
-İçinde **yeni Redis önbelleği**, istenen yapılandırma önbelleğini belirtin.
+| Ayar      | Önerilen değer  | Açıklama |
+| ------------ |  ------- | -------------------------------------------------- |
+| **DNS adı** | Genel olarak benzersiz bir ad | Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.  | 
+| **Abonelik** | Aboneliğiniz | Bu yeni Azure Redis Cache’nin oluşturulduğu abonelik. | 
+| **Kaynak Grubu** |  *TestResourceGroup* | Önbelleğinizin oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. | 
+| **Konum** | Doğu ABD | Önbelleğinizi kullanacak olan diğer hizmetlerin yanında bir [bölge](https://azure.microsoft.com/regions/) seçin. |
+| **[Fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/cache/)** |  Temel C0 (250 MB Önbellek) |  Fiyatlandırma katmanı önbellek için kullanılabilen boyut, performans ve özellikleri belirler. Daha fazla bilgi için bkz. [Azure Redis Cache’ye Genel Bakış](../articles/redis-cache/cache-overview.md). |
+| **Panoya sabitle** |  Seçildi | Yeni önbelleği panonuza sabitleyerek kolay bulunur hale getirin. |
 
 ![Önbellek oluşturma](media/redis-cache-create/redis-cache-cache-create.png) 
 
-* **Dns adı** alanına önbellek uç noktası için kullanılacak benzersiz bir önbellek adını girin. Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.
-* **Abonelik** için önbelleğe yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa, otomatik olarak seçilir ve **abonelik** açılan görüntülenmiyorsa.
-* **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-overview.md). 
-* Önbelleğin barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için, Microsoft, önbelleği önbellek istemci uygulamasının olduğu konumda oluşturmanızı kesinlikle önerir.
-* İstediğiniz önbellek boyutunu ve özelliklerini seçmek için **Fiyatlandırma katmanını** kullanın.
-* **Redis kümesi**, 53 GB'den daha büyük önbellekler oluşturmanızı ve verileri birden çok Redis düğümünde paylaşmanızı sağlar. Daha fazla bilgi için bkz. [Premium Azure Redis Cache için kümeleri yapılandırma](../articles/redis-cache/cache-how-to-premium-clustering.md).
-* **Redis kalıcılığı**, önbelleğiniz bir Azure Storage hesabında kalması özelliğini sunar. Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium Azure Redis Cache için kalıcılığı yapılandırma](../articles/redis-cache/cache-how-to-premium-persistence.md).
-* **Sanal ağ** önbelleğe erişimi yalnızca belirtilen Azure Virtual Network içindeki istemcilerle sınırlayarak gelişmiş güvenlik ve yalıtım sağlar. Redis’e erişimi daha da fazla kısıtlamak için alt ağlar, erişim denetimi, ilkeler gibi VNet’in tüm özelliklerini ve diğer özellikleri kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Azure Redis Cache için Sanal Ağ desteğini yapılandırma](../articles/redis-cache/cache-how-to-premium-vnet.md).
-* SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL olmayan bağlantı noktasını etkinleştirmek için **6379 bağlantı noktasının engelini kaldır (SSL şifrelemeli değil)** seçeneğini işaretleyin.
+Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. 
 
-Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. Önbelleğin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için başlangıç panosunda ilerlemeyi izleyebilirsiniz. Önbellek oluşturulduktan sonra yeni önbelleğiniz **Çalışır** durumdadır ve [varsayılan ayarlarla](../articles/redis-cache/cache-configure.md#default-redis-server-configuration) kullanıma hazırdır.
+Önbelleğin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için panoda ilerlemeyi izleyebilirsiniz. Önbellek oluşturulduktan sonra yeni önbelleğiniz **Çalışır** durumdadır ve kullanıma hazırdır.
 
 ![Önbellek oluşturuldu](media/redis-cache-create/redis-cache-cache-created.png)
 

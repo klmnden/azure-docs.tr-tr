@@ -14,11 +14,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 373983413ea83e5924b52fbbcbc666aa1a188d80
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4fa93e4bf64e01b44b0826b2182b125004c49609
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD - genel Önizleme idari Birim Yönetimi
 Bu makalede idari birim – yeni bir Azure Active Directory kapsayıcısı kullanıcılar ve kullanıcı alt kümesine ilkelerini uygulama kümelerine üzerinden yönetim izinleri temsilci için kullanılabilir kaynakların açıklanmaktadır. Azure Active Directory'de merkezi yöneticileri temsilci izinleri bölgesel yöneticilere veya ayrıntılı bir düzeyde İlkesi ayarlamak için idari birim etkinleştirin.
@@ -38,4 +38,4 @@ Bu önizleme sürümünde oluşturun ve Azure Active Directory için Windows Pow
 Sözdizimi, parametre açıklamaları ve örnekler dahil olmak üzere idari birim yönetmek için Azure AD modülü cmdlet'ler hakkında bilgi ve yazılım gereksinimleri ve Azure AD modülünü yükleme hakkında daha fazla bilgi için bkz: [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Active Directory sürümleri](active-directory-editions.md)
+[Azure Active Directory sürümleri](active-directory-whatis.md)

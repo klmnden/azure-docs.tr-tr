@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure enterprise iskele uygulamanın örnekleri
-Bu konu kuruluş için önerilerin nasıl uygulayabilirsiniz örnekler sağlayan bir [Azure enterprise iskele](resource-manager-subscription-governance.md). Contoso adlı kurgusal bir şirket yaygın senaryolar için en iyi yöntemleri göstermek için kullanır.
+Bu makalede bir kuruluş için önerilerin nasıl uygulayabilirsiniz örnekler sağlayan bir [Azure enterprise iskele](resource-manager-subscription-governance.md). Contoso adlı kurgusal bir şirket yaygın senaryolar için en iyi yöntemleri göstermek için kullanır.
 
 ## <a name="background"></a>Arka plan
-Contoso, paketlenmiş bir modele "Hizmet olarak yazılım" modelden her şeyi müşteriler için tedarik zinciri çözümleri sağlayan dünya çapında şirket içi dağıtılan ' dir.  Bunlar, Hindistan, ABD ve Kanada önemli geliştirme merkezlerine dünya çapında yazılım geliştirin.
+Contoso müşteriler için tedarik zinciri çözümleri sağlayan dünya çapında bir şirkettir. Şirket içi bir hizmet modeli paketlenmiş bir modele dağıtıldığında her şeyi bir yazılım uygulamasından sağlarlar.  Bunlar, Hindistan, ABD ve Kanada önemli geliştirme merkezlerine dünya çapında yazılım geliştirin.
 
 Şirket ISV kısmı önemli bir işletmede ürünleri Yönet birkaç bağımsız iş birimleri ayrılmıştır. Her iş birimi kendi geliştiriciler, ürün yöneticileri ve mimarları sahiptir.
 
 Madde Kurumsal teknoloji Hizmetleri (işaretleri) departmanı merkezi BT yeteneği sağlar ve Departmanlar uygulamalarını ana bilgisayar birkaç veri merkezleri yönetir. Veri merkezleri yönetme, birlikte madde işaretleri kuruluş sağlar ve merkezi işbirliği (örneğin, e-posta ve Web siteleri) ve ağ/telefon hizmetleri yönetir. Bunlar ayrıca müşterilerle iş yükleri işletimsel personel sahip olmayan küçük iş birimleri için yönetin.
 
-Bu konuda aşağıdaki kişiler kullanılır:
+Bu makalede aşağıdaki kişiler kullanılır:
 
 * Dave madde işaretleri Azure yöneticisidir.
 * Alice'i Contoso geliştirme Director tedarik zinciri departmandaki ' dir.
 
-Bir iş kolu satır uygulama ve müşteri yönelik uygulama oluşturmak contoso gerekir. Azure üzerinde uygulamaları çalıştırmak karar vermiştir. Dave okur [Düzenleyici abonelik idare](resource-manager-subscription-governance.md) konusuna ve artık önerileri uygulamak hazırdır.
+Bir iş kolu satır uygulama ve müşteri yönelik uygulama oluşturmak contoso gerekir. Azure üzerinde uygulamaları çalıştırmak karar vermiştir. Dave okur [Düzenleyici abonelik idare](resource-manager-subscription-governance.md) makalesi ve artık önerileri uygulamak hazırdır.
 
 ## <a name="scenario-1-line-of-business-application"></a>Senaryo 1: İş kolu satır uygulama
 Contoso kaynak kodu yönetimi sistemi dünya genelindeki geliştiriciler tarafından kullanılacak (BitBucket) oluşturuyor.  Uygulama barındırma için hizmet (Iaas) olarak altyapısı kullanır ve web sunucuları ve bir veritabanı sunucusu oluşur. Geliştiriciler kendi geliştirme ortamlarında sunuculara erişmek, ancak azure'da sunucularına erişimi gerekmez. Contoso madde işaretleri uygulama sahibi ve ekibi uygulamasını yönetmek izin istiyor. Uygulama yalnızca Contoso şirket ağında sırasında kullanılabilir. Dave abonelik bu uygulama için ayarlamanız gerekir. Abonelik de gelecekte diğer Geliştirici ile ilgili yazılım barındırır.  
 
 ### <a name="naming-standards--resource-groups"></a>& Kaynak grupları adlandırma standartları
-Dave tüm iş birimleri arasında ortak olan geliştirici araçları desteklemek için bir abonelik oluşturur. Abonelik ve kaynak grupları (uygulama ve ağları) için anlamlı adlar oluşturmak gerekir. Şu abonelik ve kaynak grupları oluşturur:
+Dave tüm iş birimleri arasında ortak olan geliştirici araçları desteklemek için bir abonelik oluşturur. Abonelik ve kaynak grupları (uygulama ve ağları) için anlamlı adlar oluşturmak Dave gerekir. Şu abonelik ve kaynak grupları oluşturur:
 
 | Öğe | Ad | Açıklama |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Aşağıdaki roller için abonelik Dave atar:
 | Rol | Atanan: | Açıklama |
 | --- | --- | --- |
 | [Sahibi](../role-based-access-control/built-in-roles.md#owner) |Contoso'nun kimliği yönetilen AD |Bu kimliği ile sadece anında (JIT) erişim Contoso'nun kimlik yönetimi aracı üzerinden denetlenir ve abonelik sahibi erişim tam olarak denetlenir sağlar |
-| [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-manager) |Güvenliği ve risk yönetimi bölümü |Bu rolü kullanıcılarının Azure Güvenlik Merkezi ve kaynakların durumunu bakın sağlar |
+| [Güvenlik okuyucusu](../role-based-access-control/built-in-roles.md#security-reader) |Güvenliği ve risk yönetimi bölümü |Bu rolü kullanıcılarının Azure Güvenlik Merkezi ve kaynakların durumunu bakın sağlar |
 | [Ağ Katılımcısı](../role-based-access-control/built-in-roles.md#network-contributor) |Ağ ekibi |Bu rolü Contoso'nun ağ takım siteden siteye VPN ve sanal ağlar yönetmenizi sağlar |
 | *Özel rol* |Uygulama sahibi |Dave kaynakların kaynak grubunda değiştirme olanağı veren bir rolü oluşturur. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../role-based-access-control/custom-roles.md) |
 
@@ -90,7 +90,7 @@ Müşterinizle aşağıdaki ekler [etiketleri](resource-group-using-tags.md) kay
 | Departmanı |**Madde işaretleri** (abonelikle ilişkili iş birimi) |
 
 ### <a name="core-network"></a>Çekirdek Ağ
-Contoso madde işaretleri bilgi güvenliği ve risk yönetimi ekibi uygulamayı Azure'a taşımak için önerilen planı Dave'nın inceler. Uygulamanın Internet'e gösterilmeyen olmak isterler.  Dave Azure'a gelecekte taşınır Geliştirici uygulamaları da sahiptir. Bu uygulamalar genel arabirimler gerektirir.  Bu gereksinimleri karşılamak için kendisine iç ve dış sanal ağlar ve erişimi kısıtlamak için bir ağ güvenlik grubu sağlar.
+Contoso madde işaretleri bilgi güvenliği ve risk yönetimi ekibi uygulamayı Azure'a taşımak için önerilen planı Dave'nın inceler. Uygulamanın Internet'e açık olmadığından emin olmak isterler.  Dave Azure'a gelecekte taşınır Geliştirici uygulamaları da sahiptir. Bu uygulamalar genel arabirimler gerektirir.  Bu gereksinimleri karşılamak için kendisine iç ve dış sanal ağlar ve erişimi kısıtlamak için bir ağ güvenlik grubu sağlar.
 
 Aşağıdaki kaynaklar oluşturur:
 
@@ -115,7 +115,7 @@ Dave bu uygulama için otomatik hale getirmek için hiçbir şey vardır. Kendis
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 Contoso BT Hizmet Yönetimi, hızlı bir şekilde tanımlamak ve tehditleri işlemek gerekiyor. Ayrıca hangi sorunları bulunabilecek anlamak isterler.  
 
-Bu gereksinimleri karşılamak üzere Dave etkinleştirir [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)ve güvenlik yöneticisi rolü erişim sağlar.
+Bu gereksinimleri karşılamak üzere Dave etkinleştirir [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)ve güvenlik okuyucu rolüne erişim sağlar.
 
 ## <a name="scenario-2-customer-facing-app"></a>Senaryo 2: Müşteri dönük uygulama
 Tedarik zinciri departmandaki iş liderlik bağlılık kart kullanarak Contoso'nun müşterilerle katılım artırmak için çeşitli fırsatlar belirledi. Alice'in ekibi, bu uygulama oluşturmanız gerekir ve Azure iş gereksinimini karşılamak üzere yeteneklerini artırır karar verir. Geliştirme ve bu uygulamayı işletim iki aboneliklerini yapılandırmak için madde işaretleri gelen Dave Alice çalışır.
@@ -137,7 +137,7 @@ Dave Alice uygulama görüşmek ve bu uygulamaya yalnızca Kuzey Amerika bölged
 | --- | --- | --- |
 | location |Denetim |Denetim tüm bölgelerdeki kaynakları oluşturma |
 
-Bir kullanıcı geliştirme oluşturabilirsiniz sku türünü sınırlamaz ve bunların etiketlerini herhangi bir kaynak grupları veya kaynaklar için gerektirmez.
+Bir kullanıcı geliştirme oluşturabilirsiniz sku türünü sınırlamak yok ve herhangi bir kaynak grupları veya kaynaklar için etiketler gerektirmez.
 
 İçin **üretim abonelik**, bunlar aşağıdaki ilkeleri oluşturur:
 
@@ -148,7 +148,7 @@ Bir kullanıcı geliştirme oluşturabilirsiniz sku türünü sınırlamaz ve bu
 | etiketler |reddet |Departman etiketi gerektirir |
 | etiketler |ekleme |Üretim ortamında gösterir her bir kaynak grubundaki etiket ekleme |
 
-Bir kullanıcı üretimde oluşturabilirsiniz sku türünü sınırlamaz.
+Bunlar bir kullanıcı üretimde oluşturabilirsiniz sku türünü sınırı yoktur.
 
 ### <a name="resource-tags"></a>Kaynak etiketleri
 Faturalama ve sahipliği için doğru iş gruplarını tanımlamak için özel bilgiler olması gerektiğini Dave bilir. Hüseyin, kaynak grupları ve kaynaklar için kaynak etiketleri tanımlar.

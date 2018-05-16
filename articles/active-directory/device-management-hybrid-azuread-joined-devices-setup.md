@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -561,8 +561,6 @@ Gerekli adımları tamamladıktan sonra etki alanına katılmış cihazları oto
 ### <a name="remarks"></a>Açıklamalar
 
 - Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarlar otomatik kaydını piyasaya sürümü denetlemek için Grup İlkesi nesnesini kullanabilirsiniz. **Bu cihazlar otomatik olarak Azure AD ile kaydetmek istiyor musunuz veya kayıt denetlemek istiyorsanız**, sonra da Grup İlkesi tüm aygıtlara otomatik kaydını yapılandırma ile başlatmadan önce ilk olarak, devre dışı kullanıma alma adımlar. Tamamlandıktan sonra yapılandırma ve test etmek hazır olduğunuzda, Grup İlkesi otomatik kaydı yalnızca test cihazlar için etkinleştirme kullanıma alma ve diğer tüm aygıtlara yazarken seçin gerekir.
-
-- Windows 10 Kasım 2015 güncelleştirmesi otomatik olarak birleştiren Azure AD ile **yalnızca** sunum Grup İlkesi nesnesi ayarlarsanız.
 
 - Kullanıcılarınıza Windows alt düzey bilgisayarların, dağıttığınız bir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) seçtiğiniz bilgisayarlara.
 

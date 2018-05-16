@@ -350,16 +350,18 @@
           href: data-factory-service-identity.md
     - name: İzleme ve yönetme
       items:
-        - name: SDK’ları kullanma
-          href: monitor-programmatically.md
-        - name: Azure İzleyici’yi kullanma
-          href: monitor-using-azure-monitor.md
         - name: Görsel olarak izleme
           href: monitor-visually.md
-        - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
-          href: manage-azure-ssis-integration-runtime.md
+        - name: Azure İzleyici ile izleme
+          href: monitor-using-azure-monitor.md
+        - name: SDK’lar ile izleme
+          href: monitor-programmatically.md
         - name: Tümleştirme çalışma zamanını izleme
           href: monitor-integration-runtime.md
+        - name: Azure-SSIS tümleştirme çalışma zamanını izleme
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
+          href: manage-azure-ssis-integration-runtime.md
     - name: Tümleştirme çalışma zamanı oluşturma
       items:
         - name: Azure tümleştirme çalışma zamanı
@@ -370,24 +372,22 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure’da SSIS paketlerini çalıştırma
       items:
-        - name: Azure-SSIS tümleştirmesi çalışma zamanı için özel kurulum
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Azure-SSIS tümleştirmesi çalışma zamanı için Enterprise Edition sağlama
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Azure SSIS tümleştirmesi çalışma zamanını VNET’e bağlama
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Azure-SSIS tümleştirmesi çalışma zamanının performans ayarlarını yapılandırma
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için yüksek performansı yapılandırma
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: SSIS etkinliğini kullanarak SSIS paketleri çalıştırma
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için Enterprise Edition sağlama
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için kurulumu özelleştirme
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için lisanslı bileşenleri dağıtma
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: SSIS etkinliği ile SSIS paketleri çalıştırma
           href: how-to-invoke-ssis-package-ssis-activity.md
-        - name: Saklı yordam etkinliği kullanarak SSIS paketleri çalıştırma
+        - name: Saklı yordam etkinliği ile SSIS paketleri çalıştırma
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS tümleştirmesi çalışma zamanı zamanlama
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Azure-SSIS tümleştirmesi çalışma zamanı için lisanslı bileşenler geliştirme
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Tetikleyici oluşturma
       items:
         - name: Zamanlama tetikleyicisi oluşturma

@@ -1,46 +1,48 @@
 ---
-title: Android uygulamaları için Azure Notification Hubs ve Firebase Cloud Messaging'i kullanmaya başlama | Microsoft Docs
-description: Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs ve Firebase Cloud Messaging’in nasıl kullanılacağını öğrenirsiniz.
+title: Azure Notification Hubs ve Firebase Cloud Messaging kullanarak Android uygulamalarına anında iletme bildirimleri gönderme | Microsoft Docs
+description: Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs ve Google Firebase Cloud Messaging’in nasıl kullanılacağını öğrenirsiniz.
 services: notification-hubs
 documentationcenter: android
 keywords: anında iletme bildirimleri,anında iletme bildirimi,android anında iletme bildirimi,fcm,firebase cloud messaging
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: ''
+editor: spelluru
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: hero-article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 6768b3e55af5e497c9424bc09130c9dd0948968b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Android uygulamaları için Azure Notification Hubs ve Firebase Cloud Messaging'i kullanmaya başlama
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Firebase Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Genel Bakış
 > [!IMPORTANT]
-> Bu makalede Google Firebase Cloud Messaging (FCM) ile anında iletme bildirimleri gösterilmektedir. Hala Google Cloud Messaging (GCM) kullanıyorsanız bkz. [Azure Notification Hubs ve GCM ile Android’e anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md).
-> 
-> 
+> Bu makalede Google Firebase Cloud Messaging (FCM) ile anında iletme bildirimleri gösterilmektedir. Halen Google Cloud Messaging (GCM) kullanıyorsanız bkz. [Azure Notification Hubs ve GCM ile Android cihazlara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
-Bu öğreticide, bir Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs ve Firebase Cloud Messaging'in nasıl kullanılacağı gösterilir. Bu öğreticide Firebase Cloud Messaging (FCM) kullanarak anında iletme bildirimleri alan bir Android uygulaması oluşturacaksınız.
-
-[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+Bu öğreticide, bir Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs ve Firebase Cloud Messaging'in nasıl kullanılacağı gösterilmektedir. Bu öğreticide Firebase Cloud Messaging (FCM) kullanarak anında iletme bildirimleri alan bir Android uygulaması oluşturacaksınız.
 
 Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase) indirilebilir.
 
+Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+
+> [!div class="checklist"]
+> * Android Studio projesi oluşturma.
+> * Firebase Cloud Messaging’i destekleyen bir Firebase projesi oluşturma.
+> * Bildirim hub’ı oluşturma.
+> * Uygulamanızı bildirim hub’ına bağlama.
+> * Uygulamayı test etme. 
+
 ## <a name="prerequisites"></a>Ön koşullar
-> [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
-> 
-> 
+Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
 
 * Yukarıda belirtilen etkin bir Azure hesabının yanı sıra, bu öğretici [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797)'nun en son sürümünü gerektirir.
 * Firebase Cloud Messaging için Android 2.3 veya üstü.
@@ -48,7 +50,7 @@ Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/az
 * Firebase Cloud Messaging için Google Play Services 9.0.2 veya üstü.
 * Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
-## <a name="create-a-new-android-studio-project"></a>Yeni bir Android Studio Projesi oluşturma
+## <a name="create-an-android-studio-project"></a>Android Studio Projesi oluşturma
 1. Android Studio'da yeni bir Android Studio projesi başlatın.
    
     ![Android Studio - yeni proje](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
@@ -57,15 +59,18 @@ Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/az
     ![Android Studio - proje oluşturma iş akışı](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
 3. Ana etkinlik için **Boş Etkinlik**'i seçin, **İleri**'ye tıklayın ve ardından **Son**'a tıklayın.
 
-## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Firebase Cloud Messaging'i destekleyen bir proje oluşturma
+## <a name="create-a-firebase-project-that-supports-fcm"></a>FCM’yi destekleyen bir Firebase projesi oluşturma
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a name="configure-a-new-notification-hub"></a>Yeni bir bildirim hub'ı yapılandırma
+## <a name="configure-a-notification-hub"></a>Bildirim hub’ını yapılandırma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. **Bildirim Hizmetleri**'nin altında **Google (GCM)** seçeneğini belirtin. Daha önce [Firebase konsolundan](https://firebase.google.com/console/) kopyaladığınız FCM sunucu anahtarını girin ve **Kaydet**’e tıklayın.
+### <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>Hub için Firebase Cloud Messaging ayarlarını yapılandırma
+1. **BİLDİRİM AYARLARI** kategorisinde **Google (GCM)** seçeneğini belirleyin. 
+2. Daha önce [Firebase konsolundan](https://firebase.google.com/console/) kopyaladığınız API anahtarını (FCM sunucu anahtarı) girin.
+3. Araç çubuğunda **Kaydet**’i seçin.
 
-&emsp;&emsp;![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
+    ![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
 Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üzere yapılandırıldı. Uygulamanızı anında iletme bildirimleri alması ve göndermesi amacıyla kaydetmek için bağlantı dizelerine sahipsiniz.
 
@@ -91,6 +96,20 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         }
     ```
 
+### <a name="add-google-firebase-support"></a>Google Firebase desteği ekleme
+
+1. **Uygulamanın** `Build.Gradle` dosyasında **bağımlılıklar** bölümüne aşağıdaki satırları ekleyin.
+   
+    ```java
+        compile 'com.google.firebase:firebase-core:12.0.0'
+    ```
+
+2. Dosyanın en sonuna aşağıdaki eklentiyi ekleyin. 
+   
+    ```java
+    apply plugin: 'com.google.gms.google-services'
+    ```
+
 ### <a name="updating-the-androidmanifestxml"></a>AndroidManifest.xml'i güncelleştirme
 1. FCM'yi desteklemek için kodunuza, [Google'ın FirebaseInstanceId API'sini](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId) kullanarak [kayıt belirteçleri elde etmek](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) için kullanılan bir Örnek Kimliği dinleme hizmeti eklemeniz gerekir. Bu öğreticide sınıfın adı `MyInstanceIDService` şeklindedir. 
    
@@ -104,7 +123,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         </service>
     ```
 
-2. FirebaseInstanceId API'sinden FCM kayıt belirtecinizi aldıktan sonra, [Azure Notification Hub'a kaydolmak](notification-hubs-push-notification-registration-management.md) için bu belirteci kullanacaksınız. `RegistrationIntentService` adlı bir `IntentService` kullanarak bu kaydı arka planda destekleyeceksiniz. Bu hizmet, FCM kayıt belirtecinizi yenilemekten de sorumludur.
+2. FirebaseInstanceId API’sinden FCM kayıt belirtecinizi aldıktan sonra, [Azure Notification Hub’a kaydolmak](notification-hubs-push-notification-registration-management.md) için bu belirteci kullanacaksınız. `RegistrationIntentService` adlı bir `IntentService` kullanarak bu kaydı arka planda desteklersiniz. Bu hizmet, FCM kayıt belirtecinizi yenilemekten de sorumludur.
    
     Aşağıdaki hizmet tanımını AndroidManifest.xml dosyasında `<application>` etiketinin içine ekleyin. 
    
@@ -127,7 +146,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         </receiver>
     ```
 
-4. Aşağıdaki FCM ile ilgili gerekli izinleri `</application>` etiketinin altına ekleyin. `<your package>` öğesini, `AndroidManifest.xml` dosyasının üst kısmında gösterilen paket adıyla değiştirdiğinizden emin olun.
+4. Aşağıdaki FCM ile ilgili gerekli izinleri `</application>` etiketinin altına ekleyin. 
    
     Bu izinler hakkında daha fazla bilgi için bkz. [Android için GCM İstemci uygulaması ayarlama](https://developers.google.com/cloud-messaging/android/client#manifest) ve [Android için GCM İstemci Uygulamasını Firebase Cloud Messaging’e geçirme](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm).
    
@@ -146,7 +165,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
    
    * **SenderId**: [Firebase konsolundaki](https://firebase.google.com/console/) proje ayarlarınızın **Cloud Messaging** sekmesinde daha önce edindiğiniz Gönderen Kimliği.
    * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure portalında] hub'ınızın **Erişim İlkeleri**'ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
-   * **HubName**: [Azure portalında] hub dikey penceresinde görünen bildirim hub'ınızın adını kullanın.
+   * **HubName**: [Azure portalında] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
      
      `NotificationSettings` kodu:
      
@@ -159,7 +178,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
        }
     ```
 
-2. Yukarıdaki adımları kullanarak `MyInstanceIDService` adlı yeni bir sınıf daha ekleyin. Bu Örnek Kimliği dinleme hizmeti uygulamanız olacak.
+2. Yukarıdaki adımları kullanarak `MyInstanceIDService` adlı yeni bir sınıf daha ekleyin. Bu sınıf, Örnek Kimliği dinleyici hizmeti uygulamanız olacaktır.
    
     Bu sınıfın kodu, arka planda `IntentService`FCM belirtecini yenileme[ amacıyla ](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) hizmetinizi çağırır.
    
@@ -183,7 +202,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         };
     ```
 
-1. `RegistrationIntentService` adlı projenize, başka bir yeni sınıf ekleyin. Bu, [FCM belirtecini yenileme](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) ve [bildirim hub'ıyla kayıt yapma](notification-hubs-push-notification-registration-management.md) işlemlerini ele alacak `IntentService` hizmetinizin uygulanması olacak.
+1. `RegistrationIntentService` adlı projenize, başka bir yeni sınıf ekleyin. Bu sınıf, `IntentService` arabirimini uygular ve [FCM belirtecini yenileme](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) ve [bildirim hub’ıyla kayıt yapma](notification-hubs-push-notification-registration-management.md) işlemlerini ele alır.
    
     Bu sınıf için aşağıdaki kod kullanın.
    
@@ -286,7 +305,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         import android.widget.TextView;
         import android.widget.Toast;
     ```
-3. Aşağıdaki özel üyeleri sınıfın en üst kısmına ekleyin. [Google Play Hizmetleri'nin kullanılabilirliğini Google tarafından önerildiği şekilde denetlemek](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk) için bunları kullanırsınız.
+3. Aşağıdaki özel üyeleri sınıfın en üst kısmına ekleyin. [Google Play Hizmetleri'nin kullanılabilirliğini Google tarafından önerildiği şekilde denetlemek](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk) için bu alanları kullanırsınız.
    
     ```java
         public static MainActivity mainActivity;
@@ -465,48 +484,51 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
     > 
     > 
 
-## <a name="sending-push-notifications"></a>Anında iletme bildirimleri gönderme
-Uygulamanızda anında iletme bildirimlerini aldığınızı, bunları [Azure portalında] aracılığıyla göndererek test edebilirsiniz; aşağıda gösterildiği gibi hub'ın **Sorun Giderme** Bölümü'nü bulun.
+## <a name="test-the-app"></a>Uygulamayı test edin
+### <a name="test-send-notification-from-the-notification-hub"></a>Bildirim hub’ından bildirim göndermeyi test edin
+Aşağıdaki eylemleri uygulayarak [Azure portalında] anında iletme bildirimleri gönderebilirsiniz: 
 
-![Azure Notification Hubs - Test Gönderimi](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+1. **Sorun Giderme** bölümünde **Test Gönderimi**‘ni seçin.
+2. **Platformlar** için **Android**’i seçin. 
+3. **Gönder**’i seçin.  Mobil uygulamada çalıştırmadığınızdan Android cihazda bir bildirim görmezsiniz. Mobil uygulamayı çalıştırdıktan sonra, bildirim iletisini görmek için **Gönder** düğmesini tekrar seçin. 
+4. En alttaki listede işlemin **sonucunu** görürsünüz. 
+
+    ![Azure Notification Hubs - Test Gönderimi](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 
-## <a name="testing-your-app"></a>Uygulamanızı test etme
-#### <a name="push-notifications-in-the-emulator"></a>Öykünücüde anında iletme bildirimleri
+### <a name="run-the-mobile-app"></a>Mobil uygulamayı çalıştırma
 Anında iletme bildirimlerini bir öykünücüde test etmek isterseniz öykünücü görüntünüzün, uygulamanız için seçtiğiniz Google API düzeyini desteklediğinden emin olun. Görüntünüz yerel Google API'lerini desteklemiyorsa **HİZMET\_\_KULLANILAMIYOR** özel durumuyla karşılaşırsınız.
 
-Yukarıdakine ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öykünücünüze Google hesabınızı eklediğinizden emin olun. Aksi halde, GCM ile kayıt girişimleriniz **KİMLİK DOĞRULAMASI\_BAŞARISIZ** özel durumuyla sonuçlanabilir.
+Ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öykünücünüze Google hesabınızı eklediğinizden emin olun. Aksi halde, GCM ile kayıt girişimleriniz **KİMLİK DOĞRULAMASI\_BAŞARISIZ** özel durumuyla sonuçlanabilir.
 
-#### <a name="running-the-application"></a>Uygulamayı çalıştırma
 1. Uygulamayı çalıştırın ve kayıt kimliğinin başarılı bir kaydı bildirdiğine dikkat edin.
    
     ![Android'de test etme - Kanal kaydı](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
 2. Hub'da kayıtlı tüm Android cihazlara gönderilecek bir bildirim iletisi girin.
    
     ![Andorid'de test etme - bir ileti gönderme](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
-3. **Bildirim Gönder**'e basın. Uygulamayı çalıştıran tüm cihazlarda, anında iletme bildirimi iletisiyle birlikte bir `AlertDialog` örneği görünür. Uygulamayı çalıştırmayan ancak anında iletme bildirimleri için daha önce kaydolan cihazlar, Android Bildirim Yöneticisi'nde bir bildirim alır. Bunlar, sol üst köşeden aşağı çekilerek görüntülenebilir.
+3. **Bildirim Gönder**'e basın. Uygulamayı çalıştıran tüm cihazlarda, anında iletme bildirimi iletisiyle birlikte bir `AlertDialog` örneği görünür. Uygulamayı çalıştırmayan ancak anında iletme bildirimleri için daha önce kaydolan cihazlar, Android Bildirim Yöneticisi'nde bir bildirim alır. Bildirimler, sol üst köşeden aşağı çekilerek görüntülenebilir.
    
     ![Android'de test etme - bildirimler](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisini öneririz. Bu, belirli kullanıcıları hedeflemek için etiketler kullanarak ASP.NET arka ucundan nasıl bildirim göndereceğinizi gösterir.
+Bu öğreticide, Android cihazlara anında iletme bildirimleri göndermek için Firebase Cloud Messaging’i kullandınız. Google Cloud Messaging kullanarak nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin: 
 
+> [!div class="nextstepaction"]
+>[Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md)
 
-Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Son dakika haberleri göndermek için Notification Hubs kullanma] öğreticisine göz atın.
-
-Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notification Hubs Kılavuzu].
 
 <!-- Images. -->
-
 
 
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Kılavuzu]: notification-hubs-push-notification-overview.md
-[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure portalında]: https://portal.azure.com

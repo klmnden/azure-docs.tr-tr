@@ -83,7 +83,8 @@
 
 
 ## Sorun giderme
-### [Bağlantı](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Azure AD Connect ile Azure AD bağlantısı](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL Bağlantısı](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Eşitleme sırasında karşılaşılan hatalar](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Nesne eşitlenmemiş](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sorun giderme görevini kullanarak nesne eşitleme](active-directory-aadconnect-troubleshoot-objectsync.md)

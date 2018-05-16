@@ -3,24 +3,24 @@ title: Azure’da Kubernetes öğreticisi - Uygulama Hazırlama
 description: AKS öğreticisi - Uygulama Hazırlama
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Öğretici: Azure Container Service (AKS) için uygulama hazırlama
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti (AKS) için uygulamayı hazırlama
 
-Bu sekiz parçalık öğreticinin ilk bölümünde, bir çoklu kapsayıcı uygulaması Kubernetes’te kullanılmak üzere hazırlanmaktadır. Tamamlanan adımlar:  
+Bu sekiz parçalık öğreticinin ilk bölümünde, bir çoklu kapsayıcı uygulaması Kubernetes’te kullanılmak üzere hazırlanmaktadır. Tamamlanan adımlar:
 
 > [!div class="checklist"]
-> * GitHub’dan uygulama kaynağını kopyalama  
+> * GitHub’dan uygulama kaynağını kopyalama
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
 > * Uygulamayı yerel bir Docker ortamında test etme
 
@@ -32,7 +32,7 @@ Sonraki öğreticilerde, kapsayıcı görüntüsü Azure Container Registry’ye
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel docker komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Gerekirse kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama][docker-get-started]. 
+Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel docker komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Gerekirse kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama][docker-get-started].
 
 Bu öğreticiyi tamamlamak için Docker geliştirme ortamı gerekir. Docker [Mac][docker-for-mac], [Windows][docker-for-windows] veya [Linux][docker-for-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
@@ -40,7 +40,7 @@ Azure Cloud Shell, bu öğreticideki her adımı tamamlamak için gerekli olan D
 
 ## <a name="get-application-code"></a>Uygulama kodunu alma
 
-Bu öğreticide kullanılan örnek uygulama, temel oylama uygulamasıdır. Bu uygulama, ön uç bileşen ile arka uç Redis örneğinden oluşur. Web bileşeni, özel kapsayıcı görüntüsüne paketlenmiştir. Redis örneği, Docker Hub’dan alınan değiştirilmemiş bir görüntü kullanır.  
+Bu öğreticide kullanılan örnek uygulama, temel oylama uygulamasıdır. Bu uygulama, ön uç bileşen ile arka uç Redis örneğinden oluşur. Web bileşeni, özel kapsayıcı görüntüsüne paketlenmiştir. Redis örneği, Docker Hub’dan alınan değiştirilmemiş bir görüntü kullanır.
 
 Geliştirme ortamına uygulamanın bir kopyasını indirmek için Git kullanın.
 
@@ -54,7 +54,7 @@ Kopyalanan dizinden çalışabilmeniz için dizinleri değiştirin.
 cd azure-voting-app-redis
 ```
 
-Dizinin içinde uygulama kaynak kodu, önceden oluşturulmuş Docker Compose dosyası ve Kubernetes bildirim dosyası bulunur. Bu dosyalar öğretici kümesi boyunca kullanılır. 
+Dizinin içinde uygulama kaynak kodu, önceden oluşturulmuş Docker Compose dosyası ve Kubernetes bildirim dosyası bulunur. Bu dosyalar öğretici kümesi boyunca kullanılır.
 
 ## <a name="create-container-images"></a>Kapsayıcı görüntüleri oluşturma
 
@@ -97,7 +97,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Çalışan uygulamayı görüntülemek için http://localhost:8080 konumuna göz atın.
+Çalıştırılan uygulamayı görüntülemek için http://localhost:8080 adresine göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -124,7 +124,7 @@ Tamamlandığında, Azure Vote uygulamasını içeren bir kapsayıcı görüntü
 Bu öğreticide bir uygulama test edildi ve bu uygulamaya yönelik kapsayıcı görüntüleri oluşturuldu. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * GitHub’dan uygulama kaynağını kopyalama  
+> * GitHub’dan uygulama kaynağını kopyalama
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturuldu
 > * Uygulama yerel bir Docker ortamında test edildi
 

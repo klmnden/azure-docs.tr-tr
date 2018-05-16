@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure’da içerik teslim ağı nedir?
 İçerik teslim ağı (CDN), kullanıcılara etkili bir şekilde web içeriği teslim edebilen dağıtılmış bir sunucu ağıdır. CDN’ler gecikme süresini en aza indirmek için, önbelleğe alınmış içerikleri son kullanıcılara yakın olan bulunma noktası (POP) konumlarındaki uç sunucularda depolar. 
@@ -50,7 +50,7 @@ Geçerli CDN düğümü konumlarının listesi için bkz. [Azure CDN POP konumla
 6. Dosya için TTL’nin süresi dolmadıysa bulunma noktası uç sunucusu dosyayı doğrudan önbellekten döndürür. Bu işlem, daha hızlı ve daha duyarlı bir kullanıcı deneyimiyle sonuçlanır.
 
 ## <a name="requirements"></a>Gereksinimler
-Azure CDN kullanmak için en az bir Azure aboneliğiniz olmalıdır. Ayrıca CDN uç noktalarından oluşan bir koleksiyon olan en az bir CDN profili oluşturmanız gerekir. Her CDN uç noktası, içerik teslim davranışının ve erişiminin belirli bir yapılandırmasını temsil eder. CDN uç noktalarınızı internet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanabilirsiniz. CDN profil düzeyinde [Azure CDN fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/) uygulandığından, fiyatlandırma katmanları karışımını kullanmak istiyorsanız birden fazla CDN profili oluşturmanız gerekir.
+Azure CDN kullanmak için en az bir Azure aboneliğiniz olmalıdır. Ayrıca CDN uç noktalarından oluşan bir koleksiyon olan en az bir CDN profili oluşturmanız gerekir. Her CDN uç noktası, içerik teslim davranışının ve erişiminin belirli bir yapılandırmasını temsil eder. CDN uç noktalarınızı internet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanabilirsiniz. CDN profil düzeyinde [Azure CDN fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/) uygulandığından, fiyatlandırma katmanları karışımını kullanmak istiyorsanız birden fazla CDN profili oluşturmanız gerekir. Azure CDN faturalama yapısı hakkında daha fazla bilgi için bkz. [Azure CDN faturalamayı anlama](cdn-billing.md).
 
 ### <a name="limitations"></a>Sınırlamalar
 Her Azure aboneliği aşağıdaki kaynaklar için varsayılan sınırlara sahiptir:
@@ -77,4 +77,5 @@ Her bir Azure CDN ürününün desteklediği özelliklerin tam listesi için bkz
 - [Microsoft Azure Portal](https://portal.azure.com) üzerinden veya [PowerShell](cdn-manage-powershell.md) ile CDN uç noktalarınızı yönetme.
 - Azure CDN’yi [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md) ile nasıl otomatik hale getireceğinizi öğrenin.
 - Azure CDN’yi çalışır halde görmek için [Azure CDN videolarını](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest) izleyin.
+- En son Azure CDN özellikleri hakkında daha fazla bilgi için bkz. [Azure CDN blogu](https://azure.microsoft.com/blog/tag/azure-cdn/).
 

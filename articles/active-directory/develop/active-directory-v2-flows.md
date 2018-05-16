@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 uç noktası için uygulama türleri | Micros
 description: Uygulamalar ve Azure Active Directory v2.0 uç noktası tarafından desteklenen senaryoları türleri.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: hpsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 291cd1adaf36d7f02aae84f97b7f7b3e6bca2c9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 uç noktası için uygulama türleri
 Azure Active Directory (Azure AD) v2.0 uç tümünün endüstri standardı protokollerine dayalı modern uygulama mimarilerinin çeşitli kimlik doğrulamasını destekliyor [OAuth 2.0 veya Openıd Connect](active-directory-v2-protocols.md). Bu makalede, tercih edilen dilden veya platformdan bağımsız olarak Azure AD v2.0 kullanarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. Bu makaledeki bilgileri, önce üst düzey senaryoları anlamanıza yardımcı olmak için tasarlanmış [kodu ile çalışma başlangıç](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +97,7 @@ Bir Web API uygulamaları, web sunucu uygulamaları, masaüstü ve mobil uygulam
 
 Web API kod örnekleri kullanıma OAuth2 erişim belirteçleri kullanarak Web API'SİNİN güvenliğini öğrenmek için bizim [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) bölümü.
 
-Çoğu durumda, web API'leri de Giden istekleri diğer Aşağı Akış Web API'leri Azure Active Directory tarafından güvenlik altına almanız gereken.  Bunu yapmak için web API'leri, Azure AD yararlanabilir **adına, üzerinde** Giden istekleri kullanılacak başka bir erişim belirteci için gelen bir erişim belirteci Exchange web API'si sağlar akış.  V2.0 uç noktanın akış adına açıklanan [burada ayrıntı](active-directory-v2-protocols-oauth-on-behalf-of.md).
+Çoğu durumda, web API'leri de Giden istekleri diğer Aşağı Akış Web API'leri Azure Active Directory tarafından güvenlik altına almanız gereken. Bunu yapmak için web API'leri, Azure AD yararlanabilir **adına, üzerinde** Giden istekleri kullanılacak başka bir erişim belirteci için gelen bir erişim belirteci Exchange web API'si sağlar akış. V2.0 uç noktanın akış adına açıklanan [burada ayrıntı](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobil ve yerel uygulamalar
 Mobil ve Masaüstü uygulamaları gibi cihaz yüklü uygulamalar genellikle arka uç hizmetlerine veya verileri depolamak ve bir kullanıcı adına işlevleri gerçekleştirmek Web API'lerine erişmesi gerekir. Bu uygulamaları oturum açma ve yetkilendirme için arka uç hizmetlerini kullanarak ekleyebilirsiniz [OAuth 2.0 yetkilendirme kodu akışını](active-directory-v2-protocols-oauth-code.md).

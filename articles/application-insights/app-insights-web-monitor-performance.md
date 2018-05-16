@@ -1,8 +1,8 @@
 ---
-title: "Uygulamanızın sistem durumu ve Application Insights ile kullanım izleme"
-description: "Application Insights ile çalışmaya başlayın. Kullanım, kullanılabilirlik ve şirket içi veya Microsoft Azure uygulamalarının performansını analiz edin."
+title: Uygulamanızın sistem durumu ve Application Insights ile kullanım izleme
+description: Application Insights ile çalışmaya başlayın. Kullanım, kullanılabilirlik ve şirket içi veya Microsoft Azure uygulamalarının performansını analiz edin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: 32000f5a85c84913aa820df00f1bb7f877bf037f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.date: 05/10/2018
+ms.author: sdash
+ms.openlocfilehash: 02421492528e44ed6a913443a7793235170d4881
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="monitor-performance-in-web-applications"></a>Web uygulamalarının performansını izleme
 
@@ -27,9 +27,6 @@ Uygulamanızın düzgün çalışıp emin olun ve hatalar hakkında hızlı bir 
 Application Insights, Java ve ASP.NET web uygulamaları ve Hizmetleri, WCF hizmetleri izleyebilirsiniz. Bunlar barındırılan şirket içi, sanal makinelerde ya da Microsoft Azure Web siteleri farklı olabilir. 
 
 İstemci tarafında, Application Insights telemetri web sayfalarını ve çok çeşitli cihazlar iOS, Android ve Windows mağazası uygulamaları dahil olmak üzere alabilir.
-
->[!Note]
-> Size yeni bir deneyim bulma yavaş sayfaları web uygulamanızda gerçekleştirmek için kullanılabilir yaptınız. Erişimi yoksa, Önizleme seçenekleri ile yapılandırarak etkinleştirmek [Önizleme dikey](app-insights-previews.md). Bu yeni deneyim okuyun [bulun ve etkileşimli performans araştırma ile performans sorunları giderin](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
 
 ## <a name="setup"></a>Performans izleme işlevini ayarlama
 (Diğer bir deyişle, Applicationınsights.config yoksa) projenize Application Insights henüz eklemediniz varsa, bu şekilde başlamak için birini seçin:
@@ -67,7 +64,7 @@ Belirli URL sayılarını elde etmek için kutucuğa tıklayın.
 ### <a name="average-response-time"></a>Ortalama yanıt süresi
 Uygulamanız ve döndürülen yanıt girerek web isteği arasındaki süreyi ölçer.
 
-Noktaları bir hareketli ortalama gösterir. Çok sayıda isteği varsa, olabilir olmadan belirgin bir en yüksek ortalama gelen sapma veya grafikte DIP bazı.
+Noktaları bir hareketli ortalama gösterir. Çok sayıda isteği yoksa olabilir olmadan belirgin bir en yüksek ortalama gelen sapma veya grafikte DIP bazı.
 
 Olağan dışı yükselmeleri arayın. Genel olarak, bir artışa istekleri ile artmaya yanıt süresi bekler. Neden orantısız ise, uygulamanızı CPU veya kullandığı bir hizmet kapasitesi gibi bir kaynak sınırına ulaşması.
 
@@ -116,62 +113,29 @@ Aşağıda, bulma ve performans sorunlarını tanılamak için birkaç ipucu ver
 * Web uygulamanızda işlemiyle izlemek [ölçümleri bir canlı akışı][livestream].
 * .Net uygulamanızla durumunu yakalama [anlık görüntü hata ayıklayıcı][snapshot].
 
->[!Note]
-> Etkileşimli bir tam ekran deneyimi için Application Insights performans araştırma geçiş sürecinde duyuyoruz. Aşağıdaki belgeler yeni deneyimi ilk kapsayan ve hala geçiş kullanılabilir olmaya devam ederken, erişiminiz olması durumunda önceki deneyimi gözden geçirir.
+## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Bulun ve performans araştırma deneyimiyle performans sorunları giderin
 
-## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-full-screen-performance-investigation"></a>Bulun ve etkileşimli tam ekran performans araştırma ile performans sorunları giderin
-
-Yeni Application Insights etkileşimli performans araştırma yavaş gerçekleştirme işlemleri kullanarak Web uygulamanızda gözden geçirmek için kullanabilirsiniz. Hızlı bir şekilde belirli bir yavaş işlem seçin ve kullanmak [profil oluşturucu](app-insights-profiler.md) kök kodunu aşağıya doğru yavaş işlemleri neden olur. Seçili işlem için bir bakışta ne kadar deneyimi müşterileriniz için bozuk hızlı bir şekilde değerlendirmek gösterilen yeni süre dağıtım kullanıyor. Aslında, yavaş her işlem için kullanıcı etkileşimi kaç etkilendiğini görebilirsiniz. Aşağıdaki örnekte, biz deneyimi müşteriler/ayrıntıları alma işlemi için daha yakından bakmak karar verdiniz. Süre dağıtımlarında üç ani olduğunu görebilirsiniz. Soldaki depo yaklaşık 400ms olduğu ve harika esnek deneyim temsil eder. Orta depo yaklaşık 1.2s olduğu ve kendinizi kurtarın deneyimi temsil eder. Son olarak 3.6s memnun bırakmayı müşterilerimizin neden büyük olasılıkla 99 yüzdebirlik deneyimi temsil eden başka bir küçük depo sahibiz. Bu deneyim on kez aynı işlem için harika deneyimi daha yavaştır. 
+Performans araştırma deneyimi yavaş gerçekleştirme işlemleri kullanarak Web uygulamanızda gözden geçirmek için kullanabilirsiniz. Hızlı bir şekilde belirli bir yavaş işlem seçin ve kullanmak [profil oluşturucu](app-insights-profiler.md) kök kodunu aşağıya doğru yavaş işlemleri neden olur. Seçili işlem için bir bakışta ne kadar deneyimi müşterileriniz için bozuk hızlı bir şekilde değerlendirmek gösterilen yeni süre dağıtım kullanıyor. Yavaş her işlem için kullanıcı etkileşimi kaç etkilendiğini görebilirsiniz. Aşağıdaki örnekte, biz deneyimi müşteriler/ayrıntıları alma işlemi için daha yakından bakmak karar verdiniz. Süre dağıtımlarında üç ani olduğunu görebilirsiniz. Soldaki depo yaklaşık 400 ms olduğu ve harika esnek deneyim temsil eder. Orta depo olduğundan 1.2 s ve temsil kendinizi kurtarın deneyimi. Son olarak, 3.6 s sahibiz memnun bırakmayı müşterilerimizin neden büyük olasılıkla 99 yüzdebirlik deneyimi temsil eden başka bir küçük depo. Bu deneyim on kez aynı işlem için harika deneyimi daha yavaştır. 
 
 ![GET müşteriler/Ayrıntılar üç süresi ani](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
-Bu işlem için kullanıcı deneyimi daha iyi bir fikir edinmek için daha büyük bir zaman aralığı seçebilirsiniz. Biz sonra da zamanında işlemi özellikle yavaş olduğu belirli bir zaman penceresinin üzerinde daraltabilirsiniz. Aşağıdaki örnekte varsayılandan Sal 12 ve Çar 13 arasındaki 9:47 ila 12:47 zaman penceresine uzaklaştırılacağını ve aralığı zaman zaman aralığı için 7 gün 24 saat yaptık. Sağ tarafta süresi dağıtım ve örnek ve profil oluşturucu izlemelerini sayısı güncelleştirildi unutmayın.
+Bu işlem için kullanıcı deneyimi daha iyi bir fikir edinmek için daha büyük bir zaman aralığı seçebilirsiniz. Biz sonra da zamanında işlemi yavaş olduğu belirli bir zaman penceresinin üzerinde daraltabilirsiniz. Aşağıdaki örnekte, varsayılandan Sal 12 ve Çar 13 arasındaki 9:47 ila 12:47 zaman penceresine uzaklaştırılacağını ve aralığı zaman zaman aralığı için 7 gün 24 saat yaptık. Süre dağıtım ve örnek ve profil oluşturucu izlemelerini sayısı sağ tarafta güncelleştirildi.
 
 ![Müşteriler/7 günde üç süresi ani bir zaman penceresi ile aralığı Ayrıntıları Al](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
-İçinde yavaş deneyimleri üzerinde daraltmak için biz sonraki 95'inci ile 99 arasında kalan süreleri içine Yakınlaştır. Bu, özellikle yavaş kullanıcı etkileşimlerin %4 temsil eder.
+İçinde yavaş deneyimleri üzerinde daraltmak için biz sonraki 95'inci ile 99 arasında kalan süreleri içine Yakınlaştır. Bunlar, %4 yavaş kullanıcı etkileşimlerin temsil eder.
 
 ![Müşteriler/7 günde üç süresi ani bir zaman penceresi ile aralığı Ayrıntıları Al](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Şimdi temsilcisi örnekler ya da bakma örnekleri düğmesine veya temsilcisi profil oluşturucu izleme, profil oluşturucu izlemeleri düğmeyi tıklatarak geçebiliriz. Bu örnekte, zaman penceresi ve aralık süresi ilgi içinde alma müşteriler/Ayrıntılar için toplanan dört izlemeleri vardır.
 
-Bazen sorunu kodunuzda olmaz ancak bunun yerine bir bağımlılık olarak çağrıları kodu. Bu tür yavaş bağımlılıkları araştırmak için performans değerlendirme görünümünde bağımlılıkları sekmesine geçiş yapabilirsiniz. Varsayılan olarak performans görünümü oluşturan eğilim ortalamalar, ancak gerçekten bakmak istediğinizi 95 olduğunu unutmayın (veya 99th çok olgun bir hizmeti izleme durumda). Aşağıdaki örnekte biz PUT fabrikamaccount burada diyoruz yavaş Azure BLOB bağımlılığını odaklanmıştır. Aynı bağımlılık yavaş çağrıları yaklaşık 120ms kümeleme üç kat daha yavaştır, ancak 40ms geçici iyi deneyimler küme. Birçok önemli ölçüde yavaşlamaya ilgili işlemi neden eklemek için bu çağrılardan almaz. Temsili örnekleri ve işlemleri sekmesiyle gibi profil oluşturucu izleme, ayrıntılarına geçebilir.
+Bazen sorunu kodunuzda olmaz ancak kodunuzu yerine bağımlılık olarak çağırır. Bu tür yavaş bağımlılıkları araştırmak için performans değerlendirme görünümünde bağımlılıkları sekmesine geçiş yapabilirsiniz. Varsayılan olarak performans görünümü oluşturan eğilim ortalamalar, ancak gerçekten bakmak istediğinizi 95 (veya 99th olgun bir hizmeti izleme durumda). Aşağıdaki örnekte biz PUT fabrikamaccount burada diyoruz yavaş Azure BLOB bağımlılığını odaklanmıştır. Aynı bağımlılık yavaş çağrıları yaklaşık 120 ms kümeleme üç kat daha yavaştır, ancak iyi küme yaklaşık 40 ms karşılaşır. Birçok önemli ölçüde yavaşlamaya ilgili işlemi neden eklemek için bu çağrılardan almaz. Temsili örnekleri ve işlemleri sekmesiyle gibi profil oluşturucu izleme, ayrıntılarına geçebilir.
 
 ![Müşteriler/7 günde üç süresi ani bir zaman penceresi ile aralığı Ayrıntıları Al](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
 
-Etkileşimli tam ekran performans araştırmaya yeni olan başka bir gerçekten güçlü Öngörüler ile tümleştirme özelliğidir. Application Insights algılayabilir ve Yardım yanı sıra Öngörüler yanıtlama gerileme olarak yüzey, odaklanmak için karar örnek kümesinde ortak özellikleri tanımlayın. Tüm kullanılabilir Öngörüler aramak için en iyi 30 gün zaman aralığı için geçiş yapın ve ardından tüm işlemler için geçen ay boyunca Öngörüler görmek için genel yoludur.
+Performans araştırma deneyimi tarafı boyunca ilgili Öngörüler odaklanmak için karar örnek kümesi gösterir. Tüm kullanılabilir Öngörüler aramak için en iyi 30 gün zaman aralığı için geçiş yapın ve ardından tüm işlemler için geçen ay boyunca Öngörüler görmek için genel yoludur.
 
 ![Müşteriler/7 günde üç süresi ani bir zaman penceresi ile aralığı Ayrıntıları Al](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
-
-Yeni performans değerlendirme görünümünde Application Insights tam anlamıyla Web uygulama kullanıcılarınızın zayıf deneyimleri neden haystack içinde iğne bulmanıza yardımcı olabilir.
-
-## <a name="deprecated-find-and-fix-performance-bottlenecks-with-a-narrow-bladed-legacy-performance-investigation"></a>Kullanım dışı: Bulun ve dar bladed eski performans araştırma ile performans sorunları giderin
-
-Web uygulamanızı genel performansını yavaşlamasının alanlarını bulmak için eski Application Insights bladed performans araştırma kullanabilirsiniz. Yavaşlamadan olan ve kullanan belirli sayfaları bulabilirsiniz [profil oluşturucu](app-insights-profiler.md) bu sorunları kodunu aşağıya doğru kök nedenini izlemek için. 
-
-### <a name="create-a-list-of-slow-performing-pages"></a>Yavaş gerçekleştiren sayfalar listesi oluşturma 
-
-Performans sorunları bulmak için ilk yavaş yanıt veren sayfalar listesini almak için adımdır. Daha fazla araştırmak için olası sayfalarının listesini almak için performans dikey penceresini kullanarak aşağıdaki ekran gösterilir. Bu sayfadan yaklaşık 6:00 PM ve yeniden yaklaşık 10 PM, olduğunu bir konumlanır uygulama yanıt süresini hızlı şekilde görebilirsiniz. GET müşteri/Ayrıntılar işlemi 507.05 milisaniye ortalama yanıt süresi olan bazı uzun süre çalışan işlemleri olduğunu da görebilirsiniz. 
-
-![Uygulama Öngörüler etkileşimli performansı](./media/app-insights-web-monitor-performance/performance1.png)
-
-### <a name="drill-down-on-specific-pages"></a>Belirli sayfalara detaya gitme
-
-Uygulamanızın performansını görüntüsünü oluşturduktan sonra belirli yavaş performanslı işlemleri daha fazla bilgi alabilirsiniz. Aşağıda gösterildiği gibi ayrıntıları görmek için listedeki herhangi bir işlem tıklayın. Grafikten performans bir bağımlılığı dayanarak if görebilirsiniz. Kaç kullanıcının çeşitli yanıt sürelerini yaşadı de görebilirsiniz. 
-
-![Uygulama Öngörüler işlemleri dikey penceresi](./media/app-insights-web-monitor-performance/performance5.png)
-
-### <a name="drill-down-on-a-specific-time-period"></a>Belirli bir döneme detaya gitme
-
-Araştırmak için zamanında bir noktası belirledikten sonra bile daha fazla sınırlandıramazsınız performans konumlanır neden olabilecek belirli işlemler bakma detaya. Belirli bir noktasında zamanında tıkladığınızda aşağıda gösterildiği gibi sayfa ayrıntılarını alın. Aşağıdaki örnekte belirli bir süre sunucu yanıt kodları ve işlem süresi ile birlikte için listelenen işlemleri görebilirsiniz. Ayrıca bu bilgileri Geliştirme ekibiniz göndermek ihtiyacınız varsa, TFS iş öğesi açmak için URL'yi de vardır.
-
-![Uygulama Öngörüler saat dilimi](./media/app-insights-web-monitor-performance/performance2.png)
-
-### <a name="drill-down-on-a-specific-operation"></a>Belirli bir işlemi detaya gitme
-
-Araştırmak için zamanında bir noktası belirledikten sonra bile daha fazla sınırlandıramazsınız performans konumlanır neden olabilecek belirli işlemler bakma detaya. Aşağıda gösterildiği gibi işlem ayrıntılarını görmek için listeden bir işlem tıklayın. Bu örnekte, işlem başarısız oldu ve Application Insights uygulama belirtti. özel durum ayrıntıları sağlamıştır görebilirsiniz. Yeniden, bu dikey pencereden bir TFS iş öğesi kolayca oluşturabilirsiniz.
-
-![Uygulama Öngörüler işlemi dikey penceresi](./media/app-insights-web-monitor-performance/performance3.png)
 
 
 ## <a name="next"></a>Sonraki adımlar

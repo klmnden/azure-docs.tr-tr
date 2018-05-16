@@ -1,25 +1,27 @@
 ---
-title: "OAuth2.0 üzerinde-adına-Of taslak belirtim kullanarak azure AD hizmet auth | Microsoft Docs"
-description: "Bu makalede HTTP iletisi üzerinde-temsili akış OAuth2.0 kullanarak hizmet kimlik doğrulaması uygulamak için nasıl kullanılacağını açıklar."
+title: OAuth2.0 üzerinde-adına-Of taslak belirtim kullanarak azure AD hizmet auth | Microsoft Docs
+description: Bu makalede HTTP iletisi üzerinde-temsili akış OAuth2.0 kullanarak hizmet kimlik doğrulaması uygulamak için nasıl kullanılacağını açıklar.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-temsili akış kullanıcı kimliğini kullanarak hizmeti çağrıları için hizmet temsilcisi
 Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
@@ -76,16 +78,16 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
-| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
-| client_secret |Gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değer kayıt aynı anda not. |
-| kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
-| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
-| Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
+| grant_type |gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
+| client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
+| client_secret |gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değer kayıt aynı anda not. |
+| kaynak |gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
+| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
+| scope |gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
 #### <a name="example"></a>Örnek
-Bir erişim belirteci https://graph.windows.net web API'si için aşağıdaki HTTP POST istekleri. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
+Bir erişim belirteci için aşağıdaki HTTP POST istekleri https://graph.windows.net web API'si. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
 
 ```
 // line breaks for legibility only
@@ -108,19 +110,19 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
-| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
-| client_assertion_type |Gerekli |Değer olmalıdır`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı.  Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
-| kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
-| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
-| Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
+| grant_type |gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
+| client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
+| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| kaynak |gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
+| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
+| scope |gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
 #### <a name="example"></a>Örnek
-Bir sertifika ile https://graph.windows.net web API'si için bir erişim belirteci aşağıdaki HTTP POST isteği gönderir. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
+Bir erişim belirteci için aşağıdaki HTTP POST istekleri https://graph.windows.net bir sertifika ile web API'si. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
 
 ```
 // line breaks for legibility only
@@ -145,7 +147,7 @@ Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 | Parametre | Açıklama |
 | --- | --- |
 | token_type |Belirteç türü değeri gösterir. Azure AD destekler yalnızca türü **taşıyıcı**. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Kapsam |Belirtecinde verilen erişim kapsamı. |
+| scope |Belirtecinde verilen erişim kapsamı. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır. |
 | kaynak |Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). |
@@ -154,7 +156,7 @@ Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 | refresh_token |İstenen erişim belirteci için yenileme belirteci. Arama hizmeti geçerli erişim belirtecinin süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
 
 ### <a name="success-response-example"></a>Başarılı yanıt örnek
-Aşağıdaki örnek, bir başarı isteğine yanıt olarak https://graph.windows.net web API'si için bir erişim belirteci için gösterir.
+Aşağıdaki örnek, bir başarı isteğine yanıt olarak bir erişim belirteci için gösterir https://graph.windows.net web API'si.
 
 ```
 {

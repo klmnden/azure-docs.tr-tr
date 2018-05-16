@@ -1,25 +1,26 @@
 ---
-title: "Azure Active Directory kimlik doğrulama protokolleri | Microsoft Docs"
-description: "Azure Active Directory (AD tarafından) desteklenen kimlik doğrulama protokolleri genel bakış"
+title: Azure Active Directory kimlik doğrulama protokolleri | Microsoft Docs
+description: Azure Active Directory (AD tarafından) desteklenen kimlik doğrulama protokolleri genel bakış
 documentationcenter: dev-center-name
-author: priyamohanram
+author: CelesteDG
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1387ce5f3f16301786cf4111a081a5486788fa77
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71b12b848b1be309823bac46a219c0bb25e26092
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory kimlik doğrulama protokolleri
 Azure Active Directory (Azure AD), çeşitli en yaygın olarak kullanılan kimlik doğrulama ve yetkilendirme kurallarının destekler. Bu bölümdeki konular, desteklenen protokoller ve uygulamalarının Azure AD'de açıklanmaktadır. Konular, desteklenen talep türleri, kullanım giriş Federasyon meta verilerinin gözden dahil, OAuth 2.0 ayrıntılı. ve SAML 2.0 protokolü başvurusu belgeleri ve sorun giderme bölümü.

@@ -6,30 +6,36 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 01/22/2018
+ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: fc5ea475ebef9ec5c590bd9e696025fb845cc4cf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10055b75000e5affdcdef5841a8d45db8b41ef05
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure'da özel Docker kapsayıcısı kayıt defterlerine giriş
 
-Azure Container Kayıt Defteri, açık kaynak Docker Registry 2.0’ı temel alan bir yönetilen [Docker kayıt defteri](https://docs.docker.com/registry/) hizmetidir. Özel [Docker kapsayıcısı](https://www.docker.com/what-docker) görüntülerinizi depolamak ve yönetmek için Azure kapsayıcısı kayıt defterleri oluşturun ve bunların bakımını yapın. Azure’da mevcut kapsayıcı geliştirme ve dağıtım işlem hatlarınızla kapsayıcı kayıt defterleri kullanın ve Docker topluluğunun uzmanlığından yararlanın.
+Azure Container Kayıt Defteri, açık kaynak Docker Registry 2.0’ı temel alan bir yönetilen [Docker kayıt defteri](https://docs.docker.com/registry/) hizmetidir. Özel [Docker kapsayıcısı](https://www.docker.com/what-docker) görüntülerinizi depolamak ve yönetmek için Azure kapsayıcısı kayıt defterleri oluşturun ve bunların bakımını yapın.
 
-Docker ve kapsayıcılarla ilgili arka plan bilgileri için bkz. [Docker kullanıcı kılavuzu](https://docs.docker.com/engine/userguide/).
+Azure’da mevcut kapsayıcı geliştirme ve dağıtım işlem hatlarınızla kapsayıcı kayıt defterleri kullanın. Azure Container Registry Oluşturması (ACR Build) kullanarak Azure’da kapsayıcı görüntüleri oluşturun. İsteğe bağlı olarak oluşturun veya kaynak kodu yürütme ve temel görüntü güncelleştirmesi oluşturma tetikleyicileri ile yapıları tamamen otomatik hale getirin.
+
+Docker ve kapsayıcılarla ilgili arka plan bilgileri için bkz. [Docker’a genel bakış](https://docs.docker.com/engine/docker-overview/).
 
 ## <a name="use-cases"></a>Uygulama alanları
+
 Azure kapsayıcısı kayıt defterinden çeşitli dağıtım hedeflerine görüntü çekme:
 
 * [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) ve [Kubernetes](http://kubernetes.io/docs/) dahil olmak üzere konak kümeleri arasında kapsayıcı haline getirilmiş uygulamaları yöneten **ölçeklenebilir düzenleme sistemleri** .
-* [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) ve diğerleri gibi uygun ölçekte uygulama oluşturulmasını ve çalıştırılmasını destekleyen **Azure hizmetleri**.
+* [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) ve diğerleri gibi uygun ölçekte uygulama oluşturulmasını ve çalıştırılmasını destekleyen **Azure hizmetleri**.
 
 Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsayıcı kayıt defterine de öğe itebilir. Örneğin, [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) veya [Jenkins](https://jenkins.io/) gibi bir sürekli tümleştirme ve dağıtım aracından bir kapsayıcı kayıt defteri hedeflenebilir.
 
+Uygulama görüntülerini, temel görüntüleri güncelleştirildiğinde otomatik olarak yeniden oluşturan [ACR Build](#azure-container-registry-build) oluşturma görevlerini yapılandırın. Ekibiniz bir Git deposunda kod yürüttüğünde görüntü oluşturmalarını otomatikleştirmek için ACR Build kullanın. *ACR Build şu anda önizlemededir.*
+
 ## <a name="key-concepts"></a>Önemli kavramlar
+
 * **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Kayıt defterleri üç SKU'da kullanılabilir: [Temel, Standart ve Premium](container-registry-skus.md). Tümü de web kancası tümleştirmesi, Azure Active Directory ile kayıt defteri kimlik doğrulaması ve silme işlevi desteğine sahiptir. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Gelişmiş çoğaltma ve kapsayıcı görüntüsü dağıtma senaryoları için Premium kayıt defterlerinin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
 
   Azure Active Directory destekli bir [hizmet sorumlusunu](../active-directory/active-directory-application-objects.md) veya sağlanan bir yönetici hesabını kullanarak kapsayıcı kayıt defterine [erişimi denetlersiniz](container-registry-authentication.md). Bir kayıt defteriyle kimlik doğrulamak için standart `docker login` komutunu çalıştırın.
@@ -44,7 +50,17 @@ Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsay�
 
 * **Kapsayıcı** - Kapsayıcı, bir yazılım uygulamasını ve uygulamanın bağımlılıklarını kod, çalışma zamanı, sistem araçları ve kitaplıkları içeren eksiksiz bir dosya sistemi şeklinde sarmalanmış bir halde tanımlar. Docker kapsayıcılarını bir kapsayıcı kayıt defterinden çektiğiniz Windows veya Linux görüntülerine bağlı olarak çalıştırın. Tek bir makinede çalışan kapsayıcılar işletim sistemi çekirdeğini paylaşır. Docker kapsayıcıları tüm büyük Linux dağıtımlarına, macOS ve Windows'a tümüyle taşınabilir.
 
+## <a name="azure-container-registry-build-preview"></a>Azure Container Registry Build (Önizleme)
+
+[Azure Container Registry Build](container-registry-build-overview.md) (ACR Build), Azure’da kolaylaştırılmış ve verimli Docker kapsayıcı görüntüsü derlemeleri sağlayan bir Azure Container Registry özellik paketidir. `docker build` işlem yüklerini Azure’a boşaltarak geliştirme iç döngünüzü buluta genişletmek için ACR Build kullanın. Kapsayıcı işletim sisteminizi ve çerçeve düzeltme eki uygulama işlem hattınızı otomatikleştirmek ve ekibiniz kaynak denetiminde kod yürüttüğünde otomatik olarak görüntü oluşturmak için oluşturma görevleri yapılandırın.
+
+> [!NOTE]
+> ACR Derlemesi şu anda önizleme aşamasındadır ve yalnızca **Doğu ABD** (eastus) ve **Batı Avrupa** (westeurope) bölgelerindeki Azure kapsayıcı kayıt defterleri tarafından desteklenir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-portal.md)
 * [Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
-* [Docker CLI’yı kullanarak ilk görüntünüzü itme](container-registry-get-started-docker-cli.md)
+* [ACR Build ile işletim sistemi ve çerçeve düzeltme eki uygulamayı otomatikleştirme](container-registry-build-overview.md) (Önizleme)
+
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

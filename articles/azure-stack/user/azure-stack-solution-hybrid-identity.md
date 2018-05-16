@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 9a025716c2bb6266c1c1c552a2d0791b39429cac
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5224fe4682509f92e1f18d865e5cc5afb1218ad1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-with-azure-and-azure-stack-applications"></a>Öğretici: Azure ve Azure yığın uygulamaları ile karma bulut kimlik yapılandırın
 
@@ -60,7 +60,7 @@ Bir Azure yığın yükleme Azure Active Directory'ye erişmek için bir aboneli
 
 Kod kullanarak Azure yığın bağlanmak için kimlik doğrulama ve grafik uç noktaları Azure yığın yüklemenizin almak ve REST isteklerini kullanarak kimlik doğrulaması yapmak için Azure Resource Manager uç noktaları API kullanın. Örnek bir uygulama bulabilirsiniz [burada](https://github.com/shriramnat/HybridARMApplication).
 
-> [!note]  
+> [!Note]  
 Seçtiğiniz dil için Azure SDK'sı Azure API profilleri desteklemedikçe SDK'sı Azure yığın ile çalışmayabilir. Azure API profilleri hakkında daha fazla bilgi için Git [burada](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## <a name="next-steps"></a>Sonraki adımlar

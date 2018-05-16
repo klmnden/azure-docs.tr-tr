@@ -3,23 +3,25 @@ title: Uygulama kayıt portalı Yardım konuları | Microsoft Docs
 description: Microsoft uygulama kayıt Portalı'nda çeşitli özellikleri açıklaması.
 services: active-directory
 documentationcenter: ''
-author: lnalepa
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: lenalepa
+ms.author: celested
+ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: dc915facfcd62aaa05c403895631614e1a3381b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="app-registration-reference"></a>Uygulama Kayıt başvurusu
 Bu belgede bağlamı ve Microsoft uygulama kayıt Portalı'nda bulunan çeşitli özelliklerin açıklamaları sağlanmaktadır [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

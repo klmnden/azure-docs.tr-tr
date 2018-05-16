@@ -1,26 +1,26 @@
 ---
 title: Desteklenen tarayıcılar ve cihazlar için Azure portalı | Microsoft Docs
 description: Azure portalı çalışıp çalışmayacağını tarayıcılar ve cihazlar açıklar.
-services: ''
+services: azure-portal
 documentationcenter: ''
 author: flanakin
 writer: flanakin
 manager: lwelicki
 editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: ff718b3482b298392a8f7fcbe410c62aeb8c1ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3964bcfc78fccbd949b30ebb09db44ec5fd5bde
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Desteklenen tarayıcılar ve cihazlar için Azure portalı
 Çalıştırabilirsiniz [Azure portal](https://portal.azure.com) tüm modern masaüstünde, aygıtları ve tarayıcılar tablet.

@@ -3,19 +3,19 @@ title: Azure Kubernetes kümesi için hizmet sorumlusu
 description: AKS içindeki bir Kubernetes kümesi için Azure Active Directory hizmet sorumlusu oluşturma ve yönetme
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5e6e24d132598e3f79e4fe76c13ee0ae6a82424d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service (AKS) ile hizmet sorumluları
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
 AKS kümesi, Azure API'leri ile etkileşime geçmek için [Azure Active Directory hizmet sorumlusu][aad-service-principal] gerektirir. Hizmet sorumlusu, [Azure Load Balancer][azure-load-balancer-overview] gibi kaynakları dinamik olarak oluşturup yönetmek için gereklidir.
 

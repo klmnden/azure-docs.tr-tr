@@ -1,290 +1,323 @@
 ---
-title: "Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için"
-description: "Azure kullanıcılara anında iletme bildirimleri göndermek öğrenin. Android için Java dilinde yazılan kod örnekleri"
+title: Azure Notification Hubs kullanarak belirli bir Android uygulama kullanıcılara anında iletme bildirimleri gönderme | Microsoft Docs
+description: Azure Notification Hubs kullanarak belirli kullanıcılara anında iletme bildirimleri göndermeyi öğrenin.
 documentationcenter: android
 services: notification-hubs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 418a4b638dfaa3fee33a7a7242433699205c79f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/07/2018
+ms.author: dimazaid
+ms.openlocfilehash: b944aa84a3962e16a153bc1840e43a7f405f8437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a>Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak belirli bir Android uygulama kullanıcılara anında iletme bildirimi gönderme
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a>Genel Bakış
-Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve mobil platformlar için tüketici ve kurumsal uygulama için anında iletme bildirimleri uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı erişmenize olanak tanır. Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Bildirim Hub'larını nasıl kullanacağınız gösterilir. Bir ASP.NET Webapı arka istemcilerin kimliğini doğrulamak ve bildirimleri oluşturmak için Kılavuzu konusundaki gösterildiği gibi kullanılır [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Bu öğreticide oluşturduğunuz bildirim hub'ındaki derlemeler [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.
+Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Bildirim Hubs’ı nasıl kullanacağınız gösterilmektedir. [Uygulama arka ucunuzdan kaydolma](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) başlıklı yönerge makalesinde gösterildiği gibi, istemcilerin kimliğini doğrulamak ve bildirimler oluşturmak için ASP.NET WebAPI arka ucu kullanılır. Bu öğretici, [Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md) öğreticisinde oluşturduğunuz bildirim hub’ını temel alır.
 
-> [!NOTE]
-> Bu öğreticide oluşturduğunuz ve bildirim hub'ınızı açıklandığı şekilde yapılandırılmış varsayar [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md).
-> 
-> 
+Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz: 
+
+> [!div class="checklist"]
+> * Kullanıcıların kimliğini doğrulayan arka uç Web API projesi oluşturma.  
+> * Android uygulamasını güncelleştirme. 
+> * Uygulamayı test edin
+
+## <a name="prerequisites"></a>Ön koşullar
+Bu öğreticiyi uygulamadan önce [Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md) öğreticisini tamamlayın. 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="create-the-android-project"></a>Android projesi oluşturma
-Sonraki adım, Android uygulaması oluşturmaktır.
+## <a name="create-the-android-project"></a>Android Projesi oluşturma
+Sonraki adım, [Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md) öğreticisinde oluşturulan Android uygulamasının güncelleştirilmesidir. 
 
-1. İzleyin [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) oluşturup GCM'den anında iletme bildirimleri almak için uygulamanızı yapılandırmak için öğretici.
-2. Açık, **res/layout/activity_main.xml** dosya, yerine aşağıdaki içerik tanımlarla.
+1. **res/layout/activity_main.xml** dosyanızı açın ve aşağıdaki içerik tanımlarını değiştirin:
    
-    Bu, bir kullanıcı olarak oturum açmayı yeni EDITTEXT denetimlerini ekler. Ayrıca bir alan için gönderdiğiniz bildirimleri parçası olacak bir kullanıcı adı etiketi eklenir:
+    Kullanıcı olarak oturum açmak için yeni EditText denetimleri ekler. Ayrıca gönderdiğiniz bildirimlerin parçası olacak kullanıcı adı etiketi için bir alan da eklenir:
    
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-            android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    ```xml
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/usernameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/usernameHint"
+        android:layout_above="@+id/passwordText"
+        android:layout_alignParentEnd="true" />
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/passwordHint"
+        android:inputType="textPassword"
+        android:layout_above="@+id/buttonLogin"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginButton"
+        android:onClick="login"
+        android:layout_above="@+id/toggleButtonGCM"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="WNS on"
+        android:textOff="WNS off"
+        android:id="@+id/toggleButtonWNS"
+        android:layout_toLeftOf="@id/toggleButtonGCM"
+        android:layout_centerVertical="true" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="GCM on"
+        android:textOff="GCM off"
+        android:id="@+id/toggleButtonGCM"
+        android:checked="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="APNS on"
+        android:textOff="APNS off"
+        android:id="@+id/toggleButtonAPNS"
+        android:layout_toRightOf="@id/toggleButtonGCM"
+        android:layout_centerVertical="true" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNotificationMessageTag"
+        android:layout_below="@id/toggleButtonGCM"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/notification_message_tag_hint" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNotificationMessage"
+        android:layout_below="@+id/editTextNotificationMessageTag"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/notification_message_hint" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_button"
+        android:id="@+id/sendbutton"
+        android:onClick="sendNotificationButtonOnClick"
+        android:layout_below="@+id/editTextNotificationMessage"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:id="@+id/text_hello"
+    />  
+    </RelativeLayout>
+    ```
+3. **res/values/strings.xml** dosyanızı açın, `send_button` tanımını, `send_button` için dizeyi yeniden tanımlayan şu satırlarla değiştirin ve diğer denetimler için dizeler ekleyin:
    
-        <EditText
-            android:id="@+id/usernameText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/usernameHint"
-            android:layout_above="@+id/passwordText"
-            android:layout_alignParentEnd="true" />
-        <EditText
-            android:id="@+id/passwordText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/passwordHint"
-            android:inputType="textPassword"
-            android:layout_above="@+id/buttonLogin"
-            android:layout_alignParentEnd="true" />
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loginButton"
-            android:onClick="login"
-            android:layout_above="@+id/toggleButtonGCM"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="WNS on"
-            android:textOff="WNS off"
-            android:id="@+id/toggleButtonWNS"
-            android:layout_toLeftOf="@id/toggleButtonGCM"
-            android:layout_centerVertical="true" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="GCM on"
-            android:textOff="GCM off"
-            android:id="@+id/toggleButtonGCM"
-            android:checked="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="APNS on"
-            android:textOff="APNS off"
-            android:id="@+id/toggleButtonAPNS"
-            android:layout_toRightOf="@id/toggleButtonGCM"
-            android:layout_centerVertical="true" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextNotificationMessageTag"
-            android:layout_below="@id/toggleButtonGCM"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/notification_message_tag_hint" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextNotificationMessage"
-            android:layout_below="@+id/editTextNotificationMessageTag"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/notification_message_hint" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/send_button"
-            android:id="@+id/sendbutton"
-            android:onClick="sendNotificationButtonOnClick"
-            android:layout_below="@+id/editTextNotificationMessage"
-            android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-3. Açık, **res/values/strings.xml** dosya ve değiştirme `send_button` dizesi yeniden tanımlamanız aşağıdaki satırları tanımıyla `send_button` ve diğer denetimler için dizeleri ekleyin:
-   
-        <string name="usernameHint">Username</string>
-        <string name="passwordHint">Password</string>
-        <string name="loginButton">1. Log in</string>
-        <string name="send_button">2. Send Notification</string>
-        <string name="notification_message_tag_hint">
-            Recipient username tag
-        </string>
-   
-    Main_activity.xml grafik düzeninizi gibi görünmelidir:
+    ```xml
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginButton">1. Log in</string>
+    <string name="send_button">2. Send Notification</string>
+    <string name="notification_message_hint">Notification message</string>
+    <string name="notification_message_tag_hint">Recipient username</string>
+    ```
+
+    Main_activity.xml grafiksel düzeniniz şimdi şu görüntüye benzemelidir:
    
     ![][A1]
-4. Adlı yeni bir sınıf oluşturun **RegisterClient** aynı pakette, `MainActivity` sınıfı. Aşağıdaki kodu için yeni sınıf dosyası kullanın.
-   
-        import java.io.IOException;
-        import java.io.UnsupportedEncodingException;
-        import java.util.Set;
-   
-        import org.apache.http.HttpResponse;
-        import org.apache.http.HttpStatus;
-        import org.apache.http.client.ClientProtocolException;
-        import org.apache.http.client.HttpClient;
-        import org.apache.http.client.methods.HttpPost;
-        import org.apache.http.client.methods.HttpPut;
-        import org.apache.http.client.methods.HttpUriRequest;
-        import org.apache.http.entity.StringEntity;
-        import org.apache.http.impl.client.DefaultHttpClient;
-        import org.apache.http.util.EntityUtils;
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-   
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.util.Log;
-   
-        public class RegisterClient {
-            private static final String PREFS_NAME = "ANHSettings";
-            private static final String REGID_SETTING_NAME = "ANHRegistrationId";
-            private String Backend_Endpoint;
-            SharedPreferences settings;
-            protected HttpClient httpClient;
-            private String authorizationHeader;
-   
-            public RegisterClient(Context context, String backendEnpoint) {
-                super();
-                this.settings = context.getSharedPreferences(PREFS_NAME, 0);
-                httpClient =  new DefaultHttpClient();
-                Backend_Endpoint = backendEnpoint + "/api/register";
-            }
-   
-            public String getAuthorizationHeader() {
-                return authorizationHeader;
-            }
-   
-            public void setAuthorizationHeader(String authorizationHeader) {
-                this.authorizationHeader = authorizationHeader;
-            }
-   
-            public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
-                String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-   
-                JSONObject deviceInfo = new JSONObject();
-                deviceInfo.put("Platform", "gcm");
-                deviceInfo.put("Handle", handle);
-                deviceInfo.put("Tags", new JSONArray(tags));
-   
-                int statusCode = upsertRegistration(registrationId, deviceInfo);
-   
-                if (statusCode == HttpStatus.SC_OK) {
-                    return;
-                } else if (statusCode == HttpStatus.SC_GONE){
-                    settings.edit().remove(REGID_SETTING_NAME).commit();
-                    registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-                    statusCode = upsertRegistration(registrationId, deviceInfo);
-                    if (statusCode != HttpStatus.SC_OK) {
-                        Log.e("RegisterClient", "Error upserting registration: " + statusCode);
-                        throw new RuntimeException("Error upserting registration");
-                    }
-                } else {
+4. `MainActivity` sınıfınızla aynı pakette **RegisterClient** adlı yeni bir sınıf oluşturun. Yeni sınıf dosyası için aşağıdaki kodu kullanın.
+
+    ```java   
+    import java.io.IOException;
+    import java.io.UnsupportedEncodingException;
+    import java.util.Set;
+
+    import org.apache.http.HttpResponse;
+    import org.apache.http.HttpStatus;
+    import org.apache.http.client.ClientProtocolException;
+    import org.apache.http.client.HttpClient;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.client.methods.HttpPut;
+    import org.apache.http.client.methods.HttpUriRequest;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.impl.client.DefaultHttpClient;
+    import org.apache.http.util.EntityUtils;
+    import org.json.JSONArray;
+    import org.json.JSONException;
+    import org.json.JSONObject;
+
+    import android.content.Context;
+    import android.content.SharedPreferences;
+    import android.util.Log;
+
+    public class RegisterClient {
+        private static final String PREFS_NAME = "ANHSettings";
+        private static final String REGID_SETTING_NAME = "ANHRegistrationId";
+        private String Backend_Endpoint;
+        SharedPreferences settings;
+        protected HttpClient httpClient;
+        private String authorizationHeader;
+
+        public RegisterClient(Context context, String backendEnpoint) {
+            super();
+            this.settings = context.getSharedPreferences(PREFS_NAME, 0);
+            httpClient =  new DefaultHttpClient();
+            Backend_Endpoint = backendEnpoint + "/api/register";
+        }
+
+        public String getAuthorizationHeader() {
+            return authorizationHeader;
+        }
+
+        public void setAuthorizationHeader(String authorizationHeader) {
+            this.authorizationHeader = authorizationHeader;
+        }
+
+        public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
+            String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+
+            JSONObject deviceInfo = new JSONObject();
+            deviceInfo.put("Platform", "gcm");
+            deviceInfo.put("Handle", handle);
+            deviceInfo.put("Tags", new JSONArray(tags));
+
+            int statusCode = upsertRegistration(registrationId, deviceInfo);
+
+            if (statusCode == HttpStatus.SC_OK) {
+                return;
+            } else if (statusCode == HttpStatus.SC_GONE){
+                settings.edit().remove(REGID_SETTING_NAME).commit();
+                registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+                statusCode = upsertRegistration(registrationId, deviceInfo);
+                if (statusCode != HttpStatus.SC_OK) {
                     Log.e("RegisterClient", "Error upserting registration: " + statusCode);
                     throw new RuntimeException("Error upserting registration");
                 }
-            }
-   
-            private int upsertRegistration(String registrationId, JSONObject deviceInfo)
-                    throws UnsupportedEncodingException, IOException,
-                    ClientProtocolException {
-                HttpPut request = new HttpPut(Backend_Endpoint+"/"+registrationId);
-                request.setEntity(new StringEntity(deviceInfo.toString()));
-                request.addHeader("Authorization", "Basic "+authorizationHeader);
-                request.addHeader("Content-Type", "application/json");
-                HttpResponse response = httpClient.execute(request);
-                int statusCode = response.getStatusLine().getStatusCode();
-                return statusCode;
-            }
-   
-            private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
-                if (settings.contains(REGID_SETTING_NAME))
-                    return settings.getString(REGID_SETTING_NAME, null);
-   
-                HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
-                request.addHeader("Authorization", "Basic "+authorizationHeader);
-                HttpResponse response = httpClient.execute(request);
-                if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                    Log.e("RegisterClient", "Error creating registrationId: " + response.getStatusLine().getStatusCode());
-                    throw new RuntimeException("Error creating Notification Hubs registrationId");
-                }
-                String registrationId = EntityUtils.toString(response.getEntity());
-                registrationId = registrationId.substring(1, registrationId.length()-1);
-   
-                settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
-   
-                return registrationId;
+            } else {
+                Log.e("RegisterClient", "Error upserting registration: " + statusCode);
+                throw new RuntimeException("Error upserting registration");
             }
         }
-   
-    Bu bileşen için anında iletme bildirimleri kaydetmek için uygulama arka ucu başvurmak için gereken REST çağrılarını uygular. Ayrıca yerel olarak depoladığı *registrationIds* bildirim hub'ı içinde ayrıntılı olarak tarafından oluşturulan [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Tıkladığınızda yerel depolamada depolanan bir yetki belirteci kullandığına dikkat edin **oturum** düğmesi.
-5. İçinde `MainActivity` sınıfı kaldırın veya yorum yapmak için özel alan çıkışı `NotificationHub`, ve bir alan ekleyin `RegisterClient` sınıfı ve ASP.NET ucun uç noktası için bir dize. Değiştirdiğinizden emin olun `<Enter Your Backend Endpoint>` ile gerçek arka uç noktanızı elde daha önce. Örneğin, `http://mybackend.azurewebsites.net`.
 
-        //private NotificationHub hub;
-        private RegisterClient registerClient;
-        private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
-
-
-1. İçinde `MainActivity` sınıfı, buna `onCreate` yöntemi, kaldırmak veya açıklama başlatılması `hub` alan ve çağrısı `registerWithNotificationHubs` yöntemi. Örneği başlatmak için kod ekleme `RegisterClient` sınıfı. Yöntemi, aşağıdaki satırları içermelidir:
-   
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-   
-            MyHandler.mainActivity = this;
-            NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
-            gcm = GoogleCloudMessaging.getInstance(this);
-   
-            //hub = new NotificationHub(HubName, HubListenConnectionString, this);
-            //registerWithNotificationHubs();
-   
-            registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
-   
-            setContentView(R.layout.activity_main);
+        private int upsertRegistration(String registrationId, JSONObject deviceInfo)
+                throws UnsupportedEncodingException, IOException,
+                ClientProtocolException {
+            HttpPut request = new HttpPut(Backend_Endpoint+"/"+registrationId);
+            request.setEntity(new StringEntity(deviceInfo.toString()));
+            request.addHeader("Authorization", "Basic "+authorizationHeader);
+            request.addHeader("Content-Type", "application/json");
+            HttpResponse response = httpClient.execute(request);
+            int statusCode = response.getStatusLine().getStatusCode();
+            return statusCode;
         }
-2. İçinde `MainActivity` sınıfı, silmek veya yorum tüm `registerWithNotificationHubs` yöntemi. Bu öğreticide kullanılmayacak.
-3. Aşağıdakileri ekleyin `import` deyimleri için **MainActivity.java** dosya.
-   
-        import android.widget.Button;
-        import java.io.UnsupportedEncodingException;
-        import android.content.Context;
-        import java.util.HashSet;
-        import android.widget.Toast;
-        import org.apache.http.client.ClientProtocolException;
-        import java.io.IOException;
-        import org.apache.http.HttpStatus;
-4. Daha sonra işlemek için aşağıdaki yöntemleri ekleyin **oturum** olay ve anında iletme bildirimleri gönderme düğmesini tıklatın.
-   
-        @Override
-        protected void onStart() {
-            super.onStart();
-            Button sendPush = (Button) findViewById(R.id.sendbutton);
-            sendPush.setEnabled(false);
+
+        private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
+            if (settings.contains(REGID_SETTING_NAME))
+                return settings.getString(REGID_SETTING_NAME, null);
+
+            HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
+            request.addHeader("Authorization", "Basic "+authorizationHeader);
+            HttpResponse response = httpClient.execute(request);
+            if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+                Log.e("RegisterClient", "Error creating registrationId: " + response.getStatusLine().getStatusCode());
+                throw new RuntimeException("Error creating Notification Hubs registrationId");
+            }
+            String registrationId = EntityUtils.toString(response.getEntity());
+            registrationId = registrationId.substring(1, registrationId.length()-1);
+
+            settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
+
+            return registrationId;
         }
+    }
+    ```
+       
+    Bu bileşen, anında iletme bildirimlerine kaydolmak için uygulama arka ucuyla iletişim kurmada gereken REST çağrılarını uygular. [Uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) bölümünde açıklandığı gibi Bildirim Hub’ı tarafından oluşturulan *registrationId*’leri de yerel olarak depolar. **Oturum aç** düğmesine tıkladığınızda yerel depolama alanında depolanan bir yetkilendirme belirtecini kullanır.
+5. Sınıfınızda, `NotificationHub` için özel alanınızı kaldırın veya açıklama satırı yapın, ardından `RegisterClient` sınıfı için bir alan ve ASP.NET arka ucunuzun uç noktası için bir dize ekleyin. `<Enter Your Backend Endpoint>` değerini, önceden aldığınız gerçek arka ucun uç noktasıyla değiştirdiğinizden emin olun. Örneğin, `http://mybackend.azurewebsites.net`.
+
+    ```java
+    //private NotificationHub hub;
+    private RegisterClient registerClient;
+    private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
+    ```
+
+1. `MainActivity` sınıfınızda `onCreate` yönteminde, `registerWithNotificationHubs` yöntemine yapılan çağrının ve `hub` alanının başlatmasını kaldırın veya açıklama satırı yapın. `RegisterClient` sınıfının bir örneğini başlatmak için kod ekleyin. Yöntem aşağıdaki satırları içermelidir:
    
+    ```java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mainActivity = this;
+        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
+        gcm = GoogleCloudMessaging.getInstance(this);
+
+        //hub = new NotificationHub(HubName, HubListenConnectionString, this);
+        //registerWithNotificationHubs();
+
+        registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
+
+        setContentView(R.layout.activity_main);
+    }
+    ```
+2. `MainActivity` sınıfınızda `registerWithNotificationHubs` yönteminin tamamını silin veya açıklama satırı yapın. Bu öğreticide kullanılmayacaktır.
+3. Aşağıdaki `import` deyimlerini **MainActivity.java** dosyanıza ekleyin.
+   
+    ```java
+    import android.util.Base64;
+    import android.view.View;
+    import android.widget.EditText;
+    
+    import android.widget.Button;
+    import android.widget.ToggleButton;
+    import java.io.UnsupportedEncodingException;
+    import android.content.Context;
+    import java.util.HashSet;
+    import android.widget.Toast;
+    import org.apache.http.client.ClientProtocolException;
+    import java.io.IOException;
+    import org.apache.http.HttpStatus;
+    
+    import android.os.AsyncTask;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.impl.client.DefaultHttpClient;
+    
+    import android.app.AlertDialog;
+    import android.content.DialogInterface;
+    ```            
+4. onStart yöntemindeki kodu, aşağıdaki kodla değiştirin: 
+
+    ```java
+        super.onStart();
+        Button sendPush = (Button) findViewById(R.id.sendbutton);
+        sendPush.setEnabled(false);
+    ```       
+1. Daha sonra, **Oturum aç** düğme tıklama olayını ve anında iletme bildirimlerini göndermeyi işlemek için aşağıdaki yöntemleri ekleyin.
+   
+    ```java
         public void login(View view) throws UnsupportedEncodingException {
             this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
    
@@ -293,7 +326,7 @@ Sonraki adım, Android uygulaması oluşturmaktır.
                 @Override
                 protected Object doInBackground(Object... params) {
                     try {
-                        String regid = gcm.register(SENDER_ID);
+                        String regid = gcm.register(NotificationSettings.SenderId);
                         registerClient.register(regid, new HashSet<String>());
                     } catch (Exception e) {
                         DialogNotify("MainActivity - Failed to register", e.getMessage());
@@ -362,13 +395,32 @@ Sonraki adım, Android uygulaması oluşturmaktır.
                 }
             }.execute(null, null, null);
         }
+    ```
 
-    `login` İşleyicisi **oturum** düğmesi temel kimlik doğrulaması oluşturur giriş kullanıcı adı ve parola (Bu, kimlik doğrulama şemasını kullanan herhangi bir belirteci temsil ettiğini unutmayın) kullanarak belirteci sonra kullanır `RegisterClient` için arka uç kaydı için çağırın.
+    **Oturum aç** düğmesinin `login` işleyicisi, giriş kullanıcı adını ve parolasını kullanarak temel bir kimlik doğrulaması belirteci (kimlik doğrulaması şemanızın kullandığı herhangi bir belirteci temsil eder) oluşturur ve sonra `RegisterClient` kullanarak kayıt için arka ucu çağırır.
 
-    `sendPush` Güvenli bir bildirim kullanıcı etiketinde dayanarak kullanıcıya tetiklemek için arka uç yöntemini çağırır. Platform bildirim hizmeti `sendPush` hedefleri bağımlı `pns` dizesi geçirilen.
+    `sendPush` yöntemi, kullanıcı etiketine dayalı olarak kullanıcıya güvenli bir bildirim tetiklemek için arka ucu çağırır. `sendPush` tarafından hedeflenen platform bildirim hizmeti, geçirilen `pns` dizesine bağlıdır.
 
-1. İçinde `MainActivity` sınıfı, güncelleştirme `sendNotificationButtonOnClick` çağrılacak yöntem `sendPush` kullanıcının yöntemiyle seçili platform Bildirim Hizmetleri gibi.
+5. `MainActivity` sınıfına aşağıdaki `DialogNotify` yöntemini ekleyin. 
+
+    ```java
+        protected void DialogNotify(String title, String message)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle(title);
+            alertDialog.setMessage(message);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+    ```
+1. `MainActivity` sınıfınızda, aşağıdaki adımları uygulayarak kullanıcının seçtiği platform bildirim hizmetleriyle `sendPush` yöntemini çağırmak için `sendNotificationButtonOnClick` yöntemini güncelleştirin.
    
+    ```java
        /**
         * Send Notification button click handler. This method sends the push notification
         * message to each platform selected.
@@ -399,17 +451,32 @@ Sonraki adım, Android uygulaması oluşturmaktır.
                sendPush("apns", nhMessageTag, nhMessage);
            }
        }
+    ```
+7. **build.gradle** dosyasında, `buildTypes` bölümünden sonra `android` bölümüne aşağıdaki satırı ekleyin. 
 
-## <a name="run-the-application"></a>Uygulamayı çalıştırın
-1. Uygulama bir aygıt veya Android Studio kullanarak bir öykünücü çalıştırın.
-2. Android uygulamada bir kullanıcı adı ve parola girin. Her ikisi de aynı dize değeri olması gerekir ve boşluk veya özel karakterler içermemelidir.
-3. Android uygulamanın tıklayın **oturum**. Bildiren bir bildirim iletisi için bekleyin **günlüğe giriş ve kayıtlı**. Bu etkinleştirecek **bildirim gönder** düğmesi.
+    ```java
+    useLibrary 'org.apache.http.legacy'
+    ```
+8. Projeyi derleyin. 
+
+## <a name="test-the-app"></a>Uygulamayı test edin
+1. Android Studio kullanarak bir cihazda veya öykünücüde uygulamayı çalıştırın.
+2. Android uygulamasında bir kullanıcı adı ve parola girin. Her ikisi de aynı dize değerine sahip olmalı ve boşluk veya özel karakterler içermemelidir.
+3. Android uygulamasında **Oturum aç**’a tıklayın. **Oturumun açıldığını ve kaydın yapıldığını** bildiren bir bildirim iletisi görüntülenmesini bekleyin. **Bildirim Gönder** düğmesini etkinleştirir.
    
     ![][A2]
-4. Uygula'yı sahip olduğu tüm platformlar etkinleştirmek için düğmeler uygulaması çalıştıran ve bir kullanıcının kayıtlı.
-5. Bildirim iletisi alırsınız kullanıcının adını girin. Bu kullanıcı bildirimleri hedef cihazlarda kayıtlı olması gerekir.
-6. Anında iletme bildirimi iletisi almak kullanıcı için bir ileti girin.
-7. Tıklatın **bildirim gönder**.  Eşleşen bir kullanıcı adı etiketi ile bir kaydı var her bir cihaz anında iletme bildirimi alırsınız.
+4. Uygulamayı çalıştırdığınız ve bir kullanıcı kaydettiğiniz tüm platformları etkinleştirmek için iki durumlu düğmelere tıklayın.
+5. Bildirim iletisini alan kullanıcının adını girin. Bu kullanıcı, hedef cihazlarda bildirimlere kaydolmalıdır.
+6. Kullanıcının anında iletme bildirimi olarak alması için bir ileti girin.
+7. **Bildirim Gönder**’e tıklayın.  Eşleşen kullanıcı adı etiketini içeren bir kaydı olan her cihaz, anında iletme bildirimini alır.
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide, kayıtlarıyla ilişkili etiketleri olan belirli kullanıcılara anında iletme bildirimleri göndermeyi öğrendiniz. Konum tabanlı anında iletme bildirimleri göndermeyi öğrenmek için aşağıdaki öğreticiye ilerleyin: 
+
+> [!div class="nextstepaction"]
+>[Konum tabanlı anında iletme bildirimleri gönderme](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
+

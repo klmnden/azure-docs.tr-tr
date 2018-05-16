@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si joker uygulamaları 
 
@@ -112,7 +112,7 @@ Bu seçeneği kullanırsanız, başka bir CNAME giriş değeri etmeniz `AppId.do
 
 Joker uygulama sadece bir parçasında ile temsil edilen [MyApps Masası](https://myapps.microsoft.com). Varsayılan olarak bu kutucuğu gizlenir. Döşeme göstermek ve belirli bir sayfada kullanıcılar kara sağlamak için:
 
-1. İçin yönergeleri izleyin [ayarlanırken bir giriş sayfası URL'si](application-proxy-office365-app-launcher.md).
+1. İçin yönergeleri izleyin [ayarlanırken bir giriş sayfası URL'si](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Ayarlama **Göster uygulama** için **doğru** uygulama özellikleri sayfasında.
 
 ### <a name="kerberos-constrained-delegation"></a>Kısıtlı Kerberos temsilcisi seçme

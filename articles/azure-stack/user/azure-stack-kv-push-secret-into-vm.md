@@ -1,38 +1,40 @@
 ---
-title: "Azure yığında güvenli şekilde depolanan bir sertifika ile bir sanal makine dağıtma | Microsoft Docs"
-description: "Bir sanal makine dağıtma ve Azure yığınında bir anahtar kasası kullanarak anında iletme sertifikası üzerine hakkında bilgi edinin"
+title: Azure yığında güvenli şekilde depolanan bir sertifika ile bir sanal makine dağıtma | Microsoft Docs
+description: Bir sanal makine dağıtma ve Azure yığınında bir anahtar kasası kullanarak anında iletme sertifikası üzerine hakkında bilgi edinin
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/03/2017
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: e319f5c6d27d3a223764b0a5593480f02864ddbe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Bir sanal makine oluşturun ve bir anahtar Kasası'nı alınan sertifika içerir
+# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Bir sanal makine oluşturun ve Azure yığın anahtar Kasası'nı alınan bir sertifika yükleyin
 
-Bu makalede, Azure yığını ve anında iletme sertifikaların bir sanal makine oluşturmak için yardımcı olur. 
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-## <a name="prerequisites"></a>Ön koşullar
+Bir Azure yığın sanal makine (VM) oluşturmak bir anahtar kasası sertifika yüklü öğrenin.
 
-* Anahtar kasası hizmetindeki içeren bir teklif abone olmalısınız. 
-* [PowerShell için Azure yığın yükleyin.](azure-stack-powershell-install.md)  
-* [Azure yığın kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)
+## <a name="overview"></a>Genel Bakış
 
-Bir anahtar kasası Azure yığınında sertifikaları depolamak için kullanılır. Sertifikalar birçok farklı senaryolarda yardımcı olur. Örneğin, bir sanal makine bir sertifika gerektiren bir uygulama çalıştıran Azure yığına sahip olduğu bir senaryo düşünün. Bu sertifika için şifreleme, Active Directory ile kimlik doğrulaması için ya da SSL için bir Web sitesinde kullanılabilir. Bir anahtar kasası yardımcı sertifikada emin olun sahip olan güvenlidir.
+Sertifikalar için Active Directory kimlik doğrulaması ya da web trafiği şifreleme gibi çok sayıda senaryolarda kullanılır. Bir Azure yığın anahtar kasasına gizli olarak sertifikaları güvenli bir şekilde depolayabilirsiniz. Azure yığın anahtar kasası kullanmanın avantajları şunlardır:
 
-Bu makalede, sizi, bir Windows sanal makine sertifikası Azure yığınında göndermek için gereken adımlarda size yol. VPN üzerinden bağlandığı sırada Azure yığın Geliştirme Setinden veya Windows tabanlı bir dış istemci bu adımları kullanabilirsiniz.
+* Sertifikalar, bir komut dosyası, komut satırı geçmiş veya şablonda açık değil.
+* Sertifika Yönetimi işlemi hızlandırıldı.
+* Sertifikaları erişim anahtarları denetime sahiptir.
+
+### <a name="process-description"></a>İşlem açıklaması
 
 Aşağıdaki adımlarda, bir sanal makine sertifikası göndermek için gereken işlemi açıklanmaktadır:
 
@@ -40,9 +42,21 @@ Aşağıdaki adımlarda, bir sanal makine sertifikası göndermek için gereken 
 2. Azuredeploy.parameters.json dosyasını güncelleştirin.
 3. Şablonu dağıtma
 
+>[!NOTE]
+>VPN üzerinden bağlandığı sırada Azure yığın Geliştirme Seti veya bir dış istemcinin aşağıdaki adımları kullanabilirsiniz.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* Anahtar kasası hizmetindeki içeren bir teklif abone olmalısınız.
+* [PowerShell için Azure yığın yükleyin.](azure-stack-powershell-install.md)
+* [Azure yığın kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)
+
 ## <a name="create-a-key-vault-secret"></a>Gizli bir anahtar kasası oluşturma
 
-Aşağıdaki komut dosyası .pfx biçiminde bir sertifika oluşturur, bir anahtar kasası oluşturur ve sertifika anahtar kasası gizli olarak depolar. Kullanmalısınız `-EnabledForDeployment` anahtar kasası oluşturulurken parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarını başvurulabilir emin olur.
+Aşağıdaki komut dosyası .pfx biçiminde bir sertifika oluşturur, bir anahtar kasası oluşturur ve sertifika anahtar kasası gizli olarak depolar.
+
+>[!IMPORTANT]
+>Kullanmalısınız `-EnabledForDeployment` anahtar hataya oluşturulurken parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarını başvurulabilir sağlar.
 
 ```powershell
 
@@ -111,7 +125,7 @@ Değiştirme `azuredeploy.parameters.json` ortamı değerlerinizi göre dosya. �
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json dosyasını güncelleştirme
 
-VaultName, gizli URI, VmName ve diğer değerleri ortamınıza uygun şekilde azuredeploy.parameters.json dosyasını güncelleştirin. Aşağıdaki JSON dosyası şablon parametreleri dosyası örneği gösterilmektedir: 
+VaultName, gizli URI, VmName ve diğer değerleri ortamınıza uygun şekilde azuredeploy.parameters.json dosyasını güncelleştirin. Aşağıdaki JSON dosyası şablon parametreleri dosyası örneği gösterilmektedir:
 
 ```json
 {
@@ -148,7 +162,7 @@ VaultName, gizli URI, VmName ve diğer değerleri ortamınıza uygun şekilde az
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Şimdi aşağıdaki PowerShell betiğini kullanarak şablonu dağıtma:
+Aşağıdaki PowerShell betiğini kullanarak şablonu dağıtma:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -161,13 +175,18 @@ New-AzureRmResourceGroupDeployment `
 
 Şablonu başarıyla dağıtıldığında, şunlara sebep olur:
 
-![Dağıtım çıktı](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Şablon dağıtımı sonuçları](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Bu sanal makine dağıtılırken sanal makine sertifikası Azure yığın iter. Windows, LocalMachine sertifika konumla kullanıcı tarafından sağlanan sertifika deposuna sertifika eklenir. Linux sertifika dosya adı ile /var/lib/waagent dizinde altına yerleştirilmiş &lt;UppercaseThumbprint&gt;X509 .crt Sertifika dosyası ve &lt;UppercaseThumbprint&gt;.prv özel anahtar için .
+Azure yığın dağıtımı sırasında sanal makine sertifikası iter. Sertifikanın konumu sanal makinenin işletim sistemine bağlıdır:
+
+* Windows, LocalMachine sertifika konumla kullanıcı tarafından sağlanan sertifika deposuna sertifika eklenir.
+* Linux sertifika dosya adı ile /var/lib/waagent dizinde altına yerleştirilmiş &lt;UppercaseThumbprint&gt;X509 .crt Sertifika dosyası ve &lt;UppercaseThumbprint&gt;.prv özel anahtar için .
 
 ## <a name="retire-certificates"></a>Sertifikaları devre dışı bırakma
 
-Önceki bölümde, biz, bir sanal makine üzerine yeni bir sertifika göndermek nasıl oluşturulacağını gösterir. Eski sertifikanızı hala sanal makinede olması ve kaldırılamaz. Ancak, eski sürüm gizli kullanarak devre dışı bırakabilirsiniz `Set-AzureKeyVaultSecretAttribute` cmdlet'i. Bu cmdlet kullanım örneği verilmiştir. Kasa adı, gizli anahtar adı ve sürüm değerlerini ortamınıza göre değiştirdiğinizden emin olun:
+Sertifikaları devre dışı bırakma, sertifika yönetimi işleminin parçasıdır. Bir sertifika daha eski sürümü silinemez, ancak kullanarak devre dışı bırakabilirsiniz `Set-AzureKeyVaultSecretAttribute` cmdlet'i.
+
+Aşağıdaki örnek, bir sertifika devre dışı bırakmak gösterilmiştir. İçin kendi değerlerinizi kullanmak **VaultName**, **adı**, ve **sürüm** parametreleri.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
@@ -177,5 +196,3 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 * [Anahtar Kasası parolası ile VM dağıtma](azure-stack-kv-deploy-vm-with-secret.md)
 * [Anahtar kasası erişmek bir uygulama izin verme](azure-stack-kv-sample-app.md)
-
-

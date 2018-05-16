@@ -1,29 +1,23 @@
 ---
-title: "Azure panolar yapısını | Microsoft Docs"
-description: "Bu makale, Azure Pano JSON yapısını açıklar."
+title: Azure panolar yapısını | Microsoft Docs
+description: Bu makale, Azure Pano JSON yapısını açıklar.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-<<<<<<< HEAD
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: fa50b31a0c8e9077658106039c4fbd2eef8b4367
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure panolar yapısı
 Bu belge, örnek olarak aşağıdaki Panoyu kullanarak bir Azure panonun yapısı size yol göstermektedir:
@@ -341,10 +335,10 @@ __Konumu__ özelliğinin bir parçası olarak ifade edilen için boyut ve konum 
 Meta veri özelliği her bir parçası olan, bir nesne olarak adlandırılan tek gerekli özelliği içeriyor __türü__. Bu dize portal söyler göstermek için hangi döşeme. Bizim örnek Pano kutucukları bu türünü kullanır:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`– Göstermek için kullanılan ölçümleri izleme
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`– Metin veya resim listeleri, bağlantılar, temel biçimlendirmesiyle ile göstermek için kullanılan vb.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– YouTube, Channel9 ve başka türden herhangi bir html video etiketinde çalışır video videolar göstermek için kullanılır.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Adını ve bir Azure sanal makine durumunu göstermek için kullanılır.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Göstermek için kullanılan ölçümleri izleme
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Metin veya resim listeleri, bağlantılar, temel biçimlendirmesiyle ile göstermek için kullanılan vb.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – YouTube, Channel9 ve başka türden herhangi bir html video etiketinde çalışır video videolar göstermek için kullanılır.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Adını ve bir Azure sanal makine durumunu göstermek için kullanılır.
 
 Her bölümü kendi yapılandırma türü. Olası yapılandırma özelliklerini adlı __girişleri__, __ayarları__, ve __varlık__. 
 

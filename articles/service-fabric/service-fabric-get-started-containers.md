@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 679fb066441fd75d5e12f9374d012f50c6f65966
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kaps
 ## <a name="define-the-docker-container"></a>Docker kapsayıcısını tanımlama
 Docker Hub’ında bulunan [Python görüntüsünü](https://hub.docker.com/_/python/) temel alan bir görüntü oluşturun.
 
-Docker kapsayıcınızı bir Dockerfile içinde belirtin. Dockerfile, kapsayıcınızın içindeki ortamı ayarlama, çalıştırmak istediğiniz uygulamayı yükleme ve bağlantı noktalarını eşleme yönergelerinden oluşur. Dockerfile, görüntüyü oluşturan `docker build` komutunun girdisidir.
+Bir Dockerfile içinde Docker kapsayıcınızı belirtin. Dockerfile, kapsayıcınızın içindeki ortamı ayarlama, çalıştırmak istediğiniz uygulamayı yükleme ve bağlantı noktalarını eşleme yönergelerinden oluşur. Dockerfile, görüntüyü oluşturan `docker build` komutunun girdisidir.
 
 Boş bir dizin oluşturun ve *Dockerfile* dosyasını oluşturun (dosya uzantısı kullanmayın). Aşağıdakini *Dockerfile* dosyasına ekleyin ve değişikliklerinizi kaydedin:
 
@@ -77,13 +77,13 @@ CMD ["python", "app.py"]
 
 Daha fazla bilgi için [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) okuyun.
 
-## <a name="create-a-basic-web-application"></a>Temel bir web uygulaması
+## <a name="create-a-basic-web-application"></a>Temel bir web uygulaması oluşturma
 Bağlantı noktası 80 üzerinden dinleyen ve `Hello World!` döndüren bir Flask web uygulaması oluşturun. Aynı dizinde, *requirements.txt* dosyasını oluşturun. Aşağıdakini dosyaya ekleyin ve değişikliklerinizi kaydedin:
 ```
 Flask
 ```
 
-Ayrıca, *app.py* dosyasını da oluşturun ve aşağıdaki kod parçacığını ekleyin:
+Ayrıca *app.py* dosyasını da oluşturun ve aşağıdaki kod parçacığını ekleyin:
 
 ```python
 from flask import Flask
@@ -132,6 +132,11 @@ docker run -d --name my-web-site helloworldapp
 Kapsayıcı başladıktan sonra çalışan kapsayıcınıza bir tarayıcıdan bağlanabilmek için IP adresini bulun:
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
+```
+
+Bu komut herhangi bir şey döndürmezse aşağıdaki komutu çalıştırın ve IP adresi için **Ağ Ayarları**->**Ağlar** öğesini inceleyin:
+```
+docker inspect my-web-site
 ```
 
 Çalışan kapsayıcıya bağlanın. Döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "http://172.31.194.61"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
@@ -579,9 +584,9 @@ Service Fabric (6.1 veya üzeri sürümler), kapsayıcı başlatma hatalarının
 
 **ContainersRetentionCount** ayarı, başarısız olduğunda bekletilecek kapsayıcı sayısını belirtir. Negatif bir değer belirtilirse başarısız olan tüm kapsayıcılar bekletilir. **ContainersRetentionCount** özniteliği belirtilmezse hiçbir kapsayıcı bekletilmez. **ContainersRetentionCount** özniteliği, kullanıcıların test ve üretim kümeleri için farklı değerler belirtebilmesi amacıyla Uygulama Parametrelerini destekler. Kapsayıcı hizmetinin diğer düğümlere taşınmasını önlemek için bu özellikler kullanılırken kapsayıcı hizmetinin belirli bir düğümü hedeflemesini sağlamak için yerleştirme kısıtlamaları kullanın. Bu özellik kullanılarak bekletilen tüm kapsayıcılar el ile kaldırılmalıdır.
 
-## <a name="start-the-docker-daemon-with-custom-arguments"></a>Docker daemon’unu özel bağımsız değişkenlerle başlatma
+## <a name="start-the-docker-daemon-with-custom-arguments"></a>Docker cinini özel bağımsız değişkenlerle başlatma
 
-Service Fabric çalışma zamanı 6.2 sürümü ve üzeriyle, Docker daemon’unu özel bağımsız değişkenler kullanarak başlatabilirsiniz. Özel bağımsız değişkenler belirtildiğinde, Service Fabric `--pidfile` bağımsız değişkeni hariç hiçbir bağımsız değişkeni Docker altyapısına geçirmez. Bu nedenle, `--pidfile` bir bağımsız değişken olarak geçirilmemelidir. Ayrıca, Service Fabric’in Daemon ile iletişim kurması için bağımsız değişken docker’ın Windows’da varsayılan ad kanalında (veya Linux’ta unix etki alanı yuvasında) dinlemeye devam etmesini sağlamalıdır. Özel bağımsız değişkenler, aşağıdaki kod parçacığında gösterildiği gibi **ContainerServiceArguments** altındaki **Barındırma** bölümü altındaki küme bildiriminde geçirilir: 
+Service Fabric çalışma zamanı 6.2 sürümü ve üzeriyle, Docker cinini özel bağımsız değişkenler kullanarak başlatabilirsiniz. Özel bağımsız değişkenler belirtildiğinde, Service Fabric `--pidfile` bağımsız değişkeni hariç hiçbir bağımsız değişkeni Docker altyapısına geçirmez. Bu nedenle, `--pidfile` bir bağımsız değişken olarak geçirilmemelidir. Ayrıca, Service Fabric’in Daemon ile iletişim kurması için bağımsız değişken docker’ın Windows’da varsayılan ad kanalında (veya Linux’ta unix etki alanı yuvasında) dinlemeye devam etmesini sağlamalıdır. Özel bağımsız değişkenler, aşağıdaki kod parçacığında gösterildiği gibi **ContainerServiceArguments** altındaki **Barındırma** bölümü altındaki küme bildiriminde geçirilir: 
  
 
 ```json

@@ -1,12 +1,12 @@
 ---
-title: "Tahmine dayalı bakım çözüm kılavuzu - Azure | Microsoft Docs"
-description: "Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi."
-services: 
+title: Tahmine Dayalı Bakım çözüm hızlandırıcısı adım adım kılavuzu - Azure | Microsoft Docs
+description: Azure IoT Tahmine Dayalı Bakım çözüm hızlandırıcısı adım adım kılavuzu.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397ac3c8b9caa5c392aff4683df2db3b2144899b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
+# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısı adım adım kılavuzu
 
-Önceden yapılandırılmış tahmine dayalı bakım çözümü, arıza oluştuğu sırada noktayı tahmin eden iş senaryosu için uçtan uca bir çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm IoT Hub, Stream Analytics ve [Azure Machine Learning][lnk-machine-learning] çalışma alanı gibi önemli Azure IoT Paketi hizmetlerini birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
+Tahmine Dayalı Bakım çözümü, arızanın oluşma ihtimali olan anı tahmin eden iş senaryosu için uçtan uca bir çözümdür. Bu çözüm hızlandırıcısını, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm; IoT Hub, Akış analizi ve [Azure Machine Learning][lnk-machine-learning] çalışma alanı gibi önemli Azure IoT çözüm hızlandırıcılarını birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
-Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
+Aşağıdaki diyagram, çözüm hızlandırıcısının mantıksal bileşenlerinin ana hatlarını vermektedir:
 
 ![][img-architecture]
 
-Mavi öğele, önceden yapılandırılmış çözümü dağıtırken seçtiğiniz bölgede sağlanan Azure hizmetleridir. Önceden yapılandırılmış çözümü dağıtabileceğiniz bölgelerin listesi [sağlama sayfasında][lnk-azureiotsuite] gösterilir.
+Mavi öğeler, çözüm hızlandırıcısını dağıttığınız bölgede sağlanan Azure hizmetleridir. Çözüm hızlandırıcısını dağıtabileceğiniz bölgelerin listesi, [sağlama sayfasında][lnk-azureiotsuite] görüntülenir.
 
 Yeşil öğe uçak motorunu temsil eden sanal cihazdır. [Sanal cihazlar](#simulated-devices) bölümde bu sanal cihazlarla ilgili daha fazla bilgiye ulaşabilirsiniz.
 
-Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder. Önceden yapılandırılmış tahmine dayalı bakım çözümü bu kaynakları hazırlamaz. Cihaz yönetimi hakkında daha fazla bilgi edinmek için [önceden yapılandırılmış uzaktan izleme çözümü][lnk-remote-monitoring] konusuna bakın.
+Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder. Tahmine Dayalı Bakım çözüm hızlandırıcısının geçerli sürümü, bu kaynakları sağlamaz. Cihaz yönetimi hakkında daha fazla bilgi edinmek için [önceden yapılandırılmış uzaktan izleme çözümü][lnk-remote-monitoring] konusuna bakın.
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 
-Önceden yapılandırılmış çözümde sanal cihaz uçak motorunu temsil eder. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun RUL değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
+Çözüm hızlandırıcısında simülasyon cihazı bir uçak motorunu temsil eder. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun RUL değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
 
 *Döngü sayısı*. Bir döngü, iki ile on saat arasındaki bir süreyle tamamlanmış uçuşu temsil eder. Uçuş sırasında telemetri verileri yarım saatte bir yakalanır.
 
-*Telemetri*. Motor özniteliklerini temsil eden dört algılayıcı vardır. Bu algılayıcılar genel olarak Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15 olarak etiketlenir. Bu dört algılayıcı, RUL modelinden yararlı sonuçlar almak için yeterli olan telemetriyi temsil eder. Önceden yapılandırılmış çözümde kullanılan model, gerçek motor algılayıcı verilerinin bulunduğu ortak bir veri kümesinden oluşturulur. Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
+*Telemetri*. Motor özniteliklerini temsil eden dört algılayıcı vardır. Bu algılayıcılar genel olarak Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15 olarak etiketlenir. Bu dört algılayıcı, RUL modelinden yararlı sonuçlar almak için yeterli olan telemetriyi temsil eder. Çözüm hızlandırıcısında kullanılan model, gerçek altyapı algılayıcı verilerinin bulunduğu ortak bir veri kümesinden oluşturulur. Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
 
 Sanal cihazlar, çözümde IoT hub'ı tarafından gönderilen aşağıdaki komutları işleyebilir:
 
@@ -69,11 +69,11 @@ Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden tür
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tahmine dayalı bakım için önceden yapılandırılmış çözümün temel bileşenlerini gördüğünüze göre bunları özelleştirmek isteyebilirsiniz. Bkz. [Önceden yapılandırılmış çözümleri özelleştirme kılavuzu][lnk-customize].
+Tahmine Dayalı Bakım çözüm hızlandırıcısının temel bileşenlerini gördüğünüze göre bunları özelleştirmek isteyebilirsiniz. Bkz. [Çözüm hızlandırıcılarını özelleştirme kılavuzu][lnk-customize].
 
-Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
 
-* [IoT Paketi için sık sorulan sorular][lnk-faq]
+* [IoT çözüm hızlandırıcıları için sık sorulan sorular][lnk-faq]
 * [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png

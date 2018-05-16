@@ -3,23 +3,24 @@ title: Uygulamaları Azure Active Directory'ye neden ve nasıl eklenir
 description: Azure AD ile eklenecek bir uygulama için ne anlama geliyor ve nasıl var. elde?
 services: active-directory
 documentationcenter: ''
-author: mtillman
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/18/2018
-ms.author: mtillman
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1f2807a15ee2fec1f56d3f6dd33faef3f7a569fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Neden ve nasıl uygulamaları için Azure AD eklenir
 Azure AD'de uygulamalar iki sunumu vardır: 

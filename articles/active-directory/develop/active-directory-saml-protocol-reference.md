@@ -1,13 +1,14 @@
 ---
-title: "Azure AD SAML Protokolü başvurusu | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory'de çoklu oturum açma ve tek Sign-Out SAML profilleri genel bir bakış sağlar."
+title: Azure AD SAML Protokolü başvurusu | Microsoft Docs
+description: Bu makalede, Azure Active Directory'de çoklu oturum açma ve tek Sign-Out SAML profilleri genel bir bakış sağlar.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,11 @@ ms.date: 07/21/2017
 ms.author: priyamo
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 84bd6ae5e1624ade18dc7ee2b73fe1c94914978e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a38d5e7a33a681c2e6d4964863d25f5cfbd6725
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Azure Active Directory SAML Protokolü kullanma
 Uygulamaların kullanıcılarına çoklu oturum açma deneyimini sağlamak üzere etkinleştirmek için azure Active Directory (Azure AD) kullanan SAML 2.0 protokolü. [Çoklu oturum açma](active-directory-single-sign-on-protocol-reference.md) ve [tek oturum kapatma](active-directory-single-sign-out-protocol-reference.md) SAML profilleri Azure ad açıklayan SAML onaylar, protokolleri ve bağlamaları kimlik sağlayıcı hizmeti nasıl kullanılır.
@@ -33,7 +34,7 @@ Azure AD kullanır **meta veri URI'sini** imzalama anahtarı ve oturum kapatma b
 
 Azure Active Directory Kiracı özel ve ortak (Kiracı bağımsız) tek oturum açma ve çoklu oturum kapatma uç noktalarını kullanıma sunar. Bu URL'leri adreslenebilir konumlarını temsil eden--meta verileri okuyabilmesi için bitiş noktasına gitmek için bunlar yalnızca bir tanımlayıcıları--değildir.
 
-* Kiracı özgü endpoint adresindedir `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.  <TenantDomainName> Yer tutucu Azure AD kiracısı Tenantıd GUID'si veya kaydedilmiş bir etki alanı adını temsil eder. Örneğin, contoso.com Kiracı Federasyon meta verilerinin konumunda bulunuyor: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Kiracı özgü endpoint adresindedir `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. <TenantDomainName> Yer tutucu Azure AD kiracısı Tenantıd GUID'si veya kaydedilmiş bir etki alanı adını temsil eder. Örneğin, contoso.com Kiracı Federasyon meta verilerinin altındadır: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * Kiracı bağımsız endpoint adresindedir `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Bu uç nokta adresi **ortak** , bir kiracı etki alanı adı veya kimliği yerine görüntülenir
 

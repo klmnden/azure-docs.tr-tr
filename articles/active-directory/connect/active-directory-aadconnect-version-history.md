@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -34,6 +34,63 @@ Azure AD Connect'ten yükseltme adımları | İçin farklı yöntemler [en son �
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+4/5/2018: Otomatik yükseltme için yayımlanan, yakında indirme için kullanılabilir olacaktır.
+
+
+
+### <a name="new-features-and-improvements"></a>Yeni özellikleri ve geliştirmeleri
+
+Yeni özellikleri ve geliştirmeleri
+
+
+- Bu sürüm Azure AD Connect PingFederate tümleştirme genel önizlemesini içerir. Bu sürüm ile müşterileri kolayca ve güvenilir PingFederate, Federasyon sağlayıcıları olarak yararlanmak için Azure Active Directory ortamlarına yapılandırın. Bu yeni özellik kullanma hakkında daha fazla bilgi için lütfen ziyaret bizim [çevrimiçi belgeleri](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- Biz Azure AD Connect Sihirbazı sorun giderme burada biz şimdi analyze daha fazla hata senaryonun yardımcı programı, güncelleştirilmiş bağlantılı posta kutuları ve AD dinamik grupların gibi. Sorun giderme yardımcı programı hakkında daha fazla bilgiyi [burada](active-directory-aadconnect-troubleshoot-objectsync.md).
+- Cihaz geri yazma yapılandırma artık yalnızca Azure AD Connect Sihirbazı içinde yönetilir.
+- Yeni bir PowerShell çağrılan ADSyncTools.psm1 eklenen SQL bağlantı sorunları ve çeşitli diğer sorun giderme yardımcı programları sorun giderme için kullanılan modül. ADSyncTools modülü hakkında daha fazla bilgiyi [burada](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- Yeni bir ek görevi "Yapılandırma aygıt Seçenekleri" eklendi. Görev aşağıdaki iki işlem yapılandırmak için kullanabilirsiniz: 
+    -   **Karma Azure AD birleştirme**: şirket içi ortamınız varsa, AD alanını ve ayrıca Azure Active Directory tarafından sağlanan özelliklerden avantajı istiyorsanız, karma Azure AD alanına katılmış aygıtlar uygulayabilirsiniz. Her ikisi de, cihazları bunlar şirket için Active Directory ve Azure Active Directory'yi katılmış.
+    -   **Cihaz geri yazma**: cihaz geri yazma, AD FS cihaza bağlı olarak koşullu erişim sağlamak için kullanılır (2012 R2 veya üstü) aygıtları protected
+
+   >[!NOTE] 
+   > - Cihaz geri yazma Özelleştir eşitleme seçeneklerinden etkinleştirme seçeneği gri görünür. 
+   > -  ADPrep için PowerShell modülünü, bu sürüm ile birlikte kullanım dışıdır.
+
+
+
+### <a name="fixed-issues"></a>Giderilen sorunlar 
+
+
+- Eşitleme kuralı işleme: üst syncrule artık geçerli değilse hiçbir katılma koşulu olan giden birleştirme eşitleme kuralları XML'deki uygulanması gerekir
+- Azure AD Connect Sihirbazı'nı: AD Bağlayıcısı hesabı oluşturulurken bir hata oluştu, Azure AD Connect bir çalışma grubundaysa
+- Azure AD Connect Sihirbazı'nı: Üzerinde Azure AD oturum açma sayfasını görüntülemek doğrulama onay kutusunu AD etki alanları ve Azure AD doğrulandı etki alanlarındaki tüm uyuşmazlığı olduğunda
+- Otomatik yükseltme durumu belirli durumlarda çalıştı otomatik yükseltme işleminden sonra doğru bir şekilde ayarlamak için PowerShell düzeltme otomatik yükseltme.
+- Azure AD Connect Sihirbazı'nı: daha önce eksik bilgileri yakalamak için telemetri güncelleştirildi
+- Azure AD Connect Sihirbazı'nı: yönetilen bir etki alanına dönüştürmeden önce PTA yükleme aracı
+- Azure AD Connect Sihirbazı'nı: kullanıcıların dönüştürmez PTA için yönetilen (dönüştürme yalnızca etki alanı)
+- Azure AD Connect Sihirbazı'nı: Kullanıcı UPN sahip olduğunda AD FS çoklu etki alanı Regex doğru değil ' özel karakterleri desteklemek için özel karakter Regex güncelleştirme
+- Azure AD Connect Sihirbazı'nı: alacaklardır "Yapılandırma kaynağı bağlantı özniteliği" iletisi hiçbir değişiklik olduğunda Kaldır 
+- Azure AD Connect Sihirbazı'nı: Çift Federasyon senaryosu AD FS desteği
+- Azure AD Connect Sihirbazı'nı: Eklenen etki alanı için AD FS talep Federasyon için yönetilen bir etki alanına dönüşürken güncelleştirilmez
+- Azure AD Connect Sihirbazı'nı: yüklü paketleri algılama sırasında biz eski Dirsync/Azure AD eşitleme/Azure AD Bul ilgili ürünler bağlanın. Artık eski ürünler kaldırmak denenecektir.
+- Azure AD Connect Sihirbazı'nı: Doğru hata iletisi passthrough kimlik doğrulama Aracısı yüklemesi başarısız olduğunda eşleme
+- Azure AD Connect Sihirbazı'nı: "Yapılandırma" kapsayıcı etki alanı OU filtreleme sayfasından kaldırılır.
+- Eşitleme altyapısı yükleme: eşitleme altyapısı yükleme MSI zaman zaman başarısız gereksiz eski mantığı Kaldır
+- Azure AD Connect Sihirbazı'nı: isteğe bağlı özellikler sayfasında açılır Yardım metni, parola karması eşitlemesi için düzeltin.
+- Eşitleme altyapısı çalışma zamanı: Burada CS nesnesi içeri aktarılan bir delete sahiptir ve eşitleme kuralları denemesi nesne yeniden hazırlamak senaryoyu düzeltin.
+- Eşitleme altyapısı çalışma zamanı: Yardım eklemek alma işleminde hata için sorun giderme kılavuzu olay günlüğüne çevrimiçi bağlantı için bağlantı
+- Çalışma Zamanı Altyapısı eşitleme: eşitleme Zamanlayıcı bellek kullanımını bağlayıcılar numaralandırılırken azaltılmış
+- Azure AD Connect Sihirbazı'nı: özel bir eşitleme hizmeti AD okuma ayrıcalıklarına sahip hesap çözümlenirken bir sorunu düzeltmek
+- Azure AD Connect Sihirbazı'nı: etki alanı ve OU filtreleme seçimleri günlük kaydını geliştirmek
+- Azure AD Connect Sihirbazı'nı: MFA senaryosu için oluşturulan bir federasyon güveni varsayılan talepleri AD FS ekleme
+- Azure AD Connect Sihirbazı'nı: AD FS dağıtmak WAP: sunucu başarısız yeni sertifikayı kullanmak üzere ekleme
+- Azure AD Connect Sihirbazı'nı: onPremCredentials bir etki alanı için hazırlarken olmayan DSSO özel durumu 
+- Tercihen etkin kullanıcı nesnesinden AD distinguishedName öznitelik akışı.
+- Burada ilk OOB eşitleme kuralının önceliğini 100 yerine 99 ayarlandı yüzeysel hatanın düzeltildiğini
+
+
 
 ## <a name="117510"></a>1.1.751.0
 Durum 4/12/2018: yalnızca indirme için yayımlanan
@@ -161,9 +218,9 @@ Tür     | Ad                          | Access               | Şunun İçin Ge
 İzin Ver    | Kuruluş etki alanı denetleyicileri | İçeriğini listele        | Bu nesne  |
 İzin Ver    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
 İzin Ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
-İzin Ver    | Kimliği doğrulanmış kullanıcılar           | İçeriğini listele        | Bu nesne  |
-İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
-İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Okuma izinleri     | Bu nesne  |
+İzin Ver    | Kimliği Doğrulanmış Kullanıcılar           | İçeriğini listele        | Bu nesne  |
+İzin Ver    | Kimliği Doğrulanmış Kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kimliği Doğrulanmış Kullanıcılar           | Okuma izinleri     | Bu nesne  |
 
 AD DS hesabı için ayarları artırmak için çalıştırabilirsiniz [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell komut dosyası, AD DS hesabı için yukarıdaki izinleri atar.
 

@@ -1,45 +1,54 @@
 ---
-title: "(Evrensel Windows platformu) son dakika haberleri göndermek için Azure Notification Hubs'ı kullanma"
-description: "Bir evrensel Windows platformu uygulamasında son dakika haberleri göndermek için Azure Notification Hubs kayıt etiketleri kullanın."
+title: Belirli cihazlara bildirim gönderme (Evrensel Windows Platformu) | Microsoft Docs
+description: Bir Evrensel Windows Platformu uygulamasına son dakika haberleri göndermek için kayıtta etiketlerle birlikte Azure Notification Hubs kullanın.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: d510e7e665adec9607aeee80802c466b363d5d5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 9b9e3b910162653c14c398e2c3392709abcd5fd8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Son dakika haberleri göndermek için Notification Hubs kullanma
+# <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Öğretici: Evrensel Windows Platformu uygulamaları çalıştıran belirli Windows cihazlarına anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu konu Azure Notification Hubs son dakika haberi bildirimleri Windows mağazası veya Windows Phone 8.1 (Silverlight olmayan) uygulamasına yayını için nasıl kullanılacağını gösterir. Windows Phone 8.1 Silverlight hedefliyorsanız, başvurmak [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) sürümü. 
+Bu öğreticide, bir Windows Mağazası veya Windows Phone 8.1 (Silverlight olmayan) uygulamasında son dakika haber bildirimleri yayınlamak için Azure Notification Hubs'ın nasıl kullanılacağı gösterilmektedir. Windows Phone 8.1 Silverlight'ı hedefliyorsanız [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) sürümüne bakın. 
 
-Bu işlemi tamamladıktan sonra ilgilendiğiniz son dakika haberleri kategorileri için kaydedebilirsiniz ve anında iletme bildirimlerini yalnızca bu kategorilerin alırsınız. Bu senaryo, bunları ilgi bildirilen kullanıcı gruplarına bildirimler burada gönderilmelidir birçok uygulamalar (örneğin, RSS Okuyucu veya müzik fanlar için uygulamalar) için yaygın bir durumdur. 
+Bu öğreticide, Evrensel Windows Platformu uygulaması çalıştıran belirli Windows cihazlara anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğreneceksiniz. Öğreticiyi tamamladıktan sonra, ilginizi çeken son dakika haberi kategorilerine kaydolabilir ve yalnızca bu kategoriler için anında iletme bildirimleri alırsınız. 
 
-Bir veya daha fazla dahil ederek yayın senaryolarına olanak sağlayabilirsiniz *etiketleri* bildirim hub ' bir kayıt oluşturduğunuzda. Bir etiket için bildirimler gönderildiğinde kayıtlı tüm aygıtları etiketi için bildirim alırsınız. Etiketleri yalnızca dizeleri olduğundan, bunlar önceden ayarlanmış olması gerekmez. Etiketler hakkında daha fazla bilgi için bkz: [bildirim hub'ları Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
+Yayın senaryoları, bildirim hub’ında bir kayıt oluştururken bir veya daha fazla *etiket* dahil edilerek etkinleştirilir. Bir etikete bildirimler gönderildiğinde, etikete kaydolan tüm cihazlar bildirimi alır. Etiketler hakkında daha fazla bilgi için bkz. [Kayıtlardaki Etiketler](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
-> Windows mağazası ve Windows Phone proje sürümlerini 8.1 ve önceki Visual Studio 2017 içinde desteklenmez. Daha fazla bilgi için bkz. [Visual Studio 2017 Platform Desteği ve Uyumluluk](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
+> Windows Mağazası ve Windows Phone 8.1 ve önceki proje sürümleri, Visual Studio 2017’de desteklenmez. Daha fazla bilgi için bkz. [Visual Studio 2017 Platform Desteği ve Uyumluluk](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
+
+Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+
+> [!div class="checklist"]
+> * Mobil uygulamaya kategori seçimi ekleme
+> * Bildirimlere kaydolma
+> * Etiketli bildirim gönderme
+> * Uygulamayı çalıştırma ve bildirimler oluşturma
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çalışmaya başlama][get-started]. Bu öğretici başlamadan önce tamamlamanız gereken [Notification Hubs ile çalışmaya başlama][get-started].
+Bu öğreticiye başlamadan önce [Öğretici: Azure Notification Hubs kullanarak Evrensel Windows Platformu uygulamalarına bildirimler gönderme][get-started] öğreticisini tamamlayın.  
 
-## <a name="add-category-selection-to-the-app"></a>Kategori seçimi için uygulama ekleme
-İlk adım kullanıcılar kaydetmek için kategoriler seçebilmeniz için varolan ana sayfanıza kullanıcı Arabirimi öğeleri eklemektir. Seçili kategorileri cihazda depolanır. Uygulama başlatıldığında bir aygıt kaydı bildirim hub'ınıza, seçilen kategori etiketleri olarak oluşturulur.
+## <a name="add-category-selection-to-the-app"></a>Uygulamaya kategori seçimi ekleme
+İlk adım, mevcut ana sayfanıza kullanıcının kaydolmak için kategorileri seçebileceği UI öğeleri eklemektir. Seçilen kategoriler cihazda depolanır. Uygulama başlatıldığında, etiketler olarak seçilen kategorilerle bildirim hub’ınızda bir cihaz kaydı oluşturulur.
 
-1. MainPage.xaml proje dosyasını açın ve ardından aşağıdaki kodu kopyalayın **kılavuz** öğe:
+1. MainPage.xaml proje dosyasını açın ve sonra aşağıdaki kodu **Kılavuz** öğesine kopyalayın:
    
         <Grid>
             <Grid.RowDefinitions>
@@ -63,166 +72,178 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click"/>
         </Grid>
 
-2. Sağ tıklatın **paylaşılan** adlı yeni bir sınıf ekleyin, proje **bildirimleri**, ekleme **ortak** değiştiricisi sınıf tanımına ve aşağıdakileri ekleyin **kullanarak** deyimleri için yeni kod dosyası:
-   
-        using Windows.Networking.PushNotifications;
-        using Microsoft.WindowsAzure.Messaging;
-        using Windows.Storage;
-        using System.Threading.Tasks;
+2. **Çözüm Gezgini**’nde projeye sağ tıklayın ve **Notifications** adlı yeni bir sınıf oluşturun. Sınıf tanımına **public** değiştiricisini ekleyin ve sonra aşağıdaki **using** deyimlerini yeni kod dosyasına ekleyin:
 
-3. Aşağıdaki kodu yeni kopyalayın **bildirimleri** sınıfı:
+    ```csharp   
+    using Windows.Networking.PushNotifications;
+    using Microsoft.WindowsAzure.Messaging;
+    using Windows.Storage;
+    using System.Threading.Tasks;
+    ```
+
+3. Yeni **Notifications** sınıfına aşağıdaki kodu kopyalayın:
    
-        private NotificationHub hub;
-   
-        public Notifications(string hubName, string listenConnectionString)
+    ```csharp
+    private NotificationHub hub;
+
+    public Notifications(string hubName, string listenConnectionString)
+    {
+        hub = new NotificationHub(hubName, listenConnectionString);
+    }
+
+    public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+    {
+        ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
+        return await SubscribeToCategories(categories);
+    }
+
+    public IEnumerable<string> RetrieveCategories()
+    {
+        var categories = (string) ApplicationData.Current.LocalSettings.Values["categories"];
+        return categories != null ? categories.Split(','): new string[0];
+    }
+
+    public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
+    {
+        var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+        if (categories == null)
         {
-            hub = new NotificationHub(hubName, listenConnectionString);
+            categories = RetrieveCategories();
         }
+
+        // Using a template registration to support notifications across platforms.
+        // Any template notifications that contain messageParam and a corresponding tag expression
+        // will be delivered for this registration.
+
+        const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
+
+        return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+                categories);
+    }
+    ```
    
-        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
-        {
-            ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            return await SubscribeToCategories(categories);
-        }
+    Bu sınıf, bu cihazın alması gereken haber kategorilerini depolamak için yerel depolamayı kullanır. *RegisterNativeAsync* yöntemini çağırmak yerine, bir şablon kaydı kullanarak kategorilere kaydolmak için *RegisterTemplateAsync* yöntemini çağırın. 
    
-        public IEnumerable<string> RetrieveCategories()
-        {
-            var categories = (string) ApplicationData.Current.LocalSettings.Values["categories"];
-            return categories != null ? categories.Split(','): new string[0];
-        }
-   
-        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
-        {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-   
-            if (categories == null)
-            {
-                categories = RetrieveCategories();
-            }
-   
-            // Using a template registration to support notifications across platforms.
-            // Any template notifications that contain messageParam and a corresponding tag expression
-            // will be delivered for this registration.
-   
-            const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
-   
-            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
-                    categories);
-        }
-   
-    Bu sınıf, bu cihazı almalıdır haber kategorilerini depolamak için yerel depolama kullanır. Çağırmak yerine *RegisterNativeAsync* yöntemi, çağrı *RegisterTemplateAsync* kategoriler için bir şablon kaydı kullanarak kaydetmek için. 
-   
-    Ayrıca (örneğin, biri bildirimleri) ve biri döşeme için birden fazla şablon kaydetmek istediğiniz çünkü bir şablon adı (örneğin, "simpleWNSTemplateExample") sağlar. Böylece güncelleştirebilir veya silebilirsiniz şablonları adı.
+    Birden fazla şablon (örneğin, bir tane bildirimler, bir tane de kutucuklar için) kaydetmek istiyorsanız bir şablon adı belirtin (örneğin, "simpleWNSTemplateExample"). Şablonları güncelleştirebilmeniz veya silebilmeniz için adlandırmanız gerekir.
    
     >[!NOTE]
-    >Bir aygıt ile aynı etiketi birden fazla şablon kaydederse, etiket hedefleyen gelen iletiyi aygıta (her şablon için bir tane) teslim edilecek birden fazla bildirim neden olur. Bu davranış, aynı mantıksal ileti birden çok görsel bildirimleri (örneğin, bir Windows mağazası uygulamasında bir gösterge ve bildirim gösteren) neden gerekir yararlıdır.
+    >Bir cihaz aynı etiketle birden fazla şablonu kaydederse, etiketi hedefleyen bir gelen ileti, cihaza birden fazla bildirimin (her şablon için bir tane) iletilmesine neden olur. Bu davranış, aynı mantıksal iletinin birden fazla görsel bildirimle sonuçlanması gereken durumlarda (örneğin, Windows Mağazası uygulamasında hem bir gösterge hem de bir bildirim gösterme) yararlıdır.
    
-    Daha fazla bilgi için bkz: [şablonları](notification-hubs-templates-cross-platform-push-messages.md).
+    Daha fazla bilgi için bkz. [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md).
 
-4. App.xaml.cs proje dosyasında aşağıdaki özellik eklemek **uygulama** sınıfı:
+4. App.xaml.cs proje dosyasında **App** sınıfına aşağıdaki özelliği ekleyin:
+
+    ```csharp   
+    public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    ```
    
-        public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    Bu özelliği kullanarak bir **Notifications** örneği oluşturup erişebilirsiniz.
    
-    Bu özellik oluşturmak ve erişmek için kullandığınız bir **bildirimleri** örneği.
-   
-    Kodla `<hub name>` ve `<connection string with listen access>` , bildirim hub'ı adı ve bağlantı dizesinde yer tutucularını *DefaultListenSharedAccessSignature*, daha önce alınan.
+    Kod içindeki `<hub name>` ve `<connection string with listen access>` yer tutucularını, daha önce edindiğiniz bildirim hub'ı adınız ve *DefaultListenSharedAccessSignature* bağlantı dizeniz ile değiştirin.
    
    > [!NOTE]
-   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığından, yalnızca için anahtar dağıtmak *dinleme* istemci uygulamanızı ile erişim. Dinleme erişimi olan bildirimleri için uygulamanızı kaydedebilirsiniz, ancak var olan kayıtlar değiştirilemez ve bildirim gönderilemiyor. Tam erişim tuşu bildirimleri gönderme ve var olan kayıtlar değiştirmek için güvenli bir arka uç hizmeti kullanılır.
+   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığından yalnızca istemci uygulamanızla *dinleme* erişimi için anahtarı dağıtın. Dinleme erişimi ile uygulamanızın bildirimlere kaydolmasını sağlar, ancak mevcut kayıtlar değiştirilemez ve bildirimler gönderilemez. Tam erişim anahtarı, güvenli bir arka uç hizmetinde bildirimler göndermek ve mevcut kayıtları değiştirmek için kullanılır.
    > 
    > 
-5. MainPage.xaml.cs proje dosyasında aşağıdaki satırı ekleyin:
+5. MainPage.xaml.cs proje dosyasına aşağıdaki satırı ekleyin:
    
-        using Windows.UI.Popups;
+    ```csharp
+    using Windows.UI.Popups;
+    ```
 
-6. MainPage.xaml.cs proje dosyasında aşağıdaki yöntemi ekleyin:
+6. MainPage.xaml.cs proje dosyasına aşağıdaki yöntemi ekleyin:
    
-        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var categories = new HashSet<string>();
-            if (WorldToggle.IsOn) categories.Add("World");
-            if (PoliticsToggle.IsOn) categories.Add("Politics");
-            if (BusinessToggle.IsOn) categories.Add("Business");
-            if (TechnologyToggle.IsOn) categories.Add("Technology");
-            if (ScienceToggle.IsOn) categories.Add("Science");
-            if (SportsToggle.IsOn) categories.Add("Sports");
-   
-            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-   
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-   
-    Bu yöntem kategorileri ve kullandığı bir liste oluşturur **bildirimleri** sınıf listesi yerel depolama alanına depolar. Ayrıca karşılık gelen etiketleri bildirim hub'ınıza kaydeder. Kategoriler değiştirildiğinde kaydı yeni kategoriler yeniden oluşturulur.
+    ```csharp
+    private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var categories = new HashSet<string>();
+        if (WorldToggle.IsOn) categories.Add("World");
+        if (PoliticsToggle.IsOn) categories.Add("Politics");
+        if (BusinessToggle.IsOn) categories.Add("Business");
+        if (TechnologyToggle.IsOn) categories.Add("Technology");
+        if (ScienceToggle.IsOn) categories.Add("Science");
+        if (SportsToggle.IsOn) categories.Add("Sports");
 
-Uygulamanızı şimdi kategorileri kümesi cihazın yerel depolama depolayabilirsiniz. Kullanıcı kategorisi seçimine değiştirdiğinizde uygulamanın bildirim hub'ı ile kaydeder.
+        var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-## <a name="register-for-notifications"></a>Bildirimler için kaydolun
-Bu bölümde, başlangıçta bildirim hub'ı ile yerel depolama depoladığınız kategorileri kullanarak kaydedin.
+        var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
+    ```
+
+    Bu yöntem, kategorilerin bir listesini oluşturur ve **Notifications** sınıfını kullanarak listeyi yerel depolama alanında depolar. Ayrıca ilgili etiketleri bildirim hub’ınıza kaydeder. Kategoriler değiştirildiğinde kayıt yeni kategorilerle yeniden oluşturulur.
+
+Uygulamanız artık cihazın yerel depolama alanında bir kategori kümesini depolayabilir. Uygulama, kullanıcılar kategori seçimini her değiştirdiğinde bildirim hub’ına kaydolur.
+
+## <a name="register-for-notifications"></a>Bildirimlere kaydolma
+Bu bölümde, yerel depolama alanında depoladığınız kategorileri kullanarak başlatma sırasında bildirim hub’ına kaydolursunuz.
 
 > [!NOTE]
-> Windows bildirim Hizmeti'ni (WNS) tarafından atanan URI kanal herhangi bir zamanda değiştiğinden bildirimlerinin sık bildirim hataları önlemek için kayıt olmalıdır. Bu örnek uygulama başladıktan her zaman bir bildirime kaydolur. Sık (birden fazla günde bir kez) çalışan uygulamalar için büyük olasılıkla bir günden az itibaren önceki kayıt aktarılırsa bant genişliğinden tasarruf etmek kayıt atlayabilirsiniz.
+> Windows Bildirim Hizmeti (WNS) tarafından atanan kanal URI’si her zaman değişebileceğinden, bildirim hatalarını önlemek için sık sık bildirimlere kaydolmanız gerekir. Bu örnek, uygulama her başlatıldığında bildirimlere kaydolur. Sık çalıştırdığınız uygulamalar için, önceki kayıttan bu yana bir günden az zaman geçtiyse bant genişliğini korumak için günde birkaç kere kaydı atlayabilirsiniz.
 > 
 > 
 
-1. Kullanılacak `notifications` abone olmak için sınıf alarak kategorilere göre App.xaml.cs dosyasını açın ve ardından güncelleştirme **Initnotificationsasync** yöntemi.
+1. `notifications` sınıfını kullanarak kategorilere göre abone olmak için App.xaml.cs dosyasını açın ve sonra **InitNotificationsAsync** yöntemini güncelleştirin.
    
-        // *** Remove or comment out these lines *** 
-        //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        //var hub = new NotificationHub("your hub name", "your listen connection string");
-        //var result = await hub.RegisterNativeAsync(channel.Uri);
-   
-        var result = await notifications.SubscribeToCategories();
-   
-    Bu işlem, uygulama başlatıldığında kategorileri yerel depodan alır ve bu kategorilerin kayıt isteklerini sağlar. Oluşturduğunuz **Initnotificationsasync** yöntemi bir parçası olarak [Notification Hubs ile çalışmaya başlama] [ get-started] Öğreticisi.
+    ```csharp
+    // *** Remove or comment out these lines *** 
+    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    //var hub = new NotificationHub("your hub name", "your listen connection string");
+    //var result = await hub.RegisterNativeAsync(channel.Uri);
 
-2. MainPage.xaml.cs proje dosyasına aşağıdaki kodu ekleyin *OnNavigatedTo* yöntemi:
+    var result = await notifications.SubscribeToCategories();
+   ```
+    Bu işlem, uygulama her başlatıldığında uygulamanın yerel depolama alanından kategorileri almasını ve bu kategorilere kayıt isteğinde bulunmasını sağlar. [Notification Hubs kullanmaya başlama][get-started] öğreticisinin bir parçası olarak **InitNotificationsAsync** yöntemini oluşturdunuz.
+2. MainPage.xaml.cs proje dosyasına, *OnNavigatedTo* yöntemine aşağıdaki kodu ekleyin:
    
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var categories = ((App)Application.Current).notifications.RetrieveCategories();
-   
-            if (categories.Contains("World")) WorldToggle.IsOn = true;
-            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
-        }
-   
-    Bu kod, ana sayfanın üzerinde önceden kaydedilmiş kategorileri durumunu güncelleştirir.
+    ```csharp
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-Uygulama tamamlanmıştır. Bu kullanıcı kategorisi seçimine değiştiğinde bildirim hub'ınızla kaydolmak için kullanılan aygıt yerel depolama alanında kategorileri kümesi saklayabilirsiniz. Sonraki bölümde, bu uygulama için kategori bildirimleri gönderebilir bir arka uç tanımlayın.
+        if (categories.Contains("World")) WorldToggle.IsOn = true;
+        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+    }
+    ```
 
-## <a name="send-tagged-notifications"></a>Etiketli bildirimleri gönderme
+    Bu kod, önceden kaydedilmiş kategorilerin durumuna göre ana sayfayı güncelleştirir.
+
+Uygulamanız artık tamamlandı. Uygulama, kullanıcılar kategori seçimini değiştirdiğinde cihazın yerel depolama alanında bildirim hub’ını kaydetmek için kullanılan bir kategori kümesi depolayabilir. Sonraki bölümde, bu uygulamaya kategori bildirimleri gönderebilen bir arka uç tanımlayacaksınız.
+
+## <a name="send-tagged-notifications"></a>Etiketli bildirimler gönderme
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Uygulamayı çalıştırın ve bildirimler oluşturma
-1. Visual Studio'da seçin **F5** derlemek ve uygulamayı başlatmak için.  
-    Kullanıcı arabirimini uygulaması abone olmak için kategoriler seçmenize olanak sağlayan bir dizi değiştirir sağlar. 
+## <a name="run-the-app-and-generate-notifications"></a>Uygulamayı çalıştırma ve bildirimler oluşturma
+1. Visual Studio’da **F5** tuşunu seçerek uygulamayı derleyin ve başlatın. Uygulama kullanıcı arabirimi, abone olunacak kategorileri seçmenize olanak sağlayan iki durumlu düğmeler sağlar. 
    
-    ![Yeni haber uygulama][1]
+    ![Son Dakika Haberleri uygulaması][1]
 
-2. Bir veya daha fazla kategoriye değiştirir etkinleştirin ve ardından **abone ol**.
+2. Bir veya daha fazla kategori iki durumlu düğmesini etkinleştirin ve sonra **Abone ol**’a tıklayın.
    
-    Uygulama seçili kategorileri etiketlerine dönüştürür ve bildirim hub'ından seçili etiketleri için yeni bir cihaz kaydı ister. Kayıtlı kategorileri döndürülen ve bir iletişim kutusu görüntülenir.
+    Uygulama, seçilen kategorileri etiketlere dönüştürür ve bildirim hub’ından seçilen etiketler için yeni bir cihaz kaydı ister. Kayıtlı kategoriler döndürülür ve bir iletişim kutusunda görüntülenir.
    
-    ![Kategori değiştirir ve abone ol düğmesi][19]
+    ![Kategori iki durumlu düğmeleri ve Abone ol düğmesi][19]
 
-3. Yeni bir bildirim arka uçtan aşağıdaki yollardan biriyle gönder:
+3. Aşağıdaki yöntemlerden birini kullanarak arka uçtan yeni bir bildirim gönderin:
 
-   * **Konsol uygulaması**: konsol uygulaması başlatın.
-   * **Java/PHP**: uygulamanızı veya komut dosyasını çalıştırın.
+   * **Konsol uygulaması**: Konsol uygulamasını başlatın.
+   * **Java/PHP**: Uygulamanızı veya betiğinizi çalıştırın.
      
-     Seçili kategorileri için bildirimleri bildirimleri görünür.
+     Seçili kategorilere ait bildirimler, bildirim olarak görünür.
      
-     ![Bildirimleri][14]
+     ![Bildirimler][14]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, son dakika haberleri kategoriye göre yayın öğrendiniz. Başka bir Gelişmiş bildirim hub'ları senaryo vurgular aşağıdaki öğreticiyi tamamlamak göz önünde bulundurun:
+Bu makalede, son dakika haberlerini kategoriye göre yayınlamayı öğrendiniz. Arka uç uygulaması, bir etikete ait bildirimleri almak için kaydolmuş cihazlara o etiketi taşıyan bildirimleri gönderir. Hangi cihazı kullandıklarından bağımsız olarak belirli kullanıcılara anında iletme bildirimleri gönderme hakkında bilgi almak için sonraki öğreticiye ilerleyin:
 
-* [Yerelleştirilmiş son dakika haberleri yayınlamak için Notification Hubs'ı kullanma] Bu öğretici yerelleştirilmiş bildirimleri gönderme etkinleştirmek için en son haberleri uygulama nasıl ayıklanacağı açıklanır.
+> [!div class="nextstepaction"]
+> [Yerelleştirilmiş anında iletme bildirimleri gönderme](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -241,7 +262,7 @@ Bu makalede, son dakika haberleri kategoriye göre yayın öğrendiniz. Başka b
 
 <!-- URLs.-->
 [get-started]: /azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
-[Yerelleştirilmiş son dakika haberleri yayınlamak için Notification Hubs'ı kullanma]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

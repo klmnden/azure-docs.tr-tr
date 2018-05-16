@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25dcbad8607a651a7dd4b79f4f418cc473a2bf0e
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Azure'da OMS Portalı'ndan (kopya) uyarıları genişletme
 Operations Management Suite (OMS) portal yalnızca günlük analizi uyarıları gösterir.  Yeni uyarılar deneyimi çeşitli Hizmetleri ve Microsoft Azure bölümleri arasında uyarı deneyimi şimdi tümleşiktir. Kullanılabilir olarak yeni deneyime **uyarıları** altında Azure İzleyicisi Azure portal etkinlik günlüğü uyarıları, ölçüm uyarıları ve günlük uyarıları günlük analizi ve Application Insights için içerir. 
@@ -36,7 +36,10 @@ Azure portal dışında gidin zorunluluğunu tahakkuk avantajı dışında diğe
 ## <a name="process-of-extending-your-alerts"></a>Uyarılarınızı genişletme işlemi
 Uyarıları OMS Portalı'ndan Azure genişletme işlemi mu **değil** uyarı tanımı, sorgu veya herhangi bir şekilde yapılandırma değiştirilmektedir. Gerekli yalnızca Azure, e-posta bildirimi gibi tüm eylemler Otomasyon runbook'u çalıştıran veya ITSM Aracı'na bağlanma Web kancası çağrı yapılır, eylem grubu değişikliktir. Uyarınız ile - uygun eylemi Grup ilişkiliyse bu nedenle bunlar Azure'da genişletilmiş hale.
 
-Genişletme işlemi dönüşlü ve değil interruptive olduğundan, Microsoft Azure uyarılar OMS portalında otomatik olarak oluşturulan - başlayarak uyarıları uzatır **14 Mayıs 2018**. Bu tarihten itibaren Microsoft Azure'da uyarıları genişletme zamanlamak ve tüm uyarıları OMS portalında, Azure portaldan yönetilebilir mevcut kademeli olarak yapmak başlar. 
+Genişletme işlemi dönüşlü ve değil interruptive olduğundan, Microsoft Azure uyarılar OMS portalında otomatik olarak oluşturulan - başlayarak uyarıları uzatır **14 Mayıs 2018**. Bu tarihten itibaren Microsoft Azure'da uyarıları genişletme zamanlamak ve tüm uyarıları OMS portalında, Azure Portalı'ndan da yönetilebilir mevcut kademeli olarak yapmak başlar. 
+
+> [!NOTE]
+> 14 Mayıs 2018 - başlangıç Microsoft Azure için uyarıları otomatik olarak genişletme işlemi başlayacak. Tüm çalışma alanları ve Uyarıları bu günde uzatılır; Bunun yerine Microsoft tranches otomatik olarak uyarıları gelecek haftalarda genişletmek başlar. Bu nedenle uyarılarınızı OMS portalında otomatik-Azure'da hemen 14 Mayıs 2018 üzerinde uzatır değil ve kullanıcının hala [el ile uyarılarını genişletmek](monitoring-alerts-extend-tool.md) bu süre boyunca.
 
 Azure'da genişletmek için günlük analizi çalışma alanındaki uyarılar zamanlandığında, bunlar çalışma ve devam edecek **değil** izlemenizi herhangi bir şekilde tehlikeye. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi/düzenleme için kullanılamıyor olabilir; Ancak bu kısa süre içinde oluşturulacak yeni Azure uyarılar devam edebilirsiniz. Herhangi bir düzenleme veya uyarının oluşturulmasını OMS Portalı'ndan yapıldığında bu kısa süre içinde kullanıcıların Azure Log Analytics veya Azure uyarıları devam seçeneğiniz vardır.
 
@@ -61,7 +64,7 @@ Düzenleme veya OMS portalında bitti oluşturma gibi uyarılar hakkında herhan
 > [!NOTE]
 > Kullanıcılar, Azure üzerinde herhangi bir ek saydam gerçekleştirilecek veya OMS - bir uyarıda eylem Düzenle olarak kullanıcılar düzgün uygun eşlendi emin [Azure İzleyici ve uyarı kullanmak için izinler](monitoring-roles-permissions-security.md)
 
-Oluşturma varolandan devam edecek uyarı [günlük analizi API](../log-analytics/log-analytics-api-alerts.md) olarak önceki, yalnızca küçük bir değişiklik olmasına, uyarıları Azure'da - genişletilmiş sonra Eylem grupları zamanlamada ilişkilendirilmesi gerekir.
+Oluşturma varolandan devam edecek uyarı [günlük analizi API](../log-analytics/log-analytics-api-alerts.md) ve [günlük analizi kaynak şablonu](../monitoring/monitoring-solutions-resources-searches-alerts.md) uyarıları Azure - Eylem grupları genişletilmiş sonra edilen yalnızca küçük değişiklikle olarak önceki zamanlama ilişkilendirilmesi gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

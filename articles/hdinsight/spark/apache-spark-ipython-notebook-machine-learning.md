@@ -1,50 +1,55 @@
 ---
-title: Azure hdınsight'ta Apache Spark machine learning uygulamaları derleme | Microsoft Docs
-description: Apache Spark machine learning uygulama oluşturmak adım adım yönergeler Jupyter Not Defteri kullanarak Spark Hdınsight kümeleri
+title: 'Öğretici: HDInsight’ta Spark makine öğrenimi uygulaması derleme | Microsoft Docs'
+description: Jupyter not defteri kullanarak HDInsight Spark kümelerinde Apache Spark makine öğrenimi uygulaması derlemeye ilişkin adım adım yönergeler.
 services: hdinsight
 documentationcenter: ''
 author: mumian
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/23/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 95daab2bd7bc57d01bc9e3c05404958edd71eecc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 70876196eb6b37065a663afa56ed496a0e9755db
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Azure hdınsight'ta Apache Spark machine learning uygulamaları derleme
+# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Öğretici: HDInsight’ta Spark makine öğrenimi uygulaması derleme 
 
-Hdınsight'ta Spark kümesi kullanarak uygulama öğrenme bir Apache Spark makine oluşturmayı öğrenin. Bu makalede kullanılabilir Jupyter not defteri ile küme oluşturmak ve bu uygulamayı test için nasıl kullanılacağı gösterilmektedir. Uygulama, varsayılan olarak tüm kümelerde kullanılabilir örnek HVAC.csv verileri kullanır.
+Bu öğreticide, Jupyter not defterini kullanarak Azure HDInsight için bir Apache Spark makine öğrenimi uygulaması derleme hakkında bilgi edineceksiniz. 
 
-[Mllib'i](https://spark.apache.org/docs/1.1.0/mllib-guide.html) olduğu ortak algoritmaları ve yardımcı programlar öğrenme, Sınıflandırma, regresyon, kümeleme, işbirliği filtreleme, boyut azaltma dahil olmak üzere, hem de arka plandaki oluşan Spark'ın ölçeklenebilir makine öğrenme kitaplığı en iyi duruma getirme temelleri.
+[MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html); sınıflandırma, regresyon, kümeleme, ortak filtreleme, boyut düzeyi azaltma gibi genel öğrenme algoritmaları ve yardımcı programlarının yanı sıra temel alınan iyileştirme temellerinden oluşan, Spark’ın makine öğrenimi kitaplığıdır.
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Spark makine öğrenimi uygulaması geliştirme
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Ön koşullar:
 
-Aşağıdaki öğe olması gerekir:
+Aşağıdakiler gerekir:
 
-* Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md). 
+* [Azure HDInsight’ta Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md) bölümünü tamamlamak.
 
-## <a name="data"></a>Veri kümesi anlama
+## <a name="understand-the-data-set"></a>Veri kümesini anlamak
 
-Aşağıdaki veriler, hedef sıcaklık ve gerçek HVAC sistemleri yüklü olan bazı bina sıcaklığını gösterir. **Sistem** sütun sistem Kimliğini temsil eder ve **SystemAge** sütun HVAC sistem yapı yerinde açıldı yıl sayısını temsil eder. Bir yapı sistem Kimliğini ve sistem yaş verilen hedef sıcaklık hotter veya colder tabanlı olup olmayacağını tahmin etmek için Bu öğreticide verileri kullanın.
+Uygulama, varsayılan olarak tüm kümelerde bulunan örnek HVAC.csv verilerini kullanır. Dosya şu konumdadır: **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Veriler, HVAC sistemlerinin yüklü olduğu bazı binaların hedef sıcaklığı ile gerçek sıcaklığını gösterir. **System** sütunu sistem kimliğini, **SystemAge** sütunu ise HVAC sisteminin binada kaç yıldır kullanıldığını ifade eder. Verileri kullanarak, bir sistem kimliği ve sistem yaşı için binanın hedef sıcaklığa göre daha sıcak ya da daha soğuk olacağını öngörebilirsiniz.
 
-![Spark machine learning örnek için kullanılan verilerin anlık görüntüsünü](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark machine learning örnek için kullanılan verilerin anlık görüntüsünü")
+![Spark makine öğrenimi örneği için kullanılan verilerin anlık görüntüsü](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark makine öğrenimi örneği için kullanılan verilerin anlık görüntüsü")
 
-Veri dosyası **HVAC.csv**, konumda bulunan **\HdiSamples\HdiSamples\SensorSampleData\hvac** tüm Hdınsight kümeleri üzerinde.
+## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Spark MLlib kullanarak Spark makine öğrenimi uygulaması geliştirme
 
-## <a name="app"></a>Spark Mllib'i kullanarak Spark machine learning uygulaması yazma
-Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) belge sınıflandırması yapmak için. ML komut zincirleri oluşturun ve ardışık düzen öğrenme pratik makine ayarlamak kullanıcıların Yardım DataFrames üstünde yerleşik yüksek düzey API'leri Tekdüzen kümesi sağlar. Ardışık düzeninde sözcüklere belgeyi bölme, bir sayısal özellik vektör sözcükleri dönüştürme ve son olarak özellik vektörlerinin ve etiketleri kullanarak bir tahmin modeli yapı. Uygulama oluşturmak için aşağıdaki adımları gerçekleştirin.
+Bu uygulamada bir belge sınıflandırması gerçekleştirmek için Spark [ML işlem hattı](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) kullanırsınız. ML İşlem Hatları, kullanıcıların pratik makine öğrenimi işlem hatları oluşturmasına ve ayarlamasına yardımcı olan DataFrames temel alınarak geliştirilmiş bir dizi tekdüzen yüksek düzey API kümesi sağlar. İşlem hattında, belgeyi sözcüklere böler, sözcükleri sayısal bir özellik vektörüne dönüştürür ve son olarak özellik vektörleri ile etiketleri kullanarak bir tahmin modeli oluşturursunuz. Uygulamayı oluşturmak için aşağıdaki adımları gerçekleştirin.
 
-1. PySpark çekirdeği kullanarak bir Jupyter not defteri oluşturun. Yönergeler için bkz: [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
-2. Bu senaryo için gereken türleri içeri aktarın. Boş bir hücreye aşağıdaki kod parçacığını yapıştırın ve sonra basın **SHIFT + ENTER**. 
+1. PySpark çekirdeği kullanarak bir Jupyter not defteri oluşturun. Yönergeler için bkz. [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+2. Bu senaryo için gereken türleri içeri aktarın. Aşağıdaki kod parçacığını boş bir hücreye yapıştırın ve sonra **SHIFT + ENTER** tuşlarına basın. 
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -60,7 +65,7 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
-3. (Hvac.csv) veri yükleme, bunu ayrıştırabilir ve modeli eğitmek için kullanın. 
+3. Verileri yükleyin (hvac.csv), ayrıştırın ve modeli eğitmek için kullanın. 
 
     ```PySpark
     # Define a type called LabelDocument
@@ -85,9 +90,9 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
     training = documents.toDF()
     ```
 
-    Kod parçacığında, gerçek sıcaklık hedef sıcaklık ile karşılaştıran bir işlev tanımlayın. Gerçek sıcaklık büyükse, yapı değeri tarafından belirtilen hareketli, **1.0**. Aksi takdirde yapı değeri tarafından belirtilen soğuk, **0,0**. 
+    Kod parçacığında gerçek sıcaklığı hedef sıcaklıkla karşılaştıran bir işlev tanımlarsınız. Gerçek sıcaklık büyükse, **1.0** değeriyle gösterildiği gibi bina sıcaktır. Aksi takdirde, **0,0** değeriyle gösterildiği gibi bina soğuktur. 
 
-4. Üç aşamadan oluşur Spark machine learning ardışık düzenini yapılandırın: belirteç Oluşturucu, hashingTF ve lr. 
+4. Üç aşamadan oluşan Spark makine öğrenimi işlem hattını yapılandırın: tokenizer, hashingTF ve lr. 
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -96,21 +101,21 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    İşlem hattı nedir ve bakın nasıl çalıştığı hakkında daha fazla bilgi için <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning ardışık</a>.
+    İşlem hattı ve nasıl çalıştığı hakkında daha fazla bilgi için bkz. <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark makine öğrenimi işlem hattı</a>.
 
-5. Ardışık Düzen eğitim belgeye uygun.
+5. İşlem hattını eğitim belgesine uygun hale getirin.
    
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. Denetim noktası eğitim belgeye uygulamayla ilerleme durumunuzu doğrulayın.
+6. Uygulama ile gerçekleştirdiğiniz ilerlemeyi kontrol etmek için eğitim belgesini doğrulayın.
    
     ```PySpark
     training.show()
     ```
    
-    Bu, aşağıdakine benzer bir çıktı vermeniz gerekir:
+    Çıktı şuna benzer olacaktır:
 
     ```
     +----------+----------+-----+
@@ -139,13 +144,13 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
     +----------+----------+-----+
     ```
 
-    Ham CSV dosyası karşı çıktı karşılaştırma. Örneğin, CSV dosyasının ilk satırı bu verileri vardır:
+    Çıktıyı ham CSV dosyasıyla karşılaştırın. Örneğin, CSV dosyasının bu verileri içeren ilk satırı:
 
-    ![Çıkış Spark machine learning örnek için anlık görüntü verileri](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark machine learning örnek için çıktı veri anlık görüntüsü")
+    ![Spark makine öğrenimi örneği için çıktı verileri anlık görüntüsü](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark makine öğrenimi örneği için çıktı verileri anlık görüntüsü")
 
-    Nasıl gerçek sıcaklık yapı soğuk öneren hedef sıcaklık değerinden olduğuna dikkat edin. Bu nedenle çıktı, eğitim değeri **etiket** ilk sırada **0,0**, yapı başka bir deyişle, etkin değil.
+    Binanın soğuk olduğunu göstermek üzere gerçek sıcaklığın hedef sıcaklıktan az olduğuna dikkat edin. Bu nedenle, eğitim çıktısındaki ilk satırda **label** değeri **0.0**’dır ve binanın sıcak olmadığı anlamına gelir.
 
-7. Bir veri kümesi ve eğitilen modele karşı çalıştırmak için hazırlayın. Bunu yapmak için bir sistem Kimliğini ve sistem yaş geçirdiğiniz (olarak gösterilen **SystemInfo** eğitim çıkışı), ve bu sistem kimliği ve sistem yaş yapı hotter olup olmayacağını modeli tahmin (1.0 tarafından gösterilen) veya daha soğuk (0.0 tarafından gösterilen).
+7. Eğitilen modeli çalıştırmak için bir veri kümesi hazırlayın. Bunu yapmak için, bir sistem kimliği ve sistem yaşı (eğitim çıktısında **SystemInfo** olarak belirtilir) geçirin. Model, bu sistem kimliği ve sistem yaşına sahip binanın daha sıcak (1.0 ile belirtilir) veya daha soğuk (0.0 ile belirtilir) olacağını tahmin eder.
    
     ```PySpark   
     # SystemInfo here is a combination of system ID followed by system age
@@ -158,7 +163,7 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
                     (6L, "7 22")]) \
         .map(lambda x: Document(*x)).toDF() 
     ```
-8. Son olarak, test verileri üzerindeki tahminlerde. 
+8. Son olarak, test verileri üzerinde tahminlerde bulunun. 
    
     ```PySpark
     # Make predictions on test documents and print columns of interest
@@ -168,7 +173,7 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
         print row
     ```
 
-    Aşağıdakine benzer bir çıktı görmeniz gerekir:
+    Çıktı şuna benzer olacaktır:
 
     ```   
     Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
@@ -179,44 +184,20 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Tahmin ilk satırdan kimliği 20 ve 25 yıllık sistem geçerlilik süresi ile bir HVAC sistemi için yapı etkin olduğunu görebilirsiniz (**tahmin = 1.0**). DenseVector (0.49999) ilk değeri 0,0 tahmin karşılık gelir ve ikinci değer (0.5001) 1.0 tahmin karşılık gelir. Çıktıda ikinci değer yalnızca fazladır daha yüksek olmasına rağmen modelini gösteren **tahmin = 1.0**.
-10. Kaynakları serbest bırakmak için Not Defteri kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Kapatılır ve not defteri kapatın.
+   Tahminin ilk satırından Kimliği 20 ve sistem yaşı 25 yıl olan bir HVAC sistemi için binanın sıcak olduğunu (**tahmin=1.0**) görebilirsiniz. Birinci DenseVector değeri (0.49999) 0.0 tahminine, ikinci değer (0.5001) ise 1.0 tahminine karşılık gelir. Çıktıda ikinci değer yalnızca çok az yüksek olsa bile model **tahmin = 1.0** değerini gösterir.
+10. Kaynakları serbest bırakmak için not defterini kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’u seçin. Bu eylem, not defterini kapatır.
 
-## <a name="anaconda"></a>Anaconda scikit kullanın-Spark machine learning için kitaplık öğrenin
-Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da içerir **scikit-öğrenin** machine learning için kitaplık. Kitaplık Ayrıca örnek uygulamalardan doğrudan Jupyter not defteri oluşturmak için kullanabileceğiniz çeşitli veri kümelerini içerir. Scikit kullanma ile ilgili örnekler-kitaplık bilgi [ http://scikit-learn.org/stable/auto_examples/index.html ](http://scikit-learn.org/stable/auto_examples/index.html).
+## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Spark makine öğrenimi için Anaconda scikit-learn kitaplığını kullanma
+HDInsight’ta Apache Spark kümeleri, Anaconda kitaplıklarını içerir. Ayrıca, makine öğrenimi **scikit-learn** kitaplığını içerir. Kitaplık aynı zamanda, aynı uygulamaları bir Jupyter not defterinden doğrudan derlemek için kullanabileceğiniz çeşitli veri kümeleri içerir. scikit-learn kitaplığını kullanma örnekleri için bkz. [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
-### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
-* [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* Spark makine öğrenimi uygulaması geliştirme
 
-### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)
+Spark işleri için IntelliJ IDEA kullanma hakkında bilgi edinmek üzere sonraki öğreticiye ilerleyin. 
 
-### <a name="manage-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
-* [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](apache-spark-job-debugging.md)
+> [!div class="nextstepaction"]
+> [IntelliJ kullanarak Scala Maven uygulaması oluşturma](./apache-spark-create-standalone-application.md)
 
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-weblogs-sample]:../hadoop/apache-hive-analyze-website-log.md
-[hdinsight-sensor-data-sample]:../hadoop/apache-hive-analyze-sensor-data.md
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md

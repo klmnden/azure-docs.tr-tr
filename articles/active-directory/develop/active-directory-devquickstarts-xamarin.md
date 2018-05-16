@@ -1,25 +1,27 @@
 ---
-title: "Azure AD Xamarin Başlarken | Microsoft Docs"
-description: "Oturum açma için Azure AD ile tümleştirilebilen ve OAuth kullanan Azure AD korumalı API'leri çağırmak Xamarin uygulamaları oluşturun."
+title: Azure AD Xamarin Başlarken | Microsoft Docs
+description: Oturum açma için Azure AD ile tümleştirilebilen ve OAuth kullanan Azure AD korumalı API'leri çağırmak Xamarin uygulamaları oluşturun.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -54,11 +56,10 @@ Belirteçleri almak uygulamayı etkinleştirmek için önce Azure AD kiracınız
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Yeni **yerel istemci uygulaması**, istemleri izleyin.
   * **Ad** kullanıcılara uygulamasının açıklar.
-  * **Yeniden yönlendirme URI'si** belirteci yanıtları döndürmek için Azure AD kullanır ve dize şeması bir birleşimidir. Bir değer (örneğin, http://DirectorySearcher) girin.
+  * **Yeniden yönlendirme URI'si** belirteci yanıtları döndürmek için Azure AD kullanır ve dize şeması bir birleşimidir. Bir değer girin (örneğin, http://DirectorySearcher).
 6. Kayıt tamamladıktan sonra Azure AD uygulama benzersiz uygulama kimliği atar. Değerinden kopyalama **uygulama** sekmesinde, çünkü daha sonra ihtiyacınız olacak.
 7. Üzerinde **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**.
-8. Seçin **Microsoft Graph** API olarak. Altında **izinlere temsilci**, ekleme **dizin verilerini okuma** izni.  
-Bu eylem, kullanıcılar için grafik API'si sorgulamak uygulama sağlar.
+8. Seçin **Microsoft Graph** API olarak. Altında **izinlere temsilci**, ekleme **dizin verilerini okuma** izni. Bu eylem, kullanıcılar için grafik API'si sorgulamak uygulama sağlar.
 
 ## <a name="step-3-install-and-configure-adal"></a>3. adım: Yükleme ve ADAL yapılandırma
 Azure AD'de bir uygulamaya sahip olduğunuza göre ADAL yükleyin ve kimlikle ilgili kodunuzu yazın. Azure AD ile iletişim kurmak ADAL etkinleştirmek için uygulama kaydı hakkında bazı bilgileri verin.
@@ -91,7 +92,7 @@ Azure AD'de bir uygulamaya sahip olduğunuza göre ADAL yükleyin ve kimlikle il
 
   * *Kiracı* Azure AD kiracınız (örneğin, contoso.onmicrosoft.com) etki alanıdır.
   * *ClientID* portalından kopyalandığından uygulama istemci Kimliğini gösterir.
-  * *ReturnUri* yeniden yönlendirme (örneğin, http://DirectorySearcher) portalda girdiğiniz URI'si değil.
+  * *ReturnUri* yeniden yönlendirme portalda girdiğiniz URI'si olduğundan (örneğin, http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. adım: Kullanım Azure AD'den belirteçleri almak için ADAL
 Neredeyse tüm uygulamanın kimlik doğrulaması mantığı arasındadır `DirectorySearcher.SearchByAlias(...)`. Platforma özgü projelerinde gerekli olan tek şey bağlamsal bir parametreye geçirmek üzere `DirectorySearcher` PCL.
@@ -103,8 +104,7 @@ Neredeyse tüm uygulamanın kimlik doğrulaması mantığı arasındadır `Direc
     {
     ```
 
-2. Initialize `AuthenticationContext`, ADAL birincil sınıfının olduğu.  
-Bu eylem ADAL geçirir gereken Azure AD ile iletişim kurmak için koordinatları.
+2. Initialize `AuthenticationContext`, ADAL birincil sınıfının olduğu. Bu eylem ADAL geçirir gereken Azure AD ile iletişim kurmak için koordinatları.
 3. Çağrı `AcquireTokenAsync(...)`, hangi kabul `IPlatformParameters` nesne ve uygulama için bir belirteç döndürmek gerekli olan kimlik doğrulama akışı çağırır.
 
     ```csharp

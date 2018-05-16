@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -241,11 +241,11 @@ Yaklaşık tam süresi: 20 dakika
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Bir Microsoft Azure AD basic veya premium aboneliği ve bir genel yönetici olan bir Azure AD dizini | [Azure Active Directory sürümleri](active-directory-editions.md) |
+| Bir Microsoft Azure AD basic veya premium aboneliği ve bir genel yönetici olan bir Azure AD dizini | [Azure Active Directory sürümleri](active-directory-whatis.md) |
 | Uzaktan erişim için yapılandırmak istediğiniz şirket içi bir web uygulaması barındırılan |  |
-| Uygulama Ara sunucusu Bağlayıcısı'nı yükleyebilmek için Windows Server 2012 R2 veya Windows 8.1 veya sonraki bir sürümü çalıştıran bir sunucu | [Azure AD uygulama proxy'si bağlayıcılar anlama](application-proxy-understand-connectors.md) |
+| Uygulama Ara sunucusu Bağlayıcısı'nı yükleyebilmek için Windows Server 2012 R2 veya Windows 8.1 veya sonraki bir sürümü çalıştıran bir sunucu | [Azure AD uygulama proxy'si bağlayıcılar anlama](manage-apps/application-proxy-connectors.md) |
 | Yolda bir güvenlik duvarı varsa, bağlayıcı uygulama ara sunucusuna HTTPS (TCP) istekleri yapabilen, açık olduğundan emin olun | [Azure portalında uygulama ara sunucusunu etkinleştirme: uygulama ara sunucusu önkoşulları](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
-| Kuruluşunuzun internet'e bağlanmak için proxy sunucuları kullanıyorsa, Al blog göz sonrası çalışma bunların nasıl yapılandırılacağı hakkında ayrıntılı bilgi için mevcut şirket içi proxy sunucuları ile | [Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-working-with-proxy-servers.md) |
+| Kuruluşunuzun internet'e bağlanmak için proxy sunucuları kullanıyorsa, Al blog göz sonrası çalışma bunların nasıl yapılandırılacağı hakkında ayrıntılı bilgi için mevcut şirket içi proxy sunucuları ile | [Mevcut şirket içi proxy sunucuları ile çalışma](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Adımlar
@@ -255,13 +255,13 @@ Yaklaşık tam süresi: 20 dakika
 | Bir bağlayıcı sunucuya yükleyin | [Azure portalında uygulama ara sunucusunu etkinleştirme: yükleme ve kaydetme bağlayıcı](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
 | Azure AD uygulama proxy'si uygulama olarak, şirket içi uygulama yayımlama | [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md) |
 | Test kullanıcıları atayın | [Azure AD uygulama proxy'si ile uygulama yayımlama: bir test kullanıcısı Ekle](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
-| İsteğe bağlı olarak, çoklu oturum açma deneyimini kullanıcılarınız için yapılandırın | [Çoklu oturum açma ile Azure AD uygulama proxy'si sağlayın](application-proxy-sso-azure-portal.md) |
+| İsteğe bağlı olarak, çoklu oturum açma deneyimini kullanıcılarınız için yapılandırın | [Çoklu oturum açma ile Azure AD uygulama proxy'si sağlayın](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | MyApps portal atanan kullanıcı olarak oturum açarak uygulamayı test etme | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-1. Bağlayıcıyı şirket ağınızda koyma öneririz, ancak alırken durumlarda bulutta yerleştirme daha iyi performans görürsünüz. Daha fazla bilgi edinin: [Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar](application-proxy-network-topology-considerations.md)
-2. Daha fazla güvenlik ayrıntıları ve nasıl bu özellikle güvenli uzaktan erişim sağlar için yalnızca giden bağlantılar koruma tarafından çözüm bakın: [Azure AD uygulama proxy'si kullanarak uygulamalar uzaktan erişim için güvenlik konuları](application-proxy-security-considerations.md)
+1. Bağlayıcıyı şirket ağınızda koyma öneririz, ancak alırken durumlarda bulutta yerleştirme daha iyi performans görürsünüz. Daha fazla bilgi edinin: [Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar](manage-apps/application-proxy-network-topology.md)
+2. Daha fazla güvenlik ayrıntıları ve nasıl bu özellikle güvenli uzaktan erişim sağlar için yalnızca giden bağlantılar koruma tarafından çözüm bakın: [Azure AD uygulama proxy'si kullanarak uygulamalar uzaktan erişim için güvenlik konuları](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>Genel LDAP Bağlayıcısı yapılandırması
 

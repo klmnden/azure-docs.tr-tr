@@ -3,23 +3,25 @@ title: Azure AD için kimlik doğrulama senaryoları | Microsoft Docs
 description: Azure Active Directory (Azure AD) beş en yaygın kimlik doğrulama senaryoları genel bir bakış sağlar
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f85898d566ea5c6791350df809e960f7e951012d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD için kimlik doğrulama senaryoları
 
@@ -49,7 +51,7 @@ Yukarıdaki diyagramda ile unutmayın, işte çeşitli bileşenleri hakkında bi
 * Azure AD kimlik, kullanıcı ve kuruluşun dizininde mevcut uygulamaların kimliğini doğrulamak ve sonuçta bu kullanıcıların ve uygulamaların başarılı bir kimlik doğrulaması sırasında güvenlik belirteçleri verme sorumlu sağlayıcıdır.
 * Azure ad kimlik doğrulama dış istediği bir uygulama kaydeder ve uygulama dizinindeki benzersiz olarak tanımlayan Azure AD'de kayıtlı olması gerekir.
 * Geliştiriciler, kimlik doğrulama protokolü ayrıntıları işleyerek kolaylaştırmak için açık kaynaklı Azure AD kimlik doğrulama kitaplıkları kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure Active Directory kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
-* Uygulama, bir kullanıcının kimliği doğrulandıktan sonra bu kimlik doğrulaması başarılı olmak için kullanıcının güvenlik belirteci doğrulamanız gerekir.  Uygulama Dilleri ve çerçeveleri üzerinde çeşitli yapmalısınız örnek sahibiz [GitHub](https://github.com/Azure-Samples?q=active-directory).  ASP.NET web uygulaması oluşturuyorsanız, bkz: [oturum açmak için bir ASP.NET web uygulaması Kılavuzu ekleme](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp).  Bir web API kaynak ASP.NET oluşturuyorsanız bkz [web API Başlarken Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Uygulama, bir kullanıcının kimliği doğrulandıktan sonra bu kimlik doğrulaması başarılı olmak için kullanıcının güvenlik belirteci doğrulamanız gerekir. Uygulama Dilleri ve çerçeveleri üzerinde çeşitli yapmalısınız örnek sahibiz [GitHub](https://github.com/Azure-Samples?q=active-directory). ASP.NET web uygulaması oluşturuyorsanız, bkz: [oturum açmak için bir ASP.NET web uygulaması Kılavuzu ekleme](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Bir web API kaynak ASP.NET oluşturuyorsanız bkz [web API Başlarken Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * Akış isteklerin ve yanıtların kimlik doğrulama işlemi için OAuth 2.0 gibi Openıd Connect, kullanılan kimlik doğrulama protokolü tarafından belirlenen WS-Federasyon veya SAML 2.0. Bu protokollerin daha ayrıntılı olarak ele alınmıştır [Azure Active Directory kimlik doğrulama protokolleri](active-directory-authentication-protocols.md) makale ve aşağıdaki bölümler.
 
 > [!NOTE]
@@ -72,7 +74,7 @@ Azure AD tarafından yayınlanan güvenlik belirteçleri (erişim ve kimliği be
 | Gruplar | Kullanıcının üyesi olduğu nesne kimlikleri Azure AD grupları içerir. |
 | Kimlik Sağlayıcısı | Belirtecin konusu kimlik doğrulaması kimlik sağlayıcısı kaydeder. |
 | Çıkışı | Belirteç, belirteç yenilik için sık kullanılan düzenlendiği süreyi kaydeder. |
-| Veren: | Azure AD kiracısı yanı sıra belirteç yayılan STS tanımlar. |
+| Sertifikayı Veren | Azure AD kiracısı yanı sıra belirteç yayılan STS tanımlar. |
 | Soyadı | Kullanıcının soyadı kümesi olarak Azure AD içinde sağlar. |
 | Ad | Belirteç konu tanımlayan bir insan okunabilir değer sağlar. |
 | Nesne kimliği | Konunun değişmez, benzersiz tanıtıcısı Azure AD'de içerir. |
@@ -189,7 +191,7 @@ Uygulama kaydolduktan sonra onu OAuth 2.0 örtük verme protokolünü kullanmak 
 * süresi dolmuş bir belirteci yenileme
 * bir web API kaynak çağırmak için bir erişim belirteci isteme
 
-Başarılı bir kimlik doğrulamasından sonra Azure AD oturum oluşturmak için kullanıcının tarayıcıda tanımlama bilgisi yazar.  Kullanıcı ve (arasında değil kullanıcı ve web uygulaması) Azure AD arasında oturumu var. unutmayın. Bir belirtecinin süresi dolduğunda, ADAL.js bu oturumu sessizce başka bir belirteç elde etmek için kullanır. ADAL.js gizli bir iFrame OAuth örtük verme protokolü kullanarak istek gönderip için kullanır. ADAL.js sessizce destek çıkış noktaları arası kaynak paylaşımı (CORS), bu kaynakları sürece uygulama çağırır ve diğer web API kaynaklar kullanıcının dizinde kayıtlı ve tüm gerekli izni olan erişim belirteçleri almak için de aynı düzenek kullanabilirsiniz oturum açma sırasında kullanıcı tarafından verilir.
+Başarılı bir kimlik doğrulamasından sonra Azure AD oturum oluşturmak için kullanıcının tarayıcıda tanımlama bilgisi yazar. Kullanıcı ve (arasında değil kullanıcı ve web uygulaması) Azure AD arasında oturumu var. unutmayın. Bir belirtecinin süresi dolduğunda, ADAL.js bu oturumu sessizce başka bir belirteç elde etmek için kullanır. ADAL.js gizli bir iFrame OAuth örtük verme protokolü kullanarak istek gönderip için kullanır. ADAL.js sessizce destek çıkış noktaları arası kaynak paylaşımı (CORS), bu kaynakları sürece uygulama çağırır ve diğer web API kaynaklar kullanıcının dizinde kayıtlı ve tüm gerekli izni olan erişim belirteçleri almak için de aynı düzenek kullanabilirsiniz oturum açma sırasında kullanıcı tarafından verilir.
 
 ### <a name="native-application-to-web-api"></a>Web API yerel uygulama
 
@@ -260,7 +262,7 @@ Uygulama kimliği ve temsilci olarak atanan kullanıcı kimliğini türleri akı
 
 1. Bir kullanıcı zaten olan kimlik doğrulama mekanizması Azure AD bağımsız olan bir web uygulaması için imzalanır.
 1. Web uygulaması bir tarayıcı isteğini uygulama kimliği sağlayan Azure AD yetkilendirme uç noktasına sorunları için bir erişim belirteci almak ve başarılı kimlik doğrulamasının ardından web uygulaması için yeniden yönlendirme URI'si için bir kimlik doğrulama kodu gerektirir. Azure AD ile oturum açtığında.
-1. Web uygulamasının kullanıcı henüz kendi adına web API'sini çağırmak web uygulaması izin vermek üzere seçtiği değil, kullanıcının onayını istemeniz gerekir. Uygulamanın gerektirdiği izinler görüntüler ve bunları herhangi biri yönetici düzeyi izinler varsa, dizininde normal bir kullanıcı onayı mümkün olmaz. Bu izin, hem tek hem de çok kiracılı uygulama için geçerlidir.  Tek bir kiracı durumda da, bir yönetici, kullanıcılar adına yönetici onayı için onay gerçekleştirebilirsiniz.  Bu yapılabilir kullanarak `Grant Permissions` düğmesini [Azure Portal](https://portal.azure.com). 
+1. Web uygulamasının kullanıcı henüz kendi adına web API'sini çağırmak web uygulaması izin vermek üzere seçtiği değil, kullanıcının onayını istemeniz gerekir. Uygulamanın gerektirdiği izinler görüntüler ve bunları herhangi biri yönetici düzeyi izinler varsa, dizininde normal bir kullanıcı onayı mümkün olmaz. Bu izin, hem tek hem de çok kiracılı uygulama için geçerlidir. Tek bir kiracı durumda da, bir yönetici, kullanıcılar adına yönetici onayı için onay gerçekleştirebilirsiniz. Bu yapılabilir kullanarak `Grant Permissions` düğmesini [Azure Portal](https://portal.azure.com). 
 1. Kullanıcının seçtiği sonra web uygulaması, bir erişim belirteci alması gereken yetkilendirme kodu alır.
 1. Web uygulamasını Azure AD tarafından verilen yetkilendirme kodu kullanarak, yetkilendirme kodu, istemci uygulaması (uygulama kimliği ve yeniden yönlendirme URI'si) ve istenen kaynak (uygulama kimliği URI'si web API'si için) hakkında ayrıntılar içeren Azure AD belirteç uç noktası için bir istek gönderir.
 1. Web uygulaması ve web API hakkındaki bilgileri ve yetkilendirme kodu Azure AD tarafından doğrulanır. Başarılı bir doğrulama sırasında Azure AD iki belirteci döndürür: JWT erişim belirteci ve bir JWT yenileme belirteci.

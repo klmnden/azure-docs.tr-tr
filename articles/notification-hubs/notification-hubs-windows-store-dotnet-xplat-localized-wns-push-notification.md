@@ -1,81 +1,81 @@
 ---
-title: "Notification Hubs son dakika haberleri öğretici yerelleştirilmiş"
-description: "Yerelleştirilmiş son dakika haberi bildirimleri göndermek için Azure Notification Hubs kullanmayı öğrenin."
+title: Azure Notification Hubs kullanarak Windows uygulamalarına yerelleştirilmiş bildirimler gönderme | Microsoft Docs
+description: Azure Notification Hubs kullanarak yerelleştirilmiş son dakika haber bildirimleri göndermeyi öğrenin.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 517e7ae3871a1ed816ea407ad47c9033a1bb5a0e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Yerelleştirilmiş son dakika haberleri göndermek için Notification Hubs kullanma
+# <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak Windows uygulamalarına yerelleştirilmiş bildirimler gönderme
 > [!div class="op_single_selector"]
-> * [Windows mağazası C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+> * [Windows Mağazası C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-> 
-> 
 
 ## <a name="overview"></a>Genel Bakış
-Bu konuda nasıl kullanılacağını gösterir **şablonu** dil ve cihaz tarafından yerelleştirilmiş son dakika haberi bildirimleri yayınlamak için Azure Notification Hubs özelliğidir. Bu öğreticide oluşturduğunuz Windows mağazası uygulaması ile başlayın [son dakika haberleri göndermek için Notification Hubs kullanma]. Tamamlandığında, ilgilendiğiniz kategorileri için kaydetme, hangi bildirimleri almak ve o dilde yalnızca seçili kategorileri için anında iletme bildirimleri almak bir dil belirtin mümkün olacaktır.
+Bu öğreticide, Notification Hubs hizmetine kaydolmuş mobil cihazlara yerelleştirilmiş anında iletme bildirimleri gönderme işlemi gösterilmektedir. Öğreticide, [Öğretici: Belirli cihazlara bildirim gönderme (Evrensel Windows Platformu)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) içinde oluşturduğunuz uygulamaları, aşağıdaki senaryoları destekleyecek şekilde güncelleştireceksiniz: 
 
-Bu senaryo iki bölümü vardır:
+- Windows Mağazası uygulaması, istemci cihazların bir dil belirtmesine ve farklı son dakika haber kategorilerine abone olmasına olanak tanır.
+- Arka uç uygulaması, Azure Notification Hubs’ın **etiket** ve **şablon** özelliklerini kullanarak bildirimler yayınlar.
 
-* Windows mağazası uygulaması istemci aygıtlar bir dil belirtin ve farklı son dakika haberleri kategorilere abone olmak için sağlar;
-* arka uç kullanarak bildirimleri yayınlar **etiketi** ve **şablonu** Azure bildirim hub'larını feautres.
+Öğreticiyi tamamladığınızda, mobil uygulamayı kullanarak ilgi duyduğunuz kategorilere kaydolabilir ve ayrıca bildirimlerin alınacağı dili belirtebilirsiniz. Arka uç uygulaması, dil ve cihaza göre yerelleştirilmiş bildirimler gönderir. 
 
-## <a name="prerequisites"></a>Önkoşullar
-Önceden tamamlamış olmalıdır [son dakika haberleri göndermek için Notification Hubs kullanma] öğretici ve bu öğreticinin bu kodu doğrudan derlemeler için kullanılabilir, koda sahip.
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
 
-Ayrıca Visual Studio 2012 veya üzeri gerekir.
+> [!div class="checklist"]
+> * Windows uygulamasını yerel ayar bilgilerini destekleyecek şekilde güncelleştirme
+> * Arka uç uygulamasını yerelleştirilmiş bildirimler gönderecek şekilde güncelleştirme
+> * Uygulamayı test edin
 
-## <a name="template-concepts"></a>Şablon kavramları
-İçinde [son dakika haberleri göndermek için Notification Hubs kullanma] kullanılan bir uygulama yerleşik **etiketleri** farklı haber kategorileri için Bildirimlere abone olma.
-Birçok uygulama, ancak, birden çok pazarda hedef ve yerelleştirme gerektirir. Bildirimler içeriğe sahip yerelleştirilmiş ve aygıtların doğru kümesine teslim anlamına gelir.
-Bu konudaki nasıl kullanılacağını göstereceğiz **şablonu** kolayca yerelleştirilmiş son dakika haberi bildirimleri göndermek için Notification Hubs özelliğidir.
+## <a name="prerequisites"></a>Ön koşullar
+[Öğretici: Belirli cihazlara bildirim gönderme (Evrensel Windows Platformu)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) öğreticisini tamamlayın. 
 
-Not: yerelleştirilmiş bildirimleri göndermek için bir yol her etiket birden fazla sürümünü oluşturmaktır. Örneğin, İngilizce, Fransızca ve Mandarin desteklemek için üç farklı etiketler world haberler için ihtiyacımız: "world_en", "world_fr" ve "world_ch". Biz sonra world haber yerelleştirilmiş bir sürümünde bu etiketlerin her biri için göndermesi gerekir. Bu konudaki etiketleri artışı ve birden fazla ileti gönderme gereksinimi önlemek için şablonlar kullanın.
+[Öğretici: Belirli cihazlara bildirim gönderme (Evrensel Windows Platformu)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) öğreticisinde **etiketleri** kullanarak farklı haber **kategorileri** için bildirimlere abone olan bir uygulama derlediniz. Bu öğreticide, Notification Hubs’ın **şablon** özelliğini kullanarak **yerelleştirilmiş** son dakika haber bildirimlerini kolayca iletebilirsiniz.
 
-Yüksek bir düzeyde şablonları belirli bir aygıt bir bildirim nasıl alacağını belirtmek için bir yoldur. Şablon, uygulama arka ucu tarafından gönderilen ileti parçası olan özellikler için bakarak tam yük biçimi belirtir. Örneğimizde, biz tüm desteklenen diller içeren bir yerel ayar belirsiz ileti gönderir:
+Yüksek bir düzeyde, şablonlar belirli bir cihazın bir bildirimi hangi biçimde alacağını belirtmenin yoludur. Şablon, uygulama arka ucunuz tarafından gönderilen iletinin parçası olan özelliklere başvurarak tam yük biçimini belirtir. Bu öğreticide, arka uç uygulaması tüm desteklenen dilleri içeren, yerel ayardan bağımsız bir ileti gönderir:
 
-    {
-        "News_English": "...",
-        "News_French": "...",
-        "News_Mandarin": "..."
-    }
+```json
+{
+    "News_English": "...",
+    "News_French": "...",
+    "News_Mandarin": "..."
+}
+```
 
-Ardından aygıtları doğru özelliğine başvuran bir şablon ile kaydetmeye sağlayacaktır. Örneği için bir basit bildirim iletisi almak istediği bir Windows mağazası uygulaması, aşağıdaki şablonu ile ilgili herhangi bir etiket için kaydeder:
+Cihaz, doğru özelliğe başvuran bir şablonla kaydolur. Örneğin, İngilizce bildirim almak isteyen bir Windows Mağazası uygulaması, karşılık gelen herhangi bir etiketle aşağıdaki şablona kaydolur:
 
-    <toast>
-      <visual>
-        <binding template=\"ToastText01\">
-          <text id=\"1\">$(News_English)</text>
-        </binding>
-      </visual>
-    </toast>
+```xml
+<toast>
+    <visual>
+    <binding template=\"ToastText01\">
+        <text id=\"1\">$(News_English)</text>
+    </binding>
+    </visual>
+</toast>
+```
 
+Şablonlar hakkında daha fazla bilgi edinmek için [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md) makalesine bakın. 
 
+## <a name="update-windows-app-to-support-locale-information"></a>Windows uygulamasını yerel ayar bilgilerini destekleyecek şekilde güncelleştirme
 
-Şablonlar, daha fazla bilgi bulabilir hakkında içinde çok güçlü bir özellik olan bizim [şablonları](notification-hubs-templates-cross-platform-push-messages.md) makalesi. 
+1. [Öğretici: Belirli cihazlara bildirim gönderme (Evrensel Windows Platformu)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) için oluşturduğunuz Visual Studio çözümünü açın. 
+2. **MainPage.xaml** dosyanızı bir yerel ayar birleşik giriş kutusu içerecek şekilde güncelleştirin:
 
-## <a name="the-app-user-interface"></a>Uygulama kullanıcı arabirimi
-Biz şimdi konu başlığı altında oluşturulan yeni haber uygulama değiştirecek [son dakika haberleri göndermek için Notification Hubs kullanma] son dakika haberleri şablonları kullanarak göndermek için yerelleştirilmiş.
-
-Windows mağazası uygulamanızı:
-
-Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
-
+    ```xml
     <Grid Margin="120, 58, 120, 80"  
             Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -104,82 +104,163 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
         <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="4" Grid.Column="1"/>
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
+    ```
+2. **Bildirimler** sınıfında **StoreCategoriesAndSubscribe** ve **SubscribeToCateories** yöntemlerinize bir yerel ayar parametresi ekleyin.
 
-## <a name="building-the-windows-store-client-app"></a>Windows mağazası istemci uygulaması oluşturma
-1. Yerel ayar parametresi bildirimleri sınıfınıza ekleyin, *StoreCategoriesAndSubscribe* ve *SubscribeToCateories* yöntemleri.
-   
-        public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+    ```csharp   
+    public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+    {
+        ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
+        ApplicationData.Current.LocalSettings.Values["locale"] = locale;
+        return await SubscribeToCategories(categories);
+    }
+
+    public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
+    {
+        var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+        if (categories == null)
         {
-            ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-            return await SubscribeToCategories(categories);
+            categories = RetrieveCategories();
         }
+
+        // Using a template registration. This makes supporting notifications across other platforms much easier.
+        // Using the localized tags based on locale selected.
+        string templateBodyWNS = String.Format("<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(News_{0})</text></binding></visual></toast>", locale);
+
+        return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
+    }
+    ```
+
+    *RegisterNativeAsync* yöntemi yerine *RegisterTemplateAsync* yöntemini çağırın. Şablonun yerel ayara bağlı olduğu belirli bir bildirim biçimi kaydedin. Ayrıca, birden fazla şablon (örneğin, bir tane bildirimler, bir tane de kutucuklar için) kaydetmek istiyorsanız şablon için bir ad ("localizedWNSTemplateExample") belirtin. Şablonları güncelleştirmek veya silmek için de adlandırmanız gerekir.
    
-        public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
+    Bir cihaz aynı etiketle birden fazla şablonu kaydederse, o etiketi hedefleyen bir gelen ileti, cihaza birden fazla bildirimin (her şablon için bir tane) iletilmesiyle sonuçlanır. Bu davranış, aynı mantıksal iletinin birden fazla görsel bildirimle sonuçlanması gereken durumlarda (örneğin, Windows Mağazası uygulamasında hem bir gösterge hem de bir bildirim gösterme) yararlıdır.
+3. Depolanan yerel ayarı almak için aşağıdaki yöntemi ekleyin:
+   
+    ```csharp
+    public string RetrieveLocale()
+    {
+        var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
+        return locale != null ? locale : "English";
+    }
+    ```
+
+4. **MainPage.xaml.cs** dosyanızda, Yerel Ayar birleşi giriş kutusunun geçerli değerini alarak ve şekilde gösterildiği gibi Notifications sınıfı çağrısına ekleyerek düğme tıklama işleyicinizi güncelleştirin:
+   
+    ```csharp
+    private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var locale = (string)Locale.SelectedItem;
+
+        var categories = new HashSet<string>();
+        if (WorldToggle.IsOn) categories.Add("World");
+        if (PoliticsToggle.IsOn) categories.Add("Politics");
+        if (BusinessToggle.IsOn) categories.Add("Business");
+        if (TechnologyToggle.IsOn) categories.Add("Technology");
+        if (ScienceToggle.IsOn) categories.Add("Science");
+        if (SportsToggle.IsOn) categories.Add("Sports");
+
+        var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
+                categories);
+
+        var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
+            string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
+    ```
+4. Son olarak App.xaml.cs dosyanızda, yerel ayarı almak ve abone olurken kullanmak için `InitNotificationsAsync` yöntemini kullanın:
+
+    ```csharp   
+    private async void InitNotificationsAsync()
+    {
+        var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
+
+        // Displays the registration ID so you know it was successful
+        if (result.RegistrationId != null)
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-   
-            if (categories == null)
-            {
-                categories = RetrieveCategories();
-            }
-   
-            // Using a template registration. This makes supporting notifications across other platforms much easier.
-            // Using the localized tags based on locale selected.
-            string templateBodyWNS = String.Format("<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(News_{0})</text></binding></visual></toast>", locale);
-   
-            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
-        }
-   
-    Arama yerine unutmayın *RegisterNativeAsync* diyoruz yöntemi *RegisterTemplateAsync*: biz şablon bölgesel ayarına bağlıdır belirli bildirim biçimi kaydediliyor. Ayrıca ("localizedWNSTemplateExample"), şablon için bir ad (örneğin bir bildirimleri için) ve biri döşeme için birden fazla şablon kaydetmek istiyoruz ve bunları güncelleştirmek veya bunları silmek için ad ihtiyacımız çünkü sunuyoruz.
-   
-    Bir aygıt ile aynı etiketi birden fazla şablon kaydederse, bir gelen ileti etiketi içinde birden fazla bildirim sonuçlanacak hedefleme aygıt (her şablon için bir tane) teslim olduğunu unutmayın. Bu davranış, aynı mantıksal ileti örneği için bir Windows mağazası uygulamasında bir gösterge ve bildirim gösteren birden çok görsel bildirimler neden olduğunda yararlıdır.
-2. Depolanan yerel almak için aşağıdaki yöntemi ekleyin:
-   
-        public string RetrieveLocale()
-        {
-            var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
-            return locale != null ? locale : "English";
-        }
-3. MainPage.xaml.cs dosyasında Güncelleştir, düğmesi gösterildiği gibi yerel açılan kutu geçerli değerini almak ve bildirimleri sınıfı çağrısına sağlayarak işleyici tıklayın:
-   
-        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var locale = (string)Locale.SelectedItem;
-   
-            var categories = new HashSet<string>();
-            if (WorldToggle.IsOn) categories.Add("World");
-            if (PoliticsToggle.IsOn) categories.Add("Politics");
-            if (BusinessToggle.IsOn) categories.Add("Business");
-            if (TechnologyToggle.IsOn) categories.Add("Technology");
-            if (ScienceToggle.IsOn) categories.Add("Science");
-            if (SportsToggle.IsOn) categories.Add("Sports");
-   
-            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
-                 categories);
-   
-            var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
-                string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+            var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-4. Son olarak, App.xaml.cs dosyasında güncelleştirdiğinizden emin olun, `InitNotificationsAsync` yöntemi yerel almak ve abone olurken kullanın:
-   
-        private async void InitNotificationsAsync()
+    }
+    ```
+
+## <a name="send-localized-notifications-from-your-back-end"></a>Arka ucunuzdan yerelleştirilmiş bildirimler gönderme
+Şablon bildirimleri gönderirken yalnızca bir dizi özellik sağlamanız gerekir. Bu öğreticide, arka uç uygulaması geçerli haberin yerelleştirilmiş sürümünü içeren bir dizi özellik gönderir, örneğin:
+
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
+
+Bu bölümde, çözümdeki konsol uygulaması projesini güncelleştireceksiniz. Daha önce oluşturduğunuz konsol uygulamasındaki `SendTemplateNotificationAsync` yöntemini aşağıdaki kodla değiştirin: 
+
+> [!IMPORTANT]
+> Kodda bildirim hub’ınıza tam erişimi olan adı ve bağlantı dizesini belirtin. 
+
+
+```csharp
+private static async void SendTemplateNotificationAsync()
+{
+    // Define the notification hub.
+    NotificationHubClient hub = 
+        NotificationHubClient.CreateClientFromConnectionString(
+            "<connection string with full access>", "<hub name>");
+
+    // Sending the notification as a template notification. All template registrations that contain 
+    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+    // This includes APNS, GCM, WNS, and MPNS template registrations.
+    Dictionary<string, string> templateParams = new Dictionary<string, string>();
+
+    // Create an array of breaking news categories.
+    var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
+    var locales = new string[] { "English", "French", "Mandarin" };
+
+    foreach (var category in categories)
+    {
+        templateParams["messageParam"] = "Breaking " + category + " News!";
+
+        // Sending localized News for each tag too...
+        foreach( var locale in locales)
         {
-            var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
-   
-            // Displays the registration ID so you know it was successful
-            if (result.RegistrationId != null)
-            {
-                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
+            string key = "News_" + locale;
+
+            // Your real localized news content would go here.
+            templateParams[key] = "Breaking " + category + " News in " + locale + "!";
         }
 
-## <a name="send-localized-notifications-from-your-back-end"></a>Arka ucunuz yerelleştirilmiş bildirimleri gönderme
-[!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
+        await hub.SendTemplateNotificationAsync(templateParams, category);
+    }
+}
+```
+
+Bildirim Hub’ınız belirli bir etikete abone olan tüm cihazlara doğru yerel yükü derleyip ilettiğinden, bu basit çağrı, yerelleştirilmiş haberi platformdan bağımsız olarak **tüm** cihazlarınıza gönderir.
+
+## <a name="test-the-app"></a>Uygulamayı test edin
+1. Evrensel Windows Mağazası uygulamasını çalıştırın. **Kayıt başarılı** iletisini görene kadar bekleyin.
+
+    ![Mobil uygulama ve kayıt](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+1. **Kategoriler** ve **yerel ayar**’ı seçip **Abone ol**’a tıklayın. Uygulama, seçilen kategorileri etiketlere dönüştürür ve bildirim hub’ından seçilen etiketler için yeni bir cihaz kaydı ister.
+
+    ![Mobil uygulama](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+2.  **Abonelikler** hakkında bir **onay** iletisi görürsünüz. 
+
+    ![Abonelik iletisi](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+1. Bir onay aldıktan sonra, her bir kategori için ve desteklenen her dilde bildirim göndermek üzere **konsol uygulamasını** çalıştırın. Yalnızca abone olduğunuz kategoriler için bildirim aldığınızı ve iletinin seçtiğiniz yerel ayara uygun olduğunu doğrulayın. 
+
+    ![Bildirim iletileri](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+ 
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide, kayıtlarıyla ilişkili etiketleri olan belirli cihazlara yerelleştirilmiş anında iletme bildirimleri göndermeyi öğrendiniz. Birden fazla cihaz kullanıyor olabilecek belirli kullanıcılara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin: 
+
+> [!div class="nextstepaction"]
+>[Belirli kullanıcılara anında iletme bildirimleri gönderme](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -194,7 +275,7 @@ Yerel ayar combobox dahil etmek için MainPage.xaml değiştirin:
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[son dakika haberleri göndermek için Notification Hubs kullanma]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[Use Notification Hubs to send breaking news]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

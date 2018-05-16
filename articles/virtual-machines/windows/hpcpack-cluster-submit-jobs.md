@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Şirket içindeki bir bilgisayardan Azure’da dağıtılmış bir HPC Pack kümesine HPC işleri gönderme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +29,9 @@ ms.lasthandoff: 04/06/2018
 ![Azure'da bir küme için bir iş gönderme][jobsubmit]
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Bir Azure VM dağıtılan HPC paketi üstbilgi düğümü** -otomatik araçları gibi kullanmanızı öneririz bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/documentation/templates/) veya bir [Azure PowerShell Betiği](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) baş düğüm ve küme dağıtmak için . Baş düğüm DNS adını ve bu makaledeki adımları tamamlamak için bir Küme Yöneticisi kimlik bilgileri gerekir.
+* **Bir Azure VM dağıtılan HPC paketi üstbilgi düğümü** -otomatik araçları gibi kullanmanızı öneririz bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/documentation/templates/) baş düğüm ve küme dağıtmak için. Baş düğüm DNS adını ve bu makaledeki adımları tamamlamak için bir Küme Yöneticisi kimlik bilgileri gerekir.
 * **İstemci bilgisayar** -HPC Pack istemci yardımcı programları çalıştırmak bir Windows veya Windows Server istemci bilgisayar gerekir (bkz [sistem gereksinimleri](https://technet.microsoft.com/library/dn535781.aspx)). Yalnızca iş göndermek için HPC Pack web portalı veya REST API'yi kullanmak istiyorsanız, tercih ettiğiniz herhangi bir istemci bilgisayarı kullanabilirsiniz.
-* **HPC Pack yükleme medyasını** - HPC Pack (HPC Pack 2012 R2) en son sürümünü kullanılabilir HPC Pack istemci yardımcı programları, ücretsiz yükleme paketini yüklemek için [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). VM baş düğümünde yüklü HPC Pack aynı sürümünü yüklediğinizden emin olun.
+* **HPC Pack yükleme medyasını** - HPC paketi en son sürümünü kullanılabilir HPC Pack istemci yardımcı programları, ücretsiz yükleme paketini yüklemek için [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). VM baş düğümünde yüklü HPC Pack aynı sürümünü yüklediğinizden emin olun.
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Adım 1: Yükleme ve web bileşenleri baş düğümünde yapılandırın
 HTTPS üzerinden kümeye iş göndermek bir REST arabirimini etkinleştirmek için HPC paketi web bileşenleri HPC paketi üstbilgi düğümü üzerinde yapılandırıldığından emin olun. Bunlar zaten yüklü değilse, ilk HpcWebComponents.msi yükleme dosyasını çalıştırarak web bileşenleri yükleyin. Ardından, HPC PowerShell betiğini çalıştırarak bileşenlerini yapılandırma **kümesi HPCWebComponents.ps1**.
@@ -39,7 +39,7 @@ HTTPS üzerinden kümeye iş göndermek bir REST arabirimini etkinleştirmek iç
 Ayrıntılı yordamlar için bkz: [Microsoft HPC Pack Web bileşenleri yüklemeniz](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> HPC Pack için belirli Azure hızlı başlangıç şablonlarını yükleyin ve web bileşenleri otomatik olarak yapılandırın. Kullanırsanız [HPC Pack Iaas dağıtım betiği](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) küme oluşturmak için isteğe bağlı olarak yükleyebilir ve web bileşenleri dağıtımının bir parçası yapılandırın.
+> HPC Pack kümeleri için belirli Azure hızlı başlangıç şablonlarını yükleyin ve web bileşenleri otomatik olarak yapılandırın.
 > 
 > 
 
@@ -81,7 +81,7 @@ Ayrıntılı yordamlar için bkz: [Microsoft HPC Pack Web bileşenleri yüklemen
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>2. adım: bir şirket içi bilgisayar HPC Pack istemci yardımcı programları yükle
-HPC Pack istemci yardımcı programları bilgisayarınıza yüklemek istiyorsanız, HPC paketi Kurulum dosyaları (tam yükleme) indirin [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Yüklemeye başlamak için kurulum seçeneğini seçin **HPC Pack istemci yardımcı programları**.
+HPC Pack istemci yardımcı programları bilgisayarınıza yüklemek istiyorsanız, HPC paketi Kurulum dosyaları (tam yükleme) indirin [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). Yüklemeye başlamak için kurulum seçeneğini seçin **HPC Pack istemci yardımcı programları**.
 
 Üstbilgi düğüm VM'ine işleri göndermek için HPC Pack istemci araçları kullanmak için ayrıca baş düğümünden bir sertifika verin ve istemci bilgisayara yüklemeniz gerekir. Sertifika olması gerekir. CER biçimi.
 

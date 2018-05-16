@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory v2.0 uç | Microsoft Docs"
-description: "Microsoft Account ve Azure Active Directory oturum açma ile uygulamaları oluşturmak için bir giriş."
+title: Azure Active Directory v2.0 uç | Microsoft Docs
+description: Microsoft Account ve Azure Active Directory oturum açma ile uygulamaları oluşturmak için bir giriş.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Microsoft Account hem de Azure Active Directory'de kullanıcılar tek bir uygulamada oturum
 Geçmişte, hem kişisel Microsoft hesaplarını destekler ve iş hesaplarını Azure Active Directory'den isteyen uygulama geliştiricileri iki ayrı sistemlerle tümleştirmek gerekiyordu. Azure Active Directory (Azure AD) v2.0 uç noktası bu işlemi basitleştirir yeni bir kimlik doğrulama API sürümü tanıtır. Tek bir tümleştirme kullanarak oturum açma hesapları her iki tür Azure AD v2.0 uç sağlar. Azure AD v2.0 uç kullanan uygulamalar, REST API'lerinin ayrıca tüketebileceği [Microsoft Graph API](https://graph.microsoft.io) ya da hesap türünü kullanarak.

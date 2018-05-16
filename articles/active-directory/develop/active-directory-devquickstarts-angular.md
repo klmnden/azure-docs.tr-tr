@@ -3,29 +3,31 @@ title: Azure AD AngularJS Başlarken | Microsoft Docs
 description: Oturum açma için Azure AD ile tümleşir ve OAuth kullanarak Azure AD korumalı API çağıran bir AngularJS tek sayfalı uygulama oluşturma.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS Başlarken
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) yapar daha basit ve kolay oturum açma, oturum kapatma ve güvenli OAuth API eklemeniz için tek sayfalı uygulamalarınızı çağırır.  Uygulamalarınızı, Windows Server Active Directory hesaplarını ile kullanıcıların kimliklerini doğrulamak ve tüm web Azure AD, Office 365 API'leri veya Azure API'sini gibi korur API kullanmasına olanak sağlar.
+Azure Active Directory (Azure AD) yapar daha basit ve kolay oturum açma, oturum kapatma ve güvenli OAuth API eklemeniz için tek sayfalı uygulamalarınızı çağırır. Uygulamalarınızı, Windows Server Active Directory hesaplarını ile kullanıcıların kimliklerini doğrulamak ve tüm web Azure AD, Office 365 API'leri veya Azure API'sini gibi korur API kullanmasına olanak sağlar.
 
 Bir tarayıcıda çalışan JavaScript uygulamaları için Azure AD Active Directory Authentication Library (ADAL) veya adal.js sağlar. Tek amacı adal.js, erişim belirteçleri almak uygulamanızı daha kolay hale getirmektir. Ne kadar kolay olduğunu göstermek için burada size bir Yapılacaklar listesi AngularJS uygulama, yapı:
 
@@ -53,7 +55,7 @@ Kullanıcıların kimliğini doğrulamak ve belirteçleri almak uygulamanızı e
 5. Komut istemlerini izleyin ve yeni web uygulaması ve/veya web API oluşturun:
   * **Ad** kullanıcılar uygulamanıza açıklar.
   * **URL oturum açma** için Azure AD belirteçleri döndürecektir konumdur. Bu örnek için varsayılan konum `https://localhost:44326/`.
-6. Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği uygulamanıza atar.  Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
+6. Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği uygulamanıza atar. Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
 7. Adal.js OAuth örtük akış Azure AD ile iletişim kurmak için kullanır. Uygulamanız için örtük akış etkinleştirmeniz gerekir:
   1. Uygulama tıklayın ve **bildirim** satır içi bildirim Düzenleyicisi'ni açın.
   2. Bulun `oauth2AllowImplicitFlow` özelliği. Değerini ayarlamak `true`.
@@ -118,11 +120,11 @@ Güvenli tek bir görünüm tek sayfalı uygulamanıza yardımcı olacak Adal.js
     ```
 
 ## <a name="summary"></a>Özet
-Artık kullanıcılar oturum ve taşıyıcı belirteci korumalı istekleri için arka uç API'si sorun güvenli bir tek sayfalı uygulama vardır. Bir kullanıcı tıkladığında **TodoList** bağlantı adal.js otomatik olarak yeniden yönlendirme oturum açma için Azure ad gerekiyorsa. Ayrıca, adal.js uygulamanızın arka ucuna gönderilen tüm Ajax istekleri için otomatik olarak bir erişim belirteci ekleyecek.  
+Artık kullanıcılar oturum ve taşıyıcı belirteci korumalı istekleri için arka uç API'si sorun güvenli bir tek sayfalı uygulama vardır. Bir kullanıcı tıkladığında **TodoList** bağlantı adal.js otomatik olarak yeniden yönlendirme oturum açma için Azure ad gerekiyorsa. Ayrıca, adal.js uygulamanızın arka ucuna gönderilen tüm Ajax istekleri için otomatik olarak bir erişim belirteci ekleyecek. 
 
 Önceki adım adal.js kullanarak bir tek sayfalı uygulama oluşturmak için tam minimum gerekli değildir. Ancak bazı özellikler tek sayfalı uygulama yararlıdır:
 
-* Açıkça oturum açma ve oturum kapatma isteklerini yürütmek için denetleyicilerinizi içinde adal.js çağırma işlevleri tanımlayabilirsiniz.  İçinde `App/Scripts/homeCtrl.js`:
+* Açıkça oturum açma ve oturum kapatma isteklerini yürütmek için denetleyicilerinizi içinde adal.js çağırma işlevleri tanımlayabilirsiniz. İçinde `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -143,7 +145,7 @@ Artık kullanıcılar oturum ve taşıyıcı belirteci korumalı istekleri için
     ...
     ```
 
-* Kullanıcı veya oturum açtıysa bilmek istediğiniz birçok senaryo vardır. Aynı zamanda `userInfo` bu bilgileri toplamak için nesne.  Örneğin, `index.html`, ya da gösterebilir **oturum açma** veya **oturum kapatma** düğmesi dayalı kimlik doğrulama durumu:
+* Kullanıcı veya oturum açtıysa bilmek istediğiniz birçok senaryo vardır. Aynı zamanda `userInfo` bu bilgileri toplamak için nesne. Örneğin, `index.html`, ya da gösterebilir **oturum açma** veya **oturum kapatma** düğmesi dayalı kimlik doğrulama durumu:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

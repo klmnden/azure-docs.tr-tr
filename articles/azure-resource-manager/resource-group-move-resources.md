@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -209,6 +209,8 @@ Bir sanal ağ taşırken, bağımlı kaynaklarını taşımanız gerekir. Örne�
 Eşlenmiş bir sanal ağ taşımak için öncelikle sanal ağ eşlemesi devre dışı bırakmalısınız. Devre dışı sonra sanal ağ taşıyabilirsiniz. Taşıma sonrasında sanal ağ eşlemesi yeniden etkinleştirin.
 
 Sanal ağ alt ağı kaynak Gezinti bağlantılarıyla içeriyorsa, bir sanal ağ farklı bir aboneliğe taşınamıyor. Örneğin, bir alt ağ bir Redis önbelleği kaynak dağıtılırsa, bu alt ağdaki kaynak Gezinti bağlantısı vardır.
+
+Sanal ağ özel bir DNS sunucusu içeriyorsa, bir sanal ağ için farklı bir abonelik taşıyamazsınız. Sanal ağ taşımak için varsayılan (Azure tarafından sağlanan) DNS sunucusunu ayarlayın. Taşıma sonrasında özel DNS sunucusunu yeniden yapılandırın.
 
 ## <a name="app-service-limitations"></a>App Service sınırlamalar
 

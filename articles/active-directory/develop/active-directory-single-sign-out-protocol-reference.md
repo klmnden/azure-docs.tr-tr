@@ -1,13 +1,14 @@
 ---
-title: "SAML Protokolü Azure çoklu oturum açma | Microsoft Docs"
-description: "Bu makalede Azure Active Directory'de tek Sign-Out SAML Protokolü"
+title: SAML Protokolü Azure çoklu oturum açma | Microsoft Docs
+description: Bu makalede Azure Active Directory'de tek Sign-Out SAML Protokolü
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: c77bf15d69a4c7749567f53df96c91a1d329a466
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-out-saml-protocol"></a>Çoklu oturum kapatma SAML Protokolü
 Azure Active Directory (Azure AD) destekleyen SAML 2.0 tarayıcı tek oturum kapatma profil web. Tek doğru çalışması için oturum kapatma **LogoutURL** uygulama açıkça uygulama kaydı sırasında Azure AD ile kaydedilmesi gerekir. Azure AD LogoutURL bunlar oturumu kapattınız sonra kullanıcıları yeniden yönlendirmek için kullanır.
@@ -41,11 +42,11 @@ Bulut hizmeti gönderir bir `LogoutRequest` bir oturum sonlandırıldı gösterm
 ### <a name="logoutrequest"></a>LogoutRequest
 `LogoutRequest` Azure AD ile gönderilen öğesi, aşağıdaki öznitelikler gerektirir:
 
-* `ID`: Bu, oturum kapatma isteği tanımlar. Değeri `ID` bir sayı ile başlamamalıdır. Eklenecek tipik uygulamadır **kimliği** için bir GUID dize gösterimi.
-* `Version`: Bu öğenin değerini ayarlamak **2.0**. Bu değer gereklidir.
-* `IssueInstant`: Bu bir `DateTime` dize koordine Evrensel Saat (UTC) değerine sahip ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir değer Bekliyor, ancak bu zorunlu değildir.
+* `ID` : Bu, oturum kapatma isteği tanımlar. Değeri `ID` bir sayı ile başlamamalıdır. Eklenecek tipik uygulamadır **kimliği** için bir GUID dize gösterimi.
+* `Version` : Bu öğenin değerini ayarlamak **2.0**. Bu değer gereklidir.
+* `IssueInstant` : Bu bir `DateTime` dize koordine Evrensel Saat (UTC) değerine sahip ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir değer Bekliyor, ancak bu zorunlu değildir.
 
-### <a name="issuer"></a>Veren
+### <a name="issuer"></a>Sertifikayı Veren
 `Issuer` Öğesinde bir `LogoutRequest` tam olarak eşleşmelidir **ServicePrincipalNames** Azure AD bulut hizmetinde. Genellikle, bu ayarlanır **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
 
 ### <a name="nameid"></a>NameID
@@ -66,7 +67,7 @@ Azure AD gönderir bir `LogoutResponse` yanıt olarak bir `LogoutRequest` öğes
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD kümeleri `ID`, `Version` ve `IssueInstant` değerler `LogoutResponse` öğesi. Ayrıca ayarlar `InResponseTo` değerini öğesine `ID` özniteliği `LogoutRequest` yanıt elicited.
 
-### <a name="issuer"></a>Veren
+### <a name="issuer"></a>Sertifikayı Veren
 Azure AD bu değeri ayarlar `https://login.microsoftonline.com/<TenantIdGUID>/` burada <TenantIdGUID> Azure AD kiracısı Kiracı kimliğidir.
 
 Değeri değerlendirmek için `Issuer` öğenin değerini kullanmak **uygulama kimliği URI'si** uygulama kaydı sırasında sağlanan.

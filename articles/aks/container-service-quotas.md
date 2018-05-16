@@ -1,22 +1,22 @@
 ---
-title: "Azure Container Service (AKS) kotaları ve bölge kullanılabilirliği"
-description: "Azure Container Service (AKS) hizmetinin varsayılan kotaları ve bölge kullanılabilirliği."
+title: Azure Kubernetes Hizmeti (AKS) kotaları ve bölge kullanılabilirliği
+description: Azure Kubernetes Hizmeti’nin (AKS) varsayılan kotaları ve bölge kullanılabilirliği.
 services: container-service
-author: david-stanford
-manager: timlt
+author: neilpeterson
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
-ms.openlocfilehash: eddfab874501fd045820d7da3c968d340fdffe93
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 04/26/2018
+ms.author: nepeters
+ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="quotas-and-region-availability-for-azure-container-service-aks"></a>Azure Container Service (AKS) için kotalar ve bölge kullanılabilirliği
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti’nin (AKS) kotaları ve bölge kullanılabilirliği
 
-Tüm Azure hizmetleri, kaynak ve özelliklere yönelik bazı varsayılan limitler ve kotalar içerir. Aşağıdaki bölümlerde, birkaç Azure Container Service (AKS) kaynağına ilişkin varsayılan kaynak limitlerinin yanı sıra Azure bölgelerindeki AKS hizmeti kullanılabilirliği açıklanmaktadır.
+Tüm Azure hizmetleri, kaynak ve özelliklere yönelik bazı varsayılan limitler ve kotalar içerir. Aşağıdaki bölümlerde, birkaç Azure Kubernetes Hizmeti (AKS) kaynağına ilişkin varsayılan kaynak limitlerinin yanı sıra Azure bölgelerindeki AKS hizmeti kullanılabilirliği açıklanmaktadır.
 
 ## <a name="service-quotas-and-limits"></a>Hizmet kotaları ve limitleri
 
@@ -28,7 +28,7 @@ Tüm diğer ağ, işlem ve depolama sınırları, sağlanan altyapıya uygulanı
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Azure Container Service (AKS), aşağıdaki bölgelerde önizleme için kullanıma sunulmuştur:
+Azure Kubernetes Hizmeti (AKS), aşağıdaki bölgelerde önizleme için kullanıma sunulmuştur:
 - Doğu ABD
 - Batı Avrupa
 - Orta ABD

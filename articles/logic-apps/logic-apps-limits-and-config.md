@@ -3,22 +3,22 @@ title: Sınırları ve yapılandırması - Azure Logic Apps | Microsoft Docs
 description: Hizmet sınırları ve Azure mantıksal uygulamaları için yapılandırma değerleri
 services: logic-apps
 documentationcenter: ''
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: cfowler
 editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 524a2dc7a1a5ae4f0747af03d1b9e69d512f0f00
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/14/2018
+ms.author: estfan
+ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Sınırları ve Azure mantıksal uygulamaları için yapılandırma bilgilerini
 
@@ -52,15 +52,26 @@ Bir tek mantıksal uygulama tanımını sınırlarını şunlardır:
 
 Çalıştıran tek bir mantıksal uygulama sınırlarını şunlardır:
 
-| Ad | Sınır | 
-| ---- | ----- | 
-| Çalışma süresi | 90 gün | 
-| Depolama bekletme | Başlangıç zamanı çalışmanın 90 gün | 
-| En az yinelenme aralığı | 1 saniye </br>Logic apps ile bir uygulama hizmeti planı için: 15 saniye | 
-| En fazla yineleme aralığı | 500 gün | 
-||| 
+| Ad | Sınır | Notlar | 
+|------|-------|-------| 
+| Çalışma süresi | 90 gün | Bu sınırı değiştirmek için bkz: [değişiklik çalıştırma süresi](#change-duration). | 
+| Depolama bekletme | Başlangıç zamanı çalışmanın 90 gün | Bu sınırı değiştirmek için bkz: [depolama bekletme değiştirmek](#change-retention). | 
+| En az yinelenme aralığı | 1 saniye | | 
+| En fazla yineleme aralığı | 500 gün | | 
+|||| 
 
-Çalışma süresi veya depolama bekletme, normal işlem akışında sınırları aşan [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
+<a name="change-duration"></a>
+<a name="change-retention"></a>
+
+### <a name="change-run-duration-and-storage-retention"></a>Çalışma süresini ve depolama bekletme değiştirme
+
+Bu sınır yedi gün ile 90 gün arasında bir değer değiştirebilirsiniz. Ancak, üst sınırı aşan [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
+
+1. Azure portalında mantığı uygulamanızın menüsünde seçin **iş akışı ayarları**. 
+
+2. Altında **çalışma zamanı seçeneklerini**, gelen **geçmiş saklama gün içinde çalıştırmak** listesinde, seçin **özel**. 
+
+3. Girin veya istediğiniz gün sayısı için kaydırıcıyı sürükleyin.
 
 <a name="looping-debatching-limits"></a>
 
@@ -113,7 +124,8 @@ Bazı bağlayıcı işlemleri zaman uyumsuz çağrılar yapın veya bu işlemler
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| İleti boyutu | 100 MB | Bazı bağlayıcılar ve API 100 MB desteklemeyebilir. | 
+| İleti boyutu | 100 MB | Bu sınır olarak çözmek için bkz: [Öbekleme ile büyük iletileri işlemek](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
+| Öbekleme ile ileti boyutu | 1 GB | Bu sınır, yerel olarak Öbekleme desteklemek ya da çalışma zamanı yapılandırmalarında etkin destek Öbekleme olabilir eylemleri uygular. Daha fazla bilgi için bkz: [Öbekleme ile büyük iletileri işlemek](../logic-apps/logic-apps-handle-large-messages.md). | 
 | İfade değerlendirme sınırı | 131.072 karakterleri | `@concat()`, `@base64()`, `@string()` İfadeleri bu sınırdan daha uzun olamaz. | 
 |||| 
 
@@ -146,21 +158,45 @@ Burada, web API'leri oluşturabileceğiniz özel bağlayıcıların sınırları
 
 ### <a name="artifact-limits-per-integration-account"></a>Dışlayıcı sınırlar tümleştirme hesap başına
 
-Burada, yapıları her tümleştirme hesabı sayısı sınırlamaları bulunmaktadır.
+Burada, yapıları her tümleştirme hesabı sayısı sınırlamaları bulunmaktadır. Daha fazla bilgi için bkz: [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Ücretsiz fiyatlandırma katmanı*
+*Ücretsiz katmanı*
 
-| Ad | Sınır | Notlar | 
-| ---- | ----- | ----- | 
-| Sözleşmeler | 10 | | 
-| Diğer yapı türleri | 25 | İş ortakları, şemalar, sertifikalar ve haritalar yapı türleri içerir. Her tür yapıları maksimum sayıya olabilir. | 
+| Yapı | Sınır | Notlar | 
+|----------|-------|-------| 
+| EDI ticari ortaklar | 25 | | 
+| EDI ticaret sözleşmeleri | 10 | | 
+| Haritalar | 25 | | 
+| Şemalar | 25 | 
+| Derlemeler | 10 | | 
+| Toplu iş yapılandırmaları | 5 | 
+| Sertifikalar | 25 | | 
 |||| 
 
-*Standart fiyatlandırma katmanı*
+*Temel katman*
 
-| Ad | Sınır | Notlar | 
-| ---- | ----- | ----- | 
-| Herhangi bir türde yapı | 500 | Yapı türleri anlaşmaları, iş ortakları, şemalar, sertifikalar ve eşlemeleri içerir. Her tür yapıları maksimum sayıya olabilir. | 
+| Yapı | Sınır | Notlar | 
+|----------|-------|-------| 
+| EDI ticari ortaklar | 2 | | 
+| EDI ticaret sözleşmeleri | 1 | | 
+| Haritalar | 500 | | 
+| Şemalar | 500 | 
+| Derlemeler | 25 | | 
+| Toplu iş yapılandırmaları | 1 | | 
+| Sertifikalar | 2 | | 
+|||| 
+
+*Standart katman*
+
+| Yapı | Sınır | Notlar | 
+|----------|-------|-------| 
+| EDI ticari ortaklar | 500 | | 
+| EDI ticaret sözleşmeleri | 500 | | 
+| Haritalar | 500 | | 
+| Şemalar | 500 | 
+| Derlemeler | 50 | | 
+| Toplu iş yapılandırmaları | 5 |  
+| Sertifikalar | 50 | | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>

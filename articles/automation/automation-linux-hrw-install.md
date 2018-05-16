@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 95f34e5d4fd966c41a30cc68c005237ae5405592
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e95f5d585fa97a62b709e73b6ed6eacafe69a2b3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -34,6 +34,22 @@ Desteklenen Linux dağıtımları listesi aşağıdadır:
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Linux karma Runbook çalışanı yükleme
 
 Yüklemek ve karma Runbook çalışanı Linux bilgisayarınızda yapılandırmak için el ile rolünü yüklemek ve yapılandırmak için bir düz İleri süreci izleyin. Etkinleştirme gerektirir **Otomasyon karma çalışanı** günlük analizi çalışma alanınız ve bilgisayarı çalışan kaydetmek ve yeni veya varolan bir gruba eklemek için komut kümesini çalıştıran çözümde.
+
+Bir Linux karma Runbook çalışanı için minimum gereksinimleri şunlardır:
+
+* En az iki çekirdek
+* En az 4 GB RAM
+* Bağlantı noktası 443 (giden)
+
+### <a name="package-requirements"></a>Paket gereksinimleri
+
+| **Gerekli paket** | **Açıklama** | **En düşük sürüm**|
+|--------------------- | --------------------- | -------------------|
+|Glibc |GNU C Kitaplığı| 2.5-12 |
+|Openssl| OpenSSL kitaplıkları | 0.9.8E veya 1.0|
+|Curl | cURL web istemcisi | 7.15.5|
+|Python ctypes | |
+|PAM | Eklenebilir kimlik doğrulaması modülleri|
 
 Devam etmeden önce Automation hesabınız bağlandığı günlük analizi çalışma alanı ve ayrıca, Automation hesabınız için birincil anahtarı Not gerekir. Hem portalından Automation hesabınız seçip seçerek bulabilirsiniz **çalışma** çalışma alanı kimliği ve seçerek **anahtarları** birincil anahtar. Bağlantı noktaları ve karma Runbook çalışanı için gerekli olan adresleri hakkında daha fazla bilgi için bkz: [ağınızı yapılandırma](automation-hybrid-runbook-worker.md#network-planning).
 
@@ -82,6 +98,40 @@ Aşağıdaki runbook türleri Linux karma çalışanı üzerinde çalışmıyor:
 * PowerShell iş akışı
 * Grafik
 * Grafik PowerShell iş akışı
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+Linux karma Runbook çalışanı OMS çalışan kaydetmek, runbook işlerini almak ve durum raporu için aracı üzerinde Automation hesabınız ile iletişim kurmak Linux için bağlıdır. Çalışan kaydı başarısız olursa hata bazı olası nedenleri şunlardır:
+
+### <a name="the-oms-agent-for-linux-is-not-running"></a>Linux için OMS Aracısı çalışmıyor
+
+Linux için OMS aracısının çalışmıyorsa bu Linux karma Runbook çalışanı Azure Automation ile iletişim kurmasını engeller. Aracı, aşağıdaki komutu girerek çalıştığını doğrulayın: `ps -ef | grep python`. Python işlemlerle aşağıdakine benzer bir çıktı görmeniz gerekir **nxautomation** kullanıcı hesabı. Güncelleştirme yönetimi veya Azure Otomasyonu çözümleri etkinleştirilmezse, aşağıdaki işlemler hiçbiri çalıştırırsınız.
+
+```bash
+nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
+nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+```
+
+Aşağıdaki listede, bir Linux karma Runbook çalışanı için başlatılan işlemleri gösterir. Bunlar tüm bulunur `/var/opt/microsoft/omsagent/state/automationworker/` dizin.
+
+* **OMS.conf** -bu çalışan Yöneticisi işlemi, bu doğrudan DSC'den başlatılır.
+
+* **Worker.conf** -bu işlemi otomatik kayıtlı karma çalışan işlemi, çalışan Yöneticisi tarafından başlatılır. Bu işlem, güncelleştirme yönetimi tarafından kullanılır ve kullanıcı için saydamdır. Bu işlem olduğunu değil güncelleştirme yönetimi çözümü makinede etkin değilse mevcut olmalı.
+
+* **Diy/Worker.conf** -bu işlem Dıy karma çalışanı işlemidir. Dıy karma çalışan işlemi, kullanıcı runbook'ları karma Runbook çalışanını yürütmek için kullanılır. Bunu yalnızca farklıdır otomatik karma çalışan işlemi kullanımdır anahtar ayrıntılı olarak farklı bir yapılandırma kayıtlı. Bu işlem mevcut çözüm etkinleştirilmemiş Azure Automation ve Dıy Linux karma çalışanı değilse, kayıtlı değil.
+
+Linux çalışmıyor için OMS Aracısı hizmetini başlatmak için aşağıdaki komutu çalıştırırsanız: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+
+### <a name="the-specified-class-does-not-exist"></a>Belirtilen sınıf yok
+
+Hata görürseniz **belirtilen sınıf yok...** içinde `/var/opt/microsoft/omsconfig/omsconfig.log` Linux için OMS aracısının güncelleştirilmesi gerekir. OMS Aracısı'nı yeniden yüklemek için aşağıdaki komutu çalıştırın:
+
+```bash
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
+```
+
+Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar için bkz: [güncelleştirme yönetimi - sorun giderme](automation-update-management.md#troubleshooting)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

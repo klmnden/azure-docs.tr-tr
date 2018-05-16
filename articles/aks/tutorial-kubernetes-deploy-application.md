@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Öğretici: Azure Container Service’te (AKS) uygulamaları çalıştırma
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti’nde (AKS) uygulamaları çalıştırma
 
 Sekiz bölümün dördüncüsü olan bu öğreticide Kubernetes kümesine örnek bir uygulama dağıtılır. Tamamlanan adımlar:
 
@@ -30,7 +30,7 @@ Bu öğreticide temel Kubernetes kavramlarını bildiğiniz varsayılmıştır. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. 
+Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu.
 
 Bu öğreticiyi tamamlamak için önceden oluşturulmuş `azure-vote-all-in-one-redis.yaml` Kubernetes bildirim dosyasına ihtiyaç duyarsınız. Bu dosya, önceki öğreticide uygulama kaynak koduyla indirildi. Deponun bir kopyasını oluşturduğunuzu ve dizinleri kopyalanmış depoya göre değiştirdiğinizi doğrulayın.
 
@@ -89,7 +89,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Uygulamayı test etme
 
-Uygulamayı İnternet'te kullanıma sunan [Kubernetes hizmeti][kubernetes-service] oluşturulur. Bu işlem birkaç dakika sürebilir. 
+Uygulamayı İnternet'te kullanıma sunan [Kubernetes hizmeti][kubernetes-service] oluşturulur. Bu işlem birkaç dakika sürebilir.
 
 İlerleme durumunu izlemek için [kubectl get service][kubectl-get] komutunu `--watch` bağımsız değişkeniyle birlikte kullanın.
 
@@ -98,12 +98,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Başlangıçta *azure-vote-front* için *EXTERNAL-IP* durumu *pending* olarak görünür.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-*EXTERNAL-IP* adresi *pending* durumundan *IP address* değerine değiştiğinde kubectl izleme işlemini durdurmak için `CTRL-C` komutunu kullanın. 
+*EXTERNAL-IP* adresi *pending* durumundan *IP address* değerine değiştiğinde kubectl izleme işlemini durdurmak için `CTRL-C` komutunu kullanın.
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -119,14 +119,14 @@ Lütfen bu adımları izleyerek [bir Kubernetes gizli dizisi aracılığıyla er
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide Azure oylama uygulaması, AKS'deki bir Kubernetes kümesine dağıtılmıştır. Tamamlanan görevler şunları içerir:  
+Bu öğreticide Azure oylama uygulaması, AKS'deki bir Kubernetes kümesine dağıtılmıştır. Tamamlanan görevler şunları içerir:
 
 > [!div class="checklist"]
 > * Kubernetes bildirim dosyalarını indirme
 > * Uygulamayı Kubernetes'te çalıştırma
 > * Uygulamayı test etme
 
-Hem bir Kubernetes uygulamasını hem de temel alınan Kubernetes altyapısını ölçeklendirme hakkında daha fazla bilgi için sonraki öğreticiye ilerleyin. 
+Hem bir Kubernetes uygulamasını hem de temel alınan Kubernetes altyapısını ölçeklendirme hakkında daha fazla bilgi için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Kubernetes uygulamasını ve altyapısını ölçeklendirme][aks-tutorial-scale]

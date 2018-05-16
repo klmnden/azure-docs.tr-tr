@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9300c3a45f57da7e55eed1dbdf8fd6e94b094c31
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -282,10 +282,10 @@ Yönetilen hizmet kimliği uç noktası HTTP yanıt iletisi üst bilgisi, durum 
 
 | Durum Kodu | Hata açıklaması | Nasıl yapılacağını |
 | ----------- | ------------ | ------------- |
+| 404 bulunamadı. | IMDS uç noktası güncelleniyor. | Expontential geri Çekilme ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
 | 429 çok fazla istek. |  IMDS kısıtlama sınırına ulaşıldı. | Üstel geri alma ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
 | İstek 4xx hatası. | Bir veya daha fazla istek parametreleri yanlış. | Yeniden denemeyin.  Daha fazla bilgi için hata ayrıntılarını inceleyin.  Tasarım zamanı hataları 4xx hatalardır.|
 | Hizmet geçici hatadan 5XX. | MSI alt sistemi veya Azure Active Directory geçici bir hata döndürdü. | En az 1 saniye bekledikten sonra yeniden denemek güvenlidir.  Çok hızlı bir şekilde veya çok sık yeniden deneme varsa, hızı sınırı hatası (429) IMDS ve/veya Azure AD döndürebilir.|
-| 404 bulunamadı. | IMDS uç noktası güncelleniyor. | Expontential geri Çekilme ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
 | timeout | IMDS uç noktası güncelleniyor. | Expontential geri Çekilme ile yeniden deneyin. Aşağıdaki yönergeleri bakın. |
 
 Bir hata oluşursa, karşılık gelen HTTP yanıt gövdesi JSON ile hata ayrıntıları içerir:

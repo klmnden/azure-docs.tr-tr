@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7361a71d9e178f47761c42cebe706246eb9d5e64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Öğretici: Bir ASP.NET Core Web API’si ön uç hizmetine HTTPS uç noktası ekleme
 Bu öğretici, bir serinin üçüncü bölümüdür.  Service Fabric üzerinde çalışan bir ASP.NET Core hizmetinde HTTPS’yi etkinleştirme hakkında bilgi edineceksiniz. İşlemi tamamladığınızda, 443 numaralı bağlantı noktasını dinleyen HTTPS özellikli bir ASP.NET Core web ön ucu içeren bir oylama uygulamasına sahip olursunuz. Oylama uygulamasını [.NET Service Fabric uygulaması derleme](service-fabric-tutorial-deploy-app-to-party-cluster.md) bölümünde el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilirsiniz](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -274,7 +274,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Kurulum betiğini yerel yönetici olarak çalıştırma
 Varsayılan olarak, hizmet kurulumu giriş noktası yürütülebilir dosyası, Service Fabric ile aynı kimlik bilgileri altında (genellikle NetworkService hesabı) çalışır. *SetCertAccess.ps1* için yönetici ayrıcalıkları gerekir. Uygulama bildiriminde güvenlik izinlerini bir yerel yönetici hesabı altındaki başlangıç betiğini çalıştıracak şekilde değiştirebilirsiniz.  
 
-Çözüm Gezgini'nde *Voting/ApplicationPackageRoot/ManifestManifest.xml* dosyasını açın. İlk olarak bir **Sorumlular** bölümü oluşturun ve yeni bir kullanıcı ekleyin (örneğin, "SetupAdminUser". SetupAdminUser kullanıcı hesabını Administrators sistem grubuna ekleyin.
+Çözüm Gezgini’nde *Voting/ApplicationPackageRoot/ApplicationManifest.xml* dosyasını açın. İlk olarak bir **Sorumlular** bölümü oluşturun ve yeni bir kullanıcı ekleyin (örneğin, "SetupAdminUser". SetupAdminUser kullanıcı hesabını Administrators sistem grubuna ekleyin.
 Sonra, VotingWebPkg **ServiceManifestImport** bölümünde bir **RunAsPolicy** yapılandırarak SetupAdminUser sorumlusunu kurulum giriş noktasına uygulayın. Bu ilke, Service Fabric’e Setup.bat dosyasının SetupAdminUser olarak (yönetici ayrıcalıklarıyla) çalıştığını belirtir. 
 
 ```xml

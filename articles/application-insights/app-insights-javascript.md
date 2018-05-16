@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a2cb3d504abcd3f9c50df2427884d478ad2240c4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3c5a3029916b91b65a5bd0f6efa5c83f5dfcb66
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
 Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
@@ -113,11 +113,8 @@ Bu parametreleri ayarlamak için kod parçacığında bu satırı bulun ve şunu
     // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
-    // Set these dynamically for an authenticated user.
-    appUserId: string,
+    // Set dynamically for an authenticated user.
     accountId: string,
-
-
 
 ## <a name="run"></a>Uygulamanızı çalıştırma
 Web uygulamanızı çalıştırın, telemetri oluşturmak için bir süre bunu kullanın ve birkaç saniye bekleyin. Geliştirme makinenizdeki **F5** tuşunu kullanarak bunu çalıştırabilir ya da yayımlayabilir ve kullanıcıların bunu yürütmesine izin verebilirsiniz.

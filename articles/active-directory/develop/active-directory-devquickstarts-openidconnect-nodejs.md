@@ -3,23 +3,25 @@ title: Azure AD Node.js web uygulamasına Başlarken | Microsoft Docs
 description: Oturum açma için Azure AD ile tümleşen bir Node.js Express MVC web uygulaması oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js web uygulamasına Başlarken
 Burada Passport kullanın:
@@ -37,7 +39,7 @@ Bunu yapmak için aşağıdaki adımları uygulayın:
 3. Azure AD'ye yönelik oturum açma ve oturum kapatma isteklerini yürütmek için Passport kullanın.
 4. Kullanıcı hakkındaki verileri yazdırın.
 
-Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS) korunur.  İzlemek için [uygulamanın çatısını bir .zip dosyası karşıdan](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) veya çatıyı kopyalayın:
+Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS) korunur. İzlemek için [uygulamanın çatısını bir .zip dosyası karşıdan](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) veya çatıyı kopyalayın:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -55,7 +57,7 @@ De Bu öğretici sonunda tamamlanmış uygulama sağlanır.
 5. Oluşturmak için istemleri izleyerek bir **Web uygulaması** ve/veya **Webapı**.
   * **Adı** kullanıcılar uygulamanıza uygulamayı açıklar.
 
-  * **Oturum açma URL'si** , uygulamanızın temel URL.  Çatıyı ait varsayılan `http://localhost:3000/auth/openid/return`.
+  * **Oturum açma URL'si** , uygulamanızın temel URL. Çatıyı ait varsayılan `http://localhost:3000/auth/openid/return`.
 
 6. Azure AD kaydettikten sonra uygulamanızı bir benzersiz uygulama kimliği atar. Bu değer gereken aşağıdaki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
 7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulamanız için benzersiz bir tanımlayıcıdır. Kuralı biçim kullanmaktır `https://<tenant-domain>/<app-name>`, örneğin: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -78,7 +80,7 @@ De Bu öğretici sonunda tamamlanmış uygulama sağlanır.
 Bu kitaplıklar yükler, `passport-azure-ad` bağlıdır.
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3. adım: passport düğümü js stratejisi kullanmak için uygulamanızı ayarlayın.
-Burada, Openıd Connect kimlik doğrulama protokolünü kullanmak için Express yapılandırın.  Passport, sorunu oturum açma ve oturum kapatma istekleri dahil olmak üzere çeşitli işlemler yapmak, kullanıcının oturumunu yönetmek ve kullanıcı hakkında bilgi almak için kullanılır.
+Burada, Openıd Connect kimlik doğrulama protokolünü kullanmak için Express yapılandırın. Passport, sorunu oturum açma ve oturum kapatma istekleri dahil olmak üzere çeşitli işlemler yapmak, kullanıcının oturumunu yönetmek ve kullanıcı hakkında bilgi almak için kullanılır.
 
 1. Başlamak için açın `config.js` dosya projenin kökünde ve uygulamanızın yapılandırma değerlerini girin `exports.creds` bölümü.
 
@@ -181,7 +183,7 @@ Passport, strateji yazarlarının hepsinin bağlı tüm kendi stratejileri (Twit
             };
     ```
 
-5.  Ardından, Express altyapısını yüklemek için kod ekleyelim. Varsayılan /views burada kullandığımız ve Express /routes desen sağlar.
+5. Ardından, Express altyapısını yüklemek için kod ekleyelim. Varsayılan /views burada kullandığımız ve Express /routes desen sağlar.
 
     ```JavaScript
 
@@ -252,7 +254,7 @@ Passport, strateji yazarlarının hepsinin bağlı tüm kendi stratejileri (Twit
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4. adım: Azure AD ile oturum açma ve oturum kapatma isteklerini yürütmek için Passport kullan
-Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak uç noktasıyla iletişim kurmak için düzgün şekilde yapılandırılmıştır.  `passport-azure-ad` alınan kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumlarını koruma tüm ayrıntılarını verdiğiniz. Kalan tüm kullanıcılarınızın bir şekilde oturum açabilir ve oturumu vermiş ve oturum açmış kullanıcılar hakkında ek bilgi toplanıyor.
+Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak uç noktasıyla iletişim kurmak için düzgün şekilde yapılandırılmıştır. `passport-azure-ad` alınan kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumlarını koruma tüm ayrıntılarını verdiğiniz. Kalan tüm kullanıcılarınızın bir şekilde oturum açabilir ve oturumu vermiş ve oturum açmış kullanıcılar hakkında ek bilgi toplanıyor.
 
 1. İlk olarak, varsayılan, oturum açma, hesap ve oturum kapatma yöntemlerini ekleyelim bizim `app.js` dosyası:
 
@@ -282,7 +284,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak uç 
 
     ```
 
-2.  Şimdi bunlara ayrıntılı gözden geçirin:
+2. Şimdi bunlara ayrıntılı gözden geçirin:
 
   * `/`Rota (varsa) kullanıcı istekte geçirme index.ejs görünümüne yeniden yönlendirir.
   * `/account` İlk yol *biz doğrulaması sağlar* (biz uygulamak, aşağıdaki örnekte) ve böylece kullanıcı hakkında ek bilgi elde edebilirsiniz kullanıcı istekte geçirir.

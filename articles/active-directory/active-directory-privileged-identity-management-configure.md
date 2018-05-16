@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: b8df65c969a37eb22589c297ecb9b0d0b840a52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -32,7 +32,7 @@ Azure Active Directory (AD) Privileged Identity Management sayesinde kuruluşunu
 >- Bir kez veya doğrudan (zaman tabanlı) atamaları yalnızca Azure kaynak rolüne atanan  
 >- Atanmış bir erişim gözden geçirme
 >
->Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
+>Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-whatis.md).
 
 Kuruluşlar, çünkü bu erişim alma kötü niyetli bir kullanıcı ya da yanlışlıkla hassas kaynak etkileyen yetkili bir kullanıcı olasılığını azaltır bilgi veya kaynaklarını güvenli hale getirmek için erişime sahip kişilerin sayısını en aza indirmek istediğiniz.  Ancak, kullanıcılar hala Azure AD'de ayrıcalıklı işlemleri gerçekleştirmek gereken Azure, Office 365 ya da SaaS uygulamaları. Kuruluşlar, abonelikleri ve Azure AD gibi Azure kaynakları için kullanıcılar ayrıcalıklı erişim verebilirsiniz. Yönetici ayrıcalıklarını bu kullanıcıların ne yaptıklarını gözetim gerek yoktur. Azure AD Privileged Identity Management erişim hakları kötüye kullanımını veya aşırı, gereksiz riskini azaltmaya yardımcı olur.
 

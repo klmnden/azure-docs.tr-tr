@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 10/9/2017
+ms.date: 5/10/2018
 ms.author: mobandyo
-ms.openlocfilehash: d94536bd0ab10c3e380855b66bc10dc9af6195a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Program aracılığıyla Azure kullanımınızı bir anlayış almak için Azure faturalama API'lerini kullanın
 Azure faturalama API'leri kullanımı ve kaynak veri çekmek için tercih edilen veri analizi araçlarınızı kullanın. Azure kaynak kullanımı ve RateCard API'leri doğru şekilde tahmin etmek ve maliyetlerinizi yönetmenize yardımcı olabilir. API'ler bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API ailesinin bir parçası olarak uygulanır.  

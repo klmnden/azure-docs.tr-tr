@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH
 
-Bazen, bir Azure Kubernetes hizmet (AKS) düğümü bakım, günlük toplama veya diğer sorun giderme işlemleri için erişim gerekebilir. Azure Kubernetes hizmet (AKS) düğümleri Internet'e açık değildir. Bir AKS düğümle bir SSH bağlantısı oluşturmak için bu belgede ayrıntılı adımları kullanın.
+Bazen, bir Azure Kubernetes hizmet (AKS) düğümü bakım, günlük toplama veya diğer sorun giderme işlemleri için erişim gerekebilir. AKS düğümleri Internet'e açık değildir. Bir AKS düğümle bir SSH bağlantısı oluşturmak için bu belgede ayrıntılı adımları kullanın.
 
 ## <a name="reset-ssh-keys"></a>SSH anahtarlarını sıfırlama
 
@@ -31,7 +31,7 @@ Seçin **sıfırlama SSH ortak anahtarı**, olan AKS küme kullanıcı adı giri
 
 ![Sıfırlama parolası düğmesiyle AKS portal VM](media/aks-ssh/reset-password-2.png)
 
-SSH anahtarı sıfırlama sonra karşılık gelen özel anahtarı kullanarak bağlanma bir SSH oluşturabilirsiniz.
+SSH anahtarı sıfırlama sonra karşılık gelen özel anahtarı kullanarak bir SSH bağlantısı oluşturabilirsiniz.
 
 ## <a name="get-aks-node-address"></a>AKS düğüm adresi alın
 

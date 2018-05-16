@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 ve Openıd Connect Protokolü | Microsoft Doc
 description: Web uygulamaları Azure AD v2.0 uygulama Openıd Connect kimlik doğrulama protokolü kullanarak oluşturun.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fd1f29f5c2920ea9956d883b9668f36c934a5e59
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 Openıd Connect OAuth 2.0, bir kullanıcı için bir web uygulaması için güvenli bir şekilde imzalamak için kullanabileceğiniz yerleşik bir kimlik doğrulama protokolüdür. Openıd Connect v2.0 uç noktanın uygulamasını kullandığınızda, web tabanlı uygulamalar için oturum açma ve API erişimini ekleyebilirsiniz. Bu makalede, bu bağımsız dilinin nasıl gösteriyoruz. Size hiçbir Microsoft açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklanır.
@@ -82,7 +84,7 @@ Kullanıcının kimliğini doğrulamak, web uygulamanız gerektiğinde kullanıc
 * İstek içermelidir `nonce` parametresi.
 
 > [!IMPORTANT]
-> Başarıyla sırada uygulama kaydında bir kimliği belirteci isteği [kayıt portalı](https://apps.dev.microsoft.com) olmalıdır **[örtük grant](active-directory-v2-protocols-implicit.md)** için etkin Web istemcisi.  Etkinleştirilmemişse, bir `unsupported_response` hata döndürülecek: "'response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. Beklenen değer 'kodu'."
+> Başarıyla sırada uygulama kaydında bir kimliği belirteci isteği [kayıt portalı](https://apps.dev.microsoft.com) olmalıdır **[örtük grant](active-directory-v2-protocols-implicit.md)** için etkin Web istemcisi. Etkinleştirilmemişse, bir `unsupported_response` hata döndürülecek: "'response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. Beklenen değer 'kodu'."
 
 Örneğin:
 
@@ -196,10 +198,10 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parametre | Koşul | Açıklama |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | Önerilen | Başarıyla oturumunuzu sonra kullanıcı yönlendireceği URL. Parametre dahil edilmezse, kullanıcı v2.0 uç noktası tarafından oluşturulan genel bir ileti gösterilir. Bu URL uygulama kayıt Portalı'nda, uygulamanız için URI kayıtlı yeniden yönlendirme biriyle eşleşmelidir.  |
+| post_logout_redirect_uri | Önerilen | Başarıyla oturumunuzu sonra kullanıcı yönlendireceği URL. Parametre dahil edilmezse, kullanıcı v2.0 uç noktası tarafından oluşturulan genel bir ileti gösterilir. Bu URL uygulama kayıt Portalı'nda, uygulamanız için URI kayıtlı yeniden yönlendirme biriyle eşleşmelidir. |
 
 ## <a name="single-sign-out"></a>Çoklu oturum kapatma
-Ne zaman yeniden yönlendirmek için kullanıcı `end_session_endpoint`, kullanıcının oturumunu tarayıcıdan v2.0 uç temizler. Ancak, kullanıcı hala Microsoft hesapları için kimlik doğrulama kullanan diğer uygulamalar için oturum açmanız. Kullanıcı aynı anda v2.0 çıkışı imzalamak bu uygulamalara olanak tanımak için son nokta bir HTTP GET isteği kayıtlı gönderir `LogoutUrl` kullanıcı şu anda oturum tüm uygulamaların. Uygulamalar kullanıcı tanımlayan herhangi bir oturumunda temizlenmesi ve döndürme bu istek için yanıt gerekir bir `200` yanıt.  Çoklu oturum kapatma uygulamanızda desteklemek istiyorsanız, gibi uygulamalıdır bir `LogoutUrl` uygulamanızın kodu.  Ayarlayabileceğiniz `LogoutUrl` uygulama kayıt Portalı'ndan.
+Ne zaman yeniden yönlendirmek için kullanıcı `end_session_endpoint`, kullanıcının oturumunu tarayıcıdan v2.0 uç temizler. Ancak, kullanıcı hala Microsoft hesapları için kimlik doğrulama kullanan diğer uygulamalar için oturum açmanız. Kullanıcı aynı anda v2.0 çıkışı imzalamak bu uygulamalara olanak tanımak için son nokta bir HTTP GET isteği kayıtlı gönderir `LogoutUrl` kullanıcı şu anda oturum tüm uygulamaların. Uygulamalar kullanıcı tanımlayan herhangi bir oturumunda temizlenmesi ve döndürme bu istek için yanıt gerekir bir `200` yanıt. Çoklu oturum kapatma uygulamanızda desteklemek istiyorsanız, gibi uygulamalıdır bir `LogoutUrl` uygulamanızın kodu. Ayarlayabileceğiniz `LogoutUrl` uygulama kayıt Portalı'ndan.
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>Protokol diyagramı: erişim belirteci edinme
 Birçok web uygulamaları yalnızca kullanıcı olarak, aynı zamanda OAuth kullanarak kullanıcı adına bir web hizmetine erişmek için oturum açmanız gerekir. Bu senaryo, OAuth yetkilendirme kodu akışını kullanıyorsanız, erişim belirteçleri almak için kullanabileceğiniz bir kimlik doğrulama kodu aynı anda alınırken kullanıcı kimlik doğrulaması için Openıd Connect birleştirir.
@@ -248,7 +250,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Parametre | Açıklama |
 | --- | --- |
 | id_token |İstenen uygulama kimliği belirteci. Kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için kimliği belirteci kullanabilirsiniz. Kimlik belirteçlerini ve bunların içerikleri hakkında daha fazla ayrıntı bulabilirsiniz [v2.0 uç belirteçler başvuru](active-directory-v2-tokens.md). |
-| kod |Uygulama istenen yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Bir kimlik doğrulama kodu çok kısa süreli ' dir. Genellikle, bir kimlik doğrulama kodu yaklaşık 10 dakika içinde süresi dolar. |
+| Kod |Uygulama istenen yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Bir kimlik doğrulama kodu çok kısa süreli ' dir. Genellikle, bir kimlik doğrulama kodu yaklaşık 10 dakika içinde süresi dolar. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 ### <a name="error-response"></a>Hata yanıtı

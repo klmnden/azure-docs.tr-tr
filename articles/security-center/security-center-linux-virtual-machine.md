@@ -4,7 +4,7 @@ description: Bu belge Azure Güvenlik Merkezi’nin Azure Sanal Makinelerinizi n
 services: security-center
 documentationcenter: na
 author: terrylan
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: e08444cbfdb095c79d164de06dda078c6a242b3f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d75750372c240edfa821c692cd6254f4ad60f4c4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Güvenlik Merkezi ve Linux çalıştıran Azure Sanal Makineleri
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tehditleri önlemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.

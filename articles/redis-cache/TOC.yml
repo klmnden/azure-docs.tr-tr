@@ -6,19 +6,19 @@
       href: cache-overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: ASP.NET
+    - name: ASP.NET uygulaması oluşturma
       href: cache-web-app-howto.md
-    - name: .NET
+    - name: .NET uygulaması oluşturma
       href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Node
+    - name: Node.js uygulaması oluşturma
       href: cache-nodejs-get-started.md
-    - name: Java
+    - name: Java uygulaması oluşturma
       href: cache-java-get-started.md
-    - name: Python
+    - name: Python uygulaması oluşturma
       href: cache-python-get-started.md
 - name: Öğreticiler
   items:
-    - name: Puan tablolarını önbelleğe alma
+    - name: Puan tabloları ile önbelleğe almayı kullanma
       href: cache-web-app-cache-aside-leaderboard.md
 - name: Örnekler
   items:

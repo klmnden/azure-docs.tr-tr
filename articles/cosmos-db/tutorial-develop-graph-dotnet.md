@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET’te Graph API ile geliştirme
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
@@ -121,7 +121,7 @@ Azure Cosmos DB; köşeler, kenarlar ve özellikler için bir JSON şeması tan�
 `Microsoft.Azure.Graphs.Elements` ad alanı, iyi tanımlanmış .NET nesnelerine GraphSON yanıtlarını seri durumdan çıkarmak için `Vertex`, `Edge`, `Property` ve `VertexProperty` sınıfları sağlar.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>CreateGremlinQuery kullanarak Gremlin çalıştırma
-SQL gibi Gremlin de okuma, yazma ve sorgulama işlemlerini destekler. Örneğin, aşağıdaki kod parçacığında köşe ve kenarlar oluşturma, `CreateGremlinQuery<T>` kullanarak bazı örnek sorgular gerçekleştirme ve `ExecuteNextAsync` ile `HasMoreResults kullanarak bunları zaman uyumsuz olarak yineleme işlemleri gösterilmektedir.
+SQL gibi Gremlin de okuma, yazma ve sorgulama işlemlerini destekler. Örneğin, aşağıdaki kod parçacığında köşe ve kenarlar oluşturma, `CreateGremlinQuery<T>` kullanarak bazı örnek sorgular gerçekleştirme ve `ExecuteNextAsync` ile `HasMoreResults` kullanarak bunları zaman uyumsuz olarak yineleme işlemleri gösterilmektedir.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

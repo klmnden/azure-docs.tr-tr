@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3ab4530047daec9e8cf163b0223109be6b18525b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -53,7 +53,7 @@ Uygulama proxy'si ile uygulamalarınızı yayımlamak için aşağıdaki adımla
    - **İç URL**: gelen özel ağınızdan uygulamaya erişmek için kullandığınız URL. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde, farklı uygulamalar ile aynı sunucuda farklı siteleri yayımlamak ve her biri kendi ad ve erişim kuralları verin.
 
      > [!TIP]
-     > Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanızın en ise https://yourapp/app ve konumunda bulunan görüntüleri kullanır https://yourapp/media, yayımlamanız gerekir sonra https://yourapp/ yolu olarak. Bu iç URL kullanıcılarınızın giriş sayfası olması gerekmez. Daha fazla bilgi için bkz: [yayımlanan uygulamalar için özel bir ana sayfa ayarlamak](../application-proxy-office365-app-launcher.md).
+     > Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanızın en ise https://yourapp/app ve konumunda bulunan görüntüleri kullanır https://yourapp/media, yayımlamanız gerekir sonra https://yourapp/ yolu olarak. Bu iç URL kullanıcılarınızın giriş sayfası olması gerekmez. Daha fazla bilgi için bkz: [yayımlanan uygulamalar için özel bir ana sayfa ayarlamak](application-proxy-configure-custom-home-page.md).
 
    - **Dış URL**: adresi kullanıcılarınızın ağınızın dışından uygulamasından erişmek için gider. Varsayılan uygulama proxy'si etki alanını kullanmak istemiyorsanız, bilgiyi [Azure AD uygulama proxy'si özel etki alanlarında](application-proxy-configure-custom-domain.md).
    - **Ön kimlik doğrulamasını**: nasıl uygulama proxy'si, bunları erişim uygulamanıza vermeden önce kullanıcıların doğrular. 
@@ -69,7 +69,7 @@ Uygulama proxy'si ile uygulamalarınızı yayımlamak için aşağıdaki adımla
 5. Gerekirse, ek ayarları yapılandırın. Çoğu uygulama için bu ayarları varsayılan durumlarına tutmanız gerekir. 
    - **Arka uç uygulaması zaman aşımı**: Bu değer ayarlanırsa **uzun** yalnızca uygulamanızı kimlik doğrulaması ve bağlanmak için yavaş olduğunda. 
    - **Üst bilgileri URL'leri**: Bu değer olarak tutun **Evet** kimlik doğrulama isteğini özgün ana bilgisayar üst bilgi uygulamanızın gerektirdiği sürece.
-   - **Uygulama gövdesindeki URL'leri**: Bu değer olarak tutun **Hayır** kodlanmış HTML bağlantılar diğer şirket içi uygulamalara sahip ve özel etki alanlarını kullanmadığınız sürece. Daha fazla bilgi için bkz: [bağlantı uygulama proxy'si ile çeviri](../application-proxy-link-translation.md).
+   - **Uygulama gövdesindeki URL'leri**: Bu değer olarak tutun **Hayır** kodlanmış HTML bağlantılar diğer şirket içi uygulamalara sahip ve özel etki alanlarını kullanmadığınız sürece. Daha fazla bilgi için bkz: [bağlantı uygulama proxy'si ile çeviri](application-proxy-configure-hard-coded-link-translation.md).
    
    ![Uygulamanızı yapılandırma](./media/application-proxy-publish-azure-portal/additional-settings.png)
 
@@ -99,6 +99,6 @@ Tarayıcınızda, Yayımla adımında yapılandırdığınız dış URL'ye gidin
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Bağlayıcılar karşıdan](application-proxy-enable.md) ve [bağlayıcı grupları oluşturma](../active-directory-application-proxy-connectors-azure-portal.md) ayrı ağlar ve konumları uygulamaları yayımlamak için.
+- [Bağlayıcılar karşıdan](application-proxy-enable.md) ve [bağlayıcı grupları oluşturma](application-proxy-connector-groups.md) ayrı ağlar ve konumları uygulamaları yayımlamak için.
 
-- [Çoklu oturum açmayı kurduğunuzda](../application-proxy-sso-azure-portal.md) yeni yayımlanan uygulamanız için
+- [Çoklu oturum açmayı kurduğunuzda](application-proxy-configure-single-sign-on-password-vaulting.md) yeni yayımlanan uygulamanız için

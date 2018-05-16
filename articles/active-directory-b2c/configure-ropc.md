@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: davidmu
-ms.openlocfilehash: 4a052da4a6a16fde0583b3a1dbecc2a6de5cc0a9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1b4d641f6830751e2cb9e66d5052eb20a48d371
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parolası kimlik bilgileri akışını (ROPC) yapılandırma
 
-Kaynak sahibi parolası kimlik bilgilerini (ROPC) bir OAUTH standart kimlik doğrulama akışı akışıdır burada uygulama bağlı olan taraf, kullanıcı kimliği ve parolası kimliği belirteci, erişim belirteci ve bir yenileme belirteci gibi alışverişleri geçerli kimlik bilgileri olarak da biliyor. 
+Kaynak sahibi parolası kimlik bilgileri (ROPC) akış olduğu gibi kullanıcı kimliği ve parolası kimliği belirteci, erişim belirteci ve bir yenileme belirteci geçerli kimlik bilgileri olarak da bilinen bağlı olan taraf uygulama alış verişleri bir OAUTH standart kimlik doğrulama akışı olur. 
 
 > [!NOTE]
 > Bu özelliğin önizlemede değil.

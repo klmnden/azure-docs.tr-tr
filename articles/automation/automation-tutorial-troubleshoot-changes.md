@@ -1,19 +1,21 @@
 ---
-title: "Bir Azure sanal makinesindeki değişikliklerle ilgili sorunları giderme | Microsoft Docs"
-description: "Bir Azure sanal makinesi üzerindeki değişikliklerle ilgili sorunları gidermek için Değişiklik İzleme özelliğini kullanabilirsiniz."
+title: Bir Azure sanal makinesindeki değişikliklerle ilgili sorunları giderme | Microsoft Docs
+description: Bir Azure sanal makinesi üzerindeki değişikliklerle ilgili sorunları gidermek için Değişiklik İzleme özelliğini kullanabilirsiniz.
 services: automation
-keywords: "değişiklik, izleme, otomasyon"
+ms.service: automation
+ms.component: change-inventory-management
+keywords: değişiklik, izleme, otomasyon
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -40,7 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com sayfasından Azure portalda oturum açın.
+http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzleme ve Stok özelliklerini etkinleştirme
 

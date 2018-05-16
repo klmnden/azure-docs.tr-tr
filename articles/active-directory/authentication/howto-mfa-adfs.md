@@ -2,23 +2,19 @@
 title: Azure MFA ve AD FS ile bulut kaynaklarını güvenli hale getirme | Microsoft Docs
 description: Bu, bulutta nasıl Azure MFA ve AD FS kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 0927fc67-8090-4fdd-913a-b3cfed3fbe77
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 3389dcd36eb4012e863335c34d5727c3530e2c61
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 3f1d6b00652270d143f7df48b0f690c5f33433e9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federation Services (AD FS) kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.

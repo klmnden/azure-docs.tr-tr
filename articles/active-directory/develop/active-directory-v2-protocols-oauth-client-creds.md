@@ -3,23 +3,25 @@ title: Kullanıcı etkileşimi olmadan güvenli kaynaklara erişmek için Azure 
 description: Web uygulamaları Azure AD uygulama OAuth 2.0 kimlik doğrulama protokolü kullanarak oluşturun.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ea681244edd81bcba1269886acc725175f779bfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışının
 Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri vermenizi](http://tools.ietf.org/html/rfc6749#section-4.4) olarak da adlandırılan RFC 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web bulunan kaynaklara erişmek için. Yaygın olarak grant bu tür bir kullanıcıyla hemen etkileşimi olmadan arka planda çalıştırılmalıdır server sunucusu etkileşimleri için kullanılır. Bu tür uygulamalar genellikle denir *deamon'lar* veya *hizmet hesapları*.
@@ -49,10 +51,10 @@ Bu tür bir kimlik doğrulama, arka plan programları ve kişisel Microsoft hesa
 ### <a name="application-permissions"></a>Uygulama izinleri
 ACL'ler kullanmak yerine, uygulama izinleri kullanıma sunmak için API'ler kullanabilirsiniz. Bir uygulama izni bir uygulamaya bir kuruluşun Yöneticisi tarafından verilir ve yalnızca belirli bir kuruluş ve çalışanlarının tarafından ait veri erişimi için kullanılabilir. Örneğin, Microsoft Graph aşağıdakileri yapmak için birkaç uygulama izinleri sunar:
 
-* Tüm posta kutularındaki okuma
-* Okuma ve tüm posta kutularında posta yazma
+* Tüm posta kutularındaki postaları okuma
+* Tüm posta kutularındaki postaları okuma ve yazma
 * Herhangi bir kullanıcı adına posta gönderme
-* Dizin verilerini okuyun
+* Dizin verilerini okuma
 
 Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https://graph.microsoft.io).
 
@@ -171,8 +173,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | kiracı |Gerekli | Uygulama dizini Kiracı, GUID veya etki alanı adı biçiminde boşluğunun planlar. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
 | scope |Gerekli |Geçirilen değeri `scope` bu isteği parametresinde istediğiniz ile yapıştırılmış kaynağının kaynak tanımlayıcısı (uygulama kimliği URI) olmalıdır `.default` soneki. Microsoft Graph örneğin değerdir `https://graph.microsoft.com/.default`. Bu değer v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinlerini, onu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
-| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
 | grant_type |Gerekli |Olmalıdır `client_credentials`. |
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.

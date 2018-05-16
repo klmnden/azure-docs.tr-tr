@@ -1,6 +1,6 @@
 ---
-title: "Azure AD SSO uygulamaları için yapılandırma | Microsoft Docs"
-description: "Bilgi edinmek için Self Servis SAML ve parola tabanlı SSO kullanılarak Azure Active Directory'ye uygulamalara nasıl bağlanacağını"
+title: Azure AD SSO uygulamaları için yapılandırma | Microsoft Docs
+description: Bilgi edinmek için Self Servis SAML ve parola tabanlı SSO kullanılarak Azure Active Directory'ye uygulamalara nasıl bağlanacağını
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 8b76809e615174e7c4e118c6043c8f3fbef3ee94
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma
-Bu makalede, Azure Active Directory Uygulama galerisinde mevcut uygulamalar için çoklu oturum açma yapılandırmak Yöneticiler sağlayan bir özellik hakkındadır *kod yazma olmadan*. Bu özellik 18 Kasım 2015 üzerinde technical preview sürümünden yayımlanmıştır ve dahil [Azure Active Directory Premium](active-directory-editions.md). Bunun yerine özel uygulama kodu aracılığıyla Azure AD ile tümleştirme hakkında Geliştirici Kılavuzu görmek istiyorsanız bkz [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
+Bu makalede, Azure Active Directory Uygulama galerisinde mevcut uygulamalar için çoklu oturum açma yapılandırmak Yöneticiler sağlayan bir özellik hakkındadır *kod yazma olmadan*. Bu özellik 18 Kasım 2015 üzerinde technical preview sürümünden yayımlanmıştır ve dahil [Azure Active Directory Premium](active-directory-whatis.md). Bunun yerine özel uygulama kodu aracılığıyla Azure AD ile tümleştirme hakkında Geliştirici Kılavuzu görmek istiyorsanız bkz [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
 
 Azure Active Directory Uygulama galerisinde Azure Active Directory ile çoklu oturum açma biçimi desteklediği açıklandığı gibi bilinen uygulamaların bir listesini sağlar [bu makalede](active-directory-appssoaccess-whatis.md). Siz (bir BT uzmanı veya sistem Tümleştirici kuruluşunuzdaki) bağlanmak istediğiniz uygulama bulduktan sonra çoklu oturum açmayı etkinleştirmek için Azure portalında sunulan adım adım yönergeleri izleyerek başlayabiliriz.
 
-Müşterilerle [Azure Active Directory Premium](active-directory-editions.md) lisans de bu ek özellikler alın:
+Müşterilerle [Azure Active Directory Premium](active-directory-whatis.md) lisans de bu ek özellikler alın:
 
 * SAML 2.0 kimlik sağlayıcısı (SP tarafından başlatılan veya IDP başlatılan) destekleyen herhangi bir uygulama Self Servis tümleştirilmesi
 * Kullanarak bir HTML tabanlı oturum açma sayfasına sahip herhangi bir web uygulaması Self Servis tümleştirilmesi [parola tabanlı SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -110,7 +110,7 @@ Ekleme ve bu senaryolar için talepleri düzenleme hakkında daha fazla bilgi i�
 ### <a name="testing-the-saml-application"></a>SAML uygulamayı test etme
 SAML URL'leri ve sertifika Azure AD ve uygulama yapılandırıldıktan sonra kullanıcılar veya gruplar Azure, uygulamaya atanan ve talepleri gözden ve gerekirse düzenlenebilir, sonra kullanıcı uygulamayı imzalamak hazırdır. 
 
-Test etmek için yalnızca oturum-içine Azure AD uygulamaya atanan bir kullanıcı hesabı kullanarak https://myapps.microsoft.com masasında erişmek ve tek oturum açma kapatma işlemini kazandırın uygulamaya kutucuğuna tıklayın. Alternatif olarak, doğrudan uygulama ve oturum açma için oturum açma URL'si buradan gözatabilirsiniz. 
+Test etmek için yalnızca oturum-içine Azure AD erişim paneli adresindeki https://myapps.microsoft.com uygulamaya atanmış bir kullanıcı hesabı kullanarak ve uygulamanın çoklu oturum açma kapatma işlemini kazandırın kutucuğa tıklayın. Alternatif olarak, doğrudan uygulama ve oturum açma için oturum açma URL'si buradan gözatabilirsiniz. 
 
 Hata ayıklama ipuçları için bkz [nasıl SAML tabanlı çoklu oturum açma uygulamalarda hata ayıklamak makalede](active-directory-saml-debugging.md) 
 
@@ -130,7 +130,7 @@ Seçtikten sonra **sonraki**, bağlantı sağlamak için uygulama URL'sini girme
 
 Not: Kullanılarak uygulama için bir kutucuk logosu yükleyebilirsiniz **karşıya logosu** düğmesini **yapılandırma** uygulama sekmesinde.
 
-## <a name="related-articles"></a>İlgili Makaleler
+## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştirme](active-directory-saml-claims-customization.md)
 * [Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md)

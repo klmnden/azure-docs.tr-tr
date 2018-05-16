@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c5f706e6e9402bfc404c370a0d1a45fc07656a9e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Şirket içi uygulamalara güvenli uzaktan erişim sağlama
 
@@ -52,15 +52,15 @@ Azure AD uygulama proxy'si şöyledir:
 Azure AD uygulama proxy'si ile dahili uygulama farklı türlerine erişebilir:
 
 * Web kullanan uygulamalar [tümleşik Windows kimlik doğrulaması](application-proxy-configure-single-sign-on-with-kcd.md) kimlik doğrulaması  
-* Web form tabanlı kullanan uygulamalar veya [başlığa göre](../application-proxy-ping-access.md) erişim  
+* Web form tabanlı kullanan uygulamalar veya [başlığa göre](application-proxy-configure-single-sign-on-with-ping-access.md) erişim  
 * Web farklı cihazlarda zengin uygulamalar için kullanıma sunmak istediğiniz API'leri  
-* Barındırılan uygulamalara arkasındaki bir [Uzak Masaüstü Ağ Geçidi](../application-proxy-publish-remote-desktop.md)  
+* Barındırılan uygulamalara arkasındaki bir [Uzak Masaüstü Ağ Geçidi](application-proxy-integrate-with-remote-desktop-services.md)  
 * Active Directory Authentication Library (ADAL) ile tümleşik zengin istemci uygulamaları
 
 ## <a name="how-does-application-proxy-work"></a>Uygulama proxy'si nasıl çalışır?
 Uygulama proxy'si iş yapmak için yapılandırmanız gereken iki bileşeni vardır: bir bağlayıcı ve dış uç noktası. 
 
-Ağınızdaki Windows Server'da bulunur basit bir aracı Bağlayıcıdır. Bağlayıcı uygulama şirket içi bulut uygulama proxy'si hizmetinden trafik akışına kolaylaştırır. Gelen bağlantı noktalarının açık veya hiçbir şey DMZ'deki put zorunda kalmamak için yalnızca giden bağlantılar kullanır. Bağlayıcılar, durum bilgisiz ve gerekirse bulut bilgi isteneceğini. Nasıl gibi bağlayıcılar hakkında daha fazla bilgi için Yük Dengeleme ve kimlik doğrulaması, bkz [anlamak Azure AD uygulama proxy'si Bağlayıcılar](../application-proxy-understand-connectors.md). 
+Ağınızdaki Windows Server'da bulunur basit bir aracı Bağlayıcıdır. Bağlayıcı uygulama şirket içi bulut uygulama proxy'si hizmetinden trafik akışına kolaylaştırır. Gelen bağlantı noktalarının açık veya hiçbir şey DMZ'deki put zorunda kalmamak için yalnızca giden bağlantılar kullanır. Bağlayıcılar, durum bilgisiz ve gerekirse bulut bilgi isteneceğini. Nasıl gibi bağlayıcılar hakkında daha fazla bilgi için Yük Dengeleme ve kimlik doğrulaması, bkz [anlamak Azure AD uygulama proxy'si Bağlayıcılar](application-proxy-connectors.md). 
 
 Kullanıcılarınızın uygulamalarınızı sırasında ağ dışında nasıl ulaşmak dış uç noktadır. Belirlediğiniz doğrudan bir dış URL için ya da gidebilirsiniz veya MyApps Portalı aracılığıyla uygulamaya erişebilir. Kullanıcılar bu uç noktalar birine gidin, Azure AD içinde kimlik doğrulaması ve daha sonra şirket içi uygulama bağlayıcı aracılığıyla yönlendirilir.
 
@@ -95,9 +95,9 @@ Uygulama proxy'si ile iki adımda başlayın:
 
 * [Çoklu oturum açmayı etkinleştirme](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Kendi etki alanı adınızı kullanarak uygulama yayımlama](application-proxy-configure-custom-domain.md)
-* [Azure AD uygulama proxy'si bağlayıcılar hakkında bilgi edinin](../application-proxy-understand-connectors.md)
-* [Mevcut şirket içi Proxy sunucuları ile çalışma](../application-proxy-working-with-proxy-servers.md) 
-* [Özel bir ana sayfa ayarlama](../application-proxy-office365-app-launcher.md)
+* [Azure AD uygulama proxy'si bağlayıcılar hakkında bilgi edinin](application-proxy-connectors.md)
+* [Mevcut şirket içi Proxy sunucuları ile çalışma](application-proxy-configure-connectors-with-proxy-servers.md) 
+* [Özel bir ana sayfa ayarlama](application-proxy-configure-custom-home-page.md)
 
 En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın
 

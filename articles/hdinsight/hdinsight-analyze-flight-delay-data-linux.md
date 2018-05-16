@@ -1,99 +1,122 @@
 ---
-title: Hive hdınsight'ta - Azure ile uçuş gecikme veri çözümleme | Microsoft Docs
-description: Hive Linux tabanlı Hdınsight üzerinde uçuş verileri çözümlemek ve Sqoop kullanarak bu verileri SQL veritabanına vermek için nasıl kullanılacağını öğrenin.
+title: 'Öğretici: HDInsight üzerinde Hive kullanarak ayıklama, dönüştürme, yükleme (ETL) işlemleri gerçekleştirme - Azure | Microsoft Docs'
+description: Ham CSV veri kümesinden veri ayıklama, HDInsight üzerinde Hive kullanarak dönüştürme ve sonra Sqoop kullanarak dönüştürülmüş verileri Azure SQL veritabanına yükleme hakkında bilgi edinin.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/23/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fd0daae8289839b64e7b54d97c78719587c18e7d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
+ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
-Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini analiz etme ve Sqoop kullanarak Azure SQL veritabanına verileri dışarı aktarma öğrenin.
+Bu öğreticide bir ham CSV veri dosyası alacak, HDInsight kümesi deposuna aktaracak ve sonra Azure HDInsight üzerinde Apache Hive kullanarak verileri dönüştüreceksiniz. Veriler dönüştürüldükten sonra Apache Sqoop kullanarak bu verileri bir Azure SQL veritabanına yükleyeceksiniz. Bu makalede, genel kullanıma açık uçuş verileri kullanacaksınız.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux Azure Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, Azure HDInsight sürüm 3.4 veya üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Önkoşullar
+Bu öğretici aşağıdaki görevleri kapsar: 
 
-* **Hdınsight kümesi**. Bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](hadoop/apache-hadoop-linux-tutorial-get-started.md) yeni bir Linux tabanlı Hdınsight kümesi oluşturma adımları için.
+> [!div class="checklist"]
+> * Örnek uçuş verilerini indirme
+> * Verileri bir HDInsight kümesine yükleme
+> * Hive kullanarak verileri dönüştürme
+> * Azure SQL veritabanında tablo oluşturma
+> * Sqoop kullanarak Azure SQL veritabanına veri aktarma
 
-* **Azure SQL Veritabanı**. Hedef veri deposu olarak Azure SQL veritabanını kullanın. Bir SQL veritabanı yoksa bkz [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**. Azure CLI yüklemediyseniz, bkz: [Azure CLI 1.0 yüklemek](../cli-install-nodejs.md) daha fazla adım için.
+Aşağıdaki şekilde tipik bir ETL uygulama akışı gösterilmektedir.
+
+![Azure HDInsight üzerinde Apache Hive kullanarak ETL işlemi](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "Azure HDInsight üzerinde Apache Hive kullanarak ETL işlemi")
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Ön koşullar
+
+* **HDInsight üzerinde Linux tabanlı Hadoop kümesi**. Yeni bir Linux tabanlı HDInsight kümesi oluşturma adımları için bkz. [HDInsight’ta Hadoop kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+
+* **Azure SQL Veritabanı**. Azure SQL veritabanını bir hedef veri deposu olarak kullanacaksınız. SQL veritabanınız yoksa bkz. [Azure portalında Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md).
+
+* **Azure CLI 2.0**. Azure CLI yüklemediyseniz, daha fazla adım için [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) konusuna bakın.
 
 * **Bir SSH istemcisi**. Daha fazla bilgi için bkz. [SSH kullanarak HDInsight'a (Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="download-the-flight-data"></a>Uçuş veri indirin
+## <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
-1. Gözat [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik kuruluşu][rita-website].
+1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (Araştırma ve Yenilikçi Teknolojiler İdaresi, Ulaşım İstatistikleri Bürosu) sayfasına göz atın.
 
-2. Sayfasında, aşağıdaki değerleri seçin:
+2. Sayfada aşağıdaki değerleri seçin:
 
-   | Ad | Değer |
+   | Adı | Değer |
    | --- | --- |
-   | Filtre yıl |2013 |
-   | Dönem filtre |Ocak |
-   | Alanlar |Yıl, FlightDate, UniqueCarrier, taşıyıcı, FlightNum, OriginAirportID, kaynak, OriginCityName, OriginState, DestAirportID, hedef, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   Diğer tüm alanlar temizleyin. 
+   | Yıl Filtresi |2013 |
+   | Dönem Filtresi |Ocak |
+   | Alanlar |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   Diğer tüm alanları temizleyin. 
 
-3. Seçin **karşıdan**.
+3. **Download** (İndir) seçeneğini belirleyin. Seçtiğiniz veri alanlarını içeren bir .zip dosyası alırsınız.
 
-## <a name="upload-the-data"></a>Veri yükleme
+## <a name="upload-data-to-an-hdinsight-cluster"></a>Verileri bir HDInsight kümesine yükleme
 
-1. Hdınsight küme baş düğümüne .zip dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
+Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yolu vardır. Bu bölümde, verileri karşıya yüklemek için `scp` kullanacaksınız. Verileri karşıya yüklemenin diğer yollarını öğrenmek için bkz. [Verileri HDInsight'a yükleme](hdinsight-upload-data.md).
+
+1. Bir komut istemi açın ve aşağıdaki komutu kullanarak .zip dosyasını HDInsight kümesini baş düğümüne yükleyin:
 
     ```bash
-    scp FILENAME.zip sshuser@clustername-ssh.azurehdinsight.net:
+    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
     ```
 
-    Değiştir `FILENAME` .zip dosya adı. Değiştir `sshuser` SSH oturum açma için Hdınsight kümesine sahip. Değiştir `clustername` Hdınsight kümesi adı.
+    *FILENAME* değerini .zip dosyasının adıyla değiştirin. *USERNAME* değerini HDInsight kümesinin SSH oturum açma adıyla değiştirin. *CLUSTERNAME* değerini HDInsight kümesinin adıyla değiştirin.
 
-2. Karşıya yükleme tamamlandıktan sonra SSH kullanarak kümeye bağlanın:
+   > [!NOTE]
+   > SSH oturum açma bilgilerinizi doğrulamak için bir parola kullanıyorsanız parola girmeniz istenir. Ortak anahtar kullanıyorsanız, eşleşen özel anahtarın yolunu belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+
+2. Karşıya yükleme tamamlandıktan sonra SSH kullanarak kümeye bağlanın. Komut istemine aşağıdaki komutu girin:
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-3. .Zip dosyasını sıkıştırmasını açmak için aşağıdaki komutu kullanın:
+3. .zip dosyasını açmak için aşağıdaki komutu kullanın:
 
     ```bash
     unzip FILENAME.zip
     ```
 
-    Bu komut, kabaca 60 MB boyutunda bir .csv dosyası ayıklar.
+    Bu komut yaklaşık 60 MB boyutu olan bir .csv dosyasını ayıklar.
 
-4. Hdınsight depolama biriminde bir dizin oluşturmak için aşağıdaki komutu kullanın ve ardından dosyayı dizinine kopyalayın:
+4. HDInsight deposunda bir dizin oluşturmak için aşağıdaki komutları kullanın ve sonra .csv dosyasını dizine kopyalayın:
 
     ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
-    hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
+    hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
     ```
 
-## <a name="create-and-run-the-hiveql"></a>Oluşturma ve HiveQL çalıştırma
+## <a name="transform-data-using-a-hive-query"></a>Hive sorgusu kullanarak veri dönüştürme
 
-Adlı bir Hive tabloya .csv dosyasından veri almak için aşağıdaki adımları kullanın **gecikmeler**.
+Bir HDInsight kümesi üzerinde Hive işi çalıştırmanın çok sayıda yolu vardır. Bu bölümde, bir Hive işi çalıştırmak için Beeline kullanacaksınız. Bir Hive işi çalıştırmanın diğer yöntemleri hakkında bilgi için bkz. [HDInsight üzerinde Hive kullanma](./hadoop/hdinsight-use-hive.md).
 
-1. Oluşturma ve düzenleme adlı yeni bir dosya için aşağıdaki komutu kullanın **flightdelays.hql**:
+Hive işinin bir parçası olarak, verileri .csv dosyasından **Delays** adlı bir Hive tablosuna aktarın.
+
+1. HDInsight kümesi için aldığınız SSH isteminden aşağıdaki komutu kullanarak **flightdelays.hql** adlı yeni bir dosya oluşturup düzenleyin:
 
     ```bash
     nano flightdelays.hql
     ```
 
-    Aşağıdaki metni bu dosyanın içeriğini kullanın:
+2. Bu dosyanın içeriği olarak aşağıdaki metni kullanın:
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -155,21 +178,21 @@ Adlı bir Hive tabloya .csv dosyasından veri almak için aşağıdaki adımlar�
     FROM delays_raw;
     ```
 
-2. Dosyayı kaydetmek için Ctrl + X, Y kullanın.
+2. Dosyayı kaydetmek için **Esc** tuşuna basıp `:x` girin.
 
-3. Hive başlatmak ve çalıştırmak için **flightdelays.hql** dosya, aşağıdaki komutu kullanın:
+3. Hive’ı başlatmak ve **flightdelays.hql** dosyasını çalıştırmak için aşağıdaki komutu kullanın:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-4. Sonra __flightdelays.hql__ betik çalıştıran bitirdiğinde, etkileşimli Beeline oturum açmak için aşağıdaki komutu kullanın:
+4. __flightdelays.hql__ betiği çalışmayı tamamladıktan sonra aşağıdaki komutu kullanarak etkileşimli bir Beeline oturumu açın:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-5. Aldığınızda `jdbc:hive2://localhost:10001/>` isteminde, verileri içeri aktarılan uçuş gecikme verilerini almak için aşağıdaki sorguyu kullanın:
+5. `jdbc:hive2://localhost:10001/>` istemini aldığınızda, içeri aktarılan uçuş gecikme verilerini almak için aşağıdaki sorguyu kullanın:
 
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -181,35 +204,35 @@ Adlı bir Hive tabloya .csv dosyasından veri almak için aşağıdaki adımlar�
     GROUP BY origin_city_name;
     ```
 
-    Bu sorgu deneyimli hava durumu, ortalama gecikme süresi ile birlikte, gecikmeler ve kendisine kaydeden Şehir listesini alır `/tutorials/flightdelays/output`. Daha sonra Sqoop bu konumdan veri okuyan ve bunu Azure SQL veritabanına aktarır.
+    Bu sorgu, hava durumundan kaynaklanan gecikmeler yaşayan şehirlerin bir listesini, ortalama gecikme süresi ile birlikte alır ve `/tutorials/flightdelays/output` konumuna kaydeder. Daha sonra, Sqoop bu konumdaki verileri okur ve Azure SQL Veritabanına aktarır.
 
-6. Beeline çıkmak için girin `!quit` isteminde.
-
-## <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
-
-Bir SQL veritabanı zaten varsa, sunucu adını edinmeniz gerekir. Sunucu adını bulmak için [Azure portal](https://portal.azure.com)seçin **SQL veritabanları**ve daha sonra kullanmak için seçtiğiniz veritabanı adına filtre. Sunucu adı listelenir **SERVER** sütun.
-
-Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md) oluşturmak için. Veritabanı için kullanılan sunucu adını kaydedin.
+6. Beeline’dan çıkmak için isteme `!quit` girin.
 
 ## <a name="create-a-sql-database-table"></a>SQL veritabanı tablosu oluşturma
 
+Bu bölümde, daha önce bir Azure SQL veritabanı oluşturduğunuz varsayılır. Henüz bir SQL veritabanınız yoksa, bir tane oluşturmak için [Azure portalında Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md) bölümündeki bilgileri kullanın.
+
+Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. Sunucuyu bulmak için [Azure portalında](https://portal.azure.com) adlandırın, **SQL Veritabanları**’nı seçin ve sonra kullanmayı seçtiğiniz veritabanının adıyla filtreleyin. Sunucu adı, **Sunucu adı** sütununda listelenir.
+
+![Azure SQL server ayrıntılarını alma](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Azure SQL server ayrıntılarını alma")
+
 > [!NOTE]
-> SQL veritabanına bağlanmak ve bir tablo oluşturmak için birçok yolu vardır. Aşağıdaki adımları kullanın [ücretsiz](http://www.freetds.org/) Hdınsight kümesine ait.
+> SQL Veritabanına bağlanıp tablo oluşturmanın çok sayıda yolu vardır. Aşağıdaki adımlarda HDInsight kümesinden [FreeTDS](http://www.freetds.org/) kullanılır.
 
 
-1. Ücretsiz yüklemek için bir SSH bağlantısı küme aşağıdaki komutu kullanın:
+1. FreeTDS yüklemek için küme ile kurulan bir SSH bağlantısından aşağıdaki komutu kullanın:
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Yükleme tamamlandıktan sonra SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın. Değiştir **serverName** SQL veritabanı sunucu adı. Değiştir **adminLogin** ve **Admınpassword** SQL veritabanı için oturum açma ile. Değiştir **databaseName** veritabanı adında.
+3. Yükleme tamamlandıktan sonra SQL Veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın. **serverName** değerini SQL Veritabanı sunucu adıyla değiştirin. **adminLogin** ve **adminPassword** değerini SQL Veritabanı oturum açma bilgileriyle değiştirin. **databaseName** değerini veritabanı adıyla değiştirin.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
-    İstendiğinde, SQL veritabanı yönetici oturum açma için parola girin.
+    Sorulduğunda, SQL Veritabanı yöneticisinin parolasını girin.
 
     Aşağıdakine benzer bir çıktı alırsınız:
 
@@ -221,7 +244,7 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
     1>
     ```
 
-4. Konumundaki `1>` isteminde, aşağıdaki satırları girin:
+4. `1>` isteminde aşağıdaki satırları girin:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
@@ -232,9 +255,9 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
     GO
     ```
 
-    Zaman `GO` deyimi girilir, önceki deyimleri değerlendirilir. Bu sorgu adlı bir tablo oluşturur **gecikmeler**, kümelenmiş bir dizin ile.
+    `GO` deyimi girildiğinde önceki deyimler değerlendirilir. Bu sorgu, kümelenmiş bir dizin ile **delays** adlı bir tablo oluşturur.
 
-    Tablo oluşturulduğunu doğrulamak için aşağıdaki sorguyu kullanın:
+    Tablonun oluşturulduğunu doğrulamak için aşağıdaki sorguyu kullanın:
 
     ```hiveql
     SELECT * FROM information_schema.tables
@@ -245,54 +268,65 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-    databaseName       dbo     delays      BASE TABLE
+    databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Girin `exit` adresindeki `1>` tsql yardımcı programı'ndan çıkmak komut istemi.
+5. Tsql yardımcı programından çıkış yapmak için `1>` istemine `exit` girin.
 
-## <a name="export-data-with-sqoop"></a>Sqoop ile verileri dışarı aktarma
+## <a name="export-data-to-sql-database-using-sqoop"></a>Sqoop kullanarak verileri SQL veritabanına aktarma
 
-1. Sqoop SQL veritabanınız görebildiğini doğrulamak için aşağıdaki komutu kullanın:
+Önceki bölümlerde, `/tutorials/flightdelays/output` konumunda dönüştürülen verileri kopyaladınız. Bu bölümde, verileri '/tutorials/flightdelays/output` dizininden Azure SQL veritabanında oluşturduğunuz tabloya aktarmak için Sqoop kullanacaksınız. 
+
+1. Sqoop’un SQL veritabanınızı görebildiğini doğrulamak için aşağıdaki komutu kullanın:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
-    Bu komut, daha önce gecikmeler tablo oluşturulan veritabanı dahil olmak üzere veritabanlarının listesini döndürür.
+    Bu komut, daha önce delays tablosunda oluşturduğunuz veritabanı dahil olmak üzere veritabanlarının bir listesini döndürür.
 
-2. Veri hivesampletable gecikmeler tabloya dışarı aktarmak için aşağıdaki komutu kullanın:
+2. Verileri hivesampletable tablosundan delays tablosuna aktarmak için aşağıdaki komutu kullanın:
 
     ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop bağlayan gecikmeler tablo içeren ve verileri dışa aktarır veritabanına `/tutorials/flightdelays/output` gecikmeler tabloya dizin.
+    Sqoop, delays tablosunu içeren veritabanına bağlanır ve verileri `/tutorials/flightdelays/output` dizininden delays tablosuna aktarır.
 
-3. Sqoop komut bittikten sonra veritabanına bağlanmak için tsql yardımcı programını kullanın:
+3. Sqoop komutu tamamlandıktan sonra veritabanına bağlanmak için tsql yardımcı programını kullanın:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Veri gecikmeler tablosuna aktarılmış doğrulamak için aşağıdaki ifadeleri kullanın:
+    Verilerin delays tablosuna aktarıldığını doğrulamak için aşağıdaki ifadeleri kullanın:
 
     ```sql
     SELECT * FROM delays
     GO
     ```
 
-    Tablosunda veri listesini görmelisiniz. Tür `exit` tsql yardımcı programı'ndan çıkmak için.
+    Tabloda verilerin bir listesini görürsünüz. Tablo, şehir adını ve bu şehre ait ortalama uçuş gecikme süresini içerir. 
+
+    Tsql yardımcı programından çıkmak için `exit` yazın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hdınsight'ta verilerle çalışma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu öğreticide, HDInsight üzerinde bir Apache Hadoop kümesi kullanarak veri ayıklama, dönüştürme ve yükleme işlemlerinin nasıl gerçekleştirildiğini öğrendiniz. Azure Data Factory kullanarak isteğe bağlı HDInsight Hadoop kümeleri oluşturmayı öğrenmek için sonraki öğreticiye ilerleyin.
+
+> [!div class="nextstepaction"]
+>[Azure Data Factory kullanarak HDInsight’ta isteğe bağlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-adf.md)
+
+HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşağıdaki makalelere bakın:
 
 * [HDInsight ile Hive kullanma][hdinsight-use-hive]
-* [Oozie Hdınsight ile kullanma][hdinsight-use-oozie]
-* [Hdınsight ile Sqoop kullanma][hdinsight-use-sqoop]
 * [HDInsight ile Pig kullanma][hdinsight-use-pig]
-* [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek][hdinsight-develop-mapreduce]
-* [MapReduce programları Hdınsight için akış Python geliştirme][hdinsight-develop-streaming]
+* [HDInsight'ta Hadoop için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
+* [HDInsight için Python akışı MapReduce programları geliştirme][hdinsight-develop-streaming]
+* [HDInsight ile Oozie kullanma][hdinsight-use-oozie]
+* [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
+
+
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

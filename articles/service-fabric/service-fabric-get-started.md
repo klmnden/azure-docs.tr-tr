@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/29/2018
+ms.date: 05/02/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 1012cdc73e721c65502d749ce27eb6e9cbda6bf4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: afccb78ab1bf632989411992df9149e7dd5542d4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -63,10 +63,10 @@ Yalnızca SDK'yı yüklemeniz gerekiyorsa bu paketi yükleyebilirsiniz:
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]
 
 Geçerli sürümler şunlardır:
-* Service Fabric SDK’sı ve Araçları 3.0.480
-* Service Fabric çalışma zamanı 6.1.480
-* Visual Studio 2015 2.0.10124.2 için Service Fabric Araçları
-* Visual Studio 2017 15.5.6, Visual Studio 2.0.20180124.2 için Service Fabric Araçlarını içerir  
+* Service Fabric SDK’sı ve Araçları 3.1.269
+* Service Fabric çalışma zamanı 6.2.269
+* Visual Studio 2015 2.1.10410.1 için Service Fabric Araçları
+* Visual Studio 2017 15.5.6, Visual Studio 2.1.20180406.1 için Service Fabric Araçlarını içerir  
 
 Desteklenen sürümlerin listesi için bkz. [Service Fabric desteği](service-fabric-support.md)
 
@@ -91,7 +91,7 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 * [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
 * [Kümenizde işletim sistemi düzeltme eki uygulama işlemini otomatikleştirme](service-fabric-patch-orchestration-application.md)
 
-[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric kampanya sayfası"
+[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric kampanya sayfası"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI bağlantısı"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI bağlantısı"

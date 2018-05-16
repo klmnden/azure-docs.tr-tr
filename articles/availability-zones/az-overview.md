@@ -1,6 +1,6 @@
 ---
-title: Azure kullanılabilirlik bölgeleri genel bakış | Microsoft Docs
-description: Bu makalede kullanılabilirlik bölgeleri yüksek oranda kullanılabilir ve esnek uygulamaları oluşturmak için nasıl kullanılacağını genel bakış sağlar
+title: Azure kullanılabilirlik bölgeleri nelerdir? | Microsoft Docs
+description: Yüksek oranda kullanılabilir ve esnek uygulamaları oluşturmak için fiziksel olarak ayrı konumlardan kaynaklarınızı çalıştırmak için kullanabilirsiniz kullanılabilirlik bölgeleri sağlayın.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 03/21/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="overview-of-availability-zones-in-azure"></a>Azure kullanılabilirlik bölgeleri genel bakış
+# <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik bölgeleri nelerdir?
 Kullanılabilirlik bölgeleri, uygulamaları ve verileri datacenter hatalarından korur sunan bir yüksek kullanılabilirlik ' dir. Kullanılabilirlik bölgeleri bir Azure bölgesine benzersiz fiziksel konumlara ' dir. Her bölge soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezleri oluşur. Dayanıklılık sağlamak için en az üç ayrı bölgelere etkinleştirilmiş tüm bölgelerde yoktur. Kullanılabilirlik bölgeleri fiziksel ayrımı bir bölge içinde uygulamaları ve verileri datacenter hatalarından korur. Bölge olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-in-arızasına karşı korumak için kullanılabilirlik bölgeler arasında çoğaltılır. Kullanılabilirlik bölgeleri ile sektör en iyi % 99,99 VM çalışma süresi SLA Azure sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
 Yüksek kullanılabilirlik, işlem, depolama, ağ ve veri kaynaklarınızın bir bölge içinde birlikte bulunması ve diğer bölgelerde çoğaltmaya göre uygulama Mimarinizi oluşturun. Kullanılabilirlik bölgeleri destekleyen azure Hizmetleri iki kategoriye ayrılır:
@@ -36,7 +36,7 @@ Azure ile ilgili kapsamlı iş sürekliliği elde etmek için uygulama Mimariniz
 
 ## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik bölgeleri destekler bölgeleri
 
-- ABD Orta
+- Orta ABD
 - Fransa Orta
 - Doğu ABD 2 (Önizleme)
 - Batı Avrupa (Önizleme)
@@ -52,8 +52,8 @@ Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
 - Yönetilen Diskler
 - Load Balancer
 - Genel IP adresi
-- Bölge olarak yedekli depolama
-- SQL Database
+- Bölgesel olarak yedekli depolama
+- SQL Veritabanı
 
 
 ## <a name="pricing"></a>Fiyatlandırma

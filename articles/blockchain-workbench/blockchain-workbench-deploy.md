@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranı dağıtma
 
@@ -237,6 +237,8 @@ Blockchain çalışma ekranının dağıtım tamamlandıktan sonra yeni bir kayn
 
     ![Uygulama hizmeti temelleri](media/blockchain-workbench-deploy/app-service.png)
 
+Özel etki alanı adı Blockchain çalışma ekranı ile ilişkilendirmek için bkz: [trafik Yöneticisi'ni kullanarak Azure App Service içinde bir web uygulaması için bir özel etki alanı adı yapılandırma](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+
 ## <a name="configuring-the-reply-url"></a>Yanıt URL'si yapılandırma
 
 Azure Blockchain çalışma ekranı dağıtıldıktan sonra sonraki adım Azure Active Directory (Azure AD) istemci uygulamasının doğru kaydedildiğinden emin olmaktır **yanıt URL'si** dağıtılan Blockchain çalışma ekranı URL web.
@@ -246,7 +248,7 @@ Azure Blockchain çalışma ekranı dağıtıldıktan sonra sonraki adım Azure 
 3. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet. **Uygulama kayıtları**'nı seçin.
 4. Önkoşul bölümünde kayıtlı Azure AD istemci uygulaması'nı seçin.
 5. Seçin **ayarlar > Yanıtla URL'leri**.
-6. Alınan içinde Azure Blockchain çalışma ekranının dağıtım ana web URL'sini belirtin **Azure Blockchain çalışma ekranı Web URL'sini alma** bölümü. Yanıt URL'si önekine sahip `https://`.  Örneğin, `https://myblockchain2-7v75.azurewebsites.net`
+6. Alınan içinde Azure Blockchain çalışma ekranının dağıtım ana web URL'sini belirtin **Azure Blockchain çalışma ekranı Web URL'sini alma** bölümü. Yanıt URL'si önekine sahip `https://`. Örneğin, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Yanıt URL'leri](media/blockchain-workbench-deploy/configure-reply-url.png)
 

@@ -1,25 +1,27 @@
 ---
-title: "Başlarken Azure AD .NET Web API'si | Microsoft Docs"
-description: ".NET MVC web kimlik doğrulama ve yetkilendirme için Azure AD ile tümleşir API'si oluşturma."
+title: Başlarken Azure AD .NET Web API'si | Microsoft Docs
+description: .NET MVC web kimlik doğrulama ve yetkilendirme için Azure AD ile tümleşir API'si oluşturma.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa527f66035ce8ea95ecdf405ef307c1202a92a6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Başlarken Azure AD .NET Web API'si
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -125,8 +127,8 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
     ```
 
 7. Açık `web.config` dosya TodoListService proje kök dizininde ve yapılandırma değerlerinizi girin `<appSettings>` bölümü.
-  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com adıdır.
-  * `ida:Audience`Azure portalında girdiğiniz uygulamanın uygulama kimliği URI'si değil.
+  * `ida:Tenant` Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com adıdır.
+  * `ida:Audience` Azure portalında girdiğiniz uygulamanın uygulama kimliği URI'si değil.
 
 ## <a name="step-3-configure-a-client-application-and-run-the-service"></a>3. adım: bir istemci uygulamasını yapılandırma ve hizmet çalıştırma
 İçin yapmak listesi hizmetinde eylem görebilmeniz için öncelikle Azure AD'den belirteçleri almak ve hizmet çağrı yapmak için yapılacaklar listesi istemci yapılandırmanız gerekir.
@@ -143,9 +145,9 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
 
 5. Visual Studio'da açın `App.config` TodoListClient içinde proje ve yapılandırma değerleriniz enter `<appSettings>` bölümü.
 
-  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com adıdır.
-  * `ida:ClientId`Azure portalından kopyalandığından uygulama kimliğidir.
-  * `todo:TodoListResourceId`Azure portalında girdiğiniz listesi hizmeti yapmak için uygulamanın uygulama kimliği URI'si değil.
+  * `ida:Tenant` Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com adıdır.
+  * `ida:ClientId` Azure portalından kopyalandığından uygulama kimliğidir.
+  * `todo:TodoListResourceId` Azure portalında girdiğiniz listesi hizmeti yapmak için uygulamanın uygulama kimliği URI'si değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Son olarak, temiz, yapı ve her proje çalıştırın. Henüz yapmadıysanız, şimdi yeni bir kullanıcı ile kiracınızda oluşturma vakti bir *. onmicrosoft.com etki alanı. Bu kullanıcının yapılacaklar listesi istemcisiyle oturum açın ve bazı görevler kullanıcının yapılacaklar listesine ekleyin.

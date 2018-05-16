@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -80,7 +80,7 @@ Tipik bir Hdınsight kümesi çeşitli hizmetler ve açık kaynaklı yazılım p
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ambari UI ile küme yapılandırma ayarlarını görüntüleme
 
-Apache Ambari basitleştirir yönetimi, yapılandırması ve bir web sağlayarak bir Hdınsight kümesini izleme kullanıcı Arabirimi ve bir REST API'si. Linux tabanlı Hdınsight kümelerinde Ambari dahil edilir. Seçin **küme Panosu** bölmesini açmak için Azure portalı sayfasındaki Hdınsight**' küme panolarında** bağlantı sayfası.  Ardından, **Hdınsight küme Panosu** bölmesinde Ambari kullanıcı arabirimini açın.  Küme oturum açma kimlik bilgileriniz istenir.
+Apache Ambari basitleştirir yönetimi, yapılandırması ve bir web sağlayarak bir Hdınsight kümesini izleme kullanıcı Arabirimi ve bir REST API'si. Linux tabanlı Hdınsight kümelerinde Ambari dahil edilir. Seçin **küme Panosu** bölmesini açmak için Azure portalı sayfasındaki Hdınsight **' küme panolarında** bağlantı sayfası.  Ardından, **Hdınsight küme Panosu** bölmesinde Ambari kullanıcı arabirimini açın.  Küme oturum açma kimlik bilgileriniz istenir.
 
 Hizmet görünümlerini listesini açmak için seçin **Ambari görünümleri** Hdınsight için Azure portal sayfasında bölmesi.  Bu liste, yüklediğiniz hangi kitaplıkların bağlı olarak değişir.  Örneğin, YARN sıra yöneticisinin, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için herhangi bir hizmet bağlantıyı seçin.  Ambari UI **yığını ve sürüm** sayfası, Küme Hizmetleri Yapılandırma ve hizmet sürüm geçmişi hakkında bilgi sağlar. Ambari UI bu bölüme gidin seçin **yönetici** menüsünü ve sonra **yığınları ve sürümleri**.  Seçin **sürümleri** hizmeti sürüm bilgisini görmek için sekme.
 
@@ -105,17 +105,6 @@ Sonraki adım, çeşitli hizmetler için iş yürütme günlük dosyalarını g�
 Hdınsight küme dosya sistemi hem de Azure depolama, günlük dosyalarını depolar. Küme için bir SSH bağlantısı açarak ve dosya sistemi gözatma veya uzak baş düğüm sunucuda Hadoop YARN durum Portalı'nı kullanarak, günlük dosyaları küme içindeki inceleyebilirsiniz. Azure depolama erişebilir ve verileri Azure depolama biriminden karşıdan yükleme araçları birini kullanarak günlük dosyalarında inceleyebilirsiniz. AZCopy, CloudXplorer ve Visual Studio Sunucu Gezgini örnektir. Azure blob depolama alanındaki verilere erişmek için PowerShell ve Azure Storage istemcisi kitaplıklarını veya Azure .NET SDK'ları kullanabilirsiniz.
 
 Hadoop çalışan işleri olarak iş *görev denemeleri* çeşitli düğümleri üzerinde. Hdınsight, ilk tamamlamayın diğer görev girişimleri sonlandırma kurgusal görev denemeleri başlatabilirsiniz. Bu denetleyici, stderr ve syslog günlük dosyaları üzerinde-çalışma sırasında oturum önemli etkinlik oluşturur. Ayrıca, birden çok görev denemeleri eşzamanlı olarak çalıştığında, ancak bir günlük dosyası yalnızca sonuçlarını doğrusal olarak görüntüleyebilirsiniz.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>Azure tablolara yazılan Hdınsight günlükleri
-
-Azure tablolara yazılan günlükleri neler olduğuna dair bir Hdınsight kümesini içine Öngörüler sağlar. Linux tabanlı Hdınsight kümesi oluşturduğunuzda, altı tabloları varsayılan Table storage'da otomatik olarak oluşturulur:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Azure Blob depolama alanına yazılan Hdınsight günlükleri
 

@@ -3,7 +3,7 @@ title: Azure Machine Learning hizmetleri Yükleme Hızlı Başlangıcı | Micros
 description: Bu Hızlı Başlangıç'ta, Azure Machine Learning kaynaklarını oluşturmayı ve Azure Machine Learning Workbench’i yükleme ve kullanmaya başlamayı öğrenebilirsiniz.
 services: machine-learning
 author: hning86
-ms.author: chhavib
+ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Hızlı Başlangıç: Azure Machine Learning hizmetlerini yükleme ve kullanmaya başlama
 Azure Machine Learning hizmetleri (önizleme) tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.

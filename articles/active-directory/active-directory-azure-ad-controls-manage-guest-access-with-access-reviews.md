@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 2ac28c278b9ac832f05cdb19a48ea576526104b3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD ile Konuk erişimi yönetme erişim gözden geçirme
 
@@ -33,7 +33,7 @@ Ayrıca, konuk kullanıcıların uygun erişime sahip olmasını kolayca sağlay
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md). Bir gözden geçirme oluşturmak, gözden geçirmeye erişmek veya gözden geçirme uygulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir.
+Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-whatis.md). Bir gözden geçirme oluşturmak, gözden geçirmeye erişmek veya gözden geçirme uygulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir.
 
 Konuk kullanıcılar kendi access gözden geçirmek için isteyin planlıyorsanız, Konuk kullanıcı lisansı hakkında okuyun. Daha fazla bilgi için bkz: [Azure AD B2B işbirliği lisans](active-directory-b2b-licensing.md).
 

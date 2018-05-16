@@ -1,24 +1,24 @@
 ---
 title: Microsoft Azure'da PerfInsights kullanma | Microsoft Docs
-description: "Windows VM performans sorunlarını gidermek için PerfInsights kullanmayı öğrenir."
+description: Windows VM performans sorunlarını gidermek için PerfInsights kullanmayı öğrenir.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights kullanma 
 
@@ -149,8 +149,8 @@ Aşağıdaki performans sayaçlarını toplar:
 
 #### <a name="for-sql-server-instances"></a>SQL Server örnekleri için
 - \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats, and \SQLServer:SQL Statistics\
-- \SQLServer:Locks, \SQLServer:General, Statistics
-- \SQLServer:Access Methods
+- \SQLServer:Locks, \SQLServer:General, istatistikleri
+- \SQLServer:Access yöntemleri
 
 #### <a name="for-azure-files"></a>Azure dosyaları
 \SMB istemci paylaşımları
@@ -293,7 +293,7 @@ SQL Server'ın belirli örnekleri için sekmeler seçilen örnek hakkındaki tem
 
 Diskspd bir depolama yük oluşturucuyu ve performans testi Microsoft'tan aracıdır. Daha fazla bilgi için bkz: [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>Xperf
+### <a name="xperf"></a>XPerf'in
 
 XPerf'in, Windows Performans araç setinden izlemelerini yakalama için bir komut satırı aracıdır. Daha fazla bilgi için bkz: [Windows Performans Araç Seti – XPerf'in](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

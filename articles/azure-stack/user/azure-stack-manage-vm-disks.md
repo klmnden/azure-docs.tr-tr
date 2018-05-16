@@ -1,6 +1,6 @@
 ---
 title: Azure yığınında VM diskleri yönetme | Microsoft Docs
-description: Sanal makineler için diskleri için Azure yığınına sağlayın.
+description: Azure yığınında sanal makineler için diskleri sağlayın.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,41 +12,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Sanal makine disk depolama için Azure yığını
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Sanal makine disk depolama alanı hazırla Azure yığınında
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure yığın kullanımını destekler [yönetilmeyen diskleri](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) bir sanal makinede bir işletim sistemi (OS) diski ve bir veri diski olarak. Yönetilmeyen diskleri kullanmak için oluşturduğunuz bir [depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) ve sayfa bloblarını kapsayıcılarında depolama hesabındaki olarak disklerini depolamak. Bu diskleri daha sonra VM diskleri olarak adlandırılır.
+Bu makalede, Azure yığın Portalı'nı kullanarak veya PowerShell kullanarak sanal makine disk depolama sağlamak açıklar.
 
-Performansı iyileştirmek ve Azure yığın Sistem Yönetim maliyetini azaltmak için ayrı bir kapsayıcıda her VM disk yerleştirin öneririz. Bir kapsayıcı, bir işletim sistemi diski veya veri diski ancak ikisini aynı anda tutun. Bununla birlikte, her ikisi de aynı kapsayıcı içine koyma engelleyen bir sınırlama yoktur.
+## <a name="overview"></a>Genel Bakış
 
-Bir VM için bir veya daha fazla veri diski eklerseniz, bu diskleri tutmak için bir konum ek kapsayıcıları kullanmayı planlayın. Veri diskleri gibi ek VM'ler için işletim sistemi diski de kendi ayrı kapsayıcılarında olması gerekir.
+Azure yığın kullanımını destekler [yönetilmeyen diskleri](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) bir işletim sistemi (OS) ve bir veri diski olarak sanal makinelerde.
 
-Birden çok VM oluşturduğunuzda, her yeni VM için aynı depolama hesabını yeniden kullanabilirsiniz. Oluşturduğunuz kapsayıcıları benzersiz olmalıdır.  
+Yönetilmeyen diskleri kullanmak için oluşturduğunuz bir [depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) disklerini depolamak için. Oluşturduğunuz diskleri VM diskleri olarak adlandırılır ve kapsayıcılarında depolama hesabında depolanır.
 
-Bir VM diskleri eklemek için Kullanıcı Portalı veya PowerShell kullanın.
+### <a name="best-practice-guidelines"></a>En iyi yöntem kılavuzları
+
+Performansı iyileştirmek ve genel maliyetleri azaltmak için ayrı bir kapsayıcıda her VM disk yerleştirin öneririz. Bir kapsayıcı, bir işletim sistemi diski veya veri diski ancak ikisini aynı anda tutun. (Ancak, şey yoktur aynı kapsayıcıda disk her iki tür koyma önlemek için.)
+
+Ek kapsayıcıları konumu olarak bir VM için bir veya daha fazla veri diski eklerseniz, bu diskleri depolamak için kullanın. Ek VM'ler için işletim sistemi diski de kendi kapsayıcılarında olmalıdır.
+
+Birden çok VM oluşturduğunuzda, aynı depolama hesabı her yeni bir sanal makine için yeniden kullanabilirsiniz. Oluşturduğunuz kapsayıcıları benzersiz olmalıdır.
+
+### <a name="adding-new-disks"></a>Yeni disk ekleme
+
+Aşağıdaki tabloda diskleri portalını kullanarak ve PowerShell kullanarak nasıl ekleneceği özetler.
 
 | Yöntem | Seçenekler
 |-|-|
-|[Kullanıcı Portalı](#use-the-portal-to-add-additional-disks-to-a-vm)|-Yeni veri diskleri daha önce sağlanan bir VM öğesine ekleyin. Yeni diskler Azure yığını tarafından oluşturulur. </br> </br>-Mevcut bir .vhd dosyasını disk olarak daha önce sağlanan bir VM ekleyin. Bunu yapmak için öncelikle hazırlamak ve Azure yığınına .vhd dosyasını karşıya yükleyin. |
+|[Kullanıcı Portalı](#use-the-portal-to-add-additional-disks-to-a-vm)|-Mevcut bir VM'yi yeni veri diski ekleyin. Yeni diskler Azure yığını tarafından oluşturulur. </br> </br>-Daha önce sağlanan bir VM için var olan bir disk (.vhd) dosyasına ekleyin. Bunu yapmak için .vhd hazırlamak ve Azure yığınına dosyasını karşıya yükleyin. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Bir işletim sistemi diski ile yeni bir VM oluşturun ve aynı anda o VM için bir veya daha fazla disk ekleyin. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Bir VM diskleri eklemek üzere portalı kullanın
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Bir VM için ek diskleri eklemek üzere portalı kullanın
-Çoğu Market öğesi için bir VM oluşturmak için portalı kullandığınızda, varsayılan olarak, yalnızca işletim sistemi diski oluşturulur. Diskleri oluşturulan Azure tarafından yönetilen diskleri denir.
+Çoğu Market öğesi için bir VM oluşturmak için portalı kullandığınızda, varsayılan olarak, yalnızca işletim sistemi diski oluşturulur.
 
-Bir VM sağlamak sonra bu VM için yeni bir veri diski veya varolan bir veri diski eklemek için portalı kullanabilirsiniz. Her ek diskin ayrı bir kapsayıcıda moduna geçirmelisiniz. Bir VM'ye ekleyin diskleri yönetilmeyen diskleri denir.
+Bir VM oluşturduktan sonra portala kullanabilirsiniz:
+* Yeni bir veri diski oluşturun ve VM'e ekleyin.
+* Varolan bir veri diski karşıya yükleme ve VM'e ekleyin.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>Yeni bir veri diski VM'e portalını kullanın
+Eklediğiniz her yönetilmeyen disk ayrı bir kapsayıcıda moduna geçirmelisiniz.
+
+>[!NOTE]
+>Oluşturulan ve Azure tarafından yönetilen diskleri çağrılır [yönetilen diskleri](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Oluşturun ve yeni bir veri diskini üzere portalı kullanın
 
 1.  Portalı'nda tıklatın **sanal makineleri**.    
     ![Örnek: VM Panosu](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -71,6 +88,7 @@ Bir VM sağlamak sonra bu VM için yeni bir veri diski veya varolan bir veri dis
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Varolan bir veri diski bir VM'e ekleyin
+
 1.  [.Vhd dosyasını hazırlama](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) bir VM için veri diski olarak kullanmak için. .Vhd dosyasına eklemek istediğiniz VM kullanan bir depolama hesabı, .vhd dosyası yükleyin.
 
   İşletim sistemi diski tutan kapsayıcı daha .vhd dosyası tutmak için farklı bir kapsayıcı kullanmayı planlayın.   

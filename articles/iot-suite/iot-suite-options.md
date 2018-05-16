@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Azure IoT seçenekleri | Microsoft Docs"
-description: "Azure IoT Paketi, Microsoft IoT Central veya Azure IoT Hub'ı kullanarak IoT çözümünüzü nasıl uygulayacağınızı seçin."
-services: 
+title: Microsoft Azure IoT seçenekleri | Microsoft Docs
+description: Azure IoT çözüm hızlandırıcılarını, Microsoft IoT Central veya Azure IoT Hub’ı kullanarak IoT çözümünüzü nasıl uygulayacağınızı seçin.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ddda6bc265cbbaa61025891cf9bc7c28c998160c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT seçeneklerini karşılaştırma
 
@@ -27,30 +27,30 @@ ms.lasthandoff: 01/17/2018
 
 Bu mimariyi uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek sunar:
 
-* [Azure IoT Paketi](index.md), özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan Azure Hizmet Olarak Platform (PaaS) ile tümleşik, [önceden yapılandırılmış çözümlerden](iot-suite-what-are-preconfigured-solutions.md) oluşan, kurumsal düzeyde bir koleksiyondur.
+* [Azure IoT çözüm hızlandırıcıları](index.md), özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan Azure Hizmet Olarak Platform (PaaS) ile tümleşik, [çözüm hızlandırıcılardan](iot-suite-what-are-solution-accelerators.md) oluşan, kurumsal düzeyde bir koleksiyondur.
 
 * [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), bulut çözümü geliştirme uzmanlığı gerektiren kurumsal düzeyde IoT çözümleri oluşturmanıza olanak tanıyan model tabanlı bir yaklaşım kullanan bir Hizmet Olarak Yazılım (SaaS) çözümüdür.
 
-## <a name="azure-iot-hub"></a>Azure IoT Hub'ı
+## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub, hem Microsoft IoT Central hem de Azure IoT Paketi'nin yararlandığı temel Azure PaaS çözümüdür. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
+Azure IoT Hub, hem Microsoft IoT Central hem de Azure IoT çözüm hızlandırıcılarının kullandığı temel Azure PaaS çözümüdür. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
 
 * Yüksek hacimli cihaz bağlantısı ve yönetimi.
 * Yüksek hacimli telemetri alımı.
 * Cihazların komuta ve denetimi.
 * Cihaz güvenliği uygulama.
 
-## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Azure IoT Paketi ile Microsoft IoT Central'ı karşılaştırma
+## <a name="compare-azure-iot-solution-accelerators-and-microsoft-iot-central"></a>Azure IoT çözüm hızlandırıcıları ve Microsoft IoT Central’ı karşılaştırma
 
-Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli bir parçasıdır. IoT Hub, kendi başına uçtan uca bir IoT çözümü sağlamayan bir Azure hizmetidir. IoT Hub herhangi bir IoT çözümü için başlangıç noktası olarak kullanılabilir ve onu kullanmak için Azure IoT Paketi veya Microsoft IoT Central kullanmanız gerekmez. Hem Azure IoT Paketi hem de Microsoft IoT Central, diğer Azure hizmetleriyle birlikte IoT Hub’ı kullanır. Aşağıdaki tabloda, gereksinimleriniz için doğru ürünü seçmenize yardımcı olmak üzere Azure IoT Paketi ile Microsoft IoT Central arasındaki temel farklılıklar özetlenmiştir:
+Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli bir parçasıdır. IoT Hub, kendi başına uçtan uca bir IoT çözümü sağlamayan bir Azure hizmetidir. IoT Hub, herhangi bir IoT çözümü için başlangıç noktası olarak kullanılabilir ve onu kullanmak için Azure IoT çözüm hızlandırıcılarını veya Microsoft IoT Central’ı kullanmanız gerekmez. Hem Azure IoT çözüm hızlandırıcıları hem de Microsoft IoT Central, diğer Azure hizmetleriyle birlikte IoT Hub’ı kullanır. Aşağıdaki tabloda, gereksinimleriniz için doğru ürünü seçmenize yardımcı olmak üzere Azure IoT çözüm hızlandırıcıları ile Microsoft IoT Central arasındaki temel farklılıklar özetlenmiştir:
 
-|                        | Azure IoT Paketi | Microsoft IoT Central |
+|                        | Azure IoT çözüm hızlandırıcıları | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | Birincil kullanım | En üst düzeyde esneklik gerektiren özel bir IoT çözümünün geliştirilmesini hızlandırma. | Ayrıntılı hizmet özelleştirmesi gerektirmeyen basit IoT çözümleri için pazarlama süresini kısaltma. |
 | Temel alınan PaaS hizmetlerine erişim          | Temel alınan Azure hizmetlerini yönetmek veya gerektiğinde değiştirmek için bu hizmetlere erişebilirsiniz. | SaaS. Tam olarak yönetilen çözüm, temel alınan hizmetler kullanıma sunulmaz. |
 | Esneklik            | Yüksek. Mikro hizmet kodu açı kaynaktır ve uygun gördüğünüz herhangi bir şekilde değiştirebilirsiniz. Ayrıca, dağıtım altyapısını özelleştirebilirsiniz.| Orta. Yerleşik tarayıcı tabanlı kullanıcı deneyimini kullanarak çözüm modelini ve kullanıcı arabirimini farklı yönlerini özelleştirebilirsiniz. Farklı bileşenler kullanıma sunulmadığı için altyapı özelleştirilemez.|
 | Beceri düzeyi                 | Orta-Yüksek. Çözüm arka ucunu özelleştirmek için Java veya .NET becerileri gerekir. Görselleştirmeyi özelleştirmek için JavaScript becerileri gerekir. | Düşük. Çözümü özelleştirmek için modelleme becerileri gerekir. Hiçbir kodlama becerisi gerekli değildir. |
-| Başlangıç deneyimi | Önceden yapılandırılmış çözümler yaygın IOT senaryolarını uygular. Birkaç dakika içinde dağıtılabilir. | Uygulama şablonları ve cihaz şablonları önceden derlenmiş modeller sağlar. Birkaç dakika içinde dağıtılabilir. |
+| Başlangıç deneyimi | Çözüm hızlandırıcıları, yaygın IoT senaryolarını uygular. Birkaç dakika içinde dağıtılabilir. | Uygulama şablonları ve cihaz şablonları önceden derlenmiş modeller sağlar. Birkaç dakika içinde dağıtılabilir. |
 | Fiyatlandırma                | Maliyet denetlemek için hizmetlerde ince ayar yapabilirsiniz. | Basit, tahmin edilebilir fiyatlandırma yapısı. |
 
 IoT çözümünüzü oluşturmak için kullanılacak ürün son olarak şununla belirlenir:
@@ -63,6 +63,6 @@ IoT çözümünüzü oluşturmak için kullanılacak ürün son olarak şununla 
 
 Seçtiğiniz ürün ve yaklaşıma bağlı olarak, önerilen sonraki adımlar şunlardır:
 
-* **Azure IoT Paketi**: [Önceden yapılandırılmış Azure IoT çözümleri nelerdir?](iot-suite-what-are-preconfigured-solutions.md)
+* **Azure IoT çözüm hızlandırıcıları**: [Azure IoT çözüm hızlandırıcıları nelerdir?](iot-suite-what-are-solution-accelerators.md)
 * **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Azure IoT Hub hizmetine genel bakış](../iot-hub/iot-hub-what-is-iot-hub.md).

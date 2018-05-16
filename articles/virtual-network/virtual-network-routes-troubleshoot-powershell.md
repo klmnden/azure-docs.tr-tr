@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ef1387e3c8573a2bfa64c166f08bf47723eca62
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Azure PowerShell kullanarak yolları sorun giderme
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Bir VM'ye uygulanan toplama rotaları görmek için aşağıdaki adımları tama
 ### <a name="view-effective-routes-for-a-network-interface"></a>Bir ağ arabirimi için Görünüm etkili yolları
 Bir ağ arabirimine uygulanan toplama rotaları görmek için aşağıdaki adımları tamamlayın:
 
-1. Bir Azure PowerShell oturumu ve Azure oturum açma başlatın. Azure PowerShell ile bilmiyorsanız okuma [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Bir Azure PowerShell oturumu ve Azure oturum açma başlatın. Azure PowerShell ile bilmiyorsanız okuma [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Aşağıdaki komut, tüm yolları adlı ağ arabirimi için uygulanan döndürür *VM1 nıc1* kaynak grubunda *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

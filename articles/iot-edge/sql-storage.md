@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de75a7ab907655d84873949460692a921c8d3186
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server veritabanlarına sahip sınırda veri depolama
 
@@ -95,7 +95,7 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
         }
    ```
 
-3. Değiştir `<docker registry address>` tamamlanmış öğreticiye doldurulmuş adresiyle [Azure işlevi dağıtmak bir IOT kenar modül - Önizleme](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+3. Değiştir `<docker registry address>` tamamlanmış öğreticiye doldurulmuş adresiyle [dağıtmak Azure işlevi bir IOT kenar modül olarak](tutorial-deploy-function.md).
 
    >[!NOTE]
    >Kapsayıcı kayıt defteri adresi, kayıt defterinizden kopyaladığınız oturum açma sunucusuyla aynıdır. Biçiminde olmalıdır `<your container registry name>.azurecr.io`

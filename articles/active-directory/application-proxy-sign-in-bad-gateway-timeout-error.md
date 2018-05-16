@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f57b470208ab3bd071b83c0736efa739c7e70363
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Uygulama proxy'si uygulama kullanılırken "Kurumsal bu uygulamaya erişemezsiniz" hatası
 
@@ -95,7 +95,7 @@ Gerekli tüm bağlantı noktalarının açık olduğunu doğrulamak için bağla
 
 Yukarıdakilerin hiçbiri sorunu çözmezse, sonraki adıma sorunları veya hatalar Bağlayıcısı ile aramaya yöneliktir. Bazı yaygın hatalar görebilirsiniz [sorun giderme belge](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-Ayrıca, tüm hataları belirlemek için doğrudan Connector günlüklerine bakabilirsiniz. Hata iletileri çoğunu düzeltmeleri yönelik belirli öneriler paylaşır. Günlükleri görüntülemek için bkz: [bağlayıcılar belgelerine](application-proxy-understand-connectors.md#under-the-hood).
+Ayrıca, tüm hataları belirlemek için doğrudan Connector günlüklerine bakabilirsiniz. Hata iletileri çoğunu düzeltmeleri yönelik belirli öneriler paylaşır. Günlükleri görüntülemek için bkz: [bağlayıcılar belgelerine](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="additional-resolutions"></a>Ek çözümler
 
@@ -107,7 +107,7 @@ Uygulamanız, tümleşik Windows kimlik doğrulaması (IWA) kullanmak üzere yap
 
 Hatayı görmeye devam ederseniz, bağlayıcının yüklendiği makineye bir tarayıcı açın ve uygulama için kullanılan iç URL ulaşmaya çalışır gidin. Bağlayıcı aynı makineden başka bir istemci gibi davranır. Uygulama bağlanamazsa, bu makine neden uygulamasına ulaşması ya da uygulamaya erişim olanağına sahip bir sunucuda bağlayıcı kullanmak araştırın.
 
-Sorunları veya hatalar Bağlayıcısı ile aramak için o makine uygulamadan erişebiliyorsa. Bazı yaygın hatalar görebilirsiniz [sorun giderme belge](active-directory-application-proxy-troubleshoot.md#connector-errors). Ayrıca, tüm hataları belirlemek için doğrudan Connector günlüklerine bakabilirsiniz. Bizim hata iletilerinin çoğunu düzeltmeler için daha özel öneriler paylaşamaz. Günlükleri görüntülemek öğrenmek için bkz: [bağlayıcılar Belgelerimizi](application-proxy-understand-connectors.md#under-the-hood).
+Sorunları veya hatalar Bağlayıcısı ile aramak için o makine uygulamadan erişebiliyorsa. Bazı yaygın hatalar görebilirsiniz [sorun giderme belge](active-directory-application-proxy-troubleshoot.md#connector-errors). Ayrıca, tüm hataları belirlemek için doğrudan Connector günlüklerine bakabilirsiniz. Bizim hata iletilerinin çoğunu düzeltmeler için daha özel öneriler paylaşamaz. Günlükleri görüntülemek öğrenmek için bkz: [bağlayıcılar Belgelerimizi](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama proxy'si bağlayıcılar anlama](application-proxy-understand-connectors.md)
+[Azure AD uygulama proxy'si bağlayıcılar anlama](manage-apps/application-proxy-connectors.md)

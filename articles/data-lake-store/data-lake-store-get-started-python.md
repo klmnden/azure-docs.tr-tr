@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 89d4110679d7a02d1468a9dab6816fb9e6b02181
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Python kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Azure Data Lake Store için Python SDK'yı Data Lake Store hesabı oluşturma, D
 Data Lake Store ile Python kullanarak çalışabilmeniz için üç modül yüklemeniz gerekir.
 
 * `azure-mgmt-resource` modülü, Active Directory gibi şeyler için Azure modüllerini içerir.
-* `azure-mgmt-datalake-store` modülü, Azure Data Lake Store hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Yönetimi modül başvurusu](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html).
+* `azure-mgmt-datalake-store` modülü, Azure Data Lake Store hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Yönetimi modül başvurusu](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
 * `azure-datalake-store` modülü, Azure Data Lake Store dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Dosya Sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Modülleri yüklemek için aşağıdaki komutları kullanın.

@@ -8,14 +8,14 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1e04b12241121d3894e2d71df423bae4f000a60d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure portalında Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -107,7 +107,7 @@ Aşağıdaki adımlarda 0.0.0.0/0 Sonraki Atlama İnternet yolu oluşturma işle
    |**Abonelik**|Aboneliğiniz|Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions).|
    |**Kaynak Grubu**|Önceki yordamda oluşturduğunuz kaynak grubunu seçin|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Konum**|Önceki yordamda belirttiğiniz konumu seçin| Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).|
-   |**BCP yol yaymayı devre dışı bırakma**|Devre dışı||
+   |**BCP yol yaymayı devre dışı bırakma**|Etkin||
    ||||
 
    ![yol tablosu oluşturma formu](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)

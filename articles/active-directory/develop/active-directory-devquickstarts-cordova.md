@@ -1,25 +1,26 @@
 ---
-title: "Azure AD Cordova Başlarken | Microsoft Docs"
-description: "Oturum açma için Azure AD ile tümleştirilen ve OAuth kullanarak Azure AD korumalı API çağıran bir Cordova uygulaması oluşturma."
+title: Azure AD Cordova Başlarken | Microsoft Docs
+description: Oturum açma için Azure AD ile tümleştirilen ve OAuth kullanarak Azure AD korumalı API çağıran bir Cordova uygulaması oluşturma.
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +34,7 @@ Cordova eklentisi Azure sarmalar AD yerel SDK'ları iOS, Android, Windows mağaz
 Bu öğreticide, aşağıdaki özellikler ekleyerek basit bir uygulama geliştirmek için Active Directory Authentication Library (ADAL) için eklenti Apache Cordova kullanacağız:
 
 * Yalnızca birkaç satır kod ile bir kullanıcının kimliğini doğrulamak ve bir belirteç elde edin.
-* Bu dizini sorgulayabilir ve sonuçları görüntülemek için grafik API'sini çağırmak için bu belirteci kullanın.  
+* Bu dizini sorgulayabilir ve sonuçları görüntülemek için grafik API'sini çağırmak için bu belirteci kullanın. 
 * Kullanıcı için kimlik doğrulaması ister en aza indirmek için ADAL belirteç önbelleği kullanın.
 
 Bu geliştirmeler yapmak için aktarmanız gerekir:
@@ -47,7 +48,7 @@ Bu geliştirmeler yapmak için aktarmanız gerekir:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Uygulama geliştirme hakları olan bir hesabın sahip olduğu bir Azure AD kiracısı.
-* Apache Cordova kullanmak üzere yapılandırılmış bir geliştirme ortamı.  
+* Apache Cordova kullanmak üzere yapılandırılmış bir geliştirme ortamı. 
 
 Her ikisi de varsa, ayarlamak, doğrudan adım 1 geçin.
 
@@ -98,8 +99,8 @@ Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği uygul
 
 Çalıştırmak için `DirSearchClient Sample`, Azure AD Graph API sorgulamak için yeni oluşturulan uygulama izni verin:
 
-1. Gelen **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**.  
-2. Azure Active Directory uygulaması için seçin **Microsoft Graph** API olarak ve ekleme **gibi oturum açan kullanıcının dizine erişim** altında izni **izinlere temsilci**.  Bu kullanıcılar için grafik API'si sorgulamak uygulamanızı sağlar.
+1. Gelen **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**. 
+2. Azure Active Directory uygulaması için seçin **Microsoft Graph** API olarak ve ekleme **gibi oturum açan kullanıcının dizine erişim** altında izni **izinlere temsilci**. Bu kullanıcılar için grafik API'si sorgulamak uygulamanızı sağlar.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>2. adım: örnek uygulama depoyu kopyalayın
 Kabuk veya komut satırı, aşağıdaki komutu yazın:

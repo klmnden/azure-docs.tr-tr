@@ -12,6 +12,8 @@
       href: cdn-create-new-endpoint.md
 - name: Öğreticiler
   items:
+    - name: Web uygulamasına Azure CDN’yi ekleme
+      href: app-service-web-tutorial-content-delivery-network.md
     - name: Özel etki alanı ekleme
       href: cdn-map-content-to-custom-domain.md
     - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma
@@ -30,10 +32,6 @@
   items:
     - name: Tümleştirme
       items:
-        - name: Web Apps
-          href: ../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json
-        - name: Cloud Services
-          href: cdn-cloud-service-with-cdn.md
         - name: Depolama
           items:
             - name: Depolama hesabı tümleştirme

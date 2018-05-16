@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory raporlama bildirimleri
-description: "Azure Active Directory'ı bildirimleri şüpheli oturum için raporlama kullanma bileşenleri."
+description: Azure Active Directory'ı bildirimleri şüpheli oturum için raporlama kullanma bileşenleri.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory raporlama bildirimleri
 ## <a name="what-reports-generate-email-notifications"></a>E-posta bildirimleri hangi raporlar oluşturur
@@ -39,7 +39,7 @@ E-posta, 10 yeni düzensiz oturum açma etkinliklerini son 30 gün içinde ortay
 Bağlantıya tıkladığınızda, Azure portalı içinde rapor sayfasına yönlendirileceksiniz. Rapora erişmek için her ikisinin de olması gerekir:
 
 * Bir yönetici veya Azure aboneliğinizin ortak yönetici
-* Dizinde genel yönetici ve bir Active Directory Premium lisansı atanmış. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
+* Dizinde genel yönetici ve bir Active Directory Premium lisansı atanmış. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Bu e-postaları kapatabilir miyim?
 Evet, anormal oturum açma işlemlerine Azure portalındaki ilgili bildirimler devre dışı bırakmak için tıklatın **yapılandırma**ve ardından **devre dışı** altında **bildirimleri** bölümü.

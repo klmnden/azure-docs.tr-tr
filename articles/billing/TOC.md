@@ -53,11 +53,19 @@
 ### [Kurumsal maliyet görünümü devre dışı](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Başvuru
-## [API’ye Genel Bakış](billing-usage-rate-card-overview.md)
-## [Kurumsal Raporlama API’sine Genel Bakış](billing-enterprise-api.md)
-## [Fatura REST](/rest/api/billing)
-## [Kullanım ve RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [İş ortağı çözümü: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Azure Faturalandırma API’sine Genel Bakış](billing-usage-rate-card-overview.md)
+### [Azure Faturalandırma REST API’si](https://docs.microsoft.com/rest/api/billing)
+### [İş ortağı çözümü: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## Azure Tüketim API’si
+### [Azure Tüketim REST API’si](https://docs.microsoft.com/rest/api/consumption) 
+### [RateCard REST API’si](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [Kullanım REST API’si](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Kurumsal Raporlamaya Genel Bakış](billing-enterprise-api.md)
+### [Kurumsal Raporlama REST API’si](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## Faturalandırma kodu örnekleri
+### [Fatura API’si kod örneği](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [Kullanım API’si kod örneği](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [RateCard API’si kod örneği](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

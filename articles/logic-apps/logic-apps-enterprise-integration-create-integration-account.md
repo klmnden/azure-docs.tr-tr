@@ -4,7 +4,7 @@ description: Oluşturma, bağlantı, taşıma ve kurumsal tümleştirme ve B2B �
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: ecfan; LADocs
-ms.openlocfilehash: 8e31a84d4508075dcb7a1d7ad8a64fa8e142681d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: estfan
+ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>B2B çözümlerini logic apps ile tümleştirme hesapları oluşturma ve yönetme
 
@@ -56,7 +56,7 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
    | Ad | Evet | sınama tümleştirme hesabı | Tümleştirme hesabınız için ad. Bu örnekte, belirtilen adı kullanın. | 
    | Abonelik | Evet | <*Azure abonelik adı*> | Kullanılacak Azure aboneliği için ad | 
    | Kaynak grubu | Evet | Test-Tümleştirme-hesap-rg | İçin ad [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ilgili kaynaklar düzenlemek için kullanılır. Bu örnek için belirtilen ada sahip yeni bir kaynak grubu oluşturun. | 
-   | Fiyatlandırma Katmanı | Evet | Ücretsiz | Kullanmak istediğiniz fiyatlandırma katmanı. Bu örnek için select **serbest**. | 
+   | Fiyatlandırma Katmanı | Evet | Ücretsiz | Kullanmak istediğiniz fiyatlandırma katmanı. Bu örnek için select **serbest**, ancak daha fazla bilgi için bkz: [Logic Apps sınırlarını ve yapılandırmasını](../logic-apps/logic-apps-limits-and-config.md) ve [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Konum | Evet | Batı ABD | Bölge tümleştirme hesap bilgilerinizin depolanacağı konumu. Mantıksal uygulamanızı aynı konumu seçin ya da bir mantıksal uygulama tümleştirmesi hesabınız ile aynı konumda oluşturun. Bu örnek için | 
    | Log Analytics | Hayır | Kapalı | Tanılama günlüğüne kaydetme ayarını **Kapalı** durumda bırakın. | 
    ||||| 

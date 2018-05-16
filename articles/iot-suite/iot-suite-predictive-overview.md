@@ -1,12 +1,12 @@
 ---
-title: "Tahmine dayalı bakım çözümüne genel bakış - Azure | Microsoft Docs"
-description: "Azure IoT Paketi önceden yapılandırılmış tahmine dayalı bakım çözüm açıklaması."
-services: 
+title: Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış - Azure | Microsoft Docs
+description: Azure Tahmine Dayalı Bakım çözüm hızlandırıcısının açıklaması.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 36cae39b7eaa0aff5f47f6a2511c7a0593f70b26
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1a2750232f9396d8bc27e4fbb72eacf8790a1c52
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="predictive-maintenance-preconfigured-solution-overview"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış
 
-Önceden yapılandırılmış *tahmine dayalı bakım* [önceden yapılandırılmış çözümü][lnk_preconfigured_solutions], önceden yapılandırılmış [Microsoft Azure IoT Paketi][lnk_iot_suite] çözümlerinden biridir. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk-machine-learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
+*Tahmine Dayalı Bakım* [çözüm hızlandırıcısı][lnk_preconfigured_solutions], [Microsoft Azure IoT çözüm hızlandırıcıları][lnk_iot_suite] çözüm hızlandırıcılarından biridir. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk-machine-learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
 
-Azure IoT Paketi’yle varlıklara hızlı ve kolay bağlanıp bunları izleyebilir ve telemetri verilerini panolar ve görselleştirmelerle gerçek zamanlı analiz edebilirsiniz. Tahmine dayalı bakım çözümünde, panolar ve görselleştirmeler size verimliliği yönetmenizi ve gelir akışlarını geliştirmenizi sağlayacak yeni bilgiler sunar.
+Azure IoT çözüm hızlandırıcılarıyla varlıklara hızlı ve kolay bağlanıp bunları izleyebilir ve telemetri verilerini panolar ve görselleştirmelerle gerçek zamanlı analiz edebilirsiniz. Tahmine Dayalı Bakım çözüm hızlandırıcısında, panolar ve görselleştirmeler size verimliliği yönetmenizi ve gelir akışlarını geliştirmenizi sağlayacak yeni istihbarat sunar.
 
 ## <a name="the-scenario"></a>Senaryo
 
 Fabrikam, rekabetçi fiyatlarıyla büyük müşteri deneyimine odaklanan bölgesel bir havayoludur. Uçuş rötarlarının bir nedeni bakım sorunlarıdır ve uçak motorunun bakımı özellikle zordur. Fabrikam’ın ne olursa olsun uçuş sırasında motor arızasını önlemesi gerekmektedir; bu nedenle düzenli olarak motorları muayene eder ve bakım işlemlerini bir plana göre zamanlar. Ancak, uçak motorları her zaman aynı şekilde yıpranmaz. Motorlardı bazı gereksiz bakımlar gerçekleştirilir. Daha da önemlisi, bakım yapılana kadar çıkan sorunlar nedeniyle uçağın yerde kalmasıdır. Uçak, doğru teknisyenlerin ve yedek parçaların olmadığı bir yerdeyse bu sorunlar maliyetli gecikmelere neden olabilir.
 
-Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Fabrikam, uçuş sırasında toplanan algılayıcı verilerini toplamak için tahmine dayalı bakım çözümünü kullanır. Motor çalışması ve arızaları verilerini yıllarca biriktirdikten sonra, Fabrikam’ın veri bilim insanları uçak motorunun Kalan Kullanım Ömrü’nü (RUL) tahmin etmek için bir yol modeli oluşturmuştur. Bu model, dört motor algılayıcısından alınan veriler ve arızalara neden olan motor yıpranmaları arasındaki bağıntıyı kullanmaktadır. Fabrikam güvenliği sağlamak için normal muayeneleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Bu model, uçuş sırasında motorlardan toplanan telemetriyi kullanır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebiliyor ve önceden onarıyor.
+Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Fabrikam, uçuş sırasında toplanan algılayıcı verilerini toplamak için Tahmine Dayalı Bakım çözüm hızlandırıcısını kullanır. Motor çalışması ve arızaları verilerini yıllarca biriktirdikten sonra, Fabrikam’ın veri bilim insanları uçak motorunun Kalan Kullanım Ömrü’nü (RUL) tahmin etmek için bir yol modeli oluşturmuştur. Bu model, dört motor algılayıcısından alınan veriler ve arızalara neden olan motor yıpranmaları arasındaki bağıntıyı kullanmaktadır. Fabrikam güvenliği sağlamak için normal muayeneleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Bu model, uçuş sırasında motorlardan toplanan telemetriyi kullanır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebiliyor ve önceden onarıyor.
 
 > [!NOTE]
 > Çözüm modeli asıl motor yıpranması verilerini kullanır.
@@ -48,19 +48,19 @@ Stok denetimi yöneticileri bakım planlarını alır; bu nedenle, sipariş sür
 
 Bu etkinlikler, bir yandan da yolcuların ve personelin güvenliğini sağlayarak Fabrikam’ın uçağın yerdeki süresini en aza indirmesini ve çalıştırma maliyetini düşürmesini sağlar.
 
-[Azure IoT Paketi][lnk_iot_suite]'nin, müşterilerin gerçekleştirmeleri gereken tahmine dayalı bakım potansiyeli becerilerini nasıl sağladığını anlamak için bu [bilgi görselini][lnk_infographic] gözden geçirin.
+[Azure IoT çözüm hızlandırıcılarının][lnk_iot_suite], müşterilerin gerçekleştirmeleri gereken tahmine dayalı bakım potansiyeli becerilerini nasıl sağladığını anlamak için bu [bilgi görselini][lnk_infographic] gözden geçirin.
 
-## <a name="how-the-predictive-maintenance-solution-is-built"></a>Tahmine dayalı bakım çözümünü yapılandırma
+## <a name="how-the-predictive-maintenance-solution-accelerator-is-built"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısını derleme
 
-Çözüm, IoT Paketi hizmetleriyle toplanan cihaz telemetrisinden bu becerileri göstermek için şablon olarak kullanılabilen mevcut Azure Machine Learning modelini geliştirir. Microsoft, genel kullanıma sunulan verileri<sup>\[1\]</sup> temel alarak uçak motorunun bir [gerileme modelini][lnk_regression_model] oluşturmuştur ve modelin nasıl kullanılacağını gösteren adım adım yönergeleri yayımlamıştır.
+Çözüm, IoT çözüm hızlandırıcıları hizmetleriyle toplanan cihaz telemetrisinden bu becerileri göstermek için şablon olarak kullanılabilen mevcut Azure Machine Learning modelini geliştirir. Microsoft, genel kullanıma sunulan verileri<sup>\[1\]</sup> temel alarak uçak motorunun bir [gerileme modelini][lnk_regression_model] oluşturmuştur ve modelin nasıl kullanılacağını gösteren adım adım yönergeleri yayımlamıştır.
 
-Azure IoT tahmine dayalı bakım çözümü, bu şablondan oluşturulan regresyon modelini kullanır. Bu model, Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API ile kullanıma sunulur. Çözümde, 4 (toplamda 100) motoru temsil eden test verilerinin bir alt kümesi ve 4 (toplamda 21) algılayıcı veri akışı bulunur. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
+Azure IoT Tahmine Dayalı Bakım çözümü, bu şablondan oluşturulan regresyon modelini kullanır. Bu model, Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API ile kullanıma sunulur. Çözümde, 4 (toplamda 100) motoru temsil eden test verilerinin bir alt kümesi ve 4 (toplamda 21) algılayıcı veri akışı bulunur. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
 
-*\[1\] A. Saxena ve K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set" (Turbofan Motor Bozulması Benzetimi Veri Kümesi), NASA Ames Prognostics Veri Deposu (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
+*\[1\] A. Saxena ve K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set" (Turbofan Motor Bozulması Benzetimi Veri Kümesi), NASA Ames Prognostics Veri Deposu (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*)
 
-## <a name="get-started-with-predictive-maintenance"></a>Tahmine dayalı bakım ile çalışmaya başlama
+## <a name="get-started-with-predictive-maintenance"></a>Tahmine Dayalı Bakım ile çalışmaya başlama
 
-Bu öğreticide tahmine dayalı bakım çözümünün nasıl sağlanacağı gösterilmektedir. Ayrıca, tahmine dayalı bakım çözümünün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözüm ile birlikte dağıtılan çözüm panosundan erişebilirsiniz.
+Bu öğreticide, Tahmine Dayalı Bakım çözüm hızlandırıcısının nasıl sağlanacağı gösterilmektedir. Ayrıca, Tahmine Dayalı Bakım çözümünün temel özelliklerinde rehberlik de sağlar. Bu özelliklerin birçoğuna çözüm hızlandırıcısıyla birlikte dağıtılan çözüm panosundan erişebilirsiniz.
 
 Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -68,8 +68,8 @@ Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir
 > Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk_free_trial].
 
 1. Azure hesabı kimlik bilgilerinizi kullanarak [azureiotsuite.com][lnk-azureiotsuite] adresinde oturum açın ve çözüm oluşturmak için **+** seçeneğine tıklayın.
-1. **Tahmine dayalı bakım** kutucuğunu **seçin**.
-1. Tahmine dayalı bakım için önceden yapılandırılmış çözümünüze ait bir **Çözüm adı** girin.
+1. **Tahmine Dayalı Bakım** kutucuğunu **Seçin**.
+1. Tahmine Dayalı Bakım çözüm hızlandırıcınız için bir **Çözüm adı** girin.
 1. Çözümü sağlamak için kullanmak istediğiniz **Bölge** ve **Abonelik** seçimini yapın.
 1. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
 
@@ -81,7 +81,7 @@ Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir
 1. Kutucuğa tıkladığınızda sağ bölmede çözümünüzün ayrıntılarını görürsünüz. Bu bölmeden çözüm panosunu başlatabilir ve Machine Learning çalışma alanına erişebilirsiniz.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümün dağıtımında sorunlarla karşılaşırsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [SSS][lnk-faq]. Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
+> Çözüm hızlandırıcısının dağıtımında sorunlarla karşılaşırsanız [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [SSS][lnk-faq] sayfalarına göz atın. Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
 
 Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar mı var? [User Voice](https://feedback.azure.com/forums/321918-azure-iot) sitesinde özellik önerilerinde bulunun.
 
@@ -102,7 +102,7 @@ Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz ç
 
 ![][img-resource-group]
 
-Önceden yapılandırılmış çözümü hazırlarken, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Sağladığınız çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan da Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
+Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Sağladığınız çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan da Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
 
 ![][img-machine-learning]
 
@@ -128,11 +128,11 @@ Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a t�
 
 Azure IoT’nin tahmine dayalı bakım senaryolarını etkinleştirmesi hakkında daha fazla bilgi için [Nesnelerin İnterneti’nden değer yakalama][lnk_capture_value] makalesini okuyun.
 
-Tahmine dayalı bakım çözümünün [adım adım kılavuzunu][lnk-predictive-walkthrough] inceleyin.
+Tahmine Dayalı Bakım çözüm hızlandırıcısının [adım adım kılavuzunu][lnk-predictive-walkthrough] inceleyin.
 
-Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
 
-* [IoT Paketi için sık sorulan sorular][lnk-faq]
+* [IoT çözüm hızlandırıcıları için sık sorulan sorular][lnk-faq]
 * [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [img-resource-group]: media/iot-suite-predictive-overview/resource-group.png
@@ -143,7 +143,7 @@ Tahmine dayalı bakım çözümünün [adım adım kılavuzunu][lnk-predictive-w
 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
-[lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk_preconfigured_solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk_iot_suite]: iot-suite-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3

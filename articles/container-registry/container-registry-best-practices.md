@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: c993e55193ffb140f6c3aabfa7626b501ab24b9d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry için en iyi yöntemler
 
@@ -27,7 +27,7 @@ Buna ek olarak, Azure dahil tüm genel bulutlar ağ çıkışı ücretleri uygul
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Çok bölgeli dağıtımları coğrafi olarak çoğaltma
 
-Birden çok bölgeye kapsayıcı dağıtıyorsanız Azure Container Registry'nin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. İster yerel veri merkezlerinden küresel müşterilere hizmet sunuyor olun ister geliştirme takımınız farklı konumlarda çalışıyor olsun, kayıt defterinizi coğrafi olarak çoğaltarak kayıt defteri yönetimini basitleştirebilir ve gecikmeyi en aza indirebilirsiniz. Şu anda önizlemede olan bu özellik [Premium](container-registry-skus.md) kayıt defterleriyle sunulmaktadır.
+Birden çok bölgeye kapsayıcı dağıtıyorsanız Azure Container Registry'nin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. İster yerel veri merkezlerinden küresel müşterilere hizmet sunuyor olun ister geliştirme takımınız farklı konumlarda çalışıyor olsun, kayıt defterinizi coğrafi olarak çoğaltarak kayıt defteri yönetimini basitleştirebilir ve gecikmeyi en aza indirebilirsiniz. Coğrafi çoğaltma yalnızca [Premium](container-registry-skus.md) kayıt defterleriyle kullanılabilir.
 
 Coğrafi çoğaltma özelliğini kullanmayı öğrenmek için [Azure Container Registry’de coğrafi çoğaltma](container-registry-tutorial-prepare-registry.md) başlıklı üç bölümlü öğreticiye bakın.
 
