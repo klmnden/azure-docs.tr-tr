@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme RedBrick sistem durumu ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve RedBrick sistem durumu arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme RedBrick sistem durumu ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve RedBrick sistem durumu arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 598592d87cf6471a431dab89d19c5e8beb48e661
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 8d51d516d8716c0ac07bc851210733d352c47b6a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Öğretici: Azure Active Directory Tümleştirme ile RedBrick sistem durumu
 
@@ -30,7 +30,7 @@ RedBrick sistem durumu Azure AD ile tümleştirme ile aşağıdaki avantajları 
 - Azure AD hesaplarına otomatik olarak RedBrick sağlık (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -108,17 +108,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma bilgileri redBrick sistem durumu etki alanı ve URL'leri tek](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`http://www.redbrickhealth.com`
+    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `http://www.redbrickhealth.com`
     
-    b. İçinde **yanıt URL'si** metin kutusuna, bir URL yazın:`https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+    b. İçinde **yanıt URL'si** metin kutusuna, bir URL yazın: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
-    Üretim ortamı için:`https://sso.redbrickhealth.com/sp/ACS.saml2`
+    Üretim ortamı için: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
     c. Tıklatın **Göster Gelişmiş URL ayarları**.
     
     ![Oturum açma bilgileri redBrick sistem durumu etki alanı ve URL'leri tek](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
 
-    d. İçinde **geçiş durumunu** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
+    d. İçinde **geçiş durumunu** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
     
     > [!NOTE] 
     > Geçiş durumu değeri gerçek değil. Bu değer ile gerçek geçiş durumunu güncelleştirin. Kişi [RedBrick sistem durumu destek ekibi](https://home.redbrickhealth.com/contact/) bu değeri alınamıyor.
@@ -235,7 +235,7 @@ Bu bölümde, Britta RedBrick sağlık erişim vererek, Azure çoklu oturum açm
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -245,7 +245,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

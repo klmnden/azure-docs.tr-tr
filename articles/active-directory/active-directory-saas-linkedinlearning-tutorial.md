@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile LinkedIn öğrenme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve LinkedIn öğrenme arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile LinkedIn öğrenme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve LinkedIn öğrenme arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 07d19a3fb457093d05afc13e1953c120ece3a280
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fabb79a1449529cde97db7054eb954564b4dfa68
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Öğretici: Azure Active Directory Tümleştirme ile LinkedIn öğrenme
 
@@ -29,9 +29,9 @@ LinkedIn öğrenme Azure AD ile tümleştirme ile aşağıdaki avantajları sağ
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için LinkedIn öğrenme açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme LinkedIn öğrenme ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -135,7 +135,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |
     | e-posta| User.Mail |    
-    | Bölüm| User.Department |
+    | bölüm| User.Department |
     | FirstName| User.givenName |
     | Soyadı| User.surname |
     
@@ -167,7 +167,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
-12. **Kaydet** düğmesine tıklayın.
+12. **Kaydet**’e tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
@@ -208,7 +208,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın. 
+    d. **Oluştur**’a tıklayın. 
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Bir LinkedIn öğrenme test kullanıcısı oluşturma
 
@@ -255,7 +255,7 @@ Erişim paneli LinkedIn öğrenme parçasında tıkladığınızda, Azure oturum
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

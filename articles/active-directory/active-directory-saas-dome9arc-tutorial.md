@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Dome9 yay ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Dome9 yay arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Dome9 yay ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Dome9 yay arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2ce4bb1be8b0124c69991765e18ce9922bd2f4a4
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: de164f6a439fd68b4746dc96c43ff5cb0740ffe8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Öğretici: Azure Active Directory Tümleştirme Dome9 yay ile
 
@@ -30,7 +30,7 @@ Dome9 yay Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak Dome9 Yaya (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Dome9 yay etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://secure.dome9.com/`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://secure.dome9.com/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > Öğreticide daha sonra açıklanan dome9 Yönetim Portalı'nda ve şirket adı değer seçer.
@@ -119,7 +119,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Dome9 yay etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Dome9 yay istemci destek ekibi](https://dome9.com/about/contact-us/) bu değerleri almak için. 
@@ -280,7 +280,7 @@ Bu bölümde, Britta Dome9 Yaya erişim vererek, Azure çoklu oturum açma kulla
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -290,7 +290,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

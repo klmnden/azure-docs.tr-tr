@@ -9,22 +9,22 @@ editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Bir hizmet bildiriminde kaynakları belirtme
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 Hizmet bildirimi derlenmiş kod değiştirmeden bildirilen ve değiştirilen için hizmet tarafından kullanılan kaynakları sağlar. Azure Service Fabric hizmeti için uç nokta kaynakların yapılandırmasını destekler. Hizmet bildiriminde belirtilen kaynaklara erişimi, güvenlik grubuna uygulama bildiriminde aracılığıyla denetlenebilir. Kaynakları bildirimi dağıtım sırasında hizmet yeni bir yapılandırma mekanizması tanıtmak gerekmez anlamı değiştirilmesi bu kaynakları sağlar. Şema tanımı ServiceManifest.xml dosyası için Service Fabric SDK'sı ile yüklenir ve araçların *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-## <a name="endpoints"></a>Uç Noktalar
+## <a name="endpoints"></a>Uç nokta
 Bir uç nokta kaynağının hizmet bildiriminde tanımlandığında, Service Fabric bir bağlantı noktası açıkça belirtilmediğinde ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Örneğin, uç noktada arayın *ServiceEndpoint1* sonra bu paragraf sağlanan bildirim parçacığı belirtildi. Ayrıca, hizmetleri da belirli bir bağlantı noktasını bir kaynak isteğinde bulunabilirsiniz. Çoğaltmaları aynı düğüm üzerinde çalışan bir hizmet bağlantı noktasını paylaşmak sırada hizmet çoğaltmaları farklı küme düğümleri üzerinde çalışan farklı bağlantı noktası numaraları atanabilir. Hizmet çoğaltmaları ardından bu bağlantı noktalarını gerektiği için çoğaltma ve istemci isteklerini dinlemeye kullanabilirsiniz.
 
 ```xml

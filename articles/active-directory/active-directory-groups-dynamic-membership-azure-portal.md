@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 43f364ed7e8539397fe8662a8c75804883a82e4f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
@@ -157,7 +157,7 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 | city |Herhangi bir dize değeri veya *null* |(user.city - eq "value") |
 | Ülke |Herhangi bir dize değeri veya *null* |(Resource.country - eq "value") |
 | Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
-| Bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
+| bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
 | Görünen adı |Herhangi bir dize değeri |(user.displayName - eq "value") |
 | EmployeeID |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
@@ -278,7 +278,7 @@ Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsin
  DeviceModel | Herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
  deviceOwnership | Kişisel, şirket, bilinmiyor | (device.deviceOwnership - eq "Şirket")
  domainName | Herhangi bir dize değeri | (device.domainName - eq "contoso.com")
- enrollmentProfileName | Apple cihaz kayıt profilinin adı | (device.enrollmentProfileName - eq "DEP iPhone")
+ enrollmentProfileName | Apple cihaz kayıt profili ya da Windows Autopilot profil adı | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | doğru false | (device.isRooted - eq true)
  managementType | MDM (için mobil cihazlar)<br>PC (Intune bilgisayar aracı tarafından yönetilen bilgisayarlar için) | (device.managementType - eq "MDM")
  Kuruluş birimi | bir şirket içi Active Directory tarafından ayarlanmış kuruluş biriminin adı ile eşleşen herhangi bir dize değeri | (device.organizationalUnit - eq "ABD PC'ler")

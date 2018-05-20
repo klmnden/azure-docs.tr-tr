@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: fadbe5d2777bc5c8551558be80e77dd2785044a2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 925167c6b4a7f173726ec094c2847a16ca3d0ef4
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ayarlama ve Azure Cosmos DB kapsayıcıları ve veritabanı için işleme alma
 
@@ -45,7 +45,7 @@ Bu makalede, Azure Cosmos DB hesap için farklı düzeylerde işleme yapılandı
 
    |**Ayar**  |**Açıklama**  |
    |---------|---------|
-   |Veritabanı kimliği  |  Veritabanınızı tanımlamak için benzersiz bir ad sağlayın. Veritabanı, bir veya daha fazla koleksiyonların mantıksal bir kapsayıcısıdır. Veritabanı adı 1 ila 255 karakter içermeli ve içeremez /, \, #,?, veya bir boşluk. |
+   |Veritabanı kimliği  |  Veritabanınızı tanımlamak için benzersiz bir ad sağlayın. Veritabanı, bir veya daha fazla koleksiyonların mantıksal bir kapsayıcısıdır. Veritabanı adı 1 ila 255 karakterden oluşmalı, boşlukla bitmemeli ve şu karakterleri içermemelidir: /, \\, # ve ?. |
    |Koleksiyon kimliği  | Koleksiyonunuz tanımlamak için benzersiz bir ad sağlayın. Koleksiyon kimliği karakter gereksinimleri, veritabanı adlarına ilişkin karakter gereksinimleri ile aynıdır. |
    |Depolama kapasitesi   | Bu değer, veritabanı depolama kapasitesini temsil eder. Tek bir koleksiyon için işleme sağlanırken, depolama kapasitesi olabilir **sabit (10 GB)** veya **sınırsız**. Sınırsız depolama kapasitesi, verileriniz için bir bölüm anahtarı ayarlamanızı gerektirir.  |
    |Aktarım hızı   | Her bir koleksiyon ve veritabanı işleme saniye başına istek birimleri olabilir.  Sabit depolama kapasitesi en düşük işleme 400 istek birimleri (RU/s) saniye başına, sınırsız depolama için kapasite ve minimum verimlilik 1000 RU/s için ayarlanır.|

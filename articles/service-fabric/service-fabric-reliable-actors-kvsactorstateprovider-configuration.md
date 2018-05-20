@@ -1,24 +1,24 @@
 ---
-title: "Azure mikro KVSActorStateProvider ayarlarında değişiklik | Microsoft Docs"
-description: "Durum bilgisi olan Azure Service Fabric aktör türü KVSActorStateProvider yapılandırma hakkında bilgi edinin."
+title: Azure mikro KVSActorStateProvider ayarlarında değişiklik | Microsoft Docs
+description: Durum bilgisi olan Azure Service Fabric aktör türü KVSActorStateProvider yapılandırma hakkında bilgi edinin.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Güvenilir aktörler--KVSActorStateProvider yapılandırma
 Belirtilen aktör için Microsoft Visual Studio Paketi kök yapılandırma klasörü altında oluşturulan settings.xml dosyasını değiştirerek KVSActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.
@@ -45,7 +45,7 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| Ad | Birim | Varsayılan değer | Açıklamalar |
+| name | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
 | ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için uç nokta kaynakları hizmet bildiriminde tanımlama hakkında. |
@@ -62,9 +62,9 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| Ad | Birim | Varsayılan değer | Açıklamalar |
+| name | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |milisaniye |200 |Toplu işleme aralığı dayanıklı yerel depo yürütme için maksimum ayarlar. |
+| MaxAsyncCommitDelayInMilliseconds |Milisaniye |200 |Toplu işleme aralığı dayanıklı yerel depo yürütme için maksimum ayarlar. |
 | MaxVerPages |Sayfa sayısı |16384 |En fazla yerel sürüm sayfa sayısını veritabanına depolar. Bekleyen işlemlerin sayısını belirler. |
 
 ## <a name="sample-configuration-file"></a>Örnek yapılandırma dosyası

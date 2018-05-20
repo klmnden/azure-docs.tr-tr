@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a38098dc2bbcfc6ff59b9f8c96d1e947c637ab1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı özelliklerini keşfedin
 
@@ -41,7 +41,7 @@ Aşağıdaki video Uzaktan izleme çözümünün bir kılavuz gösterir:
 
 Bu öğreticiyi tamamlamak için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso örnek IOT dağıtım
 
@@ -55,7 +55,7 @@ Contoso örnek sanal cihazlar ve bunlar üzerinde hareket için kurallar kümesi
 Contoso varlıklar farklı ortamlarda çeşitli yöneten bir şirkettir. Contoso uzaktan izlemek ve merkezi bir uygulamadan birden çok varlığı yönetmek için bulut tabanlı IOT uygulamaları gücünü kullanmayı planlıyor. Aşağıdaki bölümler Contoso örnek ilk yapılandırma özetini sağlar:
 
 > [!NOTE]
-> Contoso demo sanal cihazlar sağlamak ve kuralları oluşturmak için yalnızca bir yoludur. Sağlama diğer seçenekler, kendi özel cihazlarının oluşturulmasını içerir. Kendi aygıtlarını ve kuralları oluşturma hakkında daha fazla bilgi için bkz: [yönetme ve cihazlarınızı yapılandırmak](iot-suite-remote-monitoring-manage.md) ve [eşik tabanlı kurallar kullanarak sorunlarını algılamak](iot-suite-remote-monitoring-automate.md).
+> Contoso demo sanal cihazlar sağlamak ve kuralları oluşturmak için yalnızca bir yoludur. Sağlama diğer seçenekler, kendi özel cihazlarının oluşturulmasını içerir. Kendi aygıtlarını ve kuralları oluşturma hakkında daha fazla bilgi için bkz: [yönetme ve cihazlarınızı yapılandırmak](iot-suite-remote-monitoring-manage.md) ve [eşik tabanlı kurallar kullanarak sorunlarını algılamak](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 
 ### <a name="contoso-devices"></a>Contoso cihazları
 
@@ -257,5 +257,5 @@ Uzaktan izleme çözümü denedikten, Uzaktan izleme çözümü gelişmiş özel
 
 * [Aygıtlarınızı izlemek](./iot-suite-remote-monitoring-monitor.md).
 * [Cihazlarınızı yönetmek](./iot-suite-remote-monitoring-manage.md).
-* [Çözümünüzü kurallarla otomatikleştirmek](./iot-suite-remote-monitoring-automate.md).
+* [Çözümünüzü kurallarla otomatikleştirmek](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Çözümünüzü korumanıza](./iot-suite-remote-monitoring-maintain.md).

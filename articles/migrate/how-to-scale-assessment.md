@@ -4,13 +4,13 @@ description: Azure geçiş hizmetini kullanarak şirket içi makineler çok say�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e0bd62710c47cfdf81535470ef96bad2ab675bb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -29,7 +29,7 @@ Bulmaları ve aşağıdaki sınırlara göre değerlendirmeleri planlayın:
 
 | **Varlık** | **Makine sınırı** |
 | ---------- | ----------------- |
-| Project    | 1,500             |
+| Proje    | 1,500             |
 | Bulma  | 1,500             |
 | Değerlendirme | 1,500             |
 
@@ -51,7 +51,7 @@ Bir veya daha fazla projeleri birden çok bulmalarına yapmak için aynı Azure 
 - Değerlendirme amacıyla, değerlendirme ve aynı proje içinde bağımlılıklarını makinelerle tutmanızı öneririz. VCenter Server bağımlı makineler aynı klasörü, veri merkezi veya değerlendirmesi için küme olduğundan emin olun.
 
 
-## <a name="create-a-project"></a>Proje oluşturma
+## <a name="create-a-project"></a>Proje oluştur
 
 Bir Azure geçirmek projesi, gereksinimlerinize uygun şekilde oluşturun:
 
@@ -88,7 +88,7 @@ Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
 
 3. Üretilen karma aşağıdaki ayarları eşleştiğinden emin olun.
 
-    OVA sürüm 1.0.9.7
+    OVA sürüm 1.0.9.7 için
 
     **Algoritma** | **Karma değeri**
     --- | ---
@@ -169,13 +169,13 @@ Aşağıdaki tabloda, belirli bir sayaç alınamadı, etkilenecek değerlendirme
 
 | Sayaç                                 | Düzey | Aygıt başına düzeyi | Değerlendirme etkisi                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| cpu.usage.average                       | 1     | NA               | Önerilen VM boyutu ve maliyet         |
-| mem.usage.average                       | 1     | NA               | Önerilen VM boyutu ve maliyet         |
+| CPU.Usage.average                       | 1     | Yok               | Önerilen VM boyutu ve maliyet         |
+| mem.Usage.average                       | 1     | Yok               | Önerilen VM boyutu ve maliyet         |
 | virtualDisk.read.average                | 2     | 2                | Disk boyutu, depolama maliyeti ve VM boyutu |
 | virtualDisk.write.average               | 2     | 2                | Disk boyutu, depolama maliyeti ve VM boyutu |
 | virtualDisk.numberReadAveraged.average  | 1     | 3                | Disk boyutu, depolama maliyeti ve VM boyutu |
 | virtualDisk.numberWriteAveraged.average | 1     | 3                | Disk boyutu, depolama maliyeti ve VM boyutu |
-| net.received.average                    | 2     | 3                | VM boyutu ve ağ maliyeti             |
+| NET.Received.average                    | 2     | 3                | VM boyutu ve ağ maliyeti             |
 | NET.transmitted.average                 | 2     | 3                | VM boyutu ve ağ maliyeti             |
 
 > [!WARNING]
@@ -203,7 +203,7 @@ Yapmanız gereken her bulma için gerekli kapsamında VM'ler bulmak için toplay
 5.  **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - Adı (FQDN) veya vCenter sunucusunun IP adresini belirtin.
     - İçinde **kullanıcı adı** ve **parola**, Toplayıcı VM'ler vCenter Server'da bulmak için kullanacağı salt okunur hesap kimlik bilgilerini belirtin.
-    - İçinde **seçin kapsam**, VM keşfi için kapsamı seçin. Toplayıcı, yalnızca belirtilen kapsamın içindeki VM'ler bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. 1. 000'den fazla VMs içermemelidir. 
+    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı, yalnızca belirtilen kapsamın içindeki VM'ler bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. 1. 000'den fazla VMs içermemelidir. 
 
 6.  İçinde **belirt geçiş proje**anahtarı proje için ve Kimliğini belirtin. Kopyaladığınız alamadık, Toplayıcı VM Azure Portalı'nı açın. Projenin üzerinde **genel bakış** sayfasında, **Bul makineler** ve değerleri kopyalayın.  
 7.  İçinde **koleksiyonu ilerlemeyi görüntüleme**, Keşif sürecini izleyebilir ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.

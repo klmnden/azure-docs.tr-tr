@@ -1,24 +1,24 @@
 ---
-title: "Linux için Azure Service Fabric düzeltme eki orchestration uygulama | Microsoft Docs"
-description: "Bir Linux Service Fabric kümesi işletim sistemi düzeltme eki uygulama otomatikleştirmek için uygulama."
+title: Linux için Azure Service Fabric düzeltme eki orchestration uygulama | Microsoft Docs
+description: Bir Linux Service Fabric kümesi işletim sistemi düzeltme eki uygulama otomatikleştirmek için uygulama.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/22/2018
 ms.author: nachandr
-ms.openlocfilehash: dac8068705e284b04d84d128eb1ce62c459d44ff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Linux işletim sistemi düzeltme eki
 
@@ -73,7 +73,7 @@ Düzeltme eki orchestration uygulama kümede etkinleştirilmesi için onarım Y�
 
 Gümüş Azure linux kümeleri ve altın dayanıklılık katmanı sahip onarım Yöneticisi hizmeti varsayılan olarak etkindir. Varsayılan olarak, Bronz dayanıklılık katmanı Azure kümelerde etkin onarım Yöneticisi hizmeti yok. Hizmet zaten etkin değilse, Service Fabric Explorer Sistem Hizmetleri bölümünde çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalına
+##### <a name="azure-portal"></a>Azure portalı
 Kümenin kurma sırasında onarım Yöneticisi Azure portalından etkinleştirebilirsiniz. Seçin **dahil onarım Yöneticisi** altında seçeneği **eklenti özellikleri** küme yapılandırması zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -124,7 +124,7 @@ Uygulamayı karşıdan [bağlantı karşıdan](https://go.microsoft.com/fwlink/?
 
 Düzeltme eki orchestration uygulamanın davranışı gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresini geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
 
-|Parametre        |**Tür**                          | **Ayrıntılar**|
+|**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
 |MaxResultsToCache    |Uzun                              | Önbelleğe alınması gereken güncelleştirme sonuçlarının maksimum sayısı. <br>Varsayılan değer 3000 varsayılır: <br> -Düğüm sayısı 20'dir. <br> -Ayda bir düğümde gerçekleştiği güncelleştirme sayısı beştir. <br> -İşlemi başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında güncelleştirmeleri yüklemek için Koordinatör hizmeti tarafından kullanılacak ilkeyi TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler: <br>                                                           <b>NodeWise</b>. Yüklü bir düğümün aynı anda güncelleştirmelerdir. <br>                                                           <b>UpgradeDomainWise</b>. Yüklü bir yükseltme etki alanı aynı anda güncelleştirmelerdir. (En güncelleştirme için bir yükseltme etki alanına ait tüm düğümlerde gidebilirsiniz.)
@@ -351,7 +351,7 @@ Hatalı bir güncelleştirme, bir uygulama veya belirli düğüme veya yükseltm
 
 Bir yönetici, müdahale ve uygulama ya da küme neden önceden yüklenmiş bir güncelleştirmeyi nedeniyle sağlıksız olduğunu belirler.
 
-## <a name="disclaimer"></a>Bildirim
+## <a name="disclaimer"></a>Sorumluluk Reddi
 
 Düzeltme eki orchestration uygulama kullanımını ve performansını izlemek için telemetri toplar. Uygulamanın telemetri (varsayılan olarak etkindir) Service Fabric çalışma zamanı telemetri ayarını ayarı izler.
 

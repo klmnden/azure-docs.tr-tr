@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Nesnelerin interneti güvenlik sıfırdan
 
@@ -44,7 +44,7 @@ Microsoft'un sistemleri sürekli izinsiz giriş algılama ve önleme, hizmet sal
 
 Çözüm Hızlandırıcıları için güvenlik ve gizlilik Azure platformu SDL ve OSA işlemleri için güvenli geliştirme ve tüm Microsoft yazılım işlemi ile birlikte yerleşik yararlanın. Bu yordamları altyapı koruma, ağ koruması ve herhangi bir çözüm güvenlik için temel kimlik ve yönetim özellikleri sağlar.
 
-[Azure IOT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) içinde [IOT Çözüm Hızlandırıcıları](../articles/iot-suite/iot-suite-what-is-azure-iot.md) gibi IOT cihazları ve Azure hizmetleri arasında güvenilir ve güvenli çift yönlü iletişim sağlayan tam olarak yönetilen bir hizmet sunar [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) ve [Azure akış analizi](../articles/stream-analytics/stream-analytics-introduction.md) cihaz başına güvenlik kimlik ve erişim denetimi kullanarak.
+[Azure IOT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) içinde [IOT Çözüm Hızlandırıcıları](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) gibi IOT cihazları ve Azure hizmetleri arasında güvenilir ve güvenli çift yönlü iletişim sağlayan tam olarak yönetilen bir hizmet sunar [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) ve [Azure akış analizi](../articles/stream-analytics/stream-analytics-introduction.md) cihaz başına güvenlik kimlik ve erişim denetimi kullanarak.
 
 En iyi güvenlik ve gizlilik özellikleri Azure IOT Çözüm Hızlandırıcıları yerleşik iletişim kurmak için bu makalede üç birincil güvenlik alanları pakete aşağı keser.
 

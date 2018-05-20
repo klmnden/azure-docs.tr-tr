@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitleme ile nesne eşitleme sorunlarını giderme
 Bu belge, sorun giderme görevini kullanarak nesne eşitleme ile ilgili sorunları gidermek adımlar sağlar.
@@ -90,6 +90,8 @@ Bağlı bir posta kutusu başka bir güvenilen hesap ormanda bulunan harici bir 
 
 ## <a name="dynamic-distribution-group-issue"></a>Dinamik dağıtım grubu sorunu
 Şirket içi çeşitli farklılıkları nedeniyle Active Directory ve Azure Active Directory, Azure AD Connect eşitlenmez Azure AD kiracısı dinamik dağıtım gruplarına.
+
+![Dinamik dağıtım grubu](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>HTML raporu
 Nesne çözümlemenin yanı sıra, sorun giderme Görev ayrıca her şeyi nesne hakkında bilinen sahip bir HTML raporu oluşturur. Bu HTML raporu yapmak için destek ekibi ile paylaşılabilir daha fazla sorun giderme, gerekirse.

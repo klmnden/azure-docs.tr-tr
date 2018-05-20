@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 
@@ -38,7 +38,7 @@ Aşağıdaki grafikte (Bu örnekte, Doğu ABD konumunda) belirli bir bölgede bi
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 
 Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olarak hedef bölgede Kaynak bölgesi ayarlara göre oluşturulur. Hedef kaynakları ayarları gerektiği gibi özelleştirebilirsiniz.
 
@@ -53,7 +53,7 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
 ** Çoğaltma yönetilen diskleri (VM olduğu açık kaynak diskleri yönetiliyorsa) **  | Diskleri veri çoğaltılan hedef konumda yönetilen.
 **Hedef kullanılabilirlik kümeleri**  | Kullanılabilirlik kümeleri, yük devretme sonrasında çoğaltılmış VM'ler bulunur.
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 
 Çoğaltma etkin olarak Site Recovery uzantısı Mobility hizmeti VM üzerinde otomatik olarak yüklenir:
 
@@ -75,7 +75,7 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
 > [!IMPORTANT]
 Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 20004 numaralı bağlantı noktası üzerinden giden trafiğin, belirli Linux sürümünün kılavuzuna göre el ile açıldığından emin olun.
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>Adım 3
 
 Sürekli çoğaltma sürüyor sonra disk yazma işlemleri için önbellek depolama hesabı hemen aktarılır. Site Recovery verileri işler ve hedefe gönderir depolama hesabı ya da çoğaltma yönetilen diskler. Verilerin işlendikten sonra kurtarma noktaları birkaç dakikada bir hedef depolama hesabı oluşturulur.
 

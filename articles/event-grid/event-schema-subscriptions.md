@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz abonelik şeması"
-description: "Azure olay kılavuz olan abonelik olaylar için sağlanan özellikler açıklar"
+title: Azure olay kılavuz abonelik şeması
+description: Azure olay kılavuz olan abonelik olaylar için sağlanan özellikler açıklar
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04bcc3018346e9cf162d26b0a23147c88e902e1e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Abonelikler için Azure olay kılavuz şeması
 
@@ -97,12 +97,12 @@ Bir olay aşağıdaki üst düzey veri sahiptir:
 | -------- | ---- | ----------- |
 | Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
 | Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| Olay türü | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
 | EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
 | id | dize | Olay için benzersiz tanımlayıcı. |
-| veriler | nesne | Abonelik olay verileri. |
-| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| veriler | object | Abonelik olay verileri. |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi aşağıdaki özelliklere sahiptir:
 
@@ -117,7 +117,7 @@ Veri nesnesi aşağıdaki özelliklere sahiptir:
 | operationName | dize | Gerçekleştirilen işlem. |
 | durum | dize | İşlem durumu. |
 | subscriptionId | dize | Kaynak abonelik kimliği. |
-| tenantId | dize | Kaynak Kiracı kimliği. |
+| Tenantıd | dize | Kaynak Kiracı kimliği. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

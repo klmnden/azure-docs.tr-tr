@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: New Relic Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve New Relic arasında yapılandırmayı öğrenin."
+title: 'Öğretici: New Relic Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve New Relic arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: fab53b33f845c277cc9b227141222c468529a75e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Öğretici: New Relic Azure Active Directory Tümleştirme
 
@@ -30,7 +30,7 @@ New Relic Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için New Relic açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` -kendi yeni Relic hesabı kimliği değiştirdiğinizden emin olun
 
-    b. İçinde **tanımlayıcısı** metin değeri yazın:`rpm.newrelic.com`
+    b. İçinde **tanımlayıcısı** metin değeri yazın: `rpm.newrelic.com`
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
@@ -242,7 +242,7 @@ Bu bölümde, Britta New Relic erişim vererek, Azure çoklu oturum açma kullan
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -252,7 +252,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

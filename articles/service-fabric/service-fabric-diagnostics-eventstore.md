@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 7e401a310ce9a5f59473353227a9ce36767aac3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d235d5a75975c8d58cad1bbde0f16df2b1b3e7a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="eventstore-service-overview"></a>EventStore hizmetine genel bakış
 
 >[!NOTE]
 >Service Fabric sürüm 6.2 itibariyle. EventStore apı'leridir şu anda yalnızca Azure üzerinde çalışan Windows kümeleri için önizlemede. Bu işlevsellik, tek başına kümelerinin yanı sıra Linux taşıma üzerinde çalışıyoruz.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Sürüm 6.2 çıkan, EventStore zamanında küme veya belirli bir noktada iş yükleri durumunu anlamak bir yol sunar Service Fabric izleme seçeneğinde hizmetidir. EventStore hizmeti çağrıları yapabileceğiniz API'leri aracılığıyla Service Fabric olayları gösterir. Bu EventStore API'leri ve yardımcı olmak için kullanılması gereken doğrudan, kümedeki herhangi bir varlığa tanılama verilerini almak için küme sorgu için izin ver:
 * Geliştirme veya test sorunları tanılamak veya burada izleme ardışık düzen kullanıyor olabilir

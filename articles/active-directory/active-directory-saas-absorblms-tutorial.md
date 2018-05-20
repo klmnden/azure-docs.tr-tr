@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme almak LMS ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory almak LMS arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme almak LMS ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory almak LMS arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f877d8fee4a94207fc01f4a5e0e7919f1286f2e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Öğretici: Azure Active Directory Tümleştirme almak LMS ile
 
@@ -30,7 +30,7 @@ En yüksek noktaları almak LMS Azure AD ile tümleştirme ile aşağıdaki avan
 - Otomatik olarak Al LMS (aracılığıyla çoklu oturum açma) ile Azure AD hesaplarına oturum açmak, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda, Azure portalında yönetebilir.
 
-Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -260,7 +260,7 @@ Kullanıcı Britta Simon almak LMS atamak için aşağıdakileri yapın:
 
 7. İçinde **eklemek atama** iletişim kutusunda **atamak** düğmesi.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
@@ -269,7 +269,7 @@ Erişim panelinde seçme **almak LMS** döşeme otomatik olarak oturum açtığ�
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

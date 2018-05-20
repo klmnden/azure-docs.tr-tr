@@ -6,7 +6,7 @@ documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: d8dce26fb3f84dd3d7bd2c11972e3e440843bb75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi sorunlarını giderme 
 
 Bu makalede kullanırken Azure portal ve can rollerinde erişimi sorunlarını giderme beklenmesi gerekenler bilmesi rolleri ile verilen özel erişim hakları hakkında sık sorulan sorular yanıtlanmaktadır. Bu üç rol tüm kaynak türleri kapsar:
 
-* Sahip  
+* Sahibi  
 * Katılımcı  
 * Okuyucu  
 
@@ -83,10 +83,10 @@ Sanal makineler, etki alanı adları, sanal ağlar, depolama hesapları ve uyar�
 
 Bu öğeler gerektiren **yazma** erişim **sanal makine**:
 
-* Uç Noktalar  
+* Uç nokta  
 * IP adresleri  
 * Diskler  
-* Uzantılar  
+* Genişletmeler  
 
 Bunlar **yazma** her ikisi de erişim **sanal makine**ve **kaynak grubu** (etki alanı adı ile birlikte), BT zamanı:  
 
@@ -96,7 +96,7 @@ Bunlar **yazma** her ikisi de erişim **sanal makine**ve **kaynak grubu** (etki 
 
 Bu kutucukların erişemiyorsanız, katkıda bulunan erişim kaynak grubu için yöneticinizden isteyin.
 
-## <a name="see-more"></a>Diğerlerini görüntüle
+## <a name="see-more"></a>Daha fazla göster
 * [Rol tabanlı erişim denetimi](role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlama.
 * [Yerleşik roller](built-in-roles.md): Get RBAC standart gelen rolleri hakkında ayrıntılar.
 * [Azure rbac'de özel roller](custom-roles.md): erişim gereksinimlerinize uyacak şekilde özel roller oluşturma hakkında bilgi edinin.

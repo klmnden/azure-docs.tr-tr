@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme kara Gorilla istemcisi ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve kara Gorilla arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme kara Gorilla istemcisi ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve kara Gorilla arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 30c34deff9e8ec4a7df90a947d3950e4f84c9c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f69bfdf2be89a5c4ae882491bfde8678a11bddbe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Öğretici: Azure Active Directory Tümleştirme kara Gorilla istemcisi ile
 
@@ -29,10 +29,10 @@ Kara Gorilla istemci Azure AD ile tümleştirme ile aşağıdaki avantajları sa
 - Azure AD hesaplarına otomatik olarak kara Gorilla istemciye (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme kara Gorilla istemcisiyle yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -175,7 +175,7 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın. 
+    d. **Oluştur**’a tıklayın. 
 
 ### <a name="creating-a-land-gorilla-test-user"></a>Bir kara Gorilla test kullanıcısı oluşturma
 
@@ -223,7 +223,7 @@ Erişim paneli kara Gorilla istemci parçasında tıklattığınızda, otomatik 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

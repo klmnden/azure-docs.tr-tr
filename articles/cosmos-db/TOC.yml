@@ -175,6 +175,8 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
               - name: Sorgu
                 items:
                   - name: SQL sorguları gerçekleştirme
@@ -263,6 +265,8 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Kaynaklar
             items:
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
               - name: Visual Studio Code uzantısı
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL oyun alanı
@@ -325,8 +329,12 @@ items:
                 href: mongodb-indexing.md
               - name: Power BI ile verilerinizi görselleştirme
                 href: powerbi-visualize.md
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
           - name: Kaynaklar
             items:
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
               - name: Visual Studio Code uzantısı
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Graph API belgeleri
@@ -349,6 +357,8 @@ items:
             items:
               - name: Grafik bölümleme
                 href: graph-partitioning.md
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
               - name: Tümleştirme
                 items:
                   - name: Spark GraphX’e bağlanma
@@ -359,6 +369,8 @@ items:
                 href: graph-sdk-dotnet.md
           - name: Kaynaklar
             items:
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
               - name: Visual Studio Code uzantısı
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Tablo API’si Belgeleri
@@ -415,6 +427,8 @@ items:
                 href: table-sdk-python.md
           - name: Kaynaklar
             items:
+              - name: Depolama Gezgini’nin kullanımını yönetme
+                href: storage-explorer.md
               - name: Tablo depolamaya genel bakış
                 href: table-storage-overview.md
               - name: Tablo depolama tasarım kılavuzu
@@ -457,8 +471,12 @@ items:
         href: key-value-store-cost.md
       - name: Verilerin süresini otomatik olarak sonlandırma
         href: time-to-live.md
+      - name: Depolama Gezgini’nin kullanımını yönetme
+        href: storage-explorer.md
   - name: Kaynaklar
     items:
+      - name: Depolama Gezgini’nin kullanımını yönetme
+        href: storage-explorer.md
       - name: Sorgu kopya kağıdı
         href: query-cheat-sheet.md
       - name: 20 günde 20 ipucu

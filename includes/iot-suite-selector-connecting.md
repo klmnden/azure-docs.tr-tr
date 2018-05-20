@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-suite/iot-suite-connecting-devices.md)
@@ -21,10 +21,10 @@ ms.lasthandoff: 05/07/2018
 > * [Raspberry Pi üzerinde Node.js](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [Raspberry Pi üzerinde C](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [Çözüm Hızlandırıcısı](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
+Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [Çözüm Hızlandırıcısı](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
 * Sıcaklık
-* baskısı
+* Basınç
 * Nem oranı
 
 Kolaylık olması için örnek telemetri değerleri için kod oluşturur **Soğutucu**. Örnek gerçek algılayıcılar aygıtınıza bağlanma ve gerçek telemetri göndermesini genişletebilirsiniz.
@@ -43,7 +43,7 @@ Cihazınız için herhangi bir kod yazmadan önce Uzaktan izleme Çözüm Hızla
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı dağıtma
 
-**Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) Çözüm Hızlandırıcısı. Azure hesabınızda Uzaktan izleme Çözüm Hızlandırıcısı sağlanan yüklemediyseniz, bkz: [Uzaktan izleme Çözüm Hızlandırıcısı dağıtma](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+**Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) Çözüm Hızlandırıcısı. Azure hesabınızda Uzaktan izleme Çözüm Hızlandırıcısı sağlanan yüklemediyseniz, bkz: [Uzaktan izleme Çözüm Hızlandırıcısı dağıtma](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 Dağıtım işlemi Uzaktan izleme çözümü sona için tıklattığınızda **başlatma** tarayıcınızda çözüm panosunu açın.
 

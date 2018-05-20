@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f96419ea1e6cb8a6f15ba67948b2a139f647dd6c
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
 Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
@@ -97,8 +97,8 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResultDescription |Runbook iş sonucu durumunu açıklar. Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
-| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
+| Abonelik kimliği | Otomasyon hesabının Azure abonelik kimliği (GUID). |
+| Kaynak grubu | Otomasyon hesabının kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
@@ -120,8 +120,8 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResultDescription |Runbook’un çıktı akışını içerir. |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
-| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
+| Abonelik kimliği | Otomasyon hesabının Azure abonelik kimliği (GUID). |
+| Kaynak grubu | Otomasyon hesabının kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure yığın kimliği mimarisi | Microsoft Docs"
-description: "Azure yığın ile kullanabileceğiniz kimlik mimarisi hakkında bilgi edinin."
+title: Azure yığın kimliği mimarisi | Microsoft Docs
+description: Azure yığın ile kullanabileceğiniz kimlik mimarisi hakkında bilgi edinin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: ''
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure yığın kimliği mimarisi
 Azure yığın ile kullanmak için bir kimlik sağlayıcısı seçmeden önce Active Directory Federasyon Hizmetleri (AD FS) ile Azure Active Directory (Azure AD) seçenekleri arasındaki önemli farklılıkları anlayın. 
@@ -33,7 +33,7 @@ Seçtiğiniz kimlik sağlayıcısı çoklu kiracı için destek dahil olmak üze
 |------------------------------|----------|-------|
 |İnternet'e bağlı     |Evet       |İsteğe bağlı|
 |Çoklu kiracı için destek     |Evet       |Hayır      |
-|Market dağıtım       |Evet       |Evet. Kullanılmasını gerektiren [çevrimdışı Market dağıtım](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) aracı.|
+|Market dağıtım       |Evet       |Evet. Kullanılmasını gerektiren [çevrimdışı Market dağıtım](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) aracı.|
 |Active Directory Authentication Library (ADAL) desteği |Evet |Evet|
 |Azure CLI, Visual Studio ve PowerShell gibi araçlar desteği  |Evet |Evet|
 |Azure Portalı aracılığıyla hizmet asıl adı oluşturma     |Evet |Hayır|

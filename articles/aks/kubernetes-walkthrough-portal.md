@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6fa40d1d170c9a9c5666c7c96980e658d1fe85fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
@@ -31,7 +31,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
 
-**Kaynak oluştur**’u seçin > **Kubernetes** ifadesini arayın > **Azure Kubernetes Hizmeti (önizleme)** > **Oluştur** seçeneğini belirleyin.
+**Kaynak oluştur**’u seçin > **Kubernetes** ifadesini arayın > **Kubernetes Hizmeti** > **Oluştur** seçeneğini belirleyin.
 
 AKS kümesi oluşturma formunun her bir başlığının altında aşağıdaki adımları tamamlayın.
 
@@ -163,10 +163,10 @@ spec:
     app: azure-vote-front
 ```
 
-Uygulamayı çalıştırmak için [kubectl create][kubectl-create] komutunu kullanın.
+Uygulamayı çalıştırmak için [kubectl apply][kubectl-apply] komutunu kullanın.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Çıktı:
@@ -244,7 +244,7 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -254,7 +254,7 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

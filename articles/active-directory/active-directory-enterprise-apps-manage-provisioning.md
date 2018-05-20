@@ -15,17 +15,17 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: ebc4de2b3a01138a8b48cc637dcab5fc67a68841
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a6f9f35931ff13eb3f0f35748b3a040af37df672
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme
-Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](active-directory-saas-app-provisioning.md).
+Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
-Bir dizindeki çoklu oturum açma kullanarak bir dizin yönetici tarafından yapılandırılan tüm uygulamaları [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), görüntülenebilir ve yönetilen [Azure portal](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır.
+Bir dizindeki çoklu oturum açma kullanarak bir dizin yönetici tarafından yapılandırılan tüm uygulamaları [Azure Active Directory Uygulama galerisinde](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), görüntülenebilir ve yönetilen [Azure portal](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır.
 
 ![Kuruluş uygulamaları bölmesi](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 

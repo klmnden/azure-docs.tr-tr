@@ -1,24 +1,24 @@
 ---
-title: "Tek başına Azure Service Fabric kümesi oluştur | Microsoft Docs"
-description: "Bir Azure Service Fabric kümesi oluşturmayı herhangi bir makinede (fiziksel veya sanal) şirket içi olup olmadığını veya tüm bulut Windows Server'ı çalıştıran."
+title: Tek başına Azure Service Fabric kümesi oluştur | Microsoft Docs
+description: Bir Azure Service Fabric kümesi oluşturmayı herhangi bir makinede (fiziksel veya sanal) şirket içi olup olmadığını veya tüm bulut Windows Server'ı çalıştıran.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: dekapur;chackdan;maburlik
-ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: dekapur
+ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server çalıştıran tek başına kümesi oluşturma
 Azure Service Fabric, tüm sanal makineler veya Windows Server çalıştıran bilgisayarlarda Service Fabric kümeleri oluşturmak için kullanabilirsiniz. Yani, dağıtmak ve Service Fabric uygulamaları birbirine bağlı bir Windows Server bilgisayarlar kümesi içeren herhangi bir ortamda çalıştırılabilir, şirket içinde veya herhangi bir bulut sağlayıcısına sahip olabilir. Service Fabric tek başına Windows Server paket adlı Service Fabric kümeleri oluşturmak için Kurulum paketini sağlar.
@@ -130,7 +130,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>3. adım: Service Fabric Explorer Getir
-Service Fabric Explorer ya da doğrudan http://localhost:19080/Explorer/index.html veya uzaktan http://< makinelerden biri ile kümeye bağlanabilir artık*IPAddressofaMachine*>: 19080/Explorer / index.HTML.
+Service Fabric Explorer ile kümeye bağlanabilir artık makinelerle birinden doğrudan ya da http://localhost:19080/Explorer/index.html veya uzaktan http://<*IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Ekleme ve düğümlerini Kaldır
 Ekleyebilir veya iş gereksinimleriniz değiştikçe, tek başına Service Fabric kümesi düğümleri kaldırın. Bkz: [ekleme veya kaldırma Service Fabric tek başına küme düğümlerine](service-fabric-cluster-windows-server-add-remove-nodes.md) ayrıntılı adımlar için.
@@ -154,19 +154,19 @@ Bu komut dosyası, küme yapılandırma dosyasındaki düğümler olarak listele
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Toplanan telemetri verileri ve onu dışında kabul etme
-Varsayılan olarak, ürün telemetri ürünü geliştirmek için Service Fabric kullanımı hakkında bilgi toplar. Bağlantı kurulumunun bir parçası çalıştıran en iyi yöntem Çözümleyicisi kontrol [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Erişilebilir durumda değilse, telemetri dışında tercih sürece kurulum başarısız olur.
+Varsayılan olarak, ürün telemetri ürünü geliştirmek için Service Fabric kullanımı hakkında bilgi toplar. Bağlantı kurulumunun bir parçası çalıştıran en iyi yöntem Çözümleyicisi kontrol [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1). Erişilebilir durumda değilse, telemetri dışında tercih sürece kurulum başarısız olur.
 
-1. Aşağıdaki veriler karşıya yüklemek telemetri ardışık düzen çalışır [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) günde bir kez. En yüksek çaba karşıya yükleme ve küme işlevselliğini üzerinde hiçbir etkisi olmaz. Telemetriyi yalnızca yük devretme çalışan düğümü gönderilen birincil Yöneticisi. Başka bir düğüm telemetri gönderir.
+1. Aşağıdaki veriler karşıya yüklemek telemetri ardışık düzen çalışır [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1) günde bir kez. En yüksek çaba karşıya yükleme ve küme işlevselliğini üzerinde hiçbir etkisi olmaz. Telemetriyi yalnızca yük devretme çalışan düğümü gönderilen birincil Yöneticisi. Başka bir düğüm telemetri gönderir.
 2. Telemetri aşağıdakilerden oluşur:
 
 * Hizmetlerin sayısı
 * ServiceTypes sayısı
-* Uygulama sayısı
+* Uygulama Sayısı
 * ApplicationUpgrades sayısı
 * Sistemdeki yük devretme birimi sayısı
 * Inbuildfailoverunits sayısı
 * UnhealthyFailoverUnits sayısı
-* Çoğaltmaların sayısı
+* Çoğaltma Sayısı
 * InBuildReplicas sayısı
 * StandByReplicas sayısı
 * OfflineReplicas sayısı

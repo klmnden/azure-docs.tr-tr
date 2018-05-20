@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler 
 
@@ -34,7 +34,7 @@ Aşağıdaki Azure AD'de için bazı iyileştirmeler olan [Azure portal](https:/
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde geliştirmeleri
 
-Gelen olup, sık kullanılan uygulamalar eklemek [uygulama Galerisi](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), buluta genişletme özel uygulamalar veya yeni uygulamalar geliştirme.  Bu yeni deneyim, başlayabiliriz tıklayarak **Ekle** altında **kurumsal uygulamalar** veya **tüm uygulamaları**.
+Gelen olup, sık kullanılan uygulamalar eklemek [uygulama Galerisi](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), buluta genişletme özel uygulamalar veya yeni uygulamalar geliştirme.  Bu yeni deneyim, başlayabiliriz tıklayarak **Ekle** altında **kurumsal uygulamalar** veya **tüm uygulamaları**.
  
   ![Bir uygulama ekleme](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 

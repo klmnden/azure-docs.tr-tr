@@ -1,24 +1,24 @@
 ---
-title: "PowerShell kullanarak Service Fabric uygulaması yükseltme | Microsoft Docs"
-description: "Bu makalede bir Service Fabric uygulaması dağıtma, kodunu değiştirme ve PowerShell kullanarak yükseltme çalışırken deneyimi anlatılmaktadır."
+title: PowerShell kullanarak Service Fabric uygulaması yükseltme | Microsoft Docs
+description: Bu makalede bir Service Fabric uygulaması dağıtma, kodunu değiştirme ve PowerShell kullanarak yükseltme çalışırken deneyimi anlatılmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulama yükseltme
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Yapı ve uygulama projesine sağ tıklayarak uygulamayı yayımlama **VisualObje
 
 Visual Studio projesi oluşturduktan sonra PowerShell komutunu kullanabilirsiniz [kopya ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) uygulama paketi görüntü deposuna kopyalamak için. Uygulama paketi yerel olarak doğrulamak istiyorsanız, kullanmak [Test ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet'i. Service Fabric çalışma zamanı kullanmak için uygulamayı kaydetmek için sonraki adımdır [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet'i. Uygulama örneğini kullanarak başlatmak için aşağıdaki adımdır [yeni ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet'i.  Bu üç adımı kullanmaya benzer **dağıtma** Visual Studio menü öğesi.  Sağlama tamamlandıktan sonra görüntü deposundan kopyalanan uygulama paketi kullanılan kaynaklar azaltmak için temizlemeniz.  Uygulama türü artık gerekli değilse, aynı nedenden dolayı kaydı olmalıdır. Bkz: [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](service-fabric-application-upgrade-tutorial-powershell.md) daha fazla bilgi için.
 
-Şimdi, kullanabileceğiniz [küme ve uygulamayı görüntülemek için Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Uygulama için Internet Explorer'da yazarak gittiğinizde bir web hizmeti olan [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) adres çubuğundaki.  Ekranda Dolaşma bazı kayan görsel nesneler görmeniz gerekir.  Ayrıca, kullanabileceğiniz [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) uygulama durumunu denetlemek için.
+Şimdi, kullanabileceğiniz [küme ve uygulamayı görüntülemek için Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Uygulama için Internet Explorer'da yazarak gittiğinizde bir web hizmeti olan [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) adres çubuğundaki.  Ekranda Dolaşma bazı kayan görsel nesneler görmeniz gerekir.  Ayrıca, kullanabileceğiniz [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) uygulama durumunu denetlemek için.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>2. adım: görsel nesneler örnek güncelleştir
 Adım 1'de dağıtılan sürümüyle görsel nesneler değil döndürme fark edebilirsiniz. Şimdi bir burada görsel nesneler de döndürmek için bu uygulamayı yükseltin.
@@ -86,7 +86,7 @@ FailureAction geri alma =
 
 HealthCheckStableDurationSec = 60
 
-UpgradeDomainTimeoutSec = 1200
+UpgradeDomainTimeoutSec 1200 =
 
 UpgradeTimeout 3000 =
 

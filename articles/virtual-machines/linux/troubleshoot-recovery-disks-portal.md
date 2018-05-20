@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Kurtarma için Azure portalını kullanarak VM işletim sistemi diski ekleyerek bir Linux VM sorun giderme
 Linux sanal makine (VM) önyükleme veya disk bir hatayla karşılaştığında, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Geçersiz bir giriş yaygın bir örnek olacaktır `/etc/fstab` engelleyen VM başarıyla önyükleme yapamamasına. Bu makalede Azure portal, sanal sabit diski başka bir Linux hataları düzeltin, sonra özgün VM'yi yeniden oluşturmak için VM'e bağlanmak için nasıl kullanılacağını ayrıntılarını verir.
@@ -31,6 +31,7 @@ Sorun giderme işlemi aşağıdaki gibidir:
 4. Sorun giderme işlemlerini yaptığınız VM’den sanal sabit diski çıkarın.
 5. Özgün sanal sabit disk kullanan bir VM oluşturun.
 
+Yönetilen disk kullanan VM için bkz: [yeni bir işletim sistemi diski ekleyerek bir yönetilen Disk VM sorun giderme](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## <a name="determine-boot-issues"></a>Önyükleme sorunlarını belirleme
 Önyükleme tanılaması ve neden, VM doğru önyükleme mümkün değil belirlemek için VM ekran inceleyin. Geçersiz bir giriş yaygın bir örnek olacaktır `/etc/fstab`, veya bir temel sanal sabit silindiğinde veya taşındığında disk.
@@ -170,6 +171,13 @@ Hatalarınızı çözüldükten sonra sorun giderme VM varolan sanal sabit diski
 Var olan sanal sabit diskten VM'nizi oluşturduğunuzda, önyükleme tanılaması otomatik olarak etkinleştirilmemiş olabilir. Önyükleme tanılaması durumunu denetleyin ve gerekirse etkinleştirmek için portalda, VM'yi seçin. Altında **izleme**, tıklatın **tanılama ayarları**. Durum olduğundan emin olun **üzerinde**ve yanındaki onay işareti **önyükleme tanılama** seçilir. Herhangi bir değişiklik yaparsanız, tıklatın **kaydetmek**:
 
 ![Önyükleme tanılaması ayarları güncelleştirme](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Yeni bir işletim sistemi diski ekleyerek bir yönetilen Disk VM sorun giderme
+1. Etkilenen yönetilen Disk Windows VM durdurun.
+2. [Yönetilen disk anlık görüntü](../windows/snapshot-copy-managed-disk.md) yönetilen Disk VM işletim sistemi disk.
+3. [Yönetilen bir disk anlık görüntüden oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Yönetilen diski VM bir veri diski Ekle](../windows/attach-disk-ps.md).
+5. [Veri diski 4. adımdan işletim sistemi diski değiştirmek](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 VM'nize bağlantı sorunları yaşıyorsanız, bkz: [sorun giderme SSH bağlantıları bir Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). VM üzerinde çalışan uygulamalara erişim sorunları için bkz: [bir Linux VM üzerinde uygulama bağlantı sorunlarını giderme](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

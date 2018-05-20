@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Wdesk | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Wdesk arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Wdesk | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Wdesk arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9338c8b8ef740885562ea3f2f1ac316b2a0783fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c55b9c32ccf6712da69c869a6f44c71e1c209627
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Öğretici: Azure Active Directory Tümleştirme Wdesk ile
 
@@ -29,9 +29,9 @@ Wdesk Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Wdesk (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [Uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Wdesk ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,15 +110,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
 4. Denetleme **Göster Gelişmiş URL ayarları**. Uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan aşağıdaki adımı gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. SSO yapılandırdığınızda WDesk Portalı'ndan bu değerleri alır. 
@@ -197,7 +197,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-wdesk-test-user"></a>Wdesk test kullanıcısı oluşturma
 
@@ -216,7 +216,7 @@ Azure AD kullanıcıları için Wdesk oturum açmak etkinleştirmek için bunlar
    
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wdesk-tutorial/createuser1.png)  
 
-5. İçinde **kullanıcı** metin kutusuna, gibi kullanıcının kullanıcı adı girin  **brittasimon@contoso.com**  tıklatıp **devam** düğmesi.
+5. İçinde **kullanıcı** metin kutusuna, gibi kullanıcının kullanıcı adı girin **brittasimon@contoso.com** tıklatıp **devam** düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wdesk-tutorial/createuser3.png)
 
@@ -224,7 +224,7 @@ Azure AD kullanıcıları için Wdesk oturum açmak etkinleştirmek için bunlar
   
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wdesk-tutorial/createuser4.png)
  
-    a. İçinde **e-posta** metin kutusunda, bir kullanıcı gibi e-posta girin  **brittasimon@contoso.com** .
+    a. İçinde **e-posta** metin kutusunda, bir kullanıcı gibi e-posta girin **brittasimon@contoso.com**.
 
     b. İçinde **ad** metin kutusuna, gibi kullanıcının ilk adını girin **Britta**.
 
@@ -275,7 +275,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri için Mobile Apps bağlamaları"
-description: "Azure Mobile Apps bağlamaları Azure işlevlerini kullanmak nasıl anlayın."
+title: Azure işlevleri için Mobile Apps bağlamaları
+description: Azure Mobile Apps bağlamaları Azure işlevlerini kullanmak nasıl anlayın.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1129bd36b1f1f413e5fd40da16a48f5aff1078bc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure işlevleri için Mobile Apps bağlamaları 
 
@@ -35,6 +35,8 @@ Mobile Apps bağlamaları verilmiştir [Microsoft.Azure.WebJobs.Extensions.Mobil
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="input"></a>Girdi
 
 Mobile Apps giriş bağlaması bir kaydı bir mobil tablo uç noktasından yükler ve işlevinizin geçirir. İşlev başarıyla çıktığında, C# ve F # işlevleri kayda yapılan değişiklikler otomatik olarak tabloya geri gönderilir.
@@ -43,7 +45,7 @@ Mobile Apps giriş bağlaması bir kaydı bir mobil tablo uç noktasından yükl
 
 Dile özgü örneğe bakın:
 
-* [C# script (.csx)](#input---c-script-example)
+* [C# betik (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Giriş - C# kod örneği
@@ -144,13 +146,13 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-| **Türü**|| "MobileTable" olarak ayarlanmalıdır|
-| **Yönü**||"İçin" ayarlanmalıdır|
+| **type**|| "MobileTable" olarak ayarlanmalıdır|
+| **direction**||"İçin" ayarlanmalıdır|
 | **Adı**|| İşlev imzası giriş parametresinin adı.|
-|**tableName** |**TableName**|Mobil uygulamanızın veri tablosu adı|
-| **id**| **Kimlik** | Alınacak kayıt tanımlayıcısı. Statik veya işlevi çağırır tetikleyici bağlı olabilir. Örneğin, bir sıra tetikleyici işlevinizi için sonra kullanırsanız `"id": "{queueTrigger}"` almak için kuyruk iletisini dize değerini kayıt kimliği kullanır.|
+|**TableName** |**TableName**|Mobil uygulamanızın veri tablosu adı|
+| **Kimliği**| **Kimlik** | Alınacak kayıt tanımlayıcısı. Statik veya işlevi çağırır tetikleyici bağlı olabilir. Örneğin, bir sıra tetikleyici işlevinizi için sonra kullanırsanız `"id": "{queueTrigger}"` almak için kuyruk iletisini dize değerini kayıt kimliği kullanır.|
 |**Bağlantı**|**Bağlantı**|Mobil uygulamanızın URL'sine sahip bir uygulama ayarı adı. Gerekli REST işlemlerini karşı mobil uygulamanızı oluşturmak için bu URL'yi işlevini kullanır. İşlevi uygulamanızda mobil uygulamanın URL'si içeren bir uygulama ayarı oluşturmak ve ardından uygulama ayarı adı belirtin `connection` giriş bağlaması özelliği. URL benzer `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|Mobil uygulamanızın API anahtara sahip bir uygulama ayarı adı. API anahtar IF sağlamak, [bir API anahtarı Node.js mobil uygulamanızda uygulamak](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı .NET Mobil uygulamanızda uygulamak](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlevi uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, ardından ekleyin `apiKey` , giriş bağlama uygulama ayarı adı ile bir özellik. |
+|**apikey ile yapılan**|**apikey ile yapılan**|Mobil uygulamanızın API anahtara sahip bir uygulama ayarı adı. API anahtar IF sağlamak, [bir API anahtarı Node.js mobil uygulamanızda uygulamak](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı .NET Mobil uygulamanızda uygulamak](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlevi uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, ardından ekleyin `apiKey` , giriş bağlama uygulama ayarı adı ile bir özellik. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -174,7 +176,7 @@ Yeni bir kayıt Mobile Apps tabloya yazmak için bağlama Mobile Apps çıkış 
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
@@ -303,12 +305,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-| **Türü**|| "MobileTable" olarak ayarlanmalıdır|
-| **Yönü**||Out"için" olarak ayarlanmalıdır|
+| **type**|| "MobileTable" olarak ayarlanmalıdır|
+| **direction**||Out"için" olarak ayarlanmalıdır|
 | **Adı**|| İşlev imzası çıkış parametresinin adı.|
-|**tableName** |**TableName**|Mobil uygulamanızın veri tablosu adı|
+|**TableName** |**TableName**|Mobil uygulamanızın veri tablosu adı|
 |**Bağlantı**|**MobileAppUriSetting**|Mobil uygulamanızın URL'sine sahip bir uygulama ayarı adı. Gerekli REST işlemlerini karşı mobil uygulamanızı oluşturmak için bu URL'yi işlevini kullanır. İşlevi uygulamanızda mobil uygulamanın URL'si içeren bir uygulama ayarı oluşturmak ve ardından uygulama ayarı adı belirtin `connection` giriş bağlaması özelliği. URL benzer `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|Mobil uygulamanızın API anahtara sahip bir uygulama ayarı adı. API anahtar IF sağlamak, [bir API anahtarı, Node.js mobil uygulama arka ucuna uygulamak](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı, .NET Mobil uygulama arka ucuna uygulamak](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlevi uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, ardından ekleyin `apiKey` , giriş bağlama uygulama ayarı adı ile bir özellik. |
+|**apikey ile yapılan**|**ApiKeySetting**|Mobil uygulamanızın API anahtara sahip bir uygulama ayarı adı. API anahtar IF sağlamak, [bir API anahtarı, Node.js mobil uygulama arka ucuna uygulamak](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı, .NET Mobil uygulama arka ucuna uygulamak](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlevi uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, ardından ekleyin `apiKey` , giriş bağlama uygulama ayarı adı ile bir özellik. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

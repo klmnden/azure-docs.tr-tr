@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Jobscience | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Jobscience arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Jobscience | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Jobscience arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a2840968cadb3d78dee9d35fd0048d5941508cd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cf6dccf02fa56b90ea4737e1d1c7b9a5e9d1d4af
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Öğretici: Azure Active Directory Tümleştirme Jobscience ile
 
@@ -29,9 +29,9 @@ Jobscience Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Jobscience (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Jobscience ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`http://<company name>.my.salesforce.com`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Bu değer alma [Jobscience istemci destek ekibi](https://www.jobscience.com/support) veya SSO profilinden öğreticide daha sonra açıklanan oluşturur. 
@@ -161,7 +161,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan.
 
-    c. İçinde **varlık kimliği** metin kutusuna, türü`https://salesforce-jobscience.com`
+    c. İçinde **varlık kimliği** metin kutusuna, türü `https://salesforce-jobscience.com`
 
     d. Tıklatın **Gözat** Azure AD sertifikanızı karşıya yüklemek için.
 
@@ -173,7 +173,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     h. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL**, Azure portalından kopyalanan.
 
-    ı. **Kaydet** düğmesine tıklayın.
+    i. **Kaydet**’e tıklayın.
 
 14. Sol gezinti bölmesinde, içinde **Yönet** 'yi tıklatın **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My etki alanı** açmak için **My etki alanı** sayfası. 
     
@@ -191,7 +191,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Güvenlik denetimleri](./media/active-directory-saas-jobscience-tutorial/ic784368.png "güvenlik denetimleri")
     
-    Yukarıdaki adımda oluşturduğunuz SSO profiline tıklayın. Bu sayfa çoklu oturum açma URL'SİNDE şirketiniz için gösterir (örneğin, [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
+    Yukarıdaki adımda oluşturduğunuz SSO profiline tıklayın. Bu sayfa çoklu oturum açma URL'SİNDE şirketiniz için gösterir (örneğin, [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -226,7 +226,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-jobscience-test-user"></a>Jobscience test kullanıcısı oluşturma
 
@@ -265,7 +265,7 @@ Azure AD kullanıcıları için Jobscience oturum açmak etkinleştirmek için b
 
    f. İçinde **takma ad** metin kutusu, kullanıcı Simon gibi takma adını yazın.
 
-   g. **Kaydet** düğmesine tıklayın.
+   g. **Kaydet**’e tıklayın.
 
     
 > [!NOTE]
@@ -311,7 +311,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

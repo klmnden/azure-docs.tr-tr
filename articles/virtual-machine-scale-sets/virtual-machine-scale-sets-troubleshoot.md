@@ -1,11 +1,11 @@
 ---
-title: "Otomatik ölçeklendirme sanal makine ölçek kümeleri ile ilgili sorunları giderme | Microsoft Docs"
-description: "Sanal makine ölçek kümeleri olan otomatik ölçeklendirme sorunlarını giderin. Karşılaşılan tipik sorunları ve bunların nasıl çözüleceği anlayın."
+title: Otomatik ölçeklendirme sanal makine ölçek kümeleri ile ilgili sorunları giderme | Microsoft Docs
+description: Sanal makine ölçek kümeleri olan otomatik ölçeklendirme sorunlarını giderin. Karşılaşılan tipik sorunları ve bunların nasıl çözüleceği anlayın.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: negat
-ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri ile sorun giderme otomatik ölçeklendirme
-**Sorun** – sanal makine ölçekleme kümeleri kullanarak Azure Resource Manager ile bir otomatik ölçeklendirmeyi altyapı oluşturduğunuz – bunun gibi bir şablon dağıtarak örneğin: https://github.com/Azure/azure-quickstart-templates/tree/master/201- vmss-bottle-otomatik ölçeklendirme – ölçek kurallarınızı tanımlanmış olması ve bu harika, isteğe bağlı olarak, sanal makinelerin ne kadar yük olursa olsun, otomatik ölçeklendirme değil dışında çalışır.
+**Sorun** – sanal makine ölçekleme kümeleri kullanarak Azure Resource Manager ile bir otomatik ölçeklendirmeyi altyapı oluşturduğunuz – bunun gibi bir şablon dağıtarak örneğin: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – ölçek kurallarınızı tanımlanmış olması ve büyük, Hayır dışında çalışır sanal makinelerin put ne kadar yük önemli, otomatik ölçeklendirme değil.
 
 ## <a name="troubleshooting-steps"></a>Sorun giderme adımları
 Dikkate alınması gereken bazı noktalar şunlardır:
@@ -78,7 +78,7 @@ Dikkate alınması gereken bazı noktalar şunlardır:
     Veri yoksa, Vm'lerde çalışan tanılama uzantılı sorun olduğu anlamına gelir. Veri varsa, Ölçek kurallarınızı ile veya Öngörüler hizmeti ile bir sorun var. anlamına gelir. Denetleme [Azure durum](https://azure.microsoft.com/status/).
     
     Otomatik ölçeklendirme sorunları yaşamaya devam ediyorsanız bu adımları uygularken size atanmış sonra aşağıdaki kaynaklara deneyebilirsiniz: 
-    * Forumlar okumaya [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), veya [yığın taşması](http://stackoverflow.com/questions/tagged/azure) 
+    * Forumlar okumaya [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), veya [yığın taşması](http://stackoverflow.com/questions/tagged/azure) 
     * Destek Telefonu oturum açın. Şablon ve performans verilerinizi bir görünümünü paylaşmak hazırlıklı olun.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

@@ -1,20 +1,20 @@
 ---
 title: Mobility hizmetinin otomatik güncelleştirme için Azure Azure olağanüstü durum kurtarma | Microsoft Docs
-description: Otomatik güncelleştirme Azure Azure Site Recovery kullanarak sanal makineleri çoğaltma için kullanılan Mobility hizmetinin genel bir bakış sağlar.
+description: Azure Azure Site Recovery kullanarak sanal makineleri çoğaltırken Mobility hizmetinin otomatik güncelleştirme genel bir bakış sağlar.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: rajanaki
-ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma Mobility hizmeti uzantı otomatik güncelleştirilmesi
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma Mobility hizmetinin otomatik güncelleştirme
 
 Azure Site Recovery, var olan özellikleri iyileştirme veya yenilerini eklenir ve bilinen sorunlar varsa sabit bir aylık bir yayın tempoyla sahiptir. Bu hizmetle geçerli kalmasını sağlamak için dağıtımı bu düzeltme ekleri için aylık plan gerektiğini anlamına gelir. Yükseltme işlemine ilişkili üzerinden head önlemek için kullanıcıların bunun yerine güncelleştirmeleri bileşenlerini yönetmek Site Recovery izin vermeyi seçebilirsiniz. İçinde ayrıntılı olarak [mimarisi referans](azure-to-azure-architecture.md) Azure için Azure olağanüstü durum kurtarma için Mobility hizmeti için çoğaltma etkin bir Azure sanal makineleri çoğaltılırken tüm Azure sanal makinelerinde yüklü başka bir bölge. Otomatik güncelleştirme etkinleştirdiğinizde, Mobility hizmeti uzantı her yeni sürümde güncelleştirilir. Bu belge aşağıdaki Ayrıntılar verilmiştir:
 

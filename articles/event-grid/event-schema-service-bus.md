@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz Service Bus şeması"
-description: "Azure olay kılavuz olan Service Bus olaylar için sağlanan özellikler açıklar"
+title: Azure olay kılavuz Service Bus şeması
+description: Azure olay kılavuz olan Service Bus olaylar için sağlanan özellikler açıklar
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Hizmet veri yolu için Azure olay kılavuz olay şeması
 
@@ -79,25 +79,25 @@ Bir olay aşağıdaki üst düzey veri sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | string | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
-| Konu | string | Olay konu yayımcı tarafından tanımlanan yolu. |
-| eventType | string | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | string | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | string | Olay için benzersiz tanımlayıcı. |
-| veriler | nesne | BLOB Depolama olay verileri. |
-| dataVersion | string | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | string | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
+| Olay türü | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | dize | Olay için benzersiz tanımlayıcı. |
+| veriler | object | BLOB Depolama olay verileri. |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | Hizmet veri yolu ad alanı kaynak bulunmaktadır. |
-| requestUri | string | Belirli bir sıraya veya olay yayma Abonelik URI. |
-| entityType | string | Olaylar (kuyruk veya abonelik) yayma Service Bus varlık türü. |
-| queueName | string | Sıranın bir sıraya abone olursa etkin iletilerle. Konular kullanıyorsanız null değer / abonelikleri. |
-| TopicName | string | Konu etkin iletileri Service Bus aboneliğe ait. Bir kuyruk kullanıyorsanız null değer. |
-| varlığıyla subscriptionName | string | Hizmet veri yolu abonelik etkin iletilerle. Bir kuyruk kullanıyorsanız null değer. |
+| nameSpaceName | dize | Hizmet veri yolu ad alanı kaynak bulunmaktadır. |
+| requestUri | dize | Belirli bir sıraya veya olay yayma Abonelik URI. |
+| EntityType | dize | Olaylar (kuyruk veya abonelik) yayma Service Bus varlık türü. |
+| queueName | dize | Sıranın bir sıraya abone olursa etkin iletilerle. Konular kullanıyorsanız null değer / abonelikleri. |
+| TopicName | dize | Konu etkin iletileri Service Bus aboneliğe ait. Bir kuyruk kullanıyorsanız null değer. |
+| varlığıyla subscriptionName | dize | Hizmet veri yolu abonelik etkin iletilerle. Bir kuyruk kullanıyorsanız null değer. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

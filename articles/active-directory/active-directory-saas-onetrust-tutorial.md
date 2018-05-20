@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme OneTrust gizlilik yönetim yazılımı ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve OneTrust gizlilik yönetim yazılımı arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme OneTrust gizlilik yönetim yazılımı ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve OneTrust gizlilik yönetim yazılımı arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 89d657e754f6908a3afbb615a2158c9d7f3380f9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 38125877a5ab17a81d6fe108e0e8c462ecd5d953
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Öğretici: Azure Active Directory Tümleştirme OneTrust gizlilik yönetim yazılımı ile
 
@@ -30,9 +30,9 @@ OneTrust gizlilik yönetim yazılımı Azure AD ile tümleştirme ile aşağıda
 - Azure AD hesaplarına otomatik olarak OneTrust gizlilik yönetim yazılımı (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme OneTrust gizlilik yönetim yazılımı ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,15 +108,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![OneTrust gizlilik yönetim yazılımı etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`https://www.onetrust.com/saml2`
+    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://www.onetrust.com/saml2`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![OneTrust gizlilik yönetim yazılımı etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.onetrust.com/auth/login`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.onetrust.com/auth/login`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Fiili yanıt URL'si ve oturum açma URL'si ile bu değerleri güncelleştirin. Kişi [OneTrust gizlilik yönetim yazılımı istemci destek ekibi](mailto:support@onetrust.com) bu değerleri almak için. 
@@ -164,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-onetrust-privacy-management-software-test-user"></a>OneTrust gizlilik yönetim yazılımı test kullanıcısı oluşturma
 
@@ -203,7 +203,7 @@ Bu bölümde, Britta OneTrust gizlilik yönetim yazılımı erişim vererek, Azu
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -213,7 +213,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

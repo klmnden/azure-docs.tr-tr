@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile ADP Globalview | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ADP Globalview arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile ADP Globalview | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ADP Globalview arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 7271efe4a1cd943f84d322e7333c92d6f60b62aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5471a4edfc6830367d120580c1c36f30f87a8f90
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Öğretici: Azure Active Directory Tümleştirme ADP Globalview ile
 
@@ -29,9 +29,9 @@ ADP Globalview Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için ADP Globalview açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme ADP Globalview ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_url.png)
 
-     İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.globalview.adp.com/federate` veya`https://<subdomain>.globalview.adp.com/federate2`
+     İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.globalview.adp.com/federate` veya `https://<subdomain>.globalview.adp.com/federate2`
 
     > [!NOTE] 
     > Değer gerçek değil. Değerin gerçek tanımlayıcısı ile güncelleştirin. Kişi [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) değeri alınamıyor.
@@ -190,7 +190,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-an-adp-globalview-test-user"></a>ADP Globalview test kullanıcısı oluşturma
 
@@ -235,7 +235,7 @@ Erişim paneli ADP GlobalView parçasında tıklattığınızda, otomatik olarak
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

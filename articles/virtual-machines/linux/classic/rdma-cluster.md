@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi oluşturma
 Azure ile Linux RDMA kümedeki ayarlamak öğrenin [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. Bu makalede bir kümede Intel MPI çalıştırmak için Linux HPC görüntüsünü hazırlamak için adımları sağlar. Hazırlık sonra bu görüntü ve RDMA özellikli Azure VM boyutlarını (şu anda H16r, H16mr, A8 veya A9) birini kullanarak sanal makineleri bir küme dağıtın. Küme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı düşük gecikmeli, yüksek verimlilik bir ağ üzerinden verimli bir şekilde iletişim kuran MPI uygulamaları çalıştırmak için kullanın.
@@ -210,7 +210,7 @@ CentOS tabanlı HPC küme üzerinde işlem düğümleri arasında güven kurulma
 
 Topluluktan katkıda bulunan bir örnek komut dosyası edinilebilir [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) CentOS tabanlı HPC küme kolay kullanıcı kimlik doğrulamasını etkinleştirmek için. Karşıdan yükleyin ve aşağıdaki adımları kullanarak bu betiği kullanın. Ayrıca, bu komut dosyasını değiştirin veya küme bilgi işlem düğümleri arasında passwordless SSH kimlik doğrulaması kurmak için başka bir yöntemi kullanabilirsiniz.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Komut dosyasını çalıştırmak için alt ağ IP adresi için önek bilmeniz gerekir. Küme düğümlerinden biri üzerinde aşağıdaki komutu çalıştırarak öneki alın. Çıktı gibi 10.1.3.5 görünmelidir ve ön eki 10.1.3 bölümü.
 

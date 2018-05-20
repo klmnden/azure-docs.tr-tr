@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -35,12 +35,14 @@ Zamanlayıcı tetikleyicisi sağlanan [Microsoft.Azure.WebJobs.Extensions](http:
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="example"></a>Örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
@@ -173,7 +175,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
 |**schedule**|**ScheduleExpression**|A [CRON ifade](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir uygulama hizmeti planı üzerinde çalışan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarı zamanlama ifadeyi ve ayar adı sarmalanmış uygulama için bu özelliği ayarlamak **%** Bu örnekte olduğu gibi işaretlerini: "% ScheduleAppSetting %". |
 |**runOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Eylemsizlik nedeniyle boşta geçtikten sonra işlev uygulaması uyanır Örneğin, çalışma zamanı başlar. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve çıkışı işlev uygulaması ölçeklendirir zaman yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren herhangi bir zamanda ayarlanması gerektiğini `true`, yüksek oranda beklenmeyen zamanlarda yürütme kodu yapacak şekilde.|
-|**useMonitor**|**UseMonitor**|Kümesine `true` veya `false` zamanlama izlenen olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi app örnekleri yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak için yardımcı olmak için zamanlama yinelenme devam ettirir. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` yinelenme aralığı 1 dakikadan daha uzun olan tabloları için. Dakika başına birden çok kez tetiklemek zamanlamaları, varsayılan değer `false`.
+|**UseMonitor**|**UseMonitor**|Kümesine `true` veya `false` zamanlama izlenen olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi app örnekleri yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak için yardımcı olmak için zamanlama yinelenme devam ettirir. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` yinelenme aralığı 1 dakikadan daha uzun olan tabloları için. Dakika başına birden çok kez tetiklemek zamanlamaları, varsayılan değer `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -221,9 +223,9 @@ CRON ifadeleri Azure işlevlerinde Zamanlayıcı tetikleyicisi için kullanabile
 |"0 */5 * * * *"|her beş dakikada|
 |"0 0 * * * *"|bir kez saatte en üstünde|
 |"0 0 */2 * * *"|Her iki saatte|
-|"0 0 9-17 * * *"|saatte 09: 00'dan 18: 00 için|
+|"0 0 9-17 ** *"|saatte 09: 00'dan 18: 00 için|
 |"0 30 9 * * *"|09:30:00 her gün|
-|"0 30 9 * * 1-5"|09:30:00 her hafta içi günü|
+|"0 30 9 ** 1-5"|09:30:00 her hafta içi günü|
 
 >[!NOTE]   
 >Çevrimiçi CRON ifade örnekleri bulabilirsiniz, ancak bunların kaç atlayın `{second}` alan. Bunlardan birini kopyalarsanız, eksik Ekle `{second}` alan. Genellikle bu alanda bir yıldız sıfır isteyeceksiniz.
@@ -256,7 +258,7 @@ Bir dize olarak ifade edilen `TimeSpan` biçimi `hh:mm:ss` zaman `hh` değerinde
 
 |Örnek |Tetiklendiğinde  |
 |---------|---------|
-|"01:00:00" | Her saat        |
+|"01:00:00" | her saat        |
 |"00:01:00"|dakikada         |
 |"24:00:00" | 24 her gün        |
 

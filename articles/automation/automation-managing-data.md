@@ -7,13 +7,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b9245a0a81958f1044ad5be6f5448e086ba54636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 3de8711c2e99459ccf5d85dcb12d6ff2d38b700d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale bir Azure Otomasyonu ortamının yönetilmesi için birden çok konuları içerir.
@@ -25,13 +25,13 @@ Azure Otomasyonu otomatik olarak siler ve işleri 90 günden daha eski kalıcı 
 
 Aşağıdaki tabloda farklı kaynaklar için bekletme ilkesi özetler.
 
-| Veriler | İlke |
+| Veri | İlke |
 |:--- |:--- |
 | Hesaplar |Hesap bir kullanıcı tarafından silindi ettikten 90 gün sonra kalıcı olarak silinir. |
 | Varlıklar |Varlık bir kullanıcı tarafından silinmiş ettikten 90 gün veya 90 gün sonra varlık bir kullanıcı tarafından silinmiş tutan hesabı kalıcı olarak silinir. |
 | Modüller |Modül bir kullanıcı tarafından silinmiş ettikten 90 gün veya 90 gün sonra modülü bir kullanıcı tarafından silinmiş tutan hesabı kalıcı olarak silinir. |
 | Runbook'lar |Kaynak bir kullanıcı tarafından silinmiş ettikten 90 gün veya 90 gün sonra kaynak kullanıcı tarafından silindi tutan hesabı kalıcı olarak silinir. |
-| İşler |Silinen ve kalıcı olarak kaldırılan 90 gün sonra değiştirilen son. İş tamamlandığında, durduruldu veya askıya alınmış sonra bu olabilir. |
+| İşler (Job) |Silinen ve kalıcı olarak kaldırılan 90 gün sonra değiştirilen son. İş tamamlandığında, durduruldu veya askıya alınmış sonra bu olabilir. |
 | Düğüm yapılandırmaları/MOF dosyaları |Eski düğüm yapılandırması, yeni bir düğüm yapılandırması oluşturulan ettikten 90 gün sonra kalıcı olarak kaldırılır. |
 | DSC düğümleri |Azure portal kullanarak Automation hesabını kaydı bir düğümdür ettikten 90 gün sonra'kalıcı olarak kaldırılır veya [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) Windows PowerShell cmdlet'i. Düğümleri 90 gün sonra düğüm bir kullanıcı tarafından silinmiş tutan hesabı da kalıcı olarak kaldırılır. |
 | Düğüm raporları |Bu düğüm için oluşturulan yeni bir rapor ettikten 90 gün sonra kalıcı olarak silinir |

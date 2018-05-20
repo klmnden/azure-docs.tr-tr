@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 7e5054d6f59bb3e06e4148bd9cfb3caed9fec970
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1f0ce5599cce7fc830075e57af1bcba80d0e69e7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Öğretici: API’leri kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma
 
@@ -66,7 +66,17 @@ Bu bölümde, *UploadEncodeAndStreamFiles* projesinin [Program.cs](https://githu
 
 .NET ile Media Services API’lerini kullanmaya başlamak için bir **AzureMediaServicesClient** nesnesi oluşturmanız gerekir. Nesneyi oluşturmak için, Azure AD kullanarak Azure’a bağlanmak üzere istemcinin ihtiyaç duyduğu kimlik bilgilerini sağlamanız gerekir. İlk olarak bir belirteç almanız ve sonra döndürülen belirteçten **ClientCredential** nesnesini oluşturmanız gerekir. Makalenin başına kopyaladığınız kodda, belirteci almak için **ArmClientCredential** nesnesi kullanılır.  
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
+```csharp
+private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
+{
+    ArmClientCredentials credentials = new ArmClientCredentials(config);
+
+    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
+    {
+        SubscriptionId = config.SubscriptionId,
+    };
+}
+```
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Bir giriş varlığı oluşturma ve içine yerel dosya yükleme 
 
@@ -80,13 +90,61 @@ Aşağıdaki işlev şu eylemleri gerçekleştirir:
 * Varlığın [depolamadaki kapsayıcısına](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) yazılabilir bir [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)’si alır
 * SAS URL’sini kullanarak dosyayı depolamadaki kapsayıcıya yükler
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
+```csharp
+private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
+{
+    // Check if an Asset already exists.
+    Asset asset = client.Assets.Get(resourceGroupName, accountName, assetName);
+
+    if (asset == null)
+    {
+        asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
+
+        var response = client.Assets.ListContainerSas(
+                resourceGroupName,
+                accountName,
+                assetName,
+                permissions: AssetContainerPermission.ReadWrite,
+                expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime()
+            );
+
+        var sasUri = new Uri(response.AssetContainerSasUrls.First());
+        CloudBlobContainer container = new CloudBlobContainer(sasUri);
+        var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+        blob.UploadFromFile(fileToUpload);
+    }
+
+    // In this sample method, we are going to assume that if an Asset already exists with the desired name, 
+    // then we can go ahead an use it for encoding or analyzing.
+
+    return asset;
+}
+```
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Bir işin sonucunu depolamak için çıktı varlığı oluşturma 
 
 Çıktı varlığı, kodlama işinizin sonucunu depolar. Proje, bu çıktı varlığının sonuçlarını "output" klasörüne indiren **DownloadResults** işlevini tanımlar, böylece elinizde neyin olduğunu görebilirsiniz.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
+```csharp
+private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
+{
+    // Check if an Asset already exists
+    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
+    Asset asset = new Asset();
+    string outputAssetName = assetName;
+
+    if (outputAsset != null)
+    {
+        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+        // Note that the returned Asset can have a different name than the one specified as an input parameter.
+        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        outputAssetName += uniqueness;
+    }
+
+    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
+}
+```
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Bir Dönüşüm ve karşıya yüklenen dosyayı kodlayan İş oluşturma
 Media Services’te içerik kodlarken veya işlerken, kodlama ayarlarını bir tarif olarak ayarlamak yaygın bir modeldir. Daha sonra bu tarifi bir videoya uygulamak üzere bir **İş** gönderirsiniz. Her yeni video için yeni İşler göndererek, söz konusu tarifi kitaplığınızdaki tüm videolara uygulamış olursunuz. Media Services içinde tarif, **Dönüşüm** olarak adlandırılır. Daha fazla bilgi için [Dönüşümler ve işler](transform-concept.md) konusuna bakın. Bu öğreticide açıklanan örnek, videoyu çeşitli iOS ve Android cihazlarına akışla aktarmak için kodlayan bir tarifi tanımlar. 
@@ -99,7 +157,36 @@ Diğer yerleşik EncoderNamedPreset ön ayarını veya özel ön ayarları kulla
 
 Bir **Dönüşüm** oluştururken ilk olarak aşağıdaki kodda gösterildiği gibi **Get** yöntemi ile bir dönüşümün zaten var olup olmadığını denetlemeniz gerekir.  Media Services v3’te varlıklar üzerindeki **Get** yöntemleri, varlığın mevcut olmaması durumunda **null** değerini döndürür (büyük/küçük harfe duyarlı ad denetimi).
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
+```csharp
+private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName)
+{
+    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
+    // also uses the same recipe or Preset for processing content.
+    Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
+
+    if (transform == null)
+    {
+        // Start by defining the desired outputs.
+        TransformOutput[] outputs = new TransformOutput[]
+        {
+            new TransformOutput
+            {
+                Preset = new BuiltInStandardEncoderPreset()
+                {
+                    PresetName = EncoderNamedPreset.AdaptiveStreaming
+                }
+            }
+        };
+
+        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
+    }
+
+    return transform;
+}
+```
 
 #### <a name="job"></a>İş
 
@@ -107,7 +194,44 @@ Yukarıda bahsedildiği gibi **Transform** nesnesi tarif, **Job** ise bu **Trans
 
 Bu örnekte giriş videosu, yerel makinenizden yüklenmiştir. Bir HTTPS URL’sinden kodlama yapmayı öğrenmek için [bu](job-input-from-http-how-to.md) makaleye bakın.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
+```csharp
+private static Job SubmitJob(IAzureMediaServicesClient client, 
+    string resourceGroupName, 
+    string accountName, 
+    string transformName, 
+    string jobName, 
+    JobInput jobInput, 
+    string outputAssetName)
+{
+    string uniqueJobName = jobName;
+    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+
+    if (job != null)
+    {
+        // Job already exists with the same name, so let's append a GUID
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        uniqueJobName += uniqueness;
+    }
+
+    JobOutput[] jobOutputs =
+    {
+        new JobOutputAsset(outputAssetName),
+    };
+
+    job = client.Jobs.Create(
+        resourceGroupName,
+        accountName,
+        transformName,
+        jobName,
+        new Job
+        {
+            Input = jobInput,
+            Outputs = jobOutputs,
+        });
+
+    return job;
+}
+```
 
 ### <a name="wait-for-the-job-to-complete"></a>İşin tamamlanmasını bekleyin
 
@@ -117,7 +241,43 @@ Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek i�
 
 **İş** genellik şu aşamalardan geçer: **Zamanlandı**, **Kuyruğa Alındı**, **İşleniyor**, **Tamamlandı** (son aşama). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
+```csharp
+private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName,
+    string jobName)
+{
+    int SleepInterval = 60 * 1000;
+
+    Job job = null;
+
+    while (true)
+    {
+        job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+
+        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
+        {
+            break;
+        }
+
+        Console.WriteLine($"Job is {job.State}.");
+        for (int i = 0; i < job.Outputs.Count; i++)
+        {
+            JobOutput output = job.Outputs[i];
+            Console.Write($"\tJobOutput[{i}] is {output.State}.");
+            if (output.State == JobState.Processing)
+            {
+                Console.Write($"  Progress: {output.Progress}");
+            }
+            Console.WriteLine();
+        }
+        System.Threading.Thread.Sleep(SleepInterval);
+    }
+
+    return job;
+}
+```
 
 ### <a name="get-a-streaminglocator"></a>StreamingLocator alma
 
@@ -132,7 +292,26 @@ Bir **StreamingLocator** oluştururken istenen **StreamingPolicyName** değerini
 
 Aşağıdaki kod, benzersiz bir locatorName ile işlevi çağırdığınızı varsayar.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
+```csharp
+private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
+                                                        string resourceGroup,
+                                                        string accountName,
+                                                        string assetName,
+                                                        string locatorName)
+{
+    StreamingLocator locator =
+        client.StreamingLocators.Create(resourceGroup,
+        accountName,
+        locatorName,
+        new StreamingLocator()
+        {
+            AssetName = assetName,
+            StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
+        });
+
+    return locator;
+}
+```
 
 Bu konudaki örnek, akışı ele alsa da aynı çağrıyı aşamalı indirme üzerinden video teslim etmek üzere StreamingLocator oluşturmak için de kullanabilirsiniz.
 
@@ -143,13 +322,57 @@ Bir StreamingLocator oluşturulduktan sonra **GetStreamingURLs** içinde göster
 > [!NOTE]
 > Bu yöntemde, çıktı Varlığı için **StreamingLocator** oluşturulurken kullanılan locatorName değeri gereklidir.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
+```csharp
+static IList<string> GetStreamingURLs(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    String locatorName)
+{
+    IList<string> streamingURLs = new List<string>();
+
+    string streamingUrlPrefx = "";
+
+    StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
+
+    if (streamingEndpoint != null)
+    {
+        streamingUrlPrefx = streamingEndpoint.HostName;
+
+        if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
+            client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
+    }
+
+    foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
+    {
+        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
+    }
+
+    return streamingURLs;
+}
+```
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Media Services hesabınızdaki kaynakları temizleme
 
 Genellikle, yeniden kullanmayı planladığınız nesneler dışında her şeyi temizlemeniz gerekir (genellikle Dönüşümleri yeniden kullanırsınız ve StreamingLocators vb. nesneleri tutarsınız). Deneme sonrasında hesabınızın temiz olmasını istiyorsanız, yeniden kullanmayı planlamadığınız kaynakları silmeniz gerekir.  Örneğin, aşağıdaki kod İşleri siler.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
+```csharp
+static void CleanUp(IAzureMediaServicesClient client,
+        string resourceGroupName,
+        string accountName,
+        string transformName)
+{
+    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
+    {
+        client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
+    }
+
+    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
+    {
+        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
+    }
+}
+```
 
 ## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
 

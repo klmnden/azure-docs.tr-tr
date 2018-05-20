@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ab9ad821c6780c685c884a87f3075a5d58c1d73a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
@@ -29,7 +29,7 @@ Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve gelişti
 
 ## <a name="b-series"></a>B serisi
 
-B-serisi burstable VM'ler CPU tam performansını sürekli olarak, web sunucuları gibi küçük veritabanları ve geliştirme gerekir ve ortamlarında test iş yükleri için idealdir. Bu iş yükleri genellikle burstable performans gereksinimleri vardır. B-serisi bu müşterilerin VM boyutu VM'i temel performansını sayısından az kullanırken kredilerinizin tamamını oluşturmak VM örneğine izin veren bir fiyat conscience temel performans satın almanıza olanak sağlar. VM kredi birikmiş, VM uygulamanız daha yüksek CPU performans gerektirdiğinde % 100 CPU kullanarak VM'ın temel veri bloğu.
+B-serisi burstable VM'ler CPU tam performansını sürekli olarak, web sunucuları gibi küçük veritabanları ve geliştirme gerekir ve ortamlarında test iş yükleri için idealdir. Bu iş yükleri genellikle burstable performans gereksinimleri vardır. B-serisi bu müşterilerin VM boyutu VM'i temel performansını sayısından az kullanırken kredilerinizin tamamını oluşturmak VM örneğine izin veren bir fiyat bilinçli temel performans satın almanıza olanak sağlar. VM kredi birikmiş, VM uygulamanız daha yüksek CPU performans gerektirdiğinde % 100 CPU kullanarak VM'ın temel veri bloğu.
 
 
 | Boyut             | Sanal işlemci  | Bellek: GiB | Yerel SSD: GiB | Bir çekirdek, temel performans | Bankaya nakledilen krediler / saat | Max krediler Bankaya nakledilen | Maksimum veri diskleri | En fazla yerel disk perf: IOP / MB/sn | En büyük disk perf Histogramı: IOP / MB/sn | En fazla NIC |          

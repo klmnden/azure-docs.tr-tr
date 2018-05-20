@@ -45,14 +45,14 @@
           href: delete-cluster.md
     - name: Veri hacimlerini yapılandırma
       items:
-        - name: Kubernetes Hacmi - Diskler
-          href: azure-disk-volume.md
-        - name: Kubernetes Hacmi - Dosyalar
-          href: azure-files-volume.md
-        - name: Kalıcı Hacim - Diskler
+        - name: AzureDisk dinamik sağlama
           href: azure-disks-dynamic-pv.md
-        - name: Kalıcı Hacim - Dosyalar
+        - name: AzureDisk statik sağlama
+          href: azure-disk-volume.md
+        - name: AzureFile dinamik sağlama
           href: azure-files-dynamic-pv.md
+        - name: AzureFile statik sağlama
+          href: azure-files-volume.md
     - name: Ağ yapılandırması
       items:
         - name: Ağlara genel bakış

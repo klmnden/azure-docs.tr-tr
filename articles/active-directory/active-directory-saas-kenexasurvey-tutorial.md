@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile IBM Kenexa anket Kurumsal | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile IBM Kenexa anket kuruluş arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile IBM Kenexa anket Kurumsal | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile IBM Kenexa anket kuruluş arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88e0072adeeebaf6c9e964db28a45f6fe038fddf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Öğretici: Azure Active Directory Tümleştirme ile IBM Kenexa anket Enterprise
 
@@ -29,9 +29,9 @@ IBM Kenexa anket kuruluş Azure AD ile tümleştirme ile aşağıdaki avantajlar
 - Kullanıcılarınızın kendi Azure AD hesapları ile çoklu oturum açma (SSO) kullanarak IBM Kenexa anket kuruluş için otomatik olarak oturum açmak etkinleştirebilirsiniz.
 - Hesaplarınızı tek bir merkezi konumda yönetebilirsiniz: Azure portal.
 
-Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme IBM Kenexa anket Enterprise ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -102,14 +102,14 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
 
     ![IBM Kenexa anket kuruluş etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desende bir URL yazın:`https://surveys.kenexa.com/<companycode>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desende bir URL yazın: `https://surveys.kenexa.com/<companycode>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desende bir URL yazın:`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desende bir URL yazın: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
     > Yukarıdaki değerleri gerçek değildir. Gerçek tanımlayıcısı ile güncelleştirin ve URL yanıt. Gerçek değerler elde etmek için ilgili kişi [IBM Kenexa anket kurumsal destek ekibi](https://www.ibm.com/support/home/?lnk=fcw).
 
-4. Altında **SAML imzalama sertifikası**, tıklatın **sertifika (Base64)**ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
+4. Altında **SAML imzalama sertifikası**, tıklatın **sertifika (Base64)** ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Sertifika (Base64) indirme bağlantısı](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
@@ -119,7 +119,7 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
     
     ![Kullanıcı öznitelikleri iletişim kutusu](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)   
 
-5. **Kaydet** düğmesine tıklayın.
+5. **Kaydet**’e tıklayın.
 
     ![Yapılandırma çoklu oturum açma düğmesi Kaydet](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 
@@ -164,7 +164,7 @@ Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Bri
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>IBM Kenexa anket Kurumsal test kullanıcısı oluşturma
 
@@ -202,7 +202,7 @@ IBM Kenexa anket kuruluş kullanıcı Britta Simon atamak için aşağıdakileri
 
 7. İçinde **eklemek atama** iletişim kutusu, tıklatın **atamak** düğmesi.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD SSO yapılandırmanızı sınayın.
 
@@ -211,7 +211,7 @@ Tıkladığınızda **IBM Kenexa anket Kurumsal** döşeme erişim panelinde, ot
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

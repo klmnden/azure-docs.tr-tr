@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 05/15/2018
 ms.author: kumud
-ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d7a90cb46c25e4e01b89bbf4da563685e92a7249
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS kayıtlarını ve kayıt kümeleri Azure CLI 2.0 kullanan Azure DNS'de yönetme
 
@@ -31,7 +31,7 @@ Bu makalede, platformlar arası Azure komut satırı arabirimi (Windows, Mac ve 
 
 Bu makaledeki örneklerde, zaten sahip varsayılmaktadır [, oturum açan Azure CLI 2.0 yüklü ve bir DNS bölgesi oluşturulan](dns-operations-dnszones-cli.md).
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 
 Azure DNS’de DNS kayıtlarını oluşturmadan önce Azure DNS’nin DNS kayıtlarını DNS kayıt kümeleri şeklinde nasıl düzenlediğini kavramanız gerekir.
 
@@ -41,7 +41,7 @@ Azure DNS’deki DNS kayıtları hakkında daha fazla bilgi için bkz. [DNS böl
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-Bir DNS kaydı oluşturmak üzere kullanmanız `az network dns record-set <record-type> set-record` komutu (burada `<record-type>` kayıt türü yani bir, srv, txt, vs.) Yardım için bkz. `az network dns record-set --help`.
+Bir DNS kaydı oluşturmak üzere kullanmanız `az network dns record-set <record-type> add-record` komutu (burada `<record-type>` kayıt türü yani bir, srv, txt, vs.) Yardım için bkz. `az network dns record-set --help`.
 
 Bir kayıt oluştururken kaynak grubu adını, bölge adını, kaynak kümesi adını, kaynak türünü ve oluşturulan kaynağın ayrıntılarını belirtmeniz gerekir. Verilen kayıt kümesi adı olmalıdır bir *göreli* ad, bölge adı dışarıda gerekir anlamına gelir.
 
@@ -52,13 +52,13 @@ Yeni bir kayıt kümesi oluşturuluyorsa yaşam süresi (TTL) olarak varsayılan
 Aşağıdaki örnek *www* adlı A kaydını *contoso.com* bölgesinde ve *MyResourceGroup* kaynak grubu içinde oluşturur. A kaydının IP adresi *1.2.3.4* olarak belirtilmiştir.
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 Bölgenin tepesinde bir kayıt kümesi oluşturmak için (bu durumda "contoso.com"), tırnak işaretleri dahil olmak üzere "@" kayıt adını kullanın:
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>DNS kayıt kümesi oluşturma
@@ -81,13 +81,13 @@ Aşağıdaki örnek, bir kayıt iki meta veri girişlerle kümesi oluşturur "B�
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-Boş bir kayıt kümesi oluşturulduktan sonra kayıtları kullanılarak eklenebilir `azure network dns record-set <record-type> set-record` açıklandığı gibi [bir DNS kaydı oluşturma](#create-a-dns-record).
+Boş bir kayıt kümesi oluşturulduktan sonra kayıtları kullanılarak eklenebilir `azure network dns record-set <record-type> add-record` açıklandığı gibi [bir DNS kaydı oluşturma](#create-a-dns-record).
 
 ## <a name="create-records-of-other-types"></a>Diğer türleri kayıtları oluşturma
 
 Aşağıdaki örnekler, ayrıntılı olarak 'Bir' kayıtları oluşturmak nasıl görülen, Azure DNS sunucuları tarafından desteklenen diğer kayıt türlerinin kaydının nasıl oluşturulacağını gösterir.
 
-Kayıt verilerini belirtmek için kullanılan parametreler, kayıt türüne bağlı olarak değişiklik gösterir. Örneğin "A" türünde bir kayıt için IPv4 adresini `--ipv4-address <IPv4 address>` parametresiyle belirtirsiniz. Her bir kayıt türü için parametreler kullanılarak listelenebilir `az network dns record-set <record-type> set-record --help`.
+Kayıt verilerini belirtmek için kullanılan parametreler, kayıt türüne bağlı olarak değişiklik gösterir. Örneğin "A" türünde bir kayıt için IPv4 adresini `--ipv4-address <IPv4 address>` parametresiyle belirtirsiniz. Her bir kayıt türü için parametreler kullanılarak listelenebilir `az network dns record-set <record-type> add-record --help`.
 
 Her durumda, tek bir kaydını nasıl oluşturacağınızı gösterir. Kayıt, varolan bir kayıt kümesini veya örtük olarak oluşturulmuş bir kayıt kümesine eklenir. Kayıt kümeleri oluşturma ve kayıt tanımlama hakkında daha fazla bilgi için parametre açıkça, bakın [DNS kayıt kümesi oluşturma](#create-a-dns-record-set).
 
@@ -96,7 +96,7 @@ SOAs oluşturulduğundan bir SOA kayıt kümesi oluşturmak için örnek vermeyi
 ### <a name="create-an-aaaa-record"></a>Bir AAAA kaydı oluşturun
 
 ```azurecli
-az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-an-caa-record"></a>Bir CAA kayıt oluşturma
@@ -121,13 +121,13 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 Bu örnekte, bölgenin tepesinde (bu durumda "contoso.com") MX kaydı oluşturmak için "@" kayıt kümesi adını kullanıyoruz.
 
 ```azurecli
-az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>Bir NS kayıt oluşturma
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>PTR kaydı oluştur
@@ -135,7 +135,7 @@ az network dns record-set ns set-record --resource-group myresourcegroup --zone-
 Bu durumda, ' my-arpa-zone.com' IP aralığınızı temsil eden ARPA bölgeleri temsil eder. Bu bölgedeki her PTR kaydı bu IP aralığındaki bir IP adresine karşılık gelir.  Kayıt '10' IP adresi bu kayıt tarafından temsil edilen bu IP aralığı içinde son sekizlisi addır.
 
 ```azurecli
-az network dns record-set ptr set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
 ### <a name="create-an-srv-record"></a>Bir SRV kaydı oluşturun
@@ -143,7 +143,7 @@ az network dns record-set ptr set-record --resource-group myresourcegroup --zone
 Oluştururken bir [SRV kayıt kümesi](dns-zones-records.md#srv-records), belirtin  *\_hizmet* ve  *\_Protokolü* kayıt kümesi adı. Eklenecek gerek yoktur "@" kayıt kümesi adında SRV kayıt kümesi bölgenin tepesinde oluştururken.
 
 ```azurecli
-az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
 ### <a name="create-a-txt-record"></a>TXT kaydı oluşturma
@@ -151,7 +151,7 @@ az network dns record-set srv set-record --resource-group myresourcegroup --zone
 Aşağıdaki örnek, bir TXT kaydını oluşturmak gösterilmiştir. TXT kayıtlarının desteklenen maksimum dize uzunluğu hakkında daha fazla bilgi için bkz: [TXT kayıtlarının](dns-zones-records.md#txt-records).
 
 ```azurecli
-az network dns record-set txt set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>Bir kayıt kümesini Al
@@ -184,7 +184,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>Bir kaydı var olan bir kayıt kümesine ekleme
 
-Kullanabileceğiniz `az network dns record-set <record-type> set-record` hem yeni bir kayıt kümesinde bir kayıt oluşturmak veya var olan bir kayıt eklemek için kayıt kümesi.
+Kullanabileceğiniz `az network dns record-set <record-type> add-record` hem yeni bir kayıt kümesinde bir kayıt oluşturmak veya var olan bir kayıt eklemek için kayıt kümesi.
 
 Daha fazla bilgi için bkz: [bir DNS kaydı oluşturma](#create-a-dns-record) ve [kayıtlar diğer türleri oluşturma](#create-records-of-other-types) üstünde.
 
@@ -194,7 +194,7 @@ Bir DNS kaydı varolan bir kayıt kümesinden kaldırmak için kullanın `az net
 
 Bu komut, kayıt kümesindeki bir DNS kaydı siler. Bir kayıt kümesindeki son kaydı silinirse, kayıt kümesine kendisi de silinir. Bunun yerine ayarlayın boş kaydı korumak için kullanmak `--keep-empty-record-set` seçeneği.
 
-Silinecek kaydı belirtmeniz gerekir ve bölge, kullanarak bir kayıt oluştururken, aynı parametreleri kullanarak silinmesi `az network dns record-set <record-type> set-record`. Bu parametreler açıklanmaktadır [bir DNS kaydı oluşturma](#create-a-dns-record) ve [kayıtlar diğer türleri oluşturma](#create-records-of-other-types) üstünde.
+Silinecek kaydı belirtmeniz gerekir ve bölge, kullanarak bir kayıt oluştururken, aynı parametreleri kullanarak silinmesi `az network dns record-set <record-type> add-record`. Bu parametreler açıklanmaktadır [bir DNS kaydı oluşturma](#create-a-dns-record) ve [kayıtlar diğer türleri oluşturma](#create-records-of-other-types) üstünde.
 
 Aşağıdaki örnek kaydındaki ' 1.2.3.4 adlandırılmış kümesi' değeriyle A kaydını siler *www* bölgesinde *contoso.com*, kaynak grubundaki *MyResourceGroup*.
 
@@ -213,7 +213,7 @@ Var olan bir tür A, AAAA, CAA, MX, NS, PTR, SRV ve TXT kaydını değiştirmek 
 Aşağıdaki örnek IP adresine 5.6.7.8 1.2.3.4 IP adresinden bir 'Bir' kaydını değiştirerek gösterilmektedir:
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
@@ -254,7 +254,7 @@ Bu bölge tepesinde yalnızca NS kayıt kümesi için geçerli olduğunu unutmay
 Aşağıdaki örnekte, bölgenin tepesinde ayarlamak NS kaydı bir ek ad sunucusu eklemek gösterilmektedir:
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Varolan bir kayıt kümesi TTL değiştirmek için

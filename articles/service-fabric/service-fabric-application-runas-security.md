@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 471e5a79600d6a963a4fa5b6cec8d2cc16137489
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 33ca23834f35e631c6943ec22a88f4fe3dc853e1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Bir hizmet bir yerel kullanıcı hesabı veya yerel sistem hesabı olarak çalıştırılması
 Azure Service Fabric kullanarak, kümedeki farklı kullanıcı hesabı altında çalışan uygulamaları güvenliğini sağlayabilirsiniz. Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Service Fabric ayrıca yerel bir kullanıcı veya sistem hesabı altında uygulamaları çalıştırmak için yeteneği sağlar. Desteklenen yerel sistem hesabı türleri **YerelKullanıcı**, **NetworkService**, **Yerelhizmet**, ve **LocalSystem**.  Service Fabric Windows tek başına kümede çalıştırıyorsanız altında bir hizmeti çalıştırabilirsiniz [Active Directory etki alanı hesapları](service-fabric-run-service-as-ad-user-or-group.md) veya [Grup yönetilen hizmet hesapları](service-fabric-run-service-as-gmsa.md).
@@ -185,6 +185,6 @@ Aşağıdaki hizmet örnekte gösterildiği bir FileRetentionCount değerle kons
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Uygulama modeli anlama](service-fabric-application-model.md)
 * [Bir hizmet bildirimi kaynakları belirtme](service-fabric-service-manifest-resources.md)
-* [Bir uygulamayı dağıtma](service-fabric-deploy-remove-applications.md)
+* [Uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

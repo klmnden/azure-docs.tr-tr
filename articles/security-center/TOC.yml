@@ -109,6 +109,8 @@
           href: security-center-just-in-time.md
         - name: Uyarlamalı uygulama denetimleri
           href: security-center-adaptive-application.md
+        - name: Dosya bütünlüğünü izleme
+          href: security-center-file-integrity-monitoring.md
     - name: Güvenlik çözümlerini yönetme
       href: security-center-partner-integration.md
       items:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: sedusch
-ms.openlocfilehash: b1a7b962d07b64aaa662aab937feed1782851a7b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bc4a6f4ecca8ffe3575a038b86192a8663c35c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server üzerinde Azure vm'lerinde NFS yüksek kullanılabilirlik
 
@@ -129,12 +129,11 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
 1. Kullanılabilirlik kümesi oluştur  
    Set max güncelleştirme etki alanı
 1. Sanal makine 1 oluşturun   
-   En azından bu örnekte SLES4SAP 12 SP1 BYOS görüntü SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES için SAP uygulamaları 12 SP1 (BYOS) kullanılır  
+   En azından SLES4SAP 12 SP3 SLES4SAP 12 SP3 BYOS görüntü SLES için SAP uygulamaları 12 SP3 (BYOS) Bu örnekte kullanılır  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
 1. Sanal makine 2 oluşturun   
-   En azından bu örnekte SLES4SAP 12 SP1 BYOS görüntü SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES için SAP uygulamaları 12 SP1 (BYOS) kullanılır  
+   En azından bu örnekte SLES4SAP 12 SP3 BYOS görüntü SLES4SAP 12 SP3  
+   SLES için SAP uygulamaları 12 SP3 (BYOS) kullanılır  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
 1. Her SAP sistem için bir veri diski hem sanal makineleri ekleyin.
 1. Bir yük dengeleyiciye (dahili) oluşturma  

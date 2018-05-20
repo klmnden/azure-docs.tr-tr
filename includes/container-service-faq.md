@@ -84,13 +84,23 @@ Bağlantı dizesini Azure portalında veya Azure komut satırı araçlarını ku
 
 4. **Özet** sayfasındaki **Çıktılar** altında çeşitli küme bağlantıları sağlanır. **SSHMaster0**, kapsayıcı hizmeti kümenizdeki birinci ana sunucuya bir SSH bağlantı dizesi sağlar. 
 
-Daha önce belirtildiği gibi, ana sunucunun FQDN'sini bulmak için Azure araçlarını da kullanabilirsiniz. Ana sunucunun FQDN’sini ve kümeyi oluştururken belirttiğiniz kullanıcı adını kullanarak ana sunucuyla SSH bağlantısı oluşturun. Örneğin:
+Daha önce belirtildiği gibi, ana sunucunun FQDN'sini bulmak için Azure araçlarını da kullanabilirsiniz. Ana sunucunun FQDN’sini ve kümeyi oluştururken belirttiğiniz kullanıcı adını kullanarak ana sunucuyla SSH bağlantısı oluşturun. Örnek:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
 ```
 
 Daha fazla bilgi için bkz. [Azure Container Service kümesine bağlanma](../articles/container-service/kubernetes/container-service-connect.md).
+
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS ad çözümlemem Windows’da çalışmıyor. Ne yapmalıyım?
+
+Windows’da, düzeltmeleri halen etkin olarak kaldırılmakta olan bazı bilinen DNS sorunları vardır. Ortamınızın bundan yararlanabilmesi için lütfen en güncel acs-engine ve Windows sürümünü kullandığınızdan ([KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) ve [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) yüklü şekilde) emin olun. Aksi takdirde lütfen azaltma adımları için aşağıdaki tabloya bakın:
+
+| DNS Belirtisi | Geçici çözüm  |
+|-------------|-------------|
+|İş yükü kapsayıcısı kararsız olduğunda ve çöktüğünde ağ ad alanı temizlenir | Etkilenen hizmetleri yeniden dağıtın |
+| Hizmet VIP erişimi bozuk | Her zaman bir normal (ayrılıklı olmayan) bir podun çalıştırılmasını sağlamak için bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) yapılandırın |
+|Kapsayıcının çalıştırılmakta olduğu düğüm kullanılamaz duruma gelirse DNS sorguları başarısız olarak "negatif önbellek girişi" ile sonuçlanabilir | Etkilenen kapsayıcıların içinde aşağıdaki komutu çalıştırın: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Bu da sorunu çözmezse DNS önbelleğe almayı tamamen devre dışı bırakmayı deneyin: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

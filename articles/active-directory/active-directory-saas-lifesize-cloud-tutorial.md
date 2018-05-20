@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Lifesize bulut ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory Lifesize bulut arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Lifesize bulut ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory Lifesize bulut arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae2c59d672c00b466d13aad1d304f4669a38c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 84af3a9b726d990e585e2b12b1c0a6f4609fcb7e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Öğretici: Azure Active Directory Tümleştirme Lifesize bulut ile
 
@@ -29,9 +29,9 @@ Lifesize bulut Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak Lifesize buluta (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Lifesize bulut ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,16 +110,16 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://login.lifesizecloud.com/ls/?acs`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://login.lifesizecloud.com/ls/?acs`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://login.lifesizecloud.com/<companyname>`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://login.lifesizecloud.com/<companyname>`
 
      
 4. Denetleme **Göster Gelişmiş URL ayarları**, aşağıdaki adımı gerçekleştirin:    
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
 
-    İçinde **geçiş durumu** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://webapp.lifesizecloud.com/?ent=<identifier>`
+    İçinde **geçiş durumu** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://webapp.lifesizecloud.com/?ent=<identifier>`
    
    > [!NOTE] 
    >Lütfen bu gerçek değerlerin olmadığına dikkat edin. Gerçek oturum açma URL'si, geçiş durumunu ve tanımlayıcı ile bu değerleri güncelleştirmeniz gerekir. Kişi [Lifesize bulut istemci destek ekibi](https://www.lifesize.com/support) oturum açma URL'si ve tanımlayıcı değerlerini ve almak için geçiş durumu değeri SSO yapılandırmasından daha sonra öğreticide açıklandığı elde edebilirsiniz.
@@ -156,11 +156,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. Base-64 kodlanmış sertifikanızı Azure portalından indirdiğiniz Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **X.509 sertifikası** metin kutusu.
   
-    d. SAML özniteliği değeri olarak eşlemeleri için ilk adı metin kutusuna girin **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    d. İlk adı metin kutusuna SAML öznitelik eşlemelerini değeri olarak girin **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
     
-    e. SAML öznitelik eşlemesinde **Soyadı** metin kutusuna girin ve değeri olarak **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    e. SAML öznitelik eşlemesinde **Soyadı** metin kutusu olarak değer girin **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
     
-    f. SAML öznitelik eşlemesinde **e-posta** metin kutusuna girin ve değeri olarak **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
+    f. SAML öznitelik eşlemesinde **e-posta** metin kutusu olarak değer girin **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
 
 11. Üzerinde tıklayabilirsiniz yapılandırmayı denetlemek için **Test** düğmesi.
    
@@ -205,7 +205,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-lifesize-cloud-test-user"></a>Lifesize bulut test kullanıcısı oluşturma
 
@@ -251,7 +251,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

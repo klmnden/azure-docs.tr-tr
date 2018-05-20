@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına MySQL için
 
@@ -22,8 +22,8 @@ MySQL sunucusu için bir Azure veritabanı üç farklı fiyatlandırma katmanlar
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | İşlem oluşturma | Gen 4, 5 Gen | Gen 4, 5 Gen | 5. Nesil |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| VCore başına bellek | Taban çizgisi | 2 x Basic | Genel amaçlı x 2 |
+| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| VCore başına bellek | Taban Çizgisi | 2 x Basic | Genel amaçlı x 2 |
 | Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Veritabanı yedekleme bekletme süresi | 7 için 35 gün | 7 için 35 gün | 7 için 35 gün |
@@ -85,6 +85,12 @@ Sağlamanız depolama MySQL sunucusu için Azure veritabanınıza kullanılabili
 Ek depolama kapasitesi sırasında ve sunucu oluşturulduktan sonra ekleyebilirsiniz. Temel katman bir IOPS garanti sağlamaz. Genel amaçlı ve fiyatlandırma katmanlarına Bellek için iyileştirilmiş, 3:1 oranında sağlanan depolama boyutu ile IOPS ölçeklendirin.
 
 Azure portalında veya Azure CLI komutları kullanarak, g/ç tüketim izleyebilirsiniz. İzlemek için ilgili Metrik [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzde](concepts-monitoring.md).
+
+### <a name="reaching-the-storage-limit"></a>Depolama sınırına ulaşması
+
+Boş depolama alanı miktarını 5 GB ya da %5 sağlanan depolama değerinden ulaştığında sunucu salt okunur olarak işaretlenmiş, küçüktür. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımını gider salt okunur 95 GB, sunucu olarak işaretlendi. 5 GB depolama alanı sağladıysanız, boş depolama 250 MB'tan az ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.  
+
+Hizmet sunucu salt okunur yapma girişiminde olsa da, tüm yeni yazma işlemi talepleri engellenir ve varolan etkin işlemlerin yürütülmeye devam eder. Sunucu salt okunur ayarlandığında, tüm sonraki yazma işlemleri ve işlem başarısız kaydeder. Okuma sorguları kesintisiz olarak çalışmaya devam eder. Sağlanan depolama artırdıktan sonra sunucu yazma işlemleri yeniden kabul etmeye hazır olacaktır.
 
 ## <a name="backup"></a>Backup
 

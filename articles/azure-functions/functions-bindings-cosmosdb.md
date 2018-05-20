@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffb18ef65bc0d901fe237ec9c4f97fdae43dc472
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure işlevleri için Azure Cosmos DB bağlamaları
 
@@ -35,6 +35,8 @@ Bu makale ile nasıl çalışılacağını açıklar [Azure Cosmos DB](..\cosmos
 Cosmos DB bağlamaları için işlevleri sürüm 1.x içinde verilmiştir [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet paketi. İçin 2.x İşlevler, paket [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB). Kaynak kodu bağlamaları için konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub depo.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -162,21 +164,21 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**type** || ayarlanmalıdır `cosmosDBTrigger`. |
 |**direction** || ayarlanmalıdır `in`. Bu parametre, Azure portalında tetikleyici oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** || Belge değişikliklerle listesini temsil eden işlevi kod içinde kullanılan değişken adı. | 
-|**connectionStringSetting**|**ConnectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabınıza bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
+|**ConnectionStringSetting**|**ConnectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabınıza bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
 |**databaseName**|**databaseName**  | İzlenmekte olan derlemesiyle Azure Cosmos DB veritabanının adı. |
 |**collectionName** |**collectionName** | İzlenmekte olan koleksiyon adı. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonunu tutan hizmeti ile bağlantı dizesi içeren bir uygulama ayarı adı. Ayarlandığında değil, `connectionStringSetting` değeri kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesi kiraları koleksiyon için yazma izinlerine sahip olmalıdır.|
-|**leaseDatabaseName** |**LeaseDatabaseName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyonunu tutan veritabanının adı. Değil olarak ayarlandığında, değeri `databaseName` ayarı kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. |
-|**leaseCollectionName** | **LeaseCollectionName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyon adı. Değil olarak ayarlandığında, değerin `leases` kullanılır. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (İsteğe bağlı) Ayarlandığında `true`, önceden var olmayan kiraları koleksiyonu otomatik olarak oluşturulur. Varsayılan değer `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (İsteğe bağlı) İstek kiraları koleksiyonu oluşturulduğunda atamak için birimi miktarını tanımlar. Bu ayarı yalnızca kullanılan olduğunda, `createLeaseCollectionIfNotExists` ayarlanır `true`. Bu parametre, bağlama oluşturulduğunda portal kullanılarak otomatik olarak ayarlanır.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (İsteğe bağlı) Ayarlandığında, bir önek etkili bir şekilde iki ayrı Azure aynı kira koleksiyonu farklı önekleri kullanarak paylaşmak işlevlere izin verme, bu işlev için kira koleksiyonundaki oluşturulan kiraları ekler.
+|**LeaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonunu tutan hizmeti ile bağlantı dizesi içeren bir uygulama ayarı adı. Ayarlandığında değil, `connectionStringSetting` değeri kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesi kiraları koleksiyon için yazma izinlerine sahip olmalıdır.|
+|**LeaseDatabaseName** |**LeaseDatabaseName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyonunu tutan veritabanının adı. Değil olarak ayarlandığında, değeri `databaseName` ayarı kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. |
+|**LeaseCollectionName** | **LeaseCollectionName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyon adı. Değil olarak ayarlandığında, değerin `leases` kullanılır. |
+|**CreateLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (İsteğe bağlı) Ayarlandığında `true`, önceden var olmayan kiraları koleksiyonu otomatik olarak oluşturulur. Varsayılan değer `false`. |
+|**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (İsteğe bağlı) İstek kiraları koleksiyonu oluşturulduğunda atamak için birimi miktarını tanımlar. Bu ayarı yalnızca kullanılan olduğunda, `createLeaseCollectionIfNotExists` ayarlanır `true`. Bu parametre, bağlama oluşturulduğunda portal kullanılarak otomatik olarak ayarlanır.
+|**LeaseCollectionPrefix**| **LeaseCollectionPrefix**| (İsteğe bağlı) Ayarlandığında, bir önek etkili bir şekilde iki ayrı Azure aynı kira koleksiyonu farklı önekleri kullanarak paylaşmak işlevlere izin verme, bu işlev için kira koleksiyonundaki oluşturulan kiraları ekler.
 |**FeedPollDelay**| **FeedPollDelay**| (İsteğe bağlı) Geçerli sonra tüm değişiklikler kümesi, bu, milisaniye cinsinden bir bölüm akışta yeni değişiklikleri için yoklama arasında gecikme tanımladığında boşaltmış. 5000 (5 saniye) varsayılandır.
 |**LeaseAcquireInterval**| **LeaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden aralığı bölümleri bilinen konak örnekler arasında eşit olarak dağıtılmış, işlem için bir görevi devre dışı kazandırın tanımlar. 13000 (13 saniye) varsayılandır.
 |**LeaseExpirationInterval**| **LeaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınır aralığı tanımlar. Kira bu aralıkta yenilenmezse süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
 |**LeaseRenewInterval**| **LeaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden tüm kira yenileme aralığı şu anda bir örneği tarafından tutulan bölümler için tanımlar. 17000 (17 saniye) varsayılandır.
 |**CheckpointFrequency**| **CheckpointFrequency**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden kira denetim noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısı sonra her zaman bir varsayılandır.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, maksimum işlev çağrısı alınan öğeleri özelleştirir.
+|**MaxItemsPerInvocation**| **MaxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, maksimum işlev çağrısı alınan öğeleri özelleştirir.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -757,7 +759,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
 |**databaseName** | **databaseName**|Belgenin oluşturulduğu koleksiyonu içeren veritabanı.     |
 |**collectionName** |**collectionName**  | Belgenin oluşturulduğu koleksiyon adı. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Yoksa koleksiyon oluşturulduğunda olup olmadığını gösteren bir Boole değeri. Varsayılan değer *false* yeni koleksiyonları etkileri maliyet ayrılmış işleme ile oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**CreateIfNotExists**  |**CreateIfNotExists**    | Yoksa koleksiyon oluşturulduğunda olup olmadığını gösteren bir Boole değeri. Varsayılan değer *false* yeni koleksiyonları etkileri maliyet ayrılmış işleme ile oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**PartitionKey**|**PartitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyonu için bölüm anahtar yolu tanımlar.|
 |**CollectionThroughput**|**CollectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [işleme](../cosmos-db/set-throughput.md) oluşturulan koleksiyonu.|
 |**Bağlantı**    |**ConnectionStringSetting** |Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |

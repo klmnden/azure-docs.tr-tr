@@ -1,31 +1,31 @@
 ---
-title: "Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir **bir web uygulaması güvenlik duvarı ekleme** ve **uygulama korumayı Sonlandır**."
+title: Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir **bir web uygulaması güvenlik duvarı ekleme** ve **uygulama korumayı Sonlandır**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme
 Azure Güvenlik Merkezi bir Microsoft iş ortağı web uygulamalarınızın güvenliğini sağlamak için bir web uygulaması Güvenlik Duvarı (WAF) ekleme önerebilir. Bu belgede bu öneriyi konusunda bir örnek size yol gösterir.
 
 WAF öneri açık gelen web bağlantı noktaları (80,443) içeren bir ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP'si için (örnek düzeyinde IP veya yük dengeli IP) gösterilir.
 
-Güvenlik Merkezi, sanal makineler ve dış App Service ortamları, web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamasını önerir. Uygulama hizmeti ortamı (ana) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, güvenli bir şekilde Azure App Service uygulamalarını çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. Ana hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı belgeleri](../app-service/environment/intro.md).
+Güvenlik Merkezi önerir sanal makinelerde ve üzerinde dış App Service ortamları (altında dağıtılan ana), web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamak [Isolated](https://azure.microsoft.com/pricing/details/app-service/windows/) hizmet planı. Yalıtılmış plan, uygulamalarınızı gizli ve adanmış bir Azure ortamında barındırır. Şirket içi ağınızla güvenli bir bağlantıya ya da daha fazla performans ve ölçeğe gerek duyan uygulamalar için idealdir. Yalıtılmış bir ortamda olan uygulamanızı ek olarak, uygulamanızın yük dengeleyici dış IP adresi olmalıdır. Ana hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı belgeleri](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu belge hakkında adım adım kılavuz değildir.

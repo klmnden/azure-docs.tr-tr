@@ -1,23 +1,24 @@
 ---
-title: "Azure Active Directory Authentication Library (ADAL) istemciler için en iyi yöntemler işleme hatası"
-description: "Hata işleme yönerge ve ADAL istemci uygulamaları için en iyi yöntemler sağlar."
+title: Azure Active Directory Authentication Library (ADAL) istemciler için en iyi yöntemler işleme hatası
+description: Hata işleme yönerge ve ADAL istemci uygulamaları için en iyi yöntemler sağlar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.custom: 
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory Authentication Library (ADAL) istemciler için en iyi yöntemler işleme hatası
 
@@ -49,7 +50,7 @@ Uygulamaya özgü işleme hatası gerektirebilir işletim sistemi tarafından ol
 
 Temelde, AcquireTokenSilent hataları iki durum vardır:
 
-| Durumu | Açıklama |
+| Durum | Açıklama |
 |------|-------------|
 | **Durum 1**: hata bir etkileşimli oturum açma ile çözülebilir. | Geçerli belirteçlerini eksikliği nedeniyle sebep olunan hataları için etkileşimli bir isteği gereklidir. Özellikle, önbellek araması ve geçersiz/süresi dolmuş yenileme belirtecini çözümlemek için bir AcquireToken çağrı gerektirir.<br><br>Bu durumda, son kullanıcı, oturum açmak için sizden gerekiyor. Uygulama, etkileşimli bir isteği hemen sonra son kullanıcı etkileşiminin (örneğin, bir oturum açma düğmesine basarsa) veya daha sonra yapmak seçebilirsiniz. Seçim uygulama istenen davranışı üzerinde bağlıdır.<br><br>Bu belirli durumda ve bu tanılamak hataları için aşağıdaki bölümdeki koduna bakın.|
 | **Durum 2**: hata bir etkileşimli oturum açma ile çözülebilir değildir | Ağ ve geçici/geçici hataları veya diğer hataları için etkileşimli bir AcquireToken isteği gerçekleştirme sorunu çözmezse. Gereksiz etkileşimli oturum açma komut istemlerini Ayrıca son kullanıcıları rahatsız edebilir. ADAL AcquireTokenSilent hatalarda hataların çoğu için tek bir yeniden deneme otomatik olarak çalışır.<br><br>İstemci uygulamasının daha sonraki bir noktada bir yeniden deneme de deneyebilirsiniz, ancak ne zaman ve nasıl yapılacağını istenen son kullanıcı deneyimi ve uygulama davranışı üzerinde bağımlı. Örneğin, uygulama bir AcquireTokenSilent yeniden deneme birkaç dakika sonra veya bazı son kullanıcı eylemine yanıt olarak yapabilirsiniz. Hemen bir yeniden deneme karşılaşıldığı uygulamada neden olur ve değil denenmesi gerekir.<br><br>Aynı hatası ile başarısız olan bir sonraki yeniden deneme hata çözümlenmiyor gibi istemci AcquireToken, kullanarak etkileşimli bir isteği yapmalısınız anlamına gelmez.<br><br>Bu belirli durumda ve bu tanılamak hataları için aşağıdaki bölümdeki koduna bakın. |
@@ -58,7 +59,7 @@ Temelde, AcquireTokenSilent hataları iki durum vardır:
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- acquireTokenSilentAsync(…)
+- acquireTokenSilentAsync(...)
 - acquireTokenSilentSync(…) 
 - [kullanım dışı] acquireTokenSilent(...)
 - [kullanım dışı] acquireTokenByRefreshToken(...) 
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -138,7 +139,7 @@ public void onError(Exception e) {
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- acquireTokenSilentWithResource(…)
+- acquireTokenSilentWithResource(...)
 
 Kodunuzun şu şekilde uygulanması:
 
@@ -157,7 +158,7 @@ Kodunuzun şu şekilde uygulanması:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ Kodunuzun şu şekilde uygulanması:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken belirteçleri almak için kullanılan varsayılan ADAL yöntemidir. Kullanıcı kimliği gerekli olduğu durumlarda AcquireToken bir belirteç sessizce ilk almaya çalışır, sonra (PromptBehavior.Never geçirilen sürece) gerekiyorsa, kullanıcı Arabirimi görüntüler. Uygulama kimliği gerekli olduğu durumlarda AcquireToken bir belirteç almak üzere çalışır, ancak hiçbir son kullanıcı olarak UI göstermez.  
+AcquireToken belirteçleri almak için kullanılan varsayılan ADAL yöntemidir. Kullanıcı kimliği gerekli olduğu durumlarda AcquireToken bir belirteç sessizce ilk almaya çalışır, sonra (PromptBehavior.Never geçirilen sürece) gerekiyorsa, kullanıcı Arabirimi görüntüler. Uygulama kimliği gerekli olduğu durumlarda AcquireToken bir belirteç almak üzere çalışır, ancak hiçbir son kullanıcı olarak UI göstermez. 
 
-Senaryo uygulama elde etmek çalışıyor ve AcquireToken hatalarını işlerken hata işleme platformuna bağlıdır.  
+Senaryo uygulama elde etmek çalışıyor ve AcquireToken hatalarını işlerken hata işleme platformuna bağlıdır. 
 
 İşletim sistemi hata belirli uygulamanın bağımlı işleme gerektiren hataları kümesi de oluşturabilirsiniz. Daha fazla bilgi için bkz: "İşletim sistemi hataları" [hata ve günlük başvuru](#error-and-logging-reference). 
 
@@ -187,7 +188,7 @@ Senaryo uygulama elde etmek çalışıyor ve AcquireToken hatalarını işlerken
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Hata durumları ve tıklatılabilir adımlar: yerel istemci uygulamaları
 
-Yerel istemci uygulaması oluşturuyorsanız, hangi ağ sorunları, geçici hataları ve diğer platforma özgü hataları ile ilgili dikkate alınması gereken birkaç hata işleme durumlar vardır. Çoğu durumda, bir uygulama döndürmemelidir hemen yeniden deneme gerçekleştirir, ancak bunun yerine bir oturum açma ister son kullanıcı etkileşiminin için bekleyin.  
+Yerel istemci uygulaması oluşturuyorsanız, hangi ağ sorunları, geçici hataları ve diğer platforma özgü hataları ile ilgili dikkate alınması gereken birkaç hata işleme durumlar vardır. Çoğu durumda, bir uygulama döndürmemelidir hemen yeniden deneme gerçekleştirir, ancak bunun yerine bir oturum açma ister son kullanıcı etkileşiminin için bekleyin. 
 
 Tek bir yeniden deneme sorunu çözebilir bazı özel durumlar vardır. Örneğin, ne zaman bir kullanıcı bir cihazda etkinleştirmek gereken veya Azure AD Aracısı tamamlandı ilk hatasından sonra indirin. 
 
@@ -211,7 +212,7 @@ Aşağıdaki kılavuzlar, hata tüm sessiz olmayan AcquireToken(...) birlikte i�
 - AcquireTokenAsync (..., IClientAssertionCertification,...)
 - AcquireTokenAsync (..., ClientCredential,...)
 - AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync(...,UserAssertion,...)   
 
 Kodunuzun şu şekilde uygulanması:
 
@@ -344,7 +345,7 @@ Oluşturmakta olduğunuz çağıran .NET web uygulaması için bir kaynağı bir
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- AcquireTokenByAuthorizationCodeAsync(…)
+- AcquireTokenByAuthorizationCodeAsync(...)
 
 Kodunuzun şu şekilde uygulanması:
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Hata durumları ve tıklatılabilir adımlar: tek sayfa uygulamaları (adal.js)
 
-Adal.js AcquireToken ile kullanarak bir tek sayfa uygulaması oluşturuyorsanız, hata kodu işleme tipik sessiz çağrısının benzer.  Özellikle adal.js içinde AcquireToken hiçbir zaman bir kullanıcı Arabirimi gösterir. 
+Adal.js AcquireToken ile kullanarak bir tek sayfa uygulaması oluşturuyorsanız, hata kodu işleme tipik sessiz çağrısının benzer. Özellikle adal.js içinde AcquireToken hiçbir zaman bir kullanıcı Arabirimi gösterir. 
 
 Aşağıdaki durumlarda başarısız AcquireToken sahiptir:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

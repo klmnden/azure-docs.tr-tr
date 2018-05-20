@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Learning bilgisayar başına LMS ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Learning bilgisayar başına LMS arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Learning bilgisayar başına LMS ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Learning bilgisayar başına LMS arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 478bd4fdc23b1f9944237bbf97c7454a8d30e6bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38b9f017fee4cf0d6905bb20848145386ac6df2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Öğretici: Azure Active Directory Tümleştirme Learning bilgisayar başına LMS ile
 
@@ -29,9 +29,9 @@ Learning bilgisayar başına LMS Azure AD ile tümleştirme ile aşağıdaki ava
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Learning bilgisayar başına LMS açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [Uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Learning bilgisayar başına LMS ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -109,15 +109,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.learningseatlms.com`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.learningseatlms.com`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 4. Denetleme **Göster Gelişmiş URL ayarları**, uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.learningseatlms.com`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.learningseatlms.com`
      
     > [!NOTE] 
     > Bu değerleri gerçek değerleri değildir. Bu değerleri gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Learning bilgisayarı destek ekibi](http://help.learningseatlms.com/help) bu değerleri almak için. 
@@ -165,7 +165,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-learning-seat-lms-test-user"></a>Learning bilgisayar başına LMS test kullanıcısı oluşturma
 
@@ -210,7 +210,7 @@ Erişim panelinde Learning bilgisayar başına LMS kutucuğuna tıklayın, otoma
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

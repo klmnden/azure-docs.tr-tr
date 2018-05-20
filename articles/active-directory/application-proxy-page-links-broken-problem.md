@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 64dcf5608710a85c47cd14ed9bee33594d46e083
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7c505080e6b6144ab3cf24ad89bb084efbb77c29
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Sayfadaki bağlantıları için uygulama proxy'si uygulama çalışmıyor
 
@@ -45,5 +45,5 @@ Bu sorunu çözmek için üç yolu vardır. Aşağıdaki seçenekler karmaşıkl
 Sonuç olarak, kullanarak tavsiye [özel etki alanlarını](manage-apps/application-proxy-configure-custom-domain.md) mümkünse çözümü. Önizleme katılmak istiyorsanız, e-posta <aadapfeedback@microsoft.com> applicationId(s) ile.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-working-with-proxy-servers.md)
+[Mevcut şirket içi proxy sunucuları ile çalışma](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 

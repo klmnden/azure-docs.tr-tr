@@ -1,24 +1,24 @@
 ---
-title: "Definine ve Azure mikro durumunu yönetmek | Microsoft Docs"
-description: "Tanımlayın ve Service Fabric hizmet durumunda yönetme"
+title: Definine ve Azure mikro durumunu yönetmek | Microsoft Docs
+description: Tanımlayın ve Service Fabric hizmet durumunda yönetme
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-state"></a>Hizmet durumu
 **Hizmet durumu** bellekte veya işlevi için bir hizmet gerektiren disk verilerini gösterir. Bu, örneğin, hizmet okur ve çalışmak yazan üye değişkenleri ve veri yapıları içerir. Hizmet nasıl geliştirilmiştir bağlı olarak dosyalara veya diskte depolanan diğer kaynaklara de içerebilir. Örneğin, dosyaları, veri ve işlem günlüklerini depolamak için bir veritabanı kullanırsınız.

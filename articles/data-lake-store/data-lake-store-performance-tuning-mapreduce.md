@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store MapReduce performans yönergeleri ayarlama | Microsoft Docs"
-description: "Azure Data Lake Store MapReduce performans kuralları ayarlama"
+title: Azure Data Lake Store MapReduce performans yönergeleri ayarlama | Microsoft Docs
+description: Azure Data Lake Store MapReduce performans kuralları ayarlama
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,26 +10,23 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 522e03769a8f09acd88d92d72c4658407b86bd0b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5586e7706d4dad7e3c943b2a661fa296b4d30bf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>Performans MapReduce Hdınsight ve Azure Data Lake Store için yönergeler ayarlama
 
-
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-* **MapReduce kullanarak**.  Daha fazla bilgi için bkz: [hdınsight'ta Hadoop içinde kullanım MapReduce](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)  
-* **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
+* **MapReduce kullanarak**.  Daha fazla bilgi için bkz: [hdınsight'ta Hadoop içinde kullanım MapReduce](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametreler
 
@@ -44,7 +41,7 @@ MapReduce işleri çalıştırırken ADLS performansını artırmak için yapıl
 
 **Mapreduce.job.Maps / Mapreduce.job.reduces** bu mappers veya reducers oluşturulacak en fazla sayısını belirler.  MapReduce işi için kaç tane mappers oluşturulacak bölmelerini sayısını belirler.  Bu nedenle, istenen mappers sayısından daha az bölmelerini olup olmadığını istenenden daha az mappers alabilirsiniz.       
 
-## <a name="guidance"></a>Rehber
+## <a name="guidance"></a>Rehberlik
 
 **1. adım: çalışan işlerin sayısını belirlemek** -varsayılan olarak, MapReduce, işiniz için tüm küme kullanır.  Kümenin daha az kullanılabilir kapsayıcıları sayısından daha az mappers kullanarak kullanabilirsiniz.  Bu belgedeki bilgiler, uygulamanız, küme üzerinde çalışan tek uygulama olduğunu varsayar.      
 

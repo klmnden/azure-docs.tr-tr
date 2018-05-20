@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store için performans ayarlama
 
@@ -50,7 +48,7 @@ Kaynak donanım ele ve ağ bağlantısı sorunlarını yukarıdaki sonra alım a
 
 | Aracı               | Ayarlar     | Daha fazla ayrıntı                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Bağlantı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount |  [Bağlantı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
 | AdlCopy    | Azure Data Lake Analytics birimleri  |   [Bağlantı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | Distcp'yi            | -m (Eşleyici)   | [Bağlantı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Bağlantı](../data-factory/copy-activity-performance.md)                          |
@@ -66,7 +64,7 @@ Genellikle, analiz altyapıları Hdınsight ve Azure Data Lake Analytics gibi do
 
 Genel olarak, verilerinizin daha iyi performans için daha büyük boyutlu dosyalar halinde düzenleyin.  Altın kural, dosyalar 256 MB veya daha büyük veri kümelerinde düzenleyin. Görüntüleri ve ikili veriler gibi bazı durumlarda, paralel olarak işlemek olası değil.  Bu durumda, tek tek dosyaların 2 GB'den tutmanız önerilir.
 
-Bazı durumlarda, veri ardışık çok sayıda küçük dosya olan ham veriler üzerinde denetim sınırlı.  Aşağı akış uygulamaları için kullanmak üzere büyük dosyaları oluşturur "pişirme" bir işlem olması önerilir.  
+Bazı durumlarda, veri ardışık çok sayıda küçük dosya olan ham veriler üzerinde denetim sınırlı.  Aşağı akış uygulamaları için kullanmak üzere büyük dosyaları oluşturur "pişirme" bir işlem olması önerilir.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Zaman serisi veri klasörlerde düzenleme
 
@@ -123,7 +121,7 @@ Kapsayıcıları sayısını artırmak ve tüm kullanılabilir işleme kullanmak
 
 İş yükünüz bağlı olarak, her zaman olacaktır gereken en az bir YARN kapsayıcı boyutu. Çok küçük bir kapsayıcı seçerseniz, işlerinizi bellek yetersiz sorunla çalıştırın. Genellikle YARN kapsayıcıları Hayır 1 GB'den daha küçük olması gerekir. 3 GB YARN kapsayıcıları görmek için yaygın bir durumdur. Bazı iş yükleri için daha büyük YARN kapsayıcıları gerekebilir.  
 
-**YARN kapsayıcı başına çekirdek artırın.**  Her kapsayıcıya, her kapsayıcı içinde çalışan Paralel Görevler sayısını artırmak için ayrılan çekirdek sayısını artırın.  Bu, kapsayıcı başına birden çok görevi çalıştır Spark gibi uygulamalar için çalışır.  Tek bir iş parçacığı her kapsayıcı içinde çalışan uygulamalar için Hive gibi kapsayıcı başına daha fazla çekirdek yerine daha fazla kapsayıcıları iyidir.   
+**YARN kapsayıcı başına çekirdek artırın.**  Her kapsayıcıya, her kapsayıcı içinde çalışan Paralel Görevler sayısını artırmak için ayrılan çekirdek sayısını artırın.  Bu, kapsayıcı başına birden çok görevi çalıştır Spark gibi uygulamalar için çalışır.  Tek bir iş parçacığı her kapsayıcı içinde çalışan uygulamalar için Hive gibi kapsayıcı başına daha fazla çekirdek yerine daha fazla kapsayıcıları iyidir.
 
 ### <a name="workload-layer"></a>İş yükü katmanı
 

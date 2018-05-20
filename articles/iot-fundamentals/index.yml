@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: 80c88340e31ef6650dee13819dda316b4d9bcb4d
-  ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+  ms.openlocfilehash: 0a5f1d482b0298ddd65746783e3744728b1a5da5
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/08/2018
+  ms.lasthandoff: 05/16/2018
 abstract:
   description: Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Azure IoT, Azure üzerinde uçtan uca IoT uygulamalar oluşturmanıza yardımcı olmak amacıyla tasarlanmış kapsamlı bir hizmet ve çözüm koleksiyonudur. Azure IoT, tam olarak barındırılan ve yönetilen Hizmet Olarak Yazılım (SaaS) çözümlerinden ayrı ve özel Hizmet Olarak Platform (PaaS) teklifleri ile akıllı uç oluşturmaya yönelik teknolojilere kadar birçok alanda sektörel gereksinimlerinizin yanı sıra şirketinizin becerilerine ve kaynaklarına uyarlanmış zengin bir seçenek ve araç kümesi sunar.
 sections:
@@ -100,4 +100,4 @@ sections:
     - title: Diller
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">.Net, C, Java, Node.js, Python için Azure IoT SDK'ları</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">IoT Hub’ı</a></p><p><a href="/rest/api/iot-dps">IoT Hub Cihazı Sağlama Hizmeti</a></p><p><a href="/rest/api/location-based-services-management/">Harita yönetimi</a></p><p><a href="/rest/api/location-based-services/">Harita işlevleri</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights yönetimi</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
+      html: <p><a href="/rest/api/iothub">IoT Hub’ı</a></p><p><a href="/rest/api/iot-dps">IoT Hub Cihazı Sağlama Hizmeti</a></p><p><a href="/rest/api/maps-management/">Harita yönetimi</a></p><p><a href="/rest/api/maps/">Harita işlevleri</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights yönetimi</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

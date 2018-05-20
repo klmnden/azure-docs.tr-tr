@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: 08a4f3fc135aae2772bd60c67cbd282603cd4f8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 49e91287d23c35d8cfea858d41c47ba15efd820c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure eşlemeleri trafiği kapsamı
 
@@ -47,7 +47,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 |+ Monaco     |✓         |✓         |
 |Almanya     |✓         |✓         |
 |Yunanistan     |✓         |✓         |
-|Hong Kong ÖYB     |✓         |✓         |
+|Hong Kong Çin ÖİB     |✓         |✓         |
 |Macaristan     |✓         |✓         |
 |İzlanda     |         |✓         |
 |Endonezya     |✓         |✓         |
@@ -58,7 +58,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 |Kuveyt     |✓         |✓         |
 |Letonya     |         |✓         |
 |Lesotho     |✓         |✓         |
-|Lituanya     |         |✓         |
+|Litvanya     |         |✓         |
 |Lüksemburg     |✓         |✓         |
 |Makau ÖİB     |         |✓         |
 |Malezya     |✓         |✓         |
@@ -99,4 +99,4 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 |Amerika Birleşik Devletleri     |✓         |✓        |
 |+ Porto Riko     |✓         |✓         |
 
-Azure eşlemeleri trafik verileri hakkında daha fazla bilgi için bkz: [trafiği](https://docs.microsoft.com/rest/api/azure-maps/traffic) başvuru sayfaları.
+Azure eşlemeleri trafik verileri hakkında daha fazla bilgi için bkz: [trafiği](https://docs.microsoft.com/rest/api/maps/traffic) başvuru sayfaları.

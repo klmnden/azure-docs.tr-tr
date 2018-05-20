@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric programlama modeline genel bakış | Microsoft Docs"
-description: "Service Fabric hizmetleri oluşturmak için iki çerçeveleri sunar: aktör çerçevesi ve Hizmetleri çerçevesi. Bunlar ayrı dengelemeler Basitlik ve denetim sağlar."
+title: Service Fabric programlama modeline genel bakış | Microsoft Docs
+description: 'Service Fabric hizmetleri oluşturmak için iki çerçeveleri sunar: aktör çerçevesi ve Hizmetleri çerçevesi. Bunlar ayrı dengelemeler Basitlik ve denetim sağlar.'
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,21 +9,21 @@ editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a03bb3c74d9c776b893b11c3dec8788fe9ac598c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programlama modeline genel bakış
 Service Fabric yazma ve hizmetlerinizi yönetmek için birden çok yol sunar. Hizmetleri platformun özellikleri ve uygulama çerçeveleri tam anlamıyla yararlanabilmek için Service Fabric API'ları kullanmayı seçebilirsiniz. Hizmetleri herhangi bir dil veya bir Service Fabric kümesi üzerinde barındırılan bir kapsayıcıda çalışan kodu yazılmış derlenmiş bir yürütülebilir program da olabilir.
 
-## <a name="guest-executables"></a>Konuk yürütülebilir dosyalar
+## <a name="guest-executables"></a>Konuk yürütülebilir dosyaları
 A [Konuk yürütülebilir](service-fabric-guest-executables-introduction.md) mevcut ise, uygulamanızdaki bir hizmet farklı çalıştır (herhangi bir dilde yazılmış) rasgele çalıştırılabilir. Konuk yürütülebilir dosyalar Service Fabric SDK'sı API'lerini doğrudan çağırmayın. Ancak bunlar hala platform, özel durum hizmet bulunabilirliği gibi sunar özelliklerinden yararlanır ve REST API'ları Service Fabric tarafından kullanıma sunulan çağırarak raporlama yükleyin. Aynı zamanda tam uygulama yaşam döngüsü destek sahiptirler.
 
 Konuk yürütülebilir dosyaları ile ilk dağıtmaya başlamak [Konuk yürütülebilir uygulama](service-fabric-deploy-existing-app.md).
@@ -42,7 +42,7 @@ Güvenilir hizmetler de durum bilgisi olabilir Service Fabric özel, burada duru
 
 [Reliable Services hakkında daha fazla bilgi](service-fabric-reliable-services-introduction.md) veya başlayın [ilk güvenilir hizmetiniz yazma](service-fabric-reliable-services-quick-start.md).
 
-## <a name="aspnet-core"></a>ASP.NET Çekirdeği
+## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core modern bulut tabanlı Internet'e bağlı uygulamaları, web uygulamaları, IOT uygulamaları ve mobil arka uçlarını gibi oluşturmak için yeni bir açık kaynaklı ve çapraz platform framework kümesidir. Durum bilgisiz ve durum bilgisi olan ASP.NET Core güvenilir koleksiyonlarını ve Service Fabric'ın gelişmiş orchestration yetenekleri yararlanan uygulamalar yazma için Service Fabric ASP.NET Core ile tümleşir.
 
 [Service Fabric ASP.NET çekirdek hakkında daha fazla bilgi](service-fabric-reliable-services-communication-aspnetcore.md) veya başlayın [ilk ASP.NET Core Service Fabric uygulamanızı yazma](service-fabric-reliable-services-communication-aspnetcore.md).

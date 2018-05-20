@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.openlocfilehash: cb672c8e378db80707db1b0cf77a3196e36b1eb5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell için Azure yığın yükle
 
@@ -72,8 +72,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
@@ -91,8 +91,8 @@ Yükleme başarılı olursa, AzureRM ve AzureStack modülleri çıktısında gö
 
 Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantısına sahip bir makine için ilk indirme ve yükleme için Azure yığın Geliştirme Seti için Aktarım gerekir.
 
-> [!IMPORTANT]
-> AzureRM 1.2.12 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltmek için sürüm, bkz: [Geçiş Kılavuzu](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
+> [!IMPORTANT]  
+> Azure yığın 1.3.0 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.11 yükseltmek için sürüm, bkz: [Geçiş Kılavuzu](https://aka.ms/azspowershellmigration).
 
 1. Burada Internet bağlantısına sahip ve aşağıdaki komut dosyasını indirme AzureRM ve AzureStack paketleri için yerel bilgisayarınıza kullanın bir bilgisayarda oturum açın:
 
@@ -105,7 +105,7 @@ Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantı
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -113,11 +113,11 @@ Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantı
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12 
+     -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> Azure yığın güncelleştirmeyle 1804 veya daha büyük olmayan çalıştırıyorsanız, değiştirme **requiredversion** parametre değerini `1.2.11`. 
+  > [!Important]  
+  > Azure yığın güncelleştirmeyle 1804 veya daha büyük olmayan çalıştırıyorsanız, değiştirme **requiredversion** parametre değerini `1.2.11`. 
 
 2. İndirilen paketler üzerinden bir USB aygıtı kopyalayın.
 

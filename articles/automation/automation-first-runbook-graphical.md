@@ -8,13 +8,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7804c67871de546d217d85a4215c817f9c08f6b8
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 6a9e6bbf3bc507a4d45af03c791104c9490cd36f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -110,7 +110,7 @@ Runbook uygulamanızı test ettiniz ve yayımladınız, ancak şu ana kadar fayd
 1. Yeni değişken sayfasındaki içinde **adı** kutusuna **Azuresubscriptionıd** ve **değeri** kutusuna abonelik kimliğinizi girin **Tür** için *dizeyi* **Şifreleme** için değeri koruyun.
 1. Değişkeni oluşturmak için **Oluştur**’a tıklayın.
 
-## <a name="add-authentication"></a>Kimlik doğrulaması ekleme
+## <a name="add-authentication"></a>Kimlik doğrulaması ekleyin
 
 Abonelik kimliğinizi tutmak üzere bir değişkene sahip olduğunuza göre, runbook uygulamanızı [ön koşullarda](#prerequisites) başvurulan Farklı Çalıştır kimlik bilgileri ile kimlik doğrulamak üzere yapılandırabilirsiniz. Azure farklı çalıştır bağlantısı ekleyerek bunu **varlık** ve **Connect-AzureRmAccount** tuvale cmdlet'i.
 

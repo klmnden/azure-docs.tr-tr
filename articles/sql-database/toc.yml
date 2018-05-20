@@ -104,6 +104,16 @@
       items:
         - name: Genel Bakış
           href: sql-database-security-overview.md
+        - name: Gelişmiş Tehdit Koruması
+          href: sql-advanced-threat-protection.md
+        - name: Veri bulma ve sınıflandırma
+          href: sql-database-data-discovery-and-classification.md
+        - name: Güvenlik açığı değerlendirmesi
+          href: sql-vulnerability-assessment.md
+        - name: Tehdit algılama - SQL Veritabanı
+          href: sql-database-threat-detection.md
+        - name: Tehdit algılama - Yönetilen Örnek
+          href: sql-database-managed-instance-threat-detection.md
         - name: Güvenlik duvarı kuralları
           href: sql-database-firewall-configure.md
         - name: Güvenlik duvarı sanal ağ kuralları
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Denetim - Yönetilen Örnek
           href: sql-database-managed-instance-auditing.md
-        - name: Tehdit algılama - SQL Veritabanı
-          href: sql-database-threat-detection.md
-        - name: Tehdit algılama - Yönetilen Örnek
-          href: sql-database-managed-instance-threat-detection.md
         - name: Tablo denetimi ve TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dinamik veri maskeleme
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Güvenlik açığı değerlendirmesi
-          href: sql-vulnerability-assessment.md
-        - name: Veri bulma ve sınıflandırma
-          href: sql-database-data-discovery-and-classification.md
     - name: İş sürekliliği
       items:
         - name: Genel Bakış
@@ -250,7 +252,7 @@
           href: sql-database-temporal-tables-retention-policy.md
         - name: Bellek içi yapılandırma
           href: sql-database-in-memory-oltp-migration.md
-    - name: Uygulamaları geliştirme
+    - name: Uygulama geliştirme
       items:
         - name: Bağlantı
           href: sql-database-libraries.md
@@ -440,7 +442,7 @@
               href: saas-multitenantdb-schema-management.md
             - name: Analiz için ETL
               href: saas-multitenantdb-tenant-analytics.md
-    - name: Uygulamaları geliştirme
+    - name: Uygulama geliştirme
       items:
         - name: C ve C++
           href: sql-database-develop-cplusplus-simple.md

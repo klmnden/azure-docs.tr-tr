@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric kapsayıcı hizmetlerini ağ modlarını yapılandırma | Microsoft Docs"
-description: "Azure Service Fabric tarafından desteklenen farklı ağ modlarını ayarlama öğrenin."
+title: Azure Service Fabric kapsayıcı hizmetlerini ağ modlarını yapılandırma | Microsoft Docs
+description: Azure Service Fabric tarafından desteklenen farklı ağ modlarını ayarlama öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: fafa7dc9ae84e49cdadcb047984792b353429df7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -179,11 +179,11 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
    |Ayar |Değer | |
    | --- | --- | --- |
    |Öncelik |2000 | |
-   |Ad |Custom_Dns  | |
+   |name |Custom_Dns  | |
    |Kaynak |VirtualNetwork | |
    |Hedef | VirtualNetwork | |
    |Hizmet | DNS (UDP/53) | |
-   |Eylem | İzin Ver  | |
+   |action | İzin ver  | |
    | | |
 
 4. Her hizmet için uygulama bildiriminde ağ modunu belirtin: `<NetworkConfig NetworkType="Open">`. **Açık** modu sonuçları bir ayrılmış IP adresi alma hizmetindeki ağ. Hizmet bir mod belirtilmezse, varsayılan **nat** modu. Aşağıdaki örnekte bildirim, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` hizmetleri her aynı bağlantı noktasını dinler olabilir (her iki hizmetlerin dinlediği `Endpoint1`). Açık ağ modu belirtildiğinde, `PortBinding` yapılandırmaları belirtilemez.

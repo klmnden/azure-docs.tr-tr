@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Zscaler ZSCloud | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Zscaler ZSCloud arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Zscaler ZSCloud | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Zscaler ZSCloud arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 44fa15a3057975617116a10f044ddba2298feba2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b44e6c7c47eec15dab2294ca7ebcb7b7dcff3a4c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Öğretici: Azure Active Directory Tümleştirme Zscaler ZSCloud ile
 
@@ -29,9 +29,9 @@ Zscaler ZSCloud Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Zscaler ZSCloud açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Zscaler ZSCloud ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -162,7 +162,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Yönetim](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800210.png "Yönetim")
     
-    a. **Kaydet** düğmesine tıklayın.
+    a. **Kaydet**’e tıklayın.
 
     b. Tıklatın **şimdi etkinleştirmek**.
 
@@ -226,7 +226,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
 
 ### <a name="creating-a-zscaler-zscloud-test-user"></a>Zscaler ZSCloud test kullanıcısı oluşturma
 
@@ -255,7 +255,7 @@ ZScaler ZSCloud söz konusu olduğunda, sağlama bir el ile bir görevdir.
    
     a. Tür **UserID**, **kullanıcı görünen adı**, **parola**, **parolayı onayla**ve ardından **grupları** ve **departmanı** sağlamak istediğiniz geçerli bir AAD hesabının.
 
-    b. **Kaydet** düğmesine tıklayın.
+    b. **Kaydet**’e tıklayın.
 
 > [!NOTE]
 > API sağlama AAD kullanıcı hesaplarına ZScaler ZSCloud tarafından sağlanan veya herhangi diğer ZScaler ZSCloud kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
@@ -301,7 +301,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

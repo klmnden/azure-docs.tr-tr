@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a6a429b85e0d7522e5840a0ad020d12f4f4d471e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Otomasyonu Runbook yürütme
 
@@ -58,7 +58,7 @@ Tüm runbook işleri özetlenen durumunu görüntüleyin ya da belirli bir runbo
 
 Seçili Otomasyon hesabınızı sağ tarafta, tüm seçili Otomasyon hesabında runbook işlerini özetini görebilirsiniz **Proje istatistikleri** döşeme.
 
-![Proje istatistikleri döşeme](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Proje istatistikleri döşeme](./media/automation-runbook-execution/automation-account-job-status-summary.png):
 
 Bu kutucuğun count ve iş durumu yürütülen tüm işler için grafik gösterimi görüntüler.
 

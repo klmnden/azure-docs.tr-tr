@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına PostgreSQL için
 
@@ -22,8 +22,8 @@ ms.lasthandoff: 05/01/2018
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | İşlem oluşturma | Gen 4, 5 Gen | Gen 4, 5 Gen | 5. Nesil |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| VCore başına bellek | Taban çizgisi | 2 x Basic | Genel amaçlı x 2 |
+| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| VCore başına bellek | Taban Çizgisi | 2 x Basic | Genel amaçlı x 2 |
 | Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Veritabanı yedekleme bekletme süresi | 7 için 35 gün | 7 için 35 gün | 7 için 35 gün |
@@ -86,6 +86,14 @@ Sağlamanız depolama PostgreSQL server Azure veritabanınıza kullanılabilir d
 Ek depolama kapasitesi sırasında ve sunucu oluşturulduktan sonra ekleyebilirsiniz. Temel katman bir IOPS garanti sağlamaz. Genel amaçlı ve fiyatlandırma katmanlarına Bellek için iyileştirilmiş, 3:1 oranında sağlanan depolama boyutu ile IOPS ölçeklendirin.
 
 Azure portalında veya Azure CLI komutları kullanarak, g/ç tüketim izleyebilirsiniz. İzlemek için ilgili Metrik [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzde](concepts-monitoring.md).
+
+### <a name="reaching-the-store-limit"></a>Depolama sınırına ulaşmasını
+
+Boş depolama alanı miktarını 5 GB ya da %5 sağlanan depolama değerinden ulaştığında sunucu salt okunur olarak işaretlenmiş, küçüktür. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımını gider salt okunur 95 GB, sunucu olarak işaretlendi. 5 GB depolama alanı sağladıysanız, boş depolama 250 MB'tan az ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.  
+
+Sunucu salt okunur ayarlandığında, tüm oturumlarına kesilir ve kaydedilmemiş işlemleri geri alınır. Herhangi bir sonraki yazma işlemleri ve işlem başarısız kaydeder. İzleyen tüm okuma sorgular kesintisiz olarak çalışır.  
+
+Sağlanan depolama sunucunuza artırın veya boş depolama geri kazanmak için okuma-yazma modunda ve açılan verileri yeni bir oturum başlatabilirsiniz. Çalışan `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` yazma modunda okumak üzere geçerli oturumdaki ayarlar. Sunucu hala salt okunur durumda olduğunda veri bozulmasını önlemek için tüm yazma işlemlerini gerçekleştirme.
 
 ## <a name="backup"></a>Backup
 

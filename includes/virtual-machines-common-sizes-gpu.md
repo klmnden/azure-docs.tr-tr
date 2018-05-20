@@ -1,6 +1,6 @@
 ---
-title: include dosyası
-description: include dosyası
+title: include file
+description: include file
 services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
@@ -9,102 +9,102 @@ ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/24/2018
 ---
-GPU en iyi duruma getirilmiş VM ile tek veya birden çok NVIDIA GPU kullanılabilir özelleştirilmiş sanal makineler boyutlarıdır. Bu boyutlar işlem yoğunluklu, grafik yoğun ve görselleştirme iş yükleri için tasarlanmıştır. Bu makale numarası ve gpu, Vcpu, veri diskleri ve NIC yanı sıra depolama üretilen iş ve ağ bant genişliğini her boyutu Bu gruplandırma türü hakkında bilgi sağlar. 
+GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
-* **NC, NCv2, NCv3 ve ND** boyutları işlem yoğunluklu ve ağ yoğunluklu uygulamalar ve CUDA ve OpenCL tabanlı uygulamalar ve benzetimleri, AI ve derin öğrenme gibi algoritmaları için iyileştirilmiştir. 
-* **NV** boyutları en iyi duruma getirilmiş ve uzak görselleştirme, akış, oyun, kodlama ve OpenGL ve DirectX gibi çerçeveler kullanılarak VDI senaryoları için tasarlanmıştır.  
-
-
-## <a name="nc-series"></a>NC serisi
-
-NC-serisi VM'ler tarafından desteklenir [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) kart. Kullanıcılar enerji araştırması uygulamalar için CUDA yararlanarak daha hızlı verilerine uğraşmaları, benzetimleri kilitlenme, izlenen işleme, derin öğrenme ve daha fazlasını ışın. NC24r yapılandırma, düşük gecikme, sıkı şekilde bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş yüksek verimlilik ağ arabirimi sağlar.
+* **NC, NCv2, NCv3, and ND** sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. 
+* **NV** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.  
 
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
+## <a name="nc-series"></a>NC-series
+
+NC-series VMs are powered by the [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
 
-1 GPU = K80 kartın yarısı.
+1 GPU = one-half K80 card.
 
-*RDMA özellikli
+*RDMA capable
 
-## <a name="ncv2-series"></a>NCv2 serisi
+## <a name="ncv2-series"></a>NCv2-series
 
-NCv2-serisi VM'ler tarafından desteklenir [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU. Bu GPU hesaplama performans NC serinin x 2'den fazla sağlayabilir. Müşteriler bu güncelleştirilmiş GPU rezervuarı modelleme, DNA sıralama, protein analiz, Monte Carlo benzetimleri ve diğerleri gibi geleneksel HPC iş yükleri için yararlanabilir. NC24rs v2 yapılandırma, düşük gecikme, sıkı şekilde bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş yüksek verimlilik ağ arabirimi sağlar.
+NCv2-series VMs are powered by [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!IMPORTANT]
-> Bu boyut ailesi için aboneliğinizde vCPU (Temel) kota başlangıçta her bölgede 0 olarak ayarlanır. [VCPU kota artışı isteği](../articles/azure-supportability/resource-manager-core-quotas-request.md) bu ailesi için bir [kullanılabilir bölge](https://azure.microsoft.com/regions/services/).
+> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | ---  |
 | Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
 | Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
 | Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
 | Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
-1 GPU = bir P100 kart.
+1 GPU = one P100 card.
 
-*RDMA özellikli
+*RDMA capable
 
-## <a name="ncv3-series"></a>NCv3 serisi
+## <a name="ncv3-series"></a>NCv3-series
 
-NCv3-serisi VM'ler tarafından desteklenir [NVIDIA Tesla nı V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU. Bu GPU hesaplama performans NCv2 serinin x 1,5 sağlayabilir. Müşteriler bu güncelleştirilmiş GPU rezervuarı modelleme, DNA sıralama, protein analiz, Monte Carlo benzetimleri ve diğerleri gibi geleneksel HPC iş yükleri için yararlanabilir. NC24rs v3 yapılandırma, düşük gecikme, sıkı şekilde bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş yüksek verimlilik ağ arabirimi sağlar.
+NCv3-series VMs are powered by [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPUs. These GPUs can provide 1.5x the computational performance of the NCv2-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v3 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!IMPORTANT]
-> Bu boyut ailesi için aboneliğinizde vCPU (Temel) kota başlangıçta her bölgede 0 olarak ayarlanır. [VCPU kota artışı isteği](../articles/azure-supportability/resource-manager-core-quotas-request.md) bu ailesi için bir [kullanılabilir bölge](https://azure.microsoft.com/regions/services/).
+> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
 | Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
 | Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
 | Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
-1 GPU = bir nı V100 kart.
+1 GPU = one V100 card.
 
-*RDMA özellikli
+*RDMA capable
 
-## <a name="nd-series"></a>ND serisi
+## <a name="nd-series"></a>ND-series
 
-ND-serisi sanal makine AI ve derin öğrenme iş yükleri için tasarlanmış GPU ailesi için yeni bir toplama yok. Bunlar, eğitim ve çıkarım için mükemmel performans sunar. Tarafından desteklenir ve örnekleri [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU. Bu örnekler tek duyarlıklı kayan nokta işlemleri için Microsoft Bilişsel araç seti, TensorFlow, Caffe ve diğer çerçeveler kullanılarak AI iş yükleri için mükemmel performans sağlar. Ayrıca, ND serisi çok daha büyük bir GPU bellek boyutu (24 GB) sunarak daha büyük sinir ağı modellerinin sığdırılmasına imkan tanır. NC serisi gibi ND-ikincil düşük gecikmeli, yüksek verimlilik ağ RDMA üzerinden bir yapılandırmayla sunar ve büyük ölçekli eğitim işleri birçok GPU kapsayıcı çalıştırabilmeniz için InfiniBand bağlantı.
+The ND-series virtual machines are a new addition to the GPU family designed for AI and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
 > [!IMPORTANT]
-> Bu boyut ailesi için aboneliğinizi bölgede başına vCPU (Temel) kota başlangıçta 0 olarak ayarlanır. [VCPU kota artışı isteği](../articles/azure-supportability/resource-manager-core-quotas-request.md) bu ailesi için bir [kullanılabilir bölge](https://azure.microsoft.com/regions/services/).
+> For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
 | Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
 | Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
-| Standard_ND24rs * |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
 
-1 GPU = bir P40 kart.
+1 GPU = one P40 card.
 
-*RDMA özellikli
+*RDMA capable
 
-## <a name="nv-series"></a>NV serisi
+## <a name="nv-series"></a>NV-series
 
-NV-serisi sanal makineler tarafından sağlanmıştır [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU ve NVIDIA kılavuz Masaüstü teknolojinin hızlandırılmış uygulamalar ve sanal masaüstlerini müşteriler, veri veya benzetimleri görselleştirmek mümkün olduğu. Kullanıcılar kendi grafik yoğun iş akışları üstün grafik yeteneği almak ve ayrıca kodlama ve işleme gibi tek duyarlıklı iş yüklerini çalıştırmak için NV örneklerinde görselleştirmek kullanabilirsiniz. 
+The NV-series virtual machines are powered by [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. 
 
-Her GPU NV durumlarda bir kılavuz lisansı ile birlikte gelir. Bu lisans NV örneği tek bir kullanıcı için sanal bir iş istasyonu olarak kullanmak için esneklik sunar veya 25 eşzamanlı kullanıcı VM için bir sanal uygulama senaryo bağlanabilir.
+Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC | Sanal iş istasyonları | Sanal uygulamalar | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
-1 GPU = M60 kartın yarısı.
+1 GPU = one-half M60 card.
 
  

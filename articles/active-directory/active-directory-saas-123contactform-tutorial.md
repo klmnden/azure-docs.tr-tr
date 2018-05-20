@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile 123ContactForm | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile 123ContactForm arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile 123ContactForm | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile 123ContactForm arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 70955676e78642e6c8a6eb85f8165b327baece3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f7ad606fc8ee394125300a55dc0586a055a33be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Öğretici: Azure Active Directory Tümleştirme 123ContactForm ile
 
@@ -29,9 +29,9 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile 123ContactForm tümleşti
 - Otomatik olarak 123ContactForm için açan kullanıcılarınıza etkinleştirebilirsiniz (çoklu oturum açma) Azure AD hesaplarına sahip
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme 123ContactForm ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-123contactform-tutorial/url1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 4. Uygulamada yapılandırmak istiyorsanız **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
 
@@ -120,7 +120,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. Tıklatın **Göster Gelişmiş URL ayarları** seçeneği
 
-    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL'yi yazın:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL'yi yazın: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değer gerçek URL'leri ve daha sonra öğreticide açıklandığı tanımlayıcısı güncelleştirmeniz gerekir.
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-123contactform-tutorial/tutorial_general_400.png)
 
-7. Çoklu oturum açma yapılandırmak için **123ContactForm** yan, Git [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) ve aşağıdaki adımları gerçekleştirin:
+7. Çoklu oturum açma yapılandırmak için **123ContactForm** yan, Git [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) ve aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-123contactform-tutorial/submit.png) 
 
@@ -186,7 +186,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-123contactform-test-user"></a>123ContactForm test kullanıcısı oluşturma
 
@@ -232,7 +232,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

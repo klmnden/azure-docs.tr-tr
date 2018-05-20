@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics kota sınırları
 
@@ -32,29 +32,33 @@ Bu sınırı aşan gitmek isterseniz, bu seçenekleri deneyebilirsiniz:
 * uygun başka bir bölge seçin
 * Azure desteğine başvurun tarafından [bir destek bileti açmadan](#increase-maximum-quota-limits) kota artışı isteği göndermek üzere.
 
-## <a name="adla-account-limits"></a>ADLA hesabı sınırları
+## <a name="default-adla-account-limits"></a>Varsayılan ADLA hesabı sınırları
 
-**Hesap başına en fazla Analytics birimi (Avustralya) sayısı:** 250
+**Hesap başına en fazla Analytics birimi (Avustralya) sayısı:** 32
 
 Hesabınızı çalışabilir Avustralya üst sınırını budur. Avustralya çalışan tüm işler arasında toplam sayısı bu sınırı aşarsa, yeni işleri otomatik olarak kuyruğa alınır. Örneğin:
 
-* Yalnızca bir işe varsa 250 ile ikinci bir gönderdiğinizde Avustralya, işi çalıştırılırken iş kuyruğundaki ilk iş tamamlanana kadar bekler.
-* Çalışan beş işleri zaten varsa ve her 50 kullanarak 20 gereken altıncı bir işi gönderdiğinizde Avustralya kalmayana kadar 20 iş kuyruğundaki bekler Avustralya Avustralya kullanılabilir.
+* Yalnızca bir işe varsa ile 32 saniyenin gönderdiğinizde Avustralya, işi çalıştırılırken iş kuyruğundaki ilk iş tamamlanana kadar bekler.
+* Çalışan dört işleri zaten varsa ve her 8 kullanarak 8 gereken beşinci bir işi gönderdiğinizde Avustralya 8 kadar iş kuyruğundaki bekler Avustralya Avustralya kullanılabilir.
+
+**İş başına en fazla sayısını Analytics birimler (Avustralya):** 32
+
+Bu varsayılan en büyük tek tek her iş hesabınızda atanabilir Avustralya sayısıdır. Gönderenin (job) başına daha fazla Avustralya verir işlem İlkesi (iş gönderim sınırı) tarafından etkilenen sürece bu sınırı birden fazla atanmış olan işleri reddedilir. AU sınırı hesabı için bu değeri üst sınırıdır.
 
 **Hesap başına eşzamanlı U-SQL işi sayısı üst sınırı:** 20
 
 Maksimum sayıda hesabınızda çalışabilir işi budur. Bu değer yeni işleri otomatik olarak kuyruğa alınır.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>Hesap başına ADLA kota sınırları ayarlama
+## <a name="adjust-adla-account-limits"></a>ADLA hesabı sınırları ayarlama
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 2. Varolan ADLA hesabı seçin.
 3. **Özellikler**'e tıklayın.
-4. Ayarlama **paralellik** ve **eşzamanlı iş** gereksinimlerinize uygun olarak.
-
-    ![Azure Data Lake Analytics portal sayfası](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Değerleri ayarlama **maksimum Avustralya**, **en fazla sayıda çalışan iş**, ve **iş gönderim sınırları** gereksinimlerinize uygun olarak.
 
 ## <a name="increase-maximum-quota-limits"></a>En yüksek kota sınırları artırmak
+
+Azure sınırları hakkında daha fazla bilgi bulabilirsiniz içinde [Azure hizmete özgü belgeleri sınırlar](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Azure portalında bir destek isteği açın.
 

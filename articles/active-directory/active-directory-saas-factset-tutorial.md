@@ -1,14 +1,10 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile FactSet | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile FactSet arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile FactSet | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile FactSet arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-<<<<<<< HEAD
-manager: femila
-=======
 manager: mtillman
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.reviewer: joflore
 ms.assetid: f41072d1-b2a4-4c4d-9deb-101b52e29096
 ms.service: active-directory
@@ -18,19 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-<<<<<<< HEAD
-ms.openlocfilehash: c99b62f01792e874f8bb584d0cdbe514a232906b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ce73753dc4a4568ff21f6c34fd8fef1643d72258
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: 5d39de5aebf5578ff9970146d36ac3cc724b3a87
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Öğretici: Azure Active Directory Tümleştirme FactSet ile
 
@@ -42,9 +30,9 @@ FactSet Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için FactSet (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme FactSet ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -120,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![FactSet etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-factset-tutorial/tutorial_factset_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://login.factset.com/services/auth-test?idpid=<GUID>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://login.factset.com/services/auth-test?idpid=<GUID>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`https://login.factset.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://login.factset.com`
 
     > [!NOTE] 
     > Bu oturum açma URL'si değer gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [FactSet istemci destek ekibi](mailto:support@factset.com) değeri alınamıyor. 
@@ -171,7 +159,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-factset-test-user"></a>FactSet test kullanıcısı oluşturma
 
@@ -207,7 +195,7 @@ Bu bölümde, Britta FactSet için erişim vererek, Azure çoklu oturum açma ku
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -217,7 +205,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

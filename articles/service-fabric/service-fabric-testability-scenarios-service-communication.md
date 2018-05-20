@@ -1,24 +1,24 @@
 ---
-title: "Test Edilebilirlik: Hizmet iletişimi | Microsoft Docs"
-description: "Hizmet hizmet iletişimi, Service Fabric uygulaması kritik tümleştirme noktasıdır. Bu makalede, tasarım konuları ve test teknikleri anlatılmaktadır."
+title: 'Test Edilebilirlik: Hizmet iletişimi | Microsoft Docs'
+description: Hizmet hizmet iletişimi, Service Fabric uygulaması kritik tümleştirme noktasıdır. Bu makalede, tasarım konuları ve test teknikleri anlatılmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Test Edilebilirlik senaryoları: hizmet iletişimi
 Mikro hizmetler ve hizmet odaklı mimari stilleri yüzey doğal olarak Azure Service Fabric. Bu dağıtılmış mimariler türlerinde bileşenlerden oluşan mikro hizmet uygulamaları genelde birbirleriyle iletişim kurmalarını gerek birden çok hizmet oluşur. En basit durumlarda bile, genellikle en az bir durum bilgisi olmayan web hizmeti ve iletişim kurması gereken bir durum bilgisi olan veri depolama hizmeti vardır.

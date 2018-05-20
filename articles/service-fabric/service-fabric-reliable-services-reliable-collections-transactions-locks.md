@@ -9,16 +9,16 @@ editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 79be861a70abb0331d971b00e753691e77642637
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>İşlemler ve Azure Service Fabric güvenilir koleksiyonları kilit modu
 
@@ -47,8 +47,8 @@ Güvenilir sözlük ve sıra işlemleri için yalıtım düzeyi varsayılan değ
 
 | İşlem \ rolü | Birincil | İkincil |
 | --- |:--- |:--- |
-| Tek varlık okuma |Yinelenebilir Okuma |Anlık Görüntü |
-| Numaralandırma, sayısı |Anlık Görüntü |Anlık Görüntü |
+| Tek varlık okuma |Yinelenebilir Okuma |Anlık görüntü |
+| Numaralandırma, sayısı |Anlık görüntü |Anlık görüntü |
 
 > [!NOTE]
 > Tek varlık işlemleri için ortak örnekler `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
@@ -74,10 +74,10 @@ Bir güncelleştirme kilidi birden çok işlem kaynakları daha sonraki bir zama
 
 Kilit uyumluluk matrisi aşağıdaki tabloda bulunabilir:
 
-| İstek \ verildi | None | Paylaşılan | Güncelleştirme | Özel |
+| İstek \ verildi | Hiçbiri | Paylaşıldı | Güncelle | Özel |
 | --- |:--- |:--- |:--- |:--- |
-| Paylaşılan |Çakışma |Çakışma |Çakışma |Çakışma |
-| Güncelleştirme |Çakışma |Çakışma |Çakışma |Çakışma |
+| Paylaşıldı |Çakışma |Çakışma |Çakışma |Çakışma |
+| Güncelle |Çakışma |Çakışma |Çakışma |Çakışma |
 | Özel |Çakışma |Çakışma |Çakışma |Çakışma |
 
 Güvenilir koleksiyonları API'leri zaman aşımı değişkeninde kilitlenme algılama için kullanılır.

@@ -1,5 +1,19 @@
-
-
+---
+title: include dosyası
+description: include dosyası
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/07/2018
+---
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. **Kaynak oluştur** > **Web ve Mobil** > **Bildirim Hub'ı** seçeneğini belirleyin.
@@ -18,10 +32,9 @@
    
       ![Azure portalı - Bildirim hub'ı özelliklerini ayarlama](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Ad alanını ve bildirim hub'ını oluşturduktan sonra **Tüm kaynaklar**'ı seçerek açın ve ardından listeden oluşturulan bildirim hub'ını seçin. 
-   
-      ![Azure portalı - Bildirim hub'ı portal sayfası](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+4. **Bildirimler**’i (Zil simgesi) ve **Kaynağa git**’i seçin. 
 
+      ![Azure portalı - bildirimler -> Kaynağa git](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. Listeden **Erişim İlkeleri**'ni seçin. Verilen iki bağlantı dizesini not edin. Bu dizelere daha sonra anında iletme bildirimleri için ihtiyaç duyacaksınız.
 
       >[!IMPORTANT]

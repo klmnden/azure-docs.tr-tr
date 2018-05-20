@@ -292,6 +292,7 @@
 # Kaynaklar
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/)
+## [Müşteri verisi istekleri](iot-hub-customer-data-requests.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer aracı](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)

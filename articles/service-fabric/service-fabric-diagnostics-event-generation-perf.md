@@ -9,26 +9,26 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
-ms.author: dekapur; srrengar
-ms.openlocfilehash: 54837b2a43f93f43d089a2fdf35d8b74ecacfc3e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: srrengar
+ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-metrics"></a>Performans ölçümleri
 
 Ölçümleri kümenizi ve bunun yanı sıra içinde çalışan uygulamaların performansını anlamak için toplanan. Service Fabric kümeleri için aşağıdaki performans sayaçlarını toplama öneririz.
 
-## <a name="nodes"></a>Düğümler
+## <a name="nodes"></a>Düğüm
 
 Kümenizdeki makineler için daha iyi her makinede yük anlamak ve uygun küme kararları ölçeklendirme yapmak için aşağıdaki performans sayaçlarını toplama göz önünde bulundurun.
 
-| Sayacı kategorisi | Sayaç adı |
+| Sayacı kategorisi | Sayaç Adı |
 | --- | --- |
 | PhysicalDisk (her Disk için) | Ort. Disk okuma sırası uzunluğu |
 | PhysicalDisk (her Disk için) | Ort. Disk yazma sırası uzunluğu |
@@ -58,7 +58,7 @@ Kümenizdeki makineler için daha iyi her makinede yük anlamak ve uygun küme k
 
 .NET Hizmetleri kümenize dağıtıyorsanız aşağıdaki sayaçları toplayın. 
 
-| Sayacı kategorisi | Sayaç adı |
+| Sayacı kategorisi | Sayaç Adı |
 | --- | --- |
 | .NET CLR bellek (her hizmeti) | İşlem Kimliği |
 | .NET CLR bellek (her hizmeti) | # Toplam kaydedilmiş bayt |

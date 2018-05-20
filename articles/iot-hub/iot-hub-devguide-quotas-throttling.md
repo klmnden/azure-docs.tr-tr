@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 026ff0394e988081bdc581bf001417b13e44427b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
@@ -39,7 +39,7 @@ Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir
 | Kısıtlama | Ücretsiz, B1 ve S1 | B2 ve S2 | B3 ve S3 | 
 | -------- | ------- | ------- | ------- |
 | Kimlik kayıt defteri işlemleri (oluşturma, alma, liste, Güncelleştir, Sil) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
-| Cihaz bağlantıları | Saniye başına 100 ya da sn/12/birimi daha yüksek <br/> Örneğin, iki S1 2 birimleridir\*12 = 24/sn, ancak en az 100/sn, birim üzerinde. Saniye başına 108 sahip dokuz S1 birimleriyle (9\*12), birim üzerinde. | 120/sn/birim | 6000/sn/birim |
+| Yeni cihaz bağlantılarını (oranıdır bu sınırı uygulandığı _yeni bağlantıları_ kurulan bağlantılar değil toplam sayısı) | Saniye başına 100 ya da sn/12/birimi daha yüksek <br/> Örneğin, iki S1 2 birimleridir\*12 = 24 yeni bağlantısı/sn, ancak sahip en az 100 yeni bağlantısı/sn, birimleri. 108 yeni bağlantısı/sn sahip dokuz S1 birimleriyle (9\*12), birim üzerinde. | 120 yeni bağlantılar/sn/birim | 6000 yeni bağlantılar/sn/birim |
 | Cihazdan buluta gönderim | Saniye başına 100 ya da sn/12/birimi daha yüksek <br/> Örneğin, iki S1 2 birimleridir\*12 = 24/sn, ancak en az 100/sn, birim üzerinde. Saniye başına 108 sahip dokuz S1 birimleriyle (9\*12), birim üzerinde. | 120/sn/birim | 6000/sn/birim |
 | Bulut cihaz gönderir<sup>1</sup> | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | Bulut cihaz alır<sup>1</sup> <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (min/1000/birim) | 16.67/sec/Unit (min/1000/birim) | 833.33/sec/Unit (min/50000/birim) |

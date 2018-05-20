@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f2bd227a3d8c0b797f37026032938fbcfe3de9e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Öğretici: Azure Active Directory Tümleştirme Netsuite ile
 
@@ -29,7 +29,7 @@ Netsuite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Netsuite (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -291,7 +291,7 @@ Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandı
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı Yapılandır](active-directory-saas-netsuite-provisioning-tutorial.md)
 
 <!--Image references-->

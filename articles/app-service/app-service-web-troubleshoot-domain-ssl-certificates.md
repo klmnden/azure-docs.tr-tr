@@ -14,227 +14,229 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: genli
-ms.openlocfilehash: ba21475b771f1688c0a3f2f34c8d961fba5cd182
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 59a9011edef49494288716ab16f30e28e440293b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Etki alanı ve Azure web uygulamalarında SSL sertifikası sorunlarını giderme
 
-Bu makalede, Azure web uygulamaları için etki alanı veya SSL sertifikası yapılandırdığınızda karşılaşabileceğiniz ortak sorunlar listelenmiştir. Olası nedenler ve çözümler bu sorunları için de açıklanmaktadır.
+Bu makalede, Azure web uygulamaları için bir etki alanı veya SSL sertifikası yapılandırdığınızda karşılaşabileceğiniz ortak sorunlar listelenmiştir. Ayrıca bu sorunlar için olası nedenler ve çözümler açıklanmaktadır.
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumlar](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve tıklayın **destek alın**.
+Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **destek alın**.
 
 ## <a name="certificate-problems"></a>Sertifika sorunları
 
-### <a name="unable-to-add-bind-ssl-certificate-to-a-web-app"></a>Bir Web uygulamasına bağlama SSL sertifika eklenemiyor 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>Bir SSL sertifikası bağlaması bir web uygulaması'na eklenemiyor 
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
 SSL bağlaması eklediğinizde, aşağıdaki hata iletisini alıyorsunuz:
 
-**SSL bağlaması eklemek başarısız oldu. Bu sertifika zaten başka bir VIP tarafından kullanıldığından mevcut VIP için sertifika ayarlanamıyor.**
+"SSL bağlaması eklenemedi. Bu sertifikayı başka bir VIP tarafından kullanıldığından sertifika mevcut VIP için ayarlanamıyor."
 
-### <a name="cause"></a>Nedeni
+#### <a name="cause"></a>Nedeni
 
-Birden çok web uygulama arasında birden çok IP tabanlı SSL bağlamaları aynı IP adresi için varsa, bu sorun oluşabilir. Örneğin, web uygulaması bir IP tabanlı SSL eski sertifika ile sahiptir. IP tabanlı SSL ile aynı IP adresi için yeni sertifika ile Web uygulaması B. Web uygulaması SSL bağlaması ile yeni sertifika güncelleştirdiğinizde, başka bir uygulama için aynı IP adresi kullanıldığından bu hata ile başarısız olur. 
+Birden çok web uygulama arasında birden çok IP tabanlı SSL bağlamaları aynı IP adresi için varsa, bu sorun oluşabilir. Örneğin, bir IP tabanlı SSL eski bir sertifika ile web uygulaması A sahiptir. Web uygulaması B aynı IP adresi için yeni bir sertifika ile bir IP tabanlı SSL sahiptir. Web uygulaması SSL bağlaması ile yeni sertifika güncelleştirdiğinizde, aynı IP adresi başka bir uygulama için kullanıldığından bu hata ile başarısız olur. 
 
-### <a name="solution"></a>Çözüm 
+#### <a name="solution"></a>Çözüm 
 
 Bu sorunu gidermek için aşağıdaki yöntemlerden birini kullanın:
 
 - Eski sertifikayı kullanan web uygulaması üzerinde IP temelli SSL bağlama silin. 
 - Yeni sertifika kullanan yeni bir IP tabanlı SSL bağlaması oluşturun.
 
-### <a name="unable-to-delete-a-certificate"></a>Sertifika silinemedi 
+### <a name="you-cant-delete-a-certificate"></a>Sertifika silinemiyor 
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
 Bir sertifika silmeye çalıştığınızda, aşağıdaki hata iletisini alıyorsunuz:
 
-**Sertifika şu anda bir SSL bağlaması kullanıldığından silinemedi. Sertifika silmeden önce SSL bağlaması kaldırılmalıdır.**
+"Şu anda bir SSL bağlaması kullanıldığından sertifikayı silmek oluşturulamıyor. Sertifika silmeden önce SSL bağlaması kaldırılması gerekir."
 
-### <a name="cause"></a>Nedeni
+#### <a name="cause"></a>Nedeni
 
-Başka bir web uygulaması tarafından kullanılan sertifikanın, bu sorun ortaya çıkabilir.
+Başka bir web uygulamasının sertifikası kullanıyorsa, bu sorun ortaya çıkabilir.
 
-### <a name="solution"></a>Çözüm
+#### <a name="solution"></a>Çözüm
 
-Bu sertifika için SSL bağlama web uygulamaları kaldırın. Sonra sertifikayı silmeyi deneyin. Sertifika hala silemiyorsanız Internet tarayıcısı önbelleğini temizlemek için Azure portalında yeni bir tarayıcı penceresi açın. Ve ardından sertifika silmeyi deneyin.
+Bu sertifika için SSL bağlama web uygulamaları kaldırın. Sonra sertifikayı silmeyi deneyin. Sertifika hala silemiyorsanız Internet tarayıcısı önbelleğini temizlemek ve yeni bir tarayıcı penceresi Azure portalında yeniden açın. Sonra sertifikayı silmeyi deneyin.
 
-### <a name="unable-to-purchase-an-app-service-certificate"></a>Bir uygulama hizmeti sertifikası satın kurulamıyor 
+### <a name="you-cant-purchase-an-app-service-certificate"></a>Bir uygulama hizmeti sertifika satın alın 
 
-### <a name="symptom"></a>Belirti
-Satın alamazsınız bir [uygulama hizmeti sertifika](./web-sites-purchase-ssl-web-site.md) Azure portalından.
+#### <a name="symptom"></a>Belirti
+Satın alamazsınız bir [Azure uygulama hizmeti sertifika](./web-sites-purchase-ssl-web-site.md) Azure portalından.
 
-### <a name="cause-and-solution"></a>Nedeni ve çözümü
+#### <a name="cause-and-solution"></a>Nedeni ve çözümü
 Bu sorun aşağıdaki nedenlerden biriyle oluşabilir:
 
-- Uygulama hizmeti planı "Ücretsiz" veya "Paylaşılan" dir. SSL için bu fiyatlandırma katmanlarına desteklemiyoruz. 
+- Uygulama hizmeti planı ücretsiz veya paylaşılan ' dir. Bu fiyatlandırma katmanlarına SSL desteklemez. 
 
-    **Çözüm**: "Standart" web uygulaması için uygulama hizmeti planını yükseltin.
+    **Çözüm**: standart web uygulaması için uygulama hizmeti planını yükseltin.
 
-- Abonelik geçerli bir kredi kartı yok.
+- Abonelik geçerli bir kredi kartı sahip değil.
 
     **Çözüm**: aboneliğiniz için geçerli bir kredi kartı ekleyin. 
 
-- Abonelik teklif, Microsoft Student gibi bir uygulama hizmeti sertifikası satın desteklemez.  
+- Abonelik teklif, Microsoft Student gibi bir uygulama hizmeti sertifikası satın desteklemiyor.  
 
     **Çözüm**: aboneliğinizi yükseltme. 
 
-- Abonelik satın alma işlemleri bir abonelikte izin verilen maksimum sınırına ulaştı.
+- Abonelik bir abonelikte izin verilen satınalma sınırına ulaşıldı.
 
-    **Çözüm**: uygulama hizmeti sertifikaları Öde olarak ve EA abonelikleri türleri için 10 sertifika satın almalara sınırlaması vardır. Diğer abonelik türleri için izin verilen maksimum 3'tür. Sınırını artırmak için başvurun [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Uygulama hizmeti sertifika sahtekarlık işaretlendi. Aşağıdaki hata iletisini alıyorsunuz: "sertifikanızı olası sahtekarlık için işaretlendi. İstek şu anda incelenmektedir. Sertifika 24 saat içinde kullanılabilir olmaz;"
+    **Çözüm**: uygulama hizmeti sertifikaları Kullandıkça Öde ve EA abonelik türleri için 10 sertifika satın almalara sınırlaması vardır. Diğer abonelik türleri için izin verilen maksimum 3'tür. Sınırını artırmak için başvurun [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Uygulama hizmeti sertifika sahtekarlık işaretlendi. Aşağıdaki hata iletisini aldığınız: "sertifikanızı olası sahtekarlık için işaretlendi. İstek şu anda incelenmektedir. Sertifika 24 saat içinde kullanılabilir olmaz, lütfen Azure desteğine başvurun."
 
-    **Çözüm**: sertifika sahtekarlık işaretlenir ve 24 saat sonra çözümlenmemiş, şu adımları izleyin:
+    **Çözüm**: sertifika sahtekarlık işaretlenir ve 24 saat sonra çözülmüş değil, şu adımları izleyin:
 
-    1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-    2. Git **uygulama hizmeti sertifikaları**, sertifikayı seçin.
-    3. Seçin **sertifika yapılandırma** > **2. adım: doğrulama** > **etki alanı doğrulama**. Bu sorunu çözmek için Azure sertifika sağlayıcısı için bir e-posta bildirimi gönderir.
+    1. [Azure Portal](https://portal.azure.com) oturum açın.
+    2. Git **uygulama hizmeti sertifikaları**ve sertifikayı seçin.
+    3. Seçin **sertifika yapılandırma** > **2. adım: doğrulama** > **etki alanı doğrulama**. Bu adım sorunu çözmek için Azure sertifika sağlayıcısı için bir e-posta bildirimi gönderir.
 
 ## <a name="domain-problems"></a>Etki alanı sorunları
 
-### <a name="purchased-ssl-certificate-for-wrong-domain"></a>Yanlış etki alanı için SSL sertifikası satın
+### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>Yanlış etki alanı için bir SSL sertifikası satın
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
-Yanlış etki alanı için bir uygulama hizmet sertifikası satın ve doğru etki alanını kullanmak üzere sertifika güncelleştirilemiyor.
+Yanlış etki alanı için bir uygulama hizmet sertifikası satın. Doğru etki alanını kullanmak üzere sertifika güncelleştirilemiyor.
 
-### <a name="solution"></a>Çözüm
+#### <a name="solution"></a>Çözüm
 
-- Bu sertifikayı silin ve yeni bir sertifika satın alın.
-- Yanlış etki alanı kullanan geçerli sertifika "Verilen" durumdaysa sonra aynı zamanda bu sertifika için Fatura edilecek. Uygulama Hizmeti sertifikaları iade değildir, ancak ile bağlantı kurabildiğini [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) diğer seçenekleri olup olmadığını görmek için. 
+Bu sertifikayı silin ve yeni bir sertifika satın alın.
 
-### <a name="app-service-certificate-was-renewed-but-still-shows-the-old-certificate"></a>Uygulama hizmeti sertifikası yenilendi ancak hala eski sertifika gösterir 
+Yanlış etki alanı kullanan geçerli sertifika "Verilen" durumda ise, bu sertifika için de faturalandırılırsınız. Uygulama Hizmeti sertifikaları iade değildir, ancak ile bağlantı kurabildiğini [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) diğer seçenekleri olup olmadığını görmek için. 
 
-### <a name="symptom"></a>Belirti
+### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>Bir uygulama hizmeti sertifikası yenilendi, ancak eski sertifikayı web uygulaması gösterir 
 
-Uygulama hizmeti sertifikası yenilendi ancak uygulama hizmeti sertifikayı kullanan web uygulaması hala eski sertifika kullanıyor. Ayrıca, HTTPS protokolünü gerekli olduğunu belirten bir uyarı alındı.
+#### <a name="symptom"></a>Belirti
 
-### <a name="cause"></a>Nedeni 
-Web uygulama hizmeti her sekiz saatte bir arka plan işi çalışır ve herhangi bir değişiklik olursa sertifika kaynak eşitlenir. Döndürme veya bir sertifikayı güncelleştirmek, bu nedenle, bazen uygulama hala eski sertifika ve yeni güncelleştirilmiş sertifika alıyor. Sertifika kaynak eşitleme işi henüz çalıştırılmadı olmasıdır. 
+Uygulama hizmeti sertifikası yenilendi, ancak uygulama hizmeti sertifikayı kullanan web uygulaması hala eski sertifika kullanıyor. Ayrıca, HTTPS protokolünü gerekli olduğunu belirten bir uyarı alındı.
+
+#### <a name="cause"></a>Nedeni 
+Azure App Service Web Apps özelliğini her sekiz saatte bir arka plan işi çalışır ve herhangi bir değişiklik olursa sertifika kaynak eşitlenir. Bazen döndürün veya bir sertifikayı güncelleştirmek, uygulama hala eski sertifika ve yeni güncelleştirilmiş sertifika alıyor. Sertifika kaynak eşitleme işi henüz Çalıştır kurmadı nedenidir. 
  
-### <a name="solution"></a>Çözüm
+#### <a name="solution"></a>Çözüm
 
 Sertifikanın bir eşitleme uygulayabilirsiniz:
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın. Seçin **uygulama hizmeti sertifikaları**ve ardından sertifikayı seçin.
-2. Tıklatın **anahtar yenileme ve eşitleme**ve ardından **eşitleme**. Tamamlanması biraz zaman alır. 
-3. Eşitleme tamamlandığında, aşağıdaki bildirim görürsünüz: "Tüm kaynaklar en son sertifikası ile başarıyla güncelleştirildi".
+1. [Azure Portal](https://portal.azure.com) oturum açın. Seçin **uygulama hizmeti sertifikaları**ve ardından sertifikayı seçin.
+2. Seçin **anahtar yenileme ve eşitleme**ve ardından **eşitleme**. Eşitleme tamamlanması biraz zaman alır. 
+3. Eşitleme tamamlandığında, aşağıdaki bildirim görürsünüz: "Başarıyla son sertifikayla tüm kaynakları güncelleştirildi."
 
 ### <a name="domain-verification-is-not-working"></a>Etki alanı doğrulama çalışmıyor 
 
-### <a name="symptom"></a>Belirti 
-Sertifika kullanıma hazır hale gelmeden önce etki alanı doğrulama uygulama hizmeti sertifikası gerektirir. Tıkladığınızda **doğrula**, işlem başarısız olur.
+#### <a name="symptom"></a>Belirti 
+Sertifika kullanıma hazır hale gelmeden önce etki alanı doğrulama uygulama hizmeti sertifikası gerektirir. Seçtiğinizde, **doğrula**, işlem başarısız olur.
 
-### <a name="solution"></a>Çözüm
+#### <a name="solution"></a>Çözüm
 El ile bir TXT kaydı ekleyerek etki alanınızı doğrulayın:
  
 1.  Etki alanı adınızı barındıran etki alanı adı hizmeti (DNS) Sağlayıcısı'na gidin.
 2.  Azure portalında gösterilen etki alanı belirtecin değerini kullanır, etki alanı için bir TXT kaydı ekleyin. 
 
-Çalıştırın ve ardından DNS'ye yayma işlemi birkaç dakika bekleyin **yenileme** doğrulama tetiklemek için düğmesi. 
+Çalıştırmak ve daha sonra seçmek DNS yayma için birkaç dakika bekleyin **yenileme** doğrulama tetiklemek için düğmesi. 
 
-El ile doğrulamak için alternatif yöntemi "için sertifika etki alanının etki alanı sahipliğini doğrulamanız sertifika yetkilisi izin vermek için kullanılan HTML Web sayfası" yöntemidir.
+Alternatif olarak, etki alanınızın el ile doğrulamak için HTML Web sayfası yöntemi kullanabilirsiniz. Bu yöntem için sertifika etki alanının etki alanı sahipliğini doğrulamanız sertifika yetkilisi sağlar.
 
-1.  {Etki alanı doğrulama belirteci} .html adlı bir HTML dosyası oluşturun. 
-2.  Bu dosya etki alanı doğrulama belirteci değeri içerik olması gerekir.
-3.  Etki alanınızı barındıran web sunucusunun kökünde bu dosyayı karşıya yükleme
-4.  Tıklatın **yenileme** sertifika durumunu denetlemek için. Doğrulama tamamlanması için birkaç dakika sürebilir.
+1.  {Etki alanı doğrulama belirteci} .html adlı bir HTML dosyası oluşturun. Bu dosyanın içeriğini etki alanı doğrulama belirteci değeri olmalıdır.
+3.  Etki alanınızı barındıran web sunucusunun kökünde bu dosyayı karşıya yükleyin.
+4.  Seçin **yenileme** sertifika durumunu denetlemek için. Doğrulama tamamlanması için birkaç dakika sürebilir.
 
-Etki alanı doğrulama belirteci '1234abcd' ile azure.com için standart bir sertifika satın aldıkları, örneğin, ardından web isteği yapılan http://azure.com/1234abcd.html 1234abcd döndürmelidir. 
+Etki alanı doğrulama belirteci 1234abcd ile azure.com için standart bir sertifika satın alma, örneğin, bir web isteği yapılan http://azure.com/1234abcd.html 1234abcd döndürmelidir. 
 
 > [!IMPORTANT]
-> Etki alanı doğrulama işlemini tamamlamak için yalnızca 15 gün bir sertifika gerekir. 15 gün sonra sertifikayı sertifika yetkilisi tarafından reddedilir ve sertifika için sizden ücret değil. Bu durumda, bu sertifikayı silin ve yeniden deneyin.
+> Etki alanı doğrulama işlemini tamamlamak için yalnızca 15 gün bir sertifika gerekir. 15 gün sonra sertifikanın sertifika yetkilisi engeller ve sertifika için sizden ücret istenmese. Bu durumda, bu sertifikayı silin ve yeniden deneyin.
 >
 > 
 
-### <a name="unable-to-purchase-a-domain"></a>Bir etki alanı satın almak için
+### <a name="you-cant-purchase-a-domain"></a>Bir etki alanı satın alamazsınız
 
-### <a name="symptom"></a>Belirti
-Bir etki alanı Web uygulaması veya uygulama hizmeti etki alanından Azure Portalı'nda satın aldığınız olamaz.
+#### <a name="symptom"></a>Belirti
+Azure portalında Web uygulamaları veya uygulama hizmeti etki alanındaki bir etki alanı satın alamazsınız.
 
-### <a name="cause-and-solution"></a>Nedeni ve çözümü
+#### <a name="cause-and-solution"></a>Nedeni ve çözümü
 
 Bu sorun aşağıdaki nedenlerden birinden dolayı oluşur:
 
-- Kredi kartı geçersiz kredi kartı veya Azure aboneliği.
+- Azure abonelikte kredi kartı yoktur veya kredi kartı geçersiz.
 
-    **Çözüm**:, yoksa, aboneliğiniz için geçerli bir kredi kartı ekleyin.
+    **Çözüm**: aboneliğiniz için geçerli bir kredi kartı ekleyin.
 
-- Abonelik sahibi değilseniz, etki alanı satın alma izni olmayabilir.
+- Abonelik sahibi değilseniz, böylece bir etki alanı satın almak için izniniz yok.
 
-    **Çözüm**: [sahip rolünü eklemek](../billing/billing-add-change-azure-subscription-administrator.md) hesabı veya bir etki alanı satın almak için izin almak için aboneliği yöneticisine başvurun.
+    **Çözüm**: [sahip rolünü eklemek](../billing/billing-add-change-azure-subscription-administrator.md) hesabınıza. Veya bir etki alanı satın izni almak için aboneliği yöneticisine başvurun.
 - Aboneliğinizi etki alanlarında satın sınırına ulaştınız. Geçerli sınırı 20'dir.
 
-    **Çözüm**: İstek artış sınırı, kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Azure aboneliğinize uygulama hizmeti etki alanı satın desteklemez.
+    **Çözüm**: sınırı artırma isteğinde bulunmak için başvurun [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Azure Aboneliğinize bir uygulama hizmeti etki alanı satın desteklemez.
 
-    **Çözüm**: Azure aboneliğinizi Kullandıkça Öde aboneliğine gibi diğer abonelik türleri yükseltin.
+    **Çözüm**: Azure aboneliğinizi Kullandıkça Öde aboneliğine gibi başka bir abonelik türü yükseltin.
 
-### <a name="unable-to-add-a-hostname-to-web-app"></a>Bir ana bilgisayar adı Web uygulamasına eklenemedi 
+### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Bir web uygulaması için bir ana bilgisayar adı eklenemez 
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
 Bir ana bilgisayar adı eklediğinizde, doğrulamak ve etki alanını doğrulayın ve işlemi başarısız.
 
-### <a name="cause"></a>Nedeni 
+#### <a name="cause"></a>Nedeni 
 
 Bu sorun aşağıdaki nedenlerden birinden dolayı oluşur:
 
-- Bir ana bilgisayar adı eklemek için izniniz yok.
+- Bir ana bilgisayar adını eklemek için izniniz yok.
 
-    **Çözüm**: Abonelik yöneticisine bir ana bilgisayar adı ekleme iznine sahip olduğunuzdan emin olun.
+    **Çözüm**: ana bilgisayar adını eklemek için izin vermek için Abonelik Yöneticisi isteyin.
 - Etki alanı sahipliğini doğrulanamadı.
 
-    **Çözüm**:, CNAME veya bir kayıt varsa doğru bir şekilde yapılandırıldığını doğrulayın. Web uygulaması için özel etki alanını eşlemek için bir CNAME veya A kaydını oluşturun. Kök etki alanı kullanmak isterseniz, A ve TXT kayıtlarını kullanmanız gerekir:
+    **Çözüm**:, CNAME veya bir kayıt doğru şekilde yapılandırıldığını doğrulayın. Web uygulaması için özel bir etki alanı eşlemek için bir CNAME kaydı veya bir A kaydını oluşturun. Bir kök etki alanı kullanmak isterseniz, A ve TXT kayıtlarını kullanmanız gerekir:
 
-    |Kayıt türü|Host|İşaret|
+    |Kayıt türü|Konak|İşaret|
     |------|------|-----|
-    |A|@|Web uygulaması için IP adresi|
+    |A|@|Bir web uygulaması için IP adresi|
     |TXT|@|< Uygulama adı >. azurewebsites.net|
     |CNAME|www|< Uygulama adı >. azurewebsites.net|
 
-### <a name="dns-cannot-be-resolved"></a>DNS çözümlenemiyor
+### <a name="dns-cant-be-resolved"></a>DNS çözümlenemedi.
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
-Bir "DNS kaydı bulunamadı" hata iletisi alırsınız.
+Aşağıdaki hata iletisini aldığınız:
 
-### <a name="cause"></a>Nedeni
+"DNS kaydı bulunamadı."
+
+#### <a name="cause"></a>Nedeni
 Bu sorun aşağıdaki nedenlerden birinden dolayı oluşur:
 
-- Yaşam süresi (TTL) süresi süresi doldu değil. TTL değeri belirleyin ve ardından süresi dolmak üzere beklemek, etki alanınız için DNS yapılandırmasını denetleyin.
+- Canlı (TTL) süresi süresi doldu değil. TTL değeri belirleyin ve ardından süresi dolmak üzere beklemek, etki alanınız için DNS yapılandırmasını denetleyin.
 - DNS yapılandırması doğru değil.
 
-### <a name="solution"></a>Çözüm
+#### <a name="solution"></a>Çözüm
 - Bu sorun kendiliğinden için 48 saat bekleyin.
 - Değer, DNS yapılandırmanızda TTL ayarı değiştirebilirsiniz varsa, bu sorunu çözer olup olmadığını görmek için 5 dakika olarak değiştirin.
-- Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınızın web uygulama IP adresine işaret doğrulanamadı. Yoksa, A kaydını web uygulamasının doğru IP adresi için yapılandırın.
+- Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınızın web uygulamanızın IP adresine işaret doğrulanamadı. Seçili değilse, A kaydını web uygulamasının doğru IP adresi için yapılandırın.
 
-### <a name="restore-a-deleted-domain"></a>Silinen bir etki alanı geri yükleme 
+### <a name="you-need-to-restore-a-deleted-domain"></a>Silinen bir etki alanı geri yüklemeniz gerekir 
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 Etki alanınızı artık Azure portalında görünür olur.
 
-### <a name="cause"></a>Nedeni 
-Etki alanı yanlışlıkla abonelik sahibi tarafından silinmiş olabilir.
+#### <a name="cause"></a>Nedeni 
+Aboneliğin sahibi etki alanı yanlışlıkla silinmiş olabilir.
 
-### <a name="solution"></a>Çözüm
-Etki alanınızı yedi günden önce silinmişse, etki alanı silme işlemi henüz başlatılmadı. Bu durumda, aynı etki alanında (arama kutusuna tam etki alanı adı olduğundan emin olun) aynı abonelik altında Azure Portal'daki yeniden satın alabilirsiniz. Yeniden bu etki alanı için ücret alınmaz. Etki alanı en az yedi gün önce silinmişse, temasa [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) etki alanı geri yüklemek Yardım.
+#### <a name="solution"></a>Çözüm
+Etki alanınızı yedi günden önce silinmişse, etki alanı silme işlemi henüz başlatılmadı. Bu durumda, aynı etki alanında aynı abonelik altında Azure Portal'daki yeniden satın alabilirsiniz. (Arama kutusuna tam etki alanı adı yazdığınızdan emin olun.) Bu etki alanı için yeniden ücret olmaz. Etki alanı en az yedi gün önce silinmişse, kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) etki alanı geri yüklemek Yardım.
 
-### <a name="custom-domain-returns-404-or-site-inaccessible"></a>Özel etki alanı 404 veya site erişilemez döndürür 
+### <a name="a-custom-domain-returns-a-404-error"></a>Özel bir etki alanı 404 hatası döndürür 
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
 Özel etki alanı adını kullanarak siteye göz attığınızda, aşağıdaki hata iletisini alıyorsunuz:
 
-**Hata 404 Web uygulaması bulunamadı.**
+"Hata 404 Web uygulaması bulunamadı."
 
 
-### <a name="cause-and-solution"></a>Nedeni ve çözümü
+#### <a name="cause-and-solution"></a>Nedeni ve çözümü
 
 **Neden 1** 
 
@@ -242,9 +244,9 @@ Yapılandırdığınız özel etki alanı CNAME veya A kaydı eksik.
 
 **Neden 1 için çözüm**
 
-- Bir A kaydı eklediyseniz, TXT kaydı de eklendiğinden emin olun. Daha fazla bilgi için bkz: [Oluştur--a kaydı](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Web uygulamanız için kök etki alanı kullanmayı yoksa kaydı yerine bir CNAME kaydı kullanmak için önerilir.
-- Aynı etki alanı için bir CNAME ve A kayıt kullanmayın. Bu, çakışmaya neden ve etki alanı çözmeleri engeller. 
+- Bir A kaydı eklediyseniz, TXT kaydı ayrıca eklendiğinden emin olun. Daha fazla bilgi için bkz: [A kaydını oluşturun](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Web uygulamanız için kök etki alanı kullanmayı yoksa, bir A kaydı yerine bir CNAME kaydı kullanmanızı öneririz.
+- Aynı etki alanı için bir CNAME kaydı ve bir A kaydı kullanmayın. Bu çakışmaya neden ve çözülmüş etki alanı engeller. 
 
 **Neden 2** 
 
@@ -252,18 +254,18 @@ Internet tarayıcısı hala eski IP adresi etki alanınız için önbelleğe alm
 
 **Neden 2 için çözüm**
 
-Tarayıcı temizleyin. Windows cihazlar için komutu çalıştırabilirsiniz `ipconfig /flushdns`. Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınızın web uygulama IP adresine işaret doğrulanamadı. 
+Tarayıcı temizleyin. Windows cihazlar için komutu çalıştırabilirsiniz `ipconfig /flushdns`. Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınızın web uygulamanızın IP adresine işaret doğrulanamadı. 
 
-### <a name="unable-to-add-subdomain"></a>Alt etki alanı eklenemiyor 
+### <a name="you-cant-add-a-subdomain"></a>Bir alt etki alanı eklenemez 
 
-### <a name="symptom"></a>Belirti
+#### <a name="symptom"></a>Belirti
 
-Yeni bir ana bilgisayar adı bir alt etki alanını atamak için bir web uygulaması ekleyemezsiniz.
+Yeni bir ana bilgisayar adı bir alt etki alanı atamak için bir web uygulaması ekleyemezsiniz.
 
-### <a name="solution"></a>Çözüm
+#### <a name="solution"></a>Çözüm
 
-- Web uygulaması için bir ana bilgisayar adı eklemek için izinlere sahip olduğundan emin olmak için Abonelik Yöneticisi ile denetleyin.
-- Daha fazla alt etki alanlarını ihtiyacınız varsa, etki alanını Azure DNS'ye barındıran değiştirmenizi öneririz. Azure DNS kullanarak, web uygulamanıza 500 ana bilgisayar adları ekleyebilirsiniz. Daha fazla bilgi için bkz: [bir alt etki alanı ekleme](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Web uygulaması için bir ana bilgisayar adını eklemek için izinlere sahip olduğunuzdan emin olmak için Abonelik Yöneticisi ile denetleyin.
+- Daha fazla alt etki alanları ihtiyacınız varsa, etki alanını Azure DNS'ye barındıran değiştirmenizi öneririz. Azure DNS kullanarak, web uygulamanıza 500 ana bilgisayar adlarını ekleyebilirsiniz. Daha fazla bilgi için bkz: [bir alt etki alanı ekleme](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 
 

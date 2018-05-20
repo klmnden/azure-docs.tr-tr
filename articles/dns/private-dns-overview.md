@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 677fc66b66d6c17806a313f2fac3a15e8e1775ba
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Azure DNS için özel etki alanlarını kullanma
 Etki alanı adı sistemi ya da DNS, çevirmek için sorumludur (veya çözme) IP adresi için bir hizmet adı. Azure DNS barındırma için bir DNS etki alanı, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın hizmetidir.  İnternet'e yönelik DNS etki alanı yanı sıra Azure DNS şimdi ayrıca özel DNS etki alanı bir önizleme özelliği olarak destekler.  
@@ -54,7 +54,7 @@ Azure DNS, yönetmek ve özel DNS çözüm eklemek zorunda kalmadan sanal bir a�
 
 ## <a name="limitations"></a>Sınırlamalar
 * Özel bölge başına 1 kaydı sanal ağ
-* Özel bölge başına fazla 10 çözümleme sanal ağlar
+* Özel bölge başına en fazla 10 çözümleme sanal ağlar
 * Belirli bir sanal ağdaki tek bir özel bölgesine bir kayıt sanal ağ olarak bağlanabilir
 * Belirli bir sanal ağ en fazla 10 özel bölgeler için bir çözüm sanal ağ olarak bağlanabilir.
 * Kayıt sanal ağ belirtilirse, bu sanal ağdan özel bölgesine kayıtlı olan VM'ler için DNS kayıtlarını görüntülenebilir veya Powershell/CLI/API'leri gelen alınabilir olmaz, ancak VM kayıtları gerçekten kaydedilir ve çözümler başarıyla

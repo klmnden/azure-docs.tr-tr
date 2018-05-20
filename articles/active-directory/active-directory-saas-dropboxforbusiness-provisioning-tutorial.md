@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik olarak bir kullanıcı sağlamak için Dropbox yapılandırma | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve iş için Dropbox arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik olarak bir kullanıcı sağlamak için Dropbox yapılandırma | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve iş için Dropbox arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bdac910b5011237e26a39f3e45f3e7ad6176bc83
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Öğretici: İş için Dropbox otomatik kullanıcı sağlamayı yapılandırın
 
@@ -96,5 +96,5 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otom
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](active-directory-saas-dropboxforbusiness-tutorial.md)

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Rally yazılımı ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Rally yazılımı arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Rally yazılımı ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Rally yazılımı arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 9e3b5ad4487ff1309923a1b0ffac9589084e715b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f257ebe03129501034cca3b3e54e8fc796c357fc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Öğretici: Azure Active Directory Tümleştirme Rally yazılımı
 
@@ -30,9 +30,9 @@ RALLY yazılımı Azure AD ile tümleştirme ile aşağıdaki avantajları sağl
 - Azure AD hesaplarına otomatik olarak Rally yazılımı (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Rally yazılımı ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Rally yazılımı etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<tenant-name>.rally.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenant-name>.rally.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<tenant-name>.rally.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenant-name>.rally.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Rally yazılımı istemci destek ekibi](https://help.rallydev.com/) bu değerleri almak için. 
@@ -181,7 +181,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-rally-software-test-user"></a>Rally yazılımı test kullanıcısı oluşturma
 
@@ -203,7 +203,7 @@ Azure AD kullanıcıların oturum açabilmesi için bunlar Azure Active Director
 
     a. İçinde **kullanıcı adı** metin kutusu, kullanıcı adını yazın ister **Brittsimon**.
    
-    b. İçinde **e-posta adresi** metin kutusuna, bir kullanıcı gibi e-posta girin  **brittasimon@contoso.com** .
+    b. İçinde **e-posta adresi** metin kutusuna, bir kullanıcı gibi e-posta girin **brittasimon@contoso.com**.
 
     c. İçinde **ad** metin kutusuna, gibi kullanıcının ilk adını girin **Britta**.
 
@@ -244,7 +244,7 @@ Bu bölümde, Britta Rally yazılımı erişim vererek, Azure çoklu oturum açm
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
 
@@ -253,7 +253,7 @@ Erişim paneli Rally yazılımı parçasında tıklattığınızda, otomatik ola
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile TextMagic | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile TextMagic arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile TextMagic | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile TextMagic arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 23270e14e8b6072c167f5d5979c9a73988b19dd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 61a3d4f99f2b86c157d166b57275500b86be6e17
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: Azure Active Directory Tümleştirme TextMagic ile
 
@@ -30,9 +30,9 @@ TextMagic Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için TextMagic (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme TextMagic ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,13 +108,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![TextMagic etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_url.png)
 
-    İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`https://my.textmagic.com/saml/metadata`
+    İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://my.textmagic.com/saml/metadata`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![TextMagic etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-textmagic-tutorial/url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, bir URL yazın:`https://my.textmagic.com/login/sso`
+    İçinde **oturum açma URL'si** metin kutusuna, bir URL yazın: `https://my.textmagic.com/login/sso`
 
 
 5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
@@ -146,7 +146,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **ortak x509 sertifika:** metin kutusu.
 
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
 
 
 > [!TIP]
@@ -182,7 +182,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-textmagic-test-user"></a>TextMagic test kullanıcısı oluşturma
 
@@ -219,7 +219,7 @@ Bu bölümde, Britta TextMagic için erişim vererek, Azure çoklu oturum açma 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -229,7 +229,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

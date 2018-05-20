@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı ServiceNow yapılandırma | Microsoft Docs"
-description: "Otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den ServiceNow sağlanmasını öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı ServiceNow yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den ServiceNow sağlanmasını öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı ServiceNow yapılandırın.
 
@@ -91,7 +91,7 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otom
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](active-directory-saas-servicenow-tutorial.md)
 
 

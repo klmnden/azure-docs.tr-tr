@@ -40,6 +40,8 @@
   items:
     - name: Otomatik konu oluşturmayı etkinleştirme
       href: apache-kafka-auto-create-topics.md
+    - name: IoT Hub ile Kafka kullanma
+      href: apache-kafka-connector-iot-hub.md
     - name: HDInsight uygulamaları yükleme
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

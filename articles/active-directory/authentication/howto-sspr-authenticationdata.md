@@ -10,11 +10,11 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1dba7c302d8acad6133c0e7c6a2186f7ba617e2c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
 
@@ -33,16 +33,27 @@ Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ Count
 
 Azure AD Connect varsayılan ayarları kullanırsanız, aşağıdaki eşlemelerini oluşturulur:
 
-| Şirket içi Active Directory | Azure AD | Azure AD kimlik doğrulama kişi bilgisi |
-| --- | --- | --- |
-| telephoneNumber | Ofis telefonu | Alternatif telefon |
-| Mobil | Cep telefonu | Telefon |
+| Şirket içi Active Directory | Azure AD |
+| --- | --- |
+| telephoneNumber | Ofis telefonu |
+| Mobil | Cep telefonu |
 
-Bir kullanıcı kimlik doğrulama verilerini onaylayıncaya kadar bu alanları boş görünebilir.
+Bir kullanıcı, cep telefonu numarası doğruladıktan sonra telefon alan Azure AD kimlik doğrulama kişi bilgilerini altında da numaralı doldurulur.
 
-Genel yönetici, aşağıdaki ekran görüntüsünde gösterildiği kullanıcı için kimlik doğrulama kişi bilgilerini el ile ayarlayabilirsiniz.
+## <a name="authentication-contact-info"></a>Kimlik doğrulaması iletişim bilgileri
+
+Genel yönetici, aşağıdaki ekran görüntüsünde gösterildiği bir kullanıcı için kimlik doğrulama kişi bilgilerini el ile ayarlayabilirsiniz.
 
 ![lgili kişi][Contact]
+
+Telefon alanı doldurulur ve cep telefonu SSPR İlkesi'nde etkinleştirilirse kullanıcı numarası sırasında parola ve parola sıfırlama kayıt sayfasında iş akışı sıfırlama görürsünüz. 
+
+Diğer telefon alan parola sıfırlama için kullanılmaz.
+
+E-posta alanı doldurulur ve e-posta SSPR İlkesi'nde etkinleştirilirse, kullanıcının e-posta sırasında parola ve parola sıfırlama kayıt sayfasında iş akışı sıfırlama görürsünüz.
+
+Alternatif e-posta alanı doldurulur ve e-posta SSPR İlkesi'nde etkinleştirilirse kullanıcı olacak **değil** e-posta açma parolasını sıfırlama kayıt sayfası, ancak parola sıfırlama iş akışı görürler bakın. 
+
 
 ## <a name="security-questions-and-answers"></a>Güvenlik sorularını ve yanıtlarını
 

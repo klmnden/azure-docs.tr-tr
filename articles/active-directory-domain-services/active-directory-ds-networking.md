@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -95,7 +95,7 @@ Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri 
 
 
 ## <a name="network-security-groups"></a>Ağ Güvenlik Grupları
-A [ağ güvenlik grubu (NSG)](../virtual-network/virtual-networks-nsg.md) izin veren veya bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir başka bir NSG doğrudan bu VM ilişkilendirerek.
+A [ağ güvenlik grubu (NSG)](../virtual-network/security-overview.md) izin veren veya bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir başka bir NSG doğrudan bu VM ilişkilendirerek.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri ile sanal ağlar için örnek NSG
 Aşağıdaki tabloda, örnek bir Azure AD etki alanı Hizmetleri yönetilen etki alanına sahip bir sanal ağ için yapılandırabileceğiniz NSG gösterilmektedir. Bu kural, yönetilen etki alanı kalır emin olmak için gerekli bağlantı noktaları üzerinden gelen trafiğe düzeltme eki, güncelleştirilmiş ve Microsoft tarafından izlenen sağlar. Varsayılan 'DenyAll' kural, internet'ten diğer gelen trafik için geçerlidir.
@@ -141,5 +141,5 @@ Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz Azure Klasik sanal ağı
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md)
 * [Klasik dağıtım modeli için VNet-VNet bağlantı yapılandırma](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Azure ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md)
+* [Azure ağ güvenlik grupları](../virtual-network/security-overview.md)
 * [Bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

@@ -17,11 +17,11 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory AppSource sertifikalı alma
 [Microsoft AppSource](https://appsource.microsoft.com/) bulmak, deneyin ve iş kolu satır SaaS uygulamaları (tek başına SaaS ve var olan Microsoft SaaS ürünlerinde eklentiye) yönetmek İşletme kullanıcıları için bir hedef.
@@ -43,7 +43,7 @@ Bu, uygulamanızın üzerinde çoklu kiracı etkinleştirmek için:
 Çoklu kiracı hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory (AD) kullanıcı oturum nasıl](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Tek Kiracı uygulamaları
-Yalnızca oturum açma işlemleri tanımlı bir Azure Active Directory örneğinin kullanıcılardan kabul uygulamaları olarak bilinen *tek kiracılı uygulama*. Dış kullanıcılar (diğer kuruluşlardan iş veya Okul hesapları veya kişisel hesap dahil) uygulamasında oturum açabilir her bir kullanıcı olarak ekledikten sonra bir tek kiracılı uygulama *Konuk hesabı* Azure Active Directory'ye örneği uygulama kaydedilir. Bir Azure Active Directory Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [ *Azure AD B2B işbirliği* ](../active-directory-b2b-what-is-azure-ad-b2b.md) - ve yapılabilir [programlı şekilde](../active-directory-b2b-code-samples.md). Kullanıcı konuk hesabıyla bir Azure Active Directory'ye eklediğinizde, davet e-posta bağlantısını tıklatarak daveti kabul etmek için sahip kullanıcı, bir davet e-posta gönderilir. Ayrıca iş ortağı kuruluşun üyesi olduğu bir davet kuruluştaki ek bir kullanıcıya gönderilen davetleri oturum açmak için bir daveti kabul etmek için gerekli değildir.
+Yalnızca oturum açma işlemleri tanımlı bir Azure Active Directory örneğinin kullanıcılardan kabul uygulamaları olarak bilinen *tek kiracılı uygulama*. Dış kullanıcılar (diğer kuruluşlardan iş veya Okul hesapları veya kişisel hesap dahil) uygulamasında oturum açabilir her bir kullanıcı olarak ekledikten sonra bir tek kiracılı uygulama *Konuk hesabı* Azure Active Directory'ye örneği uygulama kaydedilir. Bir Azure Active Directory Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [ *Azure AD B2B işbirliği* ](../b2b/what-is-b2b.md) - ve yapılabilir [programlı şekilde](../b2b/code-samples.md). Kullanıcı konuk hesabıyla bir Azure Active Directory'ye eklediğinizde, davet e-posta bağlantısını tıklatarak daveti kabul etmek için sahip kullanıcı, bir davet e-posta gönderilir. Ayrıca iş ortağı kuruluşun üyesi olduğu bir davet kuruluştaki ek bir kullanıcıya gönderilen davetleri oturum açmak için bir daveti kabul etmek için gerekli değildir.
 
 Tek Kiracı uygulamaları etkinleştirebilir *kişi benim* deneyimi, ancak AppSource önerir tek tıklamayla / ücretsiz deneme sürümü deneyimi etkinleştirmek istiyorsanız, bu, uygulamanızın üzerinde çoklu kiracı yerine etkinleştirin.
 

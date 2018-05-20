@@ -7,13 +7,13 @@ ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1090751db4df54e36e5263c4036d447c95d7b50
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 
@@ -41,7 +41,7 @@ Aşağıdaki bölümlerde, her tür bir Azure Otomasyonu DSC makineye discovery'
 
 Azure Otomasyonu DSC'ye kolayca yerleşik Azure sanal makineleri (Klasik) yapılandırma yönetimi için Azure portal veya PowerShell kullanarak yapabilirsiniz. Başlık altında ve yönetici VM içine uzak zorunda kalmadan Azure VM istenen durum yapılandırması uzantısı VM Azure Otomasyonu DSC'ye kaydeder. Azure VM istenen durum yapılandırması uzantısı zaman uyumsuz olarak çalışır olduğundan, ilerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portalı
 
 İçinde [Azure portal](http://portal.azure.com/), tıklatın **Gözat** -> **sanal makineleri (Klasik)**. Eklemek istediğiniz Windows VM seçin. Sanal makinenin Pano dikey penceresinde **tüm ayarları** -> **uzantıları** -> **Ekle** -> **Azure Otomasyonu DSC** -> **oluşturma**. Girin [PowerShell DSC Local Configuration Manager değerleri](https://msdn.microsoft.com/powershell/dsc/metaconfig4) kullanım örneği, Otomasyon hesabınızın kayıt anahtarı ve kayıt URL'si ve bir düğüm yapılandırması için isteğe bağlı olarak VM atamak için gerekli.
 
@@ -121,7 +121,7 @@ $VM | Update-AzureVM
 
 Azure Otomasyonu DSC kolayca yerleşik Azure sanal makineleri yapılandırma yönetimi için Azure portalı, Azure Resource Manager şablonları veya PowerShell kullanarak olanak sağlar. Başlık altında ve yönetici VM içine uzak zorunda kalmadan Azure VM istenen durum yapılandırması uzantısı VM Azure Otomasyonu DSC'ye kaydeder. Azure VM istenen durum yapılandırması uzantısı zaman uyumsuz olarak çalışır olduğundan, ilerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portalı
 
 İçinde [Azure portal](https://portal.azure.com/), yerleşik sanal makinelere istediğiniz Azure Automation hesabı gidin. Otomasyon hesabı Panoda tıklatın **DSC düğümleri** -> **+ Azure VM eklemek**.
 

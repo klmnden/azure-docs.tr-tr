@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Cerner Orta yapılandırma | Microsoft Docs"
-description: "Azure Active Directory kullanıcılara otomatik olarak sağlamak için bir ad listesi Cerner Orta yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Cerner Orta yapılandırma | Microsoft Docs'
+description: Azure Active Directory kullanıcılara otomatik olarak sağlamak için bir ad listesi Cerner Orta yapılandırmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Öğretici: Cerner Orta otomatik kullanıcı sağlamayı yapılandırın
 
@@ -57,7 +57,7 @@ Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara
 Bu bölümde Azure AD Cerner Orta'nın kullanıcı ad için listesi API sağlama Cerner'ın SCIM'yi kullanıcı hesabını kullanarak olduğu konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirmek ve atanan kullanıcıya Cerner Orta hesaplarında dayalı olarak devre dışı bırak Azure AD'de kullanıcı ve grup atama.
 
 > [!TIP]
-> Etkin SAML tabanlı çoklu oturum açma [Azure Portalı'nda (https://portal.azure.com). sağlanan yönergeleri izleyerek Cerner Orta tercih edebilirsiniz Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir. Daha fazla bilgi için bkz: [oturum açma Cerner Orta tek Öğreticisi](active-directory-saas-cernercentral-tutorial.md).
+> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Cerner Orta, yönergeleri izleyerek sağlanan [Azure portal (https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir. Daha fazla bilgi için bkz: [oturum açma Cerner Orta tek Öğreticisi](active-directory-saas-cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Otomatik olarak bir kullanıcı hesabı için Cerner Orta Azure AD'de sağlama yapılandırmak için:
@@ -67,25 +67,25 @@ Kullanıcı hesaplarına Cerner Orta sağlamak için Cerner Cerner Orta sistem h
 
 1.  Cerner yönetme kişiler emin olmak için ilk adımdır ve Azure AD tümleştirme yönergeleri işlemini tamamlamak için gereken belgelerine erişmek için gerekli bir CernerCare hesabı vardır. Gerekirse, her bir geçerli ortamda CernerCare hesapları oluşturmak için aşağıdaki URL'ler kullanın.
 
-   * Sandbox:  https://sandboxcernercare.com/accounts/create
+   * Korumalı alan:  https://sandboxcernercare.com/accounts/create
 
-   * Production:  https://cernercare.com/accounts/create  
+   * Üretim:  https://cernercare.com/accounts/create  
 
 2.  Ardından, bir sistem hesabı için Azure AD oluşturulması gerekir. Korumalı alan ve üretim ortamları için bir sistem hesabı istemek için aşağıdaki yönergeleri kullanın.
 
-   * Instructions:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Yönergeler:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Sandbox: https://sandboxcernercentral.com/system-accounts/
+   * Korumalı alan: https://sandboxcernercentral.com/system-accounts/
 
-   * Production:  https://cernercentral.com/system-accounts/
+   * Üretim:  https://cernercentral.com/system-accounts/
 
 3.  Ardından, OAuth taşıyıcı belirteci her sistem hesapları için oluşturur. Bunu yapmak için aşağıdaki yönergeleri izleyin.
 
-   * Yönergeler: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Yönergeler:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Sandbox: https://sandboxcernercentral.com/system-accounts/
+   * Korumalı alan: https://sandboxcernercentral.com/system-accounts/
 
-   * Production:  https://cernercentral.com/system-accounts/
+   * Üretim:  https://cernercentral.com/system-accounts/
 
 4. Son olarak, yapılandırmayı tamamlamak için Cerner hem korumalı hem de üretim ortamlarında için kullanıcı ad listesi bölge kimlikleri alma gerekir. Bu alma hakkında daha fazla bilgi için bkz: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -103,9 +103,9 @@ Kullanıcı hesaplarına Cerner Orta sağlamak için Cerner Cerner Orta sistem h
 
    * İçinde **Kiracı URL** alan, "Kullanıcı-ad listesi-bölge-ID" #4. adımda aldığınız bölge kimliği değiştirerek bir URL aşağıdaki biçimde girin.
 
-> Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Korumalı alan: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Üretim: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * İçinde **gizli belirteci** alanına #3. adımda oluşturulan OAuth taşıyıcı belirteci girin ve tıklatın **Bağlantıyı Sına**.
 
@@ -130,7 +130,7 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otom
 * [Cerner Orta: Azure AD kullanarak kimlik verilerini yayımlama](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Öğretici: Azure Active Directory ile çoklu oturum açma Cerner Orta yapılandırma](active-directory-saas-cernercentral-tutorial.md)
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-enterprise-apps-manage-provisioning.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

@@ -138,6 +138,8 @@
         - name: Zeppelin kullanma
           href: ../hdinsight-apache-spark-zeppelin-notebook.md
           maintainContext: true
+        - name: Grafana kullanma
+          href: ./hdinsight-grafana.md
         - name: HDInsight uygulamalarını derleme
           items:
             - name: Özel uygulamaları yükleme

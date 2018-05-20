@@ -1,20 +1,20 @@
 ---
-title: "IOT Hub için Azure olay kılavuz şema | Microsoft Docs"
-description: "IOT Hub'ının özelliklerini ve olay şema biçimi için başvuru sayfası"
+title: IOT Hub için Azure olay kılavuz şema | Microsoft Docs
+description: IOT Hub'ının özelliklerini ve olay şema biçimi için başvuru sayfası
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IOT Hub için Azure olay kılavuz şeması
 
@@ -89,11 +89,11 @@ Tüm olaylar aynı üst düzey veri içerir:
 | id | dize | Olay için benzersiz tanımlayıcı. |
 | Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
 | Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| Olay türü | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
 | EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| veriler | nesne | IOT hub'ı olay verileri.  |
-| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| veriler | object | IOT hub'ı olay verileri.  |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi içeriğini, her olay yayımcısı için farklıdır. IOT hub'ı olaylar için veri nesnesi aşağıdaki özellikleri içerir:
 
@@ -103,8 +103,8 @@ Veri nesnesi içeriğini, her olay yayımcısı için farklıdır. IOT hub'ı ol
 | deviceId | dize | Cihazın benzersiz tanımlayıcısı. Bu büyük küçük harf duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerden ve şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | operationTimestamp | dize | İşlemi ISO8601 zaman damgası. |
 | opType | dize | Bu işlem için IOT Hub tarafından belirtilen olay türü: ya da `DeviceCreated` veya `DeviceDeleted`.
-| Twin | nesne | Uygulama cihaz meta verilerini, bulut represenation olan cihaz çifti hakkında bilgi sağlar. | 
-| deviceID | dize | Cihaz çifti benzersiz tanımlayıcısı. | 
+| Twin | object | Uygulama cihaz meta verilerini, bulut represenation olan cihaz çifti hakkında bilgi sağlar. | 
+| cihaz kimliği | dize | Cihaz çifti benzersiz tanımlayıcısı. | 
 | ETag | dize | Cihaz çifti içeriğini açıklayan bilgileri parçası. Her etag cihaz çifti benzersiz olması garanti edilmez. | 
 | durum | dize | Olup cihaz çifti etkin veya devre dışı. | 
 | statusUpdateTime | dize | Son cihaz çifti durumu ISO8601 damgası güncelleştirin. |
@@ -116,8 +116,8 @@ Veri nesnesi içeriğini, her olay yayımcısı için farklıdır. IOT hub'ı ol
 | primaryThumbprint | dize | X509 birincil parmak izi sertifika. |
 | secondaryThumbprint | dize | X509 ikincil parmak izi sertifika. | 
 | sürüm | integer | Bir her artırılır tamsayı zaman cihaz çifti güncelleştirilir. |
-| İstenen | nesne | Yalnızca uygulama arka uç tarafından yazılır ve cihaz tarafından okunur özelliklerin bir kısmı. | 
-| bildirilen | nesne | Yalnızca aygıt tarafından yazılır ve uygulama arka ucu tarafından okunur özellikler bölümü. |
+| İstenen | object | Yalnızca uygulama arka uç tarafından yazılır ve cihaz tarafından okunur özelliklerin bir kısmı. | 
+| bildirilen | object | Yalnızca aygıt tarafından yazılır ve uygulama arka ucu tarafından okunur özellikler bölümü. |
 | lastUpdated | dize | ISO8601 zaman damgası son cihaz çifti özelliğinin güncelleştirin. | 
 
 ## <a name="next-steps"></a>Sonraki adımlar

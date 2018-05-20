@@ -2,23 +2,17 @@
 title: Geliştirme ve sınama için Azure storage öykünücüsünü kullanma | Microsoft Docs
 description: Azure storage öykünücüsü geliştirmek ve Azure Storage uygulamalarınızı test etme için boş yerel geliştirme ortamı sağlar. İstekleri nasıl doğrulanır, uygulamanızdan öykünücüsünü bağlanma ve komut satırı aracının nasıl kullanılacağını öğrenin.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve sınama için Azure storage öykünücüsünü kullanma
 
@@ -44,17 +38,10 @@ Bazı işlev depolama öykünücüsü ve Azure storage Hizmetleri farklar. Bu fa
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Başlangıç ve depolama öykünücüsü başlatma
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Azure storage öykünücüsü Docker çalıştırın](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>SDK'sını kullanarak
-
 Azure storage öykünücüsü başlatmak için:
 1. Seçin **Başlat** düğmesini veya tuşuna **Windows** anahtarı.
-1. Yazmaya başlayın `Azure Storage Emulator`.
-1. Öykünücü görüntülenen uygulamalar listesinden seçin.
+2. Yazmaya başlayın `Azure Storage Emulator`.
+3. Öykünücü görüntülenen uygulamalar listesinden seçin.
 
 Depolama öykünücüsü başladığında, bir komut istemi penceresi görüntülenir. Bu konsol penceresi başlatın ve depolama öykünücüsü durdurmak, verileri temizlemek, durumunu Al ve öykünücü başlatma için kullanabilirsiniz. Daha fazla bilgi için bkz: [depolama öykünücüsü komut satırı aracını referans](#storage-emulator-command-line-tool-reference) bu makalenin sonraki bölümlerinde bölümü.
 
@@ -71,6 +58,7 @@ Varsayılan olarak yüklü depolama öykünücüsünü `C:\Program Files (x86)\M
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Farklı bir SQL veritabanını kullanmak üzere depolama öykünücüsünü başlatma
+
 Varsayılan yerel veritabanı örneği dışında bir SQL veritabanı örneğine işaret edecek şekilde depolama öykünücüsünü başlatmak için depolama öykünücüsü komut satırı aracını kullanın:
 
 1. Bölümünde açıklandığı gibi depolama öykünücüsü konsol penceresi açın [başlangıç ve başlatma depolama öykünücüsünü](#start-and-initialize-the-storage-emulator) bölümü.

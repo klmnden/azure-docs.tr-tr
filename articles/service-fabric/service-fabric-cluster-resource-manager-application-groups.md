@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric kümesi Kaynak Yöneticisi - uygulama grupları | Microsoft Docs"
-description: "Service Fabric kümesi Kaynak Yöneticisi'nde uygulama grubu işlevlerine genel bakış"
+title: Service Fabric kümesi Kaynak Yöneticisi - uygulama grupları | Microsoft Docs
+description: Service Fabric kümesi Kaynak Yöneticisi'nde uygulama grubu işlevlerine genel bakış
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3212631ede7125bd849c2d9ba86ba2a0747d69ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 215efc1f0597f5199dd37baf4b109d7e76040aae
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-application-groups"></a>Uygulama grupları giriş
 Service Fabric'ın Küme Kaynağı Yöneticisi genellikle yük dengelemesini yaparak küme kaynaklarını yönetir (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric yönetir ve kümesindeki düğümlerin kapasite bir bütün olarak [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümleri ve kapasite birçok iş yükü, ancak bazen ek gereksinimleri Getir yoğun olarak kullanılır farklı hizmet doku uygulama örnekleri desenleri harika çalışır. Örneğin, isteyebilirsiniz:
@@ -42,7 +42,7 @@ Sol örnekte, uygulama tanımlı düğüm sayısı üst sınırı yok ve üç hi
 
 Bu davranışı denetler parametre en fazla düğüm adı verilir. Bu parametre uygulama oluşturma sırasında ayarlayın veya zaten çalışan bir uygulama örneği için güncelleştirilmiştir.
 
-PowerShell
+Powershell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
@@ -127,7 +127,7 @@ Sağdaki örnekte Application1 aşağıdaki ayarlarla oluşturuldu varsayalım:
 - Bir uygulama ile tanımlanmış ölçümü
   - 20 NodeReservationCapacity
 
-PowerShell
+Powershell
 
  ``` posh
  New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")

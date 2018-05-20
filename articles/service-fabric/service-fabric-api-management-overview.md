@@ -1,28 +1,28 @@
 ---
-title: "API Management genel bakış ile Azure Service Fabric | Microsoft Docs"
-description: "Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş var."
+title: API Management genel bakış ile Azure Service Fabric | Microsoft Docs
+description: Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş var.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric ile Azure API Management genel bakış
 
-Bulut uygulamalarını genellikle kullanıcılar, aygıtlar veya diğer uygulamalar için tek bir giriş noktası sağlamak için bir ön uç ağ geçidi gerekir. Service Fabric bir ağ geçidi herhangi bir durum bilgisiz hizmeti gibi olabilir bir [ASP.NET Core uygulama](service-fabric-reliable-services-communication-aspnetcore.md), veya başka bir hizmeti gibi trafik giriş için tasarlanmış [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/), veya [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric bir ağ geçidi herhangi bir durum bilgisiz hizmeti gibi olabilir bir [ASP.NET Core uygulama](service-fabric-reliable-services-communication-aspnetcore.md), veya başka bir hizmeti gibi trafik giriş için tasarlanmış [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/), veya [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
 Bu makale, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş var. API Management Service Fabric, arka uç Service Fabric hizmetlerinize yönlendirme kuralları zengin bir dizi API yayımlamanıza olanak tanıyan ile doğrudan tümleşir. 
 
@@ -80,8 +80,8 @@ Bu örnekte, aşağıdaki formül kullanılarak dinamik olarak oluşturulan bir 
 
  Her hizmet için benzersiz bir ad olsa da, adları eylemli veya yönetici giriş ve böylece APIM ilkeleri veya yönlendirme kuralları sabit kodlanmış olamaz Hizmetleri yanıt kullanıcı olarak oluşturulur çünkü bilinmez. Bir isteğin gönderileceği hizmetin adını arka uç ilke tanımı bunun yerine, üretildi `name` URL istek yolu sağlanan değer. Örneğin:
 
-  - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir`fabric:/app/users/foo`
-  - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir`fabric:/app/users/bar`
+  - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir `fabric:/app/users/foo`
+  - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir `fabric:/app/users/bar`
 
 ![Service Fabric ile Azure API Management topolojisine genel bakış][sf-apim-dynamic-stateless]
 
@@ -99,8 +99,8 @@ Bu örnekte, aşağıdaki formül kullanılarak dinamik olarak oluşturulan bir 
 
  Her hizmet için benzersiz bir ad olsa da, adları eylemli veya yönetici giriş ve böylece APIM ilkeleri veya yönlendirme kuralları sabit kodlanmış olamaz Hizmetleri yanıt kullanıcı olarak oluşturulur çünkü bilinmez. Bir isteğin gönderileceği hizmetin adını arka uç ilke tanımı bunun yerine, üretildi `name` değeri sağlanan URL istek yolu. Örneğin:
 
-  - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir`fabric:/app/users/foo`
-  - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir`fabric:/app/users/bar`
+  - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir `fabric:/app/users/foo`
+  - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir `fabric:/app/users/bar`
 
 Her hizmet örneği iki bölüm ve kapsayan bir anahtar aralığı Int64 bölüm düzeni kullanılarak da bölümlenmiş `Int64.MinValue` için `Int64.MaxValue`. Arka uç İlkesi dönüştürerek bu aralıktaki bir bölüm anahtarı hesaplar `id` herhangi bir algoritma bölüm anahtarı hesaplamak için burada kullanılabilse de URL istek yolunda bir 64-bit tamsayı olarak sağlanan değer. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme TOPdesk - güvenli ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile TOPdesk - güvenli arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme TOPdesk - güvenli ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile TOPdesk - güvenli arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 34296313753eb795bee5d93a8d8f1c8ae5efac9f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Öğretici: Azure Active Directory Tümleştirme TOPdesk - güvenli ile
 
@@ -30,9 +30,9 @@ TOPdesk - güvenli tümleştirme Azure AD ile aşağıdaki faydaları sağlar:
 - Otomatik olarak TOPdesk için - güvenli (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile TOPdesk - yapılandırmak için güvenli, aşağıdaki öğeleri gerekir:
 
@@ -108,11 +108,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![TOPdesk - güvenli etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.topdesk.net`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.topdesk.net`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.topdesk.net/tas/public/login/saml`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Yanıt URL'si öğreticinin ilerleyen bölümlerinde açıklanmıştır. Kişi [TOPdesk - güvenli istemci destek ekibi](http://www.topdesk.com/us/support) bu değerleri almak için. 
@@ -185,7 +185,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     e. İçinde **görünen adı** metin kutusuna, yapılandırmanız için bir ad yazın.
 
-    f. **Kaydet** düğmesine tıklayın.
+    f. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -221,7 +221,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-topdesk---secure-test-user"></a>TOPdesk - güvenli test kullanıcısı oluşturma
 
@@ -246,7 +246,7 @@ Söz konusu olduğunda TOPdesk - sağlama el ile bir görev güvenlidir.
    
     d. İçinde **oturum açma adı** , metin kutusuna **TOPdesk oturum açma** bölümünde, kullanıcı oturum açma adını yazın.
    
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
 
 > [!NOTE]
 > Tüm diğer TOPdesk - güvenli kullanıcı hesabı oluşturma araçlarını veya tarafından TOPdesk - AAD kullanıcı hesaplarını sağlamak için güvenli sağlanan API'leri kullanabilirsiniz.
@@ -281,7 +281,7 @@ Bu bölümde, Britta için TOPdesk - güvenli erişim vererek, Azure çoklu otur
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -291,7 +291,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

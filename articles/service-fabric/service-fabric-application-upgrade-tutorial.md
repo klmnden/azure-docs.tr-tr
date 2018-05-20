@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric uygulama yükseltme Öğreticisi | Microsoft Docs"
-description: "Bu makalede bir Service Fabric uygulaması dağıtma, kodunu değiştirme ve Visual Studio kullanarak bir yükseltmesinde deneyimi anlatılmaktadır."
+title: Service Fabric uygulama yükseltme Öğreticisi | Microsoft Docs
+description: Bu makalede bir Service Fabric uygulaması dağıtma, kodunu değiştirme ve Visual Studio kullanarak bir yükseltmesinde deneyimi anlatılmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio kullanarak Service Fabric uygulaması yükseltme Öğreticisi
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Seçme **Yayımla** açılan bir pencere ortaya getirir ve ayarlayabilirsiniz **
 
 ![Service Fabric uygulaması yayımlama][image2]
 
-Tıklayabilirsiniz artık **Yayımla** iletişim kutusunda. Kullanabileceğiniz [küme ve uygulamayı görüntülemek için Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Görsel nesneler uygulama yazarak gidebilirsiniz bir web hizmeti olan [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) tarayıcınızın adres çubuğundaki.  Ekranda Dolaşma, 10, kayan görsel nesneler görmeniz gerekir.
+Tıklayabilirsiniz artık **Yayımla** iletişim kutusunda. Kullanabileceğiniz [küme ve uygulamayı görüntülemek için Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Görsel nesneler uygulama yazarak gidebilirsiniz bir web hizmeti olan [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) tarayıcınızın adres çubuğundaki.  Ekranda Dolaşma, 10, kayan görsel nesneler görmeniz gerekir.
 
 **Not:** dağıtılması durumunda `Cloud.xml` profil (Azure Service Fabric) uygulama sonra kullanılabilir olmalıdır **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Sahip olduğunuzdan emin olun `8081/TCP` yük dengeleyici (Bul Service Fabric örneği ile aynı kaynak grubunda yük dengeleyici) yapılandırılmış.
 

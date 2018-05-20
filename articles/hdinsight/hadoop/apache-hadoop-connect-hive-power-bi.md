@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 1c31f7247cc091d233f754dc19b996ee8234a2e9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6f4efdebd6fc2833747b4cb72496447e0be03a58
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Microsoft Power BI'ın Azure Hdınsight'ta ODBC kullanarak Hive verileri görselleştirin
 
@@ -55,7 +55,7 @@ Hivesampletable Hive tablosu tüm Hdınsight kümeleri ile birlikte gelir.
     ![Hdınsight Power BI açık veri](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 3. Gelen **Veri Al** bölmesinde, tıklatın **diğer** soldan tıklatın **ODBC** sağdan ve ardından **Bağlan** alt.
 4. Gelen **gelen ODBC** veri kaynağı adı son bölümünde oluşturduğunuz ve ardından bölmesinde, **Tamam**.
-5. Gelen **Gezgini** bölmesini genişletin **ODBC -> HIVE varsayılan ->**seçin **hivesampletable**ve ardından **yük**.
+5. Gelen **Gezgini** bölmesini genişletin **ODBC -> HIVE varsayılan ->** seçin **hivesampletable**ve ardından **yük**.
 
 ## <a name="visualize-data"></a>Verileri görselleştirin
 

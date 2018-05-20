@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Concur yapılandırma | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Concur arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Concur yapılandırma | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Concur arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 743d974c3711d5359cf7664c6a8709f7eaaeee20
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c439e6ca784bf031cd4102a6cb15b5e210130810
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Öğretici: Concur otomatik kullanıcı sağlamayı yapılandırın
 
@@ -121,6 +121,6 @@ Aşağıdaki nedenlerle Bu eylem normal T & E Yönetim için kullandıkları pro
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](active-directory-saas-concur-tutorial.md)
 

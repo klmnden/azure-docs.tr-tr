@@ -9,16 +9,16 @@ editor: vturecek; mani-ramaswamy
 ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
-ms.author: masnider;
-ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: masnider
+ms.openlocfilehash: 474cc78a4ceb872742ca7eb10837eeb89dcc1bdb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
 Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan güvenilir hizmetler yönetme basitleştirir. Bu konu şunları içerir:
@@ -62,7 +62,7 @@ Service Fabric güvenilir Hizmetleri'nde önce yazılmış Hizmetleri'nden farkl
 ## <a name="service-lifecycle"></a>Hizmet yaşam döngüsü
 Durum bilgisi olan veya durum bilgisiz hizmetinizi olup olmadığını belirtir, hızlı bir şekilde kodunuzda takın ve çalışmaya başlama sağlayan basit bir yaşam döngüsü güvenilir hizmetler sağlar.  Hizmetinizi çalışır almak için uygulamanız gereken yalnızca bir veya iki yöntem vardır.
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This method is where the service defines the communication stack(s) that it wants to use. Aşağıdaki gibi iletişim yığın [Web API](service-fabric-reliable-services-communication-webapi.md), ne dinleme bitiş noktasını veya (nasıl istemcileri hizmete erişmek) hizmeti için uç noktalar tanımlar değil. Görüntülenen iletileri servis kodunu geri kalanı ile nasıl etkileşim tanımlar.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** -bu hizmeti kullanmak istediği iletişimi stack(s) burada tanımlar bir yöntemdir. Aşağıdaki gibi iletişim yığın [Web API](service-fabric-reliable-services-communication-webapi.md), ne dinleme bitiş noktasını veya (nasıl istemcileri hizmete erişmek) hizmeti için uç noktalar tanımlar değil. Görüntülenen iletileri servis kodunu geri kalanı ile nasıl etkileşim tanımlar.
 * **RunAsync** -hizmetiniz, iş mantığını çalıştığı ve burada bu hizmetin ömrü boyunca çalışması gerektiğini herhangi bir arka plan görevi devre dışı kazandırın bu yöntemidir. Sağlanan iptal belirteci zaman bu iş durması gerektiğini sinyaldir. Örneğin, hizmet iletileri güvenilir bir sıra dışında çekmek ve bunları işlemek gerekirse, bu iş yeri olur budur.
 
 İlk kez güvenilir hizmetler öğrendiğiniz okumaya devam edin! Güvenilir hizmetler yaşam döngüsü için ayrıntılı bilgileri arıyorsanız, üzerinden için head [bu makalede](service-fabric-reliable-services-lifecycle.md).

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Pluralsight | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Pluralsight arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Pluralsight | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Pluralsight arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: ec199b665f0f9ed34ac6763855cfa9d35b80a7e2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Öğretici: Azure Active Directory Tümleştirme Pluralsight ile
 
@@ -30,7 +30,7 @@ Pluralsight Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Pluralsight (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -108,11 +108,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Pluralsight etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<instancename>.pluralsight.com/sso/<companyname>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`www.pluralsight.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `www.pluralsight.com`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Pluralsight istemci destek ekibi](mailto:support@pluralsight.com) bu değerleri almak için. 
@@ -136,7 +136,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    | ---| --- |
    | Ad |User.givenName |
    | Soyadı |User.surname |
-   | E-posta |User.Mail |
+   | Email |User.Mail |
    
    a. Tıklatın **kullanıcı özniteliği eklemek** açmak için **kullanıcı özniteliği eklemek** iletişim.
     
@@ -223,7 +223,7 @@ Bu bölümde, Britta Pluralsight için erişim vererek, Azure çoklu oturum açm
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -233,7 +233,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

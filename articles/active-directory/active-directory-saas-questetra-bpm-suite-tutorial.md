@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Questetra BPM Suite ile | Microsoft Docs"
-description: "Çoklu oturum açma Questetra BPM Suite ile Azure Active Directory arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Questetra BPM Suite ile | Microsoft Docs'
+description: Çoklu oturum açma Questetra BPM Suite ile Azure Active Directory arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e2515d571aa1615f14b597ef82b1087df3827f82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 122473da723cb101e0f0f9226b34aa3294477657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Öğretici: Azure Active Directory Tümleştirme Questetra BPM Suite ile
 
@@ -30,9 +30,9 @@ Questetra BPM Suite Azure AD ile tümleştirme ile aşağıdaki avantajları sa�
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Questetra BPM paketine açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Questetra BPM paketiyle yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -101,15 +101,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![SAML tabanlı oturum açma](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
+    ![SAML Tabanlı Oturum Açma](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
 
 3. Üzerinde **Questetra BPM Suite etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Questetra BPM Suite etki alanı ve URL'ler bölümü](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.questetra.net/`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.questetra.net/`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Bu değerleri alabilirsiniz **SP bilgi** bölümünde, **Questetra BPM Suite** daha sonra öğreticide veya kişi içinde açıklanan şirket site [Questetra BPM Suite istemci desteği Takım](https://www.questetra.com/contact/). 
@@ -158,7 +158,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     f. Açık, **Base-64** Not Defteri'nde kodlanmış sertifika indirilen Azure portalından, içeriğini, panoya kopyalayın ve ardından yapıştırın **doğrulama sertifikası** metin kutusu. 
 
-    g. **Kaydet** düğmesine tıklayın.
+    g. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +193,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-questetra-bpm-suite-test-user"></a>Questetra BPM Suite test kullanıcısı oluşturma
 
@@ -207,9 +207,9 @@ Bu bölümün amacı Britta Simon Questetra BPM paketindeki adlı bir kullanıc�
    
     ![Test kullanıcısı oluşturma][300] 
    
-    a. İçinde **adı** metin kutusuna, türü **adı** kullanıcının  **britta.simon@contoso.com** .
+    a. İçinde **adı** metin kutusuna, türü **adı** kullanıcının **britta.simon@contoso.com**.
    
-    b. İçinde **e-posta** metin kutusuna, türü **e-posta** kullanıcının**britta.simon@contoso.com**
+    b. İçinde **e-posta** metin kutusuna, türü **e-posta** kullanıcının **britta.simon@contoso.com**
    
     c. İçinde **parola** metin kutusuna, bir **parola** kullanıcının.
     
@@ -245,7 +245,7 @@ Bu bölümde, Britta Questetra BPM paketine erişim vererek, Azure çoklu oturum
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -255,7 +255,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

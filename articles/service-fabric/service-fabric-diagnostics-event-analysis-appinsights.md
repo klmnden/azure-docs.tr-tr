@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
-ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.author: srrengar
+ms.openlocfilehash: 29adf362fdacdb793af071fa6d7bd59214536374
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay çözümleme ve görselleştirme Application Insights ile
 
@@ -32,7 +32,7 @@ Bu makalede amacı Öngörüler elde edin ve gelen App Insights içinde ilgili s
 
 ## <a name="monitoring-in-app-insights"></a>Uygulama öngörü izleme
 
-Application Insights Service Fabric kutusuyla dışında bir zengin sahiptir. Genel bakış sayfasında AI hizmetinizin yanıt süresi ve işlenen istek sayısı gibi hakkında önemli bilgileri sağlar. Üst 'Ara' düğmesini tıklatarak, uygulamanızda son isteklerin listesini görebilirsiniz. Ayrıca, başarısız istekler buraya bakın ve hangi hatalar meydana gelebilir tanılamak gerçekleştirebilir.
+Application Insights Service Fabric kullanırken deneyimini dışında bir zengin sahiptir. Genel bakış sayfasında AI hizmetinizin yanıt süresi ve işlenen istek sayısı gibi hakkında önemli bilgileri sağlar. Üst 'Ara' düğmesini tıklatarak, uygulamanızda son isteklerin listesini görebilirsiniz. Ayrıca, başarısız istekler buraya bakın ve hangi hatalar meydana gelebilir tanılamak gerçekleştirebilir.
 
 ![AI genel bakış](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

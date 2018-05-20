@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure IoT Central (önizleme) Belgeleri
+metadata:
+  title: Azure IoT Central (önizleme) Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+  description: Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.
+  services: iot-central
+  author: czeumault
+  manager: carolz
+  ms.prod: microsoft-iot-central
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: carolz
+  ms.openlocfilehash: 3e443a4ba2de76971ef856b67fdeb1f8836f68e1
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 05/16/2018
+abstract:
+  description: Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: <a href="quick-deploy-iot-central">Yeni bir Azure IoT Central uygulaması oluşturmayı</a> öğrenin.
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: Azure IoT Central uygulamanızı özelleştirmeyi ve kullanmayı öğrenin.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-define-device-type">Yeni bir cihaz türü belirleme</a>
+    - html: <a href="tutorial-configure-rules">Kuralları yapılandırma</a>
+    - html: <a href="tutorial-customize-operator">İşlecin görünümünü özelleştirme</a>
+    - html: <a href="tutorial-monitor-devices">Cihazlarınızı izleme</a>
+    - html: <a href="tutorial-add-device">Gerçek cihaz ekleme</a>

@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Yüksek performans tasarımı
-## <a name="overview"></a>Genel Bakış
+
 Bu makalede, Azure Premium Storage kullanarak yüksek performanslı uygulamalar oluşturmaya yönelik yönergeler sağlar. Performansı en iyi yöntemler, uygulamanız tarafından kullanılan teknolojiler uygulanabilir birlikte bu belgede sağlanan yönergeleri kullanabilirsiniz. Yönergeleri göstermek için bu belge boyunca bir örnek olarak Premium depolama üzerinde çalışan SQL Server kullandınız.
 
 Biz bu makalede depolama katmanı için performans senaryosu olsa da, uygulama katmanı iyileştirmek gerekir. Örneğin, bir SharePoint grubunda Azure Premium Storage barındırıyorsanız, veritabanı sunucusu iyileştirmek için bu makalede SQL Server örneklerinden kullanabilirsiniz. Ayrıca, SharePoint grubunun Web sunucusu ve çoğu performans almak için uygulama sunucusu iyileştirin.
@@ -90,7 +90,7 @@ PerfMon sayaçları işlemci, bellek ve her mantıksal disk ve fiziksel disk sun
 | **Aktarım hızı** |Okunan veya diske saniye başına yazılan veri miktarı. |Disk Okuma Bayt/sn <br> Disk Yazma Bayt/sn |kB_read/s <br> kB_wrtn/s |
 | **Gecikme süresi** |Bir disk g/ç isteği tamamlamak için toplam süre. |Ortalama Disk sn/Okuma <br> Ortalama disk sn/yazma |await <br> svctm |
 | **G/ç boyutu** |G/ç boyutu, depolama diskleri sorunları ister. |Ortalama Disk bayt/okuma <br> Ortalama Disk Bayt/yazma |avgrq sz |
-| **Sıra Derinliği** |Formu okuma veya depolama diske yazılan üzere bekleyen istekleri bekleyen g/ç sayısı. |Geçerli Disk Sırası Uzunluğu |avgqu sz |
+| **Sıra Derinliği** |Okunamıyor veya depolama diske yazılan üzere bekleyen istekleri bekleyen g/ç sayısı. |Geçerli Disk Sırası Uzunluğu |avgqu sz |
 | **Maks. Bellek** |Uygulamanın düzgün çalışması için gerekli bellek miktarı |% Kullanılan kaydedilmiş bayt |Vmstat kullanın |
 | **Maks. CPU** |Uygulamanın düzgün çalışması için gerekli CPU tutar |% İşlemci zamanı |% kul |
 
@@ -102,15 +102,18 @@ Premium depolama üzerinde çalışan bir uygulama performansını etkileyen ana
 Bu bölümde, uygulama performansını iyileştirmek ne kadar gerektiğini belirlemek için oluşturduğunuz uygulama gereksinimleri denetim listesine bakın. Üzerinde bağlı olarak, bu bölümdeki hangi Etkenler ince ayar gerekecektir belirlemek mümkün olacaktır. Uygulama performansı her faktörü etkilerini tanığı için uygulama Kurulum Kıyaslama araçları çalıştırın. Başvurmak [Benchmarking](#Benchmarking) Windows ve Linux VM'ler ortak Kıyaslama araçları çalıştırmak için adımları için bu makalenin sonunda bölüm.
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>IOPS, üretilen iş ve gecikme süresi bir bakışta en iyi duruma getirme
-Aşağıdaki tabloda tüm performans Etkenler ve IOPS, üretilen iş ve gecikme süresi en iyi duruma getirmek için gereken adımları özetler. Bu Özet aşağıdaki bölümler her anlatmaktadır çok daha kapsamlı bir faktördür.
+
+Aşağıdaki tabloda, performans Etkenler ve IOPS, üretilen iş ve gecikme süresi en iyi duruma getirmek için gereken adımları özetler. Bu Özet aşağıdaki bölümler her anlatmaktadır çok daha kapsamlı bir faktördür.
+
+Daha fazla VM boyutları ve IOPS, üretilen iş ve gecikme kullanılabilir VM her tür için bilgi için [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md) veya [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Aktarım hızı** | **Gecikme süresi** |
 | --- | --- | --- | --- |
 | **Örnek senaryo** |İkinci oranı başına çok yüksek işlem gerektiren Kurumsal OLTP uygulama. |Kurumsal veri uygulama işleme büyük miktarlarda veri ambarı. |Çevrimiçi oyun gibi kullanıcı isteklerine anlık yanıtlar gerektiren gerçek zamanlı uygulamaları. |
 | Performans Etkenler | &nbsp; | &nbsp; | &nbsp; |
 | **G/ç boyutu** |Küçük g/ç boyutu, daha yüksek IOPS ortaya çıkarır. |Daha büyük g/ç boyutu için daha yüksek verimlilik ortaya çıkarır. | &nbsp;|
-| **VM boyutu** |Uygulama gereksiniminden daha büyük IOPS sağlayan bir VM boyutu kullanın. VM boyutları ve bunların IOPS sınırlarını buraya bakın. |Uygulama gereksiniminden daha büyük verimi sınırına sahip bir VM boyutu kullanın. VM boyutları ve bunların işleme sınırları buraya bakın. |Teklifler sınırları uygulama gereksiniminden daha büyük ölçeklendirme bir VM boyutu kullanın. VM boyutları ve bunların sınırlarını buraya bakın. |
-| **Disk boyutu** |Uygulama gereksiniminden daha büyük IOPS sunan bir disk boyutu kullanın. Disk boyutları ve bunların IOPS sınırlarını buraya bakın. |Üretilen iş sınırı uygulama gereksiniminden daha büyük bir disk boyutu kullanın. Disk boyutları ve bunların işleme sınırları buraya bakın. |Teklifler sınırları uygulama gereksiniminden daha büyük ölçeklendirme bir disk boyutu kullanın. Disk boyutları ve bunların sınırlarını buraya bakın. |
+| **VM boyutu** |Uygulama gereksiniminden daha büyük IOPS sağlayan bir VM boyutu kullanın. |Uygulama gereksiniminden daha büyük verimi sınırına sahip bir VM boyutu kullanın. |Teklifler sınırları uygulama gereksiniminden daha büyük ölçeklendirme bir VM boyutu kullanın. |
+| **Disk boyutu** |Uygulama gereksiniminden daha büyük IOPS sunan bir disk boyutu kullanın. |Üretilen iş sınırı uygulama gereksiniminden daha büyük bir disk boyutu kullanın. |Teklifler sınırları uygulama gereksiniminden daha büyük ölçeklendirme bir disk boyutu kullanın. |
 | **VM ve Disk ölçek sınırları** |Seçilen VM boyutu IOPS sınırı bağlı premium depolama disk tarafından yönlendirilen toplam IOPS değerinden büyük olmalıdır. |Seçilen VM boyutu işleme sınırını bağlı premium depolama disk tarafından yönlendirilen toplam verimlilik daha büyük olmalıdır. |Seçilen VM boyutu ölçeği sınırları ekli premium depolama diskleri toplam ölçek sınırlarını büyük olmalıdır. |
 | **Disk önbelleği** |Premium depolama disklerde daha yüksek okuma IOPS almak için okuma yoğun işlemleri ile salt okunur önbellek etkinleştirin. | &nbsp; |Premium depolama disklerde gecikmeleri çok düşük okuma almaya hazır yoğun işlemlerin salt okunur önbellek etkinleştirin. |
 | **Disk şeritleme** |Birden çok disk kullanın ve bunları birlikte bir birleşik yüksek IOPS ve üretilen iş sınırı almak için şeritler. VM başına birleşik sınırı bağlı premium disklerin toplam sınırlardan daha yüksek olması gerektiğini unutmayın. | &nbsp; | &nbsp; |
@@ -243,7 +246,7 @@ Veri diskleri için önerilen disk önbellek ayarlarını şunlardır,
 | **Önbelleğe alma ayarını disk** | **Bu ayarı kullanmak ne zaman öneriye** |
 | --- | --- |
 | None |Hiçbiri salt yazılır ve ağır yazma diskleri için konak önbelleği yapılandırın. |
-| salt okunur |Konak önbelleği salt okunur ve okuma-yazma diskler için salt okunur olarak yapılandırın. |
+| SaltOkunur |Konak önbelleği salt okunur ve okuma-yazma diskler için salt okunur olarak yapılandırın. |
 | ReadWrite |Yalnızca uygulamanızı düzgün bir şekilde gerektiğinde kalıcı disklere önbelleğe alınmış veri yazma işliyorsa konak önbelleği ReadWrite yapılandırın. |
 
 *salt okunur*  

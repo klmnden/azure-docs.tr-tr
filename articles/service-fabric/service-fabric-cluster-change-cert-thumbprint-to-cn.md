@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
+editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi;aljo
-ms.openlocfilehash: a2b0d49e9fc81837db5c53bc9e52f3a0649b0b00
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: ryanwi
+ms.openlocfilehash: 39dc5800edd743cdc950c7a96f7633fb4c0a7c45
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Sertifika parmak izi değişiklik kümeden ortak adı
 İki sertifika küme sertifika geçişine veya yönetim zorlaştırır aynı parmak olabilir. Birden çok sertifika, ancak aynı ortak adı veya konu sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izlerini kullanarak dağıtılan bir küme geçişi sertifika yönetimini daha kolay hale getirir. Bu makalede, sertifikanın ortak adı yerine sertifika parmak izi kullanmak için çalışan bir Service Fabric kümesi güncelleştirme açıklar.

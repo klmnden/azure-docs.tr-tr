@@ -1,23 +1,23 @@
 ---
 title: Azure PasswordBox UI öğesi | Microsoft Docs
 description: Azure portalı için Microsoft.Common.PasswordBox kullanıcı Arabirimi öğesi açıklar.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 19c027819b83f10a7a3de714d690964507311da0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eab4bea750c28ac3b156363f5f63d8c7c8f4075a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI öğesi
 Bir parolayı onaylayın ve sağlamak için kullanılan bir denetimi.

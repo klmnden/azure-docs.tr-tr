@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric Hizmetleri bölümleme | Microsoft Docs"
-description: "Service Fabric durum bilgisi olan hizmetler bölüm açıklar. Bölümler, veri ve işlem birlikte Genişletilebilir şekilde yerel makinede veri depolama sağlar."
+title: Service Fabric Hizmetleri bölümleme | Microsoft Docs
+description: Service Fabric durum bilgisi olan hizmetler bölüm açıklar. Bölümler, veri ve işlem birlikte Genişletilebilir şekilde yerel makinede veri depolama sağlar.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Bölüm Service Fabric güvenilir hizmetler
 Bu makalede Azure Service Fabric güvenilir hizmetler bölümlendirme, temel kavramlar tanıtılmaktadır. Makalede kullanılan kaynak kodunu da kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -238,13 +238,13 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     }
     ```
    
-    `ProcessInternalRequest`bölüm ve çağrıları çağırmak için kullanılan sorgu dizesi parametresi değerleri okur `AddUserAsync` lastname güvenilir sözlüğe eklemek için `dictionary`.
+    `ProcessInternalRequest` bölüm ve çağrıları çağırmak için kullanılan sorgu dizesi parametresi değerleri okur `AddUserAsync` lastname güvenilir sözlüğe eklemek için `dictionary`.
 10. Durum bilgisi olmayan bir hizmeti belirli bir bölüm nasıl çağırabilirsiniz görmek için projeye ekleyelim.
     
     Bu hizmet, lastname bir sorgu dizesi parametresi olarak kabul eder, bölüm anahtarı belirler ve işleme Alphabet.Processing hizmetine gönderir bir basit bir web arabirimi olarak görev yapar.
 11. İçinde **bir hizmet oluşturma** iletişim kutusunda, seçin **Stateless** hizmet ve aşağıda gösterildiği gibi "Alphabet.Web" çağırın.
     
-    ![Durum bilgisiz hizmet ekran görüntüsü](./media/service-fabric-concepts-partitioning/createnewstateless.png).
+    ![Durum bilgisiz hizmet ekran görüntüsü](./media/service-fabric-concepts-partitioning/createnewstateless.png):
 12. ServiceManifest.xml aşağıda gösterildiği gibi bir bağlantı noktası açmak amacıyla Alphabet.WebApi hizmet uç noktası bilgileri güncelleştirin.
     
     ```xml
@@ -321,7 +321,7 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     ```
     
     Bu örnekte, 26 bölümler bölüm başına tek bölüm anahtarına sahip kullanıyoruz unutmayın.
-    Ardından, biz hizmeti bölüm elde `partition` kullanarak bu anahtar için `ResolveAsync` yöntemi `servicePartitionResolver` nesnesi. `servicePartitionResolver`olarak tanımlanır
+    Ardından, biz hizmeti bölüm elde `partition` kullanarak bu anahtar için `ResolveAsync` yöntemi `servicePartitionResolver` nesnesi. `servicePartitionResolver` olarak tanımlanır
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();

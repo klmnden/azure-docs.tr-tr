@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 406eb2c1974958eef5e83915e6b21e385cf7d2c7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Kılavuz abonelik şeması
 
@@ -41,17 +41,17 @@ Bu makalede özellikleri ve istek gövdesi için şema anlatılmaktadır.
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| endpointType | string | (Web kancası/HTTP, olay hub'ı veya sıra) aboneliği için uç nokta türü. | 
-| endpointUrl | string | Bu olay aboneliği olayları için hedef URL. | 
+| endpointType | dize | (Web kancası/HTTP, olay hub'ı veya sıra) aboneliği için uç nokta türü. | 
+| endpointUrl | dize | Bu olay aboneliği olayları için hedef URL. | 
 
 ### <a name="filter-object"></a>filtre nesnesi
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Olay türü olay iletisini bu olay türü adları birine tam bir eşleşme eşleşmedir. Olay adı için olay kaynağı kayıtlı olay türü adları eşleşmediğinde bir hata oluşturur. Varsayılan, tüm olay türleri ile eşleşir. |
-| subjectBeginsWith | string | Bir önek eşleştirme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. | 
-| subjectEndsWith | string | Sonek eşleşme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. |
-| isSubjectCaseSensitive | string | Denetimler için filtreleri ile eşleşen büyük küçük harfe duyarlı. |
+| subjectBeginsWith | dize | Bir önek eşleştirme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. | 
+| subjectEndsWith | dize | Sonek eşleşme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. |
+| isSubjectCaseSensitive | dize | Denetimler için filtreleri ile eşleşen büyük küçük harfe duyarlı. |
 
 
 ## <a name="example-subscription-schema"></a>Abonelik şema örneği

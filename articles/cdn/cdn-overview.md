@@ -4,7 +4,7 @@ description: Azure Content Delivery Network’ün (CDN) ne olduğunu ve yüksek 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/20/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f760c1b47da7273827ce2a980cdc9b4db943904
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure’da içerik teslim ağı nedir?
 İçerik teslim ağı (CDN), kullanıcılara etkili bir şekilde web içeriği teslim edebilen dağıtılmış bir sunucu ağıdır. CDN’ler gecikme süresini en aza indirmek için, önbelleğe alınmış içerikleri son kullanıcılara yakın olan bulunma noktası (POP) konumlarındaki uç sunucularda depolar. 
@@ -70,7 +70,7 @@ Azure CDN aşağıdaki temel özellikleri sunar:
 - [Dosya sıkıştırma](cdn-improve-performance.md)
 - [Coğrafi filtreleme](cdn-restrict-access-by-country.md)
 
-Her bir Azure CDN ürününün desteklediği özelliklerin tam listesi için bkz. [Azure CDN ürün özellikleri](cdn-features.md).
+Her bir Azure CDN ürününün desteklediği özelliklerin tam listesi için bkz. [Azure CDN ürün özelliklerinin karşılaştırması](cdn-features.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - CDN ile çalışmaya başlamak için bkz. [Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).

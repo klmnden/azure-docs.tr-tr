@@ -1,38 +1,40 @@
 ---
-title: "Oturum açma bir .NET MVC web API kullanarak Azure AD v2.0 uç ekleme | Microsoft Docs"
-description: "Hem kişisel Microsoft Account belirteçleri kabul eder .NET MVC Web API'si oluşturma ve iş veya Okul hesapları."
+title: Oturum açma bir .NET MVC web API kullanarak Azure AD v2.0 uç ekleme | Microsoft Docs
+description: Hem kişisel Microsoft Account belirteçleri kabul eder .NET MVC Web API'si oluşturma ve iş veya Okul hesapları.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa73e918cbd49fee850e402859708ba0c4185a19
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Bir MVC web API güvenliğini sağlama
 Azure Active Directory ile v2.0 uç noktası, bir Web API kullanarak koruyabilirsiniz [OAuth 2.0](active-directory-v2-protocols.md) erişim belirteçleri, kullanıcıların hem kişisel Microsoft hesabı ile etkinleştirme ve iş veya Okul güvenli erişim sağlamak, Web API hesaplar.
 
 > [!NOTE]
-> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir.  V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 >
 >
 
-ASP.NET web API'da, bunu .NET Framework 4. 5 ' dahil Microsoft'un OWIN ara yazılımı kullanarak gerçekleştirebilirsiniz.  OWIN oluşturmak ve bir kullanıcının yapılacaklar listesinden görevleri okumak istemcilerin bir "Yapılacaklar listesi" MVC Web API oluşturmak için buraya kullanacağız.  Web API gelen istekleri geçerli erişim belirteci içeren ve doğrulama korumalı bir rotaya geçmeyin istekleri reddedecek doğrular.  Bu örnek, Visual Studio 2015 kullanılarak oluşturuldu.
+ASP.NET web API'da, bunu .NET Framework 4. 5 ' dahil Microsoft'un OWIN ara yazılımı kullanarak gerçekleştirebilirsiniz. OWIN oluşturmak ve bir kullanıcının yapılacaklar listesinden görevleri okumak istemcilerin bir "Yapılacaklar listesi" MVC Web API oluşturmak için buraya kullanacağız. Web API gelen istekleri geçerli erişim belirteci içeren ve doğrulama korumalı bir rotaya geçmeyin istekleri reddedecek doğrular. Bu örnek, Visual Studio 2015 kullanılarak oluşturuldu.
 
 ## <a name="download"></a>İndirme
-Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet) korunur.  İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
+Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet) korunur. İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -45,11 +47,11 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
 ## <a name="register-an-app"></a>Bir uygulamayı kaydetme
-En yeni bir uygulama oluşturma [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya adımları izleyin: [ayrıntılı adımları](active-directory-v2-app-registration.md).  Emin olun:
+En yeni bir uygulama oluşturma [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya adımları izleyin: [ayrıntılı adımları](active-directory-v2-app-registration.md). Emin olun:
 
 * Aşağı kopyalama **uygulama kimliği** uygulamanıza atanan, bunu en kısa sürede ihtiyacınız vardır.
 
-Bu visual studio çözümü "basit bir WPF uygulaması olan bir TodoListClient", de içerir.  TodoListClient nasıl bir kullanıcı oturum açtığında ve bir istemci isteklerini Web API'nizi nasıl verebilir göstermek için kullanılır.  Bu durumda, TodoListClient ve TodoListService aynı uygulama tarafından temsil edilir.  TodoListClient yapılandırmak için de yapmalısınız:
+Bu visual studio çözümü "basit bir WPF uygulaması olan bir TodoListClient", de içerir. TodoListClient nasıl bir kullanıcı oturum açtığında ve bir istemci isteklerini Web API'nizi nasıl verebilir göstermek için kullanılır. Bu durumda, TodoListClient ve TodoListService aynı uygulama tarafından temsil edilir. TodoListClient yapılandırmak için de yapmalısınız:
 
 * Ekleme **mobil** uygulamanız için platform.
 
@@ -66,8 +68,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>OAuth kimlik doğrulamasını yapılandırma
-* Adlı TodoListService projesine OWIN başlangıç sınıfı ekleyin `Startup.cs`.  Projeye sağ tıklatma--> **Ekle** --> **yeni öğe** "OWIN" arayın.  OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(…)` yöntemini çağırır.
-* Sınıf bildirimi değiştirme `public partial class Startup` -zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık.  İçinde `Configuration(…)` yöntemi, bir web uygulamanız için kimlik doğrulaması ayarlamak için ConfgureAuth(...) çağrısı yapın.
+* Adlı TodoListService projesine OWIN başlangıç sınıfı ekleyin `Startup.cs`. Projeye sağ tıklatma--> **Ekle** --> **yeni öğe** "OWIN" arayın. OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(…)` yöntemini çağırır.
+* Sınıf bildirimi değiştirme `public partial class Startup` -zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık. İçinde `Configuration(…)` yöntemi, bir web uygulamanız için kimlik doğrulaması ayarlamak için ConfgureAuth(...) çağrısı yapın.
 
 ```csharp
 public partial class Startup
@@ -95,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app)
 
                 // In a real applicaiton, you might use issuer validation to
                 // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // signed up for the app. Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
@@ -105,7 +107,7 @@ public void ConfigureAuth(IAppBuilder app)
         // that will be recieved, which are JWTs for the v2.0 endpoint.
 
         // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
+        // metadata endpoint which is not supported by the v2.0 endpoint. Instead, this
         // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
         // metadata document.
 
@@ -116,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri OAuth 2.0 taşıyıcı kimlik doğrulaması ile korumak için öznitelikler.  İşaretleme `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı.  Bu sayfayı erişmeden önce oturum açmak için kullanıcının zorlar.
+* Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri OAuth 2.0 taşıyıcı kimlik doğrulaması ile korumak için öznitelikler. İşaretleme `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı. Bu sayfayı erişmeden önce oturum açmak için kullanıcının zorlar.
 
 ```csharp
 [Authorize]
@@ -124,13 +126,13 @@ public class TodoListController : ApiController
 {
 ```
 
-* Ne zaman bir yetkili çağıran başarıyla çağırır birini `TodoListController` API'leri, eylem çağıran hakkında bilgilere erişimi gerekebilir.  OWIN taşıyıcı belirteci içinde talep erişim sağlar `ClaimsPrincipal` nesnesi.  
+* Ne zaman bir yetkili çağıran başarıyla çağırır birini `TodoListController` API'leri, eylem çağıran hakkında bilgilere erişimi gerekebilir. OWIN taşıyıcı belirteci içinde talep erişim sağlar `ClaimsPrincipal` nesnesi. 
 
 ```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
+    // user making the call. In this case, we use the 'sub' or
     // NameIdentifier claim to serve as a key for the tasks in the data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
@@ -150,14 +152,14 @@ Eylem Yapılacaklar listesi hizmetinde görebilmek v2.0 uç noktasından belirte
 * TodoListClient projeyi açın `App.config` ve yapılandırma değerlerinizi girin `<appSettings>` bölümü.
   * `ida:ClientId` Uygulama portaldan kopyaladığınız kimliği.
 
-Son olarak, temiz, yapı ve her proje çalıştırın!  Artık hem kişisel Microsoft hesaplarını gelen belirteçleri ve iş veya Okul hesapları kabul eden bir .NET MVC Web API vardır.  Oturum TodoListClient ve web çağrı görevler kullanıcının yapılacaklar listesine eklemek için API.
+Son olarak, temiz, yapı ve her proje çalıştırın!  Artık hem kişisel Microsoft hesaplarını gelen belirteçleri ve iş veya Okul hesapları kabul eden bir .NET MVC Web API vardır. Oturum TodoListClient ve web çağrı görevler kullanıcının yapılacaklar listesine eklemek için API.
 
 (Yapılandırma değerleriniz olmadan) tamamlanan örnek, başvuru için [burada bir .zip sağlanan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), veya Github'dan kopyalayabilirsiniz:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık ek konu başlıklarına geçebilirsiniz.  Denemek isteyebilirsiniz:
+Artık ek konu başlıklarına geçebilirsiniz. Denemek isteyebilirsiniz:
 
 [Bir Web uygulamasından Web API'si çağırma >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 

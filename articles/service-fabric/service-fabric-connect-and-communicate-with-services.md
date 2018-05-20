@@ -1,6 +1,6 @@
 ---
-title: "Bağlanma ve Azure Service Fabric hizmetleriyle iletişim | Microsoft Docs"
-description: "Çözmek için bağlanmak ve Service Fabric hizmetleriyle iletişim öğrenin."
+title: Bağlanma ve Azure Service Fabric hizmetleriyle iletişim | Microsoft Docs
+description: Çözmek için bağlanmak ve Service Fabric hizmetleriyle iletişim öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,23 +9,23 @@ editor: msfussell
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Bağlanma ve Service Fabric Hizmetleri ile iletişim
 Service Fabric içinde bir hizmet birden çok VM genellikle dağıtılmış bir Service Fabric kümesindeki herhangi bir yerde çalışır. Bu tek bir yerden diğerine hizmet sahibi tarafından ya da otomatik olarak Service Fabric tarafından taşınabilir. Hizmetleri statik olarak belirli bir makine veya adresine bağlı olmak zorunda değildir.
 
 Service Fabric uygulaması genellikle burada her hizmet özelleştirilmiş bir görev gerçekleştiren birçok farklı hizmetlerden oluşur. Bu hizmetler, diğer bir web uygulaması farklı kısımlarını işleme gibi bir tam işlevi oluşturmak için iletişim kurabilir. Bağlanmak ve Hizmetleri ile iletişim kuran istemci uygulamaları vardır. Bu belge ile ve hizmetlerinizi Service Fabric içinde arasında iletişim kurma açıklanır.
 
-Bu Microsoft Virtual Academy video Ayrıca hizmet iletişimi ele alınmıştır:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
+Bu Microsoft Virtual Academy video Ayrıca hizmet iletişimi ele alınmıştır: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
 <img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -174,7 +174,7 @@ Azure yük dengeleyici ve araştırma yalnızca hakkında bilmeniz olduğunu unu
 ## <a name="reliable-services-built-in-communication-api-options"></a>Güvenilir hizmetler: Yerleşik iletişim API seçenekleri
 Güvenilir hizmetler framework birkaç önceden derlenmiş iletişim seçenekleri ile birlikte gelir. Programlama modeli, iletişim framework ve hizmetlerinizi yazılmış programlama dili seçimi hakkında bir en iyi işinize karar bağlıdır.
 
-* **Belirli bir protokol:** iletişim framework'ün belirli bir seçim yok ancak öğe ayarladığınızda hızla çalıştırabileceğinizi istediğiniz durumunda sizin için ideal bir seçenektir [hizmet remoting](service-fabric-reliable-services-communication-remoting.md), kesin türü belirtilmiş uzaktan yordam sağlayan Reliable Services ve Reliable Actors çağırır. Hizmet iletişimi ile çalışmaya başlamak için kolay ve hızlı yolu budur. Hizmet remoting service adresleri, bağlantı, yeniden deneyin ve hata işleme çözünürlüğü işler. Bu, hem C# ve Java uygulamaları için kullanılabilir.
+* **Belirli bir protokol:** iletişim framework'ün belirli bir seçim yok ancak öğe ayarladığınızda hızla çalıştırabileceğinizi istediğiniz durumunda sizin için ideal bir seçenektir [hizmet remoting](service-fabric-reliable-services-communication-remoting.md), böylece Reliable Services ve Reliable Actors için kesin tür belirtilmiş uzak yordam çağrıları. Hizmet iletişimi ile çalışmaya başlamak için kolay ve hızlı yolu budur. Hizmet remoting service adresleri, bağlantı, yeniden deneyin ve hata işleme çözünürlüğü işler. Bu, hem C# ve Java uygulamaları için kullanılabilir.
 * **HTTP**: dilden bağımsız iletişim için HTTP bir endüstri standardı seçim araçları ve HTTP sunucularıyla birçok farklı dillerde, Service Fabric tarafından desteklenen tüm kullanılabilir sağlar. Hizmetleri dahil olmak üzere, kullanılabilir tüm HTTP yığınını kullanma [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md) C# uygulamaları için. C# ile yazılmış istemcileri yararlanabilir `ICommunicationClient` ve `ServicePartitionClient` , ancak sınıfları Java için kullan `CommunicationClient` ve `FabricServicePartitionClient` sınıfları, [hizmet çözümleme, HTTP bağlantılarını ve yeniden deneme döngüsü](service-fabric-reliable-services-communication.md).
 * **WCF**: WCF iletişimi çerçeve olarak kullanan var olan kodu sahip sonra kullanabileceğiniz `WcfCommunicationListener` sunucu tarafı için ve `WcfCommunicationClient` ve `ServicePartitionClient` istemci sınıfları. Bu ancak yalnızca Windows tabanlı kümelerde C# uygulamaları için kullanılabilir. Bu makalede daha fazla ayrıntı için bkz: [WCF tabanlı bir uygulama iletişim yığınının](service-fabric-reliable-services-communication-wcf.md).
 

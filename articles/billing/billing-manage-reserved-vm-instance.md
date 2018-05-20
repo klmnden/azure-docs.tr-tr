@@ -1,5 +1,5 @@
 ---
-title: Azure ayrılmış sanal makine örnekleri yönetme | Microsoft Docs
+title: Azure ayrılmış örnekler - yönetmek Azure faturalama | Microsoft Docs
 description: Abonelik kapsamını değiştirmek ve Azure ayrılmış VM örnekleri için erişim yönetmek nasıl öğrenin.
 services: billing
 documentationcenter: ''
@@ -11,49 +11,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 05/09/2018
 ms.author: vikdesai
-ms.openlocfilehash: 003abb3ddf632261dc372549209ba664cb8f8398
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fc473906be9c572e6d6549c85f9faa8fe7566b86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="manage-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örneklerini yönetme
+# <a name="manage-reserved-instances"></a>Ayrılmış örnekler yönetme
 
-Bir Azure ayrılmış VM örnek satın sonra farklı bir abonelik satın alma sırasında belirtilenden ayırma uygulamak isteyebilirsiniz. Alternatif olarak, eşleşen sanal makinelerinizin içinde birden çok abonelik çalıştırıyorsanız, paylaşılan ayırma kapsamını değiştirmek isteyebilirsiniz. Ayırma indirim en üst düzeye çıkarmak için satın aldığınız örnek sayısı öznitelikleri ve sahip olduğunuz sanal makine sayısı eşleştiğinden emin olun çalışıyor. Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için bkz: [Azure sanal makineler için önceden ödeme tarafından paradan tasarruf](https://go.microsoft.com/fwlink/?linkid=862121).
+Bir Azure ayrılmış VM örnek satın sonra farklı bir abonelik satın alma sırasında belirtilenden ayrılmış örnek uygulamak isteyebilirsiniz. Alternatif olarak, eşleşen sanal makinelerinizin içinde birden çok abonelik çalıştırıyorsanız, paylaşılan ayrılmış örnek kapsamını değiştirmek isteyebilirsiniz. Ayrılmış örnek indirim en üst düzeye çıkarmak için satın aldığınız örnek sayısı öznitelikleri ve sahip olduğunuz sanal makine sayısı eşleştiğinden emin olun çalışıyor. Azure ayrılmış örnekler hakkında daha fazla bilgi için bkz: [Azure sanal makineler için önceden ödeme tarafından paradan tasarruf](https://go.microsoft.com/fwlink/?linkid=862121).
 
-## <a name="change-the-scope-for-a-reservation"></a>Bir ayırma için kapsamı değiştirin
- Ayırma indirim, ayırma eşleşen ve ayırma kapsamı içinde çalıştırılan sanal makineler için geçerlidir. Ayırma kapsamı tek bir abonelik veya tüm abonelikler, faturalama bağlamda olabilir. Tek bir abonelik için kapsam ayarlarsanız, seçilen abonelikte çalışan sanal makinelere ayırma eşleştirilir. Fatura bağlamında tüm abonelikler çalışan sanal makineleri ayırmaya paylaşılan, Azure eşleşmeler kapsamı ayarlarsanız. Fatura içerik ayırma satın almak için kullanılan abonelikte bağlıdır. Daha fazla bilgi için bkz: [ayrılmış VM örnekleri olan VM'ler için ön ödeme](https://go.microsoft.com/fwlink/?linkid=861721).
+## <a name="change-the-scope-for-a-reserved-instance"></a>Ayrılmış örnek için kapsamı değiştirin
+ Ayrılmış örnek eşleşen ve ayrılmış örnek kapsamı içinde çalıştırılan sanal makineler için ayrılmış örnek indirim uygulanır. Ayrılmış örnek kapsamı tek bir abonelik veya tüm abonelikler, faturalama bağlamda olabilir. Tek bir abonelik için kapsam ayarlarsanız, ayrılmış örnek seçilen abonelikte çalışan sanal makinelere eşleştirilir. Fatura bağlamında tüm abonelikler çalışan sanal makineleri için ayrılmış örnek için paylaşılan, Azure eşleşmeleri kapsamı ayarlarsanız. Ayrılmış örnek satın almak için kullanılan abonelikte fatura bağlam bağlıdır. Daha fazla bilgi için bkz: [ayrılmış örnekler olan VM'ler için ön ödeme](https://go.microsoft.com/fwlink/?linkid=861721).
 
-Ayırma kapsamı güncelleştirmek için: 
+Ayrılmış örnek kapsamını güncelleştirmek için: 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
-3. Ayırma seçin.
+3. Ayrılmış örnek seçin.
 4. Seçin **ayarları** > **yapılandırma**.
-5. Kapsamı değiştirin. Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğunuz abonelikleri seçebilirsiniz. Yalnızca abonelikleri ayırma ile aynı fatura bağlamında seçilebilir. Fatura içerik ayırma satın zaman seçtiğiniz abonelik tarafından belirlenir. Kapsam yalnızca teklifinden Kullandıkça Öde teklifine MS-AZR - 0003 P abonelikleri ve kurumsal teklif MS-AZR - 0017 P abonelikler için geçerlidir. Kurumsal Anlaşma için geliştirme ve test abonelikleri ayırma indirim almak uygun değildir.
+5. Kapsamı değiştirin. Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğunuz abonelikleri seçebilirsiniz. Yalnızca ayrılmış örnek olarak aynı fatura bağlamında abonelikleri seçilebilir. Fatura bağlam ayrılmış örnek satın zaman seçtiğiniz abonelik tarafından belirlenir. Kapsam yalnızca teklifinden Kullandıkça Öde teklifine MS-AZR - 0003 P abonelikleri ve kurumsal teklif MS-AZR - 0017 P abonelikler için geçerlidir. Kurumsal Anlaşma için geliştirme ve test abonelikleri ayrılmış örnek indirim almak uygun değildir.
 
-## <a name="split-a-single-reservation-into-two-reservations"></a>Tek bir ayırma iki ayırmaları içine bölme
- Birden fazla örneği satın sonra bir ayırma içindeki örnekleri farklı aboneliklere atamak isteyebilirsiniz. Varsayılan olarak, tüm örnekler (satın alma sırasında belirtilen miktarı) sahip bir kapsam - ya da tek bir abonelik veya paylaşılan. Örneğin, 10 standart D2 VM'ler satın alınan ve belirtilen abonelik A. olmasını kapsamı Şimdi kapsam 7 ayrılmış VM örnekleri için bir abonelik için değiştirmek isteyebilirsiniz ve kalan 3 aboneliğine B. bölme bir ayırma ayrıntılı kapsam yönetimi için örnek dağıtmanızı sağlar. Paylaşılan kapsam seçerek aboneliklere ayırma basitleştirebilirsiniz. Ancak maliyet Yönetimi veya bütçe amacıyla belirli aboneliklere miktarları tahsis edebilirsiniz.
+## <a name="split-a-single-reserved-instance-into-two-reserved-instances"></a>Tek bir ayrılmış örnek iki ayrılmış örnekler bölme
+ Birden fazla örneği satın sonra farklı aboneliklere ayrılmış örnek içindeki örnekleri atamak isteyebilirsiniz. Varsayılan olarak, tüm örnekler (satın alma sırasında belirtilen miktarı) sahip bir kapsam - ya da tek bir abonelik veya paylaşılan. Örneğin, 10 standart D2 VM'ler satın alınan ve belirtilen abonelik A. olmasını kapsamı Şimdi bir abonelik için yedi ayrılmış örnekler kapsamını değiştirmek isteyebilirsiniz ve abonelik ayrılmış örnek için örnek dağıtmak ayrıntılı sağlar B. bölme için kalan 3 yönetim kapsamı. Paylaşılan kapsam seçerek aboneliklere ayırma basitleştirebilirsiniz. Ancak maliyet Yönetimi veya bütçe amacıyla belirli aboneliklere miktarları tahsis edebilirsiniz.
 
- PowerShell'i, CLI, ancak iki ayırmaları içine bir ayırma bölebilirsiniz veya API'si aracılığıyla.
+ Ayrılmış örnek iki ayrılmış örnekler ancak PowerShell'i, CLI, bölebilirsiniz veya API'si aracılığıyla.
 
-### <a name="split-a-reservation-by-using-powershell"></a>PowerShell kullanarak bir ayırma bölme
-1. Aşağıdaki komutu çalıştırarak ayırma düzeni kimliği alın:
+### <a name="split-a-reserved-instance-by-using-powershell"></a>Ayrılmış örnek PowerShell kullanarak Böl
+1. Ayrılmış örnek düzeni kimliği, aşağıdaki komutu çalıştırarak alın:
 
     ```powershell
-    # Get the reservation orders you have access to
+    # Get the Reserved Instance orders you have access to
     Get-AzureRmReservationOrder
     ```
-2. Bir ayırması ayrıntıları:
+2. Ayrılmış örnek ayrıntıları:
 
     ```powershell
     Get-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
     ```
-3. İki içine ayırma bölme ve örnekleri dağıtabilirsiniz:
+3. Ayrılmış örnek ikiye böl ve örnekleri dağıtabilirsiniz:
 
     ```powershell
-    # Split the reservation. The sum of the Reserved VM instances, the quantity, must equal the total number of instances in the reservation that you're splitting.
+    # Split the Reserved Instance. The sum of the Reserved Instances, the quantity, must equal the total number of instances in the Reserved Instance that you're splitting.
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 1. Aşağıdaki komutu çalıştırarak kapsamı güncelleştirebilirsiniz:
@@ -62,26 +62,26 @@ Ayırma kapsamı güncelleştirmek için:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ekleme veya ayırma yöneten kullanıcılar değiştirme
-Ayırma rollerinde kişiler ekleyerek bir ayırma yönetim hizmeti temsilci seçebilirsiniz. Varsayılan olarak, ayırma satın kişi ve Hesap Yöneticisi üzerinde ayırma sahip rolünü sahip. 
+## <a name="add-or-change-users-who-can-manage-a-reserved-instance"></a>Ekleme veya ayrılmış bir örnek yöneten kullanıcılar değiştirme
+Ayrılmış örnek rollerinde kişiler ekleyerek ayrılmış örnek Yönetimi devredebilirsiniz. Varsayılan olarak, ayrılmış örnek ve Hesap Yöneticisi satın kişinin sahip rolünü ayrılmış örneğinde sahiptir. 
 
-Erişim ayırmaları bağımsız olarak ayırma indirim almak aboneliklerden yönetebilirsiniz. Birisi bir ayırma yönetme izni verdiğinizde, bunları aboneliğinizi yönetmek için hakları verin değil. Ve birisi ayırma 's kapsamdaki bir aboneliği yönetme izni verirseniz, bunları ayırma yönetme hakkı verin değil.
+Erişim için ayrılmış örnekler bağımsız olarak ayrılmış örnek indirim almak aboneliklerden yönetebilirsiniz. Birisi ayrılmış örnek yönetme izni verdiğinizde, bunları aboneliğinizi yönetmek için hakları verin değil. Ve birisi ayrılmış örneğinin kapsamdaki bir aboneliği yönetme izni verirseniz, bunları ayrılmış örnek yönetme hakkı verin değil.
  
-Erişim yönetimi bir ayırma için temsilci atamak için: 
+Erişim Yönetimi ayrılmış örnek için temsilci atamak için: 
 1.  [Azure Portal](https://portal.azure.com)’da oturum açın.
-2.  Seçin **tüm hizmetleri** > **ayırma** erişiminiz listesi ayırmaları için.
-3.  Diğer kullanıcılara erişim vermek istediğiniz ayırma seçin.
+2.  Seçin **tüm hizmetleri** > **ayırma** listesine sahip ayrılmış örneklere erişmek için.
+3.  Diğer kullanıcılara erişim vermek istediğiniz ayrılmış örnek seçin.
 4.  Seçin **erişim denetimi (IAM)** menüde.
 5.  Seçin **Ekle** > **rol** > **sahibi** (veya sınırlı erişim vermek istiyorsanız, farklı bir rol). 
 6. Sahibi olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. 
 7. Kullanıcıyı seçin ve ardından **kaydetmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+Azure ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
-- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
+- [Azure ayrılmış örnekler sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
+- [Ayrılmış örnekler ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
 - [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)

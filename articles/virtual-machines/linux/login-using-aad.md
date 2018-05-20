@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 1d0ae04bee6d50456949529449b658907d338f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulaması (Önizleme) kullanarak Azure Linux sanal makinede oturum açın
 
@@ -34,6 +34,7 @@ Linux VM'ler için Azure'da, oturum açmak için Azure AD kimlik doğrulaması k
   - Yerel yönetici hesapları, bağımlılık azaltarak kimlik kaybı/hırsızlığına hakkında zayıf kimlik bilgilerini vb. yapılandırma kullanıcılar endişelenmeniz gerekmez.
   - Parola karmaşıklığını ve parola Ömrü ilkeleri, Azure AD dizini için yapılandırılmış güvenli Linux VM'ler de yardımcı olur.
   - Azure sanal makineler için daha güvenli oturum açma için çok faktörlü kimlik doğrulaması yapılandırabilirsiniz.
+  - Azure Active Directory ile Linux VM'ler için oturum açma özelliği kullanan müşteriler için de çalışır [Federasyon Hizmetleri](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Sorunsuz işbirliği:** With Role-Based erişim denetimi (RBAC) belirtebilirsiniz kimin yönetici ayrıcalıklarıyla veya normal bir kullanıcı olarak belirli bir VM'de oturum açabilirsiniz. Kullanıcıların katılma veya ekibiniz bırakın, uygun şekilde erişim vermek sanal makine için RBAC İlkesi güncelleştirebilirsiniz. Bu deneyim gereksiz SSH ortak anahtarları kaldırmak için sanal makineleri Temizle gerek kalmadan daha çok daha kolaydır. Çalışanlar, kuruluşunuzun bırakın ve kullanıcı hesapları devre dışı ya da Azure AD'den kaldırılan artık kaynaklarınıza erişimi.
 
@@ -58,7 +59,7 @@ Aşağıdaki Azure bölgeleri şu anda bu özellik Önizleme sırasında destekl
 
 Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturma
+## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturun
 
 Sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az-group-create), bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az-vm-create) desteklenen distro kullanarak ve desteklenen bir bölgede. Aşağıdaki örnek adlı bir VM dağıtır *myVM* kullanan *Ubuntu 16.04 LTS* bir kaynak grubuna adlı *myResourceGroup* içinde *southcentralus*  bölge. Aşağıdaki örneklerde, kendi kaynak grubu ve gerektiği gibi VM adları sağlayabilir.
 

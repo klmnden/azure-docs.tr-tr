@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme iQualify LMS ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile iQualify LMS arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme iQualify LMS ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile iQualify LMS arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 341f2175d283c08496534f3ac0d946dd8671f63c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Öğretici: Azure Active Directory Tümleştirme iQualify LMS ile
 
@@ -30,9 +30,9 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile iQualify LMS tümleştirm
 - Otomatik olarak Azure AD hesaplarına sahip iQualify LMS (çoklu oturum açma) için açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme LMS iQualify ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -111,14 +111,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: 
     | |
     |--|--|
-    | Üretim ortamı:`https://<yourorg>.iqualify.com/`|
-    | Test ortamı:`https://<yourorg>.iqualify.io`|
+    | Üretim ortamı: `https://<yourorg>.iqualify.com/`|
+    | Test ortamı: `https://<yourorg>.iqualify.io`|
     
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: 
     | |
     |--|--|
-    | Üretim ortamı:`https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Test ortamı:`https://<yourorg>.iqualify.io/auth/saml2/callback` |
+    | Üretim ortamı: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
+    | Test ortamı: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
@@ -127,8 +127,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
     |--|--|
-    | Üretim ortamı:`https://<yourorg>.iqualify.com/login` |
-    | Test ortamı:`https://<yourorg>.iqualify.io/login` |
+    | Üretim ortamı: `https://<yourorg>.iqualify.com/login` |
+    | Test ortamı: `https://<yourorg>.iqualify.io/login` |
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [iQualify LMS istemci destek ekibi](https://www.iqualify.com) bu değerleri almak için. 
@@ -237,7 +237,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-an-iqualify-lms-test-user"></a>Bir iQualify LMS test kullanıcısı oluşturma
 
@@ -275,7 +275,7 @@ Bu bölümde, Britta iQualify LMS erişim vererek, Azure çoklu oturum açma kul
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -290,7 +290,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

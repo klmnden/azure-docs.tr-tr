@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve tahmini maliyetleri izleme
 
@@ -92,7 +92,7 @@ Yeni fiyatlandırma modeli günlük analizi ve Application Insights seçenekleri
 Maliyet tahmini bu değişikliklerin etkisini gösterir.
 
 > [!WARNING]
-> Burada dağıtmak için Azure Resource Manager veya PowerShell kullanırsanız, önemli bir Not [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) veya [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) yeni taşınmış bir abonelikte fiyatlandırma modeli. Bir fiyatlandırma katmanı/planı "pergb2018" dışında için günlük analizi veya "Temel" için Application Insights belirtirseniz, yerine fiyatlandırma katmanı/plan, geçersiz bir belirtme nedeniyle dağıtım başarısız olan bu başarılı olur **ancak yalnızca geçerli kullanın Fiyatlandırma katmanı/plan**. 
+> Burada dağıtmak için Azure Resource Manager veya PowerShell kullanırsanız, önemli bir Not [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) veya [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) yeni taşınmış bir abonelikte fiyatlandırma modeli. Bir fiyatlandırma katmanı/planı "pergb2018" dışında için günlük analizi veya "Temel" için Application Insights belirtirseniz, yerine fiyatlandırma katmanı/plan, geçersiz bir belirtme nedeniyle dağıtım başarısız olan bu başarılı olur **ancak yalnızca geçerli kullanın Fiyatlandırma katmanı/plan** (Bu, geçersiz bir fiyatlandırma katmanı iletisi oluşturulur günlük analizi ücretsiz katmanı geçerli değildir).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline taşıma

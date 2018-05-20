@@ -1,24 +1,24 @@
 ---
 title: Rapor ve Azure Service Fabric ile sistem durumu denetimi | Microsoft Docs
-description: "Hizmet kodunuzdan sistem durumu raporları göndermek nasıl Azure Service Fabric sağlayan sistem durumu izleme araçları kullanarak Hizmetinizin durumunu denetlemek nasıl öğrenin."
+description: Hizmet kodunuzdan sistem durumu raporları göndermek nasıl Azure Service Fabric sağlayan sistem durumu izleme araçları kullanarak Hizmetinizin durumunu denetlemek nasıl öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: a8c1ac57d38ae504e677c44c6fec08164b9b74ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="report-and-check-service-health"></a>Hizmet durumunu raporlama ve denetleme
 Hizmetlerinizin sorunlarla yanıt ve olayları ve kesintileri düzeltme yeteneğinizi sorunları hızla algılamak için yeteneğinizi bağlıdır. Sorunları ve hataları Azure Service Fabric sistem durumu hizmeti kodunuzdan yöneticiye, standart sistem durumu izleme sistem durumunu denetlemek için Service Fabric sağlayan araçları kullanabilirsiniz.
@@ -33,7 +33,7 @@ Sistem durumu hizmetinden raporu olan üç yolu vardır:
 
 Bu makalede, hizmet kodundan durumu raporları bir örnek adım adım anlatılmaktadır. Bu örnek ayrıca sistem durumunu denetlemek için Service Fabric tarafından sağlanan araçları nasıl kullanılabileceğini gösterir. Bu makale, Service Fabric yeteneklerini izleme sistem durumu bir giriş olması amaçlanmıştır. Daha ayrıntılı bilgi için bu makalenin sonunda bağlantıyla Başlat sistem durumu hakkında kapsamlı makaleleri bir dizi okuyabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilerin yüklü olması gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017

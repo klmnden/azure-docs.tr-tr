@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 6a13ced8b1c49239d1ad5fb96775f43de9c3943e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d0de7e7596fb7fabbc4061709816111a7a4ad827
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors hizmetine giriş
 Güvenilir aktörler dayalı bir çerçevedir Service Fabric uygulaması [sanal aktör](http://research.microsoft.com/en-us/projects/orleans/) düzeni. Güvenilir aktörler API Service Fabric tarafından sağlanan ölçeklenebilirlik ve güvenilirlik garantileri üzerine kurulu bir tek iş parçacıklı programlama modeli sağlar.
@@ -105,7 +105,7 @@ Aktör proxy nesnesi oluşturmak için kullanılan bilgileri iki parça aktör k
 * İleti teslimi en iyi çaba olur.
 * Aktör aynı istemciden yinelenen iletileri alabilirsiniz.
 
-## <a name="concurrency"></a>Eşzamanlılık
+## <a name="concurrency"></a>Eş Zamanlılık
 Reliable Actors çalışma zamanı aktör yöntemleri erişmek için bir basit Aç tabanlı erişim modeli sağlar. Başka bir deyişle, birden fazla iş parçacığı dilediğiniz zaman içinde aktör nesnenin kod etkin olabilir. Veri erişimi için eşitleme mekanizmaları için gerekli olduğu Aç tabanlı erişim eşzamanlı sistemleri büyük ölçüde basitleştirir. Ayrıca, sistemleri için özel hususlar her aktör örneğinin ile tek iş parçacıklı erişim yapısı tasarlanmalıdır anlamına gelir.
 
 * Bir tek aktör örneği aynı anda birden fazla isteği işleyemiyor. Eş zamanlı istekleri işlemek üzere bekleniyorsa aktör örneği bir işleme performans sorunu neden olabilir.

@@ -1,22 +1,22 @@
 ---
-title: "Azure Service Fabric parametrelerini kullanarak bir hizmet bağlantı noktası sayısını belirtmek nasıl | Microsoft Docs"
-description: "Service Fabric bir uygulama için bağlantı noktası belirtmek için parametreleri kullanmayı gösterir"
+title: Azure Service Fabric parametrelerini kullanarak bir hizmet bağlantı noktası sayısını belirtmek nasıl | Microsoft Docs
+description: Service Fabric bir uygulama için bağlantı noktası belirtmek için parametreleri kullanmayı gösterir
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: aca5b6a476e9526498a5e4834aaa28eb73750562
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric parametrelerini kullanarak bir hizmet bağlantı noktası sayısını belirtme
 
@@ -30,7 +30,7 @@ Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı
 1. Durum bilgisiz ASP.NET Core şablonu seçin.
 1. Web API'ı seçin.
 1. ServiceManifest.xml dosyasını açın.
-1. Hizmet için belirtilen uç noktası adını not edin. Varsayılan değer `ServiceEndpoint`.
+1. Hizmet için belirtilen uç noktası adını not edin. `ServiceEndpoint` varsayılan değerdir.
 1. ApplicationManifest.xml dosyasını açın
 1. İçinde `ServiceManifestImport` öğesi, yeni bir ekleme `RessourceOverrides` ServiceManifest.xml dosyanızı uç başvuru öğesi.
 
@@ -46,7 +46,7 @@ Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı
       </ServiceManifestImport>
     ```
 
-1. İçinde `Endpoint` öğesi, bir parametre kullanarak herhangi bir öznitelik şimdi kılabilirsiniz. Bu örnekte, belirttiğiniz `Port` ve köşeli ayraç - Örneğin, kullanarak bir parametre adı olarak ayarlayın`[MyWebAPI_PortNumber]`
+1. İçinde `Endpoint` öğesi, bir parametre kullanarak herhangi bir öznitelik şimdi kılabilirsiniz. Bu örnekte, belirttiğiniz `Port` ve köşeli ayraç - Örneğin, kullanarak bir parametre adı olarak ayarlayın `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -68,7 +68,7 @@ Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı
       </Parameters>
     ```
 
-1. Ve tanımlayan bir`DefaultValue`
+1. Ve tanımlayan bir `DefaultValue`
 
     ```xml
       <Parameters>

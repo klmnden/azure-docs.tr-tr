@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 11726b274d72f263ff3defeb7eb7b80594681e15
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: d47a1099a8b57c450aa48e086cc1c391faf91aa7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesi silme
 
@@ -111,6 +111,11 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
 
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar 
 
+- <a name="cross-region"></a>Sanal ağlar aynı bölgede ya da farklı bölgelerde eş. Her iki sanal ağ içinde olduğunda aşağıdaki kısıtlamalar uygulamayın *aynı* bölge, ancak sanal ağlar genel eşlendikleri olduğunda geçerlidir: 
+    - Sanal ağlar, tüm Azure genel bulut bölgelerdeki, ancak Azure Ulusal Bulutlar bulunabilir.
+    - Bir sanal ağ kaynaklarında Azure iç yük dengeleyiciye eşlenen sanal ağdaki IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve onunla iletişim kaynakları aynı sanal ağda olması gerekir.
+    - Uzak ağ geçitlerini kullanan veya ağ geçidi transit izin verin. Uzak ağ geçitleri kullanın veya ağ geçidi transit izin vermek için her iki sanal ağ eşlemesi içindeki aynı bölgede bulunması gerekir. 
+- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Sanal ağlar farklı Aboneliklerde olduğunda, her iki aboneliğin aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracıları için ilişkili farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
 - Eş sanal ağlar, IP adresi alanları çakışmayan olması gerekir.
 - Adres aralıklarına ekleyemez veya başka bir sanal ağ ile sanal ağ eşlendikten sonra bir sanal ağın adres alanından adres aralıklarını silin. Adres aralıklarını kaldırmak, eşlemesini silmek, eklediğinizde veya adres aralıklarını kaldırmak için ardından eşliği yeniden oluşturun. Adres aralıklarını ekleyin ya da sanal ağlardan adres aralıklarını kaldırmak için bkz: [sanal ağlarını yönetmeleri](manage-virtual-network.md).
 - Resource Manager veya Klasik dağıtım modeli aracılığıyla dağıtılan bir sanal ağ ile Resource Manager aracılığıyla dağıtılan bir sanal ağ üzerinden dağıtılan iki sanal ağ eş. Klasik dağıtım modeliyle oluşturulan iki sanal ağ eş olamaz. Azure dağıtım modelleri bilmiyorsanız okuma [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Klasik dağıtım modeliyle oluşturulan iki sanal ağı bağlamak için [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanabilirsiniz.
@@ -125,13 +130,8 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
   Hiçbir VirtualNetwork1 ve VirtualNetwork3 VirtualNetwork2 aracılığıyla arasında eşleme yoktur. VirtualNetwork1 ve VirtualNetwork3 arasında eşleme sanal ağ oluşturmak istiyorsanız, bir VirtualNetwork1 ve VirtualNetwork3 arasında eşleme oluşturmanız gerekir.
 - Varsayılan Azure ad çözümlemesi kullanarak eşlenen sanal ağları adlarında çözümlenemiyor. Diğer sanal ağlar adları çözümlemek için kullanmanız gerekir [özel etki alanları için Azure DNS](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya özel DNS sunucusudur. Kendi DNS sunucusunu ayarlama hakkında bilgi edinmek için bkz: [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Aynı sanal ağda değilmiş gibi aynı bölgede eşlenen sanal ağlarda bulunan Kaynaklar birbirleri ile aynı bant genişliği ve gecikme süresi ile iletişim kurabilir. Her sanal makine boyutu ancak kendi maksimum ağ bant genişliği vardır. Başka bir sanal makine boyutları için en fazla ağ bant genişliği hakkında daha fazla bilgi için bkz: [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine boyutları.
-- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Sanal ağlar farklı Aboneliklerde olduğunda, her iki aboneliğin aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracıları için ilişkili farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
 - Bir sanal ağ, başka bir sanal ağa eşlenen ve ayrıca bir Azure sanal ağ geçidi ile başka bir sanal ağa bağlı olması. Sanal ağlar eşliği ve ağ geçidi bağlandığında, sanal ağlar arasında trafiği ağ geçidi yerine eşleme yapılandırmasını akar.
 - Sanal ağ eşlemesi kullanan girdi ve çıktı trafiği için nominal bir ücret uygulanır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
-* <a name="cross-region"></a>Sanal ağlar aynı bölgede ya da farklı bölgelerde eş. Her iki sanal ağ içinde olduğunda aşağıdaki kısıtlamalar uygulamayın *aynı* bölge, ancak sanal ağlar genel eşlendikleri olduğunda geçerlidir: 
-    - Sanal ağlar, tüm Azure genel bulut bölgelerdeki, ancak Azure Ulusal Bulutlar bulunabilir.
-    - Bir sanal ağ kaynaklarında Azure iç yük dengeleyiciye eşlenen sanal ağdaki IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve onunla iletişim kaynakları aynı sanal ağda olması gerekir.
-    - Uzak ağ geçitlerini kullanan veya ağ geçidi transit izin verin. Uzak ağ geçitleri kullanın veya ağ geçidi transit izin vermek için her iki sanal ağ eşlemesi içindeki aynı bölgede bulunması gerekir. 
 
 ## <a name="permissions"></a>İzinler
 

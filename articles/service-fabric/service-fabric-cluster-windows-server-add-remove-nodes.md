@@ -1,24 +1,24 @@
 ---
-title: "Bir tek başına Service Fabric kümesi düğümlerine ekleyip | Microsoft Docs"
-description: "Bir fiziksel veya şirket içi olarak Windows Server çalıştıran sanal makine veya tüm buluttaki bir Azure Service Fabric kümesi düğümlerine ekleyip öğrenin."
+title: Bir tek başına Service Fabric kümesi düğümlerine ekleyip | Microsoft Docs
+description: Bir fiziksel veya şirket içi olarak Windows Server çalıştıran sanal makine veya tüm buluttaki bir Azure Service Fabric kümesi düğümlerine ekleyip öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server'da çalışan bir tek başına Service Fabric kümesi düğümlerine Ekle Kaldır
 Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) gereksinimlerinizi değiştirebilir ve, küme düğümlerine ekleyip gerekir. Bu makalede, bunu başarmak için ayrıntılı adımlar sağlanmaktadır. Lütfen Ekle/Kaldır düğümü işlevselliği yerel geliştirme kümelerinde desteklenmez unutmayın.
@@ -57,7 +57,7 @@ Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturul
     Service Fabric Explorer üzerinde yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabilirsiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Windows güvenliği kullanarak gMSA yapılandırılmış kümelerine düğümleri Ekle
-Grup yönetilen hizmet Account(gMSA) ile (https://technet.microsoft.com/library/hh831782.aspx) yapılandırılmış kümeler için yapılandırma yükseltme kullanarak yeni bir düğüm eklenebilir:
+Grup yönetilen hizmet Account(gMSA) ile yapılandırılmış kümeleri için (https://technet.microsoft.com/library/hh831782.aspx), yeni bir düğüm yapılandırması yükseltme kullanılarak eklenebilir:
 1. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) herhangi bir son yapılandırma dosyasını alın ve "Düğümleri" bölümünde eklemek istediğiniz yeni düğümün ayrıntılarını eklemek için var olan düğümler. Yeni düğümü aynı yönetilen grup hesabının bir parçası olduğundan emin olun. Bu hesap tüm makinelerde yönetici olmanız gerekir.
 
     ```

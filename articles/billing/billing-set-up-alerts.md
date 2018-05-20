@@ -4,8 +4,8 @@ description: Fatura beklenmeyen durumları kaçınmak için nasıl uyarıların�
 keywords: Kredi uyarı, fatura Uyarısı
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: tonguyen
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
-ms.author: vikdesai
+ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.openlocfilehash: 9f20de2c8a8870568ac624846f6a8a4f8d72b5c0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure Abonelikleriniz için faturalama veya kredi uyarıları ayarlama
 Bir Azure aboneliğine yönelik hesap yöneticisi değilseniz, özelleştirilmiş oluşturmak için Azure faturalama uyarı hizmetini kullanabilirsiniz yardımcı faturalama uyarılarını izleme ve Azure hesaplarınız için fatura etkinlik yönetme.
@@ -49,7 +49,7 @@ Azure herhangi bir e-posta adresi destekler, ancak e-posta adresi çalışır, b
 Uyarıları ayarladıktan sonra hesap merkezi bunları listeler ve daha ayarlayabilirsiniz kaç gösterir. Her uyarı için tarih ve Saat Faturalama toplamı veya kredi için bir uyarı olup olmadığını gönderildiği ile ayarladığınız sınırı bakın. Tarih ve saat biçimi 24 saat Evrensel Saat koordinatı'nı (UTC) ve tarih yyyy-aa-gg biçiminde. Düzenlemek için listedeki bir uyarı için artı işaretini tıklatın veya silmek için çöp can'ı tıklatın.
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Kurumsal Anlaşma (Kurumsal Sözleşme) müşteriler için fatura uyarıları
-EA müşteriler, bir kayıt kotaları harcama ayarlayarak altında her bölüm için uyarıları alabilirsiniz. Bkz: [departmanı harcama kotaları](https://ea.azure.com/helpdocs/departmentSpendingQuotas) başlamak için EA Portalı'nda.
+EA abonelikleri bu hizmet tarafından desteklenmiyor, bunun yerine EA müşteriler uyarılar için bir kayıt altında her bölüm kotaları harcama ayarlayarak elde edebilirsiniz. Bkz: [departmanı harcama kotaları](https://ea.azure.com/helpdocs/departmentSpendingQuotas) başlamak için EA Portalı'nda.
 
 ## <a name="learn-more-about-azure-cost-management"></a>Azure maliyeti yönetimi hakkında daha fazla bilgi edinin
 - Tahmini maliyetleri kullanarak [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/), [toplam sahip olma hesaplayıcı maliyeti](https://aka.ms/azure-tco-calculator), ve bir hizmet eklediğinizde.

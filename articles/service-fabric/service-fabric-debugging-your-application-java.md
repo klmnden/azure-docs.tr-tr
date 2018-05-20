@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric uygulamanızı eclipse'te hata ayıklama | Microsoft Docs"
-description: "Güvenilirliğini ve performansını hizmetlerinizi geliştirmek ve bunları Eclipse'te yerel geliştirme kümede hata ayıklama tarafından geliştirin."
+title: Azure Service Fabric uygulamanızı eclipse'te hata ayıklama | Microsoft Docs
+description: Güvenilirliğini ve performansını hizmetlerinizi geliştirmek ve bunları Eclipse'te yerel geliştirme kümede hata ayıklama tarafından geliştirin.
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: suhuruli;mikhegn
-ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: suhuruli
+ms.openlocfilehash: 0e9e816fa84816b1b5d12f066dc65aee7b4930f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Java Service Fabric uygulamanızı Eclipse kullanarak hata ayıklama
 > [!div class="op_single_selector"]
@@ -28,12 +28,12 @@ ms.lasthandoff: 12/21/2017
 
 1. İçindeki adımları izleyerek yerel bir geliştirme kümesi Başlat [, Service Fabric geliştirme ortamını ayarlama](service-fabric-get-started-linux.md).
 
-2. Uzaktan hata ayıklama parametrelerle java işlemi başlatır böylece hata ayıklamak için istediğiniz hizmet entryPoint.sh güncelleştirin. Bu dosya şu konumda bulunabilir: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Bu örnekte, hata ayıklama için bağlantı noktası 8001 ayarlanır.
+2. Uzaktan hata ayıklama parametrelerle java işlemi başlatır böylece hata ayıklamak için istediğiniz hizmet entryPoint.sh güncelleştirin. Bu dosya şu konumda bulunabilir: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Bu örnekte, hata ayıklama için 8001 numaralı bağlantı noktası ayarlanmıştır.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Uygulama bildirimi örneği sayısını veya ayıklanacak hizmet için yineleme sayısı 1 olarak ayarlayarak güncelleştirin. Bu ayar, hata ayıklama için kullanılan bağlantı noktası için çakışmalarını önler. Örneğin, durum bilgisi olmayan hizmetler için ayarlar ``InstanceCount="1"`` ve durum bilgisi olan hizmetler hedef ayarlamak ve min çoğaltma boyutları gibi 1 olarak ayarlayın: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
+3. Uygulama bildirimi örneği sayısını veya ayıklanacak hizmet için yineleme sayısı 1 olarak ayarlayarak güncelleştirin. Bu ayar, hata ayıklama için kullanılan bağlantı noktası için çakışmaları önler. Örneğin, şu işlemleri izleyerek durum bilgisi olmayan hizmetler için ``InstanceCount="1"`` ayarını yapın ve durum bilgisi olan hizmetler için hedefi ve en az çoğaltma kümesi boyutlarını 1 olarak ayarlayın: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
 4. Uygulamayı dağıtın.
 

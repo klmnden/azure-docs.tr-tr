@@ -155,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Azure IoT Geliştirici Merkezi
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Müşteri verisi istekleri
+      href: iot-dps-customer-data-requests.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Device Explorer aracı

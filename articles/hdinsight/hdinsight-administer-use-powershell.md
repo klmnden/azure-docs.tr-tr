@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/15/2017
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 7d2f68773c78eed001f14ca86a46fb9e18563d77
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 656ad3673835bb30499931d20fe715e85418b1c3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak hdınsight'ta Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -31,7 +31,7 @@ Bu makaleye başlamadan önce aşağıdaki öğeleri sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
+## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleyin
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Azure PowerShell sürüm 0.9 yüklediyseniz x, bunu yeni bir sürümünü yüklemeden önce kaldırmalısınız.

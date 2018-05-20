@@ -1,6 +1,6 @@
 ---
-title: "Güvenilir hizmetler iletişim genel bakış | Microsoft Docs"
-description: "Açılış dinleyicileri Hizmetleri dahil olmak üzere, uç noktaları çözme ve Hizmetleri iletişim güvenilir hizmetler iletişim modeline genel bakış."
+title: Güvenilir hizmetler iletişim genel bakış | Microsoft Docs
+description: Açılış dinleyicileri Hizmetleri dahil olmak üzere, uç noktaları çözme ve Hizmetleri iletişim güvenilir hizmetler iletişim modeline genel bakış.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: BharatNarasimman
 ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
 ms.service: service-fabric
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 62c81368b8a3129b42262cb99cf23a5021744c1b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Güvenilir hizmetler iletişimi API'lerini kullanma
 Bir platform olarak Azure Service Fabric Hizmetleri arasındaki iletişim hakkında tamamen bağımsızdır. Tüm protokoller ve yığınları HTTP UDP Gelen kabul edilir. Bu hizmetleri nasıl iletişim kuracağını seçmek için hizmet geliştiriciler için hazır. Güvenilir hizmetler uygulama çerçevesi yerleşik iletişim yığınları yanı sıra, özel iletişim bileşenleri oluşturmak için kullanabileceğiniz bir API sağlar.

@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri SendGrid bağlamaları"
-description: "Azure işlevleri SendGrid bağlamaları başvurusu."
+title: Azure işlevleri SendGrid bağlamaları
+description: Azure işlevleri SendGrid bağlamaları başvurusu.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29f6b3e8b7d7d940da098953e8f9d3deaccf78dc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure işlevleri SendGrid bağlamaları
 
@@ -30,12 +30,14 @@ SendGrid bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.SendGrid](h
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="example"></a>Örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
+* [C# betik (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C# örnek
@@ -183,14 +185,14 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü**|| Gerekli - kümesine olmalıdır `sendGrid`.|
-|**Yönü**|| Gerekli - kümesine olmalıdır `out`.|
+|**type**|| Gerekli - kümesine olmalıdır `sendGrid`.|
+|**direction**|| Gerekli - kümesine olmalıdır `out`.|
 |**Adı**|| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
-|**apiKey**|**ApiKey**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
+|**apikey ile yapılan**|**apikey ile yapılan**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
 |**Hedef**|**Alıcı**| Alıcının e-posta adresi. |
 |**Kaynak**|**Kaynak**| Gönderenin e-posta adresi. |
 |**subject**|**Konu**| e-postanın konusu. |
-|**text**|**Metin**| e-posta içeriği. |
+|**Metin**|**Metin**| e-posta içeriği. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

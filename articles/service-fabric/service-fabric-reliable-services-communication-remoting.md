@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric hizmeti uzaktan çalışma | Microsoft Docs"
-description: "Service Fabric uzak istemciler ve hizmetler uzaktan yordam çağrısı kullanarak Hizmetleri ile iletişim kurmasına olanak sağlar."
+title: Service Fabric hizmeti uzaktan çalışma | Microsoft Docs
+description: Service Fabric uzak istemciler ve hizmetler uzaktan yordam çağrısı kullanarak Hizmetleri ile iletişim kurmasına olanak sağlar.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: BharatNarasimman
 ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9ba650549d313a4ecc9ceae5eb05e1cde727892
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Güvenilir hizmetler ile hizmet uzaktan iletişim
 Belirli bir iletişim protokolü veya Webapı, Windows Communication Foundation (WCF) veya diğerleri gibi yığın bağlanmayan Hizmetleri için uzak yordam çağrısı için hızlı ve kolay bir şekilde ayarlamak için uzaktan iletişim mekanizması Reliable Services çerçevesi sağlar Hizmetler.
@@ -84,7 +84,7 @@ Remoting framework istemciye hizmeti tarafından oluşturulan özel durumları y
 ## <a name="service-proxy-lifetime"></a>Hizmet Proxy ömrü
 ServiceProxy oluşturma hafif bir işlem olduğundan, kullanıcıların ihtiyaç duydukları kadar oluşturabilirsiniz. Kullanıcıların ihtiyaç sürece hizmeti proxy'si örneği yeniden kullanılabilir. Uzaktan yordam çağrısı bir özel durum oluşturursa, kullanıcılar aynı proxy örneği yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan bir iletişim istemcisi içerir. Uzak çağrılar istenirken biz dahili iletişimi istemci geçerli olup olmadığını denetleyin. Bu sonuca bağlı olarak, iletişim istemci gerektiğinde yeniden oluşturuyoruz. Bir özel durum oluşursa, bu nedenle kullanıcıları yeniden oluşturmanız gerekmez `ServiceProxy` , bunu saydam yapıldığından.
 
-### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory yaşam süresi
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) farklı remoting arabirimleri için proxy örnekleri oluşturan bir üreteci değil. API kullanırsanız `ServiceProxy.Create` proxy oluşturmak için daha sonra framework ServiceProxy tek oluşturur.
 Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) özellikleri.
 Fabrika oluşturma pahalı bir işlemdir. ServiceProxyFactory iletişimi istemci, dahili bir önbelleğini korur.

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: a84e42d3a0254c90bfad2d54eda1aa8e5e35650a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric uygulaması ve hizmet güvenliği
 Mikro mimarisi getirebilirsiniz [birçok avantaj](service-fabric-overview-microservices.md). Mikro, güvenliği yönetme ancak sınama ve geleneksel tek yapılı uygulamalarının güvenliğini yönetme farklı olur. 
@@ -30,7 +30,7 @@ Bu makalede mikro Güvenlik Kılavuzu değil, yok gibi birçok kaynakları çevr
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 Kaynakları ve bir hizmet tarafından kullanıma sunulan API'ler belirli güvenilen kullanıcıların veya istemcileri ile sınırlı olması için genellikle gereklidir. Kimlik doğrulama güvenilir bir şekilde bir kullanıcının kimliğini ascertaining işlemidir.  Yetkilendirme işlemidir API'leri yapan veya kullanılabilir hizmetleri bazı kullanıcılar, ancak diğer kimlik doğrulaması.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Kimlik Doğrulama
 Kimlik doğrulama API düzeyinde güven kararları için ilk adımdır. Kimlik doğrulama güvenilir bir şekilde bir kullanıcının kimliğini ascertaining işlemidir.  Mikro hizmet senaryolarda, kimlik doğrulama genellikle merkezi olarak işlenir. Bir API ağ geçidi kullanıyorsanız, yapabilecekleriniz [kimlik doğrulaması boşaltma](/azure/architecture/patterns/gateway-offloading) ağ geçidi. Bu yaklaşımı kullanın, ek güvenlik iletilerin kimlik doğrulaması yerinde olup olmadığını Ağ Geçidi'nden veya geldikleri olmadıkça tek tek Hizmetleri doğrudan (API ağ geçidi) ulaşılamıyor emin olun.
 
 Hizmetleri doğrudan erişilebilir değilse, bir kimlik doğrulama hizmeti Azure Active Directory veya bir güvenlik belirteci hizmeti (STS), kullanıcıların kimliklerini doğrulamak için kullanılabilir davranan bir özel kimlik doğrulama mikro hizmet ister. Güven kararları güvenlik belirteçleri veya tanımlama bilgilerini hizmetleriyle arasında paylaşılır. 
@@ -95,7 +95,7 @@ Bu nedenle bir uçtan uca güvenli kanal etkinleştirme ters proxy hizmetleri ar
 Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Hizmet remoting kullanırken güvenlik geliştirmeyi öğrenin (içinde [C#](service-fabric-reliable-services-secure-communication.md) veya [Java](service-fabric-reliable-services-secure-communication-java.md)) veya kullanarak [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>REST uygulama verilerini şifrele
-Her [düğüm türü](service-fabric-cluster-nodetypes.md) bir Service Fabric kümesi Azure'da çalışan tarafından yedeklenen bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Bir Azure Resource Manager şablonu kullanarak, Service Fabric kümesi olun ölçek kümeleri için veri diski ekleyebilirsiniz.  Hizmetlerinizin ekli veriler diske veri kaydederseniz, yapabilecekleriniz [bu veri diskleri şifrelemek](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) uygulama verilerinizi korumak için.
+Her [düğüm türü](service-fabric-cluster-nodetypes.md) bir Service Fabric kümesi Azure'da çalışan tarafından yedeklenen bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Azure Resource Manager şablonunu kullanarak, Service Fabric kümesini oluşturan ölçek kümelerine veri diskleri ekleyebilirsiniz.  Hizmetlerinizin ekli veriler diske veri kaydederseniz, yapabilecekleriniz [bu veri diskleri şifrelemek](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) uygulama verilerinizi korumak için.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->
@@ -105,7 +105,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Hizmetin başlatılması sırasında bir kurulum komut dosyası çalıştırma](service-fabric-run-script-at-service-startup.md)
 * [Bir hizmet bildirimi kaynakları belirtme](service-fabric-service-manifest-resources.md)
-* [Bir uygulamayı dağıtma](service-fabric-deploy-remove-applications.md)
+* [Uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 * [Küme güvenliği hakkında bilgi edinin](service-fabric-cluster-security.md)
 
 <!-- Links -->

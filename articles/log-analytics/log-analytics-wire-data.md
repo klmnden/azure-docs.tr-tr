@@ -1,6 +1,6 @@
 ---
-title: Günlük analizi veri çözümde wire | Microsoft Docs
-description: Kablo verileri birleştirilmiş ağ ve performans OMS aracısının, Operations Manager ve Windows bağlı aracılar dahil olmak üzere bilgisayar verilerdir. Ağ verileri verilerin bağıntısını yardımcı olması için günlük verilerinizi birleştirilir.
+title: Log Analytics'te Wire Data çözümü | Microsoft Docs
+description: Sinyal verileri, Operations Manager ve Windows bağlantılı aracılar da dahil olmak üzere OMS aracılarıyla bilgisayarlardan ağ ve performans verilerini bir araya getirir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri günlük verilerinizle birleştirilir.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,84 +12,84 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kablo verileri 2.0 (Önizleme) çözümüne günlük analizi
+# <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
-![Kablo verileri simgesi](./media/log-analytics-wire-data/wire-data2-symbol.png)
+![Wire Data sembolü](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Kablo, birleştirilmiş ağ ve performans verilerini ortamınızda Operations Manager tarafından izlenen dahil olmak üzere OMS Aracısı ile Windows bağlı ve Linux bağlı bilgisayarlardan toplanan verilerdir. Ağ verileri verilerin bağıntısını yardımcı olması için diğer günlük verilerinizi ile birleştirilir.
+Sinyal verileri OMS aracısı tarafından, ortamınızda Operations Manager tarafından izlenenler de dahil olmak üzere Windows bağlantılı ve Linux bağlantılı bilgisayarlardan toplanan ağ ve performans verilerini bir araya getirir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri diğer günlük verilerinizle birleştirilir.
 
-OMS Aracısı ek olarak kablo verileri çözüm BT altyapınızın bilgisayarlara yüklemek Microsoft bağımlılık Aracısı kullanır. Bağımlılık aracıları izlemek için ve bilgisayarlarınızı 2-3'te ağ düzeyleri için gönderilen ağ verilerini [OSI modeli](https://en.wikipedia.org/wiki/OSI_model)dahil çeşitli protokoller ve bağlantı noktaları kullanılır. Veriler için günlük analizi gönderilir ve aracıları kullanma.  
+Wire Data çözümü, OMS aracısına ek olarak BT altyapınızdaki bilgisayarlara yüklediğiniz Microsoft Uyumluluk Aracılarını da kullanır. Bağımlılık Aracıları [OSI modelinde](https://en.wikipedia.org/wiki/OSI_model) 2-3 ağ düzeyleri için bilgisayarlarınıza ve bilgisayarlarınızdan gönderilen ağ verilerini, ayrıca kullanılan çeşitli protokollerle bağlantı noktalarını izler. Ardından aracılar kullanılarak veriler Log Analytics'e gönderilir.  
 
 > [!NOTE]
-> Kablo verileri çözümü önceki sürümü için yeni çalışma alanı ekleyemezsiniz. Etkin özgün kablo verileri çözüm varsa, onu kullanmaya devam edebilirsiniz. Ancak, kablo verileri 2.0 kullanmak için öncelikle özgün sürümü da kaldırmanız gerekir.
+> Wire Data çözümünün önceki sürümünü yeni çalışma alanlarına ekleyemezsiniz. Özgün Wire Data çözümünü daha önce etkinleştirdiyseniz, bunu kullanmaya devam edebilirsiniz. Öte yandan, Wire Data 2.0'ı kullanmak için önce özgün sürümü kaldırmanız gerekir.
 
-Varsayılan olarak, günlük analizi veri CPU, bellek, disk ve ağ performansını verilerden belirtebilirsiniz diğer performans sayaçları yanı sıra Windows ve Linux yerleşik sayaçları günlüğe kaydeder. Ağ ve diğer veri toplama gerçekleştirilir gerçek zamanlı alt ağları ve bilgisayar tarafından kullanılan uygulama düzeyi protokolleri de dahil olmak üzere her bir aracının için.  Kablo verileri ağ verilerinin uygulama düzeyinde TCP Aktarım katmanında bakan aşağı değil.  Çözüm, tek tek ack'lerini gösteriyor ve SYN istekleri gibi görünmüyor.  Anlaşma tamamlandığında, canlı bağlantı olarak kabul ve bağlı işaretlenmiş. Her iki yuvada kabul sürece bağlantı Canlı kalır açık olduğundan ve veri ve geriye geçirebilirsiniz.  Bağlantının her iki tarafında kapatır sonra bağlantı kesildi işaretlenir.  Bu nedenle, onu yalnızca sayar başarıyla tamamlanan paketlerin bant genişliği, onu bildirmez yeniden gönderir veya paket başarısız oldu.
+Varsayılan olarak, Log Analytics Windows ve Linux'ın yerleşik sayaçlarıyla belirttiğiniz diğer performans sayaçlarından gelen CPU, bellek, disk ve ağ performansına ilişkin verileri günlüğe kaydeder. Her aracı için, alt ağlar ve bilgisayar tarafından kullanılmakta olan uygulama düzeyi protokoller de dahil olmak üzere, ağ ve diğer verileri toplama işlemi gerçek zamanlı olarak yapılır.  Wire Data, alttaki TCP aktarım katmanında değil uygulama düzeyindeki ağ verilerine bakar.  Çözüm tek tek ACK'lere ve SYN'lere bakmaz.  Karşılıklı anlaşma tamamlandıktan sonra, bu canlı bir bağlantı olarak kabul edilir ve Bağlandı olarak işaretlenir. Söz konusu bağlantı, her iki taraf da yuvanın açık olduğunu ve verilerin ileri ve geri geçiş yapabildiğini kabul ettiği sürece canlı kalır.  İki taraftan biri bağlantıyı kapatınca Bağlantı Kesildi olarak işaretlenir.  Bu nedenle, yalnızca başarıyla tamamlanan paketlerin bant genişliğini sayar; yeniden göndermeleri veya başarısız paketleri raporlamaz.
 
-Kullandıysanız [sFlow](http://www.sflow.org/) veya diğer yazılımlarla [Cisco'nın NetFlow Protokolü](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), sonra da veri kablo verileri görmek ve istatistikleri size tanıdık gelecektir.
+[Cisco'nun NetFlow protokolüyle](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html) [sFlow](http://www.sflow.org/)'u veya başka bir yazılımı kullandıysanız, sinyal verilerinden gördüğünüz istatistikler ve veriler tanıdık gelecektir.
 
-Yerleşik günlük arama sorguları türlerinden bazıları şunlardır:
+Yerleşik Günlük arama sorgusu türlerinden bazıları şunlardır:
 
-- Kablo verileri sağlayan aracılar
-- Kablo verileri sağlayan aracıların IP adresi
-- IP adresleriyle giden iletişimler
+- Sinyal verileri sağlayan aracılar
+- Sinyal verilerini sağlayan aracıların IP adresleri
+- IP adresinden giden iletişimler
 - Uygulama protokolleri tarafından gönderilen bayt sayısı
-- Bir uygulama hizmeti tarafından gönderilen bayt sayısı
-- Farklı protokoller tarafından alınan bayt
-- Gönderilen ve IP sürümü tarafından alınan toplam bayt sayısı
-- Güvenilir bir şekilde ölçülen bağlantıları için ortalama gecikme süresi
-- Bilgisayar başlatan veya alan ağ trafiğinin işler
-- Bir işlem için ağ trafiği miktarı
+- Uygulama hizmeti tarafından gönderilen bayt sayısı
+- Farklı protokoller tarafından alınan bayt sayısı
+- IP sürümü tarafından gönderilen ve alınan toplam bayt sayısı
+- Güvenilir şekilde ölçülmüş bağlantılarda ortalama gecikme süresi
+- Ağ trafiği başlatan veya alan bilgisayar işlemleri
+- İşlem için ağ trafiği miktarı
 
-Kablo verileri kullanarak arama yaparken, filtre uygulayabilirsiniz ve üst protokolleri ve üst aracıları hakkındaki bilgileri görüntülemek için Grup verileri. Veya ne zaman görüntüleyebilirsiniz birbirleri ile nasıl için uzun iletilen belirli bilgisayarlara (IP adresleri/MAC adresleri) ve ne kadar veri gönderildiği — temel olarak, arama tabanlı ağ trafiğiyle ilgili meta verileri görüntüleyin.
+Sinyal verilerini kullanarak arama yaptığınızda, en önemli aracılar ve en önemli protokoller hakkındaki bilgileri görüntülemek için verileri filtreleyebilir ve gruplandırabilirsiniz. Öte yandan bazı bilgisayarların (IP adresleri/MAC adresleri) birbiriyle ne zaman, ne kadar süreyle iletişim kurduğunu ve ne kadar veri gönderildiği de görüntüleyebilirsiniz. Temelde, ağ trafiği hakkında arama tabanlı olan meta verileri görüntülersiniz.
 
-Meta verileri görüntülediğiniz olduğundan, ancak bunu ayrıntılı sorun giderme için mutlaka kullanışlı değildir. Günlük analizi kablo verileri ağ verilerin tam bir yakalama değil.  Paket düzeyinde ayrıntılı sorun giderme için tasarlanmamıştır. Diğer koleksiyon yöntemlerine göre bu aracı kullanmanın avantajı, uygulamaları yüklemek, ağ anahtarlarını yeniden yapılandırma veya karmaşık yapılandırmalar yeniden gerekmemesidir. Kablo verileri yalnızca Aracısı tabanlı — aracıyı bir bilgisayara yükleyin ve kendi ağ trafiğini izlemek. Başka bir avantajı, bulut sağlayıcılarının veya barındırma hizmeti sağlayıcısı veya kullanıcı doku katman burada sahip değil, Microsoft Azure çalışan iş yüklerini izlemek istediğiniz durumdur.
+Bununla birlikte, meta verileri görüntülediğiniz için bunların kapsamlı bir sorun giderme işleminde kullanışlı olması şart değildir. Log Analytics'teki sinyal verileri, ağ verilerinin tümüyle yakalanması anlamına gelmez.  Derin paket düzeyi sorun giderme işlemlerine yönelik değildir. Aracının kullanılmasının diğer toplama yöntemlerine göre avantajı, gereçler takmanızın, ağ anahtarlarınızı yeniden yapılandırmanızın veya karmaşık yapılandırmalar gerçekleştirmenizin gerekmemesidir. Sinyal verileri yalnızca aracı tabanlıdır; bilgisayara aracıyı yüklersiniz ve o da kendi ağ trafiğini izler. Bir diğer avantajı da, kullanıcının yapı katmanına sahip olmadığı bulut sağlayıcılarında ya da barındıran hizmet sağlayıcısında veya Microsoft Azure'da çalıştırılan iş yüklerini izlemek istediğinizde ortaya çıkar.
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Kablo verileri Microsoft bağımlılık Aracısı'ndan verileri alır. Günlük analizi için kendi bağlantıları için OMS aracısının bağımlılık Aracısı'nı bağlıdır. Bu, bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olmalıdır ve bağımlılık Aracısı'nı yükledikten sonra anlamına gelir. Aşağıdaki tabloda kablo verileri çözümünü destekler bağlı kaynakları açıklanmaktadır.
+Wire Data verilerini Microsoft Bağımlılık Aracısı'ndan alır. Bağımlılık Aracısı, Log Analytics ile arasındaki bağlantılar için OMS Aracısına bağımlıdır. Başka bir deyişle, Bağımlılık Aracısı'nı yüklemeniz için sunucuda önce OMS Aracısı yüklü ve yapılandırılmış olmalıdır. Aşağıdaki tabloda Wire Data çözümü tarafından desteklenen bağlı kaynaklar açıklanır:
 
 | **Bağlı kaynak** | **Destekleniyor** | **Açıklama** |
 | --- | --- | --- |
-| Windows aracıları | Evet | Kablo verileri analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br> Ek olarak [OMS Aracısı](log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| Linux aracıları | Evet | Kablo verileri analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar.<br><br> Ek olarak [OMS Aracısı](log-analytics-quick-collect-linux-computer.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| System Center Operations Manager yönetim grubu | Evet | Kablo verileri analiz eder ve Windows ve Linux aracıları bağlı bir veri toplar [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md). <br><br> System Center Operations Manager Aracısı bilgisayardan doğrudan bağlantı günlük analizi için gereklidir. Veri yönetim grubu için günlük analizi iletilir. |
-| Azure depolama hesabı | Hayır | Bu yüzden, Azure depolama biriminden toplamak için hiçbir veri kablo verileri Aracısı bilgisayarlardan verileri toplar. |
+| Windows aracıları | Yes | Wire Data, Windows aracı bilgisayarlarından gelen verileri analiz eder ve toplar. <br><br> [OMS Aracısı](log-analytics-windows-agent.md)'na ek olarak, Windows aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
+| Linux aracıları | Yes | Wire Data, Linux aracı bilgisayarlarından gelen verileri analiz eder ve toplar.<br><br> [OMS Aracısı](log-analytics-quick-collect-linux-computer.md)'na ek olarak, Linux aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
+| System Center Operations Manager yönetim grubu | Yes | Wire Data, bağlantılı bir [System Center Operations Manager yönetim grubunda](log-analytics-om-agents.md) Windows ve Linux aracılarından gelen verileri analiz eder ve toplar. <br><br> System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. Veriler yönetim grubundan Log Analytics'e iletilir. |
+| Azure depolama hesabı | Hayır | Wire Data verileri aracı bilgisayarlardan topladığından, Azure Depolama'dan toplayacağı veri yoktur. |
 
-Windows, Microsoft İzleme Aracısı'nı (MMA) hem System Center Operations Manager hem de günlük analizi toplamak ve veri göndermek için kullanılır. Bağlamın bağlı olarak, aracıyı System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı çağrılır. System Center Operations Manager ve günlük analizi MMA biraz farklı sürümleri sağlar. Bu sürümleri her System Center Operations Manager, günlük analizi için veya her ikisine de bildirebilirsiniz.
+Windows'da, hem System Center Operations Manager hem de Log Analytics verileri toplamak ve göndermek için Microsoft Monitoring Agent (MMA) kullanır. Bağlama göre, bu aracı System Center Operations Manager Aracısı, OMS Aracısı, Log Analytics Aracısı, MMA veya Doğrudan Aracı olarak adlandırılır. System Center Operations Manager ve Log Analytics, MMA'nın biraz farklı sürümlerini sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.
 
-Linux üzerinde Linux için OMS aracısının toplar ve günlük analizi için verileri gönderir. Kablo verileri OMS doğrudan aracılarıyla sunucularda veya günlük analizi için System Center Operations Manager Yönetim grupları bağlı olan sunucuları kullanabilirsiniz.
+Linux'ta, verileri Linux için OMS Aracısı toplar ve Log Analytics'e gönderir. Wire Data'yı OMS Doğrudan Aracılarının bulunduğu sunucularda veya System Center Operations Manager yönetim grupları üzerinden Log Analytics'e bağlanan sunucularda kullanabilirsiniz.
 
-Bu makalede, tüm aracılar için başvuran olup olmadığını Linux veya Windows, System Center Operations Manager yönetim grubuna bağlı veya doğrudan Log Analytics'e bağlama olarak ifade edilmektedir _OMS Aracısı_. Bağlam için yalnızca ihtiyaç duyduğunuzda aracısının belirli dağıtım adı kullanacağız.
+Bu makalede, hem Linux hem de Windows'da ister System Center Operations Manager yönetim grubuna ister doğrudan Log Analytics'e bağlı olsun tüm aracılar için _OMS aracısı_ terimi kullanılır. Aracının dağıtım adını ancak bağlam için gerekli olduğunda kullanacağız.
 
-Bağımlılık Aracısı'nı tüm verileri aktarmaz ve güvenlik duvarları veya bağlantı noktalarını herhangi bir değişiklik gerektirmez. Kablo verileri, her zaman günlük analizi için OMS aracısı tarafından ya da doğrudan verinin veya OMS ağ geçidini kullanma.
+Bağımlılık Aracısı'nın kendisi hiçbir veri iletmez ve güvenlik duvarları veya bağlantı noktalarında hiçbir değişiklik yapılmasını gerektirmez. Wire Data'daki veriler Log Analytics'e doğrudan veya OMS Ağ Geçidi kullanılarak her zaman OMS aracısı tarafından iletilir.
 
-![Aracı diyagramı](./media/log-analytics-wire-data/agents.png)
+![aracı diyagramı](./media/log-analytics-wire-data/agents.png)
 
-Günlük analizi için bağlı yönetim grubu ile System Center Operations Manager kullanıcı varsa:
+Log Analytics'e bağlı bir yönetim grubuyla System Center Operations Manager kullanıcısıysanız:
 
-- System Center Operations Manager aracıları günlük Analizi'ne bağlanmak için Internet erişebiliyorsa ek yapılandırma gerekli değildir.
-- System Center Operations Manager aracıları Internet üzerinden günlük analizi erişemediğinde System Center Operations Manager ile çalışmak için OMS ağ geçidi yapılandırmanız gerekir.
+- System Center Operations Manager aracıları Log Analytics'e bağlanmak üzere İnternet'e erişirken ek yapılandırma gerekmez.
+- System Center Operations Manager aracılarınız İnternet üzerinden Log Analytics'e erişemediğinde OMS Ağ Geçidi'ni System Center Operations Manager ile çalışacak şekilde yapılandırmanız gerekir.
 
-Doğrudan aracı kullanıyorsanız, günlük analizi veya OMS ağ geçidine bağlanmak için OMS aracısının kendisi yapılandırmanız gerekir. OMS ağ geçidi'nden indirebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Doğrudan Aracı kullanıyorsanız, Log Analytics'e veya OMS Ağ Geçidinize bağlanması için OMS aracısının kendisini yapılandırmanız gerekir. OMS Ağ Geçidi'ni [Microsoft İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=52666)'nden indirebilirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-- Gerektirir [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) çözümü sunar.
-- Kablo verileri çözüm'ın önceki sürümünü kullanıyorsanız, önce onu kaldırmanız gerekir. Ancak, özgün kablo verileri çözüm yakalanan tüm veriler kablo verileri 2.0 ve günlük arama hala mevcut değil.
-- Yüklemek veya bağımlılık Aracısı'nı kaldırmak için yönetici ayrıcalıkları gerekir.
-- Bağımlılık Aracısı'nı bir 64-bit işletim sistemine sahip bir bilgisayara yüklenmesi gerekir.
+- [İçgörü ve Analiz](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) çözüm teklifi gereklidir.
+- Wire Data çözümünü önceki sürümünü kullanıyorsanız, önce o sürümü kaldırmalısınız. Ancak özgün Wire Data çözümüyle yakalanmış olan tüm veriler Wire Data 2.0'da ve günlük aramasında yine kullanılabilir.
+- Bağımlılık Aracısı'nı yükleme veya kaldırmak için yönetici ayrıcalıkları gereklidir.
+- Bağımlılık Aracısı 64 bit işletim sistemine sahip bir bilgisayara yüklenmelidir.
 
 ### <a name="operating-systems"></a>İşletim sistemleri
 
-Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim sistemleri listelenmektedir. Kablo verileri 32-bit mimariler için herhangi bir işletim sistemini desteklemiyor.
+Aşağıdaki bölümlerde Bağımlılık Aracısı için desteklenen işletim sistemleri listelenir. Wire Data hiçbir işletim sisteminin 32 bit mimarilerini desteklemez.
 
 #### <a name="windows-server"></a>Windows Server
 
@@ -105,13 +105,13 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 - Windows 8
 - Windows 7
 
-#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (ile RHEL çekirdek)
+#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (RHEL Çekirdeği ile)
 
 - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.
-- PAE ve Xen, desteklenmez için tüm Linux dağıtım gibi standart olmayan çekirdek serbest bırakır. Örneğin, bir sürüm dizesi sistemiyle _2.6.16.21-0.8-xen_ desteklenmiyor.
-- Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
-- CentOSPlus çekirdek desteklenmiyor.
-- Oracle kesilemeyen kurumsal çekirdek (UEK), bu makalenin sonraki bölümlerde ele alınmıştır.
+- PAE ve Xen gibi standart dışı çekirdek sürümleri hiçbir Linux dağıtımında desteklenmez. Örneğin, sürüm dizesi _2.6.16.21-0.8-xen_ olan bir sistem desteklenmez.
+- Standart çekirdeklerin yeniden derlemeleri de dahil olmak üzere özel çekirdekler desteklenmez.
+- CentOSPlus çekirdeği desteklenmez.
+- Oracle Unbreakable Enterprise Kernel (UEK), bu makalenin sonraki bir bölümünde ele alınmıştır.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
@@ -145,7 +145,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 5.10 | 2.6.18-371 |
 | 5.11 | 2.6.18-398 <br> 2.6.18-400 <br>2.6.18-402 <br>2.6.18-404 <br>2.6.18-406 <br> 2.6.18-407 <br> 2.6.18-408 <br> 2.6.18-409 <br> 2.6.18-410 <br> 2.6.18-411 <br> 2.6.18-412 <br> 2.6.18-416 <br> 2.6.18-417 <br> 2.6.18-419 |
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux kesilemeyen kurumsal çekirdek ile
+#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux ve Unbreakable Enterprise Kernel
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
@@ -184,87 +184,87 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
-#### <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
+#### <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirmeleri
 
 | **Dosya** | **OS** | **Sürüm** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
 ## <a name="configuration"></a>Yapılandırma
 
-Alanlarınızı kablo verileri çözümü yapılandırmak için aşağıdaki adımları gerçekleştirin.
+Çalışma alanlarınızda Wire Data çözümünü yapılandırmak için aşağıdaki adımları uygulayın.
 
-1. Etkinlik günlük analizi çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
-2. Bağımlılık aracısı veri almak istediğiniz her bilgisayara yükleyin. Her bilgisayarda bir aracı gerekmeyebilir şekilde bağımlılık Aracısı'nı hemen Komşuları bağlantıları izleyebilirsiniz.
+1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
+2. Veri almak istediğiniz her bilgisayara Bağımlılık Aracısı'nı yükleyin. Bağımlılık Aracısı en yakındaki komşularla bağlantıları izleyebildiğinden her bilgisayarda bir aracıya ihtiyacınız olmayabilir.
 
-### <a name="install-the-dependency-agent-on-windows"></a>Windows üzerinde bağımlılık Aracısı'nı yükleme
+### <a name="install-the-dependency-agent-on-windows"></a>Windows'da Bağımlılık Aracısı'nı yükleme
 
-Yüklemek veya aracıyı kaldırmak için yönetici ayrıcalıkları gerekir.
+Aracıyı yüklemek veya kaldırmak için yönetici ayrıcalıkları gereklidir.
 
-Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe Windows çalıştıran bilgisayarlara yüklenir. Bu yürütülebilir dosya seçenekleri olmadan çalıştırırsanız, etkileşimli olarak yüklemek için izleyebileceğiniz Sihirbazı'nı başlatır.
+Bağımlılık Aracısı, Windows çalıştıran bilgisayarlara InstallDependencyAgent-Windows.exe ile yüklenir. Bu yürütülebilir dosyayı hiçbir seçenek olmadan çalıştırırsanız, etkileşimli yükleme yapmak için izleyebileceğiniz bir sihirbaz başlatır.
 
-Windows çalıştıran her bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
+Windows çalıştıran her bilgisayara Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1. İçindeki adımları izleyerek OMS Aracısı [ortamınızda barındırılan Windows bilgisayarlarından verileri toplama](log-analytics-windows-agent.md).
-2. Önceki bölümde bağlantıyı kullanarak Windows bağımlılık aracısı yükleyin ve sonra aşağıdaki komutu kullanarak çalıştırın: `InstallDependencyAgent-Windows.exe`
-3. Aracıyı yüklemek için sihirbazı izleyin.
-4. Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracılar için %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir.
+1. [Ortamınızda barındırılan Windows bilgisayarlarından veri toplama](log-analytics-windows-agent.md) başlığı altında verilen adımları izleyerek OMS Aracısı'nı yükleyin.
+2. Önceki bölümde verilen bağlantıyı kullanarak Windows Bağımlılık Aracısı'nı indirin ve ardından şu komutu kullanarak aracıyı çalıştırın: `InstallDependencyAgent-Windows.exe`
+3. Sihirbazı izleyerek aracıyı yükleyin.
+4. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları için günlük dizini: %Programfiles%\Microsoft Dependency Agent\logs.
 
 #### <a name="windows-command-line"></a>Windows komut satırı
 
-Bir komut satırından yüklemek için aşağıdaki tablodaki seçenekleri kullanın. Yükleme bayrakları listesini görmek için yükleyiciyi kullanarak çalıştırmak /? aşağıdaki gibi bayrak.
+Komut satırından yüklemek için aşağıdaki tabloda yer alan seçenekleri kullanın. Yükleme bayraklarının listesini görmek için yükleyiciyi çalıştırırken aşağıda gösterildiği gibi /? bayrağını kullanın.
 
-InstallDependencyAgent Windows.exe /?
+InstallDependencyAgent-Windows.exe /?
 
-| **Bayrağı** | **Açıklama** |
+| **Bayrak** | **Açıklama** |
 | --- | --- |
-| <code>/?</code> | Komut satırı seçeneklerinin listesini alın. |
-| <code>/S</code> | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
+| <code>/?</code> | Komut satırı seçeneklerinin listesini alır. |
+| <code>/S</code> | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
 
-Dosyalar Windows bağımlılık aracısı için varsayılan olarak C:\Program Files\Microsoft bağımlılık Aracısı yerleştirilir.
+Windows Bağımlılık Aracısı'nın dosyaları varsayılan olarak C:\Program Files\Microsoft Dependency Agent konumuna yerleştirilir.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Linux'ta bağımlılık Aracısı'nı yüklemek
+### <a name="install-the-dependency-agent-on-linux"></a>Linux'ta Bağımlılık Aracısı'nı yükleme
 
-Kök erişimi yüklemek veya aracıyı yapılandırmak için gereklidir.
+Aracıyı yüklemek veya yapılandırmak için kök erişimi gerekir.
 
-Bağımlılık Aracısı'nı InstallDependencyAgent Linux64.bin, kendiliğinden açılan bir ikili içeren bir kabuk betiği aracılığıyla Linux bilgisayarlara yüklenir. Kullanarak dosya çalıştırabilirsiniz _paylaş_ veya ekleme yürütme dosya izinlerinin.
+Bağımlılık Aracısı Linux bilgisayarlarına kendi kendine ayıklama ikili dosyası içeren InstallDependencyAgent-Linux64.bin kabuk betiğiyle yüklenir. Dosyayı çalıştırmak için _sh_ kullanın veya dosyanın kendisine yürütme izinleri ekleyin.
 
-Her bir Linux bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
+Her Linux bilgisayarına Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1. İçindeki adımları izleyerek OMS Aracısı [ortamınızda barındırılan Linux bilgisayarlardan verileri toplama](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
-2. Önceki bölümde bağlantıyı kullanarak Linux bağımlılık aracıyı indirin ve ardından aşağıdaki komutu kullanarak kök olarak yükleyin: Paylaş InstallDependencyAgent Linux64.bin
-3. Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları, günlük dizini:: /var/opt/microsoft/dependency-agent/log.
+1. [Ortamınızda barındırılan Linux bilgisayarlarından veri toplama](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) başlığı altında verilen adımları izleyerek OMS Aracısı'nı yükleyin.
+2. Önceki bölümde verilen bağlantıyı kullanarak Linux Bağımlılık Aracısı'nı indirin ve ardından bunu kök olarak yüklemek için şu komutu kullanın: sh InstallDependencyAgent-Linux64.bin
+3. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları için günlük dizini: /var/opt/microsoft/dependency-agent/log.
 
-Yükleme bayrakları listesini görmek için yükleme programla çalıştırma `-help` gibi bayrak.
+Yükleme bayraklarının listesini görmek için, yükleme programını aşağıda gösterildiği gibi `-help` bayrağıyla çalıştırın.
 
 ```
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Bayrağı** | **Açıklama** |
+| **Bayrak** | **Açıklama** |
 | --- | --- |
-| <code>-help</code> | Komut satırı seçeneklerinin listesini alın. |
-| <code>-s</code> | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
-| <code>--check</code> | İzinler ve işletim sistemi denetle, ancak aracı yüklemeyin. |
+| <code>-help</code> | Komut satırı seçeneklerinin listesini alır. |
+| <code>-s</code> | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
+| <code>--check</code> | İzinleri ve işletim sistemini denetleyin ama aracıyı yüklemeyin. |
 
-Bağımlılık aracısı için dosyalar aşağıdaki dizinlerindeki yerleştirilir:
+Bağımlılık Aracısı'nın dosyaları aşağıdaki dizinlere yerleştirilir:
 
-| **Dosyaları** | **Konum** |
+| **Dosyalar** | **Konum** |
 | --- | --- |
-| Çekirdek dosyaları | /OPT/Microsoft/Dependency-Agent |
-| Günlük dosyaları | /var/OPT/Microsoft/Dependency-Agent/log |
-| Yapılandırma dosyaları | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Hizmet yürütülebilir dosyalar | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br><br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| İkili depolama dosyaları | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Çekirdek dosyaları | /opt/microsoft/dependency-agent |
+| Günlük dosyaları | /var/opt/microsoft/dependency-agent/log |
+| Yapılandırma dosyaları | /etc/opt/microsoft/dependency-agent/config |
+| Hizmet yürütülebilir dosyaları | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| İkili depolama dosyaları | /var/opt/microsoft/dependency-agent/storage |
 
-### <a name="installation-script-examples"></a>Yükleme komut dosyası örnekleri
+### <a name="installation-script-examples"></a>Yükleme betiği örnekleri
 
-Kolayca bağımlılık Aracısı pek çok sunucu üzerinde aynı anda dağıtmak için bir komut dosyası kullanmak yararlı olur. Aşağıdaki komut örnekleri indirin ve Windows ya da Linux bağımlılık Aracısı'nı yüklemek için kullanabilirsiniz.
+Bağımlılık Aracısı'nı bir kerede birçok sunucuya kolayca dağıtmak için, betik kullanmak yararlı olabilir. Windows veya Linux'a Bağımlılık Aracısı'nı indirip yüklemek için aşağıdaki betik örneklerini kullanabilirsiniz.
 
-#### <a name="powershell-script-for-windows"></a>Windows PowerShell Betiği
+#### <a name="powershell-script-for-windows"></a>Windows için PowerShell betiği
 
 ```PowerShell
 
@@ -274,7 +274,7 @@ Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile Ins
 
 ```
 
-#### <a name="shell-script-for-linux"></a>Linux için kabuk komut dosyası
+#### <a name="shell-script-for-linux"></a>Linux için kabuk betiği
 
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
@@ -286,7 +286,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 ### <a name="desired-state-configuration"></a>İstenen Durum Yapılandırması
 
-Bağımlılık Aracısı istenen durum yapılandırması üzerinden dağıtmak için xPSDesiredStateConfiguration modülü ve biraz kod aşağıdaki gibi kullanabilirsiniz:
+Bağımlılık Aracısı'nı Desired State Configuration yoluyla dağıtmak için, xPSDesiredStateConfiguration modülünü ve aşağıdaki gibi küçük bir kod kullanabilirsiniz:
 
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
@@ -340,17 +340,17 @@ Node $NodeName
 ```
 ### <a name="uninstall-the-dependency-agent"></a>Bağımlılık Aracısı'nı kaldırma
 
-Bağımlılık Aracısı'nı kaldırmanıza yardımcı olması için aşağıdaki bölümlere bakın.
+Aşağıdaki bölümler Bağımlılık Aracısı'nı kaldırmanıza yardımcı olabilir.
 
-#### <a name="uninstall-the-dependency-agent-on-windows"></a>Windows üzerinde bağımlılık Aracısı'nı kaldırın
+#### <a name="uninstall-the-dependency-agent-on-windows"></a>Windows'da Bağımlılık Aracısı'nı kaldırma
 
-Bir yönetici için bağımlılık Aracısı Windows Denetim Masası'ndan kaldırabilirsiniz.
+Yöneticiler, Denetim Masası aracılığıyla Windows için Bağımlılık Aracısı'nı kaldırabilir.
 
-Bir yönetici, %Programfiles%\Microsoft Agent\Uninstall.exe bağımlılık Aracısı'nı kaldırmak için bağımlılık olarak da çalıştırabilirsiniz.
+Bir yönetici Bağımlılık Aracısı'nı kaldırmak için %Programfiles%\Microsoft Dependency Agent\Uninstall.exe'yi çalıştırabilir.
 
-#### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux üzerinde bağımlılık Aracısı'nı kaldırın
+#### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux'ta Bağımlılık Aracısı'nı kaldırma
 
-Bağımlılık Aracısı'nı Linux tamamen kaldırmak için aracı ve otomatik olarak bir aracı yüklü bağlayıcı kaldırmanız gerekir. Aşağıdaki komutu kullanarak her ikisi de kaldırabilirsiniz:
+Bağımlılık Aracısı'nı Linux'tan tümüyle kaldırmak için, hem aracının kendisini hem de aracıyla birlikte otomatik olarak yüklenen bağlayıcıyı kaldırmalısınız. Aşağıdaki tek komutu kullanarak ikisini de kaldırabilirsiniz:
 
 ```
 rpm -e dependency-agent dependency-agent-connector
@@ -358,96 +358,96 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="management-packs"></a>Yönetim paketleri
 
-Kablo verileri bir günlük analizi çalışma alanındaki etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucularına gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](log-analytics-om-agents.md), bağımlılık İzleyicisi Yönetim Paketi System Center Operations Manager'dan dağıtılır. Aracıları doğrudan bağlıysanız, günlük analizi Yönetim Paketi sunar.
+Log Analytics çalışma alanında Wire Data etkinleştirildiğinde, söz konusu çalışma alanındaki tüm Windows sunucularına 300 KB'lık bir yönetim paketi gönderilir. System Center Operations Manager aracılarını bir [bağlı yönetim grubunda](log-analytics-om-agents.md) kullanıyorsanız, System Center Operations Manager'dan Bağımlılık İzleyicisi yönetim paketi dağıtılır. Aracılar doğrudan bağlıysa yönetim paketini Log Analytics verir.
 
-Yönetim Paketi Microsoft.IntelligencePacks.ApplicationDependencyMonitor olarak adlandırılır. Öğesine yazılır: %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management paketleri. Yönetim Paketi kullanan veri kaynağı: % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources&lt;AutoGeneratedID&gt;\ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Yönetim paketinin adı Microsoft.IntelligencePacks.ApplicationDependencyMonitor'dır. Şu konuma yazılır: %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs. Yönetim paketi şu veri kaynağını kullanır: %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
 
-**Yükleme ve çözüm yapılandırılıyor**
+**Çözümü yükleme ve yapılandırma**
 
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
-- Kablo verileri çözüm Windows Server 2012 R2, Windows 8.1 ve sonraki işletim sistemleri çalıştıran bilgisayarların verilerini alır.
-- Kablo verileri almak istediğiniz bilgisayarlarda Microsoft .NET Framework 4.0 veya sonraki sürümü gerekir.
-- Kablo verileri çözümü açıklanan işlemi kullanarak günlük analizi çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
-- Kablo verileri belirli bir çözüm için görüntülemek istiyorsanız, zaten alanınıza eklenen çözüm gerekir.
+- Wire Data çözümü Windows Server 2012 R2, Windows 8.1 ve daha sonraki işletim sistemlerini çalıştıran bilgisayarlardan veri alır.
+- Sinyal verilerini almak istediğiniz bilgisayarlarda Microsoft .NET Framework 4.0 veya üstü bulunmalıdır.
+- [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak Wire Data çözümünü Log Analytics çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
+- Belirli bir çözümle ilişkili sinyal verilerini görüntülemek istiyorsanız, çözümün çalışma alanınıza önceden eklenmiş olması gerekir.
 
-Aracıları yüklü olan ve çözüm yükledikten sonra çalışma alanınızda kablo verileri 2.0 kutucuğu görüntülenir.
+Aracılarınız yüklendikten ve siz çözümü yükledikten sonra, çalışma alanınızda Wire Data 2.0 kutucuğu gösterilir.
 
-![Kablo verileri döşeme](./media/log-analytics-wire-data/wire-data-tile.png)
+![Wire Data kutucuğu](./media/log-analytics-wire-data/wire-data-tile.png)
 
-## <a name="using-the-wire-data-20-solution"></a>Kablo verileri 2.0 çözümünü kullanarak
+## <a name="using-the-wire-data-20-solution"></a>Wire Data 2.0 çözümünü kullanma
 
-OMS Portalı'nda tıklatın **kablo verileri 2.0** döşeme kablo verileri panosunu açın. Pano Kanatlar aşağıdaki tabloda içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla 10 öğeleri listeler. Tıklayarak tüm kayıtları döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatarak.
+Azure portalında Log Analytics çalışma alanınızın **Genel bakış** sayfasında **Wire Data 2.0** kutucuğuna tıklayarak Wire Data panosunu açın. Pano aşağıdaki tabloda gösterilen dikey pencereleri içerir. Her dikey pencerede, dikey pencerenin belirtilen kapsam ve zaman aralığına yönelik ölçütleriyle eşleşen en fazla 10 öğe listelenir. Dikey pencerenin altındaki **Tümünü göster**’e tıklayarak veya dikey pencere başlığına tıklayarak tüm kayıtları döndüren bir günlük araması yapabilirsiniz.
 
-| **Dikey penceresi** | **Açıklama** |
+| **Dikey pencere** | **Açıklama** |
 | --- | --- |
-| Ağ trafiğini yakalayan aracılar | Ağ trafiğini yakalayan aracılar sayısını gösterir ve trafiği yakalama üst 10 bilgisayarları listeler. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Toplam Yakalanan bayt sayısı döndüren bir günlük arama çalıştırmak için listedeki bir bilgisayar'ı tıklatın. |
-| Yerel alt ağları | Aracıları bulunmuş yerel alt ağları sayısını gösterir.  Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> , listeleriyle tüm alt ağların her biri gönderilen bayt sayısı. Alt ağ gönderilen bayt sayısı toplam döndüren bir günlük arama çalıştırmak için listedeki bir alt ağ'ı tıklatın. |
-| Uygulama düzeyi protokolleri | Uygulama düzeyi protokolleri sayısını kullanımda, aracıları tarafından bulunan olarak gösterir. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Toplam protokolü kullanılarak gönderilen bayt sayısı döndüren bir günlük arama çalıştırmak için bir iletişim kuralı'ı tıklatın. |
+| Ağ trafiğini yakalayan aracılar | Ağ trafiğini yakalayan aracıların sayısını gösterir ve trafiği yakalayan ilk 10 bilgisayarı listeler. <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code> günlük araması çalıştırmak için sayıya tıklayın. Yakalanan toplam bayt sayısını döndüren bir günlük araması çalıştırmak için listedeki bir bilgisayara tıklayın. |
+| Yerel Alt Ağlar | Aracıların keşfettiği yerel alt ağların sayısını gösterir.  Tüm alt ağları ve her birinden gönderilen bayt sayısını listeleyen bir <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> günlük araması çalıştırmak için sayıya tıklayın. Alt ağ üzerinden gönderilen toplam bayt sayısını döndüren bir günlük araması çalıştırmak için listedeki bir alt ağa tıklayın. |
+| Uygulama Düzeyi Protokolleri | Aracılar tarafından keşfedilen, kullanımdaki uygulama düzeyi protokollerinin sayısını gösterir. <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code> günlük araması çalıştırmak için sayıya tıklayın. Protokol kullanılarak gönderilen toplam bayt sayısını döndüren bir günlük araması çalıştırmak için listedeki bir protokole tıklayın. |
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-![Kablo verileri Panosu](./media/log-analytics-wire-data/wire-data-dash.png)
+![Wire Data panosu](./media/log-analytics-wire-data/wire-data-dash.png)
 
-Kullanabileceğiniz **ağ trafiğini yakalayan aracılar** bilgisayarlar tarafından kullanılan ağ bant genişliğini belirlemek için dikey. Bu dikey kolayca bulmanıza yardımcı olabilir _chattiest_ bilgisayar ortamınızdaki. Bu bilgisayarlar, anormal olarak davranan veya normalden daha fazla ağ kaynaklarını kullanan aşırı yüklenmiş.
+**Ağ trafiğini yakalayan aracılar** dikey penceresini kullanarak bilgisayarlar tarafından kullanılmakta olan ağ genişliğini miktarını belirleyebilirsiniz. Bu dikey pencere ortamınızdaki en _geveze_ bilgisayarı kolayca bulmanıza yardımcı olabilir. Bu tür bilgisayarlar aşırı yüklenmiş, anormal çalışıyor veya normalin üzerinde ağ kaynağı kullanıyor olabilir.
 
-![Günlük arama örneği](./media/log-analytics-wire-data/log-search-example01.png)
+![günlük araması örneği](./media/log-analytics-wire-data/log-search-example01.png)
 
-Benzer şekilde, kullanabileceğiniz **yerel alt ağları** ne kadar ağ trafiğini, alt ağlar taşıma olduğunu belirlemek için dikey. Kullanıcıların uygulamaları için kritik alanları geçici alt ağlar genellikle tanımlayın. Bu dikey bu alanlara görünüme sunar.
+Benzer biçimde, **Yerel Alt Ağlar** dikey penceresini kullanarak alt ağlarınız üzerinden ne kadar ağ trafiği taşındığını belirleyebilirsiniz. Kullanıcılar alt ağları çoğunlukla uygulamalarının kritik alanları çevresinde tanımlar. Bu dikey pencere söz konusu alanların görülmesini sağlar.
 
-![Günlük arama örneği](./media/log-analytics-wire-data/log-search-example02.png)
+![günlük araması örneği](./media/log-analytics-wire-data/log-search-example02.png)
 
-**Uygulama düzeyi protokolleri** dikey yararlıdır yardımcı olduğundan ne protokolleri kullanımda olduğunu biliyor. Örneğin, ağ ortamınızda kullanımda olmaması için SSH bekleyebilirsiniz. Dikey penceresinde kullanılabilir bilgilerini görüntüleme hızlı bir şekilde Onayla veya, Beklenti disprove.
+**Uygulama Düzeyi Protokolleri** hangi protokollerin kullanımda olduğunu öğrenmenize yardımcı olduğundan, yararlı bir dikey penceredir. Örneğin, ağ ortamınızda SSH'nin kullanımda olmamasını bekliyor olabilirsiniz. Dikey pencerede sağlanan bilgileri görüntüleyerek bu beklentinizin doğru olup olmadığını hızla anlayabilirsiniz.
 
-![Günlük arama örneği](./media/log-analytics-wire-data/log-search-example03.png)
+![günlük araması örneği](./media/log-analytics-wire-data/log-search-example03.png)
 
-Bu örnekte, hangi bilgisayarların SSH ve diğer birçok iletişim ayrıntılarını kullanmakta olduğunu görmek için-ayrıntıya SSH ayrıntıları alınamadı.
+Bu örnekte, hangi bilgisayarların SSH kullandığını ve daha birçok iletişim ayrıntısını görmek için SSH bilgilerinde detaya gidebilirsiniz.
 
-![Paylaş arama sonuçları](./media/log-analytics-wire-data/ssh-details.png)
+![ssh arama sonuçları](./media/log-analytics-wire-data/ssh-details.png)
 
-Protokol trafiğini artırarak veya zamanla azaltarak olmadığını bilmek yararlıdır. Bir uygulama tarafından aktarılan veri miktarını artırmayı, örneğin, bilincinde olmanız gereken bir şey olması veya dikkate değer bulabileceğiniz emin olabilir.
+Ayrıca protokol trafiğinin zaman içinde arttığını mı yoksa azaldığını mı bilmek de yararlı olur. Örneğin, bir uygulama tarafından iletilen verilerin miktarı artıyorsa, bu farkında olmanız gereken bir durum veya dikkate değer bulduğunuz bir bilgi olabilir.
 
-## <a name="input-data"></a>Giriş verisi
+## <a name="input-data"></a>Giriş verileri
 
-Kablo verileri etkinleştirdiğiniz aracıları kullanarak ağ trafiğini hakkındaki meta verileri toplar. Her bir aracının 15 dakikada hakkındaki verileri gönderir.
+Sinyal verileri, etkinleştirilmiş olan aracıları kullanarak ağ trafiği hakkındaki meta verileri toplar. Her aracı yaklaşık her 15 saniyede bir veri gönderir.
 
 ## <a name="output-data"></a>Çıktı verileri
 
-Türüne sahip bir kayıt _WireData_ her giriş veri türü için oluşturulur. WireData kayıtları aşağıdaki tabloda gösterilen özelliklere sahiptir:
+Her giriş verileri türü için _WireData_ türünde bir kayıt oluşturulur. Aşağıdaki tabloda WireData kayıtlarının özellikleri gösterilmiştir:
 
 | Özellik | Açıklama |
 |---|---|
-| Bilgisayar | Burada veri toplanan bilgisayar adı |
-| TimeGenerated | Kayıt zamanı |
-| Yerel IP | Yerel bilgisayarın IP adresi |
-| SessionState | Bağlantısı kesilmiş veya bağlı |
+| Bilgisayar | Verilerin toplandığı bilgisayarın adı |
+| TimeGenerated | Kaydın zamanı |
+| LocalIP | Yerel bilgisayarın IP adresi |
+| SessionState | Bağlantılı veya bağlantısı kesilmiş |
 | ReceivedBytes | Alınan bayt miktarı |
-| ProtocolName | Kullanılan ağ protokolün adı |
-| İpversion değeri | IP sürümü |
+| ProtocolName | Kullanılan ağ protokolünün adı |
+| IPVersion | IP sürümü |
 | Yön | Gelen veya giden |
-| MaliciousIP | Bilinen kötü amaçlı bir kaynak IP adresi |
-| Önem Derecesi | Amaçlı olduğundan kuşkulanılan yazılımın önem derecesi |
-| RemoteIPCountry | Ülke / bölge uzak IP adresi |
+| MaliciousIP | Bilinen kötü amaçlı kaynağın IP adresi |
+| Severity | Kötü amaçlı olduğundan şüphe edilen yazılımın önem derecesi |
+| RemoteIPCountry | Uzak IP adresinin ülkesi |
 | ManagementGroupName | Operations Manager yönetim grubunun adı |
-| SourceSystem | Burada veri toplanan kaynak |
-| SessionStartTime | Oturum başlangıç saati |
+| SourceSystem | Verilerin toplandığı kaynak |
+| SessionStartTime | Oturumun başlangıç saati |
 | SessionEndTime | Oturumun bitiş saati |
-| LocalSubnet | Burada veri toplanan alt ağ |
+| LocalSubnet | Verilerin toplandığı alt ağ |
 | LocalPortNumber | Yerel bağlantı noktası numarası |
-| Uzak IP | Uzak bilgisayar tarafından kullanılan uzak IP adresi |
-| RemotePortNumber | Uzak IP adresiyle kullanılan bağlantı noktası numarası |
-| SessionID | İki IP adresi arasındaki iletişimi oturumunu tanımlayan benzersiz bir değer |
+| RemoteIP | Uzak bilgisayar tarafından kullanılan uzak IP adresi |
+| RemotePortNumber | Uzak IP adresi tarafından kullanılan bağlantı noktası numarası |
+| SessionID | İki IP adresi arasındaki iletişim oturumunu tanımlayan benzersiz bir değer |
 | SentBytes | Gönderilen bayt sayısı |
-| TotalBytes | Toplam oturum sırasında gönderilen bayt sayısı |
-| ApplicationProtocol | Kullanılan ağ protokol türü   |
-| İşlem kimliği | Windows işlem kimliği |
-| İşlem adı | İşlemin yolu ve dosya adı |
+| TotalBytes | Oturum sırasında gönderilen toplam bayt sayısı |
+| ApplicationProtocol | Kullanılan ağ protokolünün türü   |
+| ProcessID | Windows işlem kimliği |
+| ProcessName | İşlemin yıl ve dosya adı |
 | RemoteIPLongitude | IP boylam değeri |
 | RemoteIPLatitude | IP enlem değeri |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı kablo veri arama kayıtları görüntülemek için.
+- Ayrıntılı sinyal verileri arama kayıtlarını görüntülemek için [günlüklerde arama yapın](log-analytics-log-searches.md).

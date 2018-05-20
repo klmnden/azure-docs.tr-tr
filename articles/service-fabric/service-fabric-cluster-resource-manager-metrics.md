@@ -1,24 +1,24 @@
 ---
-title: "Ölçümleri kullanarak Azure mikro hizmet yük yönetme | Microsoft Docs"
-description: "Yapılandırma ve hizmet kaynak tüketimi yönetmek için Service Fabric ölçümleri kullanma hakkında bilgi edinin."
+title: Ölçümleri kullanarak Azure mikro hizmet yük yönetme | Microsoft Docs
+description: Yapılandırma ve hizmet kaynak tüketimi yönetmek için Service Fabric ölçümleri kullanma hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimini ve Service Fabric yük ölçümlerle yönetme
 *Ölçümleri* , hizmetleri çok değer verdiğiniz ve hangi kümedeki düğümlerin tarafından sağlanan kaynaklardır. Bir ölçü artırmak veya hizmetlerinizi performansını izlemek için yönetmek istediğiniz herhangi bir şey sayısıdır. Örneğin, hizmetiniz aşırı yüklü olmadığını bilmek bellek tüketimi izlemek. Başka bir olup hizmet bellek az daha iyi performans elde için kısıtlı olduğu başka bir yerde dışarı Taşı bulmak için kullanılır.
@@ -36,7 +36,7 @@ Yazma ve hizmet dağıtma başlamak istiyorsanız varsayalım. Bu noktada içere
 | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |
 | ReplicaCount |0 |1 |1 |
-| Sayı |1 |1 |1 |
+| Sayım |1 |1 |1 |
 
 Temel iş yükleri için çalışma kümesindeki makul bir dağıtımını varsayılan ölçümleri sağlar. Aşağıdaki örnekte, iki hizmet oluşturmak ve Dengeleme için varsayılan ölçümleri Bel ne olur görelim. Üç bölümleri olan bir durum bilgisi olan hizmet ilk hizmetidir ve bir hedef çoğaltma üç boyutunu ayarlayın. İkinci hizmeti, bir bölüm ve bir örnek sayısını üç ile durumsuz bir hizmettir.
 
@@ -58,7 +58,7 @@ Varsayılan ölçümleri harika bir başlangıç çalışır. Ancak, varsayılan
 
 Yalnızca varsayılan Ölçümleriyle çalıştırabilir. Ancak, genellikle böylece küme kullanımınızı alt ve istediğiniz daha fazla düzensiz anlamına gelir. Varsayılan ölçümleri Uyarlamalı değil ve her şeyi eşdeğer olduğunu varsayın olmasıdır. Örneğin, meşgul bir birincil ve iki olmayan bir "1" PrimaryCount ölçüm için katkıda. Kötü durumda, yalnızca varsayılan ölçümleri kullanarak da performans sorunları kaynaklanan overscheduled düğümleri neden olabilir. En iyi kümenizi alma ve performans sorunlarını önleme düşünüyorsanız, özel Ölçümler ve dinamik yük raporlama kullanmanız gerekir.
 
-## <a name="custom-metrics"></a>Özel ölçümleri
+## <a name="custom-metrics"></a>Özel ölçümler
 Hizmet oluşturulurken ölçümleri adlı-service-örnek başına temelinde yapılandırılır.
 
 Herhangi bir ölçümü açıkladığı bazı özelliklere sahiptir: bir ad, bir ağırlık ve varsayılan yükleme.
@@ -140,7 +140,7 @@ Bir anımsatıcı olarak: yalnızca varsayılan ölçümleri kullanmak istiyorsa
 
 Artık daha ayrıntılı bu ayarların her biri aracılığıyla edelim ve onu etkilediğini davranışı hakkında konuşun.
 
-## <a name="load"></a>Yükleme
+## <a name="load"></a>Yükle
 Ölçümleri tanımlamanın tüm noktası bazı yük göstermektir. *Yük* belirli bir metrik ne kadarının bazı hizmet örneği veya belirtilen bir düğüm üzerindeki çoğaltma tarafından kullanılan olduğu. Yük neredeyse herhangi bir noktada yapılandırılabilir. Örneğin:
 
   - Bir hizmet oluşturduğunuzda yük tanımlanabilir. Bu adlı _varsayılan yük_.

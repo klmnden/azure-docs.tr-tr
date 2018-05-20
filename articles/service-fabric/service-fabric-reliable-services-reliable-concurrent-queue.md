@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric ReliableConcurrentQueue
-description: "ReliableConcurrentQueue paralel enqueues sağlar ve dequeues yüksek verimlilik sırasıdır."
+description: ReliableConcurrentQueue paralel enqueues sağlar ve dequeues yüksek verimlilik sırasıdır.
 services: service-fabric
 documentationcenter: .net
 author: sangarg
@@ -9,23 +9,23 @@ editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric ReliableConcurrentQueue giriş
 Güvenilir eşzamanlı sırası bir zaman uyumsuz işlem ve çoğaltılmış hangi özellikleri yüksek eşzamanlılık sıraya alma sıradır ve işlemleri dequeue. Tarafından sağlanan sıralama, katı FIFO gevşetme tarafından yüksek verimlilik ve düşük gecikme süresi sunacak şekilde tasarlanan [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir en yüksek çaba sıralama sağlar.
 
 ## <a name="apis"></a>API'ler
 
-|Eşzamanlı sırası                |Güvenilir eşzamanlı sırası                                         |
+|Eşzamanlı sırası                |Güvenilir Eşzamanlı Kuyruk                                         |
 |--------------------------------|------------------------------------------------------------------|
 | void Enqueue(T item)           | Görev EnqueueAsync (ITransaction tx, T öğe)                       |
 | bool TryDequeue (out T sonuç)  | Görev < ConditionalValue < T >> TryDequeueAsync (ITransaction tx)  |

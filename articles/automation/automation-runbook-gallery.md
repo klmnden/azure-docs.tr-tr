@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a33bc9ea1750d9db34c0fad678118dc81f294c61
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.openlocfilehash: 8fb0e2181c518db541504f0eea77ce9fde7edf8f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zaten Microsoft ve topluluk tarafından oluşturulmuş senaryoları çeşitli erişebilir.  Bu senaryolar değişiklik yapmadan ya da kullanabilir veya bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -53,7 +53,7 @@ Microsoft, diğer müşteriler için yararlı olabilecek düşündüğünüz Run
 * Bir kullanıcı runbook'u işlevselliğini tanımlamak yardımcı olacak ayrıntılı bilgileri sağlaması gerekir böylece karşıya yükleme özeti Runbook Galerisi sonuçları görüntülenir.
 * Yüklemek için aşağıdaki etiketlerin bir ile üç atamanız gerekir.  Runbook Sihirbazı'ndaki kendi etiketlerle eşleşecek kategorisi altında listelenir.  Bu listedeki herhangi bir etiket sihirbaz tarafından göz ardı edilir. Eşleşen herhangi bir etiket belirlemezseniz, runbook bir kategorisi altında listelenir.
   
-  * Backup
+  * Yedekle
   * Kapasite Yönetimi
   * Değişiklik denetimi
   * Uyumluluk
@@ -79,7 +79,7 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
    
    * Modül Adı
    * Etiketler
-   * Yazma
+   * Yazar
    * Cmdlet/DSC kaynağı adı
 6. İlgilendiğiniz bir modül bulup ayrıntılarını görüntülemek için seçin.  
    Belirli bir modüle ayrıntıya, daha fazla bilgi görüntüleyebilirsiniz bağlantı geri PowerShell Galerisi modülü hakkında gerekli bağımlılıkları ve tüm cmdlet'ler ve/veya modülü içeren DSC kaynakları.

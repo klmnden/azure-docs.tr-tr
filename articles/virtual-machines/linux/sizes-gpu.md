@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM boyutları - GPU | Microsoft Docs
-description: Listeleri farklı GPU Azure Linux sanal makineler için kullanılabilir boyutları en iyi duruma getirilmiş. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler.
+title: Azure Linux VM sizes - GPU | Microsoft Docs
+description: Lists the different GPU optimized sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
 ms.openlocfilehash: c4704dd461ae96600fa812fdfe8d9b0e59e93d72
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/24/2018
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>Sanal makine boyutlarını GPU en iyi duruma getirilmiş
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU optimized virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -30,18 +30,18 @@ ms.lasthandoff: 04/20/2018
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-Sürücü yükleme ve doğrulama adımları için bkz [N-serisi sürücü kurulumu Linux için](n-series-driver-setup.md).
+For driver installation and verification steps, see [N-series driver setup for Linux](n-series-driver-setup.md).
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* X yüklemek döndürmemelidir sunucu veya kullanan diğer sistemler `Nouveau` Ubuntu NC vm'lerde sürücü. NVIDIA GPU sürücüleri yüklemeden önce devre dışı bırakmanız gerekir `Nouveau` sürücü.  
+* You shouldn't install X server or other systems that use the `Nouveau` driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the `Nouveau` driver.  
 
-## <a name="other-sizes"></a>Diğer boyutlara
-- [Genel amaçlı](sizes-general.md)
-- [İşlem için iyileştirilmiş](sizes-compute.md)
-- [Bellek için iyileştirilmiş](sizes-memory.md)
-- [Depolama için iyileştirilmiş](sizes-storage.md)
-- [Yüksek performanslı işlem](sizes-hpc.md)
+## <a name="other-sizes"></a>Other sizes
+- [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [High performance compute](sizes-hpc.md)
 
-## <a name="next-steps"></a>Sonraki adımlar
-Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+## <a name="next-steps"></a>Next steps
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

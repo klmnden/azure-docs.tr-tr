@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Uzaktan izleme Çözüm Hızlandırıcısı mimarisi
 
-Uzaktan izleme [Çözüm Hızlandırıcısı](iot-suite-what-are-solution-accelerators.md) uzak konumlarda birden fazla makine için uçtan uca bir izleme çözümü uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](iot-suite-remote-monitoring-customize.md) kendi belirli iş gereksinimlerinizi karşılamak üzere onu.
+Uzaktan izleme [Çözüm Hızlandırıcısı](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) uzak konumlarda birden fazla makine için uçtan uca bir izleme çözümü uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) kendi belirli iş gereksinimlerinizi karşılamak üzere onu.
 
 Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
 
@@ -33,7 +33,7 @@ Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız i
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
-Aşağıdaki diyagram yayılan Uzaktan izleme Çözüm Hızlandırıcısı mantıksal bileşenlerinin ana hatların vermektedir [IOT mimarisi](iot-suite-what-is-azure-iot.md):
+Aşağıdaki diyagram yayılan Uzaktan izleme Çözüm Hızlandırıcısı mantıksal bileşenlerinin ana hatların vermektedir [IOT mimarisi](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Mantıksal mimari](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, biriyle iki an
 * [Azure IOT (Java) uzaktan izleme Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 * [Uzaktan izleme mimarisi için Çözüm Hızlandırıcısı)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Uzaktan izleme Çözüm Hızlandırıcısı hakkında daha fazla kavramsal bilgi için bkz: [Çözüm Hızlandırıcısı özelleştirme](iot-suite-remote-monitoring-customize.md).
+Uzaktan izleme Çözüm Hızlandırıcısı hakkında daha fazla kavramsal bilgi için bkz: [Çözüm Hızlandırıcısı özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile HireVue | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile HireVue arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile HireVue | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile HireVue arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e79526ff45babbca7722aa478347c0e3c9f013cd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cc59943871c6690a14754e919a8865065c0b40ac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Öğretici: Azure Active Directory Tümleştirme HireVue ile
 
@@ -29,9 +29,9 @@ HireVue Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için HireVue (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme HireVue ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -112,17 +112,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     |-------------|---|
     | Üretim | `https://<companyname>.hirevue.com` |
-    | Hazırlama    | `https://<companyname>.stghv.com` |
+    | Hazırlanıyor    | `https://<companyname>.stghv.com` |
     
     b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:
     
     | Ortam | URN |
     |-------------|-----|
     | Üretim |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Hazırlama    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Hazırlanıyor    | `urn:federation:hirevue.com:saml:sp:staging`|
     
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [HireVue istemci destek ekibi](mailto:samlsupport@hirevue.com) bu değerleri almak için. 
@@ -174,7 +174,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-hirevue-test-user"></a>HireVue test kullanıcısı oluşturma
 
@@ -219,7 +219,7 @@ Erişim paneli HireVue parçasında tıklattığınızda, otomatik olarak HireVu
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

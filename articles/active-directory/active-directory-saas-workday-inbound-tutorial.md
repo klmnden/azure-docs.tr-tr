@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -99,14 +99,14 @@ Tek bir sağlama bağlayıcı tek kaynak sistemi API'si ile arabirimleri ve sağ
 
 Azure AD'de sağlama bağlayıcı örnekleri ve app örnekleri arasında bire bir ilişki vardır:
 
-| Kaynak sistemi | Hedef sistem |
+| Kaynak Sistem | Hedef sistem |
 | ---------- | ---------- | 
 | Azure AD kiracısı | SaaS uygulaması |
 
 
 Ancak, Workday ve Active Directory ile çalışırken, olarak kabul edilmesi için birden çok kaynak ve hedef sistemleri vardır:
 
-| Kaynak sistemi | Hedef sistem | Notlar |
+| Kaynak Sistem | Hedef sistem | Notlar |
 | ---------- | ---------- | ---------- |
 | İş günü | Active Directory Ormanı | Her bir orman ayrı hedef sistem olarak kabul edilir |
 | İş günü | Azure AD kiracısı | Yalnızca bulut kullanıcıları için gerektiği şekilde |
@@ -371,7 +371,7 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
 | **PreferredNameData**  |  Görünen adı |     |   Oluştur + güncelleştir |
 | **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
-| **SupervisoryOrganization**  | Bölüm  |     |  Oluştur + güncelleştir |
+| **SupervisoryOrganization**  | bölüm  |     |  Oluştur + güncelleştir |
 | **ManagerReference**   | Yöneticisi  |     |  Oluştur + güncelleştir |
 | **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir | 
 | **AddressLineData**    |  StreetAddress  |     |   Oluştur + güncelleştir |
@@ -804,20 +804,13 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 * Avrupa Birliği bulunan Azure AD kiracılarıyla görünmeyen denetim günlüklerini önceki bir sorun çözüldü. Ancak, ek Aracısı yapılandırması AB Azure AD kiracıları için gereklidir. Ayrıntılar için bkz [bölümü 3: şirket içi eşitleme Aracısı'nı yapılandırma](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>GDPR uyumluluk
+## <a name="gdpr-information"></a>GDPR bilgileri
 
 [Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR şirketler kuralları uygular, devlet dairesi, kar kaybı olmayan ve AB veya kişilere mal ve hizmet sunmak diğer kuruluşların toplamak ve AB Satışlar bağlı verileri analiz etmek. 
 
-Azure AD sağlama GDPR Microsoft'un hizmetlerin ve özelliklerin yanı sıra rest uyumlu hizmetidir. Microsoft'un GDPR Öykü hakkında daha fazla bilgi için bkz: [hizmet koşulları](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Microsoft'un GDPR Öykü hakkında daha fazla bilgi için bkz: [hizmet koşulları](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Ancak, Active Directory için iş günü sağlama çözümünü etki alanına katılmış bir sunucuya yüklenmesi bir eşitleme Aracısı gerektirdiğinden, GDPR uyumlu de Kal izlemek için gereken bazı olaylar vardır.
- 
-Aracı günlüklerinde oluşturur **Windows olay günlüğü**, kişisel olarak tanımlanabilir bilgiler içerebilir.
-
-GDPR uyumlu olmak iki yol vardır:
-
-1. İstek, bir kişi için verileri ayıklamak ve Windows olay günlükleri bu kişiden veri kaldırın. 
-2. Windows olay günlüklerini altında 48 saat AADSyncAgent işleminden kaynaklanan bekletme tutun
+Lütfen Not çözüm için Active Directory sağlama iş günü bir eşitleme aracısı etki alanına katılmış bir sunucuda yüklü olmasını gerektirir ve bu aracı günlüklerinde oluşturur **Windows olay günlüğü** hangi içerebilir Kişisel olarak tanımlanabilir bilgiler.
 
 Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha fazla bilgi için bkz: [olay günlüğü ayarları](https://technet.microsoft.com/library/cc952132.aspx). Windows olay günlüğü hakkında genel bilgi için bkz: [bu makalede](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -827,4 +820,3 @@ Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha faz
 * [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Çoklu oturum açma Workday ve Azure Active Directory arasında yapılandırmayı öğrenin](active-directory-saas-workday-tutorial.md)
 * [Diğer SaaS uygulamaları Azure Active Directory ile tümleştirme öğrenin](active-directory-saas-tutorial-list.md)
-

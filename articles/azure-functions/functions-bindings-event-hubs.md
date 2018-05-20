@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -33,6 +33,8 @@ Bu makale ile nasıl çalışılacağını açıklar [Azure Event Hubs](../event
 Azure işlevleri sürümü için 1.x, olay hub'ları bağlamaları içinde verilmiştir [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi. İşlevler için 2.x, kullanım [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) paket. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub depo.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -66,7 +68,7 @@ Tüm işlevi yürütmeleri hatasız başarılı olursa, kontrol noktaları iliş
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
@@ -82,15 +84,29 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Olay meta verilerine erişmek için bağlamak bir [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) nesne (gerektiren bir `using` bildirimi `Microsoft.ServiceBus.Messaging`).
+Erişmek için [olay meta verisini](#trigger---event-metadata) işlev kodu bağlamak bir [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) nesne (kullanarak bir gerektirir bildirimi `Microsoft.ServiceBus.Messaging`). Aynı özellikler yöntemi imzada bağlama ifadeleri kullanarak da erişebilirsiniz.  Aşağıdaki örnek, aynı veri almak için her iki yönde gösterir:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
+public static void Run(
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
+
 Bir toplu işlemde olaylarını almak için olun `string` veya `EventData` bir dizi:
 
 ```cs
@@ -130,16 +146,29 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Olay meta verilerine erişmek için bağlamak bir [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) nesne (kullanarak bir gerektirir bildirimi `Microsoft.ServiceBus.Messaging`).
+Erişmek için [olay meta verisini](#trigger---event-metadata) işlev kodu bağlamak bir [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) nesne (kullanarak bir gerektirir bildirimi `Microsoft.ServiceBus.Messaging`). Aynı özellikler yöntemi imzada bağlama ifadeleri kullanarak da erişebilirsiniz.  Aşağıdaki örnek, aynı veri almak için her iki yönde gösterir:
 
 ```cs
 #r "Microsoft.ServiceBus"
 using System.Text;
+using System;
 using Microsoft.ServiceBus.Messaging;
 
-public static void Run(EventData myEventHubMessage, TraceWriter log)
+public static void Run(EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
 
@@ -180,7 +209,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
-Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev olay hub'ı tetikleyicisi ileti gövdesini günlüğe kaydeder.
+Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev okur [olay meta verisini](#trigger---event-metadata) ve iletiyi günlüğe kaydeder.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -197,8 +226,12 @@ Veri bağlama işte *function.json* dosyası:
 JavaScript kod aşağıdaki gibidir:
 
 ```javascript
-module.exports = function (context, myEventHubMessage) {
-    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+module.exports = function (context, eventHubMessage) {
+    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('SequenceNumber =', context.bindingData.sequenceNumber);
+    context.log('Offset =', context.bindingData.offset);
+     
     context.done();
 };
 ```
@@ -253,8 +286,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü** | yok | ayarlanmalıdır `eventHubTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**Yönü** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**type** | yok | ayarlanmalıdır `eventHubTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**direction** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu olay öğesinde temsil eden değişken adı. | 
 |**Yol** |**EventHubName** | Olay hub'ın adı. | 
 |**consumerGroup** |**ConsumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub olaylara abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
@@ -263,7 +296,23 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---hostjson-properties"></a>Trigger - host.json properties
+## <a name="trigger---event-metadata"></a>Tetikleyici - olay meta verileri
+
+Olay hub'ları tetikleyici birkaç sağlar [meta veri özelliklerini](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Bu özellikler, diğer bağlamaları bağlama ifadelerinde bir parçası olarak ya da kodunuzu parametre olarak kullanılabilir. Özelliklerini bunlar [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) sınıfı.
+
+|Özellik|Tür|Açıklama|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` Örneği.|
+|`EnqueuedTimeUtc`|`DateTime`|Sıraya alınan zamanı, UTC.|
+|`Offset`|`string`|Olay hub'ı bölüm akış göre veri uzaklığı. İşaretleyici veya Event Hubs akışındaki olay tanımlayıcısı uzaklığı. Bir olay hub'ları akış bölüm içinde benzersiz tanımlayıcısıdır.|
+|`PartitionKey`|`string`|Hangi olay veri gönderilmesi gereken bölüm.|
+|`Properties`|`IDictionary<String,Object>`|Olay verileri kullanıcı özellikleri.|
+|`SequenceNumber`|`Int64`|Olay mantıksal sıra sayısı.|
+|`SystemProperties`|`IDictionary<String,Object>`|Olay verileri de dahil olmak üzere Sistem Özellikleri.|
+
+Bkz: [kod örnekleri](#trigger---example) bu makalede daha önce bu özellikleri kullanın.
+
+## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
 
 [Host.json](functions-host-json.md#eventhub) dosyası olay hub'ları tetikleyici davranışını denetleyen ayarları içerir.
 
@@ -278,7 +327,7 @@ Yazma için bir olay akışında olayları bağlama olay hub'ları çıkış kul
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
@@ -427,8 +476,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü** | yok | "EventHub" olarak ayarlanmalıdır. |
-|**Yönü** | yok | Out"için" olarak ayarlanmalıdır. Bu parametre, Azure portalında bağlama oluşturduğunuzda otomatik olarak ayarlanır. |
+|**type** | yok | "EventHub" olarak ayarlanmalıdır. |
+|**direction** | yok | Out"için" olarak ayarlanmalıdır. Bu parametre, Azure portalında bağlama oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | Olay temsil eden işlevi kod içinde kullanılan değişken adı. | 
 |**Yol** |**EventHubName** | Olay hub'ın adı. | 
 |**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi olay akışının ileti göndermek için Gönder izinleri olmalıdır.|

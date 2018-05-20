@@ -10,14 +10,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 4adc0cf81a36307369fa9f4eecd281a93ccba98b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ef89bcea3eab92c3137a6f532398764462ae204c
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix sorgu sunucusu REST SDK'sı
 
@@ -78,7 +78,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 | Özellik | Açıklama |
 | -- | -- |
 | Otomatik kayıt işlemleri | Boole belirten olup olmadığını `autoCommit` Phoenix işlemleri için etkinleştirilir. |
-| salt okunur | Bağlantı salt okunur olup olmadığını belirten bir Boole değeri. |
+| SaltOkunur | Bağlantı salt okunur olup olmadığını belirten bir Boole değeri. |
 | TransactionIsolation | Düzeyi belirten Tamsayı JDBC belirtimi - başına işlem yalıtım aşağıdaki tabloya bakın.|
 | Katalog | Bağlantı özellikleri getirilirken kullanmak için katalog adı. |
 | Şema | Bağlantı özellikleri getirilirken kullanılacak şema adı. |

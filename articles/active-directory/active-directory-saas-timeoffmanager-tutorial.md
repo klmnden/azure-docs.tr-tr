@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile TimeOffManager | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile TimeOffManager arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile TimeOffManager | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile TimeOffManager arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 5638a1b2271fe50344c29de1e3883ca67c20c9ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 462a77e56f2dc28a3a3258ab44a1486a4dd257e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Öğretici: Azure Active Directory Tümleştirme TimeOffManager ile
 
@@ -30,9 +30,9 @@ TimeOffManager Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için TimeOffManager (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme TimeOffManager ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -107,7 +107,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
      ![TimeOffManager etki alanı ve URL'ler bölümü](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
+    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer ile gerçek yanıt URL'si güncelleştirin. Bu değerden alabilirsiniz **çoklu oturum açma ayarları sayfasında** daha sonra öğreticide veya kişi içinde açıklanan [TimeOffManager destek ekibi](http://www.timeoffmanager.com/contact-us.aspx).
@@ -126,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | --- | --- |
     | FirstName |User.givenName |
     | Soyadı |User.surname |
-    | E-posta |User.Mail |
+    | Email |User.Mail |
     
     a.  Her veri satırının için yukarıdaki tabloda **kullanıcı özniteliği eklemek**.
     
@@ -208,7 +208,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-timeoffmanager-test-user"></a>TimeOffManager test kullanıcısı oluşturma
 
@@ -252,7 +252,7 @@ Bu bölümde, Britta TimeOffManager için erişim vererek, Azure çoklu oturum a
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -261,7 +261,7 @@ Erişim paneli TimeOffManager parçasında tıklattığınızda, otomatik olarak
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

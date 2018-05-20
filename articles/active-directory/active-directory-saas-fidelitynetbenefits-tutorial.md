@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile uygunluk NetBenefits | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve uygunluk NetBenefits arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile uygunluk NetBenefits | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve uygunluk NetBenefits arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 007d3c894731560423e2dde0572793a4282a4654
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 19d18dd0d88fa3e66c60191314d0d1f80aa415c1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Öğretici: Azure Active Directory Tümleştirme uygunluğunu NetBenefits ile
 
@@ -30,7 +30,7 @@ Doğruluk NetBenefits Azure AD ile tümleştirme ile aşağıdaki avantajları s
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için uygunluk NetBenefits açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -110,15 +110,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:
 
-    Sınama ortamı için:`urn:sp:fidelity:geninbndnbparts20:uat:xq1`
+    Sınama ortamı için:  `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 
-    Üretim ortamı için:`urn:sp:fidelity:geninbndnbparts20`
+    Üretim ortamı için:  `urn:sp:fidelity:geninbndnbparts20`
 
     b. İçinde **yanıt URL'si** metin kutusuna, bir URL yazın:
 
-    Sınama ortamı için:`https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
+    Sınama ortamı için:  `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
 
-    Üretim ortamı için:`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
+    Üretim ortamı için:  `https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
  
 4. Doğruluk NetBenefits uygulaması SAML onaylar belirli bir biçimde bekliyor. Biz eşledikten **kullanıcı tanımlayıcısı** ile **user.userprincipalname**. Bu harita **EmployeeID** veya, kuruluşunuz için geçerli olan diğer talep **kullanıcı tanımlayıcısı**. Aşağıdaki ekran görüntüsünde bunun için yalnızca bir örneği gösterir.
 
@@ -212,7 +212,7 @@ Bu bölümde, aslına uygunluk NetBenefits erişim vererek, Azure çoklu oturum 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -222,7 +222,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

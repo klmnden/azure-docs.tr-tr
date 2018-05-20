@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric Explorer kullanarak kümenizi Görselleştirme | Microsoft Docs"
-description: "Service Fabric Explorer inceleme ve bulut uygulamaları ve Microsoft Azure Service Fabric kümesindeki düğümler yönetmek için bir uygulamadır."
+title: Azure Service Fabric Explorer kullanarak kümenizi Görselleştirme | Microsoft Docs
+description: Service Fabric Explorer inceleme ve bulut uygulamaları ve Microsoft Azure Service Fabric kümesindeki düğümler yönetmek için bir uygulamadır.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 916742d89447af4097d37b5d78e97ff86c12834c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
@@ -45,12 +45,12 @@ Service Fabric Explorer masaüstü uygulaması olarak indirmek için aşağıdak
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Service Fabric Explorer kümeden çalıştırma
 
-Service Fabric Explorer ayrıca bir Service Fabric kümenin HTTP yönetim uç barındırılır. Kümenin HTTP yönetim uç noktasına SFX bir web tarayıcısında başlatın, herhangi bir tarayıcıdan - örneğin https://clusterFQDN:19080 göz atın.
+Service Fabric Explorer ayrıca bir Service Fabric kümenin HTTP yönetim uç barındırılır. Bir web tarayıcısında SFX başlatmak için kümenin HTTP yönetim uç noktasına herhangi bir tarayıcıdan - örneğin Gözat https://clusterFQDN:19080.
 
-Geliştirici iş istasyonu kurulumu için https://localhost:19080/Gezgini'ne giderek yerel kümenizde Service Fabric Explorer başlatabilirsiniz. Bu makalede bakabilir [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
+Geliştirici iş istasyonu kurulumu için Service Fabric Explorer yerel kümenizde giderek başlatabilirsiniz https://localhost:19080/Explorer. Bu makalede bakabilir [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric kümeye bağlanın
-Bir Service Fabric kümeye bağlanmak için küme yönetim uç noktası'nı (FQDN/IP) ve HTTP yönetim uç nokta bağlantı noktası (varsayılan olarak 19080) gerekir. Örneğin https://mysfcluster.westus.cloudapp.azure.com:19080. İstasyonunuzda yerel kümeye bağlanmak için "Localhost'a Bağlan" onay kutusunu kullanın.
+Bir Service Fabric kümeye bağlanmak için küme yönetim uç noktası'nı (FQDN/IP) ve HTTP yönetim uç nokta bağlantı noktası (varsayılan olarak 19080) gerekir. Örneğin, https://mysfcluster.westus.cloudapp.azure.com:19080. İstasyonunuzda yerel kümeye bağlanmak için "Localhost'a Bağlan" onay kutusunu kullanın.
 
 ### <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
 Service Fabric kümenize, sertifikalar veya Azure Active Directory (AAD) kullanarak, istemci erişimi denetleyebilirsiniz.

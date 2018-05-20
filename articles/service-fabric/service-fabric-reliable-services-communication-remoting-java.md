@@ -1,29 +1,23 @@
 ---
-title: "Azure Service Fabric hizmeti uzaktan çalışma | Microsoft Docs"
-description: "Service Fabric uzak istemciler ve hizmetler uzaktan yordam çağrısı kullanarak Hizmetleri ile iletişim kurmasına olanak sağlar."
+title: Azure Service Fabric hizmeti uzaktan çalışma | Microsoft Docs
+description: Service Fabric uzak istemciler ve hizmetler uzaktan yordam çağrısı kullanarak Hizmetleri ile iletişim kurmasına olanak sağlar.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-<<<<<<< HEAD
-ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Güvenilir hizmetler ile hizmet uzaktan iletişim
 > [!div class="op_single_selector"]
@@ -38,7 +32,7 @@ Güvenilir hizmetler altyapısına uzaktan yordam çağrısı Hizmetleri için h
 Bir hizmet için uzaktan iletişim kurma iki basit adımda gerçekleştirilir:
 
 1. Hizmetinizin uygulamak bir arabirim oluşturun. Bu arabirim, hizmeti uzaktan yordam çağrısı için kullanılabilen yöntemleri tanımlar. Görev döndüren yöntemler olmalıdır zaman uyumsuz yöntemleri. Arabirimi uygulamalıdır `microsoft.serviceFabric.services.remoting.Service` hizmet remoting arabirimi olduğunu göstermek için.
-2. Remoting dinleyici hizmetinizi kullanın. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama. `FabricTransportServiceRemotingListener`Varsayılan remoting aktarım protokolünü kullanarak bir uzak dinleyicisi oluşturmak için kullanılabilir.
+2. Remoting dinleyici hizmetinizi kullanın. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama. `FabricTransportServiceRemotingListener` Varsayılan remoting aktarım protokolünü kullanarak bir uzak dinleyicisi oluşturmak için kullanılabilir.
 
 Örneğin, aşağıdaki durum bilgisiz hizmeti üzerinden bir uzak yordam çağrısı "Hello World" almak için tek bir yöntemi gösterir.
 
@@ -98,7 +92,7 @@ ServiceProxy oluşturma hafif bir işlem olduğundan, kullanıcı ihtiyaç duydu
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory yaşam süresi
 [FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) farklı remoting arabirimleri için proxy oluşturan bir üreteci değil. API kullanırsanız `ServiceProxyBase.create` proxy oluşturmak, ardından framework oluşturan bir `FabricServiceProxyFactory`.
 Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) özellikleri.
-Fabrika pahalı bir işlemdir. `FabricServiceProxyFactory`iletişim istemci önbelleğini korur.
+Fabrika pahalı bir işlemdir. `FabricServiceProxyFactory` iletişim istemci önbelleğini korur.
 En iyi uygulamadır önbelleğine `FabricServiceProxyFactory` mümkün olduğunca uzun bir süredir.
 
 ## <a name="remoting-exception-handling"></a>Remoting özel durum işleme

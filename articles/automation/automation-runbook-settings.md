@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 064fdc6b50bf21b78d122c650ae22f8b4f70c608
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 951e59333ab1a1e982386c5c71f79b86f5e62440
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="runbook-settings"></a>Runbook ayarları
 Azure automation'da her runbook, tanımlanmasına ve günlüğe kaydetme davranışını değiştirmeye yardımcı birden çok ayarlarına sahiptir. Bu ayarların her biri aşağıda yordamlar tarafından ve ardından bunları değiştirme konusunda açıklanmıştır.
@@ -25,7 +25,7 @@ Oluşturulduktan sonra bir runbook adı değiştirilemiyor. Açıklama isteğe b
 ### <a name="tags"></a>Etiketler
 Etiketleri ayrı sözcükleri ve bir runbook'u tanımlamaya yardımcı olmak için tümcecikleri atamanızı sağlar. Örneğin, ne zaman gönderdiğiniz bir runbook'a [PowerShell Galerisi](https://www.powershellgallery.com/), runbook listelenen kategorilerini tanımlamak üzere özel etiketler belirtin. Bir runbook için birden çok etiket virgül ile ayırarak belirtebilirsiniz.
 
-### <a name="logging"></a>Günlüğe kaydetme
+### <a name="logging"></a>Günlüğe Yazma
 Varsayılan olarak, ayrıntılı ve ilerleme durumu kayıtlarını iş geçmişine yazılmaz. Bu kayıtlarını günlüğe kaydetmek için belirli bir runbook ayarlarını değiştirebilirsiniz. Bu kayıtlar hakkında daha fazla bilgi için bkz: [Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md).
 
 ## <a name="changing-runbook-settings"></a>Runbook ayarlarını değiştirme

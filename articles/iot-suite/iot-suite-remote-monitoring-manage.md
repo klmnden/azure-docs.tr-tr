@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 599f8327e9939f400ca18c87fa6193ac3c1e4a61
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Yönetmek ve cihazlarınızı yapılandırmak
 
@@ -24,7 +24,7 @@ Bu öğretici cihaza Uzaktan izleme çözümü yönetim özelliklerini gösterir
 
 Contoso bir çıktı artırmak için kendi olanaklarının genişletmek için yeni makineler sıralı. Teslim edilecek yeni makineler için beklerken çözümünüzün davranışını doğrulamak için bir benzetimi çalıştırmak istediğiniz. Bir operatör olarak, yönetmek ve cihazlar Uzaktan izleme çözümünde yapılandırmak istiyorsunuz.
 
-Yönetmek ve cihazları yapılandırmak için genişletilebilir bir yol sağlamak için Uzaktan izleme çözümü IOT Hub özellikleri gibi kullanır, [işleri](../iot-hub/iot-hub-devguide-jobs.md) ve [doğrudan yöntemleri](../iot-hub/iot-hub-devguide-direct-methods.md). Bir aygıt Geliştirici yöntemleri fiziksel cihazda nasıl uyguladığını bilgi edinmek için [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](iot-suite-remote-monitoring-customize.md).
+Yönetmek ve cihazları yapılandırmak için genişletilebilir bir yol sağlamak için Uzaktan izleme çözümü IOT Hub özellikleri gibi kullanır, [işleri](../iot-hub/iot-hub-devguide-jobs.md) ve [doğrudan yöntemleri](../iot-hub/iot-hub-devguide-direct-methods.md). Bir aygıt Geliştirici yöntemleri fiziksel cihazda nasıl uyguladığını bilgi edinmek için [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="add-a-simulated-device"></a>Bir sanal cihaz ekleme
 

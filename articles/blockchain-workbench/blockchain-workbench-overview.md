@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 1f1aa6b5a81285f2f6b3a298917f3d7c48853e29
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9cd8ef3977d12364759838b46632ba32e0de6e70
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench nedir?
 
@@ -22,7 +22,7 @@ Azure Blockchain Workbench, iş süreçlerini ve verilerini diğer kuruluşlarla
 
 ## <a name="create-blockchain-applications"></a>Blok zinciri uygulamaları oluşturma
 
-Blockchain Workbench ile, yapılandırma gerçekleştirerek ve akıllı sözleşme kodu yazarak blok zinciri uygulamalarını tanımlayabilirsiniz. Blok zinciri uygulama geliştirme aşamasına atlayabilir ve iskele derleme ve destekleyici hizmetler ayarlama yerine sözleşmenizi tanımlamaya ve iş mantığı yazmaya odaklanabilirsiniz.
+Blockchain Workbench ile yapılandırmayı kullanarak ve akıllı sözleşme kodu yazarak blok zinciri uygulamaları tanımlayabilirsiniz. Blok zinciri uygulama geliştirme aşamasına atlayabilir ve iskele derleme ve destekleyici hizmetler ayarlama yerine sözleşmenizi tanımlamaya ve iş mantığı yazmaya odaklanabilirsiniz.
 
 ## <a name="manage-applications-and-users"></a>Uygulamaları ve kullanıcıları yönetme
 
@@ -50,4 +50,5 @@ Azure Blockchain Workbench, blok zinciri üzerindeki verileri otomatik olarak zi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Blockchain Workbench’i dağıtma](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench mimarisi](blockchain-workbench-architecture.md)

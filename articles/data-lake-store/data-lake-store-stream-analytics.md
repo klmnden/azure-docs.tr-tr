@@ -1,24 +1,22 @@
 ---
-title: "Data Lake Store Stream Analytics veri akışı | Microsoft Docs"
-description: "Azure Stream Analytics akış verileri için Azure Data Lake Store kullanın"
+title: Data Lake Store Stream Analytics veri akışı | Microsoft Docs
+description: Azure Stream Analytics akış verileri için Azure Data Lake Store kullanın
 services: data-lake-store,stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ff59957cf7700af79425aa005444a135b7ee098
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure Akış Analizi’ni kullanarak Azure Depolama Blobundan Data Lake Store’a veri akışı gerçekleştirme
 Bu makalede Azure Data Lake Store için Azure Stream Analytics işi çıkış olarak kullanmak üzere öğreneceksiniz. Bu makale bir Azure Storage blobundan (giriş) veri okuyan ve Data Lake Store (çıktı) verileri yazar basit bir senaryo gösterir.
@@ -96,7 +94,7 @@ Bir giriş kaynağı ve bir çıkış hedefini içeren bir akış analizi işi o
     
     **Oluştur**’a tıklayın. Portal şimdi çıktı ekler ve bağlantıyı sınar.
     
-## <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştır
+## <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştırma
 
 1. Akış analizi işi çalıştırmak için bir sorgu çalıştırın **sorgu** sekmesi. Bu öğretici için giriş işlemiyle yer tutucuları değiştirerek örnek sorgu çalıştırabilirsiniz ve aşağıdaki ekran görüntüsünde gösterildiği gibi diğer adlar, çıktı.
 

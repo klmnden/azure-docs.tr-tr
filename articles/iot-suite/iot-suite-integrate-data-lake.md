@@ -9,11 +9,11 @@ description: Uzaktan izleme çözümü kullanarak Azure Data Lake bir Azure akı
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: d39330c7cc22a39aab6cb33eda0c1cefd70c8e3d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Uzaktan izleme çözümü Azure Data Lake Store ile tümleştirme
 
@@ -25,7 +25,7 @@ Bu yöntem, size bir Azure akış analizi işi veri akışı IOT hub'ından Uzak
 
 Bu yöntem tamamlamak için aşağıdakiler gerekir:
 
-* [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md).
+* [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
   * Uzaktan izleme çözümü, IOT hub'ı ve bu makalede Azure aboneliğinize kullanılan Azure Stream Analytics işi dağıtır.
 * [Bir Azure Data Lake Store dağıtma](/data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store, Uzaktan izleme çözümünüz aynı bölgeye dağıtılmalıdır.

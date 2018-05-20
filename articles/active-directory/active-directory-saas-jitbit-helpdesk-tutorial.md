@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Jitbit Yardım Masası ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Jitbit Yardım Masası arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Jitbit Yardım Masası ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Jitbit Yardım Masası arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 31d3295fa8d75aa72c8e9967b7ca81f4e98e5608
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c8e387bb98ad2e23c667ba058ff8ab5dbfedffbf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Öğretici: Azure Active Directory Tümleştirme Jitbit Yardım Masası ile
 
@@ -29,9 +29,9 @@ Jitbit Yardım Masası Azure AD ile tümleştirme ile aşağıdaki avantajları 
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Yardım Masası Jitbit açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Jitbit Yardım Masası ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -120,7 +120,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Jitbit Yardım Masası istemci destek ekibi](https://www.jitbit.com/support/) bu değeri alınamıyor. 
     
-    b.  İçinde **tanımlayıcısı** metin kutusuna, şu URL'yi yazın:`https://www.jitbit.com/web-helpdesk/`
+    b.  İçinde **tanımlayıcısı** metin kutusuna, şu URL'yi yazın: `https://www.jitbit.com/web-helpdesk/`
 
     
  
@@ -193,7 +193,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-jitbit-helpdesk-test-user"></a>Jitbit Yardım Masası test kullanıcısı oluşturma
 
@@ -221,13 +221,13 @@ Azure AD kullanıcıların Jitbit Yardım Masası oturum etkinleştirmek için b
    
    a. İçinde **kullanıcıadı** metin kutusuna, türü **BrittaSimon**, Azure portalında olduğu gibi kullanıcı adı.
 
-   b. İçinde **e-posta** metin kutusuna, kullanıcının e-posta ister  **BrittaSimon@contoso.com** .
+   b. İçinde **e-posta** metin kutusuna, kullanıcının e-posta ister **BrittaSimon@contoso.com**.
 
    c. İçinde **ad** metin kutusuna, tür ilk gibi kullanıcı adını **Britta**.
 
    d. İçinde **Soyadı** metin kutusuna, türü kullanıcının soyadını gibi **Simon**.
    
-   e. **Oluştur**'a tıklayın.
+   e. **Oluştur**’a tıklayın.
 
 >[!NOTE]
 >Azure AD kullanıcı hesaplarını sağlamak için herhangi bir Jitbit Yardım Masası kullanıcı hesabı oluşturma araçlarını veya Jitbit Yardım Masası tarafından sağlanan API'leri kullanabilirsiniz.
@@ -274,7 +274,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

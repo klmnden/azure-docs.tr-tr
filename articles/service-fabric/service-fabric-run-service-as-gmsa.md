@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: e22c656218abcd0564faec6fae6d6979f09b386a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5f93285061708172b9b6ac40dc97fce08f7b2a86
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Grup tarafından Yönetilen Hizmet Hesabı olarak hizmet çalıştırma
 Bir Windows Server tek başına kümede bir grup olarak yönetilen hizmet hesabı (gMSA) bir RunAs ilke kullanan bir hizmet çalıştırabilirsiniz.  Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Çalışan uygulamalar farklı hesaplar bile paylaşılan bir barındırılan ortamda, bunları birbirinden daha güvenli yapar. Bu Active Directory dahilindeki şirket içi etki alanı ve değil Azure Active Directory (Azure AD) kullandığını unutmayın. Bir gmsa'yı kullanarak, parola veya yoktur uygulama bildiriminde depolanan şifrelenmiş parola.  Bir hizmet olarak da çalıştırılabilir bir [Active Directory kullanıcı veya grup](service-fabric-run-service-as-ad-user-or-group.md).
@@ -71,6 +71,6 @@ Aşağıdaki örnek olarak adlandırılan bir gMSA hesabının nasıl oluşturul
 Sonraki adım olarak, aşağıdaki makaleler okuyun:
 * [Uygulama modeli anlama](service-fabric-application-model.md)
 * [Bir hizmet bildirimi kaynakları belirtme](service-fabric-service-manifest-resources.md)
-* [Bir uygulamayı dağıtma](service-fabric-deploy-remove-applications.md)
+* [Uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

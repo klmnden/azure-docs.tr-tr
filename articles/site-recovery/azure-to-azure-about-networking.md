@@ -6,13 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma ağ oluşturma hakkında
 
@@ -31,7 +31,7 @@ Aşağıdaki diyagram, Azure Vm'lerinde çalışan uygulamalar için tipik bir A
 
 ![Müşteri ortamı](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Azure ExpressRoute veya bir VPN bağlantısı şirket içi ağınızdan Azure'a kullanıyorsanız, ortam şu şekilde görünür:
+Azure ExpressRoute veya bir VPN bağlantısı şirket içi ağınızdan Azure'a kullanıyorsanız, ortam aşağıdaki gibidir:
 
 ![Müşteri ortamı](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -85,18 +85,18 @@ Site kurtarma IP adres aralıklarını aşağıdaki gibidir:
    Doğu ABD 2 | 52.184.158.163 | 40.79.44.59
    Japonya Doğu | 52.185.150.140 | 138.91.1.105
    Japonya Batı | 52.175.146.69 | 138.91.17.38
-   Güney Brezilya | 191.234.185.172 | 23.97.97.36
+   Brezilya Güney | 191.234.185.172 | 23.97.97.36
    Avustralya Doğu | 104.210.113.114 | 191.239.64.144
    Avustralya Güneydoğu | 13.70.159.158 | 191.239.160.45
-   Orta Kanada | 52.228.36.192 | 40.85.226.62
-   Doğu Kanada | 52.229.125.98 | 40.86.225.142
+   Kanada Orta | 52.228.36.192 | 40.85.226.62
+   Kanada Doğu | 52.229.125.98 | 40.86.225.142
    Batı Orta ABD | 52.161.20.168 | 13.78.149.209
    Batı ABD 2 | 52.183.45.166 | 13.66.228.204
-   Birleşik Krallık Batı | 51.141.3.203 | 51.141.14.113
-   Birleşik Krallık Güney | 51.140.43.158 | 51.140.189.52
-   UK Güney 2 | 13.87.37.4| 13.87.34.139
-   UK Kuzey | 51.142.209.167 | 13.87.102.68
-   Kore Orta | 52.231.28.253 | 52.231.32.85
+   BK Batı | 51.141.3.203 | 51.141.14.113
+   BK Güney | 51.140.43.158 | 51.140.189.52
+   BK Güney 2 | 13.87.37.4| 13.87.34.139
+   BK Kuzey | 51.142.209.167 | 13.87.102.68
+   Kore Merkez | 52.231.28.253 | 52.231.32.85
    Kore Güney | 52.231.298.185 | 52.231.200.144
    Fransa Orta | 52.143.138.106 | 52.143.136.55
    Fransa Güney | 52.136.139.227 |52.136.136.62

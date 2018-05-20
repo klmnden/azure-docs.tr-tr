@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f681eb91c1e79eb42b572956dfab93e620489e74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory E satış yöneticisi Remix ile tümleştirme
 
@@ -30,7 +30,7 @@ Azure AD, E satış yöneticisi Remix ile tümleştirerek, aşağıdaki faydalar
 - Otomatik olarak E satış yöneticisi Remix için (çoklu oturum açma veya SSO) ile Azure AD hesaplarına oturum, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda, Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -107,7 +107,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum a
     > [!NOTE] 
     > Yukarıdaki değerleri gerçek değildir. Bunları tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Değerleri almak için başvurun [E satış yöneticisi Remix istemci destek ekibi](mailto:esupport@softbrain.co.jp).
 
-4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)**ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
+4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Sertifika (Base64) indirme bağlantısı](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -117,7 +117,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum a
 
     **Öznitelik Düzenle** penceresi açılır.
 
-6. Kopya **Namespace** ve **adı** değerleri. Düzende değeri üretmek  *\<Namespace > /\<adı >*ve Bu öğreticide daha sonra kullanmak için kaydedin.
+6. Kopya **Namespace** ve **adı** değerleri. Düzende değeri üretmek  *\<Namespace > /\<adı >* ve Bu öğreticide daha sonra kullanmak için kaydedin.
 
     ![Öznitelik Düzenle penceresi](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
 
@@ -259,7 +259,7 @@ Bu bölümde, kullanıcı Britta E satış yöneticisi Remix için erişim izni 
 
 7. İçinde **eklemek atama** penceresinde, seçin **atamak**.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
@@ -270,7 +270,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

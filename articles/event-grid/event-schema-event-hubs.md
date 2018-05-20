@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz olay hub'ları olay şeması"
-description: "Olay hub'ları Azure olay kılavuz olaylarla için sağlanan özellikler açıklar"
+title: Azure olay kılavuz olay hub'ları olay şeması
+description: Olay hub'ları Azure olay kılavuz olaylarla için sağlanan özellikler açıklar
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Olay hub'ları için Azure olay kılavuz şeması
 
@@ -59,20 +59,20 @@ Bir olay aşağıdaki üst düzey veri sahiptir:
 | -------- | ---- | ----------- |
 | Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
 | Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| Olay türü | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
 | EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
 | id | dize | Olay için benzersiz tanımlayıcı. |
-| veriler | nesne | Olay hub'ı olay verileri. |
-| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| veriler | object | Olay hub'ı olay verileri. |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| fileUrl | dize | Yakalama dosyasının yolu. |
-| fileType | dize | Yakalama dosyasının dosya türü. |
-| partitionId | dize | Parça kimliği. |
+| FileURL ' | dize | Yakalama dosyasının yolu. |
+| Dosya türü | dize | Yakalama dosyasının dosya türü. |
+| PartitionID | dize | Parça kimliği. |
 | sizeInBytes | integer | Dosya boyutu. |
 | eventCount | integer | Dosyasındaki olay sayısıdır. |
 | firstSequenceNumber | integer | En küçük sıra numarası kuyruktan. |

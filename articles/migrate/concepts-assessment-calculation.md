@@ -4,20 +4,20 @@ description: Değerlendirme hesaplamalar Azure geçirmek hizmetindeki genel bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/02/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: f3ac9c328db1130ea25ac63170ee7de35fb67d16
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
 [Azure geçirme](migrate-overview.md) geçiş Azure için şirket içi iş yüklerini değerlendirir. Bu makalede değerlendirmelerinin nasıl hesaplandığını hakkında bilgi sağlar.
 
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bir Azure geçirmek değerlendirme üç aşamadan oluşur. Boyutlandırma tarafından izlenen uygunluğu çözümleme, değerlendirme başlar ve son olarak, aylık tahmini maliyet. Öncekinin geçerse bir makine yalnızca bir sonraki aşamaya taşır. Bir makine Azure uygunluğu denetimi başarısız olursa, Azure ve boyutlandırma ve maliyetlendirme yapılmaz için örneğin, uygun değil olarak işaretlendiğinden.
 
@@ -116,7 +116,7 @@ Boyutlandırma ölçüt ise *gibi şirket içi boyutlandırma*, Azure geçirmek 
 - **Ağ**: her ağ bağdaştırıcısı için bir ağ bağdaştırıcısı Azure önerilir.
 - **İşlem**: Azure geçirmek çekirdek sayısı ve şirket içi VM bellek boyutunu arar ve aynı yapılandırmaya sahip bir Azure VM önerir. Birden fazla uygun Azure sanal makinesi boyutu varsa, en düşük maliyetli olan önerilir. CPU ve bellek kullanımı verileri için şirket içi boyutlandırma olarak dikkate alınmaz.
 
-### <a name="confidence-rating"></a>Güvenilirlik derecelendirmesi
+### <a name="confidence-rating"></a>Güvenilirlik derecesi
 
 Azure Geçişi’ndeki her değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur.
 

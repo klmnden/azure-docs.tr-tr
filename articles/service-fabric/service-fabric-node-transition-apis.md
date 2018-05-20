@@ -1,24 +1,24 @@
 ---
-title: "Başlatma ve durdurma Azure mikro test etmek için küme düğümlerinin | Microsoft Docs"
-description: "Service Fabric uygulaması başlatma ve küme düğümleri durdurma test etmek için hata ekleme kullanmayı öğrenin."
+title: Başlatma ve durdurma Azure mikro test etmek için küme düğümlerinin | Microsoft Docs
+description: Service Fabric uygulaması başlatma ve küme düğümleri durdurma test etmek için hata ekleme kullanmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
 manager: rsinha
-editor: 
+editor: ''
 ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ed18097fa18101c237b4408d26dd1bc9c5d5648
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Başlatma ve durdurma düğümlerini API'leri düğümü geçiş API ile değiştirme
 
@@ -41,7 +41,7 @@ Biz, yeni bir API kümesi yukarıda bu sorunları ele aldık.  Yeni düğüm ge�
 
 **Kullanım**
 
-Düğüm geçiş API çağrıldığında bir özel durum oluşturmadığını, ardından sistemi zaman uyumsuz işlemi kabul etti ve yürütülmez.  Başarılı bir çağrı işlemi henüz tamamlandı göstermez.  İşlemi geçerli durumu hakkında bilgi almak için düğüm geçiş ilerleme API çağrısı (yönetilen: [GetNodeTransitionProgressAsync()][gntp]) düğüm geçiş API çağrılırken kullanılan GUID ile Bu işlem için.  Düğüm geçiş ilerleme API NodeTransitionProgress nesneyi döndürür.  Bu nesnenin durumu özelliği işlemi geçerli durumunu belirtir.  Durumu "çalışıyorsa," işlemi yürütüyor.  Tamamlandığında, hatasız işlemi tamamlandı.  Hatalı, işlem yürütülürken bir sorun oluştu.  Sonuç özelliğin özel durum özelliği ne sorun olduğunu belirtir.  Https://docs.microsoft.com/dotnet/api/System.fabric.testcommandprogressstate State özelliği ve kod örnekleri için aşağıdaki "Örnek kullanım" bölümüne hakkında daha fazla bilgi için bkz.
+Düğüm geçiş API çağrıldığında bir özel durum oluşturmadığını, ardından sistemi zaman uyumsuz işlemi kabul etti ve yürütülmez.  Başarılı bir çağrı işlemi henüz tamamlandı göstermez.  İşlemi geçerli durumu hakkında bilgi almak için düğüm geçiş ilerleme API çağrısı (yönetilen: [GetNodeTransitionProgressAsync()][gntp]) düğüm geçiş API çağrılırken kullanılan GUID ile Bu işlem için.  Düğüm geçiş ilerleme API NodeTransitionProgress nesneyi döndürür.  Bu nesnenin durumu özelliği işlemi geçerli durumunu belirtir.  Durumu "çalışıyorsa," işlemi yürütüyor.  Tamamlandığında, hatasız işlemi tamamlandı.  Hatalı, işlem yürütülürken bir sorun oluştu.  Sonuç özelliğin özel durum özelliği ne sorun olduğunu belirtir.  Bkz: https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate State özelliği ve kod örnekleri için aşağıdaki "Örnek kullanım" bölümüne hakkında daha fazla bilgi için.
 
 
 **Durdurulmuş bir düğümü ve bir aşağı düğümü arasında ayrım yapma** bir düğümü ise *durduruldu* bir düğümü sorgusu çıktısını düğümü geçiş API kullanarak (yönetilen: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) bu düğüm olduğunu gösterecek bir *IsStopped* özellik değerinin true.  Bu değerinden farklı Not *NodeStatus* yazacaktır özelliği *aşağı*.  Varsa *NodeStatus* özellik değerine sahip *aşağı*, ancak *IsStopped* düğümünü düğüm geçiş API kullanarak durdurulmadı sonra yanlış olduğundan ve *aşağı*  başka bir nedenle son.  Varsa *IsStopped* özelliği true, ise ve *NodeStatus* özelliği *aşağı*, düğüm geçiş API kullanarak durduruldu sonra.

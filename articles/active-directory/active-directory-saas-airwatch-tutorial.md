@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile AirWatch | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile AirWatch arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile AirWatch | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile AirWatch arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: a0e314aaf59a70107058829ea84dde362f097274
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89d9bc6a40a6ee814f92cdb4c5a26e660007e64e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Öğretici: Azure Active Directory Tümleştirme AirWatch ile
 
@@ -30,9 +30,9 @@ AirWatch Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için AirWatch (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme AirWatch ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -111,9 +111,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    b. İçinde **tanımlayıcısı** metin değeri olarak yazın`AirWatch`
+    b. İçinde **tanımlayıcısı** metin değeri olarak yazın `AirWatch`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [AirWatch istemci destek ekibi](http://www.air-watch.com/company/contact-us/) bu değeri alınamıyor. 
@@ -168,7 +168,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. Olarak **NameID biçimi**seçin **e-posta adresi**.
 
-    d. **Kaydet** düğmesine tıklayın.
+    d. **Kaydet**’e tıklayın.
 
 14. Tıklatın **kullanıcı** yeniden sekmesinde.
     
@@ -190,7 +190,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     f. İçinde **e-posta** metin kutusuna, türü **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    g. **Kaydet** düğmesine tıklayın.
+    g. **Kaydet**’e tıklayın.
 
 <CE>
 
@@ -223,7 +223,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-airwatch-test-user"></a>AirWatch test kullanıcısı oluşturma
 
@@ -244,7 +244,7 @@ AirWatch için oturum açmak Azure AD kullanıcıları etkinleştirmek için bun
 
    ![Kullanıcı ekleme](./media/active-directory-saas-airwatch-tutorial/ic791931.png "kullanıcı ekleme")   
    1. Tür **kullanıcıadı**, **parola**, **parolayı onaylayın**, **ad**, **Soyadı**,  **E-posta adresi** istediğiniz ilgili metin kutularına sağlamayı geçerli bir Azure Active Directory hesabı.
-   2. **Kaydet** düğmesine tıklayın.
+   2. **Kaydet**’e tıklayın.
 
 >[!NOTE]
 >API sağlama AAD kullanıcı hesaplarına AirWatch tarafından sağlanan veya herhangi diğer AirWatch kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
@@ -290,7 +290,7 @@ Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandı
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

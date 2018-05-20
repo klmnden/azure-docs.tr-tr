@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Workrite | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Workrite arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Workrite | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Workrite arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d44a3719e01be8f6a414aeb9a9c73040ac3defa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 96d47acedd29a4be6b865f7aa85aecec800496f7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Öğretici: Azure Active Directory Tümleştirme Workrite ile
 
@@ -30,9 +30,9 @@ Workrite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Workrite (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Workrite ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,7 +108,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Workrite etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=<uniqueid>`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=<uniqueid>`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Workrite istemci destek ekibi](mailto:support@workrite.co.uk) bu değeri alınamıyor.
@@ -161,7 +161,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-workrite-test-user"></a>Workrite test kullanıcısı oluşturma
 
@@ -191,7 +191,7 @@ Bu bölümün amacı Britta Simon içinde Workrite adlı bir kullanıcı oluştu
     
     d. Seçin **İstemci Yöneticisi** olarak **rolünü seçin**.
     
-    e. **Kaydet** düğmesine tıklayın.   
+    e. **Kaydet**’e tıklayın.   
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -223,7 +223,7 @@ Bu bölümde, Britta Workrite için erişim vererek, Azure çoklu oturum açma k
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
 
@@ -232,7 +232,7 @@ Erişim paneli Workrite parçasında tıklattığınızda, otomatik olarak Workr
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

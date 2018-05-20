@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e6f694e601c506adae217e6348b4bf388cc24390
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure Azure VM çoğaltma sorunlarını giderme
 
@@ -96,7 +96,7 @@ SuSE Linux sertifika listesini korumak için simgesel bağlantı kullandığınd
 
       ``# ls -l | grep Baltimore``
 
-    - Çıktı
+    - Çıkış
 
       ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
       -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
@@ -105,7 +105,7 @@ SuSE Linux sertifika listesini korumak için simgesel bağlantı kullandığınd
 
       ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
 
-    - Çıktı
+    - Çıkış
 
       ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
       lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
@@ -114,7 +114,7 @@ SuSE Linux sertifika listesini korumak için simgesel bağlantı kullandığınd
 
       ``# ls -l | grep DigiCert_Global_Root``
 
-    - Çıktı
+    - Çıkış
 
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
@@ -138,7 +138,7 @@ SuSE Linux sertifika listesini korumak için simgesel bağlantı kullandığınd
 
       ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
 
-    - Çıktı
+    - Çıkış
 
       ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
       -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0

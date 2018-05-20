@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 851530910c702d388cd4dc8607bf09ecb5fa44e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Anahtar özellikleri ve Azure yığınında kavramları
 Microsoft Azure yığın yeniyseniz, bu hüküm ve özellik açıklamalarını faydalı olabilir.
@@ -86,14 +86,15 @@ Bir abonelik nasıl kiracılar, teklifleri satın ' dir. Abonelik, bir kiracı t
 
 Abonelikler, düzenlemek ve bulut kaynaklarına ve hizmetlerine erişmek sağlayıcıları yardımcı olur.
 
-Yöneticisi, dağıtım sırasında bir varsayılan sağlayıcı abonelik oluşturulur. Bu abonelik Azure yığın yönetmek, daha fazla kaynak sağlayıcıları dağıtmak ve kiracılar için planlar ve teklifleri oluşturmak için kullanılabilir. Müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır. 
-
+Yöneticisi, dağıtım sırasında bir varsayılan sağlayıcı abonelik oluşturulur. Bu abonelik Azure yığın yönetmek, daha fazla kaynak sağlayıcıları dağıtmak ve kiracılar için planlar ve teklifleri oluşturmak için kullanılabilir. Müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır. 1804 sürümünden başlayarak, iki ek abonelikleri varsayılan sağlayıcı abonelik tamamlayacak; Ölçüm abonelik ve tüketim abonelik. Bu eklemeler, çekirdek altyapıyı, ek kaynak sağlayıcıları ve iş yükleri Yönetimi ayırarak kolaylaştırır.  
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Azure Kaynak Yöneticisi'ni kullanarak altyapı kaynaklarınızı şablona dayalı, bildirim temelli bir model ile çalışabilirsiniz.   Dağıtma ve çözüm bileşenlerini yönetmek için kullanabileceğiniz tek bir arabirim sağlar. Tam bilgi ve yönergeler için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Kaynak grupları
 Kaynak grupları olan kaynaklar, hizmetler ve uygulamalar koleksiyonları — ve her bir kaynağın sanal makineler, sanal ağlar, genel IP'ler, depolama hesapları ve Web siteleri gibi bir türe sahip. Her kaynak bir kaynak grubunda olması ve kaynak grupları mantıksal olarak inceleyeceğini kaynaklar gibi iş yükü veya konumu düzenlemek gerekir.  Microsoft Azure yığın içinde planları ve teklifleri gibi kaynakları kaynak gruplarına ayrıca yönetilir.
+
+Farklı [Azure](../azure-resource-manager/resource-group-move-resources.md), kaynak grupları arasında kaynakları taşıyamazsınız. Azure yığın Yönetim Portalı'nda bir kaynak veya kaynak grubunun özelliklerini görüntülediğinizde *taşıma* düğmesi grileştirilmiş ve kullanılamaz. 
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 Azure Resource Manager ile dağıtım ve uygulamanızın yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bu şablon, Azure Resource Manager şablonu olarak bilinir ve dağıtımı tanımlamanın bildirim temelli bir yolunu sağlar. Bir şablon kullanarak uygulamanızı yaşam döngüsü boyunca defalarca dağıtabilirsiniz. Kaynaklarınızın tutarlı bir durumda dağıtılması da size güven verir.
@@ -112,12 +113,12 @@ Ağ kaynak sağlayıcısı (NRP) bir dizi özel bulut için yazılım tanımlı 
 ### <a name="storage-rp"></a>Depolama RP
 Depolama RP dört tutarlı Azure depolama hizmetleri sunar: blob, tablo, kuyruk ve hesap yönetimi. Ayrıca, Azure tutarlı depolama hizmetleri hizmet sağlayıcısı yönetimini kolaylaştırmak için bir depolama bulut Yönetimi hizmet sunar. Azure depolama depolamak ve büyük miktarlarda belgeler ve medya dosyalarını Azure BLOB'ları ile gibi yapılandırılmamış veri almak için esneklik sağlar ve yapılandırılmış NoSQL verileri Azure tablolar ile bağlı. Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../storage/common/storage-introduction.md).
 
-#### <a name="blob-storage"></a>Blob depolama
+#### <a name="blob-storage"></a>Blob depolama alanı
 BLOB storage herhangi bir veri kümesi depolar. Blob; bir belge, ortam dosyası veya uygulama yükleyici gibi herhangi bir türde metin veya ikili veri olabilir. Table storage yapılandırılmış veri kümelerini depolar. Table Storage, yüksek miktarda verinin hızla dağıtılmasını ve verilere hızla erişilebilmesini sağlayan NoSQL anahtar özniteliği veri deposudur. Kuyruk depolama, iş akışı işleme ve bulut Hizmetleri bileşenleri arasındaki iletişim için güvenilir Mesajlaşma sağlar.
 
-Her blob bir kapsayıcı altında düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir depolama hesabının içerebileceği kapsayıcı sayısına ilişkin bir sınırlama yoktur. Bir kapsayıcı, depolama hesabının 500 TB kapasite sınırını dolduracak kadar blob içerebilir. Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak üzere üç türde blob sunar. Blok blobları bulut nesnelerinin akış ve depolanması için en iyi duruma getirilmiştir ve belge, ortam dosyaları ve yedekler vb. öğelerin depolanması için uygun bir seçenektir. Ekleme blobları blok bloblarına benzer ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bir ekleme blobu yalnızca sonuna yeni bir blok eklenerek güncelleştirilebilir. Ekleme blobları, yeni verilerin yalnızca blobun sonuna yazılması gereken günlüğe kaydetme gibi senaryolar için iyi bir seçenektir. Sayfa blobları Iaas disklerini temsil etmek için en iyi duruma getirilir ve rastgele destekleme yazar ve 1 TB'ye kadar olabilir. IaaS diskine bağlı bir Azure Virtual Machine ağı, sayfa blobu olarak kaydedilen bir VHD’dir.
+Her blob bir kapsayıcı altında düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir kapsayıcı herhangi bir sayıda depolama hesabının 500 TB kapasite sınırını dolduracak kadar BLOB içerebilir ve bir depolama hesabı kapsayıcıların herhangi bir sayı içerebilir. Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak üzere üç türde blob sunar. Blok blobları bulut nesnelerinin akış ve depolanması için en iyi duruma getirilmiştir ve belge, ortam dosyaları ve yedekler vb. öğelerin depolanması için uygun bir seçenektir. Ekleme blobları blok bloblarına benzer ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bir ekleme blobu yalnızca sonuna yeni bir blok eklenerek güncelleştirilebilir. Ekleme blobları, yeni verilerin yalnızca blobun sonuna yazılması gereken günlüğe kaydetme gibi senaryolar için iyi bir seçenektir. Sayfa blobları Iaas disklerini temsil etmek için en iyi duruma getirilir ve rastgele destekleme yazar ve 1 TB'ye kadar olabilir. IaaS diskine bağlı bir Azure Virtual Machine ağı, sayfa blobu olarak kaydedilen bir VHD’dir.
 
-#### <a name="table-storage"></a>Table Storage
+#### <a name="table-storage"></a>Tablo depolama alanı
 Table storage Microsoft'un NoSQL anahtar/öznitelik deposudur – şemaları, geleneksel ilişkisel veritabanlarından farklı yapmadan olmadan bir tasarıma sahiptir. Yetersiz şemaları verilerini depolayan olduğundan, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak kolaydır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Tablo depolama eksikliği şemalarını itibaren iki varlık aynı tablodaki farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir. Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri ve hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak üzere Table Storage’ı kullanabilirsiniz. Bir tabloda istediğiniz kadar varlık depolayabilirsiniz ve bir depolama hesabı kapasite limitini dolduracak kadar tablo içerebilir.
 
 #### <a name="queue-storage"></a>Kuyruk Depolama
@@ -129,21 +130,21 @@ KeyVault RP yönetimi ve parolaları ve sertifikaları gibi gizli denetlenmesini
 ## <a name="high-availability-for-azure-stack"></a>Azure yığını için yüksek kullanılabilirlik
 *Uygulandığı öğe: Azure yığın 1802 veya daha sonraki sürümler*
 
-Çoklu VM üretim sistemlerinin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanına yayılan bir kullanılabilirlik kümesindeki sanal makineleri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan VM'ler](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış hatası dayanıklılık için aşağıdaki çizimde gösterildiği gibi izin vermek için ayrı sunucu rafları üzerinde şunlardır:
+Çoklu VM üretim sisteminin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanına yayılan bir kullanılabilirlik kümesindeki sanal makineleri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan VM'ler](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış hatası dayanıklılık için aşağıdaki çizimde gösterildiği gibi izin vermek için ayrı sunucu rafları üzerinde şunlardır:
 
   ![Azure yığın yüksek kullanılabilirlik](media/azure-stack-key-features/high-availability.png)
 
-### <a name="availablity-sets-in-azure-stack"></a>Azure yığınında kullanılabilirliği ayarlar
-Azure yığınının altyapısı zaten hatalarına dayanıklı olsa da, (Yük Devretme Kümelemesi) temel alınan teknoloji hala miktar kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda bir donanım arızası olması durumunda doğurur. En fazla üç hata etki alanları ile Azure ile tutarlı olması için bir kullanılabilirlik kümesinde sahip Azure yığını destekler.
+### <a name="availability-sets-in-azure-stack"></a>Azure yığınında kullanılabilirlik kümeleri
+Azure yığınının altyapısı zaten hatalarına dayanıklı olsa da, bir donanım hatası ise (Yük Devretme Kümelemesi) temel alınan teknoloji hala miktar kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda doğurur. En fazla üç hata etki alanları ile Azure ile tutarlı olması için bir kullanılabilirlik kümesinde sahip Azure yığını destekler.
 
-- **Hata etki alanları**. Bir kullanılabilirlik kümesine yerleştirilen sanal makineleri onları mümkün olduğunca eşit birden çok hata etki alanları (Azure yığın düğümler) yayarak birbirinden fiziksel olarak yalıtılmış olacaktır. Donanım arızası olması durumunda başarısız hata etki alanı Vm'lerden diğer hata etki alanı yeniden, ancak, mümkünse, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanı tutulur. Donanımı yeniden çevrimiçi olduğunda, sanal makineleri yüksek kullanılabilirliği sürdürmek için yeniden dengelenir. 
+- **Hata etki alanları**. Bir kullanılabilirlik kümesine yerleştirilen sanal makineleri onları mümkün olduğunca eşit birden çok hata etki alanları (Azure yığın düğümler) yayarak birbirinden fiziksel olarak yalıtılmış olacaktır. Bir donanım hatası varsa, başarısız hata etki alanı Vm'lerden diğer hata etki alanı yeniden, ancak, mümkünse, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanı tutulur. Donanımı yeniden çevrimiçi olduğunda, sanal makineleri yüksek kullanılabilirliği sürdürmek için yeniden dengelenir. 
  
 - **Güncelleme etki alanları**. Güncelleme etki alanına kullanılabilirlik kümeleri yüksek kullanılabilirlik sağlayan başka bir Azure kavramıdır. Bir güncelleştirme etki alanı, bakım aynı anda uygulayabilir temel alınan donanım mantıksal grubudur. Aynı güncelleştirme etki alanında yer alan VM'ler planlı bakım sırasında birlikte yeniden başlatılır. Kiracılar sanal makineleri bir kullanılabilirlik kümesi içinde oluşturmak gibi Azure platformu otomatik olarak VM'ler bunlar arasında dağıtır güncelleştirme etki alanları. Azure yığınında temel alınan ana bilgisayarları güncelleştirilmeden önce kümedeki diğer çevrimiçi konaklar arasında geçişi, sanal makineleri dinamik. Konak güncelleştirme sırasında Kiracı kapalı olduğundan, Azure yığında güncelleştirme etki alanı özelliği yalnızca Azure ile şablonu uyumluluk için bulunmaktadır. 
 
 ### <a name="upgrade-scenarios"></a>Yükseltme senaryoları 
-Azure yığın sürüm 1802 verilmiştir önce hataya ve güncelleştirme etki alanlarının sayısı varsayılan oluşturulan kullanılabilirlik kümesindeki sanal makineleri (1 ve 1 sırasıyla). Bu önceden var olan kullanılabilirlik kümeleri VM'ler için yüksek kullanılabilirlik sağlamak için önce varolan sanal makineleri silin ve yeni bir kullanılabilirlik açıklandığı gibi doğru arıza ve güncelleştirme etki alanı sayılarıyla kümesi uygulamasına dağıtmanız [Değiştir Kullanılabilirlik kümesi için bir Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+Azure yığın sürüm 1802 verilmiştir önce hataya ve güncelleştirme etki alanlarının sayısı varsayılan, oluşturulmuş kullanılabilirlik kümesindeki sanal makineleri (1 ve 1 sırasıyla). Bu önceden var olan kullanılabilirlik kümeleri VM'ler için yüksek kullanılabilirlik sağlamak için önce var olan sanal makineleri silin ve yeni bir kullanılabilirlik açıklandığı gibi doğru arıza ve güncelleştirme etki alanı sayılarıyla kümesi uygulamasına dağıtmanız [Değiştir Kullanılabilirlik kümesi için bir Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
 
-VM ölçek kümesi için bir kullanılabilirlik kümesi dahili bir varsayılan hata etki alanı ve güncelleştirme etki alanı sayısı ile oluşturulur (3. ve 5 sırasıyla). Herhangi bir VM'i ölçeklendirin 1802 güncelleştirme, kullanılabilirlik ile varsayılan arıza ve güncelleştirme etki alanı sayıları kümesi yerleştirilecek önce oluşturulan kümeleri (1 ve 1 sırasıyla). Yeni forma elde etmek için bu VM ölçek kümesi örneklerinin güncelleştirmek için VM ölçek kümesi 1802 güncelleştirmeden önce mevcut ve eski örneklerini VM ölçek kümesi silme örnekleri sayısına göre ölçeklendirin. 
+Sanal makine ölçek kümeleri için bir kullanılabilirlik kümesi dahili bir varsayılan hata etki alanı ve güncelleştirme etki alanı sayısı ile oluşturulur (3. ve 5 sırasıyla). Varsayılan hata ve güncelleştirme etki alanı 1802 güncelleştirme, kullanılabilirlik ile kümesi yerleştirilecek önce oluşturulan tüm sanal makine ölçek kümeleri sayar (1 ve 1 sırasıyla). Yeni forma elde etmek için bu sanal makine ölçek kümesi örneklerinin güncelleştirmek için sanal makine ölçek kümeleri 1802 güncelleştirmeden önce mevcut örnek sayısına göre ölçeklendirme ve sanal makine ölçek kümeleri eski örneklerini silin. 
 
 ## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
 Abonelik, kaynak grubu veya tek başına bir kaynak düzeyinde rolleri atayarak yetkili kullanıcılar, gruplar ve hizmetlere sistem erişim vermek için RBAC kullanabilirsiniz. Her rol, bir kullanıcı, Grup veya hizmet Microsoft Azure yığın kaynaklara sahip erişim düzeyini tanımlar.

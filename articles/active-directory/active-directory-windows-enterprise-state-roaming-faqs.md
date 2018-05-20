@@ -1,9 +1,9 @@
 ---
-title: "Ayarlar ve veri dolaşımı SSS | Microsoft Docs"
-description: "BT yöneticileri bazı sorulara yanıtlar ayarları ve uygulama veri eşitleme hakkında olabilir sağlar."
+title: Ayarlar ve veri dolaşımı SSS | Microsoft Docs
+description: BT yöneticileri bazı sorulara yanıtlar ayarları ve uygulama veri eşitleme hakkında olabilir sağlar.
 services: active-directory
-keywords: "Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular"
-documentationcenter: 
+keywords: Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
-Bu konuda, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında olabilir bazı sorular yanıtlanmaktadır.
+Bu makalede, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında sorabileceğiniz bazı sorular yanıtlanmaktadır.
 
 ## <a name="what-data-roams"></a>Hangi verilerin Dolaşım yapar?
 **Windows ayarlarını**: Windows işletim sisteminde yerleşik PC Ayarları. Genellikle, bunlar Bilgisayarınızı kişiselleştirme ayarlarını ve aşağıdaki geniş kategoriler şunlardır:
@@ -70,12 +70,12 @@ Kişisel verileri şirket aygıtınızda depolanırsa, Windows işletim sistemi 
 Windows 10 Kasım 2015 veya sonraki sürümlerde Kurumsal durumda Dolaşım yalnızca tek bir hesap için aynı anda desteklenir. Bir iş kullanarak Windows'a oturum açın veya Azure AD hesabının Okul varsa, tüm verileri Azure AD eşitleme yapar. Windows kişisel bir Microsoft hesabı kullanarak oturum açarsanız, tüm verileri Microsoft hesabı ile eşitler. Evrensel uygulama verileri cihazdaki yalnızca birincil oturum açma hesabı kullanarak dolaşan ve yalnızca uygulamanın lisans birincil hesabıyla aitse dolaşan. Tüm İkincil hesapları tarafından sahip olunan uygulamalar için evrensel appdata eşitlenmeyecek.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Ayarları birden çok kiracıdan Azure AD hesapları için eşitliyor musunuz?
-Birden çok Azure AD farklı hesaplarını Azure AD kiracılarıyla aynı cihaza, her bir Azure AD Kiracı için Azure Rights Management (Azure RMS) ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
+Birden çok Azure AD farklı hesaplarını Azure AD kiracılarıyla aynı cihaza, her Azure AD kiracısı Azure Rights Management hizmeti ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
 
-1. Her bir Azure AD Kiracı için GUID'i bulun. Azure Portalı'nı açın ve Azure AD kiracısı seçin. Kiracı etiketli için Özellikler sayfasında seçilen Kiracı (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) GUID'sidir **dizin kimliği**. 
+1. Her bir Azure AD Kiracı için GUID'i bulun. Azure Portalı'nı açın ve Azure AD kiracısı seçin. Kiracı için seçilen Kiracı için Özellikler sayfasında GUID'dir (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), etiketlenmiş **dizin kimliği**. 
 2. GUID aldıktan sonra kayıt defteri anahtarını eklemeniz gerekir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<kimliği GUID Kiracı >**.
    Gelen **kimliği GUID Kiracı** anahtar, adlı yeni bir çok dizeli değer (REG-MULTI-SZ) oluşturma **AllowedRMSServerUrls**. Verileri için aygıt erişen bir Azure kiracılar lisans dağıtım noktası URL'lerini belirtin.
-3. Lisans dağıtım noktası URL'leri çalıştırarak bulabileceğiniz **Get-AadrmConfiguration** cmdlet'i. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.
+3. Lisans dağıtım noktası URL'leri çalıştırarak bulabileceğiniz **Get-AadrmConfiguration** AADRM modülden cmdlet. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Var olan Windows Masaüstü uygulamaları için Dolaşım ayarları seçenekleri nelerdir?
 Dolaşım, yalnızca evrensel Windows uygulamaları için çalışır. Varolan bir Windows Masaüstü uygulama gezici etkinleştirmek için kullanılabilen iki seçenek vardır:
@@ -95,9 +95,9 @@ Gelecekte, Microsoft iç Windows'da tümleşik UE-V yapmak ve Azure AD bulut ara
 Kurumsal durumda Dolaşım tüm eşitlenmiş veriler Azure bulutunda depolar. UE-V sunan bir şirket içi çözüm gezici.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Çıkan verilerin sahibi kim?
-Kuruluşların kendi Kurumsal durumda Dolaşım veri çıkan. Veriler bir Azure veri merkezinde depolanır. Aktarım sırasında hem Azure RMS kullanan bulut bekleyen tüm kullanıcı verileri şifrelenir. Cihaz terk etmeden önce yalnızca kullanıcı kimlik bilgileri gibi hassas belirli verileri şifreler Microsoft hesabı tabanlı ayarları eşitleme için karşılaştırıldığında geliştirme budur.
+Kuruluşların kendi Kurumsal durumda Dolaşım veri çıkan. Veriler bir Azure veri merkezinde depolanır. Aktarım sırasında hem Azure Information Protection Azure Rights Management hizmetinden kullanarak bulut bekleyen tüm kullanıcı verileri şifrelenir. Cihaz terk etmeden önce yalnızca kullanıcı kimlik bilgileri gibi hassas belirli verileri şifreler Microsoft hesabı tabanlı ayarları eşitleme için karşılaştırıldığında geliştirme budur.
 
-Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz terk etmeden önce bir kurumsal kullanıcının ayarlarını verileri Azure RMS tarafından otomatik olarak şifrelenir. Kuruluşunuzun Azure RMS için ücretli bir abonelik varsa, izleme gibi diğer Azure RMS özellikleri ve belgeleri iptal, otomatik olarak hassas bilgiler içeren bir e-postaları korumak ve kullanabilirsiniz ("kendi anahtarını getir" Çözüm, BYOK olarak da bilinir), kendi anahtarları Yönet. Bu özellikler ve Azure RMS'nin nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure Rights Management nedir](https://technet.microsoft.com/jj585026.aspx).
+Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz terk etmeden önce bir kurumsal kullanıcının ayarlarını veriler Azure Rights Management hizmeti tarafından otomatik olarak şifrelenir. Kuruluşunuzun Azure Rights Management hizmeti için ücretli bir abonelik varsa, izleme gibi diğer koruma özelliklerini kullanmak ve belgeleri iptal edebilir, otomatik olarak hassas bilgiler içeren bir e-postaları korumak ve kendi anahtarları Yönet ("Getir kendi anahtarınızı"Çözüm, BYOK olarak da bilinir). Bu özellikler ve bu koruma hizmetinin nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure Rights Management nedir](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Eşitleme için belirli uygulama veya ayarını yönetebilir miyim?
 Windows 10'da tek bir uygulama için gezici devre dışı bırakmak için hiçbir MDM veya Grup İlkesi ayarı yoktur. Kiracı Yöneticiler appdata eşitleme yönetilen bir cihazda tüm uygulamalar için devre dışı bırakabilir, ancak uygulama başına veya uygulama içinde düzeyinde daha hassas bir denetim yok yok.
@@ -116,8 +116,8 @@ Kurumsal durumda Dolaşım ve UE-V kullanırken, aşağıdaki kurallar geçerlid
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Sanal Masaüstü Altyapısı (VDI) Kurumsal durumda Dolaşım nasıl destekler?
 Kurumsal durumda dolaşım, Windows 10 İstemci SKU'ları, ancak sunucu SKU'ları desteklenir. Bir istemci VM hiper yönetici makinesinde barındırılır ve sanal makineye uzaktan oturum açın, verilerinizi dolaşıma. Birden çok kullanıcı aynı işletim sistemi paylaşma ve kullanıcıların uzaktan bir sunucu tam masaüstü deneyimi için oturum açın, gezici çalışmayabilir. İkinci oturum tabanlı senaryo resmi olarak desteklenmez.
 
-## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>Dolaşım kullandıktan sonra Azure RMS Kuruluşum satın ne olur?
-Azure RMS sınırlı kullanım ücretsiz abonelik, Windows 10 Dolaşım Kuruluşunuz zaten kullanıyorsanız, ücretli bir Azure RMS aboneliği satın gezici özelliği işlevselliğini hiçbir etkisi olmaz ve yapılandırma değişikliği, BT yöneticiniz tarafından gerekli.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Kuruluşum, bir abonelik satın ne olur, Azure Rights Management gezici kullandıktan sonra içerir?
+Kuruluşunuz zaten Windows 10'da Azure Rights Management sınırlı kullanım ücretsiz aboneliğe gezici kullanıyorsa, satın alma bir [Ücretli aboneliği](https://azure.microsoft.com/pricing/details/information-protection/) Azure Rights Management Koruması hizmetine sahip olmaz içerir Dolaşım özelliğinin işlevselliği üzerindeki etkilerini ve hiçbir yapılandırma değişikliği, BT yöneticiniz tarafından yapılması gerekir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 Lütfen belgelere bakın [sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md) bilinen sorunların bir listesi için bölüm. 

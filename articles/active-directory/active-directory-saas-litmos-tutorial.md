@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Litmos | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Litmos arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Litmos | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Litmos arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 2447cc5dbb01aa718e4418386499c6e50e9f5184
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8314497e37c074ab346079b7758d8b3680f2d6e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Öğretici: Azure Active Directory Tümleştirme Litmos ile
 
@@ -30,9 +30,9 @@ Litmos Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Litmos (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Litmos ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Litmos etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.litmos.com/account/Login`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.litmos.com/account/Login`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.litmos.com/integration/samllogin`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.litmos.com/integration/samllogin`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Gerçek tanımlayıcı ve yanıt URL'si, daha sonra öğreticide veya kişi açıklanacak bu değerleri güncelleştirmek [Litmos destek ekibi](https://www.litmos.com/contact-us/) bu değerleri almak için.
@@ -127,11 +127,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | ---------------  | ----------------|
     | FirstName |User.givenName |
     | Soyadı  |User.surname |
-    | E-posta |User.Mail |
+    | Email |User.Mail |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
-    ![Öznitelik Ekle](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_04.png)
+    ![Öznitelik ekleyin](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_04.png)
 
     ![Öznitelik Dailog Ekle](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_05.png)
 
@@ -206,7 +206,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
   
 ### <a name="create-a-litmos-test-user"></a>Litmos test kullanıcısı oluşturma
 
@@ -263,7 +263,7 @@ Bu bölümde, Britta Litmos için erişim vererek, Azure çoklu oturum açma kul
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.  
 
@@ -272,7 +272,7 @@ Erişim paneli Litmos parçasında tıklattığınızda, otomatik olarak Litmos 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

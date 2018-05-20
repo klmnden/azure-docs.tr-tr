@@ -8,13 +8,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 93a4befce1f54dcc06d9a8faf31b04e5c0280276
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f758d6aec25ce0ef6bf9a0ecab34189296c81fc0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -26,13 +26,13 @@ Azure Automation’da, otomasyon hesabı kapsamında kullanıcılara, gruplara v
 
 | **Rol** | **Açıklama** |
 |:--- |:--- |
-| Sahip |Sahip rolü tüm kaynaklara ve diğer kullanıcılar, gruplar ve Automation hesabını yönetmek üzere uygulamalar için erişim sağlama dahil olmak üzere bir Otomasyon hesabı içinde eylemler erişmesini sağlar. |
+| Sahibi |Sahip rolü tüm kaynaklara ve diğer kullanıcılar, gruplar ve Automation hesabını yönetmek üzere uygulamalar için erişim sağlama dahil olmak üzere bir Otomasyon hesabı içinde eylemler erişmesini sağlar. |
 | Katılımcı |Katılımcı rolü, başka kullanıcının Otomasyon hesabına erişim izinlerini değiştirme dışında her şeyi yönetmenizi sağlar. |
 | Okuyucu |Okuyucu rolü, Otomasyon hesabında tüm kaynakları görmenizi sağlar; ancak değişiklik yapamazsınız. |
 | Otomasyon Operatörü |Automation operatörü rolü, runbook adı ve özelliklerini görüntülemek ve oluşturmak ve bir Otomasyon hesabı içinde tüm runbook'lar için iş yönetmenize olanak sağlar. Bu rol, kimlik bilgileri varlıkları ve runbook'ları gibi Automation hesabı kaynaklarınızın görüntülenmesini veya değiştirilmesini engellemek, ancak yine de kuruluş üyelerinin bu runbook’ları yürütmesine izin vermek istiyorsanız yararlıdır. |
 |Otomasyon İşi İşleci|Otomasyon iş işleci rolü, Automation hesabı tüm runbook'lar için işleri oluşturmak ve yönetmek sağlar.|
 |Otomasyon Runbook'u İşleci|Otomasyon Runbook işletmeni rolü, bir runbook'un adını ve özelliklerini görüntülemenize olanak sağlar.|
-| Log Analytics Katkıda Bulunan | Günlük analizi katılımcı rolü tüm izleme verilerini okuma ve izleme ayarları düzenlemenize olanak sağlar. İzleme ayarları düzenleme, oluşturma ve Automation hesapları yapılandırma, çözümleri ekleme ve Azure tanılama yapılandırma Azure depolama günlüklerinden koleksiyonu yapılandırmak için depolama hesabı anahtarlarını okuma VM'ler için VM uzantısı eklemeyi içerir Tüm Azure kaynakları.|
+| Log Analytics Katkıda Bulunanı | Günlük analizi katılımcı rolü tüm izleme verilerini okuma ve izleme ayarları düzenlemenize olanak sağlar. İzleme ayarları düzenleme, oluşturma ve Automation hesapları yapılandırma, çözümleri ekleme ve Azure tanılama yapılandırma Azure depolama günlüklerinden koleksiyonu yapılandırmak için depolama hesabı anahtarlarını okuma VM'ler için VM uzantısı eklemeyi içerir Tüm Azure kaynakları.|
 | Log Analytics Okuyucusu | Günlük analizi okuyucu rolü, görüntüleme ve tüm izleme verilerini yanı sıra izleme ayarlarını görünümü arama sağlar. Bu, tüm Azure kaynakları üzerinde Azure tanılama yapılandırması görüntüleme içerir. |
 | İzleme Katkıda Bulunanı | İzleme katılımcı rolü, tüm izleme verileri ve izleme ayarlarını güncelleştirme okumanızı sağlar.|
 | İzleme Okuyucusu | Montioring okuyucu rolüne tüm izleme verilerini okumasına izin verir. |
@@ -42,7 +42,7 @@ Azure Automation’da, otomasyon hesabı kapsamında kullanıcılara, gruplara v
 
 Aşağıdaki tablolarda her rol için verilen özel izinler açıklanmaktadır. Bu izinleri verin, Eylemler ve bunların kısıtlamak NotActions içerebilir.
 
-### <a name="owner"></a>Sahip
+### <a name="owner"></a>Sahibi
 
 Bir sahibi erişim dahil her şeyi yönetebilir. Aşağıdaki tabloda, rol için izinler gösterilmektedir:
 
@@ -122,7 +122,7 @@ Automation operatörü oluşturabilir ve işlerini yönetme ve runbook adları v
 |Microsoft.Insights/alertRules/*      | Oluşturun ve uyarı kuralları yönetin.        |
 |Microsoft.Support/* |Oluşturun ve Destek biletlerini yönetme.|
 
-### <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunan
+### <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunanı
 
 Günlük analizi katkıda bulunan tüm izleme verilerini okuma ve izleme ayarlarını düzenleyin. İzleme ayarları düzenleme, VM'ler için VM uzantısı eklemeyi içerir; Azure Storage günlüklerinden koleksiyonu yapılandırmak için depolama hesabı anahtarlarını okuma; oluşturma ve Automation hesapları yapılandırma; çözümleri ekleme; ve tüm Azure kaynaklara Azure tanılama yapılandırılıyor. Aşağıdaki tabloda, rol için izinler gösterilmektedir:
 
@@ -252,11 +252,11 @@ Güncelleştirme yönetimi, hizmet sağlamak için birden fazla hizmet ulaşır.
 
 |**Kaynak**  |**Rol**  |**Kapsam**  |
 |---------|---------|---------|
-|Otomasyon hesabı     | Log Analytics Katkıda Bulunan       | Otomasyon hesabı        |
+|Otomasyon hesabı     | Log Analytics Katkıda Bulunanı       | Otomasyon hesabı        |
 |Otomasyon hesabı    | Sanal Makine Katılımcısı        | Kaynak grubu hesabı        |
-|Log Analytics çalışma alanı     | Log Analytics Katkıda Bulunan| Log Analytics çalışma alanı        |
+|Log Analytics çalışma alanı     | Log Analytics Katkıda Bulunanı| Log Analytics çalışma alanı        |
 |Log Analytics çalışma alanı |Log Analytics Okuyucusu| Abonelik|
-|Çözüm     |Log Analytics Katkıda Bulunan         | Çözüm|
+|Çözüm     |Log Analytics Katkıda Bulunanı         | Çözüm|
 |Sanal Makine     | Sanal Makine Katılımcısı        | Sanal Makine        |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Azure portal kullanarak Automation hesabınız için RBAC yapılandırma

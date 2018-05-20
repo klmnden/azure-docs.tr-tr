@@ -7,13 +7,13 @@ ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9c3cb5a00433a76e8cc444cc48c648cb2749a2ae
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f695eaadc0aa2d01473262c478a3b184d89d882c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Kullanım örneği: Automation DSC ve Chocolatey kullanarak sanal makineleri için sürekli dağıtım
 Bir DevOps dünyanın çeşitli noktalarıyla sürekli tümleştirme ardışık düzeninde yardımcı olmak üzere birçok araç vardır.  Azure Otomasyonu istenen durum yapılandırması (DSC) bir DevOps takımlar uygulayabileceğiniz seçeneklerine Hoş Geldiniz yeni ektir.  Bu makalede, bir Windows bilgisayar için yukarı sürekli dağıtımı (CD) ayarı gösterilmektedir.  (Bir web sitesi, örneğin gibi) rolü ve ek roller için buradan gerektiği kadar Windows bilgisayarlar dahil olmak üzere teknik kolayca genişletebilirsiniz.

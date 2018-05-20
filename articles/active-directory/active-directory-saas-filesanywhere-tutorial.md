@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile FilesAnywhere | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile FilesAnywhere arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile FilesAnywhere | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile FilesAnywhere arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ca017dbfe35d291083c66f41868fd425e74a602
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ad92a3edf8fac79bc9eaa3b4a641b5a03eb4ebe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Öğretici: Azure Active Directory Tümleştirme FilesAnywhere ile
 
@@ -29,9 +29,9 @@ FilesAnywhere Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için FilesAnywhere (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme FilesAnywhere ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -115,7 +115,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+    a. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
 > Lütfen unutmayın değeri **215** olan bir **ClientID** ve yalnızca bir örnektir. Gerçek ClientID değeri ile değiştirmeniz gerekir.
 
@@ -125,7 +125,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
 
     a. Tıklayın **Göster Gelişmiş URL ayarları** seçeneği
 
-    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<sub domain>.filesanywhere.com/`
+    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<sub domain>.filesanywhere.com/`
 
     > [!NOTE] 
     > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Gerçek oturum üzerinde URL'si ve yanıt URL'si bu değerleri güncelleştirmeniz gerekir. Kişi [FilesAnywhere destek ekibi](mailto:support@FilesAnywhere.com) bu değerleri almak için. 
@@ -202,7 +202,7 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın. 
+    d. **Oluştur**’a tıklayın. 
 
 
 
@@ -253,7 +253,7 @@ Erişim paneli FilesAnywhere parçasında tıklattığınızda, otomatik olarak 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

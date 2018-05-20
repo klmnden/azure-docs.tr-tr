@@ -3,17 +3,17 @@ title: Azure Kubernetes kümesi için hizmet sorumlusu
 description: AKS içindeki bir Kubernetes kümesi için Azure Active Directory hizmet sorumlusu oluşturma ve yönetme
 services: container-service
 author: neilpeterson
-manager: jeconnoc
+manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e6e24d132598e3f79e4fe76c13ee0ae6a82424d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ffcc3a1a40973a4cf3b096ed82d35e21c9b20a44
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 

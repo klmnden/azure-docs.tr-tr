@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme VERITAS Kurumsal Vault.cloud SSO | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile VERITAS Kurumsal Vault.cloud SSO arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme VERITAS Kurumsal Vault.cloud SSO | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile VERITAS Kurumsal Vault.cloud SSO arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a60df7f743c893305f0b3b4aba05505e761f505d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Öğretici: Azure Active Directory Tümleştirme VERITAS Kurumsal Vault.cloud SSO
 
@@ -29,7 +29,7 @@ VERITAS Kurumsal Vault.cloud SSO Azure AD ile tümleştirme ile aşağıdaki ava
 - Azure AD hesaplarına otomatik olarak Itanium tabanlı sistemler için VERITAS Kurumsal Vault.cloud SSO için (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -110,11 +110,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
     b. İçinde **tanımlayıcısı** metin kutusuna, veri merkezi başına URL'yi kullanın
 
-    | Veri merkezi| URL |
+    | Veri merkezi| URL'si |
     |----------|----|
     | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
     | Avrupa | `https://auth.ams.archivecloud.net` |
@@ -122,7 +122,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. İçinde **yanıt URL'si** metin kutusuna, veri merkezi başına URL'yi kullanın
 
-    | Veri merkezi| URL |
+    | Veri merkezi| URL'si |
     |----------|----|
     | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
     | Avrupa | `https://auth.ams.archivecloud.net` |
@@ -223,7 +223,7 @@ Erişim paneli VERITAS Kurumsal Vault.cloud SSO parçasında tıklattığınızd
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

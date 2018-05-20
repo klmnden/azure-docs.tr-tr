@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
 
@@ -148,4 +148,4 @@ Hayır. Aracıları kullanılmaz. Azure sanal makine ölçüm verilerini VM'ler 
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn raporlarını, rapor başına birden fazla AD Kiracı Göster?
 
-Evet. Yapabilecekleriniz [karşılık gelen bir bulut hesap varlık oluşturursanız](tutorial-user-access.md#create-entities) sahip olduğunuz her bir AD Kiracı için. Ardından, tüm Azure AD Kiracı verilerinizi ve Amazon Web Hizmetleri ve Google Cloud Platform'un gibi diğer bulut platformu sağlayıcılarını görüntüleyebilirsiniz.
+Evet. Yapabilecekleriniz [karşılık gelen bir bulut hesap varlık oluşturursanız](tutorial-user-access.md#create-and-manage-entities) sahip olduğunuz her bir AD Kiracı için. Ardından, tüm Azure AD Kiracı verilerinizi ve Amazon Web Hizmetleri ve Google Cloud Platform'un gibi diğer bulut platformu sağlayıcılarını görüntüleyebilirsiniz.

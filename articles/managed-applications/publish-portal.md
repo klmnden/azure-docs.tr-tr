@@ -1,26 +1,26 @@
 ---
-title: "Bir Azure yayımlama yönetilen portalı üzerinden uygulama | Microsoft Docs"
-description: "Azure kullanmayı gösterir Azure oluşturmak için portal yönetilen kuruluşunuzun üyeleri için hedeflenen uygulama."
+title: Bir Azure yayımlama yönetilen portalı üzerinden uygulama | Microsoft Docs
+description: Azure kullanmayı gösterir Azure oluşturmak için portal yönetilen kuruluşunuzun üyeleri için hedeflenen uygulama.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portalı aracılığıyla hizmet Kataloğu uygulama yayımlama
 
 Yayımlamak için Azure portalını kullanabilirsiniz [yönetilen uygulamaları](overview.md) kuruluşunuzun üyeleri için yöneliktir. Örneğin, bir BT departmanının kuruluş standartlarıyla uyumluluğu sağlamak yönetilen uygulamaları yayımlayabilirsiniz. Bu yönetilen uygulamaların Azure Market hizmet Kataloğu kullanılabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Yönetilen bir uygulama yayımladığınızda, kaynakları yönetmek için bir kimlik belirtin. Bir Azure Active Directory kullanıcı grubu belirtin öneririz. Bir Azure Active Directory kullanıcı grubu oluşturmak için bkz: [bir grup oluşturun ve Azure Active Directory'de üye ekleme](../active-directory/active-directory-groups-create-azure-portal.md). 
 
@@ -56,7 +56,7 @@ Yönetilen uygulama tanımını içeren .zip dosyası bir URI kullanılabilir ol
 
 1. Tüm değerleri sağlandığında seçin **oluşturma**.
 
-   ![yönetilen uygulama oluşturma](./media/publish-portal/create-app.png)
+   ![Yönetilen uygulama oluşturma](./media/publish-portal/create-app.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Concur | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Concur arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Concur | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Concur arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 7619b09f24cf63f86871c975584254636292d7f3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc87add18145bbc733f33df8f4072cb13ae7b75f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Öğretici: Concur Azure Active Directory Tümleştirme
 
@@ -29,9 +29,9 @@ Concur Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Concur (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Concur ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -113,9 +113,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-concur-tutorial/tutorial_concur_url.png)
 
-    a. İçinde **URL üzerinde oturum** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+    a. İçinde **URL üzerinde oturum** metin kutusuna, şu biçimi kullanarak değeri yazın: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<customer-domain>.concursolutions.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<customer-domain>.concursolutions.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler, URL ve tanımlayıcıdır gerçek oturum ile güncelleştirin. Kişi [Concur istemci destek ekibi](https://www.concur.co.in/contact) bu değerleri almak için. 
@@ -168,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-concur-test-user"></a>Concur test kullanıcısı oluşturma
 
@@ -214,7 +214,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı Yapılandır](active-directory-saas-concur-provisioning-tutorial.md)
 
 

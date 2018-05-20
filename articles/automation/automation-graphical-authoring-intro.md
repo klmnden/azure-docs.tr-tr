@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc51fabaffd0f9de5c2a460922dadc0abf74577e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: b813ba564e6451f973972f08f297399c3af1747b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafik Azure Otomasyonu'nda yazma
 
@@ -43,7 +43,7 @@ Yakınlaştırma ve uzaklaştırma için tuvalin altındaki denetimleri kullanab
 
 Burada seçtiğiniz kitaplık denetimidir [etkinlikleri](#activities) runbook'a eklemek için. Bunları burada, bunları etkinliği başka etkinliklere bağlayın tuvale ekleyin. Aşağıdaki tabloda açıklanan dört bölüm içerir:
 
-| Section | Açıklama |
+| Bölüm | Açıklama |
 |:--- |:--- |
 | Cmdlet'leri |Kullanılabilir tüm cmdlet'leri runbook'unuza içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri kullanılabilir. |
 | Runbook'lar |Runbook'ları Otomasyon hesabınızda içerir. Bu runbook'lar alt runbook'lar olarak kullanılacak tuvale eklenebilir. Yalnızca düzenlenmekte olan runbook aynı çekirdek türdeki runbook'lar gösterilir; Grafik PowerShell iş akışı runbook'ları yalnızca PowerShell iş akışı tabanlı runbook'ları gösterilmese için grafik runbook'ları yalnızca PowerShell tabanlı runbook'lar gösterilir. |
@@ -141,7 +141,7 @@ Yeniden deneme koşulu etkinlik yeniden deneme işlemleri ile ilgili bilgilere e
 | Özellik | Açıklama |
 |:--- |:--- |
 | NumberOfAttempts |Etkinliği çalıştırmak kez sayısı. |
-| Çıktı |Son çalıştırma etkinliğin çıktı. |
+| Çıkış |Son çalıştırma etkinliğin çıktı. |
 | TotalDuration |Zaman aşımına etkinlik ilk kez başlatıldığından beri geçen. |
 | StartedAt |Saati UTC biçiminde etkinliğin önce başlatıldı. |
 
@@ -192,7 +192,7 @@ Yapılandırma dikey penceresinde özelliklerini yapılandırmak için bağlant�
 
 | Bağlantı türü | Açıklama |
 |:--- |:--- |
-| İşlem hattı |Hedef etkinlik, kaynak etkinliğinden her nesne çıktısı için bir kez çalıştırılır. Kaynak etkinliği hiçbir çıkış sonuçlanırsa, hedef etkinlik çalışmaz. Kaynak etkinliği çıktısını bir nesne olarak kullanılabilir. |
+| Potansiyel Satışlar |Hedef etkinlik, kaynak etkinliğinden her nesne çıktısı için bir kez çalıştırılır. Kaynak etkinliği hiçbir çıkış sonuçlanırsa, hedef etkinlik çalışmaz. Kaynak etkinliği çıktısını bir nesne olarak kullanılabilir. |
 | Sequence |Hedef etkinlik yalnızca bir kez çalışır. Bunu kaynak etkinliğinden nesnelerinin bir dizisi alır. Kaynak etkinliği çıktısını nesnelerinin bir dizisi kullanılabilir. |
 
 ### <a name="starting-activity"></a>Başlangıç etkinliği
@@ -320,7 +320,7 @@ Her giriş parametresi, aşağıdaki tabloda özelliklerine göre tanımlanır:
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Ad |Parametrenin benzersiz adı. Bu, yalnızca alfa sayısal karakterler içerebilir ve bir boşluk içeremez. |
+| name |Parametrenin benzersiz adı. Bu, yalnızca alfa sayısal karakterler içerebilir ve bir boşluk içeremez. |
 | Açıklama |Giriş parametresi isteğe bağlı bir açıklama. |
 | Tür |Veri türü için parametre değeri bekleniyor. Azure portalı uygun bir denetim için her parametre için veri türü için giriş isterken sağlar. |
 | Zorunlu |Bir değer parametresi için sağlanan olup olmadığını belirtir. Tanımlanmış bir varsayılan değeri yok zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |

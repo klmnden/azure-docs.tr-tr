@@ -283,6 +283,7 @@
 ### [Erişim gözden geçirmesi ile konuk erişimi](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Gözden geçirmelerle kullanıcı erişimini yönetme](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Programları ve denetimleri yönetme](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Erişim gözden geçirmesi sonuçlarını alma](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
@@ -336,7 +337,6 @@
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
 
 ## [Sorun giderme](active-directory-troubleshooting-support-howto.md)
-### [Active Directory sorun giderme öğesi eksik ya da mevcut değil](active-directory-troubleshooting.md)
 
 ## Azure AD Kavram Kanıtı (PoC) Dağıtma
 ### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)

@@ -3,23 +3,25 @@ title: OAuth2.0 kullanarak azure AD hizmet Auth | Microsoft Docs
 description: Bu makalede HTTP iletileri OAuth2.0 istemci kimlik bilgileri verin akışı kullanarak hizmet kimlik doğrulaması uygulamak için nasıl kullanılacağını açıklar.
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1a4da1af61be4b632b51f5b8f921f6f48e925559
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>İstemci kimlik bilgilerini (paylaşılan gizliliği veya sertifika) kullanarak hizmeti çağrıları hizmetine
 Bir web hizmeti OAuth 2.0 istemci kimlik bilgileri verin akış verir (*gizli istemci*) başka bir web hizmeti çağrılırken kimliğini doğrulamak için bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Azure AD kimlik bilgisi olarak (yerine bir paylaşılan gizlilik) bir sertifika kullanmak arama hizmeti de sağlar.
@@ -52,10 +54,10 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli |İstenen verme türünü belirtir. Bir istemci kimlik bilgileri sağlama akışında değer olmalıdır **client_credentials**. |
-| client_id |Gerekli |Çağrıyı yapan web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portal](https://portal.azure.com), tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulama'yı tıklatın. Client_id olan *uygulama kimliği* |
-| client_secret |Gerekli |Çağıran web hizmeti veya arka plan programı uygulaması için Azure AD'de kayıtlı bir anahtar girin. Azure portalında bir anahtar oluşturmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulamayı tıklatın, **ayarları**, tıklatın **anahtarları** , ve bir anahtar ekleyin.|
-| kaynak |Gerekli |Alıcı web hizmeti uygulama kimliği URI'sini girin. Uygulama Kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikler**. |
+| grant_type |gerekli |İstenen verme türünü belirtir. Bir istemci kimlik bilgileri sağlama akışında değer olmalıdır **client_credentials**. |
+| client_id |gerekli |Çağrıyı yapan web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portal](https://portal.azure.com), tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulama'yı tıklatın. Client_id olan *uygulama kimliği* |
+| client_secret |gerekli |Çağıran web hizmeti veya arka plan programı uygulaması için Azure AD'de kayıtlı bir anahtar girin. Azure portalında bir anahtar oluşturmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulamayı tıklatın, **ayarları**, tıklatın **anahtarları** , ve bir anahtar ekleyin.|
+| kaynak |gerekli |Alıcı web hizmeti uygulama kimliği URI'sini girin. Uygulama Kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikler**. |
 
 #### <a name="example"></a>Örnek
 Bir erişim belirteci için aşağıdaki HTTP POST istekleri https://service.contoso.com/ web hizmeti. `client_id` Erişim belirteci istekleri web hizmeti tanımlar.
@@ -73,11 +75,11 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli |İstenen yanıt türünü belirtir. Bir istemci kimlik bilgileri sağlama akışında değer olmalıdır **client_credentials**. |
-| client_id |Gerekli |Çağrıyı yapan web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portal](https://portal.azure.com), tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulama'yı tıklatın. Client_id olan *uygulama kimliği* |
-| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
-| kaynak | Gerekli |Alıcı web hizmeti uygulama kimliği URI'sini girin. Uygulama Kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikler**. |
+| grant_type |gerekli |İstenen yanıt türünü belirtir. Bir istemci kimlik bilgileri sağlama akışında değer olmalıdır **client_credentials**. |
+| client_id |gerekli |Çağrıyı yapan web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portal](https://portal.azure.com), tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulama'yı tıklatın. Client_id olan *uygulama kimliği* |
+| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| kaynak | gerekli |Alıcı web hizmeti uygulama kimliği URI'sini girin. Uygulama Kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikler**. |
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Verilere erişme ve My uygulamaları Portalı'nı kullanarak sorunları giderme
 
@@ -57,10 +57,11 @@ Aşağıdaki tarayıcı gereksinimleri karşıladığından emin olun:
 - **Firefox 26,0 veya üzeri**: Windows XP SP2 veya daha sonra ve Mac OS X 10.6 veya sonraki sürümlerde.
 - **Internet Explorer 11**: Windows 7 veya üzeri (sınırlı destek).
 
-Chrome ve aşağıdaki siteleri doğrudan kenarından uzantısı da yükleyebilirsiniz:
+Ayrıca, doğrudan aşağıdaki sitelerinden uzantısı yükleyebilirsiniz:
 
-- [Chrome uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Uzantısı yüklediyseniz ve hala sorun yaşıyorsanız, aşağıdakileri deneyin:
 
@@ -77,14 +78,14 @@ Uzantısı yüklediyseniz ve hala sorun yaşıyorsanız, aşağıdakileri deneyi
    4. Uzantı simgesini seçin.
    5. Uzantı oturum açmak için seçin **başlamak oturum**.
 
-* Doğrudan bir uygulama tarayıcıdan oturum açmak için aşağıdakileri yapın:
+* Bir uygulama tarayıcıdan doğrudan oturum açmak için aşağıdakileri yapın:
    1. Uzantıyı yükledikten sonra kendisine seçerek oturum **başlamak oturum**.
    2. Uygulama oturum açma URL'si ile oturum açın.  
        Oturum açma genellikle oturum açma formu görüntüler uygulamanın URL'dir.
       Uzantı durumunu değiştirme ve bir parola kullanılabilir olduğunu biliyor sağlar.
    3. Oturum açmak için uzantı simgesini seçin.
 
-* Bir uygulama uzantı başlatmak için aşağıdakileri yapın:
+* Uzantı uygulamadan başlatmak için aşağıdakileri yapın:
    1. Uzantıyı yükledikten sonra kendisine seçerek oturum **başlamak oturum**.
    2. Kendi menüsünü açmak için uzantı simgesini seçin.
    3. My uygulamaları Portalı'nda kullanılabilir olan bir uygulamayı arayın.

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: İş için Dropbox Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve iş için Dropbox arasında yapılandırmayı öğrenin."
+title: 'Öğretici: İş için Dropbox Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve iş için Dropbox arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 255cfcb777f88fd6c6ac62b3e7c216360ea11e54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa00a88f8325345b1b45d7d0971a03590bce1029
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Öğretici: İş için Dropbox Azure Active Directory Tümleştirme
 
@@ -30,9 +30,9 @@ Dropbox iş için Azure AD ile tümleştirme ile aşağıdaki avantajları sağl
 - Otomatik olarak iş (çoklu oturum açma) için Dropbox için Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 İş için Dropbox ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Dropbox iş etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.dropbox.com/sso/<id>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.dropbox.com/sso/<id>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, bir değer yazın:`Dropbox`
+    b. İçinde **tanımlayıcısı** metin kutusuna, bir değer yazın: `Dropbox`
 
     > [!NOTE] 
     > Önceki oturum açma URL'si değerin gerçek değeri değil. Değer, daha sonra öğreticide açıklandığı gerçek oturum açma URL ile güncelleştirir. Kişi [iş istemci destek ekibi için Dropbox](https://www.dropbox.com/business/contact) değeri alınamıyor. 
@@ -196,7 +196,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-dropbox-for-business-test-user"></a>Bir Dropbox iş test kullanıcısı için oluşturma
 
@@ -237,7 +237,7 @@ Bu bölümde, iş için Dropbox için erişim vererek, Azure çoklu oturum açma
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -247,7 +247,7 @@ Erişim paneli iş parçasında Dropbox'ı tıklattığınızda, Dropbox oturum 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

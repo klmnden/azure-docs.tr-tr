@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 648d96bbb18186524cfad4d3df1f61e98062fcb4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -224,6 +224,8 @@ Standart yük dengeleyici Yük Dengeleme kuralları yapılandırılmış ve işl
 - Yük Dengeleyici ön uçlar genel sanal ağ eşlemesi üzerinden erişilebilir değil.
 - [Taşıma abonelik işlemlerini](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynakları için desteklenmiyor.
 - Yalnızca bir iç standart yük dengeleyici öncesi VNet Hizmetleri ve diğer platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle kullanıldığında, web çalışanı rolleri VNet ve diğer Microsoft platform hizmetlerinin olmadan erişilebilir. İlgili hizmet kendisini veya temel olarak, bu bilgisayarda kalmamanız gerekir platform bildirilmeksizin değiştirebilirsiniz. Oluşturmanız her zaman varsayın gerekir [giden bağlantı](load-balancer-outbound-connections.md) açıkça bir iç standart yük dengeleyici yalnızca kullanırken isterseniz.
+- Yük Dengeleyici Yük Dengeleme ve bu belirli IP protokolleri için bağlantı noktası iletme için TCP veya UDP bir üründür.  Yük Dengeleme kuralları ve gelen NAT kuralları TCP ve UDP için desteklenen ve ICMP dahil olmak üzere diğer IP protokolleri için desteklenmiyor. Yük Dengeleyici sonlandırmak değil, yanıt veya aksi halde bir UDP veya TCP akışı yükü ile etkileşim. Bir proxy değil. Bir ön uç bağlantısı doğrulama başarılı bir Yük Dengeleme veya gelen NAT kuralı (TCP veya UDP) kullanılan aynı protokol ile bant yer almalıdır _ve_ , sanal makineleriniz en az biri gerekir oluşturmak yanıt için bir istemci bir ön uç bağlantı noktasından yanıt görmek için.  Ön uç yük Dengeleyiciden bir bant dışı yanıt almadıktan hiçbir sanal makine yanıt verebilmesini gösterir.  Yük Dengeleyici sanal makine yanıt verebilmesini ön uç ile etkileşim kurmak mümkün değildir.  Bu durum giden bağlantılar için de geçerlidir nerede [bağlantı noktası maskeli SNAT](load-balancer-outbound-connections.md#snat) olduğu TCP ve UDP; için desteklenen yalnızca ICMP dahil olmak üzere diğer IP protokolleri de başarısız olacak.  Azaltmak için bir örnek düzeyinde ortak IP adresi atayın.
+- Sağlayan ortak yük Dengeleyiciler aksine [giden bağlantılar](load-balancer-outbound-connections.md) sanal ağ içindeki özel IP adresleri için ortak IP adresleri geçiş, iç yük dengeleyici giden Çevir değil kaynaklanan ön uç için bir iç yük dengeleyici her ikisi de olarak özel IP adres alanı bağlantılardır.  Bu, burada çeviri gerekli değildir, benzersiz, iç IP adresi alanı içindeki SNAT Tükenme olası önler.  Giden bir akışı bir VM'den arka uç havuzundaki hangi havuzda bulunduğu iç yük dengeleyici ön uç bir akışa çalışırsa olan yan etkisi _ve_ eşlenmiş geri bu kendisini iki Bacak akışının eşleşmiyorsa ve akış başarısız olur .  Akış uç akışına oluşturulan arka uç havuzundaki aynı VM dön eşleyemiyorsanız akışı başarılı olur.   Akış geri kendisine eşler, giden akış sanal makineden ön uç için kaynaklanacak şekilde, karşılık gelen akış sanal makineden kendisine kaynaklanacak şekilde görüntülenir. Konuk işletim sistemlerine açısından bakıldığında, sanal makinenin içinde aynı akışın gelen ve giden bölümleri eşleşmiyor. TCP yığınına, kaynak ve hedef eşleşmeyen gibi aynı akışının parçası olacak şekilde bu yarıları aynı akışın tanımaz.  Akış için arka uç havuzundaki başka bir VM eşlendiği akış yarısının eşleşir ve VM akışına başarılı bir şekilde yanıt verebilir.  Bu senaryo için belirti aralıklı zaman aşımları olmasıdır. Bu senaryo güvenilir bir şekilde elde etmek için birkaç ortak geçici çözüm vardır (arka uç arka uç havuzundan akışlarına kaynak havuzları ilgili iç yük dengeleyici ön uç) aşağıdakileri içeren bir üçüncü taraf proxy'nin arkasında iç yük ya da ekleme Dengeleyici veya [DSR stil kurallarını kullanarak](load-balancer-multivip-overview.md).  Azaltmak için bir genel yük dengeleyiciye kullanabilirken, sonuçta elde edilen yatkın senaryodur [SNAT Tükenme](load-balancer-outbound-connections.md#snat) ve dikkatle yönetilen sürece kaçınılmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -2,27 +2,26 @@
 title: Azure portalını kullanarak Stream Analytics işi oluşturma | Microsoft Docs
 description: Bu hızlı başlangıçta bir Stream Analytic işi oluşturma, girdileri ve çıktıları yapılandırma ve bir sorgu tanımlama yoluyla çalışmaya nasıl başlayacağınız gösterilmektedir.
 services: stream-analytics
-keywords: Stream analytics, Bulut işleri, Azure portalı, iş girdisi, iş çıktısı, iş dönüşümü
-author: SnehaGunda
-ms.author: sngun
-ms.date: 03/16/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 05/11/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: c421ab96585da011cdaef9933ceb8a78ffe356a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
 
-Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başlanacağı gösterilmektedir. Bu hızlı başlangıçta, örnek sensör verilerini okuyan ve 30 saniyede bir 100’den yüksek bir ortalama sıcaklığa sahip satırları filtreleyen bir Stream Analytics işi tanımlayacaksınız. Bu makalede, blob depolama alanından verileri okuyacak, verileri dönüştürecek ve aynı blob depolama alanındaki farklı bir kapsayıcıya geri yazacaksınız.
+Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başlanacağı gösterilmektedir. Bu hızlı başlangıçta, örnek algılayıcı verilerini okuyan ve 30 saniyede bir 100’den yüksek bir ortalama sıcaklığa sahip satırları filtreleyen bir Stream Analytics işi tanımlayacaksınız. Bu makalede, blob depolama alanından verileri okuyacak, dönüştürecek ve aynı blob depolama alanındaki farklı bir kapsayıcıya geri yazacaksınız. Bu hızlı başlangıçta kullanılan girdi verileri dosyası yalnızca tanım amaçlı statik veriler içerir. Gerçek dünya senaryolarında bir Stream Analytics işi için akışı yapılan girdi verilerini kullanırsınız.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-* Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+* Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 * [Azure Portal](https://portal.azure.com/) oturum açın.
 
@@ -30,41 +29,41 @@ Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başla
 
 Stream Analytics işini tanımlamadan önce işe girdi olarak yapılandırılan verileri hazırlamanız gerekir. İş için gereken girdi verilerini hazırlamak için aşağıdaki adımları uygulayın:
 
-1. GitHub’dan [örnek sensör verilerini](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) indirin. Örnek veriler aşağıdaki JSON biçiminde sensör bilgilerini içerir:  
+1. GitHub’dan [örnek sensör verilerini](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) indirin. Örnek veriler aşağıdaki JSON biçiminde sensör bilgilerini içerir:  
 
    ```json
    {
-     "time": "2016-01-26T21:18:52.0000000",
+     "time": "2018-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
    }
    ```
-2. Azure portalında oturum açın  
+2. Azure Portal’da oturum açın.  
 
-3. Azure portalının sol üst köşesinden **Kaynak oluştur** > **Depolama** > **Depolama hesabı**’nı seçin. Depolama hesabı işi dikey penceresini **Ad** değeri "myasastorageaccount", **Konum** değeri "Batı ABD 2", **Kaynak grubu** "MyRG" olarak ayarlanmış şekilde doldurun (daha yüksek performans için depolama hesabını Akış işiyle aynı kaynak grubunda barındırın). Kalan ayarlar varsayılan değerlerinde bırakılabilir.  
+3. Azure portalının sol üst köşesinden **Kaynak oluştur** > **Depolama** > **Depolama hesabı**’nı seçin. Depolama hesabı işi sayfasını **Ad** değeri "myasastorageaccount", **Konum** değeri "Batı ABD 2", **Kaynak grubu** "MyRG" olarak ayarlanmış şekilde doldurun (daha yüksek performans için depolama hesabını Akış işiyle aynı kaynak grubunda barındırın). Diğer ayarlar varsayılan değerlerinde bırakılabilir.  
 
    ![Depolama hesabı oluştur](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
-4. **Tüm kaynaklar** dikey penceresinde, önceki adımda oluşturduğunuz depolama hesabını bulun. **Genel Bakış** dikey penceresini açın ve ardından **Bloblar** kutucuğunu seçin.  
+4. **Tüm kaynaklar** sayfasında, önceki adımda oluşturduğunuz depolama hesabını bulun. **Genel Bakış** sayfasını ve ardından **Bloblar** kutucuğunu açın.  
 
-5. **Blob Hizmeti** dikey penceresinden **Kapsayıcı**’yı seçin, kapsayıcınız için *kapsayıcı1* gibi bir **Ad** sağlayın ve **Genel erişim düzeyi**’ni Blob olarak değiştirin (yalnızca bloblar için anonim okuma erişimi) > **Tamam**’ı seçin.  
+5. **Blob Hizmeti** sayfasından **Kapsayıcı**’yı seçin, kapsayıcınız için *kapsayıcı1* gibi bir **Ad** sağlayın ve **Genel erişim düzeyi**’ni Blob olarak değiştirin (yalnızca bloblar için anonim okuma erişimi) > **Tamam**’ı seçin.  
 
    ![Bir kapsayıcı oluşturma](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. Önceki adımda oluşturduğunuz kapsayıcıya gidin, **Karşıya Yükle**’yi seçin ve 1. adımda elde ettiğiniz sensör verilerini karşıya yükleyin.  
+6. Önceki adımda oluşturduğunuz kapsayıcıya gidin. **Karşıya yükle**’yi seçin ve ilk adımda elde ettiğiniz algılayıcı verilerini karşıya yükleyin.  
 
    ![Örnek verileri bloba yükleme](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-1. Azure portalında oturum açın  
+1. Azure Portal’da oturum açın.
 
 2. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.  
 
 3. Sonuçlar listesinden **Veri ve Analiz** > **Stream Analytics işi**’ni seçin.  
 
-4. Stream Analytics işi dikey penceresini aşağıdaki bilgilerle doldurun:
+4. Stream Analytics işi sayfasını aşağıdaki bilgilerle doldurun:
 
    |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
    |---------|---------|---------|
@@ -91,7 +90,7 @@ Bu bölümde blob depolama alanını Stream Analytics işinin girdisi olarak yap
 
 2. **Girdiler** > **Akış girdisi ekle** > **Blob depolama alanı**’nı seçin.  
 
-3. **Blob depolama** dikey penceresini aşağıdaki değerlerle doldurun:
+3. **Blob depolama** sayfasını aşağıdaki değerlerle doldurun:
 
    |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
    |---------|---------|---------|
@@ -110,7 +109,7 @@ Bu bölümde blob depolama alanını Stream Analytics işinin girdisi olarak yap
 
 2. **Çıktılar > Ekle > Blob depolama alanı**’nı seçin.  
 
-3. **Blob depolama** dikey penceresini aşağıdaki değerlerle doldurun:
+3. **Blob depolama** sayfasını aşağıdaki değerlerle doldurun:
 
    |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
    |---------|---------|---------|
@@ -135,9 +134,9 @@ Bu bölümde blob depolama alanını Stream Analytics işinin girdisi olarak yap
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
@@ -148,9 +147,9 @@ Bu bölümde blob depolama alanını Stream Analytics işinin girdisi olarak yap
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Stream Analytics işini başlatıp çıktıyı denetleyin
 
-1. İşe genel bakış dikey penceresine dönün ve **Başlat**’ı seçin  
+1. İşe genel bakış sayfasına dönün ve **Başlat**’ı seçin.
 
-2. **İşi başlat** altında **Başlangıç zamanı** alanı için **Özel**’i seçin. Dosyanın karşıya yüklendiği saat geçerli saatten önce olduğu için dosyayı blob depolama alanına yüklediğiniz tarihten bir gün öncesini seçin. İşiniz bittiğinde **Başlat**’ı seçin.  
+2. **İşi başlat** altında **Başlangıç zamanı** alanı için **Özel**’i seçin. Başlangıç tarihi olarak `2018-01-24` tarihini seçin, ancak saati değiştirmeyin. Bu başlangıç tarihi, örnek verilerdeki olay zaman damgasından önce olduğu için seçilir. İşiniz bittiğinde **Başlat**’ı seçin.
 
    ![İşi başlatma](./media/stream-analytics-quick-create-portal/start-the-job.png)
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 8d9b9c74ead54280d82bf2b0f9a2232723b2af63
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 4a2e85cc619d17745be9d8f72af5f99049ce7c6b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-blockchain-workbench-messages-overview"></a>Azure Blockchain çalışma ekranı iletileri genel bakış
 
@@ -247,4 +247,4 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain çalışma ekranı mimarisi](blockchain-workbench-architecture.md)
+> [Akıllı sözleşme tümleştirme desenleri](blockchain-workbench-integration-patterns.md)

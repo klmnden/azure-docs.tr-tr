@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Gizli anahtarları Azure yığınında Döndür
 
@@ -49,6 +48,24 @@ Azure yığın operatör tarafından sağlanan dışa dönük Hizmetleri için a
 
 Azure yığın altyapı bütünlüğü korumak için düzenli aralıklarla kendi altyapının gizli kuruluşun güvenlik gereksinimleriyle tutarlı sıklıklarını adresindeki döndürme olanağı işleçleri gerekir.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Yeni bir sertifika yetkilisinden dış sertifikalar ile gizli döndürme
+
+Azure yığını gizli döndürme dış sertifikalar bir yeni sertifika yetkilisi (CA) ile aşağıdaki bağlamlarda destekler:
+
+|Yüklü sertifika CA|CA için döndürmek için|Desteklenen|Azure yığın sürümleri desteklenir|
+|-----|-----|-----|-----|-----|
+|Otomatik olarak imzalanan gelen|Kuruluş|Desteklenmiyor||
+|Otomatik olarak imzalanan gelen|Otomatik olarak imzalanan|Desteklenmiyor||
+|Otomatik olarak imzalanan gelen|Ortak olarak<sup>*</sup>|Desteklenen|1803 & sonraki|
+|Kuruluş|Kuruluş|AYNI kuruluş CA'sı olarak dağıtım sırasında kullanılan müşterilerin kullandığı sürece desteklenen|1803 & sonraki|
+|Kuruluş|Otomatik olarak imzalanan|Desteklenmiyor||
+|Kuruluş|Ortak olarak<sup>*</sup>|Desteklenen|1803 & sonraki|
+|Ortak<sup>*</sup>|Kuruluş|Desteklenmiyor|1803 & sonraki|
+|Ortak<sup>*</sup>|Otomatik olarak imzalanan|Desteklenmiyor||
+|Ortak<sup>*</sup>|Ortak olarak<sup>*</sup>|Desteklenen|1803 & sonraki|
+
+<sup>*</sup> Ortak sertifika yetkililerini Windows Güvenilen Kök Programı'nın parçası olan şunlardır. Tam listesini bulabilirsiniz [Microsoft güvenilen kök sertifika programı: katılımcıları (itibariyle, 27 Haziran 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Uyarı düzeltme
 
 Gizli 30 gün içinde sona erme olduğunda, aşağıdaki uyarıları Yönetici portalı'nda üretilir: 
@@ -74,7 +91,7 @@ Aşağıdaki yönergeleri kullanarak gizli döndürme çalıştıran Bu uyarıla
 
 ## <a name="rotating-external-and-internal-secrets"></a>İç ve dış gizli anahtarları döndürme
 
-Bir iç gizli hem dış döndürmek için:
+Her iki harici bir iç gizli döndürmek için:
 
 1. Yeni oluşturulan içinde **/Sertifikalar** öncesi adımlarda oluşturulan dizin zorunlu sertifikaları bölümünde özetlenen biçimde göre dizin yapısına değiştirme dış sertifikalar yeni kümesi yerleştirin [Azure yığın PKI sertifikası gereksinimleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Bir PowerShell oturumu oluşturmak [ayrıcalıklı uç nokta](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) kullanarak **CloudAdmin** oturumları değişken olarak depolamak ve hesap. Bu değişken, bir sonraki adımda parametre olarak kullanır.

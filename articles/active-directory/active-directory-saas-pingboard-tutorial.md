@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Pingboard | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Pingboard arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Pingboard | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Pingboard arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 733eff519f75368fd78824deea56f63940c0b49f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Öğretici: Azure Active Directory Tümleştirme Pingboard ile
 
@@ -30,9 +30,9 @@ Pingboard Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Pingboard (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Pingboard ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,15 +108,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Pingboard etki alanı ve URL'leri tek oturum açma bilgilerini IDP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_url.png)
 
-    a. İçinde **tanımlayıcısı** metin değeri olarak yazın:`http://app.pingboard.com/sp`
+    a. İçinde **tanımlayıcısı** metin değeri olarak yazın: `http://app.pingboard.com/sp`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 4. Denetleme **Göster Gelişmiş URL ayarları**, uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan:
 
     ![Pingboard etki alanı ve URL'leri tek oturum açma bilgilerini SP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
-     İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak URL'yi yazın:`https://<sub-domain>.pingboard.com/sign_in`
+     İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak URL'yi yazın: `https://<sub-domain>.pingboard.com/sign_in`
 
     > [!NOTE] 
     > Lütfen bu değerleri gerçek olmadığına dikkat edin. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Pingboard istemci destek ekibi](https://support.pingboard.com/) bu değerleri almak için.
@@ -179,7 +179,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-pingboard-test-user"></a>Pingboard test kullanıcısı oluşturma
 
@@ -199,7 +199,7 @@ Azure AD kullanıcıların Pingboard oturum etkinleştirmek için bunların Ping
 
     a. İçinde **tam adı** kullanıcı türü tam adı metin kutusuna, ister **Britta Simon**.
 
-    b. İçinde **e-posta** metin kutusuna, kullanıcının e-posta adresi türü ister  **brittasimon@contoso.com** .
+    b. İçinde **e-posta** metin kutusuna, kullanıcının e-posta adresi türü ister **brittasimon@contoso.com**.
 
     c. İçinde **iş unvanı** metin kutusuna, Britta Simon iş unvanı yazın.
 
@@ -244,7 +244,7 @@ Bu bölümde, Britta Pingboard için erişim vererek, Azure çoklu oturum açma 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
@@ -254,7 +254,7 @@ Erişim paneli Pingboard parçasında tıklattığınızda, otomatik olarak Ping
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

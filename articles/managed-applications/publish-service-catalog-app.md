@@ -1,6 +1,6 @@
 ---
-title: "Oluşturma ve bir Azure hizmet Kataloğu yönetilen uygulama yayımlama | Microsoft Docs"
-description: "Kuruluşunuzun üyelerine yönelik bir Azure yönetilen uygulaması oluşturmayı gösterir."
+title: Oluşturma ve bir Azure hizmet Kataloğu yönetilen uygulama yayımlama | Microsoft Docs
+description: Kuruluşunuzun üyelerine yönelik bir Azure yönetilen uygulaması oluşturmayı gösterir.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,21 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-<<<<<<< HEAD
-ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Dahili tüketim için yönetilen bir uygulama yayımlama
 
@@ -63,7 +55,7 @@ Aşağıdaki JSON dosyanıza ekleyin. Bir depolama hesabı oluşturmak için par
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -146,7 +138,7 @@ Aşağıdaki JSON dosyasına ekleyin.
 }
 ```
 
-CreateUIDefinition.json dosyasını kaydedin.
+CreateUiDefinition.json dosyasını kaydedin.
 
 ## <a name="package-the-files"></a>Paket dosyaları
 
@@ -160,8 +152,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -181,7 +172,9 @@ Sonraki adım, bir kullanıcı grubu veya kaynakları müşteri adına yönetmek
 
 Kaynakları yönetmek için kullanılacak kullanıcı grubu nesne kimliği gerekir. 
 
-![Grup Kimliği alma](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Rol tanımı kimliği alma
 
@@ -211,21 +204,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Portalı kullanarak yönetilen uygulama oluşturma
+## <a name="create-the-managed-application"></a>Yönetilen uygulama oluşturma
+
+Portal, PowerShell veya Azure CLI aracılığıyla yönetilen uygulama dağıtabilirsiniz.
+
+### <a name="powershell"></a>PowerShell
+
+İlk olarak, şirketinizdeki yönetilen uygulamayı dağıtmak için PowerShell kullanın.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Yönetilen uygulama ve yönetilen altyapı şimdi abonelikte mevcut.
+
+### <a name="portal"></a>Portal
 
 Şimdi, şirketinizdeki yönetilen uygulamayı dağıtmak üzere portalı kullanın. Pakette oluşturulan kullanıcı arabirimi bakın.
 
-1. Azure portalına gidin. Seçin **+ yeni** arayın ve **hizmet Kataloğu**.
+1. Azure portalına gidin. Seçin **+ kaynak oluşturma** arayın ve **hizmet Kataloğu**.
 
-   ![Arama hizmet Kataloğu](./media/publish-service-catalog-app/select-new.png)
+   ![Arama hizmet Kataloğu](./media/publish-service-catalog-app/create-new.png)
 
 1. Seçin **hizmet Kataloğu yönetilen uygulama**.
 
-   ![Hizmet Kataloğu'nu seçin](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Hizmet Kataloğu'nu seçin](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. **Oluştur**’u seçin.
 
@@ -235,17 +256,17 @@ New-AzureRmManagedApplicationDefinition `
 
    ![Yönetilen uygulama Bul](./media/publish-service-catalog-app/find-application.png)
 
-1. Yönetilen uygulama için gerekli olan temel bilgiler sağlar. Abonelik ve yönetilen uygulamayı içeren yeni bir kaynak grubu belirtin. Seçin **Batı Orta ABD** konumu. İşiniz bittiğinde, seçin **Tamam**.
+1. Yönetilen uygulama için gerekli olan temel bilgiler sağlar. Abonelik ve yönetilen uygulamayı içeren yeni bir kaynak grubu belirtin. Seçin **Batı Orta ABD** konumu. İşiniz bittiğinde **Tamam**’ı seçin.
 
-   ![Yönetilen uygulama parametreleri sağlayın](./media/publish-service-catalog-app/provide-basics.png)
+   ![Yönetilen uygulama parametreleri sağlayın](./media/publish-service-catalog-app/add-basics.png)
 
-1. Yönetilen uygulama kaynaklarında özgü değerleri sağlayın. İşiniz bittiğinde, seçin **Tamam**.
+1. Yönetilen uygulama kaynaklarında özgü değerleri sağlayın. İşiniz bittiğinde **Tamam**’ı seçin.
 
-   ![Kaynak parametreleri sağlayın](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Kaynak parametreleri sağlayın](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. Şablon, sağlanan değerler doğrular. Doğrulama başarılı olursa seçin **Tamam** dağıtımı başlatmak için.
 
-   ![Yönetilen uygulama doğrula](./media/publish-service-catalog-app/validate.png)
+   ![Yönetilen uygulama doğrula](./media/publish-service-catalog-app/view-summary.png)
 
 Dağıtım tamamlandıktan sonra yönetilen uygulama applicationGroup adlı bir kaynak grubunda mevcut. Depolama hesabı applicationGroup artı bir karma dize değeri adlı bir kaynak grubunda yok.
 
@@ -253,8 +274,4 @@ Dağıtım tamamlandıktan sonra yönetilen uygulama applicationGroup adlı bir 
 
 * Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Projeleri, örneğin bkz [Azure örnek projelerine yönetilen uygulamaları](sample-projects.md).
-<<<<<<< HEAD
 * Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.
-=======
-* Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3

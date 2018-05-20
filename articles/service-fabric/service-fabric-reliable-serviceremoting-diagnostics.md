@@ -1,6 +1,6 @@
 ---
-title: "Azure ServiceFabric tanılama ve izleme | Microsoft Docs"
-description: "Bu makale performans sayaçları tarafından gösterilen gibi Service Fabric güvenilir ServiceRemoting çalışma zamanında performans izleme özelliklerini açıklar."
+title: Azure ServiceFabric tanılama ve izleme | Microsoft Docs
+description: Bu makale performans sayaçları tarafından gösterilen gibi Service Fabric güvenilir ServiceRemoting çalışma zamanında performans izleme özelliklerini açıklar.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -9,16 +9,16 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Tanılama ve güvenilir hizmeti uzaktan iletişim için performans izleme
 Güvenilir ServiceRemoting çalışma zamanı yayar [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar ServiceRemoting nasıl çalıştığını içine bilgiler ve sorun giderme ve performans izleme ile yardımcı.
@@ -29,8 +29,8 @@ Güvenilir ServiceRemoting çalışma zamanı aşağıdaki performans sayacı ka
 
 | Kategori | Açıklama |
 | --- | --- |
-| Yapı Hizmeti |Azure Service Fabric hizmeti uzaktan iletişim için özel sayaçlar Örneğin, ortalama isteğinin işlenmesi için geçen süre |
-| Service Fabric hizmeti yöntemi |Yöntemlere özel sayaçlar ne sıklıkta bir hizmet yöntemi çağrılır doku uzaktan iletişim hizmeti tarafından Örneğin, uygulanmadı. |
+| Service Fabric Service |Azure Service Fabric hizmeti uzaktan iletişim için özel sayaçlar Örneğin, ortalama isteğinin işlenmesi için geçen süre |
+| Service Fabric Service Metodu |Yöntemlere özel sayaçlar ne sıklıkta bir hizmet yöntemi çağrılır doku uzaktan iletişim hizmeti tarafından Örneğin, uygulanmadı. |
 
 Önceki kategorilerden her biri bir veya daha fazla sayaca sahiptir.
 
@@ -84,19 +84,19 @@ Güvenilir hizmet çalışma zamanı hizmet yöntemleri yürütülmesi ile ilgil
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric hizmeti yöntemi |Çağrıları/sn |Hizmet yöntemi, saniye başına çağrılma sayısı |
-| Service Fabric hizmeti yöntemi |Çağrı başına ortalama milisaniye |Milisaniye cinsinden hizmet yöntemin yürütülmesi için geçen süre |
-| Service Fabric hizmeti yöntemi |Oluşturulan özel durum/sn |Kaç kez hizmet yöntemi saniye başına özel durum oluşturdu |
+| Service Fabric Service Metodu |Çağrı/Sn |Hizmet yöntemi, saniye başına çağrılma sayısı |
+| Service Fabric Service Metodu |Çağrı başına ortalama süre (milisaniye) |Milisaniye cinsinden hizmet yöntemin yürütülmesi için geçen süre |
+| Service Fabric Service Metodu |Saniye Başına Oluşturulan Özel Durum |Kaç kez hizmet yöntemi saniye başına özel durum oluşturdu |
 
 ### <a name="service-request-processing-performance-counters"></a>Hizmet isteği işleme performans sayaçları
 Bir istemci bir hizmet proxy nesnesi yöntemiyle çalıştırdığında, ağ üzerinden uzaktan iletişim hizmeti için gönderilen bir istek iletisi sonuçlanır. Hizmet İsteği iletisini işler ve istemcisine geri yanıt gönderir. Güvenilir ServiceRemoting çalışma zamanı hizmet isteği işlemiyle ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Yapı Hizmeti |Beklemedeki istek sayısı |Hizmetinde işlenmekte olan istek sayısı |
-| Yapı Hizmeti |İstek başına ortalama milisaniye |Bir isteği işlemek için (milisaniye cinsinden) hizmeti tarafından harcanan süre |
-| Yapı Hizmeti |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında hizmet isteği iletisi serisini kaldırmak için harcanan süre |
-| Yapı Hizmeti |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce serileştirmek için harcanan süre |
+| Service Fabric Service |Beklemedeki istek sayısı |Hizmetinde işlenmekte olan istek sayısı |
+| Service Fabric Service |İstek başına ortalama süre (milisaniye) |Bir isteği işlemek için (milisaniye cinsinden) hizmeti tarafından harcanan süre |
+| Service Fabric Service |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında hizmet isteği iletisi serisini kaldırmak için harcanan süre |
+| Service Fabric Service |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce serileştirmek için harcanan süre |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Örnek kod](https://github.com/Azure/servicefabric-samples)

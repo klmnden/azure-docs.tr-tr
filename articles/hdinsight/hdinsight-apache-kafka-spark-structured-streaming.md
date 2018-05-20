@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Öğretici: Spark Yapılandırılmış Akışını HDInsight üzerinde Kafka ile kullanma
 
@@ -147,8 +147,8 @@ Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Spark kümeler
     | Abonelik | Azure aboneliğiniz |
     | Kaynak grubu | Kaynakları içeren kaynak grubu. |
     | Konum | İçinde kaynakların oluşturulduğu Azure bölgesi. |
-    | Spark Kümesi Adı | Spark kümesinin adı. |
-    | Kafka Kümesi Adı | Kafka kümesinin adı. |
+    | Spark Kümesi Adı | Spark kümesinin adı. İlk altı karakter Kafka küme adından farklı olmalıdır. |
+    | Kafka Kümesi Adı | Kafka kümesinin adı. İlk altı karakter Spark küme adından farklı olmalıdır. |
     | Küme Oturum Açma Kullanıcı Adı | Kümeler için yönetici kullanıcı adı. |
     | Küme Oturum Açma Parolası | Kümeler için yönetici kullanıcı parolası. |
     | SSH Kullanıcı Adı | Kümeler için oluşturulacak SSH kullanıcısı. |

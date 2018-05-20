@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya genel bir IP adresi silme
 
-Bir ortak IP adresi ve oluşturmak, değiştirmek ve silmek nasıl hakkında bilgi edinin. Bir ortak IP adresi, kendi yapılandırılabilir ayarlar ile bir kaynaktır. Diğer Azure kaynaklarına genel bir IP adresi atayarak sağlar:
-- Azure sanal makineler, Azure sanal makine ölçek kümeleri, Azure VPN ağ geçidi, uygulama ağ geçitleri ve Internet'e yönelik Azure yük dengeleyici gibi kaynaklara gelen Internet bağlantısı. Azure kaynaklarını atanan genel bir IP adresi olmaksızın Internet'ten gelen iletişimi alamaz. Bazı Azure kaynakları aracılığıyla ortak IP adresleri kendiliğinden erişilebilir olmasına karşın, diğer kaynakları genel IP adresleri Internet'ten erişilebilir olmasını atanmış olması gerekir.
-- Tahmin edilebilir bir IP adresi kullanarak Internet bağlantısını giden. Örneğin, bir sanal makine, bir ortak IP adresi olmadan Internet'e giden kendisine atanmış, ancak Azure tarafından beklenmeyen bir ortak adresine çevrilmiş ağ adresi kendi adresidir iletişim kurabilir. Bir kaynağa genel bir IP adresi atayarak hangi IP adresi giden bağlantı için kullanılan bilmenizi sağlar. Tahmin edilebilir olsa, seçilen atama yöntemine bağlı olarak adresi değiştirebilirsiniz. Daha fazla bilgi için bkz: [genel bir IP adresi oluşturma](#create-a-public-ip-address). Azure kaynaklarını giden bağlantılar hakkında daha fazla bilgi için okuma [giden bağlantılar anlamak](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
+Bir ortak IP adresi ve oluşturmak, değiştirmek ve silmek nasıl hakkında bilgi edinin. Bir ortak IP adresi, kendi yapılandırılabilir ayarlar ile bir kaynaktır. Genel IP adresleri destekleyen bir Azure kaynağı genel bir IP adresi atayarak sağlar:
+- Internet'ten gelen iletişimi kaynağa Azure sanal makineler (VM), Azure uygulama ağ geçitleri, Azure yük dengeleyicileri, Azure VPN ağ geçitleri ve diğerleri gibi. Hala Internet'ten VM'ler gibi bazı kaynaklar VM, VM bir yük dengeleyici arka uç havuzu bir parçasıdır ve yük dengeleyici genel IP adresi atanır sürece atanmış bir ortak IP adresi yoksa iletişim kurabilir. Belirli bir Azure hizmeti için bir kaynağı genel bir IP adresi atanmış veya olup bunun ile farklı bir Azure kaynağı ortak IP adresi bildirilmesi belirlemek için hizmet belgelerine bakın. 
+- Tahmin edilebilir bir IP adresi kullanarak Internet bağlantısını giden. Örneğin, bir sanal makine, bir ortak IP adresi olmadan Internet'e giden kendisine atanmış, ancak Azure tarafından öngörülemeyen genel bir adres için varsayılan olarak çevrilmiş ağ adresi kendi adresidir iletişim kurabilir. Bir kaynağa genel bir IP adresi atayarak hangi IP adresi giden bağlantı için kullanılan bilmenizi sağlar. Tahmin edilebilir olsa, seçilen atama yöntemine bağlı olarak adresi değiştirebilirsiniz. Daha fazla bilgi için bkz: [genel bir IP adresi oluşturma](#create-a-public-ip-address). Azure kaynaklarını giden bağlantılar hakkında daha fazla bilgi için bkz: [giden bağlantılar anlamak](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

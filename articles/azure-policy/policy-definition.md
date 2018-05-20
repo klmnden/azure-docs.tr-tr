@@ -2,18 +2,17 @@
 title: Azure İlkesi tanım yapısı
 description: Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi etkili olabilmesi için açıklayarak, kuruluşunuzda kaynaklar için kuralları oluşturmak için Azure ilke tarafından nasıl kullanıldığını açıklar.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom: ''
-ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+manager: carmonm
+ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -297,7 +296,7 @@ Diğer adlar listesini her zaman artıyor. Hangi diğer adların şu anda Azure 
   $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
   ```
 
-- Azure CLI
+- Azure CLI'si
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell

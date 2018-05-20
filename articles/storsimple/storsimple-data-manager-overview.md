@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple veri Yöneticisi'ne genel bakış | Microsoft Docs"
-description: "StorSimple veri Yöneticisi hizmetini genel bir bakış sağlar"
+title: Microsoft Azure StorSimple veri Yöneticisi'ne genel bakış | Microsoft Docs
+description: StorSimple veri Yöneticisi hizmetini genel bir bakış sağlar
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple veri Yöneticisi çözümüne genel bakış
 
@@ -80,6 +80,11 @@ Bu anahtar tarafından sağlanan işlem kaynaklarıdır dönüştürme gerçekle
 Veri Yöneticisi bölgenizi iş tanımı bölgesinden farklı ise, hangi veri/meta veri her Bu bölgeler bulunduğu anlamak önemlidir. Aşağıdaki diyagram veri Yöneticisi ve iş tanımı için farklı bölgelerde sahip etkisini gösterir.
 
 ![Farklı bölgelerdeki hizmet ve iş tanımı](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>GDPR uyumluluk
+
+[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR nasıl toplamak, depolamak ve kişisel bilgilerinizi kullanma hakkında birçok gereksinimlerini içerir. GDPR kuralları, şirketler, devlet dairesi ve AB işletmek ve toplamak, AB Satışlar bağlı verileri çözümlemek diğer kuruluşlar uygulanmaz. StorSimple veri GDPR uyumlu yöneticisidir. Veri Yöneticisi hizmeti kişisel veri toplamaz.
+Daha fazla bilgi için Microsoft Privacy İlkesi gözden [Güven Merkezi](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

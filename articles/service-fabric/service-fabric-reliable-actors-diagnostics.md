@@ -1,6 +1,6 @@
 ---
-title: "Aktör tanılama ve izleme | Microsoft Docs"
-description: "Bu makalede tanılama ve performans izleme olayları ve performans sayaçları tarafından gösterilen dahil olmak üzere Service Fabric Reliable Actors çalışma zamanında özelliklerini açıklar."
+title: Aktör tanılama ve izleme | Microsoft Docs
+description: Bu makalede tanılama ve performans izleme olayları ve performans sayaçları tarafından gösterilen dahil olmak üzere Service Fabric Reliable Actors çalışma zamanında özelliklerini açıklar.
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 5fbef8a3fb32f4bc47856ef6c6b459ae389dd541
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors için tanılama ve performans izlemesi
 Reliable Actors çalışma zamanı yayar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) olayları ve [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bu çalışma zamanı nasıl çalıştığını içine bilgiler ve sorun giderme ve performans izleme ile Yardım.
@@ -43,8 +43,8 @@ Reliable Actors çalışma zamanı aşağıdaki performans sayacı kategorisi ta
 
 | Kategori | Açıklama |
 | --- | --- |
-| Service Fabric aktör |Aktör durumunu kaydetmek için harcanan Azure Service Fabric aktör için örneğin zaman özel sayaçlar |
-| Service Fabric aktör metodu |Sayaçları belirli Service Fabric aktör tarafından uygulanan yöntemleri, örneğin ne sıklıkta bir aktör yöntemi çağrılır |
+| Service Fabric Aktörü |Aktör durumunu kaydetmek için harcanan Azure Service Fabric aktör için örneğin zaman özel sayaçlar |
+| Service Fabric Aktör Metodu |Sayaçları belirli Service Fabric aktör tarafından uygulanan yöntemleri, örneğin ne sıklıkta bir aktör yöntemi çağrılır |
 
 Yukarıdaki kategorilerin her biri bir veya daha fazla sayaca sahiptir.
 
@@ -91,7 +91,7 @@ Yukarıdaki örnekte `ivoicemailboxactor.leavemessageasync` yöntem adı `2` zam
 ### <a name="actor-method-events-and-performance-counters"></a>Aktör yöntemi olaylar ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayar [aktör yöntemleri](service-fabric-reliable-actors-introduction.md).
 
-| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Ayrıntılı |0x2 |Aktör çalışma zamanı aktör yöntemi hakkında çağırmaktır. |
 | ActorMethodStop |8 |Ayrıntılı |0x2 |Aktör yöntemi yürütülmesi tamamlandı. Diğer bir deyişle, aktör yöntemi zaman uyumsuz çağrı zamanının döndürdü ve aktör yöntemi tarafından döndürülen görev tamamlandı. |
@@ -101,14 +101,14 @@ Reliable Actors çalışma zamanı aktör yöntemleri yürütülmesi ile ilgili 
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric aktör metodu |Çağrıları/sn |Aktör hizmeti metodunu saniye başına çağrılma sayısı |
-| Service Fabric aktör metodu |Çağrı başına ortalama milisaniye |Aktör hizmeti metodunu yürütmek için harcanan süre (milisaniye) |
-| Service Fabric aktör metodu |Oluşturulan özel durum/sn |Aktör yöntemi hizmeti sayısını saniye başına özel durum oluşturdu |
+| Service Fabric Aktör Metodu |Çağrı/Sn |Aktör hizmeti metodunu saniye başına çağrılma sayısı |
+| Service Fabric Aktör Metodu |Çağrı başına ortalama süre (milisaniye) |Aktör hizmeti metodunu yürütmek için harcanan süre (milisaniye) |
+| Service Fabric Aktör Metodu |Saniye Başına Oluşturulan Özel Durum |Aktör yöntemi hizmeti sayısını saniye başına özel durum oluşturdu |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Eşzamanlılık olaylar ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayar [eşzamanlılık](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Ayrıntılı |0x8 |Bu olay, her yeni bir aktör sırayla başlangıcında yazılır. Bırakma tabanlı eşzamanlılık zorlar aktör başına kilit almayı bekleyen aktör çağrısı sayısı bekleyen sayısını içerir. |
 
@@ -116,14 +116,14 @@ Reliable Actors çalışma zamanı için eşzamanlılık ilgili aşağıdaki per
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric aktör |Aktör kilidi için bekleyen aktör çağrısı sayısı |Bırakma tabanlı eşzamanlılık zorlar aktör başına kilit almayı bekleyen aktör çağrısı sayısı bekleyen sayısı |
-| Service Fabric aktör |Kilit bekleme işlemi başına ortalama süre (milisaniye) |(Milisaniye cinsinden) Aç tabanlı eşzamanlılık zorlar aktör başına kilit almak için geçen süre |
-| Service Fabric aktör |Aktör kilidinin ortalama tutulma süresi (milisaniye) |Aktör başına kilit tutulduğu süre (milisaniye cinsinden) |
+| Service Fabric Aktörü |Aktör kilidi için bekleyen aktör çağrısı sayısı |Bırakma tabanlı eşzamanlılık zorlar aktör başına kilit almayı bekleyen aktör çağrısı sayısı bekleyen sayısı |
+| Service Fabric Aktörü |Kilit bekleme işlemi başına ortalama süre (milisaniye) |(Milisaniye cinsinden) Aç tabanlı eşzamanlılık zorlar aktör başına kilit almak için geçen süre |
+| Service Fabric Aktörü |Aktör kilidinin ortalama tutulma süresi (milisaniye) |Aktör başına kilit tutulduğu süre (milisaniye cinsinden) |
 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Aktör durumunu yönetim olaylar ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayar [aktör durum yönetimi](service-fabric-reliable-actors-state-management.md).
 
-| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Ayrıntılı |0x4 |Aktör çalışma zamanı hakkında aktör durumunu kaydetmek için ' dir. |
 | ActorSaveStateStop |11 |Ayrıntılı |0x4 |Aktörler çalışma zamanı aktör durumu kaydetmeyi tamamladı. |
@@ -132,40 +132,40 @@ Reliable Actors çalışma zamanı aktör durumunu yönetimiyle ilgili aşağıd
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric aktör |Durum kaydetme işlemi başına ortalama süre (milisaniye) |Aktör durumu kaydedilirken geçen süre (milisaniye) |
-| Service Fabric aktör |Durum yükleme işlemi başına ortalama süre (milisaniye) |Aktör durumunun yüklenmesi için geçen süre (milisaniye) |
+| Service Fabric Aktörü |Durum kaydetme işlemi başına ortalama süre (milisaniye) |Aktör durumu kaydedilirken geçen süre (milisaniye) |
+| Service Fabric Aktörü |Durum yükleme işlemi başına ortalama süre (milisaniye) |Aktör durumunun yüklenmesi için geçen süre (milisaniye) |
 
 ### <a name="events-related-to-actor-replicas"></a>Aktör çoğaltmalar için ilgili olayları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayar [aktör çoğaltmaları](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
-| ReplicaChangeRoleToPrimary |1 |Bilgilendirme |0x1 |Aktör çoğaltma rolü için birincil değiştirildi. Bu, bu bölüm aktörler Bu çoğaltma içinde oluşturulacak anlamına gelir. |
-| ReplicaChangeRoleFromPrimary |2 |Bilgilendirme |0x1 |Aktör çoğaltma rolü birincil olmayan için değiştirildi. Bu, bu bölüm aktörler artık bu çoğaltma içinde oluşturulacak anlamına gelir. Yeni İstek zaten bu çoğaltma içinde oluşturulan aktörler için teslim edilecek. Tüm Süren istekleri tamamlandıktan sonra aktörler yok. |
+| ReplicaChangeRoleToPrimary |1 |Bilgilendirici |0x1 |Aktör çoğaltma rolü için birincil değiştirildi. Bu, bu bölüm aktörler Bu çoğaltma içinde oluşturulacak anlamına gelir. |
+| ReplicaChangeRoleFromPrimary |2 |Bilgilendirici |0x1 |Aktör çoğaltma rolü birincil olmayan için değiştirildi. Bu, bu bölüm aktörler artık bu çoğaltma içinde oluşturulacak anlamına gelir. Yeni İstek zaten bu çoğaltma içinde oluşturulan aktörler için teslim edilecek. Tüm Süren istekleri tamamlandıktan sonra aktörler yok. |
 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Aktör etkinleştirme ve devre dışı bırakma olaylar ve performans sayaçları
 Reliable Actors çalışma zamanı ile ilgili aşağıdaki olaylar yayar [aktör etkinleştirme ve devre dışı bırakma](service-fabric-reliable-actors-lifecycle.md).
 
-| Olay adı | Olay Kimliği | Düzey | Anahtar sözcüğü | Açıklama |
+| Olay adı | Olay kimliği | Düzey | Anahtar sözcüğü | Açıklama |
 | --- | --- | --- | --- | --- |
-| ActorActivated |5 |Bilgilendirme |0x1 |Bir oyuncu etkinleştirildi. |
-| ActorDeactivated |6 |Bilgilendirme |0x1 |Bir oyuncu devre dışı bırakıldı. |
+| ActorActivated |5 |Bilgilendirici |0x1 |Bir oyuncu etkinleştirildi. |
+| ActorDeactivated |6 |Bilgilendirici |0x1 |Bir oyuncu devre dışı bırakıldı. |
 
 Reliable Actors çalışma zamanı aktör etkinleştirme ve devre dışı bırakma işlemi ile ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric aktör |Ortalama OnActivateAsync milisaniye |OnActivateAsync metodunun yürütülmesi için geçen süre (milisaniye) |
+| Service Fabric Aktörü |Ortalama OnActivateAsync süresi (milisaniye) |OnActivateAsync metodunun yürütülmesi için geçen süre (milisaniye) |
 
 ### <a name="actor-request-processing-performance-counters"></a>Aktör isteği işleme performans sayaçları
 Bir istemci bir aktör proxy nesnesi yöntemiyle çalıştırdığında, ağ üzerinden aktör hizmete gönderilen bir istek iletisi sonuçlanır. Hizmet İsteği iletisini işler ve istemcisine geri yanıt gönderir. Reliable Actors çalışma zamanı aktör isteği işlemiyle ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric aktör |Beklemedeki istek sayısı |Hizmetinde işlenmekte olan istek sayısı |
-| Service Fabric aktör |İstek başına ortalama milisaniye |Bir isteği işlemek için (milisaniye cinsinden) hizmeti tarafından harcanan süre |
-| Service Fabric aktör |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında aktör istek iletisi serisini kaldırmak için harcanan süre |
-| Service Fabric aktör |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) yanıt istemciye gönderilmeden önce konuşması aktör yanıtının serileştirmek için harcanan süre |
+| Service Fabric Aktörü |Beklemedeki istek sayısı |Hizmetinde işlenmekte olan istek sayısı |
+| Service Fabric Aktörü |İstek başına ortalama süre (milisaniye) |Bir isteği işlemek için (milisaniye cinsinden) hizmeti tarafından harcanan süre |
+| Service Fabric Aktörü |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında aktör istek iletisi serisini kaldırmak için harcanan süre |
+| Service Fabric Aktörü |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) yanıt istemciye gönderilmeden önce konuşması aktör yanıtının serileştirmek için harcanan süre |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Reliable Actors Service Fabric platformundan kullanma](service-fabric-reliable-actors-platform.md)

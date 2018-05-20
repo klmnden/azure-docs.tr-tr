@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -140,6 +140,15 @@ Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim 
 #### <a name="chrome-support"></a>Chrome desteği
 
 Chrome için destek **Windows 10 oluşturucuları güncelleştirme (sürüm 1703)** veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Bu uzantı Chrome tarayıcı otomatik olarak dağıtmak için aşağıdaki kayıt defteri anahtarı oluşturun:
+
+|    |    |
+|--- | ---|
+|Yol | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|Ad | 1 |
+|Tür | REG_SZ (dize) |
+|Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarı oluşturun:
 

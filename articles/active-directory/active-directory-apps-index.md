@@ -16,7 +16,7 @@ ms.author: barbkess
 ms.reviewer: asteen
 ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
 ---

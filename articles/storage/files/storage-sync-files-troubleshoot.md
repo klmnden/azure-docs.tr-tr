@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -111,7 +111,7 @@ Bir bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki
 * Yazma: rol ataması oluşturma
 
 Aşağıdaki yerleşik roller gerekli Microsoft Authorization izinlere sahip:  
-* Sahip
+* Sahibi
 * Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirlemek için kullanıcı erişimi Yöneticisi:  
 1. Azure portalında seçin **kaynak grupları**.
 2. Depolama hesabının bulunduğu kaynak grubunu seçin ve ardından **erişim denetimi (IAM)**.
@@ -139,7 +139,7 @@ Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupNam
 Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
 ```
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Eşitleme
 <a id="afs-change-detection"></a>**I bir dosya doğrudan my Azure dosya paylaşımı SMB üzerinden veya portal üzerinden oluşturduysanız, ne kadar dosya eşitleme gruptaki sunucular için eşitleme için sürer?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -154,7 +154,7 @@ Bir sunucuda eşitleme başarısız olursa:
     2. Azure dosya eşitleme hizmetinin sunucuda çalıştığını doğrulayın. Bunu yapmak için Hizmetler MMC ek bileşenini açın ve (FileSyncSvc) depolama eşitleme aracısı hizmetinin çalıştığını doğrulayın.
 
 <a id="replica-not-ready"></a>**Eşitleme başarısız olursa bu hata: "0x80c8300f - çoğaltma gerekli işlemi gerçekleştirmek hazır değil"**  
-Bu sorun, veri içeren bir bulut uç noktası oluşturun ve bir Azure dosya paylaşımı kullanırsanız beklenir. (24 saate kadar sürebilir) Azure dosya paylaşımında çalıştıran değişiklik algılama işi sona erdiğinde, eşitleme düzgün çalışmasını başlamanız gerekir.
+Bu sorun, veri içeren bir bulut uç noktası oluşturun ve bir Azure dosya paylaşımı kullanırsanız beklenir. Azure dosya paylaşımı değişiklikleri tarar değişiklik algılama işi için her 24 saatte zamanlandı.  Tamamlamak için geçen süre, ad alanını Azure dosya paylaşımının boyutuna bağlıdır.  Bu hata, tamamlandıktan sonra hemen gitmeniz gerekir.
 
 
     > [!NOTE]

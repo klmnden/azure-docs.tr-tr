@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: feb31b0cc89c511f7487f995ba6045f89767abbb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3678eb20429d9e5123272499d474fdec2cdab065
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IOT DevKit
 
@@ -86,6 +86,9 @@ Bu örnek MXChip IOT DevKit WiFi bilgi ve algılayıcı durumlarını izlemek i�
 ## <a name="example-operation"></a>Örnek işlemi
 
 ![Örnek test yordamı](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+
+> [!NOTE]
+> Cihaz çifti Azure portalında ham verileri görebilirsiniz: IOT Hub -\> IOT cihazları -\> *\<Cihazınızı\>*  - \> cihaz çifti.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

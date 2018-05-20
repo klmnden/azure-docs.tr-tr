@@ -10,6 +10,7 @@
 ## [Azure AD Connect Health Aracısı Yükleme](active-directory-aadconnect-health-agent-install.md)
 ## [Azure AD Connect Health İşlemleri](active-directory-aadconnect-health-operations.md)
 ## [Eşitleme sırasında karşılaşılan hatalar](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [Yinelenen öznitelik eşitleme hatalarını tanılama](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # Sorun giderme
 ## [Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)

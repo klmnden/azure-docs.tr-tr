@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Sansan | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Sansan arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Sansan | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Sansan arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 48897adba14efe0fb5118a8fbecf90250a4adde4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af15e4751b696a6f30d3dc70556ab856020bedb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Öğretici: Azure Active Directory Tümleştirme Sansan ile
 
@@ -29,9 +29,9 @@ Sansan Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Sansan (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Sansan ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -112,14 +112,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın: 
     
-    | Ortam | URL |
+    | Ortam | URL'si |
     |:--- |:--- |
     | Koruyun web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | Yerel mobil uygulama |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobil tarayıcı ayarları |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
     b. İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:
-    | Ortam             | URL |
+    | Ortam             | URL'si |
     | :-- | :-- |
     | Koruyun web                  | `https://ap.sansan.com/v/saml2/<company name>`|
     | Yerel mobil uygulama       | `https://internal.api.sansan.com/saml2/<company name>` |
@@ -177,7 +177,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-sansan-test-user"></a>Sansan test kullanıcısı oluşturma
 
@@ -226,7 +226,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

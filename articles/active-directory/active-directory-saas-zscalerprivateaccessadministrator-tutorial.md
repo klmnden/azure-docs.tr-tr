@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Zscaler özel erişim Yöneticisi | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory Zscaler özel erişim Yöneticisi arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Zscaler özel erişim Yöneticisi | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory Zscaler özel erişim Yöneticisi arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: bf0b7cbd8047dfdbc1a4503775e6d36f8e8a67c1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c3918e4b54d60d6f609e99e24ed2f4b2995bf80c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Öğretici: Azure Active Directory Tümleştirme ile Zscaler özel erişim Yöneticisi
 
@@ -30,7 +30,7 @@ Zscaler özel erişim Yöneticisi Azure AD ile tümleştirme ile aşağıdaki av
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Zscaler özel erişim yöneticisine açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -214,7 +214,7 @@ Azure AD kullanıcılarının Zscaler özel erişim yönetici oturum açmayı et
 
     ![Zscaler özel erişim yönetici kullanıcı yönetici](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. İçinde **kullanıcıadı** metin kutusuna, bir kullanıcı gibi e-posta girin  **BrittaSimon@contoso.com** .
+    a. İçinde **kullanıcıadı** metin kutusuna, bir kullanıcı gibi e-posta girin **BrittaSimon@contoso.com**.
 
     b. İçinde **parola** metin kutusuna, parolayı yazın.
 
@@ -222,7 +222,7 @@ Azure AD kullanıcılarının Zscaler özel erişim yönetici oturum açmayı et
 
     d. Seçin **rol** olarak **Zscaler özel erişim Yöneticisi**.
 
-    e. İçinde **e-posta** metin kutusuna, bir kullanıcı gibi e-posta girin  **BrittaSimon@contoso.com** .
+    e. İçinde **e-posta** metin kutusuna, bir kullanıcı gibi e-posta girin **BrittaSimon@contoso.com**.
 
     f. İçinde **telefon** metin kutusuna, telefon numarasını yazın.
 
@@ -260,7 +260,7 @@ Bu bölümde, Britta Zscaler özel erişim Yöneticisi için erişim vererek, Az
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -270,7 +270,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile ThirdLight | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile ThirdLight arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile ThirdLight | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile ThirdLight arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 559350d5cff6cfc454446b64f8abd580eb42748b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 95b5fb195f0f08eaa218536caf727c78826e1bc8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Öğretici: Azure Active Directory Tümleştirme ThirdLight ile
 
@@ -29,9 +29,9 @@ ThirdLight Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için ThirdLight (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme ThirdLight ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.thirdlight.com/`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.thirdlight.com/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.thirdlight.com/saml/sp`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.thirdlight.com/saml/sp`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve Identiifer ile güncelleştirin. Kişi [ThirdLight istemci destek ekibi](https://www.thirdlight.com/support) bu değerleri almak için. 
@@ -175,7 +175,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-thirdlight-test-user"></a>ThirdLight test kullanıcısı oluşturma
 
@@ -194,7 +194,7 @@ ThirdLight söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
 5. Girin **kullanıcı adı, ad veya açıklama, e-posta, hazır veya yeni üyeler grup seçin** sağlamak istediğiniz geçerli bir AAD hesabının.
 
-6. **Oluştur**'a tıklayın.
+6. **Oluştur**’a tıklayın.
 
 >[!NOTE]
 >API sağlama AAD kullanıcı hesaplarına Thirdlight tarafından sağlanan veya herhangi diğer Thirdlight kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz. 
@@ -239,7 +239,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

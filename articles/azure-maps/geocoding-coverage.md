@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b668ff70d627a63fb34012b07d9b41fc6f6ecb6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure eşlemeleri coğrafi kodlama kapsamı
 
@@ -76,7 +76,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Güney Georgia ve Güney Sandwich Adaları        |                 |                |              |      ✓     |          ✓         |
 | Surinam                                            |                 |                |              |      ✓     |          ✓         |
 | Trinidad ve Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Birleşik Devletler Küçük Harici Adaları                |                 |                |              |      ✓     |          ✓         |
+| Amerika Birleşik Devletleri Küçük Harici Adaları                |                 |                |              |      ✓     |          ✓         |
 | Amerika Birleşik Devletleri                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -91,7 +91,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Avustralya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladeş                                          |                 |                |              |      ✓     |          ✓         |
 | Butan                                              |                 |                |              |      ✓     |          ✓         |
-| Britanya Hint Okyanusu Toprakları                      |                 |                |              |      ✓     |          ✓         |
+| İngiliz Hint Okyanusu İdari Bölgesi                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kamboçya                                            |                 |                |              |      ✓     |          ✓         |
 | Çin |                 |                |              |      ✓     |          ✓         |
@@ -101,7 +101,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Cook Adaları                                        |                 |                |              |      ✓     |          ✓         |
 | Fiji |                 |                |              |      ✓     |          ✓         |
 | Fransız Polinezyası                                    |                 |                |              |      ✓     |          ✓         |
-| Heard ve McDonald Adaları                   |                 |                |              |      ✓     |          ✓         |
+| Heard Adası ve McDonald Adaları                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Endonezya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Japonya                                               |                 |                |              |      ✓     |          ✓         |
@@ -164,12 +164,12 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Faroe Adaları                                       |                 |                |              |      ✓     |          ✓         |
 | Finlandiya                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Fransa                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Gürcistan                                             |                 |                |              |      ✓     |          ✓         |
+| Georgia                                             |                 |                |              |      ✓     |          ✓         |
 | Almanya                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibralter                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Yunanistan                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grönland                                           |                 |                |              |      ✓     |          ✓         |
-| Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guernsay                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macaristan                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | İzlanda                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | İrlanda (Cumhuriyeti)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -182,7 +182,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Kırgızistan                                          |                 |                |              |      ✓     |          ✓         |
 | Letonya                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Lituanya                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Litvanya                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lüksemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Makedonya                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -231,7 +231,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Çad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Kongo Cumhuriyeti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Fildişi Sahili (Côte d’Ivoire)                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Kongo Demokratik Cumhuriyeti                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Demokratik Kongo Cumhuriyeti                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Cibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Mısır                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ekvator Gine Cumhuriyeti                      |                 |                |       ✓      |      ✓     |          ✓         |
@@ -239,10 +239,10 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Etiyopya                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Fransız Güney Toprakları|                 |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Gambiya                                              |                 |                |              |      ✓     |          ✓         |
+| Zambia                                              |                 |                |              |      ✓     |          ✓         |
 | Gana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gine                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Gine-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Gine Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | İran                                                |                 |                |              |      ✓     |          ✓         |
 | Irak                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | İsrail                                              |                 |                |              |      ✓     |          ✓         |
@@ -264,12 +264,12 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Fas                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mozambik                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Myanmar                                             |                 |                |              |      ✓     |          ✓         |
-| Namibya                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Namibia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Nijer                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Nijerya                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Umman                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Katar                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Reunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Réunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ruanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Suudi Arabistan                                        |                 |                |       ✓      |      ✓     |          ✓         |
@@ -290,14 +290,14 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Birleşik Arap Emirlikleri                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Batı banka                                           |                 |                |              |      ✓     |          ✓         |
 | Yemen                                               |                 |                |              |      ✓     |          ✓         |
-| Zambiya                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabve                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure eşlemeleri coğrafi kodlama hakkında daha fazla bilgi için bkz: [arama](https://docs.microsoft.com/rest/api/azure-maps/search) başvuru sayfaları.
+Azure eşlemeleri coğrafi kodlama hakkında daha fazla bilgi için bkz: [arama](https://docs.microsoft.com/rest/api/maps/search) başvuru sayfaları.
 
 Hakkında bilgi edinin [kapsamı alanları eşlemeleri için trafiği hizmeti](traffic-coverage.md). 
 

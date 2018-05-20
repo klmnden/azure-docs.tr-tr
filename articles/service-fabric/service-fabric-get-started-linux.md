@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: bf88e4c702321a7810ec6a3e50eb6cd47a788734
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6609239cb859cb39f72fbdd7f76609b5dc8e1eca
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -30,41 +30,41 @@ ms.lasthandoff: 04/23/2018
 
 Linux geliştirme makinenizde [Azure Service Fabric uygulamaları](service-fabric-application-model.md) dağıtıp çalıştırmak için çalışma zamanını ve ortak SDK'yı yükleyin. Ayrıca isteğe bağlı Java ve .NET Core geliştirme SDK'larını yükleyebilirsiniz. 
 
-Bu makaledeki adımlarda, Linux’a yerel olarak yükleme yaptığınız veya Service Fabric OneBox kapsayıcı görüntüsünü (`microsoft/service-fabric-onebox`) kullandığınız varsayılır. 
+Bu makaledeki adımlarda, Linux’a yerel olarak yükleme yaptığınız veya Service Fabric OneBox kapsayıcı görüntüsünü (`microsoft/service-fabric-onebox`) kullandığınız varsayılır.
 
-Linux için Windows Alt Sistemine SDK ve Service Fabric çalışma zamanının yüklenmesi desteklenmez. Ancak bulutta veya şirket içinde başka bir yerde barındırılan Service Fabric varlıklarını yönetmenize olanak sağlayan Azure Service Fabric komut satırı arabirimi (CLI) desteklenir. CLI yükleme hakkında bilgi için bkz. [Service Fabric CLI'sini ayarlama](./service-fabric-cli.md).
+Linux için Windows Alt Sistemine SDK ve Service Fabric çalışma zamanının yüklenmesi desteklenmez. Desteklenen Azure Service Fabric komut satırı arabirimiyle (CLI) bulutta veya şirket içinde başka herhangi bir yerde barındırılan Service Fabric varlıklarını yönetebilirsiniz. CLI'yi yükleme hakkında bilgi için bkz. [Service Fabric CLI'sini ayarlama](./service-fabric-cli.md).
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Geliştirme için şu işletim sistemi sürümleri desteklenir:
+Geliştirme için şu işletim sistemi sürümleri desteklenir.
 
-    * Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`)
 
-      * `apt-transport-https` paketinin yüklendiğinden emin olun:
+    `apt-transport-https` paketinin yüklü olduğundan emin olun.
          
-         ```bash
-         sudo apt-get install apt-transport-https
-         ```
-    * Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+    ```bash
+    sudo apt-get install apt-transport-https
+    ```
+* Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
 
 
-## <a name="installation-methods"></a>Yükleme Yöntemleri
+## <a name="installation-methods"></a>Yükleme yöntemleri
 
-### <a name="1-script-installation-ubuntu"></a>1. Betikle yüklemesi (Ubuntu)
+### <a name="script-installation-ubuntu"></a>Betikle yüklemesi (Ubuntu)
 
-Service Fabric çalışma zamanını ve Service Fabric ortak SDK'sını **sfctl** CLI ile birlikte yüklemek için bir betik sağlanmıştır. Yüklenecek uygulamaları ve kabul edilen lisans şartlarını belirlemek için sonraki bölümde bulunan el ile yükleme adımlarını çalıştırın. Betiği çalıştırdığınızda yüklenen yazılıma ait tüm lisans şartlarını kabul ettiğiniz varsayılır. 
+Kolaylık açısından, Service Fabric çalışma zamanını ve Service Fabric ortak SDK'sını **sfctl** CLI ile birlikte yüklemek için bir betik sağlanmıştır. Sonraki bölümde yer alan el ile yükleme adımlarını çalıştırın. Neyin yüklendiğini ve ilişkili lisansları görürsünüz. Betiği çalıştırdığınızda yüklenen yazılıma ait tüm lisans şartlarını kabul ettiğiniz varsayılır.
 
-Betik başarılı bir şekilde yürütüldükten sonra [Yerel küme oluşturma](#set-up-a-local-cluster) bölümüne geçebilirsiniz.
+Betik başarılı bir şekilde çalıştırıldıktan sonra [Yerel kümeyi ayarlama](#set-up-a-local-cluster) bölümüne geçebilirsiniz.
 
 ```bash
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### <a name="2-manual-installation"></a>2. El ile Yükleme
+### <a name="manual-installation"></a>El ile yükleme
 Service Fabric çalışma zamanı ve ortak SDK'yı el ile yüklemek için bu kılavuzdaki adımları izleyin.
 
-## <a name="update-your-apt-sourcesyum-repositories"></a>APT kaynaklarınızı/Yum Depolarınızı güncelleştirme
+## <a name="update-your-apt-sources-or-yum-repositories"></a>APT kaynaklarınızı veya Yum depolarınızı güncelleştirme
 SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla yüklemek için, öncelikle Advanced Packaging Tool (APT) kaynaklarınızı güncelleştirmelisiniz.
 
 ### <a name="ubuntu"></a>Ubuntu
@@ -124,7 +124,7 @@ SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla y�
     sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-4. Efficios paketi imzalama anahtarını yerel GPG kimlik anahtarlığına aktarın.
+4. EfficiOS paketi imzalama anahtarını yerel GPG kimlik anahtarlığına aktarın.
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
@@ -137,13 +137,13 @@ SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla y�
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. dotnet sdk’sını yükleyin.
+6. .NET SDK'sını yükleyin.
 
     ```bash
     yum install rh-dotnet20 -y
     ```
 
-## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Yerel küme kurulumu için Service Fabric SDK'sını yükleme ve ayarlama
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>Yerel küme için Service Fabric SDK'sını yükleme ve ayarlama
 
 Kaynaklarınızı güncelleştirdikten sonra SDK’yı yükleyebilirsiniz. Service Fabric SDK paketini yükleyin, yüklemeyi onaylayın ve lisans sözleşmesini kabul edin.
 
@@ -166,7 +166,7 @@ sudo apt-get install servicefabricsdkcommon
 sudo yum install servicefabricsdkcommon
 ```
 
-Yukarıdaki yüklemeyle birlikte gelen Service Fabric çalışma zamanı, aşağıdaki tabloda yer alan paketleri içerir. 
+SDK yüklemesiyle birlikte gelen Service Fabric çalışma zamanı, aşağıdaki tabloda yer alan paketleri içerir. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
@@ -174,85 +174,91 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | Npm’de örtük | en son |
 RHEL | - | OpenJDK 1.8 | Npm’de örtük | en son |
 
 ## <a name="set-up-a-local-cluster"></a>Yerel küme oluşturma
-  Yükleme başarıyla tamamlandığında yerel bir küme başlatabilmeniz gerekir.
+Yükleme tamamlandıktan sonra yerel bir küme başlatın.
 
-  1. Küme kurulum betiğini çalıştırın.
+1. Küme kurulum betiğini çalıştırın.
 
-      ```bash
-      sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-      ```
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
-  2. Bir web tarayıcısı açın ve [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`) adresine gidin. Küme başlatıldıysa Service Fabric Explorer panosunu görmeniz gerekir. Kümenin tamamen ayarlanması birkaç dakika sürebilir. Tarayıcınız URL’yi açamazsa veya Service Fabric Explorer, sistemin hazır olduğunu göstermezse birkaç dakika bekleyip tekrar deneyin.
+2. Bir web tarayıcısı açın ve [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`) adresine gidin. Küme başlatıldığında, Service Fabric Explorer panosunu görürsünüz. Kümenin tamamen ayarlanması birkaç dakika sürebilir. Tarayıcınız URL’yi açamazsa veya Service Fabric Explorer sistemin hazır olduğunu göstermezse, birkaç dakika bekleyip tekrar deneyin.
 
-      ![Linux üzerinde Service Fabric Explorer][sfx-linux]
+    ![Linux üzerinde Service Fabric Explorer][sfx-linux]
 
-  Bu noktada, önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelere göre dağıtabilirsiniz. Java veya .NET Core SDK’larını kullanarak yeni hizmetler oluşturmak için aşağıdaki bölümlerde yer alan kurulum adımlarını izleyin.
-
-
-  > [!NOTE]
-  > Tek başına kümeler Linux’da desteklenmez.
-  >
+    Şimdi önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelerine göre dağıtabilirsiniz. Java veya .NET Core SDK’larını kullanarak yeni hizmetler oluşturmak için sonraki bölümlerde yer alan kurulum adımlarını izleyin.
 
 
->   [!TIP]
-    Bir SSD diskiniz varsa, üstün performans için devclustersetup.sh ile `--clusterdataroot` kullanarak bir SSD klasör yolu geçirmeniz önerilir.
+> [!NOTE]
+> Tek başına kümeler Linux’da desteklenmez.
+
+
+> [!TIP]
+> Bir SSD diskiniz varsa, üstün performans için devclustersetup.sh ile `--clusterdataroot` kullanarak bir SSD klasör yolu geçirmenizi öneririz.
 
 ## <a name="set-up-the-service-fabric-cli"></a>Service Fabric CLI’sını ayarlama
 
-[Service Fabric CLI](service-fabric-cli.md) kümeler ve uygulamalar da dahil olmak üzere Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir.
-CLI'yı yüklemek için [Service Fabric CLI'sı](service-fabric-cli.md) yönergelerini uygulayın.
+[Service Fabric CLI](service-fabric-cli.md) kümeler ve uygulamalar da dahil olmak üzere Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir. CLI'yi yüklemek için, [Service Fabric CLI'si](service-fabric-cli.md) yönergelerini izleyin.
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Kapsayıcılar ve konuk yürütülebilir dosyalar için Yeoman oluşturucularını ayarlama
 Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service Fabric uygulamaları oluşturmanıza yardımcı olan yapı iskelesi araçları sağlar. Service Fabric Yeoman şablon oluşturucularını ayarlamak için bu adımları izleyin:
 
-1. Makinenize nodejs ve NPM yükleme
+1. Makinenize nodejs ve npm’yi yükleyin.
 
-Ubuntu
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+    * Ubuntu
+        ```bash
+        sudo apt-get install npm
+        sudo apt install nodejs-legacy
+        ```
 
-Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
-  ```bash
-  sudo yum install nodejs
-  sudo yum install npm
-  ```
-2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme
+    * Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+        ```bash
+        sudo yum install nodejs
+        sudo yum install npm
+        ```
+2. Makinenize npm’den [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleyin.
 
-  ```bash
-  sudo npm install -g yo
-  ```
-3. NPM’den Service Fabric Yeo kapsayıcı oluşturucusunu ve konuk yürütülebilir dosya oluşturucusunu yükleme
+    ```bash
+    sudo npm install -g yo
+    ```
+3. npm’den Service Fabric Yeo kapsayıcı oluşturucusunu ve konuk yürütülebilir dosya oluşturucusunu yükleyin.
 
-  ```bash
-  sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-  sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
-  ```
+    ```bash
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    ```
 
-Oluşturucuları yükledikten sonra, sırasıyla `yo azuresfguest` ve `yo azuresfcontainer` komutlarını çalıştırarak konuk yürütülebilir dosyası ya da kapsayıcı hizmetleri oluşturabilmeniz gerekir.
+Oluşturucuları yükledikten sonra, sırasıyla `yo azuresfguest` ve `yo azuresfcontainer` komutlarını çalıştırarak konuk yürütülebilir dosyasını veya kapsayıcı hizmetlerini oluşturun.
 
 ## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 ile geliştirmeyi ayarlama
 
-[C# Service Fabric uygulamaları oluşturmaya](service-fabric-create-your-first-linux-application-with-csharp.md) başlamak amacıyla [Ubuntu için .NET Core 2.0 SDK'sını](https://www.microsoft.com/net/core#linuxubuntu) yükleyin. .NET Core 2.0 Service Fabric uygulamaları paketleri NuGet.org üzerinde barındırılmaktadır ve şu anda önizleme sürümündedir.
+[C# Service Fabric uygulamaları oluşturmaya](service-fabric-create-your-first-linux-application-with-csharp.md) başlamak amacıyla [Ubuntu için .NET Core 2.0 SDK'sını](https://www.microsoft.com/net/core#linuxubuntu) yükleyin. NuGet.org, şu anda önizleme aşamasında olan .NET Core 2.0 Service Fabric uygulamalarının paketlerini barındırır.
 
 ## <a name="set-up-java-development"></a>Java ile geliştirmeyi ayarlama
 
 Service Fabric hizmetlerini Java kullanarak derlemek için JDK 1.8 ve Gradle yükleyerek derleme görevlerini çalıştırın. Aşağıdaki kod parçacığı Open JDK 1.8’i ve Gradle’ı birlikte yükler. Service Fabric Java kitaplıkları Maven’dan alınır.
 
 
-Ubuntu 
- ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+* Ubuntu
 
-Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+    ```bash
+    sudo apt-get install openjdk-8-jdk-headless
+    sudo apt-get install gradle
+    ```
+
+* Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+
   ```bash
   sudo yum install java-1.8.0-openjdk-devel
   curl -s https://get.sdkman.io | bash
   sdk install gradle
+  ```
+
+Ayrıca Java yürütülebilir dosyaları için Service Fabric Yeo oluşturucusunu da yüklemelisiniz. [Yeoman'ı yüklediğinizden](#set-up-yeoman-generators-for-containers-and-guest-executables) emin olun ve ardından aşağıdaki komutu çalıştırın:
+
+  ```bash
+  sudo npm install -g generator-azuresfjava
   ```
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Eclipse eklentisini yükleme (isteğe bağlı)
@@ -260,61 +266,61 @@ Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
 Service Fabric için Eclipse eklentisini Java EE Geliştiricileri veya Java Geliştiricileri için Eclipse IDE içinden yükleyebilirsiniz. Eclipse kullanarak, Service Fabric Java uygulamalarına ek olarak Service Fabric konuk yürütülebilir uygulamaları ve kapsayıcı uygulamaları oluşturabilirsiniz.
 
 > [!IMPORTANT]
-> Service Fabric eklentisi için Eclipse Neon veya üzeri bir sürüm gerekir. Eclipse sürümünüzün nasıl denetleneceği hakkında bu nottan sonraki yönergelere bakın. Eclipse’in önceki bir sürümünü yüklediyseniz, [Eclipse sitesinden](https://www.eclipse.org) daha yeni sürümleri indirebilirsiniz. Mevcut bir Eclipse yüklemesinin üzerine yüklemeniz (üzerine yazmanız) önerilmez. Yükleyiciyi çalıştırmadan önce kaldırabilir veya yeni sürümü farklı bir dizine yükleyebilirsiniz. 
+> Service Fabric eklentisi için Eclipse Neon veya üzeri bir sürüm gerekir. Eclipse sürümünüzün nasıl denetleneceği hakkında bu nottan sonraki yönergelere bakın. Eclipse’in önceki bir sürümünü yüklediyseniz, [Eclipse sitesinden](https://www.eclipse.org) daha yeni sürümleri indirebilirsiniz. Mevcut bir Eclipse yüklemesinin üzerine yüklemenizi (üzerine yazmanızı) önermiyoruz. Yükleyiciyi çalıştırmadan önce bunu kaldırın veya yeni sürümü farklı bir dizine yükleyin.
 > 
 > Ubuntu üzerinde, paket yükleyici (`apt` veya `apt-get`) kullanmak yerine doğrudan Eclipse sitesinden yükleme yapılmasını öneririz. Böylece, Eclipse’in en güncel sürümünü elde etmeniz sağlanır. Java EE Geliştiricileri için veya Java Geliştiricileri için Eclipse IDE’yi yükleyebilirsiniz.
 
-1. Eclipse’te, Eclipse Neon veya sonraki bir sürümünün ve Buildship 2.2.1 veya sonraki bir sürümünün yüklü olduğundan emin olun. **Yardım** > **Eclipse Hakkında** > **Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. [Eclipse Buildship: Gradle için Eclipse eklentileri][buildship-update] bölümünde sağlanan yönergelerden yararlanarak Buildship’i güncelleştirebilirsiniz.
+1. Eclipse’te, Eclipse Neon veya sonraki bir sürümünün ve Buildship 2.2.1 veya sonraki bir sürümünün yüklü olduğundan emin olun. **Yardım** > **Eclipse Hakkında** > **Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyin. [Eclipse Buildship: Gradle için Eclipse eklentileri][buildship-update] bölümünde sağlanan yönergelerden yararlanarak Buildship’i güncelleştirebilirsiniz.
 
 2. Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle**’yi seçin.
 
-3. **Birlikte çalış** kutusuna **http://dl.microsoft.com/eclipse** yazın.
+3. **Birlikte çalış** kutusuna **http://dl.microsoft.com/eclipse** girin.
 
-4. **Ekle**'ye tıklayın.
+4. **Add (Ekle)** seçeneğini belirleyin.
 
     ![Kullanılabilir Yazılım sayfası][sf-eclipse-plugin]
 
-5. **ServiceFabric** eklentisini seçip **İleri**’ye tıklayın.
+5. **ServiceFabric** eklentisini ve ardından **İleri**’yi seçin.
 
-6. Yükleme adımlarını tamamlayın ve ardından son kullanıcı lisans sözleşmesini kabul edin.
+6. Yükleme adımlarını gerçekleştirin. Ardından son kullanıcı lisans sözleşmesini kabul edin.
 
-Service Fabric Eclipse eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun. **Yardım** > **Eclipse Hakkında** > **Yükleme Ayrıntıları**’nı seçip ardından yüklü eklentiler listesinde Service Fabric araması yaparak denetleyebilirsiniz. Daha yeni bir sürüm varsa, **Güncelleştir**’i seçin.
+Service Fabric Eclipse eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun. **Yardım** > **Eclipse hakkında** > **Yükleme Ayrıntıları**'nı seçerek denetleyin. Daha sonra yüklü eklentiler listesinde Service Fabric’i arayın. Daha yeni bir sürüm varsa, **Güncelleş**'i seçin.
 
 Daha fazla bilgi için bkz. [Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi](service-fabric-get-started-eclipse.md).
 
 ## <a name="update-the-sdk-and-runtime"></a>SDK ve çalışma zamanını güncelleştirme
 
-SDK ve çalışma zamanının son sürümüne güncelleştirmek için aşağıdaki komutları çalıştırın:
+SDK ve çalışma zamanının son sürümüne güncelleştirmek için aşağıdaki komutları çalıştırın.
 
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-Maven’dan alınan Java SDK'sı ikili dosyalarını güncelleştirmek için ``build.gradle`` dosyasında karşılık gelen ikili sürüm ayrıntılarını en son sürüme işaret edecek şekilde güncelleştirmeniz gerekir. Sürümü tam olarak nerede güncelleştirmeniz gerektiğini öğrenmek için [buradaki](https://github.com/Azure-Samples/service-fabric-java-getting-started) Service Fabric başlangıç örneklerindeki herhangi bir ``build.gradle`` dosyasına bakabilirsiniz.
+Maven’dan alınan Java SDK'sı ikili dosyalarını güncelleştirmek için ``build.gradle`` dosyasında karşılık gelen ikili sürüm ayrıntılarını en son sürüme işaret edecek şekilde güncelleştirmeniz gerekir. Sürümü tam olarak nerede güncelleştirmeniz gerektiğini öğrenmek için [Service Fabric başlangıç örneklerindeki](https://github.com/Azure-Samples/service-fabric-java-getting-started) herhangi bir ``build.gradle`` dosyasına bakın.
 
 > [!NOTE]
-> Paketlerin güncelleştirilmesi, yerel geliştirme kümenizin çalışmayı durdurmasına neden olabilir. Yükseltme sonrasında bu sayfadaki yönergeleri uygulayarak yerel kümenizi yeniden başlatın.
+> Paketlerin güncelleştirilmesi, yerel geliştirme kümenizin çalışmayı durdurmasına neden olabilir. Yükseltme sonrasında bu makaledeki yönergeleri izleyerek yerel kümenizi yeniden başlatın.
 
 ## <a name="remove-the-sdk"></a>SDK'yı kaldırma
-Service Fabric SDK'larını kaldırmak için aşağıdaki komutu çalıştırın:
+Service Fabric SDK'larını kaldırmak için aşağıdaki komutları çalıştırın.
 
-### <a name="ubuntu"></a>Ubuntu
+* Ubuntu
 
-```bash
-sudo apt-get remove servicefabric servicefabicsdkcommon
-sudo npm uninstall generator-azuresfcontainer
-sudo npm uninstall generator-azuresfguest
-sudo apt-get install -f
-```
+    ```bash
+    sudo apt-get remove servicefabric servicefabicsdkcommon
+    sudo npm uninstall generator-azuresfcontainer
+    sudo npm uninstall generator-azuresfguest
+    sudo apt-get install -f
+    ```
 
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+* Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
 
-```bash
-sudo yum remote servicefabric servicefabicsdkcommon
-sudo npm uninstall generator-azuresfcontainer
-sudo npm uninstall generator-azuresfguest
-```
+    ```bash
+    sudo yum remote servicefabric servicefabicsdkcommon
+    sudo npm uninstall generator-azuresfcontainer
+    sudo npm uninstall generator-azuresfguest
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -324,7 +330,7 @@ sudo npm uninstall generator-azuresfguest
 * [OSX üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-mac.md)
 * [Windows üzerinde Linux geliştirme ortamı hazırlama](service-fabric-local-linux-cluster-windows.md)
 * [Uygulamalarınızı yönetmek için Service Fabric CLI'yı kullanma](service-fabric-application-lifecycle-sfctl.md)
-* [Service Fabric Windows/Linux farkları](service-fabric-linux-windows-differences.md)
+* [Service Fabric Windows ile Linux arasındaki farklar](service-fabric-linux-windows-differences.md)
 * [Linux kümenizde işletim sistemi düzeltme eki uygulama işlemini otomatikleştirme](service-fabric-patch-orchestration-application-linux.md)
 * [Service Fabric CLI kullanmaya başlama](service-fabric-cli.md)
 

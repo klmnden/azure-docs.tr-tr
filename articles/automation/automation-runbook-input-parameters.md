@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e1e00f81fe7761494ae73b2c8ac7419cb5ffa32
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 1d11b7d8f008c8ba000530e0486562882bfe3db3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook giriş parametreleri
 
@@ -29,8 +29,8 @@ PowerShell ve [PowerShell iş akışı runbook'ları](automation-first-runbook-t
 
 | **Özellik** | **Açıklama** |
 |:--- |:--- |
-| Tür |Gereklidir. Parametre değeri beklenen veri türü. Herhangi bir .NET türü geçerli değil. |
-| Ad |Gereklidir. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalıdır ve yalnızca harf, sayı içeren veya alt çizgi karakterleri. Bir harf ile başlamalıdır. |
+| Tür |Gerekli. Parametre değeri beklenen veri türü. Herhangi bir .NET türü geçerli değil. |
+| name |Gerekli. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalıdır ve yalnızca harf, sayı içeren veya alt çizgi karakterleri. Bir harf ile başlamalıdır. |
 | Zorunlu |İsteğe bağlı. Bir değer parametresi için sağlanan olup olmadığını belirtir. Bu ayar, **$true**, sonra da runbook başlatılırken bir değer sağlanmalıdır. Bu ayar, **$false**, sonra da bir değer isteğe bağlıdır. |
 | Varsayılan değer |İsteğe bağlı. Runbook başlatılırken bir değer değil geçtiyse parametresi için kullanılan bir değeri belirtir. Varsayılan değer otomatik olarak parametresi zorunlu ayarından bağımsız olarak isteğe bağlı hale getirir ve herhangi bir parametre için ayarlayabilirsiniz. |
 
@@ -91,7 +91,7 @@ Kullanabileceğiniz [ **Write-Output** ](https://technet.microsoft.com/library/h
    
    | **Özellik** | **Açıklama** |
    |:--- |:--- |
-   | Ad |Gereklidir. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalıdır ve yalnızca harf, sayı içeren veya alt çizgi karakterleri. Bir harf ile başlamalıdır. |
+   | name |Gerekli. Parametrenin adı. Bu gerekir runbook içinde benzersiz olmalıdır ve yalnızca harf, sayı içeren veya alt çizgi karakterleri. Bir harf ile başlamalıdır. |
    | Açıklama |İsteğe bağlı. Giriş parametresi amacı hakkında açıklama. |
    | Tür |İsteğe bağlı. Parametre değeri beklenen veri türü. Desteklenen parametre türleri **dize**, **Int32**, **Int64**, **ondalık**, **Boolean**, **DateTime**, ve **nesne**. Bir veri türü seçili değilse, varsayılan olarak **dize**. |
    | Zorunlu |İsteğe bağlı. Bir değer parametresi için sağlanan olup olmadığını belirtir. Seçerseniz **Evet**, sonra da runbook başlatılırken bir değer sağlanmalıdır. Seçerseniz **hiçbir**, bir değer runbook başlatıldığında ve varsayılan bir değer ayarlanabilir gerekli değildir. |

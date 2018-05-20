@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c2479dad013bfcb738e61e67cc8cf9584b4d11cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Service Fabric kümesi veya otomatik ölçeklendirme kurallarını kullanarak uzaklaştırma ölçeklendirme veya el ile
 Sanal makine ölçek kümeleri dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynaktır. Service Fabric kümesi içinde tanımlanan her düğüm türü ayrı sanal makine ölçek kümesi ayarlanır. Her düğüm türü, genişletilebilir veya çıkışı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. İçinde hakkında daha fazla bilgiyi [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) belge. Service Fabric düğüm türleri kümenizdeki arka uç, sanal makine ölçek kümelerinin yapıldıktan sonra otomatik ölçek kuralı her düğüm türü/sanal makine ölçek kümesi için ayarlamanız gerekir.

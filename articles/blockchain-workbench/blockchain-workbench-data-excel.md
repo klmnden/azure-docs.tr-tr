@@ -1,6 +1,6 @@
 ---
-title: Microsoft Excel'de Azure Blockchain çalışma ekranı verileri kullanma
-description: Yük ve Azure Blockchain çalışma ekranı SQL DB verileri Microsoft Excel'de görüntüleme hakkında bilgi edinin.
+title: Azure Blockchain Workbench verilerini Microsoft Excel’de kullanma
+description: Azure Blockchain Workbench SQL DB verilerini Microsoft Excel’de yüklemeyi ve görüntülemeyi öğrenin.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,61 +10,62 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 70297bd0af6322d0f3ac2c719d1827e4bc5898cd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e8c20f4b8e39615e2a8c486130d7c8bec655a936
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Microsoft Excel ile Azure Blockchain çalışma ekranı verileri görüntüleme
+# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Azure Blockchain Workbench verilerini Microsoft Excel ile görüntüleme
 
-Microsoft Excel verilerini Azure Blockchain çalışma ekranı 's SQL DB içinde görüntülemek için kullanabilirsiniz. Bu makale için gereken adımları sağlar:
+Microsoft Excel’i kullanarak Azure Blockchain Workbench'in SQL veritabanındaki verileri görüntüleyebilirsiniz. Bu makalede aşağıdakiler için gerekli adımlar sağlanır:
 
-* Microsoft Excel'den Blockchain çalışma ekranı veritabanına bağlan
-* Blockchain çalışma ekranı veritabanı tabloları ve görünümleri bakın
-* Excel'e Blockchain çalışma ekranı görünüm veri yükleme
+* Microsoft Excel’den Blockchain Workbench veritabanına bağlanma
+* Blockchain Workbench veritabanı tablolarına ve görünümlerine bakma
+* Blockchain Workbench görünüm verilerini Excel’de yükleme
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Blockchain çalışma ekranı veritabanına bağlan
+## <a name="connect-to-the-blockchain-workbench-database"></a>Blockchain Workbench veritabanına bağlanma
 
-Bir Blockchain çalışma ekranı veritabanına bağlanmak için:
+Bir Blockchain Workbench veritabanına bağlanmak için:
 
-1. Microsoft Excel'i açın.
-2. Üzerinde **veri** sekmesinde, seçin **Veri Al**.
-3. Seçin **Azure** ve ardından **Azure SQL veritabanından**.
+1. Microsoft Excel’i açın.
+2. **Veri** sekmesinde **Veri Al**’ı seçin.
+3. Sırayla **Azure’dan** ve **Azure SQL Veritabanı'ndan** seçeneğini belirleyin.
 
    ![Azure SQL Veritabanı'na bağlanma](media/blockchain-workbench-data-excel/connect-sql-db.png)
 
-4. İçinde **SQL Server veritabanı** iletişim kutusunda:
+4. **SQL Server veritabanı** iletişim kutusunda:
 
-    * İçin **Server**, Blockchain çalışma ekranı sunucunun adını girin.
-    * İçin **veritabanı (isteğe bağlı)**, veritabanının adını girin.
+    * **Sunucu** için Blockchain Workbench sunucusunun adını girin.
+    * **Veritabanı (isteğe bağlı)** için veritabanının adını girin.
 
-   ![Veritabanı sunucusu ve veritabanı sağlar](media/blockchain-workbench-data-excel/provide-server-db.png)
+   ![Veritabanı sunucusunu ve veritabanını belirtin](media/blockchain-workbench-data-excel/provide-server-db.png)
 
-5. İçinde **SQL Server veritabanı** iletişim gezinti çubuğu, select **veritabanı**. Girin, **kullanıcıadı** ve **parola**ve ardından **Bağlan**.
+5. **SQL Server veritabanı** iletişim kutusu gezinti çubuğunda **Veritabanı**’nı seçin. **Kullanıcı Adı** ve **Parola** bilgilerinizi girip **Bağlan**’ı seçin.
 
     > [!NOTE]
-    > Azure Blockchain çalışma ekranının dağıtım işlemi sırasında oluşturulan kimlik bilgileri kullanıyorsanız **kullanıcı adı** olan `dbadmin`. **Parola** Blockchain çalışma ekranı dağıtıldığında bir oluşturulur.
+    > Azure Blockchain Workbench dağıtım işlemi sırasında oluşturulan kimlik bilgilerini kullanıyorsanız **Kullanıcı Adı** şudur: `dbadmin`. **Parola**, Blockchain Workbench’i dağıtırken oluşturduğunuz paroladır.
     
    ![Veritabanına erişmek için kimlik bilgilerini belirtin](media/blockchain-workbench-data-excel/provide-credentials.png)
 
-## <a name="look-at-database-tables-and-views"></a>Veritabanı tabloları ve görünümleri bakın
+## <a name="look-at-database-tables-and-views"></a>Veritabanı tablolarına ve görünümlerine bakın
 
-Veritabanına bağlandıktan sonra Excel Gezgini iletişim kutusunu açar. Tabloları ve görünümleri veritabanında bakmak için Gezgini kullanın. Görünümleri raporlama için tasarlanmıştır ve adlarını önekine sahip **vw**.
+Veritabanına bağlandığınızda Excel Gezgini iletişim kutusu açılır. Gezgin’i kullanarak veritabanındaki tablolara ve görünümlere bakabilirsiniz. Görünümler raporlama için tasarlanmıştır ve adlarının önünde **vw** eki yer alır.
 
-   ![Excel Gezgini Önizleme görünümü](media/blockchain-workbench-data-excel/excel-navigator.png)
+   ![Bir görünümün Excel Gezgini önizlemesi](media/blockchain-workbench-data-excel/excel-navigator.png)
 
-## <a name="load-view-data-into-an-excel-workbook"></a>Bir Excel çalışma kitabına görünüm veri yükleme
+## <a name="load-view-data-into-an-excel-workbook"></a>Görünüm verilerini bir Excel çalışma kitabına yükleyin
 
-Sonraki örnek bir Excel çalışma kitabına görünümden verileri nasıl yükleyebilirsiniz gösterir.
+Sonraki örnekte, bir görünümün verilerini bir Excel çalışma kitabına nasıl yükleyebileceğiniz gösterilir.
 
-1. İçinde **Gezgini** kaydırma çubuğu, select **vwContractAction** görünümü. **VwContractAction** Önizleme Blockchain çalışma ekranı veritabanındaki bir sözleşme ile ilgili tüm eylemleri gösterir.
-2. Seçin **yük** görünümdeki tüm verileri almak ve Excel çalışma kitabınızı yerleştirin.
+1. **Gezgin** kaydırma çubuğunda **vwContractAction** görünümünü seçin. **vwContractAction** önizlemesi, Blockchain Workbench veritabanındaki bir sözleşmeyle ilgili tüm eylemleri gösterir.
+2. **Yükle**’yi seçerek görünümdeki tüm verileri alın ve Excel çalışma kitabınıza ekleyin.
 
-   ![Bir görünümden yüklenen verileri](media/blockchain-workbench-data-excel/view-data.png)
+   ![Bir görünümden yüklenen veriler](media/blockchain-workbench-data-excel/view-data.png)
 
-Yüklenen veriler sahip olduğunuza göre Azure Blockchain çalışma ekranı veritabanından meta verileri ve işlem verilerini kullanan kendi raporlarınızı oluşturmak için Excel özelliklerini kullanabilirsiniz.
+Artık verileri yüklediğinize göre Excel özelliklerini kullanarak Azure Blockchain Workbench’ten alınan meta veriler ve işlem verileri ile kendi raporlarınızı oluşturabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Blockchain çalışma ekranındaki veritabanı görünümleri](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench’te veritabanı görünümleri](blockchain-workbench-database-views.md)

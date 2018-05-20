@@ -7,15 +7,15 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ec32c933f3dbe07a844bd99a1f5aa3fa57d61b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: a75167b6973d5cce8497c07e21d17ad071290f1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
+# <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu'nda kaynak denetimi tümleştirmesi
 Kaynak denetimi tümleştirmesinin Automation hesabınız GitHub kaynak denetim deponuza runbook'larda ilişkilendirmenizi sağlar. Kaynak denetimi kolayca ekibinizle işbirliği, değişiklikleri izlemek ve runbook'larınızın önceki sürümleri geri sağlar. Örneğin, kaynak denetimi geliştirme ortamınızda Otomasyon üretim test kodu Yükselt kolaylaşır, geliştirme, test veya üretim Automation hesapları, kaynak denetimine farklı dallarda eşitleme sağlar hesabı.
 
 Kaynak denetimi, kod kaynak denetimi için Azure Otomasyon anında ya da kaynak denetiminden larınızın Azure otomasyonu için çekme olanak sağlar. Bu makalede, Azure Automation ortamınızdaki kaynak denetimi ayarlama açıklar. Azure Otomasyonu GitHub deposuna erişmek ve aracılığıyla yapılabilir farklı işlemlerini yol yapılandırarak Başlat kaynak denetimi tümleştirmesi kullanılarak. 
@@ -60,7 +60,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
      
      | **Parametre** | **Değer** |
      |:--- |:--- |
-     | Ad |Microsoft.Azure.Automation.SourceControl.Connection |
+     | name |Microsoft.Azure.Automation.SourceControl.Connection |
      | Tür |Dize |
      | Değer |{"Şube":\<*şube adınızı*>, "RunbookFolderPath":\<*klasöründeki*>, "Sağlayıcı türü":\<*1'için ' e kadar bir değere sahip GitHub*>, "Depo":\<*deponuz adını*>, "Kullanıcıadı":\<*bilgisayarınızı GitHub kullanıcı adı*>} |
 
@@ -68,7 +68,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
 
     |**Parametre**            |**Değer** |
     |:---|:---|
-    | Ad  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Tür | Unknown(Encrypted) |
     | Değer | <*Şifrelenmiş OAuthToken*> |  
 

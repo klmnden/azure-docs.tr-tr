@@ -1,16 +1,16 @@
 ---
-title: "Makineleri geçir değerlendirme sonra Azure geçirme ile | Microsoft Docs"
-description: "Geçiş için öneriler almayı açıklar Azure geçiş hizmeti ile bir değerlendirme çalıştırdıktan sonra makineleri."
+title: Makineleri geçir değerlendirme sonra Azure geçirme ile | Microsoft Docs
+description: Geçiş için öneriler almayı açıklar Azure geçiş hizmeti ile bir değerlendirme çalıştırdıktan sonra makineleri.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 242a8b95e7eb278a7884eec7d0cc6a607bdf24d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="migrate-machines-after-assessment"></a>Değerlendirmenin ardından makineleri geçirme
 
@@ -35,15 +35,15 @@ Geçiş Araçları ile ilgili öneriler almak için şirket içi ortamdaki bir d
 1. Önerilen geçiş yöntemi sağlayabilmek için önce bir Azure geçirmek projesi oluşturun, şirket içi makineler bulmak ve geçiş değerlendirme çalıştırmak gerekir. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
 2. Değerlendirme oluşturulduktan sonra projede görüntülemek > **genel bakış** > **Pano**. Tıklatın **değerlendirme Hazırlık**
 
-    ![Değerlendirme Hazırlık](./media/tutorial-assessment-vmware/assessment-report.png)  
+    ![Hazır olma durumu değerlendirmesi](./media/tutorial-assessment-vmware/assessment-report.png)  
 
 3. İçinde **önerilen aracı**, geçiş için kullanabileceğiniz araçlar önerileri gözden geçirin.
 
-    ![Önerilen aracı](./media/tutorial-assessment-vmware/assessment-suitability.png) 
+    ![Önerilen araç](./media/tutorial-assessment-vmware/assessment-suitability.png) 
 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Daha fazla bilgi edinin](concepts-assessment-calculation.md) değerlendirmelerinin nasıl hesaplandığını hakkında.
+Değerlendirmelerin nasıl hesaplandığı hakkında [daha fazla bilgi](concepts-assessment-calculation.md) edinin.

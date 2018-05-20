@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Clarizen | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Clarizen arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Clarizen | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Clarizen arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Öğretici: Azure Active Directory Tümleştirme Clarizen ile
 
@@ -32,9 +32,9 @@ Bu öğretici senaryoda iki ana görevden oluşur:
 1. Clarizen Galeriden ekleyin.
 2. Yapılandırma ve Azure AD çoklu oturum açmayı sınayın.
 
-Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Azure AD tümleştirme Clarizen ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
@@ -153,7 +153,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum a
 
     e. Seçin **POST kullanmak**.
 
-    f. **Kaydet** düğmesine tıklayın.
+    f. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
@@ -182,7 +182,7 @@ Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
 
 ### <a name="create-a-clarizen-test-user"></a>Clarizen test kullanıcısı oluşturma
 Azure AD için Clarizen oturum açmalarını etkinleştirmek için kullanıcı hesapları hazırlamanız gerekir. Clarizen söz konusu olduğunda, sağlama bir el ile bir görevdir.
@@ -225,7 +225,7 @@ Britta Clarizen için kendi erişim vererek, Azure çoklu oturum açma kullanıl
 
     !["Kullanıcılar ve Gruplar" a tıklayarak][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **eklemek atama** iletişim kutusunda **kullanıcılar ve gruplar**.
+4. **Ekle** düğmesine tıklayın. Ardından **eklemek atama** iletişim kutusunda **kullanıcılar ve gruplar**.
 
     !["Ekle" düğmesi ve "Atama Ekle" iletişim kutusu][203]
 
@@ -235,7 +235,7 @@ Britta Clarizen için kendi erişim vererek, Azure çoklu oturum açma kullanıl
 
 7. İçinde **eklemek atama** iletişim kutusu, tıklatın **atamak** düğmesi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 Azure AD çoklu oturum açma yapılandırmanızı erişim paneli kullanarak sınayın.
 
 Erişim paneli Clarizen parçasında tıklattığınızda, otomatik olarak Clarizen uygulamanıza oturum açmanız.
@@ -243,7 +243,7 @@ Erişim paneli Clarizen parçasında tıklattığınızda, otomatik olarak Clari
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

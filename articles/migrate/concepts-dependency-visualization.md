@@ -4,20 +4,20 @@ description: Değerlendirme hesaplamalar Azure geçirmek hizmetindeki genel bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 2/21/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b6b3e78436a215e64894b1102c4e109f72c896d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="dependency-visualization"></a>Bağımlılık görselleştirme
+# <a name="dependency-visualization"></a>Bağımlılık görselleştirmesi
 
 [Azure geçirmek](migrate-overview.md) Hizmetleri geçiş Azure için şirket içi makine grupları değerlendirir. Makineleri birlikte gruplamak için bağımlılık görselleştirme kullanabilirsiniz. Bu makalede, bu özellik hakkında bilgi sağlar.
 
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Azure geçirmek bağımlılık görsel öğeyi geçiş değerlendirmek için artan güvenle gruplar oluşturmanıza olanak sağlar. Bağımlılık görselleştirme kullanarak belirli makinelerin veya makine grubu arasında ağ bağımlılıkları görüntüleyebilirsiniz. Bu işlevselliği emin olmak kullanışlı veya kayıp (veya unutulursa makineler) uygulamaları ve iş yüklerini birden fazla makine arasında çalıştırdığınızda geçiş işleminin.  
 
@@ -25,7 +25,7 @@ Azure geçirmek bağımlılık görsel öğeyi geçiş değerlendirmek için art
 
 Azure geçirme kullanır [hizmet Haritası](../operations-management-suite/operations-management-suite-service-map.md) çözümde [günlük analizi](../log-analytics/log-analytics-overview.md) bağımlılık görselleştirme için.
 - Bir Azure geçiş projesi oluşturduğunuzda, bir günlük analizi çalışma alanı, aboneliğinizde oluşturulur.
-- Çalışma alanı adı önekine sahip geçiş proje için belirttiğiniz addır **geçirmek-**ve isteğe bağlı olarak sonekine olan bir sayı. 
+- Çalışma alanı adı önekine sahip geçiş proje için belirttiğiniz addır **geçirmek-** ve isteğe bağlı olarak sonekine olan bir sayı. 
 - Günlük analizi çalışma alanından gidin **Essentials** proje bölümünü **genel bakış** sayfası.
 - Oluşturulan çalışma anahtarla etiketli **MigrateProject**ve değeri **proje adı**. Azure portalında aramak için bunları kullanabilirsiniz.  
 

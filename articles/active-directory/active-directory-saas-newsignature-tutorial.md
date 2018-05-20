@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Microsoft Azure için bulut Yönetim Portalı Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Microsoft Azure için bulut Yönetim Portalı arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Microsoft Azure için bulut Yönetim Portalı Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Microsoft Azure için bulut Yönetim Portalı arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 5eabff9399f35328feb973ad4a0abbf793fe7458
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5dfd5377fa669322d0a61c71996badd45bc3d441
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Öğretici: Microsoft Azure için bulut Yönetim Portalı Azure Active Directory Tümleştirme
 
@@ -29,9 +29,9 @@ Microsoft Azure için bulut Yönetim Portalı Azure AD ile tümleştirme ile aş
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Microsoft Azure için bulut Yönetim Portalı için açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Microsoft Azure için bulut Yönetim Portalı ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -181,7 +181,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-cloud-management-portal-for-microsoft-azure-test-user"></a>Microsoft Azure test kullanıcısı için bir bulut Yönetim Portalı oluşturma
 
@@ -228,7 +228,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

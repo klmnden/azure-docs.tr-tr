@@ -1,6 +1,6 @@
 ---
-title: SQL Server Management Studio ile Azure Blockchain çalışma ekranı verileri kullanma
-description: SQL Server Management Studio içinde Azure Blockchain çalışma ekranı kullanıcının SQL veritabanına bağlanmak öğrenin.
+title: Azure Blockchain Workbench Verilerini SQL Server Management Studio ile Kullanma
+description: SQL Server Management Studio’nun içinden Azure Blockchain Workbench'in SQL Veritabanı’na bağlanmayı öğrenin.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,44 +10,45 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 1c9ee1e94ba1195db027c3edfab2e2a96f181ca3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b640aec322d6dc184a428e67d9576cf162c8f394
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>SQL Server Management Studio ile Azure Blockchain çalışma ekranı verileri kullanma
+# <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Azure Blockchain Workbench verilerini SQL Server Management Studio ile kullanma
 
-Microsoft SQL Server Management Studio hızla yazma ve Azure Blockhain çalışma ekranı 's SQL DB sorguları test etme olanağı sağlar. Bu bölüm, SQL Server Management Studio içinde Azure Blockchain çalışma ekranı kullanıcının SQL veritabanına bağlanmak nasıl bir adım adım kılavuz içerir.
+Microsoft SQL Server Management Studio, Azure Blockhain Workbench'in SQL Veritabanı’na yönelik olarak hızla sorgu yazma ve test etme olanağı sağlar. Bu bölüm, SQL Server Management Studio’nun içinden Azure Blockchain Workbench'in SQL Veritabanı’na nasıl bağlanılacağını gösteren adım adım bir kılavuz içerir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Karşıdan [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+* [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)’yu indirin.
 
-## <a name="connecting-sql-server-management-studio-to-data-in-azure-blockchain-workbench"></a>SQL Server Management Studio Azure Blockchain çalışma ekranındaki verilere bağlanma
+## <a name="connecting-sql-server-management-studio-to-data-in-azure-blockchain-workbench"></a>SQL Server Management Studio’yu Azure Blockchain Workbench’teki verilere bağlama
 
-1. SQL Server Management Studio'yu açın ve seçin **Bağlan**.
-2. Seçin **veritabanı altyapısı**.
+1. SQL Server Management Studio’yu açıp **Bağlan**’ı seçin.
+2. **Veritabanı Altyapısı**’nı seçin.
 
     ![Veritabanı altyapısı](media/blockchain-workbench-data-sql-management-studio/database-engine.png)
 
-3. İçinde **sunucuya Bağlan** iletişim kutusunda, sunucu adını ve veritabanı kimlik bilgilerinizi girin.
+3. **Sunucuya Bağlan** iletişim kutusuna sunucu adını ve veritabanınızın kimlik bilgilerini girin.
 
-    Azure Blockchain çalışma ekranının dağıtım işlemi tarafından oluşturulan kimlik bilgileri kullanıyorsanız kullanıcı adı olacaktır **dbadmin** ve dağıtım sırasında sağlanan bir parola olacaktır.
+    Azure Blockchain Workbench dağıtım işlemi tarafından oluşturulan kimlik bilgilerini kullanıyorsanız kullanıcı adı **dbadmin**, parola ise dağıtım sırasında belirttiğiniz parola olur.
 
     ![SQL kimlik bilgilerini girin](media/blockchain-workbench-data-sql-management-studio/sql-creds.png)
 
- 4. SQL Server Management Studio Azure Blockchain çalışma ekranı veritabanında veritabanlarını, veritabanı görünümleri ve saklı yordamlar listesini görüntüler.
+ 4. SQL Server Management Studio, Azure Blockchain Workbench veritabanındaki veritabanlarının, veritabanı görünümlerinin ve saklı yordamların listesini görüntüler.
 
     ![Veritabanı listesi](media/blockchain-workbench-data-sql-management-studio/db-list.png)
 
-5. Herhangi bir veritabanı görünümleri ile ilişkili verileri görüntülemek için aşağıdaki adımları kullanarak bir select deyimi otomatik olarak oluşturabilir.
-6. Herhangi bir nesne Gezgini'nde veritabanı görünümleri sağ tıklayın.
-7. Seçin **komut görünüm olarak**.
-8. Seçin **seçin**.
-9. Seçin **yeni sorgu Düzenleyicisi penceresini**.
-10. Yeni bir sorgu seçerek oluşturulabilir **yeni sorgu**.
+5. Veritabanı görünümlerinin herhangi biri ile ilişkili verileri görüntülemek için aşağıdaki adımlarla otomatik olarak bir select deyimi oluşturabilirsiniz.
+6. Nesne Gezgini'nde veritabanı görünümlerinden herhangi birine sağ tıklayın.
+7. **Betiği Farklı Görüntüle** seçeneğini belirleyin.
+8. **Şuna kadar SEÇ:** seçeneğini belirleyin.
+9. **Yeni Sorgu Düzenleyicisi Penceresi**‘ni seçin.
+10. **Yeni Sorgu** seçilerek yeni bir sorgu oluşturulabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Blockchain çalışma ekranındaki veritabanı görünümleri](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench’te veritabanı görünümleri](blockchain-workbench-database-views.md)

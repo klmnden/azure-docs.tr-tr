@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure olay kılavuz olay şeması
 
@@ -81,14 +81,14 @@ Tüm olaylar aynı aşağıdaki üst düzey veri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | string | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
-| Konu | string | Olay konu yayımcı tarafından tanımlanan yolu. |
-| Olay türü | string | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | string | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | string | Olay için benzersiz tanımlayıcı. |
+| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
+| Olay türü | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | dize | Olay için benzersiz tanımlayıcı. |
 | veriler | object | Olay verileri kaynak sağlayıcıya özel. |
-| dataVersion | string | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | string | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi özellikleri hakkında bilgi edinmek için olay kaynağı bakın:
 

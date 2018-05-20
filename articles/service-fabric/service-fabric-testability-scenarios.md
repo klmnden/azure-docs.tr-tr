@@ -1,6 +1,6 @@
 ---
-title: "Azure mikro Chaos ve yük devretme testleri oluşturma | Microsoft Docs"
-description: "Service Fabric kullanarak chaos test ve yük devretme hatalarını anlamına ve hizmetlerinizi güvenilirliğini doğrulamak için test senaryoları."
+title: Azure mikro Chaos ve yük devretme testleri oluşturma | Microsoft Docs
+description: Service Fabric kullanarak chaos test ve yük devretme hatalarını anlamına ve hizmetlerinizi güvenilirliğini doğrulamak için test senaryoları.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -9,16 +9,16 @@ editor: toddabel
 ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9c05ba2b98af5ef26ef5b5a7ae0995512df4e75
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="testability-scenarios"></a>Test Edilebilirlik senaryoları
 Bulut altyapılarının doğası gereği güvenilir gibi büyük dağıtılan sistemlerde. Azure Service Fabric geliştiriciler güvenilmez altyapısının en üstünde services yazma olanağı sağlar. Yüksek kaliteli Hizmetleri yazma için geliştiriciler böyle güvenilir olmayan bir altyapı hizmetlerini kararlılığını test etmek için anlamına olması gerekir.

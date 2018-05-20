@@ -1,24 +1,24 @@
 ---
-title: "Uygulama yükseltme: yükseltme parametreleri | Microsoft Docs"
-description: "Sistem durumu denetimleri gerçekleştirmek ve otomatik olarak yükseltmeyi geri alma ilkeleri dahil olmak üzere bir Service Fabric uygulaması yükseltmeyle ilgili parametreler açıklanmaktadır."
+title: 'Uygulama yükseltme: yükseltme parametreleri | Microsoft Docs'
+description: Sistem durumu denetimleri gerçekleştirmek ve otomatik olarak yükseltmeyi geri alma ilkeleri dahil olmak üzere bir Service Fabric uygulaması yükseltmeyle ilgili parametreler açıklanmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eb319b0f4e910163572ee62d8bdee735f27be592
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
 Bu makalede Azure Service Fabric uygulama yükseltme sırasında geçerli çeşitli parametreler açıklanmaktadır. Parametreleri adını ve uygulamanın sürümünü içerir. Zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme düğmelerini oldukları ve bir yükseltme başarısız olduğunda uygulanması gereken ilkeleri belirtin.

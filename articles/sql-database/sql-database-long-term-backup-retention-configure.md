@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletme yönetme
 
@@ -80,6 +80,10 @@ LTR İlkesi ve bu yedekleri geri yükleme ile belirli bir veritabanı için koru
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Uzun vadeli bekletme ilkeleri yapılandırmak ve yedekleri geri yüklemek için PowerShell kullanın
 
 Aşağıdaki bölümlerde PowerShell uzun vadeli yedekleme bekletme yapılandırma, Azure SQL depolama ve Azure SQL depolama alanında bir yedekten yedeklemeleri görünümünde nasıl kullanılacağını gösterir.
+
+> [!IMPORTANT]
+> LTR V2 ilkelerini kurmak için en son AzureRM powershell kullanmanız gerekir. Geçerli sürüm [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview)Bu önizleme sürümü, yüklemek için bu komutu kullanın: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Sürüm öncesi sürümünü yükleme ile ilgili yönergeler için bkz: [PowerShellGet alma Modülü](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). AzureRM powershell May 2018 yayın birkaç gün sonra gelen (olması beklenen 18/5/2018), kullanılabilir hale geldiğinde sürümünü yüklediğinizde - AllowPrelease anahtar yoksay ve aşağıdaki komutu kullanın " `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>LTR ilkesi oluşturma
 

@@ -112,14 +112,6 @@
           href: disk-scalability-targets.md
         - name: Diskler için yedekleme ve olağanüstü durum kurtarma
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Yazma hızlandırıcıyı etkinleştirme
-          href: how-to-enable-write-accelerator.md
-        - name: Ekli VHD’lerde sorun giderme
-          items:
-            - name: Depolama kaynağı silme hataları
-              href: storage-resource-deletion-errors.md
-            - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
-              href: unexpected-reboots-attached-vhds.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -393,6 +385,8 @@
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Şablon ile diskleri dağıtma
           href: using-managed-disks-template-deployments.md
+        - name: Yazma hızlandırıcıyı etkinleştirme
+          href: how-to-enable-write-accelerator.md
         - name: Performansı iyileştirme
           href: optimization.md
           items:
@@ -500,6 +494,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure portalına
               href: troubleshoot-recovery-disks-portal.md
+        - name: Ekli VHD’ler
+          items:
+            - name: Depolama kaynağı silme hataları
+              href: storage-resource-deletion-errors.md
+            - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
+              href: unexpected-reboots-attached-vhds.md
 - name: Başvuru
   items:
     - name: Azure CLI

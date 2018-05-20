@@ -1,56 +1,58 @@
 ---
-title: "DNS Azure yığınında anlama | Microsoft Docs"
-description: "DNS özellikleri ve yetenekleri Azure yığınında anlama"
+title: Azure yığınında anlama IDN'ler | Microsoft Docs
+description: IDN'ler özellikleri ve yetenekleri Azure yığınında anlama
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 86ed2805e93bd147841e22a773b52d1451f8c353
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>IDN'ler için Azure yığınına Tanıtımı
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-IDN'ler yığında Azure (örneğin, http://www.bing.com) dış DNS adlarını çözümlemek izin veren bir özelliktir.
-Ayrıca, iç sanal ağ adları kaydetmenize olanak sağlar. Bunu yaparak, sanal makineleri aynı sanal ağda IP adresi yerine adına göre özel DNS sunucusu girdileri sağlamasına gerek kalmadan çözebilirsiniz.
-
-Her zaman Azure'da var olmuştur bir şey olduğunu, ancak çok Windows Server 2016 ve Azure yığın de kullanılabilir.
+IDN'ler özelliğidir dış DNS adlarını çözemez olanak tanıyan bir Azure yığın ağ (örneğin, http://www.bing.com.) de iç sanal ağ adları kaydetmenizi sağlar. Bunun yapılması, sanal makineleri aynı sanal ağda IP adresi yerine adına göre çözebilirsiniz. Bu yaklaşım, özel DNS sunucusu girdileri sağlamak için gereksinimini ortadan kaldırır. DNS hakkında daha fazla bilgi için bkz: [Azure DNS'ye genel bakış](https://docs.microsoft.com/en-us/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>IDN'ler ne yapar?
+
 Azure yığınında IDN'ler ile özel DNS sunucusu girdileri belirtmek zorunda kalmadan aşağıdaki özellikleri alın:
 
 * Kiracı İş yükleri için DNS ad çözümleme hizmetleri paylaşılan.
 * Ad çözümlemesi ve Kiracı sanal ağ içinde DNS kaydı için yetkili DNS hizmeti.
-* Kiracı VM'ler Internet adlarından çözümlenmesi için yinelemeli DNS hizmeti. Kiracılar, artık Internet adları (örneğin, www.bing.com) çözümlemek için özel DNS girişlerini belirtmeniz gerekir.
+* Kiracı VM'ler Internet adlarından çözümlenmesi için yinelemeli DNS hizmeti. Kiracılar artık Internet adları (örneğin, www.bing.com.) çözümlemek için özel DNS girişlerini belirtmeniz gerekir
 
-Hala kendi DNS getirin ve istiyorsanız, özel DNS sunucuları kullanın. Ancak henüz artık, Internet DNS adları ve diğer sanal makinelerle aynı sanal ağda bağlanabilmek için herhangi bir şey belirtmenize gerek yoktur ve yalnızca çalışır çözümleyebilmesi istiyorsanız.
+Hala kendi DNS getirin ve özel DNS sunucuları kullanın. Ancak, IDN'ler kullanarak Internet DNS adlarını çözemez ve diğer Vm'lerle aynı sanal ağda bağlanmak, özel DNS girişlerini oluşturmanız gerekmez.
 
-## <a name="what-does-idns-not-do"></a>Ne IDN'ler işe yarar?
-Hangi IDN'ler yapmanıza olanak sağlar, sanal ağ dışında çözümlenebilir bir ad DNS kaydı oluşturmaktır.
+## <a name="what-doesnt-idns-do"></a>IDN'ler değil nedir?
 
-Azure'da, bir ortak IP adresi ile ilişkilendirilebilir bir DNS ad etiketi belirtme seçeneğiniz vardır. Etiket (önek) seçebilirsiniz, ancak Azure genel IP adresi oluşturma bölgeye göre soneki seçer.
+Hangi IDN'ler yapmanıza olanak sağlar olduğundan sanal ağ dışında çözümlenebilir bir adı için bir DNS kaydı oluşturun.
 
-![Ekran görüntüsü, DNS ad etiketi](media/azure-stack-understanding-dns-in-tp2/image3.png)
+Azure'da, bir ortak IP adresi ile ilişkili bir DNS ad etiketi belirtme seçeneğiniz vardır. Etiket (önek) seçebilirsiniz, ancak Azure genel IP adresi oluşturma bölgeye göre soneki seçer.
 
-Yukarıdaki resimde bir "A" kaydı DNS bölge altında belirtilen DNS ad etiketi için Azure oluşturacak **westus.cloudapp.azure.com**. Önek ve sonek birlikte bir tam etki alanı adı (genel Internet'te herhangi bir yere çözümlenebilen FQDN) oluşturun.
+![Bir DNS ad etiketi örneği](media/azure-stack-understanding-dns-in-tp2/image3.png)
+
+Önceki görüntüde gösterildiği gibi Azure bir "A" kaydı DNS bölge altında belirtilen DNS ad etiketi için oluşturacak **westus.cloudapp.azure.com**. Önek ve sonek oluşturmak için birleştirilmiş bir [tam etki alanı adı](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN), çözülmüş gelen herhangi bir yere genel Internet'te.
 
 Aşağıdakileri yapamazsınız şekilde azure yığın IDN'ler dahili ad kaydı için yalnızca destekler:
 
-* Varolan barındırılan bir DNS bölgesi (örneğin, local.azurestack.external) altında bir DNS kaydı oluşturun.
-* Bir DNS bölgesi (Contoso.com gibi) oluşturur.
+* Varolan barındırılan bir DNS bölgesi (örneğin, local.azurestack.external.) altında bir DNS kaydı oluşturun
+* (Örneğin, Contoso.com.) bir DNS bölgesi oluşturma
 * Kendi özel DNS bölgesi altında bir kayıt oluşturun.
 * Etki alanı adları satın destekler.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+[DNS kullanarak Azure yığını](azure-stack-dns.md)

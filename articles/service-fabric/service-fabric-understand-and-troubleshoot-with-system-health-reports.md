@@ -1,24 +1,24 @@
 ---
-title: "Sistem durumu raporları ile ilgili sorunları giderme | Microsoft Docs"
-description: "Azure Service Fabric bileşenleri ve bunların kullanım tarafından gönderilen sorun giderme küme veya uygulama sorunları için sistem durumu raporları açıklar"
+title: Sistem durumu raporları ile ilgili sorunları giderme | Microsoft Docs
+description: Azure Service Fabric bileşenleri ve bunların kullanım tarafından gönderilen sorun giderme küme veya uygulama sorunları için sistem durumu raporları açıklar
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: def4f1cdcd173e26964f9be11266d0e1a20fcafa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8304790b5eba4679b0633641c82d57316e7f8ec4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri kutunun sağ dışında kümedeki tüm varlıklar üzerinde sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıklar siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -633,7 +633,7 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.ChangeRole (S)** ve **IStatefulServiceReplica.ChangeRole(N)**: en yaygın çalışması için geçirilen iptal belirteci uygularken değil bir hizmettir `RunAsync`.
 
-- **IStatefulServiceReplica.ChangeRole(P)**: The most common case is that the service has not returned a task from `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(P)**: en yaygın durumdur hizmet görevden döndürmedi `RunAsync`.
 
 Takılmış diğer API çağrıları bulunan **IReplicator** arabirimi. Örneğin:
 
@@ -761,7 +761,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndirme
+### <a name="download"></a>Karşıdan Yükle
 Uygulama paketi yükleme başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
@@ -839,7 +839,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndirme
+### <a name="download"></a>Karşıdan Yükle
 Hizmet paketi indirme işlemi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme FirmPlay - işe alma için çalışan hakları ile | Microsoft Docs"
-description: "Çoklu oturum açma FirmPlay - çalışan hakları işe alma için Azure Active Directory arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme FirmPlay - işe alma için çalışan hakları ile | Microsoft Docs'
+description: Çoklu oturum açma FirmPlay - çalışan hakları işe alma için Azure Active Directory arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: e1381f2273ee961a4b72dede8cf8e017814ba909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b154901d2e31f493c32e47bd331cc2d4e9fdc1a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Öğretici: Azure Active Directory Tümleştirme ile FirmPlay - işe alma için çalışan hakları
 
@@ -29,9 +29,9 @@ FirmPlay - Azure AD ile işe alma için çalışan hakları tümleştirme ile a�
 - Otomatik olarak FirmPlay - işe alma (çoklu oturum açma) Azure AD hesaplarına sahip çalışan hakları için açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme FirmPlay - işe alma, çalışan hakları ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -111,7 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
 
-3. Üzerinde **FirmPlay - işe alma etki alanı ve URL'ler için çalışan hakları** bölümünde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<your-subdomain>.firmplay.com/`
+3. Üzerinde **FirmPlay - işe alma etki alanı ve URL'ler için çalışan hakları** bölümünde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<your-subdomain>.firmplay.com/`
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
 
@@ -184,7 +184,7 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın. 
+    d. **Oluştur**’a tıklayın. 
 
 
 
@@ -235,7 +235,7 @@ FirmPlay - çalışan hakları erişim panelinde, işe alma döşemeye tıklatt�
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

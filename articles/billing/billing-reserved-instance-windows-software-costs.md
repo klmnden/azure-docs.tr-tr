@@ -1,6 +1,6 @@
 ---
-title: Azure ayırma VM örnekleri Windows yazılım maliyetleri | Microsoft Docs
-description: Hangi Windows yazılım ölçümler ayrılmış sanal makine örnek maliyetlerini bulunmayan öğrenin.
+title: Azure ayırma örnekleri Windows yazılım maliyetleri - Azure faturalama | Microsoft Docs
+description: Hangi Windows yazılım ölçümler Azure ayrılmış VM örnek maliyetleri de dahil edilmeyen öğrenin.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="windows-software-costs-not-included-with-reserved-instances"></a>Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Windows yazılım maliyetleri ile Azure ayrılmış örnekler dahil değil
 
 Azure karma kullanımı avantajı, ayrılmış örnek sanal makinelere sahip değilseniz, aşağıdaki bölümde listelenen Windows yazılım ölçümler için ücretlendirilirsiniz.
 
@@ -52,11 +52,18 @@ Azure karma kullanımı avantajı, ayrılmış örnek sanal makinelere sahip de�
 Bu ölçümler her maliyeti Azure RateCard API aracılığıyla elde edebilirsiniz. Bir azure ölçer oranları alma hakkında daha fazla bilgi için bkz: [bir Azure aboneliği kullanılan kaynaklar için fiyat ve meta veri bilgi alma](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+Azure ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Ayrılmış sanal makine örneklerini yönetme](billing-manage-reserved-vm-instance.md)
-- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
-- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
+- [Azure ayrılmış örnekler sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
+- [Ayrılmış örnekler ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
+
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+
+Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+
+
+

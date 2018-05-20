@@ -1,5 +1,5 @@
 ---
-title: Azure dosyaları için sık sorulan sorular | Microsoft Docs
+title: Sık sorulan sorular (SSS) Azure dosyaları | Microsoft Docs
 description: Azure dosyaları hakkında sık sorulan soruların yanıtlarını bulun.
 services: storage
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
 
 Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme Azure dosyaları ile kullanımı dahil olmak üzere hakkında sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, bize (sırayla yükselen) aşağıdaki kanallar aracılığıyla başvurabilirsiniz:
@@ -27,7 +27,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 1. Bu makalede Açıklamalar bölümüne.
 2. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft destek. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesine **Yardım + Destek** düğmesine tıklayın ve ardından **yeni destek isteği**.
+4. Microsoft Desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesine **Yardım + Destek** düğmesine tıklayın ve ardından **yeni destek isteği**.
 
 ## <a name="general"></a>Genel
 * <a id="why-files-useful"></a>
@@ -126,7 +126,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
         |:----------------:|-----------|------------|
         | A | Arşiv | Yedekleme yazılımı tarafından dosya yedeklenmelidir gösterir. Bu öznitelik her zaman, dosyanın veya katmanlı tam diskte depolanan bağımsız olarak ayarlanır. |
         | P | Seyrek dosya | Dosyası seyrek dosya olduğunu gösterir. Disk akış dosyada çoğunlukla boş olduğunda seyrek dosya NTFS sunan dosyayı verimli kullanım için özel bir türde değil. Bir dosya katmanlı tamamen veya kısmen geri için azure dosya eşitleme seyrek dosyaları kullanır. Tam olarak katmanlı bir dosyada dosya akışı bulutta depolanır. Kısmen geri çekilen bir dosyada dosyasının bu bölümü diskte zaten var. Tam olarak dosyasıysa, diske geri, Azure dosya eşitleme seyrek dosyasından normal bir dosyaya dönüştürür. |
-        | L | Yeniden ayrıştırma noktası | Dosya ayrıştırma noktası olduğunu gösterir. Bir dosya sistemi Filtresi tarafından kullanılmak üzere özel bir işaretçi bir ayrıştırma noktasıdır. Azure dosya eşitleme yeniden ayrıştırma noktaları Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasının depolandığı bulut konumu tanımlamak için kullanır. Bu, kesintisiz erişimi destekler. Kullanıcılar Azure dosya eşitleme kullanılmakta olduğunu bilmeniz gereken olmaz veya Azure dosya paylaşımınıza dosyasında erişmek nasıl. Bir dosya tam olarak çağrılır, Azure dosya eşitleme yeniden ayrıştırma noktası dosyasından kaldırır. |
+        | Ç | Yeniden ayrıştırma noktası | Dosya ayrıştırma noktası olduğunu gösterir. Bir dosya sistemi Filtresi tarafından kullanılmak üzere özel bir işaretçi bir ayrıştırma noktasıdır. Azure dosya eşitleme yeniden ayrıştırma noktaları Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasının depolandığı bulut konumu tanımlamak için kullanır. Bu, kesintisiz erişimi destekler. Kullanıcılar Azure dosya eşitleme kullanılmakta olduğunu bilmeniz gereken olmaz veya Azure dosya paylaşımınıza dosyasında erişmek nasıl. Bir dosya tam olarak çağrılır, Azure dosya eşitleme yeniden ayrıştırma noktası dosyasından kaldırır. |
         | O | Çevrimdışı | Dosyanın içeriğini tümünün veya diske depolanmış olmayan gösterir. Bir dosya tam olarak çağrılır, Azure dosya eşitleme bu öznitelik kaldırır. |
 
         ![Ayrıntılar sekmesi seçili bir dosya için özellikleri iletişim kutusu](media/storage-files-faq/azure-file-sync-file-attributes.png)
@@ -229,10 +229,10 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 **Nasıl ı my yerel makinede bir Azure dosya paylaşımı bağlayabilir?**  
     Bağlantı noktası 445 (TCP Giden) açıksa ve (örneğin, Windows 10 veya Windows Server 2016 kullanıyorsanız), istemci SMB 3.0 protokolünü destekleyen SMB protokolünü kullanarak dosya paylaşımı bağlayabilir. Bağlantı noktası 445, ISS veya kuruluşunuzun İlkesi tarafından engellenirse, Azure dosya paylaşımına erişmek için Azure dosya eşitleme kullanabilirsiniz.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Yedekle
 * <a id="backup-share"></a>
 **I my Azure dosyasını yedekleyin nasıl paylaşma?**  
-    Kullanabileceğiniz düzenli [paylaşmak anlık görüntüleri](storage-snapshots-files.md) yanlışlıkla silmeleri karşı koruma için. AzCopy, Robocopy veya bir bağlı dosya paylaşımı yedekleyebilirsiniz bir üçüncü taraf yedekleme aracı de kullanabilirsiniz. 
+    Kullanabileceğiniz düzenli [paylaşmak anlık görüntüleri](storage-snapshots-files.md) yanlışlıkla silmeleri karşı koruma için. AzCopy, Robocopy veya bir bağlı dosya paylaşımı yedekleyebilirsiniz bir üçüncü taraf yedekleme aracı de kullanabilirsiniz. Azure dosyaları yedeğini Azure yedekleme sunar. Daha fazla bilgi edinmek [geri Azure dosya paylaşımları Azure yedekleme tarafından](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Paylaşım anlık görüntüler
 ### <a name="share-snapshots-general"></a>Paylaşma anlık görüntüler: Genel

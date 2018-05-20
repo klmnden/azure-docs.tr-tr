@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yedekleme Azure yığını için Yönetim Portalı'ndan etkinleştir
 Azure yığın yedeklemeleri oluşturabilmesi altyapı Yedekleme Hizmet Yönetim Portalı aracılığıyla etkinleştirin. Bulut kurtarma durumunda kullanarak ortamınızı geri yüklemek için bu yedeklemeler kullanabilirsiniz [geri dönülemez bir hataya](.\azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra işleçler ve kullanıcıları portalına geri oturum sağlamaktır. Kullanıcıların, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlanmış işlem, depolama ve ağ kotalar dahil olmak üzere geri aboneliği gerekir.
@@ -45,7 +45,7 @@ Yöneticiler ve kullanıcılar yedekleme ve Iaas ve PaaS kaynaklarına altyapı 
 3. Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihaz üzerinde barındırılan bir dosya paylaşımına yol için bir Evrensel Adlandırma Kuralı (UNC) dizesi kullanın. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Hizmet için bir IP adresi kullanabilirsiniz. Olağanüstü durum sonra yedek verilerin kullanılabilirliğini sağlamak için aygıt ayrı bir konumda olmalıdır.
     > [!Note]  
     > Ortamınızı Kurumsal ortamınıza ad çözümlemesi Azure yığın altyapı ağdan destekliyorsa, IP yerine bir FQDN kullanabilirsiniz.
-4. Tür **kullanıcıadı** etki alanı ve kullanıcı adı'nı kullanarak. Örneğin, `Contoso\administrator`.
+4. Tür **kullanıcıadı** kullanıcı adı ve etki alanı dosyaları okuma ve yazma için yeterli erişim ile kullanma. Örneğin, `Contoso\backupshareuser`.
 5. Tür **parola** kullanıcı için.
 5. Parolayı yeniden yazın **parolayı onayla**.
 6. Önceden paylaşılan bir anahtar sağlamak **şifreleme anahtarı** kutusu. Yedekleme dosyaları bu anahtar kullanılarak şifrelenmiş. Bu anahtarı güvenli bir yerde sakladığınızdan emin olun. Bu anahtar ilk kez ayarlama veya anahtarı gelecekte döndürme sonra bu anahtar bu arabirimden görüntüleyemezsiniz. Önceden paylaşılan anahtar oluşturmak daha fazla yönerge için komut dosyaları izleyin [PowerShell ile Azure yığınının yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 

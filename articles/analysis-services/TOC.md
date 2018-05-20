@@ -11,6 +11,7 @@
 ## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 
 # Kavramlar
+## [Hizmet sorumlularıyla otomasyon](analysis-services-service-principal.md)
 ## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 ## [Şirket içi veri kaynaklarına bağlanma](analysis-services-gateway.md)
 ## [Sunuculara bağlanma](analysis-services-connect.md)

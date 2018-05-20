@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/15/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 
@@ -82,7 +82,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 | [coğrafi geri yükleme](sql-database-recovery-using-backups.md#geo-restore) | Evet | COPY_ONLY Hayır – geri düzenli aralıklarla - ele tam yedeklemeler bkz [yedekleme farklar](sql-database-managed-instance-transact-sql-information.md#backup) ve [geri farklar](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Coğrafi çoğaltma](sql-database-geo-replication-overview.md) | Evet | Hayır |
 | [Grafik işleme](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Evet | Evet |
-| [Bellek içi iyileştirme](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Evet - [yalnızca Premium ve iş Critial katmanları](sql-database-in-memory.md) | Hayır |
+| [Bellek içi iyileştirme](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Evet - [yalnızca Premium ve iş kritik katmanları](sql-database-in-memory.md) | Hayır |
 | [JSON veri desteği](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Evet](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Evet](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Dil öğeleri](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Çoğu - ayrı ayrı öğeler bakın |  Evet - bkz [T-SQL farkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Bağlantılı sunucular](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır - bkz [esnek sorgu](sql-database-elastic-query-horizontal-partitioning.md) | Yalnızca SQL Server ve SQL veritabanı |

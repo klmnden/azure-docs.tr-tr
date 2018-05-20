@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Zscaler özel erişim (ZPA) | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Zscaler özel erişim (ZPA) arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Zscaler özel erişim (ZPA) | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Zscaler özel erişim (ZPA) arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ac65791e8d50d5e5da5d36adee14cd0e88a3da8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d5434c57a95e53e4fe37c33f3fe11585fc3177f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Öğretici: Azure Active Directory Tümleştirme ile Zscaler özel erişim (ZPA)
 
@@ -29,9 +29,9 @@ Zscaler özel erişim (ZPA) Azure AD ile tümleştirme ile aşağıdaki avantajl
 - Azure AD hesaplarına otomatik olarak Zscaler özel erişim (ZPA için) (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Zscaler özel erişim (ZPA ile) yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -77,7 +77,7 @@ Azure AD tümleştirilmesi, Zscaler özel erişim (ZPA) yapılandırmak için y�
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_001.png)
 
-5. Sonuçlar panelinde seçin **Zscaler özel erişim (ZPA)**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Zscaler özel erişim (ZPA)** ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_0001.png)
 
@@ -115,9 +115,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_01.png)
 
-    a. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+    a. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, türü:`https://samlsp.private.zscaler.com/auth/metadata`
+    b. İçinde **tanımlayıcısı** metin kutusuna, türü: `https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE] 
     > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Bu değerler gerçek oturum üzerinde URL ve tanımlayıcıdır ile güncelleştirmeniz gerekir. Burada URL benzersiz değeri tanımlayıcıda kullanmanızı öneririz. Kişi [Zscaler özel erişim (ZPA) destek ekibi](https://help.zscaler.com/zpa-submit-ticket) bu değerleri almak için.
@@ -191,7 +191,7 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın. 
+    d. **Oluştur**’a tıklayın. 
 
 
 
@@ -242,7 +242,7 @@ Erişim paneli Zscaler özel erişim (ZPA) parçasında tıklattığınızda, ot
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

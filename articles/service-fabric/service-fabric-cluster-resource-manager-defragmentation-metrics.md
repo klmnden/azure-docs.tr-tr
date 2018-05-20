@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric ölçümlerini birleştirilmesine | Microsoft Docs"
-description: "Birleştirme kullanarak veya Service Fabric ölçümlerini için bir strateji olarak sevk bir genel bakış"
+title: Azure Service Fabric ölçümlerini birleştirilmesine | Microsoft Docs
+description: Birleştirme kullanarak veya Service Fabric ölçümlerini için bir strateji olarak sevk bir genel bakış
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Ölçümleri ve Service Fabric yük birleştirme
 Kümedeki yük ölçümleri yönetmek için Service Fabric kümesi kaynak yöneticisinin varsayılan stratejisi yük dağıtmaktır. Düğümleri eşit olarak kullanıldığını sağlama Çekişme hem harcanan kaynaklar için yol sıcak ve soğuk noktalar önler. Küme iş yüklerini dağıtma de hata belirli bir iş yükü büyük bir yüzdesini almaz sağlar beri hataları sürdüren bakımından güvenlisidir. 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9b4f7f9a9c501204d48b738089dc3cbd015a744c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Yeni bir simülasyon cihazı oluşturun
 
@@ -90,7 +90,7 @@ Aşağıdaki videoda benzetimli ve gerçek cihazları Uzaktan izleme çözümün
 
 Bu öğreticiyi izleyin, gerekir:
 
-* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
+* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 * Visual Studio 2017. Visual Studio yüklü 2017 yoksa, ücretsiz indirebilirsiniz [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) sürümü.
 

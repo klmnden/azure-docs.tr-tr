@@ -1,9 +1,9 @@
 ---
-title: "Azure AD kimlik koruması ile karşılaştığında oturum açma | Microsoft Docs"
-description: "Kimlik koruması azaltıldığından veya bir kullanıcı düzeltilen veya çok faktörlü kimlik doğrulama İlkesi tarafından istendiğinde kullanıcı deneyimini genel bir bakış sağlar."
+title: Azure AD kimlik koruması ile karşılaştığında oturum açma | Microsoft Docs
+description: Kimlik koruması azaltıldığından veya bir kullanıcı düzeltilen veya çok faktörlü kimlik doğrulama İlkesi tarafından istendiğinde kullanıcı deneyimini genel bir bakış sağlar.
 services: active-directory
-keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
-documentationcenter: 
+keywords: Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Oturum açma deneyimlerini Azure AD kimlik koruması
 Azure Active Directory kimlik koruması ile şunları yapabilirsiniz:
@@ -49,10 +49,7 @@ Bu konu, oluşabilecek tüm durumlarda bir kullanıcının oturum açma deneyimi
 ## <a name="multi-factor-authentication-registration"></a>Çok faktörlü kimlik doğrulaması kayıt
 En iyi kullanıcı deneyimi, gizliliği tehlikeye giren hesap kurtarma akışı hem hem de riskli oturum açma akışını, kullanıcının kendi kendine kurtarabilirsiniz durumdur. Kullanıcılar için multi-Factor authentication kaydettiyseniz, zaten güvenlik tehditlerine geçirmek için kullanılan kendi hesabıyla ilişkili bir telefon numarası sahiptirler. Yardım masasına veya yöneticinize katılımı hesap bozulmayacak kurtarmak için gereklidir. Bu nedenle, çok faktörlü kimlik doğrulaması için kayıtlı kullanıcılarınızın almak için tavsiye. 
 
-Yöneticiler şunları yapabilir:
-
-* ek güvenlik doğrulaması hesaplarını ayarlamak kullanıcıların gerektiren bir ilke ayarlayın. 
-* yetkisiz kullanım süresi kaydetmeden önce bir kullanıcılara vermek istediğiniz durumda 30 güne kadar çok faktörlü kimlik doğrulaması kaydı atlanıyor izin verir.
+Yöneticiler, kullanıcılar hesaplarını ek güvenlik doğrulaması ayarlamak gerektiren bir ilke ayarlayabilir. Bu ilke kullanıcıların 14 gün boyunca çok faktörlü kimlik doğrulama seçeneğini atlayın olanak tanır. 14 günlük yetkisiz kullanım süresi yapılandırılabilir değildir.
 
 **Çok faktörlü kimlik doğrulaması kayıt üç adım vardır:**
 

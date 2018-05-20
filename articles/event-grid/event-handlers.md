@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01a49ec47b406b7b916ecad5ef9ccc3af295fac1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure olay kılavuzunda olay işleyicileri
 
@@ -24,7 +24,7 @@ Bu makalede her olay işleyicisi içeriğe bağlantılar sağlar.
 
 Otomatik runbook olayları işlemek için Azure Otomasyonu kullanın.
 
-|Başlık  |Açıklama  |
+|Unvan  |Açıklama  |
 |---------|---------|
 |[Azure Otomasyonu olay kılavuz ve Microsoft ekipleri ile tümleştirme](ensure-tags-exists-on-new-virtual-machines.md) |Bir olay gönderen bir sanal makine, oluşturun. Sanal Makine etiketleri ve bir Microsoft Teams kanalına gönderilen bir ileti tetikleyen bir Otomasyon runbook'u olay tetiklenir. |
 
@@ -32,7 +32,7 @@ Otomatik runbook olayları işlemek için Azure Otomasyonu kullanın.
 
 Azure işlevleri sunucusuz olaylarına yanıt olarak kullanın.
 
-|Başlık  |Açıklama  |
+|Unvan  |Açıklama  |
 |---------|---------|
 | [Azure işlevleri için olay kılavuz tetikleyici](../azure-functions/functions-bindings-event-grid.md) | Olay kılavuz tetikleyici işlevler kullanılarak genel bakış. |
 | [Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme](resize-images-on-storage-blob-upload-event.md) | Kullanıcılar web uygulaması aracılığıyla görüntüleri depolama hesabına yükleyin. Depolama blobu oluşturulduğunda, olay kılavuz karşıya yüklenen resmi yeniden boyutlandırır işlev uygulaması için bir olay gönderir. |
@@ -43,7 +43,7 @@ Azure işlevleri sunucusuz olaylarına yanıt olarak kullanın.
 
 Bir kurumsal ağ içinde ve genel olarak erişilebilen bir uç nokta yok uygulamalara olayları göndermek için Azure geçişi karma bağlantıları kullanın.
 
-|Başlık  |Açıklama  |
+|Unvan  |Açıklama  |
 |---------|---------|
 | [Karma bağlantı olayları göndermek](custom-event-to-hybrid-connection.md) | Dinleyici uygulama tarafından işlenmesi için mevcut bir karma bağlantıyı için özel bir olay gönderir. |
 
@@ -51,7 +51,7 @@ Bir kurumsal ağ içinde ve genel olarak erişilebilen bir uç nokta yok uygulam
 
 Logic Apps olaylara yanıt verme için iş süreçlerini otomatikleştirmek için kullanın.
 
-|Başlık  |Açıklama  |
+|Unvan  |Açıklama  |
 |---------|---------|
 | [Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme](monitor-virtual-machine-changes-event-grid-logic-app.md) | Bir mantıksal uygulama, bir sanal makine yapılan değişiklikleri izler ve bu değişiklikleri hakkında e-posta gönderir. |
 | [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönder](publish-iot-hub-events-to-logic-apps.md) | Bir cihaz IOT hub'ınıza eklenen her zaman bir mantıksal uygulama bildirim e-posta gönderir. |
@@ -61,7 +61,7 @@ Logic Apps olaylara yanıt verme için iş süreçlerini otomatikleştirmek içi
 
 Kuyruk depolama çekebilir gerek olaylarını almak için kullanın.
 
-|Başlık  |Açıklama  |
+|Unvan  |Açıklama  |
 |---------|---------|
 | [Azure CLI ve olay kılavuz Azure kuyruk depolamaya için rota özel olaylar](custom-event-to-queue-storage.md) | Özel olaylar için bir kuyruk depolama göndermeyi açıklar. |
 
@@ -69,7 +69,7 @@ Kuyruk depolama çekebilir gerek olaylarını almak için kullanın.
 
 Olaylara yanıt özelleştirilebilir uç noktaları için Web kancası kullanın.
 
-|Başlık  |Açıklama  |
+|Unvan  |Açıklama  |
 |---------|---------|
 | [Bir HTTP uç noktası olayları alma](receive-events.md) | Bir olay abonelikten olaylarını almak ve almak ve olayları serisini kaldırmak için bir HTTP uç noktası doğrulamak açıklar. |
 

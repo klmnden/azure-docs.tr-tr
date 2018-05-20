@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Sanal makine disk depolama alanı hazırla Azure yığınında
 
@@ -65,19 +65,19 @@ Eklediğiniz her yönetilmeyen disk ayrı bir kapsayıcıda moduna geçirmelisin
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Oluşturun ve yeni bir veri diskini üzere portalı kullanın
 
-1.  Portalı'nda tıklatın **sanal makineleri**.    
+1.  Portalı'nda seçin **sanal makineleri**.    
     ![Örnek: VM Panosu](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Daha önce sağlanan bir sanal makineyi seçin.   
     ![Örnek: VM panosunda seçin.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Sanal makine için tıklatın **diskleri** > **Attach yeni**.       
+3.  Sanal makine için seçin **diskleri** > **Attach yeni**.       
     ![Örnek: yeni bir disk VM'e ekleyin.](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  İçinde **Attach yeni disk** bölmesinde tıklatın **konumu**. Varsayılan olarak, işletim sistemi diski tutan kapsayıcıya konum ayarlanır.      
+4.  İçinde **Attach yeni disk** bölmesinde, **konumu**. Varsayılan olarak, işletim sistemi diski tutan kapsayıcıya konum ayarlanır.      
     ![Örnek: disk konumu ayarlayın](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Seçin **depolama hesabı** kullanmak için. Ardından, **kapsayıcı** veri diski yerleştirmek istediğiniz. Gelen **kapsayıcıları** sayfasında, oluşturabileceğiniz yeni bir kapsayıcı istiyorsanız. Daha sonra kendi kapsayıcıya yeni disk konumunu değiştirebilirsiniz. Her disk için ayrı bir kapsayıcı kullandığınızda, performansı geliştirebilir veri diski yerleşimini dağıtın. Tıklatın **seçin** seçimi kaydetmek için.     
+5.  Seçin **depolama hesabı** kullanmak için. Ardından, **kapsayıcı** veri diski yerleştirmek istediğiniz. Gelen **kapsayıcıları** sayfasında, oluşturabileceğiniz yeni bir kapsayıcı istiyorsanız. Daha sonra kendi kapsayıcıya yeni disk konumunu değiştirebilirsiniz. Her disk için ayrı bir kapsayıcı kullandığınızda, performansı geliştirebilir veri diski yerleşimini dağıtın. Seçin **seçin** seçimi kaydetmek için.     
     ![Örnek: bir kapsayıcı seçin](media/azure-stack-manage-vm-disks/select-container.png)
 
 6.  İçinde **Attach yeni disk** sayfasında, güncelleştirme **adı**, **türü**, **boyutu**, ve **ana bilgisayar önbelleğe alma** ayarları disk. Ardından **Tamam** VM için yeni disk yapılandırmasını kaydetmek için.  
@@ -94,19 +94,19 @@ Eklediğiniz her yönetilmeyen disk ayrı bir kapsayıcıda moduna geçirmelisin
   İşletim sistemi diski tutan kapsayıcı daha .vhd dosyası tutmak için farklı bir kapsayıcı kullanmayı planlayın.   
   ![Örnek: bir VHD dosyasını karşıya yükleyin](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  .Vhd dosyasını karşıya yüklendikten sonra VHD'yi VM'e hazırsınız. Soldaki menüde tıklatın **sanal makineleri**.  
+2.  .Vhd dosyasını karşıya yüklendikten sonra VHD'yi VM'e hazırsınız. Soldaki menüde seçin **sanal makineleri**.  
  ![Örnek: VM panosunda seçin.](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Listeden sanal makineyi seçin.    
+3.  Sanal makine listeden seçin.    
   ![Örnek: VM panosunda seçin.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Sanal makine için sayfada tıklatın **diskleri** > **Attach varolan**.   
+4.  Sanal makine için sayfasında seçin **diskleri** > **Attach varolan**.   
   ![Örnek: var olan bir diski kullanıma açın](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
 5.  İçinde **varolan bir diski İlişti** sayfasında, **VHD dosyasını**. **Depolama hesapları** sayfası açılır.    
   ![Örnek: bir VHD dosyasını seçin](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Altında **depolama hesapları**, kullanılacak hesabı seçin ve ardından daha önce karşıya .vhd dosyası tutan bir kapsayıcı seçin. .Vhd dosyasını seçin ve ardından **seçin** seçimi kaydetmek için.    
+6.  Altında **depolama hesapları**kullanılacak hesabı seçin ve ardından daha önce karşıya .vhd dosyası tutan bir kapsayıcı seçin. .Vhd dosyasını seçin ve ardından **seçin** seçimi kaydetmek için.    
   ![Örnek: bir kapsayıcı seçin](media/azure-stack-manage-vm-disks/select-container2.png)
 
 7.  Altında **varolan bir diski İlişti**, seçtiğiniz dosya altında listelenen **VHD dosyasını**. Güncelleştirme **ana bilgisayar önbelleğe alma** disk ayarlama ve ardından **Tamam** VM için yeni disk yapılandırmasını kaydetmek için.    

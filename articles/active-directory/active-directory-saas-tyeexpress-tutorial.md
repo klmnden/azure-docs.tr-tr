@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: T & E Express Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve T & E Express arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: T & E Express Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve T & E Express arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 09ce6851013e05859572bd00215a9f751db4ca53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8d3980b6169c8a9fc60c04e527814159082a46e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Öğretici: T & E Express Azure Active Directory Tümleştirme
 
@@ -29,9 +29,9 @@ T & E Express Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak T & E Express (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 T & E Express ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. İçinde **tanımlayıcısı** metin değeri olarak yazın:`https://<domain>.tyeexpress.com`
+    a. İçinde **tanımlayıcısı** metin değeri olarak yazın: `https://<domain>.tyeexpress.com`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
     > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirmeniz gerekir. Burada dizesinin benzersiz değeri tanımlayıcıda kullanmanızı öneririz. Kişi [T & E Express desteğini takım](http://www.tyeexpress.com/contacto.aspx) bu değerleri almak için.
@@ -167,7 +167,7 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-te-express-test-user"></a>T & E Express test kullanıcısı oluşturma
 
@@ -182,7 +182,7 @@ T & E Express durumunda, sağlama el ile bir görevdir.
 
     ![Çalışanı ekleyin](./media/active-directory-saas-tyeexpress-tutorial/tye-adminusers.png)
 
-3. Giriş sayfasında tıklayın  **+**  kullanıcıları eklemek için.
+3. Giriş sayfasında tıklayın **+** kullanıcıları eklemek için.
 
     ![Çalışanı ekleyin](./media/active-directory-saas-tyeexpress-tutorial/tye-usershome.png)
 
@@ -232,7 +232,7 @@ Erişim paneli T & E Express parçasında tıklattığınızda, otomatik olarak 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

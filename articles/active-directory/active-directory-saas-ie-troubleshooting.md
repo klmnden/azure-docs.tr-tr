@@ -1,11 +1,11 @@
 ---
-title: "Azure erişim paneli uzantısı için IE sorunlarını giderme | Microsoft Docs"
-description: "My uygulamaları portal için Internet Explorer eklentisi dağıtmak için Grup İlkesi kullanma"
+title: Azure erişim paneli uzantısı için IE sorunlarını giderme | Microsoft Docs
+description: My uygulamaları portal için Internet Explorer eklentisi dağıtmak için Grup İlkesi kullanma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Erişim paneli uzantısı Internet Explorer için sorun giderme
 Bu makalede aşağıdaki sorunları gidermenize yardımcı olur:
@@ -92,6 +92,6 @@ Uzantı kaldırma sorunlarla karşılaşırsanız, ayrıca kullanarak kaldırabi
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md)
 * [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma](active-directory-saas-ie-group-policy.md)
 

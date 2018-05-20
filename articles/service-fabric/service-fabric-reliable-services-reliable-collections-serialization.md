@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric güvenilir koleksiyon nesnesi serileştirmede | Microsoft Docs"
-description: "Azure Service Fabric güvenilir koleksiyonları nesne seri hale getirme"
+title: Azure Service Fabric güvenilir koleksiyon nesnesi serileştirmede | Microsoft Docs
+description: Azure Service Fabric güvenilir koleksiyonları nesne seri hale getirme
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -9,16 +9,16 @@ editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b02d8924749abb0e2fe815b555d55767bf1e5cc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric güvenilir koleksiyon nesnesi serileştirmede
 Güvenilir koleksiyonları çoğaltmak ve makine hataları ve güç kesintileri arasında dayanıklı olduklarından emin olmak için kendi öğeleri kalır.
@@ -45,7 +45,7 @@ Güvenilir durum Yöneticisi aşağıdaki türleri için yerleşik seri hale get
 - float
 - Int
 - uint
-- uzun
+- boylam
 - ulong
 - kısa
 - ushort
@@ -54,7 +54,7 @@ Güvenilir durum Yöneticisi aşağıdaki türleri için yerleşik seri hale get
 
 Özel serileştiricileri, performansı artırmak için veya kablo üzerinden ve diskteki verileri şifrelemek için yaygın olarak kullanılır. Türü hakkında bilgi serileştirmek gerekmeyen beri diğer nedenlerin yanı sıra özel serileştiricileri genel seri hale getirici yaygın olarak daha verimlidir. 
 
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) is used to register a custom serializer for the given type T. This registration should happen in the construction of the StatefulServiceBase to ensure that before recovery starts, all Reliable Collections have access to the relevant serializer to read their persisted data.
+[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) T. belirtilen tür için özel bir seri hale getirici kaydetmek için kullanılır Bu kayıt kurtarma başlamadan önce tüm güvenilir koleksiyonları kalıcı verilerini okumak için ilgili seri hale getirici erişiminiz olduğundan emin olmak için StatefulServiceBase yapımı gerçekleşmelidir.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)

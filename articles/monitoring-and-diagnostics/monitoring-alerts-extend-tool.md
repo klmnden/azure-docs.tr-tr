@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Azure'a OMS (kopya) uyarıları genişletme
 Başlangıç **14 Mayıs 2018**, yapılandırılan uyarıları aracılığıyla tüm müşterilere [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), Azure'da uzatılır. Azure için genişletilmiş uyarıları OMS aynı şekilde davranır. İzleme yeteneklerini değişmeden kalır. Azure için OMS oluşturulan uyarıların genişletme birçok avantaj sağlar. Avantajları ve Uyarılar için Azure OMS genişletme işlemi hakkında daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure'a](monitoring-alerts-extend.md).
+
+> [!NOTE]
+> 14 Mayıs 2018 - başlangıç Microsoft Azure için uyarıları otomatik olarak genişletme işlemi başlayacak. Tüm çalışma alanları ve Uyarıları bu günde uzatılır; Bunun yerine Microsoft tranches otomatik olarak uyarıları gelecek haftalarda genişletmek başlar. Bu nedenle uyarılarınızı OMS portalında otomatik-Azure'da hemen 14 Mayıs 2018 üzerinde uzatır değil ve kullanıcının aşağıdaki seçenekleri ayrıntıları kullanarak uyarılarını yine de el ile genişletebilirsiniz.
 
 Azure'a OMS uyarılarını hemen taşımak isteyen müşteriler yapabilirsiniz belirtildiği seçeneklerden birini kullanarak.
 

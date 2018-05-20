@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile TalentLMS | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile TalentLMS arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile TalentLMS | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile TalentLMS arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 171457617c23f2c0ff761f7ae1e78dcf152cd0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c81d3e01170b2d134f83551911f9fcbd6e5f6e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Öğretici: Azure Active Directory Tümleştirme TalentLMS ile
 
@@ -29,9 +29,9 @@ TalentLMS Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için TalentLMS (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme TalentLMS ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<tenant-name>.TalentLMSapp.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenant-name>.TalentLMSapp.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`http://<tenant-name>.talentlms.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `http://<tenant-name>.talentlms.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [TalentLMS istemci destek ekibi](https://www.talentlms.com/contact) bu değerleri almak için. 
@@ -153,15 +153,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     f. Aşağıdakileri doldurun: 
 
-    * İçinde **TargetedID** metin kutusuna, türü`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+    * İçinde **TargetedID** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
      
-    * İçinde **ad** metin kutusuna, türü`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    * İçinde **ad** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
     
-    * İçinde **Soyadı** metin kutusuna, türü`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    * İçinde **Soyadı** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
     
-    * İçinde **e-posta** metin kutusuna, türü`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    * İçinde **e-posta** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
     
-11. **Kaydet** düğmesine tıklayın.
+11. **Kaydet**’e tıklayın.
  
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -196,7 +196,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-talentlms-test-user"></a>TalentLMS test kullanıcısı oluşturma
 
@@ -216,7 +216,7 @@ Azure AD kullanıcıları için TalentLMS oturum açmak etkinleştirmek için bu
 
     b. İçinde **Soyadı** metin kutusuna, son kullanıcı gibi adını **Simon**.
  
-    c. İçinde **e-posta adresi** metin kutusuna, bir kullanıcı gibi e-posta girin  **brittasimon@contoso.com** .
+    c. İçinde **e-posta adresi** metin kutusuna, bir kullanıcı gibi e-posta girin **brittasimon@contoso.com**.
 
     d. Tıklatın **kullanıcı ekleme**.
 
@@ -263,7 +263,7 @@ Erişim paneli TalentLMS parçasında tıklattığınızda, otomatik olarak Tale
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

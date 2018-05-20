@@ -1,6 +1,6 @@
 ---
-title: "Güvenilir Azure mikro yapılandırma | Microsoft Docs"
-description: "Durum bilgisi olan güvenilir hizmetler Azure Service Fabric yapılandırma hakkında bilgi edinin."
+title: Güvenilir Azure mikro yapılandırma | Microsoft Docs
+description: Durum bilgisi olan güvenilir hizmetler Azure Service Fabric yapılandırma hakkında bilgi edinin.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-stateful-reliable-services"></a>Durum bilgisi olan güvenilir hizmetler yapılandırın
 Güvenilir hizmetler için yapılandırma ayarlarını iki kümesi vardır. Diğer küme belirli bir güvenilir hizmete özgü olsa da bir kümedeki tüm güvenilir hizmetler için genel kümesidir.
@@ -27,7 +27,7 @@ Güvenilir hizmetler için yapılandırma ayarlarını iki kümesi vardır. Diğ
 Genel güvenilir hizmet yapılandırmasını KtlLogger bölümünde küme için küme bildiriminde belirtilir. Paylaşılan günlük konumunu ve boyutunu ve Günlükçü tarafından kullanılan genel bellek sınırları yapılandırmanızı sağlar. Küme bildirimi ayarları ve tüm düğümleri ve küme Hizmetleri'nde geçerli yapılandırmaları tutan tek bir XML dosyasıdır. Dosya genellikle ClusterManifest.xml çağrılır. Küme görebilirsiniz Get-ServiceFabricClusterManifest powershell komutunu kullanarak, kümeniz için bildirim.
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| Ad | Birim | Varsayılan değer | Açıklamalar |
+| name | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobayt |8388608 |Çekirdek modunda Günlükçü yazma arabelleği bellek havuzu için ayrılacak KB minimum sayısı. Bu bellek havuzundaki durum bilgilerini diske yazma önce önbelleğe almak için kullanılır. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobayt |Sınırsız |Günlükçü yazma arabelleği bellek havuzundaki en büyük boyutu büyüyebilir. |
@@ -103,7 +103,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| Ad | Birim | Varsayılan değer | Açıklamalar |
+| name | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
 | ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için bir hizmet bildirimi uç noktası kaynakları tanımlama hakkında. |

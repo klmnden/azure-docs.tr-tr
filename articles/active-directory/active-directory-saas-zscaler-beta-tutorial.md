@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Zscaler Beta ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Zscaler Beta arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Zscaler Beta ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Zscaler Beta arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 01e76ba6e89fd04fb48e7eb2a3965b2928ba72ff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd53b00726681571a04356303607915a127a2e9e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Öğretici: Azure Active Directory Tümleştirme Zscaler Beta ile
 
@@ -29,9 +29,9 @@ Zscaler Beta Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak Zscaler Beta (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Zscaler Beta ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -162,7 +162,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Yönetim](./media/active-directory-saas-zscaler-beta-tutorial/ic800210.png "Yönetim")
     
-    a. **Kaydet** düğmesine tıklayın.
+    a. **Kaydet**’e tıklayın.
 
     b. Tıklatın **şimdi etkinleştirmek**.
 
@@ -230,7 +230,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-zscaler-beta-test-user"></a>Zscaler Beta test kullanıcısı oluşturma
 
@@ -258,7 +258,7 @@ Azure AD kullanıcılarının Zscaler Beta oturum açmayı etkinleştirmek için
    
     a. Türü **UserID**, **kullanıcı görünen adı**, **parola**, **parolayı onayla**ve ardından **grupları** ve **departmanı** geçerli bir Azure AD hesabının sağlamak istediğiniz.
 
-    b. **Kaydet** düğmesine tıklayın.
+    b. **Kaydet**’e tıklayın.
 
 > [!NOTE]
 > Azure AD kullanıcı hesaplarını sağlamak için herhangi bir Zscaler Beta kullanıcı hesabı oluşturma araçlarını veya Zscaler Beta tarafından sağlanan API'leri kullanabilirsiniz.
@@ -303,7 +303,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

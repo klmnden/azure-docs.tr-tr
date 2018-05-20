@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Bulutta BC Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile BC arasında bulutta yapılandırmayı öğrenin."
+title: 'Öğretici: Bulutta BC Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile BC arasında bulutta yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/1/2017
 ms.author: jeedes
-ms.openlocfilehash: 97cbd4c88746500f1783f573478d279873d42f87
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89c6aea65bb6ee812ec14cb8cc2334eb49686cd4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Öğretici: Bulutta BC Azure Active Directory Tümleştirme
 
@@ -29,9 +29,9 @@ Azure AD ile bulutta BC tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak BC için Azure AD hesaplarına sahip (çoklu oturum açma) bulutta açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme BC ile bulutta yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-bcinthecloud-tutorial/tutorial_bcinthecloud_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://app.bcinthecloud.com/router/loginSaml/<customerid>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://app.bcinthecloud.com/router/loginSaml/<customerid>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://app.bcinthecloud.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://app.bcinthecloud.com`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [BC bulut istemci destek ekibi](https://www.bcinthecloud.com/supportcenter/) bu değeri alınamıyor. 
@@ -160,7 +160,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-bc-in-the-cloud-test-user"></a>Bir BC bulut test kullanıcısı oluşturma
 
@@ -205,7 +205,7 @@ Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandı
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, engellemenize, algılamanıza ve Artırılmış görünürlük aracılığıyla tehditleri Microsoft Azure kaynaklarınızın güvenliğini denetlemenize yanıtlamanıza yardımcı olan bir hizmeti ile ilgili sorular yanıtlanmaktadır.
@@ -35,7 +35,7 @@ Azure Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditle
 ### <a name="how-do-i-get-azure-security-center"></a>Azure Güvenlik Merkezi nasıl sağlarım?
 Azure Güvenlik Merkezi, Microsoft Azure aboneliğiniz ile etkin ve erişilen [Azure portal](https://azure.microsoft.com/features/azure-portal/). ([Portalı oturum açma](https://portal.azure.com)seçin **Gözat**ve kaydırma **Güvenlik Merkezi**).  
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Fatura
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure Güvenlik Merkezi için fatura iş nasıl yapar?
 Güvenlik Merkezi iki katmanı sunulur:
 
@@ -51,16 +51,18 @@ Güvenlik Merkezi güvenlik sorunları ve güvenlik açıklarını tanımlamak i
 Bkz: [izinleri Azure Güvenlik Merkezi'nde](security-center-permissions.md) rolleri ve Güvenlik Merkezi'nde izin verilen eylemleri hakkında daha fazla bilgi için.
 
 ## <a name="data-collection"></a>Veri toplama
-Güvenlik Merkezi güvenlik durumlarına değerlendirmek, güvenlik önerileri sağlamak ve tehditlere karşı sizi uyarmak için sanal makinelerinizi veri toplar. Güvenlik Merkezi ilk eriştiğinizde, veri toplama, aboneliğinizin tüm sanal makinelerin etkinleştirilir. Güvenlik Merkezi İlkesi'nde veri toplamayı de etkinleştirebilirsiniz.
+Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve güvenlik açıkları ve tehditleri izlemek üzere Azure olmayan bilgisayarları veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır.
 
 ### <a name="how-do-i-disable-data-collection"></a>Veri toplama nasıl devre dışı bırakabilirim?
-Azure Güvenlik Merkezi ücretsiz katmanı kullanıyorsanız, sanal makinelerden veri toplamayı dilediğiniz zaman devre dışı bırakabilirsiniz. Veri toplama standart katman abonelikler için gereklidir. Veri koleksiyonu Güvenlik İlkesi'nde bir abonelik için devre dışı bırakabilirsiniz. ([Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **İlkesi**.)  Bir abonelik seçtiğinizde, yeni bir dikey pencere açılır ve devre dışı bırakma seçeneği sağlar **veri toplama**.
+Otomatik sağlama varsayılan olarak kapalıdır. Otomatik kaynaklardan herhangi bir zamanda Güvenlik İlkesi'nde bu ayarı devre dışı bırakarak sağlamayı devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve endpoint protection hakkında öneriler alabilmek için önerilir.
+
+Veri koleksiyonunu devre dışı bırakmak için [Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **seçin İlkesi**. Otomatik sağlamayı hangi abonelik için devre dışı bırakmak istediğinizi belirtin. Bir abonelik seçtiğinizde **güvenlik ilkesi - veri toplama** açar. Altında **otomatik sağlama**seçin **devre dışı**.
 
 ### <a name="how-do-i-enable-data-collection"></a>Veri toplama nasıl etkinleştirebilirim?
-Güvenlik İlkesi, Azure aboneliğinizde veri koleksiyonunu etkinleştirebilirsiniz. Veri toplamayı etkinleştirmek için. [Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **İlkesi**. Ayarlama **veri toplama** için **üzerinde**.
+Güvenlik İlkesi, Azure aboneliğinizde veri koleksiyonunu etkinleştirebilirsiniz. Veri toplamayı etkinleştirmek için. [Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **Güvenlik İlkesi**. Otomatik sağlamayı etkinleştirmek istediğiniz aboneliği seçin. Bir abonelik seçtiğinizde **güvenlik ilkesi - veri toplama** açar. Altında **otomatik sağlama**seçin **üzerinde**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Veri toplama etkin olduğunda ne olur?
-Veri toplama etkin olduğunda, tüm var olan Microsoft Monitoring Agent otomatik olarak sağlanır ve desteklenen herhangi bir yeni dağıtılan sanal makineler abonelikte.
+Otomatik sağlama etkinleştirilmişse, Güvenlik Merkezi sağlarken Microsoft Monitoring Agent tüm Azure Vm'leri ve oluşturulan yeni bir tane desteklenir. Otomatik sağlama önerilir ancak el ile aracı yükleme da kullanılabilir. [Microsoft Monitoring Agent uzantısı yüklemeyi öğrenin](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 İşlem oluşturma olayı 4688 aracının verir ve *CommandLine* olay 4688 içinde alan. VM üzerinde oluşturulan yeni işlemleri tarafından olay günlüğüne kaydedilir ve Güvenlik Merkezi algılama hizmetleri tarafından izlenen. Her yeni işlem için kayıtlı ayrıntıları hakkında bilgi için bkz: [4688 açıklama alanlarında](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Aracı ayrıca VM üzerinde oluşturulan 4688 olayları toplar ve bunları aramada depolar.
 
@@ -116,11 +118,11 @@ Azure Güvenlik Merkezi aşağıdaki Azure kaynakları izler:
 * Sanal makineler (VM'ler) (dahil olmak üzere [bulut Hizmetleri](../cloud-services/cloud-services-choose-me.md))
 * Azure Sanal Ağları
 * Azure SQL Hizmeti
-* Azure Storage hesabı
+* Azure Depolama hesabı
 * Azure Web uygulamaları (içinde [uygulama hizmeti ortamı](../app-service/environment/intro.md))
 * Bir web uygulaması güvenlik duvarı sanal makineleri ve uygulama hizmeti ortamı gibi Azure aboneliğinizle tümleşik iş ortağı çözümleri
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Sanal Makineler
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Sanal makineler ne tür destekleniyor mu?
 İzleme ve öneriler her ikisini de kullanarak oluşturulan sanal makineleri için (VM'ler) kullanılabilir [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md).
 

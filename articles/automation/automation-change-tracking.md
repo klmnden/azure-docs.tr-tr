@@ -7,14 +7,14 @@ ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.openlocfilehash: 0ab2631b8a6c9bb2ec8804717d9a3aef4376e2a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki Değişiklikleri İzle
 
@@ -48,10 +48,10 @@ Dosya izleme Linux bilgisayarlarda yapılandırmak için aşağıdaki adımları
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayar uygulanmış olup olmadığını belirler.        |
+|Etkinleştirildi     | Ayar uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenmesi gereken dosyasının kolay adı.        |
-|Grup     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
-|Yolu Gir     | Dosya için denetlenecek yol. Örneğin: "/etc/*.conf"       |
+|Gruplandır     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
+|Yolu Girin     | Dosya için denetlenecek yol. Örneğin: "/etc/*.conf"       |
 |Yol Türü     | İzlenen, olası değerler öğesi türü: dosya ve dizin.        |
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
@@ -70,10 +70,10 @@ Windows bilgisayarlarda izleme dosyaları yapılandırmak için aşağıdaki ad�
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayar uygulanmış olup olmadığını belirler.        |
+|Etkinleştirildi     | Ayar uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenmesi gereken dosyasının kolay adı.        |
-|Grup     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
-|Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
+|Gruplandır     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
+|Yolu Girin     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Windows kayıt defteri anahtarlarını izlemek için
 
@@ -85,9 +85,9 @@ Windows bilgisayarlarda kayıt defteri anahtarı izleme yapılandırmak için a�
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayar uygulanmış olup olmadığını belirler.        |
+|Etkinleştirildi     | Ayar uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenmesi gereken dosyasının kolay adı.        |
-|Grup     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
+|Gruplandır     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
 |Windows Kayıt Defteri Anahtarı   | Dosya için denetlenecek yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Kabuk Folders\Common Başlangıç"      |
 
 ## <a name="limitations"></a>Sınırlamalar

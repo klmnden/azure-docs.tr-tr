@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile OpenAthens | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile OpenAthens arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile OpenAthens | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile OpenAthens arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Öğretici: Azure Active Directory Tümleştirme OpenAthens ile
 
@@ -30,9 +30,9 @@ OpenAthens Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Kullanıcılarınız için OpenAthens (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak oturum açmaya etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda--Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme OpenAthens ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -214,7 +214,7 @@ Bu bölümde, Britta OpenAthens için kendi erişim vererek, Azure çoklu oturum
 
 7. Seçin **atamak** düğmesini **eklemek atama** bölmesi.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
@@ -224,7 +224,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticilerin bir listesi için bkz: [Azure AD ile kullanmak için SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md).
-* Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+* Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

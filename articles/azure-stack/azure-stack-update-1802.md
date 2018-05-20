@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -115,8 +115,6 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 - Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu sorunun nedeni yanlış başarılı olarak bildirilmesini güncelleştirme neden güncelleştirmenin yüklenmesi sırasında bir hata var. Bu sorun devam ederse, Yardım için Microsoft Müşteri Destek Hizmetleri'ne başvurun.
 
 - Boş bir portal panosunda görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
-
-- Bir kaynak veya kaynak grubunun özelliklerini görüntülediğinizde **taşıma** düğmesi devre dışıdır. Bu davranış beklenir. Kaynaklar veya kaynak grupları, kaynak grupları veya abonelikler arasında taşıma şu anda desteklenmiyor.
 
 - Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
 
@@ -262,6 +260,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 
 - Yalnızca kaynak sağlayıcısı, o ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeleri eşleşmeyen bir duruma neden olabilir.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Azure yığın 1802 güncelleştirdikten sonra daha önce dağıtmış SQL ve MySQL kaynak sağlayıcıları kullanmaya devam edebilirsiniz.  Yeni bir sürüm kullanılabilir olduğunda SQL ve MySQL güncelleştirme öneririz. Azure yığın gibi güncelleştirmeleri sırayla SQL ve MySQL kaynak sağlayıcıları için geçerlidir.  Örneğin, 1710 sürümünü kullanıyorsanız, önce sürüm 1711 sonra 1712 uygulayın ve ardından 1802 için güncelleştirin.      
@@ -292,7 +291,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 Azure yığın 1802 güncelleştirme paketinden indirebilirsiniz [burada](https://aka.ms/azurestackupdatedownload).
 
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Ek bilgiler
 Microsoft, izlemek ve ayrıcalıklı uç noktası (güncelleştirme 1710 ile yüklü CESARETLENDİRİCİ) kullanarak güncelleştirmeleri sürdürmek için bir yol sağlamıştır.
 
 - Bkz: [izlemek Azure ayrıcalıklı endpoint belgelerini kullanarak yığınında güncelleştirmeleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).

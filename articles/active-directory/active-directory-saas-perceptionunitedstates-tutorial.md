@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile algısına Amerika Birleşik Devletleri (Non-UltiPro) arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile algısına Amerika Birleşik Devletleri (Non-UltiPro) arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d94d233a12e51bf851a791fda481b91c513d64b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da0529897bb02745a2346f6a0282be86923468ba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Öğretici: Azure Active Directory Tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) ile
 
@@ -30,9 +30,9 @@ Algısına Amerika Birleşik Devletleri (Non-UltiPro) Azure AD ile tümleştirme
 - Otomatik olarak algısına Amerika Birleşik Devletleri (Non-UltiPro) (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -70,7 +70,7 @@ Azure AD ile tümleştirme, algısına Amerika Birleşik Devletleri (Non-UltiPro
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **algısına Amerika Birleşik Devletleri (Non-UltiPro)**seçin **algısına Amerika Birleşik Devletleri (Non-UltiPro)** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **algısına Amerika Birleşik Devletleri (Non-UltiPro)** seçin **algısına Amerika Birleşik Devletleri (Non-UltiPro)** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
     ![Sonuçlar listesinde algısına Amerika Birleşik Devletleri (Non-UltiPro)](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Algısına Amerika Birleşik Devletleri (UltiPro olmayan) etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://perception.kanjoya.com/sp`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://perception.kanjoya.com/sp`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     > [!NOTE] 
     > Değer gerçek değil. Değer, gerçek yanıt, öğreticide daha sonra açıklanan URL ile güncelleştirir.
@@ -163,7 +163,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     c. İçinde **kimlik sağlayıcı adı** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan. 
 
-    d. İçinde **SAML etki alanı metin kutusu**, etki alanı gibi girin  **@contoso.com** .
+    d. İçinde **SAML etki alanı metin kutusu**, etki alanı gibi girin **@contoso.com**.
 
     e. Tıklayın **yeniden karşıya** karşıya yüklemek için **meta veri XML** dosya.
 
@@ -203,7 +203,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Algısına Amerika Birleşik Devletleri (Non-UltiPro) test kullanıcısı oluşturma
 
@@ -239,7 +239,7 @@ Bu bölümde, Britta algısına Amerika Birleşik Devletleri (Non-UltiPro) eriş
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -249,7 +249,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

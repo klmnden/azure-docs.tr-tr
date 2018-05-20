@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi'ni kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Automation ile iletişimi yapılandırmak açıklar ve günlük doğrudan olduğunda OMS ağ geçidini kullanma analizi bağlı veya izlenen Operations Manager bilgisayarları Internet erişimine sahip değildir.  OMS HTTP BAĞLAMAK komutunu kullanarak HTTP tüneli destekleyen bir HTTP iletme proxy ağ geçidi, veri toplamak ve onların adına Azure Automation ve günlük analizi gönderebilirsiniz.  
@@ -131,20 +131,18 @@ Ağ geçidi Ağ Yükü Dengeleme (NLB Microsoft Ağ Yükü Dengeleme (NLB) veya 
 
 Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakkında bilgi edinmek için [Ağ Yükü Dengeleme](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Aşağıdaki adımlar, Microsoft Ağ Yükü Dengeleme kümesini yapılandırın açıklar.  
 
-1.  Bir yönetici hesabı ile NLB kümesinin bir üyesi olan Windows sunucuya oturum açın.  
-2.  Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
+1. Bir yönetici hesabı ile NLB kümesinin bir üyesi olan Windows sunucuya oturum açın.  
+2. Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
 3. Microsoft izleme aracısının yüklü bir OMS Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **kümeye konak Ekle**.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Bağlanmak istediğiniz Ağ Geçidi sunucusunun IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle: bağlanma](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS aracısı ve Operations Manager yönetim grubu yapılandırma
 Aşağıdaki bölümde, Azure Automation veya günlük analizi ile iletişim kurmak için OMS ağ geçidi ile doğrudan bağlı OMS Aracısı, bir Operations Manager yönetim grubu ya da Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımlarını içerir.  
 
-Gereksinimleri ve Windows bilgisayarları doğrudan Log Analytics'e bağlanması OMS Aracısı'nı yüklemek adımları anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md) veya Linux bilgisayarları bakın [bağlanmak Linux Günlük analizi bilgisayarlara](log-analytics-quick-collect-linux-computer.md).  Otomasyon karma Runbook çalışanı ilgili daha fazla bilgi için bkz: [dağıtmak karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>OMS aracısı ve Operations Manager OMS ağ geçidi bir proxy sunucusu olarak kullanacak şekilde yapılandırma
-
 ### <a name="configure-standalone-oms-agent"></a>Tek başına OMS Aracısı'nı yapılandırma
-Bkz: [proxy ve güvenlik duvarı ayarlarını Microsoft İzleme Aracısı ile yapılandırma](log-analytics-proxy-firewall.md) bir aracının bir proxy sunucusu kullanacak şekilde yapılandırma hakkında daha fazla bilgi için bu durumda olduğu ağ geçidi.  Ağ Yük Dengeleyici arkasında birden çok ağ geçidi sunucusu dağıttıysanız, OMS Aracısı proxy yapılandırmasını NLB sanal IP adresi şöyledir:<br><br> ![Microsoft İzleme Aracısı Özellikleri – Proxy ayarları](./media/log-analytics-oms-gateway/nlb04.png)
+Gereksinimleri ve Windows bilgisayarları doğrudan Log Analytics'e bağlanması OMS Aracısı'nı yüklemek adımları anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md) veya Linux bilgisayarları bakın [bağlanmak Linux Günlük analizi bilgisayarlara](log-analytics-quick-collect-linux-computer.md). Aracı yapılandırılırken bir proxy sunucusu belirtme yerine, bu değeri OMS ağ geçidi sunucusu ve bağlantı noktası numarası IP adresi ile değiştirin.  Ağ Yük Dengeleyici arkasında birden çok ağ geçidi sunucusu dağıttıysanız, OMS Aracısı proxy yapılandırmasını NLB sanal IP adresi değil.  
+
+Otomasyon karma Runbook çalışanı ilgili daha fazla bilgi için bkz: [dağıtmak karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Operations Manager yapılandırma - tüm aracıları aynı proxy sunucuyu kullan
 Operations Manager ağ geçidi sunucusu eklemek için yapılandırın.  Ayarı boş olsa bile, Operations Manager proxy yapılandırması tüm aracılar Operations Manager için raporlama otomatik olarak uygulanır.  

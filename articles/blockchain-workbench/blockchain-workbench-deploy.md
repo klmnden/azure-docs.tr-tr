@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranı dağıtma
 
@@ -23,6 +23,25 @@ Azure Blockchain çalışma ekranı, Azure Marketi'nde bir çözüm şablonu kul
 Blockchain çalışma ekranı bileşenleri hakkında daha fazla bilgi için bkz: [Azure Blockchain çalışma ekranı mimarisi](blockchain-workbench-architecture.md).
 
 ## <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
+
+Blockchain çalışma ekranı blockchain defter blockchain tabanlı bir uygulama oluşturmak için en sık kullanılan ilgili Azure Hizmetleri kümesi ile birlikte dağıtmanıza olanak tanır. Blockchain çalışma ekranı dağıtma Azure aboneliğinizde bir kaynak grubu içinde sağlanan aşağıdaki Azure hizmetlerinin sonuçlanır.
+
+* 1 olay kılavuz konusu
+* 1 Service Bus Namespace
+* 1 application Insights
+* 1 SQL veritabanı (standart S0)
+* 2 uygulama Hizmetleri (standart)
+* 2 azure anahtar kasası
+* 2 azure depolama hesapları (standart LRS)
+* 2 sanal makine ölçek kümeleri (için Doğrulayıcı ve çalışan düğümleri)
+* (Yük dengeleyici, ağ güvenlik grubu ve her sanal ağ için genel IP adresi dahil) 2 sanal ağlar
+* İsteğe bağlı: Azure İzleyicisi
+
+Oluşturulan örnek dağıtımı aşağıdadır **myblockchain** kaynak grubu.
+
+![Örnek dağıtım](media/blockchain-workbench-deploy/example-deployment.png)
+
+Blockchain çalışma ekranı temel Azure Hizmetleri maliyetini toplama maliyetidir. Azure Hizmetleri kullanılarak hesaplanabilir için fiyatlandırma bilgileri [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).
 
 Azure Blockchain çalışma ekranı dağıtımından önce bazı Önkoşullar gerektirir. Önkoşullar, Azure AD yapılandırma ve uygulama kayıtları içerir.
 
@@ -254,9 +273,18 @@ Azure Blockchain çalışma ekranı dağıtıldıktan sonra sonraki adım Azure 
 
 7. Seçin **kaydetmek** istemci kaydını güncelleştirmek için.
 
+## <a name="remove-a-deployment"></a>Bir dağıtım Kaldır
+
+Bir dağıtım artık gerekli olmadığında Blockchain çalışma ekranı kaynak grubunu silerek bir dağıtım kaldırabilirsiniz.
+
+1. Azure portalında gidin **kaynak grubu** sol gezinti bölmesinde ve silmek istediğiniz kaynak grubunu seçin. 
+2. **Kaynak grubunu sil**'i seçin. Kaynak grubu adı girerek silme işlemini doğrulamak ve seçin **silmek**.
+
+    ![Kaynak grubunu silme](media/blockchain-workbench-deploy/delete-resource-group.png)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl yapılır bu makalede, Azure Blockchain çalışma ekranı dağıttıktan sonra. Blockchain uygulama oluşturmayı öğrenmek için sonraki nasıl yapılır makalesi için devam edin.
+Nasıl yapılır bu makalede, Azure Blockchain çalışma ekranı dağıtıldı. Blockchain uygulama oluşturmayı öğrenmek için sonraki nasıl yapılır makalesi için devam edin.
 
 > [!div class="nextstepaction"]
 > [İçinde Azure Blockchain çalışma ekranı blockchain uygulaması oluşturma](blockchain-workbench-create-app.md)

@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store Storm performans yönergeleri ayarlama | Microsoft Docs"
-description: "Azure Data Lake Store Storm performans kuralları ayarlama"
+title: Azure Data Lake Store Storm performans yönergeleri ayarlama | Microsoft Docs
+description: Azure Data Lake Store Storm performans kuralları ayarlama
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,24 +10,22 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Performans Kılavuzu Hdınsight ve Azure Data Lake Store üzerinde Storm için ayarlama
 
 Bir Azure Storm topolojisinin performansı ayarlamak zaman düşünülmesi gereken faktörler anlayın. Örneğin, spout'lar ve (iş g/ç yoğun olup) Cıvatalar tarafından yapılan iş özelliklerini anlamak önemlidir. Bu makalede, performans ayarlama yönergeleri, ortak sorunları da dahil olmak üzere çeşitli yer almaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
+* **Bir Azure Data Lake Store hesabı**. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](data-lake-store-get-started-portal.md).
 * **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 * **Data Lake Store üzerinde Storm kümesi çalıştıran**. Daha fazla bilgi için bkz: [Hdınsight üzerinde Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Performans ayarlama yönergeleri Data Lake Store üzerinde**.  Genel performans için bkz [Data Lake deposu performans ayarlama Kılavuzu](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
@@ -133,7 +131,7 @@ Data Lake Store tarafından sağlanan bant genişliği sınırına ulaşıp gör
 
 Kısıtlanan denetlemek için hata ayıklama istemci tarafında günlüğü etkinleştir:
 
-1. İçinde **Ambari** > **Storm** > **Config** > **storm çalışan log4j Gelişmiş**, değiştirme  **&lt;kök düzeyi "bilgi" =&gt;**  için  **&lt;kök düzeyinde "hata ayıklama" =&gt;**. Tüm düğümleri/hizmet yapılandırmasının etkili olması yeniden başlatın.
+1. İçinde **Ambari** > **Storm** > **Config** > **storm çalışan log4j Gelişmiş**, değiştirme **&lt;kök düzeyi "bilgi" =&gt;** için  **&lt;kök düzeyinde "hata ayıklama" =&gt;**. Tüm düğümleri/hizmet yapılandırmasının etkili olması yeniden başlatın.
 2. Storm topolojisini günlüklerini çalışan düğümlerine İzleyicisi (/var/log/storm/worker-artifacts altında /&lt;TopologyName&gt;/&lt;bağlantı noktası&gt;/worker.log) özel durumları azaltma Data Lake Store için.
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Performans İzleyicisi çözümde Azure ağ
 
@@ -74,7 +74,7 @@ Temel işlemleri sırasında aracıları yüklemek için kullanmak [Azure günl�
 
 Ağ Performansı İzleyicisi yapay işlemler kaynak ve hedef aracılar arasındaki ağ performansını izlemek için kullanır. Performans İzleyicisi'ni ve hizmet uç noktası İzleyicisi özelliklerinden izleme için protokol olarak TCP ve ICMP arasında seçim yapabilirsiniz. TCP ExpressRoute izleme için kullanılır. Güvenlik Duvarı'nın seçtiğiniz protokol izlemesi için kullanılan Operations Management Suite aracılar arasındaki iletişimi izin verdiğinden emin olun. 
 
-* **TCP Protokolü**: izleme için protokol olarak TCP seçerseniz, aracıları birbirlerine bağlanabildiğinden emin olmak için ağ Performans İzleyicisi'ni ve ExpressRoute İzleyicisi için kullanılan aracılar güvenlik duvarı bağlantı noktası açın. Bağlantı noktasını açmak için yönetici ayrıcalıklarıyla bir PowerShell penceresinde hiçbir parametre olmadan EnableRules.ps1 PowerShell komut dosyasını çalıştırın.
+* **TCP Protokolü**: izleme için protokol olarak TCP seçerseniz, aracıları birbirlerine bağlanabildiğinden emin olmak için ağ Performans İzleyicisi'ni ve ExpressRoute İzleyicisi için kullanılan aracılar güvenlik duvarı bağlantı noktası açın. Bağlantı noktasını açmak için Çalıştır [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell komut dosyasını yönetici ayrıcalıklarıyla bir PowerShell penceresinde herhangi bir parametre olmadan.
 
     Komut dosyası çözümü tarafından gerekli kayıt defteri anahtarları oluşturur. Ayrıca, TCP bağlantıları birbirleri ile oluşturmak aracıları izin vermek için Windows Güvenlik duvarı kuralları oluşturur. Komut dosyası tarafından oluşturulan kayıt defteri anahtarlarını oturum hata ayıklama günlükleri ve günlükleri dosyasının yolunu belirtin. Komut dosyası ayrıca iletişim için kullanılan Aracısı TCP bağlantı noktasını tanımlar. Bu anahtarlar için değerleri otomatik olarak komut dosyası tarafından ayarlanır. Bu anahtarları el ile değiştirmeyin. Varsayılan portunu 8084 ' dir. Komut parametresi BağlantıNoktasıNumarası sağlayarak, özel bir bağlantı noktası kullanabilirsiniz. Komut dosyası çalıştırdığı tüm bilgisayarlarda aynı bağlantı noktasını kullanın. 
 
@@ -82,7 +82,7 @@ Ağ Performansı İzleyicisi yapay işlemler kaynak ve hedef aracılar arasında
     > Komut dosyası, yalnızca Windows Güvenlik Duvarı'nı yerel olarak yapılandırır. Ağ güvenlik duvarı varsa, Ağ Performansı İzleyicisi tarafından kullanılan TCP bağlantı noktası için giden trafiğe izin verdiğinden emin olun.
 
     >[!NOTE]
-    > Hizmet uç noktası İzleyicisi EnableRules.ps1 PowerShell betiğini çalıştırmak gerekmez.
+    > Çalıştırmanızın gerekli olmadığı [EnableRules.ps1](https://aka.ms/npmpowershellscript ) hizmet uç noktası İzleyicisi için PowerShell komut dosyası.
 
     
 
@@ -98,7 +98,7 @@ Ağ Performansı İzleyicisi yapay işlemler kaynak ve hedef aracılar arasında
    ```
  
 
-### <a name="configure-the-solution"></a>Çözümünüzü yapılandırma 
+### <a name="configure-the-solution"></a>Çözümü yapılandırma 
 
 1. Ağ Performansı İzleyicisi çözüm alanınızdan ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi de kullanabilirsiniz [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). 
 2. Günlük analizi çalışma alanını açın ve seçin **genel bakış** döşeme. 

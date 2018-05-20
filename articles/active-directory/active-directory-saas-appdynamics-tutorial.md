@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile AppDynamics | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile AppDynamics arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile AppDynamics | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile AppDynamics arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b818f5d24873007aff5a8713a11d368cbe799ee6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e6978db61b193fad070bf937decf208906b13b82
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Öğretici: Azure Active Directory Tümleştirme AppDynamics ile
 
@@ -29,9 +29,9 @@ AppDynamics Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için AppDynamics (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme AppDynamics ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.saas.appdynamics.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.saas.appdynamics.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.saas.appdynamics.com/controller`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [AppDynamics istemci destek ekibi](https://www.appdynamics.com/support/) bu değerleri almak için. 
@@ -151,7 +151,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
        
     d. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **sertifika** metin kutusu
 
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
 
      ![Kaydet](./media/active-directory-saas-appdynamics-tutorial/ic777673.png "Kaydet")
 
@@ -187,7 +187,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-an-appdynamics-test-user"></a>Bir AppDynamics test kullanıcısı oluşturma
 
@@ -197,7 +197,7 @@ Azure AD kullanıcıları için AppDynamics oturum açmak etkinleştirmek için 
 
 1. AppDynamics şirket sitenize yönetici olarak oturum açın.
 
-2. Git **kullanıcılar**ve ardından  **+**  açmak için **kullanıcı oluştur** iletişim.
+2. Git **kullanıcılar**ve ardından **+** açmak için **kullanıcı oluştur** iletişim.
    
     ![Kullanıcıların](./media/active-directory-saas-appdynamics-tutorial/ic790229.png "kullanıcılar")
 
@@ -207,7 +207,7 @@ Azure AD kullanıcıları için AppDynamics oturum açmak etkinleştirmek için 
    
     a. Türü **kullanıcıadı**, **adı**, **e-posta**, **yeni parola**, **yineleyin yeni parola** geçerli bir AAD, Hesap ilgili metin kutularına içine sağlamak istiyorsunuz.
 
-    b. **Kaydet** düğmesine tıklayın.
+    b. **Kaydet**’e tıklayın.
 
     >[!NOTE]
     >API Azure AD kullanıcı hesaplarını sağlamak için AppDynamics tarafından sağlanan veya herhangi diğer AppDynamics kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
@@ -251,7 +251,7 @@ Erişim paneli AppDynamics parçasında tıklattığınızda, otomatik olarak Ap
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

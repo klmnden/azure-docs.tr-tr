@@ -1,6 +1,6 @@
 ---
-title: Operations Manager için günlük analizi bağlanma | Microsoft Docs
-description: System Center Operations Manager'da varolan yatırımınızı korumak ve günlük analizi ile genişletilmiş özelliklerini kullanmak için Operations Manager çalışma alanınız ile tümleştirebilirsiniz.
+title: Operations Manager'ı Log Analytics'e bağlama | Microsoft Docs
+description: System Center Operations Manager'a yaptığınız mevcut yatırımı korumak ve Log Analytics'le sağlanan genişletilmiş özellikleri kullanmak için, Operations Manager'ı çalışma alanınızla tümleştirebilirsiniz.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 84eabef06b4d2ad71e6d9a947a77589f9159e030
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager günlük Analizi'ne bağlayın
-System Center Operations Manager'da varolan yatırımınızı korumak ve günlük analizi ile genişletilmiş özellikleri kullanmak için Operations Manager, günlük analizi çalışma alanı ile tümleştirebilirsiniz.  Bu, Operations Manager için kullanmaya devam ederken günlük analizi fırsatlarını yararlanan sağlar:
+# <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
+System Center Operations Manager'a yaptığınız mevcut yatırımı korumak ve Log Analytics'le sağlanan genişletilmiş özellikleri kullanmak için, Operations Manager'ı Log Analytics çalışma alanınızla tümleştirebilirsiniz.  Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
 
-* Operations Manager ile BT Hizmetleri izlemesi
-* Olay ve sorun yönetimi destekleyen ITSM çözümlerinizi ile tümleştirme koru
-* Şirket içi ve Operations Manager ile izleme genel bulut Iaas sanal makineleri dağıtılan aracılar yaşam döngüsü yönetme
+* Operations Manager ile BT hizmetlerinizin durumunu izleyebilirsiniz.
+* Olay ve sorun yönetimini destekleyen ISTM çözümlerinizle tümleştirmeyi koruyabilirsiniz.
+* Operations Manager ile izlediğiniz şirket içi ve genel bulut IaaS sanal makinelerine dağıtılmış aracıların yaşam döngüsünü yönetebilirsiniz
 
-System Center Operations Manager ile tümleştirme hızı ve günlük analizi toplamak, depolamak ve Operations Manager'dan veri çözümleme verimliliğini kullanarak hizmet işlemleri stratejinizi değer ekler.  Günlük analizi yardımcı ilişkilendirmek ve sorunları hataları tanımlama ve varolan sorun yönetimi işleminizi desteklemek tekrarları görünmesini doğru çalışır.  Performans, olay ve panolar ve bu verileri anlamlı şekillerde kullanıma sunmak için raporlama özellikleri ile veri günlük analizi gücünü gösteren uyarı incelemek için arama motoru esnekliğini Operations Manager complimenting getirir.
+System Center Operations Manager ile tümleştirme, Operations Manager'dan gelen verileri toplama, depolama ve analiz etme sürecinde Log Analytics'in hızı ve verimliliğinin kullanılmasıyla hizmet işlemleri stratejinize değer katar.  Log Analytics bağıntı sağlamaya ve mevcut sorun yönetim işleminizi destekleyecek şekilde sorunların ardındaki hataları tanımlama ve yinelemeleri ortaya çıkarma çalışmaları yapmaya yardımcı olur.  Performans, olay ve uyarı verilerini incelemeye yönelik arama motorunun esnekliği, bu verileri anlamlı yollarla ortaya koymaya yönelik zengin panolar ve raporlama özellikleriyle birlikte, Log Analytics'in Operations Manager'ı tamamlayan gücünü gösterir.
 
-Operations Manager yönetim grubuna raporlama aracıları sunucularınızdan günlük analizi veri kaynakları ve çalışma alanınızda etkinleştirdiğiniz çözümleri temel alarak veri toplar.  Etkin çözümlerini bağlı olarak, kendi veri ya da gönderilir doğrudan bir Operations Manager yönetim sunucusundan hizmet veya aracıyla yönetilen sistemde toplanan verilerin hacmi nedeniyle gönderilir doğrudan Aracıdan için günlük analizi. Yönetim Sunucusu hizmetine doğrudan veri iletir; Bu, hiçbir zaman işlemsel veya veri ambarı veritabanına yazılır.  Bir yönetim sunucusu bağlantısı günlük analizi ile kaybettiğinde, yerel olarak iletişimi ile günlük analizi yeniden kurulur kurulmaz kadar verileri önbelleğe alır.  Yönetim sunucusu planlanan Bakım veya planlanmamış kesinti nedeniyle çevrimdışı ise, yönetim grubundaki başka bir yönetim sunucusu bağlantısı günlük analizi ile sürdürür.  
+Operations Manager yönetim grubuna raporlayan aracılar, sunucularınızdan verileri toplarken çalışma alanınızda etkinleştirmiş olduğunuz Log Analytics veri kaynakları ve çözümlerini temel alır.  Etkinleştirilen çözümlere bağlı olarak, veriler doğrudan bir Operations Manager yönetim sunucusundan hizmete gönderilir veya aracının yönettiği sistemde toplanan verilerin hacmi nedeniyle aracıdan doğrudan Log Analytics'e gönderilir. Yönetim sunucusu verileri doğrudan hizmete iletir; bunlar hiçbir zaman işlem veya veri ambarı veritabanına yazılmaz.  Yönetim sunucusunun Log Analytics'le bağlantısı kesildiğinde, Log Analytics'le yeniden iletişim kurulana kadar verileri yerel olarak önbelleğe alır.  Planlı bir bakımdan veya planlanmamış bir kesintiden dolayı yönetim sunucusu çevrimdışı kalırsa, yönetim grubundaki başka bir yönetim sunucusu Log Analytics'le bağlantıyı sürdürür.  
 
-Aşağıdaki diyagramda, System Center Operations Manager yönetim grubu ve günlük analizi, bağlantı noktaları ve yön dahil olmak üzere aracılar ve yönetim sunucuları arasındaki bağlantıyı gösterir.   
+Aşağıdaki diyagramda yön ve bağlantı noktalarıyla birlikte, System Center Operations Manager yönetim grubundaki yönetim sunucuları ve aracılarla Log Analytics arasındaki bağlantı gösterilir.   
 
-![OMS-işlemleri-manager-tümleştirme-diyagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
+![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağınızdaki izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve etkin çözümleri bağlı olarak toplanan verileri göndermek için OMS ağ geçidine bağlanmak için yapılandırılabilir.  Daha fazla bilgi ve günlük analizi hizmetine bir OMS ağ geçidi üzerinden iletişim kurmak için Operations Manager yönetim grubunuzu yapılandırma adımları için bkz: [OMS ağ geçidini kullanarak OMS bilgisayarları bağlamak](log-analytics-oms-gateway.md).  
+BT güvenlik ilkeleriniz ağınızdaki bilgisayarların İnternet'e bağlanmasına izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve etkinleştirilen çözümlere bağlı olarak toplanan verileri göndermek için OMS Ağ Geçidi'ne bağlanacak şekilde yapılandırılabilir.  Operations Manager yönetim grubunuzu OMS Ağ Geçici üzerinden Log Analytics hizmetiyle iletişim kuracak şekilde yapılandırma hakkında daha fazla bilgi edinmek ve bu işlemin adımlarını öğrenmek için bkz. [OMS Ağ Geçidi'ni kullanarak bilgisayarları OMS'ye bağlama](log-analytics-oms-gateway.md).  
 
 ## <a name="system-requirements"></a>Sistem gereksinimleri
-Başlamadan önce önkoşulları karşılaması doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
+Başlamadan önce, önkoşullara uyduğunuzu doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
 
-* Günlük analizi, yalnızca System Center Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 destekler ve daha büyük ve Operations Manager 2012 R2 UR2 büyük.  Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
-* Tüm Operations Manager aracıları, minimum destek gereksinimlerini karşılaması gerekir. Minimum güncelleştirmeyi aracıları olan, aksi takdirde Windows Aracısı trafiği başarısız olabilir ve birçok hata Operations Manager olay günlüğünü doldurma emin olun.
-* Günlük analizi çalışma alanı.  Daha fazla bilgi için gözden [günlük Analytics ile çalışmaya başlama](log-analytics-get-started.md).
+* Log Analytics yalnızca System Center Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 ve üstü ile Operations Manager 2012 R2 UR2 ve üstünü destekler.  Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
+* Tüm Operations Manager aracılarının en düşük destek gereksinimlerini karşılaması gerekir. Aracıların minimum güncelleştirme düzeyinde olduğundan emin olun; aksi takdirde Windows aracı trafiği başarısız olabilir ve Operations Manager olay günlüğü çok sayıda hatayla dolabilir.
+* Log Analytics çalışma alanı.  Daha fazla bilgi için [Log Analytics'i kullanmaya başlama](log-analytics-get-started.md) konusunu gözden geçirin.
 
 ### <a name="network"></a>Ağ
-Operations Manager Aracısı, yönetim sunucuları ve işletim Konsolu günlük analizi ile iletişim kurması gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini listesi aşağıdaki bilgileri.  Her bileşenin günlük analizi hizmeti ağınızdan giden trafiğidir.     
+Aşağıda Operations Manager aracısına, yönetim sunucularına ve Log Analytics'le iletişim kurmak için Operations konsoluna gereken ara sunucu ve güvenlik duvarı yapılandırma bilgileri listelenmiştir.  Her bileşenden gelen trafik, ağınızdan Log Analytics hizmetine giden trafiktir.     
 
-|Kaynak | Bağlantı noktası numarası| Atlama HTTP denetleme|  
+|Kaynak | Bağlantı noktası numarası| HTTP İncelemesini atlama|  
 |---------|------|-----------------------|  
 |**Aracı**|||  
-|\*.ods.opinsights.azure.com| 443 |Evet|  
-|\*.oms.opinsights.azure.com| 443|Evet|  
-|\*.blob.core.windows.net| 443|Evet|  
-|\*.azure-automation.net| 443|Evet|  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Yönetim sunucusu**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Evet|  
-|\*.ods.opinsights.azure.com| 443| Evet|  
-|*.azure-automation.net | 443| Evet|  
-|**OMS için Operations Manager Konsolu**|||  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
+|*.azure-automation.net | 443| Yes|  
+|**Operations Manager konsolundan OMS'ye**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 ve 443||  
@@ -71,145 +71,143 @@ Operations Manager Aracısı, yönetim sunucuları ve işletim Konsolu günlük 
 |api.loganalytics.io| 80 ve 443||
 |docs.loganalytics.io| 80 ve 443||  
 
-## <a name="connecting-operations-manager-to-log-analytics"></a>Operations Manager için günlük analizi bağlanma
-Günlük analizi çalışma alanları birine bağlanabilmeleri için Operations Manager yönetim grubu yapılandırma adımları aşağıdaki dizisini gerçekleştirin.
+## <a name="connecting-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
+Operations Manager yönetim grubunuzu Log Analytics çalışma alanlarınızdan birine bağlanacak şekilde yapılandırmak için aşağıdaki adım serisini uygulayın.
 
-Operations Manager yönetim grubunuzu günlük analizi çalışma alanıyla kaydetme ilk kez budur ve yönetim sunucuları bir proxy veya OMS ağ geçidi sunucusu için proxy yapılandırması belirtme seçeneği aracılığıyla iletişim kurması gereken Yönetim grubu işlemler konsolunda kullanılabilir değil.  Yönetim grubu bu seçeneği kullanılabilir olmadan önce Hizmeti'ne başarıyla kayıtlı olması gerekir.  Netsh sistemde Operations konsolundan çalıştıran tümleştirme ve tüm yönetim sunucuları yönetim grubunda yapılandırmak için kullanarak sistem proxy yapılandırmasını güncelleştirmeniz gerekir.  
+Operations Manager yönetim grubunuz ilk kez bir Log Analytics çalışma alanına kaydediliyorsa ve yönetim sunucularının hizmetle bir ara sunucu veya OMS Ağ Geçidi sunucusu üzerinden iletişim kurması gerekiyorsa, Operations konsolunda yönetim grubu için ara sunucu yapılandırmasını belirtme seçeneği sağlanmaz.  Bu seçeneğin sağlanması için önce yönetim grubunun hizmete başarıyla kaydedilmiş olması gerekir.  Tümleştirmeyi ve yönetim grubundaki tüm yönetim sunucularını yapılandırmak için Operations konsolunu çalıştırdığınız sistemde Netsh kullanarak sistem ara sunucu yapılandırmasını güncelleştirmeniz gerekir.  
 
-1. Bir yükseltilmiş bir komut istemi açın.
-   a. Git **Başlat** ve türü **cmd**.
-   b. Sağ **komut istemi** ve Çalıştır yönetici ** seçin.
-2. Aşağıdaki komut ve ENTER tuşuna basın **Enter**:
+1. Yükseltilmiş bir komut istemi açın.
+1. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Günlük analizi ile tümleştirmek için aşağıdaki adımları tamamladıktan sonra yapılandırma çalıştırarak kaldırabilirsiniz `netsh winhttp reset proxy` ve sonra da **proxy sunucusunu yapılandır** proxy veya OMS belirtmek için işletim konsolunda seçeneği Ağ Geçidi sunucusu. 
+Aşağıdaki Log Analytics ile tümleştirme adımları tamamladıktan sonra, `netsh winhttp reset proxy` komutunu çalıştırarak yapılandırmayı kaldırabilir ve ara sunucuyu veya OMS Ağ Geçici sunucusunu belirtmek için Operations konsolunda **Ara sunucuyu yapılandır** seçeneğini kullanabilirsiniz. 
 
-1. Operations Manager konsolunda seçin **Yönetim** çalışma.
-2. Operations Management Suite düğümünü genişletin ve tıklatın **bağlantı**.
-3. Tıklatın **kaydetmek için Operations Management Suite** bağlantı.
-4. Üzerinde **Operations Management Suite Ekleme Sihirbazı: kimlik doğrulaması** sayfasında, e-posta adresi veya telefon numarasını ve OMS aboneliğinizle ilişkili yönetici hesabının parolasını girin ve tıklayın **oturum**.
-5. Başarılı bir şekilde, üzerinde doğrulandıktan sonra **Operations Management Suite Ekleme Sihirbazı: çalışma alanı seçin** , sizden istenir günlük analizi çalışma alanınız seçmek için sayfa.  Birden fazla çalışma alanı varsa, aşağı açılan listeden Operations Manager yönetim grubuyla kaydedin ve ardından istediğiniz çalışma alanını seçin **sonraki**.
+1. Operations Manager konsolunda **Yönetim** çalışma alanını seçin.
+2. Operations Management Suite düğümünü genişletin ve **Bağlantı**'ya tıklayın.
+3. **Operations Management Suite'e kaydolun** bağlantısına tıklayın.
+4. **Operations Management Suite Ekleme Sihirbazı: Kimlik Doğrulama** sayfasında, OMS aboneliğinizle ilişkilendirilmiş yönetici hesabının e-posta adresi veya telefon numarasını ve parolasını girin ve **Oturum aç**'a tıklayın.
+5. Kimlik doğrulamanız başarılı olduktan sonra, **Operations Management Suite Ekleme Sihirbazı: Çalışma Alanı Seçin** sayfasında Log Analytics çalışma alanınızı seçmeniz istenir.  Birden çok çalışma alanınız varsa, açılan listeden Operations Manager yönetim grubuna kaydetmek istediğiniz çalışma alanını seçin ve ardından **İleri**'ye tıklayın.
    
    > [!NOTE]
-   > Operations Manager, aynı anda yalnızca bir günlük analizi çalışma alanı destekler. Bağlantı ve günlük analizi için önceki çalışma alanıyla kayıtlı olan bilgisayarları günlük analizi kaldırılır.
+   > Operations Manager bir kerede tek bir Log Analytics çalışma alanını destekler. Önceki çalışma alanıyla Log Analytics'e kaydedilmiş olan bilgisayarlar ve bağlantı Log Analytics'ten kaldırılır.
    > 
    > 
-6. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Özet** sayfasında, ayarlarınızı doğrulayın ve doğru olmaları durumunda tıklayın **oluşturma**.
-7. Üzerinde **Operations Management Suite Ekleme Sihirbazı: son** sayfasında, **Kapat**.
+6. **Operations Management Suite Ekleme Sihirbazı: Özet** sayfasında ayarlarınızı onaylayın ve bunlar doğruysa **Oluştur**'a tıklayın.
+7. **Operations Management Suite Ekleme Sihirbazı: Son** sayfasında **Kapat**'a tıklayın.
 
-### <a name="add-agent-managed-computers"></a>Aracıyla yönetilen bilgisayarlar Ekle
-Günlük analizi çalışma alanınız ile tümleştirme yapılandırması sonra bu yalnızca hizmeti ile bağlantı kurar, yönetim grubuna raporlama aracılardan gelen hiçbir veri toplanmadı. Hangi belirli aracıyla yönetilen bilgisayarlar için günlük analizi veri toplar yapılandırdıktan sonra bu kadar gerçekleşmez. Windows bilgisayar nesnelerini içeren bir grup seçebilirsiniz veya bilgisayar nesnelerinin ayrı ayrı seçebilirsiniz. Mantıksal diskleri veya SQL veritabanları gibi başka bir sınıfın örneklerini içeren bir grup seçemezsiniz.
-
-1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
-2. Operations Management Suite düğümünü genişletin ve tıklatın **bağlantı**.
-3. Tıklatın **bilgisayar/Grup Ekle** Eylemler altında bağlantıyı sağ tarafında bölmenin başlık.
-4. İçinde **bilgisayar arama** iletişim kutusu, arayabilirsiniz bilgisayarları veya grupları Operations Manager tarafından izlenen. Bilgisayarları veya grupları için günlük analizi için yerleşik seçin, **Ekle**ve ardından **Tamam**.
-
-Bilgisayarları ve grupları Operations Management Suite yönetilen bilgisayarlar düğümünden veri toplamak üzere yapılandırılmış görüntüleyebilirsiniz **Yönetim** Operations konsolunun çalışma.  Buradan, ekleyin veya gerektiğinde bilgisayarları ve grupları kaldırın.
-
-### <a name="configure-proxy-settings-in-the-operations-console"></a>Operations konsolunda proxy ayarlarını yapılandırın
-Bir iç proxy sunucu yönetim grubu ve günlük Analytics hizmeti arasında ise aşağıdaki adımları gerçekleştirin.  Bu ayarlar merkezi olarak yönetilen yönetim grubundan ve günlük analizi için veri toplamak için kapsam içinde yer alan aracıyla yönetilen sistemler için Dağıtılmış.  Bu zaman belirli çözümleri yönetim sunucusu atlama ve hizmete doğrudan veri göndermek için faydalıdır.
+### <a name="add-agent-managed-computers"></a>Aracı tarafından yönetilen bilgisayarlar ekleme
+Log Analytics çalışma alanıyla tümleştirmeyi yapılandırdıktan sonra, bu yapılandırma yalnızca hizmetle bağlantı kurar; yönetim grubunuza raporlayan aracılardan hiç veri toplanmaz. Siz aracı tarafından yönetilen hangi bilgisayarların Log Analytics için veri toplayacağını yapılandırana kadar veri toplama işlemi yapılmaz. Bilgisayar nesnelerini tek tek seçebileceğiniz gibi, Windows bilgisayar nesnelerini içeren bir grup da seçebilirsiniz. Mantıksal diskler veya SQL veritabanları gibi başka bir sınıfın örneklerini içeren grupları seçemezsiniz.
 
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
-2. Operations Management Suite genişletin ve ardından **bağlantıları**.
+2. Operations Management Suite düğümünü genişletin ve **Bağlantı**'ya tıklayın.
+3. Bölmenin sağ tarafındaki Eylemler başlığı altında **Bilgisayar/Grup Ekle** bağlantısına tıklayın.
+4. **Bilgisayar Araması** iletişim kutusunda Operations Manager tarafından izlenen bilgisayarları veya grupları arayabilirsiniz. Log Analytics'e eklemek için bilgisayarları veya grupları seçin, **Ekle**'ye tıklayın ve ardından **Tamam**'a tıklayın.
+
+İşletim konsolunun **Yönetim** çalışma alanında Operations Manager Suite'in altındaki Yönetilen Bilgisayarlar düğümünden veri toplamak için yapılandırılmış bilgisayarlar ve grupları görüntüleyebilirsiniz.  Burada, gerekirse bilgisayarları ve grupları ekleyebilir veya kaldırabilirsiniz.
+
+### <a name="configure-proxy-settings-in-the-operations-console"></a>İşletim konsolunda ara sunucu ayarlarını yapılandırma
+Yönetim grubu ile Log Analytics hizmeti arasında bir dahili ara sunucu varsa aşağıdaki adımları uygulayın.  Bu ayarlar yönetim grubunda merkezi olarak yönetilir ve Log Analytics'ten veri toplama kapsamına dahil edilmiş olan, aracı tarafından yönetilen sistemlere dağıtılır.  Bazı çözümlerin yönetim sunucusunu atladığı ve doğrudan hizmete veri gönderdiği durumlarda, bu yararlı olur.
+
+1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
+2. Operations Management Suite'i genişletin ve **Bağlantılar**'a tıklayın.
 3. OMS Bağlantısı görünümünde, **Ara Sunucuyu Yapılandır**'a tıklayın.
-4. Üzerinde **Operations Management Suite Sihirbazı: Proxy sunucusu** sayfasında, **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak**, ve bağlantı noktası numarası URL'SİYLE örneğin yazın http://corpproxy:80 ve ardından **son**.
+4. **Operations Management Suite Sihirbazı: Ara Sunucu** sayfasında **Operations Management Suite erişimi için bir ara sunucu kullan**'ı seçin, ardından bağlantı noktası numarasını içeren URL'yi yazın (örneğin, http://corpproxy:80) ve **Son**'a tıklayın.
 
-Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kimlik bilgileri ve yönetim grubu için OMS raporları yönetilen bilgisayarlara yaymak için gereken ayarları yapılandırmak için aşağıdaki adımları gerçekleştirin.
+Ara sunucunuz için kimlik doğrulaması gerekiyorsa, aşağıdaki adımları uygulayarak yönetim grubunda OMS'ye raporlayan yönetilen bilgisayarlara dağıtılması gereken kimlik bilgilerini ve ayarları yapılandırın.
 
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
 2. **RunAs Yapılandırması** altında, **Profiller**'i seçin.
 3. **System Center Advisor Farklı Çalıştır Profili Ara Sunucusu** profilini açın.
-4. Farklı Çalıştır profili Sihirbazı içinde bir farklı çalıştır hesabı kullanmak için Ekle'yi tıklatın. Oluşturabileceğiniz bir [farklı çalıştır hesabı](https://technet.microsoft.com/library/hh321655.aspx) veya var olan bir hesap kullanın. Doğrudan ara sunucuya geçiş yapmak için bu hesabın yeterli izinlere sahip olması gerekir.
-5. Yönetmek için hesabınız ayarlamak için seçin **seçilen sınıf, Grup veya nesne**, tıklatın **seçin...** ve ardından **grup...** açmak için **grup arama** kutusu.
-6. İçin arama yapın ve ardından **Microsoft System Center Advisor Monitoring Server grubu**.  Tıklatın **Tamam** kapatmak için Grup seçtikten sonra **grup arama** kutusu.
-7. Tıklatın **Tamam** kapatmak için **bir farklı çalıştır hesabı ekleyin** kutusu.
-8. Tıklatın **kaydetmek** Sihirbazı'nı tamamlayın ve değişikliklerinizi kaydedin.
+4. Farklı Çalıştır Profili Sihirbazı'nda, bir Farklı Çalıştır hesabı kullanmak için Ekle'ye tıklayın. [Farklı Çalıştır hesabı](https://technet.microsoft.com/library/hh321655.aspx) oluşturabilir veya mevcut bir hesabı kullanabilirsiniz. Doğrudan ara sunucuya geçiş yapmak için bu hesabın yeterli izinlere sahip olması gerekir.
+5. Yönetilecek hesabı belirlemek için, **Seçilen bir sınıf, grup veya nesne**'yi seçin, **Seç...** düğmesine tıklayın ve ardından **Grup...** öğesine tıklayarak **Grup Araması** kutusunu açın.
+6. **Microsoft System Center Advisor İzleme Sunucusu Grubu**'nu arayın ve ardından seçin.  Grubu seçtikten sonra **Grup Araması** kutusunu kapatmak için **Tamam**'a tıklayın.
+7. **Farklı Çalıştır Hesabı Ekle** kutusunu kapatmak için **Tamam**'a tıklayın.
+8. Sihirbazı tamamlamak ve yaptığınız değişiklikleri kaydetmek için **Kaydet**'e tıklayın.
 
-Bağlantı oluşturulur ve hangi Aracıların toplamak ve veriler için günlük analizi rapor yapılandırdıktan sonra aşağıdaki yapılandırma yönetim grubunda, mutlaka sırayla uygulanır:
+Bağlantı oluşturulduktan ve siz hangi aracıların Log Analytics'e veri toplayıp raporlayacağını yapılandırdıktan sonra, yönetim grubuna aşağıdaki yapılandırma uygulanır (sırayla olması gerekmez):
 
-* Farklı Çalıştır hesabı **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** oluşturulur.  Farklı Çalıştır profiliyle ilişkilendirildiği **Microsoft System Center Advisor çalıştırmak olarak profili Blob** ve iki sınıf - hedefleme **toplama sunucusuna** ve **Operations Manager yönetim grubu**.
-* İki bağlayıcı oluşturulur.  İlk adlı **Microsoft.SystemCenter.Advisor.DataConnector** ve yönetim grubundaki tüm sınıfların örnekleri için günlük analizi üretilen tüm uyarılarını iletir bir abonelik ile otomatik olarak yapılandırılır. İkinci Bağlayıcısı **Advisor Bağlayıcısı**, OMS web hizmeti ile iletişim ve veri paylaşımını sorumlu olduğu.
-* Aracılar ve yönetim grubundaki veri toplamak üzere seçtiğiniz gruplar eklenir **Microsoft System Center Advisor Monitoring Server grubu**.
+* **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** Farklı Çalıştır Hesabı oluşturulur.  Bu hesap **Microsoft System Center Advisor Farklı Çalıştır Profili Blobu** Farklı Çalıştır profiliyle ilişkilendirilmiştir ve iki sınıfı hedefler: **Koleksiyon Sunucusu** ve **Operations Manager Yönetim Grubu**.
+* İki bağlayıcı oluşturulur.  İlki **Microsoft.SystemCenter.Advisor.DataConnector** olarak adlandırılır ve yönetim grubundaki tüm sınıfların örneklerinden oluşturulmuş uyarıları Log Analytics'e ileten bir abonelikle otomatik olarak yapılandırılır. İkincisi **Advisor Bağlayıcısı**'dır ve OMS web hizmetliyle iletişim kurup veri paylaşmaktan sorumludur.
+* Yönetim grubunda veri toplamak için seçilmiş olan aracılar ve gruplar **Microsoft System Center Advisor Sunucu İzleme Grubu**'na eklenir.
 
-## <a name="management-pack-updates"></a>Yönetim Paketi güncelleştirmeleri
-Yapılandırma tamamlandıktan sonra Operations Manager yönetim grubu günlük analizi hizmeti ile bağlantı kurar.  Yönetim sunucusu web hizmetiyle eşitler ve formunda yönetim paketlerinin Operations Manager ile tümleştirerek etkinleştirdiğiniz çözümler için güncelleştirilmiş yapılandırma bilgilerini alır.   Operations Manager, güncelleştirmeleri bu yönetim paketlerinin ve otomatik olarak denetler indirin ve kullanılabilir olduğunda bunları alır.  İki kurallar vardır özellikle, bu davranışı denetlemek:
+## <a name="management-pack-updates"></a>Yönetim paketi güncelleştirmeleri
+Yapılandırma tamamlandıktan sonra, Operations Manager yönetim grubu Log Analytics hizmetiyle bağlantı kurar.  Yönetim sunucusu web hizmetiyle eşitlenir ve Operations Manager'la tümleştirilmek üzere etkinleştirmiş olduğunuz çözümler için yönetim paketleri biçiminde güncelleştirilmiş yapılandırma bilgilerini alır.   Operations Manager bu yönetim paketlerinin güncelleştirmelerini denetler, güncelleştirme sağlandığında bunları otomatik olarak indirir ve içeri aktarır.  Bu davranışı denetleyen özellikle iki kural vardır:
 
-* **Microsoft.SystemCenter.Advisor.MPUpdate** -temel günlük analizi yönetim paketleri güncelleştirir. Varsayılan olarak her 12 saatte çalışır.
-* **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Varsayılan olarak beş (5) dakikada bir çalışır.
+* **Microsoft.SystemCenter.Advisor.MPUpdate** - Temel Log Analytics yönetim paketlerini güncelleştirir. Varsayılan olarak her 12 saatte bir çalıştırılır.
+* **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Çalışma alanınızda etkinleştirilmiş olan çözüm yönetim paketlerini güncelleştirir. Varsayılan olarak her beş (5) dakikada bir çalıştırılır.
 
-Devre dışı bırakarak otomatik indirme engellemek veya yönetim sunucusu ile yeni bir Yönetim Paketi kullanılabilir ve indirilmesi belirlemek için OMS ne sıklıkla eşitleneceğini sıklığını değiştirmek için bu iki kuralın geçersiz kılabilirsiniz.  Adımları [bir kural veya izleyici geçersiz kılmak nasıl](https://technet.microsoft.com/library/hh212869.aspx) değiştirmek için **sıklığı** eşitleme zamanlamasını değiştirmek veya değiştirmek için saniye cinsinden bir değer parametresiyle **etkin** kuralları devre dışı bırakmak için parametre.  Operations Manager yönetim grubu sınıfın tüm nesneleri için geçersiz kılmalar hedefleyin.
+Bunları devre dışı bırakıp otomatik indirmeyi engellemek veya yönetim sunucusunun yeni bir yönetim paketi olup olmadığını ve bunun indirilmesinin gerekip gerekmediğini saptamak üzere OMS ile eşitlenme sıklığını değiştirmek için bu iki kuralı geçersiz kılabilirsiniz.  **Frequency** parametresini saniye cinsinden bir değerle değiştirip eşitleme zamanlamasında değişiklik yapmak veya **Enabled** parametresini değiştirip kuralları devre dışı bırakmak için, [Kuralı veya İzlemeyi Geçersiz Kılma](https://technet.microsoft.com/library/hh212869.aspx) altındaki adımları izleyin.  Geçersiz kılmalarda, Operations Manager Yönetim Grubu sınıfındaki tüm nesneleri hedefleyin.
 
-Üretim yönetim grubunuzdaki Yönetim Paketi sürümleri denetlemek için var olan değişiklik denetimi işlemi aşağıdaki devam etmek istiyorsanız, kuralları devre dışı bırakabilir ve ne zaman güncelleştirmelerine izin belirli zamanlarda etkinleştirin. Ortamınızda bir geliştirme veya QA yönetim grubu olması ve Internet bağlantısı varsa, bu yönetim grubu bu senaryoyu desteklemek için günlük analizi çalışma ile yapılandırabilirsiniz.  Bu, gözden geçirmek ve üretim yönetim grubuna serbest bırakmadan önce günlük analizi yönetim paketleri yinelemeli sürümleri değerlendirmek sağlar.
+Üretim yönetim grubunuzda yönetim paketi sürümlerini denetlemek için mevcut değişiklik denetim sürecini izlemeye devam etmek istiyorsanız, kuralları devre dışı bırakabilir ve bunları güncelleştirmelere izin verilen belirli zamanlarda etkinleştirebilirsiniz. Ortamınızda bir geliştirme veya QA yönetim grubu varsa ve İnternet'e bağlıysa, bu senaryoyu desteklemek için söz konusu yönetim grubunu Log Analytics çalışma alanıyla yapılandırabilirsiniz.  Bu sayede Log Analytics yönetim paketlerini üretim yönetim grubunuzun kullanımına sunmadan önce bu yönetim paketlerinin yinelemeli sürümlerini gözden geçirebilir ve değerlendirebilirsiniz.
 
-## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Bir Operations Manager grubuna yeni bir günlük analizi çalışma alanı anahtarı
+## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Operations Manager grubunu yeni bir Log Analytics Çalışma Alanına geçirme
 1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
-2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **günlük analizi** ve bir çalışma alanı oluşturun.  
-3. Operations Manager Yöneticiler rolünün bir üyesi olan bir hesapla Operations Manager konsolunu açın ve seçin **Yönetim** çalışma.
-4. Operations Management Suite genişletin ve seçin **bağlantıları**.
-5. Seçin **yeniden yapılandırma işlemi Yönetim Paketi** bölmesinin Orta taraftaki bağlantı.
-6. İzleyin **Operations Management Suite Ekleme Sihirbazı** e-posta adresi veya telefon numarası ve yeni günlük analizi çalışma alanınız ile ilişkili yönetici hesabının parolasını girin.
+2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**'i seçin ve bir çalışma alanı oluşturun.  
+3. Operations Manager Yöneticiler rolüne üye olan bir hesapla Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
+4. Operations Management Suite'i genişletin ve **Bağlantılar**'ı seçin.
+5. Bölmenin orta kısmında **Operation Management Suite'i Yeniden Yapılandır** bağlantısını seçin.
+6. **Operations Management Suite Ekleme Sihirbazı**'nı izleyin ve yeni Log Analytics çalışma alanınızla ilişkilendirilmiş yönetici hesabının e-posta adresi veya telefon numarasını ve parolasını girin.
    
    > [!NOTE]
-   > **Operations Management Suite Ekleme Sihirbazı: çalışma alanı seçin** kullanımda olan bir çalışma sayfası gösterir.
+   > **Operations Management Suite Ekleme Sihirbazı: Çalışma Alanı Seçin** sayfasında kullanımda olan mevcut çalışma alanı gösterilir.
    > 
    > 
 
-## <a name="validate-operations-manager-integration-with-log-analytics"></a>Günlük analizi ile Operations Manager tümleştirmesini doğrula
-Operations Manager tümleştirmesi için günlük analizi başarılı olduğunu doğrulamak birkaç farklı yolu vardır.
+## <a name="validate-operations-manager-integration-with-log-analytics"></a>Operations Manager'ın Log Analytics Tümleştirmesini Doğrulama
+Log Analytics'in Operations Manager ile tümleştirmesinin başarılı olduğunu birkaç farklı yolla doğrulayabilirsiniz.
 
-### <a name="to-confirm-integration-from-the-azure-portal"></a>Azure portalından tümleştirme onaylamak için
+### <a name="to-confirm-integration-from-the-azure-portal"></a>Azure portalında tümleştirmeyi onaylamak için
 1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir.
-2. Günlük analizi çalışma alanları, listeden uygun çalışma alanını seçin.  
-3. Seçin **Gelişmiş ayarları**seçin **bağlı kaynakları**ve ardından **System Center**. 
-4. System Center Operations Manager bölümünün altında tabloda veri son alındığında listelenen aracıları ve durum sayısı ile yönetim grubunun adını görmeniz gerekir.
+2. Log Analytics çalışma alanlarınızın listesinde uygun çalışma alanını seçin.  
+3. **Gelişmiş ayarlar**'ı, **Bağlı Kaynaklar**'ı ve sonra da **System Center**'ı seçin. 
+4. System Center Operations Manager bölümünün altındaki tabloda yönetim grubu adının listelendiğini, ayrıca aracı sayısının ve veriler son alındığındaki durumun gösterildiğini görüyor olmalısınız.
    
-   ![OMS ayarları connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
+   ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 
-### <a name="to-confirm-integration-from-the-operations-console"></a>Operations konsolundan tümleştirme onaylamak için
+### <a name="to-confirm-integration-from-the-operations-console"></a>İşletim konsolunda tümleştirmeyi onaylamak için
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
-2. Seçin **yönetim paketleri** ve **arayın:** metin kutusuna **Danışmanı** veya **Intelligence**.
-3. Etkinleştirdiğiniz çözümleri bağlı olarak, arama sonuçları listesinde karşılık gelen bir Yönetim Paketi bakın.  Örneğin, uyarı yönetimi çözümü etkinleştirilirse, Yönetim Paketi Microsoft System Center Advisor uyarı yönetim listede ' dir.
-4. Gelen **izleme** görüntülemek için gitmek **Operations Management Suite\Health durumu** görünümü.  Bir yönetim sunucusu altında seçin **yönetim sunucusu durumu** bölmesinde ve **ayrıntılı Görünüm** bölmesinde Onayla özelliğinin değeri **kimlik doğrulama hizmeti URI'si** eşleşir Günlük analizi çalışma alanı kimliği
+2. **Yönetim Paketleri**'ni seçin ve **Aranan:** metin kutusuna **Advisor** veya **Intelligence** yazın.
+3. Etkinleştirdiğiniz çözümlere bağlı olarak, arama sonuçlarında ilgili yönetim paketinin listelendiğini görürsünüz.  Örneğin Uyarı Yönetimi çözümünü etkinleştirdiyseniz, listede Microsoft System Center Advisor Uyarı Yönetimi yönetim paketi yer alır.
+4. **İzleme** görünümünden **Operations Management Suite\Sistem Durumu** görünümüne gidin.  **Yönetim Sunucusu Durumu** bölmesinin altında bir Yönetim sunucusu seçin ve **Ayrıntı Görünümü** bölmesinde **Kimlik doğrulama hizmeti URI'si** özelliğinin değerinin Log Analytics Çalışma Alanı Kimliği ile eşleştiğini onaylayın.
    
-   ![OMS-OpsMgr-MG-authsvcuri-Property-MS](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
-## <a name="remove-integration-with-log-analytics"></a>Günlük analizi ile tümleştirme Kaldır
-Artık tümleştirme, Operations Manager yönetim grubu ve günlük analizi çalışma alanı arasında ihtiyacınız olduğunda gerektiği gibi yönetim grubunda bağlantısını ve yapılandırmasını kaldırmak için gereken birkaç adım vardır. Aşağıdaki yordam, yönetim grubunuzun başvuru silerek günlük analizi çalışma alanınız güncelleştirmek için günlük analizi bağlayıcılar silmek ve hizmeti ile tümleştirmeyi destekleyen yönetim paketlerini silin sahiptir.   
+## <a name="remove-integration-with-log-analytics"></a>Log Analytics ile tümleştirmeyi kaldırma
+Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı arasında tümleştirmeye ihtiyacınız kalmadığında, yönetim grubunda bağlantıyı ve yapılandırmayı düzgün kaldırmak için izlenmesi gereken bazı adımlar vardır. Aşağıdaki yordam, yönetim grubunuzun başvurusunu siler, Log Analytics bağlayıcılarını siler, ardından hizmetle tümleştirmeyi destekleyen yönetim paketlerini siler ve bu şeklide Log Analytics çalışma alanınızı güncelleştirir.   
 
-Çözümler için yönetim paketleri Operations Manager ile tümleşen etkinleştirdiğiniz ve günlük analizi hizmeti ile tümleştirme desteklemek için gereken yönetim paketleri yönetim grubundan kolayca silinemez.  Günlük analizi yönetim paketlerinden başka ilgili yönetim paketlerine bağımlılıkları olan olmasıdır.  Başka yönetim paketlerine bir bağımlılığa sahip yönetim paketleri silmek için komut dosyasını karşıdan yükleyin [bağımlılıkları olan bir Yönetim paketini kaldırmak](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) TechNet Komut Merkezi.  
+Etkinleştirdiğiniz çözümler için Operations Manager ile tümleştirilen yönetim paketleri ve Log Analytics hizmetiyle tümleştirme için gereken yönetim paketleri, yönetim grubundan kolayca silinemez.  Bunun nedeni, bazı Log Analytics yönetim paketlerinin diğer ilgili yönetim paketlerinde bağımlılıkları olmasıdır.  Diğer yönetim paketlerinde bağımlılıkları olan yönetim paketlerini silmek için, TechNet Betik Merkezi'nden [bağımlılıkları olan yönetim paketini kaldırma](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) betiğini indirin.  
 
-1. Operations Manager komut kabuğu Operations Manager Yöneticiler rolünün bir üyesi olan bir hesap ile açın.
+1. Operations Manager Yöneticiler rolüne üye olan bir hesapla Operations Manager Komut Kabuğu'nu açın.
    
     > [!WARNING]
-    > Tüm özel yönetim paketlerinde word Danışmanı veya IntelligencePack ile devam etmeden önce adı yok ve aksi halde yönetim grubundan silin aşağıdaki adımları doğrulayın.
+    > Devam etmeden önce adında Advisor veya IntelligencePack terimi bulunan hiçbir özel yönetim paketiniz olmadığını doğrulayın; aksi takdirde, aşağıdaki adımları o paketleri de yönetim grubundan siler.
     > 
 
-2. Komut kabuğu isteminde yazın `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Sonraki türü `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-4. Diğer System Center Advisor yönetim paketlerine bağımlı olan kalan herhangi bir yönetim paketi kaldırmak için komut dosyası kullanma *RecursiveRemove.ps1* TechNet Komut Merkezi'nden daha önce indirdiğiniz.  
+2. Komut kabuğu istemcisine `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue` yazın
+3. Sonra `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue` yazın
+4. Diğer System Center Advisor yönetim paketlerinde bağımlılığı olan kalan yönetim paketlerini kaldırmak için, daha önce TechNet Betik Merkezi'nden indirmiş olduğunuz *RecursiveRemove.ps1* betiğini kullanın.  
  
     > [!NOTE]
-    > Microsoft System Center Danışmanı veya Microsoft System Center Advisor iç Yönetim Paketi silmeyin.  
+    > Microsoft System Center Advisor veya Microsoft System Center Advisor Internal yönetim paketlerini silmeyin.  
     >  
 
-5. Operations Manager Yöneticiler rolünün bir üyesi olan bir hesapla Operations Manager işletim konsolunu açın.
-6. Altında **Yönetim**seçin **yönetim paketleri** düğümü ve **arayın:** kutusuna **Danışmanı** ve aşağıdaki yönetim paketleri yönetim grubunuza içeri doğrulamak:
+5. Operations Manager Yöneticiler rolüne üye olan bir hesapla Operations Manager İşletim konsolunu açın.
+6. **Yönetim**'in altında **Yönetim Paketleri** düğümünü açın, **Aranan:** kutusuna **Advisor** yazın ve aşağıdaki yönetim paketlerinin yönetim grubunuza aktarılmış durumda olduğunu doğrulayın:
    
-   * Microsoft System Center Danışmanı
-   * Microsoft System Center Advisor iç
-7. OMS portalında **Ayarlar** kutucuğuna tıklayın.
-8. Seçin **bağlı kaynakları**.
-9. System Center Operations Manager bölümünün altında tabloda çalışma alanından kaldırmak istediğiniz yönetim grubunun adını görmeniz gerekir.  Sütununun altında **son veri**, tıklatın **kaldırmak**.  
+   * Microsoft System Center Advisor
+   * Microsoft System Center Advisor Internal
+1. Azure portalında Log Analytics çalışma alanının **Gelişmiş ayarlar** menüsünü açın.
+1. **Bağlı Kaynaklar**’ı ve ardından **System Center**’ı seçin.
+1. Çalışma alanından kaldırmak istediğiniz yönetim grubunun adını görüyor olmalısınız.  **Son Veriler** sütununun altında **Kaldır**'a tıklayın.  
    
     > [!NOTE]
-    > **Kaldırmak** bağlantı kullanılamayacak kadar 14 gün sonra bağlı yönetim grubundan algılanan etkinlik yoksa.  
+    > Bağlı yönetim grubundan hiçbir etkinlik algılanmazsa 14 gün geçene kadar **Kaldır** bağlantısı kullanılamaz.  
     > 
 
-10. Kaldırma işlemine devam etmek istediğinizi onaylamanızı isteyen bir pencere görüntülenir.  Tıklatın **Evet** devam etmek için. 
+10. Kaldırma işlemine devam etmek istediğinizi onaylamanızı isteyen bir pencere görüntülenir.  Devam etmek için **Evet**'e tıklayın. 
 
-İki bağlayıcı - Microsoft.SystemCenter.Advisor.DataConnector ve Advisor Bağlayıcısı silmek için aşağıdaki PowerShell Betiği bilgisayarınıza kaydedin ve aşağıdaki örnekleri kullanarak yürütün:
+İki bağlayıcıyı (Microsoft.SystemCenter.Advisor.DataConnector ve Advisor Connector) silmek için, aşağıdaki PowerShell betiğini bilgisayarınıza kaydedin ve aşağıdaki örnekleri kullanarak yürütün:
 
 ```
     .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
@@ -217,7 +215,7 @@ Artık tümleştirme, Operations Manager yönetim grubu ve günlük analizi çal
 ```
 
 > [!NOTE]
-> Bir yönetim sunucusu değilse, bu komut dosyasından çalıştırın bilgisayarda Operations Manager komut kabuğu, yönetim grubunuzun sürümüne bağlı olarak yüklü olması gerekir.
+> Bu betiği çalıştırdığınız bilgisayar bir yönetim sunucusu değilse, yönetim grubunuzun sürümüne bağlı olarak bu bilgisayarda Operations Manager komut kabuğunun yüklü olması gerekir.
 > 
 > 
 
@@ -307,12 +305,12 @@ Artık tümleştirme, Operations Manager yönetim grubu ve günlük analizi çal
     Remove-Connector $connectorName
 ```
 
-Günlük analizi çalışma alanı için yönetim grubunuzun ihtimalleri planlıyorsanız, gelecekte, yeniden içeri aktarmanız gerekir `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` Yönetim Paketi dosyası.  System Center Operations Manager ortamınızda dağıtıldığında sürümüne bağlı olarak, bu dosya şu konumda bulabilirsiniz:
+Gelecekte yönetim grubunuzu yeniden Log Analytics çalışma alanına bağlamayı planlıyorsanız, `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` yönetim paketi dosyasını yeniden içeri aktarmanız gerekecektir.  Ortamınıza dağıtılan System Center Operations Manager sürümüne bağlı olarak bu dosyayı aşağıdaki konumda bulabilirsiniz:
 
-* Altında kaynak medyasında `\ManagementPacks` System Center 2016 - Operations Manager için klasör ve daha yüksek.
-* En son güncelleştirme paketi, yönetim grubu için uygulanır.  Operations Manager 2012 için kaynak klasördür` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` ve 2012 R2 bulunur `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* System Center 2016 - Operations Manager ve üstü için kaynak medyada `\ManagementPacks` klasörünün altında.
+* Yönetim grubunuza uygulanan en son güncelleştirme dağıtımından.  Kaynak klasör Operations Manager 2012 için ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` klasörüdür ve 2012 R2 için `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` altında yer alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İşlevsellik ekleme ve veri toplamak için bkz: [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
 
 

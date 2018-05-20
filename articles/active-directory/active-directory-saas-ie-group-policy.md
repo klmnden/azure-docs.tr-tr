@@ -1,8 +1,8 @@
 ---
-title: "Azure erişim paneli uzantısı için bir GPO kullanarak IE dağıtma | Microsoft Docs"
-description: "My uygulamaları portal için Internet Explorer eklentisi dağıtmak için Grup İlkesi kullanma"
+title: Azure erişim paneli uzantısı için bir GPO kullanarak IE dağıtma | Microsoft Docs
+description: My uygulamaları portal için Internet Explorer eklentisi dağıtmak için Grup İlkesi kullanma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
@@ -15,20 +15,20 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma
-Bu öğretici, Grup İlkesi uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızın makinelere yüklemeniz için nasıl kullanılacağını gösterir. Bu uzantı kullanılarak yapılandırılmış olan uygulamalarda oturum açmak için gereken Internet Explorer kullanıcılar için gerekli [parola tabanlı çoklu oturum açma](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+Bu öğretici, Grup İlkesi uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızın makinelere yüklemeniz için nasıl kullanılacağını gösterir. Bu uzantı kullanılarak yapılandırılmış olan uygulamalarda oturum açmak için gereken Internet Explorer kullanıcılar için gerekli [parola tabanlı çoklu oturum açma](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 Yöneticiler'in bu uzantı dağıtımını otomatik hale getirmek önerilir. Aksi takdirde, kullanıcılar yükleyip uzantısı kendileri hangi kullanıcı hataya ve yönetici izinlerine sahiptir. Bu öğretici, Grup İlkesi kullanarak yazılım dağıtımlarını otomatikleştirme bir yöntem kapsar. [Grup İlkesi hakkında daha fazla bilgi edinin.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 Erişim paneli uzantısı da kullanılabilir [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) ve [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), kümelesini yüklemek için yönetici izinleri gerektirir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Ayarlamış olduğunuz [Active Directory etki alanı Hizmetleri](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineler, etki alanına.
 * Grup İlkesi nesnesi (GPO) düzenlemek için "Ayarları düzenleme" izni olması gerekir. Varsayılan olarak, aşağıdaki güvenlik gruplarının üyeleri bu izne sahip: etki alanı yöneticileri, kuruluş yöneticileri ve Group Policy Creator Owners. [Daha fazla bilgi edinin.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
@@ -107,8 +107,8 @@ Kullanılabilmesi için önce yükleyicinin çalıştırmanın yanı sıra, her 
     ![Etkinleştir'i tıklatın ve ardından göster...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
 4. İçinde **içeriğini göster** penceresinde, aşağıdaki adımları gerçekleştirin:
    
-   1. İlk sütun için ( **değer adı** alanı), kopyalama ve yapıştırma aşağıdaki sınıf kimliği:`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. İkinci sütun için ( **değeri** alanı), aşağıdaki değeri türü:`1`
+   1. İlk sütun için ( **değer adı** alanı), kopyalama ve yapıştırma aşağıdaki sınıf kimliği: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   2. İkinci sütun için ( **değeri** alanı), aşağıdaki değeri türü: `1`
    3. Tıklatın **Tamam** kapatmak için **içeriğini göster** penceresi.
       
       ![Yukarıda belirtildiği gibi değerlerini doldurun.](./media/active-directory-saas-ie-group-policy/show-contents.png)
@@ -151,7 +151,7 @@ Kullanıcıları artık kendi kimlik bilgilerini veya kullanım otomatik tamamla
 Uzantı dağıtımı başarılı olup olmadığını doğrulamak için aşağıdaki adımları izleyin:
 
 1. Kullanarak dağıttıysanız **Bilgisayar Yapılandırması**, oturum açın, seçili OU'ya ait bir istemci makine [adım 2: Grup İlkesi nesnesi oluşturmak](#step-2-create-the-group-policy-object). Kullanarak dağıttıysanız **Kullanıcı Yapılandırması**, ilgili OU'ya ait olan bir kullanıcı olarak oturum açmak emin olun.
-2. Bileşenler değişiklikler Grup İlkesi için tam olarak için güncelleştirme birkaç oturum sürebilir bu makine ile. Güncelleştirmeyi uygulamak için açık bir **komut istemi** penceresini açın ve aşağıdaki komutu çalıştırın:`gpupdate /force`
+2. Bileşenler değişiklikler Grup İlkesi için tam olarak için güncelleştirme birkaç oturum sürebilir bu makine ile. Güncelleştirmeyi uygulamak için açık bir **komut istemi** penceresini açın ve aşağıdaki komutu çalıştırın: `gpupdate /force`
 3. Yüklemenin gerçekleşmesi makine yeniden başlatmanız gerekir. Önyükleme uzantısı sırasında normal yükler önemli ölçüde daha uzun sürebilir.
 4. Yeniden başlattıktan sonra açmak **Internet Explorer**. Pencerenin sağ üst köşesinde tıklatın **Araçları** (dişli simgesi) ve ardından **eklentileri yönetme**.
    
@@ -162,6 +162,6 @@ Uzantı dağıtımı başarılı olup olmadığını doğrulamak için aşağıd
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md)
 * [Erişim paneli uzantısı Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md)
 

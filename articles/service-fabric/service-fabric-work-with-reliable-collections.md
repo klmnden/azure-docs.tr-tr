@@ -1,26 +1,26 @@
 ---
-title: "Güvenilir koleksiyonları ile çalışma | Microsoft Docs"
-description: "Güvenilir koleksiyonları ile çalışmak için en iyi uygulamaları öğrenin."
+title: Güvenilir koleksiyonları ile çalışma | Microsoft Docs
+description: Güvenilir koleksiyonları ile çalışmak için en iyi uygulamaları öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: rajak
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="working-with-reliable-collections"></a>Güvenilir koleksiyonları ile çalışma
+# <a name="working-with-reliable-collections"></a>Güvenilir Koleksiyonlar ile çalışma
 Service Fabric, güvenilir koleksiyonlar aracılığıyla .NET geliştiricileri için kullanılabilir bir durum bilgisi olan programlama modeli sunar. Özellikle, Service Fabric güvenilir sözlük ve güvenilir sıra sınıfları sağlar. Bu sınıfların kullandığınızda, durumunuza (ölçeklenebilirlik) bölümlenmiş çoğaltılan (kullanılabilirlik için) ve (ACID semantiği için) bir bölüm içinde hareket gerçekleşti. Şimdi tipik bir güvenilir sözlük nesnesi kullanım bakın ve hangi kendi gerçekte yapılması bakın.
 
 ```csharp
@@ -142,7 +142,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Programcı hatayı önlemek için sabit veri türlerini tanımlayın
-İdeal olarak, yanlışlıkla değişmez göz önünde bulundurmanız gereken bir nesnenin durumu değiştirdiği kod üretmek zaman derleyici hatalarını raporlamak isteriz. Ancak, C# Derleyici bunu olanağına sahip değildir. Bu nedenle, olası Programcı hataları önlemek için türlerden tanımladığınız öneririz değişmez tür için güvenilir koleksiyonlarla kullanın. Bu özellikle, çekirdek değer türleri (örneğin, numaraları [Int32, UInt64, vb.], DateTime, Guid, TimeSpan ve benzeri) için takılıyor anlamına gelir. Ve tabi ki, ayrıca dize kullanabilirsiniz. Seri hale getirme olarak koleksiyon özellikleri önlemek en iyisidir ve bunları seri durumdan sık performansa zarar verebilir. Ancak, koleksiyon özellikleri kullanmak istiyorsanız, yüksek oranda kullanılmasını öneririz. NET'in değişmez koleksiyonlar kitaplığı ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Bu kitaplık http://nuget.org karşıdan yüklenebilir. Ayrıca, sınıflarınızı mühürleme ve mümkün olduğunda alanları salt okunur yapma öneririz.
+İdeal olarak, yanlışlıkla değişmez göz önünde bulundurmanız gereken bir nesnenin durumu değiştirdiği kod üretmek zaman derleyici hatalarını raporlamak isteriz. Ancak, C# Derleyici bunu olanağına sahip değildir. Bu nedenle, olası Programcı hataları önlemek için türlerden tanımladığınız öneririz değişmez tür için güvenilir koleksiyonlarla kullanın. Bu özellikle, çekirdek değer türleri (örneğin, numaraları [Int32, UInt64, vb.], DateTime, Guid, TimeSpan ve benzeri) için takılıyor anlamına gelir. Ve tabi ki, ayrıca dize kullanabilirsiniz. Seri hale getirme olarak koleksiyon özellikleri önlemek en iyisidir ve bunları seri durumdan sık performansa zarar verebilir. Ancak, koleksiyon özellikleri kullanmak istiyorsanız, yüksek oranda kullanılmasını öneririz. NET'in değişmez koleksiyonlar kitaplığı ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Bu kitaplık Merkezi'nden kullanılabilir http://nuget.org. Ayrıca, sınıflarınızı mühürleme ve mümkün olduğunda alanları salt okunur yapma öneririz.
 
 Aşağıdaki kullanıcı bilgisi türünü, daha önce bahsedilen önerileri yararlanarak bir sabit türü tanımlamak gösterilmiştir.
 

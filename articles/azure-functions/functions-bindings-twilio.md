@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri Twilio bağlama"
-description: "Azure işlevleriyle Twilio bağlamaları kullanmayı öğrenme."
+title: Azure işlevleri Twilio bağlama
+description: Azure işlevleriyle Twilio bağlamaları kullanmayı öğrenme.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 30a47fb597b5739e9f947caa9b72238631c780fe
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -34,12 +34,14 @@ Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](http:
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="example"></a>Örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
+* [C# betik (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C# örnek
@@ -227,8 +229,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü**|| ayarlanmalıdır `twilioSms`.|
-|**Yönü**|| ayarlanmalıdır `out`.|
+|**type**|| ayarlanmalıdır `twilioSms`.|
+|**direction**|| ayarlanmalıdır `out`.|
 |**Adı**|| İşlev kodu Twilio SMS metin iletisi için kullanılan değişken adı. |
 |**accountSid**|**AccountSid**| Bu değer, Twilio hesabının SID tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
 |**authToken**|**AuthToken**| Bu değer, Twilio kimlik doğrulaması belirtecine sahip bir uygulama ayarı adı için ayarlamanız gerekir.|

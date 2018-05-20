@@ -15,11 +15,11 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 838bdccb06e5763d33f63208cb6f941a55778b32
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme
 Yayımlanmış bir uygulamanın erişme veya yayımlama uygulamalarda hatalar meydana gelirse, Microsoft Azure AD uygulama proxy'si düzgün çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -27,7 +27,7 @@ Yayımlanmış bir uygulamanın erişme veya yayımlama uygulamalarda hatalar me
 * Windows Hizmetleri konsolunu açın ve doğrulayın **Microsoft AAD Application Proxy Connector** hizmetidir etkin ve çalışıyor. Ayrıca uygulama proxy'si hizmeti özellikleri sayfanın aramak aşağıdaki resimde gösterildiği gibi istediğiniz:  
   ![Microsoft AAD uygulama Proxy Bağlayıcısı özellikleri penceresinin ekran görüntüsü](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Olay Görüntüleyicisi'ni açın ve uygulama Proxy Bağlayıcısı olayları arayın **uygulama ve hizmet günlükleri** > **Microsoft** > **AadApplicationProxy** > **bağlayıcı** > **yönetici**.
-* Gerekli olursa, daha ayrıntılı günlükler tarafından [uygulama Proxy Bağlayıcısı oturum açtığında kapatma](application-proxy-understand-connectors.md#under-the-hood).
+* Gerekli olursa, daha ayrıntılı günlükler tarafından [uygulama Proxy Bağlayıcısı oturum açtığında kapatma](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 Azure AD sorun giderme aracı hakkında daha fazla bilgi için bkz: [bağlayıcı ağ Önkoşullar doğrulamak için sorun giderme aracı](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
@@ -90,7 +90,7 @@ Bir hata veya sorun bu sorun giderme Kılavuzu'nda listelenmiyor Azure AD uygula
 * [Azure Active Directory Uygulama Ara sunucusunu etkinleştirme](manage-apps/application-proxy-enable.md)
 * [Uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)
 * [Çoklu oturum açmayı etkinleştir](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md)
+* [Koşullu erişimi etkinleştirme](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

@@ -47,7 +47,7 @@ Bunlar daha yakın bir göz atalım.
 **Depolama türü:** yönetilen diskleri 2 performans katmanı sunar: [Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD tabanlı) ve [standart](../articles/virtual-machines/windows/standard-storage.md) (HDD tabanlı). Hangi tür depolama için disk üzerinde seçmiş olduğunuz yönetilen bir disk faturalama bağlıdır.
 
 
-**Disk boyutu**: yönetilen diskleri için fatura sağlanan disk boyutuna bağlıdır. Azure, aşağıdaki tabloda belirtildiği gibi yakın yönetilen diskleri seçeneğine (yuvarlanan) sağlanan boyutu eşler. Yönetilen her disk desteklenen sağlanan boyutlarından birini eşler ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GB sağlanan boyutunu belirtirseniz, fiyatlandırma S20'in Disk türüne göre faturalandırılır.
+**Disk boyutu**: yönetilen diskleri için fatura sağlanan disk boyutuna bağlıdır. Azure, aşağıdaki tabloda belirtildiği gibi yakın yönetilen diskleri seçeneğine (yuvarlanan) sağlanan boyutu eşler. Yönetilen her disk desteklenen sağlanan boyutlarından birini eşler ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GB sağlanan boyutunu belirtirseniz, fiyatlandırma S15 Disk türüne göre faturalandırılır.
 
 Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
@@ -58,9 +58,9 @@ Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
 Standart yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Standart yönetilen <br>Disk türü** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Boyutu        | 32 Gib'den   | 64 Gib'den   | 128 GiB | 512 GiB | 1024 Gib'den (1 Tıb) | 2048 Gib'den (2 Tıb) | 4095 Gib'den (4 Tıb) | 
+| **Standart yönetilen <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Disk Boyutu        | 32 Gib'den  | 64 Gib'den  | 128 GiB | 256 Gib'den | 512 GiB | 1024 Gib'den (1 Tıb) | 2048 Gib'den (2 Tıb) | 4095 Gib'den (4 Tıb) | 
 
 
 **İşlem sayısı**: standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılır. Premium yönetilen disk işlemleri için ücret ödemeden yoktur.

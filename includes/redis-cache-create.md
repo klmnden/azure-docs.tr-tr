@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 55bc2bd4e065c301f11a5fc4d3b58aa443b83e2d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e035b49d9e386287baf67bba756f7b58a764acc5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 Önbellek oluşturmak için ilk olarak [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak oluştur** > **Veritabanları** > **Redis Cache**’ye tıklayın.
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2018
 | ------------ |  ------- | -------------------------------------------------- |
 | **DNS adı** | Genel olarak benzersiz bir ad | Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.  | 
 | **Abonelik** | Aboneliğiniz | Bu yeni Azure Redis Cache’nin oluşturulduğu abonelik. | 
-| **Kaynak Grubu** |  *TestResourceGroup* | Önbelleğinizin oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. | 
+| **Kaynak Grubu** |  *TestResources* | Önbelleğinizin oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. | 
 | **Konum** | Doğu ABD | Önbelleğinizi kullanacak olan diğer hizmetlerin yanında bir [bölge](https://azure.microsoft.com/regions/) seçin. |
 | **[Fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/cache/)** |  Temel C0 (250 MB Önbellek) |  Fiyatlandırma katmanı önbellek için kullanılabilen boyut, performans ve özellikleri belirler. Daha fazla bilgi için bkz. [Azure Redis Cache’ye Genel Bakış](../articles/redis-cache/cache-overview.md). |
 | **Panoya sabitle** |  Seçildi | Yeni önbelleği panonuza sabitleyerek kolay bulunur hale getirin. |

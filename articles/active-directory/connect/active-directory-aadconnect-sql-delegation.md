@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Temsilci SQL yönetici izinleri kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect yapı önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi desteklenmiyordu.  Azure AD Connect'i yüklemek isteyen kullanıcılara SQL server üzerinde Sistem Yöneticisi (SA) izinlerine sahip gerekirdi.
@@ -42,7 +42,7 @@ Bant dışı veritabanını sağlamak ve veritabanı sahibinin izinleriyle Azure
 
 
 1.  ADSync veritabanı ile büyük küçük harfe duyarlı harmanlama sırası oluşturmak SQL yöneticisine sahip **(latin1_general_cı_as)**.  Veritabanı olarak adlandırılmalıdır **ADSync**.  Azure AD Connect yüklendiğinde kurtarma modeli, uyumluluk düzeyi ve kapsama türü doğru değerlerin güncelleştirilir.  Aksi takdirde harmanlama sırası SQL yönetici tarafından doğru şekilde ayarlanması gerekir ancak Azure AD Connect yükleme engeller.  SA kurtarmak için gereken silin ve veritabanını yeniden oluşturun.</br>
-![Harmanlama](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Harmanlama](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  Azure AD Connect yönetici ve etki alanı hizmet hesabı aşağıdaki izinleri verin:
     - SQL Oturum Açma 
     - **Owner(dbo) veritabanı** hakları.  </br>

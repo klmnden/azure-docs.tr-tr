@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Ceridian Dayforce HCM | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Ceridian Dayforce HCM arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Ceridian Dayforce HCM | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Ceridian Dayforce HCM arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 9b87fe59f2761c26319ce9e13168dc6c4bf95f8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 09f9d6d096944453d28a588de4d73dc3c95fc695
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Öğretici: Azure Active Directory Tümleştirme Ceridian Dayforce HCM ile
 
@@ -30,9 +30,9 @@ Ceridian Dayforce HCM Azure AD ile tümleştirme ile aşağıdaki avantajları s
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Ceridian Dayforce HCM açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Ceridian Dayforce HCM ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,23 +110,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     a. İçinde **oturum üzerinde URL'si** metin kutusuna, türü URL kullanıcılarınıza oturum açma Ceridian Dayforce HCM uygulamanıza tarafından kullanılıyor.
     
-    | Ortam | URL |
+    | Ortam | URL'si |
     | :-- | :-- |
-    | Üretim amaçlı | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
+    | Üretim için | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Test için | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
     
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     
-    | Ortam | URL |
+    | Ortam | URL'si |
     | :-- | :-- |
-    | Üretim amaçlı | `https://ncpingfederate.dayforcehcm.com/sp` |
+    | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Test için | `https://fs-test.dayforcehcm.com/sp` |
     
     c. İçinde **yanıt URL'si** metin kutusuna, türü URL kullanılan Azure AD tarafından yanıt gönderme.
     
-    | Ortam | URL |
+    | Ortam | URL'si |
     | :-- | :-- |
-    | Üretim amaçlı | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
+    | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Test için | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
     
     > [!NOTE] 
@@ -202,7 +202,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Ceridian Dayforce HCM test kullanıcısı oluşturma
 
@@ -268,7 +268,7 @@ Bu bölümde, Britta Ceridian Dayforce HCM erişim vererek, Azure çoklu oturum 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.  
 Erişim paneli Ceridian Dayforce HCM parçasında tıklattığınızda, otomatik olarak Ceridian Dayforce HCM uygulamanıza açan. 
@@ -276,7 +276,7 @@ Erişim paneli Ceridian Dayforce HCM parçasında tıklattığınızda, otomatik
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.openlocfilehash: 8732d1b87acaa6673ae92b3302fb257dcb134217
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Uygulamaları Azure Blockchain çalışma ekranı içinde kullanma
 
@@ -52,31 +52,29 @@ Yeni bir sözleşme oluşturmak için bir üyesi olmanız gerekir **AllowedInsta
 ## <a name="take-action-on-contract"></a>Sözleşme üzerinde eylem
 
 1. Blockchain çalışma ekranı uygulama bölümünde eyleme sözleşme içeren uygulama döşeme seçin.
-
-    ![Uygulama listesi](media/blockchain-workbench-use/apps-list.png)
-
-2. Sözleşme listeden seçin.
-
-    ![Sözleşme Listesi](media/blockchain-workbench-use/select-contract.png)
-
-    Anlaşma ayrıntılarını farklı bölümlerde görüntülenir. 
+2. Sözleşme listeden seçin. Anlaşma ayrıntılarını farklı bölümlerde görüntülenir. 
 
     ![Anlaşma ayrıntıları](media/blockchain-workbench-use/contract-details.png)
 
-    | Section  | Açıklama  |
+    | Bölüm  | Açıklama  |
     |---------|---------|
     | Durum | Geçerli ilerleme içinde sözleşme aşamaları listeler |
     | Ayrıntılar | Sözleşmenin geçerli değerleri |
-    | Eylem | Son eylemi hakkındaki ayrıntıları |
+    | action | Son eylemi hakkındaki ayrıntıları |
     | Etkinlik | Sözleşmenin işlem geçmişi |
     
 3. İçinde **eylem** bölümünde, select **ele eylem**.
 
 4. Sözleşme geçerli durumuyla ilgili ayrıntıları Bölmesi'nde görüntülenir. Açılan gerçekleştirmek istediğiniz eylemi seçin. 
 
+    ![Eylem seçin](media/blockchain-workbench-use/choose-action.png)
+
+5. Seçin **ele eylem** eylemi başlatmak için.
+6. Eylem için parametreler gerekiyorsa, eylemi için değerleri belirtin.
+
     ![Eylem gerçekleştirin](media/blockchain-workbench-use/take-action.png)
 
-5. Seçin **yürütme** eyleme geçmek için.
+7. Seçin **ele eylem** eylemi yürütülemedi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

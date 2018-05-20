@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Boomi | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Boomi arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Boomi | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Boomi arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bd0b5cd66718ca0eeb9fa90366b90a899181e912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Öğretici: Azure Active Directory Tümleştirme Boomi ile
 
@@ -30,7 +30,7 @@ Boomi Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Boomi (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Boomi etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`https://platform.boomi.com/`
+    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://platform.boomi.com/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE] 
     > Yanıt URL'si değeri gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Boomi destek ekibi](https://boomi.com/company/contact/) değeri alınamıyor.
@@ -214,7 +214,7 @@ Azure AD kullanıcıları için Boomi oturum açmak etkinleştirmek için bunlar
 
     ![Kullanıcıların](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "kullanıcılar")
 
-3. Tıklatın  **+**  simgesini ve **Ekle/Koru kullanıcı rolleri** iletişim kutusunu açar.
+3. Tıklatın **+** simgesini ve **Ekle/Koru kullanıcı rolleri** iletişim kutusunu açar.
 
     ![Kullanıcıların](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "kullanıcılar")
 
@@ -265,7 +265,7 @@ Bu bölümde, Britta Boomi için erişim vererek, Azure çoklu oturum açma kull
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -275,7 +275,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

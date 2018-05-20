@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric için ağ desenleri | Microsoft Docs"
-description: "Service Fabric ve Azure ağ özellikleri kullanılarak bir küme oluşturma için ortak ağ desenleri açıklar."
+title: Azure Service Fabric için ağ desenleri | Microsoft Docs
+description: Service Fabric ve Azure ağ özellikleri kullanılarak bir küme oluşturma için ortak ağ desenleri açıklar.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: b180e62804b875ca4547a9d09f19efff32ae0cd9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric ağ desenleri
 Azure Service Fabric kümesi Azure diğer ağ özelliklerini ile tümleştirebilirsiniz. Bu makalede, sizi, aşağıdaki özellikleri kullanan bir küme nasıl oluşturulacağını gösterir:
@@ -340,7 +340,7 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
                 ],
     ```
 
-5. Yük dengeleyicinin değiştirme `frontendIPConfigurations` kullanımından ayarını bir `publicIPAddress`, bir alt ağ kullanarak ve `privateIPAddress`. `privateIPAddress`önceden tanımlanmış statik iç IP adresi kullanır. Dinamik IP adresi kullanmak için kaldırmak `privateIPAddress` öğesini ve ardından değişiklik `privateIPAllocationMethod` için **dinamik**.
+5. Yük dengeleyicinin değiştirme `frontendIPConfigurations` kullanımından ayarını bir `publicIPAddress`, bir alt ağ kullanarak ve `privateIPAddress`. `privateIPAddress` önceden tanımlanmış statik iç IP adresi kullanır. Dinamik IP adresi kullanmak için kaldırmak `privateIPAddress` öğesini ve ardından değişiklik `privateIPAllocationMethod` için **dinamik**.
 
     ```
                 "frontendIPConfigurations": [

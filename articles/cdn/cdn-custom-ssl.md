@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -74,13 +74,20 @@ Bu seçenekle, yalnızca birkaç tıkla özel HTTPS özelliği açılabilir. Azu
 
 4. Sertifika yönetimi türü bölümünde **Yönetilen CDN**’yi seçin.
 
-4. HTTPS’yi etkinleştirmek için **Açık** seçeneğini belirleyin.
+5. HTTPS’yi etkinleştirmek için **Açık** seçeneğini belirleyin.
 
     ![Özel etki alanı HTTPS durumu](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. [Etki alanını doğrulama](#validate-the-domain) adımına ilerleyin.
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>2. Seçenek: Kendi sertifikanızla HTTPS özelliğini etkinleştirme 
+
+> [!IMPORTANT]
+> Bu özellik yalnızca **Microsoft tarafından sunulan Azure CDN Standard** profilleriyle kullanılabilir. 
+>
  
+
 HTTPS üzerinden içerik teslim etmek için Azure CDN’de kendi sertifikanızı kullanabilirsiniz. Bu işlem, Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure Key Vault, müşterilerin sertifikalarını güvenli şekilde depolamasına olanak sağlar. Azure CDN hizmeti, sertifikayı almak için bu güvenli mekanizmadan yararlanır. Kendi sertifikanızı kullanmanız için birkaç ek adım gerekir.
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>1. Adım: Azure Key Vault hesabınızı ve sertifikanızı hazırlama
@@ -89,9 +96,23 @@ HTTPS üzerinden içerik teslim etmek için Azure CDN’de kendi sertifikanızı
  
 2. Azure Key Vault sertifikaları: Zaten bir sertifikanız varsa, bu sertifikayı doğrudan Azure Key Vault hesabınıza yükleyebilir veya doğrudan Azure Key Vault’un tümleştirildiği iş ortağı Sertifika Yetkililerinden birinin Azure Key Vault’u üzerinden yeni bir sertifika oluşturabilirsiniz. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>2. Adım: Azure CDN’ye anahtar kasanıza erişme yetkisi verme
+### <a name="step-2-register-azure-cdn"></a>2. Adım: Azure CDN’yi kaydetme
+
+PowerShell aracılığıyla Azure CDN’yi Azure Active Directory’nizdeki bir uygulama olarak kaydedin.
+
+1. Gerekirse yerel makinenizdeki PowerShell’de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0)’i yükleyin.
+
+2. PowerShell’de aşağıdaki komutu çalıştırın:
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![PowerShell’de Azure CDN’ye kaydolun](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>3. Adım: Azure CDN’ye anahtar kasanıza erişim yetkisi verme
  
-Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) erişme yetkisi vermeniz gerekir.
+Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) erişme yetkisi verin.
+
 1. Anahtar kasası hesabınızda AYARLAR bölümünden **Erişim ilkeleri**’ni ve sonra **Yeni ekle**’yi seçip yeni bir ilke oluşturun.
 
     ![Yeni erişim ilkesi oluşturma](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +127,7 @@ Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) eriş
 
     Azure CDN artık bu anahtar kasasına ve bu anahtar kasasında depolanan sertifikalara (gizli diziler) erişebilir.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>3. Adım: Azure CDN’nin dağıtacağı sertifikayı seçme
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>4. Adım: Azure CDN’nin dağıtacağı sertifikayı seçme
  
 1. Azure CDN portalına geri dönün ve özel HTTPS’yi etkinleştirmek istediğiniz profili ve CDN uç noktasını seçin. 
 
@@ -126,16 +147,20 @@ Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) eriş
     - Kullanılabilir sertifika sürümleri. 
  
 5. HTTPS’yi etkinleştirmek için **Açık** seçeneğini belirleyin.
+  
+6. Kendi sertifikanızı kullanıyorsanız etki alanı doğrulaması gerekmez. [Yayılma için bekleme](#wait-for-propagation) adımına geçin.
 
 
 ## <a name="validate-the-domain"></a>Etki alanını doğrulama
 
-CNAME kaydı kullanılarak özel uç noktanızla eşlenen ve kullanılmakta olan bir özel etki alanınız zaten varsa şu adıma geçin:  
+CNAME kaydı kullanılarak özel uç noktanızla eşlenen ve kullanılmakta olan bir özel etki alanınız zaten varsa ya da kendi sertifikanızı kullanıyorsanız şu adıma geçin:  
 [Özel etki alanı, CDN uç noktanızla eşlendi](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Böyle bir etki alanınız yoksa uç noktanıza yönelik CNAME kaydı girişinin artık mevcut olmaması veya cdnverify alt etki alanını içeriyor olması durumunda [Özel etki alanı, CDN uç noktanızla eşlenmedi](#custom-domain-is-not-mapped-to-your-cdn-endpoint) adımına geçin.
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Özel etki alanı bir CNAME kaydı kullanılarak CDN uç noktanızla eşlendi
 
-Uç noktanıza özel etki alanı eklediğinizde etki alanı kayıt yetkilinizin DNS tablosunda, CDN uç noktası ana bilgisayar adınızla eşlenecek bir CNAME kaydı oluşturmuş oldunuz. Bu CNAME kaydı hala mevcutsa ve cdnverify alt etki alanını içermiyorsa DigiCert sertifika yetkilisi (CA), özel etki alanınızın sahipliğini doğrulamak için bunu kullanır. 
+Uç noktanıza özel etki alanı eklediğinizde etki alanı kayıt yetkilinizin DNS tablosunda, CDN uç noktası ana bilgisayar adınızla eşlenecek bir CNAME kaydı oluşturmuş oldunuz. Bu CNAME kaydı hala mevcutsa ve cdnverify alt etki alanını içermiyorsa DigiCert sertifika yetkilisi (CA), özel etki alanınızın sahipliğini otomatik olarak doğrulamak için bunu kullanır. 
+
+Kendi sertifikanızı kullanıyorsanız etki alanı doğrulaması gerekmez.
 
 CNAME kaydınız, *Ad*’ın özel etki alanınız, *Değer*’in ise CDN uç noktası ana bilgisayar adınız olduğu aşağıdaki biçimde olmalıdır:
 

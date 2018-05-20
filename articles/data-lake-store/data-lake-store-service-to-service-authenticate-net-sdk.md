@@ -1,23 +1,21 @@
 ---
 title: "Hizmetten hizmete kimlik doğrulaması: Azure Active Directory'yi kullanarak .NET SDK Data Lake Store ile | Microsoft Docs"
-description: "Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Active Directory kullanarak Data Lake Store ile elde öğrenin"
+description: Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Active Directory kullanarak Data Lake Store ile elde öğrenin
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: fb3d3dd518cbe0a603524f1bdc38d122582aa6b0
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 794e46bd4bdbb29158a7d7111712fbf62621c79b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK kullanarak Data Lake Store ile hizmet kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -47,7 +45,7 @@ Bu makalede, Azure Data Lake Store ile hizmet kimlik doğrulaması yapmak için 
    | --- | --- |
    | Kategori |Şablonlar/Visual C#/Windows |
    | Şablon |Konsol Uygulaması |
-   | Ad |CreateADLApplication |
+   | name |CreateADLApplication |
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
 5. NuGet paketlerini projenize ekleyin.

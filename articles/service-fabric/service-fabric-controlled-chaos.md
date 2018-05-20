@@ -9,16 +9,16 @@ editor: motanv
 ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 40ceb62e544d2aa71296e24da957cb062029da9f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 26a954412b8755cd112bf2931ed9bdda291fd727
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric kümelerinde denetimli Chaos anlamına
 Bulut altyapılarının doğası gereği güvenilir gibi büyük ölçekli dağıtılmış sistemler. Azure Service Fabric, güvenilir olmayan bir altyapının en üstünde güvenilir dağıtılmış hizmet yazmak geliştiricilerin sağlar. Güvenilir olmayan bir altyapının en üstünde güçlü dağıtılmış hizmet yazmak için geliştiriciler güvenilmez altyapının hataları nedeniyle karmaşık durumu geçişleri üzerinden giderek sırada hizmetlerini kararlılığını test etmek gerekir.

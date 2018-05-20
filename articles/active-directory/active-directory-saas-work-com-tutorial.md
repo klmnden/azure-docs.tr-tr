@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Work.com | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Work.com arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Work.com | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Work.com arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7aa04faab5da9ee7dae977be3a8c040c3aed0b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bfc76d05a52d0283e3367f9c98dc8ed427cbe592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Öğretici: Azure Active Directory Tümleştirme Work.com ile
 
@@ -30,9 +30,9 @@ Work.com Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Work.com (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Work.com ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -104,13 +104,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![SAML tabanlı oturum açma](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
+    ![SAML Tabanlı Oturum Açma](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
 
 3. Üzerinde **Work.com etki alanı ve URL'leri** bölümünde, aşağıdaki işlemi gerçekleştirin:
 
     ![Work.com etki alanı ve URL'ler bölümü](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`http://<companyname>.my.salesforce.com`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Work.com istemci destek ekibi](https://help.salesforce.com/articleView?id=000159855&type=3) bu değeri alınamıyor. 
@@ -181,9 +181,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     h. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
     
-    ı. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP Post**.
+    i. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP Post**.
     
-    j. **Kaydet** düğmesine tıklayın.
+    j. **Kaydet**’e tıklayın.
 
 16. Sol gezinti bölmesinde, Work.com Klasik Portalı'nda tıklatın **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My etki alanı** açmak için **My etki alanı** Sayfa. 
     
@@ -230,7 +230,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-workcom-test-user"></a>Work.com test kullanıcısı oluşturma
 Azure Active Directory kullanıcıların oturum açabilmesi için bunlar için Work.com sağlanmalıdır. Work.com söz konusu olduğunda, sağlama bir el ile bir görevdir.
@@ -259,15 +259,15 @@ Azure Active Directory kullanıcıların oturum açabilmesi için bunlar için W
     
     c. İçinde **diğer** metin kutusuna, türü **adı** kullanıcının **BrittaS**.
     
-    d. İçinde **e-posta** metin kutusuna, türü **e-posta adresi** kullanıcının  **Brittasimon@contoso.com** .
+    d. İçinde **e-posta** metin kutusuna, türü **e-posta adresi** kullanıcının **Brittasimon@contoso.com**.
     
-    e. İçinde **kullanıcı adı** metin kutusuna, türü kullanıcının kullanıcı adını ister  **Brittasimon@contoso.com** .
+    e. İçinde **kullanıcı adı** metin kutusuna, türü kullanıcının kullanıcı adını ister **Brittasimon@contoso.com**.
     
     f. İçinde **takma ad** metin kutusuna, bir **takma ad** kullanıcının **Simon**.
     
     g. Seçin **rol**, **kullanıcı lisansı**, ve **profil**.
     
-    h. **Kaydet** düğmesine tıklayın.  
+    h. **Kaydet**’e tıklayın.  
       
     > [!NOTE]
     > Azure AD hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.
@@ -304,7 +304,7 @@ Bu bölümde, Britta Work.com için erişim vererek, Azure çoklu oturum açma k
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -314,7 +314,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

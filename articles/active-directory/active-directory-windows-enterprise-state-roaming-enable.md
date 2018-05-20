@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory'de gezici Kurumsal durumu etkinleştir | Microsoft Docs"
-description: "Windows cihazları'deki kurumsal durumda Dolaşım ayarları hakkında sık sorulan sorular. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleştirilmiş bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır."
+title: Azure Active Directory'de gezici Kurumsal durumu etkinleştir | Microsoft Docs
+description: Windows cihazları'deki kurumsal durumda Dolaşım ayarları hakkında sık sorulan sorular. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleştirilmiş bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır.
 services: active-directory
-keywords: "Kurumsal durumda dolaşımı, windows bulut Kurumsal durumda Dolaşım etkinleştirme"
-documentationcenter: 
+keywords: Kurumsal durumda dolaşımı, windows bulut Kurumsal durumda Dolaşım etkinleştirme
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda Dolaşım herhangi bir Azure AD Premium veya Enterprise Mobility + güvenlik (EMS) lisansı kuruluşla kullanılabilir. Bir Azure AD aboneliği edinme hakkında daha fazla bilgi için bkz: [Azure AD ürün sayfası](https://azure.microsoft.com/services/active-directory).
 
-Kurumsal durumda Dolaşım etkinleştirdiğinizde kuruluşunuz Azure Rights Management için ücretsiz, sınırlı kullanım lisansı otomatik olarak verilir. Bu ücretsiz abonelik, şifreleme ve şifre çözme Kurumsal ayarları ve uygulama verileri Kurumsal durumda Dolaşım tarafından eşitlenen sınırlıdır. Sahip olmanız gerekir [Ücretli abonelik](https://azure.microsoft.com/pricing/details/active-directory/) özelliklerinin tamamı Azure Rights Management kullanmak için.
+Kurumsal durumda Dolaşım etkinleştirdiğinizde kuruluşunuz Azure Rights Management koruması ücretsiz, sınırlı kullanım lisansı otomatik olarak Azure bilgi koruma verilir. Bu ücretsiz abonelik, şifreleme ve şifre çözme Kurumsal ayarları ve uygulama verileri Kurumsal durumda Dolaşım tarafından eşitlenen sınırlıdır. Bilmeniz gereken [Ücretli abonelik](https://azure.microsoft.com/pricing/details/information-protection/) Azure Rights Management hizmeti özelliklerini kullanmak için.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Kurumsal durumda Dolaşım etkinleştirmek için
 
@@ -39,7 +39,7 @@ Kurumsal durumda Dolaşım etkinleştirdiğinizde kuruluşunuz Azure Rights Mana
 Windows 10 cihazına Kurumsal durumda Dolaşım hizmetini kullanmak bir Azure AD kimlik bilgileriniz kullanılarak aygıtın kimliğini doğrulaması gerekir. Azure AD'ye katılan cihazlar için oturum açma kullanıcının birincil kimliğini kendi Azure AD kimlik olduğundan ek yapılandırma gerekli değildir. BT yöneticiniz şirket içi Active Directory kullanan cihazlar için gereken [Windows 10 deneyimleri için etki alanına katılmış cihazlar için Azure AD connect](active-directory-azureadjoin-devices-group-policy.md).
 
 ## <a name="data-storage"></a>Veri depolama
-Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölgeleri](https://azure.microsoft.com/regions/) en iyi ülke/bölge değeri Azure Active Directory örneğine ayarlanmış hizalayın. Kurumsal durumda Dolaşım veri bölümlenmiş üç ana coğrafi bölgelerine bağlı: Kuzey Amerika, EMEA ve APAC. Kurumsal durumda Dolaşım veri Kiracı için coğrafi bölge ile yerel olarak bulunur ve bölgeler arasında çoğaltılmaz.  Örneğin::
+Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölgeleri](https://azure.microsoft.com/regions/) en iyi ülke/bölge değeri Azure Active Directory örneğine ayarlanmış hizalayın. Kurumsal durumda Dolaşım veri bölümlenmiş üç ana coğrafi bölgelerine bağlı: Kuzey Amerika, EMEA ve APAC. Kurumsal durumda Dolaşım veri Kiracı için coğrafi bölge ile yerel olarak bulunur ve bölgeler arasında çoğaltılmaz.  Örneğin:
 Ülke/bölge değeri | verilerini barındırılan
 ---------------------|-------------------------
 "Fransa" veya "Zambiya" gibi bir EMEA ülke | bir ya da Avrupa içindeki Azure bölgeler 

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 07ddf1c2b76230c8d753426d70098603ff14ec4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 13ee238580d645f3e727090bc0e0275b36bdb225
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric kümesi Kaynak Yöneticisi, bir küme açıklamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında Küme Kaynak Yöneticisi'ni kümede çalışan hizmetler yüksek düzeyde kullanılabilirliğini sağlamak için bu bilgileri kullanır. Bu önemli kurallar zorlarken bu aynı zamanda kümedeki kaynak tüketimini en iyi duruma dener.

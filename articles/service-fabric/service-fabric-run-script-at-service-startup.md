@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Yerel kullanıcı veya sistem hesabı olarak bir hizmet başlangıcı komut dosyası çalıştırma
 Service Fabric hizmeti yürütülebilir dosyası başlatıldığında önce bazı yapılandırma ya da kurulum iş çalıştırmak gerekli olabilir.  Örneğin, ortam değişkenleri yapılandırılıyor. Hizmeti için hizmet bildiriminde yürütülebilir hizmeti başlar önce çalıştırılacak bir komut dosyası belirtebilirsiniz. Hangi hesabı değiştirebilirsiniz hizmet Kurulum giriş noktası için bir RunAs ilkesini yapılandırarak yürütülebilir Kurulum altında çalışır.  Ayrı Kurulum giriş noktası hizmeti ana bilgisayarı yürütülebilir yüksek ayrıcalıklara sahip uzun süre için çalıştırmanız gerekmez için kısa bir süre için yüksek privilged yapılandırma çalıştırmanıza olanak sağlar.
 
 Kurulum giriş noktası (**SetupEntryPoint** içinde [hizmet bildirimi](service-fabric-application-and-service-manifests.md)) çalıştırılan varsayılan Service Fabric kimlik bilgileriyle bir ayrıcalıklı giriş noktasıdır (genellikle  *NetworkService* hesabı) önce başka bir giriş noktası. Tarafından belirtilen yürütülebilir dosya **EntryPoint** genellikle uzun süre çalışan hizmet yöneticisidir. **EntryPoint** yürütülebilir dosyayı çalıştırmak **SetupEntryPoint** yürütülebilir başarıyla çıkar. Sonuçta elde edilen işlem izlenen ve yeniden başlatılabilir ve yeniden ile başlayan **SetupEntryPoint** hiç sonlandırır veya çöküyor. 
 
-## <a name="configure-the-service-setup-entry-point"></a>Hizmet Kurulum giriş noktasını yapılandırın
+## <a name="configure-the-service-setup-entry-point"></a>Hizmet kurulumu giriş noktasını yapılandırma
 Kurulum komut dosyasını belirten bir durum bilgisiz hizmet basit hizmeti bildirim örneğin aşağıdadır *MySetup.bat* hizmet **SetupEntryPoint**.  **Bağımsız değişkenler** çalıştırıldığında, bağımsız değişkenleri komut dosyasına geçirmek için kullanılır.
 
 ```xml
@@ -241,6 +241,6 @@ Echo "Test console redirection which writes to the application log folder on the
 * [Uygulama ve hizmet güvenliği hakkında bilgi edinin](service-fabric-application-and-service-security.md)
 * [Uygulama modeli anlama](service-fabric-application-model.md)
 * [Bir hizmet bildirimi kaynakları belirtme](service-fabric-service-manifest-resources.md)
-* [Bir uygulamayı dağıtma](service-fabric-deploy-remove-applications.md)
+* [Uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

@@ -1,25 +1,27 @@
 ---
-title: "Başlarken azure AD v2.0 .NET AngularJS tek sayfa uygulaması | Microsoft Docs"
-description: "Hem kişisel Microsoft hesabı olan kullanıcılar oturum açtığında bir Açısal JS tek sayfa uygulaması oluşturma ve iş veya Okul hesapları."
+title: Başlarken azure AD v2.0 .NET AngularJS tek sayfa uygulaması | Microsoft Docs
+description: Hem kişisel Microsoft hesabı olan kullanıcılar oturum açtığında bir Açısal JS tek sayfa uygulaması oluşturma ve iş veya Okul hesapları.
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d1ddeb957096dc506bc76e1aac600eaa5bc2fbc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Oturum açma bir AngularJS tek sayfalı uygulama için - .NET ekleyin
 Bu makalede bir AngularJS uygulamasına Azure Active Directory v2.0 uç kullanarak oturum açın. desteklenen Microsoft hesapları ekleyeceğiz.  V2.0 uç noktası, uygulamanızda tek tümleştirme gerçekleştirmek ve hem kişisel hem de iş/Okul hesapları olan kullanıcıların kimlik doğrulaması sağlar.
@@ -31,7 +33,7 @@ Bu örnek görevleri arka uç REST API'si, .NET 4.5 MVC framework kullanılarak 
 > 
 > 
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 Başlamak için indir ve Visual Studio yüklemeniz gerekir.  Sonra kopyalayabilir veya [karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) iskelet uygulama:
 
 ```

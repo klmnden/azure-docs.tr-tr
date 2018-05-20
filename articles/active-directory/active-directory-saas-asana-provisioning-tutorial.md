@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Asana yapılandırma | Microsoft Docs"
-description: "Otomatik olarak sağlamak ve kullanıcı hesaplarına Asana sağlanmasını için Azure Active Directory yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Asana yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlamak ve kullanıcı hesaplarına Asana sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: sakula
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Öğretici: Asana otomatik kullanıcı sağlamayı yapılandırın
 
@@ -100,5 +100,5 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [rapo
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-enterprise-apps-manage-provisioning.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](active-directory-saas-asana-tutorial.md)

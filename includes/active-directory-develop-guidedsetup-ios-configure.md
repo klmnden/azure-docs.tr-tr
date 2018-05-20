@@ -1,12 +1,14 @@
+## <a name="register-your-application"></a>Uygulamanızı kaydetme
+Uygulamanızın iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
-## <a name="create-an-application-express"></a>(Hızlı) uygulama oluşturma
+### <a name="option-1-express-mode"></a>Seçenek 1: Hızlı mod
 Uygulamanızı kaydetmeniz gerekir artık *Microsoft uygulama kayıt portalı*:
 1. Uygulamanızı aracılığıyla kaydetme [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
 2.  Uygulamanız ve e-posta için bir ad girin
 3.  Kurulum destekli seçeneğinin işaretli olduğundan emin olun
 4.  Uygulama Kimliğini almak ve kodunuza yapıştırmak için yönergeleri izleyin
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Uygulama kayıt bilgilerinizi çözümünüze (Gelişmiş) ekleyin
+### <a name="option-2-advanced-mode"></a>Seçenek 2: Gelişmiş mod
 
 1.  Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app)
 2.  Uygulamanız ve e-posta için bir ad girin

@@ -9,11 +9,11 @@ ms.service: multiple
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -31,6 +31,7 @@ Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum için
 |:--- |:--- |:--- |
 | Asya |Doğu Asya |Güneydoğu Asya |
 | Avustralya |Avustralya Doğu |Avustralya Güneydoğu |
+| Avustralya |Avustralya Orta |Avustralya Orta (2) |
 | Brezilya |Brezilya Güney (2) |Orta Güney ABD |
 | Kanada |Kanada Orta |Doğu Kanada |
 | Çin |Çin Kuzey |Çin Doğu|

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Palo Alto ağlarla - Captive portalı | Microsoft Docs"
-description: "Çoklu oturum açma Palo Alto ağları - Captive portalı ve Azure Active Directory arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Palo Alto ağlarla - Captive portalı | Microsoft Docs'
+description: Çoklu oturum açma Palo Alto ağları - Captive portalı ve Azure Active Directory arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 32b3a45d9baf0b53e05708abab78a462c6780daa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aaa2adc30d1d798312b50370d4b635d0d8a123e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>Öğretici: Azure Active Directory Tümleştirme Palo Alto ağlarla - Captive portalı
 
@@ -30,9 +30,9 @@ Palo Alto ağları - Captive Portal Azure AD ile tümleştirme ile aşağıdaki 
 - Otomatik olarak Palo Alto ağlara - (çoklu oturum açma) Captive Portal ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Palo Alto ağlarla - Captive Portal yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![-Captive Portal etki alanı ve oturum açma URL'leri tek bilgi Palo Alto ağları](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltocaptiveportal_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Customer Firewall Hostname>/SAML20/SP`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<Customer Firewall Hostname>/SAML20/SP`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Customer Firewall Hostname>/SAML20/SP/ACS`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<Customer Firewall Hostname>/SAML20/SP/ACS`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Palo Alto Networks - Captive Portal destek ekibi](https://support.paloaltonetworks.com/support) bu değerleri almak için.
@@ -176,7 +176,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
   
 ### <a name="create-a-palo-alto-networks---captive-portal-test-user"></a>Palo Alto Networks - Captive Portal test kullanıcısı oluşturma
 
@@ -215,14 +215,14 @@ Bu bölümde, Britta Palo Alto Networks - Captive Portal erişim vererek, Azure 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Captive Portal Windows VM Güvenlik duvarının arkasında yapılandırılır.  Çoklu oturum açma Captive Portal'daki RDP kullanarak Windows VM oturum açma test etmek için. Gelen RDP oturumu içinde herhangi bir web sitesi için bir tarayıcı açın, SSO url ve kimlik doğrulaması isteminde otomatik olarak açılmalıdır. Kimlik doğrulaması tamamlandığında, web sitelerine navgiate için görüyor olmalısınız. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

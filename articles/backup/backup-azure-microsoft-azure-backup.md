@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 5/14/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup Sunucusu kullanarak iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -73,40 +73,19 @@ Windows Server yinelenenleri kaldırma kullanılarak DPM depolama alanında yine
 > - Exchange Server’ın çalıştırıldığı bir bilgisayar
 > - Küme düğümü olan bir bilgisayar
 
-Her zaman Azure yedekleme sunucusu bir etki alanına katılın. Sunucunun farklı bir etki alanına taşımayı planlıyorsanız, sunucunun Azure yedekleme sunucusu yüklemeden önce yeni etki alanına önerilir. Dağıtım tamamlandıktan sonra var olan bir Azure yedekleme sunucusu makine yeni bir etki alanına taşıma *desteklenmiyor*.
+Her zaman Azure yedekleme sunucusu bir etki alanına katılın. Sunucunun farklı bir etki alanına taşımayı planlıyorsanız, ilk Azure yedekleme sunucusu yükleyin ve ardından sunucu yeni etki alanına. Dağıtım tamamlandıktan sonra var olan bir Azure yedekleme sunucusu makine yeni bir etki alanına taşıma *desteklenmiyor*.
 
-## <a name="recovery-services-vault"></a>Kurtarma Hizmetleri kasası
-Azure'a yedekleme verileri göndermek ya da yerel olarak tutmak isteyip yazılım Azure'a bağlı olması gerekir. Daha fazla olması belirli, Azure yedekleme sunucusu makine kurtarma Hizmetleri kasası ile kayıtlı olması gerekir.
+Azure'a yedekleme verileri göndermek ya da yerel olarak tutmak isteyip Azure yedekleme sunucusu bir kurtarma Hizmetleri kasası ile kayıtlı olması gerekir.
 
-Kurtarma hizmetleri kasası oluşturmak için:
-
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
-
-    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
-
-    Kurtarma Hizmetleri kasalarının listesi görüntülenir.
-3. **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
-
-    ![Kurtarma Hizmetleri Kasası oluşturma 2. adım](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
-
-    Kurtarma Hizmetleri kasası dikey penceresi açılır ve sizden bir **Ad**, **Abonelik**, **Kaynak Grubu** ve **Konum** sağlamanızı ister.
-
-    ![Kurtarma Hizmetleri kasası oluşturma 5. adım](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
-4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin. Adın Azure aboneliği için benzersiz olması gerekir. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
-5. Kullanılabilir abonelik listesini görmek için **Abonelik** seçeneğine tıklayın. Hangi aboneliğin kullanılacağından emin değilseniz varsayılan (veya önerilen) aboneliği kullanın. Yalnızca kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olur.
-6. Kullanılabilir Kaynak grubu listesini görmek için **Kaynak grubu** seçeneğine, yeni bir Kaynak grubu oluşturmak için de **Yeni** seçeneğine tıklayın. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md)
-7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın.
-8. **Oluştur**’a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin.
-   Kasanız oluşturulduktan sonra portalda açılır.
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
-Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu kasaya birincil kasanız coğrafi olarak yedekli depolamaya ayarlanmış depolama seçeneği bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy-grs.md) ve [yerel olarak yedekli](../storage/common/storage-redundancy-lrs.md) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
+Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, Kurtarma Hizmetleri kasalarının coğrafi olarak yedekli depolama kullanın. Bu kasaya birincil kasanız coğrafi olarak yedekli depolamaya ayarlanmış depolama seçeneği bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy-grs.md) ve [yerel olarak yedekli](../storage/common/storage-redundancy-lrs.md) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
 
 Depolama çoğaltma ayarını düzenlemek için:
 
-1. Kasa panosunu ve Ayarlar dikey penceresini açmak için kasanızı seçin. **Ayarlar** dikey penceresi açılmazsa kasa panosunda **Tüm ayarlar** seçeneğine tıklayın.
-2. **Ayarlar** dikey penceresinde, **Yedekleme Yapılandırması** dikey penceresini açmak için **Yedekleme Altyapısı** > **Yedekleme Yapılandırması**'na tıklayın. **Yedekleme Yapılandırması** dikey penceresinde, kasanıza yönelik depolama çoğaltma seçeneğini belirleyin.
+1. Kasa panosunu ve Ayarlar menüsünü açmak için kasanızı seçin. Varsa **ayarları** değil menüsünü açın, **tüm ayarları** kasa panosunda.
+2. Üzerinde **ayarları** menüsünde tıklatın **Yedekleme Altyapısı** > **yedekleme yapılandırması** açmak için **yedekleme yapılandırması**dikey. Üzerinde **yedekleme yapılandırması** menüsünde, kasanız için depolama çoğaltma seçeneğini belirleyin.
 
     ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +94,7 @@ Depolama çoğaltma ayarını düzenlemek için:
 ## <a name="software-package"></a>Yazılım paketi
 ### <a name="downloading-the-software-package"></a>Yazılım paketini indirme
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Açık kurtarma Hizmetleri kasanız zaten varsa, 3. adıma geçin. Açık Kurtarma Hizmetleri kasanız yoksa ancak Azure portaldaysanız Hub menüsünde **Gözat**'a tıklayın.
+2. Açık kurtarma Hizmetleri kasanız zaten varsa, 3. adıma geçin. Açık kurtarma Hizmetleri kasanız yoksa ancak Azure portalında ana menüdeki olan tıklatmak **Gözat**.
 
    * Kaynak listesinde **Kurtarma Hizmetleri** yazın.
    * Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Kurtarma Hizmetleri kasaları** seçeneğini gördüğünüzde buna tıklayın.
@@ -216,7 +195,7 @@ Ayıklama işlemi tamamlandı, istemcinin ayıklanan başlatmak için kutusunu i
 
     Sonraki adım, Microsoft Azure kurtarma Hizmetleri Aracısı yapılandırmaktır. Yapılandırmasının parçası olarak, Kurtarma Hizmetleri kasası makineye kaydetmek için kasa kimlik bilgilerini sağlamanız gerekir. Ayrıca, şirket içi ve Azure arasında gönderilen verilerin şifreleme/şifre çözme için bir parola sağlar. Otomatik olarak bir parola oluşturmak veya kendi en az 16 karakter parola girin. Aracı yapılandırılana kadar sihirbaza devam edin.
 
-    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure yedekleme Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Microsoft Azure yedekleme sunucusu kaydı başarıyla tamamlandığında, Genel Kurulum Sihirbazı'nı yükleme ve yapılandırma SQL Server ve Azure yedekleme sunucusu bileşenleri devam eder. SQL Server bileşen yüklemesi tamamlandıktan sonra Azure yedekleme sunucusu bileşenleri yüklenir.
 
     ![Azure Backup Sunucusu](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -240,11 +219,11 @@ Azure bağlantı ve Azure abonelik durumu öğrendikten sonra sunulan yedekleme/
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Disk, geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| Bağlı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
-| Bağlı |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Bağlı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Bağlanıldı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
+| Bağlanıldı |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Bağlanıldı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 | Kayıp bağlantısı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Kayıp bağlantısı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Kayıp bağlantısı > 15 gün |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
 | Kayıp bağlantısı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybına karşı kurtarma
@@ -273,6 +252,6 @@ Ayrıntılı bilgi almak [DPM için ortamınızı hazırlama](https://technet.mi
 
 Bu makaleler, Microsoft Azure yedekleme sunucusu kullanarak iş yükü koruması daha derin bir anlayış kazanmak için kullanabilirsiniz.
 
-* [SQL Server backup](backup-azure-backup-sql.md)
+* [SQL Server Yedekleme](backup-azure-backup-sql.md)
 * [SharePoint server yedekleme](backup-azure-backup-sharepoint.md)
 * [Diğer sunucu yedekleme](backup-azure-alternate-dpm-server.md)

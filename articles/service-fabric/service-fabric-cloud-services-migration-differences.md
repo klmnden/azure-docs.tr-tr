@@ -1,24 +1,24 @@
 ---
-title: "Bulut Hizmetleri ve Service Fabric arasındaki farklar | Microsoft Docs"
-description: "Geçiş için kavramsal genel bulut hizmetlerinden Service Fabric uygulamaları."
+title: Bulut Hizmetleri ve Service Fabric arasındaki farklar | Microsoft Docs
+description: Geçiş için kavramsal genel bulut hizmetlerinden Service Fabric uygulamaları.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4bb5d92cd46533b46b388d178990f230424b09dc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Bulut Hizmetleri ve Service Fabric arasındaki farklar hakkında bilgi geçirmeden önce uygulamaları.
 Microsoft Azure Service Fabric yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için yeni nesil bulut uygulama platformudur. Paketleme, dağıtma, yükseltme ve dağıtılmış bulut uygulamalarını yönetmek için birçok yeni özellik sunar. 

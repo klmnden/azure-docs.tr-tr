@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Learningpool Act ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Learningpool Act arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Learningpool Act ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Learningpool Act arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: aca50fedb44f25f4d98e4a893ac55783263ba52b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87a36e636362a8b5bfc63a7394ddb92134e119cb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Öğretici: Azure Active Directory Tümleştirme Learningpool Act ile
 
@@ -29,9 +29,9 @@ Learningpool Act Azure AD ile tümleştirme ile aşağıdaki avantajları sağla
 - Azure AD hesaplarına otomatik olarak Learningpool Act (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Learningpool Act ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
@@ -134,9 +134,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |
     | urn: oid:1.2.840.113556.1.4.221 | User.userPrincipalName |
-    | urn: oid:2.5.4.42 | User.givenName |
-    | urn: oid:0.9.2342.19200300.100.1.3 | User.Mail |    
-    | urn: oid:2.5.4.4 | User.surname |
+    | urn:oid:2.5.4.42 | User.givenName |
+    | urn:oid:0.9.2342.19200300.100.1.3 | User.Mail |    
+    | urn:oid:2.5.4.4 | User.surname |
     
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -191,7 +191,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-learningpool-act-test-user"></a>Learningpool Act test kullanıcısı oluşturma
 
@@ -242,7 +242,7 @@ Erişim paneli Learningpool Act parçasında tıklattığınızda, otomatik olar
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

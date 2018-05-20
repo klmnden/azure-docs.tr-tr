@@ -1,6 +1,6 @@
 ---
-title: "Çok biçimlilik Reliable Actors Framework'te | Microsoft Docs"
-description: "Hiyerarşileri .NET arabirimleri ve Reliable Actors framework türlerinde işlevselliği ve API tanımlarını yeniden oluşturun."
+title: Çok biçimlilik Reliable Actors Framework'te | Microsoft Docs
+description: Hiyerarşileri .NET arabirimleri ve Reliable Actors framework türlerinde işlevselliği ve API tanımlarını yeniden oluşturun.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,21 +9,21 @@ editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 38a86b25b30420c6f0b3027258fa094529c90278
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Çok biçimlilik Reliable Actors Framework'te
 Reliable Actors framework birçok nesne yönelimli tasarımında kullanacağınız aynı teknikleri kullanarak aktörler oluşturmanıza olanak sağlar. Bu teknikler biri türlerine izin verir ve'dan daha fazla devralmak için arabirimleri çok biçimlilik üst genelleştirilmiş. Reliable Actors Framework'te devralma genellikle birkaç ek kısıtlamalar .NET modeliyle izler. Java/Linux durumunda, Java modelini izler.
 
-## <a name="interfaces"></a>Arabirimleri
+## <a name="interfaces"></a>Arabirimler
 Reliable Actors framework aktör türüne göre uygulanacak en az bir arabirim tanımlamanızı gerektirir. Bu arabirim, istemciler tarafından aktörler ile iletişim kurmak için kullanılan bir proxy sınıfı oluşturmak için kullanılır. Aktör türü tarafından uygulanan her arabirimi ve tüm üst öğelerinden sonuçta türetilen sürece IActor(C#) veya Actor(Java) arabirimleri diğer arabirimlerinden devralabilirsiniz. IActor(C#) ve Actor(Java) platform tarafından tanımlanan temel .NET ve Java çerçeveleri aktörler için sırasıyla arabirimlerdir. Bu nedenle, şekilleri kullanarak Klasik çok biçimlilik örnek şuna benzeyebilir:
 
 ![Hiyerarşi şekli aktörler için arabirim][shapes-interface-hierarchy]

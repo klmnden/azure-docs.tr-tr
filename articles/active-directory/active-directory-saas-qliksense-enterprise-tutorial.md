@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Qlik algılama kuruluş ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Qlik algılama kuruluş arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Qlik algılama kuruluş ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Qlik algılama kuruluş arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: cada2ca63e27f4a17f1541679395727ef710c035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8cca4fb3ee10d56481cefccb7ea869b6bf13109c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Öğretici: Azure Active Directory Tümleştirme Qlik algılama kuruluş ile
 
@@ -30,9 +30,9 @@ Qlik algılama kuruluş Azure AD ile tümleştirme ile aşağıdaki avantajları
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Qlik algılama kuruluş açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Qlik algılama Enterprise ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,7 +108,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Qlik algılama kuruluş etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
     
     > [!NOTE]
     > Bu URI, sonunda eğik unutmayın. Gerekli değildir.
@@ -191,7 +191,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     h. **SAML imzalama algoritmasını** sanal proxy yapılandırması için imzalama hizmet sağlayıcısı (Server'daki bu servis talebi Qlik algılama) sertifika ayarlar.  Qlik algılama sunucusu Microsoft Gelişmiş RSA ve AES şifreleme sağlayıcısı kullanılarak oluşturulan güvenilen bir sertifika kullanıyorsa, SAML imzalama algoritmasını değiştirmek **SHA-256**.
     
-    ı. Güvenlik kuralları kullanmak için Qlik algılama gönderilecek grupları gibi ek öznitelikler için SAML özniteliği eşleme bölümü sağlar.
+    i. Güvenlik kuralları kullanmak için Qlik algılama gönderilecek grupları gibi ek öznitelikler için SAML özniteliği eşleme bölümü sağlar.
 
 13. Tıklayın **yük DENGELEME** görünür hale getirmek için menü seçeneği.  Yük Dengeleme ekranı görüntülenir.
     
@@ -278,7 +278,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-   d. **Oluştur**'a tıklayın.
+   d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Qlik algılama Kurumsal test kullanıcısı oluşturma
 
@@ -314,7 +314,7 @@ Bu bölümde, Britta Qlik algılama kuruluş erişim vererek, Azure çoklu oturu
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -323,7 +323,7 @@ Erişim paneli Qlik algılama Kurumsal parçasında tıklattığınızda, otomat
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

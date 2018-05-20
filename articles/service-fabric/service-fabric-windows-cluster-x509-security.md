@@ -1,24 +1,24 @@
 ---
-title: "Windows Azure Service Fabric kümesi sertifikaları kullanarak güvenli hale getirme | Microsoft Docs"
-description: "Tek başına veya şirket içi bir Azure Service Fabric kümesindeki yanı sıra istemciler ve küme arasındaki iletişimin güvenliğini sağlamak."
+title: Windows Azure Service Fabric kümesi sertifikaları kullanarak güvenli hale getirme | Microsoft Docs
+description: Tek başına veya şirket içi bir Azure Service Fabric kümesindeki yanı sıra istemciler ve küme arasındaki iletişimin güvenliğini sağlamak.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Windows tek başına kümede X.509 sertifikaları kullanarak güvenli hale getirme
 Bu makalede, tek başına Windows kümenizi çeşitli düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikalarını kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklanır. Kimlik doğrulaması, yalnızca yetkili kullanıcılar küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda sertifika güvenliği kümede etkinleştirilmelidir.  

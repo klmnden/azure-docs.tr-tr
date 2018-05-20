@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme OfficeSpace yazılımıyla | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve OfficeSpace yazılımı arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme OfficeSpace yazılımıyla | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve OfficeSpace yazılımı arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c7b456fe08db7c4e4cc71c635e405a20c24516cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f8698e50f9740d46a5cec708e3d5ae6bf1043ce
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Öğretici: Azure Active Directory Tümleştirme OfficeSpace yazılımıyla
 
@@ -30,9 +30,9 @@ OfficeSpace yazılım Azure AD ile tümleştirme ile aşağıdaki avantajları s
 - Azure AD hesaplarına otomatik olarak OfficeSpace yazılımı (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme OfficeSpace yazılımıyla yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![OfficeSpace yazılım etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`<company name>.officespacesoftware.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `<company name>.officespacesoftware.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [OfficeSpace yazılım istemci destek ekibi](mailto:support@officespacesoftware.com) bu değerleri almak için. 
@@ -124,7 +124,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |    
     | e-posta | User.Mail |
-    | ad | User.DisplayName |
+    | ad | user.displayname |
     | ilk_ad | User.givenName |
     | Soyadı | User.surname |
 
@@ -209,7 +209,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-officespace-software-test-user"></a>OfficeSpace yazılım test kullanıcısı oluşturma
 
@@ -250,7 +250,7 @@ Bu bölümde, Britta OfficeSpace yazılıma erişim vererek, Azure çoklu oturum
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -259,7 +259,7 @@ Erişim paneli OfficeSpace yazılım parçasında tıklattığınızda, otomatik
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

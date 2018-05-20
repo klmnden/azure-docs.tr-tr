@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ScaleX kuruluş ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile ScaleX kuruluş arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ScaleX kuruluş ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile ScaleX kuruluş arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f83d817647a5339176260bfcf73005045f9ead54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 94c30d39a5d72a022dd77d65141f1af679cf3dd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Öğretici: Azure Active Directory Tümleştirme ScaleX kuruluş ile
 
@@ -29,9 +29,9 @@ Azure AD ile ScaleX Kurumsal tümleştirme ile aşağıdaki avantajları sağlar
 - Azure AD hesaplarına otomatik olarak ScaleX kuruluş (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. Uygulama erişimi ve çoklu oturum açma ile nedir [Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. Uygulama erişimi ve çoklu oturum açma ile nedir [Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme ScaleX Enterprise ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,15 +110,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://platform.rescale.com/saml2/<company id>/`
+    a. İçinde **tanımlayıcısı** metin kutusuna, şu biçimi kullanarak değeri yazın: `https://platform.rescale.com/saml2/<company id>/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://platform.rescale.com/saml2/<company id>/acs/`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://platform.rescale.com/saml2/<company id>/acs/`
 
 4. Denetleme **Göster Gelişmiş URL ayarları**, uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://platform.rescale.com/saml2/<company id>/sso/`
+    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
     > Bunlar gerçek değerleri değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si veya oturum açma URL'si ile güncelleştirin. Kişi [ScaleX Kurumsal İstemci destek ekibi](http://info.rescale.com/contact_sales) bu değerleri almak için. 
@@ -168,7 +168,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. **Hizmet sağlayıcısı saml**: değer Yapıştır ***urn: OASIS: adları: tc: SAML:2.0:nameid-biçimi: kalıcı***
 
-    c. **ACS yanıt kimlik sağlayıcısı e-posta alanının adı**: değer yapıştırın`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **ACS yanıt kimlik sağlayıcısı e-posta alanının adı**: değer yapıştırın `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     d. **Kimlik sağlayıcısı EntityDescriptor varlık Tanıtıcısı:** Yapıştır **SAML varlık kimliği** değer Azure Portalı'ndan kopyalanır.
 
@@ -213,7 +213,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-scalex-enterprise-test-user"></a>ScaleX Kurumsal test kullanıcısı oluşturma
 
@@ -259,7 +259,7 @@ Erişim panelinde ScaleX Kurumsal kutucuğuna tıklayın, otomatik olarak imzala
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

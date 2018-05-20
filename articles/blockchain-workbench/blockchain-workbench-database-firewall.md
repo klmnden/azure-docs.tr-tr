@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain çalışma ekranı SQL DB Güvenlik Duvarı'nı yapılandırma
-description: Azure Blockchain çalışma ekranı SQL DB Güvenlik Duvarı'nı yapılandırma hakkında bilgi edinin.
+title: Azure Blockchain Workbench SQL DB güvenlik duvarını yapılandırma
+description: Azure Blockchain Workbench SQL DB güvenlik duvarını nasıl yapılandırabileceğinizi öğrenin.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,51 +10,52 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dc22f212c014ab1d6622eff3491d669b21ca6f47
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afeea143f73fa4f7d3e373535007846a668616ab
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Azure Blockchain çalışma ekranı veritabanı Güvenlik Duvarı'nı yapılandırma
+# <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Azure Blockchain Workbench veritabanı güvenlik duvarını yapılandırma
 
-Bu makalede, Azure portalını kullanarak bir güvenlik duvarı kuralı yapılandırma gösterilmektedir. Dış istemcilerin güvenlik duvarı kuralları izin ya da uygulamaları Azure Blockchain çalışma ekranı veritabanınıza bağlanın.
+Bu makalede Azure portalını kullanarak güvenlik duvarı kuralı yapılandırma gösterilir. Güvenlik duvarı kuralları, dış istemcilerin veya uygulamaların Azure Blockchain Workbench veritabanınıza bağlanmasına imkan tanır.
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Blockchain çalışma ekranı veritabanına bağlan
+## <a name="connect-to-the-blockchain-workbench-database"></a>Blockchain Workbench veritabanına bağlanma
 
 Bir kural yapılandırmak istediğiniz veritabanına bağlanmak için:
 
-1. Azure portalına sahip bir hesapla oturum açın **sahibi** Azure Blockchain çalışma ekranı kaynaklar için izinleri.
-2. Sol gezinti bölmesinde seçin **kaynak grupları**.
-3. Kaynak grubu adı Blockchain çalışma ekranı dağıtımınız için seçin.
-4. Seçin **türü** kaynakları sıralamak ve seçin, **SQL server**.
-5. Kaynak listesi örneği aşağıdaki ekran görüntüsünde iki veritabanı gösterir: *ana* ve *lsgn-sdk*. Güvenlik duvarı kuralı yapılandırın *lsgn-sdk*.
+1. Azure Blockchain Workbench kaynakları için **Sahip** izinleri olan bir hesapla Azure Portal’da oturum açın.
+2. Sol gezinti bölmesinden **Kaynak Grupları**'nı seçin.
+3. Blockchain Workbench dağıtımınıza yönelik kaynak grubunun adını seçin.
+4. Kaynakları sıralamak için **Tür**’ü, sonra da **SQL sunucunuzu** seçin.
+5. Aşağıdaki ekran görüntüsünde yer alan kaynak listesi örneğinde iki veritabanı görülüyor: *master* ve *lsgn-sdk*. Güvenlik duvarı kuralını *lsgn-sdk* üzerinde yapılandırırsınız.
 
-![Liste Blockchain çalışma ekranı kaynakları](media/blockchain-workbench-database-firewall/list-database-resources.png)
+![Blockchain Workbench kaynaklarını listeleme](media/blockchain-workbench-database-firewall/list-database-resources.png)
 
 ## <a name="create-a-database-firewall-rule"></a>Veritabanı güvenlik duvarı kuralı oluşturma
 
-Bir güvenlik duvarı kuralı oluşturmak için:
+Güvenlik duvarı kuralı oluşturmak için:
 
-1. "Lsgn-SDK'sı" veritabanı bağlantısını seçin.
-2. Menü çubuğunda seçin **ayarlayın sunucu Güvenlik Duvarı**.
+1. "lsgn-sdk" veritabanının bağlantısını seçin.
+2. Menü çubuğundan **Sunucu güvenlik duvarı ayarla**’yı seçin.
 
    ![Sunucu güvenlik duvarı ayarla](media/blockchain-workbench-database-firewall/configure-server-firewall.png)
 
-3. Kuruluşunuz için bir kural oluşturmak için:
+3. Kuruluşunuza yönelik bir kural oluşturmak için:
 
-   * Girin bir **kural adı**
-   * İçin bir IP adresi girin **başlangıç IP** bir adres aralığı
-   * İçin bir IP adresi girin **bitiş IP** bir adres aralığı
+   * Bir **KURAL ADI** girin
+   * Adres aralığının **BAŞLANGIÇ IP'Sİ** için bir IP adresi girin
+   * Adres aralığının **BİTİŞ IP'Sİ** için bir IP adresi girin
 
    ![Güvenlik duvarı kuralı oluşturma](media/blockchain-workbench-database-firewall/create-firewall-rule.png)
 
     > [!NOTE]
-    > Yalnızca, bilgisayarınızın IP adresi eklemek istiyorsanız, tercih **+ istemci IP'si Ekle**.
+    > Yalnızca bilgisayarınızın IP adresini eklemek istiyorsanız **+ İstemci IP'si Ekle**’yi seçin.
         
-1. Güvenlik duvarı yapılandırmanızı kaydetmek için seçin **kaydetmek**.
-2. Bir uygulama veya aracı bağlanarak veritabanı için yapılandırdığınız IP adresi aralığı sınayın. Örneğin, SQL Server Management Studio.
+1. Güvenlik duvarı yapılandırmanızı kaydetmek için **Kaydet**’i seçin.
+2. Bir uygulamadan veya araçtan bağlanarak veritabanı için yapılandırdığınız IP adresi aralığını test edin. Örneğin, SQL Server Management Studio.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Blockchain çalışma ekranındaki veritabanı görünümleri](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench’te veritabanı görünümleri](blockchain-workbench-database-views.md)

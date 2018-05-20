@@ -1,24 +1,24 @@
 ---
-title: "Java'da ilk, güvenilir Azure mikro hizmet oluşturma | Microsoft Docs"
-description: "Durum bilgisiz ve durum bilgisi olan Hizmetleri ile Microsoft Azure Service Fabric uygulaması oluşturma giriş."
+title: Java'da ilk, güvenilir Azure mikro hizmet oluşturma | Microsoft Docs
+description: Durum bilgisiz ve durum bilgisi olan Hizmetleri ile Microsoft Azure Service Fabric uygulaması oluşturma giriş.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/12/2018
 >
 >
 
-Bu makalede, Azure Service Fabric Reliable Services temelleri açıklanır ve oluşturma ve Java'da yazılmış basit bir güvenilir hizmet uygulaması dağıtma size yol gösterir. Bu Microsoft Virtual Academy video ayrıca durum bilgisiz güvenilir bir hizmetin nasıl oluşturulacağını gösterir:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+Bu makalede, Azure Service Fabric Reliable Services temelleri açıklanır ve oluşturma ve Java'da yazılmış basit bir güvenilir hizmet uygulaması dağıtma size yol gösterir. Bu Microsoft Virtual Academy video ayrıca durum bilgisiz güvenilir bir hizmetin nasıl oluşturulacağını gösterir: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -127,7 +127,7 @@ Bir hizmet örneği yerleştirilen ve çalıştırılmaya hazır olduğunda plat
 
 Bu düzenlemesi yönetilen hizmetinizi yüksek oranda kullanılabilir ve düzgün şekilde dengeli tutmak için Service Fabric tarafından.
 
-`runAsync()`zaman uyumlu olarak bloğu değil. Uygulamanıza runAsync devam etmek çalışma zamanı izin vermek için bir CompletableFuture döndürmelidir. İş yükünüzün içinde CompletableFuture yapılmalıdır uzun süre çalışan bir görev uygulamak gerekip gerekmediğini.
+`runAsync()` zaman uyumlu olarak bloğu değil. Uygulamanıza runAsync devam etmek çalışma zamanı izin vermek için bir CompletableFuture döndürmelidir. İş yükünüzün içinde CompletableFuture yapılmalıdır uzun süre çalışan bir görev uygulamak gerekip gerekmediğini.
 
 #### <a name="cancellation"></a>İptal etme
 İş yükünüzün iptaline tarafından sağlanan iptal belirteci bağımsızlıklar işbirlikçi çaba ' dir. Sistem göreviniz (başarılı bir şekilde tamamlandığında, iptal veya hataya göre) taşır önce sona erdirmek bekler. İptal belirteci dikkate için herhangi bir iş bitirip çıkmak önemlidir `runAsync()` sistem iptal istediğinde mümkün olan en kısa sürede. Aşağıdaki örnek, bir iptal olayını işlemek gösterilmiştir:
@@ -193,7 +193,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`durum bilgisi olan ve durum bilgisiz Hizmetleri'nde benzer şekilde çalışır. Yürütülmeden önce ancak, durum bilgisi olan bir hizmet platform ek çalışma sizin adınıza gerçekleştirir `RunAsync()`. Bu iş, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanıma hazır olduktan içerebilir.
+`RunAsync()` durum bilgisi olan ve durum bilgisiz Hizmetleri'nde benzer şekilde çalışır. Yürütülmeden önce ancak, durum bilgisi olan bir hizmet platform ek çalışma sizin adınıza gerçekleştirir `RunAsync()`. Bu iş, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanıma hazır olduktan içerebilir.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Güvenilir koleksiyonlar ve güvenilir durum Yöneticisi
 ```java

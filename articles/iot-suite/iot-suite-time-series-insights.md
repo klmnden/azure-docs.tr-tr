@@ -9,11 +9,11 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
-ms.openlocfilehash: 12248a719d7d30c9b83be9c72539e0a81f19fb7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 09a54e9cb1c6f063e878fd42c42699a906b60c7b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Zaman serisi Insights ile Uzaktan izleme verileri görselleştirin
 
@@ -23,7 +23,7 @@ Daha fazla çıkış genişletmek bir işleç isteyebilirsiniz kutusu verilerini
 
 Bu yöntem tamamlamak için aşağıdakiler gerekir:
 
-* [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md)
+* [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Bir tüketici grubu oluştur
 
@@ -88,11 +88,11 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
     | Kaynak | **IoT Hub’ı** |
     | İçeri aktarma seçeneği | **Kullanılabilir aboneliklerden IOT hub'ı kullanın** |
     | Abonelik Kimliği | Azure aboneliğiniz açılan seçin. |
-    | Iot hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
-    | Iot hub'ı ilke adı | **iothubowner** kullanılan ilkeyi bir sahibi İlkesi olduğundan emin olun. |
-    | Iot hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
-    | Iot hub'ı tüketici grubu | **timeseriesinsights** |
-    | Olay serileştirme biçimi | **JSON**     | Zaman damgası özellik adı | Boş bırakın |
+    | IOT hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
+    | IOT hub ilke adı | **iothubowner** kullanılan ilkeyi bir sahibi İlkesi olduğundan emin olun. |
+    | IOT hub ilke anahtarı | Bu alan otomatik olarak doldurulur. |
+    | IOT hub tüketici grubu | **timeseriesinsights** |
+    | Olay serileştirme biçimi | **JSON**     | Zaman damgası özelliği adı | Boş bırakın |
 
     ![Olay kaynağı oluşturma](media/iot-suite-time-series-insights/time-series-insights-event-source-create.png)
 

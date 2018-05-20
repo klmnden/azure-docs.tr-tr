@@ -1,24 +1,24 @@
 ---
-title: "Azure mikro ReliableDictionaryActorStateProvider ayarlarında değişiklik | Microsoft Docs"
-description: "Durum bilgisi olan Azure Service Fabric aktör türü ReliableDictionaryActorStateProvider yapılandırma hakkında bilgi edinin."
+title: Azure mikro ReliableDictionaryActorStateProvider ayarlarında değişiklik | Microsoft Docs
+description: Durum bilgisi olan Azure Service Fabric aktör türü ReliableDictionaryActorStateProvider yapılandırma hakkında bilgi edinin.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Güvenilir aktörler--ReliableDictionaryActorStateProvider yapılandırma
 Visual Studio Paketi kök yapılandırma klasörü altında belirtilen aktör için oluşturulan settings.xml dosyasını değiştirerek ReliableDictionaryActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.
@@ -38,7 +38,7 @@ Genel yapılandırma KtlLogger bölümünde küme için küme bildiriminde belir
 Küme bildirimi ayarları ve tüm düğümleri ve küme Hizmetleri'nde geçerli yapılandırmaları tutan tek bir XML dosyasıdır. Dosya genellikle ClusterManifest.xml çağrılır. Küme görebilirsiniz Get-ServiceFabricClusterManifest powershell komutunu kullanarak, kümeniz için bildirim.
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| Ad | Birim | Varsayılan değer | Açıklamalar |
+| name | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobayt |8388608 |Çekirdek modunda Günlükçü yazma arabelleği bellek havuzu için ayrılacak KB minimum sayısı. Bu bellek havuzundaki durum bilgilerini diske yazma önce önbelleğe almak için kullanılır. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobayt |Sınırsız |Günlükçü yazma arabelleği bellek havuzundaki en büyük boyutu büyüyebilir. |
@@ -79,7 +79,7 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| Ad | Birim | Varsayılan değer | Açıklamalar |
+| name | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
 | ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için uç nokta kaynakları hizmet bildiriminde tanımlama hakkında. |
@@ -88,7 +88,7 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 | MaxSecondaryReplicationQueueSize |İşlem sayısı |16384 |İkincil kuyruk işlemlerinde maksimum sayısı. Bir işlem yukarı durumuna Kalıcılık üzerinden yüksek oranda kullanılabilir yaptıktan sonra serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
 | CheckpointThresholdInMB |MB |200 |Günlük dosyası alanının geçmesi belirttiğinizde durumda tutar. |
 | MaxRecordSizeInKB |KB |1024 |Çoğaltıcı günlüğüne yazabilir en büyük kayıt boyutu. Bu değer birden fazla 4 ve 16'den büyük olmalıdır. |
-| OptimizeLogForLowerDiskUsage |Boole değeri |TRUE |Doğru olduğunda, günlük bir NTFS seyrek dosya kullanarak yinelemenin ayrılmış günlük dosyası oluşturulur şekilde yapılandırılır. Bu dosya için gerçek disk alanı kullanımını azaltır. Yanlış olduğunda, dosya yazma en iyi performansı sağlamak sabit ayırma ile oluşturulur. |
+| OptimizeLogForLowerDiskUsage |Boole |true |Doğru olduğunda, günlük bir NTFS seyrek dosya kullanarak yinelemenin ayrılmış günlük dosyası oluşturulur şekilde yapılandırılır. Bu dosya için gerçek disk alanı kullanımını azaltır. Yanlış olduğunda, dosya yazma en iyi performansı sağlamak sabit ayırma ile oluşturulur. |
 | SharedLogId |GUID |"" |Bu çoğaltma ile kullanılan paylaşılan günlük dosyası belirlemek için kullanmak üzere benzersiz bir GUID belirtir. Genellikle, hizmetleri, bu ayar kullanmamalısınız. SharedLogId belirtilirse, ancak ardından SharedLogPath de belirtilmesi gerekir. |
 | SharedLogPath |Tam yol adı |"" |Bu çoğaltma için paylaşılan günlük dosyası oluşturulacağı tam yolunu belirtir. Genellikle, hizmetleri, bu ayar kullanmamalısınız. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmesi gerekir. |
 

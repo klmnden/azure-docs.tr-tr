@@ -7,13 +7,13 @@ ms.component: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/23/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c095576ccce7e32850c3fb2daf8303a0d6e957bc
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d93f79874ff65a1b6bb7ddd75932111c5caa6072
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -246,12 +246,12 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
-| Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==</br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
-| Olay</br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false </br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
-| Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;ayrı başlığı |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
+|Güncelle</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
+| Güncelle</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==</br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
+| Olay</br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false </br>&#124;farklı bilgisayar)) |Gerekli kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
+| Güncelle</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;ayrı başlığı |Tüm bilgisayarlardaki eksik güncelleştirmeler (ayrı ayrı) |
 | UpdateRunProgress</br>&#124;Burada InstallationStatus "başarısız" == </br>&#124;AggregatedValue özetlemek bilgisayar, başlık, UpdateRunName tarafından count() = |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
-| Güncelleştirme</br>&#124;Burada OSType "Linux" ==</br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi |
+| Güncelle</br>&#124;Burada OSType "Linux" ==</br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi |
 | UpdateRunProgress</br>&#124;Burada UpdateRunName "DeploymentName" ==</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() =|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
@@ -286,7 +286,7 @@ Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları giderme
 
 Çözümü veya bir sanal makineyi eklemeye çalışırken sorun yaşarsanız, olay kimliği 4502 olan olaylar ve **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** içeren olay iletisi için **Uygulama ve Hizmet Günlükleri\Operations Manager** olay günlüğünü denetleyin. Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.
 
-| İleti | Neden | Çözüm |
+| Mesaj | Neden | Çözüm |
 |----------|----------|----------|
 | Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>System.InvalidOperationException: {"Message":"Makine zaten</br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
 | Düzeltme Eki Yönetimi için makine kaydedilemedi, kayıt özel durumu ile başarısız</br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---></br>System.Net.WebException: Temel alınan bağlantı</br>kapatıldı: Alma işlemi sırasında</br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:</br>İstemci ve sunucu iletişim kuramıyor,</br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-hybrid-runbook-worker.md#network-planning)|

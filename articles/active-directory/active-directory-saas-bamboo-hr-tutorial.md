@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile BambooHR | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile BambooHR arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile BambooHR | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile BambooHR arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Öğretici: Azure Active Directory Tümleştirme BambooHR ile
 
@@ -30,7 +30,7 @@ BambooHR Azure AD ile tümleştirme aşağıdaki avantajları sağlar:
 - Otomatik olarak BambooHR için Azure AD hesaplarına ile çoklu oturum açma (SSO) kullanarak oturum, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda, Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -107,7 +107,7 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
     > [!NOTE] 
     > **URL üzerinde oturum** değeri gerçek değil. Gerçek oturum açma URL'si ile güncelleştirin. Değeri elde etmek için başvurun [BambooHR istemci destek ekibi](https://www.bamboohr.com/contact.php). 
  
-4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)**ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
+4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
@@ -187,7 +187,7 @@ Azure AD için BambooHR oturum açmalarını etkinleştirmek için bunları el i
    
     ![Ayarlar düğmesine](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "ayarı")
 
-3. Seçin **genel bakış**.
+3. **Genel Bakış**’ı seçin.
 
 4. Sol bölmede seçin **güvenlik** > **kullanıcılar**.
 
@@ -228,7 +228,7 @@ Kullanıcı Britta Simon için BambooHR atamak için aşağıdakileri yapın:
 
 7. İçinde **eklemek atama** penceresinde, seçin **atamak** düğmesi.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Erişim paneli kullanarak Azure AD SSO yapılandırmanızı sınayın.
 
@@ -239,7 +239,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

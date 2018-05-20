@@ -14,17 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Öğretici: Azure SignalR Hizmeti kimlik doğrulaması
 
+Microsoft Azure SignalR Hizmeti şu an [Genel Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) aşamasındadır.
+
 Bu öğretici, hızlı başlangıçta tanıtılan sohbet odası uygulamasını temel alır. [SignalR Hizmeti ile sohbet odası oluşturma](signalr-quickstart-dotnet-core.md) alıştırmasını tamamlamadıysanız, önce o alıştırmayı tamamlayın. 
 
-Bu öğreticide, kendi kimlik doğrulamanızı uygulamayı ve bunu Azure SignalR Hizmeti ile tümleştirmeyi öğreneceksiniz. 
+Bu öğreticide, kendi kimlik doğrulamanızı uygulamayı ve bunu Microsoft Azure SignalR Hizmeti ile tümleştirmeyi öğreneceksiniz. 
 
 İlk olarak hızlı başlangıcın sohbet odası uygulamasında kullanılan kimlik doğrulaması gerçek dünya senaryoları için fazla basittir. Uygulama her istemcinin kim olduğunu belirtmesine ve basit bir şekilde sunucunun bunu kabul etmesine izin verir. Bu yaklaşım hilekar bir kullanıcının hassas verilere erişmek için başkalarının kimliğine bürünebildiği gerçek dünya uygulamalarında pek kullanışlı değildir. 
 
@@ -603,9 +605,7 @@ Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure SignalR Hizmeti ile kimlik doğrulamasına daha iyi bir yaklaşım sağlamak için OAuth ile kimlik doğrulaması eklediniz. Azure SignalR Hizmeti’ni kullanma hakkında daha fazla bilgi için Azure İşlevleri ile tümleştirmeyi gösteren sonraki öğreticiye geçin.
+Bu öğreticide, Azure SignalR Hizmeti ile kimlik doğrulamasına daha iyi bir yaklaşım sağlamak için OAuth ile kimlik doğrulaması eklediniz. Azure SignalR Sunucusu’nu kullanma hakkında daha fazla bilgi almak için SignalR Hizmetine yönelik Azure CLI örnekleri bölümüne devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure İşlevleri’ni Azure SignalR Hizmeti ile tümleştirme](./signalr-integrate-functions.md)
-
-
+> [Azure SignalR CLI Örnekleri](./signalr-cli-samples.md)

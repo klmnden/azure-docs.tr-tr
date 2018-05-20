@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 410f76d406ab65ff1732525a501fe007eeeb5f6a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 67f6119dd1fccc126131979148c001b9d1815175
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Otomasyonu (Önizleme) çözümde yoğun olmayan saatlerde sırasında Başlat/Durdur VM'ler
 
@@ -52,7 +52,7 @@ Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon he
 1. Market sayfasında, bir anahtar sözcük gibi yazın **Başlat** veya **Başlat/Durdur**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Alternatif olarak, çözümü tam adı bir veya daha fazla kelimeleri yazın ve Enter tuşuna basın. Seçin **Başlat/Durdur VM'ler yoğun olmayan saatlerde [Önizleme] sırasında** Arama sonuçlarından.
 1. İçinde **Başlat/Durdur VM'ler yoğun olmayan saatlerde [Önizleme] sırasında** sayfasında seçilen çözümü için özet bilgilerini inceleyin ve ardından **oluşturma**.
 
-   ![Azure portalına](media/automation-solution-vm-management/azure-portal-01.png)
+   ![Azure portalı](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. **Çözüm Ekle** sayfası görüntülenir. Otomasyon aboneliğinizi içeri aktarmadan önce çözümü yapılandırmak için istenir.
 
@@ -264,7 +264,7 @@ Zaman | Runbook işinin yürütüldüğü tarih ve saat.|
 Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır.|
 JobId | Runbook işi kimliği GUID.|
 operationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için iş bir değerdir.|
-ResourceGroup | Runbook işine ait kaynak grubunun adını belirtir.|
+Kaynak grubu | Runbook işine ait kaynak grubunun adını belirtir.|
 resourceId | Kaynak Kimliği ile Azure belirtir. Otomasyon için değer, runbook ile ilişkilendirilmiş Otomasyon hesabı olacaktır.|
 ResourceProvider | Dağıtıp yönetebileceğiniz kaynakları sağlayan Azure hizmetini belirtir. Otomasyon için değer, Azure Otomasyonu olacaktır.|
 ResourceType | Azure’daki kaynak türünü belirtir. Otomasyon için değer, runbook ile ilişkilendirilmiş Otomasyon hesabı olacaktır.|
@@ -273,7 +273,7 @@ resultDescription | Runbook’un çıktı akışını içerir.|
 RunbookName | Runbook’un adı.|
 SourceSystem | Gönderilen verilere ilişkin kaynak sistemi belirtir. Otomasyon için OpsManager bir değerdir.|
 StreamType | İş akışı türü. Olası değerler şunlardır:<br>-İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı|
-Zaman | Runbook işinin yürütüldüğü tarih ve saat.|
+Saat | Runbook işinin yürütüldüğü tarih ve saat.|
 
 Kategori kayıtlarını döndürür tüm günlük arama yaptığınızda **JobLogs** veya **JobStreams**, seçebileceğiniz **JobLogs** veya **JobStreams**araması tarafından döndürülen güncelleştirmeleri özetlemeye döşeme kümesini görüntüler görünümü.
 

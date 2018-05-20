@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı LinkedIn öğrenme yapılandırma | Microsoft Docs"
-description: "Otomatik olarak sağlamak ve kullanıcı hesaplarına LinkedIn öğrenme sağlanmasını için Azure Active Directory yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı LinkedIn öğrenme yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlamak ve kullanıcı hesaplarına LinkedIn öğrenme sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f2ef582bd3a5ecd837dd053067cae6c1ea47b6f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: da39a31777323535c90b4d57e316741295aa873a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Öğretici: LinkedIn öğrenme otomatik kullanıcı sağlamayı yapılandırın
 
@@ -99,7 +99,7 @@ LinkedIn erişim belirteci almak için ilk adımdır bakın. Bir kuruluş yönet
 
 11)  Altında aşağıdaki alanları doldurun **yönetici kimlik bilgileri** :
 
-* İçinde **Kiracı URL** alanında, https://api.linkedin.com girin.
+* İçinde **Kiracı URL** alanına, https://api.linkedin.com.
 
 * İçinde **gizli belirteci** alan, 1. adımda oluşturulan erişim belirteci girin ve tıklayın **Bağlantıyı Sına** .
 
@@ -124,4 +124,4 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otom
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-enterprise-apps-manage-provisioning.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)

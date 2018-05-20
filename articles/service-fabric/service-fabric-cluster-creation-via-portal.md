@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: aljo
-ms.openlocfilehash: d3efc14886d82290241e9868ea9b0e8262efddea
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fbe3dde48fa1be79356ff1cb9e47c46832d8cdaa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portal kullanarak Azure'da bir Service Fabric kümesi oluştur
 > [!div class="op_single_selector"]
@@ -87,7 +87,7 @@ Uygulama gereksinimlerinizi karşılamak için bir üretim kümesi oluşturursun
 4. Gidin **Service Fabric kümesi** dikey penceresinde tıklatın **oluşturma**,
 5. **Oluşturma Service Fabric kümesi** dikey penceresinde aşağıdaki dört adım vardır:
 
-#### <a name="1-basics"></a>1. Temel Bilgiler
+#### <a name="1-basics"></a>1. Temel
 ![Yeni bir kaynak grubu oluşturma ekran görüntüsü.][CreateRG]
 
 Temel bilgiler dikey penceresinde, kümeniz için temel ayrıntıları sağlamanız gerekir.

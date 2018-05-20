@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Trello | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Trello arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Trello | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Trello arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 39ea5cc19e73cb6e9ea6da9757f5e8013d1a5ffe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dfdbef1138c166beca0a470d2e55dd24703d237c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Öğretici: Azure Active Directory Tümleştirme Trello ile
 
@@ -30,9 +30,9 @@ Trello Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Trello (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Trello ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -95,7 +95,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Trello ile test etmek için aşa�
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Trello uygulamanızda yapılandırın.
 
 >[!NOTE]
->Alması gereken  **\<Kurumsal\>**  Trello gelen başlık. Başlık değer yoksa, kişi [Trello destek ekibi](mailto:support@trello.com) kurumsal bilgi almanız için.
+>Alması gereken **\<Kurumsal\>** Trello gelen başlık. Başlık değer yoksa, kişi [Trello destek ekibi](mailto:support@trello.com) kurumsal bilgi almanız için.
     > 
 
 **Azure AD çoklu oturum açma ile Trello yapılandırmak için aşağıdaki adımları gerçekleştirin:**
@@ -112,9 +112,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Trello etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
     
-    a. İçinde **tanımlayıcısı** metin kutusuna, şu URL'yi yazın:`https://trello.com/auth/saml/metadata`
+    a. İçinde **tanımlayıcısı** metin kutusuna, şu URL'yi yazın: `https://trello.com/auth/saml/metadata`
     
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://trello.com/auth/saml/consume/<enterprise>`
 
 4. Uygulamada yapılandırmak istiyorsanız **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
 
@@ -122,7 +122,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. Denetleme **Göster Gelişmiş URL ayarları**.
 
-    b. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://trello.com/auth/saml/login/<enterprise>` 
+    b. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://trello.com/auth/saml/login/<enterprise>` 
 
 5. Özel öznitelikler içerecek şekilde SAML onaylar Trello uygulama bekler. Bu uygulama için aşağıdaki öznitelikleri yapılandırabilirsiniz. Bu öznitelik değerlerini yönetebilirsiniz **"Kullanıcı öznitelikleri"** uygulamanın. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
 
@@ -195,7 +195,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-trello-test-user"></a>Trello test kullanıcısı oluşturma
 
@@ -235,7 +235,7 @@ Bu bölümde, Britta Trello için erişim vererek, Azure çoklu oturum açma kul
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -245,7 +245,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 70b07cae9a1dc8b45e27f95e19fbc84f06a0b6d3
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 SQL veritabanları Azure yığınının hizmet olarak kullanıma sunmak için Azure yığın SQL Server Kaynak sağlayıcısı kullanın. SQL kaynak sağlayıcısı hizmeti SQL kaynak sağlayıcısı bir Windows Server çekirdek sanal makine VM üzerinde çalışır.
@@ -73,6 +73,8 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hi�
 | **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır. | Hayır |
 | **DebugMode** | Otomatik temizleme hatasında engeller. | Hayır |
 
+>[!NOTE]
+> SKU'ları portalında görünür olması için bir saat sürebilir. SKU oluşturulana kadar bir veritabanı oluşturulamıyor.
 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Özel bir komut dosyası kullanarak SQL kaynak sağlayıcısı dağıtma

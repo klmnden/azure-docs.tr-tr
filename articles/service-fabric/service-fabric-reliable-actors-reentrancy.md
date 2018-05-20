@@ -1,6 +1,6 @@
 ---
-title: "Aktör tabanlı Azure mikro yeniden girişi | Microsoft Docs"
-description: "Service Fabric Reliable Actors yeniden giriş için giriş"
+title: Aktör tabanlı Azure mikro yeniden girişi | Microsoft Docs
+description: Service Fabric Reliable Actors yeniden giriş için giriş
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,24 +9,24 @@ editor: amanbha
 ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: dec785757ac582f044811c0f64ae0d452d6ad9a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 40f52cb399f2d7391657ce4356a0c30921d46e5f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-actors-reentrancy"></a>Güvenilir aktörler yeniden giriş
 Reliable Actors çalışma zamanı varsayılan olarak, mantıksal çağrısı Bağlam tabanlı yeniden giriş sağlar. Bu aynı çağrı bağlam zincirinde olmaları durumunda desteklemeyeceğini olmasını aktörler sağlar. Örneğin, A aktör aktör C'ye ileti gönderen aktör B'ye ileti gönderir Aktör C aktör A çağırırsa izin verecek şekilde ileti işleme bir parçası olarak desteklemeyeceğini, iletisidir. İşlem tamamlanana kadar farklı çağrı içeriği parçası olan diğer tüm iletileri aktör A engellenir.
 
 İki seçenek tanımlanan aktör yeniden giriş için kullanılabilir `ActorReentrancyMode` enum:
 
-* `LogicalCallContext`(varsayılan davranış)
-* `Disallowed`-yeniden giriş devre dışı bırakır
+* `LogicalCallContext` (varsayılan davranış)
+* `Disallowed` -yeniden giriş devre dışı bırakır
 
 ```csharp
 public enum ActorReentrancyMode

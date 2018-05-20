@@ -1,23 +1,23 @@
 ---
-title: "Azure yönetilen uygulama kullanıcı Arabirimi tanımı işlevlerin oluşturma | Microsoft Docs"
-description: "Azure yönetilen uygulamaları için kullanıcı Arabirimi tanımları oluşturulurken kullanılacak işlevleri açıklanmaktadır"
-services: azure-resource-manager
+title: Azure yönetilen uygulama kullanıcı Arabirimi tanımı işlevlerin oluşturma | Microsoft Docs
+description: Azure yönetilen uygulamaları için kullanıcı Arabirimi tanımları oluşturulurken kullanılacak işlevleri açıklanmaktadır
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition işlevleri
 Bu bölüm bir CreateUiDefinition tüm desteklenen işlevlerini imzaları içerir.
@@ -40,7 +40,7 @@ Uygunsa, dot işleci kullanılarak bir işlev çıktısını özelliklerini baş
 "[func().prop1]"
 ```
 
-## <a name="referencing-functions"></a>İşlevler başvurma
+## <a name="referencing-functions"></a>Başvuru işlevleri
 Bu işlevler, özellikleri veya bir CreateUiDefinition bağlamında çıkışları başvurmak için kullanılabilir.
 
 ### <a name="basics"></a>temel kavramları
@@ -366,10 +366,10 @@ Aşağıdaki örnek verir `{"key2": "raboof"}`:
 "[skip(steps('foo').element1, 1)]"
 ```
 
-## <a name="logical-functions"></a>Mantıksal işlevleri
+## <a name="logical-functions"></a>Mantıksal işlevler
 Bu işlevler koşulları içinde kullanılabilir. Bazı işlevler tüm JSON veri türlerini desteklemiyor olabilir.
 
-### <a name="equals"></a>eşittir
+### <a name="equals"></a>şuna eşittir:
 Döndürür `true` parametrelerinin her ikisini de aynı türde ve değer varsa. Bu işlev tüm JSON veri türlerini destekler.
 
 Aşağıdaki örnek verir `true`:
@@ -510,7 +510,7 @@ Aşağıdaki örnek verir `2`:
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>Kayan nokta
+### <a name="float"></a>float
 Parametresi için bir kayan nokta dönüştürür. Bu işlev türü numarası ve dize parametreleri destekler.
 
 Aşağıdaki örnek verir `1.0`:
@@ -525,7 +525,7 @@ Aşağıdaki örnek verir `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>Dize
+### <a name="string"></a>dize
 Parametresi bir dizeye dönüştürür. Bu işlev parametreleri tüm JSON veri türlerini destekler.
 
 Aşağıdaki örnek verir `"1"`:
@@ -642,8 +642,8 @@ Aşağıdaki örnek verir `"https://portal.azure.com/"`:
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
-## <a name="math-functions"></a>Matematik işlevleri
-### <a name="add"></a>Ekleme
+## <a name="math-functions"></a>Matematiksel işlevler
+### <a name="add"></a>ekle
 İki sayı ekleyen ve sonuç döndürür.
 
 Aşağıdaki örnek verir `3`:
@@ -703,7 +703,7 @@ Aşağıdaki örnek verir `1`:
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>max
+### <a name="max"></a>en çok
 Büyük iki sayının döndürür.
 
 Aşağıdaki örnek verir `2`:

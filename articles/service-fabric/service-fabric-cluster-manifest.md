@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric tek başına kümenizi yapılandırmak | Microsoft Docs"
-description: "Tek başına veya şirket içi Azure Service Fabric kümenizi yapılandırmayı öğrenin."
+title: Azure Service Fabric tek başına kümenizi yapılandırmak | Microsoft Docs
+description: Tek başına veya şirket içi Azure Service Fabric kümenizi yapılandırmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Tek başına Windows kümesi için yapılandırma ayarları
 Bu makalede, bir tek başına Azure Service Fabric kümesi ClusterConfig.json dosyasını kullanarak yapılandırmak açıklar. Küme düğümleri, güvenlik yapılandırmalarını yanı sıra, hata ve yükseltme etki alanları bakımından ağ topolojisi hakkında bilgi belirtmek için bu dosyayı kullanır.

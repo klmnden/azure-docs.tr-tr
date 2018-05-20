@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme edici Online ile | Microsoft Docs"
-description: "Azure Active Directory edici Online arasında tek oturum açma yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme edici Online ile | Microsoft Docs'
+description: Azure Active Directory edici Online arasında tek oturum açma yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e415aab14e6c79ec937607433e0b8f13a0e971c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc551aaa0a1383376d345f922c3e226cb88c4d26
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Öğretici: Azure Active Directory Tümleştirme edici Online ile
 
@@ -29,9 +29,9 @@ EDİCİ çevrimiçi Azure AD ile tümleştirme ile aşağıdaki avantajları sa�
 - Azure AD hesaplarına otomatik olarak edici Online'a (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme edici Online ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -112,15 +112,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
 
-    Üretim ortamı için bu deseni kullanır`https://<company name>.millwardbrown.report` 
+    Üretim ortamı için bu deseni kullanır `https://<company name>.millwardbrown.report` 
 
-    Test ortamı için bu deseni kullanır`https://millwardbrown.marketingtracker.nl/mt5/`
+    Test ortamı için bu deseni kullanır `https://millwardbrown.marketingtracker.nl/mt5/`
 
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     
-    Üretim ortamı için bu deseni kullanır`https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
+    Üretim ortamı için bu deseni kullanır `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
       
-    Test ortamı için bu deseni kullanır`https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
+    Test ortamı için bu deseni kullanır `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [edici çevrimiçi destek ekibi](mailTo:bgsdashboardteam@millwardbrown.com) bu değerleri almak için.
@@ -173,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-bgs-online-test-user"></a>EDİCİ çevrimiçi bir test kullanıcısı oluşturma
 
@@ -218,7 +218,7 @@ Erişim panelinde edici çevrimiçi kutucuğa tıkladığınızda, otomatik olar
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

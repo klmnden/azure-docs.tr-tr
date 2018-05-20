@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8a2715666c4fff490f5184b7b8719b412952b9bf
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 419ed6dc76101366e47ae94067f7b671a10c94e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain sorun giderme çalışma ekranı
 
@@ -45,11 +45,12 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 Betiği aşağıdaki parametreleri kabul eder:
 
-| Parametre  | Açıklama | Gerekli |
+| Parametre  | Açıklama | Gereken |
 |---------|---------|----|
 | Subscriptionıd | Oluşturmak veya tüm kaynaklarını bulmak için Subscriptionıd. | Evet |
 | ResourceGroupName | Blockchain çalışma ekranı bir yere dağıtılan Azure kaynak grubu adı. | Evet |
-| Çıktıdizini | Çıktı oluşturmak için yolu. ZIP dosyası. Belirtilmezse, geçerli dizine varsayılan olur. | Hayır
+| Çıktıdizini | Çıktı oluşturmak için yolu. ZIP dosyası. Belirtilmezse, geçerli dizine varsayılan olur. | Hayır |
+| LookbackHours | Telemetri çekme yapılırken kullanılacak saat sayısı. Varsayılan değer 24 saattir. En büyük değer 90 saattir | Hayır |
 | OmsSubscriptionId | OMS dağıtıldığı abonelik kimliği. Blockchain ağ için OMS Blockchain çalışma'nın kaynak grubu dışında dağıttıysanız, bu parametre yalnızca geçirin.| Hayır |
 | OmsResourceGroup |OMS dağıtıldığı kaynak grubu. Blockchain ağ için OMS Blockchain çalışma'nın kaynak grubu dışında dağıttıysanız, bu parametre yalnızca geçirin.| Hayır |
 | OmsWorkspaceName | OMS çalışma alanı adı. Blockchain ağ için OMS Blockchain çalışma'nın kaynak grubu dışında dağıttıysanız, bu parametre yalnızca geçirin | Hayır |
@@ -58,15 +59,17 @@ Betiği aşağıdaki parametreleri kabul eder:
 
 Çıktı ZIP dosyası aşağıdaki klasör yapısını içerir:
 
-| Klasör \ dosya | Açıklama  |
+| Klasör veya dosya | Açıklama  |
 |---------|---------|
 | \Summary.txt | Sistem Özeti |
-| \metrics\blockchain | Ölçümleri blockchain hakkında |
-| \metrics\workbench | Çalışma ekranı hakkında ölçümleri |
-| \details\blockchain | Blockchain hakkında ayrıntılı Günlükler |
-| \details\workbench | Çalışma ekranı hakkında ayrıntılı Günlükler |
+| \Metrics\blockchain | Ölçümleri blockchain hakkında |
+| \Metrics\Workbench | Çalışma ekranı hakkında ölçümleri |
+| \Details\Blockchain | Blockchain hakkında ayrıntılı Günlükler |
+| \Details\Workbench | Çalışma ekranı hakkında ayrıntılı Günlükler |
 
 Özet dosyası, uygulamanın genel durumu ve sistem durumu uygulamanın bir anlık görüntüsünü sunar. Özet üst hataları ve meta verileri, hizmetleri çalıştırma hakkında önemli noktalar, önerilen eylemleri sağlar.
+
+**Ölçümleri** klasörü, zaman içinde çeşitli sistem bileşenleri ölçümlerini içerir. Örneğin, çıktı dosyası `\Details\Workbench\apiMetrics.txt` farklı yanıt kodları ve yanıt süresi toplama süresi boyunca özetini içerir. **Ayrıntıları** klasörü belirli çalışma ekranı veya arka plandaki blockchain ağ sorunlarını gidermek için ayrıntılı günlük içerir. Örneğin, `\Details\Workbench\Exceptions.csv` akıllı Sözleşmelerle hatalar veya blockchain ile etkileşim sorun giderme için yararlı olan sistem içinde gerçekleşen en son özel durum listesini içerir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: d263f6255eedb9b45b7f0b232e1595197556b7c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı Hdınsight kümelerinde Solr kullanma
 
@@ -81,9 +81,9 @@ Bazı veri dosyalarıyla Solr dizin ile başlamalıdır. Solr sonra dizinli veri
         Time spent: 0:00:01.624
 
     Post.jar yardımcı programı, iki örnek belgelerle Solr dizinler **solr.xml** ve **monitor.xml**. Solr yüklemeye post.jar yardımcı programı ve örnek belgeleri kullanılabilir.
-3. **Solr Pano içinde dizinlenmiş belgeleri aramak için kullanın**. RDP oturumu Hdınsight kümesi için Internet Explorer'ı açın ve Solr Panosu'nda başlatın ** http://headnodehost:8983/solr/#/ **. Sol bölmeden gelen **çekirdek Seçici** açılan listesinde, select **collection1**, tıklatıp, içinde **sorgu**. Örnek olarak, seçin ve tüm belgeleri Solr döndürmek için aşağıdaki değerleri girin:
+3. **Solr Pano içinde dizinlenmiş belgeleri aramak için kullanın**. RDP oturumu Hdınsight kümesi için Internet Explorer'ı açın ve Solr Panosu'nda başlatın **http://headnodehost:8983/solr/#/**. Sol bölmeden gelen **çekirdek Seçici** açılan listesinde, select **collection1**, tıklatıp, içinde **sorgu**. Örnek olarak, seçin ve tüm belgeleri Solr döndürmek için aşağıdaki değerleri girin:
 
-   * İçinde **q** metin kutusuna ** \*:**\*. Bu dizini tüm belgeleri Solr döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, o dizeyi buraya girebilirsiniz.
+   * İçinde **q** metin kutusuna  **\*:**\*. Bu dizini tüm belgeleri Solr döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, o dizeyi buraya girebilirsiniz.
    * İçinde **wt** metin kutusunda, çıktı biçimi seçin. Varsayılan değer **json**. Tıklatın **sorgu yürütme**.
 
      ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr Panoda bir sorgu çalıştırın")
@@ -176,11 +176,9 @@ Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-had
 * [Betik eylemi kullanarak Hdınsight kümesi özelleştirme][hdinsight-cluster-customize]: betik eylemi kullanarak Hdınsight kümelerini özelleştirme hakkında genel bilgi.
 * [Hdınsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
 * [Yükleme ve Spark Hdınsight kümelerinde kullanma][hdinsight-install-spark]: Spark yükleme hakkında örnek betik eylemi.
-* [Hdınsight kümelerinde R yüklemek][hdinsight-install-r]: betik eylemi örnek r yükleme hakkında
 * [Hdınsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install.md): Giraph yükleme hakkında örnek betik eylemi.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

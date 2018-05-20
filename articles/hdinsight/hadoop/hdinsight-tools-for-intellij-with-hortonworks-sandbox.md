@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: c72fb17a53b9d373bbd141f76f01e6b029d1e8f7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59251287f7597955fe22700cc96527b9476753c1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Korumalı alan Hortonworks ile Intellij için Hdınsight araçları kullanma
 
@@ -41,7 +41,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 Eklentiler yüklemek için:
 
-  1. Intellij Idea açın.
+  1. IntelliJ IDEA’yı açın.
   2. Üzerinde **Hoş Geldiniz** sayfasında, **yapılandırma**ve ardından **eklentileri**.
   3. Sol alt köşedeki seçin **yükleme JetBrains eklentisi**.
   4. Aramak için arama işlevini kullanın **Scala**ve ardından **yükleme**.

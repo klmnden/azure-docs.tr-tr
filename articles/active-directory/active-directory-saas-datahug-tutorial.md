@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Datahug | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Datahug arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Datahug | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Datahug arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e032aee88a430fe8ac5fa37229f1eee6fc04f710
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 929b63ea3d78aafe6b96af40b9dce4decbd295b1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Öğretici: Azure Active Directory Tümleştirme Datahug ile
 
@@ -29,9 +29,9 @@ Datahug Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Datahug (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [Uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Datahug ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,15 +110,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://apps.datahug.com/identity/<uniqueID>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://apps.datahug.com/identity/<uniqueID>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://apps.datahug.com/identity/<uniqueID>/acs`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
 4. Denetleme **Göster Gelişmiş URL ayarları**. Uygulamada yapılandırmak istiyorsanız **SP** modu tarafından başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://apps.datahug.com/`
+    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://apps.datahug.com/`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Burada yanıt URL'si ve tanımlayıcı dizesinde benzersiz değeri kullanmanızı öneririz. Kişi [Datahug istemci destek ekibi](http://datahug.com/about/contact-us/) bu değerleri almak için. 
@@ -178,7 +178,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-datahug-test-user"></a>Datahug test kullanıcısı oluşturma
 
@@ -243,7 +243,7 @@ Erişim paneli Datahug parçasında tıklattığınızda, otomatik olarak Datahu
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

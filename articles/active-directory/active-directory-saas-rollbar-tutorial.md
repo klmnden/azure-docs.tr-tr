@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Rollbar | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Rollbar arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Rollbar | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Rollbar arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 277dc8e378e5e0c5f649da4f129d3daca96ef8be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Öğretici: Azure Active Directory Tümleştirme Rollbar ile
 
@@ -30,7 +30,7 @@ Rollbar Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Rollbar (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -215,7 +215,7 @@ Azure AD kullanıcıları için Rollbar oturum açmak etkinleştirmek için bunl
 
     ![Kişileri davet edin](./media/active-directory-saas-rollbar-tutorial/user2.png)
 
-5. Metin kutusuna gibi kullanıcı adını girin  **brittasimon@contoso.com**  ve **Ekle/davet**.
+5. Metin kutusuna gibi kullanıcı adını girin **brittasimon@contoso.com** ve **Ekle/davet**.
 
     ![Kişileri davet edin](./media/active-directory-saas-rollbar-tutorial/user3.png)
 
@@ -251,7 +251,7 @@ Bu bölümde, Britta Rollbar için erişim vererek, Azure çoklu oturum açma ku
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -261,7 +261,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

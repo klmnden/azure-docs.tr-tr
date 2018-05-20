@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8eada6b88c320396b30ecdeb96c95e4ec61679ce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 ## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
@@ -40,7 +40,7 @@ Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme ç
 
     ![Fiziksel Cihazınızı seçin](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Cihazınızda çağırabilir yöntemlerinin listesini görüntülemek için seçin **zamanlama**. Birden fazla cihazda çalıştırmak için bir yöntem zamanlamak için listede birden çok aygıt seçebilirsiniz. **Zamanlama** paneli yöntemi türlerini seçtiğiniz tüm cihazların ortak gösterir.
+1. Cihazınızda çağırabilir yöntemlerinin listesini görüntülemek için seçin **işleri**, ardından **Run yöntemi**. Birden fazla cihazda işi zamanlamak için listede birden çok aygıt seçebilirsiniz. **İşleri** paneli yöntemi türlerini seçtiğiniz tüm cihazların ortak gösterir.
 
 1. Seçin **FirmwareUpdate**, iş adı ayarlamak **UpdatePhysicalChiller**. Ayarlama **bellenim sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından **Uygula**:
 

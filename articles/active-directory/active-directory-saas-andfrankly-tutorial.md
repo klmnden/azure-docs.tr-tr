@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile & frankly | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory arasında yapılandırmayı öğrenin ve & frankly."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile & frankly | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory arasında yapılandırmayı öğrenin ve & frankly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: adac71abf24f377df078e793f7902ace80a0f572
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bab11e9bfa92fcecf614ef9edeb79ceec5e13f3b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Öğretici: Azure Active Directory Tümleştirme ile & frankly
 
@@ -29,9 +29,9 @@ Tümleştirme & frankly Azure AD ile aşağıdaki faydaları sağlar:
 - Otomatik olarak imzalanmış şirket & frankly almak, kullanıcılarınızın etkinleştirebilirsiniz (çoklu oturum açma) Azure AD hesaplarına sahip
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD yapılandırmak için aşağıdaki öğeleri ile tümleştirme & frankly, size gerekir:
 
@@ -110,15 +110,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirme ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
 4. Denetleme **Göster Gelişmiş URL ayarları**. Uygulamada yapılandırmak istiyorsanız **SP** modu tarafından başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
     > [!NOTE] 
     > Bu değerler gerçek değildir. Gerçek tanımlayıcısı ile bu değerleri güncelleştirmek oturum açma ve yanıt URL'si. Kişi [andfrankly destek ekibi](mailto:help@andfrankly.com) bu değerleri almak için.
 
@@ -164,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-frankly-test-user"></a>Oluşturma bir & frankly test kullanıcısı
 
@@ -209,7 +209,7 @@ Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanı
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

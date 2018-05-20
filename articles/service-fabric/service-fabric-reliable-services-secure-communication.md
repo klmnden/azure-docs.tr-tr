@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 00788a5685bcb021d8d626f01fa089b0f6598019
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="secure-service-remoting-communications-for-a-service"></a>Güvenli bir hizmet için hizmet uzaktan iletişim
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
 
     ```
 
-    İstemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportRemotingSettings` settings.xml dosyasından. Create a HelloWorldClientTransportSettings section that is similar to the service code, as shown earlier. İstemci kodu aşağıdaki değişiklikleri yapın:
+    İstemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportRemotingSettings` settings.xml dosyasından. Daha önce gösterildiği gibi hizmet koduna benzer HelloWorldClientTransportSettings bir bölüm oluşturun. İstemci kodu aşağıdaki değişiklikleri yapın:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(

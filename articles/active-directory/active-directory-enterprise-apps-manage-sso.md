@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamaları için çoklu oturum açmayı yönetme
 
-Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) kurumsal uygulamalar için çoklu oturum açma ayarları yönetmek için. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle alanından eklenen uygulamalar için geçerlidir [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) kurumsal uygulamalar için çoklu oturum açma ayarları yönetmek için. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle alanından eklenen uygulamalar için geçerlidir [Azure Active Directory Uygulama galerisinde](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
 Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve Azure portalında yönetilebilir. Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. 
@@ -43,7 +43,7 @@ Seçin **tüm uygulamaları** yapılandırılmış tüm uygulamaların bir liste
 * **Parola tabanlı oturum açma** -bu seçenek Azure AD parola form bu uygulama için doldurma destekliyorsa kullanılabilir.
 * **Bağlantılı oturum açma** -"Varolan çoklu oturum açma" eski adıyla, bu seçenek, kullanıcının Azure AD erişim paneli veya Office 365 uygulama Başlatıcı bu uygulama ile bir bağlantı yerleştirmek Yöneticiler sağlar.
 
-Bu modları hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Bu modları hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>SAML tabanlı oturum açma
 **SAML tabanlı oturum açma** seçeneği, dört bölümlerde ayrılmıştır:
@@ -79,12 +79,12 @@ Son bölümü, belgelerine ve/veya Azure Active Directory kimlik sağlayıcısı
 ![Katıştırılmış belgeleri](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Parola tabanlı oturum açma
-Uygulama için destekleniyorsa, parola tabanlı SSO modu ve seçerek **kaydetmek** anında parola tabanlı SSO yapmak için yapılandırır. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Uygulama için destekleniyorsa, parola tabanlı SSO modu ve seçerek **kaydetmek** anında parola tabanlı SSO yapmak için yapılandırır. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Parola tabanlı oturum açma](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Bağlantılı oturum açma
-Uygulama için destekleniyorsa, bağlantılı SSO modu seçme Azure AD erişim paneli veya Office 365 kullanıcılar bu uygulamayı üzerinde tıklattığında yönlendirileceği istediğiniz URL'yi girmenizi sağlar. Bağlantılı SSO (eski adıyla "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Uygulama için destekleniyorsa, bağlantılı SSO modu seçme Azure AD erişim paneli veya Office 365 kullanıcılar bu uygulamayı üzerinde tıklattığında yönlendirileceği istediğiniz URL'yi girmenizi sağlar. Bağlantılı SSO (eski adıyla "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Bağlantılı oturum açma](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

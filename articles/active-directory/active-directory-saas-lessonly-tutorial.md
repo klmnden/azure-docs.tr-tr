@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Lesson.ly | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Lesson.ly arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Lesson.ly | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Lesson.ly arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: b5295b2c4294141cc2217a35eb943316e190b77d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Öğretici: Azure Active Directory Tümleştirme Lesson.ly ile
 
@@ -29,7 +29,7 @@ Lesson.LY Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için Lesson.ly (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -140,9 +140,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     | Öznitelik Adı   | Öznitelik Değeri |
     | ---------------  | ----------------|
-    | urn: oid:2.5.4.42 |User.givenName |
-    | urn: oid:2.5.4.4  |User.surname |
-    | urn: oid:0.9.2342.19200300.100.1.3 |User.Mail |
+    | urn:oid:2.5.4.42 |User.givenName |
+    | urn:oid:2.5.4.4  |User.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 |User.Mail |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.objectid |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
@@ -249,7 +249,7 @@ Erişim paneli Lesson.ly parçasında tıklattığınızda, otomatik olarak Less
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

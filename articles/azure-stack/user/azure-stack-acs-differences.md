@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure yığın depolama: Farklar ve ilgili önemli noktalar
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 Azure yığın depolama Microsoft Azure yığın depolama bulut hizmetleri kümesidir. Azure yığın depolama blob, tablo, kuyruk ve Azure tutarlı semantiği ile hesabı yönetimi işlevselliğini sağlar.
 
-Bu makalede, Azure depolama biriminden bilinen Azure yığın depolama farkları özetler. Ayrıca, Azure yığın dağıtırken göz önünde bulundurmanız gereken diğer noktalar özetlenmektedir. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
+Bu makalede Azure Storage hizmetleri gelen bilinen Azure yığın depolama farklar özetlenmektedir. Ayrıca, Azure yığın dağıtırken göz önünde bulundurmanız gerekenler listelenmektedir. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
 
 ## <a name="cheat-sheet-storage-differences"></a>Kopya sayfası: depolama farklar
 
@@ -49,26 +49,28 @@ Blob storage için geçici silme|Önizleme|Henüz desteklenmiyor.
 |Tablo bölüm anahtarını ve satır anahtar boyutu|1024 karakter (2.048 bayt)|400 karakter (800 bayt)
 |BLOB anlık görüntü|Anlık görüntü bir BLOB maksimum sayısı sınırlı değildir.|Maksimum sayıda anlık görüntü bir BLOB 1. 000 ' dir.|
 
-### <a name="metrics"></a>Ölçümler
-Depolama ölçümleri ile bazı farklar vardır:
+Depolama ölçümleri farklılıklar vardır:
+
 * Depolama ölçümleri işlem verilerinde iç veya dış ağ bant genişliği ayırt etmez.
 * Depolama ölçümleri işlem verilerde bağlı diskler sanal makine erişimi içermez.
 
 ## <a name="api-version"></a>API sürümü
+
 Aşağıdaki sürümler ile Azure yığın depolama desteklenir:
 
 Azure depolama API'leri Hizmetleri:
 
 1802 güncelleştirmek veya yeni:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Önceki sürümler:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Depolama Yönetimi API Hizmetleri:
 
@@ -78,7 +80,7 @@ Azure Depolama Yönetimi API Hizmetleri:
 
 ## <a name="sdk-versions"></a>SDK sürümleri
 
-Aşağıdaki istemci kitaplıklarından Azure yığın depolama ile desteklenir:
+Azure yığın depolama aşağıdaki istemci kitaplıklarından destekler:
 
 | İstemci kitaplığı | Azure desteklenen yığın sürümü | Bağlantı                                                                                                                                                                                                                                                                                                                                     | Uç nokta belirtimi       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +96,3 @@ Aşağıdaki istemci kitaplıklarından Azure yığın depolama ile desteklenir:
 
 * [Azure yığın depolama geliştirme araçları ile çalışmaya başlama](azure-stack-storage-dev.md)
 * [Azure yığın depolama giriş](azure-stack-storage-overview.md)
-

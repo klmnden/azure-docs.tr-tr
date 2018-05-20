@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain çalışma ekranı REST API kullanarak
-description: Azure Blockchain çalışma ekranı REST API kullanımı için senaryolar
+title: Azure Blockchain Workbench REST API'sini kullanma
+description: Azure Blockchain Workbench REST API'sini kullanmaya yönelik senaryolar
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,37 +10,37 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 27ed94b3ce14c57e369b0c80d4c53b72a5ae40a8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: cec2ab862a34a8753601dfeef3081ae9e9ca9fd9
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain çalışma ekranı REST API kullanarak 
+# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API'sini kullanma 
 
-Azure Blockchain çalışma ekranı REST API geliştiricilere ve bilgi işçilerini blockchain uygulamaları için zengin tümleştirmeler oluşturmak için bir yol sağlar. Bu belge, çalışma ekranı REST API çeşitli anahtar yöntemler açıklanmaktadır. Burada oturum açmış olan kullanıcıların görüntülemek ve atanan blockchain uygulamalarını ile etkileşime girmesine izin veren özel blockchain istemci oluşturmak için bir geliştirici istediği bir senaryo düşünün. İstemci kullanıcıların sözleşme örneklerini görüntülemek ve akıllı sözleşmelerinde eylemleri olanak tanır. İstemci, aşağıdakileri yapmak için oturum açmış kullanıcının bağlamında çalışma ekranı REST API kullanır:
+Azure Blockchain Workbench REST API'si geliştiricilere ve bilgi çalışanlarına blok zinciri uygulamalarına zengin tümleştirmeler oluşturmaları için bir yol sağlar. Bu belgede size, Workbench REST API'sinin önemli bazı yöntemlerinde yol gösterilir. Geliştiricinin, oturum açmış kullanıcıların kendilerine atanmış blok zinciri uygulamalarını görüntülemesine ve bunlarla etkileşimli çalışmasına olanak tanıyan özel bir blok zinciri istemcisi oluşturmak istediği bir senaryo düşünün. İstemci kullanıcıların anlaşma örneklerini görüntülemesine ve akıllı anlaşmalarla ilgili işlemler yapmasına olanak tanır. İstemci aşağıdakileri yapmak için Workbench REST API'sini oturum açmış kullanıcı bağlamında kullanır:
 
 * Uygulamaları listeleme
-* Bir uygulama için liste iş akışları
-* Bir iş akışı için akıllı sözleşme örneklerini listele
-* Bir sözleşme listesi kullanılabilir eylemler
-* Bir sözleşme için bir eylem yürütme
+* Uygulama için iş akışlarını listeleme
+* İş akışı için akıllı anlaşma örneklerini listeleme
+* Anlaşma için kullanılabilir eylemleri listeleme
+* Anlaşma için bir eylem yürütme
 
 ## <a name="list-applications"></a>Uygulamaları listeleme
 
-Bir kullanıcı blockchain istemciyi imzaladığı sonra ilk kullanıcı için tüm Blockchain çalışma ekranı blockchain uygulamaları almak için bir görevdir. Bu senaryoda, kullanıcının iki uygulama erişimi:
+Kullanıcı blok zinciri istemcisinde oturum açtıktan sonra, ilk görev kullanıcının tüm Blockchain Workbench blok zinciri uygulamalarını almaktır. Bu senaryoda, kullanıcının iki uygulamaya erişimi vardır:
 
-1.  Varlık aktarımı
-2.  Refrigerated taşıma
+1.  Asset Transfer (Varlık Aktarımı)
+2.  Refrigerated Transportation (Soğuk Taşıma)
 
-Kullanım [uygulamaları GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
+[Applications GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) kullanın:
 
 ``` http
 GET /api/v1/applications 
 Authorization : Bearer {access token}
 ```
 
-Yanıt için bir kullanıcı erişimi Blockchain çalışma ekranı içinde olan tüm blockchain uygulamaları listeler. En az bir ilişkili uygulama rolü veya bir ilişkili akıllı sözleşme örneği rolü sahip oldukları tüm blockchains çalışma ekranı olmayan Yöneticiler elde ederken Blockchain çalışma ekranı yöneticileri tüm blockchain uygulamaları alın.
+Yanıtta kullanıcının Blockchain Workbench'te erişimi olan tüm blok zinciri uygulamaları listelenir. Blockchain Workbench yöneticileri tüm blok zinciri uygulamalarını alırken, Workbench yöneticisi olmayanlar en az bir ilişkili uygulama rolüne veya ilişkili akıllı anlaşma örneği rolüne sahip oldukları tüm blok zincirlerini alırlar.
 
 ``` http
 HTTP/1.1 200 OK
@@ -72,18 +72,18 @@ Content-type: application/json
 }
 ```
 
-## <a name="list-workflows-for-an-application"></a>Bir uygulama için liste iş akışları
+## <a name="list-workflows-for-an-application"></a>Uygulama için iş akışlarını listeleme
 
-Geçerli blockchain uygulama, bu durumda, varlık aktarma, bir kullanıcı seçtikten sonra blockchain istemci belirli blockchain uygulamanın tüm iş akışları alır. Kullanıcılar daha sonra iş akışı için tüm akıllı sözleşme örnekleri gösterilen önce geçerli iş akışı seçebilirsiniz. Bir veya daha fazla iş akışı her blockchain uygulamanın vardır ve her bir iş akışı sahip sıfır veya sözleşme örnekleri akıllı. Blockchain istemci uygulamaları oluştururken, kullanıcıların blockchain uygulama için yalnızca bir iş akışı olduğunda uygun iş akışı seçmesine izin verme kullanıcı deneyimi akışı atlamak için önerilir. Bu durumda, varlık aktarım varlık aktarımı olarak da adlandırılan tek bir iş akışı vardır.
+Kullanıcı uygun blok zinciri uygulamasını seçtikten sonra (bu örnekte Asset Transfer), blok zinciri istemcisi bu belirli blok zinciri uygulamasının tüm iş akışlarını alır. Ardından, iş akışının tüm akıllı anlaşma örneklerinin gösterilmesi için kullanıcılar uygun iş akışını seçer. Her blok zinciri uygulamasının bir veya birden çok iş akışı vardır ve her iş akışının sıfır veya akıllı anlaşma örnekleri bulunur. Blok zinciri istemci uygulamaları oluştururken, blok zinciri uygulamasının tek bir iş akışı olduğu durumlarda kullanıcıların uygun iş akışını seçmesine izin veren kullanıcı deneyimi akışının atlanması önerilir. Bu örnekte, Asset Transfer uygulamasının adı yine Asset Transfer olan tek bir iş akışı vardır.
 
-Kullanım [uygulamaları iş akışları GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
+[Applications Workflows GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) kullanın:
 
 ``` http
 GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-Yanıt belirtilen blockchain uygulamasının kullanıcı erişimi Blockchain çalışma ekranı içinde olan tüm iş akışları listeler. Blockchain çalışma ekranı Yöneticiler tüm blockchain iş akışları, çalışma ekranı olmayan yöneticiler en az bir ilişkili uygulama rolü sahip oldukları tüm iş akışlarını elde ederken almak veya bir akıllı sözleşme örneği rolüyle ilişkilendirilmiş.
+Yanıtta kullanıcının Blockchain Workbench'te erişimi olan belirli blok blok zinciri uygulamasının tüm iş akışları listelenir. Blockchain Workbench yöneticileri tüm blok zinciri iş akışlarını alırken, Workbench yöneticisi olmayanlar en az bir ilişkili uygulama rolüne sahip oldukları veya akıllı anlaşma örneği rolüyle ilişkili oldukları tüm iş akışlarını alırlar.
 
 ``` http
 HTTP/1.1 200 OK
@@ -104,18 +104,18 @@ Content-type: application/json
 }
 ```
 
-## <a name="list-smart-contract-instances-for-a-workflow"></a>Bir iş akışı için akıllı sözleşme örneklerini listele
+## <a name="list-smart-contract-instances-for-a-workflow"></a>İş akışı için akıllı anlaşma örneklerini listeleme
 
-Geçerli iş akışı, bu örneği varlık aktarma, bir kullanıcı seçtikten sonra blockchain istemci belirtilen iş akışı için tüm akıllı sözleşme örnekleri alın. İş akışı için tüm akıllı sözleşme örnekleri Göster ve derin Dalış kullanıcılara gösterilen akıllı sözleşme örnekleri hiçbirine izin vermek için bu bilgileri kullanın. Bu örnekte, bir kullanıcı bir eyleme geçmek için akıllı sözleşme örnekleri ile etkileşim istediğiniz göz önünde bulundurun.
+Kullanıcı uygun blok zinciri uygulamasını seçtikten sonra (bu örnekte Asset Transfer), blok zinciri istemcisi belirtilen iş akışı için tüm akıllı anlaşma örneklerini alır. Bu bilgiyi kullanarak iş akışının tüm akıllı anlaşma örneklerini gösterebilir ve kullanıcıların gösterilen tüm akıllı anlaşma örneklerinde ayrıntıya gitmesine olanak tanıyabilirsiniz. Bu örnekte, kullanıcının bir eylem yapmak için akıllı anlaşma örneklerinden biriyle etkileşimli çalışmak istediğini düşünün.
 
-Kullanım [sözleşmeler GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
+[Contracts GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget) kullanın:
 
 ``` http
 GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-Yanıt, belirtilen iş akışı tüm akıllı sözleşme örneklerini listeler. Çalışma ekranı yöneticileri tüm akıllı sözleşme örnekleri alın, çalışma ekranı olmayan Yöneticiler alma sırasında tüm en az bir ilişkili uygulama rolü sahip oldukları sözleşme örnekleri akıllı veya bir akıllı sözleşme örneği rolüyle ilişkilidir.
+Yanıtta belirtilen iş akışının tüm akıllı anlaşma örnekleri listelenir. Workbench yöneticileri tüm akıllı anlaşma örneklerini alırken, Workbench yöneticisi olmayanlar en az bir ilişkili uygulama rolüne sahip oldukları veya akıllı anlaşma örneği rolüyle ilişkili oldukları tüm akıllı anlaşma örneklerini alırlar.
 
 ``` http
 HTTP/1.1 200 OK
@@ -203,21 +203,21 @@ Content-type: application/json
 }
 ```
 
-## <a name="list-available-actions-for-a-contract"></a>Bir sözleşme listesi kullanılabilir eylemler
+## <a name="list-available-actions-for-a-contract"></a>Anlaşma için kullanılabilir eylemleri listeleme
 
-Bir kullanıcı için derin Dalış sözleşmeleri birine karar vermiştir sonra blockchain istemci sözleşme durumunu verilen kullanıcı ardından tüm eylemleri gösterebilir. Bu örnekte, kullanıcı yeni bir akıllı sözleşmesi oluşturma için hiç kullanılabilir eylemler arıyor:
+Kullanıcı anlaşmaların birinde ayrıntıya gitmeye karar verdiğinde, blok zinciri istemcisi kullanıcıya anlaşmanın durumuna göre tüm kullanılabilir eylemleri gösterebilir. Bu örnekte, kullanıcı oluşturduğu yeni akıllı anlaşmanın tüm kullanılabilir eylemlerine bakıyor:
 
-* Değiştirin: açıklama ve bir varlığı bedelinin değiştirmek kullanıcının sağlar.
-* Sonlandırma: Varlık sözleşme sonlandırmak kullanıcının sağlar.
+* Modify: Kullanıcının, bir varlığın açıklamasını ve fiyatını değiştirmesine olanak tanır.
+* Terminate: Kullanıcının, varlığın anlaşmasını sonlandırmasına olanak tanır.
 
-Kullanım [sözleşme eylem GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget):
+[Contract Action GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget) kullanın:
 
 ``` http
 GET /api/v1/contracts/{contractId}/actions
 Authorization: Bearer {access token}
 ```
 
-Yanıt belirtilen akıllı sözleşme örneğinin geçerli durumunu verilen bir kullanıcı işlemleri yapabileceğiniz tüm eylemleri listeler. Kullanıcı ilişkili uygulama rolü veya belirtilen akıllı sözleşme örneğinin geçerli durumu için akıllı sözleşme örneği rolüyle ilişkili varsa kullanıcılar tüm uygulanabilir eylemleri alır.
+Yanıtta belirtilen akıllı anlaşma örneğinin geçerli durumuna göre kullanıcının gerçekleştirebileceği tüm eylemler listelenir. Belirtilen akıllı anlaşma örneğinin geçerli durumuna göre ilişkili bir uygulama rolü olan veya akıllı anlaşma örneği rolüyle ilişkili olan kullanıcılar tüm uygun eylemleri alır.
 
 ``` http
 HTTP/1.1 200 OK
@@ -270,14 +270,14 @@ Content-type: application/json
 }
 ```
 
-## <a name="execute-an-action-for-a-contract"></a>Bir sözleşme için bir eylem yürütme
+## <a name="execute-an-action-for-a-contract"></a>Anlaşma için bir eylem yürütme
 
-Bir kullanıcı daha sonra belirtilen akıllı sözleşme örneği için önlem karar verebilirsiniz. Bu durumda, burada bir kullanıcı açıklama ve bir varlık şu bedelinin değiştirmek istediğiniz senaryoyu göz önünde bulundurun:
+Ardından kullanıcı belirtilen akıllı anlaşma örneği için bir eylem gerçekleştirmeye karar verebilir. Bu örnekte, kullanıcının varlığın açıklamasını ve fiyatını şu şekilde değiştirmek istediği bir senaryo düşünün:
 
-* Açıklama: "Benim güncelleştirilmiş araba"
+* Açıklama: "My updated car"
 * Fiyat: 54321
 
-Kullanım [sözleşme eylem POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionpost):
+[Contract Action POST API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionpost) kullanın:
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions
@@ -297,7 +297,7 @@ actionInformation: {
 }
 ```
 
-Kullanıcılar yalnızca belirtilen akıllı sözleşme örneği ve kullanıcının ilişkili uygulama rolü veya akıllı sözleşme örneği rolü geçerli durumunu verilen eylemini yürütmek kullanabilirsiniz. Post başarılı olursa, bir HTTP 200 Tamam yanıt hiç yanıt gövdesi ile döndürülür.
+Kullanıcılar ancak belirtilen akıllı anlaşma örneğinin geçerli durumuna ve kullanıcının ilişkili uygulama rolüne veya akıllı anlaşma örneği rolüne göre eylem yürütebilir. Gönderi başarılı olursa, yanıt gövdesi olmayan bir HTTP 200 OK yanıtı döndürülür.
 
 ``` http
 HTTP/1.1 200 OK
@@ -306,4 +306,5 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Blockchain çalışma ekranı REST API Başvurusu](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench REST API'si başvurusu](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

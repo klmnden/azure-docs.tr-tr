@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory'ye otomatik olarak bir kullanıcı hesabı SaaS uygulamaları için sağlama üzerinde raporlama | Microsoft Docs"
-description: "İşlerini sağlama otomatik olarak bir kullanıcı hesabı durumunu denetlemek nasıl, bireysel kullanıcılar sağlama ile ilgili sorunları giderme öğrenin."
+title: Azure Active Directory'ye otomatik olarak bir kullanıcı hesabı SaaS uygulamaları için sağlama üzerinde raporlama | Microsoft Docs
+description: İşlerini sağlama otomatik olarak bir kullanıcı hesabı durumunu denetlemek nasıl, bireysel kullanıcılar sağlama ile ilgili sorunları giderme öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: d2ec1b25e39717fb2411d35e3b0a9f5eb3a977be
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1527e8fe28d395a77d7b3c1535e40fe59df1baba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: otomatik olarak bir kullanıcı hesabı sağlama raporlama
 
@@ -67,7 +67,7 @@ Sağlama özet raporu görünür **sağlama** uygulama sekmesinde için. Eşitle
 
 Sağlama özet raporu sağlama işi işletimsel durumunu denetlemek için ilk yer admins görünüm olmalıdır.
 
- ![Özet raporu](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
+ ![Özet rapor](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
 ### <a name="provisioning-audit-logs"></a>Sağlama denetim günlükleri
 Sağlama hizmeti tarafından gerçekleştirilen tüm etkinlikler görüntülenebilir Azure AD denetim günlüklerine kaydedilir **denetim günlüklerini** altında sekmesinde **hesap sağlama** kategorisi. Günlüğe kaydedilen etkinlik olay türleri şunlardır:
@@ -133,4 +133,4 @@ Senaryo tabanlı otomatik kullanıcı sağlamayı ile ilgili sorunları giderme 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-enterprise-apps-manage-provisioning.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)

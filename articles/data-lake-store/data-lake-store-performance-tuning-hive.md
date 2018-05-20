@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Performans Kılavuzu Hive Hdınsight ve Azure Data Lake Store için ayarlama
 
@@ -46,13 +44,13 @@ ADLS performansı için ince ayar için en önemli ayarları şunlardır:
 
 **Hive.tez.Container.size** -kapsayıcı boyutu her görev için kullanılabilir bellek miktarını belirler.  Eşzamanlılık kovanında denetlemek için ana giriş budur.  
 
-**Tez.Grouping.Min boyutu** – Bu parametre her Eşleyici minimum boyutu ayarlamanıza olanak tanır.  Tez seçer mappers sayısı bu parametre değerinden daha küçükse, Tez Burada ayarlanan değeri kullanır.  
+**Tez.Grouping.Min boyutu** – Bu parametre her Eşleyici minimum boyutu ayarlamanıza olanak tanır.  Tez seçer mappers sayısı bu parametre değerinden daha küçükse, Tez Burada ayarlanan değeri kullanır.
 
-**Tez.Grouping.max boyutu** – parametresi, her Eşleyici en büyük boyutunu ayarlamanızı sağlar.  Tez seçer mappers sayısı bu parametre değerinden büyükse, Tez Burada ayarlanan değeri kullanır.  
+**Tez.Grouping.max boyutu** – parametresi, her Eşleyici en büyük boyutunu ayarlamanızı sağlar.  Tez seçer mappers sayısı bu parametre değerinden büyükse, Tez Burada ayarlanan değeri kullanır.
 
 **Hive.Exec.reducer.bytes.Per.reducer** – Bu parametre her reducer boyutunu ayarlar.  Varsayılan olarak, her reducer 256 MB'tır.  
 
-## <a name="guidance"></a>Rehber
+## <a name="guidance"></a>Rehberlik
 
 **Hive.Exec.reducer.bytes.Per.reducer ayarlamak** – veri sıkıştırılmamış olduğunda varsayılan değer iyi çalışır.  Sıkıştırılmış veri boyutu reducer azaltmanız gerekir.  
 
@@ -75,9 +73,10 @@ Bir 8 düğüm D14 küme sahip varsayalım.
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>Sınırlamalar
+
 **ADLS azaltma** 
 
-ADLS tarafından sağlanan bant genişliği sınırlarını isabet UIf, görev hataları görmeye başlarsınız. Bu görev günlükleri gözlemci azaltma hatalar nedeniyle tanımlanamadı.  Tez kapsayıcı boyutu artırarak paralellik düşürebilir.  Daha fazla eşzamanlılık işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.   
+ADLS tarafından sağlanan bant genişliği sınırlarını isabet UIf, görev hataları görmeye başlarsınız. Bu görev günlükleri gözlemci azaltma hatalar nedeniyle tanımlanamadı.  Tez kapsayıcı boyutu artırarak paralellik düşürebilir.  Daha fazla eşzamanlılık işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.
 
 Kısıtlanan durumunda denetlemek için hata ayıklama istemci tarafında günlüğünü etkinleştirmeniz gerekir. İşte nasıl bunu yapabilirsiniz:
 

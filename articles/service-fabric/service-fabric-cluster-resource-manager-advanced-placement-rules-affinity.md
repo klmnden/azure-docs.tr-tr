@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric kümesi Kaynak Yöneticisi - benzeşim | Microsoft Docs"
-description: "Benzeşim hizmet doku hizmetler için yapılandırma genel bakış"
+title: Service Fabric kümesi Kaynak Yöneticisi - benzeşim | Microsoft Docs
+description: Benzeşim hizmet doku hizmetler için yapılandırma genel bakış
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8122f1644da25a9a2ab05291dafc33c77a91147f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Yapılandırma ve Service Fabric hizmeti benzeşimini kullanma
 Benzeşim Bulut ve mikro dünyaya daha büyük tek yapılı uygulamalar geçişini kolaylaştırır yardımcı olmak için temel olarak sağlanan bir denetimdir. Bunun yapılması rağmen Hizmetleri, performansı artırmak için bir en iyi duruma getirme yan etkileri olabilir olarak da kullanılır.

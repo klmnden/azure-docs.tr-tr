@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Cisco Spark Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Cisco Spark arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Cisco Spark Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Cisco Spark arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c7ee96abacffc6599187ded9a5049cc3bf672e0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4307904e87bdf9a0361a7fb143e87ae3a662f18e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Öğretici: Cisco Spark Azure Active Directory Tümleştirme
 
@@ -29,9 +29,9 @@ Cisco Spark Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Cisco Spark açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Cisco Spark ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://web.ciscospark.com/#/signin`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://web.ciscospark.com/#/signin`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://idbroker.webex.com/<companyname>`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://idbroker.webex.com/<companyname>`
 
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek tanımlayıcısı ile güncelleştirin. Kişi [Cisco Spark istemci destek ekibi](https://support.ciscospark.com/) bu değeri alınamıyor. 
@@ -196,7 +196,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-cisco-spark-test-user"></a>Cisco Spark test kullanıcısı oluşturma
 
@@ -218,7 +218,7 @@ Bu bölümde, Cisco Spark Britta Simon adlı bir kullanıcı oluşturun. Bu böl
     
     b. İçinde **Soyadı** metin kutusuna, türü **Simon**.
     
-    c. İçinde **e-posta adresi** metin kutusuna, türü  **britta.simon@contoso.com** .
+    c. İçinde **e-posta adresi** metin kutusuna, türü **britta.simon@contoso.com**.
 
 5. Britta Simon eklemek için artı işaretine tıklayın. Ardından **İleri**'ye tıklayın.
 
@@ -263,7 +263,7 @@ Erişim paneli Cisco Spark parçasında tıklattığınızda, otomatik olarak Ci
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

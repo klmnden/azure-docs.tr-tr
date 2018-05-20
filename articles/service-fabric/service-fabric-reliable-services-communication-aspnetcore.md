@@ -1,24 +1,24 @@
 ---
-title: "Hizmet ASP.NET Core ile iletişim | Microsoft Docs"
-description: "Durum bilgisiz ve durum bilgisi olan güvenilir hizmetler ASP.NET Core kullanmayı öğrenin."
+title: Hizmet ASP.NET Core ile iletişim | Microsoft Docs
+description: Durum bilgisiz ve durum bilgisi olan güvenilir hizmetler ASP.NET Core kullanmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET çekirdek Service Fabric güvenilir hizmetler
 
@@ -104,7 +104,7 @@ HttpSys üzerinde oluşturulan [Windows HTTP sunucu API'sini](https://msdn.micro
 
 Aşağıdaki diyagram HttpSys nasıl kullandığını gösterir *http.sys* bağlantı noktası paylaşımı için Windows çekirdek sürücüsü:
 
-![http.sys][3]
+![HTTP.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>Durum bilgisiz hizmetindeki HttpSys
 Kullanılacak `HttpSys` durum bilgisiz hizmetinde, geçersiz kılma `CreateServiceInstanceListeners` yöntemi ve return bir `HttpSysCommunicationListener` örneği:
@@ -132,7 +132,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>Durum bilgisi olan hizmet HttpSys
 
-`HttpSysCommunicationListener`şu anda arka plandaki ile zorluklar nedeniyle durum bilgisi olan hizmetler kullanmak için tasarlanmamıştır *http.sys* bağlantı noktası özelliği paylaşma. Daha fazla bilgi için aşağıdaki bölümde HttpSys ile dinamik bağlantı noktası ayırma bakın. Durum bilgisi olan hizmetler için Kestrel önerilen web sunucusudur.
+`HttpSysCommunicationListener` şu anda arka plandaki ile zorluklar nedeniyle durum bilgisi olan hizmetler kullanmak için tasarlanmamıştır *http.sys* bağlantı noktası özelliği paylaşma. Daha fazla bilgi için aşağıdaki bölümde HttpSys ile dinamik bağlantı noktası ayırma bakın. Durum bilgisi olan hizmetler için Kestrel önerilen web sunucusudur.
 
 ### <a name="endpoint-configuration"></a>Uç nokta yapılandırması
 
@@ -310,7 +310,7 @@ Internet'e açık olduğunda bir durum bilgisi olmayan hizmetin bir yük dengele
 | --- | --- | --- |
 | Web sunucusu | kestrel | Windows ve Linux desteklenenler kestrel tercih edilen web sunucusudur. |
 | Bağlantı noktası yapılandırması | statik | İyi bilinen statik bağlantı noktası olarak yapılandırılmalıdır `Endpoints` ServiceManifest.xml, yapılandırmayı 80 HTTP veya HTTPS için 443 gibi. |
-| ServiceFabricIntegrationOptions | None | `ServiceFabricIntegrationOptions.None` Hizmeti, gelen istekler için benzersiz bir kimlik doğrulama girişiminde değil böylece Service Fabric tümleştirme Ara yapılandırırken seçeneği kullanılmalıdır. Dış kullanıcılar, uygulamanızın ara yazılım tarafından kullanılan benzersiz tanımlayıcı bilgiler bilmez. |
+| ServiceFabricIntegrationOptions | Hiçbiri | `ServiceFabricIntegrationOptions.None` Hizmeti, gelen istekler için benzersiz bir kimlik doğrulama girişiminde değil böylece Service Fabric tümleştirme Ara yapılandırırken seçeneği kullanılmalıdır. Dış kullanıcılar, uygulamanızın ara yazılım tarafından kullanılan benzersiz tanımlayıcı bilgiler bilmez. |
 | Örnek Sayısı | -1 | Bir örnek, bir yük dengeleyici trafiği almak tüm düğümlere kullanılabilir olmasını sağlamak, ayarı örnek sayısı tipik kullanım durumlarında, "-"1 olarak ayarlanmalıdır. |
 
 Birden çok dışarıdan kullanıma sunulan hizmetler düğümleri aynı kümesi paylaşıyorsanız, HttpSys benzersiz ancak kararlı URL yolu ile kullanılabilir. Bu, IWebHost yapılandırırken sağlanan URL değiştirerek gerçekleştirilebilir. Bu, yalnızca HttpSys için geçerlidir unutmayın.
@@ -336,7 +336,7 @@ Yalnızca küme içinde çağrılır durum bilgisi olmayan hizmetler benzersiz U
 | Web sunucusu | kestrel | HttpSys iç durum bilgisi olmayan hizmetler için kullanılabilir ancak Kestrel bir ana bilgisayar paylaşmak birden fazla hizmet örneği izin vermek için önerilen sunucusudur.  |
 | Bağlantı noktası yapılandırması | dinamik olarak atanan | Bir durum bilgisi olan hizmetin birden fazla çoğaltma bir ana bilgisayar işlemi veya ana bilgisayar işletim sistemi paylaşabilir ve bu nedenle benzersiz bağlantı noktaları gerekir. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Dinamik bağlantı noktası atama ile bu ayar daha önce açıklanan hatalı kimlik sorunu önler. |
-| InstanceCount | herhangi biri | Ayarlama örnek sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
+| Instancecount | herhangi biri | Ayarlama örnek sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Yalnızca dahili durum bilgisi olan ASP.NET Core hizmeti
 Yalnızca küme içinde çağrılır durum bilgisi olan hizmetler dinamik olarak atanan bağlantı noktaları, birden çok hizmetleri arasında işbirliği sağlamak için kullanmalısınız. Aşağıdaki yapılandırma önerilir:

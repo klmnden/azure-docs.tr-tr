@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için dönüştürme Kılavuzu
 Bu makalede, bulut Hizmetleri Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için nasıl geçirileceği açıklanmaktadır. Bu en basit geçiş bulut hizmetlerinden Service Fabric, genel mimarisi kabaca aynı kalmasını gittiği uygulamalar için yoludur.
@@ -55,7 +55,7 @@ Benzer şekilde çalışan rolü, Web rolü ayrıca durum bilgisiz iş yükünü
 | VM'yi Durdur |`OnStop()` |Yok |
 | İstemci istekleri için açık dinleyicisi |Yok |<ul><li> `CreateServiceInstanceListener()` için durum bilgisiz</li><li>`CreateServiceReplicaListener()` durum bilgisi için</li></ul> |
 
-### <a name="worker-role"></a>Çalışan Rolü
+### <a name="worker-role"></a>Çalışan rolü
 ```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -135,7 +135,7 @@ Bulut hizmetleri yapılandırma ayarlarında bir VM rolü için ayarlanır ve bu
 Bu paketleri her bağımsız olarak sürümlü hem de yükseltilmiş olabilir. Bulut Hizmetleri için benzer bir yapılandırma paketi program aracılığıyla bir API aracılığıyla erişilebilir ve olayları bir yapılandırma paketi değişikliği hizmetine bildirmek kullanılabilir. Settings.xml dosyası anahtar-değer yapılandırması ve benzer bir App.config dosyası uygulama ayarları bölümüne program erişimi için kullanılabilir. Ancak, XML, JSON, YAML veya özel bir ikili biçimi olup bulut Hizmetleri, herhangi bir biçimdeki tüm yapılandırma dosyalarını bir Service Fabric yapılandırma paketi içerebilir. 
 
 ### <a name="accessing-configuration"></a>Erişimi yapılandırma
-#### <a name="cloud-services"></a>Cloud Services
+#### <a name="cloud-services"></a>Bulut Hizmetleri
 Yapılandırma ayarları ServiceConfiguration.*.cscfg üzerinden erişilebilir `RoleEnvironment`. Bu ayarlar, tüm rol örneklerinin aynı bulut hizmeti dağıtım genel olarak kullanılabilir.
 
 ```csharp
@@ -167,7 +167,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 ```
 
 ### <a name="configuration-update-events"></a>Yapılandırma güncelleştirme olayları
-#### <a name="cloud-services"></a>Cloud Services
+#### <a name="cloud-services"></a>Bulut Hizmetleri
 `RoleEnvironment.Changed` Olay ortamında, bir yapılandırma değişikliği gibi bir değişiklik meydana geldiğinde tüm rol örneklerini bildirmek için kullanılır. Bu, yapılandırma güncelleştirmelerini rol örnekleri geri dönüştürme veya bir çalışan işleminin yeniden kullanmak için kullanılır.
 
 ```csharp
@@ -207,13 +207,13 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Başlangıç görevi
 Başlatma, bir uygulama başlatılmadan önce gerçekleştirilen eylemler görevlerdir. Bir başlangıç görevi, genellikle yükseltilmiş ayrıcalıklar kullanarak kurulum komut dosyalarını çalıştırmak için kullanılır. Bulut Hizmetleri ve Service Fabric başlangıç görevleri destekler. Bir rol örneği bir parçası olduğundan Service Fabric herhangi belirli VM bağlanmayan bir hizmet için bir başlangıç görevi bağlıdır ancak bulut Hizmetleri'nde bir başlangıç görevi bir VM'ye bağlı olduğunu ana farktır.
 
-| Service Fabric | Cloud Services |
+| Service Fabric | Bulut Hizmetleri |
 | --- | --- | --- |
 | Yapılandırma konumu |ServiceDefinition.csdef |
 | Ayrıcalıklar |"sınırlı" veya "yükseltilmiş" |
 | Sıralama |"Basit", "arka plan", "ön" |
 
-### <a name="cloud-services"></a>Cloud Services
+### <a name="cloud-services"></a>Bulut Hizmetleri
 Bulut Hizmetleri başlatma giriş noktası ServiceDefinition.csdef rol başına yapılandırılır. 
 
 ```xml

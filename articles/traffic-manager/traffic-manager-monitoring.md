@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Trafik Yöneticisi uç nokta izleme
 
@@ -30,7 +30,7 @@ Uç noktası izleme yapılandırmak için aşağıdaki ayarları Traffic Manager
 
 * **Protokol**. HTTP, HTTPS veya TCP protokol olarak trafik Yöneticisi uç noktanızı yoklama zaman, sistem durumunu denetlemek için kullandığını seçin. HTTPS izleme, SSL sertifikası geçerli--olup, yalnızca sertifika bulunduğunu denetler doğrulamaz.
 * **Bağlantı noktası**. İstek için kullanılan bağlantı noktası seçin.
-* **Yol**. Bu yapılandırma ayarının hangi yolunu belirtmek için gerekli bir ayardır yalnızca HTTP ve HTTPS protokolleri için geçerli değil. Bu ayar için bir hata Protokolü sonuçlarında izleme TCP sağlama. TCP protokolü için göreli yol ve Web sayfası veya izleme eriştiğinde dosyanın adını verin. Eğik çizgi (/), göreli yolu geçerli bir giriştir. Bu değer dosyasının kök dizininde (varsayılan) olduğunu gösterir.
+* **Yol**. Bu yapılandırma ayarının hangi yolunu belirtmek için gerekli bir ayardır yalnızca HTTP ve HTTPS protokolleri için geçerli değil. Bu ayar için bir hata Protokolü sonuçlarında izleme TCP sağlama. HTTP ve HTTPS protokolü için göreli yol ve Web sayfası veya izleme eriştiğinde dosyanın adını verin. Eğik çizgi (/), göreli yolu geçerli bir giriştir. Bu değer dosyasının kök dizininde (varsayılan) olduğunu gösterir.
 * **Yoklama aralığı**. Bu değer, ne sıklıkta bir uç nokta Traffic Manager yoklama aracısından sistem durumu denetlenme belirtir. Burada iki değerleri belirtebilirsiniz: 30 (normal yoklama) saniye ile 10 saniye (Hızlı Yoklama). Hiçbir değer verdiyse, profil 30 saniye varsayılan değerini ayarlar. Ziyaret [trafik Yöneticisi fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager) Hızlı Yoklama fiyatlandırma hakkında daha fazla bilgi için sayfa.
 * **Hatalarının sayısı izin**. Bu değer, o uç noktası sağlıksız olarak işaretleme önce bir trafik Yöneticisi yoklama Aracısı göstereceği kaç hataları belirtir. Değeri 0 ile 9 arasında değişebilir. Bir değeri 0 anlamına gelir, bu uç sorunlu olarak tek bir izleme hata neden olabilir. Herhangi bir değer belirtilirse, varsayılan değer 3'ün kullanır.
 * **Zaman aşımı izleme**. Bu özellik, bir sistem durumu denetimi araştırma uç noktasına gönderilirken bir hata denetleme trafik Yöneticisi yoklama Aracısı olduğunu düşünmeden önce beklemesi gereken süre miktarını belirtir. Yoklama aralığı 30 saniye olarak ayarlarsanız, zaman aşımı değeri 5 ile 10 saniye arasında ayarlayabilirsiniz. Herhangi bir değer belirtilirse, varsayılan değer 10 saniye olarak kullanır. Yoklama aralığı 10 saniye olarak ayarlarsanız, zaman aşımı değeri 5-9 saniye arasında bir değer ayarlayabilirsiniz. Hiçbir zaman aşımı değeri belirtilirse, varsayılan değer 9 saniye olarak kullanır.
@@ -70,12 +70,12 @@ Uç nokta izleme durumu uç noktasının durumu gösteren bir trafik Yöneticisi
 
 | Profil durumu | Uç Nokta durumu | Uç nokta izleme durumu | Notlar |
 | --- | --- | --- | --- |
-| Devre dışı |Etkin |Devre dışı |Profili devre dışı bırakıldı. Uç nokta durumu etkindir ancak profil durumu (devre dışı) önceliklidir. Devre dışı profilleri uç noktalarını izlenmeyen. Bir NXDOMAIN yanıt kodu için DNS sorgusu döndürülür. |
-| &lt;tüm&gt; |Devre dışı |Devre dışı |Uç noktası devre dışı bırakıldı. Devre dışı uç noktaları izlenmeyen. Uç nokta DNS yanıtları bulunmaz, bu nedenle, trafiği almaz. |
-| Etkin |Etkin |Çevrimiçi |Uç nokta izlenir ve sağlıklı durumda. DNS yanıtları bulunur ve trafik alabilir. |
-| Etkin |Etkin |Düşürüldü |Uç nokta izleme sistem durumu denetimi başarısız oluyor. Uç nokta DNS yanıtları bulunmaz ve trafik almaz. <br>Bu istisna tüm uç noktaları bozulduğunu varsa, bu durumda bunların tümünün sorgu yanıtta döndürülen kabul edilir olduğunu).</br>|
-| Etkin |Etkin |CheckingEndpoint |Uç nokta izlenen, ancak ilk araştırmasını sonuçlarını henüz alınamadı. CheckingEndpoint genellikle ekleyerek veya bir uç nokta profilinde etkinleştirme hemen sonra oluşan geçici bir durumdur. Bu durumdaki bir uç nokta DNS yanıtları bulunur ve trafik alabilir. |
-| Etkin |Etkin |Durduruldu |Uç noktalarını için bulut hizmeti veya web uygulamasının çalışmıyor. Bulut hizmeti veya web uygulaması ayarlarını kontrol edin. Bu, iç içe geçmiş tür uç noktasını uç nokta ise ve alt profili devre dışı bırakılmış veya etkin değil de oluşabilir. <br>Bir uç nokta durduruldu durumu olan izlenmiyor. DNS yanıtları bulunmaz ve trafik almaz. Bu istisna tüm uç noktaları bozulduğunu varsa, bu durumda bunların tümünün sorgu yanıtında döndürülecek olarak kabul edilir ' dir.</br>|
+| Devre Dışı Bırakıldı |Etkinleştirildi |Devre dışı |Profili devre dışı bırakıldı. Uç nokta durumu etkindir ancak profil durumu (devre dışı) önceliklidir. Devre dışı profilleri uç noktalarını izlenmeyen. Bir NXDOMAIN yanıt kodu için DNS sorgusu döndürülür. |
+| &lt;tüm&gt; |Devre Dışı Bırakıldı |Devre Dışı Bırakıldı |Uç noktası devre dışı bırakıldı. Devre dışı uç noktaları izlenmeyen. Uç nokta DNS yanıtları bulunmaz, bu nedenle, trafiği almaz. |
+| Etkinleştirildi |Etkinleştirildi |Çevrimiçi |Uç nokta izlenir ve sağlıklı durumda. DNS yanıtları bulunur ve trafik alabilir. |
+| Etkinleştirildi |Etkinleştirildi |Düşürüldü |Uç nokta izleme sistem durumu denetimi başarısız oluyor. Uç nokta DNS yanıtları bulunmaz ve trafik almaz. <br>Bu istisna tüm uç noktaları bozulduğunu varsa, bu durumda bunların tümünün sorgu yanıtta döndürülen kabul edilir olduğunu).</br>|
+| Etkinleştirildi |Etkinleştirildi |CheckingEndpoint |Uç nokta izlenen, ancak ilk araştırmasını sonuçlarını henüz alınamadı. CheckingEndpoint genellikle ekleyerek veya bir uç nokta profilinde etkinleştirme hemen sonra oluşan geçici bir durumdur. Bu durumdaki bir uç nokta DNS yanıtları bulunur ve trafik alabilir. |
+| Etkinleştirildi |Etkinleştirildi |Durduruldu |Uç noktalarını için bulut hizmeti veya web uygulamasının çalışmıyor. Bulut hizmeti veya web uygulaması ayarlarını kontrol edin. Bu, iç içe geçmiş tür uç noktasını uç nokta ise ve alt profili devre dışı bırakılmış veya etkin değil de oluşabilir. <br>Bir uç nokta durduruldu durumu olan izlenmiyor. DNS yanıtları bulunmaz ve trafik almaz. Bu istisna tüm uç noktaları bozulduğunu varsa, bu durumda bunların tümünün sorgu yanıtında döndürülecek olarak kabul edilir ' dir.</br>|
 
 Uç nokta izleme durumu iç içe geçmiş uç noktaları için nasıl hesaplandığını hakkında daha fazla bilgi için bkz [iç içe trafik Yöneticisi profillerine](traffic-manager-nested-profiles.md).
 
@@ -88,11 +88,11 @@ Profil İzleyici durumu, yapılandırılmış profil durumu ve tüm uç noktalar
 
 | (Yapılandırıldığı gibi) profil durumu | Uç nokta izleme durumu | Profil İzleyici durumu | Notlar |
 | --- | --- | --- | --- |
-| Devre dışı |&lt;tüm&gt; veya bir profille tanımlanmış uç nokta yok. |Devre dışı |Profili devre dışı bırakıldı. |
-| Etkin |En az bir uç nokta düşürülür. |Düşürüldü |Hangi uç noktaları daha fazla ilgilenilmesi belirlemek için tek bitiş noktası durum değerleri gözden geçirin. |
-| Etkin |En az bir uç nokta durumu çevrimiçi olur. Uç nokta yok Degraded durumuna sahip. |Çevrimiçi |Hizmet trafiği kabul ediyor. Başka bir eylem gerekli değildir. |
-| Etkin |En az bir uç nokta CheckingEndpoint durumudur. Çevrimiçi veya Degraded durumunu hiçbir noktalarıdır. |CheckingEndpoints |Bu geçiş durumu oluşturduysanız veya etkin bir profili oluşur. Uç nokta durumu ilk kez olup olmadığı denetleniyor. |
-| Etkin |Profildeki tüm uç noktaları durumları devre dışı veya durdurulmuş olan veya hiç tanımlanmış uç nokta profiline sahip. |Devre dışı |Uç nokta yok etkindir, ancak profil hala etkin. |
+| Devre Dışı Bırakıldı |&lt;tüm&gt; veya bir profille tanımlanmış uç nokta yok. |Devre Dışı Bırakıldı |Profili devre dışı bırakıldı. |
+| Etkinleştirildi |En az bir uç nokta düşürülür. |Düşürüldü |Hangi uç noktaları daha fazla ilgilenilmesi belirlemek için tek bitiş noktası durum değerleri gözden geçirin. |
+| Etkinleştirildi |En az bir uç nokta durumu çevrimiçi olur. Uç nokta yok Degraded durumuna sahip. |Çevrimiçi |Hizmet trafiği kabul ediyor. Başka bir eylem gerekli değildir. |
+| Etkinleştirildi |En az bir uç nokta CheckingEndpoint durumudur. Çevrimiçi veya Degraded durumunu hiçbir noktalarıdır. |CheckingEndpoints |Bu geçiş durumu oluşturduysanız veya etkin bir profili oluşur. Uç nokta durumu ilk kez olup olmadığı denetleniyor. |
+| Etkinleştirildi |Profildeki tüm uç noktaları durumları devre dışı veya durdurulmuş olan veya hiç tanımlanmış uç nokta profiline sahip. |Devre dışı |Uç nokta yok etkindir, ancak profil hala etkin. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Uç nokta yük devretme ve kurtarma
 

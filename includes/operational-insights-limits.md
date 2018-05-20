@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 Abonelik başına Log Analytics kaynakları için aşağıdaki sınırlar geçerlidir:
 
@@ -29,7 +29,7 @@ Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri içi
 
 |  | Ücretsiz | Standart | Premium | Tek Başına | OMS | GB başına |
 | --- | --- | --- | --- | --- | --- |--- |
-| Gün başına toplanan veri birimi |500 MB<sup>1</sup> |None |None | None | Hiçbiri | None
+| Gün başına toplanan veri birimi |500 MB<sup>1</sup> |None |None | None | None | None
 | Veri saklama süresi |7 gün |1 ay |12 ay | 1 ay<sup>2</sup> | 1 ay <sup>2</sup>| 1 ay <sup>2</sup>|
 
 <sup>1</sup> Müşteriler 500 MB günlük veri aktarımı sınırına ulaştığında veri analizi durur ve sonraki günün başlangıcında devam eder. Bir gün için UTC temel alınır.
@@ -39,5 +39,5 @@ Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri içi
 | Kategori | Sınırlar | Yorumlar
 | --- | --- | --- |
 | Veri Toplayıcı API’si | Tek bir gönderi için boyut üst sınırı 30 MB'tır<br>Alan değerleri için en büyük boyut 32 KB'dir | Büyük hacimleri birden fazla gönderiye bölme<br>32 KB'den daha uzun alanlar kesilir. |
-| Arama API’si | Toplu olmayan veriler için 5000 kayıt döndürülür<br>Toplu veriler için 500000 kayıt döndürülür | Toplu veriler `measure` komutunu içeren bir aramadır
+| Arama API’si | Toplu olmayan veriler için 5000 kayıt döndürülür<br>Toplu veriler için 500000 kayıt döndürülür | Toplu veriler `summarize` komutunu içeren bir aramadır
  

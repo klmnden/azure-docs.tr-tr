@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: 807753435f0f8b7618e38f92d58e75a30c9ecb43
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e520b4b85ff7c840c46175cae5b853ec6979c04a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Rol tabanlı erişim denetimini REST API ile yönetme
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Belirtilen kapsam ve subscopes tüm rol atamalarını listeler.
 
 Liste rol atamaları için erişimi olmalıdır `Microsoft.Authorization/roleAssignments/read` kapsamındaki işlemi. Yerleşik roller, bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **almak** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
@@ -83,7 +83,7 @@ Rol ataması tanımlayıcısı tarafından belirtilen bir tek bir rol ataması h
 
 Bir rol ataması hakkında bilgi almak için erişimi olmalıdır `Microsoft.Authorization/roleAssignments/read` işlemi. Yerleşik roller, bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **almak** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -124,7 +124,7 @@ Belirtilen rol verme belirtilen asıl için belirtilen kapsamda bir rol ataması
 
 Bir rol ataması oluşturmak için erişimi olmalıdır `Microsoft.Authorization/roleAssignments/write` işlemi. Yerleşik roller, yalnızca *sahibi* ve *kullanıcı erişimi Yöneticisi* bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **PUT** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -151,7 +151,7 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 
 ```
 
-| Öğe adı | Gerekli | Tür | Açıklama |
+| Öğe adı | Gereken | Tür | Açıklama |
 | --- | --- | --- | --- |
 | roleDefinitionId |Evet |Dize |Rol tanımlayıcısı. Tanımlayıcı biçimdedir: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | Principalıd |Evet |Dize |objectID rolü atanmış Azure AD asıl (kullanıcı, Grup veya hizmet sorumlusu). |
@@ -182,7 +182,7 @@ Belirtilen kapsamdaki rol atamasını silin.
 
 Bir rol atamasını silmek için erişimi olmalıdır `Microsoft.Authorization/roleAssignments/delete` işlemi. Yerleşik roller, yalnızca *sahibi* ve *kullanıcı erişimi Yöneticisi* bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **silmek** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -223,7 +223,7 @@ Belirtilen kapsamda atama için kullanılabilen tüm rolleri listeler.
 
 Liste rollere erişiminiz olmalıdır `Microsoft.Authorization/roleDefinitions/read` kapsamındaki işlemi. Yerleşik roller, bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **almak** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
@@ -306,7 +306,7 @@ Rol tanımı tanımlayıcısı tarafından belirtilen tek bir rol bilgilerini al
 
 Bir rolü hakkında bilgi almak için erişimi olmalıdır `Microsoft.Authorization/roleDefinitions/read` işlemi. Yerleşik roller, bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **almak** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -386,7 +386,7 @@ Durum kodu: 200
 
 Özel bir rol oluşturmak için erişimi olmalıdır `Microsoft.Authorization/roleDefinitions/write` tüm işlemi `AssignableScopes`. Yerleşik roller, yalnızca *sahibi* ve *kullanıcı erişimi Yöneticisi* bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **PUT** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -434,9 +434,9 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 
 ```
 
-| Öğe adı | Gerekli | Tür | Açıklama |
+| Öğe adı | Gereken | Tür | Açıklama |
 | --- | --- | --- | --- |
-| ad |Evet |Dize |Özel rol GUID tanımlayıcısı. |
+| name |Evet |Dize |Özel rol GUID tanımlayıcısı. |
 | properties.roleName |Evet |Dize |Özel rol adını görüntüler. En büyük boyutu 128 karakter. |
 | Properties.Description |Hayır |Dize |Özel rol tanımı. En büyük boyutu 1024 karakter. |
 | Properties.Type |Evet |Dize |"CustomRole" ayarlayın |
@@ -489,7 +489,7 @@ Durum kodu: 201
 
 Özel bir rol değiştirmek için erişimi olmalıdır `Microsoft.Authorization/roleDefinitions/write` tüm işlemi `AssignableScopes`. Yerleşik roller, yalnızca *sahibi* ve *kullanıcı erişimi Yöneticisi* bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **PUT** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -537,9 +537,9 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 
 ```
 
-| Öğe adı | Gerekli | Tür | Açıklama |
+| Öğe adı | Gereken | Tür | Açıklama |
 | --- | --- | --- | --- |
-| ad |Evet |Dize |Özel rol GUID tanımlayıcısı. |
+| name |Evet |Dize |Özel rol GUID tanımlayıcısı. |
 | properties.roleName |Evet |Dize |Güncelleştirilmiş özel rol adını görüntüler. |
 | Properties.Description |Hayır |Dize |Güncelleştirilmiş özel rol tanımı. |
 | Properties.Type |Evet |Dize |"CustomRole" ayarlayın |
@@ -592,7 +592,7 @@ Durum kodu: 201
 
 Bir özel rolü silmek için erişimi olmalıdır `Microsoft.Authorization/roleDefinitions/delete` tüm işlemi `AssignableScopes`. Yerleşik roller, yalnızca *sahibi* ve *kullanıcı erişimi Yöneticisi* bu işlem için erişim verilir. Rol atamaları ve Azure kaynakları için erişimi yönetme hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi](role-assignments-portal.md).
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 Kullanım **silmek** yöntemi aşağıdaki URI ile:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}

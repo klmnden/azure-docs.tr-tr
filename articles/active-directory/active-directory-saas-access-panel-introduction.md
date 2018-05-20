@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/18
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 442bfa7081865b2549c07a9436296ba2385a0b66
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -86,6 +86,10 @@ Parola tabanlı çoklu oturum açma için oturum açmak için uzantı kullanman�
 > [!NOTE]
 > Ek özellikler, yalnızca kenar, Chrome ve Firefox için kullanılabilir.
 >
+Uzantı doğrudan aşağıdaki sitelerinden yükleyebilirsiniz:
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 My uygulamaları URL dışında kullanıyorsanız `https://myapps.microsoft.com`, aşağıdakileri yaparak, varsayılan URL yapılandırın:
 1. Siz *değil* uzantısı açtığınız uzantısı simgesine sağ tıklayın.
@@ -93,6 +97,12 @@ My uygulamaları URL dışında kullanıyorsanız `https://myapps.microsoft.com`
 3. Varsayılan URL seçin.
 4. Uzantı simgesini seçin.
 5. Seçin **başlamak oturum**.
+
+Şirket içi URL'leri uzantısını kullanarak uzaktan sırasında kullanmak için aşağıdakileri yapın:
+1. [Uygulama proxy'si yapılandırma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) kiracınız üzerinde.
+2. [Uygulamayı yayımlamak](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) ve uygulama proxy'si aracılığıyla URL.
+3. Uzantıyı yüklemek ve için oturum açma seçerek başlamak için oturum açın.
+4. Şimdi uzaktan sırasında bile şirket içi URL'ye göz atabilirsiniz.
 
 ## <a name="mobile-app-support"></a>Mobil uygulama desteği
 

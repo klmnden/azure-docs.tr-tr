@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile LinkedInSalesNavigator | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile LinkedInSalesNavigator arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile LinkedInSalesNavigator | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile LinkedInSalesNavigator arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: fde1d2c5d1a90092ec4528f727dc7af672f80917
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c8dcf4ad49b8f261814c2d442bfdded221e8cbf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Öğretici: Azure Active Directory Tümleştirme ile LinkedIn satış Gezgini
 
@@ -29,9 +29,9 @@ LinkedIn satış Gezgini Azure AD ile tümleştirme ile aşağıdaki avantajlar�
 - Azure AD hesaplarına otomatik olarak (çoklu oturum açma) LinkedIn satış Gezgini açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, Gözat [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, Gözat [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme LinkedIn satış Gezgini ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -128,7 +128,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
+    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
 8. **LinkedIn satış Gezgini** uygulama SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde SAML onaylar bekler. Aşağıdaki ekran görüntüsünde bir örneği gösterir. Varsayılan değer olan **kullanıcı tanımlayıcısı** olan **user.userprincipalname** ancak LinkedIn satış Gezgini kullanıcının e-posta adresiyle eşlenmesi için bekliyor. Kullanabileceğiniz **user.mail** özniteliği listeden veya kuruluş yapılandırmanızı temel alarak uygun öznitelik değeri kullanın. 
 
@@ -139,7 +139,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |    
     | e-posta| User.Mail |
-    | Bölüm| User.Department |
+    | bölüm| User.Department |
     | FirstName| User.givenName |
     | Soyadı| User.surname |
     
@@ -217,7 +217,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-linkedin-sales-navigator-test-user"></a>Bir LinkedIn satış Gezgini test kullanıcısı oluşturma
 
@@ -264,7 +264,7 @@ Erişim paneli LinkedIn satış Gezgini parçasında tıklattığınızda, kişi
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

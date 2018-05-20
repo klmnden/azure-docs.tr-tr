@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: SAP Business nesnesi bulut Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve SAP Business nesnesi bulut arasında yapılandırmayı öğrenin."
+title: 'Öğretici: SAP Business nesnesi bulut Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve SAP Business nesnesi bulut arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Öğretici: SAP Business nesnesi bulut Azure Active Directory Tümleştirme
 
@@ -30,9 +30,9 @@ SAP Business nesnesi bulut Azure AD ile tümleştirdiğinizde aşağıdaki yarar
 - Otomatik olarak SAP Business nesnesi bulut kullanıcılarınıza, çoklu oturum açma ve bir kullanıcının Azure AD hesabı kullanarak oturum.
 - Hesaplarınızı tek, merkezi bir konumda, Azure portalında yönetebilir.
 
-Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek için [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek için [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 SAP Business nesnesi bulut ile Azure AD tümleştirmeyi ayarlamak için aşağıdaki öğeleri gerekir:
 
@@ -217,7 +217,7 @@ Bir kullanıcı hesabı sağlamak için:
 
     ![Çalışanı ekleyin](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. Üzerinde **kullanıcılar** seçin sayfasında, yeni kullanıcı ayrıntıları eklemek için  **+** . 
+3. Üzerinde **kullanıcılar** seçin sayfasında, yeni kullanıcı ayrıntıları eklemek için **+**. 
 
     ![Kullanıcılar Sayfası Ekle](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
@@ -231,7 +231,7 @@ Bir kullanıcı hesabı sağlamak için:
 
     4. İçinde **GÖRÜNEN adı** kutusuna, kullanıcının tam adını gibi girin **Britta Simon**.
 
-    5. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi gibi girin  **brittasimon@contoso.com** .
+    5. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi gibi girin **brittasimon@contoso.com**.
 
     6. Üzerinde **Rollerini Seç** sayfasında, kullanıcı için uygun rolü seçin ve ardından **Tamam**.
 
@@ -270,7 +270,7 @@ SAP Business nesnesi buluta Britta Simon atamak için:
 
 ![Kullanıcı rolü atayın][200] 
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
@@ -281,7 +281,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

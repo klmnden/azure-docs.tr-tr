@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile DocuSign | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile DocuSign arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile DocuSign | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile DocuSign arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 9fc4666ad73a7e4850719f936873a6c5ce0716c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c46e7071841552c5bcbf3df38d9d7771b0cfe6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Öğretici: Azure Active Directory Tümleştirme DocuSign ile
 
@@ -29,9 +29,9 @@ DocuSign Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için DocuSign (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme DocuSign ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -118,26 +118,26 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. Sol gezinti menüsünde **etki alanları**.
    
-    ![Çoklu oturum açmayı yapılandırma][51]
+    ![Çoklu oturum açma yapılandırılıyor][51]
 
 7. Sağ bölmede, tıklatın **talep etki alanı**.
    
-    ![Çoklu oturum açmayı yapılandırma][52]
+    ![Çoklu oturum açma yapılandırılıyor][52]
 
 8. Üzerinde **bir etki alanı talep** iletişim, **etki alanı adı** metin kutusuna, şirket etki alanınızı yazın ve ardından **talep**. Etki alanını doğrulayın ve durumu etkin olduğundan emin olun.
    
-    ![Çoklu oturum açmayı yapılandırma][53]
+    ![Çoklu oturum açma yapılandırılıyor][53]
 
 9. Sol tarafındaki menüde tıklatın **kimlik sağlayıcıları**  
    
-    ![Çoklu oturum açmayı yapılandırma][54]
+    ![Çoklu oturum açma yapılandırılıyor][54]
 10. Sağ bölmede **kimlik sağlayıcı Ekle**. 
    
-    ![Çoklu oturum açmayı yapılandırma][55]
+    ![Çoklu oturum açma yapılandırılıyor][55]
 
 11. Üzerinde **kimlik sağlayıcı ayarları** sayfasında, aşağıdaki adımları gerçekleştirin:
    
-    ![Çoklu oturum açmayı yapılandırma][56]
+    ![Çoklu oturum açma yapılandırılıyor][56]
 
     a. İçinde **adı** metin kutusuna, yapılandırmanızı için benzersiz bir ad yazın. Boşluk kullanmayın.
 
@@ -158,21 +158,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE]
     > Uygun kullanın **kullanıcı tanımlayıcısı** DocuSign kullanıcı eşlemesi Azure AD'den kullanıcıya eşlemek için. Uygun alanını seçin ve kuruluş ayarlarınıza göre uygun değeri girin.
           
-    ![Çoklu oturum açmayı yapılandırma][57]
+    ![Çoklu oturum açma yapılandırılıyor][57]
 
 13. İçinde **kimlik sağlayıcısı sertifikası** 'yi tıklatın **sertifika Ekle**ve Azure AD Portalı'ndan indirilen sertifikayı yükleyin.   
    
-    ![Çoklu oturum açmayı yapılandırma][58]
+    ![Çoklu oturum açma yapılandırılıyor][58]
 
-14. **Kaydet** düğmesine tıklayın.
+14. **Kaydet**’e tıklayın.
 
 15. İçinde **kimlik sağlayıcıları** 'yi tıklatın **Eylemler**ve ardından **uç noktaları**.   
    
-    ![Çoklu oturum açmayı yapılandırma][59]
+    ![Çoklu oturum açma yapılandırılıyor][59]
  
 16. İçinde **uç noktalarını görüntüle SAML 2.0** bölümünde **DocuSign Yönetici portalı**, aşağıdaki adımları gerçekleştirin:
    
-    ![Çoklu oturum açmayı yapılandırma][60]
+    ![Çoklu oturum açma yapılandırılıyor][60]
    
     a. Kopya **servis sağlayıcı veren URL'sini**, kopyalayıp yapıştırabilir **tanımlayıcısı** textbox üzerinde **DocuSign etki alanı ve URL'leri** bölüm düzeni aşağıdaki Azure portal'ın: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
    
@@ -218,7 +218,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-docusign-test-user"></a>DocuSign test kullanıcısı oluşturma
 
@@ -264,7 +264,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı Yapılandır](active-directory-saas-docusign-provisioning-tutorial.md)
 
 

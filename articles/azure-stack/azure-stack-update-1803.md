@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure yığın 1803 güncelleştirme
 
@@ -56,7 +56,7 @@ Azure yığın 1803 güncelleştirme yapı numarası **20180329.1**.
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 - 1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).
 
-  - [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - kaynaklar başarısız Kiracı ve beklenmeyen paylaşımları karşı işlemleri aynı Kiracı veya altyapı birim oluşturulur](https://support.microsoft.com/en-us/help/4294441)
 
 - Bu güncelleştirmeyi yükledikten sonra emin olmak için güvenlik duvarı yapılandırmasını gözden [gerekli bağlantı noktalarını](azure-stack-integrate-endpoints.md) açıktır. Örneğin, bu güncelleştirme, etkinlik günlükleri için denetim günlüklerini değişikliği içeren Azure İzleyici tanıtır. Bu değişikliği bağlantı noktası 13012 kullanılan ve açık olmalıdır.  
 
@@ -118,8 +118,6 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 - Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu sorunun nedeni yanlış başarılı olarak bildirilmesini güncelleştirme neden güncelleştirmenin yüklenmesi sırasında bir hata var. Bu sorun devam ederse, Yardım için Microsoft Müşteri Destek Hizmetleri'ne başvurun.
 
 - Boş bir portal panosunda görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
-
-- Bir kaynak veya kaynak grubunun özelliklerini görüntülediğinizde **taşıma** düğmesi devre dışıdır. Bu davranış beklenir. Kaynaklar veya kaynak grupları, kaynak grupları veya abonelikler arasında taşıma şu anda desteklenmiyor.
 
 - Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
 
@@ -244,6 +242,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 - Yalnızca kaynak sağlayıcısı, o ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeleri eşleşmeyen bir duruma neden olabilir.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Azure yığın 1803 güncelleştirdikten sonra daha önce dağıtmış SQL ve MySQL kaynak sağlayıcıları kullanmaya devam edebilirsiniz.  Yeni bir sürüm kullanılabilir olduğunda SQL ve MySQL güncelleştirme öneririz. Azure yığın gibi güncelleştirmeleri sırayla SQL ve MySQL kaynak sağlayıcıları için geçerlidir.  Örneğin, 1711 sürümünü kullanıyorsanız, önce sürüm 1712 sonra 1802 uygulayın ve ardından 1803 için güncelleştirin.      

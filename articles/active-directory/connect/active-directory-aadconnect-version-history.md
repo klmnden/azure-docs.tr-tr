@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: eb824913a4b3482879ccc45e2f660342695b1618
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -37,14 +37,13 @@ Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlin
 
 ## <a name="118190"></a>1.1.819.0
 
-4/5/2018: Otomatik yükseltme için yayımlanan, yakında indirme için kullanılabilir olacaktır.
+### <a name="release-status"></a>Yayın durumu
 
-
+14/5/2018: Otomatik yükseltme ve yükleme için yayımlamıştır.
 
 ### <a name="new-features-and-improvements"></a>Yeni özellikleri ve geliştirmeleri
 
 Yeni özellikleri ve geliştirmeleri
-
 
 - Bu sürüm Azure AD Connect PingFederate tümleştirme genel önizlemesini içerir. Bu sürüm ile müşterileri kolayca ve güvenilir PingFederate, Federasyon sağlayıcıları olarak yararlanmak için Azure Active Directory ortamlarına yapılandırın. Bu yeni özellik kullanma hakkında daha fazla bilgi için lütfen ziyaret bizim [çevrimiçi belgeleri](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
 - Biz Azure AD Connect Sihirbazı sorun giderme burada biz şimdi analyze daha fazla hata senaryonun yardımcı programı, güncelleştirilmiş bağlantılı posta kutuları ve AD dinamik grupların gibi. Sorun giderme yardımcı programı hakkında daha fazla bilgiyi [burada](active-directory-aadconnect-troubleshoot-objectsync.md).
@@ -62,14 +61,16 @@ Yeni özellikleri ve geliştirmeleri
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar 
 
-
+- Bu sürüm SQL Server Express yüklemesi diğerleriyle birlikte, birçok güvenlik açıkları için düzeltme sağlayan, SQL Server 2012 SP4 güncelleştirir.  Lütfen bakın [burada](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) SQL Server 2012 SP4 hakkında daha fazla bilgi.
 - Eşitleme kuralı işleme: üst syncrule artık geçerli değilse hiçbir katılma koşulu olan giden birleştirme eşitleme kuralları XML'deki uygulanması gerekir
+- Birçok erişilebilirlik düzeltmeleri Eşitleme Hizmeti Yöneticisi kullanıcı Arabirimi ve eşitleme kuralları Düzenleyicisi'ni uygulanan
 - Azure AD Connect Sihirbazı'nı: AD Bağlayıcısı hesabı oluşturulurken bir hata oluştu, Azure AD Connect bir çalışma grubundaysa
 - Azure AD Connect Sihirbazı'nı: Üzerinde Azure AD oturum açma sayfasını görüntülemek doğrulama onay kutusunu AD etki alanları ve Azure AD doğrulandı etki alanlarındaki tüm uyuşmazlığı olduğunda
 - Otomatik yükseltme durumu belirli durumlarda çalıştı otomatik yükseltme işleminden sonra doğru bir şekilde ayarlamak için PowerShell düzeltme otomatik yükseltme.
 - Azure AD Connect Sihirbazı'nı: daha önce eksik bilgileri yakalamak için telemetri güncelleştirildi
-- Azure AD Connect Sihirbazı'nı: yönetilen bir etki alanına dönüştürmeden önce PTA yükleme aracı
-- Azure AD Connect Sihirbazı'nı: kullanıcıların dönüştürmez PTA için yönetilen (dönüştürme yalnızca etki alanı)
+- Azure AD Connect Sihirbazı'nı: kullandığınızda aşağıdaki değişiklikler yapılmıştır **değiştirme kullanıcı oturum açma** görev AD FS doğrudan kimlik doğrulamasına:
+    - Doğrudan kimlik doğrulama Aracısı Azure AD Connect sunucusunda yüklü olduğundan ve biz yönetilen Federasyon etki alanlarındaki gelen dönüştürmeden önce doğrudan kimlik doğrulama özelliği etkin.
+    - Kullanıcılar artık gelen yönetilen federe dönüştürülür. Yalnızca etki alanlarındaki dönüştürülür.
 - Azure AD Connect Sihirbazı'nı: Kullanıcı UPN sahip olduğunda AD FS çoklu etki alanı Regex doğru değil ' özel karakterleri desteklemek için özel karakter Regex güncelleştirme
 - Azure AD Connect Sihirbazı'nı: alacaklardır "Yapılandırma kaynağı bağlantı özniteliği" iletisi hiçbir değişiklik olduğunda Kaldır 
 - Azure AD Connect Sihirbazı'nı: Çift Federasyon senaryosu AD FS desteği

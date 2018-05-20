@@ -1,6 +1,6 @@
 ---
-title: Özel olaylar için Azure olay kılavuz karma bağlantı gönderme | Microsoft Docs
-description: Azure Event Grid'i ve Azure CLI'yı kullanarak bir konu yayımlayın ve o olaya abone olun. Karma bağlantı uç nokta için kullanılır.
+title: Azure Event Grid için özel olayları karma bağlantıya gönderme | Microsoft Docs
+description: Azure Event Grid'i ve Azure CLI'yı kullanarak bir konu yayımlayın ve o olaya abone olun. Uç nokta için karma bir bağlantı kullanılır.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,19 +8,21 @@ ms.author: tomfitz
 ms.date: 05/04/2018
 ms.topic: article
 ms.service: event-grid
-ms.openlocfilehash: 42b3e88d4bf411aa8a0d3bb129795f0d8ab98525
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c95cfee787244367688b82959474e2a8028b7ff6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure geçişi karma bağlantılar Azure CLI ve olay kılavuz rota özel olaylar
+# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI ve Event Grid ile özel olayları Azure Relay Karma Bağlantılar’a yönlendirme
 
-Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure geçişi karma bağlantılar desteklenen olay işleyicileri biridir. Genel bir uç nokta yok uygulamalardan olaylarını işlemek gerektiğinde olay işleyicisi olarak karma bağlantıları kullanın. Bu uygulamalar, kurumsal ağ içinde olabilir. Bu makalede, Azure CLI aracını kullanarak özel bir konu oluşturur, konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Karma bağlantısı olayları gönderin.
+Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure Relay Karma Bağlantılar, desteklenen olay işleyicilerinden biridir. Genel uç noktası olmayan uygulamalardan alınan olayları işlemeniz gerektiğinde olay işleyicisi olarak karma bağlantıları kullanırsınız. Bu uygulamalar kurumsal ağınızın içinde olabilir. Bu makalede, Azure CLI aracını kullanarak özel bir konu oluşturur, konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Olayları karma bağlantıya gönderirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu makale, karma bir bağlantı ve bir dinleyici uygulama zaten varsayar. Karma bağlantılar ile çalışmaya başlamak için bkz: [geçişi karma bağlantılar - .NET ile çalışmaya başlama](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) veya [geçişi karma bağlantılar - düğümü ile çalışmaya başlama](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+Bu makalede zaten bir karma bağlantınız ve dinleyici uygulamanız olduğu varsayılmıştır. Karma bağlantıları kullanmaya başlamak için bkz. [Relay Karma Bağlantılar’ı kullanmaya başlama - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) veya [Relay Karma Bağlantılar’ı kullanmaya başlama - Düğüm](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -39,16 +41,20 @@ az group create --name gridResourceGroup --location westus2
 Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<topic_name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisi ile temsil edildiğinden benzersiz olmalıdır.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
 ## <a name="subscribe-to-a-topic"></a>Bir konuya abone olma
 
-Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, oluşturulan ve karma bağlantı uç noktası için kaynak Kimliğini geçirir konuya abone olur. Karma bağlantı kimliği şu biçimdedir:
+Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, oluşturduğunuz konuya abone olur ve uç nokta için karma bağlantının kaynak kimliğini geçirir. Karma bağlantı kimliği şu biçimdedir:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-Aşağıdaki komut dosyası, geçiş ad alanı kaynak Kimliğini alır. Karma bağlantının kimliği oluşturur ve bir olay kılavuz konuya abone olur. Uç nokta türü ayarlar `hybridconnection` ve uç nokta için karma bağlantı Kimliğini kullanır.
+Aşağıdaki betik, geçiş ad alanının kaynak kimliğini alır. Karma bağlantının kimliğini oluşturur ve bir event grid konusuna abone olur. Uç nokta türünü `hybridconnection` olarak ayarlar ve uç noktanın karma bağlantı kimliğini kullanır.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -75,14 +81,14 @@ endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --qu
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Bu makaleyi basitleştirmek için konuya gönderilmek üzere örnek olay verilerini kullanın. Normalde olay verilerini bir uygulama veya Azure hizmeti gönderir. CURL, HTTP istekleri gönderen bir yardımcı programdır. Bu makalede, konuya olayı göndermek için CURL kullanın.  Aşağıdaki örnekte, üç olayları olay kılavuz konuya gönderir:
+Bu makaleyi basitleştirmek için konuya gönderilmek üzere örnek olay verilerini kullanın. Normalde olay verilerini bir uygulama veya Azure hizmeti gönderir. CURL, HTTP istekleri gönderen bir yardımcı programdır. Bu makalede, konuya olayı göndermek için CURL kullanın.  Aşağıdaki örnek, event grid konusuna üç olay gönderir:
 
 ```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Dinleyici uygulamanız, olay iletisini almanız gerekir.
+Dinleyici uygulamanız olay iletisini almalıdır.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Bu olayla çalışmaya devam etmeyi planlıyorsanız bu makalede oluşturulan kaynakları temizlemeyin. Aksi takdirde, bu makalede oluşturduğunuz kaynakları silmek için aşağıdaki komutu kullanın.

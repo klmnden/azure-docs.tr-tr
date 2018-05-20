@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme OnTrack ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile OnTrack arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme OnTrack ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile OnTrack arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 9df3932fe7e68fff422dc4eca370ac1354fb2db0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76a7bd34c3fddc70e025af52235be619f04fa0d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Öğretici: Azure Active Directory Tümleştirme OnTrack ile
 
@@ -30,9 +30,9 @@ OnTrack Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için OnTrack (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme OnTrack ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,15 +110,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **tanımlayıcısı** metin kutusuna,
     
-    Test ortamı için URL'yi yazın:`https://staging.insigniagroup.com/sso`
+    Test ortamı için URL'yi yazın: `https://staging.insigniagroup.com/sso`
 
-    Üretim ortamı için URL'yi yazın:`https://oeaccessories.com/sso`
+    Üretim ortamı için URL'yi yazın: `https://oeaccessories.com/sso`
 
     b. İçinde **yanıt URL'si** metin kutusuna,
     
-    Test ortamı için URL'yi yazın:`https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+    Test ortamı için URL'yi yazın: `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-    Üretim ortamı için URL'yi yazın:`https://igaccessories.com/sso/autonation.aspx`
+    Üretim ortamı için URL'yi yazın: `https://igaccessories.com/sso/autonation.aspx`
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -190,7 +190,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-an-ontrack-test-user"></a>OnTrack test kullanıcısı oluşturma
 
@@ -226,7 +226,7 @@ Bu bölümde, Britta OnTrack için erişim vererek, Azure çoklu oturum açma ku
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -236,7 +236,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

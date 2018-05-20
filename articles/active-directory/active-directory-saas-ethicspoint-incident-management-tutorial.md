@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme EthicsPoint Olay yönetimi (EPIM) | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve EthicsPoint Olay yönetimi (EPIM) arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme EthicsPoint Olay yönetimi (EPIM) | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve EthicsPoint Olay yönetimi (EPIM) arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 87525eacdb7224e7352f713028428d72d64a288e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be400e9b51e2956557297b3a57313f08a434f96d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Öğretici: Azure Active Directory Tümleştirme EthicsPoint Olay yönetimi (EPIM)
 
@@ -29,9 +29,9 @@ EthicsPoint Olay yönetimi (EPIM) Azure AD ile tümleştirme ile aşağıdaki av
 - Azure AD hesaplarına otomatik olarak EthicsPoint Olay yönetimi (EPIM için) (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme EthicsPoint Olay yönetimi (EPIM) yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -73,7 +73,7 @@ Azure AD tümleştirmeye EthicsPoint Olay yönetimi (EPIM) yapılandırmak için
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_ethicspoint_search.png)
 
-5. Sonuçlar panelinde seçin **EthicsPoint Olay yönetimi (EPIM)**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **EthicsPoint Olay yönetimi (EPIM)** ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_ethicspoint_addfromgallery.png)
 
@@ -116,9 +116,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<companyname>.navexglobal.com`|
     | `https://<companyname>.ethicspointvp.com`|
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.navexglobal.com/adfs/services/trust`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.navexglobal.com/adfs/services/trust`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<servername>.navexglobal.com/adfs/ls/`
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler, gerçek yanıt URL'si tanımlayıcısı ve oturum açma URL'si ile güncelleştirin. Kişi [EthicsPoint Olay yönetimi (EPIM) istemci destek ekibi](http://www.navexglobal.com/company/contact-us) bu değerleri almak için. 
@@ -166,7 +166,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-ethicspoint-incident-management-epim-test-user"></a>EthicsPoint Olay yönetimi (EPIM) test kullanıcısı oluşturma
 
@@ -210,7 +210,7 @@ Erişim paneli EthicsPoint Olay yönetimi (EPIM) parçasında tıklattığınız
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

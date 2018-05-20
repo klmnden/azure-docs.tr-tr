@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri için uygulama ayarları başvurusu"
-description: "Azure işlevleri uygulama ayarları veya ortam değişkenleri için başvuru belgeleri."
+title: Azure işlevleri için uygulama ayarları başvurusu
+description: Azure işlevleri uygulama ayarları veya ortam değişkenleri için başvuru belgeleri.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -44,11 +44,11 @@ Günlüklerini depolamak ve bunları görüntülemek için isteğe bağlı bir d
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`anlamına gelir Giriş bir işlev uygulaması kök URL'si için gösterilen sayfasında varsayılan devre dışı bırakın. Varsayılan değer `false`.
+`true` anlamına gelir Giriş bir işlev uygulaması kök URL'si için gösterilen sayfasında varsayılan devre dışı bırakın. `false` varsayılan değerdir.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|AzureWebJobsDisableHomepage|TRUE|
+|AzureWebJobsDisableHomepage|true|
 
 Bu uygulama ayarı atlanmış veya diğer kümesine ne zaman `false`, yanıt URL'si olarak aşağıdaki örneğe benzer bir sayfa görüntülenir `<functionappname>.azurewebsites.net`.
 
@@ -56,11 +56,11 @@ Bu uygulama ayarı atlanmış veya diğer kümesine ne zaman `false`, yanıt URL
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`.NET kodu derlerken anlamına gelir yayın modunu kullanın; `false` anlamına gelir, hata ayıklama modunu kullanın. Varsayılan değer `true`.
+`true` .NET kodu derlerken anlamına gelir yayın modunu kullanın; `false` anlamına gelir, hata ayıklama modunu kullanın. `true` varsayılan değerdir.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|TRUE|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -155,8 +155,8 @@ Varsayılan değer "6.5.0" dir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Uygulama ayarlarını güncelleştirme öğrenin](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Uygulama ayarlarını güncelleştirme öğrenin](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [Genel ayarları host.json dosyasına bakın](functions-host-json.md)
+[Genel ayarları host.json dosyasına bakın](functions-host-json.md)
+
+[Diğer uygulama ayarlarını uygulama hizmeti uygulamalar için bkz:](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

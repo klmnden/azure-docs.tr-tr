@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -194,21 +194,6 @@ Bu sorun, kullanıcının kaynak grubu kilitler yönetilen sanal makineleri içi
 
 #### <a name="solution"></a>Çözüm
 
-Sorunu gidermek için geri yükleme noktası koleksiyonu kaldırmak için aşağıdaki adımları tamamlayın: <br>
- 
-1. Kilidi VM bulunduğu kaynak grubunu kaldırın. 
-2. ARMClient Chocolatey kullanarak yükleyin: <br>
-   https://github.com/projectkudu/ARMClient
-3. ARMClient için oturum açın: <br>
-    `.\armclient.exe login`
-4. VM karşılık gelen geri yükleme noktası koleksiyonunun alın: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Örnek: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Geri yükleme noktası koleksiyonunu silin: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. Sonraki zamanlanmış yedekleme, geri yükleme noktası koleksiyonu ve yeni geri yükleme noktaları otomatik olarak oluşturur.
-
- 
-Kaynak grubu yeniden kilitlemek durumunda sorun yeniden. 
+Sorunu çözmek için kilidi kaynak grubundan kaldırın ve kurtarma noktası koleksiyonu ve sonraki yedekleme, temel alınan anlık görüntüleri temizleyin Azure Backup hizmeti sağlar.
+Bunu yaptıktan sonra yeniden geri kilidi VM kaynak grubunda koyabilirsiniz. 
 

@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz Yenile
 REST çağrıları destekleyen herhangi bir programlama dili kullanarak, Azure Analysis Services tablolu modeller zaman uyumsuz veri yenileme işlemleri gerçekleştirebilir. Bu sorgu genişleme için salt okunur çoğaltmalarını eşitlenmesi içerir. 
@@ -55,7 +55,7 @@ Temel URL'yi kullanarak, kaynakları ve işlemleri aşağıdaki parametrelere g�
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Kimlik Doğrulama
 
 Tüm çağrılar yetkilendirme üst geçerli bir Azure Active Directory (OAuth 2) belirteçle kimliğinin doğrulanması gerekir ve aşağıdaki gereksinimleri karşılaması gerekir:
 
@@ -95,9 +95,9 @@ Gövde aşağıdakine benzeyebilir:
 ### <a name="parameters"></a>Parametreler
 Parametreleri belirterek gerekli değildir. Varsayılan uygulanır.
 
-|Ad  |Tür  |Açıklama  |Varsayılan  |
+|name  |Tür  |Açıklama  |Varsayılan  |
 |---------|---------|---------|---------|
-|Tür     |  Enum       |  İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, hesaplama, dataOnly, otomatik, eklemek ve birleştirin.       |   Otomatik      |
+|Tür     |  Enum       |  İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, dataOnly, otomatik, hesaplama ve birleştirin. Türü desteklenmiyor ekleyin.      |   Otomatik      |
 |CommitMode     |  Enum       |  Nesneleri yığınlardaki veya yalnızca tamamlandığında tamamlanan olup olmayacağını belirler. Modları içerir: varsayılan, işlem, partialBatch.  |  işlem       |
 |MaxParallelism     |   Int      |  Bu değer paralel işleme komutları çalıştırmak için iş parçacığı sayısını belirler. Bu değer hizalı TMSL ayarlanabilir MaxParallelism özelliğiyle [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya başka yöntemler kullanarak.       | 10        |
 |retryCount    |    Int     |   İşlemi başarısız olmadan önce yeniden deneme sayısını gösterir.      |     0    |
@@ -223,7 +223,7 @@ Bu form kimlik doğrulaması, bir Azure uygulama API gerekli izinleri atanmış 
 
 5.  İçinde **bir API seçin**, türü **Azure Analysis Services** Ara kutusuna ve ardından seçin.
 
-    ![API seçin](./media/analysis-services-async-refresh/aas-async-select-api.png)
+    ![API Seçin](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
 6.  Seçin **okuma ve yazma tüm modelleri**ve ardından **seçin**. Her ikisi de seçildiğinde tıklatın **Bitti** izinleri eklemek için. Yaymak için birkaç dakika sürebilir.
 

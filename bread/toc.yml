@@ -237,6 +237,9 @@
         - name: Web Language Model
           tocHref: /azure/cognitive-services/web-language-model/
           topicHref: /azure/cognitive-services/web-language-model/home
+        - name: Kişilik Sohbeti
+          tocHref: /azure/cognitive-services/project-personality-chat/
+          topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: Bağlayıcılar
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -336,6 +339,9 @@
         - name: IoT çözüm hızlandırıcıları
           tocHref: /azure/iot-suite/
           topicHref: /azure/iot-suite/
+        - name: IoT Central
+          tocHref: /azure/iot-central/
+          topicHref: /azure/iot-central/
         - name: Haritalar
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/

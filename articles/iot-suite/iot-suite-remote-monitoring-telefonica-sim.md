@@ -1,55 +1,62 @@
 ---
 title: Uzaktan izleme çözümünde - Azure SIM veri tümleştirme | Microsoft Docs
-description: Bu makalede Uzaktan izleme çözümü haline Telefonica SIM verilerini tümleştirmek açıklar.
+description: Bu makalede Uzaktan izleme çözümü haline Telefónica SIM verilerini tümleştirmek açıklar.
 services: iot-suite
 suite: iot-suite
 author: hegate
-manager: corywink
+manager: timlt
 ms.author: hegate
 ms.service: iot-suite
-ms.date: 04/30/2018
+ms.date: 05/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: c82bb8ff3d0f903e1de627f13337ae5fc633458c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 25fefa23eaa0ca38f8d3d888f5782ece221e8b1a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Uzaktan izleme çözümünde SIM veri tümleştirme
 
-## <a name="overview"></a>Genel Bakış
-IOT cihazları genellikle veri akışlarını yerden göndermesine izin veren bir SIM kart kullanarak bulut bağlayın. İşleçler de SIM tarafından sağlanan verileri aygıttan durumunu izleyebilmeniz için Azure IOT Uzaktan izleme çözümü SIM yönetim veri tümleştirme sağlar. Uzaktan izleme Telefonica IOT kutusunu tümleşme dışında kendi IOT bağlantı Platform kullanan müşteriler cihazlarını eşitleme izin vererek SIMs bağlantı verilerini çözümleri sağlar. Bu çözüm, diğer telefon şirket sağlayıcıları GitHub deposunu aracılığıyla desteklemek için genişletilebilir.
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
-* Uzaktan izleme çözümü haline SIM veri tümleştirme
-* Görünüm gerçek zamanlı telemetri
-* SIM verileri görüntüleme 
+IOT cihazları genellikle veri akışlarını yerden göndermesine izin veren bir SIM kart kullanarak bulut bağlayın. İşleçler da cihazı IOT SIM tarafından sağlanan verileri üzerinden durumunu izleyebilmeniz için Azure IOT Uzaktan izleme çözümü IOT yönetilen bağlantı verilerini tümleştirme sağlar.
 
-## <a name="telefonica-iot-integration-setup"></a>Telefonica IOT tümleştirme Kurulumu
+Kendi IOT bağlantı Platform kullanan müşteriler cihazlarını SIMs bağlantı verilerini çözümleri için eşitleme izin vererek Telefónica IOT bağlantısıyla kutusunu tümleştirme dışında Uzaktan izleme sağlar. Bu çözüm diğer IOT bağlantı sağlayıcıları GitHub aracılığıyla desteklemek için Genişletilmiş [depo](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+
+* Uzaktan izleme çözümü haline Telefónica IOT SIM veri tümleştirme
+* Görünüm gerçek zamanlı telemetri
+* SIM verileri görüntüleme
+
+## <a name="telefnica-iot-integration-setup"></a>Telefónica IOT tümleştirme Kurulumu
 
 ### <a name="prerequisites"></a>Önkoşullar
-Azure Uzaktan izleme çözümüne bağlantısını verilerinizi eşitlemek için aşağıdaki adımları izleyin:
 
-1.  Bir isteğiyle dolgu [Telefonica'nın site](https://iot.telefonica.com/contact), seçeneğini **Azure Uzaktan izleme**, kişi verilerinizi dahil olmak üzere.
-2.  Telefonica hesabınızı etkinleşir. 
-3.  Bir Telefónica istemci henüz burada değildir ve isterseniz bu veya diğer IOT bağlantı bulut hazır Hizmetleri keyfini adresini ziyaret edin [Telefonica'nın site](https://iot.telefonica.com/contact) ve seçeneğini **bağlantı**.
+Bu ek Uzaktan izleme özelliği şu anda önizlemede değil. Azure Uzaktan izleme çözümüne bağlantısını verilerinizi eşitlemek için aşağıdaki adımları izleyin:
 
-### <a name="telefonica-sim-setup"></a>Telefonica SIM Kurulumu
-Telefónica SIM & Azure Twin aygıt kimliği ilişkilendirmesi Telefónica IOT SIM "diğer" özelliğine dayalı. 
+1. Bir isteğiyle dolgu [Telefónica'nın site](https://iot.Telefónica.com/contact), seçeneğini **Azure Uzaktan izleme**, kişi verilerinizi dahil olmak üzere.
+2. Telefónica hesabınızı etkinleştirir.
+3. Bir Telefónica istemci henüz burada değildir ve isterseniz bu veya diğer IOT bağlantı bulut hazır Hizmetleri keyfini adresini ziyaret edin [Telefónica'nın site](https://iot.Telefónica.com/contact) ve seçeneğini **bağlantı**.
 
-Gidin [Telefónica IOT bağlantı Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM Stok >, SIM seçin ve her SIM "diğer", istenen Twin DeviceID ile güncelleştirin. 
+### <a name="telefnica-sim-setup"></a>Telefónica SIM Kurulumu
+Telefónica SIM & Azure Twin aygıt kimliği ilişkilendirmesi Telefónica IOT SIM "diğer" özelliği üzerinde temel alır. 
+
+Gidin [Telefónica IOT bağlantı Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM Stok >, SIM seçin ve her SIM "diğer", istenen Twin DeviceID ile güncelleştirin. Bu görev, toplu modda yapılabilir (Telefónica IOT bağlantı Platform kullanıcı kılavuzları bakın).
 
 Bu görev, toplu modda yapılabilir (Telefónica IOT bağlantı Platform kullanıcı kılavuzları bakın)
 
-![Telefonica güncelleştirme](media/iot-suite-remote-monitoring-telefonica/telefonica_site.png)
+![Telefónica güncelleştirme](media/iot-suite-remote-monitoring-telefonica/telefonica_site.png)
 
 Uzaktan izleme için Cihazınızı bağlamak için bu öğreticileri kullanarak izleyebileceğiniz [C](iot-suite-connecting-devices-linux.md) veya [düğümü](iot-suite-connecting-devices-node.md). 
 
 ## <a name="view-device-telemetry-and-sim-properties"></a>Cihaz telemetrisi ve SIM özellikleri görüntüleyin
-Telefonica hesabınızı düzgün yapılandırıldığından ve Cihazınızı bağlı sonra cihaz ayrıntıları ve SIM verileri görüntüleyebilirsiniz.
-Aşağıdaki bağlantı parametreleri yayımlanabilir:
+
+Telefónica hesabınızı düzgün yapılandırıldığından ve Cihazınızı bağlı sonra cihaz ayrıntıları ve SIM verileri görüntüleyebilirsiniz.
+
+Aşağıdaki bağlantı parametreleri yayımlanır:
+
 * ICCID
 * IP
 * Ağ varlığı
@@ -58,7 +65,7 @@ Aşağıdaki bağlantı parametreleri yayımlanabilir:
 * Tüketilen veri trafiği
 
 ![Pano](media/iot-suite-remote-monitoring-telefonica/dashboard.png)
- 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure IOT Uzaktan izleme SIM veri tümleştirme genel bakış sahip olduğunuza göre çözümleri Hızlandırıcıları için önerilen sonraki adımlar şunlardır:

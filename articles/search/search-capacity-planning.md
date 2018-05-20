@@ -1,5 +1,5 @@
 ---
-title: Kapasite planlama için Azure Search | Microsoft Docs
+title: Sorgu ve Azure Search'te dizin oluşturma için bölümler ve çoğaltmalar tahsis | Microsoft Docs
 description: Azure Search, her bir kaynağın Faturalanabilir arama birimlerinde nerede fiyatlandırılır bölüm ve çoğaltma bilgisayar kaynakları ayarlayın.
 author: HeidiSteen
 manager: cgronlun
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Sorgu ve iş yüklerini Azure Search'te dizin oluşturma için ölçek kaynak düzeyleri
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Sorgu ve iş yüklerini Azure Search'te dizin bölümler ve çoğaltmalar ayırın
 Çalıştırdıktan sonra [bir fiyatlandırma katmanı seçin](search-sku-tier.md) ve [bir arama hizmeti sağlamak](search-create-service-portal.md), isteğe bağlı olarak çoğaltma ya da hizmetiniz tarafından kullanılan bölümlerini sayısını artırmak için sonraki adımdır. Her katman fatura birimleri sabit sayıda sunar. Bu makalede, sorgu yürütme, dizin oluşturma ve depolama için gereksinimlerinizi dengeleyen bir en iyi yapılandırmasını elde etmek için bu birimleri tahsis açıklanmaktadır.
 
 Kaynak yapılandırması, bir hizmetin ayarladığınızda kullanılabilir [temel katmana](http://aka.ms/azuresearchbasic) veya biri [standart katmanları](search-limits-quotas-capacity.md). Bu katmanlar adresindeki Hizmetleri için kapasite artışlarla satın *arama birimine* (SUs) burada her bölüm ve çoğaltma sayar bir SU. 

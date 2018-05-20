@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/11/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 99ac43efa5d3211bbe2d790f28532e682058313c
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 19067b40e8e87c160515d13bb490e7c1604788b6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Dosyalar ve uygulamalar Azure yığında yedekleme
 Koruma (veya yedeklemek için) Azure Yedekleme'yi kullanabilirsiniz dosyalar ve uygulamalar Azure yığında. Dosya ve uygulamaların yedeklemek için Azure yığın üzerinde çalışan bir sanal makine olarak Microsoft Azure yedekleme sunucusu yükleyin. Aynı sanal ağda herhangi bir Azure yığın sunucuda çalışan uygulamaların, koruyabilirsiniz. Azure yedekleme sunucusu kez yüklediğiniz, kısa vadeli yedekleme verileri için kullanılabilir yerel depolama artırmak için Azure disk ekleyin. Azure yedekleme sunucusu uzun vadeli bekletme için Azure storage kullanır.
@@ -39,9 +39,9 @@ Azure yedekleme sunucusu aşağıdaki Azure yığın sanal makine iş yüklerini
 | Windows Server 2012 R2 - kuruluş/veri merkezi/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2012 - Entprise/veri merkezi/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2008 R2 - kuruluş/veri merkezi/standart | Birimler, dosyalar, klasörler |
-| SQL Server 2016 | Database |
-| SQL Server 2014 | Database |
-| SQL Server 2012 SP1 | Database |
+| SQL Server 2016 | Veritabanı |
+| SQL Server 2014 | Veritabanı |
+| SQL Server 2012 SP1 | Veritabanı |
 | SharePoint 2013 | Grup, veritabanı, ön uç, web sunucusu |
 | SharePoint 2010 | Grup, veritabanı, ön uç, web sunucusu |
 
@@ -64,7 +64,7 @@ Azure Backup sunucusu işletimsel kurtarma için sanal makineye bağlı Azure di
 
 Yedek veri depolama, yedekleme altyapısı Azure yığında azaltır. Veri beş günden daha eski ise, Azure'da depolanması gerekir.
 
-Azure'da yedek verileri depolamak için oluşturun veya bir kurtarma Hizmetleri kasası kullanın. Azure yedekleme sunucusu iş yükü çalışma yedeklemek hazırlanırken şunları yapacaksınız [kurtarma Hizmetleri kasası yapılandırma](backup-azure-microsoft-azure-backup.md#recovery-services-vault). Bir kere yapılandırıldığında, yedekleme işi her çalıştığında, kasaya bir kurtarma noktası oluşturulur. Her kurtarma Hizmetleri kasası kadar 9999 kurtarma noktalarını tutar. Oluşturulan kurtarma noktaları ve ne kadar süreyle saklanacağını sayısına bağlı olarak, birçok yıldır yedekleme verileri koruyabilirsiniz. Örneğin, aylık kurtarma noktaları oluşturmak ve bunları beş yıl boyunca bekletmek.
+Azure'da yedek verileri depolamak için oluşturun veya bir kurtarma Hizmetleri kasası kullanın. Azure yedekleme sunucusu iş yükü çalışma yedeklemek hazırlarken, [kurtarma Hizmetleri kasası yapılandırma](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Bir kere yapılandırıldığında, yedekleme işi her çalıştığında, kasaya bir kurtarma noktası oluşturulur. Her kurtarma Hizmetleri kasası kadar 9999 kurtarma noktalarını tutar. Oluşturulan kurtarma noktaları ve ne kadar süreyle saklanacağını sayısına bağlı olarak, birçok yıldır yedekleme verileri koruyabilirsiniz. Örneğin, aylık kurtarma noktaları oluşturmak ve bunları beş yıl boyunca bekletmek.
  
 ### <a name="using-sql-server"></a>SQL Server kullanma
 Azure yedekleme sunucusu veritabanı için uzak bir SQL Server kullanmak isterseniz, yalnızca bir Azure yığın SQL Server çalıştıran VM seçin.

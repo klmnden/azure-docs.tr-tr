@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>satın alma modeli vCore tabanlı Azure SQL veritabanı (Önizleme)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/11/2018
 |**Satın alma modeli**|**Açıklama**|**En iyi**|
 |---|---|---|
 |DTU tabanlı modeli|Bu model, işlem, depolama ve g/ç kaynakları ile birlikte gelen bir ölçüye temel alır. Performans düzeyleri tek veritabanları için Veritabanı İşlem Birimleri (DTU’lar), elastik havuzlar için de elastik Veritabanı İşlem Birimleri (eDTU’lar) ile ifade edilir. Dtu ve Edtu hakkında daha fazla bilgi için bkz: [Dtu ve Edtu nelerdir](sql-database-what-is-a-dtu.md)?|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için en iyisidir.| 
-|vCore tabanlı modeli|Bu model, işlem ve depolama kaynaklarını bağımsız olarak ölçeklendirebilirsiniz sağlar. Ayrıca, maliyet tasarrufu sağlamak için SQL Server için Azure karma avantajı kullanmanıza olanak sağlar.|Esneklik, Denetim ve saydam değer müşteriler için en iyisidir.|
+|vCore tabanlı modeli|Bu model bağımsız olarak işlem ve depolama kaynaklarını - en fazla 80 vCores, 4 TB veri depolama ve 200000 IOPS ölçeklendirmenizi sağlar. Ayrıca, maliyet tasarrufu sağlamak için SQL Server için Azure karma avantajı kullanmanıza olanak sağlar.|Esneklik, Denetim ve saydam değer müşteriler için en iyisidir.|
 ||||  
 
 ![Fiyatlandırma modeli](./media/sql-database-service-tiers/pricing-model.png)
@@ -48,7 +48,7 @@ VCore tabanlı satın alma modeli (Önizleme) müşteriler için ödeme içinde:
 \*\* Önizleme sırasında yedeklemeler ve IOs 7 gün boş
 
 > [!IMPORTANT]
-> İşlem, IOs, veri ve günlük depolama veritabanı veya esnek havuz ücretlendirilirsiniz. Yedekleme depolama her veritabanı başına ücret kesilir. Yönetilen örneğinin için ücret ayrıntı için [yönetilen Azure SQL veritabanı örneği](sql-database-managed-instance.md).
+> İşlem, IOs, veri ve günlük depolama veritabanı veya esnek havuz ücretlendirilirsiniz. Yedekleme depolama her veritabanı başına ücret kesilir. Yönetilen örneği ücretleri ayrıntılarını başvurmak [yönetilen Azure SQL veritabanı örneği](sql-database-managed-instance.md).
 
 > [!IMPORTANT]
 > Bölge sınırlamaları: 
@@ -64,13 +64,13 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 
 ||**Genel amaçlı**|**Kritik iş**|
 |---|---|---|
-|En iyi kullanım alanı:|Çoğu kurumsal iş yükleri. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir bilgi işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|
-|İşlem|1 ile 16 vCore|1 ile 16 vCore|
+|En uygun olduğu durum|Çoğu kurumsal iş yükleri. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir bilgi işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|
+|İşlem|1 ila 80 vCore, nesil 4 ve 5 oluşturma |1 ila 80 vCore, nesil 4 ve 5 oluşturma|
 |Bellek|Çekirdek başına 7 GB |Çekirdek başına 7 GB |
-|Depolama|Premium uzaktaki depolama birimi, 5 GB – 4 TB|Yerel SSD depolama, 5 GB – 1 TB|
-|G/ç işleme (yaklaşık)|VCore başına 500 IOPS 7500 en fazla IOPS ile|Çekirdek başına 5000 IOPS'yi|
+|Depolama|Premium uzaktaki depolama birimi, 5 GB – 4 TB|Yerel SSD depolama, 5 GB – 4 TB|
+|G/ç işleme (yaklaşık)|7000 en fazla IOPS ile vCore başına 500 IOPS|Çekirdek başına 5000 IOPS'yi 200000 en fazla IOPS ile|
 |Kullanılabilirlik|1 çoğaltma, herhangi bir okuma ölçek|3 çoğaltmalar, 1 [okuma ölçekli](sql-database-read-scale-out.md), yedekli HA bölge|
-|Yedeklemeler|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|RA-GRS, 7-35 gün (varsayılan olarak 7 gün) *|
+|Yedekler|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|RA-GRS, 7-35 gün (varsayılan olarak 7 gün) *|
 |Bellek içi|Yok|Desteklenen|
 |||
 

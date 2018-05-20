@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile iLMS | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile iLMS arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile iLMS | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile iLMS arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 2764a109e92d3eabf2b7064ce7cd2e428256c8b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0281b0fca107908654dfac31014c79c187aa9b5d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Öğretici: Azure Active Directory Tümleştirme iLMS ile
 
@@ -29,9 +29,9 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile iLMS tümleştirmek öğr
 - Otomatik olarak Azure AD hesaplarına sahip (çoklu oturum açma) iLMS için açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme iLMS ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -112,7 +112,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **tanımlayıcısı** metin kutusuna, yapıştırma **tanımlayıcısı** değeri, kopyalamanız **hizmet sağlayıcısı** iLMS Yönetim Portalı'nda SAML ayarları bölümü.
 
-    b. İçinde **yanıt URL'si** metin kutusuna, Yapıştır **uç noktası (URL)** , kopyalamanız değeri **hizmet sağlayıcısı** SAML ayarlarının aşağıdaki düzeni sahip iLMS Yönetim Portalı'nda bölümünü`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. İçinde **yanıt URL'si** metin kutusuna, Yapıştır **uç noktası (URL)** , kopyalamanız değeri **hizmet sağlayıcısı** SAML ayarlarının aşağıdaki düzeni sahip iLMS Yönetim Portalı'nda bölümünü `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
     >[!Note]
     >Bu '123456' tanımlayıcısının bir örnek değeridir.
@@ -121,7 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, Yapıştır **uç noktası (URL)** , kopyalamanız değeri **hizmet sağlayıcısı** olarak iLMS Yönetim Portalı'nda SAML ayarları bölümü`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
+    İçinde **oturum açma URL'si** metin kutusuna, Yapıştır **uç noktası (URL)** , kopyalamanız değeri **hizmet sağlayıcısı** olarak iLMS Yönetim Portalı'nda SAML ayarları bölümü `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. JIT sağlama etkinleştirmek için belirli bir biçimde SAML onaylar iLMS uygulama bekler. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
     
@@ -138,7 +138,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | ---------------| --------------- |    
     | bölme | User.Department |
     | bölge | User.State |
-    | Bölüm | User.jobtitle |
+    | bölüm | user.jobtitle |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -232,7 +232,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-an-ilms-test-user"></a>Bir iLMS test kullanıcısı oluşturma
 
@@ -262,7 +262,7 @@ Bir kullanıcı el ile oluşturmanız gerekiyorsa, aşağıdaki adımları izley
 
     f. İçinde **departmanı** açılan listesinde, departman için değer seçin.
 
-    g. **Kaydet** düğmesine tıklayın.
+    g. **Kaydet**’e tıklayın.
 
     > [!NOTE] 
     > Seçerek kullanıcı kayıt posta gönderebilir **kayıt posta Gönder** onay kutusu.
@@ -306,7 +306,7 @@ Erişim paneli iLMS parçasında tıklattığınızda, otomatik olarak iLMS uygu
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

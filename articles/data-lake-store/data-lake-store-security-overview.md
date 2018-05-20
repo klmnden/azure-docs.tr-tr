@@ -9,21 +9,19 @@ editor: cgronlun
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4014d304d1e0a7d841e797c3e3bdfe31918c151
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
 
-* Kimlik Doğrulaması
+* Kimlik Doğrulama
 * Yetkilendirme
 * Ağ yalıtımı
 * Veri koruma
@@ -54,8 +52,8 @@ Hesap yönetimi için rolleri atanmış rağmen bazı roller verilere erişim et
 
 | Roller | Yönetim hakları | Veri erişim hakları | Açıklama |
 | --- | --- | --- | --- |
-| Atanmış bir role yok |None |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
-| Sahip |Tümü |Tümü |Süper kullanıcı sahibi rolüdür. Bu rolü her şeyi yönetebilir ve veri tam erişimi vardır. |
+| Atanmış bir role yok |Hiçbiri |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
+| Sahibi |Tümü |Tümü |Süper kullanıcı sahibi rolüdür. Bu rolü her şeyi yönetebilir ve veri tam erişimi vardır. |
 | Okuyucu |Salt okunur |ACL ile yönetilen |Okuyucu rolüne hangi role atanmış kullanıcı gibi hesap yönetimi ile ilgili her şeyi görüntüleyebilir. Okuyucu rolüne değişiklik yapamazsınız. |
 | Katılımcı |Tüm ekleme ve kaldırma rolleri dışında |ACL ile yönetilen |Katkıda bulunan rolü dağıtımları ve oluşturma ve Uyarıları yönetme gibi bir hesap, bazı yönlerini yönetebilirsiniz. Katkıda bulunan rolü ekleme veya rollerini kaldırın. |
 | Kullanıcı Erişimi Yöneticisi |Rol Ekleme ve kaldırma |ACL ile yönetilen |Kullanıcı erişimi yöneticisi rolü hesaplarına kullanıcı erişimini yönetebilirsiniz. |

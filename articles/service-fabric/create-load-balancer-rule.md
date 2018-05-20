@@ -1,24 +1,24 @@
 ---
-title: "Bir küme için bir Azure yük dengeleyici kuralı oluşturma"
-description: "Azure Service Fabric kümesi için bağlantı noktalarını açmak için bir Azure yük dengeleyici yapılandırın."
+title: Bir küme için bir Azure yük dengeleyici kuralı oluşturma
+description: Azure Service Fabric kümesi için bağlantı noktalarını açmak için bir Azure yük dengeleyici yapılandırın.
 services: service-fabric
 documentationcenter: na
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 71dbc2b5f6c3c37e432f5318169a088c5607f083
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 53dcd6c0705faa94e83d6e44f813fa9c575843e8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric kümesi için bağlantı noktalarını açın
 
@@ -30,7 +30,7 @@ Azure Service Fabric kümesi dağıtıldığında, bir yük dengeleyici sizin i�
 
 Service Fabric uygulamanızı **ServiceManifest.xml** yapılandırma dosyasını, uygulamanızın bekliyor kullanmak için uç noktalar tanımlar. (Veya farklı bir) kullanıma sunmak için bir uç nokta tanımlamak için yapılandırma dosyası güncelleştirildikten sonra Yük Dengeleyici güncelleştirilmelidir bağlantı noktası. Hizmet yapı uç noktası oluşturma hakkında daha fazla bilgi için bkz: [bir uç nokta Kurulum](service-fabric-service-manifest-resources.md).
 
-## <a name="create-a-load-balancer-rule"></a>Yük Dengeleyici kuralı oluşturma
+## <a name="create-a-load-balancer-rule"></a>Yük dengeleyici kuralı oluşturma
 
 Bir yük dengeleyici kuralı bir internet'e yönelik bağlantı açar ve uygulamanız tarafından kullanılan iç düğümün bağlantı trafiğini iletir. Bir yük dengeleyici yoksa bkz [bir Internet'e yönelik Yük Dengeleyici yapılandırma](..\load-balancer\load-balancer-get-started-internet-portal.md).
 
@@ -41,7 +41,7 @@ Bir yük dengeleyici kuralı oluşturmak için aşağıdaki bilgileri toplayın 
 - Dış bağlantı noktası.
 - İç bağlantı noktası.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure CLI'si
 Yalnızca bir yük dengeleyici kuralı ile oluşturmak için tek bir komut alır **Azure CLI**. Her iki yeni bir kural oluşturmak için yük dengeleyici ve kaynak grubunun adını bilmeniz yeterlidir.
 
 >[!NOTE]

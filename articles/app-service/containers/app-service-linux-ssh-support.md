@@ -15,41 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Azure uygulama hizmeti Linux üzerinde SSH desteği
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) Ağ Hizmetleri güvenli bir şekilde kullanmak için bir şifreleme ağ protokolüdür. Ayrıca, bir sisteme uzaktan güvenli bir şekilde bir komut satırı ile oturum açma ve yönetimsel komutları uzaktan yürütme için en yaygın olarak kullanılır.
-
-Linux üzerinde App Service, her yeni web uygulamaları için çalışma zamanı yığınını kullanılan yerleşik Docker görüntülerinin uygulama kapsayıcısı içine SSH desteği sağlar.
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) yönetim komutları uzaktan komut satırı terminal durumundan yürütmek için yaygın olarak kullanılır. Linux üzerinde App Service, her yeni web uygulamaları için çalışma zamanı yığınını kullanılan yerleşik Docker görüntülerinin uygulama kapsayıcısı içine SSH desteği sağlar. 
 
 ![Çalışma zamanı yığınları](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Bu makalede açıklanan yapılandırma ve görüntünün bir parçası olarak SSH sunucusu dahil olmak üzere özel Docker görüntülerinizi ile SSH kullanabilirsiniz.
+Özel görüntünüzü SSH sunucusu yapılandırarak özel Docker görüntüler için.
 
-> [!NOTE] 
-> Doğrudan SSH, SFTP veya Visual Studio Code (dinamik hata ayıklama Node.js uygulamaları için) kullanarak, yerel geliştirme makinesinden uygulama kapsayıcısı da bağlanabilirsiniz. Daha fazla bilgi için bkz: [uzaktan hata ayıklama ve uygulama hizmetinde Linux üzerinde SSH](https://aka.ms/linux-debug).
->
+SSH ve SFTP kullanarak doğrudan yerel geliştirme makinenizden kapsayıcıya da bağlanabilirsiniz.
 
-## <a name="making-a-client-connection"></a>Bir istemci bağlantısını yapma
+## <a name="open-ssh-session-in-browser"></a>Tarayıcıda Aç SSH oturumu
 
-Bir SSH istemci bağlantısı yapmak için ana site başlatılması gerekir.
+Bir SSH istemci bağlantısı, kapsayıcısı ile yapmak için uygulamanızın çalıştırması gerekir.
 
-Web uygulamanız için kaynak denetimi Yönetim (SCM) uç noktası aşağıdaki biçimi kullanarak tarayıcınıza yapıştırın:
+Tarayıcı ve Değiştir URL'sini yapıştırın \<app_name > Uygulama adı ile:
 
-```bash
-https://<your sitename>.scm.azurewebsites.net/webssh/host
+```
+https://<app_name>.scm.azurewebsites.net/webssh/host
 ```
 
-Önceden doğrulanmış değil, Azure aboneliğinizle bağlanmak için kimlik doğrulaması için gereklidir.
+Önceden doğrulanmış değil, Azure aboneliğinizle bağlanmak için kimlik doğrulaması için gereklidir. Kimliği doğrulanmış sonra bir tarayıcı içi Kabuk burada kapsayıcısı içindeki komutları çalıştırabilirsiniz bakın.
 
 ![SSH bağlantısı](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
-## <a name="ssh-support-with-custom-docker-images"></a>Özel Docker görüntülerle SSH desteği
+## <a name="use-ssh-support-with-custom-docker-images"></a>SSH desteği özel Docker görüntülerle kullanın
 
 Azure portalında kapsayıcı ve istemci arasındaki SSH iletişimi desteklemek özel bir Docker görüntü için sırayla Docker görüntüsü için aşağıdaki adımları gerçekleştirin.
 
@@ -103,12 +99,105 @@ Dockerfile kullanan [ `ENTRYPOINT` yönerge](https://docs.docker.com/engine/refe
     ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
+## <a name="open-ssh-session-from-remote-shell"></a>Uzak Kabuğu'ndan SSH oturumu açma
+
+> [!NOTE]
+> Bu özellik şu anda önizlemede değil.
+>
+
+TCP, tünel kullanarak kimliği doğrulanmış WebSocket bağlantısı üzerinden geliştirme makine kapsayıcıları için Web uygulaması arasında bir ağ bağlantısı oluşturabilirsiniz. Tercih ettiğiniz istemciden App Service içinde çalışan, kapsayıcısı ile bir SSH oturumu açmanızı sağlar.
+
+Başlamak için yüklemeniz gerekir [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI yüklemeden nasıl çalıştığını görmek için açık [Azure bulut Kabuk](../../cloud-shell/overview.md). 
+
+Çalıştırarak en son uygulama hizmeti uzantısı Ekle [az uzantısı Ekle](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
+
+```azurecli-interactive
+az extension add -–name webapp
+```
+
+Zaten çalıştırırsanız, `az extension add` çalıştırmadan önce [az uzantısı güncelleştirmesinin](/cli/azure/extension?view=azure-cli-latest#az-extension-update) bunun yerine:
+
+```azurecli-interactive
+az extension update -–name webapp
+```
+
+Uygulama kullanarak uzak bir bağlantı açmak [az webapp uzaktan bağlantı oluşturma](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) komutu. Belirtin  _\<grup\_adı >_ ve \_< app\_adı > _ uygulama ve değiştirme için \<bağlantı noktası > yerel bağlantı noktası numarası.
+
+```azurecli-interactive
+az webapp remote-connection create --resource-group <group_name> -n <app_name> -p <port> &
+```
+
+> [!TIP]
+> `&` Bulut Kabuk kullanıyorsanız komutu sonunda yalnızca kolaylık sağlamaya yöneliktir. Aynı Kabuğu'nda bir sonraki komut çalıştırabilmeniz için işlemi arka planda çalışır.
+
+Komut çıktısı, bir SSH oturumu açmak gereken bilgileri sağlar.
+
+```
+Port 21382 is open
+SSH is available { username: root, password: Docker! }
+Start your favorite client and connect to port 21382
+```
+
+Yerel bağlantı noktası kullanan istemci tercih ettiğiniz ile kapsayıcısı ile bir SSH oturumu açın. Aşağıdaki örnek, varsayılan kullanır [ssh](https://ss64.com/bash/ssh.html) komutu:
+
+```azurecli-interactive
+ssh root@127.0.0.1 -p <port>
+```
+
+İstenmesini zaman yazın `yes` bağlanmaya devam etmek. Ardından parolası istenir. Kullanım `Docker!`, hangi için başında gösterilen.
+
+```
+Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
+root@127.0.0.1's password:
+```
+
+Kimliği doğrulanmış sonra oturumu Hoş Geldiniz ekranında görmeniz gerekir.
+
+```
+  _____
+  /  _  \ __________ _________   ____
+ /  /_\  \___   /  |  \_  __ \_/ __ \
+/    |    \/    /|  |  /|  | \/\  ___/
+\____|__  /_____ \____/ |__|    \___  >
+        \/      \/                  \/
+A P P   S E R V I C E   O N   L I N U X
+
+0e690efa93e2:~#
+```
+
+Şimdi, bağlayıcı bağlanır. 
+
+Try çalışan [üst](https://ss64.com/bash/top.html) komutu. İşlem listesi, uygulamanızın işleminde görebilmeniz gerekir. İsteğe bağlı olarak aşağıdaki örnek çıktıda sahip olduğu `PID 263`.
+
+```
+Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
+CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
+Load average: 0.07 0.04 0.08 4/765 45738
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+    1     0 root     S     1528   0%   0   0% /sbin/init
+  235     1 root     S     632m  38%   0   0% PM2 v2.10.3: God Daemon (/root/.pm2)
+  263   235 root     S     630m  38%   0   0% node /home/site/wwwroot/app.js
+  482   291 root     S     7368   0%   0   0% sshd: root@pts/0
+45513   291 root     S     7356   0%   0   0% sshd: root@pts/1
+  291     1 root     S     7324   0%   0   0% /usr/sbin/sshd
+  490   482 root     S     1540   0%   0   0% -ash
+45539 45513 root     S     1540   0%   0   0% -ash
+45678 45539 root     R     1536   0%   0   0% top
+45733     1 root     Z        0   0%   0   0% [init]
+45734     1 root     Z        0   0%   0   0% [init]
+45735     1 root     Z        0   0%   0   0% [init]
+45736     1 root     Z        0   0%   0   0% [init]
+45737     1 root     Z        0   0%   0   0% [init]
+45738     1 root     Z        0   0%   0   0% [init]
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Hakkında sorular ve sorunları nakledebilirsiniz [Azure Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 Kapsayıcıları için Web uygulaması hakkında daha fazla bilgi için bkz:
 
+* [VS kodundan Azure App Service Node.js uygulamaları uzaktan hata ayıklama Tanıtımı](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
 * [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)
 * [Linux üzerinde Azure App Service’te Ruby Kullanma](quickstart-ruby.md)

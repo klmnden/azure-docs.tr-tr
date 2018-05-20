@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store Spark performans yönergeleri ayarlama | Microsoft Docs"
-description: "Azure Data Lake Store Spark performans kuralları ayarlama"
+title: Azure Data Lake Store Spark performans yönergeleri ayarlama | Microsoft Docs
+description: Azure Data Lake Store Spark performans kuralları ayarlama
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,21 +10,19 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 3c8ef6fd200f67ebc216c967bb1a6250ddcc15d4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a807bea13063d2a0b3c1c71ddb6c98aa2d2568d3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>Performans yönergeler Spark Hdınsight ve Azure Data Lake Store için ayarlama
 
 Spark üzerinde performans ayarlama olduğunda, küme üzerinde çalışan uygulama sayısı dikkate almanız gerekir.  Varsayılan olarak 4 çalıştırabilirsiniz, HDI kümesi üzerinde aynı anda uygulamaları (Not: değiştirilebilir varsayılan ayardır).  Varsayılan ayarları geçersiz kılar ve kümenin daha fazla bilgi için bu uygulamaları kullanmak için daha az uygulamaları kullanmaya karar verebilirsiniz.  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
@@ -50,7 +48,7 @@ Spark işlerinin çalıştırırken ADLS performansını artırmak için ayarlan
 
 Varsayılan olarak, Hdınsight'ta Spark çalıştırıldığında, her fiziksel çekirdek için iki sanal YARN çekirdek tanımlanır.  Bu bağlam birden çok iş parçacığından değiştirme miktarına ve concurrecy iyi bir denge sağlar.  
 
-## <a name="guidance"></a>Rehber
+## <a name="guidance"></a>Rehberlik
 
 Spark Data Lake Store'da verilerin çalışmak için analitik iş yükleri çalıştırırken, Data Lake Store ile en iyi performansı elde etmek en son Hdınsight sürüm kullanmanızı öneririz. İşinizi daha fazla g/ç yoğun olduğunda, belirli parametreleri performansını artırmak için yapılandırılabilir.  Azure Data Lake Store yüksek verimlilik işleyebilecek bir yüksek oranda ölçeklenebilir depolama platformudur.  İş, çoğunlukla okuma veya yazma oluşuyorsa, ardından eşzamanlılık g/ç için Azure Data Lake Store gelen ve giden performansı artırma.
 

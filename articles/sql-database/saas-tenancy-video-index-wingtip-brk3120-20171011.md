@@ -2,20 +2,20 @@
 title: Video dizine, Azure SaaS SQL uygulama | Microsoft Docs
 description: Bu makalede çeşitli zaman noktaları bizim 81 dakika video 11 Ekim 2017 tutulan Ignite konferans gelen SaaS DB kiralama uygulama tasarımı ile ilgili dizinler. Şimdi sizi ilgilendiren bölümüne atlayabilirsiniz. En az 3 desenleri açıklanmaktadır. Geliştirme ve yönetimini basitleştirmenize azure özellikleri açıklanmaktadır.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Video dizine ve Azure SQL veritabanı kullanarak mulit Kiracı SaaS uygulaması için açıklama
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video dizine ve Azure SQL veritabanı kullanarak çok kiracılı SaaS uygulaması için açıklama
 
 Bu makalede bir SaaS kiralama modelleri veya desenleri hakkında video 81 dakika zaman konumlarını içine açıklamalı dizinidir. Bu makalede, geriye doğru atlamayı sağlar veya hangi bölümünün videoya İleri ilginizi çeken. Video Azure SQL veritabanındaki bir çok Kiracı veritabanı uygulama için önemli tasarım seçenekleri açıklanmaktadır. Video gösterileri, izlenecek yollar yönetim kod ve deneyimi tarafından yazılmış Belgelerimizdeki olabilir daha haberdar zamanlarda daha fazla ayrıntı içerir.
 
@@ -42,7 +42,7 @@ Aşağıdaki konu başlıklarını bu makalenin sonraki bölümlerinde karşıl�
 
 - [1. **(Başlangıç)**  Hoş Geldiniz slayt, 0:00:03](#anchor-image-wtip-min00001)
 - [2. Oturum hedefleri, 0:03:11](#anchor-image-wtip-min00311)
-- [3. Agenda, 0:04:17](#anchor-image-wtip-min00417)
+- [3. Gündem, 0:04:17](#anchor-image-wtip-min00417)
 - [4. Çok kiracılı web uygulaması, 0:05:05](#anchor-image-wtip-min00505)
 - [5. Eylem, 0 App web formunda: 05:55](#anchor-image-wtip-min00555)
 - [6. Kiracı başına maliyet (ölçekli, yalıtım, Kurtarma), 0:09:31](#anchor-image-wtip-min00931)
@@ -60,7 +60,7 @@ Aşağıdaki konu başlıklarını bu makalenin sonraki bölümlerinde karşıl�
 - [18. Wingtip SaaS örnek uygulaması, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Senaryolar ve öğreticiler, 0 incelediniz desenleri: 49:10](#anchor-image-wtip-min04910)
 - [20. Öğreticiler ve Github deposunu, 0 Demo: 50:18](#anchor-image-wtip-min05018)
-- [21. Github repo Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [21. Github depo Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. 0 desenleri keşfetme: 56:20](#anchor-image-wtip-min05620)
 - [23. Kiracılar ve ekleme, 0 sağlama: 57:44](#anchor-image-wtip-min05744)
 - [24. Kiracılar ve uygulama bağlantısı, 0 sağlama: 58:58](#anchor-image-wtip-min05858)
@@ -73,7 +73,7 @@ Aşağıdaki konu başlıklarını bu makalenin sonraki bölümlerinde karşıl�
 - [31. Şema Yönetimi ölçekte 1:10:33](#anchor-image-wtip-min11033)
 - [32. Kiracı veritabanları, 1:12:21 arasında dağıtılmış sorgu](#anchor-image-wtip-min11221)
 - [33. Bilet oluşturma, 1:12:32 Tanıtımı](#anchor-image-wtip-min11232)
-- [34. SSMS adhoc analytics, 1:12:46](#anchor-image-wtip-min11246)
+- [34. SSMS geçici analizi, 1:12:46](#anchor-image-wtip-min11246)
 - [35. 1:16:32 SQL DW Kiracı veri ayıklamak](#anchor-image-wtip-min11632)
 - [36. Grafik günlük satış dağıtım, 1:16:48](#anchor-image-wtip-min11648)
 - [37. Kaydırma ve eylem, 1:19:52 çağırın](#anchor-image-wtip-min11952)
@@ -101,7 +101,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min00311"/>
-#### <a name="2-session-objectives-00153"></a>2. Session objectives, 0:01:53
+#### <a name="2-session-objectives-00153"></a>2. Oturum hedefleri, 0:01:53
 [![Oturum hedefleri][image-wtip-min00311-session]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=113)
 
 - Çok kiracılı uygulamalarla Artıları ve eksileri için alternatif modeller.
@@ -200,7 +200,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github repo Microsoft/WingtipSaaS, 0:50:32
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github depo Microsoft/WingtipSaaS, 0:50:32
 [![Github depo Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
@@ -230,7 +230,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min10330"/>
-#### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * FROM TenantsExtended, 1:03:25
+#### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * TenantsExtended, 1:03:25 gelen
 [![T-SQL SELECT * TenantsExtended gelen][image-wtip-min10330-sql-select-tenantsextended]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3805)
 
 
@@ -265,7 +265,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min11246"/>
-#### <a name="34-ssms-adhoc-analytics-11235"></a>34. SSMS adhoc analytics, 1:12:35
+#### <a name="34-ssms-adhoc-analytics-11235"></a>34. SSMS geçici analizi, 1:12:35
 [![SSMS geçici analizi][image-wtip-min11246-ssms-adhoc-analytics]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4355)
 
 

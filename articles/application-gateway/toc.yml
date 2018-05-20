@@ -7,17 +7,17 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Doğrudan web trafiği - Portal
+    - name: Web trafiğini yönetme - Portal
       href: quick-create-portal.md
-    - name: Doğrudan web trafiği - PowerShell
+    - name: Web trafiğini yönetme - PowerShell
       href: quick-create-powershell.md
-    - name: Doğrudan web trafiği - Azure CLI
+    - name: Web trafiğini yönetme - Azure CLI
       href: quick-create-cli.md
 - name: Öğreticiler
   items:
     - name: Web trafiğini yönetme
       href: tutorial-manage-web-traffic-cli.md
-    - name: Web trafiğini kısıtlama
+    - name: Web uygulaması güvenlik duvarını etkinleştirme
       href: tutorial-restrict-web-traffic-cli.md
     - name: SSL ile güvenli
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: Kavramlar
   items:
+    - name: SSL sonlandırma
+      href: ssl-overview.md
+    - name: SSL ilkesine genel bakış
+      href: application-gateway-ssl-policy-overview.md
     - name: Web uygulaması güvenlik duvarı
       href: waf-overview.md
     - name: URL yönlendirme
       href: url-route-overview.md
     - name: Birden çok site barındırma
       href: multiple-site-overview.md
-    - name: SSL sonlandırma
-      href: ssl-overview.md
-    - name: URL yeniden yönlendirme
+    - name: Yeniden yönlendirme desteği
       href: redirect-overview.md
+    - name: Birden çok kiracı desteği
     - name: Sistem durumunu izleme
       href: application-gateway-probe-overview.md
+    - name: WebSocket desteği
+      href: application-gateway-websocket.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Uygulama ağ geçidi oluşturma
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Web uygulamaları - PowerShell
           href: create-web-app.md
-    - name: SSL sonlandırmayı etkinleştirme - Portal
+        - name: İç yük dengeleyiciyi yapılandırma
+          href: application-gateway-ilb.md
+    - name: SSL sonlandırmayı yapılandırma - Portal
       href: create-ssl-portal.md
     - name: Birden çok site barındırma - Portal
       href: create-multiple-sites-portal.md
+    - name: WAF kurallarını özelleştirme
+      items:
+        - name: Azure portalına
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Dış trafiği yeniden yönlendirme
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: Başvuru
   items:
+    - name: CRS kuralları
+      href: application-gateway-crs-rulegroups-rules.md
     - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

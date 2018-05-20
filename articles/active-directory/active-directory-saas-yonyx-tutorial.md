@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Yonyx etkileşimli Kılavuzlar ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Yonyx etkileşimli kılavuzları arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Yonyx etkileşimli Kılavuzlar ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Yonyx etkileşimli kılavuzları arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e221959a9997c44bbcb1fe97273b2e40b1eec06c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4448c8810d1411cb84b5c7e55a710e157c821e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Öğretici: Azure Active Directory Tümleştirme ile Yonyx etkileşimli kılavuzları
 
@@ -30,9 +30,9 @@ Yonyx etkileşimli kılavuzları Azure AD ile tümleştirme ile aşağıdaki ava
 - Azure AD hesaplarına otomatik olarak Yonyx etkileşimli kılavuzları (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Yonyx etkileşimli kılavuzlarıyla yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Yonyx etkileşimli kılavuzları etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company name>.yonyx.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.yonyx.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Yonyx etkileşimli kılavuzları istemci destek ekibi](mailto:support@yonyx.com) bu değerleri almak için. 
@@ -163,7 +163,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-yonyx-interactive-guides-test-user"></a>Yonyx etkileşimli kılavuzları test kullanıcısı oluşturma
 
@@ -172,7 +172,7 @@ Bu bölümün amacı Britta Simon Yonyx etkileşimli kılavuzlarında adlı bir 
 Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa Yonyx etkileşimli kılavuzları erişme denemesi sırasında oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, aracılığıyla Yonyx etkileşimli kılavuzları Destek ekibine başvurun gerek < mailto:support@yonyx.com >. 
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, aracılığıyla Yonyx etkileşimli kılavuzları Destek ekibine başvurun gerek <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -204,7 +204,7 @@ Bu bölümde, Britta Yonyx etkileşimli kılavuzlara erişim vererek, Azure çok
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -215,7 +215,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

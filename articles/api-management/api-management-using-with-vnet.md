@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 20c5635c0ce00c9fccfec84c477d60c77c55e2fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -142,7 +142,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 ## <a name="troubleshooting"> </a>Sorun giderme
 * **İlk kurulum**: API Management hizmeti ilk dağıtımı bir alt ağ ile başarılı olduğunda, ilk aynı alt ağ bir sanal makineyi dağıtmak için önerilir. Sanal makinede sonraki Uzak Masaüstü ve bir azure aboneliğinizde her bir kaynağın bağlantısı olduğunu doğrulayın 
     * Azure depolama blobu
-    * Azure SQL Database
+    * Azure SQL Veritabanı
 
  > [!IMPORTANT]
  > Bağlantı doğrulandıktan sonra alt ağ API Management dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırdığınızdan emin olun.
@@ -168,6 +168,7 @@ API Management dağıtılabilir alt hesaplanması minimum boyut yukarıda verile
 * Alt ağ ve API Management hizmeti aynı abonelikte olması gerekir.
 * API Management örnekleri içeren bir alt ağ, abonelikler arasında taşınamaz.
 * İç sanal ağ modunda yapılandırılmış bölgeli API Management dağıtımları için yönlendirme oldukları gibi birden çok bölgeler arasında dengelemesini yönetmekten sorumlu kullanıcılardır.
+* API Management hizmeti iç modunda Genel vnet'teki başka bir bölgede bulunan bir kaynak bağlantısını platform sınırlamaları nedeniyle çalışmaz. Daha fazla bilgi için bkz: [bir sanal ağ kaynaklarında eşlenen sanal ağında Azure iç yük dengeleyici ile iletişim kurabilir olamaz](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
 
 ## <a name="related-content"> </a>İlgili içerik

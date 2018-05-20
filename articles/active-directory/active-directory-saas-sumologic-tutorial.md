@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile SumoLogic | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile SumoLogic arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile SumoLogic | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile SumoLogic arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 9b737ce50c1b52c771af275f5722bfd92b2f1491
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 79db92a5ae9de6bb8f2d425c692f4d3e04ee1d3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Öğretici: Azure Active Directory Tümleştirme SumoLogic ile
 
@@ -29,9 +29,9 @@ SumoLogic Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 - Otomatik olarak için SumoLogic (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme SumoLogic ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<tenantname>.SumoLogic.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantname>.SumoLogic.com`
 
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
@@ -203,7 +203,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-sumologic-test-user"></a>SumoLogic test kullanıcısı oluşturma
 
@@ -233,7 +233,7 @@ Azure AD kullanıcıları için SumoLogic oturum açmak etkinleştirmek için bu
   
     c. Olarak **durum**seçin **etkin**.
   
-    d. **Kaydet** düğmesine tıklayın.
+    d. **Kaydet**’e tıklayın.
 
 >[!NOTE]
 >API sağlama AAD kullanıcı hesaplarına SumoLogic tarafından sağlanan veya herhangi diğer SumoLogic kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz. 
@@ -278,7 +278,7 @@ Erişim paneli SumoLogic parçasında tıklattığınızda, otomatik olarak Sumo
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 
 

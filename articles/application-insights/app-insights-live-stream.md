@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 49b343fca94e853a29807521f4213a5a85725f52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri akış: 1 saniye gecikme süresi ile Tanıla & zle 
 
@@ -37,7 +37,7 @@ Canlı ölçümleri akış ile şunları yapabilirsiniz:
 
 Ölçümler bir canlı akışı ASP.NET uygulamalarını çalıştıran şirket içi veya bulutta şu anda kullanılabilir değil. 
 
-## <a name="get-started"></a>başlarken
+## <a name="get-started"></a>Başlayın
 
 1. Henüz yapmadıysanız [Application Insights yüklü](app-insights-asp-net.md) , ASP.NET web uygulamanızda veya [Windows server uygulaması](app-insights-windows-services.md), bunu şimdi yapın. 
 2. **En son sürüme güncelleştirin** Application Insights paketi. Visual Studio'da, projenize sağ tıklayın ve seçin **Manage Nuget paketleri**. Açık **güncelleştirmeleri** sekmesi, onay **dahil et**ve tüm Microsoft.ApplicationInsights.* paketleri seçin.
@@ -60,7 +60,7 @@ Denetleme [bağlantı noktaları için Canlı ölçümleri akış giden](app-ins
 
 | |Canlı Akış | Ölçüm Gezgini ve analizi |
 |---|---|---|
-|Gecikme süresi|Bir saniye içinde görüntülenen verileri|Dakika boyunca bir araya getirilir|
+|Gecikme|Bir saniye içinde görüntülenen verileri|Dakika boyunca bir araya getirilir|
 |Hiçbir bekletme|Grafikte olduğu ve sonra atılır verileri devam eder.|[90 gün boyunca tutulur veri](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
 |İsteğe bağlı|Canlı ölçümleri açarken veri akışı|SDK'ın yüklü ve etkin olduğunda veriler gönderilir|
 |Ücretsiz|Canlı akış verileri için herhangi bir ücret alınmaz|Konusu [fiyatlandırma](app-insights-pricing.md)
@@ -116,7 +116,7 @@ Belirttiğiniz özel filtreler ölçütlere geri Application Insights SDK'sı Ca
 
 ### <a name="add-api-key-to-configuration"></a>API anahtarı yapılandırmasına ekleyin
 
-# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+### <a name="classic-aspnet"></a>Klasik ASP.NET
 
 Applicationınsights.config dosyasında AuthenticationApiKey QuickPulseTelemetryModule ekleyin:
 ``` XML
@@ -128,12 +128,41 @@ Applicationınsights.config dosyasında AuthenticationApiKey QuickPulseTelemetry
 ```
 Veya isteğe bağlı olarak kod içinde üzerinde QuickPulseTelemetryModule ayarlayın:
 
-``` C#
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+             TelemetryConfiguration configuration = new TelemetryConfiguration();
+            configuration.InstrumentationKey = "YOUR-IKEY-HERE";
+
+            QuickPulseTelemetryProcessor processor = null;
+
+            configuration.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    processor = new QuickPulseTelemetryProcessor(next);
+                    return processor;
+                })
+                        .Build();
+
+            var QuickPulse = new QuickPulseTelemetryModule()
+            {
+
+                AuthenticationApiKey = "YOUR-API-KEY"
+            };
+            QuickPulse.Initialize(configuration);
+            QuickPulse.RegisterTelemetryProcessor(processor);
+            foreach (var telemetryProcessor in configuration.TelemetryProcessors)
+                {
+                if (telemetryProcessor is ITelemetryModule telemetryModule)
+                    {
+                    telemetryModule.Initialize(configuration);
+                    }
+                }
 
 ```
-# <a name="net-core-tabnet-core"></a>[.NET core] (# sekmesini/.net-çekirdek)
+
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (Application Insights ASP.NET Core SDK gerektirir 2.3.0-beta veya üzeri)
 
 Haline dosyanız aşağıdaki gibi değiştirin:
 
@@ -141,26 +170,14 @@ Haline dosyanız aşağıdaki gibi değiştirin:
 
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
 ```
 
-Daha sonra altında yapılandırma yöntemi ekleyin:
+Daha sonra içinde ConfigureServices yöntemi ekleyin:
 
 ``` C#
-  QuickPulseTelemetryModule dep;
-            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
-            foreach (var module in modules)
-            {
-                if (module is QuickPulseTelemetryModule)
-                {
-                    dep = module as QuickPulseTelemetryModule;
-                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                    dep.Initialize(TelemetryConfiguration.Active);
-                }
-            }
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
----
 
 Ancak, algılar ve tüm bağlı sunucular güveniyorsanız, kimliği doğrulanmış kanal olmadan özel filtreler deneyebilirsiniz. Bu seçenek altı ay için kullanılabilir. Bu geçersiz kılma kez her yeni bir oturum gereklidir veya ne zaman yeni bir sunucu gelir çevrimiçi.
 

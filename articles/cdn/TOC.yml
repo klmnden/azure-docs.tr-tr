@@ -13,7 +13,7 @@
 - name: Öğreticiler
   items:
     - name: Web uygulamasına Azure CDN’yi ekleme
-      href: app-service-web-tutorial-content-delivery-network.md
+      href: cdn-add-to-web-app.md
     - name: Özel etki alanı ekleme
       href: cdn-map-content-to-custom-domain.md
     - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma
@@ -28,6 +28,8 @@
   items:
     - name: Önbelleğe alma nasıl işler?
       href: cdn-how-caching-works.md
+    - name: Çin’de içerik teslimi
+      href: cdn-china-delivery.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Tümleştirme

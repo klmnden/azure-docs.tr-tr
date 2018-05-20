@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Merkezi Masaüstü ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Merkezi Masaüstü arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Merkezi Masaüstü ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Merkezi Masaüstü arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 94c67bef7a0c6ba60fc9c7a60c79a23bf7984fb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 92c24688cf3d9baefcedcf22c915752b2d29b53c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Öğretici: Azure Active Directory Tümleştirme ile Merkezi Masaüstü
 
@@ -30,7 +30,7 @@ Merkezi Masaüstü Azure AD ile tümleştirme ile aşağıdaki avantajları sağ
 - Otomatik olarak Merkezi Masaüstü kendi Azure AD hesaplarıyla oturum, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda--Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -108,7 +108,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma bilgileri tek bir merkezi Masaüstü etki alanı ve URL'leri](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
-    a. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desende bir URL yazın:`https://<companyname>.centraldesktop.com`
+    a. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<companyname>.centraldesktop.com`
 
     b. İçinde **tanımlayıcısı** kutusunda, aşağıdaki desende bir URL yazın:
     | |
@@ -116,7 +116,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
 
-    c. İçinde **yanıt URL'si** kutusunda, aşağıdaki desende bir URL yazın:`https://<companyname>.centraldesktop.com/saml2-assertion.php`    
+    c. İçinde **yanıt URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Gerçek tanımlayıcısı ile bu değerleri güncelleştirmek URL'si ve oturum açma URL'si yanıtlayın. Kişi [Merkezi Masaüstü istemci destek ekibi](https://imeetcentral.com/contact-us) bu değerleri almak için. 
@@ -153,7 +153,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 10. İçinde **ileti imzası doğrulama yöntemi** bölümünde, aşağıdaki adımları uygulayın:
 
-    ![İleti imzası doğrulama yöntemi](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "ileti imzası doğrulama yöntemi") bir. Seçin **sertifika**.
+    ![İleti imzası doğrulama yöntemi](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "ileti imzası doğrulama yöntemi") bir. **Sertifika**’yı seçin.
     
     b. İçinde **SSO sertifika** listesinde **RSH SHA256**.
     
@@ -258,7 +258,7 @@ Bu bölümde, kullanıcı Britta merkezi masaüstüne erişim vererek, Azure ço
 
 7. İçinde **eklemek atama** iletişim kutusunda **atamak** düğmesi.
     
-### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, Azure AD çoklu oturum açma yapılandırmanızı erişim paneli kullanarak sınayın.
 
@@ -268,7 +268,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -10,17 +10,16 @@ ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2a9f2e9c2634173cf2feb9ded2e87e49f9c8d1e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Varsayılan depolama alanı olarak Data Lake Store ile PowerShell kullanarak Hdınsight kümeleri oluşturma
+
 > [!div class="op_single_selector"]
 > * [Azure portal’ı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [(Varsayılan depolama için) PowerShell kullanma](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -38,11 +37,12 @@ Hdınsight Data Lake Store ile kullanmak için bazı önemli noktalar şunlardı
 PowerShell kullanarak Data Lake Store ile çalışmak üzere Hdınsight yapılandırmak için sonraki beş bölümler'ndaki yönergeleri izleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşıladığından emin olun:
 
 * **Bir Azure aboneliği**: Git [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya büyük**: bkz [PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
-* **Windows Yazılım Geliştirme Seti (SDK)**: Windows SDK'sını yüklemek için Git [indirir ve Windows 10 için Araçlar](https://dev.windows.com/en-us/downloads). SDK'sı bir güvenlik sertifikası oluşturmak için kullanılır.
+* **Windows Yazılım Geliştirme Seti (SDK)**: Windows SDK'sını yüklemek için Git [indirir ve Windows 10 için Araçlar](https://dev.windows.com/downloads). SDK'sı bir güvenlik sertifikası oluşturmak için kullanılır.
 * **Azure Active Directory hizmet asıl**: Bu öğreticide, Azure Active Directory (Azure AD) bir hizmet sorumlusu oluşturmak açıklar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir yöneticiyseniz, bu önkoşulu atlamak ve bu öğreticiyi devam edin.
 
     >[!NOTE]
@@ -50,6 +50,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşıladığınd
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Data Lake Store hesabı oluşturma
+
 Bir Data Lake Store hesabı oluşturmak için aşağıdakileri yapın:
 
 1. Masaüstünüzde bir PowerShell penceresi açın ve aşağıdaki kod parçacıkları girin. Sorulduğunda, oturum açmak için bir abonelik yöneticileri veya sahipleri oturum açın. 
@@ -142,7 +143,7 @@ Bu bölümde, Azure AD uygulaması için bir hizmet sorumlusu oluşturmak, hizme
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

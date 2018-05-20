@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store için tanılama günlüklerine erişme
 Data Lake Store hesabınızı ve hesabınız için toplanan günlükleri görüntülemek nasıl günlüğü tanılama etkinleştirmek bilgi edinin.
@@ -114,9 +112,9 @@ Burada JSON biçimli istek günlüğüne örnek girişi verilmiştir. Her bir bl
     }
 
 #### <a name="request-log-schema"></a>İstek günlüğü şeması
-| Ad | Tür | Açıklama |
+| name | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Timestamp (UTC) günlük |
+| zaman |Dize |Timestamp (UTC) günlük |
 | resourceId |Dize |İşlemi sürdü kaynak Kimliğini yerleştirin |
 | category |Dize |Günlük kategorisi. Örneğin, **istekleri**. |
 | operationName |Dize |Oturum açmış işlemin adı. Örneğin, getfilestatus. |
@@ -127,7 +125,7 @@ Burada JSON biçimli istek günlüğüne örnek girişi verilmiştir. Her bir bl
 | properties |JSON |Ayrıntılar için aşağıya bakın |
 
 #### <a name="request-log-properties-schema"></a>İstek günlüğü özellikleri şeması
-| Ad | Tür | Açıklama |
+| name | Tür | Açıklama |
 | --- | --- | --- |
 | HttpMethod |Dize |İşlem için kullanılan HTTP yöntem. Örneğin, alın. |
 | Yol |Dize |Yolun işlemi üzerinde gerçekleştirildi |
@@ -161,9 +159,9 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
     }
 
 #### <a name="audit-log-schema"></a>Denetim günlüğü şeması
-| Ad | Tür | Açıklama |
+| name | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Timestamp (UTC) günlük |
+| zaman |Dize |Timestamp (UTC) günlük |
 | resourceId |Dize |İşlemi sürdü kaynak Kimliğini yerleştirin |
 | category |Dize |Günlük kategorisi. Örneğin, **denetim**. |
 | operationName |Dize |Oturum açmış işlemin adı. Örneğin, getfilestatus. |
@@ -174,7 +172,7 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
 | properties |JSON |Ayrıntılar için aşağıya bakın |
 
 #### <a name="audit-log-properties-schema"></a>Denetim günlüğü özellikleri şeması
-| Ad | Tür | Açıklama |
+| name | Tür | Açıklama |
 | --- | --- | --- |
 | StreamName |Dize |Yolun işlemi üzerinde gerçekleştirildi |
 

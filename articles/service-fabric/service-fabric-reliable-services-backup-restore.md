@@ -9,16 +9,16 @@ editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Ve Reliable Services ve Reliable Actors geri yükleme
 Azure Service Fabric durumu bu yüksek kullanılabilirliği sürdürmek için birden çok düğümlere çoğaltır yüksek kullanılabilirlik platformudur.  Kümedeki bir düğümün başarısız olsa bile, bu nedenle, hizmetlerin kullanılabilir olmaya devam edin. Platform tarafından sağlanan bu-yerleşik artıklık bazı için yeterli olabilir, ancak belirli durumlarda, (bir dış depoya) verileri yedeklemek hizmeti için önerilir.
@@ -241,12 +241,12 @@ Kritik verilerin yedeklenmekte ve geri yüklenebileceği emin olmak önemlidir. 
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Başlık altında: yedekleme ve geri yükleme hakkında daha fazla bilgi
 Burada, bazı yedekleme ve geri yükleme hakkında daha fazla ayrıntı verilmiştir.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Yedekle
 Güvenilir durum Yöneticisi her okuma engellenmeden tutarlı yedeklemeler oluşturmak ya da yazma işlemleri olanağı sağlar. Bunu yapmak için bir denetim noktası ve günlük Kalıcılık mekanizması kullanır.  Güvenilir durum Yöneticisi işlem günlüğündeki baskısı hafifletmek ve kurtarma zamanları geliştirmek için bazı noktalarda belirsiz (Basit) kontrol noktalarını alır.  Zaman `BackupAsync` , güvenilir durum Yöneticisi tüm güvenilir nesneleri bildirir bunların en son denetim noktası dosyaları yerel bir yedekleme klasörüne kopyalamak için çağrılır.  Ardından, güvenilir durum Yöneticisi "Başlangıç işaretçi" yedekleme klasörüne en son günlük kaydı başlangıç tüm günlük kayıtları kopyalar.  En son günlük kaydının kadar tüm günlük kayıtları yedeklemeye dahil edilir ve güvenilir durum Yöneticisi yazma tamamlanan günlük korur olduğundan, tüm işlemler, kaydedilmiş olduğunu güvenilir durum Yöneticisi garanti eder (`CommitAsync` başarıyla verdi ) yedeklemeye dahil edilir.
 
 Sonra uygulayan herhangi bir işlem `BackupAsync` Mayıs adlı veya yedekleme olmayabilir.  Yerel yedekleme klasörü platform tarafından doldurulmuş sonra (diğer bir deyişle, yerel yedekleme çalışma zamanı tarafından tamamlandığını), hizmetin yedekleme geri çağırma çağrılır.  Yedekleme klasörü Azure depolama gibi harici bir konuma taşımak için bu geri çağırma sorumludur.
 
-### <a name="restore"></a>Geri Yükleme
+### <a name="restore"></a>Geri yükle
 Güvenilir durum Yöneticisi'ni kullanarak bir yedekten geri yükleme yeteneği sağlar `RestoreAsync` API.  
 `RestoreAsync` Yöntemi `RestoreContext` içinde yalnızca adlı `OnDataLossAsync` yöntemi.
 Tarafından döndürülen bool `OnDataLossAsync` hizmet bir dış kaynaktan durumuna geri olup olmadığını gösterir.
@@ -263,5 +263,5 @@ Bir hizmet başarıyla (true veya false döndürerek) Bu API tamamlandıktan ve 
   - [Güvenilir hizmetler bildirimleri](service-fabric-reliable-services-notifications.md)
   - [Güvenilir Hizmetleri Yapılandırması](service-fabric-reliable-services-configuration.md)
   - [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  - [Düzenli yedekleme ve geri yükleme Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
+  - [Azure Service Fabric’te düzenli yedekleme ve geri yükleme](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

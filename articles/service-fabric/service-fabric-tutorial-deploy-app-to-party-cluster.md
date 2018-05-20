@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric uygulamasını Visual Studio'dan bir kümeye dağıtma | Microsoft Docs
-description: Uygulamayı Visual Studio'dan bir kümeye dağıtmayı öğrenin
+title: Azure Service Fabric uygulamasını bir kümeye dağıtma | Microsoft Docs
+description: Uygulamayı Visual Studio'dan bir kümeye dağıtmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
--author: mikkelhegn
+-author: rwike77
 -manager: msfussell
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/23/2018
-ms.author: mikhegn
+ms.date: 05/11/2018
+ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4f0d41dbc2438217cb4f382da7c44833379b9637
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f75a05e965a025a3041036679ac06cfe4f1ec8d7
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric kümesine uygulama dağıtma
 Bir serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının doğrudan Visual Studio'dan Azure’da yeni bir kümeye nasıl dağıtılacağı gösterilir.
@@ -52,48 +52,56 @@ Bu öğreticiye başlamadan önce:
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="deploy-the-sample-application"></a>Örnek uygulamayı dağıtma
+## <a name="create-a-service-fabric-cluster"></a>Service Fabric kümesi oluşturma
+Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz. [Service Fabric kümesi](/service-fabric/service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir
 
-### <a name="select-a-service-fabric-cluster-to-which-to-publish"></a>Yayımlanacağı Service Fabric kümesini seçme
-Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz.
+Dağıtım için Visual Studio içinde iki seçeneğiniz vardır:
+- Azure’da Visual Studio'dan küme oluşturma. Bu seçenek doğrudan Visual Studio'dan tercih ettiğiniz yapılandırmalarla güvenli bir küme oluşturmanızı sağlar. Bu tür kümeler test senaryoları için idealdir, çünkü kümeyi oluşturabilir ve ardından Visual Studio'dan doğrudan bu kümenin içine yayımlayabilirsiniz.
+- Aboneliğinizde mevcut bir kümeye yayımlama.  [Azure portalı](https://portal.azure.com) aracılığıyla, [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) veya [Azure CLI](./scripts/cli-create-cluster.md) betiklerini kullanarak ya da bir [Azure Resource Manager şablonundan](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Service Fabric kümeleri oluşturabilirsiniz.
 
-Dağıtım için iki seçeneğiniz vardır:
-- Visual Studio'dan küme oluşturma. Bu seçenek doğrudan Visual Studio'dan tercih ettiğiniz yapılandırmalarla güvenli bir küme oluşturmanızı sağlar. Bu tür kümeler test senaryoları için idealdir, çünkü kümeyi oluşturabilir ve ardından Visual Studio'dan doğrudan bu kümenin içine yayımlayabilirsiniz.
-- Aboneliğinizde mevcut bir kümeye yayımlama.
-
-Bu öğreticide, Visual Studio'dan küme oluşturma adımları izlenir. Diğer seçenekler için, bağlantı uç noktanızı kopyalayıp yapıştırabilir veya bunu aboneliğinizden seçebilirsiniz.
+Bu öğreticide Visual Studio’dan bir küme oluşturulur. Zaten dağıttığınız bir küme varsa bağlantı uç noktanızı kopyalayıp yapıştırabilir veya aboneliğinizden kümeyi seçebilirsiniz.
 > [!NOTE]
 > Birçok hizmet birbiriyle iletişim kurmak için ters proxy kullanır. Visual Studio'dan oluşturulan kümelerde ve grup kümelerinde ters proxy varsayılan olarak etkindir.  Mevcut kümelerden birini kullanıyorsanız, [kümede ters proxy'yi etkinleştirmelisiniz](service-fabric-reverseproxy.md#setup-and-configuration).
 
-### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Uygulamayı Service Fabric kümesine dağıtma
-1. Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve **Yayımla**’yı seçin.
+### <a name="find-the-votingweb-service-endpoint"></a>VotingWeb hizmet uç noktasını bulun
+İlk olarak ön uç web hizmetinin uç noktasını bulun.  Ön uç web hizmeti belirli bir bağlantı noktasında dinliyor.  Uygulama Azure'daki bir kümeye dağıtıldığında hem küme hem de uygulama bir Azure yük dengeleyicinin arkasında çalışır.  Gelen trafiğin web hizmetine ulaşabilmesi için Azure yük dengeleyicide uygulama bağlantı noktası açık olmalıdır.  Bağlantı noktası (örneğin, 8080), **Uç Nokta** öğesindeki *VotingWeb/PackageRoot/ServiceManifest.xml* dosyasında bulunabilir:
 
-2. Aboneliklerinize erişebilmek için Azure hesabınızı kullanarak oturum açın. Grup kümesi kullanıyorsanız bu adım isteğe bağlıdır.
+```xml
+<Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
+```
 
-3. **Bağlantı Uç Noktası**'nın açılan listesini seçin ve "<Create New Cluster...>" seçeneğini belirtin.
+Sonraki adımda, **Küme oluştur** iletişim kutusunun **Gelişmiş** sekmesinde bu bağlantı noktasını belirtin.  Uygulamayı mevcut bir kümeye dağıtıyorsanız, Azure yük dengeleyicide bu bağlantı noktasını bir [PowerShell betiği](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) kullanarak veya [Azure portalından](https://portal.azure.com) açabilirsiniz.
+
+### <a name="create-a-cluster-in-azure-through-visual-studio"></a>Azure’da Visual Studio aracılığıyla küme oluşturma
+Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve **Yayımla**’yı seçin.
+
+Aboneliklerinize erişebilmek için Azure hesabınızı kullanarak oturum açın. Grup kümesi kullanıyorsanız bu adım isteğe bağlıdır.
+
+**Bağlantı Uç Noktası** açılan listesini seçin ve **<Create New Cluster...>** seçeneğini belirtin.
     
-    ![Yayımla İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+![Yayımla İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
     
-4. "Küme oluştur" iletişim kutusunda aşağıdaki ayarları değiştirin:
+**Küme oluştur** iletişim kutusunda aşağıdaki ayarları değiştirin:
 
-    1. "Küme Adı" alanında kümenizin adını, ayrıca kullanmak istediğiniz aboneliği ve konumu belirtin.
-    2. İsteğe bağlı: Düğüm sayısını değiştirebilirsiniz. Varsayılan olarak üç düğümünüz vardır; bu, Service Fabric senaryolarını test etmek için gereken en düşük sayıdır.
-    3. "Sertifika" sekmesini seçin. Bu sekmede, kümenizin sertifikasını güvenlik altına almak için kullanılacak bir parola yazın. Bu sertifika, kümenizin güvenliğine yardımcı olur. Ayrıca sertifikayı kaydetmek istediğiniz yolu da değiştirebilirsiniz. Visual Studio sertifikayı sizin için içeri aktarabilir, çünkü uygulamayı kümeye yayımlarken bu gerekli bir adımdır.
-    4. "VM Ayrıntısı" sekmesini seçin. Kümeyi oluşturman Sanal Makineler (VM) için kullanmak istediğiniz parolayı belirtin. Kullanıcı adı ve parola, VM'lere uzaktan bağlanmak için kullanılabilir. Ayrıca VM makine boyutu da seçmelisiniz ve gerekirse VM görüntüsü değiştirebilirsiniz.
-    5. İsteğe bağlı: "Gelişmiş" sekmesinde kümeyle birlikte oluşturulacak olan yük dengeleyicide açılmasını istediğiniz bağlantı noktaları listesinde değişiklik yapabilirsiniz. Ayrıca uygulama günlük dosyalarını yönlendirmek için kullanılacak mevcut bir Application Insights anahtarı ekleyebilirsiniz.
-    6. Ayarları değiştirmeyi bitirdiğinizde "Oluştur" düğmesini seçin. Oluşturma işleminin tamamlanması birkaç dakika sürer; çıkış penceresinde kümenin ne zaman tam olarak oluşturulduğu gösterilir.
-    
-    ![Küme Oluştur İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+1. **Küme Adı** alanında kümenizin adını, ayrıca kullanmak istediğiniz aboneliği ve konumu belirtin.
+2. İsteğe bağlı: Düğüm sayısını değiştirebilirsiniz. Varsayılan olarak üç düğümünüz vardır; bu, Service Fabric senaryolarını test etmek için gereken en düşük sayıdır.
+3. **Sertifika** sekmesini seçin. Bu sekmede, kümenizin sertifikasını güvenlik altına almak için kullanılacak bir parola yazın. Bu sertifika, kümenizin güvenliğine yardımcı olur. Ayrıca sertifikayı kaydetmek istediğiniz yolu da değiştirebilirsiniz. Visual Studio sertifikayı sizin için içeri aktarabilir, çünkü uygulamayı kümeye yayımlarken bu gerekli bir adımdır.
+4. **VM Ayrıntısı** sekmesini seçin. Kümeyi oluşturman Sanal Makineler (VM) için kullanmak istediğiniz parolayı belirtin. Kullanıcı adı ve parola, VM'lere uzaktan bağlanmak için kullanılabilir. Ayrıca VM makine boyutu da seçmelisiniz ve gerekirse VM görüntüsü değiştirebilirsiniz.
+5. **Gelişmiş** sekmesinde kümeyle birlikte oluşturulan Azure yük dengeleyicide açılmasını istediğiniz bağlantı noktaları listesinde değişiklik yapabilirsiniz.  Önceki adımlardan birinde keşfettiğiniz VotingWeb hizmet uç noktasını ekleyin. Ayrıca uygulama günlük dosyalarını yönlendirmek için mevcut bir Application Insights anahtarını ekleyebilirsiniz.
+6. Ayarları değiştirmeyi bitirdiğinizde **Oluştur** düğmesini seçin. Oluşturma işleminin tamamlanması birkaç dakika sürer; çıkış penceresinde kümenin ne zaman tam olarak oluşturulduğu gösterilir.
 
-4. Kullanmak istediğiniz küme hazır olduğunda, uygulama projesine sağ tıklayın ve **Yayımla**'yı seçin.
+![Küme Oluştur İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-    Yayımlama tamamlandığında, bir tarayıcı aracılığıyla uygulamaya istek gönderebilirsiniz.
+## <a name="deploy-the-sample-application"></a>Örnek uygulamayı dağıtma
+Kullanmak istediğiniz küme hazır olduğunda, uygulama projesine sağ tıklayın ve **Yayımla**'yı seçin.
 
-5. Tercih ettiğiniz tarayıcıyı açın ve küme adresini girin (bağlantı noktası bilgileri olmadan bağlantı uç noktası - örneğin, win1kw5649s.westus.cloudapp.azure.com).
+Yayımlama tamamlandığında, bir tarayıcı aracılığıyla uygulamaya istek gönderebilirsiniz.
 
-    Uygulamayı yerel olarak çalıştırırken gördüğünüz sonucun aynısını görmeniz gerekir.
+Tercih ettiğiniz tarayıcıyı açın ve küme adresini girin (bağlantı noktası bilgileri olmadan bağlantı uç noktası - örneğin, win1kw5649s.westus.cloudapp.azure.com).
 
-    ![Kümeden API Yanıtı](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+Uygulamayı yerel olarak çalıştırırken gördüğünüz sonucun aynısını görmeniz gerekir.
+
+![Kümeden API Yanıtı](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:

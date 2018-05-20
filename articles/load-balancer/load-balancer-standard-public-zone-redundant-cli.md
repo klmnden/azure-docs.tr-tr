@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI kullanarak tüm kullanılabilirlik bölgeler arasında Yük Dengeleme VM'ler
 
@@ -61,13 +61,13 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-load-balancer-standard"></a>Azure yük dengeleyici standart oluşturma
-Bu bölümde, nasıl oluşturma ve yük dengeleyici aşağıdaki bileşenlerden yapılandırma ayrıntıları:
+Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabileceğiniz ve yapılandırabileceğiniz açıklanmaktadır:
 - Yük dengeleyicideki gelen ağ trafiğini alan bir ön uç IP havuzu.
-- ön uç havuzu yük yere gönderir bir arka uç IP havuzu, ağ trafiğini dengeli.
-- arka uç VM örnekleri durumunu belirleyen bir durumu araştırması.
-- trafiğin Vm'lere nasıl dağıtıldığını tanımlayan bir yük dengeleyici kuralı.
+- Ön uç havuzunun yük dengelemesi yapılmış ağ trafiğini gönderdiği bir arka uç IP havuzu.
+- Arka uç sanal makine örneklerinin durumunu belirleyen bir durum araştırması.
+- Trafiğin sanal makinelere dağıtımını tanımlayan bir yük dengeleyici kuralı.
 
-### <a name="create-the-load-balancer"></a>Yük Dengeleyici oluşturma
+### <a name="create-the-load-balancer"></a>Yük dengeleyiciyi oluşturma
 Bir standart yük dengeleyici ile oluşturma [az ağ lb oluşturma](/cli/azure/network/lb#az_network_lb_create). Aşağıdaki örnek, adlandırılmış bir yük dengeleyici oluşturur *myLoadBalancer* ve atar *myPublicIP* adres ön uç IP yapılandırmasını.
 
 ```azurecli-interactive
@@ -94,7 +94,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Bağlantı noktası 80 için yük dengeleyici kuralı oluşturma
-Yük Dengeleyici kuralı gelen trafiği ve gerekli kaynak ve hedef bağlantı noktası ile birlikte trafiği almak için arka uç IP havuzu için ön uç IP yapılandırmasını tanımlar. Yük Dengeleyici kuralı oluşturma *myLoadBalancerRuleWeb* ile [az ağ lb kuralını](/cli/azure/network/lb/rule#az_network_lb_rule_create) ön uç havuzunda 80 numaralı bağlantı noktasını dinlemek için *myFrontEndPool* ve gönderme Yük dengeli ağ trafiği için arka uç adres havuzuna *myBackEndPool* ayrıca 80 numaralı bağlantı noktasını kullanıyor.
+Yük dengeleyici kuralı, gerekli kaynak ve hedef bağlantı noktalarının yanı sıra gelen trafik için ön uç IP yapılandırmasını ve trafiği almak için arka uç IP havuzunu tanımlar. *myFrontEndPool* ön uç havuzunda 80 numaralı bağlantı noktasını dinlemek ve yine 80 numaralı bağlantı noktasını kullanarak *myBackEndPool* arka uç adres havuzuna yük dengelemesi yapılmış ağ trafiğini göndermek için [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) ile *myLoadBalancerRuleWeb* yük dengeleyici kuralı oluşturun.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -110,7 +110,7 @@ az network lb rule create \
 ```
 
 ## <a name="configure-virtual-network"></a>Sanal ağ yapılandırma
-Bazı sanal makineleri dağıtmak ve yük dengeleyici sınayabilirsiniz önce destekleyici sanal ağ kaynakları oluşturun.
+VM’leri dağıtmadan ve dengeleyicinizi test etmeden önce yardımcı sanal ağ kaynaklarını oluşturun.
 
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
@@ -171,7 +171,7 @@ Bu örnekte, bölge 1, 2 bölge ve bölge için yük dengeleyici arka uç sunucu
 
 ### <a name="create-cloud-init-config"></a>cloud-init yapılandırması oluşturma
 
-NGINX yüklemek ve 'Hello World' Node.js uygulaması Linux sanal makine üzerinde çalıştırmak için bir bulut init yapılandırma dosyası kullanabilirsiniz. Geçerli Kabuğu'nda bulut init.txt ve kopyalama adlı bir dosya oluşturun ve aşağıdaki yapılandırma kabuğundan yapıştırın. Bütün kopyaladığınızdan emin olun bulut init dosya doğru özellikle ilk satırı:
+cloud-init yapılandırma dosyasını kullanarak NGINX’i yükleyin ve Linux sanal makinesinde 'Merhaba Dünya' Node.js uygulaması çalıştırın. Geçerli kabuğunuzda cloud-init.txt adlı bir dosya oluşturup aşağıdaki yapılandırmayı kopyalayıp kabuğa yapıştırın. Başta birinci satır olmak üzere cloud-init dosyasının tamamını doğru bir şekilde kopyaladığınızdan emin olun:
 
 ```yaml
 #cloud-config
@@ -218,17 +218,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>Zonal sanal makineler oluşturma
 VM'lerin oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) bölge 1, 2 bölge ve bölge 3. Aşağıdaki örnekte, her bölgede bir VM oluşturur ve zaten mevcut değilse SSH anahtarları üretir:
 
-1 bölgesinde VM'ler oluşturma
+Her bölgesinde (bölge 1, zone2 ve bölge 3) bir VM oluşturma *westeurope* konumu.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>Yük dengeleyiciyi test etme
 
@@ -241,14 +243,14 @@ Yük Dengeleyici kullanarak genel IP adresi al [az ağ ortak IP Göster](/cli/az
     --query [ipAddress] \
     --output tsv
 ``` 
-Daha sonra genel IP adresini bir web tarayıcısına girebilirsiniz. Yük dengeleyicinin VM’lere trafik dağıtmaya başlamadan önce VM’lerin hazır olması için birkaç dakika geçmesi gerektiğini unutmayın. Uygulama, yük dengeleyicinin trafiği dağıttığı VM’nin ana bilgisayar adı ile aşağıdaki gibi görüntülenir:
+Sonra da genel IP adresini bir web tarayıcısına girebilirsiniz. Yük dengeleyicinin VM’lere trafik dağıtmaya başlamadan önce VM’lerin hazır olması için birkaç dakika geçmesi gerektiğini unutmayın. Uygulama, yük dengeleyicinin trafiği dağıttığı VM’nin ana bilgisayar adı ile aşağıdaki gibi görüntülenir:
 
 ![Node.js uygulaması çalıştırma](./media/load-balancer-standard-public-zone-redundant-cli/running-nodejs-app.png)
 
 Trafik uygulamanızı çalıştıran tüm üç kullanılabilirlik bölgelerinde sanal makineleri dağıtmasına yük dengeleyici görmek için belirli bir bölgedeki bir VM'yi durdurmaya ve tarayıcınızı yenileyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinmek [standart yük dengeleyici](./load-balancer-standard-overview.md)
+- [Standart Yük Dengeleyici](./load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin
 
 
 

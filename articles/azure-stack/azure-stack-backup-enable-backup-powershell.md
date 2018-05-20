@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell ile Azure yığınının yedeklemeyi etkinleştirme
 
@@ -64,7 +64,7 @@ Aynı PowerShell oturumunda, aşağıdaki PowerShell komut dosyası değişkenle
 
 | Değişken        | Açıklama   |
 |---              |---                                        |
-| $username       | Tür **kullanıcıadı** kullanıcı adı ve etki alanı için paylaşılan sürücü konumunu kullanarak. Örneğin, `Contoso\administrator`. |
+| $username       | Tür **kullanıcıadı** etki alanı ve kullanıcı adı için yeterli erişimi olan paylaşılan sürücü konumunu dosyaları okuma ve yazma için kullanma. Örneğin, `Contoso\backupshareuser`. |
 | $password       | Tür **parola** kullanıcı için. |
 | $sharepath      | Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihaz üzerinde barındırılan bir dosya paylaşımına yol için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Yedekleme verilerini kullanılabilirliğini sağlamak için aygıt ayrı bir konumda olmalıdır. |
 

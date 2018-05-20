@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: e0c0c3f51b455983dbe3f937917ed090e51d0005
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlantılı ve şablonları Azure kaynaklarını dağıtırken iç içe geçmiş kullanma
 
@@ -148,7 +148,7 @@ Aşağıdaki örnek bir temel URL'yi bağlı şablonları için iki URL'ler olu�
 }
 ```
 
-Aynı zamanda [deployment()](resource-group-template-functions-deployment.md#deployment) temel URL için geçerli şablon almak ve, URL'yi diğer şablonlar için aynı konumda almak için kullanın. Bu yaklaşım, şablon konumunuza (belki de sürüm nedeniyle) değiştirir veya şablon dosyası URL'lerinde sabit kodlama önlemek istiyorsanız kullanışlıdır.
+Aynı zamanda [deployment()](resource-group-template-functions-deployment.md#deployment) temel URL için geçerli şablon almak ve, URL'yi diğer şablonlar için aynı konumda almak için kullanın. Bu yaklaşım, şablon konumunuza (belki de sürüm nedeniyle) değiştirir veya şablon dosyası URL'lerinde sabit kodlama önlemek istiyorsanız kullanışlıdır. TemplateLink özelliği yalnızca bir URL ile uzak bir şablona bağlarken döndürülür. Yerel bir şablon kullanıyorsanız, bu özelliği mevcut değil.
 
 ```json
 "variables": {
@@ -209,7 +209,7 @@ Ana Şablon bağlantılı şablon dağıtır ve döndürülen değeri alır. Da�
 }
 ```
 
-Diğer kaynak türleri gibi bağlantılı şablonu ve kaynaklar arasındaki bağımlılıkları ayarlayabilirsiniz. Bu nedenle, diğer kaynakları bir çıkış değerini bağlantılı şablondan gerektirdiğinde, bağlantılı şablonu daha önce dağıtılan emin olabilirsiniz. Veya diğer kaynaklara bağlı şablonunu kullanır, diğer kaynakları önce bağlantılı şablon dağıtılan emin olabilirsiniz.
+Diğer kaynak türleri gibi bağlantılı şablonu ve kaynaklar arasındaki bağımlılıkları ayarlayabilirsiniz. Bu nedenle, diğer kaynakları bir çıkış değerini bağlantılı şablondan gerektirdiğinde, bağlantılı şablonu daha önce dağıtılan emin olun. Veya diğer kaynaklara bağlı şablonunu kullanır, diğer kaynakları önce bağlantılı şablon dağıtılan emin olun.
 
 Aşağıdaki örnek, bir ortak IP adresi dağıtır ve kaynak kimliği döndüren bir şablon gösterir:
 

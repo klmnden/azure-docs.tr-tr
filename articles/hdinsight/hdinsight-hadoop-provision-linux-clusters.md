@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2afe1e91465c92c6f6cba00c4383456ef78d225c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
@@ -30,7 +30,7 @@ Ayarlama ve hdınsight'ta Hadoop, Spark, Kafka, etkileşimli sorgusu, HBase, R S
 Hadoop kümesi birkaç sanal makinelerin görevleri dağıtılmış işlem için kullanılan (düğümler) oluşur. Yalnızca genel yapılandırma bilgileri girmeniz gerekir böylece azure Hdınsight uygulama ayrıntılarını yükleme ve yapılandırma bireysel düğümleri, işler. 
 
 > [!IMPORTANT]
->Hdınsight küme faturalandırma bir küme oluşturulur ve küme silindiğinde durdurur sonra başlar. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bilgi nasıl [bir küme silin.](hdinsight-delete-cluster.md)
+>HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bilgi nasıl [bir küme silin.](hdinsight-delete-cluster.md)
 >
 
 ## <a name="cluster-setup-methods"></a>Küme kurulumu yöntemleri
@@ -152,7 +152,7 @@ Kümenin mevcut olduğu sürece için düğüm kullanım için faturalandırıl�
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Her küme türü için düğüm sayısı
 Her küme türü düğümleri, düğümleri ve varsayılan VM boyutu terminolojisi kendi sayısına sahip. Aşağıdaki tabloda, her düğüm türü için düğümleri parantez içinde sayısıdır.
 
-| Tür | Düğümler | Diyagram |
+| Tür | Düğüm | Diyagram |
 | --- | --- | --- |
 | Hadoop |Baş düğümü (2) veri düğümü (1 +) |![Hdınsight Hadoop küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |HEAD sunucusu (2), bölge (1 +), ana/ZooKeeper düğümü (3) |![Hdınsight HBase küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

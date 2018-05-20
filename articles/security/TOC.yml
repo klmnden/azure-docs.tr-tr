@@ -143,24 +143,14 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: Kişisel verileri yönetme
-          href: manage-personal-data-azure.md
-        - name: 'Kişisel verileri keşfetme, tanımlama, sınıflandırma'
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: Azure’da kişisel verileri koruma
-          href: protect-personal-data-azure.md
-        - name: Güvenlik Merkezi ile kişisel verileri koruma
-          href: protect-personal-data-azure-security-center.md
-        - name: Application Gateway ile kişisel verileri koruma
-          href: protect-personal-data-network-security.md
-        - name: Kimlik ve erişim denetimlerini kullanarak kişisel verileri koruma
-          href: protect-personal-data-identity-access-controls.md
-        - name: Şifreleme kullanarak bekleyen kişisel verileri koruma
-          href: protect-personal-data-at-rest.md
-        - name: Şifreleme kullanarak aktarımdaki kişisel verileri koruma
-          href: protect-personal-data-in-transit-encryption.md
-        - name: Azure raporlama araçlarını kullanarak kişisel verileri koruma
-          href: protection-personal-data-azure-reporting-tools.md
+        - name: Veri analizi
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: Veri ambarı
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: PaaS web uygulaması
+          href: ./blueprints/gdpr-paaswa-overview.md
     - name: FedRAMP
       items:
         - name: Veri analizi

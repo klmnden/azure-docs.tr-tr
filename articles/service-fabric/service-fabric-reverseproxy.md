@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric ters proxy | Microsoft Docs
-description: "Service Fabric'ın ters proxy mikro içinden ve dışından küme iletişimi için kullanın."
+description: Service Fabric'ın ters proxy mikro içinden ve dışından küme iletişimi için kullanın.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetleri ile iletişim Service Fabric kümede çalışan mikro yardımcı olur.
@@ -97,18 +97,18 @@ Hizmet için kaynakları şunlardır:
 
 Hizmet, bölümleme singleton kullanıyorsa *PartitionKey* ve *PartitionKind* sorgu dizesi parametreleri gerekli değildir ve ağ geçidi olarak kullanarak hizmet erişilebilir:
 
-* Harici olarak:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
-* Dahili olarak:`http://localhost:19081/MyApp/MyService`
+* Harici olarak: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Dahili olarak: `http://localhost:19081/MyApp/MyService`
 
 Hizmet Tekdüzen Int64 bölümleme düzeni kullanıyorsa *PartitionKey* ve *PartitionKind* sorgu dizesi parametreleri kullanılan, hizmetin bir bölüm ulaşmak için:
 
-* Harici olarak:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Dahili olarak:`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Harici olarak: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Dahili olarak: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Hizmet sunan kaynaklara ulaşmak için basitçe URL'de hizmet adından sonra kaynak yolu yerleştir:
 
-* Harici olarak:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Dahili olarak:`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Harici olarak: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Dahili olarak: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 Ağ geçidi, ardından bu istekleri hizmetin URL'sine iletir:
 

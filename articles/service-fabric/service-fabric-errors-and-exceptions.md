@@ -1,31 +1,31 @@
 ---
-title: "Oluşturulan ortak FabricClient özel durumları | Microsoft Docs"
-description: "Genel özel durumlar ve FabricClient API'ları, uygulama ve küme yönetimi işlemleri gerçekleştirirken atılabilen hataları açıklar."
+title: Oluşturulan ortak FabricClient özel durumları | Microsoft Docs
+description: Genel özel durumlar ve FabricClient API'ları, uygulama ve küme yönetimi işlemleri gerçekleştirirken atılabilen hataları açıklar.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: f07b1bce2e9ccc82e3dcbfe0f2cfe2311d968505
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 31defde289643b2adfd6e15bb8417b5498ba65d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Genel özel durumlar ve FabricClient API'leri ile çalışırken hataları
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API'leri yöneticilerin Service Fabric uygulama, hizmet veya küme üzerinde yönetim görevlerini gerçekleştirmek küme ve uygulama. Örneğin, uygulama dağıtımı, yükseltme ve kaldırma, bir küme durumu denetleniyor veya bir hizmet test etme. Uygulama geliştiricilerinin ve küme yöneticileri FabricClient API'ları Service Fabric kümesi ve uygulamaları yönetmek için Araçlar geliştirmek için kullanabilirsiniz.
 
 Farklı türlerde FabricClient kullanılarak gerçekleştirilen işlemler vardır.  Her yöntem hataları hatalı giriş nedeniyle, çalışma zamanı hataları veya geçici altyapı sorunlarını istisnalar atabilirsiniz.  Belirli bir yöntemle hangi özel durumlar bulmak için API Başvurusu belgelerine bakın. Çoğu tarafından oluşturulan bazı özel durumlar, ancak, farklı [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API'leri. Aşağıdaki tabloda FabricClient API'ları arasında ortak olan özel durumlar listelenir.
 
-| Özel durum | Ne zaman oluşturulur |
+| Özel Durum | Ne zaman oluşturulur |
 | --- |:--- |
 | [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) nesne kapalı durumda değil. Elden [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) nesne kullanıyorsanız ve yeni bir örneğini [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) nesnesi. |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |İşlem zaman aşımına uğradı. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) işlemi tamamlamak için MaxOperationTimeout birden yönlendirdiğinde döndürülür. |

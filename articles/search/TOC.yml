@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: Öğreticiler
   items:
-    - name: Bilişsel arama ile dizinleme
+    - name: Bilişsel arama geliştirme
       href: cognitive-search-tutorial-blob.md
     - name: Azure SQL Veritabanı'nı dizinleme
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: Planlama ve tasarım
       items:
-        - name: SKU seçme
+        - name: Katman seçme
           href: search-sku-tier.md
         - name: Hizmet sınırlamaları
           href: search-limits-quotas-capacity.md
-        - name: Hizmet ölçeklenebilirliği
+        - name: Bölüm ve çoğaltma ayırma
           href: search-capacity-planning.md
         - name: Çoklu müşteri mimarisi için tasarım desenleri
           href: search-modeling-multitenant-saas-applications.md

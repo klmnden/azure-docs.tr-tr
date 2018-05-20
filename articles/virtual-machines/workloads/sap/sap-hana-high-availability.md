@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>SAP HANA Azure sanal makinelerde (VM), yüksek kullanılabilirlik
 
@@ -107,7 +107,7 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
        SAP NetWeaver yığın türünü seçin
     1. İşletim sistemi türü  
        Linux dağıtımları birini seçin. Bu örnekte, SLES 12 seçin
-    1. Db Türü  
+    1. DB türü  
        HANA seçin
     1. SAP sistemi boyutu  
        SAP miktarını sağlamak için yeni sistem adımıdır. Sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
@@ -228,10 +228,10 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       Mantıksal birim oluşturun
+        Mantıksal birimler oluşturabilir. Doğrusal birim oluşturulacaktır olmadan lvcreate kullanırken -i geçin. -İ daha iyi g/ç performans şeritli birim oluşturmak için önerdiğimiz bağımsız değişkeni temel alınan fiziksel birim sayısı aynı olmalıdır. Bu belgede, veri birimi için kullanılan 2 fiziksel birimler, -i geçiş için bağımsız değişken 2. 1 fiziksel toplu günlük birimi için kullanılan dolayısıyla -i anahtarı açıkça kullanılır. Lütfen kullanın -i geçin ve her veri, günlük veya paylaşılan birimler için 1'den fazla fiziksel birim kullanırken aynı temel alınan fiziksel birim numarasını sayıya değiştirin.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

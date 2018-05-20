@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15fa3e7738810ada48f471a685f79a82445ad70c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Betik eylemi kullanarak Windows tabanlı Hdınsight kümelerini özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel komut dosyaları](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
@@ -53,7 +53,7 @@ Hdınsight Hdınsight kümelerinde aşağıdaki bileşenleri yüklemek için çe
 | Ad | Betik |
 | --- | --- |
 | **Spark yükleyin** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Bkz: [yükleme ve kullanma hdınsight'ta Spark kümeleri][hdinsight-install-spark]. |
-| **R yükleme** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Bkz: [yükleme ve kullanma R Hdınsight kümelerinde][hdinsight-install-r]. |
+| **R yükleme** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. [Yükleme ve kullanma R Hdınsight kümelerinde] bkz [hdınsight-Install-r]. |
 | **Solr yükleyin** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Bkz: [yükleme ve kullanma Solr hdınsight kümeleri](hdinsight-hadoop-solr-install.md). |
 | - **Giraph yükleyin** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Bkz: [yükleme ve kullanma Giraph hdınsight kümeleri](hdinsight-hadoop-giraph-install.md). |
 | **Ön yük Hıve kitaplıkları** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Bkz: [eklemek Hive kitaplıkları Hdınsight kümeleri hakkında](hdinsight-hadoop-add-hive-libraries.md) |
@@ -312,12 +312,10 @@ Bkz: [Hdınsight betik eylemi geliştirme betikleri][hdinsight-write-script].
 * [Hdınsight'ta Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir Hdınsight kümesi oluşturmak yönergeler sağlar.
 * [Hdınsight için betik eylemi betikleri geliştirme][hdinsight-write-script]
 * [Yükleme ve Spark Hdınsight kümelerinde kullanma][hdinsight-install-spark]
-* [Yükleme ve Hdınsight kümelerinde R kullanma][hdinsight-install-r]
 * [Yükleme ve Hdınsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install.md).
 * [Yükleme ve Hdınsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

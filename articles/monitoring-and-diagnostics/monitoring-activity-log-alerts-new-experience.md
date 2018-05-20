@@ -1,6 +1,6 @@
 ---
-title: Etkinlik günlüğü uyarılar oluşturabilir ve bunları Azure İzleyicisi'nde yeni uyarılar (Önizleme) deneyimi kullanarak yönetme | Microsoft Docs
-description: Bu makalede Azure İzleyicisi altında uyarıları (Önizleme) sekmesinden etkinlik günlüğü uyarıları oluşturma hakkında bilgi sağlar. Bu makalede, bu özellik için yeni kullanıcı deneyimi ayrıntıları verilmektedir.
+title: Etkinlik günlüğü uyarılar oluşturabilir ve bunları Azure İzleyicisi'nde yeni uyarılar deneyimi kullanarak yönetme | Microsoft Docs
+description: Bu makalede etkinlik günlüğü uyarıları Uyarılar sekmesini Azure İzleyicisi altında nasıl oluşturulacağı hakkında bilgi sağlar
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Yeni uyarılar (Önizleme) kullanarak uyarıları deneyimi etkinlik günlüğü oluşturma
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Yeni uyarılar kullanarak uyarıları deneyimi etkinlik günlüğü oluşturma
 
 Etkinlik günlüğü uyarıları uyarıda belirtilen koşullara uyan yeni bir etkinlik günlüğü olay ortaya çıktığında etkinleştirilmiş uyarılar.
 
-Bu uyarılar için Azure kaynaklarını, bir Azure Resource Manager şablonu kullanılarak oluşturulabilir. Bunlar ayrıca oluşturulabilir, güncelleştirilmiş veya Azure portalında silindi. Bu makalede, etkinlik günlüğü uyarıları kavramları tanıtır. Ardından, yeni deneyimi kullanarak Etkinlik günlüğü olaylarını üzerinde bir uyarı ayarlamak için Azure Portalı'nı kullanmayı gösterir [Azure Uyarıları'ni (Önizleme)](monitoring-overview-unified-alerts.md).
+Bu uyarılar için Azure kaynaklarını, bir Azure Resource Manager şablonu kullanılarak oluşturulabilir. Bunlar ayrıca oluşturulabilir, güncelleştirilmiş veya Azure portalında silindi. Bu makalede, etkinlik günlüğü uyarıları kavramları tanıtır. Ardından, yeni deneyimi kullanarak Etkinlik günlüğü olaylarını üzerinde bir uyarı ayarlamak için Azure Portalı'nı kullanmayı gösterir [Azure uyarıları](monitoring-overview-unified-alerts.md).
 
 Genellikle, etkinlik genellikle belirli kaynak grupları veya kaynak için kapsamlı, Azure aboneliğindeki kaynaklar üzerinde belirli değişiklikler meydana geldiğinde bildirim almak için günlük uyarılar oluşturabilir. Örneğin, herhangi bir bildirim almak istediğiniz durumlarda (örnek kaynak grubunda) sanal makine **myProductionResourceGroup** silinir, veya bir kullanıcıya, aboneliğinizdeki herhangi bir yeni rol atanmışsa bildirim isteyebilirsiniz.
 
@@ -46,11 +46,11 @@ Eylem grupları hakkında daha fazla bilgi için bkz: [oluşturma ve Eylem grupl
 Hizmet durumu bildirimlerine hakkında daha fazla bilgi için bkz: [hizmet durumu bildirimlerine etkinlik günlüğü uyarılar alırsınız](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>Yeni uyarılar önizlemede etkinlik günlükleri için nedir?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>Etkinlik günlükleri için uyarılar yenilikler nelerdir?
 
-[Azure uyarıları (Önizleme)](monitoring-overview-unified-alerts.md) şimdi etkinlik günlüğü uyarıları için geliştirilmiş kullanıcı deneyimi sağlar. İle [uyarılar için kullanıcı deneyimi Gelişmiş](monitoring-overview-unified-alerts.md), şunları yapabilirsiniz:
+[Azure uyarıları](monitoring-overview-unified-alerts.md) şimdi etkinlik günlüğü uyarıları için geliştirilmiş kullanıcı deneyimi sağlar. İle [uyarılar için kullanıcı deneyimi Gelişmiş](monitoring-overview-unified-alerts.md), şunları yapabilirsiniz:
 
-- [Oluşturma](#create-an-alert-rule-for-an-activity-log) ve [yönetmek](#view-and-manage-activity-log-alert-rules) etkinlik uyarı kuralları, gelen oturum **İzleyici** > **uyarıları (Önizleme)** dikey. Daha fazla bilgi edinmek [etkinlik günlükleri](monitoring-overview-activity-logs.md).
+- [Oluşturma](#create-an-alert-rule-for-an-activity-log) ve [yönetmek](#view-and-manage-activity-log-alert-rules) etkinlik uyarı kuralları, gelen oturum **İzleyici** > **uyarıları** dikey. Daha fazla bilgi edinmek [etkinlik günlükleri](monitoring-overview-activity-logs.md).
 
 - **Uyarıları hedef için yeni seçenekler**: yeni bir etkinlik günlüğü uyarı kuralı oluşturulurken, artık bir hedef kaynağa veya bir kaynak grubu veya bir aboneliği seçebilirsiniz.
 
@@ -68,8 +68,8 @@ Hizmet durumu bildirimlerine hakkında daha fazla bilgi için bkz: [hizmet durum
 
 Aşağıdaki yordamı kullanın:
 
-1. Azure portalından seçin **İzleyici** > **uyarıları (Önizleme).**
-2. Tıklatın **yeni uyarı kuralı** en üstündeki **uyarıları (Önizleme)** penceresi.
+1. Azure portalından seçin **İzleyici** > **uyarıları**
+2. Tıklatın **yeni uyarı kuralı** en üstündeki **uyarıları** penceresi.
 
      ![Yeni uyarı kuralı](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +130,7 @@ Aşağıdaki yordamı kullanın:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Görüntüleme ve etkinlik günlüğü uyarı kurallarını yönetme
 
-1. Azure portalından tıklatın **İzleyici** > **uyarıları (Önizleme)** tıklatıp **yönetmek kuralları** en pencerenin sol üst.
+1. Azure portalından tıklatın **İzleyici** > **uyarıları** tıklatıp **yönetmek kuralları** en pencerenin sol üst.
 
     ![ Uyarı kurallarını yönet](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

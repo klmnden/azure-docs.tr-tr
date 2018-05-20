@@ -4,14 +4,14 @@ description: Toplayıcı Gereci ve nasıl yapılandırılacağı genel bakış s
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -19,7 +19,7 @@ ms.lasthandoff: 05/07/2018
 
 
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bir Azure geçirmek toplayıcısı şirket içi vCenter ortamınızı keşfetmek için kullanılan hafif bir gereç ' dir. Bu Gereci şirket içi VMware makineleri bulur ve bunlarla ilgili meta verileri Azure geçiş hizmetine gönderir.
 
@@ -128,7 +128,7 @@ VCenter bağlandıktan sonra bulmak için bir kapsamı seçebilirsiniz. Bir kaps
 2. Aynı anda yalnızca bir kapsamı seçebilirsiniz. Daha fazla sanal makine seçmek için bir bulma tamamlamak ve yeni bir kapsam ile keşif işlemi yeniden başlatın.
 3. Yalnızca sahip bir kapsamı seçebilirsiniz *değerinden 1500 sanal makineleri*.
 
-## <a name="specify-migration-project"></a>Geçiş proje belirtin
+## <a name="specify-migration-project"></a>Geçiş projesi belirtin
 
 Şirket içi vCenter bağlı ve kapsam belirtilen sonra bulma ve değerlendirme için kullanılması gereken geçiş proje ayrıntılarını şimdi belirtebilirsiniz. Proje kimliği ve anahtarı belirtin ve bağlanın.
 
@@ -156,8 +156,8 @@ Aşağıdaki tabloda, toplanan ve ayrıca belirli bir sayaç alınamadı, etkile
 
 |Sayaç                                  |Düzey    |Aygıt başına düzeyi  |Değerlendirme etkisi                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
-|mem.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
+|CPU.Usage.average                        | 1       |Yok                |Önerilen VM boyutu ve maliyet                    |
+|mem.Usage.average                        | 1       |Yok                |Önerilen VM boyutu ve maliyet                    |
 |virtualDisk.read.average                 | 2       |2                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.write.average                | 2       |2                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk boyutu, depolama maliyeti ve VM boyutu         |

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: d397dcb1ecdc25dbd66ab3d6f2f010bc29f87c6c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 529df0147d2563c62c4a9578e47184bd98b01761
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric olayların listesi 
 
@@ -33,7 +33,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Küme yükseltme olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 29627 | ClusterUpgradeStartOperational | CM | Bilgilendirici | 1 |
 | 29628 | ClusterUpgradeCompleteOperational | CM | Bilgilendirici | 1 |
@@ -43,14 +43,14 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Sistem Durumu raporu olayları küme**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 54428 | ProcessClusterReportOperational | HM | Bilgilendirici | 1 |
 | 54437 | ExpiredClusterEventOperational | HM | Bilgilendirici | 1 |
 
 **Chaos hizmeti olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 50021 | ChaosStartedEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50023 | ChaosStoppedEvent | Test Edilebilirlik | Bilgilendirici | 1 |
@@ -59,7 +59,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Düğüm yaşam döngüsü olayları** 
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 18602 | DeactivateNodeCompletedOperational | FM | Bilgilendirici | 1 |
 | 18603 | NodeUpOperational | FM | Bilgilendirici | 1 |
@@ -77,14 +77,14 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Düğüm sistem durumu raporu olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 54423 | ProcessNodeReportOperational | HM | Bilgilendirici | 1 |
 | 54432 | ExpiredNodeEventOperational | HM | Bilgilendirici | 1 |
 
 **Chaos düğümü olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 50033 | ChaosRestartNodeFaultScheduledEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50087 | ChaosRestartNodeFaultCompletedEvent | Test Edilebilirlik | Bilgilendirici | 1 |
@@ -93,7 +93,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Uygulama yaşam döngüsü olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 29620 | ApplicationCreatedOperational | CM | Bilgilendirici | 1 |
 | 29625 | ApplicationDeletedOperational | CM | Bilgilendirici | 1 |
@@ -101,7 +101,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Uygulama yükseltme olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 29621 | ApplicationUpgradeStartOperational | CM | Bilgilendirici | 1 |
 | 29622 | ApplicationUpgradeCompleteOperational | CM | Bilgilendirici | 1 |
@@ -111,7 +111,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Uygulama sistem durumu raporu olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 54425 | ProcessApplicationReportOperational | HM | Bilgilendirici | 1 |
 | 54426 | ProcessDeployedApplicationReportOperational | HM | Bilgilendirici | 1 |
@@ -122,7 +122,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Chaos uygulama olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 50053 | ChaosRestartCodePackageFaultScheduledEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50101 | ChaosRestartCodePackageFaultCompletedEvent | Test Edilebilirlik | Bilgilendirici | 1 |
@@ -131,14 +131,14 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Hizmet yaşam döngüsü olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 18602 | ServiceCreatedOperational | FM | Bilgilendirici | 1 |
 | 18658 | ServiceDeletedOperational | FM | Bilgilendirici | 1 |
 
 **Hizmet sistem durumu raporu olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 54424 | ProcessServiceReportOperational | HM | Bilgilendirici | 1 |
 | 54433 | ExpiredServiceEventOperational | HM | Bilgilendirici | 1 |
@@ -147,27 +147,27 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Bölüm taşıma olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 18940 | ReconfigurationCompleted | RA | Bilgilendirici | 1 |
 
 **Bölüm sistem durumu raporu olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 54422 | ProcessPartitionReportOperational | HM | Bilgilendirici | 1 |
 | 54431 | ExpiredPartitionEventOperational | HM | Bilgilendirici | 1 |
 
 **Chaos bölüm olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 50069 | ChaosMovePrimaryFaultScheduledEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50077 | ChaosMoveSecondaryFaultScheduledEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 
 **Bölüm çözümleme olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 65003 | PrimaryMoveAnalysisEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 
@@ -175,7 +175,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Çoğaltma sistem durumu raporu olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 54429 | ProcessStatefulReplicaReportOperational | HM | Bilgilendirici | 1 |
 | 54430 | ProcessStatelessInstanceReportOperational | HM | Bilgilendirici | 1 |
@@ -184,7 +184,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Chaos çoğaltma olayları**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 50047 | ChaosRestartReplicaFaultScheduledEvent | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50051 | ChaosRemoveReplicaFaultScheduledEvent | Test Edilebilirlik | Bilgilendirici | 1 |
@@ -194,7 +194,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Kapsayıcı yaşam döngüsü olayları** 
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 23074 | ContainerActivatedOperational | Barındırma | Bilgilendirici | 1 |
 | 23075 | ContainerDeactivatedOperational | Barındırma | Bilgilendirici | 1 |
@@ -204,7 +204,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 **Bağıntı olaylarını**
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey | Sürüm |
+| Olay Kimliği | name | Kaynak (görev) | Düzey | Sürüm |
 | --- | --- | --- | --- | --- |
 | 65011 | CorrelationOperational | Test Edilebilirlik | Bilgilendirici | 1 |
 
@@ -212,7 +212,7 @@ Bunlar için eşleme varlığı göre sıralanmış bir platformda kullanılabil
 
 Sürüm 6.2 önce Service Fabric tarafından sağlanan olayları kapsamlı bir listesi aşağıda verilmiştir.
 
-| Olay Kimliği | Ad | Kaynak (görev) | Düzey |
+| Olay Kimliği | name | Kaynak (görev) | Düzey |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Bilgilendirici |
 | 25621 | NodeOpenedSuccess | FabricNode | Bilgilendirici |

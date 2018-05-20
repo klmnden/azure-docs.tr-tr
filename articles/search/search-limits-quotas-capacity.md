@@ -9,11 +9,11 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search hizmet sınırları
 Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki **serbest**, **temel**, veya **Standart** fiyatlandırma katmanları.
@@ -44,10 +44,13 @@ Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve ba
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |
 | Dizin başına en fazla alan |1000 |100 |1000 |1000 |1000 |1000 |
-| Dizin başına en fazla Puanlama profilleri |100 |100 |100 |100 |100 |100 |
+| En fazla [ilgili](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1 |1 |1 |1 |1 |
+| En fazla [profilleri Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |
 | Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> geç 2017 15 dizinleri, veri kaynakları ve dizin oluşturucular artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir. Temel katman yalnızca SKU dizin başına 100 alanlarının alt sınırına sahip olur.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Belge sınırları 
 
@@ -93,7 +96,7 @@ Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları, sk
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |
 | En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |
-| En fazla skillsets |3 |5 veya 15 |50 |200 |200 |Yok |
+| En fazla skillsets <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |
 | Çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Yok |
 | En fazla çalışma süresini | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |
 | BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |
@@ -104,6 +107,8 @@ Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları, sk
 <sup>2</sup> geç 2017 15 dizinleri, veri kaynakları ve dizin oluşturucular artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir.
 
 <sup>3</sup> S3 HD Hizmetleri dizin oluşturucu desteği dahil değildir.
+
+<sup>4</sup> 30 becerileri skillset başına en yüksek.
 
 ## <a name="queries-per-second-qps"></a>Sorgular / saniye (QPS)
 

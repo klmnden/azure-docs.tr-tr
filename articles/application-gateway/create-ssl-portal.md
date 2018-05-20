@@ -1,6 +1,6 @@
 ---
-title: SSL sonlandırma - Azure portal ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
-description: Bir uygulama ağ geçidi oluşturmak ve Azure portalını kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin.
+title: Bir uygulama ağ geçidi ile SSL sonlandırma - Azure portal yapılandırma | Microsoft Docs
+description: Bir uygulama ağ geçidi ve Azure portalını kullanarak SSL sonlandırma için bir sertifika ekleme hakkında bilgi edinin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,17 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>İle SSL sonlandırma Azure portalını kullanarak bir uygulama ağ geçidi oluşturma
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>İle SSL sonlandırma Azure portalını kullanarak bir uygulama ağ geçidi yapılandırma
 
-Azure Portalı'nı oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](overview.md) arka uç sunucuları için sanal makineler kullanan SSL sonlandırma için bir sertifika ile.
+Azure Portalı'nı yapılandırmak için kullanabileceğiniz bir [uygulama ağ geçidi](overview.md) arka uç sunucuları için sanal makineler kullanan SSL sonlandırma için bir sertifika ile.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -81,7 +80,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
     - *myAGSubnet* - alt ağ adı.
     - *10.0.0.0/24* - alt ağ adres alanı.
 
-    ![Sanal ağ oluşturma](./media/create-ssl-portal/application-gateway-vnet.png)
+    ![Sanal ağ oluştur](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Tıklatın **Tamam** sanal ağ ve alt ağ oluşturmak için.
 7. Tıklatın **genel bir IP adresi seçin**, tıklatın **Yeni Oluştur**ve ortak IP adresini girin. Bu örnekte adlı ortak IP adresi *myAGPublicIPAddress*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
@@ -106,7 +105,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
 Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak iki sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
 
-### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+### <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 
 1. **Yeni**’ye tıklayın.
 2. Tıklatın **işlem** ve ardından **Windows Server 2016 Datacenter** öne çıkan listesinde.

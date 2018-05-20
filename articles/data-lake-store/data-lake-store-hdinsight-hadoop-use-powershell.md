@@ -8,18 +8,17 @@ editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4c08dac95a2d2b52f1a1d28f6933b94ad4db10b7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Data Lake Store (olarak ek depolama alanı) ile bir Hdınsight kümesi oluşturmak için Azure PowerShell'i kullanma
+
 > [!div class="op_single_selector"]
 > * [Portalı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [(Varsayılan depolama için) PowerShell'i kullanma](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -54,7 +53,7 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
-* **Windows SDK**. Şuradan yükleyebilirsiniz [burada](https://dev.windows.com/en-us/downloads). Bu bir güvenlik sertifikası oluşturmak için kullanın.
+* **Windows SDK**. [Buradan](https://dev.windows.com/en-us/downloads) yükleyebilirsiniz. Bu bir güvenlik sertifikası oluşturmak için kullanın.
 * **Azure Active Directory hizmet asıl**. Bu öğreticideki adımlar, Azure AD hizmet sorumlusu oluşturma konusunda yönergeler sağlar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Azure AD Yöneticiyseniz, bu önkoşulu atlayın ve bu öğreticiyi devam edin.
 
     **Azure AD Yönetici değilseniz**, bir hizmet sorumlusu oluşturmak için gerekli adımları gerçekleştirmek mümkün olmaz. Data Lake Store ile Hdınsight kümesi oluşturmadan önce böyle bir durumda, Azure AD yöneticinizin önce bir hizmet sorumlusu oluşturmanız gerekir. Ayrıca, hizmet sorumlusu bir sertifika kullanılarak konusunda açıklandığı gibi oluşturulmalıdır [sertifikayla bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -122,6 +121,7 @@ Bir Data Lake Store oluşturmak için aşağıdaki adımları izleyin.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Data Lake Store için rol tabanlı erişim için kimlik doğrulaması ayarlama
+
 Her Azure aboneliği bir Azure Active Directory ile ilişkilidir. Önce kullanıcılar Azure portalında veya Azure Kaynak Yöneticisi API'si kullanılarak aboneliğin kaynaklarını erişen ve Hizmetleri bu Azure Active Directory ile kimlik doğrulaması gerekir. Erişim Azure abonelikleri ve Hizmetleri için bir Azure kaynak üzerinde uygun rol atama tarafından verilir.  Hizmetler için bir hizmet sorumlusu hizmeti Azure Active Directory (AAD) de tanımlar. Bu bölümde, Hdınsight, bir Azure kaynağı (daha önce oluşturduğunuz Azure Data Lake Store hesabı) erişimi gibi bir uygulama hizmet vermek verilmektedir uygulama için bir hizmet sorumlusu oluşturarak ve rolleri için Azure PowerShell atama.
 
 Active Directory kimlik doğrulaması için Azure Data Lake ayarlamak için aşağıdaki görevleri gerçekleştirmeniz gerekir.
@@ -130,6 +130,7 @@ Active Directory kimlik doğrulaması için Azure Data Lake ayarlamak için aşa
 * Uygulama Azure Active Directory ve bir hizmet sorumlusu oluşturma
 
 ### <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
+
 Olduğundan emin olun [Windows SDK](https://dev.windows.com/en-us/downloads) bu bölümdeki adımlar ile devam etmeden önce yüklü. Ayrıca bir dizin gibi oluşturduğunuz gerekir **C:\mycertdir**, sertifika oluşturulacağı.
 
 1. PowerShell penceresinden Windows SDK'yı yüklediğiniz konuma gidin (genellikle `C:\Program Files (x86)\Windows Kits\10\bin\x86` ve [MakeCert] [ makecert] otomatik olarak imzalanan bir sertifika ve özel bir anahtar oluşturmak için yardımcı programı. Aşağıdaki komutları kullanın.
@@ -147,13 +148,14 @@ Olduğundan emin olun [Windows SDK](https://dev.windows.com/en-us/downloads) bu 
     İstendiğinde daha önce belirttiğiniz özel anahtar parolası girin. İçin belirttiğiniz değer **-SAS** .pfx dosyasıyla ilişkili parolayı bir parametredir. Komut başarıyla tamamlandıktan sonra belirtilen sertifika dizininde CertFile.pfx görmeniz gerekir.
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>Bir Azure Active Directory ve bir hizmet sorumlusu oluşturma
+
 Bu bölümde, bir hizmet sorumlusu için bir Azure Active Directory uygulaması oluşturma, hizmet sorumlusu rol atamak ve bir sertifika sağlayarak hizmet sorumlusunun kimliğini doğrulamak için adımları uygulayın. Azure Active Directory'de bir uygulama oluşturmak için aşağıdaki komutları çalıştırın.
 
 1. Aşağıdaki cmdlet'leri PowerShell konsol penceresine yapıştırın. İçin belirttiğiniz değer emin olun **- DisplayName** özelliği benzersizdir. Ayrıca, değerlerini **- giriş sayfası** ve **- IdentiferUris** yer tutucu değerlerini olan ve olmayan doğrulanır.
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik doğrulaması ve Resource Manager | Microsoft Docs"
-description: "Bir uygulama başka Azure abonelikleri ile tümleştirmek için Azure Kaynak Yöneticisi API'si ve Azure Active Directory ile kimlik doğrulaması için bir Geliştirici Kılavuzu."
+title: Azure Active Directory kimlik doğrulaması ve Resource Manager | Microsoft Docs
+description: Bir uygulama başka Azure abonelikleri ile tümleştirmek için Azure Kaynak Yöneticisi API'si ve Azure Active Directory ile kimlik doğrulaması için bir Geliştirici Kılavuzu.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.author: dugill
+ms.openlocfilehash: 1a526663b0280bd1bb7739ccc9a4ebf78882754d
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Erişim abonelikler için kaynak yöneticisi kimlik doğrulaması API'sini kullanın
 ## <a name="introduction"></a>Giriş
@@ -29,7 +29,7 @@ Uygulamanızı çeşitli şekillerde Resource Manager API'leri erişebilirsiniz:
 1. **Kullanıcı + uygulama erişimi**: oturum açmış bir kullanıcı adına kaynaklara uygulamalar için. Bu yaklaşım, web uygulamaları ve yalnızca "Etkileşimli Yönetimi" Azure kaynakları ile ilgili komut satırı araçları gibi uygulamalar için çalışır.
 2. **Yalnızca uygulama erişim**: arka plan programı Hizmetleri ve zamanlanmış işler çalışan uygulamalar için. Uygulamanın kimlik kaynaklarına doğrudan erişimi verilir. Bu yaklaşım, Azure uzun vadeli gözetimsiz (katılımsız) erişimi olması gereken uygulamalar için çalışır.
 
-Bu makalede her iki yetkilendirme yöntemi kullanan bir uygulama oluşturmak için adım adım yönergeler sağlar. REST API veya C# ile her adımı gerçekleştirmek nasıl gösterir. Tam bir ASP.NET MVC uygulaması şu adresten edinilebilir [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Bu makalede her iki yetkilendirme yöntemi kullanan bir uygulama oluşturmak için adım adım yönergeler sağlar. REST API veya C# ile her adımı gerçekleştirmek nasıl gösterir. Tam bir ASP.NET MVC uygulaması şu adresten edinilebilir [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Web uygulaması yaptığı
 Web uygulaması:
@@ -65,7 +65,7 @@ Bağlı aboneliklerinizi yönetin:
 
 ![Abonelik Bağlan](./media/resource-manager-api-authentication/sample-ux-7.png)
 
-## <a name="register-application"></a>Uygulamayı Kaydet
+## <a name="register-application"></a>Uygulamayı kaydet
 Kodlama başlamadan önce web uygulamanızı Azure Active Directory (AD ile) kaydedin. Uygulama Kayıt Merkezi Kimliği uygulamanız için Azure AD içinde oluşturur. Uygulamanız OAuth istemci kimliği, yanıt URL'leri ve uygulamanızın kimlik doğrulaması ve Azure Resource Manager API'leri erişmek için kullandığı kimlik bilgileri gibi hakkındaki temel bilgileri tutar. Uygulama kaydı ayrıca Microsoft APIs kullanıcı adına erişirken uygulamanız gereken çeşitli izinlere temsilci kaydeder.
 
 Uygulamanızı diğer abonelik eriştiği için bir çok kiracılı uygulama olarak yapılandırmanız gerekir. Doğrulama geçirmek için Azure Active Directory ile ilişkilendirilmiş bir etki alanı sağlar. Azure Active Directory ile ilişkili etki alanları görmek için portalda oturum açın.
@@ -224,7 +224,7 @@ Azure kaynak yöneticisi için yalnızca bir erişim belirteci sahip - Azure AD 
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Yalnızca uygulama erişimi için Azure AD Graph API belirteci alma
-Uygulamanıza kimlik doğrulaması ve Azure AD grafik API'si için bir belirteç almak için Azure AD belirteç uç noktası için bir istemci kimlik bilgileri verin OAuth2.0 akış belirteç isteği gönderin (**https://login.microsoftonline.com/ {directory_domain_name} / OAuth2/Token**).
+Uygulamanıza kimlik doğrulaması ve Azure AD grafik API'si için bir belirteç almak için Azure AD belirteç uç noktası için bir istemci kimlik bilgileri verin OAuth2.0 akış belirteç isteği gönderin (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) yöntemi ASP.net MVC örnek uygulamasının alır yalnızca uygulama erişim belirteci grafik API'si için Active Directory kimlik doğrulama kitaplığı .NET için kullanma.
 
@@ -323,7 +323,7 @@ Uygulama için RBAC rolü atamak için bir örnek isteği:
 
 İstekte aşağıdaki değerler kullanılır:
 
-| GUID | Açıklama |
+| Guid | Açıklama |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |Abonelik kimliği |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |uygulamanın hizmet asıl nesne kimliği |

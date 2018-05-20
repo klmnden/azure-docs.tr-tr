@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbbce06653e60cd914c2ed4d5990aac78ef53a8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT hub'ında modülü çiftlerini kullanın
 
@@ -27,7 +27,7 @@ Bu makalede okuduğunuz varsayılır [anlamak ve IOT hub'da cihaz çiftlerini ku
 
 Cihaz tarafında, IOT Hub cihaz SDK'ları, her IOT hub'ı bağımsız bir bağlantı açar modülleri oluşturma olanak tanır. Bu, Cihazınızda farklı bileşenler için ayrı ad alanları kullanmanıza olanak sağlar. Örneğin, üç farklı algılayıcılar bir satış makine gerekir. Her algılayıcı şirketinizdeki farklı Departmanlar tarafından denetlenir. Her algılayıcı için bir modül oluşturabilirsiniz. Bu şekilde, her bölüm yalnızca işleri veya doğrudan yöntemleri bunlar çakışmalarını ve kullanıcı hatalarını önleme denetimi algılayıcı gönderebilir.
 
- Modül kimliği ve modülü twin cihaz kimliğini ve devic çifti olarak ancak daha hassas bir ayrıntı düzeyi aynı yetenekleri sağlar. İşletim sistemi veya yapılandırma ve koşullar için bu bileşenlerin her birini yalıtmak için birden çok bileşen yönetme bellenim aygıtları aygıtları esasında özellikli cihazların yüksekse bu ayrıntı düzeyi sağlar. Modül kimliği ve modül çiftlerini sorunları yönetim ayrılması modüler yazılım bileşenleri sahip IOT cihazları ile çalışırken sağlar. Modül twin genel kullanılabilirlik tarafından modülü twin düzeyinde tüm cihaz çifti işlevlerini destekleyen en hedefleyin. 
+ Modül kimliği ve modülü twin cihaz kimliği ve cihaz çifti olarak ancak daha hassas bir ayrıntı düzeyi aynı yetenekleri sağlar. İşletim sistemi veya yapılandırma ve koşullar için bu bileşenlerin her birini yalıtmak için birden çok bileşen yönetme bellenim aygıtları aygıtları esasında özellikli cihazların yüksekse bu ayrıntı düzeyi sağlar. Modül kimliği ve modül çiftlerini sorunları yönetim ayrılması modüler yazılım bileşenleri sahip IOT cihazları ile çalışırken sağlar. Modül twin genel kullanılabilirlik tarafından modülü twin düzeyinde tüm cihaz çifti işlevlerini destekleyen en hedefleyin. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -174,7 +174,7 @@ Kök nesnesinde modül kimliği özelliklerdir ve kapsayıcı nesneleri için `t
 
     - Özellikler
 
-    | Ad | Değer |
+    | name | Değer |
     | --- | --- |
     $content-türü | uygulama/json |
     $iothub-enqueuedtime |  Zaman zaman bildirim gönderildi |

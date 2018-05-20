@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 816f2c10631de3809c6679c1e2715174f072f56d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 299d3df1c9ae82bb9f184e9ffb1dd922013e5e65
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Uygulama proxy'si uygulama yapılandırma
 
@@ -51,7 +51,7 @@ Uygulama oluşturduğunuzda, hata iletisi sağ üst köşedeki görüntülemelid
 
 ## <a name="configure-connectorsconnector-groups"></a>Bağlayıcılar/bağlayıcı gruplarını yapılandırma
 
-Bağlayıcılar ve bağlayıcı grupları hakkında uyarı nedeniyle, uygulamanızın yapılandırma zorluk yaşıyorsanız, bağlayıcılar indirme hakkında ayrıntılar için uygulama proxy'si etkinleştirme hakkında yönergeler bakın. Bağlayıcılar hakkında daha fazla bilgi edinmek istiyorsanız bkz [bağlayıcılar belgelerine](application-proxy-understand-connectors.md).
+Bağlayıcılar ve bağlayıcı grupları hakkında uyarı nedeniyle, uygulamanızın yapılandırma zorluk yaşıyorsanız, bağlayıcılar indirme hakkında ayrıntılar için uygulama proxy'si etkinleştirme hakkında yönergeler bakın. Bağlayıcılar hakkında daha fazla bilgi edinmek istiyorsanız bkz [bağlayıcılar belgelerine](manage-apps/application-proxy-connectors.md).
 
 Bağlayıcılar etkin olmayan varsa, bu hizmete erişmek sorunu yaşıyor anlamına gelir. Bu, genellikle tüm gerekli bağlantı noktalarının açık olmadığından olur. Gerekli bağlantı noktalarının bir listesini görmek için etkinleştirme uygulama proxy'si belgelerin Önkoşullar bölümüne bakın.
 
