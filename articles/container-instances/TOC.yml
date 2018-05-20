@@ -26,7 +26,7 @@
     - name: Kod örnekleri
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
     - name: Resource Manager şablonları
-      href: container-instances-samples-rm.md
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
 - name: Kavramlar
   items:
     - name: Kotalar ve bölgesel sınırlar

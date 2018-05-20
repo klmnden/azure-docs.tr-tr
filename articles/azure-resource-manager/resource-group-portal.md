@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fe4666f053c7f3bd582ae51dd1694a425bea35dd
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2c76e56d9b30ef11fe4f3b7863a1a1357fca291c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Portal üzerinden Azure kaynaklarınızı yönetmek
 
 Bu makalede nasıl kullanılacağını gösterir [Azure portal](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı yönetmek için. Kaynakları portal üzerinden dağıtma hakkında bilgi edinmek için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](resource-group-template-deploy-portal.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="manage-resource-groups"></a>Kaynak gruplarını yönetme
 
@@ -91,7 +91,7 @@ Bir kaynak portalda görüntülerken, bu kaynağa yönetmek için seçenekler ba
 
 Aşağıdaki seçeneklerden birini başlatılıyor ve bir sanal makineyi durdurmak veya sanal makinenin özelliklerini yeniden gibi işlemler gerçekleştirebilirsiniz.
 
-## <a name="move-resources"></a>Kaynakları taşıma
+## <a name="move-resources"></a>Kaynakları taşı
 Başka bir kaynak grubu veya başka bir abonelik kaynaklarını taşımak gerekirse bkz [yeni kaynak grubu veya abonelik kaynaklarını taşıma](resource-group-move-resources.md).
 
 ## <a name="lock-resources"></a>Kaynakları kilitleme
@@ -102,7 +102,7 @@ Abonelik, kaynak grubu veya kaynak yanlışlıkla silinmesi ya da kritik kaynakl
 ## <a name="view-your-subscription-and-costs"></a>Aboneliğiniz ve maliyetleri görüntüleyin
 Tüm kaynaklar için aboneliğinizi ve aktarılmış maliyetleri hakkında bilgileri görüntüleyebilirsiniz. Seçin **abonelikleri** ve görmek istediğiniz abonelik. Yalnızca seçmek için bir abonelik olabilir.
 
-![aboneliği](./media/resource-group-portal/select-subscription.png)
+![abonelik](./media/resource-group-portal/select-subscription.png)
 
 Yazma oranını bakın.
 

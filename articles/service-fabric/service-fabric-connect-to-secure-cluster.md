@@ -16,7 +16,7 @@ ms.date: 01/10/2018
 ms.author: ryanwi
 ms.openlocfilehash: 055b2cdadf48c31635183b73f214f2215477c9d7
 ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
 ---

@@ -17,7 +17,7 @@ ms.date: 02/09/2018
 ms.author: jdial;anavin
 ms.openlocfilehash: d47a1099a8b57c450aa48e086cc1c391faf91aa7
 ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
 ---

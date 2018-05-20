@@ -9,11 +9,11 @@ ms.topic: reference
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d31c169600c594fc4764262cb8d080e9aee96b21
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 59f3535bd7efd17d818bf3c60dc1744d19a2ec37
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği Destek Hizmetleri 
 
@@ -39,7 +39,7 @@ Aşağıdaki hizmetler Azure AD kimlik doğrulamayı desteklemek ve yönetilen h
 | ------- | ----------- | ------ | ---- | ------------- |
 | Azure Resource Manager | https://management.azure.com/ | Kullanılabilir | Eylül 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Kullanılabilir | Eylül 2017 | |
-| Azure Data Lake | https://datalake.azure.net/ | Kullanılabilir | Eylül 2017 | |
-| Azure SQL | https://database.windows.net/ | Kullanılabilir | Ekim 2017 | |
+| Azure Data Lake | https://datalake.azure.net | Kullanılabilir | Eylül 2017 | |
+| Azure SQL | https://database.windows.net | Kullanılabilir | Ekim 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Kullanılabilir | Aralık 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Kullanılabilir | Aralık 2017 | |

@@ -14,22 +14,20 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 78e164b566194fcfe952e3ad59dd3d228f90d193
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Hızlı Başlangıç: SignalR Hizmetiyle sohbet odası oluşturma
-
-Microsoft Azure SignalR Hizmeti şu an [Genel Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) aşamasındadır.
 
 Azure SignalR Hizmeti, geliştiricilerin gerçek zamanlı özelliklerle web uygulamalarını kolayca derlemesine yardımcı olan bir Azure hizmetidir. Bu hizmet [ASP.NET Core 2.0 için SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)’yi temel alır.
 
 Bu makalede Azure SignalR Hizmeti ile çalışmaya başlama işlemi gösterilmektedir. Bu hızlı başlangıçta bir ASP.NET Core MVC Web Uygulamasını kullanarak bir sohbet uygulaması oluşturacaksınız. Bu uygulama, gerçek zamanlı içerik güncelleştirmelerini etkinleştirmek üzere Azure SignalR Hizmeti kaynağınızla bağlantı kuracaktır. Web uygulamasını yerel olarak barındıracak ve birden fazla tarayıcı istemcisine bağlanacaksınız. Her istemci, diğer tüm istemcilere içerik güncelleştirmeleri gönderebilecektir. 
 
 
-Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
 
 Bu öğreticinin kodu [AzureSignalR-samples GitHub deposundan](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom) indirilebilir.  Ayrıca, bu hızlı başlangıçta kullanılan Azure kaynakları, [SignalR Hizmeti betiği oluşturma](scripts/signalr-cli-create-service.md) adımlarıyla oluşturulabilir.
 
@@ -86,7 +84,7 @@ Bu bölümde, projenize [Gizli Dizi Yöneticisi aracını](https://docs.microsof
 
 1. Aşağıdaki komutu yürüterek `Microsoft.Azure.SignalR` NuGet paketine bir başvuru ekleyin:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
 
 2. Projeniz için paketleri geri yüklemek üzere aşağıdaki komutu yürütün.
 
@@ -97,7 +95,7 @@ Bu bölümde, projenize [Gizli Dizi Yöneticisi aracını](https://docs.microsof
     Bu komut, *.csproj* dosyası ile aynı dizinde yürütülmelidir.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
     ```
 
     Gizli Dizi Yöneticisi yalnızca yerel olarak barındırıldığı sırada web uygulamasını test etmek için kullanılır. Sonraki bir öğreticide, sohbet uygulamasını Azure’a dağıtacaksınız. Web uygulaması dağıtıldıktan sonra bağlantı dizesini Gizli Dizi Yöneticisi ile depolamak yerine bir uygulama ayarını kullanacaksınız.

@@ -15,7 +15,7 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.openlocfilehash: b426fd253b436c71235f006cc41881f0c0c67703
 ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
 ---

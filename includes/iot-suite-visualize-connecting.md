@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 ## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
@@ -57,4 +57,4 @@ Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme ç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Makaleyi [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) Çözüm Hızlandırıcısı özelleştirmek için bazı yöntemleri açıklar.
+Makaleyi [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) Çözüm Hızlandırıcısı özelleştirmek için bazı yöntemleri açıklar.

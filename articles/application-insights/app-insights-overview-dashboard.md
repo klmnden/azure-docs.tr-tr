@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 89ad96441ca4d519a9f4213ae3353eea1f0a7c37
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 4b3a7425f383e1fa8145bac016aa2881d806c545
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="application-insights-overview-dashboard-preview"></a>Uygulama Öngörüler genel bakış Panosu'na (Önizleme)
 
@@ -25,23 +25,23 @@ Application Insights her zaman, uygulamanızın sistem durumunu ve performansın
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Yeni deneyimi test nasıl?
 
- Application ınsights'ta altında: _Araştır_ seçin _genel bakış (Önizleme)_.
+ Application ınsights'ta altında: _genel bakış_seçin _varsayılan deneyimi olur önce lütfen yeni genel bakış deneyin_.
 
-![Genel Önizleme](.\media\app-insights-overview-dashboard\01.png)
+![Genel Önizleme](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
 
 Bu yeni varsayılan genel bakış Panosu'na başlatılır:
 
-![Genel Bakış önizleme bölmesinde](.\media\app-insights-overview-dashboard\02.png)
+![Genel Bakış önizleme bölmesinde](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
 
 ## <a name="better-performance"></a>Daha iyi performans
 
 Zaman aralığı seçim için basit bir tek tıklamayla arabirim basitleştirilmiştir.
 
-![Zaman aralığı](.\media\app-insights-overview-dashboard\04.png)
+![Zaman aralığı](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
 Genel performansı önemli ölçüde çıkarılmıştır. Dinamik olarak KPI döşeme güncelleştirme her varsayılan karşılık gelen Application Insights özellik bağlıdır. Örneğin, başarısız olan istekler seçerek başlatacak _hataları_ bölmesi:
 
-![Başarısızlıklar](.\media\app-insights-overview-dashboard\03.png)
+![Başarısızlıklar](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Uygulama panosu
 
@@ -49,14 +49,21 @@ Uygulama Panosu uygulama sağlık ve performans tamamen özelleştirilebilir bö
 
 Varsayılan Pano seçin erişmek için _uygulama Panosu_ sol üst köşedeki.
 
-![Pano görünümü](.\media\app-insights-overview-dashboard\0009.png)
+![Pano görünümü](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
 Bu, ilk kez kullanıyorsanız Pano erişme, varsayılan görünüm başlatılır:
 
-![Pano görünümü](.\media\app-insights-overview-dashboard\06.png)
+![Pano görünümü](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
 Bunu istiyorsanız varsayılan görünüm kullanmaya devam edebilir, ancak de ekleyebilirsiniz ve en iyi panodan Sil ekibinizin gereksinimlerine uyacak.
 
 Gezinmek için genel bakış deneyimi geriye yalnızca seçin:
 
-![Genel Bakış düğmesi](.\media\app-insights-overview-dashboard\07.png)
+![Genel Bakış düğmesi](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Huniler](usage-funnels.md)
+- [Bekletme](app-insights-usage-retention.md)
+- [Kullanıcı Akışları](app-insights-usage-flows.md)
+- [Panolar](app-insights-dashboards.md)

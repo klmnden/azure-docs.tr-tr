@@ -14,31 +14,31 @@ ms.workload: na
 ms.date: 03/30/2018
 ms.author: bryanla; v-clay
 ms.custom: ''
-ms.openlocfilehash: 04b4079038ab0ef3f87cfceea521a1424e93cce1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT teknolojileri ve çözümleri: PaaS ve SaaS
 
 Microsoft, tüm müşterilerin ihtiyaçlarını karşılayacak bir portföy oluşturarak herkese dijital dönüşüm avantajlarından faydalanma olanağı tanıyor. Azure IoT ürün portföyü, kullanılabilir PaaS/SaaS teknolojileri ve çözümlerine genel bir bakıştır. Kendi çözümünüzü oluşturmak için kullanılabilen iki yol sunar:
-- Hizmet Olarak Platform (PaaS): özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan önceden yapılandırılmış kurumsal sınıf çözümlerden oluşan bir koleksiyon olan [Azure IoT Paketi](https://www.azureiotsuite.com/)’ni kullanarak uygulamanızı oluşturun.
+- Hizmet Olarak Platform (PaaS): Özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan önceden yapılandırılmış kurumsal sınıf çözümlerden oluşan bir koleksiyon olan [Azure IoT çözüm hızlandırıcılarını](https://www.azureiotsuite.com/) kullanarak uygulamanızı oluşturun.
 - Hizmet Olarak Yazılım (SaaS): IoT çözümünün karmaşıklığından etkilenmeden IoT uygulamaları geliştirmeye yönelik yeni SaaS çözümü olan [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)’ı hemen kullanmaya başlayın. Kuruluşunuz kendi IoT çözümünüzü oluşturacak kaynaklara sahip değilse, Azure IoT Central, dakikalar içinde cihaz modelleri, panolar ve kurallar oluşturabilecek kodsuz bir IoT çözümüdür.
 
-![Sektörün en kapsamlı teknoloji ve çözüm portföyü][img-paas-saas-technologies-solutions]
+![Azure IoT teknolojileri ve çözümleri][img-paas-saas-technologies-solutions]
 
 ## <a name="solutions"></a>Çözümler
 
-Microsoft Azure IoT Paketi’ni ve SaaS tekliflerini hemen kullanmaya başlayın. Uzaktan izleme, tahmine dayalı bakım ve bağlı fabrika gibi yaygın IoT senaryolarının tamamen özelleştirilebilir bir çözüm oluşturmasını sağlayan önceden yapılandırılmış çözümler arasından tercih yapın. Ya da bulut çözümü uzmanlığı gerektirmeden güçlü IoT senaryolarına olanak sağlayan tam yönetimli bir uçtan uca çözüm olan Azure IoT Central’ı kullanın.
+Çözüm hızlandırıcıları ve SaaS teklifleriyle hızlıca çalışmaya başlayın. Uzaktan izleme, tahmine dayalı bakım ve bağlı fabrika gibi yaygın IoT senaryolarının tamamen özelleştirilebilir bir çözüm oluşturmasını sağlayan önceden yapılandırılmış çözümler arasından tercih yapın. Ya da bulut çözümü uzmanlığı gerektirmeden güçlü IoT senaryolarına olanak sağlayan tam yönetimli bir uçtan uca çözüm olan Azure IoT Central’ı kullanın.
 
-### <a name="azure-iot-suite-paas"></a>Azure IoT Paketi (PaaS)
+### <a name="azure-iot-solution-accelerators-paas"></a>Azure IoT çözüm hızlandırıcıları (PaaS)
 
-Azure IoT Paketi, IoT çözümünüz üzerinde yüksek düzeyde kontrol sağlayan özelleştirilebilir PaaS çözümlerinden oluşan kurumsal sınıf bir koleksiyondur. İşletmeniz bağlı işlemler için IoT uyguluyorsa veya bağlı ürünler için belirli özelleştirme gereksinimlerine sahipse, Azure IoT Paketi ihtiyacınız olan denetimi sağlar. 
+Azure IoT çözüm hızlandırıcıları, IoT çözümünüz üzerinde yüksek düzeyde kontrol sağlayan özelleştirilebilir PaaS çözümleridir. İşletmeniz bağlı işlemler için IoT uyguluyorsa veya bağlı ürünler için belirli özelleştirme gereksinimlerine sahipse, Azure IoT çözüm hızlandırıcıları ihtiyacınız olan denetimi sağlar. 
 
-Çok sayıda cihaz veya cihaz modelleri olan kuruluşlar ve bağlı fabrika çözümleri arayan üreticiler, Azure IoT Paketi’nden faydalanabilen şirketlere birer örnektir. Karmaşık ihtiyaçlara uygun yüksek oranda özelleştirilebilir çözümler oluşturmak için, IoT Paketi şunları sağlar:
+Çok sayıda cihaz veya cihaz modelleri olan kuruluşlar ve bağlı fabrika çözümleri arayan üreticiler, IoT çözüm hızlandırıcılarından faydalanabilecek şirketlere örnek olarak gösterilebilir. IoT çözüm hızlandırıcıları, karmaşık ihtiyaçlara uygun yüksek oranda özelleştirilebilir çözümler oluşturmaya yönelik olarak şunları sağlar: 
 
-- Önceden yapılandırılmış çözümler
+- Önceden oluşturulmuş çözümler
     - Uzaktan izleme
     - Bağlı fabrika
     - Tahmine dayalı bakım
@@ -58,26 +58,26 @@ Daha az cihaz modelleri, daha tahmin edilebilir senaryoları ve sınırlı IoT/I
 - Gereksinimlerinize göre yapılandırılabilir
 - Basit IoT gereksinimleri için ideal
 
-### <a name="compare-azure-iot-suite-and-azure-iot-central"></a>Azure IoT Paketi ile Azure IoT Central'ı karşılaştırma
+### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Azure IoT çözüm hızlandırıcıları ve Azure IoT Central’ı karşılaştırma
 
-Tipik bir [IoT çözüm mimarisini](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek ([Azure IoT Paketi](/azure/iot-suite) ve [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)) sunar.
+Tipik bir [IoT çözüm mimarisini](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek ([Azure IoT çözüm hızlandırıcıları](/azure/iot-suite) ve [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)) sunar.
 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), hem Azure IoT Central hem de Azure IoT Paketi'nin kullandığı temel Azure PaaS çözümüdür. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), hem Azure IoT Central hem de Azure IoT çözüm hızlandırıcılarının kullandığı temel Azure PaaS çözümüdür. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
 
 * Yüksek hacimli cihaz bağlantısı ve yönetimi.
 * Yüksek hacimli telemetri alımı.
 * Cihazların komuta ve denetimi.
 * Cihaz güvenliği uygulama.
 
-Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli bir parçasıdır. IoT Hub, kendi başına uçtan uca bir IoT çözümü sağlamayan bir Azure hizmetidir. IoT Hub herhangi bir IoT çözümü için başlangıç noktası olarak kullanılabilir ve onu kullanmak için Azure IoT Paketi veya Azure IoT Central kullanmanız gerekmez. Hem Azure IoT Paketi hem de Azure IoT Central, diğer Azure hizmetleriyle birlikte IoT Hub’ı kullanır. Aşağıdaki tabloda, gereksinimleriniz için doğru ürünü seçmenize yardımcı olmak üzere Azure IoT Paketi ile Azure IoT Central arasındaki temel farklılıklar özetlenmiştir:
+Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli bir parçasıdır. IoT Hub, kendi başına uçtan uca bir IoT çözümü sağlamayan bir Azure hizmetidir. IoT Hub, herhangi bir IoT çözümü için başlangıç noktası olarak kullanılabilir ve IoT Hub’ı kullanmak için Azure IoT çözüm hızlandırıcılarını veya Azure IoT Central’ı kullanmanız gerekmez. Hem Azure IoT çözüm hızlandırıcıları hem de Azure IoT Central, diğer Azure hizmetleriyle birlikte IoT Hub’ı kullanır. Aşağıdaki tabloda, gereksinimleriniz için doğru ürünü seçmenize yardımcı olmak üzere Azure IoT çözüm hızlandırıcıları ile Azure IoT Central arasındaki temel farklılıklar özetlenmiştir:
 
-|                        | Azure IoT Paketi | Azure IoT Central |
+|                        | Azure IoT çözüm hızlandırıcıları | Azure IoT Central |
 | ---------------------- | --------- | ----------- |
 | Birincil kullanım | En üst düzeyde esneklik gerektiren özel bir IoT çözümünün geliştirilmesini hızlandırma. | Ayrıntılı hizmet özelleştirmesi gerektirmeyen basit IoT çözümleri için pazarlama süresini kısaltma. |
 | Temel alınan PaaS hizmetlerine erişim          | Temel alınan Azure hizmetlerini yönetmek veya gerektiğinde değiştirmek için bu hizmetlere erişebilirsiniz. | SaaS. Tam olarak yönetilen çözüm, temel alınan hizmetler kullanıma sunulmaz. |
 | Esneklik            | Yüksek. Mikro hizmet kodu açı kaynaktır ve uygun gördüğünüz herhangi bir şekilde değiştirebilirsiniz. Ayrıca, dağıtım altyapısını özelleştirebilirsiniz.| Orta. Yerleşik tarayıcı tabanlı kullanıcı deneyimini kullanarak çözüm modelini ve kullanıcı arabirimini farklı yönlerini özelleştirebilirsiniz. Farklı bileşenler kullanıma sunulmadığı için altyapı özelleştirilemez.|
 | Beceri düzeyi                 | Orta-Yüksek. Çözüm arka ucunu özelleştirmek için Java veya .NET becerileri gerekir. Görselleştirmeyi özelleştirmek için JavaScript becerileri gerekir. | Düşük. Çözümü özelleştirmek için modelleme becerileri gerekir. Hiçbir kodlama becerisi gerekli değildir. |
-| Başlangıç deneyimi | Önceden yapılandırılmış çözümler yaygın IOT senaryolarını uygular. Birkaç dakika içinde dağıtılabilir. | Uygulama şablonları ve cihaz şablonları önceden derlenmiş modeller sağlar. Birkaç dakika içinde dağıtılabilir. |
+| Başlangıç deneyimi | Çözüm hızlandırıcıları, yaygın IoT senaryolarını uygular. Birkaç dakika içinde dağıtılabilir. | Uygulama şablonları ve cihaz şablonları önceden derlenmiş modeller sağlar. Birkaç dakika içinde dağıtılabilir. |
 | Fiyatlandırma                | Maliyet denetlemek için hizmetlerde ince ayar yapabilirsiniz. | Basit, tahmin edilebilir fiyatlandırma yapısı. |
 
 IoT çözümünüzü oluşturmak için kullanılacak ürün son olarak şununla belirlenir:

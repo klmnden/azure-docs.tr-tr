@@ -15,11 +15,11 @@ ms.date: 05/11/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 85a9b3a4f1fc21cbb47d41a61661de38d6fc246d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcıları, grupları ve hizmet asıl adı atayabilirsiniz birkaç yerleşik rol tanımı yok. Rol atamalarını azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller değiştiremez, ancak kendi oluşturabilirsiniz [özel roller](custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -100,13 +100,13 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Trafik Yöneticisi katkıda bulunan](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [Kullanıcı erişimi Yöneticisi](#user-access-administrator) | Azure kaynaklarına yönelik kullanıcı erişimini yönetmenizi sağlar. |
 | [Sanal makine yönetici oturum açma](#virtual-machine-administrator-login) | -  Bu role sahip kullanıcılar, bir sanal makinede Windows yöneticisi veya Linux kök kullanıcı ayrıcalıkları ile oturum açabilir. |
-| [Sanal makine Katılımcısı](#virtual-machine-contributor) | Sanal makineleri yönetmenizi sağlar ancak bu sanal makinelere veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
+| [Sanal makine Katılımcısı](#virtual-machine-contributor) | Sanal makineler, ancak onlara, erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenize olanak tanır. |
 | [Sanal makine kullanıcı oturum açma](#virtual-machine-user-login) | Bu role sahip kullanıcılar, bir sanal makinede normal kullanıcı olarak oturum açabilir. |
 | [Web planı katkıda bulunan](#web-plan-contributor) | Web siteleri için web planlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Web sitesi katkıda bulunan](#website-contributor) | Web sitelerini (web planlarını değil) yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 
 
-## <a name="owner"></a>Sahip
+## <a name="owner"></a>Sahibi
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -821,7 +821,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunan
+## <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunanı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1192,7 +1192,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Korumalı öğe koruyun |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Test Yük Devretmesi |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Yük devretme sınaması temizliğini |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Yük devretme |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Yük devret |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Mobility hizmeti güncelleştirmesi |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Koruma kapsayıcısı eşlemeleri okuma |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Tüm kurtarma Hizmetleri sağlayıcılarını okuma |
@@ -1442,7 +1442,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Sanal makineleri yönetmenizi sağlar ancak bu sanal makinelere veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
+> | **Açıklama** | Sanal makineler, ancak onlara, erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenize olanak tanır. |
 > | **Kimlik** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Yetkilendirme okuma |

@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
 ---

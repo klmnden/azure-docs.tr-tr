@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b92cbf0df971afd3bea981327975ed792ce942d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -115,7 +115,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Otomasyon
 * Azure Cosmos DB
 * Azure Geçişi
-* Batch
+* Yığın
 * Bing Haritalar
 * CDN
 * Bulut Hizmetleri - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
@@ -134,7 +134,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri için bir kaynak grubunda aynı abonelik ancak farklı bir abonelik taşınabilir. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
-* Media Services
+* Medya Hizmetleri
 * Mobile Engagement
 * Notification Hubs
 * Operasyonel İçgörüler
@@ -156,7 +156,8 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Sanal makineler (Klasik) - bkz [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
 * Sanal makine ölçek kümeleri - bkz [sanal makineleri sınırlamaları](#virtual-machines-limitations)
 * Sanal ağlar - bkz [sanal ağlar sınırlamaları](#virtual-networks-limitations)
-* VPN Gateway
+* Visual Studio Team Services - Microsoft dışı uzantısı VSTS hesaplarıyla satın alır gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
+* VPN Ağ Geçidi
 
 ## <a name="services-that-cannot-be-moved"></a>Taşınamaz Hizmetleri
 
@@ -164,16 +165,16 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 
 * AD etki alanı Hizmetleri
 * AD karma sistem durumu hizmeti
-* Application Gateway
+* Uygulama Ağ Geçidi
 * MySQL için Azure Veritabanı
 * PostgreSQL için Azure Veritabanı
 * Azure Geçişi
 * BizTalk Services
 * Sertifikalar - uygulama hizmeti sertifikaları taşınabilir, ancak yüklenen sertifikalara sahip [sınırlamalar](#app-service-limitations).
-* Kubernetes hizmeti
 * DevTest Labs - taşıma aynı Abonelikteki yeni kaynak grubu için etkinleştirildi, ancak çapraz abonelik taşıma etkin değil.
 * Dynamics LCS
 * Express Route
+* Kubernetes hizmeti
 * Yük Dengeleyici - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Yönetilen Uygulamalar
 * Yönetilen diskleri - bkz [sanal makineleri sınırlamaları](#virtual-machines-limitations)
@@ -236,7 +237,7 @@ Bir Web uygulaması taşınırken _Aboneliklerdeki_, aşağıdaki sınırlamalar
     - Web Apps
     - App Service planları
     - Karşıya yüklenen veya alınan SSL sertifikaları
-    - App Service ortamları
+    - App Service Ortamları
 - Kaynak grubundaki tüm uygulama hizmeti kaynaklar birlikte taşınmalıdır.
 - Uygulama hizmeti kaynaklar yalnızca bunlar ilk olarak oluşturulduğu kaynak grubundan taşınabilir. Bir uygulama hizmeti kaynak artık kendi özgün kaynak grubunda değilse, bunu geri, özgün kaynak grubuna ilk taşınmalıdır ve ardından abonelikler arasında taşınabilmesi.
 

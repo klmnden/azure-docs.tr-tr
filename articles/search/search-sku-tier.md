@@ -9,11 +9,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/12/2018
 ms.author: heidist
-ms.openlocfilehash: 5454e659d488c84de32a15de65226bc3e1b07dfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Arama'ya ilişkin bir fiyatlandırma katmanı seçin
 
@@ -67,9 +67,9 @@ Yaygın olarak kullanılan standart katmanları için odak kaydırma **S1 S3** ,
 | Bölüm boyutu|  25 GB | 100 GB | 250 GB |  |  |  |  |
 | Dizin ve dizin oluşturucu sınırları| 50 | 200 | 200 |  |  |  |  |
 
-**S1** özel kaynakları zorunlu olduğunda ortak bir seçimdir. Hizmet başına 25 GB en fazla 12 bölümleri için daha fazla bölüm ile sınırlamak üzerinde **S1** çoğaltmaları bölümleri en üst düzeye 300 GB Toplam ise (bkz [tahsis bölümler ve çoğaltmalar](search-capacity-planning.md#chart) daha fazla bilgi için gerçekçi ve Dengeli kompozisyonlarınıza.)
+**S1** özel kaynakları ve birden çok bölüm zorunlu olduğunda ortak bir seçimdir. Hizmet başına 25 GB en fazla 12 bölümleri için daha fazla bölüm ile sınırlamak üzerinde **S1** çoğaltmaları bölümleri en üst düzeye 300 GB Toplam ise (bkz [tahsis bölümler ve çoğaltmalar](search-capacity-planning.md#chart) daha dengeli için kompozisyonlarınıza.)
 
-Depolama ve sınırları dışında hizmet yetenek diğer yönlerini katmanları arasında Tekdüzen. (Dizin oluşturma ve sorgu işlemleri işleme) arama motoru örnekleridir, katmanı tarafından farklılık değil, çoğaltmaları: bir **S1** çoğaltma aynı olup bir **S3** çoğaltma. Benzer şekilde, istek ve yanıt yükü, sorguları saniyede üretilen iş ve en fazla yürütme süresini de katmanı tarafından farklı değildir.
+Portal ve fiyatlandırma sayfaları put odağı bölüm boyutu ve depolama, ancak her katman için tüm özellikleri (disk kapasitesi, hız, CPU'lar) işlem fiyatıyla doğrusal olarak büyütün. Bir **S2** çoğaltma daha hızlı bir şekilde **S1**, ve **S3** hızlıdır **S2**. **S3** katmanları sonu orantısız daha hızlı bir g/ç genellikle doğrusal işlem fiyatlandırma deseni. G/ç performans sorunu olarak öngörüyorsanız bir **S3** alt katmanları'den çok daha fazla IOPS sağlar.
 
 **S3** ve **S3 HD** yedeklenen aynı yüksek kapasiteli altyapı ancak her biri kendi sınırı farklı şekillerde ulaştığında. **S3** çok büyük dizinler daha az sayıda hedefler. Bu nedenle, kaynak bağlı kendi üst sınır: (her hizmet için 2.4 TB). **S3 HD** çok sayıda çok küçük dizinleri hedefler. 1.000 dizinleri adresindeki **S3 HD** sınırlarına dizin kısıtlamalarını biçiminde ulaşır. Kullanıyorsanız bir **S3 HD** 1. 000'den fazla dizinler gerektiren müşteri nasıl ilerleyeceğiniz hakkında bilgi için Microsoft Support başvurun.
 

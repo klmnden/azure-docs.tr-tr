@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -95,6 +95,7 @@ Kuruluşunuz sorunsuz SSO kullanmak planlama, aşağıdaki URL'ler kuruluşunuz 
 
 - Ayrıca, aşağıdaki ayar kullanıcının intranet bölgesinde etkinleştirilmiş olmalıdır: "Durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri izin ver."
 
+Kuruluşunuz yönetilen (şirket dışında) Kur'a kullanıyorsa, şirket içi AD ve ADFS Azure AD ile birleştirmek için kullanmaz sonra Azure ad sync'ed olması için ad karma Azure AD birleştirme Windows 10 bilgisayar nesnelerinde kullanır. Tüm kurumsal birimler (Azure AD birleşik karma olmasına gerek bilgisayar nesnelerini içeren OU) etkinleştirildiğinden eşitlemesi için Azure AD Connect eşitleme yapılandırması emin olun.
 
 Kuruluşunuzda bir giden proxy üzerinden internet erişimi gerekiyorsa, Azure AD ile kaydetmek Windows 10 bilgisayarları etkinleştirmek için Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir.
 
@@ -186,6 +187,14 @@ Bir Çoklu orman yapılandırması, hizmet bağlantı noktası bilgisayarları v
 
     $deSCP.CommitChanges()
 
+Yukarıdaki komut
+
+- `$verifiedDomain = "contoso.com"` Azure AD'de doğrulanmış etki alanı adlarınızı biri ile değiştirmek için gereken bir yer tutucudur. Kullanabilmeniz için önce etki alanına sahip olmanız gerekir.
+
+Doğrulanmış etki alanı adları hakkında daha fazla ayrıntı için bkz: [bir özel etki alanı adını Azure Active Directory'ye ekleme](active-directory-domains-add-azure-portal.md).  
+Doğrulanmış şirket etki alanlarının bir listesini almak için kullanabileceğiniz [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet'i. 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>2. adım: talep verme kurma
 
@@ -329,6 +338,7 @@ Yukarıdaki talep
 
 
 Doğrulanmış etki alanı adları hakkında daha fazla ayrıntı için bkz: [bir özel etki alanı adını Azure Active Directory'ye ekleme](active-directory-domains-add-azure-portal.md).  
+
 Doğrulanmış şirket etki alanlarının bir listesini almak için kullanabileceğiniz [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet'i. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

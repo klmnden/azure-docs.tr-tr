@@ -80,8 +80,6 @@ items:
         href: unique-keys.md
       - name: Sunucusuz veritabanı
         href: serverless-computing-database.md
-      - name: BulkExecutor’a genel bakış
-        href: bulk-executor-overview.md
       - name: Güvenlik
         href: database-security.md
         items:
@@ -467,10 +465,14 @@ items:
         href: regional-failover.md
       - name: Tanılama günlüğüne kaydetme
         href: logging.md
+      - name: BulkExecutor’a genel bakış
+        href: bulk-executor-overview.md
       - name: Düşük maliyetli okuma ve yazmalar
         href: key-value-store-cost.md
       - name: Verilerin süresini otomatik olarak sonlandırma
         href: time-to-live.md
+      - name: PowerShell kullanarak yönetme
+        href: manage-account-with-powershell.md
       - name: Depolama Gezgini’nin kullanımını yönetme
         href: storage-explorer.md
   - name: Kaynaklar

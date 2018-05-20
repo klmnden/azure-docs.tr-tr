@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -31,7 +31,7 @@ Aşağıdaki makaleleri iyi yalnızca Azure AD uygulama yönetimi özelliklerind
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Azure AD çözdü uygulama yönetimi sorunları giriş |[Azure Active Directory (AD) ile uygulamaları yönetme](manage-apps/what-is-application-management.md) |
-| Uygulamalara kimlerin erişebileceğini ve kullanıcıların uygulamaları nasıl başlatma tanımlama Azure ad çoklu oturum açma, etkinleştirme ile ilgili çeşitli özelliklere genel bakış |[Uygulama erişimi ve Azure Active Directory'de çoklu oturum açma](active-directory-appssoaccess-whatis.md) |
+| Uygulamalara kimlerin erişebileceğini ve kullanıcıların uygulamaları nasıl başlatma tanımlama Azure ad çoklu oturum açma, etkinleştirme ile ilgili çeşitli özelliklere genel bakış |[Uygulama erişimi ve Azure Active Directory'de çoklu oturum açma](manage-apps/what-is-single-sign-on.md) |
 | Farklı adımlar uygulamaları Azure AD ile tümleştirdiğinizde bakma |[Azure Active Directory uygulamaları ile tümleştirme](manage-apps/plan-an-application-integration.md)<br /><br />[Çoklu oturum açma SaaS uygulamaları için etkinleştirme](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md) |
 | Uygulamaları Azure AD'de nasıl temsil edildiğini bir teknik açıklama |[Neden ve nasıl uygulamaları için Azure AD eklenir](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ Bu bölümde, ilgili sorun giderme kılavuzları hızlı erişim sağlar. Bu say
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Federasyon ve diğer türleri oturum açma giriş |[Azure AD ile çoklu oturum açma](active-directory-appssoaccess-whatis.md) |
-| SaaS uygulamaları ile Azure AD ile önceden tümleştirilmiş binlerce Basitleştirilmiş tek oturum açma yapılandırma adımları |[Azure AD uygulama Galerisi'ni kullanmaya başlama](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon desteği önceden tümleştirilmiş uygulamaların tam listesi](active-directory-saas-tutorial-list.md)<br /><br />[Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
+| Federasyon ve diğer türleri oturum açma giriş |[Azure AD ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md) |
+| SaaS uygulamaları ile Azure AD ile önceden tümleştirilmiş binlerce Basitleştirilmiş tek oturum açma yapılandırma adımları |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon desteği önceden tümleştirilmiş uygulamaların tam listesi](active-directory-saas-tutorial-list.md)<br /><br />[Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
 | 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açmayı uygulamalar gibi [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md)ve çok daha fazlası |[Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md) |
 | El ile ayarlamak ve çoklu oturum açma yapılandırmanızı özelleştirmek nasıl |[Nasıl için yapılandırma federe çoklu oturum açma, Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştirme](active-directory-saml-claims-customization.md) |
 | SAML protokolünü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ Federasyon desteklemeyen uygulamalar için çoklu oturum açmayı etkinleştirme
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| SSO works nasıl parola tabanlı bir giriş ve kısa bir teknik genel bakış |[Parola tabanlı çoklu oturum açma Azure AD ile](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| SSO works nasıl parola tabanlı bir giriş ve kısa bir teknik genel bakış |[Parola tabanlı çoklu oturum açma Azure AD ile](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Hesap paylaşımı ve bu sorunları Azure AD tarafından nasıl çözülür ilgili senaryoları özeti |[Azure AD ile hesapları paylaşma](active-directory-sharing-accounts.md) |
 | Belirli uygulamalar için parola düzenli aralıklarla otomatik olarak değiştir |[Otomatik parola Rollover (Önizleme)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Dağıtım ve Azure AD parola yönetimi uzantısı Internet Explorer sürümüne yönelik Kılavuzlar sorun giderme |[Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma](active-directory-saas-ie-group-policy.md)<br /><br />[Erişim paneli uzantısı Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ Azure AD erişim paneli burada son kullanıcılar uygulamalarını başlatmak ve
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Kullanıcılar için çoklu oturum açma uygulamalarını dağıtmak için kullanılabilir farklı seçenekler karşılaştırması |[Tümleşik uygulamalarını kullanıcılara Azure AD dağıtma](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Kullanıcılar için çoklu oturum açma uygulamalarını dağıtmak için kullanılabilir farklı seçenekler karşılaştırması |[Tümleşik uygulamalarını kullanıcılara Azure AD dağıtma](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Erişim paneli ve kendi mobil eşdeğer MyApps genel bakış |[Erişim paneli ve MyApps giriş](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Azure AD uygulamalarınız Office 365 Web sitesinden erişme |[Office 365 uygulama Başlatıcı kullanma](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Azure AD uygulamaları Intune Managed Browser mobil uygulamasından erişmek nasıl |[Intune yönetilen tarayıcı](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Çoklu oturum açma başlatmak için ayrıntılı bağlantılar kullanarak Azure AD uygulamaları erişme |[Oturum açma doğrudan bağlantılar uygulamalarınızı alma](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Çoklu oturum açma başlatmak için ayrıntılı bağlantılar kullanarak Azure AD uygulamaları erişme |[Oturum açma doğrudan bağlantılar uygulamalarınızı alma](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Erişim paneli yüklenebilir [Azure Active Directory'nin tüm sürümlerinde](https://azure.microsoft.com/pricing/details/active-directory/).
 

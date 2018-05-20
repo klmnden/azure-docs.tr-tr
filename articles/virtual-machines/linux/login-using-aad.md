@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1d0ae04bee6d50456949529449b658907d338f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulaması (Önizleme) kullanarak Azure Linux sanal makinede oturum açın
 
@@ -50,7 +50,7 @@ Aşağıdaki Linux dağıtımları şu anda bu özellik Önizleme sırasında de
 
 Aşağıdaki Azure bölgeleri şu anda bu özellik Önizleme sırasında desteklenir:
 
-- Tüm ortak Azure bölgeleri
+- Tüm genel Azure bölgeleri
 
 >[!IMPORTANT]
 > Bu önizleme özelliğini kullanmak için yalnızca desteklenen bir Linux distro dağıtmak ve desteklenen bir Azure bölgesi. Özelliği Azure kamu veya sovereign bulut desteklenmez.
@@ -59,7 +59,7 @@ Aşağıdaki Azure bölgeleri şu anda bu özellik Önizleme sırasında destekl
 
 Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturun
+## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturma
 
 Sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az-group-create), bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az-vm-create) desteklenen distro kullanarak ve desteklenen bir bölgede. Aşağıdaki örnek adlı bir VM dağıtır *myVM* kullanan *Ubuntu 16.04 LTS* bir kaynak grubuna adlı *myResourceGroup* içinde *southcentralus*  bölge. Aşağıdaki örneklerde, kendi kaynak grubu ve gerektiği gibi VM adları sağlayabilir.
 
@@ -167,6 +167,10 @@ Bir web tarayıcısında kimlik doğrulama adımı başarılı şekilde gerçekl
 - SSH isteminde belirtilen oturum açma adının doğru olduğundan emin olun. Oturum açma adı bir yazım hatasından SSH isteminde belirtilen oturum açma adı ve Azure ad ile oturum hesabı arasında uyuşmazlığa neden olabilir. Örneğin, yazdığınız *azuresuer@contoso.onmicrosoft.com* yerine *azureuser@contoso.onmicrosoft.com*.
 - Birden çok kullanıcı hesabı varsa, farklı bir kullanıcı hesabı tarayıcı penceresinde Azure AD ile oturum açarken sağlamıyorsa emin olun.
 - Linux büyük küçük harfe duyarlı bir işletim sistemidir. Arasında bir fark 'Azureuser@contoso.onmicrosoft.com've'azureuser@contoso.onmicrosoft.com', hangi bir uyuşmazlığı neden olabilir. SSH isteminde doğru büyük küçük harf duyarlılığı ile UPN belirttiğinizden emin olun.
+
+## <a name="preview-feedback"></a>Önizleme geri bildirim
+
+Bu önizleme özelliği veya rapor üzerinde kullanarak sorunları hakkında geri bildirim paylaşmak [Azure AD görüş Forumu](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
