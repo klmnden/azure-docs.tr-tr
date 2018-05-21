@@ -1,23 +1,23 @@
 ---
-title: "Azure Cloud Services Tanım Şeması (.cscfg dosyası) | Microsoft Docs"
-ms.custom: 
+title: Azure Cloud Services Tanım Şeması (.cscfg dosyası) | Microsoft Docs
+services: cloud-services
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
-caps.latest.revision: "35"
+caps.latest.revision: 35
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: bba02688e443d4b5bde89691ca0b74b3597b453a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6347314e7f279356f4f3944f3238deda84f10fc0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Config şeması (.cscfg dosyası) Azure bulut Hizmetleri
 Hizmet yapılandırma dosyası, her rol hizmet dağıtmak için rol örneği sayısı, tüm yapılandırma ayarlarını ve bir rolle ilişkili herhangi bir sertifika parmak izleri değerlerini belirtir. Hizmet sanal ağın bir parçası ise, hizmet yapılandırma dosyası ve aynı zamanda sanal ağ yapılandırma dosyasındaki ağ yapılandırma bilgilerini sağlanmalıdır. Varsayılan hizmet yapılandırma dosyası için .cscfg uzantısıdır.
@@ -54,7 +54,7 @@ Aşağıdaki konular için şemayı açıklar `ServiceConfiguration` öğe:
 ## <a name="service-configuration-namespace"></a>Hizmet yapılandırma Namespace
 Hizmet yapılandırma dosyası için XML ad alanı: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a>ServiceConfiguration öğesi
+##  <a name="ServiceConfiguration"></a> ServiceConfiguration öğesi
 `ServiceConfiguration` Hizmet yapılandırma dosyasının en üst düzey öğesi bir öğedir.
 
 Aşağıdaki tabloda özniteliklerini açıklayan `ServiceConfiguration` öğesi. Tüm öznitelikleri değerleri dize türleridir.

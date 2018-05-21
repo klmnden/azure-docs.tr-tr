@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Java SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -54,6 +54,22 @@ SQL API Java SDK'sını zaman uyumlu işlemler destekler. Zaman uyumsuz desteği
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Benzersiz dizin için destek eklendi.
+* Akış seçeneklerinde devamlılık belirteci boyutunu sınırlamak için destek eklendi.
+* Bir hata Json serileştirmesi (zaman damgası) sabit.
+* Bir hata Json serileştirmesi (numaralandırma) sabit.
+* Com.fasterxml.jackson.core:jackson databind 2.9.5 için yükseltilmiş bağımlılığı.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Geliştirilmiş bağlantı için doğrudan modu havuzu.
+* Önceden getirme geliştirme orderby olmayan çapraz bölüm sorgusu için iyileştirilmiştir.
+* Geliştirilmiş UUID oluşturma.
+* Geliştirilmiş oturum tutarlılığı mantığı.
+* Multipolygon desteği eklendi.
+* Bölüm anahtarı aralığının istatistikleri koleksiyonu için desteği eklendi.
+* Bir hata bölgeli desteği sabit.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Json seri hale getirme performansı.
@@ -184,6 +200,8 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 May 2018 |--- |
+| [1.16.0](#1.16.0) |15 Mart 2018 |--- |
 | [1.15.0](#1.15.0) |14 Kas 2017 |--- |
 | [1.14.0](#1.14.0) |28 Eki 2017 |--- |
 | [1.13.0](#1.13.0) |25 Ağustos 2017 |--- |

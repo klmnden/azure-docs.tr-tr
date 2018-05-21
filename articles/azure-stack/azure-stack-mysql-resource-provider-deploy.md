@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4fb522e1a5a3c1adeaf5f46b8ccc3b9a852f4a88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -117,7 +117,7 @@ Komut dosyası, aşağıdaki adımları gerçekleştirir:
 PowerShell isteminden çalıştırabilirsiniz örnek aşağıda verilmiştir. Hesap bilgileri ve gerektiğinde parolaları değiştirdiğinizden emin olun:
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -214,6 +214,10 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hi�
     - Veritabanı kapasite
     - Otomatik yedekleme
     - tek tek departmanlar için yüksek performanslı sunucuları
+
+
+  > [!IMPORTANT]
+  > Aynı SKU durumlarda her zaman açık olan tek başına sunucular karıştıramazsınız. İlk barındırma sunucusu sonuçlar hata ekledikten sonra türlerini karma olarak çalışıyor.
  
 
 Böylece kiracılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz SKU adı özelliklerini yansıtmalıdır. Bir SKU tüm barındırma sunucuları aynı olanaklara sahip olmalıdır.

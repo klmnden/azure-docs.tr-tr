@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -51,8 +51,8 @@ Liste işlemi destekleyen herhangi bir kaynak türü için değerleri döndürü
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |string |Kaynak için benzersiz tanımlayıcı. |
-| apiVersion |Evet |string |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
+| resourceName veya resourceIdentifier |Evet |dize |Kaynak için benzersiz tanımlayıcı. |
+| apiVersion |Evet |dize |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -157,8 +157,8 @@ Bir kaynak sağlayıcısı ve desteklenen kaynak türleri hakkında bilgi dönd�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Evet |string |Namespace sağlayıcısı |
-| Kaynak türü |Hayır |string |Belirtilen ad alanı içindeki kaynak türü. |
+| providerNamespace |Evet |dize |Namespace sağlayıcısı |
+| Kaynak türü |Hayır |dize |Belirtilen ad alanı içindeki kaynak türü. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -236,7 +236,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="reference" />
 
-## <a name="reference"></a>başvuru
+## <a name="reference"></a>Başvuru
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Bir kaynağın çalışma zamanı durumunu temsil eden bir nesne döndürür.
@@ -245,9 +245,9 @@ Bir kaynağın çalışma zamanı durumunu temsil eden bir nesne döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |string |Adı veya bir kaynak benzersiz tanıtıcısı. |
-| apiVersion |Hayır |string |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
-| 'Tam' |Hayır |string |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
+| resourceName veya resourceIdentifier |Evet |dize |Adı veya bir kaynak benzersiz tanıtıcısı. |
+| apiVersion |Hayır |dize |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
+| 'Tam' |Hayır |dize |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -538,10 +538,10 @@ Bir kaynak benzersiz tanımlayıcısını döndürür. Kaynak adı belirsiz ya d
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Hayır |dize (içinde GUID biçimi) |Geçerli aboneliğe varsayılan değerdir. Bir kaynağı başka bir abonelik almak gerektiğinde bu değeri belirtin. |
-| resourceGroupName |Hayır |string |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
-| Kaynak türü |Evet |string |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
-| resourceName1 |Evet |string |Kaynağın adı. |
-| resourceName2 |Hayır |string |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
+| resourceGroupName |Hayır |dize |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
+| Kaynak türü |Evet |dize |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
+| resourceName1 |Evet |dize |Kaynağın adı. |
+| resourceName2 |Hayır |dize |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 

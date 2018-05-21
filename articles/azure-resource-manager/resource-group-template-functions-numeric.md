@@ -1,34 +1,34 @@
 ---
-title: "Azure Resource Manager şablonu işlevleri - sayısal | Microsoft Docs"
-description: "Sayılarla çalışmak için bir Azure Resource Manager şablonunda kullanılacak işlevleri açıklanmaktadır."
+title: Azure Resource Manager şablonu işlevleri - sayısal | Microsoft Docs
+description: Sayılarla çalışmak için bir Azure Resource Manager şablonunda kullanılacak işlevleri açıklanmaktadır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Sayısal işlevler için Azure Resource Manager şablonları
 
 Resource Manager tamsayılar ile çalışmak için aşağıdaki işlevleri sunar:
 
-* [ekleme](#add)
+* [Ekleme](#add)
 * [Copyındex](#copyindex)
 * [div](#div)
-* [kayan nokta](#float)
-* [int](#int)
+* [Kayan nokta](#float)
+* [Int](#int)
 * [max](#max)
 * [Min](#min)
 * [mod](#mod)
@@ -37,7 +37,7 @@ Resource Manager tamsayılar ile çalışmak için aşağıdaki işlevleri sunar
 
 <a id="add" />
 
-## <a name="add"></a>Ekleme
+## <a name="add"></a>ekle
 `add(operand1, operand2)`
 
 Sağlanan iki tamsayının toplamını döndürür.
@@ -117,7 +117,7 @@ Bir yineleme döngüsü dizinini döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| loopName | Hayır | Dize | Yineleme alma döngü adı. |
+| loopName | Hayır | dize | Yineleme alma döngü adı. |
 | uzaklık |Hayır |Int |Sıfır tabanlı yineleme değer eklemek için numarası. |
 
 ### <a name="remarks"></a>Açıklamalar
@@ -225,7 +225,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="float" />
 
-## <a name="float"></a>Kayan nokta
+## <a name="float"></a>float
 `float(arg1)`
 
 Değeri kayan dönüştürür nokta sayısı. Bir mantıksal uygulama gibi bir uygulama için özel parametreler geçirilirken yalnızca bu işlevi kullanın.
@@ -319,7 +319,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>en çok
 `max (arg1)`
 
 En büyük değer dizisi veya virgülle ayrılmış tamsayı listesi döndürür.

@@ -1,23 +1,23 @@
 ---
-title: "Azure bulut Hizmetleri def LoadBalancerProbe şema | Microsoft Docs"
-ms.custom: 
+title: Azure bulut Hizmetleri def LoadBalancerProbe şema | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 14
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 31c974c5a4b9dc9cff882ff42b73ee023fc4ad9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Tanım LoadBalancerProbe şeması Azure bulut Hizmetleri
 Yük Dengeleyici araştırmasını bir müşteri tanımlı sistem durumu araştırması UDP uç noktaları ve rol örnekleri uç noktalarını ' dir. `LoadBalancerProbe` Bir tek başına öğe; değil web rolü veya bir hizmet tanımı dosyasında çalışan rolü ile birleştirilir. A `LoadBalancerProbe` birden fazla rol tarafından kullanılabilir.
@@ -50,19 +50,19 @@ Varsayılan yük dengeleyici araştırmasını dinler ve yalnızca örneği (ör
 - [LoadBalancerProbes öğesi](#LoadBalancerProbes)
 - [LoadBalancerProbe öğesi](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a>LoadBalancerProbes öğesi
+##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes öğesi
 `LoadBalancerProbes` Öğesi yük dengeleyici araştırmalar koleksiyonunu açıklar. Bu öğe üst öğesidir [LoadBalancerProbe öğesi](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a>LoadBalancerProbe öğesi
+##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe öğesi
 `LoadBalancerProbe` Öğe, model durumu araştırması tanımlar. Birden fazla yük dengeleyici araştırmalar tanımlayabilirsiniz. 
 
 Aşağıdaki tabloda özniteliklerini açıklayan `LoadBalancerProbe` öğe:
 
 |Öznitelik|Tür|Açıklama|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Gereklidir. Yük Dengeleyici araştırmasını adı. Adın benzersiz olması gerekir.|
+| `name`              | `string` | Gereklidir. Yük Dengeleyici araştırmasını adı. Ad benzersiz olmalıdır.|
 | `protocol`          | `string` | Gereklidir. Uç noktası Protokolü belirtir. Olası değerler: `http` veya `tcp`. Varsa `tcp` belirtilirse, alınan bir ACK araştırma başarılı olması gereklidir. Varsa `http` belirtilirse, belirtilen URI'ye 200 Tamam yanıttan araştırma başarılı olması gereklidir.|
-| `path`              | `string` | Sistem durumu VM'den istemek için kullanılan URI. `path`gerekmiyorsa `protocol` ayarlanır `http`. Aksi takdirde, buna izin verilmez.<br /><br /> Varsayılan değer yoktur.|
+| `path`              | `string` | Sistem durumu VM'den istemek için kullanılan URI. `path` gerekmiyorsa `protocol` ayarlanır `http`. Aksi takdirde, buna izin verilmez.<br /><br /> Varsayılan değer yoktur.|
 | `port`              | `integer` | İsteğe bağlı. Araştırma iletişim için bağlantı noktası. Bu, aynı bağlantı noktasını daha sonra araştırması için kullanılacak gibi herhangi bir uç nokta için isteğe bağlıdır. Bunların, da yoklama için farklı bir bağlantı yapılandırabilirsiniz. Olası değerler 1 ile arasında 65535 (dahil).<br /><br /> Varsayılan değer bitiş noktası tarafından ayarlanır.|
 | `intervalInSeconds` | `integer` | İsteğe bağlı. Saniye cinsinden nasıl sık uç nokta durumu için yoklama aralığı. Genellikle aralık izin veren iki Tam Araştırmalar döndürme dışında örneği çıkarmadan önce biraz daha az yarısı ayrılan zaman aşımı süresi (saniye cinsinden) olur.<br /><br /> Varsayılan değer 15'tir, en düşük değer 5'tir.|
 | `timeoutInSeconds`  | `integer` | İsteğe bağlı. Saniye cinsinden zaman aşımı süresi yanıt daha fazla uç noktasına teslim edilmesini gelen trafiği durdurmak burada neden olacak araştırma uygulanır. Bu değer gerçekleştirilecek uç noktaları sağlar döndürme daha hızlı veya (olduğu varsayılan değerler) tipik kez Azure'da kullanılan daha yavaş dışında.<br /><br /> Varsayılan değer 31, 11 en küçük değerdir.|
