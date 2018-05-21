@@ -1,34 +1,34 @@
 ---
-title: "Azure Resource Manager şablonu işlevleri - mantıksal | Microsoft Docs"
-description: "Mantıksal değerleri belirlemek için bir Azure Resource Manager şablonu kullanmak üzere işlevleri açıklanmaktadır."
+title: Azure Resource Manager şablonu işlevleri - mantıksal | Microsoft Docs
+description: Mantıksal değerleri belirlemek için bir Azure Resource Manager şablonu kullanmak üzere işlevleri açıklanmaktadır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevleri
 
 Resource Manager şablonlarınızı içinde karşılaştırmaları yapmak için çeşitli işlevleri sağlar.
 
-* [ve](#and)
+* [Ve](#and)
 * [bool](#bool)
 * [Eğer](#if)
 * [değil](#not)
-* [veya](#or)
+* [Veya](#or)
 
 ## <a name="and"></a>ve
 `and(arg1, arg2)`
@@ -39,8 +39,8 @@ Her iki parametre değeri doğru olup olmadığını denetler.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |Boole değeri |Denetlenecek ilk değer olup olmadığını doğrudur. |
-| arg2 |Evet |Boole değeri |Denetlenecek ikinci değer olup olmadığını doğrudur. |
+| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını doğrudur. |
+| arg2 |Evet |boole |Denetlenecek ikinci değer olup olmadığını doğrudur. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -166,7 +166,7 @@ Bir değer olup olmadığına göre göre döndürür bir koşul true veya false
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| Koşul |Evet |Boole değeri |Doğru olup olmadığını denetlemek için değer. |
+| koşul |Evet |boole |Doğru olup olmadığını denetlemek için değer. |
 | trueValue |Evet | dize, int, nesne veya dizi |Koşul doğru olduğunda döndürülecek değer. |
 | false değerini |Evet | dize, int, nesne veya dizi |Koşul yanlış ise döndürülecek değer. |
 
@@ -271,7 +271,7 @@ Boole değeri ters değerine dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |Boole değeri |Dönüştürülecek değer. |
+| arg1 |Evet |boole |Dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -366,8 +366,8 @@ Her iki parametre değeri doğru olup olmadığını denetler.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |Boole değeri |Denetlenecek ilk değer olup olmadığını doğrudur. |
-| arg2 |Evet |Boole değeri |Denetlenecek ikinci değer olup olmadığını doğrudur. |
+| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını doğrudur. |
+| arg2 |Evet |boole |Denetlenecek ikinci değer olup olmadığını doğrudur. |
 
 ### <a name="return-value"></a>Dönüş değeri
 

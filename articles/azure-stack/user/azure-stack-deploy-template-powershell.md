@@ -1,11 +1,11 @@
 ---
-title: "PowerShell Azure yığınında şablonlarıyla dağıtma | Microsoft Docs"
-description: "Resource Manager şablonu ve PowerShell kullanarak bir sanal makine dağıtmayı öğrenin."
+title: PowerShell kullanarak Azure yığınında şablonlarını dağıtma | Microsoft Docs
+description: Bir şablonu Azure PowerShell kullanarak yığınına dağıtın.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
@@ -14,27 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Azure PowerShell kullanarak yığınında şablonlarını dağıtma
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Azure PowerShell kullanarak yığınına şablon dağıtma
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure Resource Manager şablonları Azure yığın Geliştirme Seti dağıtmak için PowerShell kullanın.  Resource Manager şablonları dağıtın ve tüm kaynakları tek ve eşgüdümlü bir işlemle uygulamanızda sağlayın.
+Azure Resource Manager şablonları Azure yığınına dağıtmak için PowerShell kullanın. Bu makalede PowerShell bir şablonu dağıtmak için nasıl kullanılacağı gösterilmektedir.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'lerini çalıştırın
-Bu örnekte, Resource Manager şablonu kullanarak bir sanal makineyi Azure yığın Geliştirme Seti dağıtmak için bir komut dosyasını çalıştırın.  Devam etmeden önce olduğundan emin olun [PowerShell yapılandırılır](azure-stack-powershell-configure-user.md)  
 
-Bu örnek şablonda kullanılan VHD Windows Server 2012 R2 Datacenter ' dir.
+Bu örnek AzureRM PowerShell cmdlet'leri ve GitHub üzerinde depolanan bir şablonu kullanır. Bir Windows Server 2012 R2 Datacenter sanal makine şablonu oluşturur.
 
-1. Git <http://aka.ms/AzureStackGitHub>, arama **101-basit-windows-vm** şablonu ve şu konuma kaydedin: c:\\şablonları\\ azuredeploy-101-basit-windows-vm.json.
-2. PowerShell'de aşağıdaki dağıtım komut dosyasını çalıştırın. Değiştir *kullanıcıadı* ve *parola* kullanıcı adı ve parola. Değeri sonraki kullanımlar üzerinde Artır *$myNum* dağıtımınızı üzerine yazılmasını engellemek için parametre.
-   
+>[!NOTE]
+>Bu örnek çalışmadan önce açtığınızdan emin olun [PowerShell yapılandırılmış](azure-stack-powershell-configure-user.md) Azure yığın kullanıcı için.
+
+1. Git <http://aka.ms/AzureStackGitHub> ve Bul **101-basit-windows-vm** şablonu. Şablonu bu konuma kaydedin: C:\\şablonları\\azuredeploy-101-basit-windows-vm.json.
+2. Yükseltilmiş bir PowerShell komut istemi açın.
+3. Değiştir *kullanıcıadı* ve *parola* aşağıdaki komut, kullanıcı adı ve parola ve komut dosyasını çalıştırın.
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -56,9 +59,12 @@ Bu örnek şablonda kullanılan VHD Windows Server 2012 R2 Datacenter ' dir.
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Azure yığın portal açmak **Gözat**, tıklatın **sanal makineler**ve yeni sanal makineniz için bakın (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >Bu komut dosyasını çalıştırmak her dağıtımınızı üzerine yazılmasını engellemek için "$myNum" parametresinin değerini artırın.
+
+4. Azure yığın portal, select açmak **Gözat**ve ardından **sanal makineleri** , yeni bir sanal makine bulmak için (*myDeployment001*).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Şablonları Visual Studio ile dağıtma](azure-stack-deploy-template-visual-studio.md)
 
+[Şablonları Visual Studio ile dağıtma](azure-stack-deploy-template-visual-studio.md)

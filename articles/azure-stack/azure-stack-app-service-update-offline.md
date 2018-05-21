@@ -1,24 +1,24 @@
 ---
-title: "Azure uygulama hizmeti çevrimdışı güncelleştirme | Microsoft Docs"
-description: "Azure uygulama hizmeti Azure yığında çevrimdışı güncelleştirme hakkında ayrıntılı kılavuz"
+title: Azure uygulama hizmeti çevrimdışı güncelleştirme | Microsoft Docs
+description: Azure uygulama hizmeti Azure yığında çevrimdışı güncelleştirme hakkında ayrıntılı kılavuz
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 61a3169229cc121c078a934f6b979bdaffafd565
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Azure uygulama hizmeti Azure yığında çevrimdışı güncelleştirme
 
@@ -43,7 +43,7 @@ Bu makaledeki yönergeleri izleyerek, Yükseltme yapabileceğiniz [uygulama hizm
 
 Uygulama hizmeti kaynak sağlayıcısı Azure yığın ortamında yükseltmek için bu görevleri tamamlamanız gerekir:
 
-1. Karşıdan [uygulama hizmeti yükleyici](https://aka.ms/appsvcupdate1installer)
+1. Karşıdan [uygulama hizmeti yükleyici](https://aka.ms/appsvcupdate2installer)
 2. Çevrimdışı bir yükseltme paketi oluşturun.
 3. Uygulama Hizmeti Yükleyici (appservice.exe) çalıştırın ve yükseltmeyi tamamlayın.
 
@@ -52,7 +52,7 @@ Bu işlem sırasında yükseltme olur:
 * Uygulama hizmeti önceki dağıtımını Algıla
 * Depolama alanına yükleme
 * Tüm uygulama hizmeti rolleri yükseltme (denetleyicileri, yönetim, ön uç, yayımcı ve çalışan rolleri)
-* Uygulama hizmeti ölçek kümesi tanımları güncelleştir
+* App Service ölçek kümesi tanımlarını güncelleştir
 * Uygulama hizmeti kaynak sağlayıcısı bildirimini güncelleştir
 
 ## <a name="create-an-offline-upgrade-package"></a>Çevrimdışı bir yükseltme paketi oluşturun.
@@ -78,7 +78,7 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda yükseltmek için önce Int
 >
 >
 
-1. Appservice.exe yönetici olarak çalıştırın.  
+1. Appservice.exe yönetici olarak çalıştırın.
 
     ![Uygulama Hizmeti Yükleyici][1]
 
@@ -100,8 +100,8 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda yükseltmek için önce Int
 
    1. Tıklatın **Bağlan** düğmesine **Azure yığın abonelikleri** kutusu.
         * Azure Active Directory (Azure AD) kullanıyorsanız, Azure AD yönetici hesabı ve Azure yığın dağıtıldığında, verdiğiniz parolayı girin. Tıklatın **oturum**.
-        * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin,  *cloudadmin@azurestack.local* . Parolanızı girin ve tıklayın **oturum**.
-   2. İçinde **Azure yığın abonelikleri** kutusunda, aboneliğinizi seçin.
+        * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, *cloudadmin@azurestack.local*. Parolanızı girin ve tıklayın **oturum**.
+   2. İçinde **Azure yığın abonelikleri** kutusunda **varsayılan sağlayıcı abonelik**.
    3. İçinde **Azure yığın konumu** kutusunda, dağıtımına bölgeyi karşılık gelen konumu seçin. Örneğin, seçin **yerel** varsa Azure yığın Geliştirme Seti dağıtma.
    4. Var olan bir uygulama hizmeti dağıtıma bulunmuşsa, kaynak grubu ve depolama hesabı doldurulur ve devre dışı.
    5. Tıklatın **sonraki** yükseltme özetini gözden geçirmek için.

@@ -1,11 +1,11 @@
 ---
-title: "En iyi güvenlik uygulamaları, Azure ağı | Microsoft Docs"
-description: "Güvenli ağ ortamları oluşturmaya yardımcı olmak için mevcut anahtar özelliklerinden bazıları öğrenin"
+title: En iyi güvenlik uygulamaları, Azure ağı | Microsoft Docs
+description: Güvenli ağ ortamları oluşturmaya yardımcı olmak için mevcut anahtar özelliklerinden bazıları öğrenin
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft bulut Hizmetleri ve ağ güvenliği
 Microsoft bulut hizmetlerine hiper ölçekli hizmetler ve altyapı, Kurumsal düzeydeki özellikleri ve karma bağlantı için birçok seçenek sunar. Müşteriler, Internet üzerinden veya özel ağ bağlantısı sağlayan Azure ExpressRoute ile bu hizmetlere erişmek seçebilirsiniz. Microsoft Azure platformu sorunsuz bir şekilde altyapılarını bulutunu oluşturmak ve genişletmek için çok katmanlı mimarileri olanak tanır. Ayrıca, üçüncü tarafların güvenlik hizmetleri ve sanal gereçler sunarak Gelişmiş özellikleri etkinleştirebilirsiniz. Bu teknik incelemede güvenlik ve müşteriler, ExpressRoute aracılığıyla erişilebilir Microsoft bulut hizmetlerini kullanırken dikkate almanız gereken mimari sorunları genel bakış sağlar. Ayrıca, Azure sanal ağları daha güvenli Hizmetleri oluşturulması ele alınmaktadır.
@@ -77,7 +77,7 @@ Internet trafiği için Azure sanal ağlar sağlayabilmek için önce iki katman
 
 1.    **DDoS koruması**: DDoS koruması olan bir Azure platformu büyük ölçekli Internet tabanlı saldırılara karşı korur Azure fiziksel ağ katmanı. Bu saldırıların Internet hizmeti doldurmaya girişiminde içinde birden çok "bot" düğümleri kullanır. Azure sağlam bir DDoS koruması kafes tüm gelen, giden ve çapraz Azure bölgesi bağlantı vardır. Bu DDoS koruma katmanı kullanıcı yapılandırılabilir özniteliklere sahip ve müşteriye erişilebilir durumda değil. Büyük ölçekli saldırılara karşı bir platform olarak Azure DDoS koruma katmanı korur, dışarı bağlı ve çapraz Azure bölgesini trafiği de izler. VNet üzerinde ağ sanal Gereçleri kullanarak ek Katmanlar esnek platform düzeyinde koruma trip olmayan küçük bir ölçek saldırılara karşı müşteri tarafından yapılandırılabilir. DDoS örneği eylem; internet'e yönelik IP adresi büyük ölçekli bir DDoS saldırılarına gerçekleşirse Azure kaynakları saldırıları algılamak ve hedeflenen hedefine ulaşıldı önce sorunlu trafiği kaydırın. Neredeyse her durumda, Saldırıya uğrayan bitiş noktası tarafından saldırı etkilenmez. Bir uç nokta etkilenir nadir durumlarda trafik diğer uç noktalar yalnızca Saldırıya uğrayan endpoint etkilenir. Bu nedenle diğer müşteriler ve Hizmetleri bu saldırılara karşı etkisi görür. Azure DDoS için büyük ölçekli saldırıları yalnızca arıyor dikkate almak önemlidir. Platform düzeyinde koruma eşikleri aşıldı önce belirli hizmetinizi çok mümkündür. Örneğin, tek bir A0 IIS sunucusunda bir web sitesi alınması çevrimdışı bir DDoS saldırılarına Azure platformu düzeyi DDoS koruma bir tehdit kayıtlı önce.
 
-2.  **Genel IP adresleri**: genel IP adresleri (hizmet uç noktaları, genel IP adresleri, uygulama ağ geçidi ve bir ortak IP adresi kaynağınıza yönlendirilen internet sunmak diğer Azure özellikleri aracılığıyla etkin) izin bulut ortak Internet IP adresleri ve bağlantı noktalarının açık olmasını Hizmetleri veya kaynak grubu. Uç nokta iç adresi ve bağlantı noktası Azure sanal ağı üzerinde trafiği yönlendirmek için ağ adresi çevirisi (NAT) kullanır. Bu yol, sanal ağa geçirmek dış trafiği için birincil yoludur. Genel IP adresleri hangi trafik geçirilen ve nasıl ve nerede açın sanal ağ çevrilir belirlemek için yapılandırılabilir.
+2.  **Genel IP adresleri**: genel IP adreslerinin (hizmet uç noktaları, genel IP adresleri, uygulama ağ geçidi ve bir ortak IP adresi kaynağınıza yönlendirilen internet sunmak diğer Azure özellikleri aracılığıyla etkin) bulut Hizmetleri veya kaynak izin ver ortak Internet IP adresleri ve bağlantı noktalarının açık olmasını Gruplar'ı tıklatın. Uç nokta iç adresi ve bağlantı noktası Azure sanal ağı üzerinde trafiği yönlendirmek için ağ adresi çevirisi (NAT) kullanır. Bu yol, sanal ağa geçirmek dış trafiği için birincil yoludur. Genel IP adresleri hangi trafik geçirilen ve nasıl ve nerede açın sanal ağ çevrilir belirlemek için yapılandırılabilir.
 
 Sanal ağ trafiğini ulaştıktan sonra oyuna gelen birçok özellik vardır. Azure sanal ağlar, iş yüklerini ve temel ağ düzeyinde güvenlik geçerli olduğu eklemek müşteriler temelidir. Özel ağ (sanal ağ kaplama), aşağıdaki özellikleri ve özelliklere sahip müşteriler için Azure içinde değil:
 
@@ -123,7 +123,7 @@ Bu özellikleri etkinleştirmek için sanal ağ gereksinimlerine başarılı çe
 
 * **Alt ağ mimarisi:** sanal ağ alt ağın tamamını çevre ağı ayrılmış şekilde ayrılmış aynı sanal ağdaki diğer alt ağlara gelen belirtin. Bu ayrım çevre ağı ve bir güvenlik duvarı ya da Kimlikleri/IP'leri sanal gereç yoluyla diğer iç veya özel alt katmanları akışları arasındaki trafiğin sağlar.  Kullanıcı tanımlı yollar sınır ağlardaki Bu trafik sanal Gereci iletmek için gereklidir.
 * **NSG:** çevre ağ alt kendisini Internet ile iletişimi izin vermek için açık olmalı, ancak bu gelmez müşteriler Nsg'ler atlayarak. Internet'e açık ağ yüzey en aza indirmek için genel güvenlik yöntemlerini takip edin. Dağıtımları veya özel uygulama protokolleri açık bağlantı noktalarını ve erişmesine izin verilen uzak adres aralıklarını kilitleyin. Bir tam kilitleme mümkün olmayan durumlar olabilir. Örneğin, müşterilerin Azure üzerinde bir dış Web sitesi varsa, çevre ağındaki tüm ortak IP adreslerinden gelen web isteklerini izin vermesi gerekir, ancak yalnızca web uygulaması bağlantı noktalarını açmanız gerekir: TCP bağlantı noktası 80 üzerinde ve/veya TCP bağlantı noktası 443'tür.
-* **Yönlendirme tablosu:** çevre ağ alt kendisini Internet'e doğrudan iletişim kurabilmesi ancak bir güvenlik duvarı veya güvenlik Gereci geçmeden doğrudan iletişim için ve arka uç veya şirket içi ağlardan izin vermemelidir.
+* **Yönlendirme tablosu:** çevre ağ alt kendisini Internet'e doğrudan iletişim kurabilmesi ancak bir güvenlik duvarı veya güvenlik üzerinden geçmeden doğrudan iletişim için ve arka uç veya şirket içi ağlardan izin vermemelidir Gereci.
 * **Güvenlik Gereci yapılandırması:** yönlendirmek ve çevre ağı ve korumalı geri kalanı arasında paketlerin incelemek için güvenlik Gereçleri gibi Güvenlik Duvarı ' nı Kimlikleri, ağları ve IP cihazları çok konaklı olabilir. Bunlar çevre ağı ve arka uç alt ağlar için ayrı NIC'ler olabilir. Çevre ağındaki NIC'ler doğrudan ve karşılık gelen Nsg'ler ve çevre ağ yönlendirme tablosu ile Internet üzerinden iletişim kurar. Arka uç alt ağlara bağlanma NIC'ler daha Nsg'ler ve karşılık gelen arka uç alt ağ yönlendirme tablolarını sınırlı.
 * **Güvenlik uygulama işlevinin:** genellikle çevre ağında dağıtılan güvenlik Gereçleri aşağıdaki işlevleri gerçekleştirin:
   * Güvenlik Duvarı: güvenlik duvarı kurallarının veya erişim denetimi ilkeleri gelen istekler için zorlamayı.
@@ -515,11 +515,11 @@ Bir ExpressRoute özel eşleme ağ bağlantısı eklenmesi, daha yüksek bir şe
 * Erişim Azure Azure Resource Manager ile:
 * Azure PowerShell ile erişme: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * Sanal ağ belgeleri: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* Ağ güvenlik grubu belgelerine: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
-* Kullanıcı tanımlı yönlendirme belgelerine: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
+* Ağ güvenlik grubu belgeleri: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
+* Kullanıcı tanımlı yönlendirme belgeleri: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Azure sanal ağ geçitleri: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * Siteden siteye VPN: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* ExpressRoute belgeleri ("Başlarken" ve "Nasıl yapılır" bölümleri denetlemek emin olun): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
+* ExpressRoute belgeleri ("Başlarken" ve "Nasıl yapılır" bölümleri kontrol ettiğinizden emin olun): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "güvenlik seçenekleri akış çizelgesi"

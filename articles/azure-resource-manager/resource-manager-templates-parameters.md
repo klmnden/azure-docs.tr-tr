@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonu parametresi bölüm | Microsoft Docs"
-description: "Bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları Parametreler bölümünde açıklanır."
+title: Azure Resource Manager şablonu parametresi bölüm | Microsoft Docs
+description: Bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları Parametreler bölümünde açıklanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları parametreleri bölümü
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değildir, ancak parametre olmadan şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
@@ -85,13 +85,13 @@ Aşağıdaki örnekte basit parametrenin tanımını gösterir. Parametrenin ad�
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
 | parameterName |Evet |Parametrenin adı. Geçerli bir JavaScript tanımlayıcı olması gerekir. |
-| type |Evet |Parametre değeri türü. İzin verilen türlerini ve değerlerini olduğunuz **dize**, **secureString**, **int**, **bool**, **nesne**, **secureObject**, ve **dizi**. |
+| type |Evet |Parametre değeri türü. İzin verilen türlerini ve değerlerini olduğunuz **dize**, **securestring**, **int**, **bool**, **nesne**, **secureObject**, ve **dizi**. |
 | defaultValue |Hayır |Parametresi için hiçbir değer sağlanmazsa parametre için varsayılan değer. |
 | allowedValues |Hayır |Doğru değeri sağlandığından emin olmak parametresi için izin verilen değerleri dizisi. |
 | MinValue |Hayır |İnt türü parametreler için minimum değeri, bu kapsayıcı değerdir. |
 | MaxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu kapsayıcı değerdir. |
-| minLength |Hayır |Dize, secureString ve dizi türü parametreler için minimum uzunluk, bu kapsayıcı değerdir. |
-| maxLength |Hayır |Dize, secureString ve dizi türü parametreleri için en fazla uzunluk, bu kapsayıcı değerdir. |
+| minLength |Hayır |Dize, securestring ve dizi türü parametreler için minimum uzunluk, bu kapsayıcı değerdir. |
+| maxLength |Hayır |Dize, securestring ve dizi türü parametreleri için en fazla uzunluk, bu kapsayıcı değerdir. |
 | açıklama |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. |
 
 ## <a name="template-functions-with-parameters"></a>Parametrelere sahip şablon işlevleri
@@ -225,7 +225,7 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* Kullanım **SecureString** tüm parolaları ve gizli anahtarları. Bir JSON nesnesinde hassas verileri geçirdiğiniz kullanırsanız **secureObject** türü. Şablon parametreleri secureString veya secureObject türleriyle kaynak dağıtımdan sonra okunamıyor. 
+* Kullanım **securestring** tüm parolaları ve gizli anahtarları. Bir JSON nesnesinde hassas verileri geçirdiğiniz kullanırsanız **secureObject** türü. Şablon parametreleri securestring veya secureObject türleriyle kaynak dağıtımdan sonra okunamıyor. 
    
    ```json
    "parameters": {
@@ -262,7 +262,7 @@ Bu örnek şablonları parametrelerini kullanmak için bazı senaryolar gösteri
 |Şablon  |Açıklama  |
 |---------|---------|
 |[varsayılan değerleri için işlevlerle parametreleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Şablon işlevleri parametrelerinin varsayılan değerleri tanımlarken kullanımı gösterilmiştir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne için bir parametre kullanmayı gösterir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
+|[Parametre nesnesi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne için bir parametre kullanmayı gösterir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
