@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantılar
 
@@ -235,9 +235,9 @@ Nslookup komutunu kullanarak, ad myip.opendns.com için bir DNS sorgusu OpenDNS 
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Giden bağlantıyı engelliyor
-Bazen bir çıkış akışı oluşturmak için izin verilmesi bir VM için istenmeyen olabilir. Hangi hedefleri giden trafik akışları ile ulaşılabilen yönetmek için bir zorunluluk olabilir veya hangi hedefleri gelen akışları başlayabilirsiniz. Bu durumda, kullanabileceğiniz [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) VM ulaşabilir hedefleri yönetmek için. Nsg'ler, hangi ortak hedef gelen akışları başlatabilirsiniz yönetmek için de kullanabilirsiniz. 
+Bazen bir çıkış akışı oluşturmak için izin verilmesi bir VM için istenmeyen olabilir. Hangi hedefleri giden trafik akışları ile ulaşılabilen yönetmek için bir zorunluluk olabilir veya hangi hedefleri gelen akışları başlayabilirsiniz. Bu durumda, kullanabileceğiniz [ağ güvenlik grubu](../virtual-network/security-overview.md) VM ulaşabilir hedefleri yönetmek için. Nsg'ler, hangi ortak hedef gelen akışları başlatabilirsiniz yönetmek için de kullanabilirsiniz.
 
-Yük dengeli bir VM için bir NSG uyguladığınızda, dikkat [varsayılan etiketleri](../virtual-network/virtual-networks-nsg.md#default-tags) ve [varsayılan kuralları](../virtual-network/virtual-networks-nsg.md#default-rules). VM, sistem durumu araştırma isteklerine Azure yük Dengeleyiciden aldığından emin olmak gerekir. 
+Yük dengeli bir VM için bir NSG uyguladığınızda, dikkat [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) ve [güvenlik kuralları varsayılan](../virtual-network/security-overview.md#default-security-rules). VM, sistem durumu araştırma isteklerine Azure yük Dengeleyiciden aldığından emin olmak gerekir. 
 
 Bir NSG'yi sistem durumu araştırma AZURE_LOADBALANCER varsayılan etiket isteklerinden engelliyorsa VM durumu araştırması başarısız olur ve VM düşürüleceği. Yük Dengeleyici, bu VM için yeni akışları gönderme durdurur.
 
@@ -249,5 +249,5 @@ Bir NSG'yi sistem durumu araştırma AZURE_LOADBALANCER varsayılan etiket istek
 
 - Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md).
 - [Standart Yük Dengeleyici](load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin.
-- Daha fazla bilgi edinmek [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md).
+- Daha fazla bilgi edinmek [ağ güvenlik grubu](../virtual-network/security-overview.md).
 - Başka bir anahtar bazıları hakkında bilgi edinin [ağı yetenekleri](../networking/networking-overview.md) azure'da.

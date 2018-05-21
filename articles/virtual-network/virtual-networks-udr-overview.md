@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -40,8 +40,8 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 |Varsayılan|0.0.0.0/0                                               |Internet       |
 |Varsayılan|10.0.0.0/8                                              |None           |
 |Varsayılan|172.16.0.0/12                                           |None           |
-|Varsayılan|192.168.0.0/16                                          |Yok           |
-|Varsayılan|100.64.0.0/10                                           |Yok           |
+|Varsayılan|192.168.0.0/16                                          |None           |
+|Varsayılan|100.64.0.0/10                                           |None           |
 
 Önceki tabloda listelenen sonraki atlama türleri, Azure’ın listelenen adres ön ekine yönelik giden trafiği nasıl yönlendirdiğini göstermektedir. Sonraki atlama türlerinin açıklamaları:
 
@@ -118,12 +118,12 @@ Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile 
 
 Şirket içi ağ geçidi, sınır ağ geçidi protokolünü (BGP) kullanarak bir Azure sanal ağ geçidi ile yolları değiştirebilir. BGP’nin bir Azure sanal ağ geçidi ile kullanılması, ağ geçidini oluştururken seçtiğiniz türe bağlıdır. Seçtiğiniz tür aşağıdakilerden biri ise:
 
-- **ExpressRoute**: Şirket içi yolları Microsoft uç yönlendiricisinde tanıtmak için BGP kullanmanız gerekir. ExpressRoute türünde dağıtılan bir sanal ağ geçidi dağıtıyorsanız trafiği ExpressRoute sanal ağ geçidine zorlamak için kullanıcı tanımlı yollar oluşturamazsınız. Örneğin, Express Route’tan bir Sanal Ağ Gerecine trafiği zorlamak için kullanıcı tanımlı yolları kullanabilirsiniz. 
+- **ExpressRoute**: Şirket içi yolları Microsoft uç yönlendiricisinde tanıtmak için BGP kullanmanız gerekir. ExpressRoute türünde dağıtılan bir sanal ağ geçidi dağıtıyorsanız trafiği ExpressRoute sanal ağ geçidine zorlamak için kullanıcı tanımlı yollar oluşturamazsınız. Örneğin, Express Route’tan bir Sanal Ağ Gerecine trafiği zorlamak için kullanıcı tanımlı yolları kullanabilirsiniz.
 - **VPN**: İsteğe bağlı olarak BGP kullanabilirsiniz. Ayrıntılar için [Siteden siteye VPN bağlantıları ile BGP](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) konusunu inceleyin.
 
 BGP kullanarak Azure ile yolları değiştirdiğinizde, tanıtılan her ön ek için bir sanal ağdaki tüm alt ağların yol tablosuna ayrı bir yol eklenir. Yol, kaynak ve sonraki atlama türü olarak *Sanal ağ geçidi* listelenerek eklenir. 
 
-Bir yol tablosundaki özellik kullanılarak bir alt ağ üzerindeki BGP yol yayma özelliği devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar BGP yayma özelliği devre dışıyken tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü VPN olan özel yollar ](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz. [BGP yol yaymayı devre dışı bırakma](/manage-route-table#create-a-route-table.md).
+Bir yol tablosundaki özellik kullanılarak bir alt ağ üzerindeki BGP yol yayma özelliği devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar BGP yayma özelliği devre dışıyken tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü VPN olan özel yollar ](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz. [BGP yol yaymayı devre dışı bırakma](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Azure yolu nasıl seçer?
 
@@ -212,7 +212,7 @@ Resimdeki *Subnet1* için yol tablosu aşağıdaki yolları içerir:
 |3   |Kullanıcı   |Etkin |10.0.0.0/24         |Sanal ağ        |                   |Subnet1 içinde|
 |4   |Varsayılan|Geçersiz|10.1.0.0/16         |VNet eşlemesi           |                   |              |
 |5   |Varsayılan|Geçersiz|10.2.0.0/16         |VNet eşlemesi           |                   |              |
-|6   |Kullanıcı   |Etkin |10.1.0.0/16         |Yok                   |                   |ToVNet2-1-Bırak|
+|6   |Kullanıcı   |Etkin |10.1.0.0/16         |None                   |                   |ToVNet2-1-Bırak|
 |7   |Kullanıcı   |Etkin |10.2.0.0/16         |None                   |                   |ToVNet2-2-Bırak|
 |8   |Varsayılan|Geçersiz|10.10.0.0/16        |Sanal ağ geçidi|[X.X.X.X]          |              |
 |9   |Kullanıcı   |Etkin |10.10.0.0/16        |Sanal gereç      |10.0.100.4         |Şirket-İçine    |
@@ -246,8 +246,8 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 |Varsayılan |Etkin |10.2.0.0/16         |VNet eşlemesi              |                   |
 |Varsayılan |Etkin |10.10.0.0/16        |Sanal ağ geçidi   |[X.X.X.X]          |
 |Varsayılan |Etkin |0.0.0.0/0           |Internet                  |                   |
-|Varsayılan |Etkin |10.0.0.0/8          |Yok                      |                   |
-|Varsayılan |Etkin |100.64.0.0/10       |Yok                      |                   |
+|Varsayılan |Etkin |10.0.0.0/8          |None                      |                   |
+|Varsayılan |Etkin |100.64.0.0/10       |None                      |                   |
 |Varsayılan |Etkin |172.16.0.0/12       |None                      |                   |
 |Varsayılan |Etkin |192.168.0.0/16      |None                      |                   |
 
@@ -258,5 +258,5 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 - [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](tutorial-create-route-table-portal.md)
 - [Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute ile BGP kullanma](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Bir alt ağ için tüm yolları görüntüleme](virtual-network-routes-troubleshoot-portal.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan ve BGP yollarını değil, yalnızca kullanıcı tanımlı yolları gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.
-- Sanal makine ile hedef IP adresi arasında [sonraki atlama türünü belirleyin](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Ağ İzleyicisi sonraki atlama özelliği, trafiğin bir alt ağdan ayrıldığını ve olması gereken yere yönlendirildiğini belirlemenizi sağlar.
+- [Bir alt ağ için tüm yolları görüntüleme](virtual-network-routes-troubleshoot-portal.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan yollarını değil, yalnızca kullanıcı tanımlı ve BGP yollarını gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.
+- Sanal makine ile hedef IP adresi arasında [sonraki atlama türünü belirleyin](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Ağ İzleyicisi sonraki atlama özelliği, trafiğin bir alt ağdan ayrıldığını ve olması gereken yere yönlendirildiğini belirlemenizi sağlar.
