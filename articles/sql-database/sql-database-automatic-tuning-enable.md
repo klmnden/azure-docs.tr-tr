@@ -2,34 +2,34 @@
 title: Azure SQL veritabanı için otomatik olarak ayarlamayı etkinleştirmek | Microsoft Docs
 description: Otomatik Azure SQL veritabanınızda kolayca ayarlama etkinleştirebilirsiniz.
 services: sql-database
-author: veljko-msft
-manager: drasumic
+author: danimir
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
 
 Azure SQL veritabanı sürekli sorgularınızı izler ve İş yükünüzün performansını iyileştirmek için yapabileceğiniz eylemi tanımlayan bir otomatik olarak yönetilen veri hizmetidir. Önerileri gözden geçirin ve el ile uygulamadan veya için otomatik olarak düzeltme eylemleri uygulamak Azure SQL veritabanı sağlar - bu olarak bilinir **otomatik ayarlama modu**. Otomatik ayarlama sunucu veya veritabanı düzeyinde etkinleştirilebilir.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Otomatik sunucu üzerinde ayarlama etkinleştir
-Sunucu düzeyinde otomatik ayarlama yapılandırmadan "Azure varsayılan olarak" devralmak veya yapılandırma devralmayan seçebilirsiniz. Etkin FORCE_LAST_GOOD_PLAN Azure varsayılan değerler, CREATE_INDEX etkin ve DROP_INDEX devre dışı.
-
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Otomatik ayarlama e-posta bildirimlerini yapılandırma
-
-Bkz: [otomatik e-posta bildirimlerini ayarlama](sql-database-automatic-tuning-email-notifications.md)
+Sunucu düzeyinde otomatik ayarlama yapılandırmadan "Azure varsayılan olarak" devralmak veya yapılandırma devralmayan seçebilirsiniz. Azure varsayılan FORCE_LAST_GOOD_PLAN etkin, CREATE_INDEX etkin ve DROP_INDEX devre dışı olur.
 
 ### <a name="azure-portal"></a>Azure portalına
-Azure SQL veritabanı sunucusuna otomatik olarak ayarlamayı etkinleştirmek için Azure portalında sunucusuna gidin ve ardından **otomatik ayarlama** menüde. İstediğiniz etkinleştirmek ve seçmek için otomatik ayarlama seçenekleri seçin **Uygula**:
+Azure SQL veritabanı otomatik olarak ayarlamayı etkinleştirmek için **server**, Azure portalında sunucusuna gidin ve ardından **otomatik ayarlama** menüde. İstediğiniz etkinleştirmek ve seçmek için otomatik ayarlama seçenekleri seçin **Uygula**.
 
 ![Sunucu](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Lütfen unutmayın **DROP_INDEX** seçenek şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değil ve bu gibi durumlarda açık.
+>
 
 Sunucuda otomatik ayarlama seçenekleri, sunucudaki tüm veritabanları için uygulanır. Varsayılan olarak, tüm veritabanları, kendi üst sunucusundan yapılandırmasını devralmak, ancak bu kullanılabilir geçersiz kılındı ve tek tek her veritabanı için belirtilen.
 
@@ -46,13 +46,15 @@ Azure SQL veritabanı ayrı ayrı her veritabanını ayarlama yapılandırmasın
 
 ### <a name="azure-portal"></a>Azure portalına
 
-Otomatik üzerinde tek bir veritabanı ayarlamayı etkinleştirmek için Azure portalında veritabanına gidin ve sonra hem de seçin **otomatik ayarlama**. Yapılandırma veritabanı için ayrı ayrı belirtin veya seçeneğini belirleyerek sunucudan ayarlarını devralmak için tek bir veritabanı yapılandırabilirsiniz.
+Üzerinde otomatik ayarlamayı etkinleştirmek için bir **tek veritabanı**, Azure portalında veritabanına gidin ve sonra hem de seçin **otomatik ayarlama**. Yapılandırma veritabanı için ayrı ayrı belirtin veya seçeneğini belirleyerek sunucudan ayarlarını devralmak için tek bir veritabanı yapılandırabilirsiniz.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
 Uygun yapılandırma seçtikten sonra tıklatın **Uygula**.
 
-### <a name="rest-api"></a>REST API'si
+Şu anda DROP_INDEX seçeneği bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değil ve bu gibi durumlarda açık unutmayın.
+
+### <a name="rest-api"></a>REST API
 [Daha fazla bilgi için burayı tıklatın REST API aracılığıyla tek bir veritabanı üzerinde otomatik ayarlama etkinleştirme hakkında](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
 
 ### <a name="t-sql"></a>T-SQL
@@ -75,6 +77,10 @@ Tek tek ayarlama seçeneği ON olarak ayarlanamadı, devralınan veritabanı her
 
 ## <a name="disabled-by-the-system"></a>Sistem tarafından devre dışı bırakıldı
 Otomatik ayarlama veritabanında gereken tüm eylemleri izleme ve bazı durumlarda bu otomatik ayarlama düzgün veritabanı üzerinde çalışamaz olduğunu belirleyebilirsiniz. Bu durumda ayarlama seçeneği sistem tarafından devre dışı bırakılır. Çoğu durumda, Query Store etkin değil veya belirli bir veritabanı salt okunur durumda olduğundan bu gerçekleşir.
+
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Otomatik ayarlama e-posta bildirimlerini yapılandırma
+
+Bkz: [otomatik e-posta bildirimlerini ayarlama](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Okuma [otomatik ayarlama makale](sql-database-automatic-tuning.md) nasıl performansınızı geliştirmenize yardımcı olabilir ve otomatik ayarlama hakkında daha fazla bilgi edinmek için.

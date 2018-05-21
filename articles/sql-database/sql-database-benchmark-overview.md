@@ -2,18 +2,18 @@
 title: Azure SQL veritabanı DTU Kıyaslama genel bakış
 description: Bu konuda, Azure SQL veritabanını Azure SQL veritabanı performansını ölçmek kullanılan Kıyaslama açıklanmaktadır.
 services: sql-database
-author: jan-eng
-manager: jhubbard
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: carlrab
+ms.openlocfilehash: a045a545b8a0d4dda33dd404d0d206723eb822ad
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL veritabanı DTU Kıyaslama genel bakış
 ## <a name="overview"></a>Genel Bakış
@@ -48,7 +48,7 @@ Bir "ölçek faktörü üzerinde." temel veritabanı boyutu (BT kısaltılır) �
 ## <a name="transactions"></a>İşlemler
 Aşağıdaki tabloda gösterildiği gibi iş yükü dokuz işlem türlerini oluşur. Her işlem, sistem özelliklerine veritabanı motoru ve sistem donanımı diğer işlemlerdeki yüksek karşıtlık ile belirli bir dizi vurgulamak için tasarlanmıştır. Bu yaklaşım, farklı bileşenler için genel performans etkisi değerlendirmek kolaylaştırır. Örneğin, "Okuma ağır" işlem çok sayıda diskten okuma işlemleri üretir.
 
-| İşlem türü | Açıklama |
+| İşlem Türü | Açıklama |
 | --- | --- |
 | Lite okuma |SEÇİN; bellek içi; salt okunur |
 | Okuma Orta |SEÇİN; çoğunlukla bellek içi; salt okunur |
@@ -63,7 +63,7 @@ Aşağıdaki tabloda gösterildiği gibi iş yükü dokuz işlem türlerini olu�
 ## <a name="workload-mix"></a>İş yükü karışımı
 İşlemleri, aşağıdaki genel karışımı ile ağırlıklı dağıtım rastgele seçilir. Genel karışımı yaklaşık 2:1 okuma/yazma oranını sahiptir.
 
-| İşlem türü | Karışımı yüzdesi |
+| İşlem Türü | Karışımı yüzdesi |
 | --- | --- |
 | Lite okuma |35 |
 | Okuma Orta |20 |

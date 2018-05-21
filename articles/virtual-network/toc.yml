@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Planlama ve tasarım
+    - name: Planlama
       items:
         - name: Sanal ağlar
           href: virtual-network-vnet-plan-design-arm.md
-        - name: Ağ güvenlik grupları
-          href: virtual-networks-nsg.md
     - name: Dağıtma
       items:
         - name: Ağ güvenlik grupları

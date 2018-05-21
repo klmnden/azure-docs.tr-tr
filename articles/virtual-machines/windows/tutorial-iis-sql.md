@@ -1,6 +1,6 @@
 ---
-title: Azure’daki bir SQL&#92;IIS&#92;.NET yığınında çalışan sanal makineler oluşturma | Microsoft Docs
-description: 'Öğretici: Windows sanal makinelerine Azure, SQL, IIS, .NET yığını yükleme.'
+title: Öğretici - Azure’da bir SQL&#47;IIS&#47;.NET yığını çalıştıran sanal makineler oluşturma | Microsoft Docs
+description: Bu öğreticide, Azure’daki bir Windows sanal makinesinde Azure SQL, IIS, .NET yığını yüklemeyi öğrenirsiniz.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Azure’da SQL&#92;IIS&#92;.NET yığını yükleme
+# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Öğretici: Azure PowerShell ile bir Windows sanal makinesinde SQL&#47;IIS&#47;.NET yığını yükleme
 
-Bu öğreticide, Azure PowerShell kullanarak SQL&#92;IIS&#92;.NET yığını yüklüyoruz. Bu yığın, Windows Server 2016’da çalışan, biri IIS ve .NET, diğeri SQL Server’a sahip iki sanal makineden oluşur.
+Bu öğreticide, Azure PowerShell kullanarak SQL&#47;IIS&#47;.NET yığını yüklüyoruz. Bu yığın, Windows Server 2016’da çalışan, biri IIS ve .NET, diğeri SQL Server’a sahip iki sanal makineden oluşur.
 
 > [!div class="checklist"]
 > * VM oluşturma 
@@ -33,7 +33,7 @@ Bu öğreticide, Azure PowerShell kullanarak SQL&#92;IIS&#92;.NET yığını yü
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, AzureRM.Compute modülü 4.3.1 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM.Compute` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, AzureRM.Compute modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM.Compute` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>IIS sanal makinesi oluşturma 
 

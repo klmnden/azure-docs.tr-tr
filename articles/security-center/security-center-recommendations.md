@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme | Microsoft Docs"
-description: "Bu belge, Azure Güvenlik Merkezi'nde öneriler, Azure kaynaklarınızı korumanıza ve güvenlik ilkeleriyle uyumlu kalın nasıl yardımcı aracılığıyla açıklanmaktadır."
+title: Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme | Microsoft Docs
+description: Bu belge, Azure Güvenlik Merkezi'nde öneriler, Azure kaynaklarınızı korumanıza ve güvenlik ilkeleriyle uyumlu kalın nasıl yardımcı aracılığıyla açıklanmaktadır.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olmak için Azure Güvenlik Merkezi'nde öneriler kullanmak nasıl aracılığıyla açıklanmaktadır.
@@ -39,7 +39,7 @@ Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın güvenlik durum
 * Veri koleksiyonunu Aç.
 * Güvenlik ilkenizin bir parçası olarak görmek için hangi önerilerin seçin.
 
-Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılımdan koruma programları etrafında [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) alt ağlar ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanında saydam veri şifrelemesi web uygulaması güvenlik duvarı ve.  [Güvenlik ilkelerini ayarlama](security-center-policies.md) her öneri seçeneği açıklamasını sağlar.
+Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılım programları etrafında [ağ güvenlik grubu](../virtual-network/security-overview.md) alt ağlar ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanında saydam veri şifrelemesi web uygulaması güvenlik duvarı ve.  [Güvenlik ilkelerini ayarlama](security-center-policies.md) her öneri seçeneği açıklamasını sağlar.
 
 ### <a name="monitor-recommendations"></a>İzleyici önerileri
 Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak için kaynaklarınızın güvenlik durumunu analiz eder. **Önerileri** altında döşeme **genel bakış** Güvenlik Merkezi tarafından tanımlanan önerileri toplam sayısı bildiğiniz sağlar.
@@ -73,9 +73,9 @@ Aşağıdaki tabloda kullanılabilir öneriler ve onu uygularsanız, her biri ya
 | Öneri | Açıklama |
 | --- | --- |
 | [Abonelikler için veri toplamayı etkinleştirin](security-center-enable-data-collection.md) |Her aboneliklerinizi ve tüm Azure sanal makineleri (VM'ler) ve Azure olmayan bilgisayarlar için veri koleksiyonu güvenlik ilkesinde Aç önerir. |
-| [Güvenlik yapılandırmalarını Düzelt](security-center-remediate-os-vulnerabilities.md) |Önerilen güvenlik yapılandırma kuralları ile işletim sistemi yapılandırmalarını örneğin hizalamak, parolaların kaydedilmesine izin verme önerir. |
+| [Güvenlik yapılandırmalarını düzeltme](security-center-remediate-os-vulnerabilities.md) |Önerilen güvenlik yapılandırma kuralları ile işletim sistemi yapılandırmalarını örneğin hizalamak, parolaların kaydedilmesine izin verme önerir. |
 | [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md) |Windows ve Linux VM'ler ve bilgisayarlar için eksik sistem güvenlik ve kritik güncelleştirmeler dağıtmanızı önerir. |
-| [Bir sadece zaman içinde geçerli ağ erişim denetimi](security-center-just-in-time.md) | Yalnızca süresi VM erişimi uygulamanızı önerir. Özellik önizlemededir zaman yalnızca ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Bkz: [fiyatlandırma](security-center-pricing.md) Güvenlik Merkezi hakkında daha fazla katmanları fiyatlandırma öğrenin. |
+| [Bir sadece zaman içinde geçerli ağ erişim denetimi](security-center-just-in-time.md) | Yalnızca süresi VM erişimi uygulamanızı önerir. Özellik önizlemededir zaman yalnızca ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). |
 | [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates) |Sistem güncelleştirmelerini uygulama işlemini tamamlamak için VM’yi yeniden başlatmanızı önerir. |
 | [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md) |Web uç noktaları için web uygulaması Güvenlik Duvarı (WAF) dağıtmak önerir. WAF öneri açık gelen web bağlantı noktaları (80,443) içeren bir ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP'si için (örnek düzeyinde IP veya yük dengeli IP) gösterilir. </br>Güvenlik Merkezi, uygulama hizmeti ortamı ve sanal makineler üzerinde web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamasını önerir. Uygulama hizmeti ortamı (ana) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, güvenli bir şekilde Azure App Service uygulamalarını çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. Ana hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı belgeleri](../app-service/environment/intro.md).</br>Varolan WAF dağıtımlarınız için bu uygulamaları ekleyerek, birden çok web uygulamasına Güvenlik Merkezi'nde koruyabilirsiniz. |
 | [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection) |Bir WAF yapılandırmasını tamamlamak için trafiği WAF Gereci yönlendirilmesi gerekir. Bu öneri aşağıdaki gerekli Kurulum değişiklikleri tamamlar. |

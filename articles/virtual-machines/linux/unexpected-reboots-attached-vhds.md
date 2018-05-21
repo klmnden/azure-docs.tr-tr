@@ -3,19 +3,19 @@ title: Beklenmeyen yeniden başlatmalar VM'lerin Azure Linux VM'ler ekli VHD'ler
 description: Beklenmeyen ile ilgili sorunları giderme Linux VM'ler yeniden başlatır.
 keywords: SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu
 services: virtual-machines-linux
-author: tamram
-manager: jeconnoc
+author: genlin
+manager: cshepard
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: tamram
-ms.openlocfilehash: 8ccb6b61c8de1599cd3db011d6401c781cefc31a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: genli
+ms.openlocfilehash: 29aecf748ddda280e6f42be0bb3c986d90a3d7f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Beklenmeyen yeniden başlatmalar VM'lerin ekli VHD ile ilgili sorunları giderme
 
