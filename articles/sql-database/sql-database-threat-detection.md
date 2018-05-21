@@ -7,85 +7,82 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 05/17/2018
 ms.author: ronmat
-ms.openlocfilehash: c4a94ab9c7e0dab9e8c25e54fdd0a30b28b7a8a3
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.reviewer: carlrab
+ms.openlocfilehash: db10bbdd39920b05d9fd8c3907f22c3ee5d08b02
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="sql-database-threat-detection"></a>SQL veritabanı tehdit algılama
+# <a name="azure-sql-database-threat-detection"></a>Azure SQL veritabanı tehdit algılama
 
-SQL tehdit algılama erişmek veya veritabanlarını yararlanmak için alışılmadık ve zararlı denemeleri gösteren anormal etkinlikler algılar.
+Azure SQL veritabanı tehdit algılama erişmek veya veritabanlarını yararlanmak için alışılmadık ve zararlı denemeleri gösteren anormal etkinlikler algılar.
 
-## <a name="overview"></a>Genel Bakış
+Tehdit algılama parçasıdır [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Tehdit algılama erişilen ve merkezi SQL ATP portal üzerinden yönetilir.
 
-SQL tehdit algılama, müşterilerin algılamak ve anormal etkinlikler güvenlik uyarıları sağlayarak göründüklerinde olası risklere yanıt sağlayan bir güvenlik yeni bir katman sağlar.  Kullanıcıların şüpheli veritabanı etkinliklerini, olası güvenlik açıkları ve SQL ekleme saldırıları yanı sıra anormal veritabanı erişimi desenleri bağlı bir uyarı alırsınız. SQL tehdit algılama uyarıları şüpheli etkinlik ayrıntılarını sağlayın ve eylem araştırmak ve tehdidi azaltmak nasıl öneririz. Kullanıcıları kullanarak şüpheli olayları Araştır [SQL veritabanı denetimi](sql-database-auditing.md) bunlar erişim, ihlal ya da veritabanındaki verileri yararlanma girişimi sonucu olmadığını belirlemek için. Tehdit Algılama sayesinde güvenlik uzmanı olmadan veya gelişmiş güvenlik izleme sistemlerine ihtiyaç duymadan potansiyel tehditlerle baş edebilirsiniz.
+## <a name="what-is-threat-detection"></a>Tehdit algılama nedir?
 
-Örneğin, SQL ekleme veri güdümlü uygulamaları saldırmak için kullanılıyorsa Internet üzerinde ortak Web uygulaması güvenlik sorunlarını biridir. Saldırganlar uygulama giriş alanları, kötü amaçlı SQL deyimleri eklemesine uygulama güvenlik açıkları ihlal veya veritabanındaki verileri değiştirme yararlanın.
+SQL tehdit algılama, müşterilerin algılamak ve anormal etkinlikler güvenlik uyarıları sağlayarak göründüklerinde olası risklere yanıt sağlayan bir güvenlik yeni bir katman sağlar. Kullanıcılar şüpheli veritabanı etkinliklerini, olası güvenlik açıkları, bağlı bir uyarı alırsınız ve SQL ekleme, anormal veritabanı erişimi yanı sıra saldırılarına ve desenler sorgular. SQL tehdit algılama uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), şüpheli etkinlik ve önerilen eylem araştırmak ve tehdidi azaltmak nasıl ayrıntılarını içerir. SQL tehdit algılama, veritabanına Uzman güvenlik olması veya Gelişmiş Güvenlik İzleme sistemleri yönetmek zorunda kalmadan adresi olası tehditlere kolaylaştırır. 
 
-SQL tehdit algılama uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), ve $15/düğümü/SQL veritabanı her korumalı burada ay, adresindeki Azure Güvenlik Merkezi standart katmanına aynı fiyatla faturalandırılır her korumalı SQL veritabanı sunucusu Sunucu, bir düğüm olarak sayılır.  
+Etkinleştirmek için önerilen tam araştırma deneyimi için [SQL veritabanı denetimi](sql-database-auditing.md), Azure depolama hesabınızdaki denetim veritabanı olayların günlüğe yazar.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Tehdit algılama Azure portalında veritabanınız için ayarlama
 1. Azure portalında başlatma [ https://portal.azure.com ](https://portal.azure.com).
-2. İzlemek istediğiniz SQL veritabanı yapılandırma sayfasına gidin. Ayarlar sayfasında seçin **denetim ve tehdit algılama**. 
-    ![Gezinti Bölmesi][1]
-3. İçinde **denetim ve tehdit algılama** yapılandırma sayfası açmak **ON** görüntü tehdit algılama ayarlarını denetleme.
+2. Korumak istediğiniz Azure SQL veritabanı sunucusu yapılandırma sayfasına gidin. Güvenlik ayarlarını seçin **Advanced Threat Protection**.
+3. Üzerinde **Advanced Threat Protection** yapılandırma sayfası:
+
+   - Advanced Threat Protection sunucusunda etkinleştirin.
+   - İçinde **tehdit algılama ayarlarını**, **göndermek için uyarıları** metin kutusunda, güvenlik uyarıları anormal veritabanı etkinliklerini algılandığında almak için e-postaları listesini sağlayın.
   
-    ![Gezinti bölmesi][2]
-4. Kapatma **ON** tehdit algılama.
-5. Güvenlik Uyarıları anormal veritabanı etkinliklerini algılandığında almak için e-postaları listesini yapılandırın.
-6. Tıklatın **kaydetmek** içinde **denetim ve tehdit algılama** yeni veya güncelleştirilmiş denetim ve tehdit algılama ayarlarını kaydetmek için sayfa.
-       
-    ![Gezinti bölmesi][3]
+   ![Tehdit algılama ayarlayın](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
 ## <a name="set-up-threat-detection-using-powershell"></a>PowerShell kullanarak tehdit saptamayı ayarlama
 
 Bir komut dosyası örneği için bkz: [denetim ve tehdit algılama PowerShell kullanarak yapılandırmanız](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Şüpheli bir olay algılandığında anormal veritabanı etkinliklerini keşfedin
-1. Anormal veritabanı etkinliklerini algılandığında bir e-posta bildirimi alırsınız. <br/>
-   E-posta anormal etkinlikler, veritabanı adı, sunucu adını, uygulama adı ve olay süresi yapısını dahil olmak üzere şüpheli güvenlik olay hakkında bilgi sağlar. Ayrıca, e-posta olası nedenleri hakkında bilgi sağlar ve önerilen eylemleri araştırmak ve veritabanına olası tehdidi azaltmak için.<br/>
-     
-    ![Gezinti bölmesi][4]
-2. E-posta uyarısı SQL denetim günlüğü doğrudan bir bağlantı içerir. Bu bağlantıyı tıklatmak, Azure Portalı'nı başlatır ve şüpheli olay sırada çevresinde SQL denetim kayıtlarının açar. Bir denetim kaydı yürütüldü SQL deyimlerini bulmayı kolaylaştıracak şüpheli veritabanı etkinliklerini daha fazla bilgi görüntülemek için tıklatın (kimin, ne yaptığını ve ne zaman) ve olay yasal veya kötü amaçlı olup olmadığını belirleme (örn. uygulama Güvenlik Açığı SQL Yerleştirmeye yararlanan, birisi ihlal hassas verileri, vb.).<br/>
-   ![Gezinti Bölmesi][5]
 
+Anormal veritabanı etkinliklerini algılandığında bir e-posta bildirimi alırsınız. E-posta anormal etkinlikler, veritabanı adı, sunucu adını, uygulama adı ve olay süresi yapısını dahil olmak üzere şüpheli güvenlik olay hakkında bilgi sağlar. Ayrıca, e-posta olası nedenleri hakkında bilgi sağlar ve önerilen eylemleri araştırmak ve veritabanına olası tehdidi azaltmak için.
+
+![Anormal Etkinlik Raporu](./media/sql-database-threat-detection/anomalous_activity_report.png)
+     
+1. Tıklatın **en son SQL uyarıları görüntülemek** Azure Portalı'nı başlatın ve SQL database algılanan etkin tehditleri genel bir bakış sağlayan Azure Güvenlik Merkezi uyarılar sayfasında göstermek için e-postadaki bağlantıya.
+
+   ![Activty tehditleri](./media/sql-database-threat-detection/active_threats.png)
+
+2. Bu tehdit araştırma ve gelecekte tehditlere düzeltme için Eylemler ve ek ayrıntıları almak için belirli bir uyarıyı tıklatın.
+
+   Örneğin, SQL ekleme veri güdümlü uygulamaları saldırmak için kullanılan Internet üzerindeki en yaygın Web uygulaması güvenlik sorunları biridir. Saldırganlar uygulama giriş alanları, kötü amaçlı SQL deyimleri eklemesine uygulama güvenlik açıkları ihlal veya veritabanındaki verileri değiştirme yararlanın. SQL ekleme uyarılar için uyarının ayrıntılarını yararlanan savunmasız SQL deyimini ekleyin.
+
+   ![Belirli uyarı](./media/sql-database-threat-detection/specific_alert.png)
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Tehdit algılama uyarıları veritabanınızı Azure portalında keşfedin
 
-SQL veritabanı tehdit algılama, uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Azure portalında veritabanı sayfada canlı bir SQL güvenlik kutucuğu etkin tehditleri durumunu izler. 
+SQL veritabanı tehdit algılama, uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Bir canlı SQL tehdit algılama bölmelerinde SQL ATP Kanatlar Azure portalında ve veritabanı etkin tehditleri durumunu izler.
 
-   ![Gezinti bölmesi][6]
+Tıklatın **tehdit algılaması** Azure Güvenlik Merkezi'ni başlatmak için uyarılar sayfasında ve veritabanı üzerinde algılanan etkin SQL tehditleri özetini almak.
+
+   ![Tehdit algılama Uyarısı](./media/sql-database-threat-detection/threat_detection_alert.png)
    
-1. SQL tıklayarak güvenlik kutucuğu, Azure Güvenlik Merkezi uyarıları sayfasına başlatır ve veritabanı üzerinde algılanan etkin SQL tehditleri genel bir bakış sağlar. 
+   ![Tehdit algılama alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
-  ![Gezinti bölmesi][7]
-
-2. Belirli bir uyarıya tıklayarak, ek ayrıntıları ve bu tehdit araştırma ve gelecekte tehditlere düzeltme eylemleri sağlar.
-
-  ![Gezinti bölmesi][8]
-
+## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL veritabanı tehdit algılama uyarıları 
+Tehdit algılama Azure SQL veritabanı için erişmek veya veritabanlarını yararlanmak için alışılmadık ve zararlı denemeleri gösteren anormal etkinlikler algılar ve aşağıdaki uyarıları tetikleyebilirsiniz:
+- **SQL Ekleme Güvenlik Açığı**: Bu uyarı, veritabanında bir uygulama hatalı SQL deyimi oluşturduğunda tetiklenir. Bu, SQL ekleme saldırılarına karşı olası bir güvenlik açığını gösterebilir. Hatalı deyim oluşturulmasının iki olası nedeni vardır:
+   - Hatalı SQL deyimini oluşturan uygulama kodunda hata
+   - Uygulama kodu veya depolanan yordamlar, hatalı SQL deyimi yapılandırılırken kullanıcı girişini temizlemez ve SQL Ekleme sırasında bu açıktan yararlanılabilir
+- **Olası SQL ekleme**: Bu uyarı, SQL ekleme işlemine tanımlı uygulama güvenlik açığına karşı etkin bir açıktan yararlanma görüldüğünde tetiklenir. Bu, saldırganın güvenlik açığına sahip uygulama kodu veya depolanan yordamları kullanan kötü amaçlı SQL deyimleri eklemeye çalıştığı anlamına gelir.
+- **Sıra dışı bir konumdan erişim**: Bu uyarı, SQL sunucusunun erişim deseninde değişiklik olduğunda, bir kişi SQL sunucusuna sıra dışı bir coğrafi konumdan eriştiğinde tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Azure veri merkezinden erişim**: Bu uyarı, SQL sunucusunun erişim deseninde değişiklik olduğunda, bir kişi SQL sunucusuna kısa süre önce bu sunucuda görünen bir Azure veri merkezinden eriştiğinde tetiklenir. Bazı durumlarda uyarı güvenli bir işlem (Azure, Power BI, Azure SQL Sorgu Düzenleyicisi gibi platformlardaki yeni uygulamanız) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Sıra dışı bir sorumludan erişim**: Bu uyarı, SQL sunucusunun erişim deseninde değişiklik olduğunda, bir kişi SQL sunucusuna sıra dışı bir sorumludan (SQL kullanıcısı) eriştiğinde tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Zararlı olabilecek bir uygulamadan erişim**: Bu uyarı, zararlı olabilecek bir uygulama veritabanına erişmeye çalıştığında tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, yarı yaygın saldırı araçlarının kullandığı saldırıları algılar.
+- **SQL kimlik bilgilerine deneme yanılma saldırısı**: Bu uyarı, farklı kimlik bilgileri kullanılarak sıra dışı sayıda başarısız oturum açma denemesi olduğunda tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, uyarı deneme yanılma saldırılarını algılar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Tehdit algılama hakkında daha fazla bilgi edinmek için bkz [Azure blogu](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Daha fazla bilgi edinmek [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
 * Daha fazla bilgi edinmek [Azure SQL veritabanı denetimi](sql-database-auditing.md)
 * Daha fazla bilgi edinmek [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Fiyatlandırma hakkında daha fazla bilgi için bkz: [SQL Database fiyatlandırması sayfası](https://azure.microsoft.com/pricing/details/sql-database/)  
-* PowerShell komut dosyası örneği için bkz: [PowerShell kullanarak denetim ve tehdit algılama yapılandırın](scripts/sql-database-auditing-and-threat-detection-powershell.md)
-
-
-
-<!--Image references-->
-[1]: ./media/sql-database-threat-detection/1_td_click_on_settings.png
-[2]: ./media/sql-database-threat-detection/2_td_turn_on_auditing.png
-[3]: ./media/sql-database-threat-detection/3_td_turn_on_threat_detection.png
-[4]: ./media/sql-database-threat-detection/4_td_email.png
-[5]: ./media/sql-database-threat-detection/5_td_audit_record_details.png
-[6]: ./media/sql-database-threat-detection/6_td_security_tile_view_alerts.png
-[7]: ./media/sql-database-threat-detection/7_td_SQL_security_alerts_list.png
-[8]: ./media/sql-database-threat-detection/8_td_SQL_security_alert_details.png
-
-

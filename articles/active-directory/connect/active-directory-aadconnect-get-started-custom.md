@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -45,13 +45,14 @@ Eşitleme hizmetlerini yüklerken isteğe bağlı yapılandırma bölümünü i�
 ### <a name="user-sign-in"></a>Kullanıcı oturumu açma
 Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yönteminizi seçmeniz istenir. Aşağıdaki tabloda mevcut seçeneklerle ilgili kısa bir açıklama bulunmaktadır. Oturum açma yöntemleriyle ilgili tam açıklama için bkz. [Kullanıcı oturumu açma](active-directory-aadconnect-user-signin.md).
 
-![Kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![Kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Çoklu Oturum Açma Seçeneği | Açıklama |
 | --- | --- |
 | Parola Karması Eşitleme |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir. Kullanıcı parolaları, parola karması olarak Azure AD ile eşitlenir ve bulutta bir kimlik doğrulaması gerçekleşir. Daha fazla bilgi için bkz. [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Doğrudan Kimlik Doğrulama|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcının parolası, doğrulanmak üzere şirket içi Active Directory etki alanı denetleyicisine geçirilir.
 | AD FS ile Federasyon |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcılar oturum açmak üzere kendi şirket içi AD FS örneklerine yönlendirilir ve şirket içi kimlik doğrulaması gerçekleşir. |
+| PingFederate ile federasyon|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcılar oturum açmak üzere kendi şirket içi PingFederate örneklerine yönlendirilir ve şirket içi kimlik doğrulaması gerçekleşir. |
 | Yapılandırmayın |Kullanıcı oturum açma özelliği yüklenmez ve yapılandırılmaz. Zaten 3. taraf bir federasyon sunucunuz varsa veya başka bir çözümden faydalanıyorsanız bu seçeneği belirleyin. |
 |Çoklu Oturum Açmayı Etkinleştir|Bu seçenek hem parola eşitleme hem de Doğrudan kimlik doğrulaması ile kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar. Daha fazla bilgi için bkz. [Çoklu oturum açma](active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.</br>
 
@@ -301,6 +302,39 @@ Birleştirilecek etki alanını seçtiğinizde Azure AD Connect, size doğrulanm
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>PingFederate ile federasyonu yapılandırma
+Azure AD Connect ile PingFederate’i yalnızca birkaç tıklama ile kolayca yapılandırabilirsiniz. Yapılandırma için aşağıdakiler gereklidir.  Ancak aşağıdaki önkoşullar gereklidir.
+- PingFederate 8.4 veya daha yüksek bir sürüm.  Daha fazla bilgi için bkz. [Azure Active Directory ve Office 365 ile PingFederate Tümleştirmesi](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- Kullanmayı düşündüğünüz federasyon hizmeti adı (örneğin, sts.contoso.com) için bir SSL sertifikası
+
+### <a name="verify-the-domain"></a>Etki alanını doğrulama
+PingFederate ile Federasyonu seçtikten sonra birleştirmek istediğiniz etki alanını doğrulamanız istenir.  Açılan kutudan etki alanını seçin.
+
+![Etki Alanını Doğrulama](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>PingFederate ayarlarını dışarı aktarma
+
+
+PingFederate, her federasyon Azure etki alanı için federasyon sunucusu olarak yapılandırılmalıdır.  Ayarları Dışarı Aktar düğmesine tıklayıp bu bilgileri PingFederate yöneticinizle paylaşın.  Federasyon sunucusu yöneticisi, yapılandırmayı güncelleştirir ve ardından Azure AD Connect’in meta veri ayarlarını doğrulaması için PingFederate sunucusu URL’si ile bağlantı noktası numarasını sağlar.  
+
+![Etki Alanını Doğrulama](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+Doğrulama sorunlarınızı çözmek için PingFederate yöneticinize başvurun.  Aşağıda, Azure ile geçerli bir güven ilişkisi olmayan PingFederate sunucusu örneği verilmiştir:
+
+![Güven](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>Federasyon bağlantısını doğrulama
+Azure AD Connect, önceki adımda PingFederate meta verilerinden alınan kimlik doğrulama uç noktalarını doğrulamayı dener.  Azure AD Connect, ilk olarak yerel DNS sunucularınızı kullanarak uç noktaları çözmeyi dener.  Ardından, harici bir DNS sağlayıcısı kullanarak uç noktaları çözmeyi dener.  Doğrulama sorunlarınızı çözmek için PingFederate yöneticinize başvurun.  
+
+![Bağlantıyı Doğrulama](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>Federasyon oturum açma işlemini doğrulama
+Son olarak, federasyon etki alanında oturum açarak yeni yapılandırılan federasyon oturum açma akışını doğrulayabilirsiniz. Bu işlem başarılı olduğunda, PingFederate’e sahip federasyon başarıyla yapılandırılır.
+![Oturum açma işlemini doğrulayın](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>Yapılandırma ve doğrulama sayfaları
 Yapılandırma bu sayfada gerçekleşir.
 
@@ -308,6 +342,7 @@ Yapılandırma bu sayfada gerçekleşir.
 > Federasyonu yapılandırdıysanız ve yüklemeye devam etmek istiyorsanız [Federasyon sunucuları için ad çözümlemesi](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers) yapılandırmasını tamamladığınızdan emin olun.
 >
 >
+
 
 ![Yapılandırma için hazır](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarla
 
 ![Doğrulama](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-Ayrıca şu doğrulama adımlarını uygulayın:
+Uçtan uca kimlik doğrulamasının başarılı olduğunu doğrulamak için aşağıdaki testlerden en az birini el ile gerçekleştirmelisiniz:
 
+* Eşitleme işlemi tamamlandığında, Azure AD Connect’te Federasyon oturum açma işlemini doğrula ek görevini kullanarak tercih ettiğiniz şirket içi kullanıcı hesabının kimlik doğrulamasını doğrulayın.
 * İntranet üzerinde etki alanına katılmış bir makinedeki tarayıcıdan oturum açabildiğinizi doğrulayın: https://myapps.microsoft.com adresine bağlanın ve giriş yaptığınız hesabınız ile oturum açma işlemini doğrulayın. Yerleşik AD DS yönetici hesabı eşitlenmez ve doğrulama için kullanılamaz.
 * Extranet üzerinde bir cihazdan oturum açabildiğinizi doğrulayın. Ana makineden veya bir mobil cihazdan https://myapps.microsoft.com adresine bağlanın ve kimlik bilgilerinizi girin.
 * Zengin istemci oturumu açma işlemini doğrulayın. https://testconnectivity.microsoft.com adresine bağlanın, **Office 365** sekmesini ve ardından **Office 365 Çoklu Oturum Açma Testi** seçeneğini belirleyin.

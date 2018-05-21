@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/20/2018
+---
 Başlattığınızda veya bir Azure sanal makine (VM) üzerinde çalışan bir uygulamaya Bağlan çeşitli nedenleri vardır. Çalışmıyor uygulama nedenleri veya beklenen bağlantı noktalarında dinleme, engellenen dinleme bağlantı noktası veya ağ doğru uygulamaya geçirme trafiği kuralları. Bu makalede bulmak ve sorunu düzeltmek için sistemli bir yaklaşım açıklanmaktadır.
 
 RDP veya SSH kullanarak, VM için bağlantı sorunları yaşıyorsanız, aşağıdaki makaleler birine ilk bakın:
@@ -99,7 +115,7 @@ Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:
   
   * VM için gelen NAT kuralı yapılandırmasını gelen trafiği, özellikle Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktası numaralarını izin verdiğinden emin olun.
   * Ağ güvenlik grupları gelen talep ve giden yanıt trafiği izin emin olun.
-  * Daha fazla bilgi için bkz. [Ağ Güvenlik Grubu (NSG) nedir?](../articles/virtual-network/virtual-networks-nsg.md)
+  * Daha fazla bilgi için bkz: [bir ağ güvenlik grubu nedir?](../articles/virtual-network/security-overview.md)
 
 Sanal makine ya da uç nokta yük dengelenmiş bir küme üyesi ise:
 

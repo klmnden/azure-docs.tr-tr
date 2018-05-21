@@ -4,17 +4,17 @@ description: Microsoft Excel'i bulut üzerinde Azure SQL veritabanına nasıl ba
 services: sql-database
 keywords: excel’i sql’e bağlama, verileri excel’e aktarma
 author: joseidz
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: craigg
-ms.openlocfilehash: 5d2d863c0266467a60eafa70f0ef3ecaa9736ac0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6f2894d65240580346b99d203f8289652d8e6618
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Excel'i bir Azure SQL veritabanına bağlama ve rapor oluşturma
 
@@ -72,7 +72,7 @@ Bağlantı ayrıntıları kalıcı olarak kaydetmek için bir .odc dosyası olu�
     1. Seçin **daha fazlası için Gözat** açmak için **veri kaynağı Seç** iletişim kutusu.   
     2. Seçin **+NewSqlServerConnection.odc** dosya ve ardından **açmak** açmak için **Veri Bağlantı Sihirbazı**.
 
-    ![Yeni bağlantı](media/sql-database-connect-excel/new-connection.png)
+    ![Yeni Bağlantı](media/sql-database-connect-excel/new-connection.png)
 
 2. İçinde **Veri Bağlantı Sihirbazı'nı**, sunucunuzun adını ve SQL veritabanı kimlik bilgileri türü. **İleri**’yi seçin. 
     1. Aşağı açılan verilerinizden içeren bir veritabanı seçin. 

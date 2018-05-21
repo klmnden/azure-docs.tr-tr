@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: dbd9d01a00522a0a55828284cd6c0e78a26d9102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>SendGrid Java kullanarak e-posta gönderme
 Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler Java'da yazılmış. Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, **eklerini ekleme**, **filtreleri kullanarak**, ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
@@ -158,7 +158,7 @@ SendGrid kullanım yoluyla ek e-posta işlevselliği sağlar *filtreleri*. Bu iz
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Nasıl yapılır: güncelleştirme e-posta özellikleri
-Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak*özellik*** veya kullanarak eklenmiş **ekleme*özelliği***.
+Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **özelliğini** veya kullanarak eklenmiş **özellik ekleme**.
 
 Örneğin, belirtmek için **ReplyTo** adresleri aşağıdakileri kullanın:
 

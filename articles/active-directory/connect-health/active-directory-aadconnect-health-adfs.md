@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -116,7 +116,7 @@ Raporda şu bilgiler yer alır:
 >
 >
 
-## <a name="risky-ip-report"></a>Riskli IP Raporu 
+## <a name="risky-ip-report-public-preview"></a>Riskli IP Raporu (Genel Önizleme)
 AD FS müşterileri, son kullanıcıların Office 365 gibi SaaS uygulamalarına erişmelerini sağlamak için İnternet’te parola kimlik doğrulama uç noktalarını kullanıma sunabilir. Bu durumda kötü bir aktör, bir son kullanıcı parolasını tahmin etmek ve uygulama kaynaklarına erişmek amacıyla AD FS sisteminize karşı oturum açma girişimlerinde bulunabilir. AD FS, Windows Server 2012 R2'de AD FS’den itibaren bu tür saldırıları önlemek için extranet hesap kilitleme işlevselliği sağlamaktadır. Daha düşük bir sürüm kullanıyorsanız, AD FS sisteminizi Windows Server 2016’ya yükseltmeniz kesinlikle önerilir. <br />
 Ayrıca, tek bir IP adresinin birden fazla kullanıcıya karşı birden çok oturum açma girişiminde bulunması mümkündür. Böyle durumlarda kullanıcı başına deneme sayısı, AD FS’deki hesap kilitleme korumasına ilişkin eşiğin altında olabilir. Azure AD Connect Health artık bu durumu algılayıp durum gerçekleştiğinde yöneticileri bilgilendiren "Riskli IP raporu" özelliğini sağlamaktadır. Bu raporun başlıca yararları şunlardır: 
 - Parola tabanlı başarısız girişimler eşiğini aşan IP adreslerini algılama
@@ -152,10 +152,12 @@ Riskli IP raporundaki her bir öğe, belirlenmiş eşiği aşan başarısız AD 
 > - Bu uyarı raporu, Exchange IP adreslerini veya özel IP adreslerini göstermez. Bunlar yine de dışarı aktarma listesine eklenir. 
 >
 
-
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>Riskli IP raporu indirme
+### <a name="load-balancer-ip-addresses-in-the-list"></a>Listedeki Load Balancer IP adresleri
+Yük dengeleyici, başarısız oturum açma etkinliklerini topladı ve uyarı eşiğine ulaştı. Yük dengeleyici IP adreslerini görüyorsanız, dış yük dengeleyicinizin Web Uygulaması Ara sunucusuna isteği geçirdiğinde istemci IP adresini göndermeme olasılığı yüksektir. Lütfen, iletme istemci IP adresini geçirmek için yük dengeleyicinizi doğru şekilde yapılandırın. 
+
+### <a name="download-risky-ip-report"></a>Riskli IP raporu indirme 
 **İndirme** işlevi kullanılarak, son 30 gün içindeki tüm riskli IP adresi listesi Connect Health Portalından dışarı aktarılabilir. Dışarı aktarma sonucu, her bir algılama zaman penceresindeki tüm başarısız AD FS oturum açma girişimlerini içerir, böylece dışarı aktarma sonrasında filtrelemeyi özelleştirebilirsiniz. Dışarı aktarma sonucunda, portalda vurgulanan toplamaların yanı sıra her bir IP adresi için başarısız oturum açma etkinliklerine ilişkin daha fazla ayrıntı gösterilmektedir:
 
 |  Rapor Öğesi  |  Açıklama  | 
@@ -196,12 +198,14 @@ Yük dengeleyici IP adreslerini görüyorsanız, dış yük dengeleyicinizin Web
 
 3. IP adresini engellemek için ne yapmalıyım?  <br />
 Tanımlanmış kötü amaçlı IP adreslerini güvenlik duvarına eklemeniz veya Exchange’de engellemeniz gerekir.   <br />
-AD FS 2016 + 1803.C+ QFE IP adresini doğrudan AD FS’de engelleyebilirsiniz. 
 
 4. Neden bu raporda hiçbir öğe görmüyorum? <br />
    - Başarısız oturum açma etkinlikleri eşik ayarlarını aşmıyor. 
    - AD FS sunucu listenizde etkin bir "Sistem durumu hizmeti güncel değil" uyarısı olmadığından emin olun.  [Bu uyarıyla ilgili sorunları giderme](active-directory-aadconnect-health-data-freshness.md) hakkında daha fazla bilgi edinin.
    - AD FS gruplarınde denetimler etkin değildir.
+ 
+5. Neden rapora erişim olmadığını görüyorum?  <br />
+Genel Yönetici veya [Güvenlik Okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) izni gereklidir. Erişim elde etmek için lütfen genel yöneticinize başvurun.
 
 
 ## <a name="related-links"></a>İlgili bağlantılar

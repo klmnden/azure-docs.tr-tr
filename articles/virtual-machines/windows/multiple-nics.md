@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 776ae83990a7799102c69347196a72a68561ee6b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Oluşturma ve birden çok NIC sahip olan bir Windows sanal makine yönetme
 Azure sanal makineleri (VM'ler) kendisine bağlı birden çok sanal ağ arabirim kartı (NIC) olabilir. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, birden çok NIC bağlı olan bir VM oluşturmak nasıl ayrıntıları verilmektedir. Aynı zamanda NIC var olan bir sanal makineden ekleyip öğrenin. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
@@ -76,7 +76,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Genellikle, ayrıca oluşturduğunuz bir [ağ güvenlik grubu](../../virtual-network/virtual-networks-nsg.md) VM ağ trafiğine filtre uygulamak için ve bir [yük dengeleyici](../../load-balancer/load-balancer-overview.md) trafiği arasında birden çok VM dağıtmak için.
+Genellikle, ayrıca oluşturduğunuz bir [ağ güvenlik grubu](../../virtual-network/security-overview.md) VM ağ trafiğine filtre uygulamak için ve bir [yük dengeleyici](../../load-balancer/load-balancer-overview.md) trafiği arasında birden çok VM dağıtmak için.
 
 ### <a name="create-the-virtual-machine"></a>Sanal makineyi oluşturma
 VM yapılandırması oluşturmak şimdi başlayın. Her VM boyutu, bir VM'ye ekleyebilirsiniz NIC toplam sayısı için bir sınır vardır. Daha fazla bilgi için bkz: [Windows VM boyutları](sizes.md).

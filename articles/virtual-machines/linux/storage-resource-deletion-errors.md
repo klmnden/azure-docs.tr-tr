@@ -3,19 +3,19 @@ title: Linux sanal makineleri üzerinde Azure Resource Manager dağıtımında d
 description: Depolama kaynaklarını içeren silerken sorunlarını gidermek nasıl VHD'ler bağlı.
 keywords: SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu
 services: virtual-machines-linux
-author: tamram
-manager: jeconnoc
+author: genlin
+manager: cshepard
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: tamram
-ms.openlocfilehash: fccfeca0b164e6c34ceaf94a6967fef6f27cb1d2
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: genli
+ms.openlocfilehash: 823c85f620dcd7c96d0005d39b1a12a7a9fba938
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Depolama kaynak silme hatalarıyla ilgili sorunları giderme
 
