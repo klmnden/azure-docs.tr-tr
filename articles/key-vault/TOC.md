@@ -16,11 +16,12 @@
 # Örnekler
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Kavramlar
+## [Anahtar Kasası nedir?](key-vault-whatis.md)
 ## [Güvenlik dünyaları](key-vault-ovw-security-worlds.md)
 ## [Geçici silme](key-vault-ovw-soft-delete.md)
 ## [Depolama hesabı anahtarları](key-vault-ovw-storage-keys.md)
 ## [Azaltma](key-vault-ovw-throttling.md)
-## [Anahtar Kasası nedir?](key-vault-whatis.md)
+
 
 # Nasıl yapılır kılavuzları
 ## Yönetme
@@ -73,7 +74,7 @@
 ## [Key Vault Sürümleri](key-vault-versions.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
-## [Kod örnekleri](https://www.microsoft.com/download/details.aspx?id=45343)
+## [Kod örnekleri](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
 ## [Forumlar](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

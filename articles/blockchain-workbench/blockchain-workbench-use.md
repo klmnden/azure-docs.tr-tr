@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8732d1b87acaa6673ae92b3302fb257dcb134217
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Uygulamaları Azure Blockchain çalışma ekranı içinde kullanma
 
@@ -33,7 +33,7 @@ Blockchain çalışma ekranı bir üyesi olarak oturum açmanız. Listelenen hi�
 
 ## <a name="create-new-contract"></a>Yeni sözleşme oluşturma 
 
-Yeni bir sözleşme oluşturmak için bir üyesi olmanız gerekir **AllowedInstanceRoles** rol. 
+Yeni bir sözleşme oluşturmak için bir sözleşme belirtilen bir üyesi olmanız gerekir **Başlatıcı**. Uygulama rolleri ve sözleşme Başlatıcı tanımlama bilgi için bkz: [yapılandırmasına genel bakış iş akışlarında](blockchain-workbench-configuration-overview.md#workflows). Üye uygulama rolleri atama hakkında daha fazla bilgi için bkz: [uygulamaya üye ekleme](blockchain-workbench-manage-users.md#add-member-to-application).
 
 1. Blockchain çalışma ekranı uygulama bölümünde, oluşturmak istediğiniz sözleşme içeren uygulama kutucuk seçin. Etkin sözleşmeleri bir listesi görüntülenir.
 
@@ -51,16 +51,18 @@ Yeni bir sözleşme oluşturmak için bir üyesi olmanız gerekir **AllowedInsta
 
 ## <a name="take-action-on-contract"></a>Sözleşme üzerinde eylem
 
+Durumuna bağlı olarak sözleşmedir, üyeleri sözleşme sonraki durumuna geçiş eylemleri gerçekleştirebilirsiniz. Eylemler olarak tanımlanan [geçişleri](blockchain-workbench-configuration-overview.md#transitions) içinde bir [durumu](blockchain-workbench-configuration-overview.md#states). Geçiş için izin verilen bir uygulama veya örnek rolüne ait üyeleri işlemleri gerçekleştirebilir. 
+
 1. Blockchain çalışma ekranı uygulama bölümünde eyleme sözleşme içeren uygulama döşeme seçin.
 2. Sözleşme listeden seçin. Anlaşma ayrıntılarını farklı bölümlerde görüntülenir. 
 
     ![Anlaşma ayrıntıları](media/blockchain-workbench-use/contract-details.png)
 
-    | Bölüm  | Açıklama  |
+    | Section  | Açıklama  |
     |---------|---------|
     | Durum | Geçerli ilerleme içinde sözleşme aşamaları listeler |
     | Ayrıntılar | Sözleşmenin geçerli değerleri |
-    | action | Son eylemi hakkındaki ayrıntıları |
+    | Eylem | Son eylemi hakkındaki ayrıntıları |
     | Etkinlik | Sözleşmenin işlem geçmişi |
     
 3. İçinde **eylem** bölümünde, select **ele eylem**.
