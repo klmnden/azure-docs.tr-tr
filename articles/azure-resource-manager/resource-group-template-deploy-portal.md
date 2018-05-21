@@ -10,20 +10,20 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7da04f5561615c2e05821d5ef52a3653cb08fda5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
 
 Bu konuda nasıl kullanılacağını gösterir [Azure portal](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı dağıtmak için. Kaynaklarınızın yönetilmesi hakkında bilgi edinmek için [yönetmek Azure kaynakları portal üzerinden](resource-group-portal.md).
 
-## <a name="create-resource-group"></a>Kaynak grubu oluştur
+## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
 1. Boş bir kaynak grubu oluşturmak için seçin **kaynak grupları**.
 
@@ -61,7 +61,7 @@ Bir kaynak grubu oluşturduktan sonra kendisine marketten kaynakları dağıtabi
 
 1. Seçilen kaynak türüne bağlı olarak, dağıtım öncesinde ayarlamak için ilgili özellikleri koleksiyonu vardır. Tüm türleri için bir hedef kaynak grubu seçmelisiniz. Aşağıdaki resimde, bir web uygulaması oluşturmak ve oluşturduğunuz kaynak grubuna dağıtmak gösterilmiştir.
 
-   ![Kaynak grubu oluştur](./media/resource-group-template-deploy-portal/select-existing-group.png)
+   ![Kaynak grubu oluşturma](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
    Alternatif olarak, kaynaklarınızın dağıtırken bir kaynak grubu oluşturmak için karar verebilirsiniz. Seçin **Yeni Oluştur** ve kaynak grubu bir ad verin.
 
@@ -101,7 +101,7 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
 1. Seçin **depolama hesabı** ve bir ad sağlayın. Değerleri sağlayarak bittiğinde seçin **Tamam**.
 
-   ![Depolama hesabı seçin](./media/resource-group-template-deploy-portal/add-storage-account.png)
+   ![Depolama hesabı seçme](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
 1. Düzenleyici JSON kaynak türü için otomatik olarak ekler. Depolama hesabı türünü tanımlamak için bir parametre içerdiğine dikkat edin. **Kaydet**’i seçin.
 

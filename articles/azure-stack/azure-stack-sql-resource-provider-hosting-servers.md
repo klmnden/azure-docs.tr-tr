@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 İçinde sanal makineleri üzerinde SQL örnekleri kullanabilirsiniz, [Azure yığın](azure-stack-poc.md), veya kaynak sağlayıcısı sağlanan Azure yığın ortamınızı dışında bir örneği için bağlanabilirsiniz. Genel gereksinimler vardır:
@@ -96,25 +96,21 @@ SQL Always On örnekleri yapılandırma ek adımlar gerektirir ve en az üç san
 > [!NOTE]
 > SQL bağdaştırıcısı RP _yalnızca_ otomatik dengeli dağıtımı gibi yeni SQL özellikleri gerektirdiği şekilde her zaman açık için SQL 2016 SP1 Enterprise veya sonraki örnekleri destekler. Önceki ortak gereksinimlerinin listesi ek olarak:
 
-* Bir dosya sunucusu SQL Always On bilgisayarların yanı sıra sağlamanız gerekir. Var. bir [Azure yığın hızlı başlatma şablonunu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) , oluşturabilirsiniz bu ortam için. Ayrıca, kendi örneği oluşturmak için bir kılavuz olarak görebilir.
+Özellikle, etkinleştirmeniz gerekir [otomatik dengeli](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubundaki her SQL Server örneği için:
 
-* SQL sunucularını ayarlamanız gerekir. Özellikle, etkinleştirmeniz gerekir [otomatik dengeli](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubu SQL Server'ın her örneğinin üzerinde.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+İkincil örnekleri bu SQL komutlarını kullanın:
 
-İkincil örnekleri
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 SQL Always On barındırma sunucuları eklemek için aşağıdaki adımları izleyin:
 
@@ -124,14 +120,16 @@ SQL Always On barındırma sunucuları eklemek için aşağıdaki adımları izl
 
     **SQL barındırma sunucuları** dikey olan SQL Server'ın kaynak sağlayıcısının arka ucu olarak hizmet gerçek örnekleri için SQL Server Kaynak sağlayıcısı burada bağlanabilir.
 
-
-3. Form üzerinde her zaman dinleyicisi (ve isteğe bağlı bağlantı noktası numarası) FQDN veya IPv4 adresi kullandığınızdan emin olmak için SQL Server örneği ile bağlantı ayrıntıları doldurun. Sistem yönetici ayrıcalıklarıyla yapılandırılmış hesap için hesap bilgilerini sağlayın.
+3. Form üzerinde her zaman dinleyicisi (ve isteğe bağlı bağlantı noktası numarası) FQDN adresi kullandığınızdan emin olmak için SQL Server örneği ile bağlantı ayrıntıları doldurun. Sistem yönetici ayrıcalıklarıyla yapılandırılmış hesap için hesap bilgilerini sağlayın.
 
 4. SQL her zaman üzerindeki kullanılabilirlik grubu örnekleri desteğini etkinleştirmek için bu onay kutusunu işaretleyin.
 
     ![Barındırma sunucuları](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. SQL Always On örnek bir SKU ekler. Aynı SKU durumlarda her zaman açık olan tek başına sunucular karıştıramazsınız. Bu ilk barındırma sunucusu eklerken belirlenir. Daha sonra türlerini karma olarak çalışırken bir hatayla sonuçlanır.
+5. SQL Always On örnek bir SKU ekler. 
+
+> [!IMPORTANT]
+> Aynı SKU durumlarda her zaman açık olan tek başına sunucular karıştıramazsınız. İlk barındırma sunucusu sonuçlar hata ekledikten sonra türlerini karma olarak çalışıyor.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>SQL veritabanları kullanıcılar için kullanılabilir hale getirme

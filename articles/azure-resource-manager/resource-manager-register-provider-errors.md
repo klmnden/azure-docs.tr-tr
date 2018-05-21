@@ -1,23 +1,23 @@
 ---
-title: "Azure kaynak sağlayıcısı kayıt hataları | Microsoft Docs"
-description: "Azure kaynak sağlayıcısı kayıt hatalarını çözümlemeyi açıklar."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+title: Azure kaynak sağlayıcısı kayıt hataları | Microsoft Docs
+description: Azure kaynak sağlayıcısı kayıt hatalarını çözümlemeyi açıklar.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Kaynak Sağlayıcısı kaydı için hataları çözümleyin
 
@@ -50,7 +50,7 @@ Hata iletisi desteklenen konumlar ve API sürümleri için öneriler vermesi ger
 1. API sürümü kaynak türü için desteklenmiyor
 1. Kaynak türü için desteklenmeyen konumu
 
-## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
+## <a name="solution-1---powershell"></a>Çözüm 1 - PowerShell
 
 İçin PowerShell kullanın **Get-AzureRmResourceProvider** , kayıt durumunu görmek için.
 

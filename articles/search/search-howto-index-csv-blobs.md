@@ -9,26 +9,23 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: dfb1bd48a47e45363e8761a3d79901e5171b37d1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bf65ab7858ba792418e325e7a025ee1bd88bbb27
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma CSV BLOB'lar ile Azure Search blob dizin oluşturucu
-Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle her satır ayrı bir belge olarak blob'daki kabul istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin verilen: 
+Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle her satır ayrı bir belge olarak blob'daki kabul istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin verildiğinde, size iki belgelere ayrıştırma isteyebilirsiniz her "id", "datePublished" ve "etiketler" alanları içeren: 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-2 belgelere ayrıştırma isteyebilirsiniz her "id", "datePublished" ve "etiketler" alanları içeren.
-
 Bu makalede, CSV BLOB'lar bir Azure Search blob dizin oluşturucu ile ayrıştırmak öğreneceksiniz. 
 
 > [!IMPORTANT]
-> Bu işlev şu anda önizleme aşamasındadır. Yalnızca sürüm kullanarak REST API içinde kullanılabilir **2015-02-28-Önizleme**. Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır. 
-> 
+> Bu işlevsellik şu anda genel önizlemede ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için bkz: [REST API sürümü 2017-11-11-Önizleme =](search-api-2017-11-11-preview.md). 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>CSV Dizin oluşturmayı ayarlama
@@ -52,10 +49,10 @@ Ayırıcı karakter kullanarak özelleştirebileceğiniz `delimitedTextDelimiter
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> Şu anda yalnızca UTF-8 kodlaması desteklenir. Diğer kodlamaları için destek gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
+> Şu anda yalnızca UTF-8 kodlaması desteklenir. Diğer kodlamaları için destek gerekiyorsa, bunun için oy [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
-> Mod ayrıştırma sınırlandırılmış metin kullandığınızda, Azure Search, veri kaynağındaki tüm BLOB'lar CSV olacağını varsayar. Aynı veri kaynağında bir karışımını CSV ve CSV olmayan BLOB desteklemeniz gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
+> Mod ayrıştırma sınırlandırılmış metin kullandığınızda, Azure Search, veri kaynağındaki tüm BLOB'lar CSV olacağını varsayar. Aynı veri kaynağında bir karışımını CSV ve CSV olmayan BLOB desteklemeniz gerekiyorsa, lütfen için oy [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
@@ -64,7 +61,7 @@ Bu tüm koyma birlikte tam yükü örnekler şunlardır.
 
 Veri kaynağı: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -77,7 +74,7 @@ Veri kaynağı:
 
 Dizin Oluşturucu:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -89,5 +86,5 @@ Dizin Oluşturucu:
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Azure Search iyileştirmemize yardımcı olun
-Özellik istekleri veya fikir geliştirmeleri için varsa, lütfen bize üzerinde ulaşmak bizim [UserVoice sitesinde](https://feedback.azure.com/forums/263029-azure-search/).
+Özellik istekleri veya fikir geliştirmeleri için varsa, giriş sağlama [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

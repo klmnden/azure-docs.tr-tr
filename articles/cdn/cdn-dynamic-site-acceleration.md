@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN aracılığıyla dinamik site hızlandırma
 
 Sosyal medya, elektronik ticareti ve kişiselleştirilmiş hyper web açılımı ile son kullanıcılara sunulan içeriği hızlı bir şekilde artan yüzdesi gerçek zamanlı olarak oluşturulur. Kullanıcılar kendi tarayıcı, konum, cihaz veya ağ bağımsız hızlı, güvenilir ve kişiselleştirilmiş web deneyimi bekler. Ancak, bu nedenle de çekici bu deneyimleri olun çok yenilikleri yavaş sayfa yüklemeleri ve tüketici kalitesinden riske. 
 
-Standart içerik teslim ağı (CDN) özelliği, statik dosyaların teslimat hızlandırmak için önbellek dosyaları yakın son kullanıcılara özelliği içerir. Sunucunun yanıt kullanıcı davranışı olarak içerik oluşturduğundan ancak, dinamik web uygulamalarıyla kenar konumlarda o içeriği önbelleğe alma mümkün değildir. Bu tür bir içeriğin teslimat hızlandırma daha geleneksel sınır önbelleğe alma daha karmaşıktır ve teslim başlangıcından tüm veri yoluna boyunca her öğe ince ayar yapılıyor bir uçtan uca çözümü gerektirir. Azure CDN dinamik site Hızlandırma (DSA) en iyi duruma getirme ile dinamik içerik web sayfalarıyla performansını sorunlarında geliştirildi.
+Standart içerik teslim ağı (CDN) özelliği, statik dosyaların teslimat hızlandırmak için önbellek dosyaları yakın son kullanıcılara özelliği içerir. Sunucunun yanıt kullanıcı davranışı olarak içerik oluşturduğundan ancak, dinamik web uygulamalarıyla kenar konumlarda o içeriği önbelleğe alma mümkün değildir. Bu tür bir içeriğin teslimat hızlandırma daha geleneksel sınır önbelleğe alma daha karmaşıktır ve teslim başlangıcından tüm veri yoluna boyunca her öğe ince ayar yapılıyor bir uçtan uca çözümü gerektirir. Azure CDN dinamik site Hızlandırma (DSA) en iyi duruma getirme ile dinamik içeriğe sahip web yaş performansını sorunlarında geliştirildi.
 
 **Akamai'den Azure CDN** ve **verizon'dan Azure CDN** her ikisi de DSA iyileştirme ile teklif **için en iyi duruma getirilmiş** uç nokta oluşturma sırasında menüsü.
 
@@ -33,7 +33,7 @@ Standart içerik teslim ağı (CDN) özelliği, statik dosyaların teslimat hız
 >   
 > İçin **verizon'dan Azure CDN** profilleri değiştiremediğiniz bir CDN uç noktası iyileştirme oluşturulduktan sonra.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Dinamik dosyaları teslimini hızlandırmak için CDN uç noktası yapılandırma
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Dinamik dosyaları teslimini hızlandırmak için CDN uç noktası yapılandırması
 
 Dinamik dosyaları teslimini en iyi duruma getirmek için bir CDN uç noktası yapılandırmak için ya da Azure portal, REST API'leri veya herhangi bir istemci SDK aynı şeyi programlı olarak yapmak için kullanabilirsiniz. 
 

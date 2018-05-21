@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d670fd7a9a165977fa5c8d3ce4caf5ff1b1df1e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f3dcb0c5036b2cfc38ef2a6a16269a8697bbd9e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
 Her abonelik ve Kiracı, Resource Manager sınırları saatte 15.000 isteklerine okuma ve yazma isteklerinin saatte 1.200 için. Bu sınırlar her Azure Resource Manager örneği için geçerlidir. Her Azure bölgesi birden çok örneği vardır ve Azure Resource Manager için tüm Azure bölgeleri dağıtılır.  Uygulamada, sınırları etkili bir şekilde bu sınırlardan daha yüksek olacak şekilde kullanıcı olarak istekleri genellikle birçok farklı örnekleri tarafından sunulur.

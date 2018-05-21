@@ -17,16 +17,18 @@ ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f20de2c8a8870568ac624846f6a8a4f8d72b5c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure Abonelikleriniz için faturalama veya kredi uyarıları ayarlama
 Bir Azure aboneliğine yönelik hesap yöneticisi değilseniz, özelleştirilmiş oluşturmak için Azure faturalama uyarı hizmetini kullanabilirsiniz yardımcı faturalama uyarılarını izleme ve Azure hesaplarınız için fatura etkinlik yönetme.
 
 Bu hizmet önizlemede olduğundan, Önizleme özellikleri sayfasında ilk etkinleştirmeniz gerekir.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Uyarı eşiği ve e-posta alıcılarının ayarlama
 1. Ziyaret [Önizleme özellikleri sayfasında](https://account.windowsazure.com/PreviewFeatures) ve etkinleştirme **faturalama uyarı hizmeti**.

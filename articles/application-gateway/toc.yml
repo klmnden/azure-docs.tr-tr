@@ -102,6 +102,8 @@
       href: tutorial-restrict-web-traffic-powershell.md
     - name: Azure PowerShell kullanarak SSL sonlandırma
       href: tutorial-ssl-powershell.md
+    - name: Sertifikaları yenileme
+      href: renew-certificates.md
     - name: Azure PowerShell kullanarak birden çok site barındırma
       href: tutorial-multiple-sites-powershell.md
     - name: Azure PowerShell kullanarak web trafiğini yönlendirme

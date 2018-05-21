@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: debfff03ea9a4de4fb2cd69779d58709a6a3a34f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış uygulama hizmeti ortamı oluşturun #
 
@@ -67,7 +67,7 @@ Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
 3. Kaynak grubunu seçin veya oluşturun. Kaynak gruplarıyla ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, aynı zamanda, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluşturmak olduğunda yararlıdır. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış][ARMOverview].
 
-4. İşletim sisteminizde seçin. 
+4. İşletim sisteminizi seçin. 
 
     * Linux uygulamaları üretim iş yükleri çalışmakta olan bir ana eklemeyin önerdiğimiz bir ana Linux uygulamada barındırma yeni bir önizleme özelliği olduğundan. 
     * Bir ana Linux uygulama ekleme ana önizleme modunda da olacağı anlamına gelir. 
@@ -170,7 +170,7 @@ Bir ana tek başına oluşturursanız, hiçbir şey var. Boş bir ana hala altya
 
 5. VNet ve konumunu seçin. Yeni bir VNet oluşturun veya varolan bir sanal ağ seçin: 
 
-    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Bu ana Linux uygulamaları barındırmak istiyorsanız, yalnızca bu 6 bölgeler şu anda desteklenen: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** 
+    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Bu ASE’de Linux uygulamalarını barındırmayı planlıyorsanız şu anda yalnızca şu 6 bölge desteklenmektedir: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Avustralya Doğu, Güneydoğu Asya.** 
     
     * Yeni sanal ağ adres aralığı 192.168.250.0/23 ve varsayılan adlı bir alt ağ vardır. Alt ağ 192.168.250.0/24 tanımlanır. Yalnızca Resource Manager Vnet'i seçebilirsiniz. **VIP türü** seçimi, ana doğrudan (harici) Internet üzerinden erişilebiliyorsa veya bir ILB kullanıyorsa belirler. Bu seçenekler hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma uygulama hizmeti ortamı olan bir iç yük dengeleyici][MakeILBASE]. 
 
@@ -207,7 +207,7 @@ ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş]
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

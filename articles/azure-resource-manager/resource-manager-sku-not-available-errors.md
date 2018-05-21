@@ -1,23 +1,23 @@
 ---
-title: "Azure SKU kullanılamaz hataları | Microsoft Docs"
-description: "SKU giderileceğini açıklar dağıtımı sırasında kullanılamaz hatası."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+title: Azure SKU kullanılamaz hataları | Microsoft Docs
+description: SKU giderileceğini açıklar dağıtımı sırasında kullanılamaz hatası.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU kullanılamaz hatalarını çözümleme
 
@@ -37,7 +37,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 (VM boyutu gibi) seçtiniz SKU kaynak seçtiğiniz konum için kullanılabilir olmadığında bu hatayı alırsınız.
 
-## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
+## <a name="solution-1---powershell"></a>Çözüm 1 - PowerShell
 
 SKU'ları bir bölgede kullanılabilir olan belirlemek için [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) komutu. Konuma göre sonuçları filtrelenir. Bu komut için PowerShell en son sürümünü olması gerekir.
 

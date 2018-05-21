@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager şablonu işlevleri - dize | Microsoft Docs"
-description: "Dizelerle çalışmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır."
+title: Azure Resource Manager şablonu işlevleri - dize | Microsoft Docs
+description: Dizelerle çalışmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için dize işlevleri
 
@@ -39,12 +39,12 @@ Resource Manager dizelerle çalışmak için aşağıdaki işlevleri sunar:
 * [Son](#last)
 * [lastIndexOf](#lastindexof)
 * [uzunluğu](#length)
-* [padLeft](#padleft)
+* [PadLeft](#padleft)
 * [Değiştir](#replace)
 * [Atla](#skip)
 * [split](#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [dize](#string)
+* [Dize](#string)
 * [substring](#substring)
 * [Al](#take)
 * [toLower](#tolower)
@@ -66,7 +66,7 @@ Giriş dizesi base64 gösterimini döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| inputString |Evet |Dize |Bir base64 gösterimi olarak döndürülecek değer. |
+| inputString |Evet |dize |Bir base64 gösterimi olarak döndürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -144,7 +144,7 @@ Bir base64 temsili bir JSON nesnesine dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |Dize |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
+| base64value değeri |Evet |dize |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -222,7 +222,7 @@ Bir base64 temsili bir dizeye dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |Dize |Bir dizeye dönüştürmek için base64 gösterimi. |
+| base64value değeri |Evet |dize |Bir dizeye dönüştürmek için base64 gösterimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -301,7 +301,7 @@ Birden çok dize değerlerini birleştirir ve birleştirilmiş dizeyi döndürü
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | arg1 |Evet |dize veya dizi |Birleştirme için ilk değer. |
-| Ek bağımsız değişkenler |Hayır |Dize |Birleştirme için sıralı bir düzende ek değerler. |
+| Ek bağımsız değişkenler |Hayır |dize |Birleştirme için sıralı bir düzende ek değerler. |
 
 ### <a name="return-value"></a>Dönüş değeri
 Bir dize veya birleştirilmiş değerleri dizisi.
@@ -506,7 +506,7 @@ Bir veri URI değeri dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Evet |Dize |Bir veri URI dönüştürülecek değer. |
+| stringToConvert |Evet |dize |Bir veri URI dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -574,7 +574,7 @@ Bir veri URI değerini bir dizeyle biçimlendirilmiş.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Evet |Dize |Verileri dönüştürmek için URI değeri. |
+| dataUriToConvert |Evet |dize |Verileri dönüştürmek için URI değeri. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -720,8 +720,8 @@ Bir dize değeri ile bitip olup olmadığını belirler. Karşılaştırma büy�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |dize |Bulunacak öğe içeren değeri. |
+| stringToFind |Evet |dize |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -863,8 +863,8 @@ Parametre olarak sağlanan değerlere göre küresel olarak benzersiz bir tanım
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| baseString |Evet |Dize |Karma işlevinde GUID oluşturmak için kullanılan değer. |
-| gerektikçe ek parametreler |Hayır |Dize |Benzersizlik düzeyini belirten değeri oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
+| baseString |Evet |dize |Karma işlevinde GUID oluşturmak için kullanılan değer. |
+| gerektikçe ek parametreler |Hayır |dize |Benzersizlik düzeyini belirten değeri oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
 
 ### <a name="remarks"></a>Açıklamalar
 
@@ -947,8 +947,8 @@ Dize içinde bir değerin ilk konumunu döndürür. Karşılaştırma büyük/k�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |dize |Bulunacak öğe içeren değeri. |
+| stringToFind |Evet |dize |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1086,8 +1086,8 @@ Değer bir dize içinde son konumunu döndürür. Karşılaştırma büyük/kü�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |dize |Bulunacak öğe içeren değeri. |
+| stringToFind |Evet |dize |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1295,9 +1295,9 @@ Başka bir dizeyle yerine tek bir dize tüm örneklerini içeren yeni bir dize d
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| originalString |Evet |Dize |Başka bir dizeyle yerine tek bir dize tüm örneklerini sahip değeri. |
-| oldString |Evet |Dize |Özgün dizeden kaldırılacak dizesi. |
-| newString |Evet |Dize |Kaldırılan dize yerine eklenecek dize. |
+| originalString |Evet |dize |Başka bir dizeyle yerine tek bir dize tüm örneklerini sahip değeri. |
+| oldString |Evet |dize |Özgün dizeden kaldırılacak dizesi. |
+| newString |Evet |dize |Kaldırılan dize yerine eklenecek dize. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1442,7 +1442,7 @@ Belirtilen sınırlayıcıları tarafından ayrılmış alt dizeler giriş dizes
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| inputString |Evet |Dize |Bölme dize. |
+| inputString |Evet |dize |Bölme dize. |
 | sınırlayıcı |Evet |dize veya dize dizisi |Dize bölme için kullanılacak sınırlayıcı. |
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -1514,8 +1514,8 @@ Bir dize değeri ile başlayıp başlamadığını belirler. Karşılaştırma b
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |dize |Bulunacak öğe içeren değeri. |
+| stringToFind |Evet |dize |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1584,7 +1584,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>Dize
+## <a name="string"></a>dize
 `string(valueToConvert)`
 
 Belirtilen değer bir dizeye dönüştürür.
@@ -1677,7 +1677,7 @@ Belirtilen karakter konumunda başlayan ve belirtilen sayıda karakteri içeren 
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Evet |Dize |Alt dizeyi ayıklandığı özgün dizesi. |
+| stringToParse |Evet |dize |Alt dizeyi ayıklandığı özgün dizesi. |
 | startIndex |Hayır |Int |Sıfır tabanlı başlangıç karakteri konumunu alt dizeyi. |
 | uzunluğu |Hayır |Int |Alt dizeyi karakter sayısı. Dize içinde bir konuma başvurmalıdır. |
 
@@ -1807,7 +1807,7 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dizi | ["", "iki"] |
-| stringOutput | Dize | üzerinde |
+| stringOutput | Dize | açık |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 
@@ -1832,7 +1832,7 @@ Belirtilen dizeyi küçük harflere dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Evet |Dize |Küçük harflere dönüştürülecek değer. |
+| stringToChange |Evet |dize |Küçük harflere dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1896,7 +1896,7 @@ Belirtilen dizenin büyük harfe dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Evet |Dize |Büyük harfe dönüştürülecek değer. |
+| stringToChange |Evet |dize |Büyük harfe dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1960,7 +1960,7 @@ Tüm öndeki ve sondaki boşluk karakterleri belirtilen dizeden kaldırır.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Evet |Dize |Kesim değeri. |
+| stringToTrim |Evet |dize |Kesim değeri. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -2019,8 +2019,8 @@ Parametre olarak sağlanan değerlere göre belirleyici karma dize oluşturur.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| baseString |Evet |Dize |Karma işlevinde benzersiz bir dize oluşturmak için kullanılan değer. |
-| gerektikçe ek parametreler |Hayır |Dize |Benzersizlik düzeyini belirten değeri oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
+| baseString |Evet |dize |Karma işlevinde benzersiz bir dize oluşturmak için kullanılan değer. |
+| gerektikçe ek parametreler |Hayır |dize |Benzersizlik düzeyini belirten değeri oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
 
 ### <a name="remarks"></a>Açıklamalar
 
@@ -2099,7 +2099,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="uri" />
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>uri
 `uri (baseUri, relativeUri)`
 
 Bir mutlak URI tabanURI ve relativeUri dize birleştirerek oluşturur.
@@ -2108,8 +2108,8 @@ Bir mutlak URI tabanURI ve relativeUri dize birleştirerek oluşturur.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| tabanURI |Evet |Dize |Taban URI dizesi. |
-| relativeUri |Evet |Dize |İçin ana uri dizesi eklemek için göreli URI dizesi. |
+| tabanURI |Evet |dize |Taban URI dizesi. |
+| relativeUri |Evet |dize |İçin ana uri dizesi eklemek için göreli URI dizesi. |
 
 Değeri **tabanURI** parametresi, belirli bir dosya içerebilir, ancak yalnızca temel yolu URI oluşturulurken kullanılır. Örneğin, geçirme `http://contoso.com/resources/azuredeploy.json` temel URI'sini tabanURI parametre sonuçlarında olarak `http://contoso.com/resources/`.
 
@@ -2158,9 +2158,9 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| uriOutput | Dize | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Dize | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Dize | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 
@@ -2185,7 +2185,7 @@ Bir URI kodlar.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Evet |Dize |Kodlanacak değeri. |
+| stringToEncode |Evet |dize |Kodlanacak değeri. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -2226,9 +2226,9 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| uriOutput | Dize | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Dize | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Dize | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 
@@ -2253,7 +2253,7 @@ Değer bir dize bir URI kodlanmış döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Evet |Dize |URI değeri dizeye dönüştürmek için kodlanmış. |
+| uriEncodedString |Evet |dize |URI değeri dizeye dönüştürmek için kodlanmış. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -2294,9 +2294,9 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| uriOutput | Dize | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Dize | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Dize | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 

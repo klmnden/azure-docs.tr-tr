@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -41,9 +41,13 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
     Bir istemci için Azure Cosmos DB nasıl bağlandığını gözlemlenen istemci-tarafı gecikme açısından özellikle performansı önemli etkilere sahiptir. İki anahtar yapılandırma ayarlarını istemci bağlantı İlkesi – bağlantı yapılandırmak için kullanılabilir *modu* ve [bağlantı *Protokolü*](#connection-protocol).  İki kullanılabilir modları şunlardır:
 
    1. Ağ geçidi modunda (varsayılan)
+      
+      Ağ geçidi modu tüm SDK platformlarda desteklenir ve yapılandırılmış varsayılandır. Uygulamanız bir şirket ağı içinde katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi modu en iyi seçimdir. Performans kolaylığını ancak, veri okuma veya Azure Cosmos Veritabanına yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, doğrudan modu daha az ağ atlamalarını nedeniyle daha iyi performans sunar.
+
    2. Doğrudan modu
 
-      Ağ geçidi modu tüm SDK platformlarda desteklenir ve yapılandırılmış varsayılandır.  Uygulamanız bir şirket ağı içinde katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi modu en iyi seçimdir. Performans kolaylığını ancak, veri okuma veya Azure Cosmos Veritabanına yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, doğrudan modu daha az ağ atlamalarını nedeniyle daha iyi performans sunar.
+     Doğrudan modu TCP ve HTTPS protokolleri üzerinden bağlantısı destekler. Şu anda doğrudan .NET standart 2.0 yalnızca Windows platformu için desteklenir.
+      
 <a id="use-tcp"></a>
 2. **Bağlantı İlkesi: TCP protokolünü kullanır**
 

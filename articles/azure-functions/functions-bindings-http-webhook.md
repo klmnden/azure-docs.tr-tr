@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 422563f6a4e85884f4512d797d666e470835e2d2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -43,7 +43,7 @@ HTTP bağlantıları sağlanan [Microsoft.Azure.WebJobs.Extensions.Http](http://
 
 HTTP tetikleyicisi bir HTTP isteğiyle bir işlevi çağırmak olanak sağlar. Bir HTTP tetikleyicisi sunucusuz API'ları derleme ve Web kancası için yanıt vermek için kullanabilirsiniz. 
 
-Varsayılan olarak, bir HTTP tetikleyicisi bir HTTP 200 Tamam durum kodu ve boş bir gövde ile isteğine yanıt verir. Yanıt değiştirmek için yapılandırma bir [HTTP bağlama çıktı](#http-output-binding).
+Varsayılan olarak, bir HTTP tetikleyicisi bir gövdesi boş olan işlevlerinde HTTP 200 Tamam döndürür 1.x veya HTTP 204 Hayır içerik bir gövdesi boş olan işlevlerinde 2.x. Yanıt değiştirmek için yapılandırma bir [HTTP bağlama çıktı](#http-output-binding).
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 
@@ -56,7 +56,7 @@ Dile özgü örneğe bakın:
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi. Dönüş değeri için çıktı bağlama kullanılır, ancak bir dönüş değeri özniteliği gerekli değildir dikkat edin.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -87,15 +87,29 @@ public static async Task<HttpResponseMessage> Run(
 
 Aşağıdaki örnek, bir tetikleyici bağlama gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
 
-Veri bağlama işte *function.json* dosyası:
+Burada *function.json* dosyası:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
@@ -147,15 +161,25 @@ public class CustomObject {
 
 Aşağıdaki örnek, bir tetikleyici bağlama gösterir bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlev arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
 
-Veri bağlama işte *function.json* dosyası:
+Burada *function.json* dosyası:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
@@ -203,15 +227,25 @@ Gereksinim duyduğunuz bir `project.json` NuGet başvurmak için kullanılan dos
 
 Aşağıdaki örnek, bir tetikleyici bağlama gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
 
-Veri bağlama işte *function.json* dosyası:
+Burada *function.json* dosyası:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
@@ -224,7 +258,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -263,15 +297,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 Aşağıdaki örnek, bağlama Web kancası tetikleyici gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev GitHub sorunu açıklamaları günlüğe kaydeder.
 
-Veri bağlama işte *function.json* dosyası:
+Burada *function.json* dosyası:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
@@ -303,15 +347,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 Aşağıdaki örnek, bağlama Web kancası tetikleyici gösterir bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlev GitHub sorunu açıklamaları günlüğe kaydeder.
 
-Veri bağlama işte *function.json* dosyası:
+Burada *function.json* dosyası:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
@@ -347,11 +401,21 @@ Veri bağlama işte *function.json* dosyası:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
@@ -386,7 +450,6 @@ Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 ## <a name="trigger---configuration"></a>Tetikleyici - yapılandırma
 
 Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `HttpTrigger` özniteliği.
-
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
@@ -472,13 +535,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -549,35 +612,24 @@ Kullanan bir işlev, HTTP tetikleyicisini değil yaklaşık 2,5 dakika içinde a
 
 ## <a name="output"></a>Çıktı
 
-HTTP isteği gönderene yanıt bağlama HTTP çıkış kullanın. Bu bağlamanın bir HTTP tetikleyicisi gerektirir ve tetikleyici istekle ilişkili yanıt özelleştirmenizi sağlar. Bir HTTP bağlaması çıktısını alırsanız bir HTTP tetikleyicisi HTTP 200 OK olan boş bir gövde döndürür, sağlanır. 
+HTTP isteği gönderene yanıt bağlama HTTP çıkış kullanın. Bu bağlamanın bir HTTP tetikleyicisi gerektirir ve tetikleyici istekle ilişkili yanıt özelleştirmenizi sağlar. Bir HTTP bağlaması çıktı bir HTTP tetikleyicisi HTTP 200 Tamam bir gövdesi boş olan işlevlerinde döndürür sağlanan ise 1.x veya HTTP 204 Hayır içerik bir gövdesi boş olan işlevlerinde 2.x.
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 
-C# sınıfı kitaplıklar için hiçbir çıkış özel bağlama yapılandırma özellikleri vardır. Bir HTTP yanıtının göndermek için dönüş türü işlevi olun `HttpResponseMessage` veya `Task<HttpResponseMessage>`.
-
-Diğer diller için bir HTTP bağlaması çıktı bir JSON nesnesi olarak tanımlanan `bindings` aşağıdaki örnekte gösterildiği gibi function.json dizisi:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya.
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya. İçin C# sınıfı kitaplıklar var. için bunlara karşılık gelen hiçbir öznitelik özelliklerdir *function.json* özellikleri. 
 
 |Özellik  |Açıklama  |
 |---------|---------|
 | **type** |ayarlanmalıdır `http`. |
 | **direction** | ayarlanmalıdır `out`. |
-|**Adı** | Yanıt için işlevi kod içinde kullanılan değişken adı. |
+|**Adı** | Yanıt için işlevi kod içinde kullanılan değişken adı veya `$return` dönüş değeri kullanılacak. |
 
 ## <a name="output---usage"></a>Çıktı - kullanım
 
-HTTP veya Web kancası çağırana yanıt için çıktı parametresi kullanın. Dil standart yanıt desenleri de kullanabilirsiniz. Yanıtlar, örneğin bkz [tetikleyici örnek](#trigger---example) ve [Web kancası örnek](#trigger---webhook-example).
+Bir HTTP yanıtının göndermek için dil standart yanıt desenlerini kullanın. Dönüş türü işlevi, C# veya C# betik olun `HttpResponseMessage` veya `Task<HttpResponseMessage>`. C# ' ta dönen değer özniteliği gerekli değildir.
+
+Yanıtlar, örneğin bkz [tetikleyici örnek](#trigger---example) ve [Web kancası örnek](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
+[Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

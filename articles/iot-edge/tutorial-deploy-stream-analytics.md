@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics IOT kenar modül olarak dağıtma - Önizleme
 
@@ -57,7 +57,7 @@ Bir Azure Storage hesabı, bir Azure Stream Analytics işi çıkış olarak kull
 
 1. Azure portalında Git **kaynak oluşturma**, girin **depolama hesabı** arama kutusuna ve ardından **depolama hesabı - blob, dosya, tablo, kuyruk**.
 
-2. İçinde **depolama hesabı oluşturma** bölmesinde depolama hesabınız için bir ad girin, ardından seçip IOT hub'ınızı depolandığı konumun **oluşturma**. Daha sonra kullanmak için adını not edin.
+2. İçinde **depolama hesabı oluşturma** bölmesinde, depolama hesabınız için bir ad girin, IOT hub'ınızı depolandığı aynı konumu seçin, IOT hub'ınızı aynı kaynak grubunu seçin ve ardından **oluşturma**. Daha sonra kullanmak için adını not edin.
 
     ![Depolama hesabı oluşturma][1]
 
@@ -84,32 +84,25 @@ Bir Azure Storage hesabı, bir Azure Stream Analytics işi çıkış olarak kull
 
 3. **Oluştur**’u seçin.
 
-4. Oluşturulan işteki altında **iş topoloji**seçin **girişleri**ve ardından **Ekle**.
-
-5. İçinde **yeni giriş** bölmesinde, aşağıdakileri yapın:
-
-    a. İçinde **giriş diğer adı** kutusuna **sıcaklık**.
-    
-    b. İçinde **kaynak türü** kutusunda **veri akışı**.
-    
-    c. Kalan alanlara varsayılan değerleri kullanın.
+4. Oluşturulan işteki altında **iş topoloji**, açık **girişleri**.
 
    ![Azure Stream Analytics giriş](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. **Oluştur**’u seçin.
+5. Seçin **akış giriş Ekle**seçeneğini belirleyip **kenar Hub**.
 
-7. Altında **iş topoloji**seçin **çıkışları**ve ardından **Ekle**.
+5. İçinde **yeni giriş** bölmesinde girin **sıcaklık** giriş diğer adı. 
 
-8. İçinde **yeni çıktı** bölmesinde, aşağıdakileri yapın:
+6. **Kaydet**’i seçin.
 
-    a. İçinde **çıkış diğer adları** kutusuna **uyarı**.
-    
-    b. Kalan alanlara varsayılan değerleri kullanın. 
-    
-    c. **Oluştur**’u seçin.
+7. Altında **iş topoloji**, açık **çıkışları**.
 
    ![Azure Stream Analytics çıktı](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Seçin **Ekle**seçeneğini belirleyip **kenar Hub**.
+
+8. İçinde **yeni çıktı** bölmesinde girin **uyarı** çıktı diğer adı. 
+
+9. **Oluştur**’u seçin.
 
 9. Altında **iş topoloji**seçin **sorgu**ve ardından varsayılan metni aşağıdaki sorguyla değiştirin:
 
@@ -130,7 +123,7 @@ Bir Azure Storage hesabı, bir Azure Stream Analytics işi çıkış olarak kull
 
 Artık IOT kenar Cihazınızı Azure Stream Analytics işinde dağıtmaya hazır olursunuz.
 
-1. Azure portalında IOT hub'ınızı Git **IOT kenar (Önizleme)**ve IOT kenar cihazınız için Ayrıntılar sayfasını açın.
+1. Azure portalında IOT hub'ınızı Git **IOT kenar (Önizleme)** ve IOT kenar cihazınız için Ayrıntılar sayfasını açın.
 
 2. **Modül ayarla**’yı seçin.  
     Bu aygıtta tempSensor modülü daha önce dağıttıysanız, otomatik olarak doldurma olabilir. Yoksa, aşağıdakileri yaparak modüle ekleyin:

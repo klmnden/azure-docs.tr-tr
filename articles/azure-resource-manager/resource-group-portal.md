@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 2c76e56d9b30ef11fe4f3b7863a1a1357fca291c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Portal üzerinden Azure kaynaklarınızı yönetmek
 
@@ -91,7 +91,7 @@ Bir kaynak portalda görüntülerken, bu kaynağa yönetmek için seçenekler ba
 
 Aşağıdaki seçeneklerden birini başlatılıyor ve bir sanal makineyi durdurmak veya sanal makinenin özelliklerini yeniden gibi işlemler gerçekleştirebilirsiniz.
 
-## <a name="move-resources"></a>Kaynakları taşı
+## <a name="move-resources"></a>Kaynakları taşıma
 Başka bir kaynak grubu veya başka bir abonelik kaynaklarını taşımak gerekirse bkz [yeni kaynak grubu veya abonelik kaynaklarını taşıma](resource-group-move-resources.md).
 
 ## <a name="lock-resources"></a>Kaynakları kilitleme
@@ -102,7 +102,7 @@ Abonelik, kaynak grubu veya kaynak yanlışlıkla silinmesi ya da kritik kaynakl
 ## <a name="view-your-subscription-and-costs"></a>Aboneliğiniz ve maliyetleri görüntüleyin
 Tüm kaynaklar için aboneliğinizi ve aktarılmış maliyetleri hakkında bilgileri görüntüleyebilirsiniz. Seçin **abonelikleri** ve görmek istediğiniz abonelik. Yalnızca seçmek için bir abonelik olabilir.
 
-![abonelik](./media/resource-group-portal/select-subscription.png)
+![aboneliği](./media/resource-group-portal/select-subscription.png)
 
 Yazma oranını bakın.
 

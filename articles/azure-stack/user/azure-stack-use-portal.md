@@ -5,32 +5,31 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Azure yığın Portalı'nı kullanarak
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bir Azure yığın Hizmetleri tüketici olarak ortak teklifleri abone olmak için Azure yığın Portalı'nı kullanın ve bu teklifleri sağladığı hizmetler kullanın. Önce Azure Portalı'nı kullandıysanız, zaten kullanıcı arabirimiyle biliyorsunuzdur.
+Ortak teklifleri abone olmak için Azure yığın Portalı'nı kullanın ve bu teklifleri sağladığı hizmetler kullanın. Genel Azure Portalı'nı kullandıysanız, zaten site nasıl çalıştığı ile biliyorsunuzdur.
 
 ## <a name="access-the-portal"></a>Erişim portalı
 
 (Bir hizmet sağlayıcısı ya da bir yönetici, kuruluşunuzda), Azure yığın operatörünüze olanak tanır portalına erişmek için doğru URL'yi bildirin.
 
-- Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve şu biçimde olacaktır https://portal.&lt; *bölge*&gt;.&lt; *FQDN*&gt;.
+- Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve şu biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
 - Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
 ![Azure yığın Kullanıcı Portalı ekran görüntüsü](media/azure-stack-use-portal/UserPortal.png)
@@ -60,13 +59,13 @@ Kullanılabilir hizmetler kullanma için yönergeler gerekiyorsa, farklı seçen
     Özellikle, başlamak için aşağıdaki makaleleri gözden geçirmenizi öneririz:
 
     - [Anahtar dikkat edilecek noktalar: hizmetlerini kullanarak ya da uygulamaları için Azure yığın oluşturma](azure-stack-considerations.md)
-    - Belgeleri "Hizmetleri kullan" bölümünde "hususlar" makalesi her hizmet için vardır. "Hususlar" sayfanın Azure'da sunulan hizmet ve Azure yığınında sunulan aynı hizmeti arasındaki farklar açıklanmaktadır. Bir örnek için bkz: [VM konuları](azure-stack-vm-considerations.md). Azure yığınına benzersizdir "Hizmetleri kullan" bölümündeki diğer bilgileri olabilir.
+    - İçinde **hizmetlerini kullanmak** bölüm belgeleri, her hizmet için dikkat edilecek noktalar makale yoktur. Dikkat edilecek noktalar sayfanın Azure'da sunulan hizmet ve Azure yığınında sunulan aynı hizmeti arasındaki farklar açıklanmaktadır. Bir örnek için bkz: [VM konuları](azure-stack-vm-considerations.md). Diğer bilgiler olabilir **hizmetlerini kullanmak** Azure yığınına benzersizdir bölümü.
      
       Azure belgelerine hizmeti için genel başvuru olarak kullanabilirsiniz, ancak bu farkların bilincinde olmanız gerekir. Belge üzerinde bağlantılar anlamak **hızlı başlangıç öğreticileri** döşeme Azure belgelerine noktası.
 
 ## <a name="get-support"></a>Destek alın
 
-Ek destek gerekirse, Yardım için kuruluş veya hizmet sağlayıcınıza başvurun.
+Destek gerekirse, Yardım için kuruluş veya hizmet sağlayıcınıza başvurun.
 
 Azure yığın Geliştirme Seti kullanıyorsanız [Azure yığın Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) destek yalnızca bir kaynaktır.
 
