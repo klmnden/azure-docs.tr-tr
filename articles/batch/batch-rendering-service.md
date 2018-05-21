@@ -1,22 +1,22 @@
 ---
-title: "Azure Batch Rendering hizmeti - bulut ölçekli işleme | Microsoft Docs"
-description: "İşleri, doğrudan Maya üzerinden veya kullanım başına ödeme temelinde Azure sanal makinelerinde işleyin."
+title: Azure Batch Rendering hizmeti - bulut ölçekli işleme | Microsoft Docs
+description: İşleri, doğrudan Maya üzerinden veya kullanım başına ödeme temelinde Azure sanal makinelerinde işleyin.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering hizmetini kullanmaya başlama
 
-Azure Batch Rendering hizmeti, kullanım başına ödeme temelinde bulut ölçekli işleme özellikleri sunar. Batch Rendering hizmeti, iş zamanlama ve kuyruğa alma işlerini gerçekleştirir, hata ve yeniden denemeleri yönetir ve işleme işleriniz için otomatik ölçeklendirme yapar. Batch Rendering hizmeti [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) ve [V-Ray](https://www.chaosgroup.com/vray/maya) uygulamalarını destekler. Maya 2017 için Batch eklentisi, masaüstünüzden Azure’da bir işleme işi başlatmanızı kolaylaştırır.
+Azure Batch Rendering hizmeti, kullanım başına ödeme temelinde bulut ölçekli işleme özellikleri sunar. Batch Rendering hizmeti, iş zamanlama ve kuyruğa alma işlerini gerçekleştirir, hata ve yeniden denemeleri yönetir ve işleme işleriniz için otomatik ölçeklendirme yapar. Batch Rendering hizmeti; [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) ve [V-Ray](https://www.chaosgroup.com/vray/maya) gibi işleme uygulamalarını destekler. Maya 2017 için Batch eklentisi, masaüstünüzden Azure’da bir işleme işi başlatmanızı kolaylaştırır.
 
 Maya ve 3ds Max ile [BatchLabs](https://github.com/Azure/BatchLabs) masaüstü uygulamasını veya [Batch Şablonları CLI](batch-cli-templates.md)'sını kullanarak iş çalıştırabilirsiniz. Azure Batch CLI kullanarak Batch işlerini kod yazmadan çalıştırabilirsiniz. Kod yerine şablon dosyaları kullanarak Batch havuzları, işleri ve görevleri oluşturabilirsiniz. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı özelliğini kullanma](batch-cli-templates.md).
 
@@ -25,16 +25,35 @@ Maya ve 3ds Max ile [BatchLabs](https://github.com/Azure/BatchLabs) masaüstü u
 
 Batch Rendering hizmeti şu anda aşağıdaki uygulamaları desteklemektedir:
 
-• Autodesk Maya I/O 2017 Güncelleştirme 4 (sürüm 17.4.5459) •   Autodesk 3ds Max I/O 2018 Güncelleştirme 1 (sürüm 20.1.0.238) •   Autodesk Arnold for Maya (sürüm 5.0.1.1) •   Autodesk Arnold for 3ds Max (sürüm 1.0.836) •   Chaos Group V-Ray for Maya (sürüm 3.52.03) •   Chaos Group V-Ray for 3ds Max (sürüm 3.60.02)
+CentOS 7 işleme düğümlerinde:
+- Autodesk Maya I/O 2017 Güncelleştirme 5 (cut 201708032230)
+- Autodesk Maya I/O 2018 Güncelleştirme 2 cut 201711281015
+- Autodesk Arnold for Maya 2017 (Arnold sürüm 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya 2018 (Arnold sürüm 5.0.1.4) MtoA-2.1.0.3-2018
+- Chaos Group V-Ray for Maya 2017 (sürüm 3.60.04) 
+- Chaos Group V-Ray for Maya 2018 (sürüm 3.60.04) 
+- Blender (2.68)
+
+Windows Server 2016 işleme düğümlerinde:
+- Autodesk Maya I/O 2017 Güncelleştirme 5 (sürüm 17.4.5459) 
+- Autodesk Maya I/O 2018 Güncelleştirme 2 (sürüm 18.2.0.6476) 
+- Autodesk 3ds Max I/O 2018 Güncelleştirme 4 (sürüm 20.4.0.4254) 
+- Autodesk Arnold for Maya (Arnold sürüm 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya (Arnold sürüm 5.0.1.4) MtoA-2.0.2.3-2018
+- Autodesk Arnold for 3ds Max (Arnold sürüm 5.0.2.4 )(sürüm 1.2.926) 
+- Chaos Group V-Ray for Maya (sürüm 3.52.03) 
+- Chaos Group V-Ray for 3ds Max (sürüm 3.60.02)
+- Blender (2.79)
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Batch Rendering hizmetini kullanmak için şunlar gerekir:
 
-- Bir [Azure hesabı](https://azure.microsoft.com/free/).
-- **Bir Azure Batch hesabı.** Azure portalında bir Batch hesabı oluşturmaya ilişkin yönergeler için bkz. [Azure portalıyla Batch hesabı oluşturma](batch-account-create-portal.md).
-- **Bir Azure Depolama hesabı.** İşleme işiniz için kullanılan varlıklar Azure Depolama hizmetinde depolanır. Batch hesabınızı ayarlarken otomatik olarak bir depolama hesabı oluşturabilirsiniz. Ayrıca mevcut bir depolama hesabını kullanabilirsiniz. Depolama hesapları hakkında daha fazla bilgi almak için bkz. [Azure portalında depolama hesabı oluşturma, yönetme veya silme](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+- [Azure hesabı](https://azure.microsoft.com/free/).
+- **Azure Batch hesabı.** Azure portalında bir Batch hesabı oluşturmaya ilişkin yönergeler için bkz. [Azure portalıyla Batch hesabı oluşturma](batch-account-create-portal.md).
+- **Azure Depolama hesabı.** İşleme işiniz için kullanılan varlıklar genellikle Azure Depolama hizmetinde depolanır. Batch hesabınızı ayarlarken otomatik olarak bir depolama hesabı oluşturabilirsiniz. Ayrıca mevcut bir depolama hesabını kullanabilirsiniz. Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account).
+- **Ortam değişkenleri.** Çözümünüz ortam değişkenlerini değiştiriyorsa, yukarıdaki lisanslı uygulamalardan herhangi biri çağrıldığında `AZ_BATCH_ACCOUNT_URL` ve `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` değerlerinin değişmediğinden ve mevcut olduğundan emin olun. Aksi takdirde yazılım etkinleştirme sorunlarıyla karşılaşma olasılığınız yüksektir.
 - **BatchLabs** (isteğe bağlı). [BatchLabs](https://azure.github.io/BatchLabs), Azure Batch uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerini gerçekleştirmenize yardımcı olan ücretsiz, gelişmiş özelliklere sahip ve tek başına kullanılan bir istemci aracıdır. İşleme hizmetini kullanmak için gerekli olmasa da Batch çözümlerinizi geliştirmek ve hata ayıklamak için faydalı bir seçenektir.
 
 Maya için Batch eklentisini kullanmak için şunlar gerekir:
@@ -72,18 +91,11 @@ Azure portalı ve BatchLabs içine önceden yüklenmiş uygulamalara sahip VM g�
 
 ![Batch hesabı için görüntü türü seçimi](./media/batch-rendering-service/add-pool.png)
 
-Sayfayı aşağı kaydırıp **Grafik ve oluşturma lisansı**'na tıklayarak **Lisans seç** dikey penceresini açın ve bir veya daha fazla yazılım lisansı seçin:
+Aşağı kaydırın ve **Grafik ve işleme lisansı**’nın altında **Yazılım ve fiyatlandırmayı seçin**’e tıklayın. Yazılım lisanslarından bir veya daha fazlasını seçin:
 
 ![Havuz için grafik ve oluşturma lisansı seçimi](./media/batch-rendering-service/graphics-licensing.png)
 
-Sağlanan lisans sürümleri şunlardır:
-
-- Maya 2017
-- 3ds Max 2018
-- Arnold for Maya 5.0.1.1
-- Arnold for 3ds Max 1.0.836
-- V-Ray for Maya 3.52.03
-- V-Ray for 3ds Max 3.60.01
+Sağlanan belirli lisans sürümleri yukarıdaki "Desteklenen Uygulamalar" bölümünde bulunan sürümlerle eşleşir.
 
 ### <a name="custom-images"></a>Özel görüntüler
 
@@ -175,12 +187,12 @@ Havuzda işlem düğümlerini sağlamak için kullanılacak işletim sistemi gö
 
 |İşletim Sistemi  |Görüntü  |
 |---------|---------|
-|Linux     |Batch CentOS Önizlemesi |
-|Windows     |Batch Windows Önizlemesi |
+|Linux     |Batch CentOS |
+|Windows     |Batch Windows |
 
 #### <a name="choose-a-vm-size"></a>VM boyutu seçme
 
-VM boyutunu **Env** sekmesinden belirtebilirsiniz. Kullanılabilir VM boyutları hakkında daha fazla bilgi için bkz. [Azure’da Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) ve [Azure’da Windows VM boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). 
+VM boyutunu **Env** sekmesinden belirtebilirsiniz. Kullanılabilir VM boyutları hakkında daha fazla bilgi için bkz. [Azure’da Linux VM boyutları](../virtual-machines/linux/sizes.md) ve [Azure’da Windows VM boyutları](../virtual-machines/windows/sizes.md). 
 
 ![Env sekmesinde VM işletim sistemi görüntüsünü ve boyutunu belirtme](./media/batch-rendering-service/environment.png)
 

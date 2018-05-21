@@ -73,6 +73,16 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 4- API Management’ı Service Fabric ile dağıtma
           href: service-fabric-tutorial-deploy-api-management.md
+    - name: AWS üzerinde tek başına küme oluşturma
+      items:
+        - name: 1- AWS üzerinde altyapıyı oluşturma
+          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 2- Service Fabric’i ayarlama
+          href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+        - name: 3- Kümeye bir uygulama dağıtma
+          href: service-fabric-tutorial-standalone-install-an-application.md
+        - name: 4- Kümenizi temizleme ve altyapıyı silme
+          href: service-fabric-tutorial-standalone-clean-up.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -533,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Küme düğümü VM’sine uzaktan bağlanma
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: VMSS SKU’larını yükseltme/geçirme
+              href: service-fabric-update-vmss-sku.md
         - name: Tek başına kümeler
           items:
             - name: Oluştur

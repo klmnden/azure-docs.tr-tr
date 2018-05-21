@@ -1,6 +1,6 @@
 ---
-title: DMS kullanarak SQL Server DB’yi Azure SQL Veritabanı’na geçirme | Microsoft Docs
-description: DMS kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirmeyi öğrenin.
+title: DMA kullanarak SQL Server DB’yi Azure SQL Veritabanı’na geçirme | Microsoft Docs
+description: DMA kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirmeyi öğrenin.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>DMS kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirme
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirme
 
 SQL Server veritabanınızı Azure SQL Veritabanı’na taşımak, Azure’da boş bir SQL veritabanı oluşturup ardından [Data Migration Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)’nı (DMA) kullanarak veritabanını Azure’a aktarmanız kadar basittir. Ek geçiş seçenekleri için bkz. [Veritabanınızı Azure SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
 
@@ -46,7 +46,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
-Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) içinde oluşturulur. 
+Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) içinde oluşturulur. 
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
 
@@ -87,9 +87,9 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 8. **Ek Depolama** seçeneğini kullanmak için önizleme koşullarını kabul edin. 
 
    > [!IMPORTANT]
-   > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > - Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  

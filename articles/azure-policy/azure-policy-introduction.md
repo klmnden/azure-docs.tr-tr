@@ -1,27 +1,28 @@
 ---
-title: Azure İlkesine Genel Bakış | Microsoft Docs
+title: Azure İlkesine Genel Bakış
 description: Azure İlkesi, Azure ortamında ilke tanımlarınızı oluşturmak, atamak ve yönetmek için kullandığınız bir Azure hizmetidir.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.reviewer: nini
-ms.date: 04/18/2018
+ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 886026f8548cf3d7416b5034995399368de8c419
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3f14c547c072e012d44350706f08548208fbb544
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
 BT yönetimi, iş hedefleri ve BT projeleri arasında netlik oluşturur. İyi bir BT yönetimine girişimlerinizi planlama ve önceliklerinizi stratejik düzeyde belirleme dahildir. Şirketiniz asla çözülmeyecek gibi görünen önemli sayıda BT sorunlarıyla mi karşılaşıyor? İlkeleri uygulayarak bunları daha iyi yönetebilir ve önleyebilirsiniz. Azure İlkesi, ilkeleri uygulama sırasında devreye girer.
 
 Azure İlkesi, ilke tanımlarınızı oluşturmak, atamak ve yönetmek için kullandığınız bir Azure hizmetidir. İlke tanımları, kaynaklarınız üzerinden farklı kuralları ve eylemleri uygulatarak kaynaklarınızın kurumsal standartlarınız ve hizmet düzeyi sözleşmelerinizle uyumlu kalmasını sağlar. Azure İlkesi kaynaklarınızın bir değerlendirmesini yaparak sahip olduğunuz ilke tanımlarıyla uyumsuz olanları tarar. Örneğin, yalnızca belirli türlerdeki sanal makinelere izin veren bir ilkeniz olabilir. Bir başka ilke ise tüm kaynakların belirli bir etikete sahip olmasını gerektirir. Bu ilkeler, kaynakların oluşturulup güncelleştirildiği sırada değerlendirilir.
+
+> [!IMPORTANT]
+> Azure İlkesi’nin uyumluluk değerlendirmesi artık fiyatlandırma katmanından bağımsız olarak tüm atamalara sağlanır. Atamalarınız uyumluluk verilerini göstermezse, lütfen aboneliğin Microsoft.PolicyInsights kaynak sağlayıcısı ile kaydolduğundan emin olun.
 
 ## <a name="how-is-it-different-from-rbac"></a>RBAC ile farkları nelerdir?
 
@@ -34,9 +35,7 @@ Azure İlkesi, ilke tanımlarınızı oluşturmak, atamak ve yönetmek için kul
 - Girişim tanımlamak için `Microsoft.Authorization/policySetDefinitions/write` izni.
 - Girişim atamak için `Microsoft.Authorization/policyassignments/write` izni.
 
-
 Bu izinler, **Katkıda bulunan** rolüne dahil değildir.
-
 
 ## <a name="policy-definition"></a>İlke tanımı
 
@@ -73,45 +72,40 @@ Başka bir örnekte, yönetim grubu düzeyinde bir kaynak türü beyaz listeye a
 
 Parametreler, bir ilke tanımı oluşturulurken tanımlanır veya oluşturulur. Tanımlanan parametreye bir ad ve isteğe bağlı olarak bir değer verilir. Örneğin, *konum* başlıklı bir ilke için parametre tanımlayabilirsiniz. Daha sonra, ilkenin atamasını yaparken *EastUS* veya *WestUS* gibi farklı değerler verebilirsiniz.
 
-<!--
-Next link should point to new Concept page for Parameters
--->
 İlke parametreleri hakkında daha fazla bilgi için bkz. [Kaynak İlkesine Genel Bakış - Parametreler](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Girişim tanımı
+
 Girişim tanımı, tekil kapsamlı bir hedefi gerçekleştirmek üzere belirlenmiş ilke tanımlarının bir koleksiyonudur. Girişim tanımları, ilke tanımlarının yönetimini ve atanmasını basitleştirir. İlke kümelerini gruplandırıp tek bir öğe haline getirerek basitleştirirler. Örneğin, Azure Güvenlik Merkezinizdeki tüm kullanılabilir güvenlik önerilerini izlemeyi hedefleyen **Azure Güvenlik Merkezi'nde İzlemeyi Etkinleştirme** başlıklı bir girişim oluşturabilirsiniz.
 
 Bu girişimin altında sahip olabileceğiniz ilke tanımlarından bazıları şunlardır:
 
-1. **Güvenlik Merkezi’ndeki şifrelenmemiş SQL Veritabanı’nı izleme** – Şifrelenmemiş SQL veritabanlarını ve sunucuları izlemek için.
-2. **Güvenlik Merkezi'ndeki işletim sistemi güvenlik açıklarını izleme** – Yapılandırılmış ana hattı karşılamayan sunucuları izlemek için.
-3. **Güvenlik Merkezi’ndeki eksik Endpoint Protection’ı izleme** – Yüklü bir bitiş noktası koruma aracısı olmadan sunucuları izlemek için.
-
-<!--
-For more information about initiative definitions, see Initiative Definitions.+ (instead of linking to this, link out to Concept page on Initiative Definitions)
--->
+- **Güvenlik Merkezi’ndeki şifrelenmemiş SQL Veritabanı’nı izleme** – Şifrelenmemiş SQL veritabanlarını ve sunucuları izlemek için.
+- **Güvenlik Merkezi'ndeki işletim sistemi güvenlik açıklarını izleme** – Yapılandırılmış ana hattı karşılamayan sunucuları izlemek için.
+- **Güvenlik Merkezi’ndeki eksik Endpoint Protection’ı izleme** – Yüklü bir bitiş noktası koruma aracısı olmadan sunucuları izlemek için.
 
 ## <a name="initiative-assignment"></a>Girişim ataması
+
 İlke ataması gibi, girişim ataması da belirli bir kapsama atanmış olan girişim tanımıdır. Girişim atamaları, her kapsam için birkaç girişim tanımları yapma ihtiyacını azaltır. Bu kapsamın dahilinde de yönetim gruplarından kaynak gruplarına kadar birçok grup bulunabilir.
 
 Önceki örnekten, **Azure Güvenlik Merkezi'nde İzlemeyi Etkinleştirme** girişimi de farklı kapsamlara atanabilir. Örneğin, bir atama **subscriptionA** aboneliğine atanabilir. Bir başkası ise **subscriptionB** aboneliğine atanabilir.
 
 ## <a name="initiative-parameters"></a>Girişim parametreleri
+
 İlke parametreleri gibi, girişim parametreleri de fazlalıkları azaltarak girişim yönetiminin basitleştirilmesine yardımcı olur. Girişim parametreleri temelde girişim dahilindeki ilke tanımları tarafından kullanılan parametrelerin listesidir.
 
 Örneğin, iki ilke tanımına sahip **initiativeC** girişim tanımının olduğu bir senaryoyu ele alın. Tanımlanmış bir parametreye sahip her ilke tanımı:
 
-| İlke | parametrenin adı |Parametrenin türü  |Not |
+| İlke | Parametrenin adı |Parametrenin türü  |Not |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Parametre türü “array” olarak tanımlandığından bu parametre, bir değer için dizilerin bulunduğu bir liste bekler |
 | policyB | allowedSingleLocation |string |Parametre türü “array” olarak tanımlandığından bu parametre, bir değer için bir sözcük bekler |
 
 Bu senaryoda **initiativeC** için girişim parametreleri tanımlanırken üç seçeneğiniz vardır:
 
-1. Bu girişim dahilinde ilke tanımlarının parametrelerini kullanın: Bu örnekte, *allowedLocations* ve *allowedSingleLocation*, **initiativeC** için girişim parametreleri olur.
-2. Bu girişim tanımındaki ilke tanımlarının parametrelerine değerler sağlayın. Bu örnekte, **policyA’nın parametresi – allowedLocations** ve **policyB’nin parametresi – allowedSingleLocation** için konum listesi sağlayabilirsiniz.
-Bu girişimin atamasını yaparken değerleri de sağlayabilirsiniz.
-3. Bu girişimin atamasını yaparken kullanılabilecek bir *değer* seçenekleri listesi sağlayın. Bu girişimi atadığınızda, girişim dahilindeki ilke tanımlarından alınan parametreler yalnızca bu sağlanan listedeki değerleri alabilir.
+- Bu girişim dahilinde ilke tanımlarının parametrelerini kullanın: Bu örnekte, *allowedLocations* ve *allowedSingleLocation*, **initiativeC** için girişim parametreleri olur.
+- Bu girişim tanımındaki ilke tanımlarının parametrelerine değerler sağlayın. Bu örnekte, **policyA’nın parametresi – allowedLocations** ve **policyB’nin parametresi – allowedSingleLocation** için konum listesi sağlayabilirsiniz. Bu girişimin atamasını yaparken değerleri de sağlayabilirsiniz.
+- Bu girişimin atamasını yaparken kullanılabilecek bir *değer* seçenekleri listesi sağlayın. Bu girişimi atadığınızda, girişim dahilindeki ilke tanımlarından alınan parametreler yalnızca bu sağlanan listedeki değerleri alabilir.
 
 Örneğin, *EastUS*, *WestUS*, *CentralUS*, ve *WestEurope* içeren bir girişim tanımındaki değer seçeneklerinin listesini oluşturabilirsiniz. Öyleyse, listenin bir parçası olmadığı için girişim ataması sırasında *Southeast Asia* gibi farklı bir değer giremezsiniz.
 
@@ -121,15 +115,16 @@ Bu girişimin atamasını yaparken değerleri de sağlayabilirsiniz.
 
 - Ortamınızda ilke tanımları oluşturuyorsanız, ilke tanımlarınızın ortamınızdaki kaynaklar üzerindeki etkisini izleyebilmek için reddetme etkisinin aksine bir denetim etkisiyle başlamanızı öneririz. Uygulamalarınızı otomatik olarak ölçeklendirmek için komut dosyalarınız zaten varsa, reddetme etkisi belirlemek varolan bu otomatikleştirme görevlerini sekteye uğratabilir.
 - Tanımları ve atamaları oluştururken kuruluş hiyerarşilerini göz önünde bulundurmanız önemlidir. Tanımları, yönetim grubu veya abonelik düzeyi ve sonraki alt düzeyde atama yapma gibi daha yüksek bir düzeyde oluşturmanızı öneririz. Örneğin, yönetim grubu düzeyinde bir ilke tanımı oluşturursanız, bu tanımın ilke atamasının kapsamı bu yönetim grubu dahilindeki abonelik düzeyine azaltılabilir.
-- Ortamınızın uyumluluk durumunu daha iyi anlamak için standart fiyatlandırma katmanı kullanmanızı öneririz. Fiyatlandırma modellerimiz ve bu modellerin sunduklarıyla ilgili daha fazla bilgi için bkz. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/azure-policy).
 - Aklınızda yalnızca bir ilke olsa bile, her zaman ilke tanımları yerine girişim tanımlarını kullanmanızı öneririz. Örneğin, bir ilke tanımınız (*policyDefA*) varsa ve bunu girişim tanımı (*initiativeDefC*) altında oluşturursanız, daha sonra *policyDefA* ilkesindekine benzer hedeflerle *policyDefB* için başka bir ilke tanımı oluşturmaya karar verdiğinizde, bunu *initiativeDefC* altına ekleyip daha iyi bir şekilde izleyebilirsiniz.
 
    Bir ilke tanımından ilke ataması oluşturduğunuzda, girişim tanımına eklenen herhangi bir yeni ilke tanımı otomatik olarak girişim tanımının altındaki girişim atamasının altında toplanır. Ancak, yeni ilke tanımına tanıtılan yeni bir parametre varsa, girişim tanımını veya atamasını düzenleyerek girişim tanımını ve atamalarını güncelleştirmeniz gerekir.
+
+   Girişim ataması tetiklendiğinde girişimde bulunan tüm ilkelerin de tetiklendiğini unutmayın. Ancak, bir ilkeyi tek başına yürütmeniz gerekiyorsa, ilkeyi bir girişime eklememeniz önerilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Artık kullanıma sunduğumuz Azure İlkesi ve bazı önemli kavramlar ile ilgili bir genel bakışa sahipsiniz, önerdiğimiz diğer adımları aşağıda bulabilirsiniz:
 
-- [İlke tanımı atama](./assign-policy-definition.md)
-- [Azure CLI kullanarak bir ilke tanımı atama](./assign-policy-definition-cli.md)
-- [PowerShell kullanarak bir ilke tanımı atama](./assign-policy-definition-ps.md)
+- [İlke tanımı atama](assign-policy-definition.md)
+- [Azure CLI kullanarak bir ilke tanımı atama](assign-policy-definition-cli.md)
+- [PowerShell kullanarak bir ilke tanımı atama](assign-policy-definition-ps.md)
