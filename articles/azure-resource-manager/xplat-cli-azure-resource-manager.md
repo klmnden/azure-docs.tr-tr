@@ -1,23 +1,23 @@
 ---
-title: "Azure CLI ile kaynakları yönetme | Microsoft Docs"
-description: "Azure kaynak ve grupları yönetmek için Azure komut satırı arabirimi (CLI) kullanın"
-editor: 
+title: Azure CLI ile kaynakları yönetme | Microsoft Docs
+description: Azure kaynak ve grupları yönetmek için Azure komut satırı arabirimi (CLI) kullanın
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Azure kaynakları ve kaynak gruplarını yönetmek için Azure CLI kullanma
 
@@ -81,7 +81,7 @@ az account show
 
 Herhangi bir kaynağa aboneliğinize dağıtmadan önce kaynakları içeren bir kaynak grubu oluşturmanız gerekir.
 
-Bir kaynak grubu oluşturmak için kullanın **az grubu oluşturma** komutu. Komut kullanır **adı** parametresini kullanarak kaynak grubu için bir ad belirtin ve **konumu** konumunu belirtmek için parametre.
+Kaynak grubu oluşturmak için **az group create** komutunu kullanın. Komut kullanır **adı** parametresini kullanarak kaynak grubu için bir ad belirtin ve **konumu** konumunu belirtmek için parametre.
 
 ```azurecli-interactive
 az group create --name TestRG1 --location "South Central US"

@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortam için bir uygulama hizmeti kaynak Sağlayıcısı Ekle
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure tümleşik yığını sisteminizi 1802 güncelleştirmesini veya Azure uygulama hizmeti dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
+> Azure tümleşik yığını sisteminizi 1804 güncelleştirmesini veya Azure App Service 1.2 dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
 >
 >
 
@@ -80,7 +80,7 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 7. Sonraki sayfada:
     1. Tıklatın **Bağlan** düğmesine **Azure yığın abonelikleri** kutusu.
         - Yönetici hesabınız sağlar. Örneğin, cloudadmin@azurestack.local. Parolanızı girin ve tıklayın **oturum**.
-    2. İçinde **Azure yığın abonelikleri** kutusunda, aboneliğinizi seçin.
+    2. İçinde **Azure yığın abonelikleri** kutusunda **varsayılan sağlayıcı abonelik**.
     3. İçinde **Azure yığın konumu** kutusunda, dağıtımına bölgeyi karşılık gelen konumu seçin. Örneğin, seçin **yerel** varsa Azure yığın Geliştirme Seti dağıtma.
     4. **İleri**’ye tıklayın.
 
@@ -126,7 +126,7 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 
     ![Uygulama Hizmeti Yükleyici][11]
 
-12. Uygulama hizmeti kaynak sağlayıcısı veritabanlarını barındırmak ve ardından için kullanılan sunucu örneği için SQL Server ayrıntılarını girin **sonraki**. Yükleyici SQL bağlantı özelliklerini doğrulama.
+12. Uygulama hizmeti kaynak sağlayıcısı veritabanlarını barındırmak ve ardından için kullanılan sunucu örneği için SQL Server ayrıntılarını girin **sonraki**. Yükleyici SQL bağlantı özelliklerini doğrulama. **Gerekir** iç IP ya da SQL Server adı tam etki alanı adını girin.
 
 > [!NOTE]
 > Yükleyici devam etmeden önce SQl Server bağlantısını test etme girişiminde bulunur.  Ancak, varolan bir sanal ağı dağıtmak seçerseniz, yükleyici SQL Server'a bağlanmak kuramamış olabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntüler.  SQL Server bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
@@ -227,7 +227,7 @@ Dağıtma ve uygulama hizmeti kaynak sağlayıcısı kaydetme sonra kullanıcıl
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Bir WordPress, DNN ya da Django Web sitesi (isteğe bağlı) dağıtma
 
-1. Azure yığın Kiracı Portalı'nda tıklatın **+**Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
+1. Azure yığın Kiracı Portalı'nda tıklatın **+** Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
 
 2. Bir MySQL kaynak sağlayıcısı ayrıca dağıttıysanız Marketi'nden bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kullanıcı adı olarak girin *User1@Server1*, tercih ettiğiniz sunucu adını ve kullanıcı adı.
 

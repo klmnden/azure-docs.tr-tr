@@ -10,11 +10,11 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 96a749c0cb59759e9294f52bd4f631d7fdc2275f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 404e238e51b7ac8b799f413965560a8d42ccc5df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 Uygulama üzerinde çalışan tek Geliştirici değilmiş gibi şu ana kadar uygulamanızın kod çalışır durumda. Bu bölümde, nasıl Azure Dev alanları takım geliştirme kolaylaştırır öğreneceksiniz:
 * Aynı geliştirme ortamında geliştiricilerin ekibi etkinleştirin.
@@ -50,7 +50,7 @@ Burada Hizmetleri şu anda çalışan bir daha yakından bakalım. Çalıştırm
 Name         Space     Chart              Ports   Updated     Access Points
 -----------  --------  -----------------  ------  ----------  -------------------------
 mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     https://webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
+webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 Her iki hizmet adlı bir alana çalıştığını alanı sütunda görüntülenir `default`. Ortak URL açar ve web uygulaması'na götürür herkes hem Hizmetleri aracılığıyla çalıştıran daha önce yazdığınız kod yolu çağırır. Şimdi geliştirmeye devam istediğinizi varsayalım `mywebapi`. Nasıl, kod değişiklikler yapabilir ve bunları test ve geliştirme ortamı kullanarak diğer geliştiriciler kesme değil mi? Bunu yapmak için kendi alan boşaltın ayarlarsınız.

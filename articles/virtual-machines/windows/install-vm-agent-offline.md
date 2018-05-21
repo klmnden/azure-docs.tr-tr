@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Çevrimdışı modda Azure sanal makine aracısını yükleme 
 
@@ -106,12 +106,11 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 
 13.  VM erişin. RdAgent çalıştırmak ve günlükleri oluşturulan dikkat edin.
 
-Klasik dağıtım modeli kullanarak VM oluşturduysanız bitirdiniz.
-
+Resource Manager dağıtım dağıtım modeli kullanarak VM oluşturduysanız bitirdiniz.
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Azure Resource Manager ile oluşturulan VM'ler için ProvisionGuestAgent özelliğini kullanın
 
-Resource Manager dağıtım modeli kullanarak VM oluşturduysanız güncelleştirmek için Azure PowerShell modülü kullanın **ProvisionGuestAgent** özelliği. Özelliği Azure VM VM Aracısı'nın yüklü olduğunu bildirir.
+Klasik modeli kullanarak VM oluşturduysanız güncelleştirmek için Azure PowerShell modülü kullanın **ProvisionGuestAgent** özelliği. Özelliği Azure VM VM Aracısı'nın yüklü olduğunu bildirir.
 
 Ayarlamak için **ProvisionGuestAgent** özelliği, Azure PowerShell'de aşağıdaki komutları çalıştırın:
 

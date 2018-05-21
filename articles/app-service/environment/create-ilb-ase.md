@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -215,7 +215,7 @@ SCM site adı sizi Azure portalı içinde **Gelişmiş portal** olarak adlandır
 
 Çok kiracılı App Service ve bir Dış ASE’de, Azure portalı ile Kodu konsolu arasında çoklu oturum açma mevcuttur. Ancak, ILB ASE için Kudu konsolunda oturum açarken yayımlama kimlik bilgilerinizi kullanmanız gerekir.
 
-GitHub ve Visual Studio Team Services gibi Internet tabanlı CI sistemleri, yayımlama uç noktasına İnternet’ten erişilemediği için bir ILB ASE ile çalışmaz. Bunun yerine, Dropbox gibi çekme modeli kullanan bir CI sistemi kullanmanız gerekir.
+GitHub ve Visual Studio Team Services gibi İnternet tabanlı CI sistemleri, derleme aracısına İnternet’ten erişilebiliyorsa ve aracı ILB ASE ile aynı ağdaysa ILB ASE ile çalışmaya devam eder. Bu nedenle, Visual Studio Team Services örneğinde derleme aracısı ILB ASE ile aynı sanal ağda (alt ağın farklı olması sorun yaratmaz) oluşturulursa VSTS git’ten kod çekip ILB ASE’ye dağıtabilir. Kendi derleme aracınızı oluşturmak istemiyorsanız çekme modeli kullanan bir CI sistemi (Dropbox gibi) kullanmanız gerekir.
 
 Bir ILB ASE’deki uygulamalar için yayımlama uç noktaları, ILB ASE oluşturulurken kullanılan etki alanını kullanır. Bu etki alanı uygulamanın yayımlama profilinde ve uygulamanın portal dikey penceresinde görünür (**Genel Bakış** > **Temel Bilgiler** ve ayrıca **Özellikler**). Alt etki alanı *contoso.net* olan bir ILB ASE’niz ve *mytest* adlı bir uygulamanız varsa, FTP için *mytest.contoso.net* ve web dağıtımı için *mytest.scm.contoso.net* kullanın.
 
@@ -244,7 +244,7 @@ ILB ASE’nizi bir WAF cihazıyla yapılandırma hakkında daha fazla bilgi içi
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

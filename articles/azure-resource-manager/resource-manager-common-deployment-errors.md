@@ -10,16 +10,16 @@ editor: tysonn
 keywords: Dağıtım hatası, azure dağıtım azure'a dağıtma
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme
 
@@ -73,8 +73,8 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | ResourceNotFound | Dağıtımınız, çözümlenemeyen bir kaynağa başvuruyor. Doğrulayın kullanımınız **başvuru** işlevi senaryonuz için gerekli olan parametreleri içerir. | [Başvuruları çözümlenemedi](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | Dağıtım kotasına abonelik, kaynak grubu veya bölge için kaynak oluşturmak çalışıyor. Mümkünse, kotalar içinde kalmak için altyapınızı gözden geçirin. Aksi takdirde, kotalar bir değişiklik isteğinde göz önünde bulundurun. | [Kotalar çözümleyin](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Seçtiğiniz konum için kullanılabilir olan SKU (örneğin, VM boyutu) seçin. | [SKU çözümleyin](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | Depolama hesabı için benzersiz bir ad sağlayın. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md)  |
-| StorageAccountAlreadyTaken | Depolama hesabı için benzersiz bir ad sağlayın. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md) |
+| StorageAccountAlreadyExists | Depolama hesabına benzersiz bir ad verin. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyTaken | Depolama hesabına benzersiz bir ad verin. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Abonelik, kaynak grubu ve kullanmaya çalıştığınız depolama hesabının adını kontrol edin. | |
 | SubnetsNotInSameVnet | Bir sanal makine yalnızca tek bir sanal ağa sahip olabilir. Birden çok NIC dağıtırken aynı sanal ağa ait oldukları emin olun. | [Birden çok NIC](../virtual-machines/windows/multiple-nics.md) |
 | TemplateResourceCircularDependency | Gereksiz bağımlılıkları kaldırın. | [Döngüsel bağımlılıklar çözümlenemiyor](resource-manager-invalid-template-errors.md#circular-dependency) |

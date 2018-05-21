@@ -1,4 +1,19 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: cfe675ca269a69c7c2bfa67638acd0afbcd1c8ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/20/2018
+---
 Her bitiş noktasının bir *genel bağlantı noktası* ve *özel bağlantı noktası*:
 
 * Genel bağlantı noktası, Internet'ten gelen trafiği sanal makineye dinlenecek Azure yük dengeleyici tarafından kullanılır.
@@ -6,7 +21,7 @@ Her bitiş noktasının bir *genel bağlantı noktası* ve *özel bağlantı nok
 
 TCP veya UDP bağlantı noktaları için iyi bilinen ağ uç noktalarını Azure portalıyla oluşturduğunuzda protokolleri sağlanır ve IP protokolü için varsayılan değerleri. Özel uç noktaları için doğru IP Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktaları belirtmeniz gerekir. Gelen trafiği rastgele birden fazla sanal makine arasında dağıtmak için birden çok uç noktaları oluşan bir yük dengeli kümesi oluşturmanız gerekir.
 
-Bir uç nokta oluşturduktan sonra izin veya kaynak IP adresine göre uç noktasının ortak bağlantı noktasına gelen trafiği reddeden kuralları tanımlamak için bir erişim denetimi listesi (ACL) kullanabilirsiniz. Ancak, sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları yerine kullanmanız gerekir. Ayrıntılar için bkz [ağ güvenlik grupları hakkında](../articles/virtual-network/virtual-networks-nsg.md).
+Bir uç nokta oluşturduktan sonra izin veya kaynak IP adresine göre uç noktasının ortak bağlantı noktasına gelen trafiği reddeden kuralları tanımlamak için bir erişim denetimi listesi (ACL) kullanabilirsiniz. Ancak, sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları yerine kullanmanız gerekir. Ayrıntılar için bkz [ağ güvenlik grupları hakkında](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > Azure sanal makineleri için güvenlik duvarı yapılandırması, Azure otomatik olarak ayarlayan uzak bağlantı uç ile ilişkili bağlantı noktaları için otomatik olarak yapılır. Diğer uç için belirtilen bağlantı noktaları için yapılandırma güvenlik duvarı sanal makinenin otomatik olarak yapılır. Sanal makine için bir uç nokta oluşturduğunuzda, Güvenlik Duvarı'nı sanal makinenin uç nokta yapılandırması karşılık gelen özel bağlantı noktası ve protokol trafiği verdiğinden emin olmak gerekir. Güvenlik Duvarı'nı yapılandırmak için belgelere veya sanal makinede çalışan işletim sistemi için çevrimiçi yardıma bakın.
@@ -39,7 +54,7 @@ Trafik gönderebilen bir bilgisayarlar kümesi tanımlamak için kaynak IP adres
 >
 >
 
-Sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları, ACL yerine öneririz. Ayrıntılar için bkz [ağ güvenlik grupları hakkında](../articles/virtual-network/virtual-networks-nsg.md).
+Sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları, ACL yerine öneririz. Ayrıntılar için bkz [ağ güvenlik grupları hakkında](../articles/virtual-network/security-overview.md).
 
 1. Zaten, Azure portalında oturum açma yapmadıysanız.
 2. Tıklatın **sanal makineleri**ve ardından yapılandırmak istediğiniz sanal makinenin adına tıklayın.
@@ -47,7 +62,7 @@ Sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları, ACL yerine �
 
    ![ACL ayrıntılarını belirtin](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-4. Satır listede eklemek, silmek veya için bir ACL kuralları düzenlemek ve sıralamalarını değiştirmek için kullanın. **Uzak alt** izin vermek veya kaynak IP adresine göre trafiği engellemek için Azure yük dengeleyici kullanır Internet'ten gelen trafiği için bir IP adresi aralığı bir değerdir. CIDR biçiminde adres öneki biçimi olarak da bilinen IP adresi aralığı belirttiğinizden emin olun. Örnek `10.1.0.0/8`.
+4. Satır listede eklemek, silmek veya için bir ACL kuralları düzenlemek ve sıralamalarını değiştirmek için kullanın. **Uzak alt** izin vermek veya kaynak IP adresine göre trafiği engellemek için Azure yük dengeleyici kullanır Internet'ten gelen trafiği için bir IP adresi aralığı bir değerdir. CIDR biçiminde adres öneki biçimi olarak da bilinen IP adresi aralığı belirttiğinizden emin olun. `10.1.0.0/8` bunun bir örneğidir.
 
  ![Yeni ACL giriş](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 

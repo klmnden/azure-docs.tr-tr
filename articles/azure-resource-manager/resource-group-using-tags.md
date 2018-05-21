@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5da8c747fb8f89ff627cad74bacf0753bb3484ad
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="powershell"></a>PowerShell
 
-Bu makaledeki örneklerde sürüm 3.0 veya daha sonraki Azure PowerShell sürümünü gerektirir. Sürüm 3.0 veya üstü, yoksa [sürümünüzü güncelleştirme](/powershell/azureps-cmdlets-docs/) PowerShell Galerisi ya da Web Platformu yükleyicisi kullanarak.
+Bu makaledeki örneklerde sürüm 6.0 veya üstü Azure PowerShell gerektirir. Sürüm 6.0 veya üstü, yoksa [sürümünüzü güncelleştirme](/powershell/azure/install-azurerm-ps).
 
 Bir *kaynak grubunun* mevcut etiketlerini görmek şunu kullanın:
 
@@ -48,7 +48,7 @@ Environment                    Test
 *Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu kullanın:
 
 ```powershell
-(Get-AzureRmResource -ResourceId {resource-id}).Tags
+(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 *Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu da kullanabilirsiniz:
@@ -60,13 +60,19 @@ Environment                    Test
 *Belirli bir etikete sahip kaynak gruplarını* almak için şunu kullanın:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 *Belirli bir etikete sahip kaynakları* almak için şunu kullanın:
 
 ```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+```
+
+Alınacak *bir özel etiket adına sahip kaynaklar*, kullanın:
+
+```powershell
+(Get-AzureRmResource -TagName Dept).Name
 ```
 
 Bir kaynağa veya kaynak grubuna etiket uyguladığınız her durumda ilgili kaynağın veya kaynak grubunun üzerinde mevcut olan etiketlerin üzerine yazarsınız. Bu nedenle, kaynakta veya kaynak grubunda etiketlerin mevcut olup olmamasına bağlı olarak farklı bir yaklaşım kullanmanız gerekir.
@@ -81,7 +87,7 @@ Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
-$tags += @{Status="Approved"}
+$tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
@@ -96,7 +102,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.Resou
 
 ```powershell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.tags += @{Status="Approved"}
+$r.Tags.Add("Status", "Approved") 
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
@@ -106,7 +112,7 @@ Bir kaynak grubundaki tüm etiketleri *kaynaklardaki mevcut etiketleri korumadan
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -115,16 +121,21 @@ Bir kaynak grubundaki tüm etiketleri *yinelenmeyen kaynaklardaki mevcut etiketl
 ```powershell
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-        foreach ($key in $group.Tags.Keys)
+        if ($resourcetags)
         {
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-        $resourcetags += $group.Tags
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
@@ -134,7 +145,6 @@ Tüm etiketleri kaldırmak için bir boş karma tablosu geçirin:
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -257,7 +267,7 @@ Faturalama etiketleriyle destekleyen hizmetler için kullanım CSV yüklediğini
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md).
+* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz: [Azure ilke nedir?](../azure-policy/azure-policy-introduction.md)
 * Kaynakları dağıtırken Azure PowerShell kullanarak bir giriş için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
 * Kaynakları dağıtırken Azure CLI kullanarak bir giriş için bkz: [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
 * Portalı kullanarak bir giriş için bkz: [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  

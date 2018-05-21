@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 53d34f373dc31befe75072733976b2e4126ff2b0
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: acd69b6ea4d7a1d5c13cd0172f15b93eac96058e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümleri anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulamaya erişim yönetimi sağlayan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD hızla [çoklu oturum açma (SSO) etkinleştirir](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 000 1, kullanıcının önceden tümleştirilmiş ticari ve özel uygulamalar [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/). Çoğu bu uygulamaların, büyük olasılıkla zaten Office 365, Salesforce.com, kutusunu, ServiceNow ve Workday gibi kullanın.
@@ -111,7 +111,7 @@ Bir ton harika kaynaklarının çevrimiçi tüm Azure AD hakkında bilgi edinmen
 * [Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)
 * [Azure AD Raporlama ile çalışmaya başlama](active-directory-reporting-getting-started.md)
 * [Her yerden, parolaları yönetme](active-directory-passwords-update-your-own-password.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)
 * [Şirket içi uygulamalara güvenli uzaktan erişim sağlama](manage-apps/application-proxy.md)
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
