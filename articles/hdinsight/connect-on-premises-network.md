@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 51307e1bdb31d902636787790d1c4f1248f3886b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Hdınsight, şirket içi ağınıza bağlanmak
 
@@ -182,7 +182,7 @@ Kullanan bir Linux VM oluşturmak için [bağlamak](https://www.isc.org/download
 
         dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Metin __DNS soneki__ bu sanal ağ için. Bu değer daha sonra kullanılmak üzere kaydedin.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Metin __DNS soneki__ bu sanal ağ için. Bu değeri kaydedin çünkü daha sonra kullanılacaktır.
 
 5. Sanal ağ içindeki kaynaklar için DNS adlarını çözümlemek için bağ yapılandırmak için aşağıdaki metni içeriğini kullanın `/etc/bind/named.conf.local` dosyası:
 
@@ -336,6 +336,6 @@ Hdınsight için sanal ağ üzerinden doğrudan bağlanmak için aşağıdaki ad
 
 * Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
 
-* Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
+* Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/security-overview.md).
 
 * Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar ve IP iletimini](../virtual-network/virtual-networks-udr-overview.md).

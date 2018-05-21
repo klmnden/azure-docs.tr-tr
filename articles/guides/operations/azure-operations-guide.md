@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Bulut için giriş ve Microsoft Azure
 
@@ -509,7 +509,7 @@ Benzer şekilde, bir Azure Resource Manager şablonu dağıtmak için Azure CLI 
 
 ### <a name="access-and-security-for-virtual-networks"></a>Erişim ve sanal ağlar için güvenlik
 
-Bir ağ güvenlik grubu kullanarak güvenli Azure sanal ağlar yardımcı olabilir. Nsg'ler izin veren veya reddeden bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin erişim denetimi listesi (ACL) kurallarının bir listesini içerir. Nsg'ler alt ağlarla veya bu alt ağ içindeki tekil VM örnekleriyle ilişkilendirebilirsiniz. Bir NSG'yi bir alt ağ ile ilişkilendirdiğinizde, ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerlidir. Ayrıca, daha fazla trafik tekil bir VM için bir NSG doğrudan bu VM ile ilişkilendirerek kısıtlayabilirsiniz. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../../virtual-network/virtual-networks-nsg.md).
+Bir ağ güvenlik grubu kullanarak güvenli Azure sanal ağlar yardımcı olabilir. Nsg'ler izin veren veya reddeden bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin erişim denetimi listesi (ACL) kurallarının bir listesini içerir. Nsg'ler alt ağlarla veya bu alt ağ içindeki tekil VM örnekleriyle ilişkilendirebilirsiniz. Bir NSG'yi bir alt ağ ile ilişkilendirdiğinizde, ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerlidir. Ayrıca, daha fazla trafik tekil bir VM için bir NSG doğrudan bu VM ile ilişkilendirerek kısıtlayabilirsiniz. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
