@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>İşlem ve bilişsel arama senaryolarda görüntülerden bilgi ayıklamak nasıl
 
@@ -38,6 +38,8 @@ Görüntü normalleştirmeyi kapatamazsınız. Görüntüleri yineleme beceriler
 
 > [!NOTE]
 > Ayarlarsanız *imageAction* özelliği "hiçbiri" dışında her şey için edemeyecek ayarlamak *parsingMode* "varsayılan" dışında bir şey özelliğine.  Yalnızca bu iki özelliklerden biri için varsayılan olmayan bir değer dizin oluşturucu yapılandırmanızda ayarlamanız.
+
+Ayarlama **parsingMode** parametresi `json` (tek bir belge olarak her bir blob dizini oluşturmak için) veya `jsonArray` (bloblarınızın JSON dizileri içerir ve ayrı bir belge olarak kabul edilmesi için bir dizinin her bir öğesine ihtiyacınız varsa).
 
 Varsayılan değer 2000 piksel normalleştirilmiş görüntüleri maksimum genişlik ve yükseklik tarafından desteklenen en büyük boyutlar dayanır [OCR yetenek](cognitive-search-skill-ocr.md) ve [görüntü analiz yetenek](cognitive-search-skill-image-analysis.md). Maksimum sınırı artırmak istiyorsanız, işleme büyük görüntülerinde başarısız olabilir.
 

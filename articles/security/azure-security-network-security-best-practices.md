@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0aaf49aaa31a022e040fc7019a2f115f92555010
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Azure ağı en iyi güvenlik uygulamaları
 Microsoft Azure sanal makineleri ve cihazları diğer ağ bağlantılı cihazlar için Azure sanal ağlarda koyarak bağlamanıza olanak sağlar. Bir Azure sanal ağı etkin ağ aygıtları arasındaki TCP tabanlı iletişime izin vermek için sanal bir ağa sanal ağ arabirim kartları bağlanmanıza olanak sağlayan bir yapıdır. Bir Azure sanal ağına bağlı Azure sanal makineleri aynı Azure sanal ağı, farklı Azure sanal ağlar, Internet'te veya kendi şirket içi ağlarda bile cihazlarda bağlanabilir.
@@ -56,7 +56,7 @@ Benzer şekilde ne şirket içi yapmak için büyük bir adres alanı alt ağlar
 
 Alt ağlar arasında yönlendirme otomatik olarak gerçekleşir ve yönlendirme tablolarını el ile yapılandırmanız gerekmez. Ancak, varsayılan ayarı vardır hiçbir ağ erişim denetimlerini Azure sanal ağ oluşturma alt ağlar arasında olmasıdır. Alt ağlar arasında ağ erişim denetimleri oluşturmak için alt ağlar arasında bir şey put gerekir.
 
-Bu görevi gerçekleştirmek için kullanabileceğiniz özelliklerinden biri olan bir [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) (NSG). Nsg'ler olan 5-tanımlama grubu (kaynak IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası ve katman 4 Protokolü) kullanan basit durum bilgisi olan paket incelemesi cihazlara izin verme/reddetme oluşturmak için bir yaklaşım ağ trafiği için kuralları. İzin vermek veya tek IP adresi için ve birden çok IP adresi veya hatta ve tüm alt ağlar gelen ve giden trafiği reddetmek.
+Bu görevi gerçekleştirmek için kullanabileceğiniz özelliklerinden biri olan bir [ağ güvenlik grubu](../virtual-network/security-overview.md) (NSG). Nsg'ler olan 5-tanımlama grubu (kaynak IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası ve katman 4 Protokolü) kullanan basit durum bilgisi olan paket incelemesi cihazlara izin verme/reddetme oluşturmak için bir yaklaşım ağ trafiği için kuralları. İzin vermek veya tek IP adresi için ve birden çok IP adresi veya hatta ve tüm alt ağlar gelen ve giden trafiği reddetmek.
 
 Nsg'ler alt ağlar arasında ağ erişim denetimi için kullanarak, aynı güvenlik bölgesi ya da kendi alt rolünde ait kaynakları yerleştirilmesine olanak sağlar. Örneğin bir web katmanı, bir uygulama mantığı katmanından ve veritabanı katmanından olan bir basit bir 3 katmanlı uygulama düşünün. Her bu katmanların kendi alt ait sanal makineler yerleştirin. Daha sonra alt ağlar arasında trafiği denetlemek için Nsg'ler kullanın:
 
@@ -64,7 +64,7 @@ Nsg'ler alt ağlar arasında ağ erişim denetimi için kullanarak, aynı güven
 * Uygulama mantığı sanal makineler yalnızca veritabanı katmanı ile bağlantılar başlatabilir ve yalnızca web katmanı gelen bağlantıları kabul edebilir
 * Veritabanı katmanı sanal makineleri, kendi alt ağı dışında herhangi bir şeyle bağlantı başlatılamıyor ve yalnızca uygulama mantığı katmanı gelen bağlantıları kabul edebilir
 
-Ağ güvenlik grupları ve mantıksal olarak Azure sanal ağlarınıza segmentlere ayırmak için bunları nasıl kullanabileceğiniz hakkında daha fazla bilgi için bkz: [bir ağ güvenlik grubu nedir](../virtual-network/virtual-networks-nsg.md) (NSG).
+Ağ güvenlik grupları ve mantıksal olarak Azure sanal ağlarınıza segmentlere ayırmak için bunları nasıl kullanabileceğiniz hakkında daha fazla bilgi için bkz: [bir ağ güvenlik grubu nedir](../virtual-network/security-overview.md) (NSG).
 
 ## <a name="control-routing-behavior"></a>Yönlendirme davranışını denetlemek
 Bir Azure sanal ağ üzerinde bir sanal makine geçirdiğinizde, diğer sanal makineler farklı alt ağlarda olsa bile, sanal makine aynı Azure sanal ağ üzerindeki diğer sanal makineye bağlanabildiğinizi görürsünüz. Bu tür iletişim izin varsayılan olarak etkin olan sistem yolları koleksiyonunu olduğundan, bu mümkündür. Bu varsayılan yolları sanal makineleri aynı Azure sanal ağda birbirleriyle ve Internet (için yalnızca Internet giden iletişimler) ile bağlantı başlatmasına izin verin.

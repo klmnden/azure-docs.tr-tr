@@ -10,18 +10,18 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
 
 * **Azure depolama**: telemetri küçük bir fiyat için çok büyük miktarda arşivlemek için kullanılır.
 * **Azure Event Hubs**: SQL veritabanı telemetri özel izleme çözümü veya etkin işlem hatları ile tümleştirmek için kullanılır.
-* **Azure günlük analizi**: Giden kutusu izleme çözümünü raporlama, uyarı ve yetenekleri Azaltıcı için kullanılır. Bu, özelliğidir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **Azure günlük analizi**: Giden kutusu izleme çözümünü raporlama, uyarı ve yetenekleri Azaltıcı için kullanılır. Bu bir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) özelliğidir
 
     ![Mimari](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -155,7 +155,7 @@ Birden çok çıktı seçenekleri etkinleştirmek için bu parametreler birleşt
 
 ### <a name="rest-api"></a>REST API
 
-Konusunu okuyun [Azure İzleyici REST API'sini kullanarak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Konusunu okuyun [Azure İzleyici REST API'sini kullanarak tanılama ayarlarını değiştirme](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Resource Manager şablonu
 
@@ -376,7 +376,7 @@ Daha fazla bilgi edinmek [Query Store bekleyin istatistik verileri](https://docs
 |İleti|Hata iletisi düz metin.|
 |user_defined_b|Kullanıcı tanımlı hata bitidir.|
 |error_number_d|Hata kodu.|
-|Önem Derecesi|Hata önem derecesi.|
+|Severity|Hata önem derecesi.|
 |state_d|Hata durumu.|
 |query_hash_s|Başarısız sorgu varsa karmasını sorgu.|
 |query_plan_hash_s|Başarısız sorgu varsa sorgu planı karması.|

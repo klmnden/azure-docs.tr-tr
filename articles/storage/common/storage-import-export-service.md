@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dc104470ca2bfd738ca9bfc334a1c1325f7318
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -267,7 +267,7 @@ Sürücünüzü işlemde olduğu bağlı olarak aşağıdaki iş durumlardan bir
 | Aktarılıyor | En az bir sürücü işleme başladıktan sonra iş durumu aktarma için ayarlanacak. Ayrıntılı bilgi için aşağıdaki sürücü durumları bölümüne bakın. |
 | Paketleme | Tüm sürücüler işlemeyi tamamladıktan sonra sürücüleri size geri gönderilir kadar iş paketleme durumda yerleştirilir. |
 | Tamamlandı | İş bir hata olmadan tamamlandı, müşteri için tüm sürücülerin sevk edilmiş sonra iş tamamlandı durumuna ayarlanır. İş Tamamlandı durumunda otomatik olarak 90 gün sonra silinir. |
-| Kapalı | İş işleme sırasında hataları olmuştur, müşteri için tüm sürücülerin sevk edilmiş sonra iş kapalı duruma ayarlanır. İş kapalı durumda otomatik olarak 90 gün sonra silinir. |
+| Kapatıldı | İş işleme sırasında hataları olmuştur, müşteri için tüm sürücülerin sevk edilmiş sonra iş kapalı duruma ayarlanır. İş kapalı durumda otomatik olarak 90 gün sonra silinir. |
 
 Bir içe veya dışa aktarma işi ile geçiş yapıldığı gibi ayrı ayrı bir sürücü yaşam döngüsünü aşağıdaki tabloda açıklanmıştır. Geçerli bir işi her sürücüde şimdi Azure portalından görünür durumda.
 Aşağıdaki tabloda her bir iş sürücüde geçirir her durumu açıklar.
@@ -569,6 +569,9 @@ Kullanıyorsanız [WAImportExport aracı](http://download.microsoft.com/download
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [WAImportExport Aracı'nı ayarlama](storage-import-export-tool-how-to.md)

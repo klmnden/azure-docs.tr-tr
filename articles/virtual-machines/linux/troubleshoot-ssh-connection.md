@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Bir Azure Linux VM, hatalar, başarısız olur veya reddedilir SSH bağlantı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya bir Linux sanal makine (VM) bağlanmaya çalıştığınızda SSH reddetti çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI ya da Linux VM erişim uzantısını ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -34,7 +34,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin.
 
 1. SSH yapılandırmasını sıfırlayın.
 2. Kullanıcının kimlik bilgilerini sıfırlayın.
-3. Doğrulama [ağ güvenlik grubu](../../virtual-network/virtual-networks-nsg.md) kuralları SSH trafiğine izin verir.
+3. Doğrulama [ağ güvenlik grubu](../../virtual-network/security-overview.md) kuralları SSH trafiğine izin verir.
    * Bir ağ güvenlik grubu kural (varsayılan olarak, TCP bağlantı noktası 22) SSH trafiğe izin verecek şekilde bulunduğundan emin olun.
    * Bağlantı noktası yeniden yönlendirmesine kullanamazsınız / Azure yük dengeleyici kullanmadan eşleme.
 4. Denetleme [VM kaynak durumu](../../resource-health/resource-health-overview.md). 
@@ -77,7 +77,7 @@ Kullanım [IP akış doğrulayın](../../network-watcher/network-watcher-check-i
 
 Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
+## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanma
 Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login).
 
 Oluşturulan ve özel Linux disk görüntü karşıya emin olun [Microsoft Azure Linux Aracısı](../extensions/agent-windows.md) sürüm 2.0.5 veya üstü yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklenmiş ve sizin için yapılandırılmış.

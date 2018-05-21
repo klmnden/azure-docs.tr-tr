@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler
 
@@ -46,7 +46,7 @@ Bir galeri görüntüsü ile bir SQL Server sanal makine oluşturduğunuzda **SQ
 
 En iyi güvenlik için senaryonuza en kısıtlayıcı seçeneği belirleyin. Bir uygulama çalıştırıyorsanız, örneğin, aynı VM SQL Server'da sonra erişen **yerel** en güvenli seçenektir. Ardından SQL Server'a erişim gerektiren bir Azure uygulama çalıştırıyorsanız, **özel** yalnızca içinde belirtilen SQL Server iletişimi güvenli hale getirdiği [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Gerektiriyorsa **ortak** (Internet) erişmek için SQL Server VM sonra saldırı alanını azaltmak için bu konudaki diğer en iyi uygulamaları takip ettiğinizden emin olun.
 
-Seçili seçenekler portalında sanal makinelerin gelen güvenlik kurallarını kullanın [ağ güvenlik grubu](../../../virtual-network/virtual-networks-nsg.md) veya sanal makinenize ağ trafiği reddetmek için (NSG). Değiştirin veya SQL Server bağlantı noktası (varsayılan 1433) trafiğine izin verecek şekilde, yeni gelen NSG kuralları oluşturun. Bu bağlantı noktası üzerinden iletişim kurmasına izin belirli IP adreslerini de belirtebilirsiniz.
+Seçili seçenekler Portalı'nda VM üzerinde gelen güvenlik kuralları kullanmak [ağ güvenlik grubu](../../../virtual-network/security-overview.md) veya sanal makinenize ağ trafiği reddetmek için (NSG). Değiştirin veya SQL Server bağlantı noktası (varsayılan 1433) trafiğine izin verecek şekilde, yeni gelen NSG kuralları oluşturun. Bu bağlantı noktası üzerinden iletişim kurmasına izin belirli IP adreslerini de belirtebilirsiniz.
 
 ![Ağ güvenlik grubu kuralları](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 

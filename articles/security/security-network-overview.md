@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 843ff1adddcb4c1165ead3f484ad74a503410852
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: fbd589aedb955ee4bd61dc0ec754d8713a98179a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 Azure uygulama ve hizmet bağlantı gereksinimlerini desteklemek için sağlam bir ağ altyapısı içerir. Azure'da, şirket içi arasında bulunan kaynaklar arasındaki ağ bağlantısı mümkündür ve Azure barındırılan kaynakları ve kitaplığa ve Internet ve Azure.
@@ -57,7 +57,7 @@ Temel ağ düzeyinde erişim denetimi (IP adresini ve TCP veya UDP protokollerin
 
 Daha fazla bilgi edinin:
 
-* [Ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md)
+* [Ağ güvenlik grupları](../virtual-network/security-overview.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Denetim yönlendirmek ve zorlanan tünel
 Sanal ağlarınızdaki yönlendirme davranışını denetleme olanağı önemlidir. Yönlendirme hatalı yapılandırıldıysa, uygulamaları ve Hizmetleri, sanal makinede barındırılan ait ve potansiyel saldırganlar tarafından işletilen sistemleri yetkisiz aygıtlar bağlanabilir.

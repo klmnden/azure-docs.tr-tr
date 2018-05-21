@@ -1,11 +1,11 @@
 ---
-title: "İptal etmek ve bir Azure içeri/dışarı aktarma işini silmek | Microsoft Docs"
-description: "İptal etmek ve Microsoft Azure içeri/dışarı aktarma hizmeti için silme hakkında bilgi edinin."
+title: İptal etmek ve bir Azure içeri/dışarı aktarma işini silmek | Microsoft Docs
+description: İptal etmek ve Microsoft Azure içeri/dışarı aktarma hizmeti için silme hakkında bilgi edinin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fd3d66f0-1dbb-4c75-9223-307d5abaeefc
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3524f1677baaa218b009b8498b851390c7b9da9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>İptal etme ve Azure içeri/dışarı aktarma işleri siliniyor
 
@@ -27,6 +27,8 @@ ms.lasthandoff: 10/11/2017
  İptal edilen işi taşınır `Completed` durum ve 90 gün boyunca, bu noktada, silindiğinden tutulur.
 
  Bir işi silmek için arama [iş Sil](/rest/api/storageimportexport/jobs#Jobs_Delete) iş sevk edilmiş önce işlemi (diğer bir deyişle, iş, aktarılırken `Creating` durumu). İçinde olduğunda bir iş ayrıca silebilirsiniz `Completed` durumu. Bir işi silindikten sonra kendi bilgilerini ve durumunu artık REST API veya Azure portalı erişilebilir.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

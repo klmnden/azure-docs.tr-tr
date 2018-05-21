@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 8d564d59a2e20d1ccc35ba7801154a6dbcb9070d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a64e2bbe1bb784f0b6032980d6f212470549cdf4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure portal ile bir sanal makineye bağlantı noktalarının nasıl
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -66,4 +66,4 @@ Yüksek oranda kullanılabilir web uygulamaları için Azure yük dengeleyici ar
 Bu örnekte, HTTP trafiğine izin veren basit bir kural oluşturuldu. Aşağıdaki makalelerde ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
 
 * [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)
-* [Ağ Güvenlik Grubu (NSG) Nedir?](../../virtual-network/virtual-networks-nsg.md)
+* [Bir ağ güvenlik grubu nedir?](../../virtual-network/security-overview.md)

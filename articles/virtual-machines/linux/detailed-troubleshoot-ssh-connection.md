@@ -1,12 +1,12 @@
 ---
-title: "Bir Azure VM için ayrıntılı SSH giderme | Microsoft Docs"
-description: "Bir Azure sanal makinesine bağlanma sorunları için sorun giderme adımları SSH ayrıntılı"
-keywords: "SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu"
+title: Bir Azure VM için ayrıntılı SSH giderme | Microsoft Docs
+description: Bir Azure sanal makinesine bağlanma sorunları için sorun giderme adımları SSH ayrıntılı
+keywords: SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Ayrıntılı SSH azure'da bir Linux VM için bağlantı sorunları için sorun giderme adımları
 SSH istemcisi VM SSH hizmette ulaşabilmesi olmayabilir birçok olası nedeni vardır. Daha fazla bilgi izlediyseniz [sorun giderme adımları genel SSH](troubleshoot-ssh-connection.md), daha fazla bağlantı sorunu gidermek gerekir. Bu makalede, SSH bağlantısını nerede başarısız olduğunu ve nasıl çözümleyeceğiniz belirlemek için ayrıntılı sorun giderme adımlarını size yol gösterir.
@@ -39,7 +39,7 @@ Aşağıdaki adımlar hatanın kaynak yalıtmak ve çözümleri veya geçici ç�
 
 2. Seçin **ayarları** uç noktaları, IP adresleri, ağ güvenlik grupları ve diğer ayarları incelemek için.
 
-   VM içinde görüntüleyebilirsiniz SSH trafiği için tanımlanmış bir uç nokta olmalıdır **uç noktaları** veya  **[ağ güvenlik grubu](../../virtual-network/virtual-networks-nsg.md)**. Resource Manager kullanılarak oluşturulan sanal makineleri uç noktalarını bir ağ güvenlik grubundaki depolanır. Kural ağ güvenlik grubuna uygulanan ve alt ağ içindeki başvurulan doğrulayın.
+   VM içinde görüntüleyebilirsiniz SSH trafiği için tanımlanmış bir uç nokta olmalıdır **uç noktaları** veya  **[ağ güvenlik grubu](../../virtual-network/security-overview.md)**. Resource Manager kullanılarak oluşturulan sanal makineleri uç noktalarını bir ağ güvenlik grubundaki depolanır. Kural ağ güvenlik grubuna uygulanan ve alt ağ içindeki başvurulan doğrulayın.
 
 Ağ bağlantısını doğrulamak için yapılandırılmış uç denetleyin ve HTTP veya başka bir hizmeti gibi başka bir protokol üzerinden VM bağlanabildiğinizi bakın.
 
@@ -111,7 +111,7 @@ Uç nokta sorun kaynağı olarak ortadan kaldırmak için geçerli son nokta kal
 
 ## <a name="source-4-network-security-groups"></a>4. kaynak: Ağ güvenlik grupları
 Ağ güvenlik grupları, izin verilen gelen ve giden trafik daha ayrıntılı denetim sağlar. Alt ağlar span ve bulut hizmetlerini bir Azure sanal ağında kurallar oluşturabilirsiniz. Internet'ten SSH trafiğe izin verildiğinden emin olmak için ağ güvenlik grubu kurallarınızı denetleyin.
-Daha fazla bilgi için bkz: [ağ güvenlik grupları hakkında](../../virtual-network/virtual-networks-nsg.md).
+Daha fazla bilgi için bkz: [ağ güvenlik grupları hakkında](../../virtual-network/security-overview.md).
 
 NSG yapılandırmasını doğrulamak için IP doğrulayın de kullanabilirsiniz. Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
