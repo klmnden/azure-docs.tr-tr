@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma JSON BLOB'ları ile Azure Search blob dizin oluşturucu
 Bu makalede, JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için bir Azure Search blob dizin oluşturucu yapılandırma gösterilmektedir.
@@ -23,7 +23,7 @@ JSON BLOB'ları Azure Blob depolamada genellikle tek bir JSON belgesi veya JSON 
 | JSON belgesi | parsingMode | Açıklama | Kullanılabilirlik |
 |--------------|-------------|--------------|--------------|
 | Her blob | `json` | JSON BLOB'ları, tek bir metin öbek ayrıştırır. Her bir JSON blob tek bir Azure Search belge olur. | Hem de genel olarak kullanılabilir [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) ve [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API'leri. |
-| Blob başına birden çok | `jsonArray` | Dizideki her öğe ayrı bir Azure Search belge burada hale blob, JSON dizisinde ayrıştırır.  | Önizleme, içinde [REST API sürümü =`2016-09-01-Preview` ](search-api-2016-09-01-preview.md) ve [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Blob başına birden çok | `jsonArray` | Dizideki her öğe ayrı bir Azure Search belge burada hale blob, JSON dizisinde ayrıştırır.  | Önizleme, içinde [REST API sürümü =`2017-11-11-Preview` ](search-api-2017-11-11-preview.md) ve [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır.
@@ -116,7 +116,7 @@ Alternatif olarak, JSON dizisi önizleme özelliği için tercih edebilirsiniz. 
 
 Bir JSON dizisi için dizin oluşturucu isteği API Önizleme kullanır ve `jsonArray` ayrıştırıcı. JSON BLOB'ları dizin oluşturma için yalnızca iki dizi özgü gereksinimler şunlardır.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ Bir JSON dizisi için dizin oluşturucu isteği API Önizleme kullanır ve `json
     }
 
 Yeniden alan eşlemelerini gerekli olmadığına dikkat edin. Dizin "id" ve "metin" alanları ile verilen, blob dizin oluşturucu alan eşleme listesi olmadan doğru eşleme çıkarımını.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>İç içe JSON diziler
 Ne JSON nesnelerinin bir dizisi, ancak bu dizi dizini oluşturmak istediğiniz yere belge içinde iç içe yerleştirilmiş? Hangi özelliği kullanarak dizi içerir çekme `documentRoot` Yapılandırma özelliği. Örneğin, BLOB'ları şöyle görünür:

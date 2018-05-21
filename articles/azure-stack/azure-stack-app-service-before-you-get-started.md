@@ -1,31 +1,31 @@
 ---
-title: "Azure yığın uygulama hizmeti dağıtmadan önce | Microsoft Docs"
-description: "Azure yığın uygulama hizmeti dağıtmadan önce tamamlamak için adımlar"
+title: Azure yığın uygulama hizmeti dağıtmadan önce | Microsoft Docs
+description: Azure yığın uygulama hizmeti dağıtmadan önce tamamlamak için adımlar
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti ile çalışmaya başlamadan önce
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure tümleşik yığını sisteminizi 1802 güncelleştirmesini veya Azure uygulama hizmeti dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
+> Azure tümleşik yığını sisteminizi 1804 güncelleştirmesini veya Azure App Service 1.2 dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
 >
 >
 
@@ -37,8 +37,8 @@ Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoş
 2. Karşıdan [yükleyici Azure yığın uygulama hizmeti](https://aka.ms/appsvconmasinstaller).
 3. Yardımcı betikleri .zip dosyasından dosyaları ayıklayın. Aşağıdaki dosyalar ve klasör yapısı görünür:
    - Common.ps1
-   - Create-AADIdentityApp.ps1
-   - Create-ADFSIdentityApp.ps1
+   - Oluşturma AADIdentityApp.ps1
+   - Oluşturma ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
@@ -47,17 +47,21 @@ Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoş
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
-Hata etki alanları için destek eklendi, Azure yığın 1802 sürümü nedeniyle Azure uygulama hizmeti Azure yığında yeni dağıtımı hata etki alanlarında dağıtılmış ve hataya dayanıklılık sağlamak.  1802 sürümünden önce dağıtılan Azure yığında Azure App Service'in mevcut dağıtımlar için güncelleştirme, lütfen bakın [belgelerine](azure-stack-app-service-fault-domain-update.md) dağıtımı yeniden dengelemeniz nasıl.
+Hata etki alanları için destek eklendi, Azure yığın 1802 sürümü nedeniyle Azure uygulama hizmeti Azure yığında yeni dağıtımı hata etki alanlarında dağıtılmış ve hataya dayanıklılık sağlamak.  Hangi 1802 güncelleştirme sürümünden önce dağıtılan, varolan dağıtımları Azure yığında Azure App Service için bkz: [belgelerine](azure-stack-app-service-fault-domain-update.md) dağıtımı yeniden dengelemeniz nasıl.
 
-Ayrıca Azure App Service, yüksek kullanılabilirlik için Azure yığında gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın. 
+Ayrıca Azure App Service, yüksek kullanılabilirlik için Azure yığında gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın.
 
 ## <a name="get-certificates"></a>Sertifikaları alma
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure yığını için Azure Resource Manager kök sertifikası
 
-Azure yığın tümleşik sistem veya Azure yığın Geliştirme Seti ana bilgisayarda ayrıcalıklı endpoint ulaşabileceği bir makinede azurestack\CloudAdmin çalışan bir PowerShell oturumunda, Get-AzureStackRootCert.ps1 betiği ayıkladığınız klasöründen çalıştırın. yardımcı betikler. Betik uygulama hizmeti sertifikaları oluşturmak için gereken komut dosyası ile aynı klasörde bir kök sertifikası oluşturun.
+Get-AzureStackRootCert.ps1 komut dosyası azurestack\CloudAdmin Azure yığın tümleşik sistem veya Azure yığın Geliştirme Seti ana bilgisayarda ayrıcalıklı endpoint ulaşabilir, bir makine üzerinde çalışan bir PowerShell oturumunda ayıkladığınız klasöründen çalıştırın yardımcı betikler. Komut dosyası, uygulama hizmeti sertifikaları oluşturmak için gereken komut dosyası ile aynı klasörde bir kök sertifikası oluşturur.
 
-| Get-AzureStackRootCert.ps1 parameter | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
+```PowerShell
+    Get-AzureStackRootCert.ps1
+```
+
+| Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Gerekli | AzS-ERCS01 | Ayrıcalıklı uç noktası |
 | CloudAdminCredential | Gerekli | AzureStack\CloudAdmin | Etki alanı hesabı kimlik bilgileri Azure yığın bulut yöneticileri |
@@ -68,7 +72,7 @@ Azure yığın tümleşik sistem veya Azure yığın Geliştirme Seti ana bilgis
 
 | Dosya adı | Kullanım |
 | --- | --- |
-| _.appservice.local.azurestack.external.pfx | Uygulama hizmeti varsayılan SSL sertifikası |
+| _.appservice.local.azurestack.external.pfx | App Service varsayılan SSL sertifikası |
 | api.appservice.local.azurestack.external.pfx | App Service API SSL sertifikası |
 | ftp.appservice.local.azurestack.external.pfx | Uygulama hizmeti yayımcı SSL sertifikası |
 | sso.appservice.local.azurestack.external.pfx | Uygulama hizmeti kimliği uygulama sertifika |
@@ -78,12 +82,16 @@ Azure yığın Geliştirme Seti konakta komut dosyasını çalıştırın ve Pow
 1. Azurestack\AzureStackAdmin çalışan bir PowerShell oturumunda oluşturma AppServiceCerts.ps1 komut dosyası Yardımcısı betikleri ayıkladığınız klasöründen çalıştırın. Komut dosyası, uygulama hizmeti sertifikaları oluşturmak için gereken komut dosyası ile aynı klasörde dört sertifikaları oluşturur.
 2. .Pfx dosyaları korumak için bir parola girin ve bunu not edin. Uygulama hizmeti Azure yığın yükleyici girmelisiniz.
 
-#### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 parameters
+#### <a name="create-appservicecertsps1-parameters"></a>Oluşturma AppServiceCerts.ps1 parametreleri
+
+```PowerShell
+    Create-AppServiceCerts.ps1
+```
 
 | Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
-| pfxPassword | Gerekli | Null | Parola sertifika özel anahtarı korumaya yardımcı olur |
-| domainName | Gerekli | local.azurestack.external | Azure yığın bölge ve etki alanı soneki |
+| PfxPassword | Gerekli | Null | Parola sertifika özel anahtarı korumaya yardımcı olur |
+| domainName | Gerekli | Local.azurestack.external | Azure yığın bölge ve etki alanı soneki |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure uygulama hizmeti Azure yığında Üretim dağıtımı için gerekli sertifikalar
 
@@ -93,19 +101,19 @@ Azure yığın Geliştirme Seti konakta komut dosyasını çalıştırın ve Pow
 
 Varsayılan etki alanı sertifikası ön uç rolüne yerleştirilir. Azure App Service'e kullanıcı uygulamaları joker veya varsayılan etki alanı istekleri için bu sertifikayı kullanın. Sertifika Ayrıca kaynak denetimi işlemleri (Kudu) için kullanılır.
 
-Sertifika .pfx biçiminde olmalıdır ve üç konulu bir joker sertifika olmalıdır. Bu, hem varsayılan etki alanı hem de kaynak denetimi işlemleri için SCM uç noktasının karşılamak üzere bir sertifika sağlar.
+Sertifika .pfx biçiminde olmalıdır ve üç konulu bir joker sertifika olmalıdır. Bu gereksinim, hem varsayılan etki alanı hem de kaynak denetimi işlemleri için SCM uç noktasının karşılamak üzere bir sertifika sağlar.
 
-| Biçim | Örnek |
+| Biçimlendir | Örnek |
 | --- | --- |
 | \*.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
-| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
+| \*. scm.appservice. <region>. <DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*. sso.appservice. <region>. <DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API sertifika
 
 API sertifika yönetim rolünü yerleştirilir. Kaynak sağlayıcısı güvenli API çağrıları yardımcı olmak için kullanır. Yayımlama sertifikası API DNS girişi ile eşleşen bir konu içermelidir.
 
-| Biçim | Örnek |
+| Biçimlendir | Örnek |
 | --- | --- |
 | api.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | api.appservice.redmond.azurestack.external |
 
@@ -113,7 +121,7 @@ API sertifika yönetim rolünü yerleştirilir. Kaynak sağlayıcısı güvenli 
 
 İçerik yüklediklerinde yayımcı rolünün sertifikası için uygulama sahipleri FTPS trafiğinin güvenliğini sağlar. Yayımlama sertifikası FTPS DNS girişi ile eşleşen bir konu içermelidir.
 
-| Biçim | Örnek |
+| Biçimlendir | Örnek |
 | --- | --- |
 | FTP.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | ftp.appservice.redmond.azurestack.external |
 
@@ -126,7 +134,7 @@ Kimlik uygulama için sertifika sağlar:
 
 Sertifika kimliği şu biçimde eşleşen bir konu içermelidir:
 
-| Biçim | Örnek |
+| Biçimlendir | Örnek |
 | --- | --- |
 | SSO.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | sso.appservice.redmond.azurestack.external |
 
@@ -138,11 +146,11 @@ Sanal ağ - /16
 
 Alt ağlar
 
-* ControllersSubnet /24
-* ManagementServersSubnet /24
-* FrontEndsSubnet /24
-* PublishersSubnet /24
-* WorkersSubnet /21
+- ControllersSubnet /24
+- ManagementServersSubnet /24
+- FrontEndsSubnet /24
+- PublishersSubnet /24
+- WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Dosya sunucusu hazırlayın
 
@@ -272,6 +280,9 @@ Azure yığın Geliştirme Seti dağıtımları için SQL Server Express 2014 SP
 
 SQL Server örneği Azure yığında Azure App Service için tüm uygulama hizmeti rollerden erişilebilir olması gerekir. SQL Server'ın Azure yığınında varsayılan sağlayıcı abonelik içinde dağıtabilirsiniz. Veya yapabilirsiniz, kuruluşunuzdaki mevcut altyapısının (var olduğu sürece Azure yığın bağlantı) kullanın. Bir Azure Market görüntüsü kullanıyorsanız, güvenlik duvarı uygun şekilde yapılandırmak unutmayın.
 
+>[!NOTE]
+> Bir dizi SQL Iaas sanal makine görüntülerini Market yönetim özelliği kullanılarak kullanılabilir. Market öğesi kullanarak bir VM'i dağıtmadan önce her zaman SQL Iaas uzantısı'nın en son sürümü karşıdan emin olun. SQL görüntüleri mevcut olan SQL VM'ler ile aynıdır. SQL Iaas uzantısı bu görüntüleri kullanılarak oluşturulan ve portal geliştirmeleri karşılık gelen VM'ler için otomatik düzeltme eki uygulama ve yedekleme özellikleri gibi özellikler sağlar.
+>
 SQL Server rollerini birini için varsayılan bir örnek veya adlandırılmış bir örnek kullanabilirsiniz. Adlandırılmış bir örnek kullanırsanız, el ile SQL Server Browser hizmetini başlatmak ve bağlantı noktası 1434 açmak emin olun.
 
 >[!IMPORTANT]
@@ -280,7 +291,7 @@ SQL Server rollerini birini için varsayılan bir örnek veya adlandırılmış 
 
 ## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory Uygulama oluşturma
 
-Aşağıdakileri desteklemek için bir Azure AD hizmet sorumlusu yapılandırın:
+Aşağıdaki işlemleri desteklemek için bir Azure AD hizmet sorumlusu yapılandırın:
 
 - Sanal makine ölçek tümleştirme üzerinde çalışan katmanları ayarlayın.
 - SSO için Azure işlevleri Geliştirici Portalı ve Gelişmiş araçlar.
@@ -309,7 +320,11 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 13. Tıklatın **ayarları**.
 14. Seçin **gerekli izinleri** > **izinleri verin** > **Evet**.
 
-| Create-AADIdentityApp.ps1  parameter | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
+```PowerShell
+    Create-AADIdentityApp.ps1
+```
+
+| Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Gerekli | Null | Azure AD Kiracı kimliği. GUID veya dize sağlayın. Myazureaaddirectory.onmicrosoft.com örneğidir. |
 | AdminArmEndpoint | Gerekli | Null | Yönetici Azure Resource Manager uç noktası. Adminmanagement.local.azurestack.external örneğidir. |
@@ -320,7 +335,7 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federasyon Hizmetleri uygulama oluşturma
 
-AD FS tarafından güvenliği sağlanan Azure yığın ortamlar için aşağıdakileri desteklemek için bir AD FS hizmet sorumlusu yapılandırmanız gerekir:
+AD FS tarafından güvenliği sağlanan Azure yığın ortamları için aşağıdaki işlemleri desteklemek için bir AD FS hizmet sorumlusu yapılandırmanız gerekir:
 
 - Sanal makine ölçek tümleştirme üzerinde çalışan katmanları ayarlayın.
 - SSO için Azure işlevleri Geliştirici Portalı ve Gelişmiş araçlar.
@@ -340,7 +355,11 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 5. İçinde **kimlik bilgisi** penceresinde, AD FS bulut yönetici hesabı ve parolasını girin. **Tamam**’ı seçin.
 6. Sertifika dosyası yolu ve sertifika parolasını sağlamak [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
 
-| Oluşturma ADFSIdentityApp.ps1 parametresi | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
+```PowerShell
+    Create-ADFSIdentityApp.ps1
+```
+
+| Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Gerekli | Null | Yönetici Azure Resource Manager uç noktası. Adminmanagement.local.azurestack.external örneğidir. |
 | PrivilegedEndpoint | Gerekli | Null | Ayrıcalıklı uç noktası. AzS ERCS01 örneğidir. |

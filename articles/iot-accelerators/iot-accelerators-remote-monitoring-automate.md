@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 461490a312cbcfda50f4b2e9db39c40250d716fd
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Eşik tabanlı kurallar kullanarak sorunlarını Algıla
 
@@ -151,8 +151,8 @@ Bu öğreticide gösterilen, nasıl için:
 
 Eşik tabanlı kurallar kullanarak sorunlarını algılamak öğrendiniz, bilgi edinmek için önerilen sonraki adımlar olan nasıl yapılır:
 
-* [Yönetmek ve cihazlarınızı yapılandırmak](./../iot-suite/iot-suite-remote-monitoring-manage.md).
-* [Aygıt sorunlarını gidermek ve](./../iot-suite/iot-suite-remote-monitoring-maintain.md).
-* [Sanal cihazlar ile çözümünüzü test](../iot-suite/iot-suite-remote-monitoring-test.md).
+* [Yönetmek ve cihazlarınızı yapılandırmak](iot-accelerators-remote-monitoring-manage.md).
+* [Aygıt sorunlarını gidermek ve](iot-accelerators-remote-monitoring-maintain.md).
+* [Sanal cihazlar ile çözümünüzü test](iot-accelerators-remote-monitoring-test.md).
 
 <!-- Next tutorials in the sequence -->

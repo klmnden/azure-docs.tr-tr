@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 648d96bbb18186524cfad4d3df1f61e98062fcb4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -119,7 +119,7 @@ Gözden geçirme [ayrıntılı bağlantı noktalarının HA tartışma](load-bal
 
 Tam olarak standart yük dengeleyici sanal ağa edildi ' dir.  Sanal ağ özel, kapalı bir ağdır.  Standart yük dengeleyicileri ve standart genel IP adresleri sanal ağ dışında erişilebilmesi bu sanal ağ izin verecek şekilde tasarlandığından, bu kaynakları artık açmadan sürece kapalı varsayılan. Bu ağ güvenlik grupları (Nsg'ler) artık açıkça izin vermek için kullanılır ve beyaz liste trafiğe izin anlamına gelir.  Tüm sanal veri merkezinizde oluşturmak ve NSG ne ve ne zaman kullanılabilir olmalıdır karar verebilirsiniz.  Bir NSG'yi bir alt ağdaki veya NIC, sanal makine kaynağının yoksa, biz bu kaynağa erişmeye trafiğine izin yok.
 
-Nsg'ler ve senaryonuz için uygulama hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
+Nsg'ler ve senaryonuz için uygulama hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Giden bağlantılar
 
@@ -237,7 +237,7 @@ Standart yük dengeleyici Yük Dengeleme kuralları yapılandırılmış ve işl
 - Hakkında bilgi edinin [HA bağlantı noktalarını Yük Dengeleme kuralları ile standart yük dengeleyici](load-balancer-ha-ports-overview.md)
 - Kullanma hakkında bilgi edinin [birden çok ön uçlar olan yük dengeleyici](load-balancer-multivip-overview.md)
 - Hakkında bilgi edinin [sanal ağlar](../virtual-network/virtual-networks-overview.md).
-- Daha fazla bilgi edinmek [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
+- Daha fazla bilgi edinmek [ağ güvenlik grupları](../virtual-network/security-overview.md).
 - Hakkında bilgi edinin [VNet Hizmeti uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Başka bir anahtar bazıları hakkında bilgi edinin [ağı yetenekleri](../networking/networking-overview.md) azure'da.
 - Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md).

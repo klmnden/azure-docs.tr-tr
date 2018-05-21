@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Cosmos DB zaman uyumsuz Java için Azure SDK SQL API: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -55,6 +55,18 @@ SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağ
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Benzersiz bir dizin ilke desteği eklendi.
+* Yanıt devamlılık belirteci boyutu akışı seçenekleri sınırlamak için destek eklendi.
+* Bölüm sorgusu çapraz bölüm bölmedeki desteği eklendi.
+* Json zaman damgası seri hale getirme hatanın düzeltildiğini ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Bir hata Json enum seri hale getirme sabit.
+* 2 MB boyutunda belgeleri yönetme hatanın düzeltildiğini ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Bağımlılık com.fasterxml.jackson.core:jackson-databind 2.9.5 bir hata nedeniyle yükseltildiğinde ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Bir hata nedeniyle 0.8.0.17 yükseltildiğinde rxjava-ek özellikler bağımlılığını ([rxjava ek özellikler: #30 github](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Meta veri açıklamasını pom dosyasında satır içi belgelerine kalanıyla olacak şekilde güncelleştirildi.
+* Sözdizimi geliştirme ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Sorgu geri baskısı destek eklendi.
 * Bölüm anahtarı aralığının kimliği sorgusunda desteği eklendi.
@@ -79,6 +91,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 May 2018|--- |
 | [1.0.1](#1.0.1) |20 Nisan 2018|--- |
 | [1.0.0](#1.0.0) |27 Şubat 2018|--- |
 
