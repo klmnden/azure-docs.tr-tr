@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
 Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her tek tek alanların kullanarak oturum açma kaydında ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
@@ -29,7 +29,7 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 
 - Günlük, her satırda tek bir giriş olması gerekir ya da her girişin başında şu biçimlerden birini eşleşen bir zaman damgası kullanın.
 
-    YYYY-AA-GG SS: DD:<br>D.M.YYYY HH: MM: SS AM/PM <br>MON DD, YYYY SS: dd:
+    YYYY-AA-GG SS: DD:<br>D.M.YYYY HH: MM: SS AM/PM<br>MON DD, YYYY SS: dd:<br />YYAAGG ss: dd:<br />ddMMyy ss: dd:<br />AAA d ss: dd:<br />dd/AAA/yyyy:HH:mm:ss zzz<br />yyyy-aa-ddTHH:mm:ssK
 
 - Günlük dosyası döngüsel günlüğü veya günlük döndürme, dosyanın yeni girişlerle burada üzerine izin vermemelidir.
 - Günlük dosyası, ASCII veya UTF-8 kodlamasını kullanmanız gerekir.  UTF-16 gibi diğer biçimlere desteklenmez.
@@ -63,7 +63,7 @@ Bir zaman damgası ayırıcısı kullanılırsa, günlük analizi saklanan her k
 4. Yeni bir kayıt tanımlamak ve en iyi kayıtları, günlük dosyasında tanımlar sınırlayıcıyı seçmek için kullanılan sınırlayıcıyı değiştirin.
 5. **İleri**’ye tıklayın.
 
-### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları Ekle
+### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları ekle
 Özel günlük burada bulabilirsiniz Aracısı'nı bir veya daha fazla yol tanımlamanız gerekir.  Belirli yolu ve günlük dosyasının adını ya da sağlayabilir veya adı için bir joker karakter içeren bir yol belirtin.  Bu, her gün veya bir dosya belirli bir boyuta ulaştığında yeni bir dosya oluşturun uygulamaları destekler.  Ayrıca, tek bir günlük dosyası için birden fazla yol sağlayabilir.
 
 Örneğin, log20100316.txt olduğu gibi ad dahil tarihi ile bir uygulama bir günlük dosyası her gün oluşturabilirsiniz. Bu tür bir oturum için bir desen olabilir *günlük\*.txt* düzeni adlandırma uygulama aşağıdaki herhangi bir günlük dosyası için geçerli olur.
@@ -75,7 +75,7 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 | Tüm dosyaları *C:\Logs* .txt uzantısı Windows aracı |C:\Logs\\\*.txt |
 | Tüm dosyaları *C:\Logs* günlüğünü ve Windows aracısında .txt uzantısı ile başlayan bir ada sahip |C:\Logs\log\*.txt |
 | Tüm dosyaları */var/log/audit* Linux Aracısı .txt uzantısı ile |/var/log/audit/*.txt |
-| Tüm dosyaları */var/log/audit* günlük ve Linux aracısı üzerinde .txt uzantısı ile başlayan bir ada sahip |/var/log/audit/log\*.txt |
+| Tüm dosyaları */var/log/audit* günlük ve Linux aracısı üzerinde .txt uzantısı ile başlayan bir ada sahip |/var/log/Audit/log\*.txt |
 
 1. Select Windows veya Linux hangi yol biçimi belirtmek için ekliyorsunuz.
 2. ' I tıklatın ve yolunu yazın **+** düğmesi.
@@ -84,7 +84,7 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın
 Belirttiğiniz ad, yukarıda açıklandığı gibi günlük türü için kullanılır.  Özel bir günlük ayırt etmek için _CL ile her zaman sona erer.
 
-1. Günlük için bir ad yazın.   **\_CL** soneki otomatik olarak sağlanır.
+1. Günlük için bir ad yazın.  **\_CL** soneki otomatik olarak sağlanır.
 2. İsteğe bağlı bir ekleme **açıklama**.
 3. Tıklatın **sonraki** özel günlük tanımını kaydetmek için.
 
@@ -133,7 +133,7 @@ Aşağıdaki tabloda özel günlüklerinden kayıtları almak günlük arama far
 | Sorgu | Açıklama |
 |:--- |:--- |
 | MyApp_CL |Özel bir tüm olayları adlandırılmış MyApp_CL oturum açın. |
-| MyApp_CL &#124; where Severity_CF=="error" |Özel bir tüm olayları adlandırılmış MyApp_CL değeriyle oturum *hata* adlı özel bir alandaki *Severity_CF*. |
+| MyApp_CL &#124; burada Severity_CF "error" == |Özel bir tüm olayları adlandırılmış MyApp_CL değeriyle oturum *hata* adlı özel bir alandaki *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Özel günlük ekleme örnek gözden geçirme
@@ -150,7 +150,7 @@ Biz, günlük dosyalarından birini sağlayın ve bu toplama olayları görebili
 
 ![Karşıya yükleme ve bir örnek günlük ayrıştırma](media/log-analytics-data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Günlük koleksiyonu yolları Ekle
+### <a name="add-log-collection-paths"></a>Günlük koleksiyonu yolları ekle
 Günlük dosyaları yer *C:\MyApp\Logs*.  Her gün düzende tarih içeren bir ad ile yeni bir dosya oluşturulur *appYYYYMMDD.log*.  Bu günlük dosyası için yeterli bir deseni olacaktır *C:\MyApp\Logs\\\*.log*.
 
 ![Günlük koleksiyonu yolu](media/log-analytics-data-sources-custom-logs/collection-path.png)
