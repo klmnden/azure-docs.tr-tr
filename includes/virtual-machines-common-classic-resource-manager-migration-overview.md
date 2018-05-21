@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/20/2018
+---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a Platform desteklenen geçişini
 Bu makalede, biz altyapı geçiş Resource Manager dağıtım modellerinde klasik bir hizmet (Iaas) kaynaklara olarak nasıl etkinleştirme açıklanmaktadır. Daha fazla bilgi edinebilirsiniz [Azure Kaynak Yöneticisi özellikleri ve avantajları](../articles/azure-resource-manager/resource-group-overview.md). Biz, aboneliğinizde sanal ağ siteden siteye ağ geçitleri kullanarak bir arada iki dağıtım modelinden kaynaklarına bağlanma ayrıntılarını gösterir.
 
@@ -93,7 +109,7 @@ Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
 | İşlem | Web/çalışan rolü içeren bulut Hizmetleri | Bu şu anda desteklenmiyor. |
 | İşlem | Birden fazla kullanılabilirlik içeren bulut Hizmetleri ayarlayın veya birden çok kullanılabilirlik ayarlar. |Bu şu anda desteklenmiyor. Lütfen sanal makineler aynı kullanılabilirlik kümesinde geçirmeden önce taşıyın. |
 | İşlem | Azure Güvenlik Merkezi uzantısına sahip VM | Azure Güvenlik Merkezi, kendi güvenlik izleme ve uyarılar yükseltmek için sanal makinelerde uzantıları otomatik olarak yükler. Azure Güvenlik Merkezi ilke abonelikte etkinse, bu uzantılar genellikle otomatik olarak yüklenir. Sanal makineleri geçirmek için lütfen güvenlik izleme uzantısı sanal makinelerden merkezi kaldıracak aboneliğe ilişkin Güvenlik Merkezi ilke devre dışı. |
-| İşlem | Yedekleme ya da anlık görüntü uzantısına sahip VM | Bu uzantılar, Azure Backup hizmeti ile yapılandırılmış bir sanal makineye yüklenir. Bu sanal makineleri geçirmek için yönergeleri izleyin [burada](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| İşlem | Yedekleme ya da anlık görüntü uzantısına sahip VM | Bu uzantılar, Azure Backup hizmeti ile yapılandırılmış bir sanal makineye yüklenir. Bu sanal makineleri geçiş desteklenmez, ancak yönergeleri izleyin [burada](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) geçiş öncesinde gerçekleştirilen yedeklemeler tutmak için.  |
 | Ağ |Sanal makineler ve web/çalışan rolleri içeren sanal ağlar |Bu şu anda desteklenmiyor. Geçirmeden önce Web/çalışan rolleri, kendi sanal ağa taşıyın. Klasik sanal ağ geçirildikten sonra geçirilen Azure Resource Manager sanal ağı Klasik sanal benzer yapılandırmasını eskisi elde etmek için ağ ile eşlenemez.|
 | Ağ | Klasik Expressroute bağlantı hatları |Bu şu anda desteklenmiyor. Bu bağlantı hatları Azure Resource Manager Iaas geçiş işlemine başlamadan önce geçirilmesi gerekir. Bunu hakkında daha fazla bilgi edinmek için [Resource Manager dağıtım modeline taşıma ExpressRoute bağlantı hatları Klasik](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Uygulama hizmeti ortamları içeren sanal ağlar |Bu şu anda desteklenmiyor. |

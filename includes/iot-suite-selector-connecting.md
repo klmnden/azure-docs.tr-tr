@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
-> * [Windows üzerinde C](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [Linux üzerinde C](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js (genel)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Raspberry Pi üzerinde Node.js](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [Raspberry Pi üzerinde C](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [Windows üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [Linux üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (genel)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Raspberry Pi üzerinde Node.js](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [Raspberry Pi üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
 Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [Çözüm Hızlandırıcısı](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 

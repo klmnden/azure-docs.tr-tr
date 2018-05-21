@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM Güvenlik için en iyi yöntemler
 
@@ -68,7 +68,7 @@ VM, yüksek kullanılabilirlik sağlamak için gereken kritik uygulamaların ça
 
 [Azure yük dengeleyici](../load-balancer/load-balancer-overview.md) ayrıca yük dengeli sanal makineleri aynı kullanılabilirlik kümesine ait gerektirir. Bu sanal makineleri Internet'ten erişilmesi gerekiyorsa yapılandırmalısınız bir [Internet'e yönelik Yük Dengeleyici](../load-balancer/load-balancer-internet-overview.md).
 
-Sanal makineleri Internet'e açık olduğunda önemlidir, [kontrol ağ güvenlik grupları (Nsg'ler) ile ağ trafiği akışını](../virtual-network/virtual-networks-nsg.md). Nsg'ler alt ağlara uygulanabildiği kaynaklarınızı alt ağa göre gruplandırma ve Nsg'leri alt ağlara uygulayarak sayısını en aza indirebilirsiniz. Düzgün şekilde yapılandırarak yapabilirsiniz Ağ yalıtım bir katman oluşturmak için amacı olan [ağ güvenliği](../best-practices-network-security.md) Azure özellikleri.
+Sanal makineleri Internet'e açık olduğunda önemlidir, [kontrol ağ güvenlik grupları (Nsg'ler) ile ağ trafiği akışını](../virtual-network/security-overview.md). Nsg'ler alt ağlara uygulanabildiği kaynaklarınızı alt ağa göre gruplandırma ve Nsg'leri alt ağlara uygulayarak sayısını en aza indirebilirsiniz. Düzgün şekilde yapılandırarak yapabilirsiniz Ağ yalıtım bir katman oluşturmak için amacı olan [ağ güvenliği](../best-practices-network-security.md) Azure özellikleri.
 
 Uzaktan erişim için belirli bir VM'yi ve nasıl uzun olan denetim Azure Güvenlik Merkezi'nden tam zamanında (JIT) VM-erişim özelliği de kullanabilirsiniz.
 
@@ -124,6 +124,6 @@ Kaynak kötüye VM işlemleri izin verilenden daha fazla kaynak tüketmesine bir
 
 Çözümleme tarafından [Azure tanılama günlük dosyaları](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), VM kaynaklarınızı izlemek ve performans ve kullanılabilirlik tehlikeye atabilir olası sorunları. Azure tanılama uzantısını Windows tabanlı sanal makinelerin izleme ve tanılama olanakları sağlar. Bu özellikler bir parçası olarak uzantısı dahil olmak üzere etkinleştirebilirsiniz [Azure Resource Manager şablonu](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Aynı zamanda [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-metrics.md) , kaynağın durumu görünürlük elde etmek için.
+Aynı zamanda [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynaklarınızın sistem durumu görünürlük elde etmek için.
 
 VM performans izleme kuruluşlar performans modellerini bazı değişiklikler normal veya anormal olup olmadığını belirleyemiyor. VM normalden daha fazla kaynak tüketen varsa, bu tür bir anomali dış kaynak ya da VM içinde çalışan güvenliği aşılmış bir işlem olası bir saldırı olduğunu gösteriyor olabilir.
