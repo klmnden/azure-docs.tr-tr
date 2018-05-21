@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: cd61aa4a69a5bed8de9874eebad059b54118ab63
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -125,7 +125,7 @@ NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası a
    * **Varsayılan veri kaynağı**: varsayılan küme dosya sistemi.
    * **Çalışan düğüm boyutu**: çalışan düğümleri seçili VM boyutu.
    * **Baş düğüm boyutu**: baş düğümler seçili VM boyutu.
-   * **Sanal ağ**: sanal ağ ve alt küme dağıtıldığı, dağıtım sırasında seçildiyse adı.
+   * **Sanal ağ**: dağıtım sırasında seçildiyse, küme, dağıtıldığı sanal ağın adı.
 
 ## <a name="delete-clusters"></a>Küme silme
 Küme silme ya da bağlı tüm depolama hesaplarını varsayılan depolama hesabını silmez. Küme aynı depolama hesapları ve aynı meta deponuz kullanarak yeniden oluşturabilirsiniz. Kümeyi yeniden oluşturduğunuzda, yeni varsayılan Blob kapsayıcısını kullanmanızı öneririz.
@@ -279,7 +279,7 @@ Ambari sonra kümedeki tüm düğümlerde parolasını değiştirir.
 
    | Alan | Değer |
    | --- | --- |
-   | name |SSH parolasını değiştirme |
+   | Ad |SSH parolasını değiştirme |
    | Bash betiği URI'si |Changepassword.sh dosyasına URI |
    | Düğümler (Head, çalışan, Nimbus, yönetici, Zookeeper, vb.) |✓ listelenen tüm düğüm türleri |
    | Parametreler |SSH kullanıcı adı ve yeni parolayı girin. Kullanıcı adı ve parola arasında bir boşluk olması gerekir. |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 995759cf4831deedc642c0850603947b22ee1222
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -42,13 +42,13 @@ IOT Çözüm Hızlandırıcıları aşağıdaki şifre paketleri, bu sırada des
 | TLS\_RSA\_ile\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Ayrıca bazı başka özelliklerini ve yeteneklerini IOT Çözüm Hızlandırıcıları da gözden geçirebilirsiniz:
+IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
 
 * [Tahmine dayalı bakım Çözüm Hızlandırıcısı genel bakış][lnk-predictive-overview]
-* [IOT Çözüm Hızlandırıcıları için sık sorulan sorular][lnk-faq]
+* [IoT çözüm hızlandırıcıları için sık sorulan sorular][lnk-faq]
 
 IOT hub'ı güvenlik konusunda okuyabilirsiniz [IOT Hub'ına erişim denetim] [ lnk-devguide-security] IOT Hub Geliştirici Kılavuzu'nda.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

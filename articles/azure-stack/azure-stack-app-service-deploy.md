@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure tümleşik yığını sisteminizi 1802 güncelleştirmesini veya Azure uygulama hizmeti dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
+> Azure tümleşik yığını sisteminizi 1804 güncelleştirmesini veya Azure App Service 1.2 dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
 >
 >
 
@@ -70,7 +70,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici][3]
 
-4. Şimdi adımları yapılandırıldığı gibi mevcut bir sanal ağı dağıtmak için seçeneğiniz vardır [burada](azure-stack-app-service-before-you-get-started.md#virtual-network), veya bir sanal ağ ve ilişkili alt ağları oluşturmak uygulama hizmeti yükleyici izin verin.
+7. Şimdi adımları yapılandırıldığı gibi mevcut bir sanal ağı dağıtmak için seçeneğiniz vardır [burada](azure-stack-app-service-before-you-get-started.md#virtual-network), veya bir sanal ağ ve ilişkili alt ağları oluşturmak uygulama hizmeti yükleyici izin verin.
     1. Seçin **oluşturma VNet varsayılan ayarlarla**, Varsayılanları kabul edin ve tıklayın **sonraki**, veya;
     2. Seçin **mevcut VNet ve alt ağları kullanın**.
         1. Seçin **kaynak grubu** sanal ağınızı; içerir
@@ -80,7 +80,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici][4]
 
-7. Dosya Paylaşımı için bilgileri girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı veya dosya sunucunuzun IP adresini kullanması gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.
+8. Dosya Paylaşımı için bilgileri girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı veya dosya sunucunuzun IP adresini kullanması gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.
 
    > [!NOTE]
    > Yükleyici paylaşımına devam etmeden önce bağlantısını test etme girişiminde bulunur.  Ancak mevcut bir sanal ağı dağıtmak seçtiyseniz, yükleyici için dosya paylaşımı bağlanabiliyor olmayabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntülenir.  Dosya Paylaşımı bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
@@ -89,7 +89,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
    ![Uygulama Hizmeti Yükleyici][7]
 
-8. Sonraki sayfada:
+9. Sonraki sayfada:
     1. İçinde **kimlik uygulama kimliği** kutusuna, kimlik (Azure AD) için kullanmakta olduğunuz uygulama için GUID girin.
     2. İçinde **kimlik uygulama sertifika dosyası** kutusuna girin (veya göz atın) sertifika dosyası konumu.
     3. İçinde **kimlik uygulama sertifika parolası** kutusunda, sertifikanın parolasını girin. Sertifikalar oluşturmak üzere komut kullanıldığında Not yapılan bir paroladır.
@@ -98,7 +98,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici][9]
 
-9. Her üç sertifika dosya kutularında, **Gözat** ve uygun sertifika dosyasına gidin. Her sertifika için parola belirtmeniz gerekir. Bu sertifikalar, oluşturduğunuz olanlardır [oluşturma gerekli sertifikaları adım](azure-stack-app-service-before-you-get-started.md#get-certificates). Tıklatın **sonraki** tüm bilgileri girdikten sonra.
+10. Her üç sertifika dosya kutularında, **Gözat** ve uygun sertifika dosyasına gidin. Her sertifika için parola belirtmeniz gerekir. Bu sertifikalar, oluşturduğunuz olanlardır [oluşturma gerekli sertifikaları adım](azure-stack-app-service-before-you-get-started.md#get-certificates). Tıklatın **sonraki** tüm bilgileri girdikten sonra.
 
     | Box | Sertifika dosyası adı örneği |
     | --- | --- |
@@ -110,7 +110,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici][10]
 
-10. Uygulama hizmeti kaynak sağlayıcısı veritabanlarını barındırmak ve ardından için kullanılan sunucu örneği için SQL Server ayrıntılarını girin **sonraki**. Yükleyici SQL bağlantı özelliklerini doğrulama.
+11. Uygulama hizmeti kaynak sağlayıcısı veritabanlarını barındırmak ve ardından için kullanılan sunucu örneği için SQL Server ayrıntılarını girin **sonraki**. Yükleyici SQL bağlantı özelliklerini doğrulama.
 
     > [!NOTE]
     > Yükleyici devam etmeden önce SQl Server bağlantısını test etme girişiminde bulunur.  Ancak mevcut bir sanal ağı dağıtmak seçtiyseniz, yükleyici SQL Server'a bağlanmak kuramamış olabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntülenir.  SQL Server bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
@@ -119,7 +119,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici][11]
 
-11. Rol örneği ve SKU seçenekleri gözden geçirin. Varsayılan örneği ve minimum SKU ASDK dağıtımında her rol için minimum sayısı ile doldurun. VCPU ve bellek gereksinimlerini özetini dağıtımınızı planlamaya yardımcı olması için sağlanmıştır. Seçimlerinizi yaptıktan sonra tıklatın **sonraki**.
+12. Rol örneği ve SKU seçenekleri gözden geçirin. Varsayılan örneği ve minimum SKU ASDK dağıtımında her rol için minimum sayısı ile doldurun. VCPU ve bellek gereksinimlerini özetini dağıtımınızı planlamaya yardımcı olması için sağlanmıştır. Seçimlerinizi yaptıktan sonra tıklatın **sonraki**.
 
     > [!NOTE]
     > Üretim dağıtımlarında yer alan yönergeleri izleyerek, [kapasite Azure yığınında Azure App Service sunucu rolleri için planlama](azure-stack-app-service-capacity-planning.md).
@@ -139,23 +139,23 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
     > [!NOTE]
     > **Windows Server 2016 Core Azure yığında Azure uygulama hizmeti ile kullanılmak üzere desteklenen platform görüntüsü değil.  Değerlendirme görüntüleri üretim dağıtımları için kullanmayın.**
 
-12. İçinde **Platform Görüntüsü Seç** kutusunda, uygulama hizmeti bulut bilgi işlem kaynak sağlayıcısındaki kullanılabilir görüntülerden dağıtım Windows Server 2016 sanal makine görüntüsü seçin. **İleri**’ye tıklayın.
+13. İçinde **Platform Görüntüsü Seç** kutusunda, uygulama hizmeti bulut bilgi işlem kaynak sağlayıcısındaki kullanılabilir görüntülerden dağıtım Windows Server 2016 sanal makine görüntüsü seçin. **İleri**’ye tıklayın.
 
-13. Sonraki sayfada:
+14. Sonraki sayfada:
      1. Çalışan rolü sanal makine yönetici kullanıcı adını ve parolasını girin.
      2. Diğer roller sanal makine yönetici kullanıcı adını ve parolasını girin.
      3. **İleri**’ye tıklayın.
 
     ![Uygulama Hizmeti Yükleyici][15]    
 
-14. Özet sayfasında:
+15. Özet sayfasında:
     1. Yaptığınız seçimleri doğrulayın. Değişiklik yapmak için kullanın **önceki** düğmeleri önceki sayfaları ziyaret edin.
     2. Yapılandırmaları doğruysa, onay kutusunu seçin.
     3. Dağıtımı başlatmak için tıklatın **sonraki**.
 
     ![Uygulama Hizmeti Yükleyici][16]
 
-15. Sonraki sayfada:
+16. Sonraki sayfada:
     1. Yükleme ilerleme durumunu izler. Azure yığın uygulama hizmeti varsayılan seçimlere göre dağıtmak için yaklaşık 60 dakika sürer.
     2. Yükleyici başarıyla tamamladıktan sonra **çıkış**.
 
@@ -210,7 +210,7 @@ Web API ve Azure oluşturmak için uygulamaları İşlevler, Kiracı Portalı'n�
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Bir WordPress, DNN ya da Django Web sitesi (isteğe bağlı) dağıtma
 
-1. Azure yığın Kiracı Portalı'nda tıklatın **+**Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
+1. Azure yığın Kiracı Portalı'nda tıklatın **+** Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
 
 2. Bir MySQL kaynak sağlayıcısı ayrıca dağıttıysanız Marketi'nden bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kullanıcı adı olarak girin *User1@Server1*, tercih ettiğiniz sunucu adını ve kullanıcı adı.
 

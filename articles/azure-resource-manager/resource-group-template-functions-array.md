@@ -1,30 +1,30 @@
 ---
-title: "Azure Resource Manager şablonu işlevleri - diziler ve nesneleri | Microsoft Docs"
-description: "Diziler ve nesneleri ile çalışmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır."
+title: Azure Resource Manager şablonu işlevleri - diziler ve nesneleri | Microsoft Docs
+description: Diziler ve nesneleri ile çalışmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d040fe55cb46665c97668a76ccbc66adc002f89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Dizi ve nesne işlevleri için Azure Resource Manager şablonları 
 
 Kaynak Yöneticisi, nesneler ve diziler ile çalışmak için birkaç işlevleri sağlar.
 
-* [dizi](#array)
+* [Dizi](#array)
 * [birleşim](#coalesce)
 * [concat](#concat)
 * [içerir](#contains)
@@ -46,7 +46,7 @@ Değere göre ayrılmış dize değerleri dizisi almak için bkz: [bölme](resou
 
 <a id="array" />
 
-## <a name="array"></a>Dizi
+## <a name="array"></a>array
 `array(convertToArray)`
 
 Değer bir diziye dönüştürür.
@@ -192,7 +192,7 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| stringOutput | Dize | Varsayılan |
+| stringOutput | Dize | default |
 | intOutput | Int | 1 |
 | objectOutput | Nesne | {"ilk": "varsayılan"} |
 | arrayOutput | Dizi | [1] |
@@ -721,7 +721,7 @@ Bu örnek şablon PowerShell ile dağıtmak için kullanın:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 Bir JSON nesnesi döndürür.
@@ -730,7 +730,7 @@ Bir JSON nesnesi döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |Dize |JSON olarak dönüştürülecek değer. |
+| arg1 |Evet |dize |JSON olarak dönüştürülecek değer. |
 
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -765,7 +765,7 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | jsonOutput | Nesne | {"a": "b"} |
-| nullOutput | Boole değeri | True |
+| nullOutput | Boole | True |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 
@@ -929,7 +929,7 @@ Bu işlev bir dizi ile kullanma hakkında daha fazla bilgi için bkz: [Azure Res
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>en çok
 `max(arg1)`
 
 En büyük değer dizisi veya virgülle ayrılmış tamsayı listesi döndürür.
@@ -1267,7 +1267,7 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dizi | ["", "iki"] |
-| stringOutput | Dize | üzerinde |
+| stringOutput | Dize | açık |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 

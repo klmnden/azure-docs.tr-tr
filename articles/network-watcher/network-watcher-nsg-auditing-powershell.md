@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Ağ İzleyicisi güvenlik grubu görünümü ile NSG denetim otomatikleştirme
 
 Müşteriler genellikle güvenlik yaklaşımı altyapılarını, doğrulama, bir güçlükle karşı karşıya kalmaktadır. Bu sorunu Azure Vm'leri için farklı değildir. Uygulanan ağ güvenlik grubu (NSG) kurallara göre benzer bir güvenlik profili olması önemlidir. Güvenlik grubu görünümü kullanarak, bir VM bir NSG içinde uygulanan kurallar listesi şimdi alabilirsiniz. Bir altın NSG güvenlik profili tanımlamak ve güvenlik grubu görünümü haftalık bir tempoyla üzerinde başlatmak ve altın profili çıkışı karşılaştırın ve bir rapor oluşturun. Bu şekilde, önceden belirlenen güvenlik profili uymayan tüm sanal makineleri kolayca tanımlayabilirsiniz.
 
-Ağ güvenlik gruplarıyla tanımıyorsanız ziyaret [ağ güvenliğine genel bakış](../virtual-network/virtual-networks-nsg.md)
+Ağ güvenlik gruplarıyla bilginiz yoksa bkz [ağ güvenliğine genel bakış](../virtual-network/security-overview.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
