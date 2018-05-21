@@ -1,19 +1,21 @@
 ---
-title: "Azure Hızlı Başlangıç - DSC ile VM yapılandırma | Microsoft Docs"
-description: "İstenen Durum Yapılandırması ile Linux Sanal Makinesinde LAMP Yığını Yapılandırma"
+title: Azure Hızlı Başlangıç - DSC ile VM yapılandırma | Microsoft Docs
+description: İstenen Durum Yapılandırması ile Linux Sanal Makinesinde LAMP Yığını Yapılandırma
 services: automation
-keywords: "dsc, yapılandırma, otomasyon"
+ms.service: automation
+ms.component: dsc
+keywords: dsc, yapılandırma, otomasyon
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>İstenen Durum Yapılandırması ile Linux sanal makinesi yapılandırma
 
@@ -28,7 +30,7 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 * Red Hat Enterprise Linux, CentOS veya Oracle Linux çalıştıran bir Azure Resource Manager VM (Klasik değil). VM oluşturma yönergeleri için bkz. [Azure portalında ilk Linux sanal makinenizi oluşturma](../virtual-machines/linux/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
-https://portal.azure.com adresinden Azure oturumu açın
+https://portal.azure.com adresinden Azure’da oturum açın
 
 ## <a name="onboard-a-virtual-machine"></a>Sanal makine ekleme
 Makine eklemek ve İstenen Durum Yapılandırması'nı etkinleştirmek için kullanabileceğiniz birçok farklı yöntem mevcuttur. Bu hızlı başlangıçta ekleme işlemi Otomasyon hesabıyla gerçekleştirilmektedir. Makinelerinizi İstenen Durum Yapılandırması'na eklemek için kullanabileceğiniz diğer yöntemler hakkında daha fazla bilgi edinmek için [ekleme](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) makalesini okuyabilirsiniz.

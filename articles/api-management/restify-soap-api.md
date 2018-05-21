@@ -1,11 +1,11 @@
 ---
-title: "SOAP API içeri aktarın ve Azure portalını kullanarak REST Dönüştür | Microsoft Docs"
-description: "SOAP API'yi içeri aktarma ve REST API Management ile dönüştürmek hakkında bilgi edinin."
+title: Azure portalını kullanarak SOAP API’sini içeri aktarma ve REST’e dönüştürme | Microsoft Docs
+description: API Management ile SOAP API’sini içeri aktarmayı ve REST’e dönüştürmeyi öğrenin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 74935f11d5bf3c83aef46c1d41fccd81ad312acb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API'yi içeri aktarma ve REST için Dönüştür
+# <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API'sini içeri aktarma ve REST’e dönüştürme
 
-Bu makalede, bir SOAP API'yi içeri aktarma ve KALANLAR Dönüştür gösterilmektedir. Makale ayrıca APIM API test etme gösterir.
+Bu makalede, bir SOAP API'sinin nasıl içeri aktarılıp REST’e dönüştürüleceği gösterilmektedir. Makale, APIM API’sinin nasıl test edileceğini de göstermektedir.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * SOAP API'yi içeri aktarma ve REST için Dönüştür
-> * Azure portalında API testi
-> * Geliştirici Portalı'nda API testi
+> * SOAP API'sini içeri aktarma ve REST’e dönüştürme
+> * Azure portalında API’yi test etme
+> * Geliştirici portalında API’yi test etme
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md)
+Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>Alma ve arka uç API'si yayımlama
+## <a name="create-api"> </a>Arka uç API’sini içeri aktarma ve yayımlama
 
-1. Seçin **API'leri** gelen altında **API MANAGEMENT**.
-2. Seçin **WSDL** gelen **yeni bir API eklemek** listesi.
+1. **API YÖNETİMİ** bölümünden **API’ler** öğesini seçin.
+2. **Yeni API ekleyin** listesinden **WSDL**’yi seçin.
 
-    ![SOAP API](./media/restify-soap-api/wsdl-api.png)
-3. İçinde **WSDL belirtimi**, SOAP API bulunduğu için URL'yi girin.
-4. Tıklatın **REST SOAP** radyo düğmesi. Bu seçenek tıklatıldığında APIM XML ve JSON arasında otomatik bir dönüştürme yapmaya çalışır. Bu durumda tüketicileri API JSON döndüren bir restful API'si çağrılıyor. APIM her istek SOAP çağrısını dönüştürülüyor.
+    ![SOAP API’si](./media/restify-soap-api/wsdl-api.png)
+3. **WSDL belirtimi**’nde, SOAP API’nizin bulunduğu URL'yi girin.
+4. **SOAP’den REST’e** radyo düğmesine tıklayın. Bu seçenek tıklandığında APIM, XML ve JSON arasında bir otomatik dönüştürme yapmaya çalışır. Bu durumda tüketiciler API’yi, JSON döndüren bir RESTful API’si olarak çağırmalıdır. APIM her isteği bir SOAP çağrısına dönüştürür.
 
-    ![SOAP'tan REST'e](./media/restify-soap-api/soap-to-rest.png)
+    ![SOAP'den REST'e](./media/restify-soap-api/soap-to-rest.png)
 
 5. Sekme tuşuna basın.
 
-    Aşağıdaki alanları SOAP API bilgisi doldurulmuş: görünen adı, ad, açıklama.
-6. Bir API'si URL soneki ekleyin. Bu APIM örnekte belirli bu API tanımlayan bir ad sonekidir. Bu APIM örneğinde benzersiz olması gerekir.
-9. Bir ürün API ilişkilendirerek API yayımlayacak. Bu durumda, "*sınırsız*" Ürün kullanılır.  Yayımlanması ve geliştiricileri için kullanılabilir olması API istiyorsanız, bir ürün ekleyin. API oluşturma sırasında yapın ya da daha sonra ayarlayın.
+    Şu alanlar, SOAP API’sinde bulunan bilgilerle doldurulur: Görünen ad, Ad, Açıklama.
+6. API URL'si soneki ekleyin. Sonek, belirli API’yi bu APIM örneğinde tanımlayan bir addır. Sonekin bu APIM örneğinde benzersiz olması gerekir.
+9. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, "*Sınırsız*" ürünü kullanılır.  API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.
 
-    Ürün bir veya daha fazla API'leri ilişkilendirmelerini değil. Geliştiriciler Geliştirici Portalı aracılığıyla sunar ve API sayısını içerir. Geliştiriciler ilk API erişmek için bir ürüne abone olması gerekir. Bunlar abone olduğunuzda, bunlar herhangi bir API'yi bu ürün için iyi bir abonelik anahtarı alın. APIM örneği oluşturduysanız, varsayılan olarak her ürüne abone için zaten yönetici olduğunuz.
+    Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Bir dizi API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Abone olduklarında, ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinirler. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve varsayılan olarak tüm ürünlere abone olmuşsunuz demektir.
 
     Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir:
 
@@ -61,31 +61,31 @@ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği
     * **Sınırsız**   
 10. **Oluştur**’u seçin.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure portalında yeni APIM API testi
+## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure portalında yeni APIM API’sini test etme
 
-İşlemleri görüntülemek ve bir API'nin işlemlerini test etmek için kullanışlı bir yol sağlayan doğrudan Azure portalından çağrılabilir.  
+İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan Azure portalından çağrılabilir.  
 
-1. Önceki adımda oluşturduğunuz API seçin.
-2. Tuşuna **Test** sekmesi.
-3. Başka bir işlem seçin.
+1. Önceki adımda oluşturduğunuz API’yi seçin.
+2. **Test** sekmesine basın.
+3. Bir işlem seçin.
 
-    Sorgu parametrelerinin ve üst bilgileri için alanları sayfasını görüntüler. Üst bilgilerinden biri "Ocp-Apim-Subscription-Key" Bu API ile ilişkili ürün abonelik anahtarı içindir. APIM örneği oluşturduysanız, anahtarı otomatik olarak doldurulur için zaten yönetici olduğunuz. 
-1. Tuşuna **Gönder**.
+    Sayfa, sorgu parametrelerinin ve üst bilgilerin alanlarını görüntüler. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve anahtar otomatik olarak doldurulur. 
+1. **Gönder**’e basın.
 
-    Arka uç yanıt ile **200 Tamam** ve bazı veriler.
+    Arka uç, **200 OK** ve bazı verilerle yanıt verir.
 
 ## <a name="call-operation"> </a>Geliştirici portalından işlem çağırma
 
-İşlemler de çağrılabilir **Geliştirici Portalı** API'leri test etmek için. 
+API’leri test etmek için **Geliştirici portalından** da işlemler çağrılabilir. 
 
-1. Oluşturduğunuz API seçin "alma ve arka uç API'si yayımlama" adım.
-2. Tuşuna **Geliştirici Portalı**.
+1. "Arka uç API’sini içeri aktarma ve yayımlama" adımında oluşturduğunuz API’yi seçin.
+2. **Geliştirici portalı** düğmesine basın.
 
-    "Geliştirici Portalı" site açılır.
-3. Seçin **API** oluşturduğunuz.
+    "Geliştirici portalı" sitesi açılır.
+3. Oluşturduğunuz **API**’yi seçin.
 4. Test etmek istediğiniz işlemi seçin.
-5. Tuşuna **deneyin**.
-6. Tuşuna **Gönder**.
+5. **Deneyin**’e basın.
+6. **Gönder**’e basın.
     
     Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Yanıt üst ilgileri** ve tüm **Yanıt içeriğini** gösterir.
 
@@ -96,4 +96,4 @@ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Dönüştürme ve yayımlanan bir API koruyun](transform-api.md)
+> [Yayımlanan API’yi dönüştürme ve koruma](transform-api.md)
