@@ -3,24 +3,24 @@ title: SQL veritabanı olağanüstü durum kurtarma | Microsoft Docs
 description: Bölgesel veri merkezi kesintisinden veya Azure SQL veritabanı etkin coğrafi çoğaltma ve coğrafi geri yükleme özelliklerini hatası bir veritabanını kurtarmak öğrenin.
 services: sql-database
 author: anosov1960
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6ac4b26e1b014da792791ca657c9f51230a135b5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Bir Azure SQL Database veya yük devretme için ikincil bir geri yükleme
 Azure SQL veritabanı bir kesintisi kurtarmak için aşağıdaki özellikleri sunar:
 
 * [Etkin coğrafi çoğaltma ve yük devretme gruplar](sql-database-geo-replication-overview.md)
-* [Geo-restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [coğrafi geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore)
 * [Bölge olarak yedekli veritabanları](sql-database-high-availability.md)
 
 İş sürekliliği senaryoları ve bu senaryolar destekleyen özellikler hakkında bilgi edinmek için bkz: [iş sürekliliği](sql-database-business-continuity.md).
