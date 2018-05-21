@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında SQL Server 2017 Windows sanal makinesi oluşturma
 
@@ -72,11 +72,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="choose-virtual-machine-size"></a>Sanal makine boyutunu seçme
 
-**Boyut** adımında, **Boyutu seç** penceresinde bir sanal makine boyutunu seçin. Pencere ilk başta seçtiğiniz görüntüye göre önerilen makine boyutlarını görüntüler. 
+1. **Boyut** adımında, **Boyutu seç** penceresinde bir sanal makine boyutunu seçin.
 
-1. Kullanılabilir tüm makine boyutlarını görmek için **Tümü görüntüle**’ye tıklayın.
-
-1. Bu hızlı başlangıç için **D2S_V3**’ü seçin. Portalda sürekli kullanım için aylık tahmini makine maliyeti gösterilir (SQL Server lisans maliyetleri dahil değildir). Developer Edition’ın SQL Server için fazladan lisans maliyeti olmadığını unutmayın. Daha net fiyatlandırma bilgileri için [fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın.
+   Bu hızlı başlangıç için **D2S_V3**’ü seçin. Portalda sürekli kullanım için aylık tahmini makine maliyeti gösterilir (SQL Server lisans maliyetleri dahil değildir). Developer Edition’ın SQL Server için fazladan lisans maliyeti olmadığını unutmayın. Daha net fiyatlandırma bilgileri için [fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın.
 
    > [!TIP]
    > **D2S_V3** makine boyutu test sırasında tasarruf sağlar. Ama üretim iş yükleri için [Azure Sanal Makineler'de SQL Server için en iyi performans uygulamaları](virtual-machines-windows-sql-performance.md)’nda önerilen makine boyutlarına ve yapılandırmalara bakın.
@@ -85,7 +83,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="configure-optional-features"></a>İsteğe bağlı özellikleri yapılandırma
 
-**Ayarlar** penceresinde, varsayılanları seçmek için **Tamam**’a tıklayın.
+1. **Ayarlar** penceresinde, sanal makineye uzak masaüstü oluşturmak istiyorsanız, **Genel gelen bağlantı noktalarını seçin** listesinde **RDP (3389)** bağlantı noktasını seçin.
+
+   ![Gelen bağlantı noktaları](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > SQL Server’a uzaktan erişmek için **MS SQL (1433)** bağlantı noktasını seçebilirsiniz. Ancak bu gerekli değildir çünkü **SQL Server ayarları** adımı bu seçeneği de sunar. Bu adımda 1433 numaralı bağlantı noktasını seçerseniz, bu bağlantı noktası **SQL Server ayarları** adımındaki seçimlerinize bakılmaksızın açılır.
+
+1. Değişikliklerinizi kaydedip devam etmek için **Tamam**’a tıklayın.
 
 ## <a name="sql-server-settings"></a>SQL Server ayarları
 

@@ -1,6 +1,6 @@
 ---
-title: Azure sanal ağlar ve Windows sanal makineleri | Microsoft Docs
-description: Öğretici - Azure sanal ağlar ve Azure PowerShell ile Windows sanal makineleri yönetme
+title: Öğretici - Windows VM’ler için Azure sanal ağları oluşturma ve yönetme | Microsoft Docs
+description: Bu öğreticide, Azure PowerShell kullanarak Windows sanal makineleri için Azure sanal ağları oluşturup yönetmeyi öğrenirsiniz
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feaef679a3090491b64c69ac69bf22153c281d31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Azure sanal ağlar ve Azure PowerShell ile Windows sanal makineleri yönetme
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Öğretici - Windows VM’ler için Azure sanal ağları oluşturma ve yönetme | Microsoft Docs
 
 Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullanır. Bu öğretici, iki sanal makineyi dağıtma ve bu VM’ler için Azure ağını yapılandırma konusunda rehberlik sunar. Bu öğreticideki örneklerde VM’lerde veritabanı arka ucuna sahip bir web uygulaması barındırıldığı varsayılır, ancak öğreticide uygulama dağıtılmaz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -33,9 +33,9 @@ Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullan�
 > * Ağ trafiğinin güvenliğini sağlama
 > * Arka uç VM’si oluşturma
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-
-Bu öğretici için AzureRM.Compute modülünün 4.3.1 veya daha sonraki bir sürümü gerekir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM.Compute` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="vm-networking-overview"></a>VM ağına genel bakış
 
@@ -53,14 +53,14 @@ Bu öğreticiyi tamamladığınızda şu kaynakların oluşturulduğunu görebil
 - *myBackendNSG* - *myFrontendVM* ile *myBackendVM* arasındaki iletişimi denetleyen ağ güvenlik grubu.
 - *myBackendSubnet* - *myBackendNSG* ile ilişkilendirilmiş ve arka uç kaynakları tarafından kullanılan alt ağ.
 - *myBackendNic* - *myFrontendVM* ile iletişim kurmak için *myBackendVM* tarafından kullanılan ağ arabirimi.
-- *myBackendVM* -bağlantı noktası 1433 ile iletişim kurmak için kullandığı VM *myFrontendVM*.
+- *myBackendVM* - 1433 numaralı bağlantı noktasını kullanarak *myFrontendVM* ile iletişim kuran VM.
 
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 
 Bu öğreticide iki alt ağa sahip tek bir sanal ağ oluşturulur. Web uygulamasını barındırmak için bir ön uç alt ağı ve veritabanı sunucusunu barındırmak için bir arka uç alt ağı.
 
-Bir kaynak grubunu kullanarak bir sanal ağ oluşturmadan önce oluşturmanız [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myRGNetwork* içinde *EastUS* konumu:
+Sanal ağ oluşturabilmek için önce [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnekte *EastUS* konumunda *myRGNetwork* adlı bir kaynak grubu oluşturulur:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
@@ -68,7 +68,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 
 ### <a name="create-subnet-configurations"></a>Alt ağ yapılandırmaları oluşturma
 
-Adlı bir alt ağ yapılandırması oluşturma *myFrontendSubnet* kullanarak [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) komutunu kullanarak *myFrontendSubnet* adlı bir alt ağ yapılandırması oluşturun:
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -76,7 +76,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.0.0/24
 ```
 
-Adlı bir alt ağ yapılandırması oluşturun *myBackendSubnet*:
+Sonra, *myBackendSubnet* adlı bir alt ağ yapılandırması oluşturun:
 
 ```azurepowershell-interactive
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -86,7 +86,7 @@ $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="create-virtual-network"></a>Sanal ağ oluşturma
 
-Adlı VNET oluşturma *myVNet* kullanarak *myFrontendSubnet* ve *myBackendSubnet* kullanarak [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) komutunu kullanarak *myFrontendSubnet* ve *myBackendSubnet* ile *myVNet* adlı bir sanal ağ oluşturun:
 
 ```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
@@ -105,7 +105,7 @@ Genel IP adresi, Azure kaynaklarına İnternet’ten erişilmesine izin verir. G
 
 Ayırma yöntemi statik olarak ayarlanabilir; bu yöntem, VM serbest bırakılsa bile IP adresinin VM’ye atanmış olarak kalmasını sağlar. Statik olarak ayrılan bir IP adresi kullanılırken IP adresi belirtilemez. Bunun yerine IP adresi, kullanılabilen adresler havuzundan ayrılır.
 
-Adlı bir ortak IP adresi oluşturma *myPublicIPAddress* kullanarak [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) komutunu kullanarak *myPublicIPAddress* adlı genel bir IP adresi oluşturun:
 
 ```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
@@ -115,11 +115,11 @@ $pip = New-AzureRmPublicIpAddress `
   -Name myPublicIPAddress
 ```
 
--AllocationMethod parametresi değişebilir `Static` bir statik genel IP adresi atamak için.
+Statik bir genel IP adresi atamak için AllocationMethod parametresini `Static` olarak değiştirebilirsiniz.
 
 ## <a name="create-a-front-end-vm"></a>Ön uç VM’si oluşturma
 
-Bir VM sanal ağ içinde iletişim kurmak bir sanal ağ arabirimi (NIC) gerekir. Kullanarak bir NIC oluşturun [yeni AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
+Bir VM’nin sanal ağ içerisinde iletişim kurabilmesi için bir sanal ağ arabirimine (NIC) sahip olması gerekir. [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) komutunu kullanarak bir NIC oluşturun:
 
 ```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
@@ -130,13 +130,13 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Kullanıcı adı ve parola kullanarak VM üzerinde yönetici hesabı için gerekli ayarlayın [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Ek adımlar VM'yi bağlanmak için bu kimlik bilgileri kullanın:
+[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) komutunu kullanarak VM’de yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın. Ek adımlarda VM’ye bağlanmak için bu kimlik bilgilerini kullanacaksınız:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Kullanarak sanal makineleri oluşturmak [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) komutunu kullanarak VM’leri oluşturun.
 
 ```azurepowershell-interactive
 New-AzureRmVM `
@@ -166,7 +166,7 @@ Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar si
 
 ### <a name="create-network-security-groups"></a>Ağ güvenlik grupları oluşturma
 
-Adlı bir gelen kuralı oluşturma *myFrontendNSGRule* gelen web trafiği sağlamak için *myFrontendVM* kullanarak [yeni AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
+[New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) komutunu kullanarak *myFrontendVM* üzerinde gelen web trafiğine izin vermek için *myFrontendNSGRule* adlı bir gelen kuralı oluşturun:
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -181,7 +181,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-İç trafiği sınırlayabilirsiniz *myBackendVM* yalnızca gelen *myFrontendVM* arka uç alt ağı için bir NSG oluşturarak. Aşağıdaki örnek, adlandırılmış bir NSG kuralı oluşturur *myBackendNSGRule*:
+Arka uç alt ağı için bir NSG oluşturarak *myBackendVM*’ye gelen iç trafiği yalnızca *myFrontendVM*’den gelecek şekilde sınırlayabilirsiniz. Aşağıdaki örnekte *myBackendNSGRule* adlı bir kural oluşturulur:
 
 ```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -196,7 +196,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Adlı ağ güvenlik grubu Ekle *myFrontendNSG* kullanarak [yeni AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+[New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) komutunu kullanarak *myFrontendNSG* adlı bir ağ güvenlik grubu oluşturun:
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzureRmNetworkSecurityGroup `
@@ -206,7 +206,7 @@ $nsgFrontend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgFrontendRule
 ```
 
-Şimdi, adlı ağ güvenlik grubu Ekle *myBackendNSG* yeni AzureRmNetworkSecurityGroup kullanarak:
+Şimdi de New-AzureRmNetworkSecurityGroup komutunu kullanarak *myBackendNSG* adlı bir ağ güvenlik grubu ekleyin:
 
 ```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -216,7 +216,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgBackendRule
 ```
 
-Ağ güvenlik grupları için alt ağlar ekleyin:
+Ağ güvenlik gruplarını alt ağlara ekleyin:
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -239,9 +239,9 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## <a name="create-a-back-end-vm"></a>Arka uç VM’si oluşturma
 
-Bu öğretici için arka uç VM oluşturmak için en kolay yolu, bir SQL Server görüntüsü kullanmaktır. Bu öğretici yalnızca VM veritabanı sunucusuyla oluşturur, ancak veritabanı erişme hakkında bilgi sağlamaz.
+Bu öğretici için gerekli arka uç VM’yi oluşturmanın en kolay yolu bir SQL Server görüntüsü kullanmaktır. Bu öğreticide yalnızca veritabanı sunucusu ile VM oluşturulurken, veritabanına erişim hakkında bilgi sağlanmaz.
 
-Oluşturma *myBackendNic*:
+*myBackendNic* öğesini oluşturun:
 
 ```azurepowershell-interactive
 $backendNic = New-AzureRmNetworkInterface `
@@ -251,13 +251,13 @@ $backendNic = New-AzureRmNetworkInterface `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
-Kullanıcı adı ve parola Get-Credential ile VM üzerinde yönetici hesabı için gerekli ayarlayın:
+Get-Credential komutuyla VM’de yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Oluşturma *myBackendVM*.
+*myBackendVM* öğesini oluşturun.
 
 ```azurepowershell-interactive
 New-AzureRmVM `
@@ -266,11 +266,11 @@ New-AzureRmVM `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
    -ResourceGroupName myRGNetwork `
    -Location "EastUS" `
-   -SubnetName myFrontendSubnet `
+   -SubnetName MyBackendSubnet `
    -VirtualNetworkName myVNet
 ```
 
-Kullanılan görüntü SQL Server'ın yüklü, ancak bu öğreticide kullanılmaz. Web trafiğini işlemek için bir VM ve veritabanı yönetimi işlemek için bir VM nasıl yapılandırabileceğiniz göstermek için dahil edilir.
+Kullanılan görüntüde SQL Server yüklüdür, ancak bu öğreticide kullanılmamıştır. Bir VM’yi nasıl web trafiğini işleyecek ve bir VM’yi veritabanı yönetim işlemlerini gerçekleştirecek şekilde yapılandırabileceğinizi göstermek için dahil edilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -283,7 +283,7 @@ Bu öğreticide sanal makinelerle ilgili Azure ağlarını oluşturup ve güvenl
 > * Ağ trafiğinin güvenliğini sağlama
 > * Arka uç VM’si oluşturma
 
-Azure Yedekleme'yi kullanarak sanal makinelerde güvenli hale getirme verileri izleme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Azure Backup kullanarak sanal makinelerdeki verilerin güvenliğini izlemeyi öğrenmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure'da Windows sanal makineleri yedekleyin](./tutorial-backup-vms.md)
+> [Windows sanal makinelerini Azure’da yedekleyin](./tutorial-backup-vms.md)
