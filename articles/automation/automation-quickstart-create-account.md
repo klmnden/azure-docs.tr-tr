@@ -1,18 +1,19 @@
 ---
-title: "Azure Hızlı Başlangıcı - Azure Otomasyonu hesabı oluşturma | Microsoft Docs"
-description: "Azure Otomasyonu hesabı oluşturmayı ve runbook çalıştırmayı öğrenin"
+title: Azure Hızlı Başlangıcı - Azure Otomasyonu hesabı oluşturma | Microsoft Docs
+description: Azure Otomasyonu hesabı oluşturmayı ve runbook çalıştırmayı öğrenin
 services: automation
 author: csand-msft
 ms.author: csand
 ms.date: 12/13/2017
 ms.topic: quickstart
 ms.service: automation
+ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 1ac5da8950f2aa5504c2e1e4c80e8cf5cc5d5be8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 
@@ -22,7 +23,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https:
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure oturumu açın
+https://portal.azure.com adresinden Azure’da oturum açın
 
 ## <a name="create-automation-account"></a>Otomasyon hesabı oluşturma
 
