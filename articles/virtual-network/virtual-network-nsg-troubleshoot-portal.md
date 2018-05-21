@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Ağ güvenlik grupları Azure Portalı'nı kullanarak sorun giderme
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/20/2018
 
 Ağ güvenlik grupları (Nsg'ler), sanal makine (VM) üzerinde yapılandırılmış ve VM bağlantı sorunları yaşıyorsanız, bu makalede daha fazla gidermek Nsg'ler tanılama özelliklerine genel bakış sağlar.
 
-Nsg'ler sanal makineleri (VM'ler) ve akan trafik türlerini denetlemenize sağlar. Nsg'ler alt ağlara bir Azure sanal ağı (VNet), ağ arabirimleri (NIC) ya da her ikisini de uygulanabilir. Bir NIC uygulanan etkili bir NIC'ye uygulanan Nsg'ler mevcut kurallar ve bağlı olduğu alt ağ bir toplama kurallardır. Bu Nsg'ler arasında kuralları bazen birbiriyle çelişen ve bir sanal makinenin ağ bağlantısını etkileyebilir.
+Nsg'ler sanal makineleri (VM'ler) ve akan trafik türlerini denetlemenize sağlar. Nsg'ler alt ağlara bir Azure sanal ağı (VNet), ağ arabirimleri (NIC) ya da her ikisini de uygulanabilir. Bir NIC uygulanan etkili bir NIC'ye uygulanan Nsg'ler mevcut kurallar ve bağlı olduğu alt ağ bir toplama kurallardır. Bu Nsg'ler arasında kuralları bazen birbiriyle çelişen ve bir sanal makinenin ağ bağlantısını etkileyebilir.  
 
-VM Nıc'lerde uygulanan olarak, tüm etkin güvenlik kuralları Nsg'lerinizi görüntüleyebilirsiniz. Bu makalede, bu kurallar Azure Resource Manager dağıtım modelinde kullanarak VM bağlantı sorunlarını gidermek gösterilmiştir. VNet ve NSG kavramlarına alışık değilseniz bkz [sanal ağa genel bakış](virtual-networks-overview.md) ve [ağ güvenlik grubu genel bakış](security-overview.md).
+VM Nıc'lerde uygulanan olarak, tüm etkin güvenlik kuralları Nsg'lerinizi görüntüleyebilirsiniz. Bu makalede, bu kurallar Azure Resource Manager dağıtım modelinde kullanarak VM bağlantı sorunlarını gidermek gösterilmiştir. VNet ve NSG kavramlarına alışık değilseniz, okuma [sanal ağ](virtual-networks-overview.md) ve [ağ güvenlik grupları](virtual-networks-nsg.md) genel bakış makaleleri.
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>VM trafik akışı sorun giderme için etkili güvenlik kurallarını kullanma
 Aşağıdaki senaryoda, ortak bir bağlantı sorunu örneğidir:
@@ -66,7 +66,7 @@ VM'den bir NIC üzerinde etkili güvenlik kuralları tam listesini görüntüley
    * **Kapsam:** kümesine *VM1*, 3. adımda seçtiğiniz VM.
    * **Ağ arabirimi:** *VM1 nıc1* seçilir. Bir VM birden çok ağ arabirimine (NIC) sahip. Her NIC'nin benzersiz etkin güvenlik kuralları olabilir. Sorunlarını giderirken, her bir NIC için etkili güvenlik kuralları görüntülemek gerekebilir
    * **İlişkili Nsg'ler:** Nsg'ler, NIC ve NIC bağlı alt ağ için uygulanabilir. Aşağıdaki resimde, NIC ve bağlı olduğu alt ağ için bir NSG uygulanmıştır. Doğrudan Nsg'ler kurallarında değiştirmek için NSG adları tıklatabilirsiniz.
-   * **VM1 nsg sekmesi:** NSG, NIC'ye uygulanır için resim görüntülenen kuralların listesidir Her bir NSG oluşturulduğunda birkaç varsayılan kuralları Azure tarafından oluşturulur. Varsayılan kuralları kaldırılamıyor, ancak daha yüksek öncelik kuralları ile geçersiz kılınabilir. [Varsayılan güvenlik kuralları](security-overview.md#default-security-rules) hakkında daha fazla bilgi edinin.
+   * **VM1 nsg sekmesi:** NSG, NIC'ye uygulanır için resim görüntülenen kuralların listesidir Her bir NSG oluşturulduğunda birkaç varsayılan kuralları Azure tarafından oluşturulur. Varsayılan kuralları kaldırılamıyor, ancak daha yüksek öncelik kuralları ile geçersiz kılınabilir. Varsayılan kuralları hakkında daha fazla bilgi için okuma [NSG genel bakış](virtual-networks-nsg.md#default-rules) makalesi.
    * **HEDEF sütun:** başkalarının adres öneklerini bulunurken metin sütununda bazı kurallar vardır. Güvenlik kuralı oluşturulduğunda uygulanan varsayılan etiketleri adını metindir. Etiketler birden çok önekleri temsil eden sistem tarafından sağlanan tanımlayıcılardır. Bir etiketi olan bir kural gibi seçerek *AllowInternetOutBound*, öneklerini listeler **adres önekleri** dikey.
    * **İndirin:** kurallar listesinin uzun olabilir. Kuralları çevrimdışı analiz için bir .csv dosyası tıklayarak indirebileceğiniz **karşıdan** ve dosyayı kaydetme.
    * **AllowRDP** gelen kuralı: Bu kural, VM RDP bağlantılara izin verir.

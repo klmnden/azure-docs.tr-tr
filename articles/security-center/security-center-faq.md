@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: d5a9f2ba68574ba8cb99b01ce426ec77a5eecd3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, engellemenize, algılamanıza ve Artırılmış görünürlük aracılığıyla tehditleri Microsoft Azure kaynaklarınızın güvenliğini denetlemenize yanıtlamanıza yardımcı olan bir hizmeti ile ilgili sorular yanıtlanmaktadır.
@@ -35,7 +35,7 @@ Azure Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditle
 ### <a name="how-do-i-get-azure-security-center"></a>Azure Güvenlik Merkezi nasıl sağlarım?
 Azure Güvenlik Merkezi, Microsoft Azure aboneliğiniz ile etkin ve erişilen [Azure portal](https://azure.microsoft.com/features/azure-portal/). ([Portalı oturum açma](https://portal.azure.com)seçin **Gözat**ve kaydırma **Güvenlik Merkezi**).  
 
-## <a name="billing"></a>Fatura
+## <a name="billing"></a>Faturalandırma
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure Güvenlik Merkezi için fatura iş nasıl yapar?
 Güvenlik Merkezi iki katmanı sunulur:
 
@@ -88,8 +88,8 @@ Bir güvenlik ilkesi yapılandırma konusunda bilgi edinmek için [Azure Güvenl
 ### <a name="what-is-a-security-recommendation"></a>Güvenlik açısından nedir?
 Azure Güvenlik Merkezi, ayrıca Azure kaynaklarınızın güvenlik durumunu çözümler. Olası güvenlik açıkları tanımlandığında, öneri oluşturulur. Öneriler gerekli denetimini yapılandırma işleminde size kılavuzluk. Örnekler şunlardır:
 
-* Tanımlamak ve kötü amaçlı yazılımları kaldırmanıza yardımcı olmak için kötü amaçlı yazılımdan koruma sağlama
-* Yapılandırma [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md) ve kuralları trafiği denetlemek için sanal makineler
+* Anti-tanımlamak ve kötü amaçlı yazılımları kaldırmanıza yardımcı olmak için kötü amaçlı yazılımları sağlama
+* [Ağ güvenlik grupları](../virtual-network/security-overview.md) ve kuralları trafiği denetlemek için sanal makineler
 * Web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir web uygulaması Güvenlik Duvarı'nın sağlama
 * Eksik sistem güncelleştirmelerini dağıtma
 * Önerilen taban çizgileriyle eşleşmeyen işletim sistemi yapılandırmalarını ele alma
@@ -118,11 +118,11 @@ Azure Güvenlik Merkezi aşağıdaki Azure kaynakları izler:
 * Sanal makineler (VM'ler) (dahil olmak üzere [bulut Hizmetleri](../cloud-services/cloud-services-choose-me.md))
 * Azure Sanal Ağları
 * Azure SQL Hizmeti
-* Azure Depolama hesabı
+* Azure Storage hesabı
 * Azure Web uygulamaları (içinde [uygulama hizmeti ortamı](../app-service/environment/intro.md))
 * Bir web uygulaması güvenlik duvarı sanal makineleri ve uygulama hizmeti ortamı gibi Azure aboneliğinizle tümleşik iş ortağı çözümleri
 
-## <a name="virtual-machines"></a>Sanal Makineler
+## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Sanal makineler ne tür destekleniyor mu?
 İzleme ve öneriler her ikisini de kullanarak oluşturulan sanal makineleri için (VM'ler) kullanılabilir [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md).
 

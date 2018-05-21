@@ -3,17 +3,17 @@ title: Performans önerileri - Azure SQL veritabanı uygulamak | Microsoft Docs
 description: Azure SQL veritabanınızın performansını en iyi duruma getirebilirsiniz performans önerileri bulmak için Azure Portalı'nı kullanın.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
 
@@ -95,10 +95,14 @@ Seçili öneri veritabanı üzerinde uygulanır.
 
 1. Üzerinde **önerileri** sayfasında, **otomatikleştirme**:
    
-    ![Danışman ayarları](./media/sql-database-advisor-portal/settings.png)
+    ![Advisor ayarları](./media/sql-database-advisor-portal/settings.png)
 2. Otomatik hale getirmek için Eylemler seçin:
    
-    ![Dizinleri önerilir](./media/sql-database-advisor-portal/automation.png)
+    ![Dizinleri önerilir](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Lütfen unutmayın **DROP_INDEX** seçenek şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değil ve bu gibi durumlarda açık.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>El ile önerilen T-SQL betiği çalıştırma
 Herhangi bir önerisi seçin ve ardından **görüntülemek betik**. Bu komut dosyasını el ile öneri uygulamak için veritabanına karşı çalışırlar.
@@ -118,7 +122,7 @@ Bir öneri uygulama eşzamanlı olarak gerçekleşebilir değil. Portal, öneri 
 |:--- |:--- |
 | Beklemede |Komut alındı ve çalıştırılmak üzere zamanlanmış öneri uygulayın. |
 | Yürütülüyor |Öneri uygulanmaktadır. |
-| Doğrulama |Öneri başarıyla uygulandı ve hizmet avantajlarını ölçme. |
+| Doğrulanıyor |Öneri başarıyla uygulandı ve hizmet avantajlarını ölçme. |
 | Başarılı |Öneri başarıyla uygulandı ve avantajları ölçülür. |
 | Hata |Öneriyi uygulama işlemi sırasında bir hata oluştu. Bu geçici bir sorun veya büyük olasılıkla bir şema, tablo olarak değiştirin ve komut dosyası artık geçerli değil. |
 | Geri döndürülüyor |Öneri uygulandı, ancak kullanıcı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
