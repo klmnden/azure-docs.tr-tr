@@ -159,6 +159,8 @@
       items:
         - name: Runbook galerisi
           href: automation-runbook-gallery.md
+        - name: Etkinlik günlükleri ile runbook’ları izleme
+          href: automation-alert-activity-log.md
         - name: Azure uyarılarından runbook başlatma
           href: automation-create-alert-triggered-runbook.md
         - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
