@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -120,7 +120,7 @@ Aşağıdaki resimde, hem dış ve iç yük dengeleyici kullanan bir Internet'e 
 
 Şu seçenekler kullanılarak Azure kaynaklarını gelen ve giden trafiği filtreleyebilirsiniz:
 
-- **Ağ:** Azure ağ güvenlik grupları (Nsg'ler) Azure kaynakları için gelen ve giden trafiği filtrelemek için uygulayabilirsiniz. Her NSG bir veya daha fazla gelen ve giden kurallarını içerir. Her kural kaynak IP adresleri, hedef IP adresleri, bağlantı noktası ve trafiği ile filtrelenmiş Protokolü belirtir. Nsg'ler, tek tek alt ağları ve tek tek sanal makineleri için uygulanabilir. Nsg'ler hakkında daha fazla bilgi için okuma [ağ güvenlik gruplarını genel bakış](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
+- **Ağ:** Azure ağ güvenlik grupları (Nsg'ler) Azure kaynakları için gelen ve giden trafiği filtrelemek için uygulayabilirsiniz. Her NSG bir veya daha fazla gelen ve giden kurallarını içerir. Her kural kaynak IP adresleri, hedef IP adresleri, bağlantı noktası ve trafiği ile filtrelenmiş Protokolü belirtir. Nsg'ler, tek tek alt ağları ve tek tek sanal makineleri için uygulanabilir. Nsg'ler hakkında daha fazla bilgi için okuma [ağ güvenlik gruplarını genel bakış](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Uygulama:** web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi'ni kullanarak, web uygulamalarınızı güvenlik açıkları ve güvenlik açıklarına koruyabilirsiniz. SQL ekleme saldırıları, siteler arası komut dosyası ve hatalı biçimlendirilmiş üstbilgiler ortak örnek verilebilir. Uygulama ağ geçidi Bu trafik çıkış filtreleri ve web sunucularına ulaşması durdurur. Etkin istediğiniz hangi kurallarını yapılandırmak kullanabilirsiniz. Belirli ilkeleri devre dışı bırakılmasına izin vermek için SSL anlaşma ilkeleri yapılandırma olanağı sağlanır. Web uygulaması Güvenlik Duvarı hakkında daha fazla bilgi için okuma [Web uygulaması güvenlik duvarı](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 
 Azure olmayan sağlayın veya şirket içi kullanan ağ uygulamalarını kullanmak istediğiniz ağ özelliğini gerekiyorsa, Vm'lerde ürünleri uygulamak ve bunları Vnet'iniz bağlayın. [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) birkaç farklı VM şu anda kullanabilir ağ uygulamaları ile önceden yapılandırılmış içerir. Bu önceden yapılandırılmış sanal makineleri, genellikle ağ sanal Gereçleri (NVA) da adlandırılır. NVAs, güvenlik duvarı ve WAN iyileştirmesi gibi uygulamalar ile kullanılabilir.

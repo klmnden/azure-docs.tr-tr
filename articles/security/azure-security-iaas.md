@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -106,7 +106,7 @@ Ek ücret ödemeden DevTest Labs kullanımı ile ilişkilidir. Labs, ilkeleri, �
 
 Barındırma Labs veya Azure üretim sistemlerinde sistemlerinizi Internet'ten erişilebilir olmasını gerektiği anlamına gelir. Varsayılan olarak, yeni bir Windows sanal makine RDP bağlantı noktası Internet'ten erişilebilir içeriyor ve Linux sanal makine açık SSH bağlantı noktası içeriyor. Kullanıma sunulan sınırı Uç noktalara adımları alma, yetkisiz erişim riskini en aza indirmek gereklidir.
 
-Azure teknolojileri, bu yönetim uç noktalarına erişimi sınırlamak yardımcı olabilir. Azure'da, kullandığınız [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) (Nsg'ler). Azure Resource Manager dağıtım için kullandığınızda Nsg'ler yalnızca yönetim uç (RDP veya SSH) tüm ağlardan erişimi sınırlayın. Nsg'ler düşünürken, yönlendirici ACL'ler düşünün. Sıkı bir şekilde Azure ağlarınızı çeşitli kesimleri arasındaki ağ iletişimi denetlemek için bunları kullanabilirsiniz. Bu, çevre ağı veya diğer yalıtılmış ağlarda ağlar oluşturmaya benzer. Trafiği incelemek değil, ancak ağ kesimleri ile yardımcı olurlar.
+Azure teknolojileri, bu yönetim uç noktalarına erişimi sınırlamak yardımcı olabilir. Azure'da, kullandığınız [ağ güvenlik grubu](../virtual-network/security-overview.md) (Nsg'ler). Azure Resource Manager dağıtım için kullandığınızda Nsg'ler yalnızca yönetim uç (RDP veya SSH) tüm ağlardan erişimi sınırlayın. Nsg'ler düşünürken, yönlendirici ACL'ler düşünün. Sıkı bir şekilde Azure ağlarınızı çeşitli kesimleri arasındaki ağ iletişimi denetlemek için bunları kullanabilirsiniz. Bu, çevre ağı veya diğer yalıtılmış ağlarda ağlar oluşturmaya benzer. Trafiği incelemek değil, ancak ağ kesimleri ile yardımcı olurlar.
 
 
 Azure'da, yapılandırdığınız bir [siteden siteye VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) şirket içi ağınızdan. Bulut, şirket içi ağınıza bir siteden siteye VPN genişletir. Nsg'ler yerden erişim'den yerel ağ diğer izin vermeyecek şekilde de değiştirebilirsiniz çünkü bu, Nsg'ler, kullanılacak başka bir fırsatı verir. Ardından, yönetim ilk VPN aracılığıyla Azure ağa bağlanarak yapılır gerektirebilir.

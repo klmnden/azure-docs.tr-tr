@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>En iyi güvenlik uygulamaları Azure kimlik yönetimi ve erişim denetimi
 
@@ -64,7 +64,7 @@ Azure AD eşitleme hakkında daha fazla bilgi için bkz: [şirket içi kimlikler
 
 Yönetmek için birden fazla dizine sahip olduğunuzda, bu değil yalnızca yönetimsel bir sorun haline BT, birden fazla parolayı hatırlamak zorunda son kullanıcılar için de. Kullanarak [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) özelliğini oturum açın ve, ne olursa olsun bu kaynak şirket içinde olduğu veya bulutta ihtiyaç duydukları kaynaklara erişmek için aynı kimlik bilgileri kümesini kullanın, kullanıcılarınızın sağlayın.
 
-Kullanıcıların erişmek SSO kullan kendi [SaaS uygulamaları](../active-directory/active-directory-appssoaccess-whatis.md) kuruluş hesaplarıyla içinde Azure AD tabanlı. Bu yalnızca Microsoft SaaS uygulamaları, ancak diğer uygulamalar için de geçerli olduğu gibi [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) ve [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Uygulamanızı Azure AD olarak kullanmak için yapılandırılabilir bir [SAML tabanlı kimlik](../active-directory/fundamentals-identity.md) sağlayıcısı. Güvenlik denetimi olarak Azure AD, Azure AD kullanarak erişim verildi sürece uygulamasına oturum vermeden bir belirteç yayınlamayacaktır. Doğrudan veya bir grup üyesi oldukları erişim.
+Kullanıcıların erişmek SSO kullan kendi [SaaS uygulamaları](../active-directory/manage-apps/what-is-single-sign-on.md) kuruluş hesaplarıyla içinde Azure AD tabanlı. Bu yalnızca Microsoft SaaS uygulamaları, ancak diğer uygulamalar için de geçerli olduğu gibi [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) ve [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Uygulamanızı Azure AD olarak kullanmak için yapılandırılabilir bir [SAML tabanlı kimlik](../active-directory/fundamentals-identity.md) sağlayıcısı. Güvenlik denetimi olarak Azure AD, Azure AD kullanarak erişim verildi sürece uygulamasına oturum vermeden bir belirteç yayınlamayacaktır. Doğrudan veya bir grup üyesi oldukları erişim.
 
 > [!NOTE]
 > SSO kullanmaya karar nasıl şirket içi dizininizi bulut diziniyle tümleştirmek etkiler. SSO istiyorsanız, dizin eşitleme yalnızca sağlayacağından, Federasyon, kullanmanıza gerek [aynı oturum açma deneyimi](../active-directory/active-directory-aadconnect.md).

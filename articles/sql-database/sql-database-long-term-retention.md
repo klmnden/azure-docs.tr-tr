@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL veritabanı yedeklemelerini depolamak için en fazla 10 yıl
 
@@ -34,7 +34,7 @@ Uzun vadeli yedekleme bekletme yararlanır [otomatik SQL veritabanı yedeklemele
 
    5 yıl boyunca her yıl 3 tam yedeklemesini tutulacak.
 
-- W=0, M=3, Y=0
+- W = 0, M = 3, Y = 0
 
    Her ayın ilk tam yedeklemede 3 aydan tutulacak.
 
@@ -54,8 +54,13 @@ W = 12 Hafta (84 gün), M = 12 ay (365 gün), Y = 10 yıl (3650 gün), WeekOfYea
 
 
  
-Yukarıdaki tabloda yukarıdaki ilkesini değiştirmek için olan ve yedek kopyaları kümesini W = 0 (hiçbir haftalık yedekleri), tempoyla olarak değiştirecek vurgulanan tarihlerle gösterilir. Bu yedeklemeler tutmak için gerekli depolama miktarını uygun şekilde azaltın. Not: var olan veritabanı kopyalama işlemi performans etkisi nedenle LTR kopyaları Azure depolama hizmeti tarafından oluşturulur.
-LTR depolama biriminden bir veritabanını geri yüklemek için zaman damgasını temel alarak belirli bir yedeği seçebilirsiniz.   Veritabanını özgün veritabanını aynı abonelik altında var olan herhangi bir sunucuya geri yüklenebilir. 
+Yukarıdaki tabloda yukarıdaki ilkesini değiştirmek için olan ve yedek kopyaları kümesini W = 0 (hiçbir haftalık yedekleri), tempoyla olarak değiştirecek vurgulanan tarihlerle gösterilir. Bu yedeklemeler tutmak için gerekli depolama miktarını uygun şekilde azaltın. 
+
+> [!NOTE]
+1. Kopyalama işlemi, mevcut bir veritabanının üzerine herhangi bir performans etkisi yoktur şekilde LTR kopyaları Azure depolama hizmeti tarafından oluşturulur.
+2. İlke, gelecekteki yedeklemeler için geçerlidir. Örneğin Belirtilen WeekOfYear ilke zaman yapılandırılan geçmişte ise, bir sonraki yılın ilk LTR yedekleme oluşturulacak. 
+3. LTR depolama biriminden bir veritabanını geri yüklemek için zaman damgasını temel alarak belirli bir yedeği seçebilirsiniz.   Veritabanını özgün veritabanını aynı abonelik altında var olan herhangi bir sunucuya geri yüklenebilir. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Uzun süreli yedek saklama yapılandırma
 

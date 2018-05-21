@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6b01c2a0bfacb4e7e121cdb06ad8be4ab17d53a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2abb219cd43e6bb95c6cbd562dda6115628e73f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -298,7 +298,7 @@ ms.lasthandoff: 05/10/2018
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -661,7 +661,7 @@ Microsoft Azure SAP yazılımıyla hayata geçirmek için istiyoruz tüm senaryo
 * Azure ağı ile müşterinin şirket içi ağ arasındaki şirket içi bağlantılar
 * Azure siteler arasında çapraz Azure bölgesini ya da veri merkezi bağlantısı
 
-Daha fazla bilgi şurada bulunabilir: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Buradan daha fazla bilgi bulabilirsiniz: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Azure ad ve IP çözümleme yapılandırmak için birçok farklı olasılık vardır. Bu belgede, Azure DNS (kendi bir DNS hizmeti tanımlama aksine) kullanarak varsayılan yalnızca bulut senaryoları bağlıdır. Ayrıca kendi DNS sunucusunu ayarlama yerine kullanılabilecek yeni bir Azure DNS hizmeti vardır. Daha fazla bilgi bulunabilir [bu makalede] [ virtual-networks-manage-dns-in-vnet] ve [bu sayfayı](https://azure.microsoft.com/services/dns/).
 

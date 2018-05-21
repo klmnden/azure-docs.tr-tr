@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Bir Azure VM üzerinde SQL Server bir Azure Search dizin oluşturucu arasında bağlantı yapılandırma
 İçinde belirtildiği gibi [dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), dizin oluşturucular karşı oluşturma **Azure Vm'lerde SQL Server** (veya **SQL Azure VM'ler** kısaca) Azure araması tarafından desteklenen ancak ilk halletmeniz için birkaç güvenlikle ilgili önkoşulları vardır. 
@@ -52,14 +52,14 @@ Azure Search tarafından gerekli şifreli bir bağlantı kurduktan sonra var. ek
 ## <a name="configure-the-network-security-group-nsg"></a>Ağ güvenlik grubu (NSG) yapılandırma
 NSG ve karşılık gelen Azure uç noktası veya erişim denetim listesi (ACL) Azure VM'nizi diğer taraflar için erişilebilir kılmak için yapılandırma olağan dışı bir durum değil. SQL Azure VM'nize bağlanmak için kendi uygulama mantığını izin vermek için bu önce yaptıktan yüksektir. Bir Azure Search bağlantı SQL Azure VM için farklı değildir. 
 
-Aşağıdaki bağlantıları VM dağıtımlar için NSG yapılandırma hakkında yönergeler sağlar. ACL kendi IP adresini temel alan bir Azure SEarch uç nokta için bu yönergeleri kullanın.
+Aşağıdaki bağlantıları VM dağıtımlar için NSG yapılandırma hakkında yönergeler sağlar. ACL kendi IP adresini temel alan bir Azure Search uç nokta için bu yönergeleri kullanın.
 
 > [!NOTE]
-> Arka plan için bkz: [bir ağ güvenlik grubu nedir?](../virtual-network/virtual-networks-nsg.md)
+> Arka plan için bkz: [bir ağ güvenlik grubu nedir?](../virtual-network/security-overview.md)
 > 
 > 
 
-* İçin bir **Resource Manager** VM bkz [ARM dağıtımları için Nsg'ler oluşturma](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* İçin bir **Resource Manager** VM bkz [ARM dağıtımları için Nsg'ler oluşturma](../virtual-network/tutorial-filter-network-traffic.md). 
 * İçin bir **Klasik** VM bkz [Klasik dağıtımlar için Nsg'ler oluşturma](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 IP adresleme sorunu ve olası geçici çözümler farkında olması durumunda, kolayca üstesinden birkaç yol açabilir. Kalan bölümler ACL IP adresleri ile ilgili sorunlar işleme için öneriler sağlar.

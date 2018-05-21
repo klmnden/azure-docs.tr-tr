@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 1cdf33632c282a872d0eb83dd1a1b1c639fc14bd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 661d2f789ace8da68b6d65609d4584a11967a01f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>PowerShell (Klasik) kullanarak statik iç özel bir IP adresi ayarlama
 Çoğu durumda, sanal makine için statik iç IP adresi belirtmeniz gerekmez. Bir sanal ağdaki sanal makineleri otomatik olarak bir iç IP adresi, belirttiğiniz bir aralıktan alır. Ancak bazı durumlarda, belirli bir VM için bir statik IP adresi belirtme mantıklıdır. Örneğin, VM'yi DNS çalıştıracağınız ise veya bir etki alanı denetleyicisi olacaktır. Statik iç IP adresi VM bile bir Dur/deprovision durumu ile birlikte kalır. 
@@ -95,7 +95,7 @@ Yukarıdaki komut dosyasındaki VM eklenen statik iç IP kaldırmak için aşağ
     | Update-AzureVM
 
 ## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Mevcut bir VM'yi statik iç IP ekleme
-İç statik eklemek için VM IP çalışma yukarıdaki betik komutu aşağıdaki kullanılarak oluşturulan:
+Yukarıdaki komut dosyası kullanılarak oluşturulan VM statik iç IP eklemek için aşağıdaki komutu çalıştırın:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `

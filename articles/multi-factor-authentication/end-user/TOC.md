@@ -14,3 +14,4 @@
 ### [Telefonunuzla oturum açma](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Hesap kimlik bilgilerini yedekleme ve kurtarma](microsoft-authenticator-app-backup-and-recovery.md)
 ### [SSS](microsoft-authenticator-app-faq.md)
+### [Oturum açma deneyimi güncelleştirmeleri](sign-in-experience-updates.md)

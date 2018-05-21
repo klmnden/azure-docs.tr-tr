@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Ağ güvenlik grupları Azure PowerShell kullanarak sorun giderme
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/14/2018
 
 Ağ güvenlik grupları (Nsg'ler), sanal makine (VM) üzerinde yapılandırılmış ve VM bağlantı sorunları yaşıyorsanız, bu makalede daha fazla gidermek Nsg'ler tanılama özelliklerine genel bakış sağlar.
 
-Nsg'ler sanal makineleri (VM'ler) ve akan trafik türlerini denetlemenize sağlar. Nsg'ler alt ağlara bir Azure sanal ağı (VNet), ağ arabirimleri (NIC) ya da her ikisini de uygulanabilir. Bir NIC uygulanan etkili bir NIC'ye uygulanan Nsg'ler mevcut kurallar ve bağlı olduğu alt ağ bir toplama kurallardır. Bu Nsg'ler arasında kuralları bazen birbiriyle çelişen ve bir sanal makinenin ağ bağlantısını etkileyebilir.  
+Nsg'ler sanal makineleri (VM'ler) ve akan trafik türlerini denetlemenize sağlar. Nsg'ler alt ağlara bir Azure sanal ağı (VNet), ağ arabirimleri (NIC) ya da her ikisini de uygulanabilir. Bir NIC uygulanan etkili bir NIC'ye uygulanan Nsg'ler mevcut kurallar ve bağlı olduğu alt ağ bir toplama kurallardır. Bu Nsg'ler arasında kuralları bazen birbiriyle çelişen ve bir sanal makinenin ağ bağlantısını etkileyebilir.
 
-VM Nıc'lerde uygulanan olarak, tüm etkin güvenlik kuralları Nsg'lerinizi görüntüleyebilirsiniz. Bu makalede, bu kurallar Azure Resource Manager dağıtım modelinde kullanarak VM bağlantı sorunlarını gidermek gösterilmiştir. VNet ve NSG kavramlarına alışık değilseniz, okuma [sanal ağ](virtual-networks-overview.md) ve [ağ güvenlik grupları](virtual-networks-nsg.md) genel bakış makaleleri.
+VM Nıc'lerde uygulanan olarak, tüm etkin güvenlik kuralları Nsg'lerinizi görüntüleyebilirsiniz. Bu makalede, bu kurallar Azure Resource Manager dağıtım modelinde kullanarak VM bağlantı sorunlarını gidermek gösterilmiştir. VNet ve NSG kavramlarına alışık değilseniz bkz [sanal ağa genel bakış](virtual-networks-overview.md) ve [ağ güvenlik grubu genel bakış](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>VM trafik akışı sorun giderme için etkili güvenlik kurallarını kullanma
 Aşağıdaki senaryoda, ortak bir bağlantı sorunu örneğidir:
@@ -159,8 +159,7 @@ Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
    
    * Var olan iki **NetworkSecurityGroup** bölümler: bir alt ağ ile ilişkili biridir (*Subnet1*) ve bir NIC ile ilişkili olduğu (*VM1 nıc1*). Bu örnekte, her bir NSG uygulanmıştır.
    * **İlişkilendirme** kaynak (alt ağ veya NIC) belirli bir NSG ile ilişkili olduğunu gösterir. NSG kaynağı hemen bu komutu çalıştırmadan önce taşınmış ve ilişkilendirmesi ise, komut çıktısında yansıtacak şekilde değiştirmek için birkaç saniye beklemeniz gerekebilir. 
-   * İle başlayan kuralı adları *defaultSecurityRules*: olduğunda bir NSG oluşturulur, birkaç varsayılan güvenlik kuralları içinde oluşturulur. Varsayılan kurallar kaldırılamaz, ancak daha yüksek öncelik kuralları ile geçersiz kılınabilir.
-     Okuma [NSG genel bakış](virtual-networks-nsg.md#default-rules) makale güvenlik kuralları varsayılan NSG hakkında daha fazla bilgi edinin.
+   * İle başlayan kuralı adları *defaultSecurityRules*: olduğunda bir NSG oluşturulur, birkaç varsayılan güvenlik kuralları içinde oluşturulur. Varsayılan kurallar kaldırılamaz, ancak daha yüksek öncelik kuralları ile geçersiz kılınabilir. [Varsayılan güvenlik kuralları](security-overview.md#default-security-rules) hakkında daha fazla bilgi edinin.
    * **ExpandedAddressPrefix** NSG varsayılan etiketleri için adres önekleri genişletir. Etiketler, birden çok adres öneklerini temsil eder. Etiketlerin genişletme denetleyicisinden belirli adres öneklerini VM bağlantı sorunlarını giderirken faydalı olabilir. Örneğin, VNET eşlemesi ile VIRTUAL_NETWORK etiketine eşlenmiş VNet ön önceki çıktısında göstermek için genişletir.
      
      > [!NOTE]

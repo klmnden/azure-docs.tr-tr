@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure’daki güvenlik özellikleriyle çalışmaya başlama
 
@@ -136,7 +136,7 @@ Sanal makinelerinizi üzerine yerleştirebilirsiniz [Azure sanal ağlar](https:/
 
 Güvenli iletişim sanal ağınızda yardımcı olması için aşağıdaki Azure sanal ağ teknolojileri kullanabilirsiniz:
 
-* [**Ağ güvenlik grupları (Nsg'ler)**](../virtual-network/virtual-networks-nsg.md). Bir NSG'yi bir veya daha fazla sanal makine örnekleri denetim trafiği, sanal ağınızda bulunan kullanabilirsiniz. NSG’de trafik yönüne, protokole, kaynak adresle bağlantı noktasına ve hedef adresle bağlantı noktasına göre trafiğe izin veren ya da reddeden erişim denetim kuralları yer alır.
+* [**Ağ güvenlik grupları (Nsg'ler)**](../virtual-network/security-overview.md). Bir NSG'yi bir veya daha fazla sanal makine örnekleri denetim trafiği, sanal ağınızda bulunan kullanabilirsiniz. NSG’de trafik yönüne, protokole, kaynak adresle bağlantı noktasına ve hedef adresle bağlantı noktasına göre trafiğe izin veren ya da reddeden erişim denetim kuralları yer alır.
 * [**Kullanıcı tanımlı yönlendirme**](../virtual-network/virtual-networks-udr-overview.md). Paketlerin sanal gereç yoluyla bir sanal ağ güvenlik Gereci gitmek için belirli bir alt ağa akan paketlerde için sonraki atlama belirtin oluşturma kullanıcı tanımlı yollar tarafından yönlendirilmesini kontrol edebilirsiniz.
 * [**IP iletimi**](../virtual-network/virtual-networks-udr-overview.md). Bir sanal ağ güvenlik cihazının kendine gönderilmemiş olan trafiği alabilmesi gerekir. Bir sanal makine başka hedeflere yönelik trafiği alabilmesine izin vermek için sanal makine için IP iletimini etkinleştirin.
 * [**Zorlamalı tünel oluşturma**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Yeniden yönlendirme veya "bir sanal ağdaki sanal makineleriniz tarafından oluşturulan tüm Internet'e bağlı trafik zorla" zorlamalı tünel sağlar, denetleme ve denetim için siteden siteye VPN tüneli aracılığıyla şirket içi konumunuz yedekleyin.

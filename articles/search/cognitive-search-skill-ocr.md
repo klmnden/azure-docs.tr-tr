@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel nitelik
 
@@ -50,7 +50,7 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 ## <a name="skill-outputs"></a>Yetenek çıkışları
 | Çıktı adı     | Açıklama                   |
 |---------------|-------------------------------|
-| Metin          | Düz metin görüntüden ayıklanır.   |
+| metin          | Düz metin görüntüden ayıklanır.   |
 | layoutText    | Karmaşık türü, metnin bulunduğu konumun yanı sıra ayıklanan metin açıklar.|
 
 
@@ -185,16 +185,14 @@ Aşağıdaki örnek skillset oluşturur bir *merged_text* OCRed metnin her gör�
 Yukarıdaki skillset örnek normalleştirilmiş görüntüleri alan var olduğunu varsayar. Bu alan oluşturmak üzere *imageAction* dizin oluşturucu tanımınızı yapılandırmasında *generateNormalizedImages* aşağıda gösterildiği gibi:
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -202,3 +200,4 @@ Yukarıdaki skillset örnek normalleştirilmiş görüntüleri alan var olduğun
 + [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
 + [TextMerger nitelik](cognitive-search-skill-textmerger.md)
 + [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Dizin Oluşturucu (REST) oluşturma](ref-create-indexer.md)
