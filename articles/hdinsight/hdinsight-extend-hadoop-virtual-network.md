@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: cb005549fcd9a5850c990d8ef8acb724443f9908
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme
 
@@ -93,7 +93,7 @@ Yeni Hdınsight var olan bir Azure sanal ağı eklemek nasıl keşfetmek için b
         Daha fazla bilgi için bkz: [ağ güvenlik grupları sorun giderme](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) belge.
 
         > [!IMPORTANT]
-        > Ağ güvenlik grubu kural kuralı önceliği temelinde sırayla uygulanır. Trafik desenle eşleşen ilk kural uygulanır ve hiçbir diğerlerinin bu trafiği için uygulanır. Sipariş kurallardan en fazla izne sahip az izin veren için. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md) belge.
+        > Ağ güvenlik grubu kural kuralı önceliği temelinde sırayla uygulanır. Trafik desenle eşleşen ilk kural uygulanır ve hiçbir diğerlerinin bu trafiği için uygulanır. Sipariş kurallardan en fazla izne sahip az izin veren için. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/security-overview.md) belge.
 
     * Kullanıcı tanımlı yollar
 
@@ -214,7 +214,7 @@ Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağı
 
 Bir Azure sanal ağlarda ağ trafiğini aşağıdaki yöntemler kullanılarak denetlenebilir:
 
-* **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemek olanak sağlar. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md) belge.
+* **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemek olanak sağlar. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/security-overview.md) belge.
 
     > [!WARNING]
     > Hdınsight giden trafiği kısıtlama desteklemez.
@@ -242,7 +242,7 @@ Kullanmayı planlıyorsanız, **ağ güvenlik grubu** veya **kullanıcı tanıml
 
 Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md)
+* [Ağ güvenlik grubu](../virtual-network/security-overview.md)
 
 * [Kullanıcı tanımlı yollar](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -666,6 +666,6 @@ Bu adımları tamamladıktan sonra tam etki alanı adları (FQDN) kullanarak san
 * HBase coğrafi çoğaltma yapılandırmak için bkz: [HBase kümesi çoğaltma Azure sanal ağlarda ayarlama](hbase/apache-hbase-replication.md).
 * Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
 
-* Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
+* Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/security-overview.md).
 
 * Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar ve IP iletimini](../virtual-network/virtual-networks-udr-overview.md).

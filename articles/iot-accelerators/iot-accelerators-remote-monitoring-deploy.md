@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 30d0b0b0250563cf09a50e8165ad9fb1047fd570
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı dağıtma
 
@@ -87,6 +87,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Çözüm Hızlandırıcısı dağıtma
 > * Çözüm Hızlandırıcısı oturum açın
 
-Uzaktan izleme çözümü dağıttıysanız, sonraki adım olacak [çözüm Panosu özelliklerini keşfedin](./../iot-suite/iot-suite-remote-monitoring-explore.md).
+Uzaktan izleme çözümü dağıttıysanız, sonraki adım olacak [çözüm Panosu özelliklerini keşfedin](iot-accelerators-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

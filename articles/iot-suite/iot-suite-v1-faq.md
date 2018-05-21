@@ -1,12 +1,12 @@
 ---
 title: Azure IOT paketi ile ilgili SSS | Microsoft Docs
-description: "IoT Paketi için sık sorulan sorular"
-services: 
+description: IoT Paketi için sık sorulan sorular
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4c8ecdae8d84028986b4b3fba94486ce8eb7f1bc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Paketi için sık sorulan sorular
 
-Ayrıca bkz.: bağlı Fabrika özel [SSS](iot-suite-faq-cf.md).
+Ayrıca bkz.: bağlı Fabrika özel [SSS](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Önceden yapılandırılmış çözümleri için kaynak kodunu nereden bulabilirim?
 
@@ -34,7 +34,7 @@ Kaynak kodu aşağıdaki GitHub depolarının depolanır:
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IOT Hub cihaz yönetimi özellikleri kullanan Uzaktan izleme önceden yapılandırılmış çözümü en son sürümüne nasıl güncelleştiririm?
 
-* Önceden yapılandırılmış bir çözüm https://www.azureiotsuite.com/ sitesinden dağıtırsanız, her zaman çözüm en son sürümünü yeni bir örneğini dağıtır.
+* Önceden yapılandırılmış bir çözüm dağıtırsanız https://www.azureiotsuite.com/ site, her zaman çözüm en son sürümünü yeni bir örneğini dağıtır.
 * Komut satırını kullanarak önceden yapılandırılmış bir çözüm dağıtırsanız, yeni kodu ile var olan bir dağıtıma güncelleştirebilirsiniz. Bkz: [bulut dağıtımı] [ lnk-cloud-deployment] github'da [deposu][lnk-remote-monitoring-github].
 
 ### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Uzaktan izleme önceden yapılandırılmış çözümü için yeni bir cihaz yöntemi desteğini nasıl ekleyebilirim?
@@ -104,7 +104,7 @@ Bkz. Eric Golpe'un blog gönderisi [bir Azure AD Kiracısını silme Kılavuzu][
 Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümüne genel bakış][lnk-predictive-overview]
-* [Önceden yapılandırılmış bağlı Fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
+* [Önceden yapılandırılmış bağlı Fabrika çözümüne genel bakış](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md

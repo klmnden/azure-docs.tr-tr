@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0f22bae1e1e40d3ea735861b9a633ae46eae5c33
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Bir uç noktası erişim denetimi listesi nedir?
 
 > [!IMPORTANT]
 > Azure sahip iki farklı [dağıtım modellerini](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmak ve kaynaklarla çalışmak için: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft, en yeni dağıtımların Resource Manager dağıtım modelini kullanmasını önerir. 
 
-Bir uç noktası erişim denetimi listesi (ACL) Azure dağıtımınız için kullanılabilir bir güvenlik yeniliktir. Bir ACL seçmeli olarak izin veren veya trafiği bir sanal makine uç noktası için reddetme olanağı sağlar. Bu paket filtreleme özelliği, ek bir güvenlik katmanı sağlar. Yalnızca uç noktaları için ağ ACL'leri belirtebilirsiniz. Bir sanal ağ veya bir sanal ağda bulunan belirli bir alt ağ için bir ACL belirtemezsiniz. ACL'ler yerine, mümkün olduğunda ağ güvenlik grupları (Nsg'ler) kullanmak için önerilir. Nsg'ler hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](virtual-networks-nsg.md)
+Bir uç noktası erişim denetimi listesi (ACL) Azure dağıtımınız için kullanılabilir bir güvenlik yeniliktir. Bir ACL seçmeli olarak izin veren veya trafiği bir sanal makine uç noktası için reddetme olanağı sağlar. Bu paket filtreleme özelliği, ek bir güvenlik katmanı sağlar. Yalnızca uç noktaları için ağ ACL'leri belirtebilirsiniz. Bir sanal ağ veya bir sanal ağda bulunan belirli bir alt ağ için bir ACL belirtemezsiniz. ACL'ler yerine, mümkün olduğunda ağ güvenlik grupları (Nsg'ler) kullanmak için önerilir. Nsg'ler hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md)
 
 ACL, PowerShell veya Azure portalı kullanılarak yapılandırılabilir. PowerShell kullanarak bir ağ ACL yapılandırmak için bkz: [yönetme erişim denetim listeleri için PowerShell kullanarak uç noktaları](virtual-networks-acl-powershell.md). Azure portalı kullanarak bir ağ ACL yapılandırmak için bkz: [uç noktaları bir sanal makine için ayarlamak üzere nasıl](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

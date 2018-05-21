@@ -5,24 +5,23 @@ services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2018
+ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 1d90be043affcab422f8e59e6bac1c76ec923d48
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: eb1f939f76c3528f05a9002b6365359fb6599aa2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
-Market öğesi Azure'dan karşıdan yüklemek ve ticari veri geri Microsoft'a raporlama ayarlamak için Azure ile Azure yığın Geliştirme Seti (ASDK) yüklemenizi kaydedebilirsiniz. Market dağıtım ve kullanım raporlama gibi önemli Azure yığın işlevselliğini sınamak için sağladığından kayıt önerilir. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak, ASDK kullanıcılar bunlar rapor herhangi kullanım için ücretlendirilmezsiniz.
+# <a name="azure-stack-registration"></a>Azure yığın kaydı
+Market öğesi Azure'dan karşıdan yüklemek ve ticari veri geri Microsoft'a raporlama ayarlamak için Azure ile Azure yığın Geliştirme Seti (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt Market dağıtım dahil olmak üzere, tam Azure yığın işlevleri desteklemek için gereklidir. Market dağıtım ve kullanım raporlama gibi önemli Azure yığın işlevselliğini sınamak için sağladığından kayıt önerilir. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak, ASDK kullanıcılar bunlar rapor herhangi kullanım için ücretlendirilmezsiniz.
 
 ASDK kaydettirmezseniz görebileceğiniz bir **gerekli etkinleştirme** Azure yığın Geliştirme Seti kaydetmek için öneren bir uyarı bildirimi. Bu davranış beklenir.
 

@@ -8,25 +8,25 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Portal kullanın
 
-Erişmek veya kaynak değiştirmek için gereken kodu varsa, Azure Active Directory (AD) uygulama ayarlamanız gerekir. AD uygulaması için gerekli izinleri atayın. Bu yaklaşım kendi izinlerinizi farklı uygulama kimliği için izinler atayabilirsiniz çünkü uygulama kendi kimlik bilgileri altında çalışan için tercih edilir. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır.
+Erişmek veya kaynak değiştirmek için gereken kodu varsa, Azure Active Directory (AD) uygulama ayarlamanız gerekir. AD uygulaması için gerekli izinleri atayın. Bu yaklaşım kendi izinlerinizi farklı uygulama kimliği için izinler atayabilirsiniz çünkü uygulama kendi kimlik bilgileri altında çalışan için tercih edilir. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
 
 Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluş içinde çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle tek Kiracı uygulamalar, kuruluşunuzun içinde çalışan satır iş kolu uygulamaları için kullanılır.
 
 > [!IMPORTANT]
-> Bir hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD yönetilen hizmet kimliği kullanmayı düşünün. Azure AD MSI kod için bir kimlik oluşturma basitleştirir Azure Active Directory genel Önizleme özelliğidir. Kodunuzu Azure AD MSI destekleyen ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklarına erişen bir hizmette çalıştırıyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Hangi Hizmetleri şu anda, destek dahil olmak üzere Azure AD MSI hakkında daha fazla bilgi için bkz: [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/managed-service-identity/overview.md).
+> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Gerekli izinler
 
