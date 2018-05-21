@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 57961cf1cb64f90cec7d2be90f3fbfe33344467d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Kapsayıcı **Başarılı** durumuna geçtiğinde, FQDN’sine giderek tarayıcınızdan kapsayıcıya ulaşabilirsiniz:
+Kapsayıcı **Başarılı** durumuna geçtiğinde, tarayıcınızda FQDN’sine gidin:
 
 ![Bir Azure kapsayıcı örneğinde çalışan uygulamayı gösteren tarayıcı ekran görüntüsü][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Kapsayıcı günlüklerini çekme
 
-Oluşturduğunuz kapsayıcı için günlükleri [az container logs][az-container-logs] komutunu kullanarak çekebilirsiniz:
+Kapsayıcı örneğinin günlüklerini görüntülemek, kapsayıcınızın veya çalıştırdığı uygulamanın sorunlarını gidermede yardımcı olur.
+
+[az container logs][az-container-logs] komutu ile kapsayıcının günlüklerini çekin:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Aşağıdakine benzer bir çıkış görmeniz gerekir:
+Çıkış, kapsayıcının günlüklerini görüntüler ve uygulamayı tarayıcınızda görüntülediğinizde oluşturulan HTTP GET isteklerini göstermelidir.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>Kapsayıcıyı silme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kapsayıcıyla işiniz bittiğinde [az container delete][az-container-delete] komutunu kullanarak kapsayıcıyı kaldırabilirsiniz:
+Kapsayıcıyla işiniz bittiğinde [az container delete][az-container-delete] komutunu kullanarak kapsayıcıyı kaldırın:
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ az container list --resource-group myResourceGroup --output table
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç bölümünde kullanılan kapsayıcısı için tüm kodlar [GitHub'da][app-github-repo], ilgili Dockerfile ile birlikte bulunur. Kapsayıcıyı kendiniz oluşturup Azure Container Registry’yi kullanarak Azure Container Instances’a dağıtmayı denemek istiyorsanız Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bir Azure kapsayıcı örneği oluşturdunuz. Kapsayıcı görüntüsünü kendiniz oluşturup özel bir Azure kapsayıcı kayıt defterinden Azure Container Instances’a dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances öğreticileri](./container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances öğreticisi](./container-instances-tutorial-prepare-app.md)
 
-Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçenekleri için, [Service Fabric][service-fabric] veya [Azure Container Service (AKS)][container-service] hızlı başlangıçlarına bakın.
+Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçenekleri için, [Service Fabric][service-fabric] veya [Azure Kubernetes Hizmeti (AKS)][container-service] hızlı başlangıçlarına bakın.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
