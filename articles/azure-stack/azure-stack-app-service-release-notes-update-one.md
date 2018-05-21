@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Uygulama hizmeti Azure yığın güncelleştirme 1 sürüm notları
 
@@ -39,7 +39,7 @@ Uygulama hizmeti Azure yığın güncelleştirme 1 yapı numarası olduğu **69.
 ### <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-> Azure uygulama hizmeti Azure yığında yeni dağıtımı şimdi gerektiren bir [üç konulu bir joker sertifika](azure-stack-app-service-before-you-get-started.md#get-certificates) içinde SSO Kudu için şimdi işlenir Azure App Service'te şekilde geliştirmeleri nedeniyle. Yeni konu ** *.sso.appservice.<region>.<domainname>.<extension>**
+> Azure uygulama hizmeti Azure yığında yeni dağıtımı şimdi gerektiren bir [üç konulu bir joker sertifika](azure-stack-app-service-before-you-get-started.md#get-certificates) içinde SSO Kudu için şimdi işlenir Azure App Service'te şekilde geliştirmeleri nedeniyle. Yeni konu  **\*. sso.appservice.\< Bölge\>.\< DomainName\>.\< uzantısı\>**
 >
 >
 
@@ -198,7 +198,7 @@ Site yuvası takas bu sürümde ayrılır. İşlevselliği geri yüklemek için 
     ```
 - Uygulama hizmeti var olan bir sanal ağda dağıtılmış ve dosya sunucusu yalnızca özel ağda kullanılabilir dosya sunucusuna erişemedi çalışanlardır.
  
-Varolan bir sanal ağı ve, DosyaSunucusu bağlanmak için bir iç IP adresi dağıtmak seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için yönetim portalında WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+Varolan bir sanal ağı ve dosya sunucusuna bağlanmak için bir iç IP adresi dağıtmak seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için yönetim portalında WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
  * Kaynak: tüm
  * Kaynak bağlantı noktası aralığı: *
  * Hedef: IP adresleri

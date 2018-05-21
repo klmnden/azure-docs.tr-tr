@@ -1,23 +1,23 @@
 ---
-title: "Azure kota hataları | Microsoft Docs"
-description: "Kaynak qouta hatalarını çözümlemeyi açıklar."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+title: Azure kota hataları | Microsoft Docs
+description: Kaynak qouta hatalarını çözümlemeyi açıklar.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Kaynak kotaları hatalarını çözümleme
 
@@ -114,7 +114,7 @@ Kota artışı isteği göndermek üzere, Portalı'na gidin ve bir destek sorunu
 
 4. Sağ üst köşedeki seçin **isteği artış**.
 
-   ![Artışı isteği](./media/resource-manager-quota-errors/request-increase.png)
+   ![İstek artışı](./media/resource-manager-quota-errors/request-increase.png)
 
 5. Formlar artırmaya gereksinim kota türü için doldurun.
 
