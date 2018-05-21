@@ -56,6 +56,9 @@
         - name: Biyomedikal varlık tanıma
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
+        - name: Cilt kanseri görüntü sınıflandırması
+          href: isic-image-classification.md
+          maintainContext: true
     - name: PySpark ve Scala ile Spark
       href: walkthroughs-spark.md
       items:
@@ -240,7 +243,7 @@
           items:
             - name: Anormallik algılama
               href: apps-anomaly-detection-api.md
-            - name: Bilişsel hizmetler
+            - name: Bilişsel Hizmetler
               href: 'https://docs.microsoft.com/azure/cognitive-services/'
             - name: Tahmine dayalı bakım
               items:

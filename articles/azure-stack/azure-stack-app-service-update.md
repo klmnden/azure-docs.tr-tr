@@ -1,31 +1,31 @@
 ---
-title: "Azure uygulama hizmeti Azure yığında güncelleştirme | Microsoft Docs"
-description: "Azure uygulama hizmeti Azure yığında güncelleştirme hakkında ayrıntılı kılavuz"
+title: Azure uygulama hizmeti Azure yığında güncelleştirme | Microsoft Docs
+description: Azure uygulama hizmeti Azure yığında güncelleştirme hakkında ayrıntılı kılavuz
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure uygulama hizmeti Azure yığında güncelleştir
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure tümleşik yığını sisteminizi 1802 güncelleştirmesini veya Azure uygulama hizmeti dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
+> Azure tümleşik yığını sisteminizi 1804 güncelleştirmesini veya Azure App Service 1.2 dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
 >
 >
 
@@ -44,7 +44,7 @@ Bu işlem sırasında yükseltme olur:
 * Tüm güncelleştirme paketlerini ve yeni sürümlerini dağıtılacak tüm OSS kitaplıkları hazırlama
 * Depolama alanına yükleme
 * Tüm uygulama hizmeti rolleri yükseltme (denetleyicileri, yönetim, ön uç, yayımcı ve çalışan rolleri)
-* Uygulama hizmeti ölçek kümesi tanımları güncelleştir
+* App Service ölçek kümesi tanımlarını güncelleştir
 * Uygulama hizmeti kaynak sağlayıcısı bildirimini güncelleştir
 
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ Bu işlem sırasında yükseltme olur:
 
 Azure yığın uygulama hizmeti dağıtımını yükseltmek için aşağıdaki adımları izleyin:
 
-1. Karşıdan [uygulama hizmeti yükleyici](https://aka.ms/appsvcupdate1installer)
+1. Karşıdan [uygulama hizmeti yükleyici](https://aka.ms/appsvcupdate2installer)
 
 2. Appservice.exe bir yönetici olarak çalıştır
 
@@ -74,8 +74,8 @@ Azure yığın uygulama hizmeti dağıtımını yükseltmek için aşağıdaki a
 
    1. Tıklatın **Bağlan** düğmesine **Azure yığın abonelikleri** kutusu.
         * Azure Active Directory (Azure AD) kullanıyorsanız, Azure AD yönetici hesabı ve Azure yığın dağıtıldığında, verdiğiniz parolayı girin. Tıklatın **oturum**.
-        * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin,  *cloudadmin@azurestack.local* . Parolanızı girin ve tıklayın **oturum**.
-   2. İçinde **Azure yığın abonelikleri** kutusunda, aboneliğinizi seçin.
+        * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, *cloudadmin@azurestack.local*. Parolanızı girin ve tıklayın **oturum**.
+   2. İçinde **Azure yığın abonelikleri** kutusunda **varsayılan sağlayıcı abonelik**.
    3. İçinde **Azure yığın konumu** kutusunda, dağıtımına bölgeyi karşılık gelen konumu seçin. Örneğin, seçin **yerel** varsa Azure yığın Geliştirme Seti dağıtma.
    4. Var olan bir uygulama hizmeti dağıtıma bulunmuşsa, kaynak grubu ve depolama hesabı doldurulur ve devre dışı.
    5. Tıklatın **sonraki** yükseltme özetini gözden geçirmek için.

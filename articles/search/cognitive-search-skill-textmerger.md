@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: e288748d7433f4b3c7da7db1ab1ef2ee487318df
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f349158873acca9d50d4d6e5fdfa3539f26207fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 #    <a name="text-merge-cognitive-skill"></a>Metin birleştirme bilişsel nitelik
 
@@ -128,16 +128,14 @@ Aşağıdaki örnek skillset OCR yetenek metin belgede gömülü görüntüleri 
 Yukarıdaki örnekte normalleştirilmiş görüntüleri alan bulunduğunu varsayar. Normalleştirilmiş görüntüleri alan almak üzere *imageAction* dizin oluşturucu tanımınızı yapılandırmasında *generateNormalizedImages* aşağıda gösterildiği gibi:
 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "mergedText": "The quick brown fox jumps over the lazy dog" 
-           }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
       }
-    ]
+   }
 }
 ```
 
@@ -145,3 +143,4 @@ Yukarıdaki örnekte normalleştirilmiş görüntüleri alan bulunduğunu varsay
 
 + [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
 + [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Dizin Oluşturucu (REST) oluşturma](ref-create-indexer.md)

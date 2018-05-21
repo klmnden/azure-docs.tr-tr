@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ab5a0913922e4664c867d54d9ec07e3611345dd8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: 94bd864215ad80b299db09b6237f2cebe63feb88
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme
 
@@ -462,7 +462,7 @@ Daha fazla Uzaktan izleme çözümünde sunu ve görselleştirmeleri katmanını
 
 Bu makalede Uzaktan izleme Çözüm Hızlandırıcısı web kullanıcı Arabirimi özelleştirmenize yardımcı olacak kaynaklar hakkında öğrendiniz.
 
-Uzaktan izleme Çözüm Hızlandırıcısı hakkında daha fazla kavramsal bilgi için bkz: [Uzaktan izleme mimarisi](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+Uzaktan izleme Çözüm Hızlandırıcısı hakkında daha fazla kavramsal bilgi için bkz: [Uzaktan izleme mimarisi](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Uzaktan izleme çözümü özelleştirme hakkında daha fazla bilgi için bkz: [özelleştirme ve yeniden dağıtın bir mikro hizmet](../iot-suite/iot-suite-microservices-example.md)
+Uzaktan izleme çözümü özelleştirme hakkında daha fazla bilgi için bkz: [özelleştirme ve yeniden dağıtın bir mikro hizmet](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

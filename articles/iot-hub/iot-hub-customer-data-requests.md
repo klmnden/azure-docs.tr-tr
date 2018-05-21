@@ -4,12 +4,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
 ms.topic: conceptual
-ms.service: iot-dps
-ms.openlocfilehash: a9115ee9c49ea069999393a6430b010addf672de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.service: iot-hub
+ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="summary-of-customer-data-request-features"></a>Müşteri verileri isteği özelliklerinin özeti
 
@@ -42,7 +42,7 @@ Kiracı Yöneticiler, kopya kullanan ve bir aygıtla ilişkili verileri dışar�
 REST API'lerini kullanarak cihazlar için verme işlemlerini gerçekleştirmek mümkündür. Daha fazla bilgi için bkz: [aygıt API - Al aygıt](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice).
 
 > [!NOTE]
-> Microsoft'un enterprise hizmetlerini kullandığınızda, sistem tarafından oluşturulan günlükleri bilinen bazı bilgiler, Microsoft oluşturur. Sistem tarafından oluşturulan bazı Azure IOT Hub cihaz hizmeti sağlama günlükleri erişilebilir veya Kiracı Yöneticiler tarafından verilebilir değil. Bu günlükler hizmet ve tek cihazlara ilgili Tanılama verileri içinde gerçekleştirilen factual Eylemler oluşturur.
+> Microsoft'un enterprise hizmetlerini kullandığınızda, sistem tarafından oluşturulan günlükleri bilinen bazı bilgiler, Microsoft oluşturur. Sistem tarafından oluşturulan bazı Azure IOT Hub günlükleri erişilebilir veya Kiracı Yöneticiler tarafından verilebilir değil. Bu günlükler hizmet ve tek cihazlara ilgili Tanılama verileri içinde gerçekleştirilen factual Eylemler oluşturur.
 
 ## <a name="links-to-additional-documentation"></a>Ek belgelere bağlantıları
 

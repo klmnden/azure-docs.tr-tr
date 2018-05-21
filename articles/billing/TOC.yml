@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Yönetim gruplarıyla kaynakları düzenleme
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Ayrılmış VM Örnekleri ile tasarruf etme
+    - name: Azure Ayrılmış Örnekler ile kaydetme
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Ayrılmış Örnekler ile Sanal Makinelere ön ödeme yapma
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Ayrılmış Örnekleri yönetme
+          href: billing-manage-reserved-vm-instance.md
+        - name: Ayrılmış Örneklerde uygulanan indirimi anlama
+          href: billing-understand-vm-reservation-charges.md
+        - name: Kullandıkça Öde seçeneği için Ayrılmış Örnek kullanımını anlama
+          href: billing-understand-reserved-instance-usage.md
+        - name: Kurumsal seçeneği için Ayrılmış Örnek kullanımını anlama
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Örnekleri Ayırma Windows masrafları
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Limitler ve kotalar
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Nasıl yapılır
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Ücretsiz hizmet ölçer eşlemesini anlama
           href: billing-understand-free-service-meter-mapping.md
-        - name: VM Örnekleri Ayırma Windows masrafları
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Ayrılmış VM Örneklerinde uygulanan indirimi anlama
-          href: billing-understand-vm-reservation-charges.md
         - name: Harcama limitini anlama
           href: billing-spending-limit.md
         - name: Fatura uyarılarını ayarlama
           href: billing-set-up-alerts.md
         - name: Vadesi geçmiş bakiye sorunlarını çözme
           href: billing-azure-subscription-past-due-balance.md
-        - name: Kullandıkça Öde seçeneği için Ayrılmış Örnek kullanımını anlama
-          href: billing-understand-reserved-instance-usage.md
-        - name: Kurumsal seçeneği için Ayrılmış Örnek kullanımını anlama
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Abonelikleri yönetme
       items:
         - name: Abonelik veya yönetim grubu bulma
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Fatura hesaplarını görüntüleme
           href: billing-view-all-accounts.md
-    - name: Ayrılmış VM Örneklerini yönetme
-      href: billing-manage-reserved-vm-instance.md
     - name: Sorun giderme
       items:
         - name: Kaydolma sorunları

@@ -1,12 +1,12 @@
 ---
-title: "Logic apps ile Visual Studio - Azure mantıksal uygulamaları yönetme | Microsoft Docs"
-description: "Mantıksal uygulamalar ve diğer Azure varlıkları Visual Studio bulut Gezgini ile yönetme"
+title: Logic apps ile Visual Studio - Azure mantıksal uygulamaları yönetme | Microsoft Docs
+description: Mantıksal uygulamalar ve diğer Azure varlıkları Visual Studio bulut Gezgini ile yönetme
 author: ecfan
 manager: SyntaxC4
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Logic apps Visual Studio ile yönetme
 
@@ -32,24 +32,24 @@ Oluşturabilseniz de düzenleme, yönetmek ve logic apps içinde dağıtmak <a h
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
+* Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
-* Karşıdan yükleyip zaten yoksa bu araçları: 
+* Henüz yoksa şu araçları indirip yükleyin: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 veya Visual Studio 2015 - Community sürümü veya daha büyük</a>. 
-  Bu hızlı başlangıç ücretsiz Visual Studio Community 2017 kullanır.
+  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 veya Visual Studio 2015 - Community sürümü veya üzeri</a>. 
+  Bu hızlı başlangıçta ücretsiz olan Visual Studio Community 2017 kullanılmaktadır.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 veya sonrası)</a> ve <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017 için Azure Logic Apps Araçları</a> veya <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 sürüm</a> 
+  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017 için Azure Logic Apps Araçları</a> veya <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 sürümü</a> 
   
-    İndirin ve doğrudan Visual Studio marketten Azure Logic Apps araçları yüklemek veya bilgi <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">bu uzantı yükleme Visual Studio içinde</a>. 
-    Yükleme işlemini tamamladıktan sonra Visual Studio yeniden emin olun.
+    Azure Logic Apps Araçlarını doğrudan Visual Studio Market’ten indirip yükleyebilir veya <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">bu uzantıyı Visual Studio’nun içinden yükleme</a> hakkında bilgi edinebilirsiniz. 
+    Yükleme işlemini tamamladıktan sonra Visual Studio’yu yeniden başlattığınızdan emin olun.
 
-* Katıştırılmış mantığı Uygulama Tasarımcısı'nı kullanırken web erişimi
+* Katıştırılmış Logic Apps Tasarımcısı'nı kullanırken web erişimi
 
-  Tasarımcı Azure'da kaynak oluşturmak ve mantıksal uygulamanızı bağlayıcılarını özellikleri ve verileri okuma için internet bağlantısı gerekir. 
-  Örneğin, Dynamics CRM Online Bağlayıcısı'nı kullanırsanız, CRM örneğinizi kullanılabilir varsayılan ve özel özellikler için tasarımcı denetler.
+  Tasarımcının Azure'da kaynak oluşturması ve mantıksal uygulamanızdaki bağlayıcılardan özellik ve verileri okuması için İnternet bağlantısı gerekir. 
+  Örneğin, Dynamics CRM Online bağlayıcısını kullanıyorsanız, tasarımcı CRM örneğinizdeki varsayılan ve özel kullanılabilir özellikleri denetler.
 
 <a name="find-logic-apps-vs"></a>
 
@@ -78,13 +78,13 @@ Visual Studio'da daha önce oluşturulan ve Azure Portalı aracılığıyla doğ
 
 1. Bulut Gezgini'ni açın ve mantıksal uygulamanızı bulun. 
 
-2. Mantığı uygulamanın kısayol menüsünden seçin **açık mantığı uygulama Düzenleyicisi ile**.
+2. Mantığı uygulamanın kısayol menüsünden seçin **mantığı uygulama Düzenleyicisi ile açık**.
 
    Mantıksal uygulamalarınızı altında görünmesi için bu örnek, logic apps kaynak türüne göre gösterir. **Logic Apps** bölümü.
 
   ![Azure Portalı'ndan açık dağıtılan mantıksal uygulama](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Mantıksal Uygulama Tasarımcısı'nın altındaki mantığı Uygulama Tasarımcısı'nda açıldıktan sonra seçebileceğiniz **kod görünümü** böylece mantığı uygulama tanımı yapılarını gözden geçirebilirsiniz. 
+   Mantıksal Uygulama Tasarımcısı'nın altındaki Logic Apps Tasarımcısı'nda açıldıktan sonra seçebileceğiniz **kod görünümü** böylece mantığı uygulama tanımı yapılarını gözden geçirebilirsiniz. 
    Mantıksal uygulama için bir dağıtım şablonu oluşturmak istiyorsanız, bilgi [bir Azure Resource Manager şablonu indirmek nasıl](#download-logic-app) bu mantıksal uygulama için. Daha fazla bilgi edinmek [Resource Manager şablonları](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>
@@ -95,7 +95,7 @@ Mantığı uygulamalardan indirebilirsiniz <a href="https://portal.azure.com" ta
 
 1. Visual Studio'da bulut Gezgini bulun ve Azure'dan indirmek istediğiniz mantıksal uygulama seçin.
 
-2. Bu uygulamanın kısayol menüsünden seçin **açık mantığı uygulama Düzenleyicisi ile**.
+2. Bu uygulamanın kısayol menüsünden seçin **mantığı uygulama Düzenleyicisi ile açık**.
 
    Mantıksal Uygulama Tasarımcısı'nı açar ve mantıksal uygulama gösterir. 
    Mantıksal uygulama'nın temel tanımı ve Tasarımcısı'nın altındaki yapısı gözden geçirmek için seçin **kod görünümü**. 
