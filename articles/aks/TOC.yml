@@ -45,13 +45,13 @@
           href: delete-cluster.md
     - name: Veri hacimlerini yapılandırma
       items:
-        - name: AzureDisk dinamik sağlama
+        - name: Azure Disk - Dinamik
           href: azure-disks-dynamic-pv.md
-        - name: AzureDisk statik sağlama
+        - name: Azure Disk - Statik
           href: azure-disk-volume.md
-        - name: AzureFile dinamik sağlama
+        - name: Azure Dosyaları - Dinamik
           href: azure-files-dynamic-pv.md
-        - name: AzureFile statik sağlama
+        - name: Azure Dosyaları - Statik
           href: azure-files-volume.md
     - name: Ağ yapılandırması
       items:
