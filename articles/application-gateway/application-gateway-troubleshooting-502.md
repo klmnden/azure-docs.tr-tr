@@ -1,11 +1,11 @@
 ---
-title: "Azure uygulama ağ geçidi hatalı ağ geçidi (502) hatalarında sorun giderme | Microsoft Docs"
-description: "Uygulama ağ geçidi 502 hatalarında sorun giderme hakkında bilgi edinin"
+title: Azure uygulama ağ geçidi hatalı ağ geçidi (502) hatalarında sorun giderme | Microsoft Docs
+description: Uygulama ağ geçidi 502 hatalarında sorun giderme hakkında bilgi edinin
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Uygulama ağ geçidi olarak hatalı ağ geçidi hatalarında sorun giderme
 
@@ -89,10 +89,10 @@ Varsa, DNS sunucusu arka uç havuzu üyenin FQDN doğru çözümleyemiyorsa oldu
 
 * Varsayılan site yapılandırıldığından ve 127.0.0.1 dinleme emin olun.
 * BackendHttpSetting 80 dışında bir bağlantı noktası belirtiyorsa, varsayılan site Bu bağlantı noktasını dinlemek üzere yapılandırılması gerekir.
-* Http://127.0.0.1:port çağrısı bir HTTP Sonuç kodu 200 döndürmelidir. Bu 30 saniye zaman aşımı süresi içinde döndürülmelidir.
+* Çağrı http://127.0.0.1:port bir HTTP Sonuç kodu 200 döndürmelidir. Bu 30 saniye zaman aşımı süresi içinde döndürülmelidir.
 * Yapılandırılan bağlantı noktası açık olduğundan ve güvenlik duvarı kuralları ya da yapılandırılan bağlantı noktasındaki gelen veya giden trafiği engellemek Azure ağ güvenlik grupları olduğundan emin olun.
 * Azure Klasik sanal makineleri veya Bulut hizmeti FQDN veya genel IP ile kullanılırsa, karşılık gelen emin [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) açılır.
-* VM Azure Resource Manager aracılığıyla yapılandırılır ve uygulama ağ geçidi dağıtıldığı, sanal ağ dışında ise [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) istenen bağlantı noktası erişime izin verecek şekilde yapılandırılması gerekir.
+* VM Azure Resource Manager aracılığıyla yapılandırılır ve uygulama ağ geçidi dağıtıldığı, sanal ağ dışında ise [ağ güvenlik grubu](../virtual-network/security-overview.md) istenen bağlantı noktası erişime izin verecek şekilde yapılandırılması gerekir.
 
 ## <a name="problems-with-custom-health-probe"></a>Özel durum araştırması sorunları
 

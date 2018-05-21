@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0deda4324a4287e7aa25cb686acb5b6152443735
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için yerinde aşağıdaki varsayılan sınırları sahip çok kiracılı bir hizmettir. Birçok sınırları kolayca sınırına kadar aboneliğiniz için desteğe başvurarak yükseltilebilir.
 
@@ -28,7 +28,7 @@ Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak i
 | Data factory içinde tümleştirme çalışma zamanları <sup>4</sup> | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Bir abonelik altında toplam CPU çekirdeği Azure SSIS tümleştirme Runtime(s) için | 100 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Ardışık Düzen eşzamanlı ardışık düzen çalışır | 100 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Ardışık Düzen başına en fazla etkinlikleri | 20 | 30 |
+| Ardışık Düzen başına en fazla etkinlikleri | 20 | 40 |
 | Ardışık Düzen başına en fazla parametreleri | 20 | 30 |
 | Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> | 200 KB | 200 KB |
 | Veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> | 100 KB | 2000 KB |

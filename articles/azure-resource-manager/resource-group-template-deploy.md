@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3a5daea55f2303f695627f06569f04e1c18b5e09
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
@@ -26,7 +26,7 @@ Bu makalede Azure PowerShell'i Resource Manager şablonları ile kaynakları Azu
 
 Resource Manager şablonu ya da makinenizde yerel bir dosya ya da GitHub gibi bir havuzda bulunan dış dosyası dağıtabilirsiniz. Bu makalede dağıttığınız şablonu kullanılabilir [örnek şablonu](#sample-template) bölümünde veya as [depolama hesabı şablonu github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell modülünü yüklemek [Azure PowerShell Kılavuzu](/powershell/azure/overview)ve ardından çalıştırın `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell modülünü yükleyin ve sonra Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.
 
 <a id="deploy-local-template" />
 

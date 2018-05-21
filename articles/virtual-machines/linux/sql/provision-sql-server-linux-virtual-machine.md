@@ -1,22 +1,22 @@
 ---
-title: "Azure'da Linux SQL Server 2017 VM oluşturma | Microsoft Docs"
-description: "Bu öğreticide Azure portalında Linux SQL Server 2017 sanal makinesi oluşturma adımları gösterilmiştir."
+title: Azure'da Linux SQL Server 2017 VM oluşturma | Microsoft Docs
+description: Bu öğreticide Azure portalında Linux SQL Server 2017 sanal makinesi oluşturma adımları gösterilmiştir.
 services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 10/25/2017
+ms.date: 05/11/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Linux SQL Server sanal makinesi sağlama
 
@@ -71,7 +71,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. **Tamam**’a tıklayın.
 
-1. **Boyut** penceresinden bir makine boyutu seçin. Diğer boyutları görmek için **Tümünü görüntüle**'yi seçin. VM boyutları hakkında daha fazla bilgi için bkz. [Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+1. **Boyut** penceresinden bir makine boyutu seçin. VM boyutları hakkında daha fazla bilgi için bkz. [Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![VM boyutu seçme](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -80,9 +80,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. **Seç**'e tıklayın.
 
-1. **Ayarlar** penceresindeki ayarları değiştirebilir veya varsayılan ayarları tutabilirsiniz.
+1. **Ayarlar** penceresinde, **Genel gelen bağlantı noktalarını seçme** listesinde **SSH (22)** bağlantı noktasını seçin. Bu hızlı başlangıçta SQL Server yapılandırmasına bağlanmak ve yapılandırmayı tamamlamak için bu işlem gereklidir. SQL Server’a uzaktan bağlanmak istiyorsanız, İnternet üzerinden bağlantılar için **MS SQL (1433)** seçeneğini de belirleyerek 1433 numaralı bağlantı noktasını açın.
 
-1. **Tamam**’a tıklayın.
+   ![Gelen bağlantı noktaları](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. Diğer ayarları değiştirebilir veya varsayılan ayarları tutabilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
 1. **Özet** sayfasında **Satın al**'a tıklayarak VM'yi oluşturun.
 
@@ -145,7 +147,10 @@ Varsayılan olarak SQL Server komut satırı araçları paketi dahil olmak üzer
 
 ## <a id="remote"></a> Uzak bağlantılar için yapılandırma gerçekleştirme
 
-Azure VM üzerindeki SQL Server'a uzaktan bağlanmanız gerekirse ağ güvenlik grubu üzerinde bir gelen kuralı yapılandırmanız gerekir. Kural SQL Server'ın dinlediği bağlantı noktasından (varsayılan olarak 1433) gelen trafiğe izin verir. Aşağıdaki adımlar, bu işlemi Azure portalından nasıl yapacağınızı göstermektedir. 
+Azure VM üzerindeki SQL Server'a uzaktan bağlanmanız gerekirse ağ güvenlik grubu üzerinde bir gelen kuralı yapılandırmanız gerekir. Kural SQL Server'ın dinlediği bağlantı noktasından (varsayılan olarak 1433) gelen trafiğe izin verir. Aşağıdaki adımlar, bu işlemi Azure portalından nasıl yapacağınızı göstermektedir.
+
+> [!TIP]
+> Sağlama sırasında ayarlarda **MS SQL (1433)** gelen bağlantı noktasını seçtiyseniz, bu değişiklikler sizin için yapılmış olur. Güvenlik duvarını yapılandırmayla ilgili sonraki bölme geçebilirsiniz.
 
 1. Portalda **Sanal makineler**'i ve ardından SQL Server VM'nizi seçin.
 

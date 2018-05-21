@@ -14,38 +14,43 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f0cff8f575b87872c0032854f1916b140d7fd62b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Azure yığın aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştir
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
 
-Bir bulut hizmeti sağlayıcısı (CSP) ile Azure yığın kullanıyorsanız, Azure aboneliğinizin ve Azure yığın kaynaklarına erişiminiz sağlayıcı tarafından yönetiliyor olabilir. Veya kendi aboneliğinizi yönetmek. Bu makalede, aboneliğinizi sizin adınıza erişmek için ya da hizmet sağlayıcısı hizmetinizi yönetebilirsiniz emin olmak için hizmet sağlayıcınıza nasıl etkinleştirebilirsiniz adresindeki arar.
+Bir bulut hizmeti sağlayıcısı (CSP) ile Azure yığın kullanıyorsanız, Azure ve Azure yığın kaynaklara erişmek için kendi aboneliğinizi yönetmek seçin. Ayrıca, aboneliğinizi yönetmek sağlayıcısı sağlayabilirsiniz. Bu makale size nasıl gösterir için:
 
-> [!Note]  
->  Aşağıdaki adımları atlanır ve CSP hesabınızı yönetme değil, CSP Azure yığın aboneliğinizi sizin adınıza yönetmek mümkün olmaz.
+ * Hizmet sağlayıcısı erişiminizi aboneliğinizi verin.
+ * Hizmet sağlayıcısı hizmetinizi yönetebilirsiniz emin olun.
+
+> [!Note]
+>  CSP hesabınızı yönetme değil ve aşağıdaki adımları atlayın, CSP Azure yığın aboneliğiniz yönetemez.
 
 ## <a name="manage-your-subscription-with-a-cloud-service-provider"></a>Aboneliğinizi bir bulut hizmeti sağlayıcısı ile yönetme
 
+CSP olarak ekleme **kullanıcı** aboneliğinizde.
+
 1. Kiracı dizininize kullanıcı rolüne sahip Konuk kullanıcı olarak, CSP ekleyin.  Kullanıcı ekleme adımları için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. CSP, ardından yerel Azure yığın abonelik sizin için oluşturur.
+2. CSP, yerel Azure yığın abonelik oluşturur.
 3. Azure yığın kullanmaya başlamak hazır olursunuz.
-3. CSP sonra bunlar ayrıca kaynaklarınızı yönetebilir doğrulamak için aboneliğinizde bir kaynak oluşturmanız gerekir. Örneğin, bir yönetici şunları yapabilir [Azure yığın portalı ile Windows sanal makine oluşturmak](azure-stack-quick-windows-portal.md).
+4. CSP, bunlar ayrıca kaynaklarınızı yönetebilir doğrulamak için aboneliğinizde bir kaynak oluşturmanız gerekir. Örneğin, bir yönetici şunları yapabilir [Azure yığın portalı ile Windows sanal makine oluşturmak](azure-stack-quick-windows-portal.md).
 
 ## <a name="enable-the-cloud-service-provider-to-manage-your-subscription-using-rbac-rights"></a>RBAC hakları kullanarak aboneliğinizi yönetmek bulut hizmeti sağlayıcısı etkinleştir
 
-CSP aboneliğinize sahibi olarak ekleyin. 
+CSP olarak ekleme **sahibi** aboneliğinizde.
 
-1. Konuk kullanıcı olarak, CSP ekleyin. Kiracı dizinine sahip rolüyle.  Kullanıcı ekleme adımları için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
+1. CSP, Kiracı dizinine Konuk kullanıcı olarak ekleyin.  Kullanıcı ekleme adımları için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
 2. Sahip rolü CSP Konuk kullanıcıya ekleyin. Aboneliğinize CSP kullanıcı ekleme hakkında daha fazla adımlar için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek üzere Use Role-Based erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-3. CSP, ardından yerel Azure yığın abonelik sizin için oluşturur.
+3. CSP, yerel Azure yığın abonelik oluşturur.
 4. Azure yığın kullanmaya başlamak hazır olursunuz.
-5. CSP aboneliğinizde kaynaklarınızı yönetebilir doğrulamak için bir kaynak sonra oluşturmanız gerekir. 
+5. CSP aboneliğinizde kaynaklarınızı yönetebilir doğrulamak için bir kaynak oluşturmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-  - Azure yığınından kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve fatura Azure yığınında](../azure-stack-billing-and-chargeback.md).
+Azure yığınından kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve fatura Azure yığınında](../azure-stack-billing-and-chargeback.md).
