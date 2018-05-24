@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch havuzunda düğümü uç noktalarını yapılandırma | Microsoft Docs"
-description: "Yapılandırma veya bir Azure Batch havuzundaki işlem düğümlerinde SSH veya RDP bağlantı noktalarına erişimini devre dışı bırakma."
+title: Azure Batch havuzunda düğümü uç noktalarını yapılandırma | Microsoft Docs
+description: Yapılandırma veya bir Azure Batch havuzundaki işlem düğümlerinde SSH veya RDP bağlantı noktalarına erişimini devre dışı bırakma.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-ms.openlocfilehash: fdc68744406c3e995a2764f93d4474b807337ff5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Yapılandırma veya işlem bir Azure Batch havuzunda düğümleri için uzaktan erişim devre dışı bırakma
 
@@ -23,7 +23,7 @@ Ortamınızda, erişimi kısıtlamak veya bu varsayılan dış erişim ayarları
 ## <a name="about-the-pool-endpoint-configuration"></a>Havuz uç nokta yapılandırması hakkında
 Uç nokta yapılandırması bir veya daha fazla oluşur [ağ adresi çevirisi (NAT) havuzları](/rest/api/batchservice/pool/add#inboundnatpool) ön uç bağlantı noktaları. (Toplu işlem düğümü havuzu oluşturacak olan bir NAT havuzu karıştırmayın.) Havuzun işlem düğümleri varsayılan bağlantı ayarlarını geçersiz kılmak için her NAT havuzunu ayarlayın. 
 
-Bir veya daha fazla her NAT havuzu yapılandırması içeren [ağ güvenlik grubu (NSG) kuralları](/rest/api/batchservice/pool/add#networksecuritygrouprule). Her NSG kural sağlar veya belirli ağ trafiğini uç reddeder. İzin verilen veya reddedilen tüm trafiği, tarafından tanımlanan trafiği seçebilirsiniz bir [varsayılan etiket](../virtual-network/virtual-networks-nsg.md#default-tags) (örneğin, "Internet"), ya da belirli IP adresleri veya alt gelen trafiği.
+Bir veya daha fazla her NAT havuzu yapılandırması içeren [ağ güvenlik grubu (NSG) kuralları](/rest/api/batchservice/pool/add#networksecuritygrouprule). Her NSG kural sağlar veya belirli ağ trafiğini uç reddeder. İzin verilen veya reddedilen tüm trafiği, tarafından tanımlanan trafiği seçebilirsiniz bir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) (örneğin, "Internet"), ya da belirli IP adresleri veya alt gelen trafiği.
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Havuz uç nokta yapılandırması havuzunun parçası olan [ağ yapılandırması](/rest/api/batchservice/pool/add#NetworkConfiguration). Ağ Yapılandırması isteğe bağlı olarak havuzuna katılmaya ayarları içerebilir bir [Azure sanal ağı](batch-virtual-network.md). Bir sanal ağ havuzunda ayarladıysanız, sanal ağ adresi ayarları kullanmak NSG kuralları oluşturabilirsiniz.
@@ -124,7 +124,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure'da NSG kuralları hakkında daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md).
+- Azure'da NSG kuralları hakkında daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/security-overview.md).
 
 - Toplu ayrıntılı bir bakış için bkz: [geliştirme büyük ölçekli paralel işlem çözümleri yığın](batch-api-basics.md).
 

@@ -29,7 +29,11 @@
 ## [Azure AD Connect'i yönetme](active-directory-aadconnect-whats-next.md)
 ### [O365 ve Azure AD için sertifikaları yenileme](active-directory-aadconnect-o365-certs.md)
 ### [Active Directory Federasyon Hizmetleri (AD FS) grubu için SSL sertifikasını güncelleştirme](active-directory-aadconnectfed-ssl-update.md)
-### [Cihaz geri yazmayı etkinleştirme](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Cihaz seçenekleri](active-directory-azure-ad-connect-device-options.md)
+#### [Cihaz geri yazmayı etkinleştirme](active-directory-aadconnect-feature-device-writeback.md)
+#### [Hibrit Azure AD’ye katılma yapılandırma sonrası görevler](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Kullanıcı oturum açma seçenekleri](active-directory-aadconnect-user-signin.md)
 #### [Sorunsuz Çoklu Oturum Açma](active-directory-aadconnect-sso.md)
 ##### [Hızlı başlangıç](active-directory-aadconnect-sso-quick-start.md)

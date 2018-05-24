@@ -1,11 +1,11 @@
 ---
-title: "Azure portal ile bir API olarak bir işlev uygulaması alma | Microsoft Docs"
-description: "Bu öğretici, API Management (APIM) işlev uygulaması bir API olarak almak için nasıl kullanılacağını gösterir."
+title: Azure portal ile İşlev Uygulaması'nı bir API olarak içeri aktarma | Microsoft Docs
+description: Bu öğreticide, API Management’ı (APIM) kullanarak İşlev Uygulaması'nı bir API olarak içeri aktarma işlemi gösterilir.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: c6c7b1f3c2cba9d9f99f7ee1a8e0518bc30f0d27
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="import-a-function-app-as-an-api"></a>Bir işlev uygulaması bir API'yi içeri aktarma
+# <a name="import-a-function-app-as-an-api"></a>İşlev Uygulaması'nı API olarak içeri aktarma
 
-Bu makalede, bir işlev uygulaması gibi bir API içeri aktarma gösterilmektedir. Makale ayrıca APIM API test etme gösterir.
+Bu makalede İşlev Uygulaması'nın bir API olarak nasıl içeri aktarılacağı gösterilir. Makale, APIM API’sinin nasıl test edileceğini de göstermektedir.
 
-Bu makalede, bilgi nasıl yapılır:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir işlev uygulaması bir API'yi içeri aktarma
-> * Azure portalında API testi
-> * Geliştirici Portalı'nda API testi
+> * İşlev Uygulaması'nı API olarak içeri aktarma
+> * Azure portalında API’yi test etme
+> * Geliştirici portalında API’yi test etme
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md)
-+ Aboneliğinizde bir işlev uygulaması olduğundan emin olun. Daha fazla bilgi için bkz: [bir işlev uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
++ Aboneliğinizde bir İşlev Uygulaması bulunduğundan emin olun. Daha fazla bilgi için bkz. [İşlev Uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>Alma ve arka uç API'si yayımlama
+## <a name="create-api"> </a>Arka uç API’sini içeri aktarma ve yayımlama
 
-1. Seçin **API'leri** gelen altında **API MANAGEMENT**.
-2. Seçin **işlev uygulaması** gelen **yeni bir API eklemek** listesi.
+1. **API YÖNETİMİ** bölümünden **API’ler** öğesini seçin.
+2. **Yeni API ekleyin** listesinden **İşlev Uygulaması**’nı seçin.
 
     ![İşlev uygulaması](./media/import-function-app-as-api/function-app-api.png)
-3. Tuşuna **Gözat** aboneliğinizde işlevi uygulamaların listesini görmek için.
-4. Uygulamayı seçin. Seçilen uygulama ile ilişkili swagger onu getirir ve bunu aktarır APIM bulur. 
-5. Bir API'si URL soneki ekleyin. Bu APIM örnekte belirli bu API tanımlayan bir ad sonekidir. Bu APIM örneğinde benzersiz olması gerekir.
-6. Bir ürün API ilişkilendirerek API yayımlayacak. Bu durumda, "*sınırsız*" Ürün kullanılır.  Yayımlanması ve geliştiricileri için kullanılabilir olması API istiyorsanız, bir ürün ekleyin. API oluşturma sırasında yapın ya da daha sonra ayarlayın.
+3. Aboneliğinizdeki İşlev Uygulamalarının listesini görmek için **Gözat**’a basın.
+4. Uygulamayı seçin. APIM, seçili uygulamayla ilişkili Swagger’ı bulur, getirir ve içeri aktarır. 
+5. API URL'si soneki ekleyin. Sonek, bu belirli API’yi bu APIM örneğinde tanımlayan bir addır. Son ekin bu APIM örneğinde benzersiz olması gerekir.
+6. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, "*Sınırsız*" ürünü kullanılır.  API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.
 
-    Ürün bir veya daha fazla API'leri ilişkilendirmelerini değil. Geliştiriciler Geliştirici Portalı aracılığıyla sunar ve API sayısını içerir. Geliştiriciler ilk API erişmek için bir ürüne abone olması gerekir. Bunlar abone olduğunuzda, bunlar herhangi bir API'yi bu ürün için iyi bir abonelik anahtarı alın. APIM örneği oluşturduysanız, varsayılan olarak her ürüne abone için zaten yönetici olduğunuz.
+    Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Bir dizi API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Abone olduklarında, ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinirler. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve varsayılan olarak tüm ürünlere abone olmuşsunuz demektir.
 
     Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir:
 
@@ -56,31 +56,31 @@ Bu makalede, bilgi nasıl yapılır:
     * **Sınırsız**   
 7. **Oluştur**’u seçin.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure portalında yeni APIM API testi
+## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure portalında yeni APIM API’sini test etme
 
-İşlemleri görüntülemek ve bir API'nin işlemlerini test etmek için kullanışlı bir yol sağlayan doğrudan Azure portalından çağrılabilir.  
+İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan Azure portalından çağrılabilir.  
 
-1. Önceki adımda oluşturduğunuz API seçin.
-2. Tuşuna **Test** sekmesi.
-3. Başka bir işlem seçin.
+1. Önceki adımda oluşturduğunuz API’yi seçin.
+2. **Test** sekmesine basın.
+3. Bir işlem seçin.
 
-    Sorgu parametrelerinin ve üst bilgileri için alanları sayfasını görüntüler. Üst bilgilerinden biri "Ocp-Apim-Subscription-Key" Bu API ile ilişkili ürün abonelik anahtarı içindir. APIM örneği oluşturduysanız, anahtarı otomatik olarak doldurulur için zaten yönetici olduğunuz. 
-1. Tuşuna **Gönder**.
+    Sayfa, sorgu parametrelerinin ve üst bilgilerin alanlarını görüntüler. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve anahtar otomatik olarak doldurulur. 
+1. **Gönder**’e basın.
 
-    Arka uç yanıt ile **200 Tamam** ve bazı veriler.
+    Arka uç, **200 OK** ve bazı verilerle yanıt verir.
 
 ## <a name="call-operation"> </a>Geliştirici portalından işlem çağırma
 
-İşlemler de çağrılabilir **Geliştirici Portalı** API'leri test etmek için. 
+API’leri test etmek için **Geliştirici portalından** da işlemler çağrılabilir. 
 
-1. Oluşturduğunuz API seçin "alma ve arka uç API'si yayımlama" adım.
-2. Tuşuna **Geliştirici Portalı**.
+1. "Arka uç API’sini içeri aktarma ve yayımlama" adımında oluşturduğunuz API’yi seçin.
+2. **Geliştirici portalı** düğmesine basın.
 
-    "Geliştirici Portalı" site açılır.
-3. Seçin **API** oluşturduğunuz.
-4. Test etmek istediğiniz işlemi seçin.
-5. Tuşuna **deneyin**.
-6. Tuşuna **Gönder**.
+    "Geliştirici portalı" sitesi açılır.
+3. Oluşturduğunuz **API**’yi seçin.
+4. Test etmek istediğiniz işleme tıklayın.
+5. **Deneyin**’e basın.
+6. **Gönder**’e basın.
     
     Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Yanıt üst ilgileri** ve tüm **Yanıt içeriğini** gösterir.
 
@@ -91,4 +91,4 @@ Bu makalede, bilgi nasıl yapılır:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Dönüştürme ve yayımlanan bir API koruyun](transform-api.md)
+> [Yayımlanan API’yi dönüştürme ve koruma](transform-api.md)

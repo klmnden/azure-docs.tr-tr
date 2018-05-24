@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb0e2181c518db541504f0eea77ce9fde7edf8f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zaten Microsoft ve topluluk tarafından oluşturulmuş senaryoları çeşitli erişebilir.  Bu senaryolar değişiklik yapmadan ya da kullanabilir veya bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -53,14 +53,14 @@ Microsoft, diğer müşteriler için yararlı olabilecek düşündüğünüz Run
 * Bir kullanıcı runbook'u işlevselliğini tanımlamak yardımcı olacak ayrıntılı bilgileri sağlaması gerekir böylece karşıya yükleme özeti Runbook Galerisi sonuçları görüntülenir.
 * Yüklemek için aşağıdaki etiketlerin bir ile üç atamanız gerekir.  Runbook Sihirbazı'ndaki kendi etiketlerle eşleşecek kategorisi altında listelenir.  Bu listedeki herhangi bir etiket sihirbaz tarafından göz ardı edilir. Eşleşen herhangi bir etiket belirlemezseniz, runbook bir kategorisi altında listelenir.
   
-  * Yedekle
+  * Backup
   * Kapasite Yönetimi
   * Değişiklik denetimi
   * Uyumluluk
   * Geliştirme / Test ortamları
   * Olağanüstü Durum Kurtarma
   * İzleme
-  * Düzeltme eki uygulanıyor
+  * Düzeltme eki uygulama
   * Sağlama
   * Düzeltme
   * VM yaşam döngüsü yönetimi
@@ -79,7 +79,7 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
    
    * Modül Adı
    * Etiketler
-   * Yazar
+   * Yazma
    * Cmdlet/DSC kaynağı adı
 6. İlgilendiğiniz bir modül bulup ayrıntılarını görüntülemek için seçin.  
    Belirli bir modüle ayrıntıya, daha fazla bilgi görüntüleyebilirsiniz bağlantı geri PowerShell Galerisi modülü hakkında gerekli bağımlılıkları ve tüm cmdlet'ler ve/veya modülü içeren DSC kaynakları.
@@ -90,6 +90,9 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
 9. Üzerinde **alma** sayfasında, **Tamam** modülü içeri aktarmak için. Azure Automation hesabınız için bir modül alırken, modül ve cmdlet'leri hakkındaki meta verileri ayıklar. Her etkinlik ayıklanacak gerektiğinden bu birkaç dakika sürebilir.
 10. Bu tamamlandığında, modül dağıtıldığı bir ilk bildirim ve başka bir bildirim alırsınız.
 11. Modül içeri aktarıldıktan sonra kullanılabilir etkinlikler görebilirsiniz ve runbook'larınızda ve istenen durum yapılandırması kaynaklarını kullanabilirsiniz.
+
+> [!NOTE]
+> Yalnızca PowerShell çekirdek desteği modülleri Azure Otomasyonu'nda desteklenmez ve Azure portalında alınacağını veya doğrudan PowerShell Galerisi'nden dağıtılan sorunu yaşıyor.
 
 ## <a name="requesting-a-runbook-or-module"></a>Bir runbook veya modülü isteme
 İstekleri gönderebilirsiniz [kullanıcı sesi](https://feedback.azure.com/forums/246290-azure-automation/).  Bir runbook yazma Yardım veya PowerShell hakkında bir sorunuz varsa, bir soru gönderin bizim [Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

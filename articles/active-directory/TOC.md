@@ -225,7 +225,7 @@
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
-#### [SSO erişimi](active-directory-appssoaccess-whatis.md)
+#### [SSO erişimi](manage-apps/what-is-single-sign-on.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
 #### [Kiracı kısıtlamaları](active-directory-tenant-restrictions.md)
 #### [SCIM kullanıcı sağlama hizmetinden yararlanma](active-directory-scim-provisioning.md)

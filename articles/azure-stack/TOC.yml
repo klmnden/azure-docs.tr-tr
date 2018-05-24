@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Sürüm notları
       items:
+        - name: 1804 güncelleştirme
+          href: azure-stack-update-1804.md
         - name: 1803 güncelleştirme
           href: azure-stack-update-1803.md
         - name: 1802 güncelleştirme
           href: azure-stack-update-1802.md
         - name: 1712 güncelleştirme
           href: azure-stack-update-1712.md
-        - name: 1711 güncelleştirme
-          href: azure-stack-update-1711.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Azure yığınına yedekleyin
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: Dosyalar ve uygulamalar Azure yığında yedekleme
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Geri dönülemez veri kaybına karşı Kurtar
               href: azure-stack-backup-recover-data.md
             - name: Yedekleme en iyi uygulamalar
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: Uygulama hizmeti Azure yığın güncelleştirme 1 sürüm notları
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: Güncelleştirme 2 sürüm notları Azure yığın uygulama hizmeti
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: Market’i doldurma
           items:
             - name: Market’e genel bakış
