@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 20c5635c0ce00c9fccfec84c477d60c77c55e2fb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -142,7 +142,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 ## <a name="troubleshooting"> </a>Sorun giderme
 * **İlk kurulum**: API Management hizmeti ilk dağıtımı bir alt ağ ile başarılı olduğunda, ilk aynı alt ağ bir sanal makineyi dağıtmak için önerilir. Sanal makinede sonraki Uzak Masaüstü ve bir azure aboneliğinizde her bir kaynağın bağlantısı olduğunu doğrulayın 
     * Azure depolama blobu
-    * Azure SQL Veritabanı
+    * Azure SQL Database
 
  > [!IMPORTANT]
  > Bağlantı doğrulandıktan sonra alt ağ API Management dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırdığınızdan emin olun.
@@ -189,4 +189,4 @@ API Management dağıtılabilir alt hesaplanması minimum boyut yukarıda verile
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
+[Network Security Group]: ../virtual-network/security-overview.md

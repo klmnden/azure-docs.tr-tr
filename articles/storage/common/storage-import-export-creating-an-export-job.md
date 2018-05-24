@@ -1,11 +1,11 @@
 ---
-title: "Dışa aktarma işi için Azure içeri/dışarı aktarma oluşturun | Microsoft Docs"
-description: "Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturmayı öğrenin."
+title: Dışa aktarma işi için Azure içeri/dışarı aktarma oluşturun | Microsoft Docs
+description: Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturmayı öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir dışa aktarma işi oluşturma
 REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturma, aşağıdaki adımları içerir:
@@ -53,7 +53,7 @@ REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir d
  BLOB'ları dışarı aktarmak için belirtme hakkında daha fazla bilgi için bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi.
 
 ## <a name="obtaining-your-shipping-location"></a>Sevkiyat Konumunuz alma
-Sevkiyat konumu ad ve adres çağırarak elde etmeniz bir dışarı aktarma işinin oluşturmadan önce [alma konumu](https://portal.azure.com) veya [listesi konumları](/rest/api/storageimportexport/listlocations) işlemi. `List Locations`konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve bu adresi, sabit sürücüler sevk. Aynı zamanda `Get Location` işlemi belirli bir konuma için teslimat adresi doğrudan elde edilir.
+Sevkiyat konumu ad ve adres çağırarak elde etmeniz bir dışarı aktarma işinin oluşturmadan önce [alma konumu](https://portal.azure.com) veya [listesi konumları](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve bu adresi, sabit sürücüler sevk. Aynı zamanda `Get Location` işlemi belirli bir konuma için teslimat adresi doğrudan elde edilir.
 
 Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
@@ -91,6 +91,8 @@ Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
 ## <a name="receiving-the-package"></a>Paket alma
  Sürücülerinizin dışarı aktarma işini işlendikten sonra size, şifrelenmiş verilerle döndürülür. Çağırarak her sürücüleri için BitLocker anahtarını alabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Ardından anahtar kullanılarak sürücünün kilidini açabilirsiniz. Her sürücüde sürücü bildirim dosyası, her dosya için özgün blob adresi yanı sıra, sürücü dosyaları listesini içerir.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

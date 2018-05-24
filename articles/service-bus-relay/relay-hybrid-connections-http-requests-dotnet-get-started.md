@@ -1,6 +1,6 @@
 ---
-title: .NET’te Azure Relay Karma Bağlantılar Web Yuvaları ile çalışmaya başlama | Microsoft Docs
-description: Azure Relay Karma Bağlantılar Web Yuvaları için bir C# konsol uygulaması yazın.
+title: .NET’te Azure Relay Karma Bağlantılar HTTP istekleri ile çalışmaya başlama | Microsoft Docs
+description: .NET’te Azure Relay Karma Bağlantılar HTTP istekleri için bir C# konsol uygulaması yazın.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.openlocfilehash: 743e5c5a44f2ed9e6f6d2df9388ef3f01c501bff
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>.NET’te Relay Karma Bağlantılar Web Yuvaları ile çalışmaya başlama
+# <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET’te Relay Karma Bağlantılar HTTP istekleri ile çalışmaya başlama
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Bu öğreticide [Azure Geçişi Karma Bağlantıları](relay-what-is-it.md#hybrid-connections) hakkında tanıtıcı bilgilere yer verilmiştir. Microsoft .NET uygulamasını karşılık gelen bir dinleyici uygulamasına ileti gönderen bir istemci uygulaması oluşturmak için kullanmayı öğrenin. 
+Bu öğreticide [Azure Geçişi Karma Bağlantıları](relay-what-is-it.md#hybrid-connections) hakkında tanıtıcı bilgilere yer verilmiştir. Microsoft .NET uygulamasını karşılık gelen bir dinleyici uygulamasına istek gönderen bir istemci uygulaması oluşturmak için kullanmayı öğrenin. 
 
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
 Karma Bağlantılar hem istemci hem de sunucu bileşenine ihtiyaç duyar. Bu öğreticideki adımları tamamlayarak iki konsol uygulaması oluşturursunuz:
 
 1. Azure portalını kullanarak Geçiş ad alanı oluşturma.
 2. Azure portalını kullanarak o ad alanında karma bağlantı oluşturma.
-3. İleti almak için bir sunucu (dinleyici) konsol uygulaması yazma.
-4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
+3. İstek almak için bir sunucu (dinleyici) konsol uygulaması yazma.
+4. İstek göndermek için bir istemci (gönderen) konsol uygulaması yazma.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -55,19 +55,17 @@ Daha önce bir karma bağlantı oluşturduysanız [Sunucu uygulaması oluşturma
 ## <a name="3-create-a-server-application-listener"></a>3. Sunucu uygulaması (dinleyici) oluşturma
 Geçiş hizmetinden ileti dinleyip almak için Visual Studio kullanarak bir C# konsol uygulaması yazın.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. İstemci uygulaması (gönderici) oluşturma
 Geçiş hizmetine ileti göndermek Visual Studio kullanarak bir C# konsol uygulaması yazın.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Uygulamaları çalıştırma
 1. Sunucu uygulamasını çalıştırın.
 2. İstemci uygulamasını çalıştırın ve metin girin.
 3. Sunucu uygulama konsolunun istemci uygulamasına girilen metni görüntülediğinden emin olun.
-
-![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Tebrikler, uçtan uca bir Karma Bağlantılar uygulaması oluşturdunuz!
 

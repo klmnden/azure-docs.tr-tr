@@ -3,7 +3,7 @@ title: Web sitelerinin kullanılabilirlik ve yanıt hızını izleme | Microsoft
 description: Application Insights’ta web testleri ayarlayın. Web sitesi kullanılamaz duruma gelirse veya yavaş yanıt verirse uyarı alın.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2018
 ms.author: sdash ; mbullwin
-ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -273,7 +273,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
     Hata ("protokol ihlali..CR’den sonra LF gelmelidir") sunucu (veya bağımlılıklar) ile ilgili bir sorun olduğunu gösterir. Bu durum, yanıtta hatalı biçimlendirilmiş üst bilgiler ayarlandığında meydana gelir. Yük dengeleyiciler veya CDN'lerden kaynaklanabilir. Özellikle bazı üst bilgiler satır sonunu belirtmek için CRLF kullanmıyor olabilir; bu durum HTTP belirtimini ihlal eder ve bu nedenle .NET WebRequest düzeyinde doğrulama başarısız olur. İhlal edici olabilecek nokta üst bilgilerine yanıtı inceleyin.
     
-    Not: URL, HTTP üst bilgilerinin gevşek doğrulaması yapılmış tarayıcılarda başarısız olmayabilir. Bu sorunun ayrıntılı bir açıklamsı için şu blog gönderisine bakın: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Not: URL, HTTP üst bilgilerinin gevşek doğrulaması yapılmış tarayıcılarda başarısız olmayabilir. Bu sorunun ayrıntılı bir açıklaması için bu blog gönderisine bakın: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 * *Site sorunsuz görünüyor, ancak test hataları görüyorum?*
 
     * Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır. Bu tür kaynak hatalarına karşı testin hassasiyetini ortadan kaldırmak için test yapılandırmasında "Bağımlı İstekleri Ayrıştır" seçeneğinin işaretini kaldırın. 

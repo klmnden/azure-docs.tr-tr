@@ -1,145 +1,101 @@
 ---
-title: Azure Ağ İzleyicisi giriş | Microsoft Docs
-description: Bu sayfayı izlemek için Ağ İzleyicisi hizmeti genel bir bakış sağlar ve Azure kaynaklarında görselleştirme ağ bağlı
+title: Azure Ağ İzleyicisi | Microsoft Azure
+description: Azure Ağ İzleyicisi'nin sanal ağdaki kaynaklar için izleme, tanılama, ölçüm ve günlük özelliklerini öğrenin.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 04/24/2018
 ms.author: jdial
-ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="azure-network-monitoring-overview"></a>Azure ağı izlemeye genel bakış
+# <a name="what-is-azure-network-watcher"></a>Azure Ağ İzleyicisi nedir?
 
-Müşterilerin bir uçtan uca ağ Azure VNet, ExpressRoute, uygulama ağ geçidi, yük Dengeleyiciler ve daha fazlasını gibi çeşitli tek tek ağ kaynaklarına oluşturma ve yönetme tarafından oluşturun. İzleme kaynakların her biri ağ üzerinde kullanılabilir. Bu kaynak düzey olarak izleme için bakın.
+Azure Ağ İzleyicisi, Azure sanal ağındaki kaynaklarda izleme, tanılama, ölçümleri görüntüleme ve günlükleri etkinleştirme veya devre dışı bırakma işlemleri için araçlar sağlar.
 
-Uçtan uca ağ karmaşık yapılandırmalar ve senaryo tabanlı ağ izlemekte gereken karmaşık senaryolar oluşturma kaynakları arasındaki etkileşimler sahip olabilir.
+## <a name="monitoring"></a>İzleme
 
-Bu makalede senaryo ve kaynak düzeyi izleme kapsar. Azure'da ağ izleme kapsamlı ve iki geniş kategorisi kapsar:
+### <a name = "connection-monitor"></a>Sanal makine ile uç nokta arasındaki iletişimi izleme
 
-* [**Ağ İzleyicisi** ](#network-watcher) -senaryo tabanlı izleme Ağ İzleyicisi'deki özelliklerle sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akış, güvenlik grubu görünümü, NSG akış günlükleri doğrulayın. Senaryo düzeyi izleme kaynak tek tek ağ izleme aksine ağ kaynaklarına bir uçtan uca görünümünü sağlar.
-* [**Kaynak İzleme** ](#network-resource-level-monitoring) -kaynak düzeyi izleme dört özellikleri, tanılama günlükleri, ölçümleri, sorun giderme ve kaynak durumu oluşur. Bu özelliklerin tümü ağ kaynak düzeyinde oluşturulur.
+Uç noktalar başka bir sanal makine (VM), tam etki alanı adı (FQDN), tekdüzen kaynak tanımlayıcısı (URI) veya IPv4 adresi olabilir. *Bağlantı izleyicisi* özelliği, iletişimi düzenli aralıklarla izler ve size sanal makineyle uç nokta arasındaki ulaşılabilirlik, gecikme ve ağ topolojisi değişikliklerini bildirir. Örneğin, veritabanı sunucusu sanal makinesiyle iletişim kuran bir web sunucusu sanal makineniz olabilir. Kuruluşunuzda sizin tanımadığınız biri web sunucusu ya da veritabanı sunucusu sanal makinesine veya alt ağına özel bir yol veya ağ güvenliği kuralı uygulamıştır.
 
-## <a name="network-watcher"></a>Ağ İzleyicisi
+Uç nokta ulaşılamaz duruma gelirse, bağlantı sorun giderme işlemi size bunun nedenini bildirir. Olası nedenler DNS ağ çözümleme sorunu, sanal makine işletim sisteminin içindeki CPU, bellek veya güvenlik duvarı ya da giden bağlantının sanal makinesi veya alt ağı için özel yolun veya güvenlik kuralının atlama türüdür. Azure'daki [güvenlik kuralları](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) ve [yol atlama türleri](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) hakkında daha fazla bilgi edinin.
 
-Ağ İzleyicisi İzleme ve koşullar bir ağ düzeyinde senaryo içinde gelen ve giden Azure tanılama sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Azure ağınızdaki serisidir yardımcı olur.
+Bağlantı izleyicisi zaman içinde gözlemlenen en düşük, ortalama ve en yüksek gecikme sürelerini de sağlar. Bağlantının gecikme süresini öğrendikten sonra, Azure kaynaklarınızı farklı Azure bölgelerine taşıyarak gecikme süresini kısaltabileceğinizi anlayabilirsiniz. [Azure bölgeleriyle İnternet servis sağlayıcıları arasındaki göreli gecikme sürelerini](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) saptama ve [bağlantı izleyicisi](connection-monitor.md) ile sanal makine ve uç nokta arasındaki iletişimi izleme hakkında daha fazla bilgi edinin. Bağlantı izleyicisiyle yaptığınız gibi zamana yayılmış olarak bağlantıyı izlemek yerine zamanın belirli bir anındaki bağlantıyı test etmeyi tercih ediyorsanız, [bağlantı sorun giderme](#connection-troubleshoot) özelliğini kullanın.
 
-Ağ İzleyicisi'ni şu anda aşağıdaki özellikleri içerir:
+### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Sanal ağdaki kaynakları ve bunların ilişkilerini görüntüleme
 
-* **[Topoloji](network-watcher-topology-overview.md)**  -çeşitli bağlantılar ve ağ kaynakları bir kaynak grubunda arasındaki ilişkileri gösteren bir ağ düzey bir görünümünü sağlar.
-* **[Değişken paket yakalama](network-watcher-packet-capture-overview.md)**  -bir sanal makine ve paket verilerini yakalar. Gelişmiş filtreleme seçenekleri ve süresini ayarlamak ve sınırlamaları boyutu yapamamasına gibi ince ayar denetimleri yönlülük sağlar. Paket verileri blob Mağazası'nda veya .cap biçiminde yerel diskte depolanabilir.
-* **[IP akış doğrulayın](network-watcher-ip-flow-verify-overview.md)**  -paket izin verilen veya reddedilen denetimleri temel akış bilgi 5-tanımlama grubu paket parametrelerine (hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol). Paketi bir güvenlik grubu tarafından reddedilirse kural ve Paket reddedildi grubun döndürülür.
-* **[Sonraki atlama](network-watcher-next-hop-overview.md)**  -kullanıcı tanımlı yollar herhangi tanılamak olanak sağlayarak Azure ağ yapıda yönlendirilen paketleri yanlış için sonraki atlama belirler.
-* **[Güvenlik grubu görünümü](network-watcher-security-group-view-overview.md)**  -bir VM üzerinde uygulanan etkili ve uygulanan güvenlik kuralları alır.
-* **[NSG akış günlük](network-watcher-nsg-flow-logging-overview.md)**  -akış günlükleri ağ güvenlik grupları için izin verilen ya da grubu güvenlik kuralları tarafından reddedilen trafiği ilgili günlükleri yakalamanıza olanak sağlar. Akış bir 5-tanımlama grubu bilgileriyle – kaynak IP, hedef IP, kaynak bağlantı noktası, hedef bağlantı noktası ve protokol tanımlanır.
-* **[Sanal ağ geçidi ve bağlantı sorunlarını giderme](network-watcher-troubleshoot-manage-rest.md)**  -sanal ağ geçitleri ve bağlantıları sorun giderme olanağı sağlar.
-* **[Ağ abonelik sınırları](#network-subscription-limits)**  -ağ kaynak kullanımı sınırları karşı görüntülemenizi sağlar.
-* **[Tanılama günlük yapılandırma](#diagnostic-logs)**  – etkinleştirme veya devre dışı bir kaynak grubunda ağ kaynakları için tanılama günlükleri tek bir bölme sağlar.
-* **[Bağlantı sorunlarını giderme](network-watcher-connectivity-overview.md)**  -doğrudan TCP bağlantısı bir sanal makineden Azure bağlamla zenginleştirilmiş belirli bir uç nokta oluşturma olasılığını doğrular.
-* **[Bağlantı İzleyici](connection-monitor.md)**  -bir Azure sanal makinesi ve kaynak ve hedef IP adresi ve bağlantı noktasını kullanarak bir IP adresi arasındaki gecikme süresi ve yapılandırma sorunlarını izleyin.
+Sana ağa kaynaklar eklendikçe, bir sanal ağda hangi kaynakların bulunduğunu ve bunların birbirleriyle ilişkisini anlamak zorlaşabilir. *Topoloji* özelliği, sanal ağdaki kaynakların ve kaynaklar arasındaki ilişkilerin görsel bir diyagramını oluşturmanıza olanak tanır. Aşağıdaki resimde üç alt ağı, iki sanal makinesi, ağ arabirimleri, genel IP adresleri, ağ güvenlik grupları, yol tabloları ve kaynaklar arasında ilişkileri olan bir sanal ağın örnek topoloji diyagramı gösterilir:
 
-### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rol tabanlı erişim denetimi (RBAC) Ağ İzleyicisi
+![Topoloji görünümü](./media/network-watcher-monitoring-overview/topology.png)
 
-Ağ İzleyicisi'ni kullanan [Azure rol tabanlı erişim denetimi (RBAC) modeli](../role-based-access-control/overview.md). Ağ İzleyicisi tarafından aşağıdaki izinler gerekir. Ağ İzleyicisi API'leri başlatılıyor veya portaldan Ağ İzleyicisi'ni kullanmak için kullanılan rol gerekli erişimi olduğundan emin olmak önemlidir.
+Resmin svg biçiminde düzenlenebilir bir sürümünü indirebilirsiniz. [Topoloji görünümü](view-network-topology.md) hakkında daha fazla bilgi edinin.
 
-|Kaynak| İzin|
-|---|---| 
-|Microsoft.Storage/ |Okuma|
-|Microsoft.Authorization/| Okuma| 
-|Microsoft.Resources/subscriptions/resourceGroups/| Okuma|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Eylem|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Eylem|
-|Microsoft.Storage/storageAccounts/listKeys/ | Eylem|
-|Microsoft.Compute/virtualMachines/ |Okuma|
-|Microsoft.Compute/virtualMachines/ |Yazma|
-|Microsoft.Compute/virtualMachineScaleSets/ |Okuma|
-|Microsoft.Compute/virtualMachineScaleSets/ |Yazma|
-|Microsoft.Network/networkWatchers/packetCaptures/ |Okuma|
-|Microsoft.Network/networkWatchers/packetCaptures/| Yazma|
-|Microsoft.Network/networkWatchers/packetCaptures/| Sil|
-|Microsoft.Network/networkWatchers/ |Yazma |
-|Microsoft.Network/networkWatchers/| Okuma |
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/ | *|
+## <a name="diagnostics"></a>Tanılama
 
-### <a name="network-subscription-limits"></a>Ağ abonelik sınırları
+### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Sanal makinede gelen veya giden ağ trafiği filtreleme sorunlarını tanılama
 
-Ağ abonelik sınırları her bir abonelikte kullanılabilir kaynakları sayısı karşı bir bölgede ağ kaynağı kullanımını ayrıntılarını sağlayın.
+Bir sanal makine dağıttığınızda, Azure sanal makineye gelen veya giden trafiğe izin veren veya bu trafiği reddeden çeşitli varsayılan güvenlik kuralları uygular. Azure'un varsayılan kurallarını geçersiz kılabilir veya ek kurallar oluşturabilirsiniz. Belirli bir noktada, güvenlik kuralı nedeniyle sanal makine diğer kaynaklarla iletişim kuramaz duruma gelebilir. *IP akışı doğrulama* özelliği, kaynak ve hedef IPv4 adresini, bağlantı noktasını, protokolünü (TCP veya UDP) ve trafik yönünü (gelen veya giden) belirtmenize olanak tanır. Ardından IP akışı doğrulama özelliği iletişimi test eder ve bağlantının başarılı olup olmadığını size bildirir. Bağlantı başarısız olursa, IP akışı doğrulama hangi güvenlik kuralının iletişime izin verdiğini veya iletişimi reddettiğini size bildirir ve siz de sorunu çözebilirsiniz. [IP akışı doğrulama](network-watcher-ip-flow-verify-overview.md) özelliği hakkında daha fazla bilgi edinin.
 
-![Ağ abonelik sınırı][nsl]
+### <a name="diagnose-network-routing-problems-from-a-vm"></a>Sanal makineden gelen ağ yönlendirme sorunlarını tanılama
 
-## <a name="network-resource-level-monitoring"></a>Ağ kaynak düzeyi izleme
+Sanal makine oluşturduğunuzda, Azure varsayılan olarak ağ trafiği için çeşitli giden yollar oluşturur. Sanal makineler gibi sanal ağ üzerine dağıtılmış tüm kaynaklardan giden trafik, Azure'un varsayılan yolları temelinde yönlendirilir. Azure'un varsayılan yollarını geçersiz kılabilir veya ek yollar oluşturabilirsiniz. Sanal makinenin belirli bir yol nedeniyle diğer kaynaklarla artık iletişim kuramadığını fark edebilirsiniz. *Sonraki atlama* özelliği kaynak ve hedef IPv4 adresi belirtmenize olanak tanır. Ardından sonraki atlama özelliği iletişimi test eder ve trafiği yönlendirmek için kullanılan sonraki atlama türü hakkında sizi bilgilendirir. Siz de yönlendirme sorununu çözmek için yolu kaldırabilir, değiştirebilir veya yol ekleyebilirsiniz. [Sonraki atlama](network-watcher-next-hop-overview.md?) özelliği hakkında daha fazla bilgi edinin.
 
-Aşağıdaki özellikler, kaynak düzeyi izleme için kullanılabilir:
+### <a name="connection-troubleshoot"></a>Sanal makineden giden bağlantı sorunlarını tanılama
 
-### <a name="audit-log"></a>Denetleme günlüğü
+*Bağlantı sorunlarını giderme* özelliği, sanal makine ile başka bir sanal makine, bir FQDN, URI veya IPv4 adresi arasındaki bağlantıyı test etmenize olanak tanır. Test, [bağlantı izleyicisi](#connection-monitor) özelliği kullanılırken döndürülenlere benzer bilgiler döndürür ama bağlantı izleyicisinin yaptığı gibi zamana yayılmış bir izleme yerine zamanın belirli bir noktasında bağlantıyı test eder. [Bağlantı sorunlarını giderme](network-watcher-connectivity-overview.md) özelliğini kullanarak bağlantılarda sorun giderme hakkında daha fazla bilgi edinin.
 
-Ağ yapılandırmasının bir parçası gerçekleştirilen işlemleri günlüğe kaydedilir. Bu günlükler Azure Portalı'nda görüntülenebilir veya Power BI gibi Microsoft araçları veya üçüncü taraf araçlarını kullanarak alınamıyor. Denetim günlükleri, portal, PowerShell'i, CLI ve Rest API kullanılabilir. Denetim günlükleri hakkında daha fazla bilgi için bkz: [denetim işlemleri Resource Manager ile](../resource-group-audit.md)
+### <a name="capture-packets-to-and-from-a-vm"></a>Sanal makineden gelen ve giden paketleri yakalama
 
-Denetim günlükleri, tüm ağ kaynaklarına yapılan işlemleri için kullanılabilir.
+Zaman ve boyut sınırlamaları ayarlama gibi gelişmiş filtreleme seçenekleriyle ince ayarlı denetimler çok yönlülük getirir. Yakalanan Azure Depolama'da, sana makine diskinde veya her ikisinde birden depolanabilir. Ardından çeşitli standart ağ yakalama analizi araçlarını kullanarak yakalama dosyasını analiz edebilirsiniz. [Paket yakalama](network-watcher-packet-capture-overview.md) hakkında daha fazla bilgi edinin.
 
-### <a name="metrics"></a>Ölçümler
+### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Azure Sanal ağ geçidi ve bağlantılarındaki sorunları giderme
 
-Performans ölçümleri ve bir süre boyunca toplanan sayaçları ölçümleridir. Ölçümleri uygulama ağ geçidi için şu anda kullanılabilir. Ölçümleri eşiğine dayalı uyarılar tetiklemek için kullanılabilir. Bkz: [uygulama ağ geçidi tanılama](../application-gateway/application-gateway-diagnostics.md) ölçümleri uyarıları oluşturmak için nasıl kullanılabileceğini görüntülemek için.
+Sanal ağ geçitleri şirket içi kaynaklarla Azure sanal ağları arasında bağlantı sağlar. Ağ geçitlerinin ve bağlantılarının izlenmesi, iletişimin kesilmemesini güvence altına alma açısından kritik önem taşır. *VPN tanılama* özelliği ağ geçitlerinde ve bağlantılarda tanılama olanağı sağlar. VPN tanılama özelliği ağ geçidinin veya ağ geçidi bağlantısının durumunu tanılar ve ağ geçidi ile ağ geçidi bağlantılarının kullanılabilir olup olmadığını size bildirir. Ağ geçidi veya bağlantı kullanılamıyorsa, VPN tanılama özelliği bunun nedenini belirtir ve siz de sorunu çözebilirsiniz. [VPN tanılama](network-watcher-troubleshoot-overview.md) özelliği hakkında daha fazla bilgi edinin.
 
-![Ölçümleri görüntüleyin][metrics]
+### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Azure bölgeleriyle İnternet servis sağlayıcıları arasındaki göreli gecikme sürelerini saptama
 
-### <a name="diagnostic-logs"></a>Tanılama günlükleri
+Azure bölgeleriyle İnternet servis sağlayıcıları arasındaki gecikme bilgileri için Ağ İzleyicisi'ni sorgulayabilirsiniz. Azure bölgeleriyle İnternet servis sağlayıcıları arasındaki gecikme sürelerini bildiğinizde, Azure kaynaklarını ağ yanıt sürelerini iyileştirecek şekilde dağıtabilirsiniz. [Göreli gecikme süreleri](view-relative-latencies.md) hakkında daha fazla bilgi edinin.
 
-Dönemsel ve spontaneous olayları ağ kaynakları tarafından oluşturulan ve bir olay hub'ı veya günlük analizi için gönderilen depolama hesaplarındaki günlüğe. Bu günlükleri bir kaynak sistem durumu fikir sağlar. Bu günlükler Power BI ve günlük analizi gibi araçları görüntülenebilir. Tanılama günlükleri görüntüleme konusunda bilgi için [günlük analizi](../log-analytics/log-analytics-azure-networking-analytics.md).
+### <a name="view-security-rules-for-a-network-interface"></a>Ağ arabirimi için güvenlik kurallarını görüntüleme
 
-Tanılama günlükleri için kullanılabilir [yük dengeleyici](../load-balancer/load-balancer-monitor-log.md), [ağ güvenlik grupları](../virtual-network/virtual-network-nsg-manage-log.md), yollar ve [uygulama ağ geçidi](../application-gateway/application-gateway-diagnostics.md).
+Ağ arabirimi için etkili olan güvenlik kuralları, ağ arabirimine ve ağ arabiriminin içinde yer aldığı alt ağa uygulanan tüm güvenlik kurallarının bileşimidir.  *Güvenlik grubu görünümü* özelliği ağ arabirimine, ağ arabiriminin içinde yer aldığı alt ağa uygulanan tüm güvenlik kurallarını ve bunların toplamını gösterir. Ağ arabirimine hangi kuralların uygulandığını anladığınızda, izin verilen veya reddedilen trafikte yapmak istediğiniz değişikliğe göre kuralları ekleyebilir, kaldırabilir veya değiştirebilirsiniz. [Güvenlik grubu görünümü](network-watcher-security-group-view-overview.md) hakkında daha fazla bilgi edinin.
 
-Ağ İzleyicisi görünümü bir tanılama günlükleri sağlar. Bu görünüm, tanılama günlüğünün destekleyen tüm ağ kaynaklarını içerir. Bu görünümden etkinleştirin ve ağ kaynaklarını kolayca ve hızlı bir şekilde devre dışı bırakın.
+## <a name="metrics"></a>Ölçümler
 
-![günlükler][logs]
+Bir Azure aboneliği ve bölgesi içinde oluşturabileceğiniz ağ kaynaklarının sayısına ilişkin [sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) vardır. Sınırlara ulaşırsanız, abonelik veya bölge içinde başka kaynak oluşturamazsınız. *Ağ aboneliği sınırı* özelliği, abonelik ve bölgede her ağ kaynağından kaç tane dağıttığınızı ve kaynağın sınırını özetler. Aşağıdaki resimde, örnek bir abonelik için Doğu ABD bölgesinde dağıtılan ağ kaynakları için kısmi bir çıkış gösterilir:
 
-### <a name="troubleshooting"></a>Sorun giderme
+![Abonelik sınırları](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
-Sorun giderme dikey penceresinde bir deneyim Portalı'nda, tek bir kaynakla ilgili genel sorunları tanılamak için bugün ağ kaynaklarında sağlanır. Bu deneyim, aşağıdaki ağ kaynaklarına yönelik - ExpressRoute, VPN ağ geçidi, uygulama ağ geçidi, ağ güvenlik günlükleri, yollar, DNS, yük dengeleyici ve trafik Yöneticisi kullanılabilir. Kaynak düzey sorun giderme hakkında daha fazla bilgi için [Tanıla ve çözümleme sorunlarını Azure sorun giderme](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
+Bu bilgiler geleceğe yönelik kaynak dağıtımlarını planlarken yararlı olur.
 
-![sorun giderme bilgileri][TS]
+## <a name="logs"></a>Günlükler
 
-### <a name="resource-health"></a>Kaynak durumu
+### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Ağ güvenlik grubunda giden veya gelen trafiğin analizi
 
-Bir ağ kaynağına durumunu düzenli olarak sağlanır. Bu tür kaynaklar VPN ağ geçidi ve VPN tüneli içerir. Kaynak durumu Azure portalında erişilemez. Kaynak durumu hakkında daha fazla bilgi için [kaynak sistem durumu genel bakış](../resource-health/resource-health-overview.md)
+Ağ güvenlik grupları (NSG) sanal makinedeki ağ arabirimine gelen veya buradan giden trafiğe izin verebilir veya bu trafiği reddedebilir. *NSG akış günlüğü* özelliği, kaynak ve hedef IP adresini, bağlantı noktasını, protokolü ve NSG tarafından trafiğe izin verildiğini veya trafiğin reddedildiğini günlüğe kaydetmenize olanak tanır. PowerBI ve *trafik analizi* özelliği gibi çeşitli araçlar kullanarak günlükleri analiz edebilirsiniz. Trafik analizi, NSG akış günlüklerine yazılan veriler için zengin görselleştirmeler sağlar. Aşağıdaki resimde, trafik analizini NSG akış günlüğü verilerinden görüntülediği bilgi ve görselleştirmelerden bazıları gösterilir:
+
+![Trafik analizi](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+
+[NSG akış günlükleri](network-watcher-nsg-flow-logging-overview.md) ve [trafik analizi](traffic-analytics.md) hakkında daha fazla bilgi edinin.
+
+### <a name="view-diagnostic-logs-for-network-resources"></a>Ağ kaynakları için tanılamak günlüklerini görüntüleme
+
+Ağ güvenlik grupları, genel IP adresleri, yük dengeleyiciler, sanal ağ geçitleri ve uygulama ağ geçitleri gibi Azure ağ kaynakları için tanılama günlüğünü etkinleştirebilirsiniz. *Tanılama günlükleri* özelliği, tanılama günlüğü oluşturan tüm mevcut ağ kaynaklarında ağ kaynağı tanılama günlüklerini tek bir arabirimden etkinleştirmenize ve devre dışı bırakmanıza olanak tanır. Microsoft Power BI ve Azure Log Analytics gibi araçları kullanarak tanılama günlüklerini görüntüleyebilirsiniz. Azure ağ tanılama günlüklerinin analizi hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te Azure ağ çözümleri](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ İzleyicisi hakkında daha fazla bilgi sonra için bilgi alabilirsiniz:
-
-Paket yakalama VM üzerinde ziyaret ederek yapmak [Azure portalında değişken paket yakalama](network-watcher-packet-capture-manage-portal.md)
-
-Öngörülü izleme ve Tanılama'yı kullanarak gerçekleştirmek [uyarının paket yakalama](network-watcher-alert-triggered-packet-capture.md).
-
-Güvenlik açıklarıyla algılamak [Wireshark paket yakalamayla çözümleme](network-watcher-deep-packet-inspection.md), açık kaynaklı araçları kullanarak.
-
-Azure'un diğer önemli [ağ özelliklerinden](../networking/networking-overview.md) bazıları hakkında bilgi edinin.
-
-<!--Image references-->
-[TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
-[logs]: ./media/network-watcher-monitoring-overview/logs.png
-[metrics]: ./media/network-watcher-monitoring-overview/metrics.png
-[nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
-
-
-
-
-
-
-
-
-
-
+Artık Azure Ağ İzleyicisi'ne genel bakış bilgilerine sahipsiniz. Ağ İzleyicisi'ni kullanmaya başlamak için, IP akış doğrulama kullanarak sanal makineye giden veya gelen iletişimle ilgili yaygın bir sorunu tanılayın. Nasıl yapıldığını öğrenmek için, [Sanal makine ağ trafiği filtreleme sorununu tanılama](diagnose-vm-network-traffic-filtering-problem.md) hızlı başlangıcına bakın.

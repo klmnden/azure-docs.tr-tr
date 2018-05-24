@@ -2,25 +2,19 @@
 title: Self servis parola sıfırlama hızlı başlangıcı - Azure Active Directory
 description: Azure AD self servis parola sıfırlamayı hızlıca dağıtma
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Azure AD self servis parola sıfırlama hızlı dağıtımı
 
@@ -33,11 +27,13 @@ Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Di
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Azure AD kiracınız için SSPR etkinleştirme
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. Mevcut Azure AD kiracınızdan, **Azure Active Directory** altında **Azure Portal** üzerinde **Parola sıfırlama**’yı seçin.
 
 2. **Özellikler** sayfasında, **Self Servis Parola Sıfırlama Etkinleştirildi** seçeneğinin altında aşağıdakilerden birini seçin:
    * **Hiçbiri**: SSPR işlevini kimse kullanamaz.
-   * **Seçili**: SSPR işlevini yalnızca sizin seçtiğiniz belirli bir Azure AD grubunun üyeleri kullanabilir. Bu işlevin dağıtımını yaparken kavram kanıtı için bir kullanıcı grubu tanımlamanız ve bu ayarı kullanmanız önerilir.
+   * **Seçili**: SSPR işlevini yalnızca sizin seçtiğiniz belirli bir Azure AD grubunun üyeleri kullanabilir. Bu işlevin dağıtımını yaparken kavram kanıtı için bir kullanıcı grubu tanımlamanız ve bu ayarı kullanmanız önerilir. Güvenlik gruplarının iç içe geçmesi burada desteklenmiyor.
    * **Tümü**: SSPR işlevini Azure AD kiracınızda hesabı olan tüm kullanıcılar kullanabilir. Bu ayarı, kavram kanıtını tamamladıktan sonra bu işlevi tüm kiracınıza dağıtmaya hazır olduğunuzda kullanmanızı öneririz.
 
    > [!IMPORTANT]

@@ -2,35 +2,31 @@
 title: Self servis parola sıfırlama dağıtım kılavuzu - Azure Active Directory
 description: Azure AD self servis parola sıfırlama özelliğinin başarıyla kullanıma sunulması için ipuçları
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
 Azure Active Directory (Azure AD) self servis parola sıfırlama (SSPR) işlevinin sorunsuz bir şekilde kullanıma sunulması için çoğu müşteri aşağıdaki adımları uygular:
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Dizininizde parola sıfırlamayı etkinleştirme](quickstart-sspr.md).
 2. [Parola geri yazma için şirket içi Active Directory izinlerini yapılandırma](howto-sspr-writeback.md#active-directory-permissions).
 3. Azure AD'deki izinleri şirket içi dizininize geri yazmak için [parola geri yazmayı yapılandırın](howto-sspr-writeback.md#configure-password-writeback).
 4. [Gerekli lisansları atayıp doğrulama](concept-sspr-licensing.md).
-5. Aşamalı bir kullanıma sunma işlemi yapmak isteyip istemediğinizi belirleyin. SSPR’yi kademeli olarak kullanıma sunmak istiyorsanız, programı belirli bir grup ile deneyebilmek için erişimi bir kullanıcı grubu ile sınırlayabilirsiniz. Belirli bir grubun kullanımına sunmak için **Self Servis Parola Sıfırlama Etkin** düğmesini **Seçili** olarak ayarlayın ve parola sıfırlamayı kullanabilmek istediğiniz güvenlik grubunu seçin. 
+5. Aşamalı bir kullanıma sunma işlemi yapmak isteyip istemediğinizi belirleyin. SSPR’yi kademeli olarak kullanıma sunmak istiyorsanız, programı belirli bir grup ile deneyebilmek için erişimi bir kullanıcı grubu ile sınırlayabilirsiniz. Belirli bir grubun kullanımına sunmak için **Self Servis Parola Sıfırlama Etkin** düğmesini **Seçili** olarak ayarlayın ve parola sıfırlamayı kullanabilmek istediğiniz güvenlik grubunu seçin.  Güvenlik gruplarının iç içe geçmesi burada desteklenmiyor.
 6. Kullanıcılarınızın kaydolması için gereken [kimlik doğrulama verileri](howto-sspr-authenticationdata.md) alanını ofis telefonu, cep telefonu ve alternatif e-posta adresi gibi bir değerle doldurun.
 7. [Azure AD oturum açma deneyimini şirket markanızı içerecek şekilde özelleştirin](concept-sspr-customization.md).
 8. Kullanıcılarınıza SSPR kullanmayı öğretin. Kaydolma ve parolalarını sıfırlama hakkında bilgiler veren yönergeler gönderin.
@@ -66,6 +62,10 @@ Büyük müşterilerimizin birçoğu web sayfası barındırmayı ve https://pas
 * Kuruluşa özgü diğer bilgiler
 
 Bu sayede, gönderdiğiniz herhangi bir e-posta yazışmasına veya ilanlara kullanıcıların hizmetleri kullanmak gerektiğinde gidebileceği işaretli ve akılda kalıcı bir URL ekleyebilirsiniz. Yararlanmanız için, kuruluşunuzun gereksinimlerine uygun olarak kullanıp özelleştirebileceğiniz [örnek bir parola sıfırlama sayfası](https://github.com/ajamess/password-reset-page) oluşturduk.
+
+## <a name="step-by-step-deployment-plan"></a>Adım adım dağıtım planı
+
+Azure Active Directory ürün grubu, kuruluşların bir işletme durumu ve self servis parola sıfırlama dağıtımı için bir plan oluşturmak için bu sitede bulunan bilgilerle paralel olarak kullanabilecekleri bir [adım adım dağıtım planı](https://aka.ms/SSPRDeploymentPlan) oluşturmuştur.
 
 ## <a name="use-enforced-registration"></a>Zorunlu kayıt kullanma
 

@@ -1,6 +1,6 @@
 ---
-title: Azure’da Linux VM’ler için kullanılabilirlik kümeleri öğreticisi | Microsoft Docs
-description: Azure’da Linux VM’ler için Kullanılabilirlik Kümeleri hakkında bilgi edinin.
+title: Öğretici - Azure’da Linux VM’ler için yüksek oranda kullanılabilirlik | Microsoft Docs
+description: Bu öğreticide, Kullanılabilirlik Kümelerinde yüksek oranda kullanılabilir sanal makineler dağıtmak için Azure CLI 2.0’ı kullanmayı öğreneceksiniz
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,16 +16,15 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d317ec8136ad7a36381239593c3a53c40f897845
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-use-availability-sets"></a>Kullanılabilirlik kümelerini kullanma
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile yüksek oranda kullanılabilir sanal makineler oluşturma ve dağıtma
 
-
-Bu öğreticide, Kullanılabilirlik Kümeleri adlı bir yetenek kullanarak Azure’da Sanal Makine çözümlerinizin kullanılabilirlik ve güvenilirliğini nasıl artıracağınızı öğreneceksiniz. Kullanılabilirlik kümeleri, Azure’da dağıttığınız VM’lerin birden fazla yalıtılmış donanım kümesi arasında dağıtılmasını sağlar. Böylece, Azure’da bir donanım veya yazılım hatası oluşursa yalnızca sanal makinelerinizin bir alt kümesinin etkilenmesi ve genel çözümünüzün kullanılabilir ve çalışır durumda kalması sağlanır.
+Bu öğreticide, Kullanılabilirlik Kümeleri adlı bir özellik kullanarak Azure’da Sanal Makine çözümlerinizin kullanılabilirlik ve güvenilirliğini nasıl artıracağınızı öğreneceksiniz. Kullanılabilirlik kümeleri, Azure’da dağıttığınız VM’lerin birden fazla yalıtılmış donanım kümesi arasında dağıtılmasını sağlar. Böylece, Azure’da bir donanım veya yazılım hatası oluşursa yalnızca sanal makinelerinizin bir alt kümesinin etkilenmesi ve genel çözümünüzün kullanılabilir ve çalışır durumda kalması sağlanır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -34,10 +33,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Kullanılabilirlik kümesinde sanal makine oluşturma
 > * Kullanılabilir sanal makine boyutlarını denetleme
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Kullanılabilirlik kümesine genel bakış
 
@@ -50,16 +48,13 @@ Azure’da güvenilir sanal makine tabanlı çözümleri dağıtmak istediğiniz
 
 ## <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
 
-[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) komutunu kullanarak bir kullanılabilirlik kümesi oluşturabilirsiniz. Bu örnekte, *myResourceGroupAvailability* kaynak grubundaki *myAvailabilitySet* adlı kullanılabilirlik kümesi için *2* konumundaki güncelleştirme ve hata etki alanları sayısını ayarlarız.
+[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) komutunu kullanarak bir kullanılabilirlik kümesi oluşturabilirsiniz. Bu örnekte, *myResourceGroupAvailability* kaynak grubundaki *myAvailabilitySet* adlı kullanılabilirlik kümesi için güncelleştirme ve hata etki alanları sayısı *2* olarak ayarlanmıştır.
 
-Bir kaynak grubu oluşturun.
+İlk olarak, [az group create](/cli/azure/group#az-group-create) ile bir kaynak grubu oluşturun ve sonra kullanılabilirlik kümesini oluşturun:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
-```
 
-
-```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -67,44 +62,44 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Kullanılabilirlik Kümeleri, hata etki alanları ve güncelleştirme etki alanları arasında kaynakları yalıtmanıza olanak sağlar. **Hata etki alanı**, yalıtılmış bir sunucu + ağ + depolama kaynakları koleksiyonunu temsil eder. Önceki örnekte, sanal makinelerimiz dağıtıldığında kullanılabilirlik kümemizin en az iki hata etki alanı arasında dağıtılmasını istediğimizi belirtiyoruz. Kullanılabilirlik kümemizin iki **güncelleştirme etki alanı** arasında dağıtılmasını istediğimizi de belirtiyoruz.  İki güncelleştirme etki alanı, Azure yazılım güncelleştirmeleri gerçekleştirdiğinde sanal makine kaynaklarımızın yalıtılmasını sağlayarak sanal makinemiz altında çalışan tüm yazılımların aynı anda güncelleştirilmesini önler.
+Kullanılabilirlik Kümeleri, hata etki alanları ve güncelleştirme etki alanları arasında kaynakları yalıtmanıza olanak sağlar. **Hata etki alanı**, yalıtılmış bir sunucu + ağ + depolama kaynakları koleksiyonunu temsil eder. Önceki örnekte, sanal makineleri dağıtıldığında kullanılabilirlik kümesi en az iki hata etki alanı arasında dağıtılmıştır. Kullanılabilirlik kümesi de iki **güncelleme etki alanına** dağıtılmıştır. İki güncelleştirme etki alanı, Azure yazılım güncelleştirmeleri gerçekleştirdiğinde sanal makine kaynaklarının yalıtılmasını sağlayarak sanal makinede çalışan tüm yazılımların aynı anda güncelleştirilmesini önler.
 
 
 ## <a name="create-vms-inside-an-availability-set"></a>Kullanılabilirlik kümesi içinde sanal makineler oluşturma
 
-Donanım arasında doğru şekilde dağıtıldığından emin olmak için sanal makinelerin kullanılabilirlik kümesi içinde oluşturulması gerekir. Oluşturulduktan sonra kullanılabilirlik kümesine var olan bir sanal makineyi ekleyemezsiniz. 
+Donanım arasında doğru şekilde dağıtıldığından emin olmak için sanal makinelerin kullanılabilirlik kümesi içinde oluşturulması gerekir. Mevcut VM, oluşturulduktan sonra kullanılabilirlik kümesine eklenemez.
 
-[az vm create](/cli/azure/vm#az_vm_create) kullanarak bir sanal makine oluşturduğunuzda, kullanılabilirlik kümesinin adını belirtmek için `--availability-set` parametresini kullanarak kullanılabilirlik kümesini belirtirsiniz.
+[az vm create](/cli/azure/vm#az_vm_create) ile yeni bir VM oluşturulduğunda, kullanılabilirlik kümesinin adını belirtmek için `--availability-set` parametresini kullanın.
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+     --image UbuntuLTS \
      --admin-username azureuser \
      --generate-ssh-keys \
      --no-wait
-done 
+done
 ```
 
-Şimdi yeni oluşturulan kullanılabilirlik kümemizde iki sanal makinemiz vardır. Aynı kullanılabilirlik kümesinde olduklarından Azure, sanal makinelerin ve tüm kaynaklarının (veri diskleri dahil), yalıtılmış fiziksel donanım arasında dağıtılmasını sağlar. Bu dağıtım, genel sanal makine çözümümüzün çok daha yüksek düzeyde kullanılabilir olmasını sağlar.
+Artık kullanılabilirlik kümesi içinde iki sanal makine vardır. Aynı kullanılabilirlik kümesinde olduklarından Azure, sanal makinelerin ve tüm kaynaklarının (veri diskleri dahil), yalıtılmış fiziksel donanım arasında dağıtılmasını sağlar. Bu dağıtım, genel sanal makine çözümünün çok daha yüksek düzeyde kullanılabilir olmasını sağlar.
 
-Kaynak Grupları > myResourceGroupAvailability > myAvailabilitySet bölümüne giderek portaldaki kullanılabilirlik kümesine bakarsanız, sanal makinelerin iki hata ve güncelleştirme etki alanı arasında nasıl dağıtıldığını görmeniz gerekir.
+Kullanılabilirlik kümesi dağıtımı, Kaynak Grupları > myResourceGroupAvailability > myAvailabilitySet öğesine gidilerek portaldan görüntülenebilir. VM’ler aşağıdaki örnekte gösterildiği gibi iki hata ve güncelleme etki alanında dağıtılmıştır:
 
 ![Portaldaki kullanılabilirlik kümesi](./media/tutorial-availability-sets/fd-ud.png)
 
-## <a name="check-for-available-vm-sizes"></a>Kullanılabilir sanal makine boyutlarını denetleme 
+## <a name="check-for-available-vm-sizes"></a>Kullanılabilir sanal makine boyutlarını denetleme
 
-Daha sonra kullanılabilirlik kümesine daha fazla sanal makine ekleyebilirsiniz; ancak donanımda hangi sanal makine boyutlarının kullanılabilir olduğunu bilmeniz gerekir.  Kullanılabilirlik kümesi için donanım kümesindeki tüm kullanılabilir boyutları listelemek için [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) komutunu kullanın.
+Ek VM’ler sonradan VM boyutlarının donanımda bulunduğu kullanılabilirlik kümesine eklenebilir. Kullanılabilirlik kümesi için donanım kümesindeki tüm kullanılabilir boyutları listelemek için [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) komutunu kullanın:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
-     --output table  
+     --output table
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -120,4 +115,3 @@ Sanal makine ölçek kümeleri hakkında daha fazla bilgi edinmek için sonraki 
 
 > [!div class="nextstepaction"]
 > [Sanal makine ölçek kümesi oluşturma](tutorial-create-vmss.md)
-

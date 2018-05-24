@@ -1,12 +1,12 @@
 ---
-title: "Azure’da Active Directory Federasyon Hizmetleri | Microsoft Belgeleri"
-description: "Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz."
-keywords: "azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma"
+title: Azure’da Active Directory Federasyon Hizmetleri | Microsoft Belgeleri
+description: Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz.
+keywords: azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.
@@ -214,7 +214,7 @@ Web Uygulaması Proxy sunucularının ILB’nin arkasında AD FS sunucularına u
 
 **7.2. Web Uygulaması Proxy rolünü yükleme**
 
-Web Uygulaması Proxy sunucularının ILB’nin arkasındaki AD FS sunucularına ulaşabildiğinden emin olmak için sonraki adımda Web Uygulaması Proxy sunucularını yükleyebilirsiniz. Web Uygulaması Proxy sunucuları etki alanına katılmaz. Uzaktan Erişim rolünü seçerek Web Uygulaması Proxy rollerini iki Web Uygulaması Proxy sunucusuna yükleyin. Sunucu yöneticisi WAP yüklemesini tamamlamak için size yol gösterecektir.
+Web Uygulaması Proxy sunucularının ILB’nin arkasındaki AD FS sunucularına ulaşabildiğinden emin olmak için sonraki adımda Web Uygulaması Proxy sunucularını yükleyebilirsiniz. Web Uygulaması Proxy sunucularının etki alanına katılması gerekmez. Uzaktan Erişim rolünü seçerek Web Uygulaması Proxy rollerini iki Web Uygulaması Proxy sunucusuna yükleyin. Sunucu yöneticisi WAP yüklemesini tamamlamak için size yol gösterecektir.
 WAP dağıtımı hakkında daha fazla bilgi için [Web Uygulaması Proxy Sunucusunu Yükleme ve Yapılandırma](https://technet.microsoft.com/library/dn383662.aspx) makalesini okuyun.
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  İnternet’e Yönelik (Ortak) Yük Dengeleyiciyi dağıtma
@@ -303,7 +303,7 @@ AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kulla
 
 1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Herhangi bir dış makineden https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx sayfasına erişin  
+2. Herhangi bir dış makineden https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx öğesine erişin  
 3. AD FS sayfasını aşağıdaki gibi görmeniz gerekir:
 
 ![Oturum açma sayfasını test etme](./media/active-directory-aadconnect-azure-adfs/test1.png)

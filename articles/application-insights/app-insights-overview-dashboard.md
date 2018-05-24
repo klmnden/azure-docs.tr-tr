@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4b3a7425f383e1fa8145bac016aa2881d806c545
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="application-insights-overview-dashboard-preview"></a>Uygulama Öngörüler genel bakış Panosu'na (Önizleme)
 
@@ -56,6 +56,9 @@ Bu, ilk kez kullanıyorsanız Pano erişme, varsayılan görünüm başlatılır
 ![Pano görünümü](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
 Bunu istiyorsanız varsayılan görünüm kullanmaya devam edebilir, ancak de ekleyebilirsiniz ve en iyi panodan Sil ekibinizin gereksinimlerine uyacak.
+
+> [!NOTE]
+> Application Insights kaynağı erişimi olan tüm kullanıcılar aynı uygulama pano deneyimi paylaşın. Bir kullanıcı tarafından yapılan değişiklikler tüm kullanıcılar için Görünüm değiştirecektir.
 
 Gezinmek için genel bakış deneyimi geriye yalnızca seçin:
 

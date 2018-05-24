@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Bir uygulama hizmeti ortamı için ağ konuları #
 
@@ -41,13 +41,13 @@ Bir dış ana varsa, genel VIP ana uygulamalarınız için çözümlemek uç nok
 * Web dağıtımı.
 * Uzaktan hata ayıklama.
 
-![ILB ASE][2]
+![ILB ANA][2]
 
 Bir ILB ana varsa, ILB'nin IP adresini HTTP/S, FTP/sn, web dağıtımı ve uzaktan hata ayıklama için uç noktadır.
 
 Normal uygulama erişim bağlantı noktaları şunlardır:
 
-| Kullanım | Kaynak | Alıcı |
+| Kullanım | Kimden | Alıcı |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
 |  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
@@ -66,7 +66,7 @@ Ana dağıtıldıktan sonra bir ana barındırmak için kullanılan alt ağ boyu
 
 Bir ana gelen erişim bağımlılık:
 
-| Kullanım | Kaynak | Alıcı |
+| Kullanım | Kimden | Alıcı |
 |-----|------|----|
 | Yönetim | App Service management adresleri | ANA alt: 454, 455 |
 |  ANA iç iletişim | ANA alt: tüm bağlantı noktaları | ANA alt: tüm bağlantı noktaları
@@ -83,12 +83,12 @@ Atanmış IP adresleri uygulamalarınızı ana alt ağa atanan IP gelen trafiğe
 
 Giden erişim için bir ana birden çok dış sistemlerde bağlıdır. Bu sistem bağımlılıkların DNS adları ile tanımlanır ve sabit bir IP adresleri kümesini eşleme yok. Bu nedenle, ana çeşitli bağlantı noktaları tüm dış IP ana alt ağdan giden erişim gerektirir. Bir ana aşağıdaki giden bağımlılıklara sahiptir:
 
-| Kullanım | Kaynak | Alıcı |
+| Kullanım | Kimden | Alıcı |
 |-----|------|----|
-| Azure Storage | ANA alt ağ | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
-| Azure SQL Database | ANA alt ağ | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [SQL Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure Yönetimi | ANA alt ağ | management.core.windows.net, management.azure.com: 443 
-| SSL sertifika doğrulama |  ANA alt ağ            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure Storage | ANA alt ağ | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 yalnızca gereklidir ASEv1 için.) |
+| Azure SQL Database | ANA alt ağ | Database.Windows.NET: 1433 11000 11999, 14000 14999 (daha fazla bilgi için bkz: [SQL Database V12 bağlantı noktası kullanımı](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
+| Azure Yönetimi | ANA alt ağ | Management.Core.Windows.NET, management.azure.com: 443 
+| SSL sertifika doğrulama |  ANA alt ağ            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ANA alt ağ            |  Internet: 443
 | Uygulama Hizmeti Yönetimi        | ANA alt ağ            |  Internet: 443
 | Azure DNS                     | ANA alt ağ            |  Internet: 53
@@ -224,7 +224,7 @@ Azure SQL örneği içeren bir alt ağda Hizmet Uç Noktaları etkinleştirilirs
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
