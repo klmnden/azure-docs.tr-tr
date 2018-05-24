@@ -658,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: Hizmet modeli XML şeması
       href: service-fabric-service-model-schema.md
+      items:
+        - name: Öğeler
+          href: service-fabric-service-model-schema-elements.md
+        - name: Karmaşık türler
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: Öznitelik grupları
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: Basit türler
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: Öğe grupları
+          href: service-fabric-service-model-schema-element-groups.md
     - name: Ortam değişkenleri
       href: service-fabric-environment-variables-reference.md
 - name: Kaynaklar

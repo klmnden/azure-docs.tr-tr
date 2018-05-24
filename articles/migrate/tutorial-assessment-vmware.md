@@ -4,14 +4,14 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 05/03/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 268ec150dbd4b15ad00a56b62b84e268c4469ebd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -31,14 +31,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- **VMware**: Geçirmeyi planladığınız sanal makineler, 5.5, 6.0 veya 6.5 sürümünü çalıştıran vCenter Server tarafından yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir. 
- 
+- **VMware**: Geçirmeyi planladığınız sanal makineler, 5.5, 6.0 veya 6.5 sürümünü çalıştıran vCenter Server tarafından yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir.
+
 > [!NOTE]
-> Hyper-V desteği, yol haritasında yer almakta olup kısa süre sonra etkinleştirilecektir. 
+> Hyper-V desteği, yol haritasında yer almakta olup kısa süre sonra etkinleştirilecektir.
 
 - **vCenter Server hesabı**: vCenter Server’a erişmek için salt okunur bir hesabınız olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
-- **İzinler**: vCenter Server’da, bir dosyayı .OVA biçiminde içeri aktararak VM oluşturma iznine sahip olmanız gerekir. 
-- **İstatistik ayarları**: vCenter Server için istatistik ayarları, dağıtım başlatılmadan önce düzey 3 olarak belirlenmelidir. Ayarlar düzey 3’ün altında olursa değerlendirme gerçekleştirilir, ancak depolama ve ağ için performans verileri toplanmaz. Bu durumda boyut önerileri, CPU ve belleğe ait performans verilerine ve diskin ve ağ bağdaştırıcılarının yapılandırma verilerine bağlı olarak yapılır. 
+- **İzinler**: vCenter Server’da, bir dosyayı .OVA biçiminde içeri aktararak VM oluşturma iznine sahip olmanız gerekir.
+- **İstatistik ayarları**: vCenter Server için istatistik ayarları, dağıtım başlatılmadan önce düzey 3 olarak belirlenmelidir. Ayarlar düzey 3’ün altında olursa değerlendirme gerçekleştirilir, ancak depolama ve ağ için performans verileri toplanmaz. Bu durumda boyut önerileri, CPU ve belleğe ait performans verilerine ve diskin ve ağ bağdaştırıcılarının yapılandırma verilerine bağlı olarak yapılır.
 
 ## <a name="create-an-account-for-vm-discovery"></a>VM bulma işlemi için hesap oluşturma
 
@@ -59,10 +59,10 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 2. **Azure Geçişi** araması yapın ve arana sonuçlarında **Azure Geçişi** hizmetini seçin. Sonra **Oluştur**’a tıklayın.
 3. Proje için bir proje adı ve Azure aboneliği belirtin.
 4. Yeni bir kaynak grubu oluşturun.
-5. Projenin oluşturulacağı konumu belirtin ve sonra **Oluştur**’a tıklayın. Bir Azure Geçişi projesini yalnızca Orta Batı ABD veya Doğu ABD bölgesinde oluşturabilirsiniz. Ancak yine de herhangi bir hedef Azure konumu için geçişinizi planlayabilirsiniz. Proje için belirtilen konum yalnızca şirket içi VM’lerden toplanan meta verileri depolamak için kullanılır. 
+5. Projenin oluşturulacağı konumu belirtin ve sonra **Oluştur**’a tıklayın. Bir Azure Geçişi projesini yalnızca Orta Batı ABD veya Doğu ABD bölgesinde oluşturabilirsiniz. Ancak yine de herhangi bir hedef Azure konumu için geçişinizi planlayabilirsiniz. Proje için belirtilen konum yalnızca şirket içi VM’lerden toplanan meta verileri depolamak için kullanılır.
 
     ![Azure Geçişi](./media/tutorial-assessment-vmware/project-1.png)
-    
+
 
 
 ## <a name="download-the-collector-appliance"></a>Toplayıcı gerecini indirin
@@ -84,7 +84,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
-    
+
     OVA sürüm 1.0.9.7 için
 
     **Algoritma** | **Karma değeri**
@@ -92,7 +92,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     MD5 | d5b6a03701203ff556fa78694d6d7c35
     SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
     SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-    
+
     OVA sürüm 1.0.9.5 için
 
     **Algoritma** | **Karma değeri**
@@ -100,7 +100,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     MD5 | fb11ca234ed1f779a61fbb8439d82969
     SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
     SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
-    
+
     OVA 1.0.9.2 sürümü için
 
     **Algoritma** | **Karma değeri**
@@ -108,7 +108,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     MD5 | 7326020e3b83f225b794920b7cb421fc
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
-    
+
     OVA 1.0.8.59 sürümü için
 
     **Algoritma** | **Karma değeri**
@@ -120,7 +120,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     OVA 1.0.8.49 sürümü için
     **Algoritma** | **Karma değeri**
     --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8 
+    MD5 | cefd96394198b92870d650c975dbf3b8
     SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
     SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
@@ -145,7 +145,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 5. **Konak/Küme** bölümünde, toplayıcı VM’nin çalıştırılacağı konağı veya kümeyi belirtin.
 7. Depolama’da, toplayıcı VM için depolama hedefini belirleyin.
 8. **Disk Biçimi**’nde disk türünü ve boyutunu belirtin.
-9. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Meta verileri Azure’a göndermek için ağ, İnternet bağlantısına sahip olmalıdır. 
+9. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Meta verileri Azure’a göndermek için ağ, İnternet bağlantısına sahip olmalıdır.
 10. Ayarları gözden geçirip onayladıktan sonra **Son**’a tıklayın.
 
 ## <a name="run-the-collector-to-discover-vms"></a>VM’leri bulmak için toplayıcıyı çalıştırma
@@ -156,7 +156,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 4. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
     - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
-    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin.
+    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. İnternet bağlantısı gereksinimleri ve toplayıcının eriştiği URL'lerin listesi hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity).
 
     > [!NOTE]
     > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir.
@@ -167,10 +167,10 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 5. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - vCenter sunucusunun adını (FQDN) veya IP adresini belirtin.
     - **Kullanıcı adı** ve **Parola** bölümünde, toplayıcının vCenter sunucusundaki VM’leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin.
-    - **Toplama kapsamı**’nda, VM bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam 1.000 VM’den fazlasını içermemelidir. 
+    - **Toplama kapsamı**’nda, VM bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir. Daha büyük bir ortamı nasıl bulabileceğiniz hakkında [daha fazla bilgi edinin](how-to-scale-assessment.md).
 
 6. **Geçişi projesini belirtin** bölümünde portaldan kopyaladığınız Azure Geçişi proje kimliğini ve anahtarını belirtin. Bu bilgileri kopyalamadıysanız toplayıcı VM’den Azure portalını açın. Projenin **Genel Bakış** sayfasında **Makineleri Bul**’a tıklayın ve değerleri kopyalayın.  
-7. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.
+7. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar. Azure Geçişi toplayıcı tarafından toplanan veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
 
 > [!NOTE]
 > Toplayıcı, işletim sistemi dili ve toplayıcı arabirimi dili olarak yalnızca "İngilizce (ABD)"yi destekler. Yakında daha fazla dil desteği kullanıma sunulacaktır.
@@ -178,7 +178,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 
 ### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 
-Bulma süresi, kaç VM bulduğunuza bağlıdır. 100 VM için, toplayıcı çalışmayı durdurduktan sonra bulma işleminin tamamlanması genellikle yaklaşık bir saat sürer. 
+Bulma süresi, kaç VM bulduğunuza bağlıdır. 100 VM için, toplayıcı çalışmayı durdurduktan sonra bulma işleminin tamamlanması genellikle yaklaşık bir saat sürer.
 
 1. Migration Planner projesinde **Yönet** > **Makineler**’e tıklayın.
 2. Bulmak istediğiniz VM’lerin portalda görüntülenip görüntülenmediğini kontrol edin.
@@ -186,7 +186,7 @@ Bulma süresi, kaç VM bulduğunuza bağlıdır. 100 VM için, toplayıcı çal�
 
 ## <a name="create-and-view-an-assessment"></a>Değerlendirme oluşturma ve görüntüleme
 
-VM’ler bulunduktan sonra bunları gruplandırın ve bir değerlendirme oluşturun. 
+VM’ler bulunduktan sonra bunları gruplandırın ve bir değerlendirme oluşturun.
 
 1. Projenin **Genel Bakış** sayfasında **+Değerlendirme oluştur**’a tıklayın.
 2. Değerlendirme özelliklerini gözden geçirmek için **Tümünü görüntüle**’ye tıklayın.
@@ -198,7 +198,7 @@ VM’ler bulunduktan sonra bunları gruplandırın ve bir değerlendirme oluştu
 
 ### <a name="assessment-details"></a>Değerlendirme ayrıntıları
 
-Değerlendirme, şirket içi sanal makinelerin Azure için uyumlu olup olmadığı, Azure’da sanal makineyi çalıştırmak için doğru sanal makine boyutunun ne olacağı ve tahmini aylık Azure maliyetleri hakkında bilgileri içerir. 
+Değerlendirme, şirket içi sanal makinelerin Azure için uyumlu olup olmadığı, Azure’da sanal makineyi çalıştırmak için doğru sanal makine boyutunun ne olacağı ve tahmini aylık Azure maliyetleri hakkında bilgileri içerir.
 
 ![Değerlendirme raporu](./media/tutorial-assessment-vmware/assessment-report.png)
 
@@ -208,11 +208,11 @@ Değerlendirmedeki Azure için hazır olma görünümü, her bir sanal makinenin
 - Azure için hazır
 - Azure için koşullu olarak hazır
 - Azure için hazır değil
-- Hazır olma durumu bilinmiyor 
+- Hazır olma durumu bilinmiyor
 
-Azure Geçişi, hazır olan VM’ler için Azure’da bir VM boyutu önerir. Azure Geçişi’nin yaptığı boyut önerisi, değerlendirme özelliklerinde belirtilen boyutlandırma ölçütüne bağlıdır. Boyutlandırma ölçütü performansa dayalı boyutlandırma ise, sanal makinelerin performans geçmişi dikkate alınarak boyut önerisinde bulunulur. Boyutlandırma ölçütü 'şirket içi olarak' ise, şirket içi sanal makinenin boyutuna bakılarak öneride bulunulur (olduğu gibi boyutlandırma). Bu durumda kullanım verileri dikkate alınmaz. Azure Geçişi’nde boyutlandırmanın nasıl yapıldığı hakkında [daha fazla bilgi edinin](concepts-assessment-calculation.md). 
+Azure Geçişi, hazır olan VM’ler için Azure’da bir VM boyutu önerir. Azure Geçişi’nin yaptığı boyut önerisi, değerlendirme özelliklerinde belirtilen boyutlandırma ölçütüne bağlıdır. Boyutlandırma ölçütü performansa dayalı boyutlandırma ise, sanal makinelerin performans geçmişi dikkate alınarak boyut önerisinde bulunulur. Boyutlandırma ölçütü 'şirket içi olarak' ise, şirket içi sanal makinenin boyutuna bakılarak Azure'daki VM boyutu için öneride bulunulur (olduğu gibi boyutlandırma). VM boyutlandırmasında VM'nin CPU ve bellek kullanım verileri dikkate alınmaz. Bununla birlikte, şirketi içi olarak boyutlandırma durumunda diskler performans verilerine bakılarak boyutlandırılır.  Azure Geçişi’nde boyutlandırmanın nasıl yapıldığı hakkında [daha fazla bilgi edinin](concepts-assessment-calculation.md).
 
-Azure için hazır olmayan veya koşullu olarak hazır olan sanal makineler için Azure Geçişi, hazır olma durumu sorunlarını açıklar ve düzeltme adımları sağlar. 
+Azure için hazır olmayan veya koşullu olarak hazır olan sanal makineler için Azure Geçişi, hazır olma durumu sorunlarını açıklar ve düzeltme adımları sağlar.
 
 Azure Geçişi’nin Azure için hazır olma durumunu belirleyemediği (verilerin kullanılabilir olmaması nedeniyle) sanal makineler, hazır olma durumu bilinmiyor olarak işaretlenir.
 
@@ -222,22 +222,20 @@ Azure Geçişi, Azure için hazır olma ve boyutlandırmaya ek olarak sanal maki
 
 #### <a name="monthly-cost-estimate"></a>Aylık maliyet tahmini
 
-Bu görünümde, Azure’da çalışan VM’lerin toplam işlem ve depolama maliyetinin yanı sıra her makineye ilişkin ayrıntılar da görüntülenir. Maliyet tahminleri, Azure Geçişi tarafından bir makine, bu makinenin diskleri ve değerlendirme özellikleri için gerçekleştirilen boyut önerileri göz önünde bulundurularak hesaplanır. 
+Bu görünümde, Azure’da çalışan VM’lerin toplam işlem ve depolama maliyetinin yanı sıra her makineye ilişkin ayrıntılar da görüntülenir. Maliyet tahminleri, Azure Geçişi tarafından bir makine, bu makinenin diskleri ve değerlendirme özellikleri için gerçekleştirilen boyut önerileri göz önünde bulundurularak hesaplanır.
 
 > [!NOTE]
-> Azure Geçişi tarafından sağlanan maliyet tahmini, hizmet olarak Azure Altyapısı (IaaS) VM’leri biçiminde çalıştırılan şirket içi VM’lerine yöneliktir. Azure Geçişi, Hizmet olarak platform (PaaS) veya Hizmet olarak yazılım (SaaS) maliyetlerini hesaba katmaz. 
+> Azure Geçişi tarafından sağlanan maliyet tahmini, hizmet olarak Azure Altyapısı (IaaS) VM’leri biçiminde çalıştırılan şirket içi VM’lerine yöneliktir. Azure Geçişi, Hizmet olarak platform (PaaS) veya Hizmet olarak yazılım (SaaS) maliyetlerini hesaba katmaz.
 
-İşlem ve depolama için tahmini aylık maliyetler gruptaki tüm VM’ler için birleştirilir. 
+İşlem ve depolama için tahmini aylık maliyetler gruptaki tüm VM’ler için birleştirilir.
 
-![VM maliyeti değerlendirmesi](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
+![VM maliyeti değerlendirmesi](./media/tutorial-assessment-vmware/assessment-vm-cost.png)
 
 #### <a name="confidence-rating"></a>Güvenilirlik derecelendirmesi
 
-Azure Geçişi’ndeki her değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur. 
+Azure Geçişi’ndeki her değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur.
 
-Azure Geçişi, kullanım tabanlı boyutlandırma gerçekleştirmek için yeterli miktarda veri noktasına sahip olmayabileceğinden güvenilirlik derecesi, *performans tabanlı boyutlandırmada* size fayda sağlar. Azure Geçişi, VM’yi boyutlandırmak için ihtiyaç duyduğu tüm veri noktalarına sahip olduğundan, *şirket içi boyutlandırma* için güvenilirlik derecesi her zaman 5 yıldızdır. 
-
-VM’nin performans tabanlı boyutlandırması için Azure Geçişi, CPU ve bellek için kullanım verileri gerektirir. Ayrıca VM’ye takılı her disk için okuma/yazma IOPS ve aktarım hızı gereklidir. Sanal makineye eklenmiş her bir ağ bağdaştırıcısı için benzer şekilde Azure Geçişi’nin performansa dayalı boyutlandırma gerçekleştirmek amacıyla ağ giriş/çıkışına ihtiyacı vardır. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Kullanılabilir veri noktalarının yüzdesine bağlı olarak değerlendirme için güvenilirlik derecelendirmesi sağlanır:
+VM’nin performans tabanlı boyutlandırması için Azure Geçişi, CPU ve bellek için kullanım verileri gerektirir. Ayrıca VM’ye takılı her diskin boyutlandırması için okuma/yazma IOPS ve aktarım hızı gereklidir. Sanal makineye eklenmiş her bir ağ bağdaştırıcısı için benzer şekilde Azure Geçişi’nin performansa dayalı boyutlandırma gerçekleştirmek amacıyla ağ giriş/çıkışına ihtiyacı vardır. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Kullanılabilir veri noktalarının yüzdesine bağlı olarak değerlendirme için aşağıdaki gibi güvenilirlik derecelendirmesi sağlanır:
 
    **Veri noktalarının kullanılabilirliği** | **Güvenilirlik derecelendirmesi**
    --- | ---
@@ -248,16 +246,17 @@ VM’nin performans tabanlı boyutlandırması için Azure Geçişi, CPU ve bell
    %81-%100 | 5 Yıldız
 
 Aşağıdaki nedenlerle bir değerlendirme için tüm veri noktaları kullanılabilir olmayabilir:
-- vCenter Server’daki istatistik ayarı 3 düzeyine ayarlanmamıştır ve değerlendirme için boyutlandırma ölçütü performansa dayalı boyutlandırma şeklindedir. vCenter Server’daki istatistik ayarı 3 düzeyinden küçükse vCenter Server’dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden depolama için standart diskleri önerir.
-- vCenter Server’daki istatistik ayarı, keşif başlatılmadan önce daha kısa süre bir için 3. düzey olarak ayarlanmıştır. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir. 
-- Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir sanal makine belirli bir süre boyunca kapatıldıysa vCenter Server o süreye ait performans verilerine sahip olmaz. 
+- vCenter Server'daki istatistik ayarı 3 düzeyine ayarlanmamıştır. vCenter Server’daki istatistik ayarı 3 düzeyinden küçükse vCenter Server’dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden, bu örnekte Azure Geçişi tüm diskler için standart diskleri önerir.
+- vCenter Server’daki istatistik ayarı, keşif başlatılmadan önce daha kısa süre bir için 3. düzey olarak ayarlanmıştır. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir.
+- Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir sanal makine belirli bir süre boyunca kapatıldıysa vCenter Server o süreye ait performans verilerine sahip olmaz.
 - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
 
 > [!NOTE]
 > Herhangi bir değerlendirmenin güvenilirlik derecesi 4 Yıldız’ın altında ise vCenter Server istatistik ayarları düzeyini 3 olarak değiştirmeniz, değerlendirme için göz önünde bulundurmak istediğiniz süre (1 gün/1 hafta/1 ay) boyunca bekleyip daha sonra keşif ve değerlendirme gerçekleştirmeniz önerilir. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
- 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Geniş bir VMware ortamında bulma ve değerlendirme işlemlerinin nasıl yapılacağını [öğrenin](how-to-scale-assessment.md).
+- Bir değerlendirmeyi gereksinimleriniz temelinde nasıl özelleştirebileceğinizi [öğrenin](how-to-modify-assessment.md).
 - [Makine bağımlılık eşlemesi](how-to-create-group-machine-dependencies.md) kullanarak yüksek güvenilirlikli değerlendirme grubu oluşturmayı öğrenin
 - Değerlendirmelerin nasıl hesaplandığı hakkında [daha fazla bilgi](concepts-assessment-calculation.md) edinin.
+- Geniş bir VMware ortamında bulma ve değerlendirme işlemlerinin nasıl yapılacağını [öğrenin](how-to-scale-assessment.md).
