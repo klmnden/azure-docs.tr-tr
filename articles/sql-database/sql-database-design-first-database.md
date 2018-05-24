@@ -1,5 +1,5 @@
 ---
-title: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama | Microsoft Docs
+title: 'Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama | Microsoft Docs'
 description: SQL Server Management Studio ile ilk Azure SQL veritabanınızı tasarlamayı öğrenin.
 services: sql-database
 author: CarlRabeler
@@ -7,28 +7,31 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193402"
 ---
-# <a name="design-your-first-azure-sql-database-using-ssms"></a>SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
 
 Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak veritabanıdır (DBaaS). Bu öğreticide, Azure portalını ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)'yu (SSMS) kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz: 
 
 > [!div class="checklist"]
-> * Azure portalında veritabanı oluşturma
+> * Azure portalında veritabanı oluşturma*
 > * Azure portalında sunucu düzeyinde güvenlik duvarı kuralı ayarlama
 > * SSMS ile veritabanına bağlanma
 > * SSMS ile tablo oluşturma
 > * BCP ile toplu veri yükleme
 > * Bu verileri SSMS ile sorgulama
-> * Veritabanını Azure portalında [önceki bir zaman noktasına](sql-database-recovery-using-backups.md#point-in-time-restore) geri yükleme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+
+   >[!NOTE]
+   > Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini (önizleme)](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -42,13 +45,13 @@ Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
-Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) içinde oluşturulur. 
+Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) içinde oluşturulur. 
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
-2. **Yeni** penceresinden **Veritabanları**’nı seçin ve **Yeni** sayfasında **SQL Veritabanı**'nın altından **Oluştur**’u seçin.
+2. **Yeni** sayfasında, Azure Market bölümünde **Veritabanları**’nı seçin ve ardından **Öne Çıkan** bölümünde **SQL Veritabanı**’na tıklayın.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +77,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 5. **Seç**'e tıklayın.
 
-6. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanımınıza sunulan DTU/sanal çekirdek sayısı seçeneklerini araştırın. 
+6. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanımınıza sunulan DTU/sanal çekirdek sayısı seçeneklerini araştırın. Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini (önizleme)](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
 
 7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
 
@@ -83,10 +86,9 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 8. **Ek Depolama** seçeneğini kullanmak için önizleme koşullarını kabul edin. 
 
    > [!IMPORTANT]
-   > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Orta Kanada, Doğu Kanada, Orta ABD, Fransa Orta, Orta Almanya, Doğu Japonya, Batı Japonya, Orta Kore, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, UK Batı, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > -  Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >-  Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Orta Kanada, Doğu Kanada, Orta ABD, Fransa Orta, Orta Almanya, Doğu Japonya, Batı Japonya, Orta Kore, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, UK Batı, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
 
@@ -108,7 +110,7 @@ SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yö
 
 1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver-20170824.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
 
-2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. 
+2. Sonraki öğreticiler ve hızlı başlangıçlarda sunucunuza ve sunucunun veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. 
 
    ![sunucu adı](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +149,7 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 
    | Ayar       | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir. |
+   | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
    | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver20170824.database.windows.net**. |
    | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
    | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
@@ -297,26 +299,6 @@ Veritabanı tablolarından bilgi almak için aşağıdaki sorguları yürütün.
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Bir veritabanını daha önceki bir noktaya geri yükleme
-
-Bir tabloyu yanlışlıkla sildiğinizi düşünün. Bu işlemi kolayca geri alamazsınız. Azure SQL Veritabanı, son 35 günde zamanın herhangi bir noktasına geri dönmenize ve bu zaman noktasını yeni bir veritabanına geri yüklemenize olanak tanır. Bu veritabanını kullanarak silinen verilerinizi kurtarabilirsiniz. Aşağıdaki adımlar, örnek veritabanını tablolar eklenmeden önceki bir noktaya geri yükler.
-
-1. Veritabanınızın SQL Veritabanı sayfasında, araç çubuğundaki **Geri Yükle**’ye tıklayın. **Geri Yükle** sayfası açılır.
-
-   ![geri yükleme](./media/sql-database-design-first-database/restore.png)
-
-2. **Geri Yükleme** formunu gerekli bilgiler ile doldurun:
-    * Veritabanı adı: Bir veritabanı adı sağlayın 
-    * Zaman noktası: Geri Yükleme formunda **Zaman noktası** sekmesini seçin 
-    * Geri yükleme noktası: Veritabanı değiştirilmeden önce gerçekleşen bir zaman seçin
-    * Hedef sunucu: Bir veritabanını geri yüklerken bu değeri değiştiremezsiniz 
-    * Elastik veritabanı havuzu: **Yok**’u seçin  
-    * Fiyatlandırma katmanı: **20 DTU** ve **40 GB** depolamayı seçin.
-
-   ![restore-point](./media/sql-database-design-first-database/restore-point.png)
-
-3. Veritabanını tablolar eklenmeden önceki [bir zaman noktasına geri yüklemek](sql-database-recovery-using-backups.md#point-in-time-restore) için **Tamam**’a tıklayın. Veritabanının farklı bir zaman noktasına geri yüklenmesi, [hizmet katmanınızın](sql-database-service-tiers.md) elde tutma dönemi içinde olmak şartıyla, belirttiğiniz zaman noktasından itibaren özgün veritabanı ile aynı sunucuda bir kopya veritabanı oluşturur.
-
 ## <a name="next-steps"></a>Sonraki adımlar 
 Bu öğreticide, veritabanı ve tablo oluşturma, veri yükleme ve sorgulama ve veritabanını önceki bir zaman noktasına geri yükleme gibi temel veritabanı görevlerini öğrendiniz. Şunları öğrendiniz:
 > [!div class="checklist"]
@@ -326,7 +308,6 @@ Bu öğreticide, veritabanı ve tablo oluşturma, veri yükleme ve sorgulama ve 
 > * Tablo oluşturma
 > * Toplu veri yükleme
 > * Bu verileri sorgulama
-> * SQL Veritabanı [zaman noktası geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore) özelliklerini kullanarak veritabanını önceki bir noktaya geri yükleme
 
 Visual Studio ve C# kullanarak veritabanı tasarlama hakkında bilgi edinmek için sonraki öğreticiye geçin.
 

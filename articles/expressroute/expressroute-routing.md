@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 8bf1381ad089b9db41a3ef9f6fd3b9521a16da7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178764"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -183,10 +184,11 @@ Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsin
 | Japonya Doğu | 12076:51012 |
 | Japonya Batı | 12076:51013 |
 | **Avustralya** | |
-| Avustralya Orta | 12076:51032 |
-| Avustralya Orta 2 | 12076:51033 |
 | Avustralya Doğu | 12076:51015 |
 | Avustralya Güneydoğu | 12076:51016 |
+| **Australia Government** | |
+| Avustralya Orta | 12076:51032 |
+| Avustralya Orta 2 | 12076:51033 |
 | **Hindistan** | |
 | Hindistan Güney | 12076:51019 |
 | Hindistan Batı | 12076:51018 |

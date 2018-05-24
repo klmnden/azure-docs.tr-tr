@@ -1,12 +1,12 @@
 ---
-title: Azure’da Azure Güvenlik Merkezi ve Linux sanal makineleri | Microsoft Docs
-description: Azure Güvenlik Merkezi ile Azure Linux sanal makineniz için güvenlik hakkında bilgi edinin.
+title: Öğretici - Azure’da Linux VM’ler için Azure Güvenlik Merkezi’ni kullanma | Microsoft Docs
+description: Bu öğreticide, Azure’da Linux sanal makinelerinizi korumaya ve güvenliğini sağlamaya yardımcı olmak için Azure Güvenlik Merkezi özelliklerini öğreneceksiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188852"
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Azure Güvenlik Merkezi'ni kullanarak sanal makine güvenliğini izleme
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Öğretici: Linux sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
 
 Azure Güvenlik Merkezi, Azure kaynak güvenliği uygulamalarınıza yönelik görünürlük elde etmenize yardımcı olabilir. Güvenlik Merkezi, tümleşik güvenlik izleme işlevi sunar. Gözden kaçabilecek tehditleri algılayabilir. Bu öğreticide, Azure Güvenlik Merkezi hakkında bilgi edinecek ve aşağıdakilerin nasıl yapılacağını öğreneceksiniz:
  
@@ -30,7 +31,7 @@ Azure Güvenlik Merkezi, Azure kaynak güvenliği uygulamalarınıza yönelik g�
 > * Veri toplamayı ayarlama
 > * Güvenlik ilkeleri ayarlama
 > * Yapılandırma durumu sorunlarını görüntüleme ve düzeltme
-> * Algılanan tehditleri gözden geçirme  
+> * Algılanan tehditleri gözden geçirme
 
 ## <a name="security-center-overview"></a>Güvenlik Merkezine genel bakış
 

@@ -14,41 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5fa5c6708f3b0b0319bd669be7f9c897f095b6e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204201"
 ---
 # <a name="configure-service-map-in-azure"></a>Hizmet eşlemesi Azure'da yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
 
 Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntılarını açıklanmaktadır. Hizmet eşlemesi kullanarak hakkında daha fazla bilgi için bkz: [Azure hizmet Haritası çözümü kullanan]( monitoring-service-map.md).
 
-## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
+## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirmeleri
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
-Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Günlük analizi için kendi bağlantıları için OMS aracısının bağımlılık Aracısı'nı bağlıdır. Bunun anlamı bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olması gerekir ve ardından bağımlılık Aracısı yüklenir. Aşağıdaki tabloda hizmet Haritası çözümünü destekler bağlı kaynakları açıklanmaktadır.
+Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Bağımlılık Aracısı, Log Analytics ile arasındaki bağlantılar için OMS Aracısına bağımlıdır. Bunun anlamı bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olması gerekir ve ardından bağımlılık Aracısı yüklenir. Aşağıdaki tabloda hizmet Haritası çözümünü destekler bağlı kaynakları açıklanmaktadır.
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-linux-agents.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager Aracısı bilgisayardan doğrudan bağlantı günlük analizi için gereklidir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir.|
+| Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>[OMS Aracısı](../log-analytics/log-analytics-windows-agent.md)'na ek olarak, Windows aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>[OMS Aracısı](../log-analytics/log-analytics-linux-agents.md)'na ek olarak, Linux aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir.|
 | Azure depolama hesabı | Hayır | Azure depolama biriminden toplamak için hiçbir veri nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 
 Hizmet eşlemesi yalnızca 64-bit platformları destekler.
 
-Windows, Microsoft İzleme Aracısı'nı (MMA) hem System Center Operations Manager hem de günlük analizi toplamak ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı bağlamı bağlı olarak adlandırılır.) System Center Operations Manager ve günlük analizi MMA farklı çıkış-yepyeni sürümleri sağlar. Bu sürümleri her System Center Operations Manager, günlük analizi için veya her ikisine de bildirebilirsiniz.  
+Windows, Microsoft İzleme Aracısı'nı (MMA) hem System Center Operations Manager hem de günlük analizi toplamak ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı bağlamı bağlı olarak adlandırılır.) System Center Operations Manager ve günlük analizi MMA farklı çıkış-yepyeni sürümleri sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.  
 
 Linux, OMS Aracısı Linux toplar ve izleme için günlük analizi verilerini gönderir. Hizmet eşlemesi OMS doğrudan aracılarıyla sunucularda veya günlük analizi için System Center Operations Manager Yönetim grupları bağlı olan sunucuları kullanabilirsiniz.  
 
-Bu makalede, sizi tüm aracılara--başvurmak olup olmadığını Linux veya Windows, System Center Operations Manager yönetim grubu veya--"OMS Aracısı." günlük analizi için doğrudan bağlı olup olmadığını Bağlam için yalnızca ihtiyaç duyduğunuzda aracısının belirli dağıtım adı kullanacağız.
+Bu makalede, sizi tüm aracılara--başvurmak olup olmadığını Linux veya Windows, System Center Operations Manager yönetim grubu veya--"OMS Aracısı." günlük analizi için doğrudan bağlı olup olmadığını Aracının dağıtım adını ancak bağlam için gerekli olduğunda kullanacağız.
 
 Hizmet eşlemesi Aracısı tüm verileri aktarmaz ve güvenlik duvarları veya bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman günlük analizi için OMS aracısı tarafından doğrudan veya OMS ağ geçidi üzerinden aktarılır.
 
@@ -62,45 +63,45 @@ Günlük analizi için bağlı yönetim grubu ile System Center Operations Manag
 OMS doğrudan Aracısı'nı kullanıyorsanız, OMS günlük analizi veya OMS ağ geçidine bağlanmak için aracının kendisi yapılandırmanız gerekir. OMS ağ geçidi yüklenebilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Yönetim paketleri
-Hizmet Haritası günlük analizi çalışma etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucularına gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hizmet Haritası Yönetim Paketi System Center Operations Manager'dan dağıtılır. Aracıları doğrudan bağlıysanız, günlük analizi Yönetim Paketi sunar.
+Hizmet Haritası günlük analizi çalışma etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucularına gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hizmet Haritası Yönetim Paketi System Center Operations Manager'dan dağıtılır. Aracılar doğrudan bağlıysa yönetim paketini Log Analytics verir.
 
-Yönetim Paketi Microsoft.IntelligencePacks.ApplicationDependencyMonitor olarak adlandırılır. %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\ yazılır. Yönetim Paketi kullanan veri kaynağı % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources olan\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Yönetim paketinin adı Microsoft.IntelligencePacks.ApplicationDependencyMonitor'dır. %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\ yazılır. Yönetim Paketi kullanan veri kaynağı % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources olan\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="installation"></a>Yükleme
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Microsoft Windows bağımlılık Aracısı'nı yükleme
-Yüklemek veya aracıyı kaldırmak için yönetici ayrıcalıkları gerekir.
+Aracıyı yüklemek veya kaldırmak için yönetici ayrıcalıkları gereklidir.
 
-Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe üzerinden Windows bilgisayarlara yüklenir. Bu yürütülebilir dosya seçenekleri olmadan çalıştırırsanız, etkileşimli olarak yüklemek için izleyebileceğiniz Sihirbazı'nı başlatır.  
+Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe üzerinden Windows bilgisayarlara yüklenir. Bu yürütülebilir dosyayı hiçbir seçenek olmadan çalıştırırsanız, etkileşimli yükleme yapmak için izleyebileceğiniz bir sihirbaz başlatır.  
 
 Her Windows bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
 1.  Kısmındaki yönergeleri kullanarak OMS Aracısı'nı yükleme [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md).
 2.  Windows Aracısı'nı indirin ve çalıştırın aşağıdaki komutu kullanarak: <br>`InstallDependencyAgent-Windows.exe`
-3.  Aracıyı yüklemek için sihirbazı izleyin.
-4.  Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracısında %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir. 
+3.  Sihirbazı izleyerek aracıyı yükleyin.
+4.  Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracısında %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir. 
 
 #### <a name="windows-command-line"></a>Windows komut satırı
-Bir komut satırından yüklemek için aşağıdaki tablodaki seçenekleri kullanın. Yükleme bayrakları listesini görmek için yükleyiciyi kullanarak çalıştırmak /? aşağıdaki gibi bayrak.
+Komut satırından yüklemek için aşağıdaki tabloda yer alan seçenekleri kullanın. Yükleme bayraklarının listesini görmek için yükleyiciyi çalıştırırken aşağıda gösterildiği gibi /? bayrağını kullanın.
 
     InstallDependencyAgent-Windows.exe /?
 
 | Bayrağı | Açıklama |
 |:--|:--|
-| /? | Komut satırı seçeneklerinin listesini alın. |
-| / S | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
+| /? | Komut satırı seçeneklerinin listesini alır. |
+| / S | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
 
-Dosyalar Windows bağımlılık aracısı için varsayılan olarak C:\Program Files\Microsoft bağımlılık Aracısı yerleştirilir.
+Windows Bağımlılık Aracısı'nın dosyaları varsayılan olarak C:\Program Files\Microsoft Dependency Agent konumuna yerleştirilir.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Linux'ta bağımlılık Aracısı'nı yüklemek
-Kök erişimi yüklemek veya aracıyı yapılandırmak için gereklidir.
+### <a name="install-the-dependency-agent-on-linux"></a>Linux'ta Bağımlılık Aracısı'nı yükleme
+Aracıyı yüklemek veya yapılandırmak için kök erişimi gerekir.
 
-Bağımlılık Aracısı'nı InstallDependencyAgent Linux64.bin, kendiliğinden açılan bir ikili içeren bir kabuk betiği aracılığıyla Linux bilgisayarlara yüklenir. Dosyayı Paylaş kullanarak çalıştırın ya da eklemek yürütme dosya izinlerinin.
+Bağımlılık Aracısı Linux bilgisayarlarına kendi kendine ayıklama ikili dosyası içeren InstallDependencyAgent-Linux64.bin kabuk betiğiyle yüklenir. Dosyayı Paylaş kullanarak çalıştırın ya da eklemek yürütme dosya izinlerinin.
  
-Her bir Linux bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
+Her Linux bilgisayarına Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
 1.  Kısmındaki yönergeleri kullanarak OMS Aracısı'nı yükleme [toplamak ve Linux bilgisayarları veri yönetmek](https://technet.microsoft.com/library/mt622052.aspx).
 2.  Linux bağımlılık Aracısı'nı, aşağıdaki komutu kullanarak kök olarak yükleyin:<br>`sh InstallDependencyAgent-Linux64.bin`
-3.  Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracısında /var/opt/microsoft/dependency-agent/log günlük dizindir.
+3.  Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracısında /var/opt/microsoft/dependency-agent/log günlük dizindir.
 
 Çalıştır yükleme bayrakları listesini görmek için yükleme programını Yardım bayrağı gibi.
 
@@ -108,31 +109,31 @@ Her bir Linux bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağı
 
 | Bayrağı | Açıklama |
 |:--|:--|
-| -Yardım | Komut satırı seçeneklerinin listesini alın. |
-| -s | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
-| --denetleyin | İzinler ve işletim sistemi denetle, ancak aracı yüklemeyin. |
+| -Yardım | Komut satırı seçeneklerinin listesini alır. |
+| -s | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
+| --denetleyin | İzinleri ve işletim sistemini denetleyin ama aracıyı yüklemeyin. |
 
-Bağımlılık aracısı için dosyalar aşağıdaki dizinlerindeki yerleştirilir:
+Bağımlılık Aracısı'nın dosyaları aşağıdaki dizinlere yerleştirilir:
 
 | Dosyalar | Konum |
 |:--|:--|
-| Çekirdek dosyaları | /OPT/Microsoft/Dependency-Agent |
-| Günlük dosyaları | /var/OPT/Microsoft/Dependency-Agent/log |
-| Yapılandırma dosyaları | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Hizmet yürütülebilir dosyalar | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| İkili depolama dosyaları | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Çekirdek dosyaları | /opt/microsoft/dependency-agent |
+| Günlük dosyaları | /var/opt/microsoft/dependency-agent/log |
+| Yapılandırma dosyaları | /etc/opt/microsoft/dependency-agent/config |
+| Hizmet yürütülebilir dosyaları | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| İkili depolama dosyaları | /var/opt/microsoft/dependency-agent/storage |
 
-## <a name="installation-script-examples"></a>Yükleme komut dosyası örnekleri
-Kolayca bağımlılık Aracısı pek çok sunucu üzerinde aynı anda dağıtmak için bir komut dosyası kullanmak yararlı olur. Aşağıdaki komut örnekleri indirin ve Windows ya da Linux bağımlılık Aracısı'nı yüklemek için kullanabilirsiniz.
+## <a name="installation-script-examples"></a>Yükleme betiği örnekleri
+Bağımlılık Aracısı'nı bir kerede birçok sunucuya kolayca dağıtmak için, betik kullanmak yararlı olabilir. Windows veya Linux'a Bağımlılık Aracısı'nı indirip yüklemek için aşağıdaki betik örneklerini kullanabilirsiniz.
 
-### <a name="powershell-script-for-windows"></a>Windows PowerShell Betiği
+### <a name="powershell-script-for-windows"></a>Windows için PowerShell betiği
 ```PowerShell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
 ```
 
-### <a name="shell-script-for-linux"></a>Linux için kabuk komut dosyası
+### <a name="shell-script-for-linux"></a>Linux için kabuk betiği
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sudo sh InstallDependencyAgent-Linux64.bin -s
@@ -188,7 +189,7 @@ Bağımlılık Aracısı'nı, VM'lerin her birinde olduğundan emin olmak için 
 
 
 ## <a name="desired-state-configuration"></a>İstenen Durum Yapılandırması
-Bağımlılık Aracısı istenen durum yapılandırması üzerinden dağıtmak için xPSDesiredStateConfiguration modülü ve biraz kod aşağıdaki gibi kullanabilirsiniz:
+Bağımlılık Aracısı'nı Desired State Configuration yoluyla dağıtmak için, xPSDesiredStateConfiguration modülünü ve aşağıdaki gibi küçük bir kod kullanabilirsiniz:
 ```
 configuration ServiceMap {
 
@@ -222,12 +223,12 @@ Node localhost
 ```
 
 ## <a name="uninstallation"></a>Kaldırma
-### <a name="uninstall-the-dependency-agent-on-windows"></a>Windows üzerinde bağımlılık Aracısı'nı kaldırın
-Bir yönetici için bağımlılık Aracısı Windows Denetim Masası'ndan kaldırabilirsiniz.
+### <a name="uninstall-the-dependency-agent-on-windows"></a>Windows'da Bağımlılık Aracısı'nı kaldırma
+Yöneticiler, Denetim Masası aracılığıyla Windows için Bağımlılık Aracısı'nı kaldırabilir.
 
-Bir yönetici, %Programfiles%\Microsoft Agent\Uninstall.exe bağımlılık Aracısı'nı kaldırmak için bağımlılık olarak da çalıştırabilirsiniz.
+Bir yönetici Bağımlılık Aracısı'nı kaldırmak için %Programfiles%\Microsoft Dependency Agent\Uninstall.exe'yi çalıştırabilir.
 
-### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux üzerinde bağımlılık Aracısı'nı kaldırın
+### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux'ta Bağımlılık Aracısı'nı kaldırma
 Aşağıdaki komutla Linux bağımlılık aracısını kaldırabilirsiniz.
 <br>RHEL, CentOs veya Oracle:
 ```
@@ -292,7 +293,7 @@ Hizmet eşlemesi aşağıdaki Azure bölgelerinde şu anda kullanılabilir deği
 
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
-Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim sistemleri listelenmektedir. Hizmet eşlemesi 32-bit mimariler için herhangi bir işletim sistemini desteklemiyor.
+Aşağıdaki bölümlerde Bağımlılık Aracısı için desteklenen işletim sistemleri listelenir. Hizmet eşlemesi 32-bit mimariler için herhangi bir işletim sistemini desteklemiyor.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -306,12 +307,12 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 - Windows 8
 - Windows 7
 
-### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (ile RHEL çekirdek)
+### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (RHEL Çekirdeği ile)
 - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.
-- PAE ve Xen, desteklenmez için tüm Linux dağıtım gibi standart olmayan çekirdek serbest bırakır. Örneğin, "2.6.16.21-0.8-xen" sürüm dizesi sistemiyle desteklenmiyor.
-- Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
-- CentOSPlus çekirdek desteklenmiyor.
-- Oracle kesilemeyen kurumsal çekirdek (UEK), bu makalenin sonraki bölümlerde ele alınmıştır.
+- PAE ve Xen gibi standart dışı çekirdek sürümleri hiçbir Linux dağıtımında desteklenmez. Örneğin, "2.6.16.21-0.8-xen" sürüm dizesi sistemiyle desteklenmiyor.
+- Standart çekirdeklerin yeniden derlemeleri de dahil olmak üzere özel çekirdekler desteklenmez.
+- CentOSPlus çekirdeği desteklenmez.
+- Oracle Unbreakable Enterprise Kernel (UEK), bu makalenin sonraki bir bölümünde ele alınmıştır.
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
@@ -322,6 +323,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | OS sürümü | Çekirdek sürümü |
@@ -346,14 +348,14 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
-- Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
+- Standart çekirdeklerin yeniden derlemeleri de dahil olmak üzere özel çekirdekler desteklenmez.
 
 | OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux kesilemeyen kurumsal çekirdek ile
+### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux ve Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 | OS sürümü | Çekirdek sürümü
 |:--|:--|

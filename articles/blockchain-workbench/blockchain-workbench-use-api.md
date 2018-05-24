@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: cec2ab862a34a8753601dfeef3081ae9e9ca9fd9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257912"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API'sini kullanma 
 
@@ -26,12 +27,14 @@ Azure Blockchain Workbench REST API'si geliştiricilere ve bilgi çalışanları
 * Anlaşma için kullanılabilir eylemleri listeleme
 * Anlaşma için bir eylem yürütme
 
+Senaryoda kullanılan örnek blockchain uygulamaları olabilir [Github'dan indirilen](https://github.com/Azure-Samples/blockchain). 
+
 ## <a name="list-applications"></a>Uygulamaları listeleme
 
-Kullanıcı blok zinciri istemcisinde oturum açtıktan sonra, ilk görev kullanıcının tüm Blockchain Workbench blok zinciri uygulamalarını almaktır. Bu senaryoda, kullanıcının iki uygulamaya erişimi vardır:
+Bir kullanıcı blockchain istemciyi imzaladığı sonra ilk kullanıcı için tüm Blockchain çalışma ekranı uygulamaları almak için bir görevdir. Bu senaryoda, kullanıcının iki uygulamaya erişimi vardır:
 
-1.  Asset Transfer (Varlık Aktarımı)
-2.  Refrigerated Transportation (Soğuk Taşıma)
+1.  [Varlık aktarımı](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2.  [Refrigerated taşıma](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 [Applications GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) kullanın:
 
@@ -40,7 +43,7 @@ GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-Yanıtta kullanıcının Blockchain Workbench'te erişimi olan tüm blok zinciri uygulamaları listelenir. Blockchain Workbench yöneticileri tüm blok zinciri uygulamalarını alırken, Workbench yöneticisi olmayanlar en az bir ilişkili uygulama rolüne veya ilişkili akıllı anlaşma örneği rolüne sahip oldukları tüm blok zincirlerini alırlar.
+Yanıt için bir kullanıcı erişimi Blockchain çalışma ekranı içinde olan tüm blockchain uygulamaları listeler. Blockchain Workbench yöneticileri tüm blok zinciri uygulamalarını alırken, Workbench yöneticisi olmayanlar en az bir ilişkili uygulama rolüne veya ilişkili akıllı anlaşma örneği rolüne sahip oldukları tüm blok zincirlerini alırlar.
 
 ``` http
 HTTP/1.1 200 OK
@@ -74,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Uygulama için iş akışlarını listeleme
 
-Kullanıcı uygun blok zinciri uygulamasını seçtikten sonra (bu örnekte Asset Transfer), blok zinciri istemcisi bu belirli blok zinciri uygulamasının tüm iş akışlarını alır. Ardından, iş akışının tüm akıllı anlaşma örneklerinin gösterilmesi için kullanıcılar uygun iş akışını seçer. Her blok zinciri uygulamasının bir veya birden çok iş akışı vardır ve her iş akışının sıfır veya akıllı anlaşma örnekleri bulunur. Blok zinciri istemci uygulamaları oluştururken, blok zinciri uygulamasının tek bir iş akışı olduğu durumlarda kullanıcıların uygun iş akışını seçmesine izin veren kullanıcı deneyimi akışının atlanması önerilir. Bu örnekte, Asset Transfer uygulamasının adı yine Asset Transfer olan tek bir iş akışı vardır.
+Bu durumda, bir kullanıcı geçerli blockchain uygulama seçtikten sonra **varlık aktarım**, belirli blockchain uygulamanın tüm iş akışları blockchain istemci alır. Ardından, iş akışının tüm akıllı anlaşma örneklerinin gösterilmesi için kullanıcılar uygun iş akışını seçer. Her blok zinciri uygulamasının bir veya birden çok iş akışı vardır ve her iş akışının sıfır veya akıllı anlaşma örnekleri bulunur. Blok zinciri istemci uygulamaları oluştururken, blok zinciri uygulamasının tek bir iş akışı olduğu durumlarda kullanıcıların uygun iş akışını seçmesine izin veren kullanıcı deneyimi akışının atlanması önerilir. Bu durumda, **varlık aktarım** sahip olarak da adlandırılan tek bir iş akışı **varlık aktarım**.
 
 [Applications Workflows GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) kullanın:
 
@@ -106,7 +109,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>İş akışı için akıllı anlaşma örneklerini listeleme
 
-Kullanıcı uygun blok zinciri uygulamasını seçtikten sonra (bu örnekte Asset Transfer), blok zinciri istemcisi belirtilen iş akışı için tüm akıllı anlaşma örneklerini alır. Bu bilgiyi kullanarak iş akışının tüm akıllı anlaşma örneklerini gösterebilir ve kullanıcıların gösterilen tüm akıllı anlaşma örneklerinde ayrıntıya gitmesine olanak tanıyabilirsiniz. Bu örnekte, kullanıcının bir eylem yapmak için akıllı anlaşma örneklerinden biriyle etkileşimli çalışmak istediğini düşünün.
+Geçerli iş akışı, bu durumda kullanıcı seçtikten sonra **varlık aktarım**, blockchain istemci belirtilen iş akışı için tüm akıllı sözleşme örneklerini alır. Bu bilgiyi kullanarak iş akışının tüm akıllı anlaşma örneklerini gösterebilir ve kullanıcıların gösterilen tüm akıllı anlaşma örneklerinde ayrıntıya gitmesine olanak tanıyabilirsiniz. Bu örnekte, kullanıcının bir eylem yapmak için akıllı anlaşma örneklerinden biriyle etkileşimli çalışmak istediğini düşünün.
 
 [Contracts GET API'sini](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget) kullanın:
 

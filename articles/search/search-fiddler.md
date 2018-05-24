@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190194"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler veya Postman kullanarak Azure Search REST API'lerini keşfetme
 
@@ -48,14 +49,14 @@ REST çağrıları için her istekte hizmet URL'sinin ve bir erişim anahtarın�
 
 Her araç oturum için istek üst bilgisini içerir. Bu nedenle URL uç noktasını, API sürümünü, API anahtarını ve içerik türünü yalnızca bir kez girmeniz gerekir.
 
-Tam URL aşağıdaki örneğe benzer olmalıdır. Sizinkinde farklı olarak **`my-app`** yer tutucusunun adı için geçerli bir değer bulunmalıdır: `https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+Tam URL aşağıdaki örneğe benzer olmalıdır. Sizinkinde farklı olarak **`my-app`** yer tutucusunun adı için geçerli bir değer bulunmalıdır: `https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
 Hizmet URL'si birleşimi aşağıdaki öğeleri içerir:
 
 + HTTPS ön eki.
 + Portaldan alınan Hizmet URL'si.
 + Hizmetinizde nesne oluşturan bir işlem olan kaynak. Bu adımda hotels adlı bir dizin kullanılmıştır.
-+ API sürümü, geçerli sürüm için "?api-version=2016-09-01" olarak belirtilen küçük harfli bir dize. [API sürümleri](search-api-versions.md) düzenli olarak güncelleştirilir. api-version parametresini her isteğe dahil etmeniz hangisinin kullanıldığıyla ilgili tam denetim sahibi olmanızı sağlar.  
++ API sürümü, geçerli sürüm için "?api-version=2017-11-11" olarak belirtilen küçük harfli bir dize. [API sürümleri](search-api-versions.md) düzenli olarak güncelleştirilir. api-version parametresini her isteğe dahil etmeniz hangisinin kullanıldığıyla ilgili tam denetim sahibi olmanızı sağlar.  
 
 İstek üst bilgisi önceki bölümde açıklanan içerik türü ve API anahtarı olmak üzere iki öğeyi içerir:
 
@@ -124,7 +125,7 @@ Aşağıdaki ekran görüntüsünde gösterildiği şekilde dizin tanımını is
 Dizini oluşturma ve dizini doldurma ayrı adımlardır. Azure Search'te dizin, arama yapılabilecek ve JSON belgeleri olarak iletebileceğiniz tüm verileri içerir. Bu işlemde kullanılacak API'yi gözden geçirmek için bkz. [Belge ekleme, güncelleştirme veya silme (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 + Bu adım için fiili **POST** olarak değiştirin.
-+ Uç noktayı `/docs/index` içerecek şekilde değiştirin. Tam URL `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01` şeklinde görünmelidir
++ Uç noktayı `/docs/index` içerecek şekilde değiştirin. Tam URL `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11` şeklinde görünmelidir
 + İstek üst bilgilerini değiştirmeyin. 
 
 İstek Gövdesi, oteller dizinine eklenecek dört belge içerir.
@@ -213,7 +214,7 @@ Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değ
 Şimdi dizin ve belgeler karşıya yüklendiğine göre, bunlara sorgu gönderebilirsiniz. Bu API hakkında daha fazla bilgi için bkz. [Arama Belgeleri (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)  
 
 + Bu adım için fiili **GET** olarak değiştirin.
-+ Uç noktayı arama dizeleri dahil olmak üzere sorgu parametrelerini içerecek şekilde değiştirin. Sorgu URL'si `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2016-09-01` gibi görünmelidir
++ Uç noktayı arama dizeleri dahil olmak üzere sorgu parametrelerini içerecek şekilde değiştirin. Sorgu URL'si `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11` gibi görünmelidir
 + İstek üst bilgilerini değiştirmeyin
 
 Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını döndürür. **Send** (Gönder) öğesine tıkladığınızda görünen istek ve yanıt aşağıdaki Postman ekran görüntüsüne benzer olmalıdır. Durum kodu 200 olmalıdır.
@@ -222,18 +223,18 @@ Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını 
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Örnek sorgularımızı Fiddler'da çalıştırma ipuçları
 
-Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) makalesinde yer alır. Bu makaledeki örnek sorguların çoğu, Fiddler'da izin verilmeyen boşluklar içerir. Sorgu dizesini yapıştırmadan ve Fiddler'da sorguyu denemeden önce, her bir boşluğu + karakteri ile değiştirin.
+Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) makalesinde yer alır. Bu makaledeki örnek sorguların çoğu, Fiddler'da izin verilmeyen boşluklar içerir. Sorgu dizesini yapıştırmadan ve Fiddler'da sorguyu denemeden önce, her bir boşluğu + karakteri ile değiştirin.
 
 **Boşluklar değiştirilmeden önce (in lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
 **Boşluklar + ile değiştirildikten sonra (in lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## <a name="query-index-properties"></a>Sorgu dizini özellikleri
-Ayrıca, belge sayısını ve depolama tüketimini almak için sistem bilgilerini sorgulayabilirsiniz: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01`
+Ayrıca, belge sayısını ve depolama tüketimini almak için sistem bilgilerini sorgulayabilirsiniz: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 Postman uygulamasında isteğinizin aşağıdakine benzer olması ve yanıtta belge sayısı ile kullanılan alanın bayt cinsinden değerinin belirtilmesi gerekir.
 

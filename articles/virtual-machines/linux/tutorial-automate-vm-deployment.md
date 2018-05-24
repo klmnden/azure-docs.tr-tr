@@ -1,13 +1,13 @@
 ---
-title: "Azure’da ilk önyüklemede Linux sanal makinesini özelleştirme | Microsoft Docs"
-description: "Linux sanal makinelerinin Azure’da ilk önyüklenmesini özelleştirmek için cloud-init ve Key Vault’un nasıl kullanılacağını öğrenin"
+title: Öğretici - Azure’da cloud-init ile bir Linux VM’si yapılandırma | Microsoft Docs
+description: Bu öğreticide, Linux sanal makinelerinin Azure’da ilk önyüklenmesini özelleştirmek için cloud-init ve Key Vault’un nasıl kullanılacağını öğreneceksiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +16,15 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fa1e95263559906ebfd0df82b2756043e38852a6
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305166"
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>İlk önyüklemede Linux sanal makinesini özelleştirme
+# <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Öğretici - Azure’da ilk önyüklemede bir Linux sanal makinesini özelleştirmek için cloud-init kullanma
+
 Bir önceki öğreticide, sanal makineye nasıl SSH uygulanacağını ve NGINX öğesinin el ile nasıl yükleneceğini öğrendiniz. Hızlı ve tutarlı şekilde sanal makineler oluşturmak için genellikle bir otomasyon biçimi istenir. İlk önyüklemede bir sanal makineyi özelleştirmek için genellikle [cloud-init](https://cloudinit.readthedocs.io) kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
@@ -32,12 +34,9 @@ Bir önceki öğreticide, sanal makineye nasıl SSH uygulanacağını ve NGINX �
 > * Sertifikaları güvenli şekilde depolamak için Key Vault’u kullanma
 > * cloud-init ile güvenli NGINX dağıtımlarını otomatikleştirme
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
-
-
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Cloud-init genel bakış
 [Cloud-init](https://cloudinit.readthedocs.io), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. cloud-init önyükleme işlemi sırasında çalışırken, yapılandırmanıza uygulayabileceğiniz ek adım veya gerekli aracı yoktur.
@@ -123,7 +122,7 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika daha sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısı aracılığıyla Node.js uygulamasına erişmek için kullanılır.
+VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısı aracılığıyla Node.js uygulamasına erişmek için kullanılır.
 
 Web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#az_vm_open_port) komutuyla İnternet’te 80 numaralı bağlantı noktasını açın:
 
@@ -179,7 +178,7 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm format-secret --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret")
 ```
 
 
@@ -251,7 +250,7 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika daha sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısı aracılığıyla Node.js uygulamasına erişmek için kullanılır.
+VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısı aracılığıyla Node.js uygulamasına erişmek için kullanılır.
 
 Güvenli web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#az_vm_open_port) komutuyla internette 443 numaralı bağlantı noktasını açın:
 

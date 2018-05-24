@@ -1,6 +1,6 @@
 ---
-title: Azure’da Windows VM özelleştirme | Microsoft Docs
-description: Azure’da Windows VM’leri üzerinde uygulama yüklemelerini otomatikleştirmek için özel betik uzantısını kullanmayı öğrenin
+title: Öğretici - Azure’da bir Windows VM’si üzerinde uygulamalar yükleme | Microsoft Docs
+description: Bu öğreticide, Azure’da betikler çalıştırmak ve Windows sanal makinelerine uygulamalar dağıtmak için Özel Betik Uzantısı’nı kullanmayı öğreneceksiniz
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,15 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6afb5757e11108eec856d821d92afed9681a2668
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51a66d524e72968d95f3415b890567015165063a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187445"
 ---
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Azure'da Windows sanal makinesini özelleştirme
+# <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Öğretici - Azure’da Özel Betik Uzantısı ile bir Windows sanal makinesine uygulama dağıtma
+
 Sanal makineleri (VM’ler) hızlı ve tutarlı bir şekilde yapılandırmak için genellikle bir otomasyon biçimi istenir. [Windows için Özel Betik Uzantısı](extensions-customscript.md) kullanarak Windows VM özelleştirmek yaygın bir yaklaşımdır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
@@ -32,7 +34,7 @@ Sanal makineleri (VM’ler) hızlı ve tutarlı bir şekilde yapılandırmak iç
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 
 ## <a name="custom-script-extension-overview"></a>Özel betik uzantısına genel bakış
