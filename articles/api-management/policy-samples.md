@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management ilkesi örnekleri | Microsoft Docs"
-description: "Azure API Management'te kullanıma ilkeleri hakkında bilgi edinin."
+title: Azure API Management ilke örnekleri | Microsoft Docs
+description: Azure API Management'ta kullanılabilecek ilkeler hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
-author: Juliako
+documentationcenter: ''
+author: vladvino
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,38 +13,32 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-<<<<<<< HEAD
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
-=======
 ms.custom: mvc
-ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.openlocfilehash: 3f1d9a96888732e6221722102a687e09f37333c0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="api-management-policy-samples"></a>API Management ilkesi örnekleri
+# <a name="api-management-policy-samples"></a>API Management ilke örnekleri
 
-[İlkeleri](api-management-howto-policies.md) yapılandırma yoluyla API'nin davranışını değiştirmek yayımcı sisteminin güçlü bir özellik olan. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Aşağıdaki tabloda, örnekleri bağlantılarını içerir ve her örnek kısa bir açıklamasını sağlar.
+[İlkeler](api-management-howto-policies.md), yayımcının API’nin davranışını yapılandırma yoluyla değiştirmesini sağlayan güçlü sistem özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Aşağıdaki tabloda örneklerin bağlantıları yer alır ve her örnek için kısa bir açıklama verilir.
 
 |||
 |---|---|
 |**Gelen ilkeleri**||
-|[Arka uç uygun URL'ler oluşturmak için API izin vermek için iletilen üstbilgisi Ekle](./policies/set-header-to-enable-backend-to-construct-urls.md?toc=api-management/toc.json) |Arka uç uygun URL'ler oluşturmak için API izin vermek için gelen istekte iletilen üstbilgi ekleneceği gösterilmektedir.|
-|[Bağıntı kimliğini içeren bir üst bilgi Ekle](./policies/add-correlation-id.md?toc=api-management/toc.json) |Gelen istek için bir bağıntı kimliği içeren üstbilgi ekleneceği gösterilmektedir.|
-|[Bir arka uç hizmetine özellikleri ekleyin ve yanıt önbelleğe alma](./policies/cache-response.md?toc=api-management/toc.json) |Bir arka uç hizmetine yetenekleri ekleme gösterir. Örneğin, enlem ve boylam hava tahmini API içinde yerine yer adını kabul edin.|
-|[JWT talepleri temelinde erişim yetkisi](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |JWT talepleri temelinde bir API belirli HTTP yöntemleri erişim yetkisi vermek gösterilmiştir.|
-|[Google OAuth belirtecini kullanarak erişim yetkisi](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Google OAuth belirteci sağlayıcısı olarak kullanarak noktalarınızı erişim yetkisi vermek gösterilmiştir.|
-|[Paylaşılan erişim imzası ve Azure depolama iletme isteği oluştur](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Nasıl oluşturulacağını gösterir [paylaşılan erişim imzası](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) ifadeler kullanarak ve isteği yeniden yazma-URI İlkesi ile Azure depolama iletebilir. |
-|[AAD OAuth2 erişim belirteci almak ve arka uç için iletme](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Sağlar ve ağ geçidi ve arka uç arasında yetkilendirme için OAuth2 kullanma örneği. AAD bir erişim belirteci edinme ve arka uç için iletme gösterir.|
-|[Gönderme İsteği İlkesi'ni kullanarak SAP ağ geçidine belirtecinden X-CSRF Al](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Çok sayıda API tarafından kullanılan X-CSRF desen uygulamak gösterilmiştir. Bu örnek, SAP ağ geçidine özeldir. |
-|[Yol, gövde boyutuna göre isteği](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Kendi gövdeleri boyutuna göre istekleri yönlendirmek gösterilmiştir.|
-|[Arka uç hizmetine istek bağlamı bilgi gönder](./policies/send-request-context-info-to-backend-service.md?toc=api-management/toc.json) |Bazı içerik bilgilerini günlüğe kaydetme veya işlemek için arka uç hizmetine göndermek nasıl gösterir.|
-|[Yanıt önbelleğe alma süresi ayarlayın](./policies/set-cache-duration.md?toc=api-management/toc.json) |Yanıt önbelleğe alma süresi arka ucu tarafından gönderilen Cache-Control üstbilgisi maxAge değerini kullanarak ayarlanacağı gösterilmiştir.|
+|[Arka uç API'sinin düzgün URL'ler oluşturmasını sağlamak için bir İletildi üst bilgisi ekleme](./policies/set-header-to-enable-backend-to-construct-urls.md?toc=api-management/toc.json) |Arka uç API'sinin düzgün URL'ler oluşturmasını sağlamak için gelen isteğe İletildi üst bilgisi ekleme işlemini gösterir.|
+|[Bağıntı kimliği içeren bir üst bilgi ekleme](./policies/add-correlation-id.md?toc=api-management/toc.json) |Gelen isteğe bağıntı kimliği içeren bir üst bilgi ekleme işlemini gösterir.|
+|[Arka uç hizmetine özellikler ekleme ve yanıtı önbelleğe alma](./policies/cache-response.md?toc=api-management/toc.json) |Arka uç hizmetine özellikler ekleme işlemini gösterir. Örneğin, hava durumu tahmini API'sinde enlem ve boylam yerine bir yer adını kabul edin.|
+|[JWT talepleri temelinde erişim yetkisi verme](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |JWT talepleri temelinde bir API'deki belirli HTTP yöntemlerine erişim yetkisi verme işlemini gösterir.|
+|[Google OAuth belirtecini kullanarak erişim yetkisi verme](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |OAuth belirteç sağlayıcısı olarak Google'ı kullanıp uç noktalarınıza erişim yetkisi verme işlemini gösterir.|
+|[Paylaşılan Erişim İmzası oluşturma ve Azure depolamaya isteği iletme](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |İfadeleri kullanarak [Paylaşılan Erişim İmzası](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) oluşturma ve rewrite-uri ilkesiyle Azure depolamaya isteği iletme işlemlerini gösterir. |
+|[AAD'den OAuth2 erişim belirtecini alma ve bunu arka uca iletme](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Ağ geçidiyle arka uç arasındaki yetkilendirme için OAuth2 kullanma örneği sağlar. AAD'den erişim belirtecini alma ve bunu arka uca iletme işlemini de gösterir.|
+|[İstek gönderme ilkesini kullanarak SAP ağ geçidinden X-CSRF belirtecini alma](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Birçok API tarafından kullanılan X-CSRF deseninin nasıl uygulandığını gösterir. Bu örnek SAP Ağ Geçidi'ne özgüdür. |
+|[İsteği, gövdesinin boyutu temelinde yönlendirme](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |İstekleri gövdelerinin boyutu temelinde yönlendirme işlemini gösterir.|
+|[Arka uç hizmetine istek bağlamı bilgilerini gönderme](./policies/send-request-context-info-to-backend-service.md?toc=api-management/toc.json) |Günlüğe kaydedilmesi veya işlenmesi için arka uç hizmetine bazı bağlam bilgilerinin nasıl gönderileceğini gösterir.|
+|[Yanıt önbellek süresini ayarlama](./policies/set-cache-duration.md?toc=api-management/toc.json) |Arka uç tarafından gönderilen Cache-Control üst bilgisindeki maxAge değerini kullanarak yanıt önbellek süresini ayarlama işlemini gösterir.|
 |**Giden ilkeleri**||
-|[Yanıt içeriği filtrele](./policies/filter-response-content.md?toc=api-management/toc.json) | İstekle ilişkili ürün göre yanıt yükü veri öğeleri filtrelemek gösterilmiştir.|
-|**Hata ilkeleri**||
-|[Stackify hataları](./policies/log-errors-to-stackify.md?toc=api-management/toc.json) |Hatalar için günlüğü için Stackify göndermek için bir hata günlük kaydı ilkesi ekleme gösterir.|
+|[Yanıt içeriğini filtreleme](./policies/filter-response-content.md?toc=api-management/toc.json) | İstekle ilişkilendirilmiş ürün temelinde yanıt yükünden veri öğelerinin nasıl filtreleneceğini gösterir.|
+|**Hata durum ilkeleri**||
+|[Hataları Stackify'de günlüğe kaydetme](./policies/log-errors-to-stackify.md?toc=api-management/toc.json) |Hataları günlüğe kaydedilmek üzere Stackify'ye göndermek üzere bir hata günlüğü ilkesi ekleme işlemini gösterir.|

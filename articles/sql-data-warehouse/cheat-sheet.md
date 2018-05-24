@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için kural sayfası
 Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.
@@ -34,7 +34,7 @@ Veri ambarınızda çalıştırılacak birincil işlemleri ve sorguları öncede
 
 ## <a name="data-migration"></a>Veri geçişi
 
-İlk olarak verilerinizi [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store)’a veya Azure Blob depolama alanına yükleyin. Ardından hazırlama tablosunda SQL Veri Ambarı’na verilerinizi yüklemek için PolyBase kullanın. Aşağıdaki yapılandırmayı kullanın:
+İlk olarak verilerinizi [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)’a veya Azure Blob depolama alanına yükleyin. Ardından hazırlama tablosunda SQL Veri Ambarı’na verilerinizi yüklemek için PolyBase kullanın. Aşağıdaki yapılandırmayı kullanın:
 
 | Tasarım | Öneri |
 |:--- |:--- |
@@ -43,7 +43,7 @@ Veri ambarınızda çalıştırılacak birincil işlemleri ve sorguları öncede
 | Bölümleme | None |
 | Kaynak Sınıfı | largerc veya xlargerc |
 
-[Veri geçişi], [veri yükleme] ve [Ayıklama, Yükleme ve Dönüştürme (ELT) işlemi](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading) hakkında daha fazla bilgi edinin. 
+[Veri geçişi], [veri yükleme] ve [Ayıklama, Yükleme ve Dönüştürme (ELT) işlemi](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) hakkında daha fazla bilgi edinin. 
 
 ## <a name="distributed-or-replicated-tables"></a>Dağıtılmış veya çoğaltılmış tablolar
 
@@ -78,7 +78,7 @@ Dizinleme, tabloların hızlı şekilde okunması için faydalıdır. Gereksinim
 **İpuçları:**
 * Kümelenmiş bir dizin üzerinde, filtreleme için yoğun şekilde kullanılan bir sütuna kümelenmemiş bir dizin eklemek isteyebilirsiniz. 
 * CCI ile bir tablodaki belleği nasıl yöneteceğiniz konusunda dikkatli olun. Veri yüklediğinizde, kullanıcının (veya sorgunun) büyük bir kaynak sınıfından avantaj elde etmesini istersiniz. Kırpmadan ve çok sayıda küçük sıkıştırılmış satır grupları oluşturmaktan kaçınmaya dikkat edin.
-* CCI ile İşlem Katmanı için iyileştirilmiştir.
+* Gen2’de, CCI tabloları performansı en üst düzeye çıkarmak için işlem düğümlerinde yerel olarak önbelleğe alınır.
 * CCI için, satır gruplarınızın sıkıştırmasının zayıf olması nedeniyle düşük performans gerçekleşebilir. Bu durumda CCI’nizi yeniden derleyin veya yeniden düzenleyin. Sıkıştırılmış satır grubu başına en az 100.000 satır istiyorsunuz. Bir satır grubunda 1 milyon satır olması idealdir.
 * Artımlı yük sıklığı ve boyutuna bağlı olarak, dizinlerinizi yeniden düzenlerken veya yeniden derlerken otomatikleştirme sağlamak istersiniz. Bahar temizliği her zaman yararlıdır.
 * Bir satır grubunun kırpmak istediğinizde stratejik olun. Açık satır grupları ne kadar büyüktür? Yaklaşan günlerde ne kadar veri yüklemeyi bekliyorsunuz?
@@ -111,7 +111,7 @@ SQL Veri Ambarı, kaynak gruplarını sorgulara bellek ayırma yöntemi olarak k
 
 Sorguların çok uzun sürdüğünü fark ederseniz, kullanıcılarınızın büyük kaynak sınıflarında çalışmadığından emin olun. Büyük kaynak sınıfları birçok eşzamanlı yuva kullanır. Bunlar diğer sorguların kuyruğa alınmasına neden olabilir.
 
-Son olarak, İşlem İçin İyileştirilmiş Katmanı kullanılarak her kaynak sınıfı, Elastik için İyileştirilmiş Katmandan 2,5 kat daha fazla bellek alır.
+Son olarak, SQL Veri Ambarı Gen2 kullandığınızda, her kaynak sınıfı Gen1’e göre 2,5 kat daha fazla belleğe sahip olur.
 
 [Kaynak sınıfları ve eşzamanlılık] ile çalışma hakkında daha fazla bilgi edinin.
 

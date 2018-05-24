@@ -1,0 +1,281 @@
+---
+title: Time Series Insights JavaScript istemci kitaplığını keşfetme
+description: Time Series Insights JavaScript istemci kitaplığını ve ilgili programlama modelini öğrenin.
+documentationcenter: ''
+services: time-series-insights
+author: BryanLa
+manager: timlt
+editor: ''
+tags: ''
+ms.assetid: ''
+ms.service: time-series-insights
+ms.workload: na
+ms.tgt_pltfrm: ''
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 05/10/2018
+ms.author: bryanla
+ms.openlocfilehash: 5b845f36dbb65b38d0e4ac2a118277027239b3d6
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/14/2018
+---
+# <a name="tutorial-explore-the-time-series-insights-javascript-client-library"></a>Öğretici: Time Series Insights JavaScript istemci kitaplığını keşfetme
+
+Geliştiricilerin Time Series Insights (TSI) içinde depolanan verileri sorgulamasına ve görselleştirmesine yardımcı olmak için, bu çalışmayı kolaylaştıran JavaScript D3 tabanlı bir denetim kitaplığı geliştirdik. Bu öğretici, örnek bir web uygulaması kullanarak TSI JavaScript istemci kitaplığının ve ilgili programlama modelinin keşfinde size yol gösterir. 
+
+Üzerinde durulan konular, TSI verilerine erişimi deneme ve daha iyi anlama, ayrıca verileri işlemek ve görselleştirmek için grafik denetimlerini kullanma fırsatı sağlar. Hedef, kitaplığı kendi web uygulamanızda kullanabilmeniz için size gerekli ayrıntıları sağlamaktır.
+
+Bu öğreticide şunları öğrenirsiniz:
+
+> [!div class="checklist"]
+> * TSI Örnek uygulaması 
+> * TSI JavaScript istemci kitaplığı
+> * TSI verilerini görselleştirmek için örnek uygulamanın kitaplığı nasıl kullandığı
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Bu öğreticide, [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) gibi modern web tarayıcılarının çoğunda bulunan "Geliştirici Araçları" özelliği (DevTools veya F12 olarak da bilinir) kullanılır. Bu özelliği henüz tanımıyorsanız, devam etmeden önce tarayıcınızda incelemek isteyebilirsiniz. 
+
+## <a name="the-time-series-insights-sample-application"></a>Time Series Insights Örnek Uygulaması
+
+Bu öğreticide, TSI JavaScript istemci kitaplığının kullanımı da dahil olmak üzere uygulamanın ardındaki kaynak kodu incelemek için Time Series Insights Örnek Uygulaması kullanılır. Uygulama, örnek TSI ortamından verileri sorgulamak ve görselleştirmek için kitaplığın kullanımını gösteren bir Tek Sayfalı Web Uygulamasıdır (SPA). 
+
+1. [Time Series Insights örnek uygulamasına](https://insights.timeseries.azure.com/clientsample) gidin. Oturum açmanızı isteyen aşağıdakine benzer bir sayfa görürsünüz: ![TSI İstemci Örneği oturum açma istemi](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
+
+2. "Log in" düğmesine tıklayın ve kimlik bilgilerinizi girin veya seçin. Kurumsal hesap/kuruluş hesabı (Azure Active Directory) veya kişisel hesap (Microsoft Hesabı veya MSA) kullanabilirsiniz. 
+
+   ![TSI İstemci Örneği kimlik bilgileri istemi](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)
+
+3. Başarıyla oturum açtıktan sonra, TSI verileriyle doldurulmuş çeşitli stillerde örnek grafikler içeren aşağıdakine benzer bir sayfa görürsünüz. Ayrıca sağ üst kısımdaki kullanıcı hesabınıza ve "log out" bağlantısına da dikkat edin: ![Oturum açtıktan sonra TSI İstemci Örneği ana sayfası](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)
+
+### <a name="page-source-and-structure"></a>Sayfa kaynağı ve yapısı
+
+İlk olarak, tarayıcınızda işlenen sayfanın ardındaki HTML ve JavaScript kaynak kodunu görüntüleyelim. Öğelerin tümüne değinmeyeceğiz, ama önemli bölümleri öğrenerek sayfanın nasıl çalıştığı hakkında fikir edinebilirsiniz:
+
+1. Tarayıcınızda "Geliştirici Araçları"nı açın ve geçerli sayfayı oluşturan HTML öğelerini inceleyin; bunlar, HTML veya DOM ağacı olarak da bilinir.
+
+2. `<head>` ve `<body>` öğelerini genişletip aşağıdaki bölümlere dikkat edin:
+   - `<head>` altında, sayfanın işlevine yardımcı olacak ek dosyaları çeken öğeler bulursunuz:
+     - ADAL olarak da bilinen Azure Active Directory Authentication Library'ye (adal.min.js) başvuru için bir `<script>` öğesi (bu kitaplık, API'lere erişim için OAuth 2.0 kimlik doğrulaması (oturum açma) ve belirteç alma özellikleri sağlayan bir JavaScript kitaplığıdır):
+     - CSS olarak da bilinen stil sayfaları (sampleStyles.css, tsiclient.css) için `<link>` öğeleri (bu stil sayfaları renk, yazı tipi, aralık gibi sayfanın görsel stilini denetlemek için kullanılır) 
+     - TSI İstemci kitaplığına (tsiclient.js) başvuru için bir `<script>`: Bu kitaplık, sayfa tarafından TSI hizmet API'lerini çağırmak ve sayfadaki grafik denetimlerini işlemek için kullanılan bir JavaScript kitaplığıdır.
+
+     >[!NOTE]
+     > ADAL JavaScript kitaplığının kaynak kodu [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js) konumunda bulunabilir.  
+     > TSI İstemci JavaScript kitaplığı [tsiclient deposunda](https://github.com/Microsoft/tsiclient) bulunabilir.
+
+   - `<body>` altında, sayfadaki öğelerin düzenini tanımlayan kapsayıcı işlevi gören `<div>` öğelerini ve başka bir `<script>` öğesi bulursunuz:
+     - ilk `<div>`, "Log In" iletişim kutusunu (`id="loginModal"`) belirtir.
+     - ikinci `<div>` şunlar için üst öğe işlevi görür:
+       - `<div>` üst bilgisi; sayfanın üst kısmında doğru durum iletileri ve oturum açma bilgileri için kullanılır (`class="header"`).
+       - kalan sayfa gövdesi öğeleri için `<div>`; grafiklerin tümünü içerir (`class="chartsWrapper"`).
+       - `<script>` bölümü; sayfayı denetlemek için kullanılan tüm JavaScript'i içerir.
+
+   [![DevTools ile TSI İstemci Örneği](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
+
+3. `<div class="chartsWrapper">` öğesini genişletin; her grafik denetimi örneğini konumlandırmak için kullanılan daha fazla alt `<div>` öğesi bulursunuz. Her grafik örneği için bir tane olmak üzere birkaç `<div>` öğesi çiftine dikkat edin:
+   - İlki (`class="rowOfCardsTitle"`), grafiğin neyi gösterdiğini özetleyen açıklayıcı bir başlık içerir. Örneğin: "Tam Boyutlu Göstergelerle Statik Çizgi Grafikler"
+   - İkincisi (`class="rowOfCards"`), bir üst öğedir ve bir satırın içindeki gerçek grafik denetimlerini konumlandıran ek alt `<div>` öğelerini içerir. 
+
+  ![Gövde "div" öğelerini görüntüleme](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
+
+4. Şimdi, doğrudan `<div class="chartsWrapper">` öğesinin altındaki `<script type="text/javascript">` öğesini genişletin. Kimlik doğrulama, TSI hizmet API'lerini çağırma ve grafik denetimlerini işleme gibi daha bir çok şey için tüm sayfa mantığını işlemek amacıyla kullanılan sayfa düzeyi JavaScript bölümünün başını görürsünüz:
+
+  ![Gövde betiğini görüntüleme](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
+
+## <a name="tsi-client-javascript-library-concepts"></a>TSI İstemci JavaScript kitaplığının kavramları
+
+Ayrıntılı olarak gözden geçirmesek de, temelde TSI İstemci kitaplığı (tsclient.js) iki önemli kategorinin soyutlamasını sağlar:
+
+- **TSI Sorgu API'lerini çağırmaya yönelik sarmalayıcı yöntemleri** - Toplama ifadelerini kullanarak TSI verilerini sorgulamanıza olanak tanıyan ve kitaplığın `TsiClient.Server` ad alanı altında düzenlenen REST API'ler. 
+- **Çeşitli türlerdeki grafik denetimlerini oluşturma ve doldurma yöntemleri** - Web sayfasındaki TSI toplama verilerini işlemek için kullanılır ve kitaplığın `TsiClient.UX` ad alanı altında düzenlenir. 
+
+Aşağıdaki kavramlar evrenseldir ve genel olarak TSI İstemci kitaplığı API'lerine uygulanabilir. 
+
+### <a name="authentication"></a>Kimlik Doğrulaması
+
+Daha önce de belirtildiği gibi, bu örnek bir Tek Sayfalı Uygulamadır ve kullanıcı kimlik doğrulaması için ADAL'deki OAuth 2.0 desteğini kullanır. Betiğin bu bölümünde ilgi çekici bazı noktalar:
+
+1. Kimlik doğrulamasında ADAL kullanmak için istemci uygulamasının kendisini Azure Active Directory (Azure AD) uygulama kayıt defterine kaydetmesi gerekir. Bir SPA olarak bu uygulama "örtülü" OAuth 2.0 kimlik doğrulaması yapma akışı kullanacak şekilde kaydedilir. Buna bağlı olarak, uygulama akışa katılmak için istemci kimliği GUID'si (`clientId`) ve yeniden yönlendirme URI'si (`postLogoutRedirectUri`) gibi bazı kayıt özelliklerini çalışma zamanında belirtir.
+
+2. Daha sonra, uygulama Azure AD'den bir "erişim belirteci" ister. Erişim belirteci sınırlı bir izin kümesi ve belirteç "hedef kitlesi" olarak da bilinen belirli bir hizmet/API tanımlayıcısı (https://insights.timeseries.azure.com) için verilir. Belirteç izinleri, oturum açmış kullanıcı adına verilir. Hizmet/API için tanımlayıcı, uygulamanın Azure AD kaydında yer alan bir diğer özelliktir. ADAL erişim belirtecini uygulamaya döndürdükten sonra, bu TSI hizmet API'lerine erişim sırasında "taşıyıcı belirteç" olarak kullanılır. 
+
+   [!code-javascript[head-sample](~/samples-javascript/pages/index.html?range=140-199&highlight=4-9,36-39)]
+
+### <a name="control-identification"></a>Denetim tanımlama
+
+Daha önce de açıklandığı gibi, `<body>` içindeki `<div>` öğeleri sayfada gösterilen tüm grafik denetimlerinin düzenini sağlar. Bunlardan her biri, `id` özelliği de dahil olmak üzere grafik denetiminin yerleşimi ve görsel özniteliklerine yönelik özellikleri belirtir. `id` özelliği benzersiz tanımlayıcı sağlar. Bu benzersiz tanımlayıcı JavaScript kodunda işleme ve güncelleştirme için her denetimi tanımlamak ve bağlamak amacıyla kullanılır. 
+
+### <a name="aggregate-expressions"></a>Toplama ifadeleri
+
+TSI İstemci kitaplığı API'leri toplama ifadelerini yoğun olarak kullanır. Toplama ifadesi bir veya birden çok "arama terimini" oluşturma becerisi sağlar. API'ler, [Time Series Insights gezgininin](https://insights.timeseries.azure.com/demo) arama aralığını, where koşulunu, ölçümleri ve split-by değerini kullanma şekline benzer. Çoğu kitaplık API'si, hizmet tarafından TSI veri sorgusunu oluşturmak için kullanılan bir toplama ifadeleri dizisi alır.
+
+### <a name="call-pattern"></a>Çağrı deseni
+
+Grafik denetimlerinin doldurulması ve işlenmesi genel bir desene uyar. TSI Örnek Uygulama denetimlerini başlatan ve yükleyen sayfadaki JavaScript'in her yerinde bu desenin kullanıldığını bulabilirsiniz:
+
+1. Bir veya birden çok TSI toplama ifadesini barındıracak bir dizi bildirin.  
+
+   ```javascript
+   var aes =  [];
+   ```
+
+2. 1 ile n arası toplama ifadesi nesnelerini oluşturun ve bunları toplama ifadesi dizisine ekleyin.  
+
+   ```javascript
+   var ae = new tsiClient.ux.aggregateExpression(predicateObject, measureObject, measureTypes, searchSpan, splitByObject, color, alias, contextMenuActions);
+   aes.push(ae);
+   ```
+   **aggregateExpression parametreleri**
+
+   | Parametre | Açıklama | Örnek |
+   | --------- | ----------- | ------- |
+   | predicateObject | Veri Filtreleme ifadesi. |`{predicateString: "Factory = 'Factory3'"}` |
+   | measureObject   | Kullanılan ölçünün özellik adı. | `{property: 'Temperature', type: "Double"}` |
+   | measureTypes    | Ölçü özelliği için istenen toplamalar. | `['avg', 'min']` |
+   | searchSpan      | Toplama ifadesinin süresi ve aralık boyutu. | `{from: startDate, to: endDate, bucketSize: '2m'}` |
+   | splitByObject   | Bölme ölçütü olarak kullanmak istediğiniz dize özelliği (isteğe bağlı; null olabilir). | `{property: 'Station', type: 'String'}` |
+   | color           | İşlemek istediğiniz nesnelerin rengi. | `'pink'` |
+   | alias           | Toplama ifadesinin kolay adı. | `'Factory3Temperature'` |
+   | contextMenuActions | Görselleştirmede zaman serisi nesnelerine bağlı olacak eylem dizisi (isteğe bağlı). | [Gelişmiş özellikler bölümünde açılan bağlam menüleri](#popup-context-menus) başlığına bakın. |
+
+3. Toplama verilerini istemek için `TsiClient.Server` API'lerini kullanarak bir TSI Sorgusu çağırın.  
+
+   ```javascript
+   tsiClient.server.getAggregates(token, envFQDN, aeTsxArray);
+   ```
+   **getAggregates parametreleri**
+
+   | Parametre | Açıklama | Örnek |
+   | --------- | ----------- | ------- |
+   | token     | TSI API'si için erişim belirteci | `authContext.getTsiToken()` [Kimlik doğrulama bölümüne](#authentication) bakın. |
+   | envFQDN     | TSI ortamı için Tam Etki Alanı Adı | Azure portalından, örneğin `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com` |
+   | aeTsxArray | TSI sorgu ifadeleri dizisi | Daha önce açıklandığı gibi `aes` değişkenini kullanın: `aes.map(function(ae){return ae.toTsx()}` |
+
+4. TSI Sorgusundan döndürülen sıkıştırılmış sonucu görselleştirme amacıyla JSON nesnelerine dönüştürün.
+
+   ```javascript
+   var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aes);
+   ```
+
+5. `TsiClient.UX` API'lerini kullanarak bir grafik denetimi oluşturun ve bunu sayfadaki `<div>` öğelerinden birine bağlayın.
+
+   ```javascript
+   var lineChart = new tsiClient.ux.BarChart(document.getElementById('chart3'));
+   ```
+
+6. Grafik denetimini dönüştürülmüş JSON veri nesneleriyle doldurun ve bunu sayfada işleyin.
+
+   ```javascript
+   lineChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aes);
+   ```
+
+## <a name="rendering-controls"></a>Denetimleri işleme
+
+Kitaplık şu anda sekiz benzersiz analiz denetimi gösterir. Bunlar çizgi grafik, pasta grafik, çubuk grafik, ısı haritası, hiyerarşi denetimleri, erişilebilir kılavuz, bağımsız olay zaman çizelgeleri ve durum geçişi zaman çizelgeleridir.   
+
+### <a name="line-bar-pie-chart-examples"></a>Çizgi, çubuk, pasta grafik örnekleri 
+
+İlk olarak uygulamada gösterilen bazı standart grafik denetimlerinin ardındaki koda ve bunları oluşturmak için kullanılan programlama modeline/desenlerine bakalım. Özel olarak, `chart3`, `chart4` ve `chart5` kimlik değerlerine sahip denetimleri işleyen `// Example 3/4/5` açıklamasının altındaki HTML bölümünü inceleyeceksiniz. 
+
+[Sayfa kaynağı ve yapısı bölümünün](#page-source-and-structure) 3. adımından anımsayacağınız gibi, grafik denetimleri sayfada satırlar halinde yerleştirilir ve her birinin açıklayıcı bir başlık satırı vardır. Bu örnekte, doldurulan üç grafiğin hepsi "Multiple Chart Types From the Same Data" başlığı `<div>` öğesi altında yer alır ve altındaki üç `<div>` öğesine bağlıdır:
+
+[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/index.html?range=60-74&highlight=1,5,9,13)]
+
+Aşağıdaki JavaScript kodu bölümünde, TSI toplama ifadelerini oluşturmak, bunları kullanarak TSI verilerini sorgulamak ve üç grafiği işlemek için daha önce belirtilen desen kullanılır. İlgili grafikleri oluşturmak için `tsiClient.ux` ad alanından kullanılan üç türe (`LineChart`, `BarChart`, `PieChart`) dikkat edin. Ayrıca, grafiklerin üçünün de aynı toplama ifadesi verilerini (`transformedResult`) kullanabildiğine de dikkat edin:
+
+[!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/index.html?range=236-257&highlight=13-14,16-17,19-20)]
+
+Üç grafik işlendiğinde aşağıdaki gibi görünür:
+
+[![Aynı Verilerle Birden Çok Grafik Türü](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
+
+## <a name="advanced-features"></a>Gelişmiş özellikler
+
+Kitaplık, yararlanmak isteyebileceğiniz bazı isteğe bağlı gelişmiş özellikler de ortaya koyar.  
+
+### <a name="states-and-events"></a>Durumlar ve olaylar
+
+Sağlanan gelişmiş özelliklerin bir örneği, grafiklere durum geçişleri ve bağımsız olaylar ekleyebilme özelliğidir. Bu özellik olayları vurgulamak, uyarıda bulunmak ve açık/kapalı gibi durum geçişleri yapmak için yararlı olur. 
+
+Burada, `// Example 10` açıklamasının altında yer alan HTML bölümünün ardındaki koda bakıyorsunuz. Kod, "Line Charts with Multiple Series Types" başlığı altındaki bir çizgi denetimini işler ve `chart10` kimlik değeriyle `<div>` öğesine bağlar:
+
+1. İlk olarak, izlenecek durum değişikliği öğelerini barındırmak üzere `events4` adlı bir yapı tanımlanır. Şunları içerir:
+   - `"Component States"` adlı bir dize anahtarı 
+   - Durumları temsil eden bir değer nesneleri dizisi. Her biri şunları içerir:
+     - JavaScript ISO zaman damgası içeren bir dize anahtarı
+     - Durumun özelliklerini içeren bir dizi
+       - renk
+       - açıklama
+
+2. Ardından, izlenecek olay öğeleri dizisini barındıran `"Incidents"` için `events5` yapısı tanımlanır. Dizi yapısı, `events4` için belirtilenle aynı şekildedir. 
+
+3. Son olarak çizgi grafiği işlenir, grafik seçenekleri `events:` ve `states:` parametreleriyle iki yapı geçirilir. `tooltip:`, `theme:` ve `grid:` belirtmeye yönelik diğer seçenek parametrelerine dikkat edin. 
+
+[!code-javascript[code-sample-states-events](~/samples-javascript/pages/index.html?range=332-384&highlight=5,26,51)]
+
+Görsel olarak, olayları belirtmek için baklava şeklinde işaretçiler/açılan pencereler kullanılır ve zaman ölçeğiyle birlikte renkli çubuklar/açılan pencereler de durum değişikliklerini belirtir:
+
+[![Birden Çok Seri Türü İçeren Çizgi Grafikler](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
+
+### <a name="popup-context-menus"></a>Açılan bağlam menüleri
+
+Bir diğer gelişmiş işlevsellik örneği, uygulamanız kapsamında eylemleri ve mantıksal sonraki adımları etkinleştirmek için yararlı olan özel bağlam menüleridir (sağ tıklama açılan menüleri).
+
+Burada, `// Example 13/14/15` altında yer alan HTML'nin ardındaki koda bakıyoruz. Bu kod başlangıçta "Line Chart with Context Menu to Create Pie/Bar Chart" (Pasta/Çubuk Grafik Oluşturmak için Bağlam Menüsüyle Çizgi Grafik) başlığı altında, `chart13` kimlik değeriyle `<div>` öğesine bağlı bir çizgi grafiği işler. Bağlam menülerini kullanarak, çizgi grafik dinamik olarak `chart14` ve `chart15` kimlikleriyle `<div>` öğelerine bağlı bir pasta ve çubuk grafik oluşturma olanağı sağlar. Buna ek olarak, hem pasta hem de çubuk grafikler de kendi özelliklerini etkinleştirmek için bağlam menülerini kullanır: sırasıyla pasta grafikten çubuk grafiğe veri kopyalama ve grafik verilerini tarayıcıya yazdırma özellikleri.
+
+1. İlk olarak bir dizi özel eylem tanımlanır. Her biri, bir veya birden çok öğenin bulunduğu bir dizi içerir; bu öğelerden her biri tek bir bağlam menüsü öğesini tanımlar: 
+   - `barChartActions`: tek menü öğesini tanımlamak için bir öğe içeren pasta grafik bağlam menüsünü tanımlar:
+     - `name`: menü öğesinde kullanılan metin: "Print parameters to console"
+     - `action`: menü öğesiyle ilişkilendirilmiş eylem; her zaman anonim bir işlevdir ve grafiği oluşturmak için kullanılan toplama ifadesi temelinde üç bağımsız değişken alır. Bu örnekte, bunlar tarayıcı konsol penceresine yazılır:
+       - `ae`: toplama ifadesi dizisi
+       - `splitBy`: splitBy değeri
+       - `timestamp`: zaman damgası
+   - `pieChartActions`: tek menü öğesini tanımlamak için bir öğe içeren çubuk grafik bağlam menüsünü tanımlar. Şekil ve şema önceki `barChartActions` ile aynıdır, ama `action` işlevinin önemli ölçüde farklı olduğuna dikkat edin çünkü bu işlev çubuk grafiği başlatır ve işler. Ayrıca çalışma zamanında menü öğesinin açılması sırasında geçirilen toplama ifadesi dizisini belirtmeye yönelik `ae` bağımsız değişkenini kullandığına dikkat edin. İşlev, `barChartActions` bağlam menüsüyle birlikte `ae.contextMenu` özelliğini de ayarlar.
+   - `contextMenuActions`: üç menü öğesini tanımlamak için üç öğe içeren, çizgi grafiğin bağlam menüsünü tanımlar. Her öğenin şekli ve şeması öncekilerle aynıdır. Aynı `barChartActions` gibi, ilk öğe tarayıcı konsol penceresine üç işlev bağımsız değişkenini yazar. `pieChartActions` öğesine benzer biçimde, ikinci iki öğe sırasıyla pasta ve çubuk grafiklerini başlatır ve işler. İkinci iki öğe sırasıyla `pieChartActions` ve `barChartActions` bağlam menüleriyle `ae.contextMenu` özelliklerini de ayarlar.
+
+2. Ardından iki toplama ifadesi `aes` toplama ifadesi dizisinin içine gönderilir ve her biri için `contextMenuActions` dizisi belirtilir. Bunlar, çizgi grafik denetimiyle kullanılır.
+
+3. Son olarak, başlangıçta yalnızca çizgi grafik işlenir; çalışma zamanında hem pasta hem de çubuk grafik bu çizgi grafikten işlenebilir.
+
+[!code-javascript[code-sample-context-menus](~/samples-javascript/pages/index.html?range=456-535&highlight=7,16,29,61-64,78)]
+
+Ekran görüntüsünde ilgili açılan bağlam menüleriyle birlikte grafikler gösterilir. Pasta ve çubuk grafikler, çizgi grafiğin bağlam menüsü seçeneklerinin kullanılmasıyla dinamik olarak oluşturulmuştur:
+
+[![Pasta/Çubuk Grafik Oluşturmak için Bağlam Menüsüyle Çizgi Grafik](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
+
+### <a name="brushes"></a>Fırçalar
+
+Fırçalar, yakınlaştırma ve keşfetme gibi eylemleri tanımlamak üzere zaman aralığının kapsamını belirlemek için kullanılabilir. 
+
+Fırçaları göstermek için kullanılan kod, [Açılan bağlam menüleri](#popup-context-menus-section) konusunu kapsayan önceki "Pasta/Çubuk Grafik Oluşturmak için Bağlam Menüsüyle Çizgi Grafik" örneğinde de gösterilmiştir. 
+
+1. Fırça eylemleri bağlam menüsüne çok benzer ve fırça için bir dizi özel eylem tanımlar. Her biri, bir veya birden çok öğenin bulunduğu bir dizi içerir; bu öğelerden her biri tek bir bağlam menüsü öğesini tanımlar:
+   - `name`: menü öğesinde kullanılan metin: "Print parameters to console"
+   - `action`: menü öğesiyle ilişkilendirilmiş eylem; her zaman iki bağımsız değişken alan anonim bir işlevdir. Bu örnekte, bunlar tarayıcı konsol penceresine yazılır:
+      - `fromTime`: fırça seçiminin "başlangıç" zaman damgası
+      - `toTime`: fırça seçiminin "bitiş" zaman damgası
+
+2. Fırça eylemleri başka bir grafik seçeneği özelliği olarak eklenir. `brushContextMenuActions: brushActions` özelliğinin `linechart.Render` çağrısına geçirildiğine dikkat edin.
+
+[!code-javascript[code-sample-brushes](~/samples-javascript/pages/index.html?range=521-535&highlight=1,13)]
+
+![Fırçaların kullanıldığı Pasta/Çubuk Grafik Oluşturmak için Bağlam Menüsüyle Çizgi Grafik](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
+
+> [!div class="checklist"]
+> * Oturum açma ve TSI Örnek uygulamasıyla onun kaynağını keşfetme
+> * TSI JavaScript istemci kitaplığında API'leri kullanma
+> * TSI verileriyle grafik denetimlerini oluşturmak ve doldurmak için JavaScript kullanma
+
+Daha önce açıklandığı gibi, TSI Örnek uygulamasında tanıtım amaçlı bir veri kümesi kullanılır. Kendi TSI ortamınızı ve veri kümenizi nasıl oluşturabileceğiniz hakkında daha fazla bilgi edinmek için, şu makaleye ilerleyin:
+
+> [!div class="nextstepaction"]
+> [Azure Time Series Insights ortamınızı planlama](time-series-insights-environment-planning.md)
+
+

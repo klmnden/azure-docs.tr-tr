@@ -73,7 +73,7 @@ Azure Güvenlik Merkezi Ücretsiz sürümünü kullanıyorsanız Güvenlik İlke
 
 Müşteriler, farklı veri akışlarındaki Güvenlik Merkezi ile ilişkili verileri aşağıda gösterildiği gibi kullanabilir:
 
-* **Azure Etkinliği**: Tüm güvenlik uyarıları, onaylı Güvenlik Merkezi [uyarlamalı uygulama denetimleri tarafından oluşturulan [zamanında](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) istekler ve tüm uyarılar ](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Azure Etkinliği**: Tüm güvenlik uyarıları, onaylı Güvenlik Merkezi [uyarlamalı uygulama denetimleri](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) tarafından oluşturulan [zamanında](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) istekler ve tüm uyarılar.
 * **Log Analytics**: Tüm güvenlik uyarıları.
 
 

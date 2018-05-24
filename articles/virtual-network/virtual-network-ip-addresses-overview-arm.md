@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -53,11 +53,15 @@ Genel IP adresleri IPv4 veya IPv6 adresiyle oluşturulur. Genel IPv6 adresleri y
 
 Genel IP adresleri aşağıdaki SKU'lardan biriyle oluşturulur:
 
+>[!IMPORTANT]
+> Yük dengeleyici ve genel IP kaynakları için eşleşen SKU'lar kullanılmalıdır. Temel SKU ve standart SKU kaynaklarını bir arada kullanamazsınız. Tek başına sanal makineleri, bir kullanılabilirlik kümesi kaynağındaki sanal makineleri veya sanal makine ölçek kümesi kaynaklarını aynı anda iki SKU’ya iliştiremezsiniz.  Yeni tasarımlarda standart SKU kaynakları kullanmayı düşünmelisiniz.  Lütfen ayrıntılar için [Standart Yük Dengeleyici](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)’yi inceleyin.
+
 #### <a name="basic"></a>Temel
 
 SKU'ların kullanıma sunulmasından önce oluşturulan tüm genel IP adresleri Temel SKU genel IP adresleridir. SKU'ların kullanıma sunulması genel IP adresinin ait olmasını istediğiniz SKU'yu belirleme seçeneğini sunmuştur. Temel SKU adresleri:
 
 - Statik veya dinamik atama yöntemiyle atanmıştır.
+- Varsayılan olarak açıktır.  Ağ güvenlik grupları önerilir ancak gelen veya giden trafiği kısıtlamak için isteğe bağlıdır.
 - Ağ arabirimleri, VPN ağ geçitleri, uygulama ağ geçitleri ve İnternet'e yönelik yük dengeleyiciler gibi genel IP adresi atanabilecek bir Azure kaynağına atanmıştır.
 - Belirli bir bölgeye atanabilir.
 - Bölgesel olarak yedekli değildir. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -67,17 +71,18 @@ SKU'ların kullanıma sunulmasından önce oluşturulan tüm genel IP adresleri 
 Standart SKU genel IP adresleri:
 
 - Yalnızca statik ayırma yöntemiyle atanmıştır.
-- Ağ arabirimlerine veya Standart İnternet'e yönelik yük dengeleyicilere atanmıştır. Azure yük dengeleyici SKU'ları hakkında daha fazla bilgi edinmek için bkz. [Azure yük dengeleyici standart SKU'su](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Varsayılan ayarda bölgesel olarak yedeklidir. Belirli bir alanda oluşturulabilir ve belirli bir kullanılabilirlik alanında oluşturulma garantisi vardır. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Varsayılan olarak güvenlidir ve gelen trafiğe kapalıdır. İzin verilen trafiği bir [ağ güvenlik grubu](security-overview.md#network-security-groups) ile özellikle beyaz listeye almanız gerekir.
+- Ağ arabirimlerine veya genel standart yük dengeleyicilere atanmıştır. Azure standart yük dengeleyiciler hakkında daha fazla bilgi için bkz. [Azure standart yük dengeleyici](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Varsayılan ayarda bölgesel olarak yedeklidir. Belirli bir alanda oluşturulabilir ve belirli bir kullanılabilirlik alanında oluşturulma garantisi vardır. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Standart bir SKU genel IP adresini bir sanal makinenin ağ arabirimine atadığınızda amaçlanan trafiğe bir [ağ güvenlik grubuyla](security-overview.md#network-security-groups) açıkça izin vermeniz gerekir. Bir ağ güvenlik grubu oluşturup ilişkilendirene ve istenen trafiğe açıkça izin verene kadar kaynakla erişim kurma girişimleri başarısız olur.
+> Bir [ağ güvenlik grubu](security-overview.md#network-security-groups) oluşturup ilişkilendirene ve istenen gelen trafiğe açıkça izin verene kadar standart SKU kaynağıyla erişim kurma girişimleri başarısız olur.
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
 
-Bir IP adresinin genel bir IP adresi kaynağına ayrıldığı iki yöntem vardır: *Dinamik* veya *statik*. Varsayılan ayırma yöntemi, bir IP adresinin oluşturulduğu sırada **ayrılmadığı** yöntem olan *dinamik*tir. Bunun yerine, genel IP adresi ilişkili kaynağı (VM veya yük dengeleyici gibi) başlattığınızda (veya oluşturduğunuzda) ayrılır. Kaynağı durdurduğunuzda (veya sildiğinizde) IP adresi serbest kalır. Örneğin IP adres kaynak A tarafından serbest bırakıldıktan sonra farklı bir kaynağa atanabilir. Kaynak A durdurulmuş haldeyken IP adresi farklı bir kaynağa atanmışsa kaynak A yeniden başlatıldığında farklı bir IP adresi atanır.
+Temel ve standart SKU genel IP adresleri *statik* ayırma yöntemini destekler.  Kaynak oluşturulduğunda kaynağa bir IP adresi atanır ve kaynak silindiğinde bu IP adresi serbest bırakılır.
 
-İlişkili kaynağın IP adresinin aynı kalmasını sağlamak için ayırma yöntemini açıkça *statik* olarak ayarlayabilirsiniz. Statik IP adresi anında atanır. Adres, yalnızca kaynağı sildiğinizde veya ayırma yöntemini *dinamik* olarak değiştirdiğinizde serbest kalır.
+Temel SKU genel IP adresleri, ayırma yöntemi belirtilmediğinde varsayılan değer olan *dinamik* ayırma yöntemini de destekler.  Genel bir ortak IP adresi kaynağı için *Dinamik* ayırma yönteminin seçilmesi, IP adresinin kaynak oluşturma sırasında **ayrılmadığı** anlamına gelir.  Genel IP adresi, genel IP adresini bir sanal makine ile ilişkilendirdiğinizde veya temel yük dengeleyici arka uç havuzuna ilk sanal makine örneğini yerleştirdiğinizde tahsis edilir.   Kaynağı durdurduğunuzda (veya sildiğinizde) IP adresi serbest kalır.  Örneğin IP adres kaynak A tarafından serbest bırakıldıktan sonra farklı bir kaynağa atanabilir. Kaynak A durdurulmuş haldeyken IP adresi farklı bir kaynağa atanmışsa kaynak A yeniden başlatıldığında farklı bir IP adresi atanır. Temel bir genel IP adresi kaynağının ayırma yöntemini *statik* yerine *dinamik* olacak şekilde değiştirirseniz adres serbest bırakılır. İlişkili kaynağın IP adresinin aynı kalmasını sağlamak için ayırma yöntemini açıkça *statik* olarak ayarlayabilirsiniz. Statik IP adresi anında atanır.
 
 > [!NOTE]
 > Ayırma yöntemini *statik* olarak ayarladığınızda bile genel IP adresi kaynağına atanan gerçek IP adresini belirtemezsiniz. Azure IP adresini kaynağın oluşturulduğu Azure konumundaki kullanılabilir IP adreslerinden oluşan bir havuzdan atar.
@@ -111,11 +116,11 @@ Herhangi bir [SKU](#SKU) ile oluşturulmuş genel bir IP adresini bir [Azure Loa
 
 ### <a name="vpn-gateways"></a>VPN ağ geçitleri
 
-[Azure VPN Ağ Geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json), bir Azure sanal ağını diğer Azure sanal ağlarına veya bir şirket içi ağa bağlar. VPN Ağ Geçidinin uzak ağ ile iletişim kurmasını sağlamak için genel IP adresi atanır. VPN ağ geçitlerine yalnızca *dinamik* genel IP adresleri atayabilirsiniz.
+[Azure VPN Ağ Geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json), bir Azure sanal ağını diğer Azure sanal ağlarına veya bir şirket içi ağa bağlar. VPN Ağ Geçidinin uzak ağ ile iletişim kurmasını sağlamak için genel IP adresi atanır. *Dinamik* genel IP adreslerini yalnızca VPN ağ geçitlerine atayabilirsiniz.
 
 ### <a name="application-gateways"></a>Uygulama ağ geçitleri
 
-Genel bir IP adresini bir Azure **Application Gateway**’in [ön uç](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırmasına atayarak ağ geçidiyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir VIP olarak işlev görür. Bir uygulama ağ geçidi ön uç yapılandırmasına yalnızca *dinamik* genel IP adresleri atayabilirsiniz.
+Genel bir IP adresini bir Azure **Application Gateway**’in [ön uç](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırmasına atayarak ağ geçidiyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir VIP olarak işlev görür. Bir uygulama ağ geçidi ön uç yapılandırmasına yalnızca temel *dinamik* genel IP adresleri atayabilirsiniz.
 
 ### <a name="at-a-glance"></a>Bir bakışta
 Aşağıdaki tabloda, genel bir IP adresinin en üst düzey bir kaynakla tam olarak hangi özellik üzerinden ilişkilendirilebileceği ve kullanılabilecek olası ayırma yöntemleri (dinamik veya statik) gösterilmiştir.

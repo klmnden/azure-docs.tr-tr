@@ -1,6 +1,6 @@
 ---
-title: Azure izleme ve güncelleştirme ve Windows sanal makineleri | Microsoft Docs
-description: Öğretici - izlemek ve güncelleştirmek Azure PowerShell ile Windows sanal makine
+title: Öğretici - Azure’da Windows sanal makinelerini izleme ve güncelleştirme | Microsoft Docs
+description: Bu öğreticide, bir Windows sanal makinesinde önyükleme tanılamaları ile performans ölçümlerinin nasıl izleneceğini ve paket güncelleştirmelerinin nasıl yönetileceğini öğreneceksiniz
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,65 +10,83 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>İzleme ve Azure PowerShell ile Windows sanal makine güncelleştirmesi
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Öğretici: Azure’da Windows sanal makinesini izleme ve güncelleştirme
 
-Azure izleme portalı, Azure PowerShell modülü ve Azure CLI aracılığıyla erişilebilir Azure VM'lerin önyükleme ve performans verilerini toplamak ve bu verileri Azure depolama alanında depolamak için aracıları kullanır. Güncelleştirme yönetimi, güncelleştirme ve düzeltme eklerini Azure Windows Vm'leriniz için yönetmenizi sağlar.
+Azure izlemesi Azure VM'lerinden önyükleme ve performans verilerini toplamak, bu verileri Azure depolama içinde depolamak ve portal, Azure PowerShell modülü ve Azure CLI aracılığıyla erişilebilir duruma getirmek için aracıları kullanır. Güncelleştirme yönetimi, Azure Windows sanal makineleriniz için güncelleştirme ve yamaları yönetmenize olanak sağlar.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir VM üzerinde önyükleme tanılamayı etkinleştir
+> * VM’de önyükleme tanılamalarını etkinleştirme
 > * Önyükleme tanılamasını görüntüleme
-> * VM konak metrikleri görüntüleyin
-> * Tanılama uzantısını yükleyin
+> * VM konak ölçümlerini görüntüleme
+> * Tanılama uzantısını yükleme
 > * VM ölçümlerini görüntüleme
-> * Bir uyarı oluşturabilir.
+> * Uyarı oluşturma
 > * Windows güncelleştirmelerini yönetme
-> * İzleyici değişiklikleri ve stok
+> * Değişiklikleri ve sayımı izleme
 > * Gelişmiş izlemeyi ayarlama
 
-Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
 
-Bu öğreticideki örneği tamamlamak için, mevcut bir sanal makinenizin olması gerekir. Gerekirse, bu [betik örneği](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) sizin için bir tane oluşturabilir. Öğreticide çalışırken, kaynak grubu, VM adını ve konumunu değiştirmek gerektiğinde.
+## <a name="create-virtual-machine"></a>Sanal makine oluşturma
+
+Bu öğreticide Azure izlemesi ve güncelleştirme yönetimini yapılandırmak için, Azure'da bir Windows VM'sine ihtiyacınız vardır. İlk olarak, VM için [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile bir yönetici kullanıcı adı ve parola ayarlayın:
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Şimdi [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun. Aşağıdaki örnekte *EastUS* konumunda *myVM* adlı bir VM oluşturulur. Henüz yoksa, *myResourceGroupMonitorMonitor* kaynak grubu ve destekleyici ağ kaynakları oluşturulur:
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupMonitor" `
+    -Name "myVM" `
+    -Location "East US" `
+    -Credential $cred
+```
+
+Kaynakların ve sanal makinenin oluşturulması birkaç dakika sürer.
 
 ## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüleme
 
-Windows sanal makineleri yedeklemek önyükleme gibi önyükleme Tanılama Aracı sorun giderme amacıyla kullanılabilir ekran çıkışına yakalar. Bu özellik varsayılan olarak etkindir. Yakalanan ekran görüntüleri de varsayılan olarak oluşturulan bir Azure depolama hesabında depolanır.
+Windows sanal makinelerinin önyüklemesi yapıldığında, önyükleme tanılama aracısı sorun giderme amacıyla kullanılabilecek bir ekran çıktısı yakalar. Bu özellik varsayılan olarak etkindir. Yakalanan ekran görüntüleri, yine varsayılan olarak oluşturulan bir Azure depolama hesabında depolanır.
 
-Önyükleme tanılama verilerini alma [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) komutu. Aşağıdaki örnekte, önyükleme tanılaması kök dizinine yüklenir * c:\* sürücü.
+Önyükleme tanılama verilerini [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) komutuyla alırsınız. Aşağıdaki örnekte, önyükleme tanılamaları *c:\* sürücüsünün kök dizinine indirilir.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Konak ölçümlerini görüntüleme
 
-Bir Windows VM adanmış bir konak VM ile etkileşime giren Azure sahiptir. Ölçümleri ana bilgisayar için otomatik olarak toplanır ve Azure Portalı'nda görüntülenebilir.
+Windows VM’sinin, Azure’da etkileşimde bulunduğu ayrılmış bir Konak VM'si vardır. Konağa ait ölçümler otomatik olarak toplanır ve Azure portalında görüntülenebilir.
 
-1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
-2. Tıklatın **ölçümleri** VM dikey ve altında ana ölçümleri birini seçin **kullanılabilir ölçümler** konak VM nasıl gerçekleştirmekte görmek için.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroupMonitor** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+2. Konak VM’nin performansını görmek için VM dikey penceresinde **Ölçümler**’e tıklayın ve ardından **Kullanılabilen ölçümler** bölümünden herhangi bir Konak ölçümünü seçin.
 
     ![Konak ölçümlerini görüntüleme](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>Tanılama uzantısını yükleme
 
-Temel ana ölçümleri kullanılabilir, ancak daha ayrıntılı ve VM özgü ölçümleri, VM Azure tanılama uzantısını yüklemeniz gerekir. Azure tanılama uzantısı, VM’den ek izleme ve tanılama verilerinin alınmasına izin verir. Bu performans ölçümlerini görüntüleyebilir ve VM performansına bağlı uyarılar oluşturabilirsiniz. Tanılama uzantısı Azure portalından şu şekilde yüklenir:
+Temel konak ölçümleri sağlanır, ama daha ayrıntılı bilgileri ve VM’ye özel ölçümleri görüntülemek için Azure tanılama uzantısını VM’ye yüklemeniz gerekir. Azure tanılama uzantısı, VM’den ek izleme ve tanılama verilerinin alınmasına izin verir. Bu performans ölçümlerini görüntüleyebilir ve VM performansına bağlı uyarılar oluşturabilirsiniz. Tanılama uzantısı Azure portalından şu şekilde yüklenir:
 
-1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroupMonitor** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
 2. **Tanılama ayarları**’na tıklayın. Listede *Önyükleme tanılaması*’nın önceki bölümde zaten etkinleştirildiği görüntülenir. *Temel ölçümler* için onay kutusuna tıklayın.
-3. Tıklatın **Konuk düzeyinde izlemeyi etkinleştir** düğmesi.
+3. **Konuk düzeyinde izlemeyi etkinleştir** düğmesine tıklayın.
 
     ![Tanılama ölçümlerini görüntüleme](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -76,7 +94,7 @@ Temel ana ölçümleri kullanılabilir, ancak daha ayrıntılı ve VM özgü öl
 
 VM ölçümlerini, konak VM ölçümlerini görüntülediğiniz gibi görüntüleyebilirsiniz:
 
-1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroupMonitor** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
 2. VM’nin performansını görüntülemek için VM dikey penceresinde **Ölçümler**’e tıklayın ve ardından **Kullanılabilen ölçümler** bölümünden herhangi bir tanılama ölçümünü seçin.
 
     ![VM ölçümlerini görüntüleme](./media/tutorial-monitoring/monitor-vm-metrics.png)
@@ -87,7 +105,7 @@ Belirli performans ölçümlerine bağlı uyarılar oluşturabilirsiniz. Uyarıl
 
 Aşağıdaki örnek, ortalama CPU kullanımı için bir uyarı oluşturur.
 
-1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroupMonitor** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
 2. Önce VM dikey penceresinde **Uyarı kuralları**’na ve ardından uyarılar dikey penceresinin üstündeki **Ölçüm uyarısı ekle** seçeneğine tıklayın.
 3. Uyarınız için *myAlertRule* gibi bir **Ad** girin
 4. CPU yüzdesi beş dakika boyunca 1,0’ı aştığında bir uyarı tetiklemek için diğer varsayılan ayarların tümünü seçili bırakın.
@@ -96,14 +114,14 @@ Aşağıdaki örnek, ortalama CPU kullanımı için bir uyarı oluşturur.
 
 ## <a name="manage-windows-updates"></a>Windows güncelleştirmelerini yönetme
 
-Güncelleştirme yönetimi, güncelleştirme ve düzeltme eklerini Azure Windows Vm'leriniz için yönetmenizi sağlar.
+Güncelleştirme yönetimi, Azure Windows sanal makineleriniz için güncelleştirme ve yamaları yönetmenize olanak sağlar.
 VM’nizden doğrudan güncelleştirmelerin durumunu değerlendirebilir, gerekli güncelleştirmelerin yüklenmesini zamanlayabilir ve güncelleştirmelerin VM’ye başarılı bir şekilde uygulandığından emin olmak için dağıtım sonuçlarını gözden geçirebilirsiniz.
 
 Fiyatlandırma bilgisi için bkz. [Güncelleştirme yönetimi için Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management"></a>Güncelleştirme yönetimini etkinleştirme
 
-Güncelleştirme yönetimi, VM için etkinleştir:
+Sanal makineniz için Güncelleştirme yönetimini etkinleştirme:
 
 1. Ekranın solundan **Sanal makineler**’i seçin.
 2. Listeden bir VM seçin.
@@ -135,7 +153,7 @@ Ekleme sırasında aşağıdaki önkoşullardan birinin karşılanmadığı tesp
 
 ### <a name="view-update-assessment"></a>Güncelleştirme değerlendirmesini görüntüleme
 
-**Güncelleştirme yönetimi** etkinleştirildikten sonra **Güncelleştirme yönetimi** ekranı görünür. Güncelleştirme değerlendirme tamamlandıktan sonra eksik güncelleştirmelerin listesini gördüğünüz **eksik güncelleştirmeler** sekmesi.
+**Güncelleştirme yönetimi** etkinleştirildikten sonra **Güncelleştirme yönetimi** ekranı görünür. Güncelleştirme değerlendirmesi tamamlandıktan sonra, **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görürsünüz.
 
  ![Güncelleştirme durumunu görüntüleme](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
@@ -167,7 +185,7 @@ Zamanlamayı yapılandırmayı tamamladıktan sonra **Oluştur** düğmesine tı
 **Zamanlanan** tablosunda oluşturduğunuz dağıtım zamanlaması görüntülenir.
 
 > [!WARNING]
-> Yeniden başlatma gerektiren güncelleştirmeler için VM otomatik olarak yeniden başlatılır.
+> Yeniden başlatma gerektiren güncelleştirmeler için sanal makine otomatik olarak yeniden başlatılır.
 
 ### <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 
@@ -191,46 +209,46 @@ Hedef VM'de güncelleştirme dağıtımını yönetmekten sorumlu runbook'un iş
 
 Dağıtımla ilgili her türlü hata hakkında ayrıntılı bilgi için **Hatalar**’a tıklayın.
 
-## <a name="monitor-changes-and-inventory"></a>İzleyici değişiklikleri ve stok
+## <a name="monitor-changes-and-inventory"></a>Değişiklikleri ve sayımı izleme
 
 Yazılımlar, dosyalar, Linux daemon'ları, Windows hizmetleri ve Windows kayıt defteri anahtarlarıyla ilgili stok durumunu sorgulayabilir ve görüntüleyebilirsiniz. Makinelerinizin yapılandırmasını izlemek ortamınızdaki işletimsel sorunları bulmanıza ve makinelerinizin durumunu daha iyi anlamanıza yardımcı olabilir.
 
-### <a name="enable-change-and-inventory-management"></a>Etkin değişiklik ve envanter yönetimi
+### <a name="enable-change-and-inventory-management"></a>Değişiklik ve Sayım yönetimini etkinleştirme
 
-Etkin değişiklik ve envanter yönetimi, VM için:
+Sanal makineniz için Değişiklik ve Sayım yönetimini etkinleştirme:
 
 1. Ekranın solundan **Sanal makineler**’i seçin.
 2. Listeden bir VM seçin.
-3. VM ekranında içinde **Operations** 'yi tıklatın **stok** veya **değişiklik izleme**. **Değişiklik izleme etkinleştirmek ve stok** ekranı açılır.
+3. Sanal makine ekranında, **İşlemler** bölümünde **Sayım** veya **Değişiklik izleme**'ye tıklayın. **Değişiklik İzleme ve Sayımı Etkinleştir** ekranı açılır.
 
-Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir. Eventhough çözümleri menüsünde ayrı, aynı çözüm olur. Bir etkinleştirme, VM için her ikisini de sağlar.
+Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir. Çözümler menüde ayrı yerlerde olsa da, bunlar aynı çözümdür. Biri etkinleştirildiğinde, sanal makinenizde her ikisi de etkinleştirilir.
 
-![Değişiklik ve izleme envanterini etkinleştir](./media/tutorial-monitoring/manage-inventory-enable.png)
+![Değişiklik ve Sayım izlemeyi etkinleştirme](./media/tutorial-monitoring/manage-inventory-enable.png)
 
-Çözüm etkinleştirildikten sonra veri görünmeden önce stok VM toplanacak sırada biraz zaman alabilir.
+Çözüm etkinleştirildikten sonra, veriler görüntülenmeden önce sanal makinede sayımın toplanması biraz zaman alabilir.
 
-### <a name="track-changes"></a>Değişiklikleri izle
+### <a name="track-changes"></a>Değişiklikleri izleme
 
-VM seçin üzerinde **değişiklik izleme** altında **OPERATIONS**. Tıklatın **ayarlarını Düzenle**, **değişiklik izleme** sayfası görüntülenir. İzleme ve ardından istediğiniz ayar türünü seçin **+ Ekle** ayarlarını yapılandırmak için. Windows için kullanılabilir seçenekler şunlardır:
+Sanal makinenizde **İŞLEMLER** bölümünden **Değişiklik İzleme**'yi seçin. **Ayarları Düzenle**’ye tıklayın, **Değişiklik İzleme** sayfası görüntülenir. İzlemek istediğiniz ayar türünü seçin ve **+ Ekle**’ye tıklayarak ayarları yapılandırın. Windows için kullanılabilir seçenekler şunlardır:
 
-* Windows Registry
-* Windows dosyaları
+* Windows Kayıt Defteri
+* Windows Dosyaları
 
-Değişiklik izleme Bkz hakkında ayrıntılı bilgi için [sorun giderme VM üzerindeki değişiklikler](../../automation/automation-tutorial-troubleshoot-changes.md)
+Değişiklik İzleme hakkında ayrıntılı bilgi için bkz. [Sanal makinedeki değişiklik sorunlarını giderme](../../automation/automation-tutorial-troubleshoot-changes.md)
 
-### <a name="view-inventory"></a>Envanterini görüntüleme
+### <a name="view-inventory"></a>Sayımı görüntüleme
 
-VM seçin üzerinde **stok** altında **OPERATIONS**. **Yazılım** sekmesinde bulunan yazılımların listelendiği bir tablo yer alır. Tabloda her yazılım kaydı hakkındaki üst düzey ayrıntılar görüntülenebilir. Bu ayrıntılar yazılım adı, sürüm, yayımcı, son yenilendi saati içerir.
+Sanal makinenizde **İŞLEMLER** bölümünden **Sayım**’ı seçin. **Yazılım** sekmesinde bulunan yazılımların listelendiği bir tablo yer alır. Tabloda her yazılım kaydı hakkındaki üst düzey ayrıntılar görüntülenebilir. Bu ayrıntılar arasında yazılım adı, sürüm, yayımcı, son yenilenme zamanı yer alır.
 
-![Envanterini görüntüleme](./media/tutorial-monitoring/inventory-view-results.png)
+![Sayımı görüntüleme](./media/tutorial-monitoring/inventory-view-results.png)
 
-### <a name="monitor-activity-logs-and-changes"></a>Etkinlik Günlükleri ve değişiklikleri izleme
+### <a name="monitor-activity-logs-and-changes"></a>Etkinlik günlüklerini ve değişiklikleri izleme
 
 VM'nizdeki **Değişik izleme** sayfasında **Etkinlik Günlüğü Bağlantısını Yönetme**'yi seçin. Bu görev **Azure Etkinlik günlüğü** sayfasını açar. Değişiklik izleme özelliğini VM'nizin Azure etkinlik günlüğü verilerine bağlamak için **Bağlan**'ı seçin.
 
 Bu ayar etkin durumdayken VM'nizin **Özet** sayfasına gidip **Durdur**'u seçerek VM'nizi durdurun. Sorulduğunda **Evet**'i seçerek VM'yi durdurun. Serbest bırakıldıktan sonra **Başlat**'ı seçerek VM'nizi yeniden başlatın.
 
-VM'yi durdurup başlattığınızda etkinlik günlüğüne bir olay kaydedilir. **Değişiklik izleme** sayfasına dönün. Sayfanın en altındaki **Olaylar** sekmesini seçin. Bir süre sonra olaylar grafik ve tablo şeklinde gösterilir. Her olay olay hakkında ayrıntılı bilgileri görüntülemek için seçilebilir.
+VM'yi durdurup başlattığınızda etkinlik günlüğüne bir olay kaydedilir. **Değişiklik izleme** sayfasına dönün. Sayfanın en altındaki **Olaylar** sekmesini seçin. Bir süre sonra olaylar grafik ve tablo şeklinde gösterilir. Her bir olay seçilerek olayla ilgili ayrıntılı bilgiler görüntülenebilir.
 
 ![Etkinlik günlüğünde değişiklikleri görüntüleme](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 
@@ -238,47 +256,47 @@ Grafik, zaman içinde gerçekleştirilen değişiklikleri gösterir. Etkinlik G�
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme
 
-Güncelleştirme yönetimi ve değişiklik ve envanter tarafından sağlanan gibi çözümlerinden kullanarak VM'yi izleme daha gelişmiş yapabileceğiniz [Azure Otomasyonu](../../automation/automation-intro.md).
+[Azure Otomasyonu](../../automation/automation-intro.md) tarafından sağlanan Güncelleştirme Yönetimi ve Değişiklik ve Sayım gibi çözümleri kullanarak sanal makinenizin daha gelişmiş izlemesini gerçekleştirebilirsiniz.
 
-Günlük analizi çalışma alanına erişim sahip olduğunuzda, çalışma alanı anahtarı ve çalışma tanımlayıcısı seçerek bulabilirsiniz **Gelişmiş ayarları** altında **ayarları**. Kullanım [kümesi AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) VM'ye Microsoft Monitoring agent uzantısı eklemek için komutu. Değişken değerleri güncelleştirmek günlük analizi çalışma alanı anahtarı ve çalışma alanı kimliği yansıtmak için örnek aşağıda
+Log Analytics çalışma alanına eriştiğinizde, **AYARLAR** bölümünden **Gelişmiş ayarlar**’ı seçerek çalışma alanı anahtarını ve çalışma alanı tanıtıcısını bulabilirsiniz. Sanal makineye Microsoft Monitoring Agent uzantısı eklemek için [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) komutunu kullanın. Aşağıdaki örnekte yer alan değerleri, Log Analytics çalışma alanı anahtarınızı ve çalışma alanı kimliğinizi yansıtacak şekilde güncelleştirin.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName myVM `
+  -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
   -Settings @{"workspaceId" = $workspaceId} `
   -ProtectedSettings @{"workspaceKey" = $key} `
-  -Location eastus
+  -Location "East US"
 ```
 
-Birkaç dakika sonra yeni VM günlük Anaytics çalışma alanında görmeniz gerekir.
+Birkaç dakika sonra yeni sanal makineyi Log Analytics çalışma alanında görmeniz gerekir.
 
 ![OMS dikey penceresi](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide yapılandırılmış ve sanal makineleri Azure Güvenlik Merkezi ile gözden. Şunları öğrendiniz:
+Bu öğreticide, Azure Güvenlik Merkezi'yle sanal makineleri yapılandırdınız ve gözden geçirdiniz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Sanal ağ oluşturma
-> * Bir kaynak grubu ve VM oluşturma
+> * Kaynak grubu ve sanal makine oluşturma
 > * VM’de önyükleme tanılamalarını etkinleştirme
 > * Önyükleme tanılamasını görüntüleme
 > * Konak ölçümlerini görüntüleme
-> * Tanılama uzantısını yükleyin
+> * Tanılama uzantısını yükleme
 > * VM ölçümlerini görüntüleme
-> * Bir uyarı oluşturabilir.
+> * Uyarı oluşturma
 > * Windows güncelleştirmelerini yönetme
-> * İzleyici değişiklikleri ve stok
+> * Değişiklikleri ve sayımı izleme
 > * Gelişmiş izlemeyi ayarlama
 
-Azure Güvenlik Merkezi hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Azure güvenlik merkezi hakkında daha fazla bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [VM güvenliğini yönetme](./tutorial-azure-security.md)

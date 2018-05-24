@@ -1,36 +1,36 @@
 ---
-title: Azure Güvenlik Merkezi ve Windows sanal makineleri azure'da | Microsoft Docs
-description: Azure Güvenlik Merkezi ile Azure Windows sanal makineniz için güvenlik hakkında bilgi edinin.
+title: Öğretici - Azure’da Windows VM’ler için Azure Güvenlik Merkezi’ni kullanma | Microsoft Docs
+description: Bu öğreticide, Azure’da Windows sanal makinelerinizi korumaya ve güvenliğini sağlamaya yardımcı olmak için Azure Güvenlik Merkezi özelliklerini öğreneceksiniz.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Azure Güvenlik Merkezi'ni kullanarak sanal makine güvenliğini izleme
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Öğretici: Windows sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
 
 Azure Güvenlik Merkezi, Azure kaynak güvenliği uygulamalarınıza yönelik görünürlük elde etmenize yardımcı olabilir. Güvenlik Merkezi, tümleşik güvenlik izleme işlevi sunar. Gözden kaçabilecek tehditleri algılayabilir. Bu öğreticide, Azure Güvenlik Merkezi hakkında bilgi edinecek ve aşağıdakilerin nasıl yapılacağını öğreneceksiniz:
- 
+
 > [!div class="checklist"]
 > * Veri toplamayı ayarlama
 > * Güvenlik ilkeleri ayarlama
 > * Yapılandırma durumu sorunlarını görüntüleme ve düzeltme
-> * Algılanan tehditleri gözden geçirme  
+> * Algılanan tehditleri gözden geçirme
 
 ## <a name="security-center-overview"></a>Güvenlik Merkezine genel bakış
 
@@ -144,7 +144,7 @@ Bu öğreticide, Azure Güvenlik Merkezi’ni ayarladınız ve sonra Güvenlik M
 > * Yapılandırma durumu sorunlarını görüntüleme ve düzeltme
 > * Algılanan tehditleri gözden geçirme
 
-Visual Studio Team Services ve IIS çalıştıran bir Windows VM ile CI/CD işlem hattı oluşturma konusunda bilgi almak için sonraki öğretici ilerleyin.
+Visual Studio Team Services ve IIS çalıştıran bir Windows VM ile bir CI/CD işlem hattı oluşturmayı öğrenmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Team Services CI/CD ardışık düzen](./tutorial-vsts-iis-cicd.md)
+> [Visual Studio Team Services CI/CD işlem hattı](./tutorial-vsts-iis-cicd.md)

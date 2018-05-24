@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell örnekleri | Microsoft Docs"
-description: "Azure PowerShell komut dosyaları hakkında kullanılabilir Azure API Management için bilgi edinin."
+title: Azure PowerShell örnekleri | Microsoft Docs
+description: Azure API Management için kullanılabilir Azure PowerShell betikleri hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,28 +14,28 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: a24428db2e7b7058d8a662896e16fd6ada1d2155
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 6356eb7ce7d34e973607b0588a9dc2854726f5d3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="azure-powershell-samples-for-api-management"></a>API Management Azure PowerShell örnekleri
+# <a name="azure-powershell-samples-for-api-management"></a>API Management için Azure PowerShell örnekleri
 
-Aşağıdaki tabloda Azure PowerShell kullanılarak oluşturulan komut dosyalarını bash bağlantılar içerir.
+Aşağıdaki tablo, Azure PowerShell kullanılarak derlenen bash komut dosyalarının bağlantılarını içerir.
 
 | | |
 |-|-|
-|**Sağlanması ve yönetilmesi**||
-|[Kullanıcı ekleme](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| API Yönetimi'nde bir kullanıcı oluşturur ve bir abonelik anahtarı alır.|
-|[Bir APIM hizmeti oluşturma](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Bir geliştirici SKU API Management hizmeti oluşturur.|
-|[Hizmeti geri yükleme](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Yedeklemeler ve APIM hizmetini geri yükler.|
-|[Ölçek APIM hizmeti](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Ölçeklendirir ve bölge APIM hizmete ekler.|
-|[Özel etki alanını ayarlama](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|API Management hizmeti, proxy ve portal uç noktada özel etki alanı ayarlar.|
+|**Sağlama ve yönetme**||
+|[Kullanıcı ekleme](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| API Management'te bir kullanıcı oluşturur ve bir abonelik anahtarı alır.|
+|[APIM hizmeti oluşturma](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Bir Geliştirici SKU API Management Hizmeti oluşturur.|
+|[Hizmeti geri yükleme](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|APIM hizmetini yedekler ve geri yükler.|
+|[APIM hizmetini ölçeklendirme](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|APIM hizmetinden bölgeyi ölçeklendirir ve ekler.|
+|[Özel etki alanı ayarlama](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Ara sunucuda özel etki alanı ve API Management hizmetinin portal uç noktasını ayarlar.|
 |**API tanımlama**||
-|[İçeri aktarma API'si](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Bir API alır ve bir APIM ürün ekler.|
+|[API’yi içeri aktarma](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Bir API’yi içeri aktarır ve bir APIM ürününe ekler.|
 |**Güvenlik**||
-|[Güvenli arka uç](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Karşılıklı sertifika kimlik doğrulaması ile arka uç güvenliğini sağlar.|
+|[Arka ucun güvenliğini sağlama](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Karşılıklı sertifika kimlik doğrulaması ile arka ucun güvenliğini sağlar.|
 |**Koruma**||
-|[Hız sınırı İlkesi ayarlama](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Hız sınırı ürün düzeyi ilkesi uygulanır. |
+|[Hız sınırı ilkesi ayarlama](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)|İlkeye ürün Düzeyinde hız sınırı uygular. |
 |||
