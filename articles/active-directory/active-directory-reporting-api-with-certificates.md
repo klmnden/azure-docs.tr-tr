@@ -1,46 +1,60 @@
 ---
-title: "Sertifikalarla Azure AD Raporlama API’sini kullanarak veri alma | Microsoft Docs"
-description: "Kullanıcı müdahalesi olmadan dizinlerden veri almak üzere sertifika kimlik bilgileriyle Azure AD Raporlama API’sini kullanmayı açıklar."
+title: Sertifikalarla Azure AD Raporlama API’sini kullanarak veri alma | Microsoft Docs
+description: Kullanıcı müdahalesi olmadan dizinlerden veri almak üzere sertifika kimlik bilgileriyle Azure AD Raporlama API’sini kullanmayı açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ramical
 writer: v-lorisc
 manager: kannar
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/08/2017
+ms.date: 05/07/2018
 ms.author: ramical
-ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54e661284c539b835089e858ba7b5e0016e89a83
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Sertifikalarla Azure AD Raporlama API’sini kullanarak veri alma
-Bu makalede, kullanıcı müdahalesi olmadan dizinlerden veri almak üzere sertifika kimlik bilgileriyle Azure AD Raporlama API’sini kullanma işlemi ele alınmaktadır. 
+# <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Sertifikalarla Azure Active Directory raporlama API’sini kullanarak veri alma
 
-## <a name="use-the-azure-ad-reporting-api"></a>Azure AD Raporlama API’sini kullanma 
-Azure AD Raporlama API'si aşağıdaki adımları tamamlamanızı gerektirir:
- *  Ön koşulları yükleme
- *  Uygulamanızdaki sertifikayı ayarlama
- *  Bir erişim belirteci alma
- *  Graph API'sini çağırmak için erişim belirteci kullanma
+[Azure Active Directory (Azure AD) raporlama API'leri](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview), bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
+
+Kullanıcı müdahalesi olmadan Azure AD Raporlama API'sine erişmek istiyorsanız, erişiminizi sertifika kullanacak şekilde yapılandırabilirsiniz
+
+Bu makalede:
+
+- Sertifikaları kullanarak Azure AD raporlama API'sine erişmeniz için gereken adımlar sağlanır.
+- [Azure Active Directory raporlama API'sine erişim önkoşullarını](active-directory-reporting-api-prerequisites-azure-portal.md) tamamladığınız varsayılır. 
+
+
+Sertifikalarla raporlama API'sine erişmek için aşağıdaki işlemleri yapmalısınız:
+
+1. Önkoşulları yükleme
+2. Uygulamanızdaki sertifikayı ayarlama 
+3. İzinleri verme
+4. Bir erişim belirteci alma
+
+
+
 
 Kaynak kodu hakkında bilgi için bkz. [Rapor API Modülünden Yararlanma](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
-### <a name="install-prerequisites"></a>Ön koşulları yükleme
+## <a name="install-prerequisites"></a>Ön koşulları yükleme
+
 Azure AD PowerShell V2 ve AzureADUtils modülünün yüklü olması gerekir.
 
 1. [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md) içindeki yönergeleri izleyerek Azure AD PowerShell V2’yi indirip yükleyin.
+
 2. [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1) dizininden Azure AD Yardımcı Programları modülünü indirin. 
   Bu modül aşağıdaki çeşitli yardımcı program cmdlet'lerini sağlar:
-   * Nuget kullanarak en son ADAL sürümü
-   * ADAL kullanarak kullanıcı, uygulama anahtarları ve sertifikalardan erişim belirteçleri
-   * Disk belleğine alınmış Graph API işleme sonuçları
+    - Nuget kullanarak en son ADAL sürümü
+    - ADAL kullanarak kullanıcı, uygulama anahtarları ve sertifikalardan erişim belirteçleri
+    - Disk belleğine alınmış Graph API işleme sonuçları
 
 **Azure AD Yardımcı Programlar modülünü yüklemek için:**
 
@@ -52,14 +66,17 @@ Oturum şu ekran gibi görünmelidir:
 
   ![Windows PowerShell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
 
-### <a name="set-the-certificate-in-your-app"></a>Uygulamanızdaki sertifikayı ayarlama
-1. Zaten bir uygulamanız varsa, Azure portalından uygulamanın nesne kimliğini alın. 
+## <a name="set-the-certificate-in-your-app"></a>Uygulamanızdaki sertifikayı ayarlama
 
-  ![Azure portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
+**Uygulamanızdaki sertifikayı ayarlamak için:**
+
+1. Azure Portal'dan uygulamanızın [Nesne Kimliğini alın](active-directory-reporting-api-prerequisites-azure-portal.md#get-your-applications-client-id). 
+
+  ![Azure portalına](./media/active-directory-report-api-with-certificates/azure-portal.png)
 
 2. Bir PowerShell oturumu açın ve Connect-AzureAD cmdlet'ini kullanarak Azure AD’ye bağlanın.
 
-  ![Azure portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
+  ![Azure portalına](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
 
 3. AzureADUtils içindeki New-AzureADApplicationCertificateCredential cmdlet’ini kullanarak bir sertifika kimlik bilgisi ekleyin. 
 
@@ -68,28 +85,32 @@ Oturum şu ekran gibi görünmelidir:
 >
 
 
-  ![Azure portal](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
+  ![Azure portalına](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-### <a name="get-an-access-token"></a>Bir erişim belirteci alma
+## <a name="get-an-access-token"></a>Bir erişim belirteci alma
 
-Erişim belirteci almak için AzureADUtils içindeki Get-AzureADGraphAPIAccessTokenFromCert cmdlet’ini kullanın. 
+Erişim belirteci almak için AzureADUtils içindeki **Get-AzureADGraphAPIAccessTokenFromCert** cmdlet’ini kullanın. 
 
 >[!NOTE]
 >Son bölümde kullandığınız Nesne Kimliği yerine Uygulama Kimliğini kullanmanız gerekir.
 >
 
- ![Azure portal](./media/active-directory-report-api-with-certificates/application-id.png)
+ ![Azure portalına](./media/active-directory-report-api-with-certificates/application-id.png)
 
-### <a name="use-the-access-token-to-call-the-graph-api"></a>Graph API'sini çağırmak için erişim belirteci kullanma
+## <a name="use-the-access-token-to-call-the-graph-api"></a>Graph API'sini çağırmak için erişim belirteci kullanma
 
-Şimdi komut dosyasını oluşturabilirsiniz. AzureADUtils içindeki Invoke-AzureADGraphAPIQuery cmdlet’inin bir örneği aşağıda verilmiştir. Bu cmdlet, çok sayfalı sonuçları işer ve ardından PowerShell işlem hattına gönderir. 
+Şimdi betiği oluşturabilirsiniz. Aşağıda, AzureADUtils içindeki **Invoke-AzureADGraphAPIQuery** cmdlet’inin nasıl kullanıldığını gösteren bir örnek yer alır. Bu cmdlet, çok sayfalı sonuçları işer ve ardından PowerShell işlem hattına gönderir. 
 
- ![Azure portal](./media/active-directory-report-api-with-certificates/script-completed.png)
+ ![Azure portalına](./media/active-directory-report-api-with-certificates/script-completed.png)
 
 Artık bir CSV'ye göndermeye ve bir SIEM sistemine kaydetmeye hazırsınız. Ayrıca, betiğinizi zamanlanmış bir göreve kaydırarak, uygulama anahtarlarını kaynak kodda depolamak zorunda kalmadan kiracınızdan Azure AD verilerini düzenli olarak alabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure kimlik yönetimi ile ilgili temel bilgiler](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
+
+- [Raporlama API'leriyle ilgili ilk izlenim elde edin](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Kendi çözümünüzü oluşturun](active-directory-reporting-api-getting-started-azure-portal.md#customize)
+
 
 
 

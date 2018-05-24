@@ -1,27 +1,27 @@
 ---
-title: Azure Search’te eş anlamlıları önizleme öğreticisi | Microsoft Docs
-description: Eş anlamlıları önizleme özelliğini Azure Search'teki bir dizine ekleyin.
+title: Azure Search’te eş anlamlıları öğreticisi | Microsoft Docs
+description: Eş anlamlılar özelliğini Azure Search'teki bir dizine ekleyin.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0f082397f832883b272a2ca38850a340b618adde
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Azure Search için eş anlamlı (önizleme) C# öğreticisi
+# <a name="synonym-c-tutorial-for-azure-search"></a>Azure Search için eş anlamlı C# öğreticisi
 
 Eş anlamlılar, giriş terimine anlam bakımından eşdeğer olan terimlerle eşleşerek bir sorguyu genişletir. Örneğin, "araba" aramasının "otomobil" veya "araç" terimlerini içeren belgelerle eşleşmesini isteyebilirsiniz.
 
 Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme kuralları* aracılığıyla bir *eş anlamlı eşleminde* tanımlanır. Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullanılabilen hizmet genelinde kaynak olarak gönderebilir ve alan düzeyinde hangisinin kullanılacağını belirtebilirsiniz. Sorgu zamanında Azure Search, sorguda kullanılan alanlarda belirtilmişse dizinde aramaya ek olarak bir eş anlamlı eşleminde arama yapar.
 
 > [!NOTE]
-> Eş anlamlılar özelliği şu anda önizleme aşamasındadır ve yalnızca en son önizleme API ve SDK sürümlerinde desteklenir (api-version=2016-09-01-Preview, SDK sürüm 4.x-preview). Şu anda Azure portalı desteği yoktur. Önizleme API’leri SLA kapsamında değildir ve önizleme özellikleri değişebilir; bu nedenle, üretim uygulamalarında kullanılması önerilmez.
+> Eş anlamlılar özelliği en yeni API ve SDK sürümlerinde (api-version=2017-11-11, SDK sürümü 5.0.0) desteklenir. Şu anda Azure portalı desteği yoktur. Eş anlamlılar için Azure portalı desteği sizin için kullanışlı olacaksa, lütfen [UserVoice](https://feedback.azure.com/forums/263029-azure-search)’te geri bildiriminizi sağlayın
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -29,7 +29,7 @@ Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme 
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search hizmeti](search-create-service-portal.md)
-* [Microsoft.Azure.Search .NET kitaplığının önizleme sürümü](https://aka.ms/search-sdk-preview)
+* [Microsoft.Azure.Search .NET kitaplığı](https://aka.ms/search-sdk)
 * [Bir .NET Uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Genel Bakış
