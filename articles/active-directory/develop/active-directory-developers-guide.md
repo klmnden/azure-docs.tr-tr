@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257558"
 ---
 # <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
 
@@ -55,7 +56,6 @@ Aşağıdaki kılavuzlar, Azure AD’deki bazı yaygın görevler boyunca size y
 |[Uygulama kaydı](active-directory-integrating-applications.md)           | Bir uygulamayı Azure AD’ye kaydetme. |
 |[Çok kiracılı uygulamalar](active-directory-devhowto-multi-tenant-overview.md)    | Herhangi bir Microsoft iş hesabında oturum açma. |
 |[OAuth ve OpenID Connect protokolleri](active-directory-protocols-openid-connect-code.md)| Microsoft kimlik doğrulama protokollerini kullanarak kullanıcıların oturumunu açma ve web API'lerini çağırma. |
-|[Ek kılavuzlar](active-directory-developers-guide-index.md#guides)        |  Azure AD için kullanılabilir kılavuzların listesi. |
 |  |  |
 
 ## <a name="reference-topics"></a>Başvuru konuları
@@ -66,7 +66,6 @@ Aşağıdaki makaleler, Azure AD’de kullanılan API'ler, protokol iletileri ve
 | [Kimlik Doğrulama Kitaplıkları (ADAL)](active-directory-authentication-libraries.md)   | Azure AD tarafından sağlanan kitaplıklara ve SDK’lara genel bakış. |
 | [Kod örnekleri](active-directory-code-samples.md)                                  | Tüm Azure AD kod örneklerinin listesi. |
 | [Sözlük](active-directory-dev-glossary.md)                                      | Bu belgelerde kullanılan terminoloji ve sözcük tanımları. |
-| [Ek başvuru konuları](active-directory-developers-guide-index.md#reference)| Azure AD için kullanılabilir başvuru konuları. |
 |  |  |
 
 

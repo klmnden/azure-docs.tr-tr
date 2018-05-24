@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336560"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -175,7 +176,7 @@ Daha fazla bilgi için bkz.
 * Birleştirilmiş uygulamalarda doğrudan oturum açma
 * Birleştirilmiş, parola tabanlı veya var olan uygulamalara yönelik ayrıntılı bağlantılar
 
-Daha fazla bilgi için bkz. [Azure AD tümleşik uygulamalarını kullanıcılara dağıtma](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Daha fazla bilgi için bkz. [Azure AD tümleşik uygulamalarını kullanıcılara dağıtma](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **S: Azure AD, uygulamalar için kimlik doğrulaması ve çoklu oturum açmaya ne gibi farklı yollarla olanak tanır?**
@@ -186,7 +187,7 @@ Daha fazla bilgi için bkz.
 
 * [Azure AD için Kimlik Doğrulama Senaryoları](active-directory-authentication-scenarios.md)
 * [Active Directory kimlik doğrulama protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Çoklu oturum açma özelliği, Azure Active Directory ile nasıl kullanılır?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Çoklu oturum açma özelliği, Azure Active Directory ile nasıl kullanılır?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **S: Şirket içi olarak çalıştırdığım uygulamaları ekleyebilir miyim?**

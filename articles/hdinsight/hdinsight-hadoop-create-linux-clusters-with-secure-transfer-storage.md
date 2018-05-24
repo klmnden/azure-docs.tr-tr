@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma | Microsoft Docs"
-description: "Güvenli aktarım özellikli Azure depolama hesapları ile HDInsight kümeleri oluşturma hakkında bilgi edinin."
-keywords: "hadoop kullanmaya başlama,hadoop linux,hadoop hızlı başlangıç,güvenli aktarım,azure depolama hesabı"
+title: Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma | Microsoft Docs
+description: Güvenli aktarım özellikli Azure depolama hesapları ile HDInsight kümeleri oluşturma hakkında bilgi edinin.
+keywords: hadoop kullanmaya başlama,hadoop linux,hadoop hızlı başlangıç,güvenli aktarım,azure depolama hesabı
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 7a2022fd5cd67120b8dc435a950533e07017218c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200529"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma
 

@@ -3,8 +3,8 @@ title: PowerShell örneği-Azure SQL veritabanı oluşturma | Microsoft Docs
 description: Bir Azure SQL veritabanı oluşturmak için Azure PowerShell örnek betiği
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 8d4a40ff96c5b2249987be91a5ffe1b64cbd413b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 8fbed6f9f3ac6b7cc12f5fe8236040e75f66542d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367258"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralını yapılandırma
 
