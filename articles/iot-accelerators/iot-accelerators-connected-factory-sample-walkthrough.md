@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 68ed75a9ef2faee408e65c0991182b7d95bb17a8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2144747fdaa0c596397cc93d8509ca006b67c592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303513"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366214"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu
 
 Bağlı Fabrika [çözüm hızlandırıcısı][lnk-preconfigured-solutions], aşağıdakileri sağlayan uçtan uca endüstriyel çözümün bir uygulamasıdır:
 
-* Hem sanal fabrika üretim hatlarında OPC UA sunucuları çalıştıran sanal endüstriyel cihazlara hem de gerçek OPC UA sunucu cihazlarına bağlanır. OPC UA hakkında daha fazla bilgi için bkz. [Bağlı Fabrika SSS](iot-suite-faq-cf.md).
+* Hem sanal fabrika üretim hatlarında OPC UA sunucuları çalıştıran sanal endüstriyel cihazlara hem de gerçek OPC UA sunucu cihazlarına bağlanır. OPC UA hakkında daha fazla bilgi için bkz. [Bağlı Fabrika SSS](iot-accelerators-faq-cf.md).
 * Bu cihazların ve üretim hatlarının işlem KPI ve OEE değerlerini gösterir.
 * OPC UA sunucu sistemleri ile etkileşimde bulunmak için bulut tabanlı bir uygulamanın nasıl kullanılabileceğini gösterir.
 * Kendi OPC UA sunucu cihazlarınıza bağlanmanızı sağlar.
@@ -41,7 +41,7 @@ Bu makalede Bağlı Fabrika çözümünün nasıl çalıştığını anlamanız 
 * Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
 * Azure hizmetlerini kullanan kendi IoT çözümünüzü tasarlama.
 
-Daha fazla bilgi için bkz. [Bağlı Fabrika SSS](iot-suite-faq-cf.md).
+Daha fazla bilgi için bkz. [Bağlı Fabrika SSS](iot-accelerators-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
@@ -127,7 +127,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 
 ## <a name="telemetry-data-flow"></a>Telemetri veri akışı
 
-![Telemetri veri akışı](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+![Telemetri veri akışı](./media/iot-accelerators-connected-factory-sample-walkthrough/telemetry_dataflow.png)
 
 ### <a name="flow-steps"></a>Akış adımları
 
@@ -179,7 +179,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 
 ## <a name="browsing-data-flow"></a>Göz atma veri akışı
 
-![Göz atma veri akışı](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+![Göz atma veri akışı](./media/iot-accelerators-connected-factory-sample-walkthrough/browsing_dataflow.png)
 
 ### <a name="flow-steps"></a>Akış adımları
 
@@ -233,15 +233,15 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 Aşağıdaki makaleleri okuyarak IoT çözümünü kullanmaya başlayabilirsiniz:
 
 * [azureiotsuite.com sitesindeki izinler][lnk-permissions]
-* [Bağlı Fabrika çözüm hızlandırıcısı için Windows’da ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
+* [Bağlı Fabrika çözüm hızlandırıcısı için Windows’da ağ geçidi dağıtma](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher başvuru uygulaması](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
-[connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
+[connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
+[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md

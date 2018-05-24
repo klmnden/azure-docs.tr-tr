@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5af348bfdccb9392948af962cf582e33ebd40872
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22a9e90404475e8ff1f1ea72c233b1abfed938f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361395"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>Öğretici: Azure Lab Services (önceki adıyla DevTest Labs) ile bir laboratuvar hesabı ayarlama
 Bu öğreticide, Azure Lab Services ile laboratuvar hesabı oluşturmak için laboratuvar yöneticisi olarak hareket edersiniz. Ardından eğitimcilere, bu laboratuvar hesabında sınıfları için laboratuvar oluşturma izni sağlarsınız. Eğitimci, [Azure Lab Services web sitesini](https://labs.azure.com) kullanarak bir sınıf için laboratuvar ayarlayabilir.   
@@ -29,16 +30,15 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 > * Laboratuvar hesabı oluşturma
 > * Laboratuvar Oluşturan rolüne kullanıcı ekleme
 
-## <a name="prerequisites"></a>Ön koşullar
-
-- Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-- Azure Lab Services şu anda geçitli önizleme aşamasında. Bir laboratuvar hesabı oluşturmak için [önizlemeye kaydolun](https://aka.ms/azlabspreviewsignup).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="create-a-lab-account"></a>Laboratuvar hesabı oluşturma
 Aşağıdaki adımlar, Azure portalını kullanarak Azure Lab Services ile nasıl bir laboratuvar hesabı oluşturulacağını göstermektedir. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol taraftaki ana menüden **Kaynak oluştur**’u (listenin en üstünde) seçin, **Geliştirici araçları**’nın üzerine gelin ve **Lab Services (önizleme)** seçeneğine tıklayın.
+2. Sol taraftaki ana menüden **Kaynak oluştur**’u seçin.
+3. Azure Market’te **Lab Services** ifadesini aratıp açılan listeden **Lab Services** uygulamasını seçin. 
+4. Filtrelenen sonuç listesinden **Lab Services (Önizleme)** öğesini seçin. 
 1. **Laboratuvar hesabı oluştur** penceresinde **Oluştur**’u seçin.
 2. **Laboratuvar hesabı** penceresinde aşağıdaki eylemleri gerçekleştirin: 
     1. **Laboratuvar hesabı adı** için bir ad girin. 

@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT önceden yapılandırılmış çözümleri | Microsoft Docs"
-description: "Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması."
-services: 
+title: Azure IoT önceden yapılandırılmış çözümleri | Microsoft Docs
+description: Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 76df013e8e5868fcc9f5d95aa523a6a56dea7163
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361997"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
 
@@ -39,9 +40,9 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 
 | Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Uzaktan izleme][lnk-getstarted-preconfigured] |Evet |Evet |Evet |Evet |Evet |- |
-| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Evet |Evet |- |Evet |Evet |Evet |
-| [Bağlı fabrika][lnk-getstarted-factory] |Evet |Evet |Evet |Evet |Evet |- |
+| [Uzaktan izleme][lnk-getstarted-preconfigured] |Yes |Yes |Yes |Yes |Yes |- |
+| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Yes |Yes |- |Yes |Yes |Yes |
+| [Bağlı fabrika][lnk-getstarted-factory] |Yes |Yes |Yes |Yes |Yes |- |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
 * *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
@@ -92,7 +93,7 @@ Aynı telemetriyi yayan ve aynı yöntem ile komutu yanıtlayan çözüme daha f
 
 Çözüm, komut ve yöntemleri yanıtlamaya ek olarak [cihaz ikizlerini][lnk-device-twin] kullanır. Cihazlar çözüm arka ucuna özellik değerlerini bildirmek için cihaz ikizlerini kullanır. Çözüm panosu, cihazlar üzerinde istenen yeni özellik değerlerini ayarlamak için cihaz ikizlerini kullanır. Örneğin, üretici yazılımı güncelleştirme işlemi sırasında sanal cihaz, bildirilen özellikleri kullanarak güncelleştirmenin durumunu bildirir.
 
-## <a name="iot-hub"></a>IoT Hub’ı
+## <a name="iot-hub"></a>IoT Hub
 
 Önceden yapılandırılmış bu çözümde, IoT Hub'ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi*'ne karşılık gelir.
 
@@ -174,4 +175,4 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+[lnk-getstarted-factory]:../iot-accelerators/iot-accelerators-connected-factory-overview.md
